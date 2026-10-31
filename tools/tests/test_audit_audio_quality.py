@@ -4,7 +4,11 @@ import gzip
 import json
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
+
+# Keep authored-score regression cases in the existing local/CI audio gate.
+from tools.tests.test_authored_area_music import AuthoredAreaMusicTests
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -16,6 +20,76 @@ SPEC.loader.exec_module(MODULE)
 
 
 class AudioQualityPolicyTests(unittest.TestCase):
+
+    def test_neutral_objective_guides_are_separate_voice_assets(self):
+        path = "assets/audio/objective_guides/guide_dolls_catch_three.ogg"
+        self.assertEqual(MODULE.category(path), "voice")
+        self.assertFalse(MODULE.protected_kind(path))
+
+    def test_neutral_guide_manifest_blocks_semantic_and_source_drift(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            runtime = root / "assets/audio/objective_guides"
+            source = root / "assets_src/audio/objective_guides_20261014/native"
+            runtime.mkdir(parents=True)
+            source.mkdir(parents=True)
+            entries = []
+            for key, text in MODULE.OBJECTIVE_GUIDE_TEXT.items():
+                output = runtime / (key + ".ogg")
+                native = source / (key + ".wav")
+                output.write_bytes(("OGG fixture " + key).encode())
+                native.write_bytes(("native fixture " + key).encode())
+                entries.append({"key": key, "speaker": "guide", "text": text,
+                    "output_path": output.relative_to(root).as_posix(),
+                    "output_sha256": MODULE.sha256(output),
+                    "native_source_path": native.relative_to(root).as_posix(),
+                    "native_source_sha256": MODULE.sha256(native),
+                    "trigger": "actionable", "visual_pointer": "synchronized",
+                    "historical_family_recording_gap": "retained"})
+            manifest = {"schema": "reef.objective-guide-runtime.v1", "speaker": "guide",
+                "synthesis_calls": 2, "protected_original_changes": 0, "entries": entries}
+            path = runtime / "OBJECTIVE_GUIDE_MANIFEST.json"
+            def store():
+                path.write_text(json.dumps(manifest), encoding="utf-8")
+            store()
+            with patch.object(MODULE, "probe", return_value={"decode_ok": True,
+                    "codec": "vorbis", "sample_rate_hz": 48000, "channels": 1, "bitrate_kbps": 96}), \
+                    patch.object(MODULE, "decoded_signal", return_value={"decode_ok": True,
+                    "decoded_clipped_samples": 0, "dc_offset": 0.0}), \
+                    patch.object(MODULE, "loudness", return_value=(-16.0, 0.0, -2.0)):
+                self.assertFalse(MODULE.validate_objective_guides(root)["blocking"])
+                entries[0]["text"] = "Catch five dolls!"
+                store()
+                self.assertTrue(MODULE.validate_objective_guides(root)["blocking"])
+                entries[0]["text"] = MODULE.OBJECTIVE_GUIDE_TEXT[entries[0]["key"]]
+                entries[0]["speaker"] = "faron"
+                store()
+                self.assertTrue(MODULE.validate_objective_guides(root)["blocking"])
+                entries[0]["speaker"] = "guide"
+                store()
+                (root / entries[0]["native_source_path"]).write_bytes(b"changed native")
+                self.assertTrue(MODULE.validate_objective_guides(root)["blocking"])
+
+    def test_day_two_catalog_adds_exact_authority_and_rejects_conflicts(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "tools").mkdir()
+            (root / "audit").mkdir()
+            (root / "tools" / "make_voices.py").write_text(
+                "LINES = {'roshan_existing': ('roshan', 'Keep this exact line.')}\n",
+                encoding="utf-8")
+            catalog = root / "audit" / "CHAPTER_TWO_VOICE_COVERAGE_2026-09-30.json"
+            row = {"audio_path": "assets/audio/voices/filler_v1/roshan_chapter2_test.ogg",
+                   "caption": "Tap the cake!"}
+            catalog.write_text(json.dumps({"rows": [row]}), encoding="utf-8")
+            authority = MODULE.authoritative_filler_lines(root)
+            self.assertEqual(authority["roshan_chapter2_test"], ("roshan", "Tap the cake!"))
+            self.assertEqual(authority["roshan_existing"], ("roshan", "Keep this exact line."))
+            row["audio_path"] = "assets/audio/voices/filler_v1/roshan_existing.ogg"
+            catalog.write_text(json.dumps({"rows": [row]}), encoding="utf-8")
+            with self.assertRaisesRegex(RuntimeError, "authority conflicts"):
+                MODULE.authoritative_filler_lines(root)
+
     def test_source_hash_is_stable_across_checkout_line_endings(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "tool.py"

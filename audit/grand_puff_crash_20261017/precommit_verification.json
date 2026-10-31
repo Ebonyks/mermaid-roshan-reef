@@ -1,0 +1,3333 @@
+{
+  "status": "PASS",
+  "branch": "codex/grand-puff-crash-20261017",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "source_pin": "audit/grand_puff_crash_20261017/source_pin_final.json",
+  "source_bindings": [
+    {
+      "path": "project.godot",
+      "git_blob": "2351cb32085bcefe893ee220ed1b9ec88c4d2875",
+      "canonical_lf_sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207"
+    },
+    {
+      "path": "scenes/arborist_tree_book_test.tscn",
+      "git_blob": "59880aaa6a7fc20c9518498636f12116f51487ae",
+      "canonical_lf_sha256": "42e3654eb4d95a464dfb93eb0c72b2240529e366bb9cf58f5e75640b58cf92fc"
+    },
+    {
+      "path": "scenes/fairy_restoration_prototype.tscn",
+      "git_blob": "00a23ee30e1c21cc9a59e0ef8adfcfeb599d9191",
+      "canonical_lf_sha256": "8daee0e0a0bc6e78eb4d74d65ada04e732de21259cf6610c0009e830276057ff"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "git_blob": "65955b2fa87612014a4da7b66f749fbfd0590e2f",
+      "canonical_lf_sha256": "1de477913ac3db6efe5d66d04967279dc9b66217bea01afeeddb4d98ef692f21"
+    },
+    {
+      "path": "scenes/painter_prototype.tscn",
+      "git_blob": "a0ab7086080652a10849e6ca25ee3005e3fb11a8",
+      "canonical_lf_sha256": "810599851777d0a69535e9734189c5859a90b13dc63a9086fdc7053427ddaa61"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "git_blob": "f83bd048ca73ac596e2b33f4b2ee1c37876bae27",
+      "canonical_lf_sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "git_blob": "ed8599bf6fe2729ab801cf82cfc16b1e554faaae",
+      "canonical_lf_sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "git_blob": "921015234d2c95f63580a1d8629b9f431c4bcd23",
+      "canonical_lf_sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "git_blob": "3096dd907ae6e8c62cbecfe6952df400caf91a72",
+      "canonical_lf_sha256": "d17608defd90ad71377f5e8a661056c60cd901c66a5861de4dc1fd6823b2453c"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "git_blob": "93d7a5b425f6ba90852958cad506d42d2626f7e7",
+      "canonical_lf_sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "git_blob": "b526a1ba56d86d36a561d76757a1fdd396cad2a9",
+      "canonical_lf_sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "git_blob": "0f4405034c6fb01b88f4be34d77382b21904d341",
+      "canonical_lf_sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34"
+    },
+    {
+      "path": "scripts/arena/northern_kingdom.gd",
+      "git_blob": "e1f79b9dc0d3e482e5b4d02a7386480ca283b0b4",
+      "canonical_lf_sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "git_blob": "962ca781af883e92e1d83276c8b78e40d4f044bc",
+      "canonical_lf_sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_layout.json",
+      "git_blob": "55518f263fbe1e8ffb651eed8db932a29f9598e9",
+      "canonical_lf_sha256": "680173a909a4fddfadbc89f45d891159067bf5e776936f56f47e2295a2c338fe"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "git_blob": "ba17c91f74d45b631d74180b540923a0db357c43",
+      "canonical_lf_sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "git_blob": "e8e8d1897c91061e5bc8f424aea78343da3b16b2",
+      "canonical_lf_sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "git_blob": "7ae6995b7e077b9211d434c5aa57187e624e7056",
+      "canonical_lf_sha256": "35ccacfec6860ceb984a5f91c6f8532f643d75c5739efa1f8f825164b175b76e"
+    },
+    {
+      "path": "scripts/boot_splash_overlay.gd",
+      "git_blob": "e2589e4dcf263f214a19f623c9b9b22ca7956f07",
+      "canonical_lf_sha256": "d90b8692f1632eedcd957a6ca46539aa3ad85b87d3abe93c20cd9cfc0dc64b0d"
+    },
+    {
+      "path": "scripts/boss_encounter_2d.gd",
+      "git_blob": "c1e4ad4847b795e8ce701ffd680551c06a951eb4",
+      "canonical_lf_sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "git_blob": "727e8b4c90c014dd85b59f456214860f94420d62",
+      "canonical_lf_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2"
+    },
+    {
+      "path": "scripts/camera_kit.gd",
+      "git_blob": "7a633df33423431161431daa966d8e70e4188848",
+      "canonical_lf_sha256": "ec980456ed35789e273ea7b28964e63959277ecc61eb8438251bfe012bb0927b"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "git_blob": "b8601f18a41726d66ed31cf659cfde9b32f92a90",
+      "canonical_lf_sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "git_blob": "eaf2e90a8d5542eef3ae23bb8e0d48565fe7b81f",
+      "canonical_lf_sha256": "da2d19422b20b6a8cce724a441e09db80f4ac105757a4131233920054ac79c94"
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "git_blob": "567c6ea0dd132fd16c61b783aed60f2461f51f62",
+      "canonical_lf_sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "git_blob": "dc1cf1b00b51930cb7a10a6bb67a9a6756345637",
+      "canonical_lf_sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "git_blob": "808aedf093527b0dc9e342e06b49b494c6f559b4",
+      "canonical_lf_sha256": "58c148acc4307315ee96e909aaf876b5095ab220875566707456a993cbc32ec8"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "git_blob": "cb7847073c740585ebe339bb968772cb615367ea",
+      "canonical_lf_sha256": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b"
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "git_blob": "29889d903249faa99b14e93b287a7c324f677836",
+      "canonical_lf_sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "git_blob": "51f4f656a16ae615e068c7b675da8d7c2a0463ab",
+      "canonical_lf_sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813"
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "git_blob": "2413d7afc11eaed10cedd89c10ba879f59617ef9",
+      "canonical_lf_sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "git_blob": "b11066cd4360269d789bd4ee7785a9d80723f744",
+      "canonical_lf_sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61"
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "git_blob": "278ab0f37c99592db246527e7355dbd945e37869",
+      "canonical_lf_sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87"
+    },
+    {
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "git_blob": "fdfc4e5de64b70685c112f8966e133324c7ff05f",
+      "canonical_lf_sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "git_blob": "ac6d9cc593500018d7c4a3e90efbb1e5a9dc7820",
+      "canonical_lf_sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d"
+    },
+    {
+      "path": "scripts/chapter_two_voice_catalog.gd",
+      "git_blob": "b8e93bea5b95ceed449808d5487f67de4257a99b",
+      "canonical_lf_sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96"
+    },
+    {
+      "path": "scripts/ci.sh",
+      "git_blob": "a800c87c814f170675efa02fb75abe5f709326b2",
+      "canonical_lf_sha256": "f6c0b7cf8e4e549c8c3cb34ec0cf69e115be92df2c34b39e5678ca15411e2859"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "git_blob": "ec3558c86a9f63542c2f94b823007354a884d058",
+      "canonical_lf_sha256": "1f32d4f684766404da25d9b1432d412f00477fd2f14c68ac546eff0db159da6a"
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "git_blob": "ddc0364a5a62078e39ea44e9a9348c3e6c85c9a6",
+      "canonical_lf_sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8"
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "git_blob": "4a2d48e38bbc077eb90626c6954fdf7bbe4c62a0",
+      "canonical_lf_sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "git_blob": "1272f5800bf50af914565607b920140c647cfa0e",
+      "canonical_lf_sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "git_blob": "4f261f1d1af620d015c7c868aea925ac4531ae4e",
+      "canonical_lf_sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "git_blob": "43cdb1df3374ecea63fc1028d076eff502781ccc",
+      "canonical_lf_sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57"
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "git_blob": "f9ec8ab4abc1bd6ea5ad4b06723be13037e3fec5",
+      "canonical_lf_sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "git_blob": "f369577eca3572659cc98c8e0c299e62eee19700",
+      "canonical_lf_sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "git_blob": "02ca7d965b2f54716c92376c5045da9190795236",
+      "canonical_lf_sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac"
+    },
+    {
+      "path": "scripts/day_one_contextual_voice_catalog.gd",
+      "git_blob": "a710eb66c38ef4d9feebaba907b6cbdc64dcce6c",
+      "canonical_lf_sha256": "c14e8403fb36e82b2a3c6eb20eb0d5839424707046c64c3ded52893918ada75b"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "git_blob": "74729ec773e5983431eb1f6c054f2321bec6be8b",
+      "canonical_lf_sha256": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf"
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "git_blob": "136d4e17b7cf88840c224d7768cd1f279e5e9a7c",
+      "canonical_lf_sha256": "fc5f524fdf6a3fe618b8bf28a19fe6b6b13330ee5f82af1242e3ea7c0696a2e2"
+    },
+    {
+      "path": "scripts/day_one_story_clips.gd",
+      "git_blob": "5ad6f92b5a1c4d1806b21ff4240485219deb254f",
+      "canonical_lf_sha256": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a"
+    },
+    {
+      "path": "scripts/day_two_transition_2d.gd",
+      "git_blob": "c8b3de27fba6dbf9cf936926f4b4066e2062097e",
+      "canonical_lf_sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d"
+    },
+    {
+      "path": "scripts/debug_export_stage_pathfinding.gd",
+      "git_blob": "117042fb4f5c38c42d9c9c47c22b9c8866d5ef18",
+      "canonical_lf_sha256": "771e7d06e7b7ed206bb8ae23d056f55dfbabe39aff28246ad260d716a8203736"
+    },
+    {
+      "path": "scripts/dev_mode.gd",
+      "git_blob": "b6c2269a2f53383cd41067b67b980aba5d1c0a45",
+      "canonical_lf_sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "git_blob": "5646c5e890575211b8fe31f3782347240740dd61",
+      "canonical_lf_sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941"
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "git_blob": "02c3daba49a1a175da41e2b8f3b32b71b205642c",
+      "canonical_lf_sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab"
+    },
+    {
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "git_blob": "9954e9c966d171a41cc22600a1f63d3280000c4c",
+      "canonical_lf_sha256": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33"
+    },
+    {
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "git_blob": "3257268315c041c50690cea7b89665a4e9b31b5d",
+      "canonical_lf_sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4"
+    },
+    {
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "git_blob": "15b76aabbe9569aeb0c9fbb486814a0bb1015cbc",
+      "canonical_lf_sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982"
+    },
+    {
+      "path": "scripts/dust_bunny_ai.gd",
+      "git_blob": "1ef081417af15a4504b3fb27c4cc777c39d8ab6b",
+      "canonical_lf_sha256": "129f1fb65b4854b6fbd481932883a5240c9dc289aa985cb2ba258d3e3025c55b"
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "git_blob": "8ba3c91c79adb07b0d1497598418ce22e4edf4fc",
+      "canonical_lf_sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739"
+    },
+    {
+      "path": "scripts/dust_bunny_sprite.gd",
+      "git_blob": "e21312eadc58cffd65b5b3edd3181877bbc9d5f2",
+      "canonical_lf_sha256": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "git_blob": "3efdd0eaa8eb2ed82e7b177dd25cec043b897828",
+      "canonical_lf_sha256": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9"
+    },
+    {
+      "path": "scripts/encounter_attack_2d.gd",
+      "git_blob": "a252020452c4c96108bd509f6e83c51417623863",
+      "canonical_lf_sha256": "f427ccd622a7bde0308998976bba7141a7b6b8bdc21e4fa562537af014617bed"
+    },
+    {
+      "path": "scripts/encounter_contract_checks.gd",
+      "git_blob": "a101e5c0919ec9a92d2528896eb418b4a588c260",
+      "canonical_lf_sha256": "910c876867420ddf2b1e9249512910c0838894285e3d07af755ce82195aae639"
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "git_blob": "bf73479f454127aa62d2c8abed3722c5caa46d40",
+      "canonical_lf_sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f"
+    },
+    {
+      "path": "scripts/encounter_navigation_2d.gd",
+      "git_blob": "1ed30a5e7b9007c787e6ec8e88c0cb74abbd7681",
+      "canonical_lf_sha256": "e8d0fc1913b781fe0494a11dc2e642b7088c27d3f12077e81c950171e0819e71"
+    },
+    {
+      "path": "scripts/encounter_patterns_2d.gd",
+      "git_blob": "112e67ae4192b94629dd35c3a946140714a08583",
+      "canonical_lf_sha256": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe"
+    },
+    {
+      "path": "scripts/encounter_phase_2d.gd",
+      "git_blob": "d820159ab8bac27b6f8a126b25882ce411e13397",
+      "canonical_lf_sha256": "b78240e2844a33dc55d021286ef612b344ee8022701de7324f0732d53c36ddda"
+    },
+    {
+      "path": "scripts/encounter_profile_2d.gd",
+      "git_blob": "6cb91478d40137d3139de963328ffecf1818bc69",
+      "canonical_lf_sha256": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971"
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "git_blob": "5be676f7ce1e0903c1e8baee993efee89cf291fe",
+      "canonical_lf_sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29"
+    },
+    {
+      "path": "scripts/encounter_warning_cue_2d.gd",
+      "git_blob": "3f5a74377dd70d4b70f172a55e4c10b00f017b8b",
+      "canonical_lf_sha256": "750a09cad16bd8517551aab6b091d37f2d76bcb0b517b4d51ce0c553e2b2fb59"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "git_blob": "12f420916be997cd87dba74542f9cd664bc19d86",
+      "canonical_lf_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe"
+    },
+    {
+      "path": "scripts/fashion_designer.gd",
+      "git_blob": "d71980af034e8a3844f81dc3c5fd7675b19537e0",
+      "canonical_lf_sha256": "f3c6165baa08f6e99f21d4d02782d1b1f1658ad348aae0e79a4f79740442165d"
+    },
+    {
+      "path": "scripts/fashion_designer_test_case.gd",
+      "git_blob": "365b81a6fd9beaa35b039c9d890a981458249eab",
+      "canonical_lf_sha256": "9dcbba0a3ffd837db69b702e03a0262987c1b6abb7447e76cbc302dceb777d22"
+    },
+    {
+      "path": "scripts/fashion_dressing_input.gd",
+      "git_blob": "81ea51143995081e5de2ab335f92f41309fc433b",
+      "canonical_lf_sha256": "45d02a87cf842a5deb427f15269f776cb4c430b0272ceea7add8d037df7ceadf"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "git_blob": "afce62572dadb5ec4364f44bd044323a3ca80632",
+      "canonical_lf_sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "git_blob": "b9a9a6528f9bc7430e2efe17d91795c72bd1771e",
+      "canonical_lf_sha256": "d5b440608b63510446196233ef5fb559c006b0a90c5dcee74516e84dba5e1cfc"
+    },
+    {
+      "path": "scripts/fashion_parts_test_case.gd",
+      "git_blob": "8b3ffe59a01e45331ba8095836add608bc96b6f8",
+      "canonical_lf_sha256": "27399d2be439afe62e653b9d484cb36a28828412e1cd50a950af5a7d8b750351"
+    },
+    {
+      "path": "scripts/fashion_skin_catalog.gd",
+      "git_blob": "23fec0055e3cb127120e0e4054755c3a538249e1",
+      "canonical_lf_sha256": "c71d558cff766d25cd7835657f7e0e10ebe268d8e74a7b4c2e083b8b28adf548"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "git_blob": "4d681516953eb2b8f28701a07e0931bdc30b89ed",
+      "canonical_lf_sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad"
+    },
+    {
+      "path": "scripts/fashion_skin_engine_test_case.gd",
+      "git_blob": "4452d8b6b8886f1acb21cb4ab63d845646b1fec4",
+      "canonical_lf_sha256": "dc77bc632c87a4587f24fcd317d3e185f833fa1e822f049a558eed69c90648ed"
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "git_blob": "3c25581f7b21d414f45e90e338a089a452aeaff5",
+      "canonical_lf_sha256": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59"
+    },
+    {
+      "path": "scripts/fx_water.gd",
+      "git_blob": "1897f98b6e281916e84e5fbe64494bdced058834",
+      "canonical_lf_sha256": "e33ff31788951f89715cc926cbbfc9a05bb8e6324b76c9e0137ce2b658f5d4c0"
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "git_blob": "68a543a426a724aeccb654f7021d1a5348e7b31f",
+      "canonical_lf_sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59"
+    },
+    {
+      "path": "scripts/games/brawl.gd",
+      "git_blob": "9c3ad3731e5bedd248bde329667477d4e25b9c15",
+      "canonical_lf_sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7"
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "git_blob": "e9b616cf49336a241367d2469669c97352d8c173",
+      "canonical_lf_sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "git_blob": "ce1ac952dfccea756f6f70999a6c01282246a0a5",
+      "canonical_lf_sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "git_blob": "4e26bababea07c7f5c9da5ad44a753df72931609",
+      "canonical_lf_sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "git_blob": "28c15ddbfa6675e9f9937b72c40ec1d08f128b39",
+      "canonical_lf_sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36"
+    },
+    {
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "git_blob": "ba080267855cee2c2997b5cc7d998cf474c1aedf",
+      "canonical_lf_sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3"
+    },
+    {
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "git_blob": "268c832dbe10197392c190b72230d7bcf75a81a1",
+      "canonical_lf_sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "git_blob": "7b0ef15f3b58e6d28b8db748d21b0d2530d676ef",
+      "canonical_lf_sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44"
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "git_blob": "53212cba3abd1d7d892c802f88ca5a5908b10266",
+      "canonical_lf_sha256": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "git_blob": "da91d2ecb563cc100f76b7818c3d4233e502592d",
+      "canonical_lf_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d"
+    },
+    {
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "git_blob": "1ab285efe979e43dc18151d786eda0fe641d5bcb",
+      "canonical_lf_sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c"
+    },
+    {
+      "path": "scripts/games/fairy.gd",
+      "git_blob": "856b1c6ece0eb400ded3bc53c728eba3d137e36e",
+      "canonical_lf_sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679"
+    },
+    {
+      "path": "scripts/games/fetch.gd",
+      "git_blob": "48132d39c94c052a438962c2f01e5f70b3d0df28",
+      "canonical_lf_sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805"
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "git_blob": "30c085e50be7bb92d46f58eddf2a67a952994376",
+      "canonical_lf_sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e"
+    },
+    {
+      "path": "scripts/games/octagon_stage.gd",
+      "git_blob": "c76acaa303a655d6e56a5abf02acf931e855baac",
+      "canonical_lf_sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "git_blob": "eb463fb543e7b7155a119f7d89104145bec011c5",
+      "canonical_lf_sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "git_blob": "6b9c056380471103037bb0cdf8d5458debd54980",
+      "canonical_lf_sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "git_blob": "e5dbfee1aceb00c00da813c4a133daee6e02d8e8",
+      "canonical_lf_sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "git_blob": "5d91f080edb7e08730be566c1c1ef2946b596cc3",
+      "canonical_lf_sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da"
+    },
+    {
+      "path": "scripts/games/seek.gd",
+      "git_blob": "73444fbfbf4eb5ce297238f6dec8d20a710a30f7",
+      "canonical_lf_sha256": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "git_blob": "67eede06e0bde074c8bf3912bfbcf7c644193fa4",
+      "canonical_lf_sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585"
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "git_blob": "795ad29a3ea2da4ddfd74e31ae83b2de38c48aa0",
+      "canonical_lf_sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7"
+    },
+    {
+      "path": "scripts/games/slide_race.gd",
+      "git_blob": "168eaac375fcf44eeaf7bbe4e33647ef0dcc17e3",
+      "canonical_lf_sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f"
+    },
+    {
+      "path": "scripts/games/treasure.gd",
+      "git_blob": "4c9060f9b5b45b8f77e271093caf69046e2f5faa",
+      "canonical_lf_sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c"
+    },
+    {
+      "path": "scripts/hit_engine.gd",
+      "git_blob": "83699eae65bf9d172669712a8fe1cafc3e40537b",
+      "canonical_lf_sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c"
+    },
+    {
+      "path": "scripts/imp_ai.gd",
+      "git_blob": "c77c75d098a04042b4c493990611975449778ead",
+      "canonical_lf_sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e"
+    },
+    {
+      "path": "scripts/interaction_affordance.gd",
+      "git_blob": "60eafd1b08facc2d12728123014fb0182107fcaf",
+      "canonical_lf_sha256": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644"
+    },
+    {
+      "path": "scripts/interaction_director.gd",
+      "git_blob": "3680f45f53ed2ebaf1491718db5d906e4686d008",
+      "canonical_lf_sha256": "22d206cc7e278b9e46557f20d358e0fd80b3dec26fae61bf6d2f51aedd86c5ab"
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "git_blob": "0f33bed84184a4f54d37f1e8096268a34959d806",
+      "canonical_lf_sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb"
+    },
+    {
+      "path": "scripts/juice.gd",
+      "git_blob": "c13fd1f1cd11e9b80f9efdd6bd054c4ef9ac4c3d",
+      "canonical_lf_sha256": "a356054344800d52edddb531108cd50f6d941582ea44d123b8397d5663de0fb4"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "git_blob": "301d0d07a0a28cdcb3fb864f7e49b49e19eb5d4d",
+      "canonical_lf_sha256": "0c5ce86e7361ea04287ba322709461a4a9feb84603307cefa20f7d55b4ea5caa"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "git_blob": "8254b87112069604ddb94dce729605ddfb0bf335",
+      "canonical_lf_sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8"
+    },
+    {
+      "path": "scripts/landmark_art.gd",
+      "git_blob": "5943c45e354cd46be84e9713e7700064cbd6c184",
+      "canonical_lf_sha256": "01e8e9bb7332ab76decfa093a98ed6b1940e8d9b424221fd8b27a9591ea300e0"
+    },
+    {
+      "path": "scripts/light_rig.gd",
+      "git_blob": "f43665e52c89f9b30126351b8c861aaa8512da35",
+      "canonical_lf_sha256": "09e97441be4aa77a390e813298d1848a5d5f5c291d2efbcbf706cf10e3611551"
+    },
+    {
+      "path": "scripts/living_world.gd",
+      "git_blob": "67c829bb15bdb2be70fa73863a7c1a0bcc68beba",
+      "canonical_lf_sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "git_blob": "5ffed8b5890076c6d0b6977c2d0c7a09038ca394",
+      "canonical_lf_sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e"
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "git_blob": "361f52aa07ea89b92dbf885097815b6bb998b292",
+      "canonical_lf_sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e"
+    },
+    {
+      "path": "scripts/main.gd",
+      "git_blob": "7c31b35b964c3ef9d15bec4f0d7adbec973b1a5b",
+      "canonical_lf_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417"
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "git_blob": "9230d9661236b8dd83ae87d0331b0949eb5d5a3f",
+      "canonical_lf_sha256": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d"
+    },
+    {
+      "path": "scripts/mic_input.gd",
+      "git_blob": "77d9bc8a0bf9f87acdd3d7b7930a18a4f07482ea",
+      "canonical_lf_sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "git_blob": "3599c73df34be799e7bc6d1c57e8073ca082e974",
+      "canonical_lf_sha256": "1b10fccd7d9b67bd4088948b98a83b64b7ef163461b2d4d7e0df7a881ab9c5ad"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "git_blob": "c6dbde2c2471b6407fc588f249e370edd2a864c5",
+      "canonical_lf_sha256": "9e2fa238b904db3b0548f3b76ddd647f6e27934f4a3148da3c893b04ccf135a3"
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "git_blob": "e2afc25c078ace41883307be9b7768dbcd9c5569",
+      "canonical_lf_sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b"
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "git_blob": "56189b2dc8416cc933acf6cb8dea4a3444724544",
+      "canonical_lf_sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "git_blob": "07a66c3505555dac13619c212ca716eeaaedd284",
+      "canonical_lf_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "git_blob": "2e8d4c9a0ba38bdc075fe638d5a60064bfc29b6d",
+      "canonical_lf_sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb"
+    },
+    {
+      "path": "scripts/opera_competition.gd",
+      "git_blob": "9052fe409c566c82a0580436d6852f490a63c8aa",
+      "canonical_lf_sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "git_blob": "49af48292871cdf9526b1f3a50e2d40c6b666b1c",
+      "canonical_lf_sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "git_blob": "bb7b3c6e6c1d5e44b7fb046166e2978b9ebe72cc",
+      "canonical_lf_sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459"
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "git_blob": "c016b16b12d5104db9c1af28e0d2169b6a74fb9c",
+      "canonical_lf_sha256": "713a43c5e2245f5dd4496a1a1909a5ba7c3bbd6961ebe4a8dd3db34e89b57222"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "git_blob": "34a4d08d55916de6366a8b2be16c9656641b440a",
+      "canonical_lf_sha256": "5b13d622520753a2682aba0a834cd397475e1695d3f6d235a7700e2e2a3e088c"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "git_blob": "0be09ee4d42061a402c37cbe4707fd10c77c3223",
+      "canonical_lf_sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243"
+    },
+    {
+      "path": "scripts/opera_imp_clips.gd",
+      "git_blob": "6317e62dd4b76b50ef3b5779fc834d883bc11390",
+      "canonical_lf_sha256": "e061de84be9831d4e9662c11d3440461078c505b4b1484d499fdf1fa37df0797"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "git_blob": "27ef02430ff413d3ff57d06d8522b3f4d68ae91c",
+      "canonical_lf_sha256": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "git_blob": "0586c6523ee086c61f102a25dc20ba5b134efeff",
+      "canonical_lf_sha256": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "git_blob": "f0a192b9b11d2e83f5334fd88fa5bbd5c2062b1b",
+      "canonical_lf_sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431"
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "git_blob": "c89f6e1b514c2bc91113ae5bf5859f7e10c0d016",
+      "canonical_lf_sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb"
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "git_blob": "17e430623e6dab84815915b6c82928c2d198d72c",
+      "canonical_lf_sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "git_blob": "1e0c475c499de76154bf5d1cd17e9814797b5906",
+      "canonical_lf_sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "git_blob": "68d318215ea81f6b9bcb92616f32afa93e8f6aee",
+      "canonical_lf_sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "git_blob": "178f8bfa823e3e55ad7d14398ad04208e5586ea8",
+      "canonical_lf_sha256": "dd353ac7377557900f15d3b98a317f8ad5da33a5f6d4d0b4635f8b50740ecad4"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "git_blob": "afbadd785a2cbe2fc8be4f9701b50fdcb2ffec91",
+      "canonical_lf_sha256": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f"
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "git_blob": "766cc2b64f97f3d5f2d5f7747b9fc086e34b3c5d",
+      "canonical_lf_sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "git_blob": "849e0156f67ae38b63809dc1d70f205a0cdbff0a",
+      "canonical_lf_sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "git_blob": "de6a4b82af1b20ab6c4e5f713c087144101264c4",
+      "canonical_lf_sha256": "37a9bf06e2c2b777086543ca48fb54b3634ccc8d5a1620a6f03668e6dff0e740"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "git_blob": "e003aeb032b644c7d4c03cf81768a92ac8d8b34c",
+      "canonical_lf_sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800"
+    },
+    {
+      "path": "scripts/painter/painter_document.gd",
+      "git_blob": "53ee1b649057f1453ba7d13e227cb4b10754bae6",
+      "canonical_lf_sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff"
+    },
+    {
+      "path": "scripts/painter/painter_guided_probe.gd",
+      "git_blob": "b5b109e185db9c6946c00d5587a48ebbd772d654",
+      "canonical_lf_sha256": "356738628280b63dcb6885726538f85033267386f123bb1c7f0672188e3bb5a0"
+    },
+    {
+      "path": "scripts/painter/painter_probe.gd",
+      "git_blob": "e5da777e4a8cd6e6f41366dc5150721ba23f1f26",
+      "canonical_lf_sha256": "288ce1900225597006e16c2ddc23ddf8990df131ad9d5b5b4162daea5f8aee9c"
+    },
+    {
+      "path": "scripts/painter/painter_studio.gd",
+      "git_blob": "6005b48080cb860474c79947c6488338d17fe7c2",
+      "canonical_lf_sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a"
+    },
+    {
+      "path": "scripts/painter/painter_template.gd",
+      "git_blob": "fcc2651aa1d3f9fb48cc133fced0ebf2666b9287",
+      "canonical_lf_sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746"
+    },
+    {
+      "path": "scripts/painter/vendor/painter_flood_fill.gd",
+      "git_blob": "cf62a5bbd751d0a40447b5e9a9bf5e2d17574166",
+      "canonical_lf_sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c"
+    },
+    {
+      "path": "scripts/painter/vendor/provenance.json",
+      "git_blob": "80a119d4f2e4aad494ca1e6799758f5ee666bccd",
+      "canonical_lf_sha256": "dfe4ae1f6ac9845a6d98d1f392f37c7db6642fd84321efc3ec7177fe12be75f0"
+    },
+    {
+      "path": "scripts/partner_assist.gd",
+      "git_blob": "deada564a5216a48585b82779d02953add5021f8",
+      "canonical_lf_sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "git_blob": "6578ef835de76d270cb409369bd0988708d007ba",
+      "canonical_lf_sha256": "036f4cf18d0ccf8866b7989bbcf5dcac9d9095632892be915afa83b622c5b10d"
+    },
+    {
+      "path": "scripts/physics.gd",
+      "git_blob": "fceb50677dc157652bed157ec437ddf3ae46201b",
+      "canonical_lf_sha256": "39a8a3ecf72e79ff797d2f6eb067ad3d186626a282d044af6f8ce64a57a78cce"
+    },
+    {
+      "path": "scripts/player.gd",
+      "git_blob": "b6402c8c38e509974896be61cf058e85b45b5e72",
+      "canonical_lf_sha256": "91ae8a4e9dccc090c7e1ce86bbec387ff8c761951e794e9d93b3c753be7c49b8"
+    },
+    {
+      "path": "scripts/probe.gd",
+      "git_blob": "e2fda5cf8d47be3c4c78546da62077d3dc37116b",
+      "canonical_lf_sha256": "ea448c210f0f9bd5e72192c98678129037c27c3da6340f130046f9c0c4d3eedb"
+    },
+    {
+      "path": "scripts/probe_alpha_milestone_save.gd",
+      "git_blob": "74a38353e18db9e5ad48f3349e44e64ef4ff0f0e",
+      "canonical_lf_sha256": "a489a5b8221e2c658183ae745ef803c0622889f6791c16c69e190c6f5382ff27"
+    },
+    {
+      "path": "scripts/probe_anim_lab.gd",
+      "git_blob": "b09ccf0dcad4bed19d9f6aed4694bf598c54359c",
+      "canonical_lf_sha256": "d3f4c44ba6ea48d8be715566f5c19cf9397fb304fce7891aaa96d7e88dc9cfde"
+    },
+    {
+      "path": "scripts/probe_aq_ref.gd",
+      "git_blob": "07d72f11ecb8ce5f85a40c58099d436b4bc8f8d2",
+      "canonical_lf_sha256": "96eb39b2ac7347c045f6c950c8c0dc3e058af9594284e5480156c0905f3b35bd"
+    },
+    {
+      "path": "scripts/probe_aquatic2.gd",
+      "git_blob": "8357e46a399974f817d795e846967f8116e935ee",
+      "canonical_lf_sha256": "ec5c083cb87192192d34bef61909446f4e2507371fd171fb27761144b816fd1d"
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "git_blob": "768eecc54fb18cac9154f535ee2283cb53a852eb",
+      "canonical_lf_sha256": "bed079ec48075b154715101d6bd61ac700590c32d43c8cb5265476ee9370258c"
+    },
+    {
+      "path": "scripts/probe_art_manifest.gd",
+      "git_blob": "196a9fdabe5d6da05c96c9b4bd668e8c81b7c104",
+      "canonical_lf_sha256": "0e12eb251a3ad47bb0d6e67885c32b08995f36effbd1c37c6826b83ef6fa7324"
+    },
+    {
+      "path": "scripts/probe_audio.gd",
+      "git_blob": "3a73f7d218b3da2d9d76133715609026819bc2b9",
+      "canonical_lf_sha256": "14360c356e8f1b3034fed30bd4cb7cde35adc4754ebfee83c882843a39e2ae78"
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "git_blob": "e277de1bacfe2b318940c5de26505ce7848d1075",
+      "canonical_lf_sha256": "79ef070b36b4188c2995a9dab0e0df99efd7469937267b4ac49cd58e2bd0d4cb"
+    },
+    {
+      "path": "scripts/probe_basement.gd",
+      "git_blob": "4cc2c06a394fd57d82cffbbab1501764c880281e",
+      "canonical_lf_sha256": "93c9559622c211bc2b838343bc415978a78e904cbfe5e5608fd0152eaf1a9358"
+    },
+    {
+      "path": "scripts/probe_bathroom_integration.gd",
+      "git_blob": "b3889074b5b9e23b5ca5748d96d012d3921a6250",
+      "canonical_lf_sha256": "9ece4ba9b7c3ab0cea901cc8586e0bc9c492cf42acd24f6c5c4e5358bfaab2e2"
+    },
+    {
+      "path": "scripts/probe_bathroom_props.gd",
+      "git_blob": "f7aca9d6507747121cb8cb15aecbd53a2acbe78a",
+      "canonical_lf_sha256": "e054e3e0dfecfac60092a0d53af9561aeddc25dc875769f6249273fc9b21e73f"
+    },
+    {
+      "path": "scripts/probe_boot_display.gd",
+      "git_blob": "be74eda9bc1375b4309baa3508f09afbb99211e3",
+      "canonical_lf_sha256": "6789deb6af82abfe5c5007610c7da5f60a56ddd62edbb602c938decac1096130"
+    },
+    {
+      "path": "scripts/probe_camera.gd",
+      "git_blob": "a8c501b4ca593cbfba5f75c6cb4ecfaeb535a486",
+      "canonical_lf_sha256": "6ed68fd06bbd30e0823dfceada40eaa260e1a93e96dc62c673db98e3daabb424"
+    },
+    {
+      "path": "scripts/probe_castle_cam.gd",
+      "git_blob": "82198f957c4517a369d340726d7dfab5b7be650d",
+      "canonical_lf_sha256": "5f20a771fe3c628af84ce1647bc52d70df55fa551a745bf6895139fbbe2ba5e5"
+    },
+    {
+      "path": "scripts/probe_castle_canvas2d.gd",
+      "git_blob": "9e386a47c4b7e76ddfff5b652fdf74af6ddcbf10",
+      "canonical_lf_sha256": "a62ceb2931cb0cf1ff015f9144b99f9a9a41ee5d684f3498059b5b647a8242d7"
+    },
+    {
+      "path": "scripts/probe_castle_door_language.gd",
+      "git_blob": "1ccf1fea32cfc99c14cb78ca518afeeefa2ce0a5",
+      "canonical_lf_sha256": "75918e67face762686ad8cabd5ad01c5442bc2cfeb89640b9ed68fd7ffc12e75"
+    },
+    {
+      "path": "scripts/probe_castle_door_visual_capture.gd",
+      "git_blob": "2a8b96bc859c0b830237f486366a01e7d010c08e",
+      "canonical_lf_sha256": "9e7b9eecc256d9a5a142609653b70fa80c570723ca00546402961ebad25f3fb7"
+    },
+    {
+      "path": "scripts/probe_castle_mobile_capture.gd",
+      "git_blob": "e9bb8ece39a20da3f0248992d62e5c545eb3a633",
+      "canonical_lf_sha256": "6ef116981f77ac4546045d7d354554a48356bd2a1e2e19639838eb6163609126"
+    },
+    {
+      "path": "scripts/probe_castle_pearl_art.gd",
+      "git_blob": "2612b432cf648a12f3ede61c8c1df5fc9c68bb64",
+      "canonical_lf_sha256": "718266c7d3073b88f864b2d3c391afbef9eb2096b80a1e59d459b9b73719386f"
+    },
+    {
+      "path": "scripts/probe_castle_pool_life_2d.gd",
+      "git_blob": "3408996b30e916fbacb8df1f5d6eeeb40f8aaf13",
+      "canonical_lf_sha256": "e3a6118904c327625625f86f948014133ed9cb8a3686a818424d5bd80f232708"
+    },
+    {
+      "path": "scripts/probe_castle_shots.gd",
+      "git_blob": "13c747f442a229fbeced4779be7adf5e22cf3a2b",
+      "canonical_lf_sha256": "5d8cfc789564a5a2bfec70e1121d632e159eaaf44d59033fe7b17f55f285999e"
+    },
+    {
+      "path": "scripts/probe_castle_shots_2d.gd",
+      "git_blob": "bf454421b3073984c19bc2dff92c4b8107c6018d",
+      "canonical_lf_sha256": "7f2c3a74daad7d28577298caccc2ca98861c8674a576c4dfe0f76d5c2b25d03b"
+    },
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "git_blob": "d58c7dcd6b4e6238bdb55895d5dc44776f024fe6",
+      "canonical_lf_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e"
+    },
+    {
+      "path": "scripts/probe_chapter2_farmer_resume.gd",
+      "git_blob": "344d36fee6c0d122ed19807f50577571bc3333f5",
+      "canonical_lf_sha256": "391476ed0a7603a2c972ebe4c9e6e5d4c3ffa5732ad411249bae0a00b361df2a"
+    },
+    {
+      "path": "scripts/probe_chapter2_lawn.gd",
+      "git_blob": "119f693a4e0a1070ea96f823e0f9495ef8fd2857",
+      "canonical_lf_sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94"
+    },
+    {
+      "path": "scripts/probe_chuck.gd",
+      "git_blob": "ee62aa297c3a6f18144aeda85665378c26aefe46",
+      "canonical_lf_sha256": "1ced289dca74a3f847ff8968d4925b53becf53a5e90d80a274c7b624138ce759"
+    },
+    {
+      "path": "scripts/probe_collection.gd",
+      "git_blob": "f42e4484e8abdaf9813cee02a31bc752a49300ae",
+      "canonical_lf_sha256": "c071175071874f16572bdb3cba940088415c830e4c77b38404b672643197956c"
+    },
+    {
+      "path": "scripts/probe_combat.gd",
+      "git_blob": "1d91ecc7b604ec2a03799c11ce49eb072324678b",
+      "canonical_lf_sha256": "48c87ff11aa0749598067207371c06b7963bbf2e3fbde34eb0c1ebf1d3ba4793"
+    },
+    {
+      "path": "scripts/probe_combat_tutorial.gd",
+      "git_blob": "159ca41c434a2c26a439db9af81b50ccb869e1d0",
+      "canonical_lf_sha256": "011fd3503929e53059c4abf93cbbc41eaeacd813415ce3db44f77f2770410630"
+    },
+    {
+      "path": "scripts/probe_creatures.gd",
+      "git_blob": "82fc1d7f93e8b51da95dce1e86e96d2d604edd0d",
+      "canonical_lf_sha256": "1c8456acf2f44413c109ffc67714959e7d900c8fdaeaac3b4c461522d94af033"
+    },
+    {
+      "path": "scripts/probe_crown.gd",
+      "git_blob": "d946aefe71391e6cc94d64b86e492051c3f2e573",
+      "canonical_lf_sha256": "2b1deb2cb1fa71fac67fa9b331408cb68bf4ed2a0a5ebaece439f538d5c47b24"
+    },
+    {
+      "path": "scripts/probe_dance.gd",
+      "git_blob": "096317552bfa0f165ebdff1048f37ae3df1046ef",
+      "canonical_lf_sha256": "91d6ab9f51863709cb754569ddc1398da70513f5279b927e4d67d0bc77b2b29b"
+    },
+    {
+      "path": "scripts/probe_day_one_art_attack_state.gd",
+      "git_blob": "c39cd77033a47118be09ef2da9297e29de22c5c1",
+      "canonical_lf_sha256": "49361c6470bd8aa137af417e03aa14e9d0038ac907af05303ea3cf6dbe279ed3"
+    },
+    {
+      "path": "scripts/probe_day_one_art_studio_shots.gd",
+      "git_blob": "3e002bfacdb042f98aa62e4b1d97390f2c63e99e",
+      "canonical_lf_sha256": "0a9dc0cd4d4b1502cc7ecf2d4ff819773a7a43bc05f330bd87fb367dd9b5873a"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_bunny.gd",
+      "git_blob": "ddc10232980cd6c3b031f6a1aeedc77504610f11",
+      "canonical_lf_sha256": "11572f42eaefe255f8682b6960da694a56518c23b8937311548c24a959684895"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+      "git_blob": "8db9f6539044d307d69dcb2f5cdf941f4d0b7ca2",
+      "canonical_lf_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_integration.gd",
+      "git_blob": "40965846df55fc581a12b59bc4694426841ec258",
+      "canonical_lf_sha256": "e0ad83990468fb3506fe46319fae32894cec45f85c5f01bf736e2f60dc087cac"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_movie_handoff.gd",
+      "git_blob": "21c7aa8208489b900f3bcec0ed6e9fb19fdc77c3",
+      "canonical_lf_sha256": "a12cb8aff301348284b86faa6ef07064abdcfb6bebd7b1f5daaf383001cba305"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_shots.gd",
+      "git_blob": "1507edd27d6a252cb6a3923caa8115f4e6b27f0e",
+      "canonical_lf_sha256": "069bb0daf6dcaa274c95f4a81cad4c4fc678cc2e53cec9b6d746a4b24f931a16"
+    },
+    {
+      "path": "scripts/probe_day_one_castle_dressing.gd",
+      "git_blob": "efacd214c578f6b9bfeb9e7a21c20b5b41e15aea",
+      "canonical_lf_sha256": "cbdfbe8cca0c92c78dd5562e66f73cf07e2e2091db877b2016f3411119143c82"
+    },
+    {
+      "path": "scripts/probe_day_one_contextual_voice.gd",
+      "git_blob": "32413c91f97ed412a526c452a3c90b2e35595c8b",
+      "canonical_lf_sha256": "9167f0095236e9966fc53d9ebdab5949d44082e91e6a03c46dd57e770cef1b18"
+    },
+    {
+      "path": "scripts/probe_day_one_d8_revisits.gd",
+      "git_blob": "99a27d6839988e781bdf572590b2015bfdd1afa1",
+      "canonical_lf_sha256": "aee7b1ad437ded36aaf1c7c517e6e2fbe1151b329e4af1e1f0dbe1222796ae3f"
+    },
+    {
+      "path": "scripts/probe_day_one_director.gd",
+      "git_blob": "29bd7db4dec4bb181e173efbe06ff03c1ed30d9c",
+      "canonical_lf_sha256": "3385a3a3c38c075126075d290c8def3a65118b2859670b183fa6416a764586e0"
+    },
+    {
+      "path": "scripts/probe_day_one_handoffs.gd",
+      "git_blob": "b5d7c62ad7f44ae0b4e39430dba1649f7449fd72",
+      "canonical_lf_sha256": "f19c9e76056c61cf8136a26e1027f4b907d6377f433ca7aa02ab06260718ae71"
+    },
+    {
+      "path": "scripts/probe_day_one_integration.gd",
+      "git_blob": "bc0231aa9ba06c092e98ebc115e1386733369a3e",
+      "canonical_lf_sha256": "a5b158a699b7a32f5cf5bb035620f236114140643a30a7dba8fe5637e123a0ae"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_cleanup.gd",
+      "git_blob": "419004c65e9c33c8c7ec36c82459e539daf8c084",
+      "canonical_lf_sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_shots.gd",
+      "git_blob": "7c77196724da371df4faa5141e4f71e0764e3064",
+      "canonical_lf_sha256": "b5d36a535a72975d7c2c2000fba5e94facde3f949ea92dbf18d85de9f9f5dafd"
+    },
+    {
+      "path": "scripts/probe_day_one_story_clips.gd",
+      "git_blob": "431b6e5c748ec0693e9df38c1dab6f275bd67c2d",
+      "canonical_lf_sha256": "7c2bc849975712b8f45c2f1c052d131a6a3acb436d1ff9a86e31756b2eca4524"
+    },
+    {
+      "path": "scripts/probe_day_one_voice.gd",
+      "git_blob": "01823620ba747b4ea61f41f3fadba1dee7c043cf",
+      "canonical_lf_sha256": "056e9c9158654bb462410d0a0a299dcdb19cc03532d11201142b72d2bbd334bb"
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "git_blob": "6337b515452bc3458646af9076849a4cdbaebb7b",
+      "canonical_lf_sha256": "7908a93152d3aed66195eaf1f7b372fe7ed86d0dec12338680423e5b5c615611"
+    },
+    {
+      "path": "scripts/probe_dungeon.gd",
+      "git_blob": "87ed76301bcbfa0a8f5557b0850a173312cabfe2",
+      "canonical_lf_sha256": "081d763e8836d8767aa647c80df26402ab67c273ac776202e7c7a89b98157bef"
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "git_blob": "c5adf5a281749387c0e72e695566db62b0bbf645",
+      "canonical_lf_sha256": "8d0fbdcfca3612f13490193f058b2a4083564bb29ac722670812e1394c5e0014"
+    },
+    {
+      "path": "scripts/probe_dust_boss_balance.gd",
+      "git_blob": "b0a62824cfc50caf444e3872935eaba9c06f81b6",
+      "canonical_lf_sha256": "f4940fb4b5d6398e5d1fab94fdf92f4666c2302ff6c36f533312c6f3956be235"
+    },
+    {
+      "path": "scripts/probe_dust_boss_shots.gd",
+      "git_blob": "9d53b27c8bec2f478a2d95b4037827dfc1bcce6e",
+      "canonical_lf_sha256": "b3345765e089d6d56595e905f16746cff09a3f4c01bfea096b0dd9e3406b3794"
+    },
+    {
+      "path": "scripts/probe_dust_bunny.gd",
+      "git_blob": "ce4c5c3b0165e160964ed3738f3a08f672a6fd77",
+      "canonical_lf_sha256": "103bd3ff509df3d5a612faa4fd00ce66b3f85885a8c51e622496ec5211d36735"
+    },
+    {
+      "path": "scripts/probe_dust_bunny_boss.gd",
+      "git_blob": "aafb3f65cb4c3f76b2851650feedab9d3a404401",
+      "canonical_lf_sha256": "348413471e2d2ae7adf4b7a9554f2180cb26e948897996f8e032b9f27a8a3d6d"
+    },
+    {
+      "path": "scripts/probe_ember.gd",
+      "git_blob": "b6a2db09cc0e61c8f573982c63639df40da30b02",
+      "canonical_lf_sha256": "7242fedd587854ec1de6b6f9913b5c71f7322b469727622403d07535d8964673"
+    },
+    {
+      "path": "scripts/probe_ember_art.gd",
+      "git_blob": "eaed06c36023398c45dbcf82dbda24811ece37d8",
+      "canonical_lf_sha256": "61f7722b735e18cbe771864fbc9e298fdd36788ed98365d4d10dcc1d05c10e3a"
+    },
+    {
+      "path": "scripts/probe_fable_audit.gd",
+      "git_blob": "fb66fdf5ada4feb2c34d837814e29f8e867d9c36",
+      "canonical_lf_sha256": "3ef6191d3c25933d2a72eb07d26b9e41953a1cddb0a467f2eafc08ae5189af51"
+    },
+    {
+      "path": "scripts/probe_fable_kit.gd",
+      "git_blob": "b5f04247b7434d9cd43b9b69a0eaa5232bce2870",
+      "canonical_lf_sha256": "e431067b4f080a62f68c658033a2ec592d96b3fdedc419ad47ae0d7089e2d404"
+    },
+    {
+      "path": "scripts/probe_fairy_art.gd",
+      "git_blob": "0552ae5477368f4c42db4eb9ee02afbb165890f6",
+      "canonical_lf_sha256": "b6043069021eb19bb8a94a1d5a98a1109f29f93b8ae2d277bbe970ca25b5e26e"
+    },
+    {
+      "path": "scripts/probe_fairy_conservatory_handoff.gd",
+      "git_blob": "c5413a5366f3745e57b6f54c522c410bda175de8",
+      "canonical_lf_sha256": "3d57dea550657ff8903937dede613bec619919a0bbd3331f99d461cadb17c7ce"
+    },
+    {
+      "path": "scripts/probe_fairy_conservatory_route.gd",
+      "git_blob": "6a52ce462cbaf52ebe3126673b65a5e795525dfb",
+      "canonical_lf_sha256": "acd22101ed22eeace09014bffd0ad071a83a2f9587831951775716f2eb2db83a"
+    },
+    {
+      "path": "scripts/probe_fairy_restoration.gd",
+      "git_blob": "41a4821b92e4eff64979afcaf92719b67e747252",
+      "canonical_lf_sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a"
+    },
+    {
+      "path": "scripts/probe_fetch.gd",
+      "git_blob": "0f413003c7c54e0a9bf0e22a25a9a879e08f6467",
+      "canonical_lf_sha256": "394df697279ae83894967ca44e5724d61da98dc3e473337fcdeb2eefba5e4b59"
+    },
+    {
+      "path": "scripts/probe_galaxy_peek.gd",
+      "git_blob": "ae198f0edd743392cc6de9de580625659c801097",
+      "canonical_lf_sha256": "a6e33fc764ff9d5f55080b4f8e7986e74ad5768255010dda56c12dff9c7a11c9"
+    },
+    {
+      "path": "scripts/probe_galaxy_state.gd",
+      "git_blob": "bfcce0ec5b29a9c7e80e37cd796480d1a737c131",
+      "canonical_lf_sha256": "37b564bcf73b37a4c38f08213af58a47ebb0c4554d8d539b445f24987afa38ad"
+    },
+    {
+      "path": "scripts/probe_garden_shots.gd",
+      "git_blob": "41b795f1b478ab38f453bc94f946002bc38833fb",
+      "canonical_lf_sha256": "17894d0dd1070508108956bed19d9ad056f9089a2bf855dae45f4dafecfd0dec"
+    },
+    {
+      "path": "scripts/probe_heading.gd",
+      "git_blob": "96ca7b600bbd60f86e9b6ef7b97601e86c80ffab",
+      "canonical_lf_sha256": "96e370796521188ddc7f5d22c69398a7412b7f41ef372deea8150bbe50a0ec13"
+    },
+    {
+      "path": "scripts/probe_hit.gd",
+      "git_blob": "3cda464c1cbb5d0d6b83343a599a535e442699b0",
+      "canonical_lf_sha256": "a472adaf30aae6d20e07835f73b2a8a74a0cf41eb50ca0dc32db746d0b0df226"
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "git_blob": "d540f1ae0de3de6dde454036b1b97f9d7b64e898",
+      "canonical_lf_sha256": "810a4cab317b459f8e280a5c959de2ee9b8c46a378b2dc79ab21010ac70cd214"
+    },
+    {
+      "path": "scripts/probe_imp_ai.gd",
+      "git_blob": "c3f368400171d69f9f96b4f80bc2097048896d4d",
+      "canonical_lf_sha256": "69c38ecdd142fdedacb68c7995ec41338e84333aeeb09d7359d648610b4a260d"
+    },
+    {
+      "path": "scripts/probe_imp_animation_art.gd",
+      "git_blob": "32205bf150eff0847be41f0e2703ac868781e3b6",
+      "canonical_lf_sha256": "3e0a7a8db8fa72df607799a3a8cd5f5e3d70d59f16e66743eac59b15ce0f850a"
+    },
+    {
+      "path": "scripts/probe_interaction.gd",
+      "git_blob": "54e74f5ced31c7e5676e8ac61bfd7eb5172407c8",
+      "canonical_lf_sha256": "46c39f611758851372e904bf67200808ac884e42e8de205c588466f38151fb3f"
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "git_blob": "2bc6c61a5911e63eb30a3897ee4991b455866453",
+      "canonical_lf_sha256": "7914d0edb8cece8a12dd2e3213a93b7307ddda49da02422f46081eaad89814a6"
+    },
+    {
+      "path": "scripts/probe_kitchen_props.gd",
+      "git_blob": "be814c094ff596f286192fb591e4c3275501748a",
+      "canonical_lf_sha256": "5b0b5f839439540331160bfc1dde572b20d93d577ee3aad4601423550768cde3"
+    },
+    {
+      "path": "scripts/probe_l2.gd",
+      "git_blob": "d66bc78141109a6c9a7c3dd1fac2c4ff277853d1",
+      "canonical_lf_sha256": "4f6350c9eada515f8671be18d3a897ade7974da0aab5725107cfffa92d2434c2"
+    },
+    {
+      "path": "scripts/probe_l2_living_cards.gd",
+      "git_blob": "e7965434e53a4e6a1e10e3f7317be74e5b5e38bd",
+      "canonical_lf_sha256": "a05d3bb578c16339e2154dcccb5fcbe3976c286a67e0ed531388e21372c9cab4"
+    },
+    {
+      "path": "scripts/probe_l2_reenter.gd",
+      "git_blob": "feeb9361d6fe1c205b13bd1556fef09df9a6d94d",
+      "canonical_lf_sha256": "4a753fbfe0c51a93630f610f2da089e0381c8b1a980750df6476bcb7611a93cd"
+    },
+    {
+      "path": "scripts/probe_living_world.gd",
+      "git_blob": "6c46e46a0dc75b831e527d0593f81937f824f818",
+      "canonical_lf_sha256": "034d914bfb39042b9e264d873ffc95c64bb1423e22df4c134be19958f392be41"
+    },
+    {
+      "path": "scripts/probe_load.gd",
+      "git_blob": "1401b4bec15863fd4ea6dcf28c8b3e376ac258b4",
+      "canonical_lf_sha256": "698a51a2f3f6dbb72e1c7070baa04af21dd255756ab88919bd15dab03efe1bb2"
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "git_blob": "ff4910ab6c3ebaa0b81f1860952a554fc7acf14f",
+      "canonical_lf_sha256": "2a3be501e7999c6c62533b539d33c26d5bd246838670a9bd695694d885eddb0d"
+    },
+    {
+      "path": "scripts/probe_mg2d.gd",
+      "git_blob": "83a36cf317ef990ab00d76078ab67708939cbd03",
+      "canonical_lf_sha256": "f37008aa1844e82b761921c914df83756c87ed3508c53d555ce95842e139555b"
+    },
+    {
+      "path": "scripts/probe_mic.gd",
+      "git_blob": "fd3a9ad4c5b305ef2211b897d37782d0e56d108d",
+      "canonical_lf_sha256": "00ede493070f7ab68d35da9f5297244772aa00095196b76d3ee1b06bd7882b19"
+    },
+    {
+      "path": "scripts/probe_mouselook.gd",
+      "git_blob": "b3884926889dc22d8dc4bfca94519726d206ee96",
+      "canonical_lf_sha256": "e21289452def93c1cbd88ab3df48a04e043cbcd61a0c8d0df36a9111ec9fa49f"
+    },
+    {
+      "path": "scripts/probe_northern.gd",
+      "git_blob": "cd1f7c8092ced6ac4570193902b287af8191d88f",
+      "canonical_lf_sha256": "5ded882b3ffebd1e9611ff43d1d069680543ffe7aec958094c11b402c1e4801d"
+    },
+    {
+      "path": "scripts/probe_northern_art_audit.gd",
+      "git_blob": "b01c98d4448539ec8dd55c582654ce5c46390451",
+      "canonical_lf_sha256": "940fbd7bbae151b325c36fe2c86b5e143a48a3cb66a6d816d4933c3c4cc28992"
+    },
+    {
+      "path": "scripts/probe_ocean_kingdoms.gd",
+      "git_blob": "b4b991cf9e12434e249768fce2cb9984c9486a4b",
+      "canonical_lf_sha256": "abc55cfb52424e44970f905b2b298537c6b0f43dafe750ef879e2dd967e3a3b0"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "git_blob": "91a0c1a523e672f3aefbde082aac0c753d902861",
+      "canonical_lf_sha256": "7ae3134a6197f8dfe0ac3a415c67ed02bcf5a8f9dfe02c96c5880bff5033d1c0"
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "git_blob": "a2b0a088389554838208feb08931f45882e5c19a",
+      "canonical_lf_sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8"
+    },
+    {
+      "path": "scripts/probe_opera_2d_balance.gd",
+      "git_blob": "e3995838bb9ec3d3b18cab4b3aea4b5e1775decf",
+      "canonical_lf_sha256": "bafc7d595550580552369de1f5728651ccb8af2478ffe01127775dea719b95c3"
+    },
+    {
+      "path": "scripts/probe_opera_art.gd",
+      "git_blob": "5b67e833b0d1b7c729bd1b0f7e68e1f89f58c9a8",
+      "canonical_lf_sha256": "77ca60f8c50fb60836f5f6445ccd52ebb03445fdc9d948fa2c21002dd05947e0"
+    },
+    {
+      "path": "scripts/probe_opera_balance.gd",
+      "git_blob": "e34d65f78156b53f05b83b2430b1fa0c8e007e3c",
+      "canonical_lf_sha256": "c0351582019b13a7b7d8d51e6d5ac1e8d09f1f11b7fe6e5e7da2826a5f5113ba"
+    },
+    {
+      "path": "scripts/probe_opera_detective.gd",
+      "git_blob": "de7e5c806c0e7063a73e5407584a45a615275a34",
+      "canonical_lf_sha256": "4ea70a97288fd0c0feba2fe4d7382d9319a3345538010916c99a3ed54304f7ea"
+    },
+    {
+      "path": "scripts/probe_opera_diegetic_paths.gd",
+      "git_blob": "8d97e27d140dbaeb4d6edddc226574691a29fa75",
+      "canonical_lf_sha256": "6f7c6a451e9669885e514c18b107013b4bd11e4afa503b3dd1587785fe2aa81e"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "git_blob": "3aa6f8d1b149bb7b85fe8af268760dbcf5c716a0",
+      "canonical_lf_sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458"
+    },
+    {
+      "path": "scripts/probe_opera_mastery.gd",
+      "git_blob": "1a248259b318bac5b10795ddde53a7905c5e0344",
+      "canonical_lf_sha256": "7d7a38da9517de21c3f4b5b74c5857410b04fab51dcb4f3449c84c6d94152782"
+    },
+    {
+      "path": "scripts/probe_opera_nursery.gd",
+      "git_blob": "223170656b5916a5136205f679d4621891296b3a",
+      "canonical_lf_sha256": "b79612ce95275915902fe7d7a334e4b2d45ce866be977be6b46f6551356bd7f9"
+    },
+    {
+      "path": "scripts/probe_opera_performance.gd",
+      "git_blob": "26a1b42c9390573fefe65d86bff39ec4faedcd27",
+      "canonical_lf_sha256": "ab9af4d9e5b90d4e3224de5145412ae7bfd4e8c763285b31938205dee1656152"
+    },
+    {
+      "path": "scripts/probe_opera_pipe.gd",
+      "git_blob": "6beaf3fe3f65d9514798cbb8e379b04a7b43ed7b",
+      "canonical_lf_sha256": "5ad9f1953ecc666d9b9e21a1d250294a37e9d0159c515fdf250b7dbd6eaae9c2"
+    },
+    {
+      "path": "scripts/probe_overdraw.gd",
+      "git_blob": "7f4f982ec0b8ec5d2d9f33da6629889113cfc029",
+      "canonical_lf_sha256": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433"
+    },
+    {
+      "path": "scripts/probe_painter.gd",
+      "git_blob": "f9b6adbf8f21f1694feb98d18e9cb870368f142b",
+      "canonical_lf_sha256": "8084b3475c1ab3ff668be78216471e129718aacfc2d90ae5437f0218e332cd88"
+    },
+    {
+      "path": "scripts/probe_partner.gd",
+      "git_blob": "d0c918720154910846fa947485b3b2ae0a093e7d",
+      "canonical_lf_sha256": "1309875b832c3f80b5945515148d562145838913bc65d3f54851af6a40cf47a3"
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "git_blob": "47eba2885bce754d52fb2c3c17ba755a099c283e",
+      "canonical_lf_sha256": "e266e523af5c629f98ca8b52acfd931de7659b455a58634ccde6a917f3b50e97"
+    },
+    {
+      "path": "scripts/probe_peng_pal.gd",
+      "git_blob": "f43a5584375ed8b53b448b80dbf5391d29c860a7",
+      "canonical_lf_sha256": "0084bb4d8ac1f4b97869457554a51708fe2b2ed2e091a4d85fc2377503a61afa"
+    },
+    {
+      "path": "scripts/probe_penguin_beak.gd",
+      "git_blob": "25a83e4cef7af5a061a06baf167479aceeba1c7a",
+      "canonical_lf_sha256": "69f32b2482e621501380aa953d52bb0ae230105b78a9f2cb25dd4a8486708286"
+    },
+    {
+      "path": "scripts/probe_penguin_face.gd",
+      "git_blob": "e632602b46341f1e7c50467da65e03a9fddc5b68",
+      "canonical_lf_sha256": "2a038330d9bb60d0382a62a6b4ccb2524827c476416ddf8a6f98f9fb4c63ce9d"
+    },
+    {
+      "path": "scripts/probe_pg_water.gd",
+      "git_blob": "ee795dfb89fba8b31dbb40227f12467d48426ebc",
+      "canonical_lf_sha256": "dbc065c22259e16fdebc8feee124620cd74a66f6132d77dec6ee426ab277c610"
+    },
+    {
+      "path": "scripts/probe_pg_wide.gd",
+      "git_blob": "fe2d6445e8326fd0bb1f833ac147233f0a3bab11",
+      "canonical_lf_sha256": "14f277647806d166f77740625053f38f2df1970914df64c51c1f237cb01794c4"
+    },
+    {
+      "path": "scripts/probe_playground_shots.gd",
+      "git_blob": "a771b0b9790a2063ea122cc95617ff35d366c5e3",
+      "canonical_lf_sha256": "4bb1f21d49a526a02e8c29d8e0d44a8d6ff9b5ad7b86d885ecacdcfdd385c988"
+    },
+    {
+      "path": "scripts/probe_props.gd",
+      "git_blob": "2f36e5e877133b63fe9eec7c07ad319beb1fccea",
+      "canonical_lf_sha256": "7175e1342e2f54e609ca801c131601305239e6f84499294c2f6c4647937f1240"
+    },
+    {
+      "path": "scripts/probe_race_feel.gd",
+      "git_blob": "cd7ed04736d47a57daa58c49dd69d1f686b67abf",
+      "canonical_lf_sha256": "5eb883cdca4a6221fd0ccd07d86cf7670c6a95aa9bbdc22ef77066390ab7c372"
+    },
+    {
+      "path": "scripts/probe_rank.gd",
+      "git_blob": "59f8a1c0ea1abc383a09e26c83d02855043f376c",
+      "canonical_lf_sha256": "51a50bd847052b0f578b478929d98ab4f3bae27cef0e0c0b65ef76dbfda6d0c2"
+    },
+    {
+      "path": "scripts/probe_reef_districts.gd",
+      "git_blob": "afc9d66b9a22806631c082997597cc029172dd71",
+      "canonical_lf_sha256": "17ae88e94945694fe4547216d0fe0262d3be38c987cfa10c946feedeb2eb2f54"
+    },
+    {
+      "path": "scripts/probe_reef_shots.gd",
+      "git_blob": "92291f8794e36b2f9e01cc8c680b4ba5beccacd7",
+      "canonical_lf_sha256": "8ec9908b5ca952e1c9080c1cac075fd541c1abec5cae0f61f0aa6c55eba49b5f"
+    },
+    {
+      "path": "scripts/probe_river_profile.gd",
+      "git_blob": "c1527d0b8d969bcb727198c7325ee37ed09a063c",
+      "canonical_lf_sha256": "fd0a40360f704fd537b2abd44ce61668e095a2970fa82259d9f48733dac7b939"
+    },
+    {
+      "path": "scripts/probe_save_recovery.gd",
+      "git_blob": "34aa5eb5b7e75cc0a9b1b4eb11bfd5e234aa6d09",
+      "canonical_lf_sha256": "5210bdca9be34fb530411460073fc06281f7df48754219cfaae20ad306d5f135"
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "git_blob": "6f5eeb76f6206db4f77f8b84eecce61e0b3cd09c",
+      "canonical_lf_sha256": "f8fc20152b00f7b0e80d5a24610fd00aff7943098fed50789698cb2136ff0739"
+    },
+    {
+      "path": "scripts/probe_skins.gd",
+      "git_blob": "5fce7ef5445413bd727128d5b947cedf990e7a1c",
+      "canonical_lf_sha256": "c25092a82d2722579ff1d1d41eddb51fb499438a2c1ff959b5fbfc584b6f0763"
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_animals.gd",
+      "git_blob": "677cdd9217960f1914d14c699147532923b627ea",
+      "canonical_lf_sha256": "fcde9f8ec2a518776a94ca2d116dbf12f00ef02f6d7a7be1f32de27495c5966a"
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_art.gd",
+      "git_blob": "3c45c858f99d8d260b1a5158849fb80d2b81dd5d",
+      "canonical_lf_sha256": "ab91b10e1abe0ced1b0288e568d73b6987d35a084c52ff4a612935ca5c215151"
+    },
+    {
+      "path": "scripts/probe_stage_navigation_2d.gd",
+      "git_blob": "cc3d67c1c8d81f42cb60e41cd3026fc92b1d794d",
+      "canonical_lf_sha256": "4532005e0033392a3f2ee37d7ff3f20ee46083e4230e2a515db1a2467958cbaf"
+    },
+    {
+      "path": "scripts/probe_start_menu_new_game.gd",
+      "git_blob": "af6b92b338461a7fcc09a12697d64f6d0fe3a77c",
+      "canonical_lf_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69"
+    },
+    {
+      "path": "scripts/probe_start_menu_routing.gd",
+      "git_blob": "67c7d195f9573559800700ae1d35a23a3e8b6f82",
+      "canonical_lf_sha256": "cb78dc83a64764bbff81aec0835f8354fbb20cc886cf9ca1e60f80792a4c19d8"
+    },
+    {
+      "path": "scripts/probe_stuffie.gd",
+      "git_blob": "5bb8d3e752b00ac16a31a5a5891871f3c5cfbf7f",
+      "canonical_lf_sha256": "6a70cad9c8b4a992061af670a4d75c7db1afab671a7a1f6b2ecea9d0ea899286"
+    },
+    {
+      "path": "scripts/probe_texture_seams.gd",
+      "git_blob": "2422fdd1e3970380a5285862d5f375aabb210446",
+      "canonical_lf_sha256": "ffe196d19782bba373ff06f7764382b1164e9a3605a4bed176b4e0adbcad400a"
+    },
+    {
+      "path": "scripts/probe_throne.gd",
+      "git_blob": "93c29d4155b334ce6d27619da0641ca272192d10",
+      "canonical_lf_sha256": "94beacf012a6b0387239d17febead6ea9272a4c12ebba81274275f2a0f214732"
+    },
+    {
+      "path": "scripts/probe_throne_shots.gd",
+      "git_blob": "a2196b1f35838da1c56681b452a098d4c65a7261",
+      "canonical_lf_sha256": "0917812438b062bee51adf567a8a8265161d263c722eee5d5309b72b82668e37"
+    },
+    {
+      "path": "scripts/probe_touch_adversary.gd",
+      "git_blob": "65813a2861531735b54daba4f9d5c09683762cbd",
+      "canonical_lf_sha256": "5e9dc0fe8cb3b806f244eb7699ba46a5fdbb614ce945f7f178f15a065c056bdf"
+    },
+    {
+      "path": "scripts/probe_touch_look.gd",
+      "git_blob": "2a75b58a4a098e8e5eaf00f3f69b3b2925c05e9b",
+      "canonical_lf_sha256": "bd29130a50f3936919534d4a183d7c91e38d9059457e86d5ef9ac93f71641adb"
+    },
+    {
+      "path": "scripts/probe_touch_router.gd",
+      "git_blob": "89dba3a4969adceb9305d6c2d6dfad8d1b98233c",
+      "canonical_lf_sha256": "508a7b07ebc81c20504de626d4385544cc4440333785c85cec7e2c3916a6e334"
+    },
+    {
+      "path": "scripts/probe_touch_stress.gd",
+      "git_blob": "0bbdd3da5e314ce3691caf9e5ec8df8a69ffcf21",
+      "canonical_lf_sha256": "8cb81fdbb115d46ca67c5263ce1905b3fcfdfd7d629480c27396c865391d5832"
+    },
+    {
+      "path": "scripts/probe_toy_anim.gd",
+      "git_blob": "f62dee883cf4e6f90bb83b78989012674024fe72",
+      "canonical_lf_sha256": "6f5d5a06d7841cb035513649cd734cafc8ec1aa09411e96615e949e6c635c5b0"
+    },
+    {
+      "path": "scripts/probe_train.gd",
+      "git_blob": "31a42838b52a300786766b225a59a63bfb755e56",
+      "canonical_lf_sha256": "07d450f692623e6ed8ff0fee27046b6e18c94c2cdc566df71bddef4696d3c8d2"
+    },
+    {
+      "path": "scripts/probe_tree_book_test.gd",
+      "git_blob": "6ac9e6e7196adbfe6dfcba18e78dcaa03435d5a8",
+      "canonical_lf_sha256": "81bbb378b8b70ce2c12925602892614c94e215e18419973b87f1fdd0b916dfb6"
+    },
+    {
+      "path": "scripts/probe_ui.gd",
+      "git_blob": "5d6d6805b45da0d53e5d04f10cd3e807a6bdb792",
+      "canonical_lf_sha256": "bb5403c37599646886809c92af9ae82dc4c0335d28b60409e9b5331f0c9165a1"
+    },
+    {
+      "path": "scripts/probe_ui_system.gd",
+      "git_blob": "911f6e3f43e92c08e40f11143554156157b2d957",
+      "canonical_lf_sha256": "871337431bb6f9518cd5e40e4b8bd41688303d013872841e2f24ab9faa2a1e2f"
+    },
+    {
+      "path": "scripts/probe_upstairs.gd",
+      "git_blob": "cf2b39e7d28527eb94ea3de167b7326334268baa",
+      "canonical_lf_sha256": "a7b57f7f8d3602180721acdf5a7dd9af63b8c14f9e207783ac50c319a82ca3f9"
+    },
+    {
+      "path": "scripts/probe_verbs.gd",
+      "git_blob": "5fe4010c185b43be085a4e5775ad0606ba87ed59",
+      "canonical_lf_sha256": "501b9d94e2c8543286afc5f656d22375e59c5318dcf313cca2df6923cf0791db"
+    },
+    {
+      "path": "scripts/probe_visual_audit.gd",
+      "git_blob": "5989fcbc85358daa0b884268b2ede79be97752fa",
+      "canonical_lf_sha256": "2422faa70bd47b947b51e96543d761364e0fea106c03b6145fe57498b5201a60"
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "git_blob": "8266c2101a31d8891c69aff7d95a4b0f0bd8d88f",
+      "canonical_lf_sha256": "1cd4051f2886982b13f3b1aa2f35febb21ec0f9db99787d0b8f83039fd0d0c05"
+    },
+    {
+      "path": "scripts/rainbow_friend_follower.gd",
+      "git_blob": "c58e2dfa615bf6dbff147eab30e4b231359fc218",
+      "canonical_lf_sha256": "745c323c562a51628c0d8b268e07dd640fe7d6b0e22aedd975bd4a7ccd1f72cb"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "git_blob": "86b662bda7259db1e7b0667f51e1e3b5e29452b1",
+      "canonical_lf_sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b"
+    },
+    {
+      "path": "scripts/roshan_sprite_anchors.gd",
+      "git_blob": "405b25500fc709ea73fa00c5db05bb2d6ce8ce75",
+      "canonical_lf_sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5"
+    },
+    {
+      "path": "scripts/roshan_sprite_frames.gd",
+      "git_blob": "488d3c1068b8028e31ce1bc4730b5a91491d3fd0",
+      "canonical_lf_sha256": "41860fcd11e0ee071cc1c7c8bacc8242160b209b73c3a5d4bc1d2eda4a908d81"
+    },
+    {
+      "path": "scripts/roshan_sprite_loop.gd",
+      "git_blob": "299593d62a01aef5346efcfa6358c3400c2bc514",
+      "canonical_lf_sha256": "73663a09ec2bf6f3f87d37596a7bcd1818346d744492deb109cac4a31e65362e"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "git_blob": "72ae0a5d607a1bfcac4decad6ba851e053af64a1",
+      "canonical_lf_sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "git_blob": "5bcd13f8fdfc0bdf78e2ad33f9d8c525f1c08dc7",
+      "canonical_lf_sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08"
+    },
+    {
+      "path": "scripts/sprite_transition_2d.gd",
+      "git_blob": "f56da7cb9a64716c759fdf141cd7b091196bb825",
+      "canonical_lf_sha256": "0a5c87ff8c4eb812bc2b352382f069c82771f1f39860e9adece4b35a04bf4bd5"
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "git_blob": "b2001eaa15c31f7a10ff73019883dea8b29512d4",
+      "canonical_lf_sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "git_blob": "a869c43ccf5ad9c6299129749d9141417ea11247",
+      "canonical_lf_sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771"
+    },
+    {
+      "path": "scripts/story_art.gd",
+      "git_blob": "f0af4908d3e8c3111e6e46d35e55911a45c848b7",
+      "canonical_lf_sha256": "3ff0367f3be0801e4a40f233d42cf66baef8a952948b373c2a33ffab6f176f8b"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "git_blob": "b6c15f6143d7212dbca59a417c095c6e48d67d47",
+      "canonical_lf_sha256": "9ec09a6bdc926fee8a841bb0db97b39d40b9db0916d62a543c7aa5785c7f056c"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "git_blob": "aef983bf8eaff009cacf04c7c62daad8e3a9a665",
+      "canonical_lf_sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4"
+    },
+    {
+      "path": "scripts/tap_move_director.gd",
+      "git_blob": "5c93c20729cf20d3398bf3b91eaa8d0e5bf97aeb",
+      "canonical_lf_sha256": "dbe2d50e6b0dfb40b0f24f7cc9a73065c267209cd6a399e3fde601af4ce2a263"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "git_blob": "4b0883fee475f6050ceed353022d40dc3c8b6bfc",
+      "canonical_lf_sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "git_blob": "c787f09a617065f801655a8887b47497e116766b",
+      "canonical_lf_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d"
+    },
+    {
+      "path": "scripts/tree_book_test_checks.gd",
+      "git_blob": "ade3c6d55f1f03c6473e4a84a73018c80c2a48d9",
+      "canonical_lf_sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "git_blob": "a87c7a938c172d6245c01c59dfebc1d2526fee61",
+      "canonical_lf_sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573"
+    },
+    {
+      "path": "shaders/castle_door_frame_glow.gdshader",
+      "git_blob": "e415b332a90694a192674b3f5551ae175b5fb489",
+      "canonical_lf_sha256": "26d052deea78357f345a0a290da5ef4df4f5d8ba446b79666ba3e3b119b96267"
+    },
+    {
+      "path": "shaders/castle_fixture_bloom.gdshader",
+      "git_blob": "89858d64f890857e8a50bd0e09335244249155d5",
+      "canonical_lf_sha256": "6ac290838d538b96bbae9657e4771083c567ce153c1c2b1c7763cdc7eb6ab986"
+    },
+    {
+      "path": "tools/_decimate_keep.py",
+      "git_blob": "e434758703b113ad2d9a6b63495b0672543286b5",
+      "canonical_lf_sha256": "fe5188703d9ece070b1ad32b1ad655c23548b31211c433c7f827ffab4977f793"
+    },
+    {
+      "path": "tools/_shrink_rigged.py",
+      "git_blob": "29813c203ee17c3fc677bc26989e25c89450cb65",
+      "canonical_lf_sha256": "c9175e55e84e6e32a9c6d91f603877ec69eac3df3ce0a1a792c42a272f8b80c1"
+    },
+    {
+      "path": "tools/_smooth_weights.py",
+      "git_blob": "94d89e4822c74ffb5f81b7af9a41d1c7c0fe2f6e",
+      "canonical_lf_sha256": "5161cbab3262c57de82ab08e9f5f74d317c531cae21385d89d3a3f0fc837ea6c"
+    },
+    {
+      "path": "tools/_split_tail_legs.py",
+      "git_blob": "35bf90d49d8e70d710a9619645d787d38e849f2f",
+      "canonical_lf_sha256": "c3127453fe844408a457a8fdc25bc24811136402c097ceb24aa548a665d34590"
+    },
+    {
+      "path": "tools/animate_chuck.py",
+      "git_blob": "6afce600d3ca9c06307b0e473affca5ea369cb92",
+      "canonical_lf_sha256": "353bb5e9d6dddb786bab1e93336387a0ae6f9bd4c5affbe36cd4ac9e75a9d5ce"
+    },
+    {
+      "path": "tools/animate_kitty.py",
+      "git_blob": "0283de4990e9ad062e13268d394c1e75ebdde16a",
+      "canonical_lf_sha256": "a5949e4932e430f6c1b6e0a3ef6de4329d39a95e97a50e68a5375d69e6048db6"
+    },
+    {
+      "path": "tools/archive_art_before_replacement.py",
+      "git_blob": "8deb95b232739827b20d5961d756232055e3f33e",
+      "canonical_lf_sha256": "ebf49ad5e7f422e0820682d45fc56b90ebd334d5cfac2741482a124efff7bbc8"
+    },
+    {
+      "path": "tools/aseprite/rebuild_visual_polish.ps1",
+      "git_blob": "c89e1defc5c3c60a5d289ec71c5ff0a531e9a36c",
+      "canonical_lf_sha256": "56927c79cf3452244760e13e92816cbb868a33cd7d18b052d9e1d5dd5a1d1f16"
+    },
+    {
+      "path": "tools/assemble_day_one_davinci.py",
+      "git_blob": "9b6f1646e324cd5a71a96e308a7384efa9de4d4a",
+      "canonical_lf_sha256": "572429f7f37f07908f6591f894078e57432f105fff915bdccfa8913e4858366a"
+    },
+    {
+      "path": "tools/audit_audio_quality.py",
+      "git_blob": "e614597e2182fa92affdf1736480b10dbcefd8df",
+      "canonical_lf_sha256": "89a3590785fa5286b997a7533afd1069384d685a3ad25f37b7387e79dfbc9aff"
+    },
+    {
+      "path": "tools/audit_castle_card_alpha.py",
+      "git_blob": "c0a7fc744c70919e2547333a27d19c391231f4b6",
+      "canonical_lf_sha256": "f51e744873c7aa823495b83f087bb1f767a9a86085b0d8bca9a59e9e95ff5f37"
+    },
+    {
+      "path": "tools/audit_castle_dream_house.py",
+      "git_blob": "004f6ab1602c3d7377918c6983d2f81e77adc28e",
+      "canonical_lf_sha256": "2f1bcbcba79cce3731ec54d3378c20f05ccbe8fec8297d7cf56fb76a3bd9fe03"
+    },
+    {
+      "path": "tools/audit_castle_hall_dressing.py",
+      "git_blob": "b13662caf799b56fee25903516e5349275ebfd1a",
+      "canonical_lf_sha256": "58e20708d28ed28eb8cc8ad8140f43eef4dbe15c09bf34aa0c63714b3eb60e72"
+    },
+    {
+      "path": "tools/audit_castle_hall_max_cells.py",
+      "git_blob": "89be437df5cf1e3f869299fc783c3fef32e4f8ac",
+      "canonical_lf_sha256": "a7648ede1a5ad38e151783d8d4e951f276468eb309496a84df1c1e2eb1dc788a"
+    },
+    {
+      "path": "tools/audit_castle_interactions.py",
+      "git_blob": "4c21c1c450435dfcd74486a8092c3dcc73f12537",
+      "canonical_lf_sha256": "a1b7c87d124bba9039bf0d90bb1e20d067bab7cffc09ea160c1252e4c08c40d7"
+    },
+    {
+      "path": "tools/audit_castle_interactions_v2.py",
+      "git_blob": "f34779f7ddc021d5a81bd7ac385cb7e2a3fd279e",
+      "canonical_lf_sha256": "017709b397650963fa3cf7f74c1edd0fa213455739384e684872b4d31db7421a"
+    },
+    {
+      "path": "tools/audit_castle_item_style.py",
+      "git_blob": "4be00cf898e298c2e519cb01350d164778490144",
+      "canonical_lf_sha256": "72ec2409412bdc1b30cfa0283f1df4be8caccd566233db64c7dcb54a4160db1c"
+    },
+    {
+      "path": "tools/audit_castle_main_hall_render.py",
+      "git_blob": "252571d1147d04b23711bc828bd310d9605fa093",
+      "canonical_lf_sha256": "900783b75c0f35716724998a8e39cb2c6981a2994e55a605ab3b68be32f531f5"
+    },
+    {
+      "path": "tools/audit_castle_native_interactions.py",
+      "git_blob": "5dc3f53476175a8830c1ab866af4525ed9a546be",
+      "canonical_lf_sha256": "e221d618a239da0069fb5899f2fa10ffdecce2b5c4a1db7db99205892694f89f"
+    },
+    {
+      "path": "tools/audit_castle_static_depth_cards.py",
+      "git_blob": "28807376298d87a1a03f632c0ecbf87bb146d1fb",
+      "canonical_lf_sha256": "3b4f1810fecb048c4ee74d3563809f9830272297d1469aad6cdd79090d5932df"
+    },
+    {
+      "path": "tools/audit_castle_tile_tone.py",
+      "git_blob": "36f9786eabb466b5e242b7054d6b94e15bc5eb38",
+      "canonical_lf_sha256": "af20d8a47809e4538a207b84c2ca8f6ee92f3fcbbaf73169f64d979723a8c393"
+    },
+    {
+      "path": "tools/audit_chuck_anim.py",
+      "git_blob": "3bff2b016219ee61035cfd3086b0a720a2bef85c",
+      "canonical_lf_sha256": "ed9caa9269cbb61ccf59181ef65657fa70a948a3f44efe1fe9fce973a87e2f3b"
+    },
+    {
+      "path": "tools/audit_cinematic.py",
+      "git_blob": "35fd0a2dc8113aa219c54dac1467235b01b3b93c",
+      "canonical_lf_sha256": "4fc73202144bf1684f8930546295e9d8e00db1c74077d8d2a8c461e4577a83b3"
+    },
+    {
+      "path": "tools/audit_day_one_contextual_voices.py",
+      "git_blob": "df0ef11d00f3a60886ae10a73e4e92092a097bd2",
+      "canonical_lf_sha256": "225db30cb48d719fb1491f22a5d51bf7e83e7236ce19de016ce8a7af045abc7d"
+    },
+    {
+      "path": "tools/audit_development.py",
+      "git_blob": "0fa9b916be6a0a3a7ca82627cbf4b7d8affa1fad",
+      "canonical_lf_sha256": "0ee5bdfbac09c44c3cb47b95e335f6f8177778f501ebbd80d766f924b0012df9"
+    },
+    {
+      "path": "tools/audit_document_authority.py",
+      "git_blob": "fa770028ab2631158225d5236de61584d3bd7d49",
+      "canonical_lf_sha256": "22fcc3d567295bcef4e47a6ecab788bbe22653e97b40ae75012df93f95d260ac"
+    },
+    {
+      "path": "tools/audit_fairy_art_v2.py",
+      "git_blob": "6a2dfc700f36094551c69315eee70f259d812c0b",
+      "canonical_lf_sha256": "7c089beceaedfcc26761f784cc8b94d14061033553bfa33539ee263498187c96"
+    },
+    {
+      "path": "tools/audit_fairy_conservatory_handoff.py",
+      "git_blob": "90dbde8230bfa8d6a5a2e979bfab82c270ba5725",
+      "canonical_lf_sha256": "b0871d8ad4f50073e85e49532015061d4cf3f57a0234ae02be769b99483873ab"
+    },
+    {
+      "path": "tools/audit_fashion_skin_engine.py",
+      "git_blob": "ad110ca98b0b9f55960541a2d8608e12422da359",
+      "canonical_lf_sha256": "bc8e1be4d1bce573e7868129af7a5fd6543fd43217b05e91415368ce8b9b4a59"
+    },
+    {
+      "path": "tools/audit_fashion_slots.py",
+      "git_blob": "5e97d065f30a5dabfd777351f51069541d145b2d",
+      "canonical_lf_sha256": "c27a688af6fc53c614afe34f6740ad7c4adfdfe357aabe01088846e39894a56f"
+    },
+    {
+      "path": "tools/audit_game_2d.py",
+      "git_blob": "f7053eab4e8515fa703317ccc5f189eb09dde7cd",
+      "canonical_lf_sha256": "d5c335635c0f85d591db259ae51f9e67ca90ccc3da4a52a452d229f2004feac0"
+    },
+    {
+      "path": "tools/audit_glb_anim.py",
+      "git_blob": "deb8c28629434b4a0f3bfefd96c4651413ab76e6",
+      "canonical_lf_sha256": "7b6d574b6992794f496897756b918bdda3b1dca6634d4b7efb938b5f95913adf"
+    },
+    {
+      "path": "tools/audit_godot_baseline.py",
+      "git_blob": "35371149bdea4fdb3dffdb16df0dcda82e986b02",
+      "canonical_lf_sha256": "770fc634d71f1576938f4735d24169b9090052fb9cf09014b2025af678704a66"
+    },
+    {
+      "path": "tools/audit_grok_builder.py",
+      "git_blob": "20c98b27a4aa04b9293b7276bbed8db39c256589",
+      "canonical_lf_sha256": "292bf392f3b2cf2017463c06800f93039007ddb02c32e2bb89c8519d13955f36"
+    },
+    {
+      "path": "tools/audit_grok_continuity_handoffs.py",
+      "git_blob": "829ea558621ea2defc8c5e3b11604ef8d4c55706",
+      "canonical_lf_sha256": "c0ed25ba09616bca706bfc96694017a72dddf791af97194b47738490ebb6cbcd"
+    },
+    {
+      "path": "tools/audit_grok_handoff_2.py",
+      "git_blob": "3259258a99bebf5895b8cfdf265db4781878b370",
+      "canonical_lf_sha256": "5b28555acb9a4c723f214190bb147bf18ef05888e5f2aec91acb6d82fa48524f"
+    },
+    {
+      "path": "tools/audit_grok_visual_handoffs.py",
+      "git_blob": "be3261eafa74f9f12dbe9b89b067bf0e9f095fc0",
+      "canonical_lf_sha256": "e1b94154465ae5f52d01ef6079cdeabf3586ee943587245a57c321702c6f5db1"
+    },
+    {
+      "path": "tools/audit_imagine_handoff.py",
+      "git_blob": "c7f8b86247c059b8db9836fb425a09b5c9559ecc",
+      "canonical_lf_sha256": "da443b15ba4ddd0b740c304ebb6ebe739bf03a8cb0da046c8e6d770786934ec7"
+    },
+    {
+      "path": "tools/audit_lighting_images.py",
+      "git_blob": "dde869a501410b7ef3a86c90cd16e5978e9d54b8",
+      "canonical_lf_sha256": "428b97660d6cbd5d0cc7aae7de14f810d7ccbc9a688e27522a69e68d8e9458f5"
+    },
+    {
+      "path": "tools/audit_location_geometry_locks.py",
+      "git_blob": "1fc309e96103cb06169e4fa4882ad04ddeb40f8b",
+      "canonical_lf_sha256": "056de9dc2d43941f906d929a4ba5de94510aba13624b308158a6c35e2ff3a2b1"
+    },
+    {
+      "path": "tools/audit_minigame_art_quality.py",
+      "git_blob": "0a3d4c31fb0a629c85e8691b82b1b580d0c869df",
+      "canonical_lf_sha256": "ba24ec29a307ab2d410ea1622b2e0a411b45881497ac389ad39b6c0653de34b4"
+    },
+    {
+      "path": "tools/audit_opera_borderless_minigame_art.py",
+      "git_blob": "2efae02548a5f2bf36a16dbecdb19a226f0c078c",
+      "canonical_lf_sha256": "ad515adc277c1018cb613fa2aba626262e80ff9f5d83071c3e713af2bb1ad0c8"
+    },
+    {
+      "path": "tools/audit_opera_capture.py",
+      "git_blob": "3cdb5c7df9647e695c956059b175121d0a8ac6d1",
+      "canonical_lf_sha256": "b76ca31636ae770175dd5f79d9294210b1a1a320ac48a11ad870b6940935031e"
+    },
+    {
+      "path": "tools/audit_opera_diegetic_hotspot_art.py",
+      "git_blob": "5d3b97b7c6139141e3c751572add4bd091a3ba2c",
+      "canonical_lf_sha256": "1c58c964ea78530f0da1cd61c4fa76795226269b36838fedc1b5ffc688f3901f"
+    },
+    {
+      "path": "tools/audit_opera_roshan_animation.py",
+      "git_blob": "55e28d0b3caa63f447d7efa316c248bfee78c15a",
+      "canonical_lf_sha256": "63ca4d662ab04f84b65bd5f6eb29495d3008662b04fcf741ec0e7593c4bdac6f"
+    },
+    {
+      "path": "tools/audit_overnight_recut_handoff.py",
+      "git_blob": "5ef8c7a9e04c7f831df50aa5261a54e011d1ec24",
+      "canonical_lf_sha256": "f1e3a99924ae72d8756b88adcaaefc82687489c118119f59f7b7e9e70368d492"
+    },
+    {
+      "path": "tools/audit_probe_parity.py",
+      "git_blob": "274e0adfbcce90b4db186cbc26a18be45a5e3d41",
+      "canonical_lf_sha256": "5567e7fd9177ab5a0c875938ae07ed65afe5da058507865554e1f51b26c7c9b1"
+    },
+    {
+      "path": "tools/audit_roshan_2d.py",
+      "git_blob": "bcae1ae751c5df87e2202c583cc5b9dd70c95f73",
+      "canonical_lf_sha256": "4ec0ff2984c40410b67568e337981e7aded92963775272ac5ec678a1c3891662"
+    },
+    {
+      "path": "tools/audit_roshan_sprite_clipping.py",
+      "git_blob": "3cb0ed71e933836405b16dbe5f3d1c5ab9c3b852",
+      "canonical_lf_sha256": "0d30e08d3bdc753d98cb86c8d004d6107c6e6a8adea145d61a333ea745e6d4e0"
+    },
+    {
+      "path": "tools/audit_rumi_transparency.py",
+      "git_blob": "2a449bcbecd37b83ef401a26a543caff368753a5",
+      "canonical_lf_sha256": "63ae7535fedf7d0c57ceb092053d31f065aa812c155b7f5b15fa344f293c083f"
+    },
+    {
+      "path": "tools/audit_scene_congruency.py",
+      "git_blob": "682060bc77ecc58abc6d2c68034cf5c6ccc747db",
+      "canonical_lf_sha256": "c713496578692db3d0d6c8545815c5da16f95b2f2678dad34dc1786c6e729b36"
+    },
+    {
+      "path": "tools/audit_sky_lagoon_animal_lighting.py",
+      "git_blob": "29110979a843c3fd935763f489f98cb7a8fcdd79",
+      "canonical_lf_sha256": "61235a60ec4541ab640c6607c25ea31e5f328c4cc5fa2d449acd288ba3dcb955"
+    },
+    {
+      "path": "tools/audit_sky_lagoon_animal_realism.py",
+      "git_blob": "8756fbc1e7f8b8931e1662f3df4a61e3afc6de36",
+      "canonical_lf_sha256": "8bc03317f521991747b92a32c80f718199f683420d94e80ca2d833a750ac0cba"
+    },
+    {
+      "path": "tools/audit_sky_lagoon_hd_grid.py",
+      "git_blob": "a5a8b0628ad7ad60ee026bdef0167dc44501433b",
+      "canonical_lf_sha256": "38d40448a7455bbb5db724f0642ad13fe02409af27660d4c595ee87ce20e289c"
+    },
+    {
+      "path": "tools/audit_sky_lagoon_kit.py",
+      "git_blob": "d7877f67f127cb4ae02366dc0fb9f48e582080c1",
+      "canonical_lf_sha256": "b08d75abfd59258b8ab023d8b5bf5dccd42f46b60757f3d4001e6bbbde8c2c95"
+    },
+    {
+      "path": "tools/audit_sky_lagoon_layout.py",
+      "git_blob": "f051ae84de6a4f496b58d342184c5d12b34eba70",
+      "canonical_lf_sha256": "36294498ecd56c834e80157a85a0ccc0f49277c6a1dd76386a3e595406d29c3e"
+    },
+    {
+      "path": "tools/audit_stage_pathfinding.py",
+      "git_blob": "36360cbfcfc2524ee3cf75da24235489cbb4bc76",
+      "canonical_lf_sha256": "2100b915d4bd0d2682f1b3b6387bee7c93e2f7fed34741e4aa5777d69cec694e"
+    },
+    {
+      "path": "tools/audit_typography.py",
+      "git_blob": "74d2920cfb25738057a15b3ec60b197650ba42b2",
+      "canonical_lf_sha256": "3d246b401515de09f001151819a145655d1d1cba04babbc394ab2666a60b732b"
+    },
+    {
+      "path": "tools/audit_visual_design.py",
+      "git_blob": "0b6587447d69f0e6f02a008ad52b2df4c6045d1f",
+      "canonical_lf_sha256": "0930b67c1a6913af7ddeab52cfc6b579a263de226a24348525567ed70def1305"
+    },
+    {
+      "path": "tools/audit_visual_pixel_repairs.py",
+      "git_blob": "452c43cd5708d12f59fe314e2df49668c1e20d37",
+      "canonical_lf_sha256": "fb3ab976a73a215c66f97df0c32d450d39d2f34fdaa30a49ea0e2ddb6f5bb051"
+    },
+    {
+      "path": "tools/bake_nano_wrap.py",
+      "git_blob": "6874527efcb2069c5c26242875f3164017ca860f",
+      "canonical_lf_sha256": "9aa880ebe5e552548dee7aacf64ec3cc1a0e68fd7b32edfa46481ddd8a8708ae"
+    },
+    {
+      "path": "tools/bake_zone_mask.py",
+      "git_blob": "77ce46531979a00bd40a1cac4448bb3e21f9cd96",
+      "canonical_lf_sha256": "e61bf1f1ac64b1f4ac5197d5f142ae07f02da851204ca60775fbb58201c07e59"
+    },
+    {
+      "path": "tools/bind_grok_visual_handoff_remote.py",
+      "git_blob": "7d1c16b1ee499fc0e8592021e96f3a7c14afe02e",
+      "canonical_lf_sha256": "62a2adb522940e23e802eebcb8d9230ffab01708f378b2fa94246b37a46ddf8c"
+    },
+    {
+      "path": "tools/build_alpine_chalet_creatures.py",
+      "git_blob": "a45e5a81046effa0a25be909c48a1237927f7585",
+      "canonical_lf_sha256": "e1dbf0c03ea3e800b9b1fd3ceba54f16017985c7878b5075c15bf13104547f1c"
+    },
+    {
+      "path": "tools/build_area_music.py",
+      "git_blob": "32e6359d7eb28854748d72bb9bf6038c8cf0f97a",
+      "canonical_lf_sha256": "7fc24fda89d9e730e99aea3d23ff83fbae2d21300a63040e4e569c22754ad70e"
+    },
+    {
+      "path": "tools/build_art35_contact_sheets.py",
+      "git_blob": "3d330f52f890e7b97c23f3ef0f963675627d0354",
+      "canonical_lf_sha256": "e7ecb0673d8fa75117adf0ea8d8f0d11ceb432f6031152fea8d3641e42dcdb5a"
+    },
+    {
+      "path": "tools/build_art_inventory.py",
+      "git_blob": "24d84a86d542af66665438b055ab88a1f2e362df",
+      "canonical_lf_sha256": "e7707ba290bddf4da329f32a9c0048cae7df46ffb01a5004b506d301f307ccb3"
+    },
+    {
+      "path": "tools/build_art_pass35.py",
+      "git_blob": "6be3f4b4d57befceb28261f5266596a4fc6f3383",
+      "canonical_lf_sha256": "3083ed15b8f2cb72061f4542c72f1ce9e76e52ff8568d49e0c4e114bb497852b"
+    },
+    {
+      "path": "tools/build_audio_quality_replacements.py",
+      "git_blob": "7ddefcacabf295a5a6b738b72abacf2eca921090",
+      "canonical_lf_sha256": "6ae6b6ab673764c90e3f7bf09bbd3688c11ac24ddd61dc290551942c52e6a078"
+    },
+    {
+      "path": "tools/build_audit_castle_main_hall_redraw_2k.py",
+      "git_blob": "6a9f99892b6b1e26464f22d369e7c2e4c02c728b",
+      "canonical_lf_sha256": "17071e20e84de97f1d9b2e29a684d3f47e5114f5201de08ebd8590b559833d26"
+    },
+    {
+      "path": "tools/build_baby_eagle_cutout.py",
+      "git_blob": "a7a51901edaeec0656af213867fbcb6c35251ca3",
+      "canonical_lf_sha256": "8cb01f875fef3648d42d1a104db880337011b565288fc574af8b791b9fb0ea36"
+    },
+    {
+      "path": "tools/build_bathroom_bathtub_v2.py",
+      "git_blob": "a1491480b01346ad031abe4c0d38dd0999afef42",
+      "canonical_lf_sha256": "7b10caa9c427bffff2375c7cec2d94a92ef9225d5dab4ce069cd9186c249576e"
+    },
+    {
+      "path": "tools/build_bathroom_props.py",
+      "git_blob": "31793f48b72791c016a5458ba152b76bf16948ea",
+      "canonical_lf_sha256": "a683080d65d27355ebb70d49e1f4d50797cf59ac22be79112caf0e4137f87f84"
+    },
+    {
+      "path": "tools/build_bathroom_sink_v2.py",
+      "git_blob": "a9431e60bdd1e204e815ad925e2013666ea15937",
+      "canonical_lf_sha256": "80848e811124517552365180d93f3db5de2ad3e083e60e676e2d4ac8dca39e43"
+    },
+    {
+      "path": "tools/build_bathroom_toilet_v2.py",
+      "git_blob": "a1eb7db22923062e9e7dc7c5d0f7a9b61eba84cf",
+      "canonical_lf_sha256": "06b2f55e23eb0c13919b63dd473b97732185bff6251a051d4c94004bd7496fcb"
+    },
+    {
+      "path": "tools/build_castle_banner_art.py",
+      "git_blob": "4ed2f193563256b69cd5da6427487b07372322e0",
+      "canonical_lf_sha256": "9db559e25f65e1cb2a8b0e9e3bb0f43869cb111a76a9e45b12721ebbc9fc8d3d"
+    },
+    {
+      "path": "tools/build_castle_dream_house_rooms.py",
+      "git_blob": "58034d6344685eedc07e85c81dd30fcb616f0a33",
+      "canonical_lf_sha256": "1dd0416788e354758199035b488b9b39a548cc16321829470ba3ae9118dec1f5"
+    },
+    {
+      "path": "tools/build_castle_elevator_picture_icons.py",
+      "git_blob": "19099a503e568d4ecc2fc1d79217e5830c6318b6",
+      "canonical_lf_sha256": "b30609c8b9bcec8f6db9ae408957f7b7f1b6bfc47a4821bd7017721c2d150c46"
+    },
+    {
+      "path": "tools/build_castle_hall_alignment.py",
+      "git_blob": "8601cdd8b1db84399bffd4273418fbea006db41a",
+      "canonical_lf_sha256": "79ba3ab4bdc1945ded3e2dfbfde7a37844ad2ed8ec0f05b29e60c615fe80e83e"
+    },
+    {
+      "path": "tools/build_castle_hall_polish_interactions.py",
+      "git_blob": "556508fe8e6dbf2ae569b0f1755706b92c755214",
+      "canonical_lf_sha256": "f5d565ff9384ea6490a56f8a1887525fea781d94b8cf9f0ceb45d4b4ee4495b7"
+    },
+    {
+      "path": "tools/build_castle_hall_runtime_bleed.py",
+      "git_blob": "df903e606eb872205b5e84f05910e6468de86f59",
+      "canonical_lf_sha256": "12de4d8e08ab850496f14ce707fd8b2d79152abd9e8045a493afe47ec5875c3d"
+    },
+    {
+      "path": "tools/build_castle_hall_runtime_registration.py",
+      "git_blob": "42007f656d32e27c497ed6ed43e355cdf15c5b7d",
+      "canonical_lf_sha256": "fa63b61feffb1094570aeac7785a3332c54e33fcaccea5f5b798611c21898119"
+    },
+    {
+      "path": "tools/build_castle_interaction_atlases.py",
+      "git_blob": "efa62e95df3ee93c310a222ddebfb3d0d52f0323",
+      "canonical_lf_sha256": "da0326b611ffd2dbafde7da24c5243b0fee3e090c4184b3ee2ae83a31abd812a"
+    },
+    {
+      "path": "tools/build_castle_interaction_audio.py",
+      "git_blob": "e5335a3ca9171d3c5f70ddd31b06568ed2a947fc",
+      "canonical_lf_sha256": "4647487b4f01fcdeab07a0bf50958abf3e9771bdf805c4135378a5fe6717ff26"
+    },
+    {
+      "path": "tools/build_castle_interaction_v2_manifest.py",
+      "git_blob": "de537c8e95ec168baaa2fb76c0aff422eabe3399",
+      "canonical_lf_sha256": "628a797bfe82d369f01a6b5847c624636bb7a62aa19c96255f2fa4c7908aff61"
+    },
+    {
+      "path": "tools/build_castle_interaction_v4_delivery.py",
+      "git_blob": "2549c6d6ec9bf582af6c5341e6a98088955a3a61",
+      "canonical_lf_sha256": "00cc2522d960513aaa35583d18b877f140964b90ccff0965f7aec571fbaf520d"
+    },
+    {
+      "path": "tools/build_castle_item_style_replacements.py",
+      "git_blob": "b1516f98032fafc92413c6364623f629b5d8ae91",
+      "canonical_lf_sha256": "901f53976e8de19529e117356790ad9327381ea01bac6d284ce16b6d16c7bf24"
+    },
+    {
+      "path": "tools/build_castle_lighting_assets.py",
+      "git_blob": "dfb3b132dd5ca159f755c4a9e5acf02cd7def469",
+      "canonical_lf_sha256": "cc752ca32fc57539cf1bcb8544860896ee071f5208ce0e7384a3c9eb5425c2ae"
+    },
+    {
+      "path": "tools/build_castle_native_interactions_v4.py",
+      "git_blob": "0bcd282e0eaa6d1305eb37d3726d7f2d39c8b471",
+      "canonical_lf_sha256": "2172f3d4f0597b07e27dc22993e5e4460c5a471d611c46f5ff7fca2f2a49655a"
+    },
+    {
+      "path": "tools/build_castle_room_2k_tiles.py",
+      "git_blob": "ffeaefd53b906f61834da2587781577af113182e",
+      "canonical_lf_sha256": "59d3e89bab8ee98b1a7ef16ae1f7e403226cb01c86d037a4ac0d949784e0e9e1"
+    },
+    {
+      "path": "tools/build_castle_room_button_thumbnails.py",
+      "git_blob": "e5005c1755d5d1c945eb94688d4772699b4a35ef",
+      "canonical_lf_sha256": "b581c045663932888ed1c25bbbe4405f3dcab58fa7b2a754f3ed88e016b386fc"
+    },
+    {
+      "path": "tools/build_castle_room_layers.py",
+      "git_blob": "fa03c90f4bf9ffc05ea71d0ba0bd7c755fc852d6",
+      "canonical_lf_sha256": "2a5511bfcde4d6a5543985545ba2ca2ce953e80587d8c27b78d31cb43d60a7b3"
+    },
+    {
+      "path": "tools/build_castle_room_led_native_masters.py",
+      "git_blob": "3dd5fc63a2b7a00d2552ff9d3a1891b699c9966e",
+      "canonical_lf_sha256": "1cece6cf614b6970a4f96d8424f23be05fec102250d67da2ce60634335e7cadc"
+    },
+    {
+      "path": "tools/build_castle_room_led_reference_board.py",
+      "git_blob": "221815ab1b6deeabe3d5068d448f9a80b5a4ae8e",
+      "canonical_lf_sha256": "805a08effae319018c9297a375756a979acd6b70b4071194cf522daf1e000c7e"
+    },
+    {
+      "path": "tools/build_chuck_rig.py",
+      "git_blob": "a77535972584f00df7e0ddf9e67c0517d291806b",
+      "canonical_lf_sha256": "5545432cf13f77a2b9b6adfbac00e4f8d791601cd680b43a3917680147fdb930"
+    },
+    {
+      "path": "tools/build_collection_critters.py",
+      "git_blob": "b032e87c5da5d2d5eb5073716a48423fe0690350",
+      "canonical_lf_sha256": "1e2804c465f1c99148630588f3a5617e42bbf2ec27dc4e791827d4051cedc2a8"
+    },
+    {
+      "path": "tools/build_day2_art_library.py",
+      "git_blob": "0afc31c01cd93ae5731ae20d945c268c18864429",
+      "canonical_lf_sha256": "aa132670235af51d257ae00b86cd929692534983c2d8bd0b93cddf5561ce185b"
+    },
+    {
+      "path": "tools/build_day_one_grok_regeneration_handoffs.py",
+      "git_blob": "58852f1c8d33acc675aafc1fe4d67aea592a1c92",
+      "canonical_lf_sha256": "72db572e58be6b0efdc4c6d859c3e1961924aa1d60c8a4b79437eaf4485e6e53"
+    },
+    {
+      "path": "tools/build_day_one_grok_third_pass_handoffs.py",
+      "git_blob": "6b7eaffd45493412eaec4a7787d3b9617eb78e97",
+      "canonical_lf_sha256": "c9ebb2abbce5edb203a623c91b613acaabbf8a30e13bc692d6ec8b59a0a062b3"
+    },
+    {
+      "path": "tools/build_day_one_story_clips.py",
+      "git_blob": "4501090ee4eb761505b0cdfb17ebf4db804e36da",
+      "canonical_lf_sha256": "1d5b9287961dedf17aed962f78bef38cb8866978c1280ea2cb7de149adbf2f65"
+    },
+    {
+      "path": "tools/build_day_one_voice_timeline.py",
+      "git_blob": "95fb0f10b7524089133d2f3990f64c0ad1d9aec8",
+      "canonical_lf_sha256": "a0067729981aa6f84a17ea055a19358f1eb626400465a2fe57a7b1f56d12fe8c"
+    },
+    {
+      "path": "tools/build_dungeon_art_v2.py",
+      "git_blob": "1bbd31b65d55f4598e0473ad7df7883f75488f07",
+      "canonical_lf_sha256": "8e9d7ad021a06e793d2a02587ad35b5ddc1f030b0ea8981990fa72cf72001889"
+    },
+    {
+      "path": "tools/build_ember_fortress_kit.py",
+      "git_blob": "fcca2acfd4f4a1f5ff9e30ad27209a4384d171a4",
+      "canonical_lf_sha256": "4d79687b33c883db82523ec2cdc2cb8d868d1795cc525eea9990ad14e1f37fc1"
+    },
+    {
+      "path": "tools/build_fable_kit.py",
+      "git_blob": "4786ba8295f1b76177fa9ad03c3359882455d8ef",
+      "canonical_lf_sha256": "47bd4a1a20114339cd0acaace058bf90300bb5d922fe2cc9334c18a243e2cfda"
+    },
+    {
+      "path": "tools/build_fairy_conservatory_door_art.py",
+      "git_blob": "1b50bdbdb5f69e100cda2331146a71315b658bab",
+      "canonical_lf_sha256": "1644d37c6c9d0d03b2abbf7104fb3e00871a0a0f29f4477a8c29438fc1062c56"
+    },
+    {
+      "path": "tools/build_fairy_conservatory_gate_art.py",
+      "git_blob": "bd18dbe59dfe692f0572f564bd2646ffac64b8b3",
+      "canonical_lf_sha256": "6b5dc3a9e08d60d745852af656ca0608e52071172a952047d6edb905f33bb4e5"
+    },
+    {
+      "path": "tools/build_fairy_conservatory_handoff_art.py",
+      "git_blob": "c1fe9e91c779d1a608563e4b24373d0ca1cfa592",
+      "canonical_lf_sha256": "d539d424236033ff7851fa37c3642edd40d35b9d8f5a6cc7ed42b601b5012163"
+    },
+    {
+      "path": "tools/build_fairy_restoration_voices.py",
+      "git_blob": "d135457833e2fdf8d614e939ed3597bdb42ea30d",
+      "canonical_lf_sha256": "1dc1a144e9283d5c832b5e04f542028ed4927e1462e854b54fec3f4e53112a7a"
+    },
+    {
+      "path": "tools/build_fashion_outfits.gd",
+      "git_blob": "30666bfe9c6b416241a09e36bfd1ad688417b27e",
+      "canonical_lf_sha256": "bba2cd8d87e763e4380f697c0014e68f9049d5b01e8ab2c0d9790c66c9358587"
+    },
+    {
+      "path": "tools/build_fashion_skin_engine.gd",
+      "git_blob": "6eae8e9f51af2d699f9daefa9112470b1915d39e",
+      "canonical_lf_sha256": "5a3d0daa5936fde692fec439d73799e301da41f8bf9abc95eb3a22700852ae85"
+    },
+    {
+      "path": "tools/build_fashion_slots.gd",
+      "git_blob": "d69eff315c7bbb12025011c70040c792984b6afa",
+      "canonical_lf_sha256": "ac519c4e2f0ca898b3533a38e5fc3acc35e2e38a9f03ab4a84a921ba0e85bf8e"
+    },
+    {
+      "path": "tools/build_full_regen_audit.py",
+      "git_blob": "6115b6c32c337cd2bf8836f14d8b6eccb3c10a81",
+      "canonical_lf_sha256": "a6950feb07ea785276f5766596ae503d940d8f48adff1aef8b8c7b84381c37cc"
+    },
+    {
+      "path": "tools/build_full_regen_galleries.py",
+      "git_blob": "e53b0e3fa6733970c72e1af55fcf7c3f5806e3ad",
+      "canonical_lf_sha256": "e33c828ddc8fcdd1c8f56bfa9e03f82488943872de6c19e8c83f506bb2ec75de"
+    },
+    {
+      "path": "tools/build_full_texture_regen.py",
+      "git_blob": "bcbec2465fbb58fd59723f845863dc03aba07739",
+      "canonical_lf_sha256": "16d8236868d3e297e84542cf14390f9bd5e2cd9be12fd87c909f555e326bdf32"
+    },
+    {
+      "path": "tools/build_geologist_actor.py",
+      "git_blob": "f7de72cc91ba637b42225a5c5908c1ba0e23a582",
+      "canonical_lf_sha256": "94703b6ba0a5a3e90ad609019e44f56d7c0909d83b9c6cf62858caefcf2743da"
+    },
+    {
+      "path": "tools/build_grok_continuity_supplement.py",
+      "git_blob": "c4b8eb482ad5fc8a0a3e402edba6d9fb8bec2961",
+      "canonical_lf_sha256": "643e5541f393490c5de9b36debae9294507887c87e9f389c3fbf5a33a6632deb"
+    },
+    {
+      "path": "tools/build_grok_visual_handoffs.py",
+      "git_blob": "9cf23f65641dbcc6ab005b14b4b191d98cbb3a79",
+      "canonical_lf_sha256": "4d89c237b7160c63df931f4dfe147aed0ea5f11de032db70e02a9224fb5063cb"
+    },
+    {
+      "path": "tools/build_imp_animation_delivery_manifest.py",
+      "git_blob": "046b981e5cdd4a0f47954ea52c881bcc475a4eee",
+      "canonical_lf_sha256": "495f7040d1926a225fa43474e5a01a8dc0da263c3f7f44ba0347f0106c4dc45b"
+    },
+    {
+      "path": "tools/build_imp_costume_family.py",
+      "git_blob": "984bf11d2935e507130dce705b9a66a81fe4d4d8",
+      "canonical_lf_sha256": "71e329894d6a400825b97d889681ead4a8cc3de11c6ce60cd915145cbe29e2c5"
+    },
+    {
+      "path": "tools/build_interactive_background_ownership.py",
+      "git_blob": "58c027ef00e3e17495fd4fa5f36ce932ee45297e",
+      "canonical_lf_sha256": "9b6ae7e26bab5c2e34de4ff0d10cf5026667a0dc0dcce6f24bdff807f64c8f0a"
+    },
+    {
+      "path": "tools/build_kitchen_props.py",
+      "git_blob": "72f3ad4d1e856a2dbe329aeb683409af186ab151",
+      "canonical_lf_sha256": "7abf46408becdf36ca01ae74ea2d09362289df6e5683f65ad437d3f8f9a4c11a"
+    },
+    {
+      "path": "tools/build_low_score_batch_01.py",
+      "git_blob": "428c611d33780ee39ed1b03b006b9eab7a6b6b7e",
+      "canonical_lf_sha256": "84c279f417fc22d23391524e7594146de5e3fd10411f01c4371860c64d3e9ea4"
+    },
+    {
+      "path": "tools/build_low_score_batch_02.py",
+      "git_blob": "c5f15913cf2a4089834e5a0336a44ec336155a7d",
+      "canonical_lf_sha256": "b76f94a18fd10ae946dbba4b1669ec55aa7731fa0c904c1dfa0fb203b0442bb7"
+    },
+    {
+      "path": "tools/build_northern_kingdom_kit.py",
+      "git_blob": "d359b5c762b2c61c0a6ca4363c11c411d3b445b5",
+      "canonical_lf_sha256": "406101bba5d1982dffc368a83619ba2232e27d92f5cc3a7a5632d503159fdbb9"
+    },
+    {
+      "path": "tools/build_npc_rig.py",
+      "git_blob": "9f778dd24c84692612ed7308b01f63165f721cec",
+      "canonical_lf_sha256": "e3783214ec2a1131c9fbb9369a66ee4ef436040c217ec5c2c7ab7cd1ad8b091e"
+    },
+    {
+      "path": "tools/build_opera_codex_art.py",
+      "git_blob": "42e3b227b051577569aab02b0388e326d1ca91ad",
+      "canonical_lf_sha256": "bcf95af4e2ac6f0a5a6572f78d6c44cbcd4090bd183a296968620cbacca865ec"
+    },
+    {
+      "path": "tools/build_opera_house_art.py",
+      "git_blob": "e178a95467f6eab5f4256e7832c3cc1179d07594",
+      "canonical_lf_sha256": "0efb36360803a295e5c155dcdc65aac09a109c681dab9cceef9ebdde449f5964"
+    },
+    {
+      "path": "tools/build_opera_house_venue_2d.py",
+      "git_blob": "8212b3aebc1bec9f6dbb45e3d3c775d0304a073d",
+      "canonical_lf_sha256": "aecb7189618b91f5df05675b0ab057ef43546cb613785d7b4db056eddf97eb7f"
+    },
+    {
+      "path": "tools/build_opera_regeneration_evidence.py",
+      "git_blob": "a6a78154278a0a2cc86ad4309affbf0e18d59547",
+      "canonical_lf_sha256": "468c3fdda09a903ae7a4b9227ce817085fc41087e271df3a5c9022c9c06d9d28"
+    },
+    {
+      "path": "tools/build_pass35_ledger.py",
+      "git_blob": "e59d3d4f2fed27fed9f276d29afd96021d191ddb",
+      "canonical_lf_sha256": "2138b2ef3de7d11ddfbc67f6e66de1cf0bf9f7a53f86cc20044cb8f565414684"
+    },
+    {
+      "path": "tools/build_pearl_castle_kit.py",
+      "git_blob": "ea2a0701a6742b3c7a4249cce28fe67952232880",
+      "canonical_lf_sha256": "7422842f2c605ba38225d20fc1af5ff9c7cee9b5bc8f92ea653eb36dcfdadc44"
+    },
+    {
+      "path": "tools/build_plushie.py",
+      "git_blob": "e8fd849e81b83034055be459dc366d69dad03260",
+      "canonical_lf_sha256": "3f757a43540f2a5b02ed819a02923e6705b2421a0a8cd52f91f916fd123ba7f5"
+    },
+    {
+      "path": "tools/build_pnw_woody_contact_sheets.py",
+      "git_blob": "bf6cc9fd1058b8841be15a0cb378645a20f2d615",
+      "canonical_lf_sha256": "b3d2e72fe752dc8ab5096cc22ffda16385dc250d33c1d4a754adaf845a54011f"
+    },
+    {
+      "path": "tools/build_rainbow_friend_cutout.py",
+      "git_blob": "6020273b39511a3ab5c98e8c7d10ec2f3b94caa3",
+      "canonical_lf_sha256": "1427eeb712893066110015e0b624a9d99ad2ea9151af84ee95c3d7bdc500a05c"
+    },
+    {
+      "path": "tools/build_reef_region_kit.py",
+      "git_blob": "e88b271eca490161d52d859bf2d04ab672cf4a93",
+      "canonical_lf_sha256": "7e98315d56b3186ed49e7d61f7b7b38d4759669b4503e796178bcbf017e45394"
+    },
+    {
+      "path": "tools/build_roshan_grok_auditions.py",
+      "git_blob": "af85e8776b5dab917398bff940ebd3467fef63d6",
+      "canonical_lf_sha256": "95d7c52d418d8be87453418f5714319277a523bb751a9fbc8ee735903db28dd7"
+    },
+    {
+      "path": "tools/build_seek_animation_assets.py",
+      "git_blob": "eca3c653b23358ce07fff6f18c301d60fbb2a16f",
+      "canonical_lf_sha256": "1122338381252901502f318941c70e0b6c5203a83a95646e16cd6f0adc20a74b"
+    },
+    {
+      "path": "tools/build_sky_lagoon_kit.py",
+      "git_blob": "d41686b5a980d8c033170dcf9a1379508d584e8b",
+      "canonical_lf_sha256": "28d7558b5942ae1a9d5533742b28876d6acf24334878be64a9f6c56a79c4582a"
+    },
+    {
+      "path": "tools/build_sky_lagoon_pnw_woody_plants.py",
+      "git_blob": "2dfa03c3194bfa9affcf48d95f7a10dd21fc8230",
+      "canonical_lf_sha256": "936c79f39f763913a6f2baa5f0264776f14c10921c42cecb55dfcf0829cce29b"
+    },
+    {
+      "path": "tools/build_sky_lagoon_preview.py",
+      "git_blob": "d7d1d1e90bbda3270de5ddabc3b784569f7c82c7",
+      "canonical_lf_sha256": "417c2149cf3ee77b995d2a0b3b1b120a43d5dd2828f2de83be058bbc465ad837"
+    },
+    {
+      "path": "tools/build_sky_lagoon_quality_kit.py",
+      "git_blob": "cb1208fdfc73a4577313422c97655c0603656624",
+      "canonical_lf_sha256": "8030ef273b81c3759222fb0daa57a6f9374e6b7b8cbddd2f8af00f699fd6e8e2"
+    },
+    {
+      "path": "tools/build_study_roadmap.py",
+      "git_blob": "9f57445d2cd3b263ecf79801053138f2c7bb3087",
+      "canonical_lf_sha256": "23a72f2ec5f1bfc7920a78de1c70b05b65cef0fd4dfb8e6e2ca01c6a45d65a1e"
+    },
+    {
+      "path": "tools/build_teacher_actor.py",
+      "git_blob": "c9934dbcd3405c43a0241f5a56c0c047e9c38172",
+      "canonical_lf_sha256": "ca1f3f49918882fca1caae13076069a4194c7c76a50f6988589569d863151e18"
+    },
+    {
+      "path": "tools/build_train.py",
+      "git_blob": "b6b5714d9bc0d3ef2e263e04699c471e3b35cd62",
+      "canonical_lf_sha256": "4d6b093ed8977bfa7af1b1f6698ab1337473a841a40306a3019c502d847ffce2"
+    },
+    {
+      "path": "tools/build_water_fx_atlases.py",
+      "git_blob": "9e46d9ba869c1a0017d8a0077399f556ea7d690a",
+      "canonical_lf_sha256": "543b8134ccdfbdb45583398fb224f4df46a7455bc35c2fc26cff2b26146c5eb8"
+    },
+    {
+      "path": "tools/capture_fashion_skin_review.gd",
+      "git_blob": "963cb8cd66856cc0b31d97692975c0733cf137c0",
+      "canonical_lf_sha256": "c38aaeb2db5cd06de1ad427e32b76fda2fb1aafe9f9084d7734437b811ff024c"
+    },
+    {
+      "path": "tools/capture_fashion_slots_review.gd",
+      "git_blob": "d3e7dcad311740058cc8d9da4789925a2b0cd242",
+      "canonical_lf_sha256": "1bd30a47b1efa8af9193565d156ffca95d61966afe47c7b4ec5d484ba58db30e"
+    },
+    {
+      "path": "tools/capture_tree_book_test.gd",
+      "git_blob": "7dda6f09c8e73cb4f744620a59ce55f7502ba15c",
+      "canonical_lf_sha256": "014b1beeaeaa7ee21905a0cacde88ef6edd0dcea665a9951c261f790689b2413"
+    },
+    {
+      "path": "tools/castle_interaction_frame_qa.py",
+      "git_blob": "8bce38f303b7ffb8197bd9ae894bcffa9d6958b4",
+      "canonical_lf_sha256": "e318ddf4ae22fd1ea71d79bbc235390b2413b537f8e7121fe0fca32f4ce2eb89"
+    },
+    {
+      "path": "tools/castle_native_interactions_v4_spec.json",
+      "git_blob": "b5951fba607a6db19d72efa6b55314d833e12a3b",
+      "canonical_lf_sha256": "896164ac2d5df6ab75f0aa4bc20ad5f39db065a341a7e2e526bce6381f32878b"
+    },
+    {
+      "path": "tools/check_grade_headroom.py",
+      "git_blob": "0c836cdee3f9be0c0156f675c5a15c1a1e45005a",
+      "canonical_lf_sha256": "28f6f8ccf38764c2bb06111f05aa188bd8532d9ca4239a540a060d2078b6a107"
+    },
+    {
+      "path": "tools/claude_ember_blender_handoff.ps1",
+      "git_blob": "3ae88aaacb53a07e6d4aae44d7236b87b0e03b1c",
+      "canonical_lf_sha256": "8528279b48de6abf6b5dda7d9b1f5e983fe9e99a5d10683538a55644195a7149"
+    },
+    {
+      "path": "tools/claude_ember_fortress_handoff.ps1",
+      "git_blob": "18e0b4d46948c9f855be18ae8cdc37c7cf806a62",
+      "canonical_lf_sha256": "598f400f7156b31e99b2176ad76d7ae0c3cdf40e96cabec162ccccbde6ddd61a"
+    },
+    {
+      "path": "tools/convert_flat_cards_to_glb.py",
+      "git_blob": "b8e47198b76c9d8aca337316ca1f6787c43984f1",
+      "canonical_lf_sha256": "c53209ad3375d271818a4cca01bad31d1a2db38c1ab2f2a5bf256514b01c0d59"
+    },
+    {
+      "path": "tools/create_cinematic_position_guides.py",
+      "git_blob": "acc03d053c55c58fbad64bf1d48d062f5a2759ac",
+      "canonical_lf_sha256": "eed69798fad525a403d23d1d55e3196b741d98bd35e538804492ae3ce5e311f8"
+    },
+    {
+      "path": "tools/create_cinematic_regeneration_job.py",
+      "git_blob": "9ccabd2ead817b26a9b3714b5a6d539961ba341f",
+      "canonical_lf_sha256": "b470a2c06a12f0caae3649f5b5342e234f7438fdd011364d2116376967312138"
+    },
+    {
+      "path": "tools/day_one_contextual_parler_cohort.py",
+      "git_blob": "5578e2df249f06375fad3d9c29eb8b3c29f0b0ff",
+      "canonical_lf_sha256": "85045bd89ba4b7751aa73dbedb4f4a88c6c9237c795c5a76f54d71d63a0d4514"
+    },
+    {
+      "path": "tools/dtw_calib.py",
+      "git_blob": "5b18fddfe9e4245e18032b99628fb02309be67c6",
+      "canonical_lf_sha256": "dc10bfa1edfc0dc887bd54d6cf204a74ae04387cc4d062402bc359482fc34040"
+    },
+    {
+      "path": "tools/encode_cartoon.ps1",
+      "git_blob": "56fb46427cac527c0966780b5d2420ae30f5287f",
+      "canonical_lf_sha256": "32df718be7371598af05de01917228670a6b593e0208d22459a8b75073b82e50"
+    },
+    {
+      "path": "tools/extract_castle_hall_signs.py",
+      "git_blob": "1a4aed028e569734b123b1963188c27f7231b2cf",
+      "canonical_lf_sha256": "9bb94e6ba700ac186e9d129b9fa20ffe48a92e8977ed904c509898919aa8412e"
+    },
+    {
+      "path": "tools/extract_castle_hall_throne.py",
+      "git_blob": "29f7abfa0ab810badca7312baa48ec0885a742c2",
+      "canonical_lf_sha256": "ec87365d68e79136e9b50c9c187469eab82cfccc00045e443a83392d5e967101"
+    },
+    {
+      "path": "tools/extract_cinematic_subject_mask.py",
+      "git_blob": "0ea8e0692c39f50329754e3ec5875979ae7bccda",
+      "canonical_lf_sha256": "3ee61ab988c4e3d332c4bf3b96c0462f5fa8188a9b4d4b0ea40bba9d4f6c9a72"
+    },
+    {
+      "path": "tools/extract_connected_chroma.py",
+      "git_blob": "dcbca6957912f55bf8a61696d2695e46e1644d16",
+      "canonical_lf_sha256": "24a0524e1e5335407a3dddda5711e187db92c25e4c52af43b293560e7efefb55"
+    },
+    {
+      "path": "tools/extract_grand_puff_vortex.py",
+      "git_blob": "4500ad73d7ecad2258d602ebca387b87cddad3af",
+      "canonical_lf_sha256": "f4421159e91fb401939003685abea9a9a305fc5956ca6dfaf8482a5eb05e4d26"
+    },
+    {
+      "path": "tools/extract_imp_animation_sheet.py",
+      "git_blob": "53b637e1a0390129e8ccfeb958af94f4350dead6",
+      "canonical_lf_sha256": "45256fc4da98aa75cc3726e91ae5b41293da0f00ec292c2747b51bdcd611952c"
+    },
+    {
+      "path": "tools/fetch_assets.sh",
+      "git_blob": "d61394720fc133a6a6518447668c0d06b7f20711",
+      "canonical_lf_sha256": "42a5d2b6cb8d8f52904ad591439397e874d52f7540df1d8a6a7b75d5f9676419"
+    },
+    {
+      "path": "tools/finalize_full_regen_review.py",
+      "git_blob": "f74f29bef46e081ff4c017af864f494f961aec3d",
+      "canonical_lf_sha256": "28cf1b92f9e6799374aee0e8d7ae5ecbb7ab75988d77812f2cc83ae457de856d"
+    },
+    {
+      "path": "tools/game_2d_migration_manifest.json",
+      "git_blob": "c3beaef609997bda9ffbd7e52072d54e3b2522f4",
+      "canonical_lf_sha256": "b13147e534a419e4ad7537eb01c14b64ce6613253e3355a592be2141b1344ddf"
+    },
+    {
+      "path": "tools/gen2_audit_aggregate.py",
+      "git_blob": "78137c8641e6eecb42872c9e2a40861e6f352cc1",
+      "canonical_lf_sha256": "088260c6dc20199920691ea86b19b497313521d2b3be9be800263ec54738b7ff"
+    },
+    {
+      "path": "tools/gen2_batch.py",
+      "git_blob": "68714c5b07d4cdd0400c6881e6e07401dd01fad3",
+      "canonical_lf_sha256": "a07c68de8152318e91851888d2999e5848dacb5458d5490a9c6633192d848947"
+    },
+    {
+      "path": "tools/gen2_rainbow_road.py",
+      "git_blob": "f9c7caea9f98096277cae2eabf6e7ca55df7ee63",
+      "canonical_lf_sha256": "57a715002d46546b30658a9d725105a9cea55acc02b6eeccfdef4474ad4bf58f"
+    },
+    {
+      "path": "tools/gen2_turnaround.py",
+      "git_blob": "101bd9c770ee019d20be32c08bc5891af0c34cf3",
+      "canonical_lf_sha256": "eb8837d08496164aa2919e1d73443a4a5b80fb4d8c90ed93e4e0f85289f6ce9b"
+    },
+    {
+      "path": "tools/gen_combat_sfx.py",
+      "git_blob": "f434e83677a0511ea5de5a68e21a37133054680c",
+      "canonical_lf_sha256": "50b6bf9c71717a94f472dc651d555a145532d60ca2ed5ee67e73e70dfbdd462b"
+    },
+    {
+      "path": "tools/glb_check.py",
+      "git_blob": "99d597c3921459bb80fa2dd48af76c90c1b19eaa",
+      "canonical_lf_sha256": "82c340c21cc4431c82afd902409b0aeccc46c42bee98779507f939b7140f89a7"
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "git_blob": "fb28666b1b43c706f165a98e1b012e60c06bf3fd",
+      "canonical_lf_sha256": "7fe925d2d12927d152a27f3a614ff62c9b0e6fe02991396a6837e8f5c06d0f5b"
+    },
+    {
+      "path": "tools/gold_star.py",
+      "git_blob": "1ace51d333d874c85de273c8dcda634d0a1fd175",
+      "canonical_lf_sha256": "5a0121de444c6606b7454ba7bd5403a4153c4b4d448a055aa529dde5a24c9355"
+    },
+    {
+      "path": "tools/import_craft_creature.py",
+      "git_blob": "00f16d2a6a767c3f4d0a7bed0269f5d5ad948421",
+      "canonical_lf_sha256": "542e0ce0555f6d6cfc0c943090ff32755c16c04f7861d70ed35742438876529f"
+    },
+    {
+      "path": "tools/launch_day_one_draft_review.ps1",
+      "git_blob": "67abf67028029be3a8942ab9671d5b72e13e9618",
+      "canonical_lf_sha256": "98b7c4d9e7e5caaa4ea74460c4d966142a722a573e6cbbc29470cd5def9f1601"
+    },
+    {
+      "path": "tools/lint_inference.py",
+      "git_blob": "f51a47653925cf615a9dfb3b8528386adbaee649",
+      "canonical_lf_sha256": "3014fb672fe19708252a6c55d54db2d90c7a48b0cebcb0219193e17fa67e95c4"
+    },
+    {
+      "path": "tools/ltx_wave_experiment.py",
+      "git_blob": "269a5f7e10bd935508383a518876c22e1dcc3ab9",
+      "canonical_lf_sha256": "135b7b713deb41fc1038ef234ad4e5562ce061b92f37a5f1dd17ca347eea35d3"
+    },
+    {
+      "path": "tools/make_parler_voice_trials.py",
+      "git_blob": "e4b553479d01fa0a5a50c3117dae883ce09eecbb",
+      "canonical_lf_sha256": "5c0f95ae90d4ce451489b44fc4025db91fa2d7b22ba711bef7ee9016897db073"
+    },
+    {
+      "path": "tools/make_roshan_voice_auditions.py",
+      "git_blob": "51acb3fdc8c86a7e64727f10bc75b3504a38b8a7",
+      "canonical_lf_sha256": "12981c09b4f74432b5c9d22936d61e273cf0260cdf304dbf33bff12dace1003c"
+    },
+    {
+      "path": "tools/make_voices.py",
+      "git_blob": "190fa0625a200064f82eabc79e810802cdca3aaf",
+      "canonical_lf_sha256": "5496c9f153ae9f0735f68ddd627c9c341971757950b033cdd9cee72226c6f7f1"
+    },
+    {
+      "path": "tools/master_fashion_voices.py",
+      "git_blob": "305d017fc79113474521405f63f3ac7ffecb733a",
+      "canonical_lf_sha256": "8e5a2024c91dbaa9f2c27e175bbfac520780740f20a2f216af2ccddf6b03c6e5"
+    },
+    {
+      "path": "tools/master_filler_voices.py",
+      "git_blob": "8d0024ecd5f8d91d96d47bd50168c7a923c3cd18",
+      "canonical_lf_sha256": "5f236a10632d933e51a26b3fd47fe8b95d75ed3f42b2b51a121a043f5637ed7f"
+    },
+    {
+      "path": "tools/measure_fable_kit.py",
+      "git_blob": "6dbb0e43894e51e95d4868dbcff715fbf6c20197",
+      "canonical_lf_sha256": "81264e65ea3052bfa4dc2f7571e3b4712c54a339326233c9ab3a8bff9a961cb2"
+    },
+    {
+      "path": "tools/measure_loop_health.py",
+      "git_blob": "1ff4193c482a90c7208f5efb236bd80a5e80328a",
+      "canonical_lf_sha256": "ce100c1006508651817df6e9efddc65758317798c4d7d12b5d944406630196e8"
+    },
+    {
+      "path": "tools/measure_opera_bleed.py",
+      "git_blob": "6264f9d463ab43f2fd8d7088796ae6b7bfa79389",
+      "canonical_lf_sha256": "63d8ffbb2a9c6d25a2100ec15248e571dae27599df604f72f3502a1eb4307c2f"
+    },
+    {
+      "path": "tools/measure_overdraw.py",
+      "git_blob": "dccbe23e10c2e24cca9c2af2b7c318856afa8796",
+      "canonical_lf_sha256": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+    },
+    {
+      "path": "tools/meshy_pipeline.py",
+      "git_blob": "266286a4721f68e678173b5d3b9a05971fe6a0ea",
+      "canonical_lf_sha256": "b580b06766c00639ad74acdff29f4397a811aab30271d40c2bc28f1392a212e4"
+    },
+    {
+      "path": "tools/normalize_castle_interaction_v2_sheets.py",
+      "git_blob": "608d9c59f8fb8833292bb8a7bf70f442c7662da6",
+      "canonical_lf_sha256": "84dbc3956f35be6d53dafa83be374aa3719930af1c5a7ba12c3710f0d673dc09"
+    },
+    {
+      "path": "tools/normalize_full_regen_textures.py",
+      "git_blob": "caffd1deedba2e053dbf95805fbae57bd4fc2aab",
+      "canonical_lf_sha256": "a3a62dc3673ed5d69d17a77e3481e6e47b17060ddef5683f191c13351213234e"
+    },
+    {
+      "path": "tools/normalize_grok_png_reference.py",
+      "git_blob": "d9056fa0c9d36d97a59b172fde027b0f48084083",
+      "canonical_lf_sha256": "d17d076dc46160359cde9e6f0ac358fc71161c0ee398f31c0c31c801cdfbdb36"
+    },
+    {
+      "path": "tools/out/audit_v1/audit_report.json",
+      "git_blob": "bf776e28cc25f71fbfe99eb69c02627e89105222",
+      "canonical_lf_sha256": "91dde24583a2a35c1da83842ef93791fb907da772e65ca18935431fe25e758e5"
+    },
+    {
+      "path": "tools/out/audit_v2/audit_report.json",
+      "git_blob": "85e3eae21811d322edaf5831d938b1238b4aa9fa",
+      "canonical_lf_sha256": "9f7bb48be3ffa711b90db6355efd70f8fadd89fe11fc5e203b424bed5441ae12"
+    },
+    {
+      "path": "tools/out/audit_v20/audit_report.json",
+      "git_blob": "abc0e2df70d010143b47681002398da0ff2b8194",
+      "canonical_lf_sha256": "2b6347a2d8313582ce9204cef90ad59cc472246fdd154ed3eba45c18a770a23e"
+    },
+    {
+      "path": "tools/out/audit_v3/audit_report.json",
+      "git_blob": "c00b031a3ed8c6dbc85b8b853a33b2f7ffd0566d",
+      "canonical_lf_sha256": "6e3739cd0705a84153db0ff0227903a4b6b9f57b2878d3b0fd70ad0a402b9389"
+    },
+    {
+      "path": "tools/out/audit_v4/audit_report.json",
+      "git_blob": "c00b031a3ed8c6dbc85b8b853a33b2f7ffd0566d",
+      "canonical_lf_sha256": "6e3739cd0705a84153db0ff0227903a4b6b9f57b2878d3b0fd70ad0a402b9389"
+    },
+    {
+      "path": "tools/out/lighting_image_audit.json",
+      "git_blob": "5bf823cfdc24108daf43efa617b944a7ebd2e524",
+      "canonical_lf_sha256": "f1c57043854e3b75a7ec2c8e6ec29c3d876da670c21c9ab1a77a2e57ef96bb64"
+    },
+    {
+      "path": "tools/plan_audit_rollback.py",
+      "git_blob": "cdee1eff11e9df571f0917200d1a5b2656aa7e39",
+      "canonical_lf_sha256": "51fcb7a656742e2077fd627733b4c71ce98d807f2d5aa704fb47aa5a467e6692"
+    },
+    {
+      "path": "tools/plan_prompt.py",
+      "git_blob": "29da2f7dc55910c5c0ad5da9131d5511126fadf7",
+      "canonical_lf_sha256": "dc4b23d1b60be8759bdcddbc773549d2644870931d38997ba5b6868dfebcbfea"
+    },
+    {
+      "path": "tools/polish_sprite.py",
+      "git_blob": "c9a6839732a04d83f0a91db68e9a35f57d1d3655",
+      "canonical_lf_sha256": "209f4b752dafab1e3bc9314bc15a71451876e363cb029e25838dd5df2ec382f6"
+    },
+    {
+      "path": "tools/postprocess_pass35_sprites.py",
+      "git_blob": "f9e6182280f437002b420ba24bcaa000a6583c09",
+      "canonical_lf_sha256": "8b41bb98cdd29211f0d864032739f63c2c9e0237148537fcba85f38124af9190"
+    },
+    {
+      "path": "tools/prep_npc_sources.py",
+      "git_blob": "412329d2620da2077f7f25a90e232362f51787b3",
+      "canonical_lf_sha256": "c1374e07657beb0da2cbfcd074ddd011edfafa340827312de678bf4c0718be4d"
+    },
+    {
+      "path": "tools/prepare_chapter2_birthday_art.py",
+      "git_blob": "86cda941dd2e1f18808dabf1171f70c55be5168c",
+      "canonical_lf_sha256": "dcd8bd64d4b96f8c15784dbb2300761a1bfdc578e1261cf6b108d3174243e02b"
+    },
+    {
+      "path": "tools/prepare_chapter2_cake_progression_art.py",
+      "git_blob": "d3b71f8746a3ea70b812137a400ce47bf636a5e2",
+      "canonical_lf_sha256": "c8634f488ce29721fd26584f5bea3d78ff6b16c4cef12ce1df9c4b83c8fc27af"
+    },
+    {
+      "path": "tools/prepare_day_one_art_studio.py",
+      "git_blob": "c863ec0c6fbeab5910908d71bb4c1fef3653eb74",
+      "canonical_lf_sha256": "2753099afc52537d7e26bace77c0ff8895fac043e697414f95f49cc353bf9366"
+    },
+    {
+      "path": "tools/prepare_generated_art.py",
+      "git_blob": "edfc3c6395eb8f5b8fd5da61ba6dc2d55e53207f",
+      "canonical_lf_sha256": "3a7896e0b5e7a8e54b7ecf73b6a3b7bca0252224705922eae4fbd8352c63dbf0"
+    },
+    {
+      "path": "tools/prepare_imp_animation_sprite.py",
+      "git_blob": "c8ab07423c86199275c14af175908689a98f6641",
+      "canonical_lf_sha256": "b81042aa75da325a1e8a68b6f10df9f31d91c78f27942be81bf5a56d86b6d80f"
+    },
+    {
+      "path": "tools/prepare_imp_fx_sprite.py",
+      "git_blob": "3038bf7b8a611f172f4f353dceec1ea1e19ab2b4",
+      "canonical_lf_sha256": "c64c01d4fee956bda362f291dacf5818d5b5481b5cc4e08353e5a7a37ea4b301"
+    },
+    {
+      "path": "tools/prepare_opera_2d_props.py",
+      "git_blob": "6ff86c4d4082ddeb648ab49b551ccbd66343ff72",
+      "canonical_lf_sha256": "f47b78467876358289cfadc556bd299170d48f85a0fac51d53868292b16e3c0c"
+    },
+    {
+      "path": "tools/prepare_opera_2d_worlds.py",
+      "git_blob": "afb06a7aab3503a5b1aa75c231f2005cb249701e",
+      "canonical_lf_sha256": "283f9db7120a2f5c7e822e1f584b6eb49b85ae47f60899359d8ef497bdc92e87"
+    },
+    {
+      "path": "tools/prepare_opera_minigame_art.py",
+      "git_blob": "578bc8fe3833a459394d922917b2334027191fe6",
+      "canonical_lf_sha256": "e48836a1646f6997997990591dd0bdb8602922ae6e316b2c2653cd50a532be3f"
+    },
+    {
+      "path": "tools/prepare_opera_nursery_art.py",
+      "git_blob": "ecba3ea2958d2fb5e71ac626c8d5b8b220449524",
+      "canonical_lf_sha256": "61f03bc32c137badb73c6300e435e64be09807fb3927351e19f20e4baf2974e2"
+    },
+    {
+      "path": "tools/prepare_opera_roshan_animation.py",
+      "git_blob": "f12e4eb5a02523b265deda2ea29ebf752f2c5329",
+      "canonical_lf_sha256": "0121bb9b8b3edc1a27281e87c91f602b417e6fb58bbbdf9e545296200108c6f4"
+    },
+    {
+      "path": "tools/prepare_sky_lagoon_castle_symmetry.py",
+      "git_blob": "21bb846f64981b9fcfc365042b61982cf958e080",
+      "canonical_lf_sha256": "f9668521237ef9f7437e208721da2b765be8b6de426c01db0b324090acccfaff"
+    },
+    {
+      "path": "tools/prepare_sky_lagoon_congruency_assets.py",
+      "git_blob": "9398c0f387b6463035791a23d2f9b819195f0dca",
+      "canonical_lf_sha256": "e151666377b3b41d76c55743d8d099d5515202e005680321f01ab1fc94bb7f6c"
+    },
+    {
+      "path": "tools/prepare_sky_lagoon_reductive_grid.py",
+      "git_blob": "dbf2cf6e13aeea1922d775ea54b269761d664753",
+      "canonical_lf_sha256": "492eb309f297dd8a2dbca38d33f1cdf0e5f2b1048f682d44281608a3a4cad7aa"
+    },
+    {
+      "path": "tools/prepare_sky_lagoon_tree_cards.py",
+      "git_blob": "1187f039964f3562bad81a65f59693c9653daf11",
+      "canonical_lf_sha256": "bc9fb1126af7a83c921f9f74e1965eab5f3d1cb124a56847e3d3f8000b1e2ed9"
+    },
+    {
+      "path": "tools/preview_render.py",
+      "git_blob": "5142b72a00e3b767c28e7c5a8f51f0e124dacd6b",
+      "canonical_lf_sha256": "463ad3994ea7b82c5a2cb4b1d4e795f06b09185491ea2f77d3d83cc57ab0f236"
+    },
+    {
+      "path": "tools/probe_glb_bounds.py",
+      "git_blob": "ccf188fed3e17afb713e543ed83004ba709fbb8c",
+      "canonical_lf_sha256": "22cef94d685c3c856ec6e6e8b3d097b444a2a9d8474e5a4c450b5c4f9cabfe16"
+    },
+    {
+      "path": "tools/process_dust_bunny_animation.py",
+      "git_blob": "703b2015567e2bbba306cafbf445053e73117bd1",
+      "canonical_lf_sha256": "5d41ff2cfdd5fe998b57b1752fec96f54a521508868253baceff5b54c466ec39"
+    },
+    {
+      "path": "tools/process_dust_bunny_boss_animation.py",
+      "git_blob": "a1937bd82f5fb0829067e326b5d6c6ad29e93eed",
+      "canonical_lf_sha256": "335e0184471c2d44506bd872861b23f7a7c20affc2743963a5778319d3d10552"
+    },
+    {
+      "path": "tools/process_fairy_art_v2.py",
+      "git_blob": "f8956204ffb877d13fb14ef96ce45f4ce52737f0",
+      "canonical_lf_sha256": "3500569e628f7178d500093a5f408d9c535c0a6fc72329e69e3d32fd380b87f0"
+    },
+    {
+      "path": "tools/process_fairy_panorama.py",
+      "git_blob": "8dffc1332ace19b9373195b89fb67c1724da11a0",
+      "canonical_lf_sha256": "83ef1cda058fda6445d984fd9ce6b841c551cc38691dda00adcbda6b5a1eb456"
+    },
+    {
+      "path": "tools/process_fairy_readability_art.py",
+      "git_blob": "b4253bff3ecbc6e53eb92de44f80866125d64d8e",
+      "canonical_lf_sha256": "c6bc2ac08f7a72f11d71ab8a92fe8e6fcbe3b9242c6d1f43832f04b20a8226c6"
+    },
+    {
+      "path": "tools/promote_opera_regeneration.py",
+      "git_blob": "ef16b045c09df4a23f903dd10bdd17cf07ca0ebe",
+      "canonical_lf_sha256": "d3fecfd3e6c4361bb0ca40527f4bf24f3cd08854380c65e45f51d8cb2bb1252c"
+    },
+    {
+      "path": "tools/promote_style_review_batch_04.py",
+      "git_blob": "625d0fcdb458670e22bb195d38a011c1245b4849",
+      "canonical_lf_sha256": "baace33922dd25a2c9fa8d18c3fa96c23010e31f1e2449a758362a02f58680bc"
+    },
+    {
+      "path": "tools/prune_day_one_contextual_cues.py",
+      "git_blob": "c188417757dfe03398d872eacf05e727ac4212c8",
+      "canonical_lf_sha256": "15bbae7d151cdd7cbd13e5c4bec5231009e87755095200ac168c1a5dbfda9707"
+    },
+    {
+      "path": "tools/rebuild_day_one_contextual_trial_manifest.py",
+      "git_blob": "0ad877d6a1c0f2aa1043f6848ea11713143906b9",
+      "canonical_lf_sha256": "f7670ea1764b8c82ac7c70dc01eee44ce009ec27438959132b955ef8e3ba11d3"
+    },
+    {
+      "path": "tools/record_owner_decision.py",
+      "git_blob": "ad7f41676290c1d09b24ab683b203fb21a3cbe22",
+      "canonical_lf_sha256": "c3a2f9c6e6b1fe81baa6abbb018da6d89e733e5c1b8bf956e7dec84da9e0c343"
+    },
+    {
+      "path": "tools/refine_castle_depth_cards.py",
+      "git_blob": "936b67995ceb723a57d5229e7ecdd9d19f9016f8",
+      "canonical_lf_sha256": "7713b27eba1ee757cf8170898a811ccdfe2d5f80353d2e6a455b6e3e757ccbd7"
+    },
+    {
+      "path": "tools/regenerate_opening_cinematic.py",
+      "git_blob": "7acb038843de6989bd01d1656d0256caf147ed49",
+      "canonical_lf_sha256": "16b6602f062f0ee16cdbce9c8d70fd786f482f942fcc624f62a2483d359a31f7"
+    },
+    {
+      "path": "tools/render_fable_previews.py",
+      "git_blob": "61093515aa541ae5051fe251d04ddbc27a6da142",
+      "canonical_lf_sha256": "942b135c9d88df82ba7dfc3c5d21b0389c02485f9ccb489ba6866efe2202f32f"
+    },
+    {
+      "path": "tools/render_full_texture_regen.py",
+      "git_blob": "e3f578bab24f7cff1a905b535498a0476a76b86b",
+      "canonical_lf_sha256": "c9a3bd6b077294a6f42ff04d090223322221389c2065f692eeb17eb743b708f6"
+    },
+    {
+      "path": "tools/render_glb_turntable.py",
+      "git_blob": "e131c5f36d77f3bd34227a38e46c3c5aa8cdd4b5",
+      "canonical_lf_sha256": "67cbcd3e11d2f3a3645fddfe5295a1bde032ce3caf9344dabf177ce41120e617"
+    },
+    {
+      "path": "tools/render_glb_turntable_batch.py",
+      "git_blob": "4275362349255a2da6f8cfddf51547396029e8e8",
+      "canonical_lf_sha256": "050bf66dd0d3b89de5b121392a147fb567baadc561faa48562862658a541676b"
+    },
+    {
+      "path": "tools/repair_castle_room_native_backgrounds.py",
+      "git_blob": "76a99c88bc9873befdb00022f8d654734b774575",
+      "canonical_lf_sha256": "34032530ddc20d099d2f0a62052238289120b9ca42d938260fad5f3f577dcc2d"
+    },
+    {
+      "path": "tools/repair_kitchen_kettle.py",
+      "git_blob": "2b831f74432b62e6abb6c7683971fd93b58a8033",
+      "canonical_lf_sha256": "7976b1842f2b57391066db9ba4c903f9728b185ae27a43aec89d84ff22386b9f"
+    },
+    {
+      "path": "tools/resolve_godot.py",
+      "git_blob": "d6b5e791d1b848330e7e8d1e5cd0813c574eae91",
+      "canonical_lf_sha256": "feacf82f033b45b1e259103cb6a30bcd803bd56231b2673026bb38ce734b2d8f"
+    },
+    {
+      "path": "tools/review_castle_interaction_frames_v4.py",
+      "git_blob": "b9b1c3b704e734987eb5ac23b00f34adcb726e4b",
+      "canonical_lf_sha256": "a1b369a38578594e32ca3db28b368c65cb92c4ccee861ab9fa87533bf7cde14d"
+    },
+    {
+      "path": "tools/rig_animate_aquatic.py",
+      "git_blob": "4c2acd8c0d051619ec0c348fd35c3f046d7feed0",
+      "canonical_lf_sha256": "a1a2a062e53a2803332c8a106eadf9390c2efd5400e93d2fd5eac5e9665e5aa7"
+    },
+    {
+      "path": "tools/rig_birdie.py",
+      "git_blob": "04aa4c5d45d7158936dcaa8dee2cceb991b7b297",
+      "canonical_lf_sha256": "3ad9b0e18b1889be712536825050f550ac0e841201472a3f7e186c5269aae90c"
+    },
+    {
+      "path": "tools/rig_penguin.py",
+      "git_blob": "bdae88a84a63a26e6b682588f424fef5ef7aa4ab",
+      "canonical_lf_sha256": "c01c13138742bcd5e7539d13dc55ab06aeac9268e2139c89aa6b602e2b3b233b"
+    },
+    {
+      "path": "tools/roshan_grok_video_first.py",
+      "git_blob": "0251721c81fbb5379f2afbcc2ceacab90a62990a",
+      "canonical_lf_sha256": "c2090af46ffa179f2e28cfee6ea8210807faa077f4115ab560341ca2fd6982a4"
+    },
+    {
+      "path": "tools/run_advisory_sensor.py",
+      "git_blob": "271754747b929c24a820ece9150269abda7a16aa",
+      "canonical_lf_sha256": "963ab081a0197fa8efaabfaa572498c38b91af4d958500bfaa7efbadb38880e2"
+    },
+    {
+      "path": "tools/run_godot.ps1",
+      "git_blob": "595dc73f08cab7432f2823877b4e2d8d6fe04f93",
+      "canonical_lf_sha256": "3e36321bacd50492ee81a1643cd3de47e8156586f8a374e5943bfdd60cf81cb7"
+    },
+    {
+      "path": "tools/run_painter_prototype.ps1",
+      "git_blob": "98ffdcc461fc7f94a0c718869afd839d1980d29b",
+      "canonical_lf_sha256": "20f8cd890784b1b8086a661390757d85cabb5b6be6be137f5a148862f30e58e4"
+    },
+    {
+      "path": "tools/select_filler_voices.py",
+      "git_blob": "cf74b192dda1860b3c931bf6dc5aaac04e95ee36",
+      "canonical_lf_sha256": "9d3f1c82b163c7bcd3b0b069be25747fc0fd223b9c71e1cecce60a2567e499c0"
+    },
+    {
+      "path": "tools/setup_video_tools.ps1",
+      "git_blob": "515e301cc614800a8998767d019a3f5c45e597aa",
+      "canonical_lf_sha256": "e0871ff1a8d55b81e9d155597aee66c2dd3b182f53f1426a15e71fc183b6e070"
+    },
+    {
+      "path": "tools/shrink_glb.py",
+      "git_blob": "19e5a61d22697f158f319e019088f9a7c46b8021",
+      "canonical_lf_sha256": "4decc12f7e80873be952e984641e90716e6b20014787a775982a0573799dfc37"
+    },
+    {
+      "path": "tools/sim_render_grade.py",
+      "git_blob": "cc4945c9bb3bea40ec599145744b68c967188179",
+      "canonical_lf_sha256": "d4a82e6a3340cacb7063a6678f5b4335b6e6207fda4821c07f95a3d973461fb9"
+    },
+    {
+      "path": "tools/slice_castle_hall_2x4.py",
+      "git_blob": "757eb35abcd536b0dd9152b25cad10ac26ab354e",
+      "canonical_lf_sha256": "b21d5bfa1c2406c4e04807490ecbcb89bf813add6a5889d334577b842f1c14e0"
+    },
+    {
+      "path": "tools/slice_opera_house_prototypes.py",
+      "git_blob": "bf38efee24553461e7d6bc688aa20736df2990ee",
+      "canonical_lf_sha256": "5f31190c68818f7ef30e2fab547d408629eef7ee9d0175d780be8d16f3f87a46"
+    },
+    {
+      "path": "tools/slice_opera_job_prototypes.py",
+      "git_blob": "8a7d6d5fcd885f6acac0bbfdcd5bb135cc0bc887",
+      "canonical_lf_sha256": "b70529cf0f40dab52ab5249ec8861c6527aa3f4e2138ae08343842a93ee3105b"
+    },
+    {
+      "path": "tools/slice_sky_lagoon_pnw_prototypes.py",
+      "git_blob": "f7de44033b19a13eb468d7253f35614b8cf8d71f",
+      "canonical_lf_sha256": "7dfc608018d062c03623a9fb86c541720f751bded90b37e3b4dc230978fa0ace"
+    },
+    {
+      "path": "tools/sprite_pipeline.py",
+      "git_blob": "ece5cfef414954e9f5ea9e4ec91fa5aaec052078",
+      "canonical_lf_sha256": "34f0539f53960f13aff42ffcf8965ed41514a752472319ce71274fa7595cfafd"
+    },
+    {
+      "path": "tools/stitch_strips.py",
+      "git_blob": "0d008db6671a01327c6619b34abc16e356fc7d35",
+      "canonical_lf_sha256": "1be05bf8e7006d7c52f60e8f0a4c586d293765923f2ffb033c808309687a6357"
+    },
+    {
+      "path": "tools/stress_full_texture_regen.py",
+      "git_blob": "1cac919b574681b03bbd5b00dce379a6fe928cc1",
+      "canonical_lf_sha256": "10eeace18763b1b47f1ef380c71b33df3fd9c0363e9c0f817f278b2000be2185"
+    },
+    {
+      "path": "tools/study_game.py",
+      "git_blob": "d68a5f34c6953424b90bee801fab9fe8b62de700",
+      "canonical_lf_sha256": "1220818fed9cd2208a8b928f1dcc01102f40b0c926942498e0e23391eb22365d"
+    },
+    {
+      "path": "tools/survey_aquatic.py",
+      "git_blob": "0fa6c80f042407d97eecbf18bf268c5bf6205d26",
+      "canonical_lf_sha256": "0f278b9904f92dc4884a0db27ad4f9bdb01085d92444cf90290a5bb6bdcc0bf8"
+    },
+    {
+      "path": "tools/test_audit_castle_native_interactions.py",
+      "git_blob": "aa9159cd5c32b85d4011b819bbae12c5352a8ca0",
+      "canonical_lf_sha256": "056eb438a9c9aa7b769b7fd1f13bf9590f7eed696582758529e6008cedd16138"
+    },
+    {
+      "path": "tools/test_audit_castle_static_depth_cards.py",
+      "git_blob": "866cc083397e197329fcee902902e4edcaa2d2fa",
+      "canonical_lf_sha256": "bb0999a04b1daf35daddf8f35f8355c7613a4908f7364f45f1c0a67fd0de1d1a"
+    },
+    {
+      "path": "tools/test_build_castle_interaction_v4_delivery.py",
+      "git_blob": "1cc3e98b1f07b4f3ac249d1b1d15fa1f3cbaf712",
+      "canonical_lf_sha256": "0e9049477716e87effbd016bc41b31b4ad20bcec79e32e3114a96ae6d6a30e41"
+    },
+    {
+      "path": "tools/test_castle_interaction_frame_qa.py",
+      "git_blob": "d293cacd8d5e9779344c34bcb8c02afaed5736c6",
+      "canonical_lf_sha256": "d83ce7939f1a63afc8f3d36605d802b1d42dc053f64ccb3b29a8147e17236db7"
+    },
+    {
+      "path": "tools/test_interactive_background_ownership.py",
+      "git_blob": "d5da35ad9cdf22b84ae7f97b7a5b72fef8c34161",
+      "canonical_lf_sha256": "54cc45698a2f18e35efdc416bd101c74358327394886fdd0eabb707a28b1c857"
+    },
+    {
+      "path": "tools/test_refine_castle_depth_cards.py",
+      "git_blob": "1f479b2e44344b88079e88cbb8755c0949988f4a",
+      "canonical_lf_sha256": "deff2bf8ce713be75a9a3e851d1e4901a6b0da12e8e1678404449f4a2ba2236f"
+    },
+    {
+      "path": "tools/test_repair_castle_room_native_backgrounds.py",
+      "git_blob": "b966f67c6745c8c6421b32fc93d272960a696a62",
+      "canonical_lf_sha256": "5644c7024e7a135a86eb422748266ecf728f75c8a1b88787317fe343dbcf174f"
+    },
+    {
+      "path": "tools/test_review_castle_interaction_frames_v4.py",
+      "git_blob": "3389c153812bb65d590bbef05d324f2f2fd8fdf8",
+      "canonical_lf_sha256": "21bdce56ef2a315f24e621cfc6c59dc3da5ff43bfdf48dd3917442d19ab6dc83"
+    },
+    {
+      "path": "tools/tests/fixtures/story_movie_skip_cases.gd",
+      "git_blob": "30dc6d4fe94ebbba40173471c8bf4b387329863f",
+      "canonical_lf_sha256": "0f0dc3d167ce88c6730f356467a743abbd54ce655e495864d7a124ab343779c7"
+    },
+    {
+      "path": "tools/tests/fixtures/story_movie_skip_runner.gd",
+      "git_blob": "f733d81a39455e4ef8335f664f0e5d75583d4121",
+      "canonical_lf_sha256": "09013614557ca783f57e802f9926b43d7b12c71d7858aeb1e9fc226dbca17d6a"
+    },
+    {
+      "path": "tools/tests/test_audit_audio_quality.py",
+      "git_blob": "1f8b0e03ed3431cc95cae647442288da963a130f",
+      "canonical_lf_sha256": "ec5397022e945e94556157959a0d5e5138adb486b73e8efdd4c9babbdfa7d29a"
+    },
+    {
+      "path": "tools/tests/test_audit_cinematic.py",
+      "git_blob": "a9a9d2044c6183502d366d65aaf0b5075c09df14",
+      "canonical_lf_sha256": "86670e29ebebcbfbf8318310904795514383aff1b0e8b15d75f4c3e963b4eae7"
+    },
+    {
+      "path": "tools/tests/test_audit_day_one_contextual_voices.py",
+      "git_blob": "aa076d34fe1186d3091a01b80783a9fbc143c042",
+      "canonical_lf_sha256": "18d8f372c5723bd8f78598c0818f7a676c2baa92e9221f763d075bb3d982a721"
+    },
+    {
+      "path": "tools/tests/test_audit_development.py",
+      "git_blob": "e28e5e75f906221b0dbdaf847ad4b7983ab89037",
+      "canonical_lf_sha256": "f819ac53ea15814e9c8d726e4dc3d201e37dfd846428b62c006ffcc047c51e8f"
+    },
+    {
+      "path": "tools/tests/test_audit_document_authority.py",
+      "git_blob": "1d75ab45b8f9fc81744393fdd163943db3fb085e",
+      "canonical_lf_sha256": "eecf1be59920768bc17bbcba0caaac3e3a3b178169b812b11b816ade6b56e3bc"
+    },
+    {
+      "path": "tools/tests/test_audit_game_2d.py",
+      "git_blob": "c51c004c143f794a652081183e4dee69c910f240",
+      "canonical_lf_sha256": "5c0d5267e09e1610f8a07c1b570a7ccd295c3109a09391b5f072e1946d5547fb"
+    },
+    {
+      "path": "tools/tests/test_audit_godot_baseline.py",
+      "git_blob": "604159f59c3183cc980e1c91b0dbf73e971c0392",
+      "canonical_lf_sha256": "fa602e9c5e245e172e7ef52e3c9dae54ad784e8d9a6097f6a0a056e22b082d30"
+    },
+    {
+      "path": "tools/tests/test_audit_grok_builder.py",
+      "git_blob": "c35f0685e257b6d2b67ffe981beba95252b14050",
+      "canonical_lf_sha256": "583fbbfb89c953ba6826f21bd3a1b70f3fcda771fe58d02fe76e57946065e5d8"
+    },
+    {
+      "path": "tools/tests/test_audit_grok_handoff_2.py",
+      "git_blob": "818ffc63ce8ac8177f61459946c0ec1771f83d71",
+      "canonical_lf_sha256": "f5bc1c162a39615d87c58e3c2882d3672dc16e82a1bf0e3cbaca8c1082ec1f64"
+    },
+    {
+      "path": "tools/tests/test_audit_imagine_handoff.py",
+      "git_blob": "a129c0b5b656875323ed59cc909700a4d5a8df25",
+      "canonical_lf_sha256": "95dba4a972ce77a6010968b58199d805bc28c64e97dbfd7f0217acd92fcb1cf2"
+    },
+    {
+      "path": "tools/tests/test_audit_minigame_art_quality.py",
+      "git_blob": "76f73f634e4fed63cbbe36220eeac75edc7500ba",
+      "canonical_lf_sha256": "d940fa0b669f6f60bb235e5236b26b475909415b7a25e4569e1a63bb58dd0dcd"
+    },
+    {
+      "path": "tools/tests/test_audit_opera_capture.py",
+      "git_blob": "f41bf1e1524b134249f51a4074e1a00400e735dc",
+      "canonical_lf_sha256": "5815980e993bad08e29d7bc2761fdc5fc2eb128dc52b435f3ca7decaf905bb40"
+    },
+    {
+      "path": "tools/tests/test_audit_overnight_recut_handoff.py",
+      "git_blob": "e53ab5f95d125590e6c45322acccfb025794564f",
+      "canonical_lf_sha256": "3049520f3a64a522e43e6688067342b9e0bd16ded6e3a087da1dec290724c30c"
+    },
+    {
+      "path": "tools/tests/test_audit_roshan_2d.py",
+      "git_blob": "24225fd612d45244f9e235c0c981cda24dea2a17",
+      "canonical_lf_sha256": "1e16d3d6b4e5d8cffb06009d8625eb5a45580692e4c9d08d0184738956de3ae9"
+    },
+    {
+      "path": "tools/tests/test_audit_roshan_sprite_clipping.py",
+      "git_blob": "df4e5f914efdb08b0f781f6a09c2c2f0fe2ea461",
+      "canonical_lf_sha256": "85c1ec02f4358b861624fd58d5224529aa1a16fc50289b428c5be1b951d3dd0a"
+    },
+    {
+      "path": "tools/tests/test_audit_stage_pathfinding.py",
+      "git_blob": "0ed1b810df3c2038dfc35279e97ed02a993302ae",
+      "canonical_lf_sha256": "578a33ea9c007f31a3569f7d5970e397aa2b7fd9fc40368a8a6ee53c4d974a23"
+    },
+    {
+      "path": "tools/tests/test_audit_visual_design.py",
+      "git_blob": "53fe1d5333d1142a9a8091da066ff96f24996dd0",
+      "canonical_lf_sha256": "9a68e3250cab487169c882cac788161021cca6934e618575bbbe548166ca215e"
+    },
+    {
+      "path": "tools/tests/test_bake_zone_mask.py",
+      "git_blob": "bb509b2ca294bbb1c831ba1e87151657930301e6",
+      "canonical_lf_sha256": "333f83bc40a5641b451d11baf7b8104ebc1480a4f24c3c6442fb399734a645c1"
+    },
+    {
+      "path": "tools/tests/test_build_seek_animation_assets.py",
+      "git_blob": "29e618b5ef6930717b8b9d3ecee6e949e88e9f8e",
+      "canonical_lf_sha256": "c0f93eb1015e7bf57411c2b7c6399f16c05d37fd647c25c0fe39772ee45875c6"
+    },
+    {
+      "path": "tools/tests/test_build_study_roadmap.py",
+      "git_blob": "4e6e5aa6352b7ed5de4394fc05d008379678b12e",
+      "canonical_lf_sha256": "02b9209866e24384f43d724ac9eed18669f29ee31dfba156a5504ae1bf0f6d0d"
+    },
+    {
+      "path": "tools/tests/test_check_grade_headroom.py",
+      "git_blob": "6f0d36d335bd81a3e6cd449ef26ad645a681a3be",
+      "canonical_lf_sha256": "bc67a1b5fa6c24a14f51c0a422af9ca953fef2598e7269f66a602d13edd4a203"
+    },
+    {
+      "path": "tools/tests/test_create_cinematic_position_guides.py",
+      "git_blob": "a8af0112d46cae4220f6cd3f0940896569e5892a",
+      "canonical_lf_sha256": "155fa7754b96462aa88fe164b5d8063a89d265eec384c07343a476f4b3c75129"
+    },
+    {
+      "path": "tools/tests/test_create_cinematic_regeneration_job.py",
+      "git_blob": "a1e697d774f4c8d60827d898229aa1397afbc2ef",
+      "canonical_lf_sha256": "7314c5fea12f74e49657858bac9302f016f1acaf6736b9340d793ca60d70fec6"
+    },
+    {
+      "path": "tools/tests/test_day_one_contextual_parler_cohort.py",
+      "git_blob": "63d39a7419d90edf53dc5d8d1f11168fe7dd2b2f",
+      "canonical_lf_sha256": "ffc39f4108a150820c79de2560a1a86679f6d457bc6c9a1e7baf4ce4ecebd70a"
+    },
+    {
+      "path": "tools/tests/test_day_one_davinci_draft.py",
+      "git_blob": "60592f1cd789b3fec48dff2cee75b7df0d3fbc7c",
+      "canonical_lf_sha256": "50680ff5cc15df33d4e86ffa580efe7029c1a57fe876e817f65d6c0ef002077f"
+    },
+    {
+      "path": "tools/tests/test_day_one_voice_timeline.py",
+      "git_blob": "87872b38823bf06792d08e03b3eca56dd647e0ea",
+      "canonical_lf_sha256": "2110c8e721c6dd588a633f208e529003857c332d08e0ff0be96c74ac7a2a8f6e"
+    },
+    {
+      "path": "tools/tests/test_extract_cinematic_subject_mask.py",
+      "git_blob": "1765b061ebd3195e9b188baec31a8846d0fee976",
+      "canonical_lf_sha256": "afe8c404534048b6eb59b01404a00bdd51adc376392c2156bdb6d64161a19301"
+    },
+    {
+      "path": "tools/tests/test_fashion_audio.py",
+      "git_blob": "0255cb7e48f3e1e92623b1c2e1af336e77bc68a8",
+      "canonical_lf_sha256": "4c464bd2db8c0f78c8c40bb9b5a34e5d2eceab1a31d1a368b0fc2ac7f93db9ed"
+    },
+    {
+      "path": "tools/tests/test_finalize_full_regen_review.py",
+      "git_blob": "704799b56799e3829b4eb456704b682d2d0fdf21",
+      "canonical_lf_sha256": "92ca744bdec529c03cee443a200a3445fc307ccf68fb476a90f3377e519f7891"
+    },
+    {
+      "path": "tools/tests/test_frame_regeneration_audit.py",
+      "git_blob": "0300e29b2acc39658b60d1025c421ee65b86ab57",
+      "canonical_lf_sha256": "9dedcd34b66bc43e4a407f7508e8a2d01e9900e9bf11e67208bf6a5da5e2c77e"
+    },
+    {
+      "path": "tools/tests/test_gold_star.py",
+      "git_blob": "ba45a821eaf276aef5ae188230366672389d4c89",
+      "canonical_lf_sha256": "712263cf4a63ac84fad0a56c516a74cdf2f5626bd767bd907d1ee352da5f8814"
+    },
+    {
+      "path": "tools/tests/test_ltx_wave_experiment.py",
+      "git_blob": "497a715c3b544c09c9d1e6c1353da0097655e5d3",
+      "canonical_lf_sha256": "f9824cb991b11546bc662eeffc1d971c32215931706106b8aeb1720a91099eea"
+    },
+    {
+      "path": "tools/tests/test_make_voices_lines.py",
+      "git_blob": "cfcafbbcc0e9f5722f656b153b25b538819c058f",
+      "canonical_lf_sha256": "d4edd7110a773b3be4a13bd54c42390b363722d63b87e4789d3fa4e9f40cc4ab"
+    },
+    {
+      "path": "tools/tests/test_plan_audit_rollback.py",
+      "git_blob": "6f62bc5c2720587ab93c6df04f421fd500b1bd03",
+      "canonical_lf_sha256": "5e6f55f9c0a5fc8036da7b1212ad27fbdec5faa8bff6b47553a924b3378576fa"
+    },
+    {
+      "path": "tools/tests/test_plan_prompt.py",
+      "git_blob": "1d6334a341a3a5bd4361198e372b3d259f8c618a",
+      "canonical_lf_sha256": "d31e7e539303d209a547711b83be985f890774ba74685955104454e525588c06"
+    },
+    {
+      "path": "tools/tests/test_prepare_opera_minigame_art.py",
+      "git_blob": "df8609a0f44592513773701db0c452d20cc3fdc4",
+      "canonical_lf_sha256": "5a35511ada8f3734579e6eb2e308c875f3dba54292392dbdcc2b5e426849339d"
+    },
+    {
+      "path": "tools/tests/test_record_owner_decision.py",
+      "git_blob": "fd1b51b9bfd5f6f3b84924703489eb349d122b19",
+      "canonical_lf_sha256": "a3d8ffc35cfe42bef2ac996938120288ff9c5bd0dc029e54d1a76f5e96eda4ad"
+    },
+    {
+      "path": "tools/tests/test_regenerate_opening_cinematic.py",
+      "git_blob": "efa52ce5e449074ef34e261ac47a18e209fda0c4",
+      "canonical_lf_sha256": "7de2bd75cc001a34b94f4dd72fb677344fc04742652869408c8c72b4f1d92680"
+    },
+    {
+      "path": "tools/tests/test_resolve_godot.py",
+      "git_blob": "c0669375604b8fc42b6af07811725afb6fa7927a",
+      "canonical_lf_sha256": "f5b2498c582f3450ad9723ce712eab754c520cddc587fdf01a982ee3c22d8b8d"
+    },
+    {
+      "path": "tools/tests/test_roshan_grok_auditions.py",
+      "git_blob": "f6d48063d2c00e7ed76f12170578fc1df08a35e1",
+      "canonical_lf_sha256": "8af9e5e2a7fda5beac99ba0fc80da5dfc2b66659652a3510ec2dc2323afd5b5c"
+    },
+    {
+      "path": "tools/tests/test_run_advisory_sensor.py",
+      "git_blob": "48e4bf35fd1ef47eb565eb9649c6bf12d1a94a9a",
+      "canonical_lf_sha256": "d4ae8a73570f66be5656b4ba53f0290c39909de5e6953927a884025900822985"
+    },
+    {
+      "path": "tools/tests/test_sprite_pipeline.py",
+      "git_blob": "4b3c1ec851b24a515f6fd2d2a77ed17886c98244",
+      "canonical_lf_sha256": "07e8bc1ede2c8be6d0c4f110c5477899c69321a4a48e2498f03d891016fa5a15"
+    },
+    {
+      "path": "tools/tests/test_study_game.py",
+      "git_blob": "873b653911741b919b63096970ac25729210ffb9",
+      "canonical_lf_sha256": "0a91cc8e16c5be3e32722ab8bf5e43662b909e9b42738cd23c8de6a24d264782"
+    },
+    {
+      "path": "tools/verify_day_one_davinci.py",
+      "git_blob": "d0f6e9bb5d97ad1f50056750ec8f5ade7a4b311b",
+      "canonical_lf_sha256": "07e814c47ad0ad429a4fe5a4454c9754aaabfe1816466b3e3a304a44074237ac"
+    },
+    {
+      "path": "tools/visual_audit_spec.json",
+      "git_blob": "be2e8a9b3a7b010448345d4b49da18a2617a0df0",
+      "canonical_lf_sha256": "b9a2dbd53cba42378cbc1a76e5d834b359604b72efe090836b9908b7b29426db"
+    }
+  ],
+  "source_mismatches": [],
+  "staged_path_count": 124,
+  "staged_paths": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/grand_puff_crash_20261017/affected_probe_reruns.json",
+    "audit/grand_puff_crash_20261017/authority.log",
+    "audit/grand_puff_crash_20261017/baseline_probe_controls.json",
+    "audit/grand_puff_crash_20261017/baseline_probe_throne.log",
+    "audit/grand_puff_crash_20261017/baseline_probe_verbs.log",
+    "audit/grand_puff_crash_20261017/baseline_reproduction.log",
+    "audit/grand_puff_crash_20261017/baseline_runtime.log",
+    "audit/grand_puff_crash_20261017/baseline_throne_fps60.log",
+    "audit/grand_puff_crash_20261017/combat_attempt1.log",
+    "audit/grand_puff_crash_20261017/combat_attempt3.log",
+    "audit/grand_puff_crash_20261017/development.log",
+    "audit/grand_puff_crash_20261017/diagnostic_throne_fps60.log",
+    "audit/grand_puff_crash_20261017/display.gd.txt",
+    "audit/grand_puff_crash_20261017/display.log",
+    "audit/grand_puff_crash_20261017/display/01_arrival.png",
+    "audit/grand_puff_crash_20261017/display/02_recovered_castle.png",
+    "audit/grand_puff_crash_20261017/display/03_boss_entry.png",
+    "audit/grand_puff_crash_20261017/display/04_live_fight.png",
+    "audit/grand_puff_crash_20261017/display/05_after_fight.png",
+    "audit/grand_puff_crash_20261017/display_attempt1.log",
+    "audit/grand_puff_crash_20261017/display_attempt1/01_arrival.png",
+    "audit/grand_puff_crash_20261017/display_attempt1/02_recovered_castle.png",
+    "audit/grand_puff_crash_20261017/display_attempt1/03_boss_entry.png",
+    "audit/grand_puff_crash_20261017/display_attempt1/04_live_fight.png",
+    "audit/grand_puff_crash_20261017/display_attempt1/05_after_fight.png",
+    "audit/grand_puff_crash_20261017/display_manifest.json",
+    "audit/grand_puff_crash_20261017/dust_fixture_controls.json",
+    "audit/grand_puff_crash_20261017/dust_fixture_earned_counterexample.gd.txt",
+    "audit/grand_puff_crash_20261017/dust_fixture_earned_counterexample.log",
+    "audit/grand_puff_crash_20261017/dust_fixture_isolated_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/dust_fixture_isolated_diagnostic.log",
+    "audit/grand_puff_crash_20261017/dust_fixture_original_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/dust_fixture_original_diagnostic.log",
+    "audit/grand_puff_crash_20261017/final_authority.log",
+    "audit/grand_puff_crash_20261017/final_authority_process.json",
+    "audit/grand_puff_crash_20261017/final_development.log",
+    "audit/grand_puff_crash_20261017/final_development_process.json",
+    "audit/grand_puff_crash_20261017/final_game2d.log",
+    "audit/grand_puff_crash_20261017/final_game2d_process.json",
+    "audit/grand_puff_crash_20261017/final_probe_dust_boss.log",
+    "audit/grand_puff_crash_20261017/final_probe_throne.log",
+    "audit/grand_puff_crash_20261017/final_probe_verbs.log",
+    "audit/grand_puff_crash_20261017/final_syntax.json",
+    "audit/grand_puff_crash_20261017/fixed_reproduction.log",
+    "audit/grand_puff_crash_20261017/fixed_standalone.log",
+    "audit/grand_puff_crash_20261017/fixture_boundary.gd.txt",
+    "audit/grand_puff_crash_20261017/fixture_boundary.log",
+    "audit/grand_puff_crash_20261017/full_ci.log",
+    "audit/grand_puff_crash_20261017/full_ci_attempt1.log",
+    "audit/grand_puff_crash_20261017/full_ci_attempt2_result.json",
+    "audit/grand_puff_crash_20261017/full_ci_process.json",
+    "audit/grand_puff_crash_20261017/full_ci_process_attempt1.json",
+    "audit/grand_puff_crash_20261017/idle_cycle_controls.json",
+    "audit/grand_puff_crash_20261017/native_debugger.json",
+    "audit/grand_puff_crash_20261017/native_debugger.log",
+    "audit/grand_puff_crash_20261017/native_debugger.py.txt",
+    "audit/grand_puff_crash_20261017/native_debugger_control_exception.log",
+    "audit/grand_puff_crash_20261017/native_debugger_control_exit.log",
+    "audit/grand_puff_crash_20261017/native_exit_diagnostic.json",
+    "audit/grand_puff_crash_20261017/native_exit_diagnostic.log",
+    "audit/grand_puff_crash_20261017/normal_dust_boss_repeat1.log",
+    "audit/grand_puff_crash_20261017/normal_dust_boss_repeat2.log",
+    "audit/grand_puff_crash_20261017/normal_dust_boss_repeats.json",
+    "audit/grand_puff_crash_20261017/opera_route_controls.json",
+    "audit/grand_puff_crash_20261017/opera_route_deadline_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/opera_route_deadline_diagnostic.log",
+    "audit/grand_puff_crash_20261017/opera_route_frame_limit_control.gd.txt",
+    "audit/grand_puff_crash_20261017/opera_route_frame_limit_control.log",
+    "audit/grand_puff_crash_20261017/owner_playtest_crash.log",
+    "audit/grand_puff_crash_20261017/precommit_verification.json",
+    "audit/grand_puff_crash_20261017/probe_day_one_story_clips.log",
+    "audit/grand_puff_crash_20261017/probe_dust_boss.log",
+    "audit/grand_puff_crash_20261017/probe_opera_retry.log",
+    "audit/grand_puff_crash_20261017/probe_opera_retry_process.json",
+    "audit/grand_puff_crash_20261017/probe_reconciliation.json",
+    "audit/grand_puff_crash_20261017/rejected_live_notification_probe.gd.txt",
+    "audit/grand_puff_crash_20261017/reproduction.gd.txt",
+    "audit/grand_puff_crash_20261017/source_equivalence.json",
+    "audit/grand_puff_crash_20261017/source_pin.json",
+    "audit/grand_puff_crash_20261017/source_pin_attempt1.json",
+    "audit/grand_puff_crash_20261017/source_pin_final.json",
+    "audit/grand_puff_crash_20261017/standalone_reproduction.gd.txt",
+    "audit/grand_puff_crash_20261017/story_attempt1.log",
+    "audit/grand_puff_crash_20261017/throne_cadence_controls.json",
+    "audit/grand_puff_crash_20261017/throne_camera_candidate.log",
+    "audit/grand_puff_crash_20261017/throne_camera_candidate_process.json",
+    "audit/grand_puff_crash_20261017/throne_camera_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_framing_controls.json",
+    "audit/grand_puff_crash_20261017/throne_framing_v2_controls.json",
+    "audit/grand_puff_crash_20261017/throne_framing_v3_controls.json",
+    "audit/grand_puff_crash_20261017/throne_full_framing_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_full_framing_diagnostic.log",
+    "audit/grand_puff_crash_20261017/throne_full_framing_v2.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_full_framing_v2.log",
+    "audit/grand_puff_crash_20261017/throne_full_framing_v3.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_full_framing_v3.log",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_counterexample.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_counterexample.log",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_v2.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_v2.log",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_v3.gd.txt",
+    "audit/grand_puff_crash_20261017/throne_partial_framing_v3.log",
+    "audit/grand_puff_crash_20261017/unchanged_combat_control.gd.txt",
+    "audit/grand_puff_crash_20261017/unchanged_combat_control.log",
+    "audit/grand_puff_crash_20261017/verbs_frozen_negative_control.gd.txt",
+    "audit/grand_puff_crash_20261017/verbs_frozen_negative_control.log",
+    "audit/grand_puff_crash_20261017/verbs_full_cycle_diagnostic.gd.txt",
+    "audit/grand_puff_crash_20261017/verbs_full_cycle_diagnostic.log",
+    "audit/grand_puff_crash_20261017/verbs_partial_cycle_control.gd.txt",
+    "audit/grand_puff_crash_20261017/verbs_partial_cycle_control.log",
+    "audit/grand_puff_crash_20261017/verification.json",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/grand-puff-crash-20261017.json",
+    "scripts/arena/day_one_castle_dressing.gd",
+    "scripts/day_one_flow.gd",
+    "scripts/probe_day_one_story_clips.gd",
+    "scripts/probe_dust_boss.gd",
+    "scripts/probe_throne.gd",
+    "scripts/probe_verbs.gd"
+  ],
+  "protected_or_instruction_paths_changed": false,
+  "qualification": "All639 tested source files match staged Git blobs under declared LF text normalization and raw Windows working bytes. This binds local probe-by-probe evidence before the first topic commit; remote combined-head CI remains separate."
+}

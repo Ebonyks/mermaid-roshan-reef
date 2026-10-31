@@ -1,0 +1,26 @@
+{
+  "id": "202",
+  "probe": "probe_dust_boss",
+  "agent_name": "/root/luna_reproduction_202",
+  "model": "gpt-6-luna",
+  "source_commit": "056d890ef38f2496ab52669c955ada654f902511",
+  "machine_verdict": "FAIL",
+  "interaction_class": "MIXED_SCRIPTED_DIAGNOSTIC",
+  "exercised_path": "Supplemental reproduction of episode 125 on Godot 4.7.2, with isolated app-data profiles. The exact root_reproduce.py 125 rerun instantiated the main scene, injected the boss launch/save state and scripted touch path, then failed only the damage_recovery two-frame floor-press movement assertion; adjacent drag, multi-touch ownership, release and cancellation checks passed. One stdout-instrumented derivative retained the original assertion, wait, seed and actions and completed ALL OK. Probe input is pushed to the viewport after explicit setup; this does not measure physical touch, natural story reachability or visual/child/owner acceptance.",
+  "measured_findings": [],
+  "measured_observations": [
+    "Exact unchanged repeat receipt: FAIL, exit 1; its log hash is 1a758f04cfafa6f7d7c87de68d08c09a59d5fd8dfabbffef17a9e91849a9feb9. Only failure: DUSTBOSS|damage_recovery floor press immediately moves Roshan: FAIL (root_reproductions/episodes/125.log:68).",
+    "Diagnostic receipt: exit 0, source_changed false, result ALL OK; log hash ea0d53690e694c35c61c256f2f6922054df28c463db3457e0325f5dacd1f1f4c. Before press, player=(-21.42087, 4.348433), fixed target=(-12, 8), distance=10.103796, navigation idle. After the same two frames, player=(-12.09048, 7.964927), moved=10.006752, destination=(-12, 8), travelling=true, elapsed=3 ms (diagnostic log lines 68-70).",
+    "Production on_world_tap permits taps in damage_recovery; _can_world_move excludes only splash/friends and paused/non-boss state. The two runs disagree on the timing assertion. Instrumentation may affect scheduling, so this does not establish why the unchanged run failed or prove a production defect."
+  ],
+  "coverage_gaps": [
+    "The unchanged run did not capture before/after position or navigation state, so its failed conjunction cannot be split into missing destination versus movement below 0.05 units.",
+    "The passing instrumentation run changes timing and is a single diagnostic; it cannot identify whether the original failure was scheduling-sensitive or arose from another transient state.",
+    "Setup and boss eligibility are injected; natural fresh-save story reachability, physical device input, rendered visuals, voice audibility, child use and owner acceptance remain unmeasured."
+  ],
+  "recommendations": [
+    "Keep this as an inconsistent timing assertion with no measured defect; if a fix decision depends on it, use a narrowly instrumented reproduction that also captures the failing unchanged timing without adding delay or changing the probe trajectory.",
+    "Retain device, visual, child and owner checks as separate evidence lanes."
+  ],
+  "result_path": "tmp/luna_playtest_20261013/root_reproductions/episodes/125.json"
+}

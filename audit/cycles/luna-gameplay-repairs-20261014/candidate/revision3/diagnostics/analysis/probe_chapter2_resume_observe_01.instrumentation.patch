@@ -1,0 +1,164 @@
+--- a/scripts/probe_chapter2.gd
++++ observation-only/probe_chapter2_resume_observe_01.gd
+@@ -792,6 +792,11 @@
+ 		var passive_start := world.elapsed
+ 		var passive_exposed := await _route_wait(func() -> bool:
+ 			return not is_instance_valid(world) or world.elapsed - passive_start >= 21.0, 5.0)
++		_resume_observe_state("after_original_passive_wait", host, world)
++		print("CHAPTER2_RESUME_OBSERVE|passive=", JSON.stringify({"career": act_index,
++			"wait_result": passive_exposed, "start_elapsed": String.num(passive_start, 16),
++			"full_exposure": String.num(world.elapsed - passive_start, 16),
++			"expected_mask": completed_mask, "expected_freeplay": freeplay_before}))
+ 		_check("viewport: career %d passive hints/auto-approach cannot advance or reward" % act_index,
+ 			passive_exposed and is_instance_valid(world) and world.active \
+ 			and world.elapsed - passive_start >= 21.0 and world.phase_index == 0 \
+@@ -845,6 +850,10 @@
+ 				_check("viewport: far contact never opens before arrival", not world.task_open)
+ 			var opened := await _route_wait(func() -> bool:
+ 				return is_instance_valid(world) and world.task_open and world.reveal_t <= 0.0, 8.0)
++			_resume_observe_state("after_original_arrival_wait", host, world)
++			print("CHAPTER2_RESUME_OBSERVE|arrival=", JSON.stringify({"career": act_index,
++				"wait_result": opened, "expected_feet": str(entry_feet),
++				"activation_before": activation_before, "activation_after": hotspot.activation_count}))
+ 			_check("viewport: physical approach opens phase once at its declared floor contact",
+ 				opened and world.task_entry_feet.distance_to(entry_feet) <= 4.0
+ 				and hotspot.activation_count == activation_before + 1)
+@@ -1320,6 +1329,7 @@
+ 
+ func _fixture_checkpoint_restart(host: ReefMain, label: String) -> ReefMain:
+ 	var earned := _fixture_snapshot(host)
++	_resume_observe_state("before_original_checkpoint_release_" + label, host)
+ 	if not await _fixture_release_scene(host):
+ 		return host
+ 	var committed: Variant = JSON.parse_string(FileAccess.get_file_as_string(fixture_save_path))
+@@ -1401,13 +1411,17 @@
+ 			print("CHAPTER2|milestone=", label, " child_pid=", child_pid, " exit=", child_exit,
+ 				" receipt=", receipt_path, " log=", log_path, " primary_sha256=", primary_hash)
+ 	var resumed := await _fixture_boot_scene()
++	_resume_observe_compare("parent_loaded_" + label, fixture_loaded_snapshot, earned)
++	_resume_observe_state("parent_after_original_boot_" + label, resumed)
+ 	_check("parent resumes the same earned milestone after child exit", fixture_loaded_snapshot == earned)
+ 	await _fixture_consume_menu(resumed)
+ 	if label == "story_complete":
+ 		_check("parent Continue restores the earned party dress and completed story",
+ 			FashionDesigner.party_dressed(resumed) and resumed.chapter2_story_complete)
++	_resume_observe_state("parent_after_original_continue_" + label, resumed)
+ 	resumed._enter_castle_interior_now(false)
+ 	await process_frame
++	_resume_observe_state("parent_after_original_room_mount_" + label, resumed)
+ 	return resumed
+ 
+ 
+@@ -1435,6 +1449,10 @@
+ 	var host := await _fixture_boot_scene()
+ 	var loaded := fixture_loaded_snapshot.duplicate(true)
+ 	var generation := fixture_loaded_generation
++	_resume_observe_compare("child_ready", loaded, record.get("snapshot", {}) as Dictionary)
++	_resume_observe_state("child_after_original_boot", host)
++	print("CHAPTER2_RESUME_OBSERVE|generation=", JSON.stringify({
++		"loaded": generation, "expected": int(record.get("generation", -1))}))
+ 	_check("child ready callback captures the exact saved milestone and generation",
+ 		loaded == (record.get("snapshot", {}) as Dictionary)
+ 		and generation == int(record.get("generation", -1)))
+@@ -1618,3 +1636,101 @@
+ 	print("CHAPTER2|RESULT: ",
+ 		("PASS" if checks_failed == 0 else "FAIL"),
+ 		" checks_failed=", checks_failed)
++
++
++
++func _resume_observe_compare(label: String, actual: Dictionary, expected: Dictionary) -> void:
++	var keys: Array = actual.keys()
++	for key: Variant in expected.keys():
++		if not keys.has(key):
++			keys.append(key)
++	var rows: Array = []
++	for key: Variant in keys:
++		var left: Variant = actual.get(key)
++		var right: Variant = expected.get(key)
++		var row := {"key": str(key), "actual_has": actual.has(key), "expected_has": expected.has(key),
++			"actual_type": type_string(typeof(left)), "expected_type": type_string(typeof(right)),
++			"native_equal": left == right, "actual": left, "expected": right}
++		if left is Array:
++			var left_array := left as Array
++			var left_types: Array = []
++			for value: Variant in left_array:
++				left_types.append(type_string(typeof(value)))
++			row["actual_array_typed"] = left_array.is_typed()
++			row["actual_array_builtin"] = left_array.get_typed_builtin()
++			row["actual_element_types"] = left_types
++		if right is Array:
++			var right_array := right as Array
++			var right_types: Array = []
++			for value: Variant in right_array:
++				right_types.append(type_string(typeof(value)))
++			row["expected_array_typed"] = right_array.is_typed()
++			row["expected_array_builtin"] = right_array.get_typed_builtin()
++			row["expected_element_types"] = right_types
++		rows.append(row)
++	var normalized_actual: Variant = JSON.parse_string(JSON.stringify(actual))
++	var normalized_expected: Variant = JSON.parse_string(JSON.stringify(expected))
++	print("CHAPTER2_RESUME_OBSERVE|snapshot=", JSON.stringify({"label": label,
++		"native_equal": actual == expected, "json_domain_equal": normalized_actual == normalized_expected,
++		"actual_key_count": actual.size(), "expected_key_count": expected.size(), "fields": rows}))
++
++
++func _resume_observe_state(label: String, host: ReefMain, world: OperaCareerWorld2D = null) -> void:
++	var view := root.get_visible_rect()
++	var record := {"label": label, "tree_paused": paused, "time_scale": Engine.time_scale,
++		"viewport_position": str(view.position), "viewport_size": str(view.size),
++		"parent_process_id": OS.get_process_id(), "owner_count": _fixture_owner_count()}
++	if is_instance_valid(host):
++		record["host"] = {"id": host.get_instance_id(), "current_scene": current_scene == host,
++			"can_process": host.can_process(), "processing": host.is_processing(),
++			"process_mode": host.process_mode, "game": host.game, "g_phase": str(host.g.get("phase", "")),
++			"intro_active": host.intro_active, "start_menu_active": host.start_menu_active,
++			"day_two_transition_active": host.day_two_transition_active,
++			"piece_mask": host.chapter2_party_piece_mask,
++			"freeplay": [host.opera_stars, host.opera_progress, host.pearl_count],
++			"save_generation": host.save_generation, "loaded_id": fixture_loaded_id,
++			"loaded_generation": fixture_loaded_generation}
++	if is_instance_valid(world):
++		record["world"] = {"id": world.get_instance_id(), "can_process": world.can_process(),
++			"processing": world.is_processing(), "process_mode": world.process_mode,
++			"owner_id": world.m.get_instance_id() if is_instance_valid(world.m) else 0,
++			"owner_is_current_host": world.m == host, "career": world.career_id,
++			"elapsed": String.num(world.elapsed, 16), "active": world.active,
++			"phase_index": world.phase_index, "phase_progress": String.num(world.phase_progress, 16),
++			"pending": world.phase_advance_pending, "task_open": world.task_open,
++			"reveal_t": world.reveal_t, "wander_feet": str(world.wander_feet),
++			"task_entry_feet": str(world.task_entry_feet), "armed_station": world.armed_station,
++			"callbacks": _resume_observe_callbacks(world.adapter_callbacks)}
++		if world.surface != null and is_instance_valid(world.surface):
++			var surface := world.surface
++			var transform := surface.get_global_transform_with_canvas()
++			var corners: Array = []
++			for point: Vector2 in [Vector2.ZERO, Vector2(surface.size.x, 0), surface.size,
++					Vector2(0, surface.size.y)]:
++				var mapped := transform * point
++				corners.append({"local": str(point), "viewport": str(mapped), "in_visible_rect": view.has_point(mapped)})
++			var ancestors: Array = []
++			var ancestor: Node = surface
++			while ancestor != null:
++				if ancestor is Control:
++					var control := ancestor as Control
++					ancestors.append({"name": str(control.name), "visible": control.is_visible_in_tree(),
++						"clip_contents": control.clip_contents, "position": str(control.position),
++						"size": str(control.size), "canvas_transform": str(control.get_global_transform_with_canvas())})
++				ancestor = ancestor.get_parent()
++			record["surface"] = {"size": str(surface.size), "canvas_transform": str(transform),
++				"corners": corners, "control_ancestors": ancestors, "visible": surface.is_visible_in_tree()}
++	print("CHAPTER2_RESUME_OBSERVE|state=", JSON.stringify(record))
++
++
++func _resume_observe_callbacks(callbacks: Dictionary) -> Array:
++	var rows: Array = []
++	for event: Variant in callbacks.keys():
++		var value: Variant = callbacks[event]
++		if value is Callable:
++			var callback := value as Callable
++			var owner := callback.get_object()
++			rows.append({"event": str(event), "valid": callback.is_valid(), "method": str(callback.get_method()),
++				"owner_class": owner.get_class() if is_instance_valid(owner) else "freed",
++				"owner_id": owner.get_instance_id() if is_instance_valid(owner) else 0})
++	return rows

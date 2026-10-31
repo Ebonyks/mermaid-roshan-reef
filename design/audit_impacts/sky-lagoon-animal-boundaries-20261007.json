@@ -1,0 +1,92 @@
+{
+  "id": "sky-lagoon-animal-boundaries-20261007",
+  "scope": "Repair Sky Lagoon animal floor placement, per-frame footing and bounded patrol/startle travel using the existing approved painting and unchanged five-species atlases.",
+  "baseline": "6238934447cf28834874396dfbaff65effafda46",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-LAY-01",
+    "DL-READ-02",
+    "DL-CODE-03",
+    "DL-CODE-07",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-002",
+    "MA-PLAY-003"
+  ],
+  "files": [
+    "scripts/arena/sky_lagoon_promenade.gd",
+    "scripts/arena/sky_lagoon_layout.json",
+    "scripts/probe_sky_lagoon_animals.gd",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/sky_lagoon_animal_boundaries_20261007.json"
+  ],
+  "validation": [
+    {
+      "command": "Baseline source/painting review",
+      "result": "FAIL",
+      "evidence": "62389344: _animal_path_is_safe only tests waypoint separation from Roshan; old routes stand on rails/shrub tops; _tick_animal_startle moves unbounded horizontally and cumulatively subtracts hop height. Existing footing audit names the placement gap. Original plate SHA-256 017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41. Exact old-source GDScript replay: tmp/animal-boundaries/baseline.log at SHA-256 defe1fc7b062020c69f58ca6856d3e4dac3ddf0fff0e1caf9560dd16ced6f3d9 reports both unsafe routes accepted=true; repaired probe rejects both."
+    },
+    {
+      "command": "python -m gdtoolkit.parser scripts/arena/sky_lagoon_promenade.gd scripts/probe_sky_lagoon_animals.gd; python tools/lint_inference.py scripts/arena/sky_lagoon_promenade.gd scripts/probe_sky_lagoon_animals.gd",
+      "result": "PASS",
+      "evidence": "Changed scripts parse and pass inference lint; exact Godot check-only analyzer passes both changed scripts. The complete local suite separately passes all 82 trusted probes."
+    },
+    {
+      "command": "C:/Program Files/Git/bin/bash.exe scripts/ci.sh (exact approved Godot 4.7.2-stable resolver)",
+      "result": "PASS",
+      "evidence": "Complete local suite exits 0, all 82 unique trusted probes exit 0, zero trusted failure/script/parse/compile errors. Log tmp/animal-boundaries/full-ci.log SHA-256 f7b015dc78265e6c5fb1bec4cf2cf8ab2ef6de71423404f1764eb949bcc46211. Includes import, parser/lint, exact engine, authority/coverage, music/audio, regression/stress and all trusted gameplay probes. Existing advisory visual audit remains UNSATISFIED. Runtime source hashes are bound in audit/sky_lagoon_animal_boundaries_20261007.json."
+    },
+    {
+      "command": "Exact Godot 4.7.2-stable Mobile/Speedy scripts/probe_sky_lagoon_animals.gd with isolated APPDATA and LAGOON_ANIMAL_BOUNDARY_SHOTS=1",
+      "result": "PASS",
+      "evidence": "tmp/animal-boundaries/mobile-v3.log SHA-256 7a0a06c00b8d00db50df5198d2750bb98f2270091f2e0048fc0c7bf352e74186; 45 pairs / 90 exact 1280x720 PNGs, Mobile on RTX3060Ti. New launch/caption guards reject covered captures. All frame contact, negative, patrol, both-direction/large-delta startle, roster, lighting, touch and passive-award assertions pass. Agent inspected all 45 case crops in ground/startle/lighting sheets; paths stay on stone/grass and clear foliage. Desktop review is not device/child/owner acceptance."
+    },
+    {
+      "command": "Exact Godot 4.7.2 --headless -s scripts/probe_l2_living_cards.gd -- --touch --classic-touch-test with isolated APPDATA",
+      "result": "PASS",
+      "evidence": "tmp/animal-boundaries/living-cards.log SHA-256 921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4: ALL OK; 34 Canvas sprites, 12 backdrop tiles, 5 contact shadows, 0 spatial stage nodes; bounded idle, input cancellation, transparent coverage, synchronous teardown, cold rebuild and night congruence pass."
+    },
+    {
+      "command": "GitHub Probe suite for exact published branch head, followed by dev integration",
+      "result": "PENDING",
+      "evidence": "Local completion record: branch is not yet published. Exact-head remote CI must be green before integration; its later result will be reported separately."
+    }
+  ],
+  "acceptance_gaps": "Target-phone/M11 playback, child and owner review remain outstanding. No whole-game geometry, visual, strict-zero 2D or release satisfaction is claimed.",
+  "references_used": [
+    {
+      "path": "docs/audits/SKY_LAGOON_ANIMALS_2026-08-01.md",
+      "purpose": "Species, one pooled actor, habitat continuity and grounded exit requirements; legacy spatial staging superseded."
+    },
+    {
+      "path": "docs/audits/SKY_LAGOON_ANIMAL_REALISM_2026-08-02.md",
+      "purpose": "Existing painted-footing and atlas-baseline evidence, reproduced in current Canvas code."
+    },
+    {
+      "path": "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md",
+      "purpose": "Explicit accessible floor and whole-route boundaries; animal-only scope does not close avatar arrival geometry."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "Distance from the player path does not prove that an ambient animal is on painted ground; startle routes and per-cell foot contact need the same coverage as patrol.",
+      "write_back": "scripts/probe_sky_lagoon_animals.gd"
+    }
+  ],
+  "source_revision": "13bc2ea36dd97572f64f6f5cc4a5f74f0270865c"
+}

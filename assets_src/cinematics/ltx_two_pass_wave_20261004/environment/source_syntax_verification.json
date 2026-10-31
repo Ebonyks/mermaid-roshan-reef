@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "python_ast_parse_files": [
+    "scripts/build_reviews.py",
+    "scripts/fallback_server_boot.py",
+    "scripts/ltx_nag_vendor.py",
+    "scripts/refresh_packet.py",
+    "scripts/render_fallback.py",
+    "scripts/render_two_pass.py",
+    "scripts/run_gates.py",
+    "scripts/study_nodes.py",
+    "scripts/study_server_boot.py",
+    "scripts/verify_adapters.py",
+    "scripts/verify_remote.py",
+    "scripts/verify_trial.py"
+  ],
+  "powershell_parse": "Start-Fallback.ps1 parsed with nativePowerShellParser, zeroerrors",
+  "limits": "Source syntax only; actual model/Aseprite execution and pixel roundtrip evidence are separate."
+}

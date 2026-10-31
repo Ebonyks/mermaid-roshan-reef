@@ -1,0 +1,124 @@
+{
+	"captures": [
+		{
+			"button_global_rect": "[P: (723.0, 18.0), S: (154.0, 154.0)]",
+			"castle_room": "library",
+			"castle_visible": true,
+			"crest_global_rect": "[P: (775.0, 116.0), S: (50.0, 50.0)]",
+			"crest_resource": "res://assets/opera/worlds/ui/crests/opera_crest_geologist.svg",
+			"id": "01_library_unearned",
+			"main_game": "level2",
+			"path": "01_library_unearned.png",
+			"sha256": "0f046485b96988802d7eb05a3d33cafe6739b48d6179bcb2557b3592e4516303",
+			"size": [
+				1600,
+				720
+			],
+			"source_revision": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d + actual candidateSHA256 3ce7d47bf542f577077427dab033c734cad27f89aefc3a8990adb48bbe884912",
+			"stars": 0,
+			"start_menu_active": false
+		}
+	],
+	"checks": [
+		{
+			"label": "exact approved engine hash",
+			"pass": true
+		},
+		{
+			"label": "Mobile native Windows time1",
+			"pass": true
+		},
+		{
+			"label": "private dependency bound before ready",
+			"pass": true
+		},
+		{
+			"label": "original Continue available",
+			"pass": true
+		},
+		{
+			"label": "start menu retired before world",
+			"pass": true
+		},
+		{
+			"label": "original Library three picture cards visible",
+			"pass": true
+		},
+		{
+			"label": "original geologist route button",
+			"pass": true
+		},
+		{
+			"label": "same button generous hit geometry",
+			"pass": true
+		},
+		{
+			"label": "same crest50px geometry",
+			"pass": true
+		},
+		{
+			"label": "real bound crest exists",
+			"pass": true
+		},
+		{
+			"label": "exact expected crest bound",
+			"pass": true
+		},
+		{
+			"label": "original owner room mapping",
+			"pass": true
+		},
+		{
+			"label": "Speedy own profile",
+			"pass": true
+		},
+		{
+			"label": "passive card cannot earn star",
+			"pass": true
+		},
+		{
+			"label": "native frame dimensions 01_library_unearned",
+			"pass": true
+		},
+		{
+			"label": "native save 01_library_unearned",
+			"pass": true
+		},
+		{
+			"label": "normal11 files unchanged",
+			"pass": true
+		}
+	],
+	"child": null,
+	"device": null,
+	"formal_QA11": null,
+	"normal_after": {
+		"": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+		".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+		".before_new_game.bak": "absent",
+		".before_new_game.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_before": {
+		"": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+		".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+		".before_new_game.bak": "absent",
+		".before_new_game.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"owner": null,
+	"scope": "OriginalMain synthetic freeplay Library room card and Geologist launcher; no natural/child/device/formalQA11 claim.",
+	"status": "PASS"
+}

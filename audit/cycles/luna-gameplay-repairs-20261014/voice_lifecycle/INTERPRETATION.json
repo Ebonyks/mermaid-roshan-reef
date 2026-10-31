@@ -1,0 +1,101 @@
+{
+  "audio_audit": {
+    "attempt01": "PREFLIGHT_ABORT_SOURCE_PIN_MISMATCH; no generation, unit tests or check ran; preserved unchanged",
+    "attempt02": "PASS; generation, 27 unit tests, check857/857, full5682source pin unchanged",
+    "inventory_rows": 857,
+    "new_guide_human_grades": "BLANK",
+    "new_neutral_guide_rows": 2,
+    "protected_originals": 13,
+    "protected_originals_state": "UNCHANGED"
+  },
+  "canonical_owner_decision_impact_ledger": "Parent-owned; no canonical authority edits performed by this archive operation.",
+  "external_acceptance": {
+    "audible_listening": "NOT_MEASURED",
+    "child": "NOT_MEASURED",
+    "owner_creative_acceptance": "NOT_MEASURED",
+    "physical_device": "NOT_MEASURED"
+  },
+  "focused_gates": {
+    "dolls-objective-01": {
+      "exit_code": 0,
+      "log": "focused_gates/dolls-objective-01.log",
+      "machine_status": "PASS",
+      "receipt": "focused_gates/dolls-objective-01.json"
+    },
+    "kart-teardown-01": {
+      "exit_code": 0,
+      "log": "focused_gates/kart-teardown-01.log",
+      "machine_status": "PASS",
+      "receipt": "focused_gates/kart-teardown-01.json"
+    },
+    "seek-objective-01": {
+      "exit_code": 0,
+      "log": "focused_gates/seek-objective-01.log",
+      "machine_status": "PASS",
+      "receipt": "focused_gates/seek-objective-01.json"
+    },
+    "start-new-reload-01": {
+      "exit_code": 0,
+      "log": "focused_gates/start-new-reload-01.log",
+      "machine_status": "PASS",
+      "receipt": "focused_gates/start-new-reload-01.json"
+    },
+    "voice-routing-01": {
+      "exit_code": 0,
+      "log": "focused_gates/voice-routing-01.log",
+      "machine_status": "PASS",
+      "receipt": "focused_gates/voice-routing-01.json"
+    }
+  },
+  "historical_family_specific_recording_gaps": "Preserved; supplying separately authorized neutral instructions does not establish family-speaker recordings or game-wide finding closure.",
+  "kart": {
+    "default_missing_shell_pickup_orphan_growth": [
+      0,
+      0,
+      0
+    ],
+    "evidence": "focused_gates/kart-teardown-01.log",
+    "test_games_released": true,
+    "verbose_objectdb_leaked_instances_reported": false
+  },
+  "related_findings": [
+    "MA-ACCESS-001",
+    "MA-ACCESS-003",
+    "MA-AUDIO-001",
+    "MA-PLAY-001"
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-01",
+    "DL-SND-03",
+    "DL-SND-05",
+    "DL-SND-10",
+    "DL-SND-11",
+    "DL-SND-12",
+    "DL-SND-13",
+    "DL-SND-15",
+    "DL-SND-16",
+    "DL-SAVE-01",
+    "DL-QA-01",
+    "DL-QA-07"
+  ],
+  "schema": "reef.voice-lifecycle-machine-evidence-interpretation.v1",
+  "scope": "Completed local machine evidence only; original native artifacts are preserved without changing acceptance labels.",
+  "start_new": {
+    "actual_current_scene_replaced_by_production_deferred_reload": true,
+    "committed_and_loaded_generation": 9,
+    "fixture_limitation": "The probe removes disposable primary/archive/save companions on completion. Receipt/log record verified preboot hashes and loaded fields, but missing fixture bytes are not preserved or reconstructed.",
+    "fresh_process_continue_verified": true,
+    "fresh_process_exit_code": 0,
+    "fresh_process_id": 35880,
+    "native_child_log": "fresh_process/child.log",
+    "native_child_receipt": "fresh_process/child.json",
+    "native_fixture_bytes_preserved": false,
+    "one_shot_reset_marker_consumed": true,
+    "prior_adventure_archive_preserved_during_test": true,
+    "reload_count_for_one_hold": 1,
+    "test_parent_process_id": 15476
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "900": {
+    "class_type": "StudyRuntimeReceipt",
+    "inputs": {
+      "label": "decoder_preflight"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ltx-2.5-video-vae-bf16.safetensors"
+    }
+  },
+  "8": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "guide_0022.png"
+    }
+  },
+  "9": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "8",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "40": {
+    "class_type": "VAEDecodeTiled",
+    "inputs": {
+      "samples": [
+        "9",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "tile_size": 256,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8
+    }
+  },
+  "41": {
+    "class_type": "StudyFiniteImages",
+    "inputs": {
+      "images": [
+        "40",
+        0
+      ]
+    }
+  },
+  "42": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "41",
+        0
+      ],
+      "filename_prefix": "decoder_preflight/preflight/frame"
+    }
+  }
+}

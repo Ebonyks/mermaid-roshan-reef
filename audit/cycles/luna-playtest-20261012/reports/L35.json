@@ -1,0 +1,168 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L35",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l35",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Hidden stick regions and discoverability",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L35/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The exact Godot 4.7.2.stable scripted probe passed in Classic mode: primary finger drag steered; second-finger tap jumped; second-finger drag changed camera without jumping; camera returned after lift; a 300 ms still hold became held jump and release cleared it; focus loss cleared touch state; and the Galaxy camera responded to touch. Receipt: runtime/L35/attempt_1/receipt.json (exit 0, no failure lines, headless, isolated profile); runtime/L35/attempt_1/probe.log records these PASS lines.",
+    "route_gaps": "This is not a normal child-visible route. The probe skips the intro, forces Classic with main._set_touch_mode(\"classic\", false), sends synthetic coordinates, and directly starts Galaxy. The shipping/default mode is Hybrid (scripts/main.gd:609-611); the probe does not exercise that mode's movement-zone ownership or show the initial display. No GUI/Mobile render, physical phone, child, or owner session was observed."
+  },
+  "verdict": "FAIL",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Stick radius R = 78 px; movement begins after TAP_SLOP = 22 px, and stick magnitude scales from that slop to the radius.",
+        "evidence": "scripts/touch_ui.gd:92-95, 237-247",
+        "scope": "Source-defined Classic/Hybrid gesture thresholds; physical touch comfort and rendered response are unmeasured."
+      },
+      {
+        "value": "Classic still-finger classification threshold is JUMP_HOLD_MS = 140 ms; the probe waits 300 ms for its held-jump assertion and up to 3000 ms for camera drift-back.",
+        "evidence": "scripts/touch_ui.gd:94-95, 149-156; scripts/probe_touch_look.gd:77-85, 87-102",
+        "scope": "Code and probe synchronization only. The helper's 17.484 seconds is execution time, not play duration."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No child session length or perceived delay inferred from headless frame waits or runner wall time."
+  },
+  "tactile": {
+    "target_size": "Hybrid movement_zone() spans x=0 to max(390, 34% of viewport width) and y=52%-100% of viewport height (scripts/touch_ui.gd:315-323). At 1280x720 that is approximately 435x346 canvas pixels. It is a large claimed region, but no rendered/physical target size or device projection was measured.",
+    "press_response": "In Hybrid, a press in movement_zone() is assigned STICK and passed to _press(); _press() hides the base and knob and zeros stick_vec, then _drag() steers after movement exceeds 22 px (scripts/touch_ui.gd:688-697, 197-229, 237-247). No rendered-frame or real-device latency was measured.",
+    "drag_hold_release": "The probe drove a 60 px primary-finger movement, a second-finger camera drag, a 300 ms still hold, and release; it confirms Classic behavior only (scripts/probe_touch_look.gd:40-47, 60-85, 87-102). Hybrid physical drag/hold/release feel was not observed.",
+    "ownership": "The scripted probe's Classic interactions pass, but it establishes no child route. Hybrid assigns a lower-left press to STICK before the direct-world owner branch while no movement pad is visible (scripts/touch_ui.gd:688-706, 299-307, 315-323).",
+    "cancellation": "The probe directly sends NOTIFICATION_APPLICATION_FOCUS_OUT and confirms stick/action/look state clears (scripts/probe_touch_look.gd:104-115; runtime/L35/attempt_1/probe.log). This is a scripted notification assertion, not native OS focus-loss behavior."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: once a child discovers the lower-left drag, direction-matched steering can feel direct because the stick origin follows the finger (scripts/touch_ui.gd:197-210). The hidden Hybrid region may instead make the first drag feel unexplained; neither response was observed from a child.",
+    "variety": "The tested Classic route gives a second finger separate tap/jump and drag/look roles, with hold and release states. The default Hybrid movement/world-tap path was not tested here.",
+    "world_response": "Classic probe assertions show steering, camera orbit/return, held jump/release and focus cleanup in state. They do not establish that these responses are visibly legible in a rendered phone session.",
+    "replay": "Not assessed for this touch-control focus.",
+    "appeal_test": "On the exact rendered phone build in default Hybrid mode, offer a fresh child the game without naming any control region; record whether they discover movement independently, whether initial presses visibly explain what happened, and whether a painted object in the lower-left bay can still be selected. Compare the same sequence with a visible movement cue, without treating the comparison as acceptance until owner/device/child gates are completed.",
+    "fun_score": null
+  },
+  "observations": [
+    {
+      "title": "Default Hybrid silently assigns a large hidden lower-left movement bay",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/main.gd:609-611 sets the initial mode to TOUCH_MODE_HYBRID.",
+        "scripts/touch_ui.gd:315-323 defines the lower-left movement zone; :688-706 assigns a press inside it to STICK before the world-interaction route.",
+        "scripts/touch_ui.gd:104-114 creates the explanatory ghost wheel with visible=false; :197-229 hides the stick base and knob on press; :299-307 hides all three indicators at rest.",
+        "scripts/touch_ui.gd:202-205 documents that the claimed region previously shoved Roshan right with nothing on screen; the current finger anchoring fixes direction consistency but leaves the region hidden."
+      ],
+      "rules": [
+        "DL-UI-02",
+        "DL-AGE-01",
+        "DL-AGE-02"
+      ],
+      "existing_findings": [
+        "MA-CHILD-001",
+        "MA-TOUCH-001"
+      ],
+      "reproduction": "On the default Hybrid code path, press within the lower-left movement_zone (for example, the 1280x720 canvas point (100, 500)), then drag more than 22 px. The input router assigns STICK ownership; the hint, base, and knob remain hidden. The precise screen outcome requires rendered/device reproduction; this source trace is not a claimed live touch observation.",
+      "child_impact": "A non-reader can encounter an unmarked movement-only region and receive no visible control explanation at touch-down. A child trying to tap an object there may instead begin steering, making the world feel inconsistent or dependent on adult instruction.",
+      "proposed_repair": "Treat as a candidate source defect for the coordinator to reproduce. Align the Hybrid ownership region with DL-UI-02: either make its movement affordance visible and clear when needed, or stop silently reserving the hidden region for movement while preserving the direct-touch grammar.",
+      "acceptance_test": "In the actual Mobile-rendered default Hybrid route, inspect the full screen at supported aspects and verify every movement-owned region has a visible, child-legible affordance before and during touch, or that world targets remain directly selectable there. A first-time child should independently discover steering without text or adult direction; retain routed touch traces and owner/device review."
+    },
+    {
+      "title": "L35's green probe covers forced Classic gestures rather than default Hybrid discoverability",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_touch_look.gd:36-38 explicitly says Hybrid/world taps are covered elsewhere and calls main._set_touch_mode(\"classic\", false).",
+        "audit/cycles/luna-playtest-20261012/runtime/L35/attempt_1/receipt.json records command argument --classic-touch-test, headless=true, rendered_mobile_acceptance=false, exit_code=0, and an isolated profile.",
+        "audit/cycles/luna-playtest-20261012/runtime/L35/attempt_1/probe.log reports Classic steering, second-finger tap/drag/hold, focus clearing and Galaxy camera assertions PASS; it has no Hybrid visibility or discovery assertion."
+      ],
+      "rules": [
+        "DL-QA-02",
+        "DL-QA-03",
+        "DL-QA-05"
+      ],
+      "existing_findings": [
+        "MA-CHILD-001",
+        "MA-TOUCH-001"
+      ],
+      "reproduction": "Run the retained receipt command or inspect the probe's explicit Classic setup. The passing result is valid for its assertions, but it does not traverse the default Hybrid movement region or establish visual discoverability.",
+      "child_impact": "A green assertion may be mistaken for proof that the normal touch controls are discoverable, leaving the child to encounter a control mismatch that the probe never tests.",
+      "proposed_repair": "No repair to the existing probe's Classic contract is indicated. Add a distinct routed-input/rendered Hybrid check before claiming the hidden-region question closed.",
+      "acceptance_test": "Keep the exact Classic assertions green and add a routed Hybrid trace that checks first press/drag ownership at bay boundaries, visible feedback, competing world taps, and release. Pair it with Mobile captures and a separate unprompted child observation."
+    },
+    {
+      "title": "Classic gesture mechanics have positive scripted state evidence",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L35/attempt_1/probe.log: PASS stick steers; PASS second-finger tap jumps; PASS second-finger drag drives camera, no jump; PASS drifts back after camera finger lifts; PASS still hold becomes HELD jump; PASS held jump releases; PASS focus loss clears touch state; PASS galaxy touch camera works.",
+        "scripts/probe_touch_look.gd:40-74 exercises primary stick, secondary tap and secondary drag; :77-102 checks camera return and hold/release; :104-139 checks focus-loss and Galaxy camera touch."
+      ],
+      "rules": [
+        "DL-UI-04",
+        "DL-UI-05",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-TOUCH-001"
+      ],
+      "reproduction": "The exact-run receipt names Godot 4.7.2.stable.official.ed1daf0bf, frozen baseline e2b3c73789707aa49a91b4f42e2a9dd4b68225df, exit code 0, and no failure lines; the retained probe log includes each stated PASS assertion.",
+      "child_impact": "The code-level gesture paths have deterministic positive checks for split roles and cleanup, reducing risk of stuck scripted state. This does not show that a child knows to use a second finger or likes the interaction.",
+      "proposed_repair": "Preserve this passing Classic coverage while evaluating the default Hybrid affordance separately; do not infer a visible child-facing control from state assertions.",
+      "acceptance_test": "Replay the exact Classic probe unchanged and retain its PASS receipt; independently verify one-finger first-use Hybrid play on device with no stuck state, unintended world-selection loss, or adult prompt."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "Classic gesture paths have focused automated evidence for steering, jump tap/hold/release, camera drag/return, focus cleanup, and Galaxy camera movement.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L35/attempt_1/probe.log and scripts/probe_touch_look.gd:40-139; this proves scripted Classic assertions only."
+    },
+    {
+      "claim": "The stick origin follows the finger, avoiding the previously documented direction mismatch from an invisible fixed anchor.",
+      "evidence": "scripts/touch_ui.gd:197-210; source comment records prior lower-left/rightward mismatch at :199-205. No physical touch feel was evaluated."
+    }
+  ],
+  "acceptance_gaps": [
+    "Default Hybrid ownership and hidden-region boundary have no L35 routed-input assertion; L35 explicitly switches to Classic.",
+    "No Mobile-rendered capture confirms indicator visibility, canvas projection, or world-object selection around the lower-left bay.",
+    "No target-phone measurement establishes physical hit comfort, touch latency, native focus-loss behavior, or frame pacing.",
+    "No observed child evidence establishes non-reader discovery, comprehension, comfort, appeal, or independent play; owner acceptance is also pending."
+  ],
+  "play_sequence": [
+    {
+      "beat": "The probe instantiates main.tscn, waits one process frame, calls _skip_intro(), waits 20 more process frames, then forces Classic mode; this is setup, not normal entry.",
+      "inputs_and_waits": "One await process_frame; then 20 await process_frame iterations; then _set_touch_mode(\"classic\", false).",
+      "evidence": "scripts/probe_touch_look.gd:12-20,36-38"
+    },
+    {
+      "beat": "Finger 0 tests movement: press at (400,700), drag to (460,700), wait one process frame, and check stick magnitude >=0.3.",
+      "inputs_and_waits": "60 px drag; one process frame before the state assertion.",
+      "evidence": "scripts/probe_touch_look.gd:40-47"
+    },
+    {
+      "beat": "Finger 1 tests a tap while finger 0 owns the stick: tap at (1200,700), wait one frame after down and one after up, then consume the jump edge.",
+      "inputs_and_waits": "Finger 1 down (1200,700); await process_frame; up at same point; await process_frame.",
+      "evidence": "scripts/probe_touch_look.gd:49-58"
+    },
+    {
+      "beat": "Finger 1 tests camera peek: drag from (1200,700) through 12 points, each (+40,-8) from the prior point, awaiting one frame per move; lift and allow drift-back check up to 3000 ms.",
+      "inputs_and_waits": "12 frame-spaced drags (total +480,-96 px); after lift, wall-clock loop until 3000 ms or check passes.",
+      "evidence": "scripts/probe_touch_look.gd:60-85"
+    },
+    {
+      "beat": "A separate still finger 1 press at (1300,800) waits 300 ms to check held jump, then lifts and waits one frame to verify release clears it.",
+      "inputs_and_waits": "300 ms wall-clock hold; release; one process frame.",
+      "evidence": "scripts/probe_touch_look.gd:87-102; JUMP_HOLD_MS=140 at scripts/touch_ui.gd:94-95"
+    },
+    {
+      "beat": "Focus-loss cleanup starts finger 0 steering plus finger 1 hold, waits one frame, sends NOTIFICATION_APPLICATION_FOCUS_OUT, waits one more frame, and checks all active touch state cleared.",
+      "inputs_and_waits": "Two fingers; one frame before and one frame after direct focus-loss notification.",
+      "evidence": "scripts/probe_touch_look.gd:104-117"
+    },
+    {
+      "beat": "The probe starts Galaxy directly, waits 30 process frames, then repeats finger 0 steering and a finger 1 drag over 12 frame-spaced moves of +40 px each; orbit must exceed 0.2.",
+      "inputs_and_waits": "_start_galaxy(); 30 process frames; finger 0 drag +30 px; finger 1 12 moves of +40 px, one frame per move.",
+      "evidence": "scripts/probe_touch_look.gd:119-140"
+    }
+  ]
+}

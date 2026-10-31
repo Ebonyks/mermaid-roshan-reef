@@ -1,0 +1,185 @@
+{
+ "measured_at_head": "7f068cb80766edd52a110cc1cb3958158f829822",
+ "derived": {
+  "active_star_mask": 245231,
+  "retired_star_mask": 16912,
+  "active_count": 15,
+  "live_indices": [
+   0,
+   1,
+   2,
+   3,
+   5,
+   6,
+   7,
+   8,
+   10,
+   11,
+   12,
+   13,
+   15,
+   16,
+   17
+  ],
+  "retired_indices": [
+   4,
+   9,
+   14
+  ],
+  "slot_count": 18,
+  "star_ceiling": 262143,
+  "shipping_phase_total": 61,
+  "party_mask": 11343,
+  "next_free_bit": 18,
+  "star_ceiling_after_next_job": 524287
+ },
+ "checks": [
+  {
+   "literal": "ACTIVE_STAR_MASK (opera_house.gd)",
+   "code_value": 245231,
+   "derived_value": 245231,
+   "result": "MATCH"
+  },
+  {
+   "literal": "OPERA_ACTIVE_STAR_MASK (save_state.gd)",
+   "code_value": 245231,
+   "derived_value": 245231,
+   "result": "MATCH"
+  },
+  {
+   "literal": "RETIRED_STAR_MASK (opera_house.gd)",
+   "code_value": 16912,
+   "derived_value": 16912,
+   "result": "MATCH"
+  },
+  {
+   "literal": "ACTIVE_ACT_COUNT (opera_house.gd)",
+   "code_value": 15,
+   "derived_value": 15,
+   "result": "MATCH"
+  },
+  {
+   "literal": "OPERA_ACTIVE_ACT_COUNT (save_state.gd)",
+   "code_value": 15,
+   "derived_value": 15,
+   "result": "MATCH"
+  },
+  {
+   "literal": "LIVE_ACT_INDICES (opera_house.gd)",
+   "code_value": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    13,
+    15,
+    16,
+    17
+   ],
+   "derived_value": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    13,
+    15,
+    16,
+    17
+   ],
+   "result": "MATCH"
+  },
+  {
+   "literal": "RETIRED_ACT_INDICES (opera_house.gd)",
+   "code_value": [
+    4,
+    9,
+    14
+   ],
+   "derived_value": [
+    4,
+    9,
+    14
+   ],
+   "result": "MATCH"
+  },
+  {
+   "literal": "star loop bound range(N) (save_state.gd)",
+   "code_value": [
+    18
+   ],
+   "derived_value": [
+    18
+   ],
+   "result": "MATCH"
+  },
+  {
+   "literal": "opera_stars clamps (save_state.gd)",
+   "code_value": [
+    262143,
+    262143,
+    262143,
+    262143
+   ],
+   "derived_value": [
+    262143,
+    262143,
+    262143,
+    262143
+   ],
+   "result": "MATCH"
+  },
+  {
+   "literal": "ALL_PARTY_MASK (chapter_two_party_plan.gd)",
+   "code_value": 11343,
+   "derived_value": 11343,
+   "result": "MATCH"
+  },
+  {
+   "literal": "shipping phase pin (probe_opera_2d.gd)",
+   "code_value": [
+    61
+   ],
+   "derived_value": [
+    61
+   ],
+   "result": "MATCH"
+  }
+ ],
+ "drift": {
+  "music_cue_missing_from_build_tool": [
+   "geologist"
+  ],
+  "music_ogg_missing": [],
+  "costume_sheet_not_in_atlas_gate": [
+   "geologist",
+   "teacher"
+  ],
+  "no_home_room": [],
+  "no_mastery_rule": [],
+  "no_overlay_color": [],
+  "no_crest": [],
+  "next_job_trap": {
+   "next_free_bit": 18,
+   "clamp_in_code": [
+    262143
+   ],
+   "ceiling_needed": 524287,
+   "a_save_with_the_next_bit_would_clamp_to": 262143,
+   "which_sets_bits": "0..17 (every career, including tombstones)"
+  }
+ }
+}

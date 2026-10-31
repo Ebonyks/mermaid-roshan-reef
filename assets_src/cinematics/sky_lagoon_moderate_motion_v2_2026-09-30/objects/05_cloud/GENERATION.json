@@ -1,0 +1,9 @@
+{
+  "id": "05_cloud",
+  "prompt": "Use case: illustration-story. Asset: six freshly drawn cloud-billowing animation poses matching this exact isolated long cyan-blue toy storybook cloud. Reference is identity, silhouette family and lighting. PORTRAIT 1024 x 1536 transparent RGBA sheet: TWO columns x THREE rows of six equal 512px square cells. Each cloud small and complete, 380px wide, centered in the cell, with broad empty transparent gutters. Fixed camera, center of mass and overall width/height envelope. Row-major cycle: 1 neutral rounded cloud; 2 left-top lobe gently swells while center lobe settles; 3 central upper lobe billows and left lobe folds behind; 4 right lobe swells; 5 central/lower folds recede; 6 cloud relaxes toward original. Draw new rounded lobe contours and overlapping folds in each pose, restrained 15-20px changes. No whole-cloud translation, scaling, rotation, elastic distortion or static image duplicates. Preserve the original cyan upper lobes, deeper lavender-blue lower lobes, softly painted storybook volume and clean silhouette. No new faces, ornaments, storms or rain. Crisp defined cloud edges, visible painted bands, no blur, bloom, glow or atmospherics. No text, numbers, borders, shadows, background or checkerboard pixels. Actual alpha transparency. Each complete cloud must have at least 55px clear padding to every cell boundary.",
+  "mode": "built-in image_gen",
+  "referenced_image_paths": [
+    "objects/05_cloud/identity_source.png"
+  ],
+  "transparent_background": true
+}

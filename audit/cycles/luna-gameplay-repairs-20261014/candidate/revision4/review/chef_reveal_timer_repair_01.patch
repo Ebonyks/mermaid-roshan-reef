@@ -1,0 +1,50 @@
+--- a/scripts/opera_career_world_2d.gd
++++ b/scripts/opera_career_world_2d.gd
+@@ -4770,25 +4770,28 @@
+ 			_tick_lens(delta)
+ 	if reveal_t > 0.0:
+ 		reveal_t -= delta
+-		# the reveal shows the ACTUAL answer, steady — recognition, not a light show
+-		surface.target_choice = choice_target
+-		surface.choice_flash = 0.6
+-		surface.queue_redraw()
+-		if reveal_t <= 0.0:
+-			guided = true
+-			phase_index = _finale_start()
+-			phase_progress = 0.0
+-			active = true
+-			competition.guided_retry()
+-			# A guided retry keeps the no-fail clue memory, but still returns to
+-			# the room's glowing object. It must not resurrect the old auto-open
+-			# card flow after the reveal.
+-			_arm_phase()
+-			if String((phases[phase_index] as Dictionary).get("mode", "")) == "choice":
+-				# remembered clues earn a head start on a MEMORY rematch;
+-				# a bop finale credits no hits she never landed
+-				phase_progress = 2.0
+-				phase_fill.value = clampf(2.0 / maxf(0.1, float((phases[phase_index] as Dictionary).get("goal", 1.0))), 0.0, 1.0) * 100.0
++		# Chef also uses this timer for the short walk to a work pose. Only
++		# Detective's answer reveal owns a retry or a change of phase.
++		if career_id == "detective":
++			# the reveal shows the ACTUAL answer, steady — recognition, not a light show
++			surface.target_choice = choice_target
++			surface.choice_flash = 0.6
++			surface.queue_redraw()
++			if reveal_t <= 0.0:
++				guided = true
++				phase_index = _finale_start()
++				phase_progress = 0.0
++				active = true
++				competition.guided_retry()
++				# A guided retry keeps the no-fail clue memory, but still returns to
++				# the room's glowing object. It must not resurrect the old auto-open
++				# card flow after the reveal.
++				_arm_phase()
++				if String((phases[phase_index] as Dictionary).get("mode", "")) == "choice":
++					# remembered clues earn a head start on a MEMORY rematch;
++					# a bop finale credits no hits she never landed
++					phase_progress = 2.0
++					phase_fill.value = clampf(2.0 / maxf(0.1, float((phases[phase_index] as Dictionary).get("goal", 1.0))), 0.0, 1.0) * 100.0
+ 
+ 
+ func close() -> void:

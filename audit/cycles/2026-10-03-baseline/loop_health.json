@@ -1,0 +1,261 @@
+{
+ "measure": "loop_health",
+ "today": "2026-10-03",
+ "head": "30d82725661044de63b682f5b13ba8f19101892b",
+ "findings": {
+  "records": 64,
+  "lifecycles": {
+   "BLOCKED_EXTERNAL": 7,
+   "CONFIRMED_OPEN": 34,
+   "DEFERRED_WITH_REASON": 1,
+   "FIXED_PENDING_VERIFICATION": 12,
+   "IN_PROGRESS": 3,
+   "OWNER_DECISION_REQUIRED": 2,
+   "REPORTED_UNCONFIRMED": 2,
+   "VERIFIED_FIXED": 3
+  },
+  "open": 61,
+  "open_without_history_entry_for": {
+   "7_days": 42,
+   "14_days": 41,
+   "30_days": 38
+  },
+  "fixed_pending_verification": [
+   {
+    "id": "MA-VIS-002",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-OPERA-001",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-OPERA-010",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-OPERA-011",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-RELEASE-001",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-COMBAT-001",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P2",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-VIS-007",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-08-29",
+    "days_since": 35
+   },
+   {
+    "id": "MA-TOUCH-001",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-09-12",
+    "days_since": 21
+   },
+   {
+    "id": "MA-OPERA-009",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-09-30",
+    "days_since": 3
+   },
+   {
+    "id": "MA-OPERA-012",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-09-30",
+    "days_since": 3
+   },
+   {
+    "id": "MA-OPERA-005",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P2",
+    "last_history": "2026-09-30",
+    "days_since": 3
+   },
+   {
+    "id": "MA-AUDIO-001",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P2",
+    "last_history": "2026-09-30",
+    "days_since": 3
+   }
+  ],
+  "oldest_open": [
+   {
+    "id": "MA-DOC-003",
+    "lifecycle": "BLOCKED_EXTERNAL",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-VIS-002",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-VIS-003",
+    "lifecycle": "REPORTED_UNCONFIRMED",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-ACCESS-002",
+    "lifecycle": "BLOCKED_EXTERNAL",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-ACCESS-003",
+    "lifecycle": "BLOCKED_EXTERNAL",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-OPERA-001",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-OPERA-002",
+    "lifecycle": "CONFIRMED_OPEN",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-OPERA-004",
+    "lifecycle": "CONFIRMED_OPEN",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-OPERA-010",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   },
+   {
+    "id": "MA-OPERA-011",
+    "lifecycle": "FIXED_PENDING_VERIFICATION",
+    "severity": "P1",
+    "last_history": "2026-08-13",
+    "days_since": 51
+   }
+  ]
+ },
+ "audit_log": {
+  "history_rows": 68,
+  "history_rows_by_month": {
+   "2026-08": 56,
+   "2026-09": 11,
+   "2026-10": 1
+  },
+  "latest_history_date": "2026-10-03",
+  "dated_update_paragraphs_before_section_1": 21
+ },
+ "impact_records": {
+  "records": 79,
+  "added_by_month": {
+   "2026-09": 76,
+   "2026-10": 2
+  },
+  "linking_no_finding": 27,
+  "recording_a_lesson": 6
+ },
+ "handoffs": [
+  {
+   "handoff": "codex_job_platform_architecture_2026-09-30",
+   "revision": "1 (2026-09-30)",
+   "status": "NOT_STARTED",
+   "targets_done": 0,
+   "targets": 3
+  },
+  {
+   "handoff": "codex_master_audit_refinement_2026-09-30",
+   "revision": "4 (2026-09-30): Stage J WP-J1, AC-14 and Q9 point the job catalogue at the Job Platform architecture content layer (content/jobs, compiled by tools/content_build.py); revision 3 was 5da7bd53470821e4c5e292f87be897c416b29292",
+   "status": "NOT_STARTED",
+   "targets_done": 0,
+   "targets": 7
+  },
+  {
+   "handoff": "codex_opera_imp_contest_2026-09-30",
+   "revision": "4 (2026-09-30): adds OD-D, silly questions and sillier imp lines; revision 3 (art-reuse and imp-contact corrections) was 86732a47, revision 2 (OD-C) was df01b7ce, revision 1 was 7ec82d46",
+   "status": "not tracked by this script"
+  },
+  {
+   "handoff": "codex_reference_consolidation_2026-09-30",
+   "revision": 2,
+   "status": "NOT_STARTED",
+   "targets_done": 0,
+   "targets": 2
+  },
+  {
+   "handoff": "codex_roshan_art_repairs_2026-09-30",
+   "revision": 1,
+   "status": "NOT_STARTED",
+   "targets_done": 0,
+   "targets": 3
+  },
+  {
+   "handoff": "codex_self_improvement_loop_2026-10-03",
+   "revision": 1,
+   "status": "not tracked by this script"
+  },
+  {
+   "handoff": "codex_visual_design_language_2026-09-30",
+   "revision": 3,
+   "status": "NOT_STARTED",
+   "targets_done": 0,
+   "targets": 6
+  },
+  {
+   "handoff": "codex_visual_polish_2026-09-25",
+   "revision": "2 (2026-09-25): visibility pass (T15, T16, O1), cut-off analysis, and every evidence image shown in the documents; revision 1 was c48909cd",
+   "status": "not tracked by this script"
+  }
+ ],
+ "scheduled_workflows": [
+  {
+   "workflow": ".github/workflows/backup.yml",
+   "cron": [
+    "0 9 * * 1"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Roshan's Tree Book · layout study</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#183e46;color:#fff7df;font-family:system-ui}header{padding:12px 24px;display:flex;justify-content:space-between;align-items:center}header p{margin:3px 0;font-size:13px;color:#c7ded1}h1{font-size:22px;margin:0}button{cursor:pointer;font:inherit}header button{border:1px solid #bbceba;border-radius:20px;background:#eff4df;color:#214a42;padding:8px 17px;margin-left:8px}
+#game{position:relative;width:min(100vw,1422px);aspect-ratio:16/9;margin:auto;background:linear-gradient(#ceebe5,#e8f4d8);overflow:hidden;color:#254847;border-radius:22px}
+#title{position:absolute;top:3%;left:4%;font-size:clamp(17px,2.4vw,32px);font-weight:750;margin:0;z-index:4}
+.book{position:absolute;left:1%;top:12%;width:49%;height:81%;background:url(new_art/book_open.png) center/100% 100% no-repeat}
+#choices{position:absolute;left:6%;top:26%;width:39%;height:57%;display:grid;grid-template-columns:1fr 1fr;gap:3% 7%;z-index:5}
+.choice{position:relative;background:#fffaf0b8;border:3px solid #decf93;border-radius:24px;min-height:0;overflow:hidden;padding:4%;box-shadow:0 5px 0 #49756c22;touch-action:manipulation}
+.choice:focus-visible{outline:5px solid #195bc1}.choice:hover{background:#fff9e5;border-color:#648a61}.choice img{width:100%;height:100%;object-fit:contain}
+.sprite{display:block;width:100%;height:100%;background-repeat:no-repeat}
+.leaf,.medicine{background-image:url(new_art/leaf_medicine.png);background-size:400% 200%;aspect-ratio:1}
+.tree{background-image:url(new_art/patient_spaced.png);background-size:200% 100%;background-position:0 0;aspect-ratio:1}
+#patient{position:absolute;right:3%;top:9%;width:30%;height:51%;border:0;background-color:transparent;padding:0}
+#sample{position:absolute;right:35%;top:13%;width:13%;height:24%;border:4px solid #d8b975;border-radius:50%;background-color:#fff8da;padding:8px;box-shadow:0 0 0 8px #fff6}
+#roshan{position:absolute;left:52%;bottom:4%;width:25%;height:55%;object-fit:contain}
+#hint{position:absolute;bottom:2%;left:4%;right:4%;text-align:center;font-size:clamp(14px,1.6vw,22px);font-weight:650}
+#explain{display:none;position:absolute;left:6%;top:32%;width:39%;height:36%;align-items:center;gap:3%;z-index:5}
+#explain .sprite{width:43%;height:100%}#explain b{font-size:40px}
+#progress{position:absolute;left:42%;top:4%;display:flex;gap:10px}#progress i{height:15px;width:15px;border:2px solid #5e846b;border-radius:50%;background:#faf9e2}#progress i.done{background:#67bd9e}
+#game.med #choices{left:54%;top:44%;width:42%;height:46%;gap:8px 16px}
+#game.med #patient{right:4%;top:8%;height:32%;width:20%}
+#game.med #roshan{left:52%;top:10%;height:30%;width:15%}
+#game.med #sample{display:none}#game.med #explain{display:flex}
+#game.treat #choices,#game.done #choices{display:none}#game.treat #explain,#game.done #explain{display:flex}
+#game.treat #roshan,#game.done #roshan{left:61%;height:47%;bottom:8%}
+#game.treat #patient,#game.done #patient{width:33%;height:58%;right:0;top:12%}
+#game.done #patient .tree{background-position:100% 0}
+#game.treat #sample,#game.done #sample{display:none}
+.glow{box-shadow:0 0 0 5px #f6d765,0 0 35px #ffd35a!important;animation:glow 1.2s ease-in-out infinite alternate}
+.hand:after{content:'☝';position:absolute;right:25%;bottom:0;font-size:55px;color:#d9774b;text-shadow:2px 2px white;animation:tap 1s infinite;pointer-events:none}
+.wrong{animation:wiggle .35s}
+@keyframes tap{50%{transform:translateY(-20px)}}@keyframes glow{to{filter:brightness(1.13)}}@keyframes wiggle{25%,75%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
+footer{max-width:1000px;margin:18px auto;padding:0 18px;font-size:14px;line-height:1.5;color:#cbded3}
+</style>
+<header><div><h1>Roshan's Tree Book</h1><p>Interactive layout study · three choices, then help the tree</p></div><div><button id="voice" aria-pressed="false">Voice off</button><button id="reset">Start again</button></div></header>
+<main id="game" aria-label="Tree Book matching activity">
+<p id="title"></p><div id="progress"><i></i><i></i><i></i></div><div class="book"></div><div id="choices"></div>
+<div id="explain"><span class="sprite leaf" style="background-position:33.333% 0"></span><b>→</b><span class="sprite medicine" style="background-position:33.333% 100%"></span></div>
+<button id="patient" aria-label="Help the patient tree"><span class="sprite tree"></span></button>
+<div id="sample" aria-label="Leaf from the patient tree"><span class="sprite leaf" style="background-position:33.333% 0"></span></div>
+<img id="roshan" src="new_art/book_pose.png" alt="Arborist Roshan reading her book"><p id="hint" aria-live="polite"></p></main>
+<footer>This is a review prototype, not the integrated Godot game. Optional voice uses the browser's available voice as a temporary cue. Character book-opening and medicine-use animation remain production tasks. Reference tree choices require final distinctness and leaf matching review.</footer>
+<script src="model.js"></script><script src="preview.js"></script></html>

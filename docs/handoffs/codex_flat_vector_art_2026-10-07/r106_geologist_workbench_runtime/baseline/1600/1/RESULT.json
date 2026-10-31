@@ -1,0 +1,140 @@
+{
+  "captures": [
+    {
+      "castle_layer_visible": false,
+      "id": "01_initial",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "01_initial.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "d929f822efed4d0c92fbd8ef86e641ef318e5d27fb420d165e04d05ab9ffb3c0",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "cleared": [],
+        "complete": false,
+        "fossil_stage": 0,
+        "mode": "geology_fossil",
+        "snapped": [
+          false,
+          false,
+          false
+        ],
+        "stage": "FOSSIL_BRUSH",
+        "version": 1
+      },
+      "start_menu_active": false,
+      "world_phase": 1,
+      "world_visible": true
+    }
+  ],
+  "checks": [
+    {
+      "label": "exact approved engine hash",
+      "pass": true
+    },
+    {
+      "label": "Mobile native Windows time1",
+      "pass": true
+    },
+    {
+      "label": "private dependency bound before ready",
+      "pass": true
+    },
+    {
+      "label": "original Continue available",
+      "pass": true
+    },
+    {
+      "label": "start menu retired before world",
+      "pass": true
+    },
+    {
+      "label": "original Main owner-room launcher reached Opera",
+      "pass": true
+    },
+    {
+      "label": "castle room suspended beneath original Opera",
+      "pass": true
+    },
+    {
+      "label": "original full Geologist world",
+      "pass": true
+    },
+    {
+      "label": "own saved activity checkpoint restored",
+      "pass": true
+    },
+    {
+      "label": "original activity surface opened",
+      "pass": true
+    },
+    {
+      "label": "Speedy own profile",
+      "pass": true
+    },
+    {
+      "label": "original touch rect",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 01_initial",
+      "pass": true
+    },
+    {
+      "label": "native save 01_initial",
+      "pass": true
+    },
+    {
+      "label": "normal eleven save/archive hashes unchanged",
+      "pass": true
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "fixture": "Private original Main/Opera saved-phase checkpoint; initial context only, not naturally earned route or QA11",
+  "normal_after": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".bak.old": "absent",
+    ".bak.tmp": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent",
+    ".old": "absent",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent"
+  },
+  "normal_before": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".bak.old": "absent",
+    ".bak.tmp": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent",
+    ".old": "absent",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent"
+  },
+  "phase": 1,
+  "source_revision": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+  "status": "PASS"
+}

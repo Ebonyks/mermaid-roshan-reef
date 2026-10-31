@@ -1,0 +1,28 @@
+{
+  "generated_takes": 5,
+  "generation_wall_seconds": 735.203,
+  "decoder_preflight_seconds": 10.184,
+  "downloaded_model_bytes": 25957484024,
+  "additional_refine_bytes_if_approved": 1308787534,
+  "paid_api_calls": 0,
+  "new_imagegen_calls": 1,
+  "generation_token_usage": "Not exposed by local inference",
+  "cleanup_wall_seconds": "Not fully metered",
+  "cap_source": "briefs/job_card.json",
+  "next_adapter_status": "Separate access agreement pending; no model generation submitted",
+  "scale_correction_followup": {
+    "model_jobs": 1,
+    "imagegen_calls": 1,
+    "model_elapsed_seconds": 158.501,
+    "actual_model_jobs_total": 5,
+    "model_generation_seconds_total": 735.203,
+    "remaining_model_take_budget": 0,
+    "remaining_new_key_budget": 0,
+    "cost_usd": "ImageGen not exposed; no paid API job; local electricity/cleanup not fully metered"
+  },
+  "prior_four_take_costs": {
+    "generated_takes": 4,
+    "generation_wall_seconds": 576.702,
+    "new_imagegen_calls": 0
+  }
+}

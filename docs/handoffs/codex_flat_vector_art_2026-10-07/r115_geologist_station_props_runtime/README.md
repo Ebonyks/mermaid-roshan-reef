@@ -1,0 +1,9 @@
+# Painted Geologist room stations
+
+The room overview now shows a whole painted ammonite slab, three complete mineral specimen trays and the same crystal family used during play. The flat foreground rectangle/spiral, tray boxes, vertex crystal cluster and its decorative ring are removed. Cave walls, spotlights, actor staging, invitations, river family and overall acceptance remain open. This is partial work on `FV-14664183159D`.
+
+One built-in ImageGen take (model revision unexposed) supplies the three whole trays. Existing fossil/gallery pixels are reused. Aseprite preserves the full native sheet and uniformly exports three padded512RGBA objects; all pass CUTOUT_OK. [Derivation](DERIVATION.json), [prompt](../../../../assets_src/imagegen/geologist_station_props_20261030/PROMPT.txt), [ten-axis comparison](FRAME_REVIEW.json), [function preservation](FUNCTION_PRESERVATION.json), [plan](PLAN.json).
+
+Exact Godot4.7.2 Mobile/Speedy private fixtures pass288candidate and168baseline checks through originalMain/Library/Geologist saved phase0-3 room-to-task transitions at1280x720 and1600x720. All16source and16candidate frames were directly reviewed. Uniform whole-art support/center and the original hiding guard pass. All28other backdrop functions and every controller/input/save/phase/hotspot function remain unchanged; foreground primitive sites fall7to1 (the remaining call draws originalwallstrata). Currentstatic/all82trusted, exactsourceCI, Dev delivery and formalQA11/device/child/owner acceptance are separate pending lanes. No whole-role closure or accepted removal.
+
+Current static gates and all82trusted probes now pass on the actual frozen candidate. [Machine evidence](LOCAL_82_RESULT.json) and [source binding](DELIVERY_SOURCE_BINDING.json). ExactsourceCI/Dev and all formal/external/global acceptance remain independent.

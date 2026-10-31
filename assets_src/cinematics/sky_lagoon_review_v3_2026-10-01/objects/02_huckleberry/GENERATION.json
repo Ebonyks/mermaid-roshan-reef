@@ -1,0 +1,12 @@
+{
+  "id": "02_huckleberry",
+  "mode": "built-in image_gen",
+  "prompt": "Use case: illustration-story. Precise correction for the six-key huckleberry animation: reference exact approved low spreading bush; preserve design, colours, trunks, branch topology and two berry clusters. Native1024x1536 portrait, TWO columns THREE rows, SIX512x512cells. Fully isolated bush width400pxmaximum in every cell, roots at(256,430), 45pxminimum transparent margins. FIXED ROOT, FIXED BRANCHES and FIXED BERRIES: exactly SIX purple berries arranged as TWO clusters of THREE. Left cluster at approximately(188,310), right cluster at(353,365) in EACH cell. Each three-berry triangle and its branch stay in same position across all six drawings; no berries elsewhere, none at crown. Only leaf blades and smallest twigs flutter gently in breeze, roots/main trunks do not move. Six phases: still; 5px right leaf curl; 10px right leaf curl exposing one paler underside; settle;5px left curl;10px left curl. Do not turn entire bush, do not change plant width/height except leaf-tip motion, do not migrate berry clusters or add/remove branches. Fresh individually drawn attached leaf poses with exact botanical identity and broad painted values, navy/teal shadows, restrained yellow-green highlights matching reference. No glossy neon redesign. True transparent alpha; no blur, glow, cast shadow, background, checkerboard, text or grids. No element crosses cell edges.",
+  "input": "identity_source.png",
+  "output": "generated_native.png",
+  "native_dimensions": [
+    1024,
+    1536
+  ],
+  "postprocess": "Aseprite stationary berry-junction mask; new leaf silhouettes retained"
+}

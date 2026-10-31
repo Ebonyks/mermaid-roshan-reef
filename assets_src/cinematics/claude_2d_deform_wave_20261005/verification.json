@@ -1,0 +1,111 @@
+{
+ "checks": [
+  {
+   "check": "approved atlas unchanged",
+   "result": "PASS",
+   "detail": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d"
+  },
+  {
+   "check": "41 native frames, 256x256 RGBA",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "frame 0 is the approved K0 cell verbatim",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "frame 40 is the approved K0 cell verbatim (clean return to idle)",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "no fully empty frame",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "no alpha touches the 256 px cell border",
+   "result": "PASS",
+   "detail": "max border alpha 0"
+  },
+  {
+   "check": "re-render frame 3 is pixel-identical",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "re-render frame 9 is pixel-identical",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "re-render frame 17 is pixel-identical",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "re-render frame 22 is pixel-identical",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "re-render frame 31 is pixel-identical",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "re-render frame 37 is pixel-identical",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "waist root target within 1 px of rest (Codex wave-study root tolerance)",
+   "result": "PASS",
+   "detail": "max 0.607 px"
+  },
+  {
+   "check": "eyeL-eyeR target distance stays inside the approved keys' own range (+/-0.3 px; no scale drift beyond the drawings)",
+   "result": "PASS",
+   "detail": "targets 22.05-23.00 px (p-p 4.13%); keys 22.11-23.00 px"
+  },
+  {
+   "check": "crown-waist target distance stays inside the approved keys' own range (+/-0.3 px; no scale drift beyond the drawings)",
+   "result": "PASS",
+   "detail": "targets 117.19-119.07 px (p-p 1.59%); keys 117.32-119.08 px"
+  },
+  {
+   "check": "neck-waist target distance stays inside the approved keys' own range (+/-0.3 px; no scale drift beyond the drawings)",
+   "result": "PASS",
+   "detail": "targets 50.15-51.30 px (p-p 2.28%); keys 50.18-51.30 px"
+  },
+  {
+   "check": "crown-neck target distance stays inside the approved keys' own range (+/-0.3 px; no scale drift beyond the drawings)",
+   "result": "PASS",
+   "detail": "targets 67.43-68.12 px (p-p 1.01%); keys 67.38-68.12 px"
+  },
+  {
+   "check": "Aseprite master: 41 frames, 256x256, 5 layers",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Aseprite master: final layer == exported PNG for every frame",
+   "result": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Aseprite master: 24 fps timing, 1708 ms total",
+   "result": "PASS",
+   "detail": "1708"
+  },
+  {
+   "check": "every frame records body/arm source drawing",
+   "result": "PASS",
+   "detail": ""
+  }
+ ],
+ "all_pass": true,
+ "scope": "Machine checks only: no human identity/motion review, runtime, device, child or owner acceptance is implied."
+}

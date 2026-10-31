@@ -1,0 +1,376 @@
+{
+  "schema": "cold_start_recipe_test/1",
+  "status": "PASS",
+  "tested_at": "2026-10-03T22:20:53.673235+00:00",
+  "prompt": "add a bakery job",
+  "command": [
+    "python",
+    "-B",
+    "tools/plan_prompt.py",
+    "add a bakery job",
+    "--json"
+  ],
+  "exit_code": 0,
+  "source_head": "30d82725661044de63b682f5b13ba8f19101892b",
+  "source_state": "Working implementation; canonical source closure below binds tested bytes. Not an unchanged HEAD or product acceptance.",
+  "source_closure": [
+    {
+      "path": "tools/plan_prompt.py",
+      "sha256": "552736a83cda71250472ef58e73c7a1a8cdab9a44bd2c68aabed3701e79586eb",
+      "hash_mode": "git_canonical_lf"
+    },
+    {
+      "path": "tools/build_study_roadmap.py",
+      "sha256": "b304ef5ae52325891550bde6e0d25b0b315b4eb65729b6574f50b553bc2a5d1b",
+      "hash_mode": "git_canonical_lf"
+    },
+    {
+      "path": "design/reference/prompt_intents.json",
+      "sha256": "ef0ad00db24a63277f0409af7b886aa70e58248928002270d4b020a1bfccc2bb",
+      "hash_mode": "git_canonical_lf"
+    },
+    {
+      "path": "design/reference/recipes/add_job.md",
+      "sha256": "ba7f968c39d7d06634a9fce5a025a5ab22b5d75cae7b20cd594866f1e74346cf",
+      "hash_mode": "git_canonical_lf"
+    },
+    {
+      "path": "design/reference/strengths.json",
+      "sha256": "e28d1d21c659f06ac5fe2e931b57f6f8061c05e8affac201e21401909e5d96e6",
+      "hash_mode": "git_canonical_lf"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "sha256": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f",
+      "hash_mode": "git_canonical_lf"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "61a000ace2dd91301887fe16a1c1817938cec896923104a246c77673626afe5d",
+      "hash_mode": "git_canonical_lf"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "f905d5471ca4da15a05934bdb6d037e479692fdf6532fac90fbe98f3283e69f9",
+      "hash_mode": "git_canonical_lf"
+    },
+    {
+      "path": "tools/godot_baseline.json",
+      "sha256": "7fe925d2d12927d152a27f3a614ff62c9b0e6fe02991396a6837e8f5c06d0f5b",
+      "hash_mode": "git_canonical_lf"
+    }
+  ],
+  "plan_output_sha256": "1f228922fcf8855a71f0f2a20fb3cdc313baa364364d9df512eaf01105955e9d",
+  "plan": {
+    "schema": "prompt_plan/1",
+    "status": "PLAN_ONLY",
+    "prompt": "add a bakery job",
+    "intent": "INT-ADD-JOB",
+    "recipe": {
+      "id": "REC-ADD-JOB",
+      "path": "design/reference/recipes/add_job.md"
+    },
+    "defaults": "Opera career row for a permanent job; venue scene for an isolated approved-scope prototype. Platform architecture is a proposal until its actual services exist. Kitchen is a bakery home candidate, not an imposed room.",
+    "read_first": [
+      "AGENTS.md",
+      "audit/MASTER_AUDIT_2026-08-09.md",
+      "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "design/05_DOC_LEDGER.md",
+      "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "design/reference/strengths.json",
+      "audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md",
+      "docs/handoffs/codex_job_platform_architecture_2026-09-30/ARCHITECTURE.md",
+      "scripts/opera_house.gd",
+      "scripts/save_state.gd",
+      "scripts/castle_career_routes.gd",
+      "assets/audio/voices/VOICE_MANIFEST.md",
+      "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+      "audit/minigame_art_quality_2026-09-05/opera_native_coverage_followup.md",
+      "audit/interactive_background_ownership_2026-08-29.json",
+      "assets_src/castle/room_regenerations/room_kitchen_fullframe_v2_provenance.md",
+      "assets_src/imagegen/opera_codex_2026-08-02/OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json"
+    ],
+    "strengths": [
+      {
+        "id": "S-01",
+        "tier": "accepted",
+        "scope": "Accepted owner constraint: kind no-loss play and no passive wins. Current machine/device/child performance remains separately unverified."
+      },
+      {
+        "id": "S-02",
+        "tier": "candidate",
+        "scope": "Candidate source/design evidence only; current visual, device, child and owner acceptance is not established."
+      },
+      {
+        "id": "S-03",
+        "tier": "candidate",
+        "scope": "Candidate source/design evidence only; current visual, device, child and owner acceptance is not established."
+      },
+      {
+        "id": "S-12",
+        "tier": "candidate",
+        "scope": "Candidate act grammar from retained historical pacing scope. Verify live job contract and two-act exceptions; do not copy stale career counts."
+      },
+      {
+        "id": "S-13",
+        "tier": "candidate",
+        "scope": "Candidate owner-directed contest target, not measured child delight or current integration."
+      }
+    ],
+    "steps": [
+      "Create a job card with intent, room/theme justification, approved scope, signature objects, distinct verbs, contact, visible results, exact objective voice lines/pointers, help ladder, rewards and imp role. Bakery candidate steps are pour flour, knead dough, shape a raw loaf, bake it through intentional oven input, deliberately retrieve the baked loaf with a mitt, then serve it. Every step requires the preceding truthful saved state, one-finger input, voice/pointer and visible Roshan travel/contact; idle, a timer or a demonstration cannot finish baking or award progress. This is a bounded plan, not a Bakery commission or source acceptance.",
+      "Inspect live registries before editing: scripts/opera_house.gd ACTS/LIVE_ACT_INDICES/ACTIVE_STAR_MASK/ACTIVE_ACT_COUNT; opera_competition.gd CAREERS; opera_career_world_2d.gd PHASES/FINALE_START/PHASE_STATIONS/GOAL_PROPS; opera_mastery.gd CAREERS/RULES; opera_performance_overlay.gd CAREER_COLORS; opera_hotspot_catalog.gd EXPECTED_PHASES/SPECS/ASSET_META. Compute phase/finale, station, voice, hotspot, probe and checkpoint counts from the approved card and actual extension contract; the six Bakery steps do not inherit four phases from the candidate Teach/Play/Twist/Bow grouping.",
+      "Allocate from the live save namespace including tombstones, never from a historical count. At this baseline next bit 18, active mask 0x3BDEF becomes 0x7BDEF, live count 15 becomes 16; namespace bound 262143 becomes 524287. Add keys with defaults and preserve all prior reef_save.json keys.",
+      "Update all four opera_stars clamps in scripts/save_state.gd: load, write and two sites in the shared normaliser (baseline lines 198,294,619,681). Update range(18) to range(19), both mask/count authorities, per-job normaliser and checkpoint cleanup; test bit-18 round-trip/external merge through the shared normaliser/tombstone/reward persistence. Re-read sites at implementation head; a later platform may derive them.",
+      "Inventory reuse and named gaps: approved kitchen/chef/candymaker source masters; Roshan approved atlas identity plus 1024x1024 4x4 costume spec if needed; Codex builds only named missing art. Add provenance, atlas gate CAREERS, licence and typography entries. No 3D fallback or redraw for novelty. The source-bound planner measures Kitchen/Chef PNG metadata and verifies recorded hashes: their current authored sources are 1672x941, while the 4096x2304 Kitchen master is recorded whole-canvas Lanczos enlargement. Delivery dimensions/tiles do not establish native authored readiness under DL-LAY-07. Preserve the measured gap, reuse composition references and inspect the selected shipping-scale route before any narrowly scoped replacement decision; no automatic regeneration order.",
+      "Bind exact voice keys/speaker/line to each objective. Resolve current engine via VOICE_MANIFEST; plan synthetic provisional folder/prefix routing in audio_director.gd, audit_audio_quality.py category and regenerated ledger. No generic cheer fallback or protected-family imitation. Add opera_baker music score/EXPECTED_IDS/REQUIRED_AREA_MUSIC, or justified byte-identical reuse.",
+      "Plan reachability and lifecycle: castle_career_routes.gd ROOM_ACT_INDICES and probe EXPECTED_ROOM_ACTS; opera_stage_paths.gd PATHS/STATION_NAV; stage_inventory.json; living_world_catalog.gd row/EXPECTED_STAGE_COUNT; backdrop PALETTES or compliant screen tiles. Keep Day One and locked Chapter Two roster separate unless commissioned.",
+      "Extend trusted probe coverage and pin counts: probe_opera, probe_opera_2d, probe_opera_nursery, probe_living_world, probe_audio and gesture quality. Cover correct/wrong/passive/random/repeat/save/re-entry/back/focus loss, Roshan travel/contact and contest restart. Use existing rosters unless explicitly authorized to add high-risk CI entries.",
+      "Run focused/full gates plus audit_stage_pathfinding --check, audit_opera_roshan_animation and voice-per-phase review. Deliver phase boards/two aspects and exact dev APK for human/device/child/owner acceptance. Review every pour/knead/shape/bake/retrieve/serve contact and source/derivation chain; 5/5 is a target requiring owner acceptance in runtime context under DL-VIS-07, never an inferred score. Include impact, ledger/licence rows; merge only exact-head green work to dev, release only owner shorthand via promote workflow."
+    ],
+    "variety_rules": [
+      "Teach / Play / Twist / Bow is a candidate grammar; retain live two-act specialist contracts. Each step uses a distinct verb and makes a truthful persistent change; acts can group multiple steps and cannot conceal missing baking/retrieval.",
+      "Combine a familiar verb with a suitable tool and new visible payoff; compare the last job before selecting the twist.",
+      "Competitive final act: job-skill imp contest under DL-INT-14, kind immediate contest-only restart after an imp win; learning-career inversion only where owner-directed."
+    ],
+    "owner_touchpoints": [
+      {
+        "question": "May this permanent job use this premise and thematic home?",
+        "default": "approve the source-bound bakery/Kitchen proposal only if it fits; otherwise existing Opera freeplay venue",
+        "trigger": "New permanent career; approved-scope practice/prototype continues without another checkpoint"
+      },
+      {
+        "question": "Is the proposed costume/identity board suitable?",
+        "default": "reuse approved Roshan base atlas identity, preserve iridescent tail",
+        "trigger": "Named visual acceptance required for new costume; generation budget must already be authorized"
+      }
+    ],
+    "gates": [
+      "python -B tools/audit_document_authority.py",
+      "python -B tools/audit_development.py --base auto",
+      "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+      "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+      "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+    ],
+    "write_backs": [
+      "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+      "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+      "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+      "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+    ],
+    "acceptance": "Machine, visual, device, child and owner evidence remain separate; this plan grants none.",
+    "save_allocation": {
+      "next_bit": 18,
+      "current_active_mask": "0x3bdef",
+      "proposed_active_mask": "0x7bdef",
+      "current_active_count": 15,
+      "proposed_active_count": 16,
+      "proposed_namespace_bound": 524287,
+      "current_namespace_bound": 262143,
+      "namespace_clamp_lines": [
+        198,
+        294,
+        619,
+        681
+      ],
+      "source": [
+        "scripts/opera_house.gd",
+        "scripts/save_state.gd"
+      ],
+      "caveat": "Plan only. Re-read load, write and both shared normaliser clamp sites at implementation head; the four 262143 clamps at this baseline must all become 524287 for bit 18. Exercise external merge through the shared normaliser. Never reuse tombstone bits 4, 9 or 14; retain every existing save key and add new keys with defaults. If the platform or namespace changed, derive bounds from its live catalogue instead of this baseline."
+    },
+    "job_card": {
+      "name": "Baker",
+      "premise": "Help Roshan make a pictured bread order; permanent addition pending premise/home decision.",
+      "home_default": "Kitchen only if its current story role and reachability fit; otherwise existing Opera freeplay venue.",
+      "extension_default": "Opera career row; keep Day One and locked Chapter Two roster unchanged without scope authorization.",
+      "beats": [
+        {
+          "act": "Teach",
+          "verb": "pour",
+          "requires": "ingredients_ready",
+          "result_state": "flour_in_bowl",
+          "child_action": "One-finger bag-to-bowl gesture requests Roshan's travel and pour.",
+          "visible_change": "flour fills the same mixing bowl",
+          "voice_key": "opera_baker_pour",
+          "line": "Pour flour into the bowl.",
+          "pointer": "bowl rim and flour bag",
+          "contact": "Roshan carries and tips the bag over the bowl"
+        },
+        {
+          "act": "Play",
+          "verb": "knead",
+          "requires": "flour_in_bowl",
+          "result_state": "kneaded_dough",
+          "child_action": "One-finger presses and folds guide the kneading action.",
+          "visible_change": "rough dough becomes smooth dough along the hand path",
+          "voice_key": "opera_baker_knead",
+          "line": "Press and fold the dough.",
+          "pointer": "dough surface",
+          "contact": "Roshan's hand meets the same dough"
+        },
+        {
+          "act": "Twist",
+          "verb": "shape",
+          "requires": "kneaded_dough",
+          "result_state": "shaped_raw_loaf",
+          "child_action": "One-finger shaping follows the pictured loaf outline with generous tolerance.",
+          "visible_change": "the same raw dough portion takes the pictured loaf shape",
+          "voice_key": "opera_baker_shape",
+          "line": "Make the loaf look like this.",
+          "pointer": "one pictured order and raw dough",
+          "contact": "Roshan shapes and places the same raw dough on its tray"
+        },
+        {
+          "act": "Twist",
+          "verb": "bake",
+          "requires": "shaped_raw_loaf",
+          "result_state": "baked_loaf_in_oven",
+          "child_action": "One finger requests tray placement and oven closure, then guided holds or taps on the pictured oven control advance baking; idle input pauses it.",
+          "visible_change": "Roshan loads the raw loaf, closes the oven and visibly bakes that same loaf in response to intentional input",
+          "voice_key": "opera_baker_bake",
+          "line": "Put the tray in. Help the oven bake.",
+          "pointer": "tray, oven shelf, then pictured oven control",
+          "contact": "Roshan supports the tray at the oven shelf and operates its door/control; no burn or lost loaf"
+        },
+        {
+          "act": "Twist",
+          "verb": "retrieve",
+          "requires": "baked_loaf_in_oven",
+          "result_state": "retrieved_baked_loaf",
+          "child_action": "A deliberate one-finger oven-to-cooling-place gesture requests removal; no automatic retrieval.",
+          "visible_change": "the same visibly baked loaf leaves the oven and rests on the cooling place",
+          "voice_key": "opera_baker_retrieve",
+          "line": "Use the mitt. Take the bread out.",
+          "pointer": "oven mitt, tray handle and cooling place",
+          "contact": "Roshan's mitted hand meets the tray handle and carries it to the supported cooling place"
+        },
+        {
+          "act": "Bow",
+          "verb": "serve",
+          "requires": "retrieved_baked_loaf",
+          "result_state": "served_baked_loaf",
+          "child_action": "A deliberate one-finger loaf-to-plate gesture requests delivery.",
+          "visible_change": "the retrieved baked loaf reaches the matching pictured plate",
+          "voice_key": "opera_baker_serve",
+          "line": "Bring the bread to this plate.",
+          "pointer": "matching plate",
+          "contact": "Roshan carries and places that same baked loaf"
+        }
+      ],
+      "state_rules": "One finger, voice plus pointer, no fail state. Every result requires the preceding state and the child's intentional action with visible Roshan travel/contact. Idle input cannot finish baking, retrieve, serve or award progress. A timer or demonstration never grants completion. Back/focus loss cancels unfinished action and retains completed checkpoints.",
+      "quality_gate": "Target 5/5 only after owner acceptance in runtime context under DL-VIS-07, including all six contact transitions and exact source/derivation provenance. Machine checks grant no score; human/device/child/owner evidence is pending.",
+      "background_readiness": {
+        "status": "NATIVE_COVERAGE_GAP",
+        "native_sources": [
+          {
+            "path": "assets_src/castle/interactive_background_ownership_2026-08-29/generated_room_kitchen_background_source.png",
+            "present": true,
+            "dimensions": [
+              1672,
+              941
+            ],
+            "sha256": "bf719337f531b436c556c6510cab614dd90825ba8d66903f1b76f88f6bf37466",
+            "recorded_sha256": "bf719337f531b436c556c6510cab614dd90825ba8d66903f1b76f88f6bf37466",
+            "hash_matches_record": true
+          },
+          {
+            "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_chef_native.png",
+            "present": true,
+            "dimensions": [
+              1672,
+              941
+            ],
+            "sha256": "1b16695c003210b53aa8e245a4f133f5d6f8cee88be064d61b167b4e90098509",
+            "recorded_sha256": "1b16695c003210b53aa8e245a4f133f5d6f8cee88be064d61b167b4e90098509",
+            "hash_matches_record": true
+          }
+        ],
+        "kitchen_delivery_master": {
+          "path": "assets_src/castle/room_backgrounds_2k/room_kitchen_background_2k.png",
+          "present": true,
+          "dimensions": [
+            4096,
+            2304
+          ],
+          "sha256": "84cb819fbbeab05ceeecffa19d9821e5077eb5f74f2c6669767dc3623add9f07",
+          "recorded_sha256": "84cb819fbbeab05ceeecffa19d9821e5077eb5f74f2c6669767dc3623add9f07",
+          "hash_matches_record": true
+        },
+        "recorded_delivery_transform": "whole-canvas Lanczos; no crop, local heal, blend, mask, or subject transform",
+        "references": [
+          "audit/interactive_background_ownership_2026-08-29.json",
+          "assets_src/imagegen/opera_codex_2026-08-02/OPERA_CODEX_NATIVE_PROVENANCE_2026-08-02.json",
+          "assets_src/castle/room_regenerations/room_kitchen_fullframe_v2_provenance.md",
+          "audit/minigame_art_quality_2026-09-05/opera_native_coverage_followup.md"
+        ],
+        "acceptance": "Composition/reuse references only. The Kitchen delivery master is documented enlargement; its dimensions and tiles do not prove native authored coverage or runtime readiness under DL-LAY-07. Recheck the selected route and current source chain, then review at shipping scale before a narrow replacement decision. No new art, 5/5 score, owner acceptance or generation budget is granted."
+      },
+      "imp": "Competitive final job-skill contest under DL-INT-14; an imp win immediately restarts only the contest, with no lost progress.",
+      "voice": "Roshan synthetic provisional lines: resolve the current voice-manifest engine authority, exact prefix/folder/category routing, hash and quality ledger; never imitate family recordings.",
+      "music": "Propose opera_baker score and EXPECTED_IDS/REQUIRED_AREA_MUSIC entry, or justified byte-identical approved reuse.",
+      "help": "Re-say, demonstrate without payout, widen tolerance, assist the next intentional action; no idle win.",
+      "save": "Proposed additive checkpoints retain flour, kneaded dough, shaped raw loaf, completed baking, deliberate retrieval and served state with defaults; preserve existing rewards and all previous keys. Partial resume and repeat never downgrade progress; saved baking completion cannot skip retrieval.",
+      "art": "Inventory kitchen/chef/candymaker props first, reuse approved Roshan atlas as identity, then name missing raw/baking/baked/retrieved loaf states, tray/mitt/contact frames and costume gap; generation only by Codex with provenance.",
+      "phase_mapping": {
+        "phase_count": 6,
+        "finale_start": 5,
+        "finale_source": "scripts/opera_career_world_2d.gd::FINALE_START / _finale_start (zero-based first contest phase)",
+        "phases": [
+          {
+            "index": 0,
+            "verb": "pour",
+            "act": "Teach"
+          },
+          {
+            "index": 1,
+            "verb": "knead",
+            "act": "Play"
+          },
+          {
+            "index": 2,
+            "verb": "shape",
+            "act": "Twist"
+          },
+          {
+            "index": 3,
+            "verb": "bake",
+            "act": "Twist"
+          },
+          {
+            "index": 4,
+            "verb": "retrieve",
+            "act": "Twist"
+          },
+          {
+            "index": 5,
+            "verb": "serve",
+            "act": "Bow"
+          }
+        ],
+        "caveat": "Candidate six-step card; Teach/Play/Twist/Bow labels group actions, not four inherited phases. Derive PHASES, FINALE_START, stations, hotspot/voice/probe expectations and any checkpoint count from the approved card and actual extension contract at implementation head."
+      }
+    }
+  },
+  "independent_review": {
+    "agent": "bakery_cold_start",
+    "context": "Fresh agent given only repository and add-a-bakery-job planning task",
+    "verdict": "PASS after specification omissions were repaired",
+    "confirmed": [
+      "six ordered deliberate verbs and truthful dough/bake/retrieval/serve states",
+      "zero-based SERVE/Bow finale at index 5 of six phases",
+      "no idle/timer/demonstration award",
+      "live save allocation, four clamp sites and additive compatibility",
+      "native background coverage explicitly unaccepted",
+      "only permanent premise/home and needed costume/identity owner touchpoints"
+    ],
+    "remaining_dependencies": [
+      "runtime registration and checkpoint validation",
+      "native background/contact/art coverage",
+      "exact audio and trusted probes",
+      "separate visual/device/child/owner evidence"
+    ]
+  },
+  "limit": "Planning only. No bakery commission, gameplay/asset change, source acceptance, 5/5 score or release approval."
+}

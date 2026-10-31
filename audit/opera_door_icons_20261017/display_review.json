@@ -1,0 +1,23 @@
+{
+  "baseline": "a9875690ceff436e9ce012a675db09a236aef0f5",
+  "source_sha256_raw_checkout": {
+    "scripts/opera_house_venue_2d.gd": "a4f81cc3d89cfa640d94caf54ed2d24c296781af6ac62ff9a24482a7bb671675",
+    "scripts/probe_opera.gd": "0aae09f81f57573cda3a7937b3f431e5e97d4009eb6a5d5e3f8f8b0613f955b9",
+    "shaders/opera_door_icon_mask.gdshader": "12030c82821b266247b802327fa9198067d385f97591caec4cbee21641bb9921",
+    "tools/build_opera_door_icon_tiles.gd": "bc9d13881424ec2782d95a8c028b4803156437b82e2008725da04d29c7a13ae9"
+  },
+  "art_manifest": "assets/flats/castle/opera_house_venue_2d/icons_above_doors/manifest.json",
+  "captures_sha256_raw": {
+    "baseline.png": "b3591490f862cc44093ba038cc9d5cf4d510a2b6504f00f481dec0a1177159f9",
+    "rejected_dark_shader.png": "d1360802afee37e124c39b577f32a211be9660eab10bb51d2ea7508b58420f8d",
+    "mobile_foyer.png": "6c2726bd575a4e17f8e79ce1afe6eea4d685b49b06e5443a4ac41f125fd41c02",
+    "mobile_display.json": "13a3c9cf355dee948392077c2eafce806e9dfba0a45d1933f04c06c9d580410b",
+    "ai_bridge.json": "67291d15d57f2dbd717fc02259347aa802b2423b3929a5cd7bf31faef4f8f314",
+    "editor.log": "b770a9a4bed5d17fdd7b1fee042543dd122940bc84af9ac5c4adf91c2a7e99d6",
+    "review_launcher.py.txt": "1369d9670b1f2ff699747d1a7781998fbae89be5c8c585846fb65d740e37e611",
+    "display_driver.gd.txt": "c360273a50aa61767d634944c489d0cbb6b720ae468ca6cbc824959eb1f10874"
+  },
+  "visual_review": "Root inspected actual Mobile framebuffer: all12 original round signs are above restored arches with visible gaps; no dark shader. Original dark shader capture is rejected. Same three-floor room,12 doors and door input regions.",
+  "limits": "Isolated diagnostic foyer mount, not fresh-save reachability or formal QA11 acceptance; physical device/child/owner pending. Native background generation is1672x940, normalized3640x2048; native2K resolution is not established.",
+  "bridge": "Native local Godot AI plugin/server and game debugger; no model-facing MCP tool invocation claimed."
+}

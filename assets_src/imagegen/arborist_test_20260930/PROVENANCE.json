@@ -1,0 +1,185 @@
+{
+  "method": "builtin imagegen",
+  "gap": "Existing recovered poses do not hold and apply the new orange-spots spray. Four right-facing carry/aim/spray/finish poses are required.",
+  "references": [
+    "assets_src/handoffs/arborist_tree_book_20260929/new_art/book_pose.png",
+    "assets_src/handoffs/arborist_tree_book_20260929/new_art/leaf_medicine.png"
+  ],
+  "prompt": "Derive a 2x2 four-pose gameplay sprite sheet from the exact Arborist Mermaid Roshan in IMAGE1. IMAGE2 supplies ONLY the orange spray-bottle design with three orange dots badge (bottom row second object). Real transparent background. Four equal square cells with complete character and rainbow tail fin, generous empty cell margins, same body scale and bottom anchor. Preserve her exact child face, cream leaf cap, rainbow hair, sage vest, plum pouch, one lavender mermaid tail, no legs. Roshan faces RIGHT in all cells, holding the orange spray with nozzle pointing RIGHT toward a patient tree outside the sheet. Top-left carry: bottle cradled near waist, eyes toward tree. Top-right aim: arm extended gently right, other hand supports bottle; finger over trigger. Bottom-left spray: trigger visibly squeezed, elbow extends slightly, concentrated caring expression, three small aqua spray drops leaving nozzle on right. Bottom-right finish: trigger released, bottle lowered slightly, warm relieved smile toward tree. No book, no tree, no backdrop, no writing, no grid, no repeated identical poses. All cells isolated with no touching neighbors and no clipping. Crisp 2D pastel painted style exactly matching reference. This is a small game action atlas, not a scene redraw.",
+  "repair_prompt": "Targeted prop correction ONLY on this same 2x2 Roshan action sheet. The spray bottles are backwards. In ALL FOUR cells, the round orange outlet/nozzle MUST be on the RIGHT end of the bottle's horizontal head, facing the direction Roshan looks. The decorative green leaf is at the LEFT back of the head. Keep her hands holding the same place, but redesign only bottle head orientation so liquid leaves the right-pointing actual round orange outlet. In bottom-left spraying pose, aqua droplets emerge directly from that RIGHT orange outlet. Preserve all four exact characters, faces, outfits, tails, poses, scale, and transparent background. Do not add any other objects. Add small transparent gutter between cell columns if needed to keep all bottom-left droplets inside its cell.",
+  "rejected": "rejected.png: spray nozzle faces away from target",
+  "selected": "packed.png: carry, aim, spray and finish. Corrected intermediate rejected for neighbor-tail contamination during atlas crop.",
+  "derivatives": [
+    {
+      "path": "assets/opera/tree_book_test/book.png",
+      "source": "assets_src/handoffs/arborist_tree_book_20260929/new_art/book_open.png",
+      "source_sha256": "1c211a6cbbc025c8ae9d4e799eb6ec5a4ce0462de29b87ad1534a4d4e9c7a365",
+      "sha256": "4516c82b24804b081154edd5fb507c072619a26782b9bbfabd1b5ff05d28c70f",
+      "native_size": [
+        1448,
+        1086
+      ],
+      "runtime_size": [
+        1024,
+        768
+      ],
+      "transform": "uniform whole-canvas downsample only; alpha preserved"
+    },
+    {
+      "path": "assets/opera/tree_book_test/roshan_book.png",
+      "source": "assets_src/handoffs/arborist_tree_book_20260929/new_art/book_pose.png",
+      "source_sha256": "08b5ef92a5ed6d26c00914e757bfe7f14f5216261621f4f3a6d3c7c1d62bfa36",
+      "sha256": "ae849978740b10e0309f435c7062338d1ef75736b3291577bd99e522f4be4347",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "runtime_size": [
+        1024,
+        1024
+      ],
+      "transform": "uniform whole-canvas downsample only; alpha preserved"
+    },
+    {
+      "path": "assets/opera/tree_book_test/patient.png",
+      "source": "assets_src/handoffs/arborist_tree_book_20260929/new_art/patient_spaced.png",
+      "source_sha256": "6a119f8a2af65063e7e0e62e9e398dca750d36ffa8fab2a7c13f44e679baa52c",
+      "sha256": "a1a77f01b2d0a57d896f1c831132ce6cf61efe6204fb3de09a58f271c7087d34",
+      "native_size": [
+        1774,
+        887
+      ],
+      "runtime_size": [
+        1024,
+        512
+      ],
+      "transform": "uniform whole-canvas downsample only; alpha preserved"
+    },
+    {
+      "path": "assets/opera/tree_book_test/leaves_medicine.png",
+      "source": "assets_src/handoffs/arborist_tree_book_20260929/new_art/leaf_medicine.png",
+      "source_sha256": "4e6fdb51161283908e925c676271a61ac569ce3511cdbb3ad847793c519a336d",
+      "sha256": "5fedb4067df5d3d9a736594139ceaac08f08ce33558596a20e00e003e0eabd1c",
+      "native_size": [
+        1774,
+        887
+      ],
+      "runtime_size": [
+        1024,
+        512
+      ],
+      "transform": "uniform whole-canvas downsample only; alpha preserved"
+    },
+    {
+      "path": "assets/opera/tree_book_test/spray_poses.png",
+      "source": "assets_src/imagegen/arborist_test_20260930/packed.png",
+      "source_sha256": "2b8db472587c0d68ef3c5ed85c2c4f6ef5b24fb60ac5518bf1b3a2e12039536a",
+      "sha256": "0c7dd79d7d845dcef394f6fbe4e6f766b236b747a48df0b277208818c1fa1f95",
+      "native_size": [
+        1286,
+        1223
+      ],
+      "runtime_size": [
+        1024,
+        974
+      ],
+      "transform": "uniform whole-canvas downsample only; alpha preserved"
+    },
+    {
+      "path": "assets/opera/tree_book_test/lagoon_tree_bigleaf_maple.png",
+      "source": "assets_src/handoffs/arborist_tree_book_20260929/references/lagoon_tree_bigleaf_maple.png",
+      "source_sha256": "43f3eae00feb9ec02c1e8602602d4310b61e81bd5dbfd559f8532039dd8d33d5",
+      "sha256": "6d1be41b48707e686140b30f610ed5a9f18e22be435f832a01199370a1ddacc9",
+      "native_size": [
+        267,
+        294
+      ],
+      "runtime_size": [
+        267,
+        294
+      ],
+      "transform": "uniform whole-canvas downsample only; alpha preserved"
+    },
+    {
+      "path": "assets/opera/tree_book_test/lagoon_tree_pacific_dogwood.png",
+      "source": "assets_src/handoffs/arborist_tree_book_20260929/references/lagoon_tree_pacific_dogwood.png",
+      "source_sha256": "c7659089474d88920e2ec7933f4a23f01343f58f30b908b87cd39d47148cb0c3",
+      "sha256": "e92e41cf81ccfdc251960a7c5599d6984b82ebb1cfc89f3f7cf0704b5dd565eb",
+      "native_size": [
+        245,
+        353
+      ],
+      "runtime_size": [
+        245,
+        353
+      ],
+      "transform": "uniform whole-canvas downsample only; alpha preserved"
+    },
+    {
+      "path": "assets/opera/tree_book_test/sky_lagoon_tree_sticker_tall_v1.png",
+      "source": "assets_src/handoffs/arborist_tree_book_20260929/references/sky_lagoon_tree_sticker_tall_v1.png",
+      "source_sha256": "6c5ea2b3a6ba843e191d88b7a96b81f9cb203813d09f456e1adfa86e5664a98a",
+      "sha256": "78d833ddea8f0efde6dd383827e808fa6cdcfeaa7df12d6400dba626001427c2",
+      "native_size": [
+        229,
+        380
+      ],
+      "runtime_size": [
+        229,
+        380
+      ],
+      "transform": "uniform whole-canvas downsample only; alpha preserved"
+    }
+  ],
+  "pack_prompt": "Repack ONLY these same four Mermaid Roshan sprites into a clean 2x2 atlas on transparent background. Preserve each exact pose, character, face, tail, bottle orientation and spray droplets. Do NOT redraw or change their appearance. Scale all four down equally to about 80% of their present cell fill, with generous empty transparent margins on every side. Each complete character, entire tail fin and all droplets must fit within its own equal-width equal-height quadrant, with at least 8% canvas-width empty gutter between columns and 8% canvas-height gutter between rows. No part of a neighbor may enter another quadrant. Keep order: top-left carry, top-right aim, bottom-left spraying, bottom-right finished. Consistent body scale, full silhouettes. Transparent background, no grid, no words.",
+  "native_packed_sha256": "2b8db472587c0d68ef3c5ed85c2c4f6ef5b24fb60ac5518bf1b3a2e12039536a",
+  "atlas_bounds_native": [
+    [
+      0,
+      0,
+      640,
+      606
+    ],
+    [
+      640,
+      0,
+      646,
+      606
+    ],
+    [
+      0,
+      610,
+      705,
+      613
+    ],
+    [
+      705,
+      610,
+      581,
+      613
+    ]
+  ],
+  "atlas_logical_size_native": [
+    720,
+    615
+  ],
+  "atlas_padding_origin": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ],
+    [
+      58,
+      0
+    ]
+  ],
+  "measurement": "Alpha>50 occupied columns top80..540 and709..1240; bottom61..702 and708..1186. Bottom division705 has no subject pixels. Full-quadrant native crops with transparent padding only."
+}

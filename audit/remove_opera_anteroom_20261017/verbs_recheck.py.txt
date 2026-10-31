@@ -1,0 +1,25 @@
+from pathlib import Path
+import json,subprocess,hashlib,os,time,re,sys
+root=Path(__file__).resolve().parents[1]
+out=root/'audit/remove_opera_anteroom_20261017'
+godot=json.loads((out/'focused.json').read_text())['command'][0]
+names=['scripts/castle_career_routes.gd','scripts/opera_house_venue_2d.gd','scripts/probe_opera.gd','scripts/probe_throne.gd','scripts/probe_verbs.gd','scripts/player.gd','scripts/roshan_sprite_loop.gd','scripts/sprite_transition_2d.gd','scripts/main.gd']
+names=[p for p in names if (root/p).exists()]
+frozen={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in names}
+profile=root/'tmp'/('opera_verbs_recheck_'+str(int(time.time())))
+for name in ['appdata','localappdata','data','config']:(profile/name).mkdir(parents=True,exist_ok=True)
+env=dict(os.environ,PYTHONUTF8='1',PYTHONIOENCODING='utf-8',APPDATA=str(profile/'appdata'),LOCALAPPDATA=str(profile/'localappdata'),XDG_DATA_HOME=str(profile/'data'),XDG_CONFIG_HOME=str(profile/'config'))
+command=[godot,'--headless','--path',str(root),'-s','scripts/probe_verbs.gd','--','--touch','--classic-touch-test']
+started=time.time()
+path=out/'verbs_recheck.log'
+with path.open('w',encoding='utf-8') as log:
+    try:code=subprocess.run(command,cwd=root,env=env,stdout=log,stderr=subprocess.STDOUT,timeout=300).returncode
+    except subprocess.TimeoutExpired:code=124
+text=path.read_text(encoding='utf-8',errors='replace')
+failure_re=re.compile(r'FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error')
+errors=[s for s in text.splitlines() if failure_re.search(s)]
+drift=[p for p,h in frozen.items() if hashlib.sha256((root/p).read_bytes()).hexdigest()!=h]
+data={'command':command,'exit_code':code,'elapsed_seconds':time.time()-started,'source_sha256':frozen,'source_drift':drift,'reported_failures':errors,'log_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'status':'PASS' if code==0 and not drift and not errors and 'Roshan sprite animation probe complete' in text else 'FAIL','scope':'Direct native rerun of the unchanged verb probe after the original suspended-idle range assertion failed. No probe or production behavior is changed; original incomplete transcript and failure stay preserved. Separate isolated save profile; native process exit and final verdict required.'}
+(out/'verbs_recheck.json').write_text(json.dumps(data,indent=2)+'\n')
+print(json.dumps(data))
+sys.exit(0 if data['status']=='PASS' else 1)

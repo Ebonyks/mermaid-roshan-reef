@@ -1,0 +1,55 @@
+{
+  "baseline": "b65c21fdddd79f272a6854f241faa1441abe6616",
+  "runtime_source_comparison": {
+    "command": "git diff b65c21fdddd79f272a6854f241faa1441abe6616 --name-only -- scripts scenes assets project.godot .github/workflows",
+    "result": "PASS",
+    "evidence": "verification/runtime_source_comparison.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "baseline_full_game_ci": {
+    "revision": "b65c21fdddd79f272a6854f241faa1441abe6616",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36807014650",
+    "result": "PASS"
+  },
+  "contract_tests": {
+    "command": "C:\\Users\\Peter\\.codex\\worktrees\\sky-lagoon-local-animation-20260930\\mermaid-roshan-reef\\build\\validation-venv\\Scripts\\python.exe -s -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+    "result": "PASS",
+    "evidence": "verification/contract_tests.log",
+    "log_sha256": "e137631143d13de43ed2a0843690fd9d13f485b2cd0d55974f22d47eaa57e214"
+  },
+  "authority": {
+    "command": "C:\\Users\\Peter\\.codex\\worktrees\\sky-lagoon-local-animation-20260930\\mermaid-roshan-reef\\build\\validation-venv\\Scripts\\python.exe -s -B tools/audit_document_authority.py",
+    "result": "PASS",
+    "evidence": "verification/document_authority.log",
+    "log_sha256": "cba463c8226a89f9cb4dc6e9220c9dc1101bbc483d2622ce7430964f2ba2f885"
+  },
+  "development_coverage": {
+    "command": "C:\\Users\\Peter\\.codex\\worktrees\\sky-lagoon-local-animation-20260930\\mermaid-roshan-reef\\build\\validation-venv\\Scripts\\python.exe -s -B tools/audit_development.py --base auto",
+    "result": "PASS",
+    "evidence": "verification/development_coverage.log",
+    "log_sha256": "d2cfd88e7068b3d6718d77d3ff2480d47136dca76cd4a717692a497ed73bedee"
+  },
+  "import": {
+    "command": "Godot 4.7.2.stable.official.ed1daf0bf --headless --import --path . --log-file build/moderate-reference-import.log",
+    "result": "PASS",
+    "evidence": "verification/godot_import.log",
+    "log_sha256": "158dc26483d8d869bb4480668f32464988ed3003b2875bc33b61e42167002daa",
+    "notes": "Clean import after excluding the local validation venv with ignored build/.gdignore. Generated tracked platform import sidecars restored; source comparison is empty."
+  },
+  "parser_inference": {
+    "result": "NOT_APPLICABLE",
+    "reason": "No .gd edits; runtime source matches the exact green baseline."
+  },
+  "acceptance": {
+    "owner": false,
+    "device": false,
+    "child": false,
+    "runtime_integration": false,
+    "cinematic_delivery": false,
+    "scope": "Archive/reference-only; samples excluded from Godot import with .gdignore. Green project gates do not accept new art."
+  },
+  "browser_preview": {
+    "result": "PASS",
+    "evidence": "Observed ten cards, advancing key counters, native-pixel/scene controls and current moderate gallery at http://127.0.0.1:8191/; browser QA does not confer owner animation acceptance."
+  }
+}

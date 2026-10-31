@@ -1,0 +1,153 @@
+{
+ "schema": "visual_contradictions/1",
+ "measured_at_head": "b65c21fdddd79f272a6854f241faa1441abe6616",
+ "items": [
+  {
+   "id": "VC-01",
+   "topic": "Roshan's appearance",
+   "positions": [
+    "base-world atlas: lavender sequin tail, rainbow ponytail",
+    "career atlases, cinematic guide and style-guide palette: continuous rainbow tail",
+    "book stained glass: green-into-purple tail, rainbow front lock",
+    "written anchors: lavender clothing, green-right / pink-left tail"
+   ],
+   "resolution": "SETTLED by the owner on 2026-09-30: the tail is iridescent; the lavender and rainbow renderings are both correct. The written anchors are retired.",
+   "status": "SETTLED"
+  },
+  {
+   "id": "VC-02",
+   "topic": "Identity authority",
+   "positions": [
+    "DL-VIS-06: the protected book art",
+    "DL-MED-02: the approved atlas family",
+    "design 02: the book PDF, which is not in the repository"
+   ],
+   "resolution": "SETTLED by the owner on 2026-09-30: the approved atlases are the primary identity authority; the book is a likeness reference.",
+   "status": "SETTLED"
+  },
+  {
+   "id": "VC-03",
+   "topic": "Contour colour",
+   "positions": [
+    "design 06: deep-indigo, plum or warm-brown",
+    "design 02 and CLAUDE.md: navy/purple",
+    "style guide: ink indigo #222E44",
+    "generation contract and tools/gen2_batch.py: near-black"
+   ],
+   "resolution": "Measured bands per family (TOK-VIS-CONTOUR-COLOUR); OQ-VIS-RIVAL-LINE for the imps"
+  },
+  {
+   "id": "VC-04",
+   "topic": "Working palette",
+   "positions": [
+    "ART_STYLE_GUIDE.md 20 swatches",
+    "assets/ART_GENERATION_CONTRACT.md different hexes for the same names",
+    "code: INK nine definitions with eight values"
+   ],
+   "resolution": "One palette file (TOK-VIS-PALETTE); OQ-VIS-PALETTE"
+  },
+  {
+   "id": "VC-05",
+   "topic": "Colour meanings",
+   "positions": [
+    "scripts/interaction_affordance.gd: gold means animation",
+    "scripts/castle_door_cue.gd: gold means plot, coral bonus",
+    "door handoff: gold plot, ruby bonus"
+   ],
+   "resolution": "OQ-COLOUR"
+  },
+  {
+   "id": "VC-06",
+   "topic": "Opera career palettes",
+   "positions": [
+    "tools/build_opera_codex_art.py",
+    "scripts/opera_world_backdrop_2d.gd"
+   ],
+   "detail": "disagree for 10 of 13 careers; Geologist only in the script",
+   "resolution": "The shipped script, then one source"
+  },
+  {
+   "id": "VC-07",
+   "topic": "Scoring",
+   "positions": [
+    "nine rubrics in registry_seed.json"
+   ],
+   "resolution": "templates/ART_REVIEW_CARD_V1.md"
+  },
+  {
+   "id": "VC-08",
+   "topic": "Value bands",
+   "positions": [
+    "design 02: three value families",
+    "style guide: two or three",
+    "design 06: a few"
+   ],
+   "resolution": "TOK-VIS-VALUE-BANDS = 3"
+  },
+  {
+   "id": "VC-09",
+   "topic": "Baked light",
+   "positions": [
+    "style guide: never bake light or a heavy vignette",
+    "flats with lit lamps; aesthetics plan adds a lavender vignette"
+   ],
+   "resolution": "OQ-BAKED-LIGHT"
+  },
+  {
+   "id": "VC-10",
+   "topic": "New sprite frames",
+   "positions": [
+    "aesthetics plan: image generation",
+    "visual repair plan: Aseprite cel authoring"
+   ],
+   "resolution": "OQ-VIS-SPRITE-CHANNEL"
+  },
+  {
+   "id": "VC-11",
+   "topic": "Reference packs",
+   "positions": [
+    "aesthetics plan: Claude may build them",
+    "CLAUDE.md 2026-09-30: Claude builds no images"
+   ],
+   "resolution": "CLAUDE.md"
+  },
+  {
+   "id": "VC-12",
+   "topic": "Hard CI gates",
+   "positions": [
+    "design 02 lists seven art tools as hard gates",
+    "three of them do not run in the remote probe workflow"
+   ],
+   "resolution": "Correct design 02"
+  },
+  {
+   "id": "VC-13",
+   "topic": "Interface panel shadow",
+   "positions": [
+    "scripts/storybook_ui.gd: violet-tinted shadow",
+    "scripts/games/picture_games.gd:109: neutral black"
+   ],
+   "resolution": "Tokens"
+  },
+  {
+   "id": "VC-14",
+   "topic": "Background treatment",
+   "positions": [
+    "painted rooms such as the Playroom",
+    "flat-shell Royal Bedroom, Movie Lounge, Dining Room, Family Gallery"
+   ],
+   "resolution": "OQ-VIS-FLAT-ROOMS"
+  },
+  {
+   "id": "VC-15",
+   "topic": "Tool thresholds",
+   "positions": [
+    "green spill: four definitions",
+    "visible alpha: 8, 12, 16, 26, 48 or 128",
+    "plausible coverage: three ranges",
+    "crushed: max channel below 0.02 or luminance below 0.005"
+   ],
+   "resolution": "One threshold set in the visual-language data (VL6)"
+  }
+ ]
+}

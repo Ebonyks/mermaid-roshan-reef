@@ -1,0 +1,25 @@
+{
+  "reviewer": "Codex native-resolution agent inspection; owner review not granted",
+  "quality": "REJECTED_REFERENCE_ONLY",
+  "takes": [
+    {
+      "take": "official_standard",
+      "seconds": 70.15,
+      "observed_total_card_peak_mib": 7011
+    },
+    {
+      "take": "official_mid_strong",
+      "seconds": 37.57,
+      "observed_total_card_peak_mib": 7146
+    }
+  ],
+  "findings": [
+    "Sharper native contours in some raised-hand frames after refinement, but detail remains uneven.",
+    "Torn/disconnected shoulder/upper arm visible aroundnativeframe7.",
+    "By22 the model has already returned to rest instead of the supplied mid-lowering pose; stronger whole-frame attention did not fix timing.",
+    "Rest/down-hand remains soft; refinement does not manufacture exact original detail or guarantee anatomy."
+  ],
+  "stage1_evidence": "stage1 frame22 is already atrest, so the timing miss was not introduced only by refinement.",
+  "refinement_claim": "Official2Bmultiscale settings and AdaIN reproduced in Comfy, not the official Python pipeline executable; FP8T5 CPU encoder, tiled decode and independent samplerseed streams remain declared differences.",
+  "acceptance": "No production/runtime/device/child/owner acceptance; stop2B after two takes."
+}

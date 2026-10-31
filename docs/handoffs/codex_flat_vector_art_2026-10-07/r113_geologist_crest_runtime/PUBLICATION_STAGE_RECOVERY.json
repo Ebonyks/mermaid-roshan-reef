@@ -1,0 +1,33 @@
+{
+  "state": "BOUNDED_PUBLICATION_STAGE_RECOVERY_NO_ENGINE_RERUN",
+  "at_utc": "2026-10-30T15:37:02.790763+00:00",
+  "baseline": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+  "failure": {
+    "state": "STOPPED_NO_AUTOMATIC_RETRY",
+    "error": "Command '['git', 'add', '-u', '--', 'assets/opera/worlds/ui/crests/opera_crest_geologist.svg', 'assets/opera/worlds/ui/crests/opera_crest_geologist.svg.import']' returned non-zero exit status 128.",
+    "at_utc": "2026-10-30T14:42:31.435687+00:00",
+    "next": "Inspect exact handle/source/log; no healthy restart, no force push."
+  },
+  "cause": "The former SVG is Git-tracked but its .svg.import was ignored generated local metadata. Passing both missing files to git add -u failed on the untracked import sidecar; the actual SVG deletion remains unstaged. Full82/currentstatic/native/art all passed unchanged.",
+  "retired_paths": [
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.svg",
+      "tracked_at_baseline": true,
+      "action": "Stage exact real Git deletion"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.svg.import",
+      "tracked_at_baseline": false,
+      "action": "Preserve archived local import, retain runtime-absence guard, do not stage a nonexistent Git deletion"
+    }
+  ],
+  "recovery": "Resume publisher after prepared plan/status/master/changelog/log packaging, stage only tracked deletion, include this record and resume runner in actual manifest. Do not repeat generation/native/import/currentstatic/all82 or already-applied preparation.",
+  "healthy_validation": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-crest-20261030\\full_validation\\FINAL_RESULT.json",
+  "generation_calls": 1,
+  "animation_calls": 0,
+  "new_frame_events": 0,
+  "new_implementation_credits": 0,
+  "candidate_pixels_changed": false,
+  "gameplay_changed": false,
+  "original_failures_preserved": true
+}

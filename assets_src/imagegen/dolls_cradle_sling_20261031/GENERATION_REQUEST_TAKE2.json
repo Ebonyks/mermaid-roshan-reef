@@ -1,0 +1,23 @@
+{
+  "backend": "Built-in image_gen",
+  "model_selector_exposed": false,
+  "returned_version": null,
+  "take": 2,
+  "static_cap": 2,
+  "animation_calls": 0,
+  "prompt_sha256": "99fd7dac4ae2362ae87a3f756b8ab96fe2fcf7afb183271754aa94439ae0fb70",
+  "references": [
+    {
+      "path": "assets_src/imagegen/dolls_cradle_sling_20261031/rejected/sling_wide_haze_take1.png",
+      "sha256": "1641ed647e39049aaf23b31dd893256cd0e5d515cccbfcf93328cf1142ff0575",
+      "role": "Wholecandidate shape/material repair input, not accepted"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/candidate/1280/05_owned_catch_mat_remains.png",
+      "sha256": "5af8560ba849bec69ab72c225522f3617212e1fde2b3b20aabddf4cc46cd6b7d",
+      "role": "Current actual scene context only, no deliverypixels"
+    }
+  ],
+  "transparent_background": true,
+  "requested_at_utc": "2026-10-31T13:27:40.334928+00:00"
+}

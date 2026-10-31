@@ -1,0 +1,485 @@
+{
+  "state": "FOCUSED_IMPORT_AND_RIVER_TWO_ASPECT_CONTEXT_PASS_AGENT_REVIEW_REQUIRED",
+  "imports": [
+    {
+      "pass": 1,
+      "exit_code": 0,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-river-pools-20261029\\import1\\engine.log",
+      "sha256": "47d23be76ee3350e7a7e1eba79d7f3c3d9daf2e0f0f053af0762056a1b76315e",
+      "reused_successful_actual_candidate_import": true
+    },
+    {
+      "pass": 2,
+      "exit_code": 0,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-river-pools-20261029\\import2\\engine.log",
+      "sha256": "46f84cdb0817f3f5e5e9c4d65366b0e94d30d188ec735138ab92e7ac1c4d8733",
+      "reused_successful_actual_candidate_import": true
+    }
+  ],
+  "cases": [
+    {
+      "width": 1280,
+      "phase": 0,
+      "checks": 49,
+      "frames": [
+        {
+          "castle_layer_visible": false,
+          "id": "01_initial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "01_initial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "94d1bcf5409d811bf5d892982164cad32c7da1490e82fcb2ae5a2fcb4597d323",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": []
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "02_isolated_receiver_dry",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "02_isolated_receiver_dry.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "e570669585ce817bcd98b5651daf8c00e1454ede346817769e776bca45946425",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": [
+              26
+            ]
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "03_source_released_partial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "03_source_released_partial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "2518442706f5b5a23a2d286fcb623c7925100c3c12c67b54ec8bd970dbee46c1",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": [
+              18,
+              19,
+              26
+            ]
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "04_partial_channel",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "04_partial_channel.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "8c319a81286f3fa15cb1b1c12f9567ad050a88c2af3b83806a61cead69ecef93",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": [
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              26
+            ]
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "05_near_receiver_dry",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "05_near_receiver_dry.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "5b56cdc612aebcbdedc653d342f6623e172aa8e25693c2a0a69e6a75d97f176e",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": [
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              22,
+              24,
+              26,
+              31,
+              32,
+              33
+            ]
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "06_complete_connected",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "06_complete_connected.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "50f2c08fb6c8874b757f34878453851e2b217362e2d1dd1eb0198ad5b7594283",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": true,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": [
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              22,
+              24,
+              25,
+              26,
+              31,
+              32,
+              33
+            ]
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-river-pools-20261029\\candidate2_1280_0\\output\\RESULT.json",
+      "result_sha256": "422e86d8595fde45db6c63d3cba1031d451b11647d5af9533b97b921d03c4453"
+    },
+    {
+      "width": 1600,
+      "phase": 0,
+      "checks": 49,
+      "frames": [
+        {
+          "castle_layer_visible": false,
+          "id": "01_initial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "01_initial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "9843a9a780604e9fb4bed544f35b70697e82a556f55c95e1912aaa4037110e4d",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": []
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "02_isolated_receiver_dry",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "02_isolated_receiver_dry.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "754c86dcf7da80a726ffd4028fe4177ac0e0e1cf3bbecca45b18a355f009728c",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": [
+              26
+            ]
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "03_source_released_partial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "03_source_released_partial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "d4e95a976d60a6e8459c4780ff5b369bce61ec14f4c98a428d3ece0cfcef963d",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": [
+              18,
+              19,
+              26
+            ]
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "04_partial_channel",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "04_partial_channel.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "73a9e0cd78778361b3e93298f6640354827645b30bfab3aee91daba0e4e0d993",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": [
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              26
+            ]
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "05_near_receiver_dry",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "05_near_receiver_dry.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "90a9fd9bc1082bd6733b1226d882f0ed1d79d78119efef29cce19ca3f76395cb",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": [
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              22,
+              24,
+              26,
+              31,
+              32,
+              33
+            ]
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "06_complete_connected",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "06_complete_connected.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "fa5391207ead4da70ba0c18cc772a912d7a64c713dd6eb38501dd38a09ac53a2",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": true,
+            "mode": "geology_river",
+            "stage": "RIVER",
+            "version": 1,
+            "wet": [
+              11,
+              12,
+              13,
+              18,
+              19,
+              20,
+              22,
+              24,
+              25,
+              26,
+              31,
+              32,
+              33
+            ]
+          },
+          "start_menu_active": false,
+          "world_phase": 0,
+          "world_visible": true
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-river-pools-20261029\\candidate2_1600_0\\output\\RESULT.json",
+      "result_sha256": "fa81d046907faceb4468eb2bd2ac234d01f07f45a6dc069cdef2040bef47ba64"
+    }
+  ],
+  "checks": 98,
+  "new_native_frame_events": 12,
+  "source_drift": [],
+  "normal_unchanged": true,
+  "normal_before": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "normal_after": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "new_generation_calls": 1,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "full_trusted_suite": "PENDING_AFTER_AGENT_SCENE_REVIEW",
+  "completed_at_utc": "2026-10-30T04:39:22.254775+00:00",
+  "scope": "Actualriver phase0 at1280/1600, passive/real isolatedexcavation/partial/cancel/wrongfinger/JSONrestore/connectedcompletion. Original press-only fixture failure6frames excluded, assertion retained with realdrag correction.",
+  "excluded_native_events": 6,
+  "total_new_native_events": 18
+}

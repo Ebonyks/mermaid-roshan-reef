@@ -1,0 +1,182 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L54",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l54",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Chapter Two career route starts and party",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L54/attempt_2/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The exact Godot 4.7.2 headless probe passed its Chapter Two director assertions: post-boss activation, the eight-job ordering and guards, phase callback effects, plot-only Ballerina/Detective state, party readiness/dress gating, save normalization, and Ember protection. The retained L54 log ends CHAPTER2|RESULT: PASS checks_failed=0.",
+    "gaps": "This probe explicitly says it does not start a rendered Opera game (scripts/probe_chapter2.gd:5-8). It writes director progress and invokes callbacks directly; it does not enter from a fresh save through the real Castle room card, configure/start the career, accept ordinary touches, or follow the party route on screen. At this baseline the caller passes the director's empty-context overrides into OperaHouse, but that override omits the story phase set; the active MA-PLAY-005 reproduction reports setup rejection and missing stations. The probe PASS therefore does not prove the assigned visible route starts. No rendered Mobile view, phone/device session, observed child session, voice listening, or owner acceptance was performed."
+  },
+  "verdict": "FAIL",
+  "timing": {
+    "code_constants": [
+      "When an Opera phase remains closed, idle_t reaches 9.0 seconds to repeat that phase's own prompt; at 20.0 seconds code attempts the kind auto-walk only if armed_station is a valid station (scripts/opera_career_world_2d.gd:4622-4638).",
+      "The Chapter Two director defines first-wave mask 0x0449 and the eight ordered act slots [6, 0, 3, 10, 2, 13, 11, 1] (scripts/chapter_two_director.gd:43-45). These are progression data, not a measured play duration."
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No child session or ordinary-input play occurred. The 9- and 20-second values are source thresholds, not observed waits; the L54 helper wall time is probe execution time and says nothing about game duration."
+  },
+  "tactile": {
+    "target_size": "No touch target was pressed or visually measured. The probe checks room-owner mappings and party-table metadata, not projected touch geometry; phone size and spacing are unknown.",
+    "press_response": "No touch events were synthesized. The party assertion calls the director start method directly, and no rendered-frame response latency was measured.",
+    "drag_hold_release": "Not exercised. This review does not establish whether career actions need tap, drag, or hold or how they release.",
+    "ownership": "No pointer/touch ownership or competing-finger case was exercised.",
+    "cancellation": "The probe checks that leaving Main Hall cancels party beat processing without advancing progress, but it only syncs a test object to rooms; actual navigation, focus loss, pause, and touch cancellation were not tested (scripts/probe_chapter2.gd:406-415)."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: the ordered jobs and persistent visible cake/party pieces could make contributions understandable and purposeful. However, the first story job's normal start path is reported broken at this baseline, preventing a child from reaching that loop.",
+    "variety": "Probe source describes the eight career sequence and asserts distinct progression callbacks, but it does not play the rendered activities; tactile variety remains unobserved.",
+    "world_response": "Director assertions show the story mask, cake milestones, candle state, and party event state changing in response to explicit calls. This is code-level evidence rather than an in-world presentation check.",
+    "replay": "Save normalization assertions indicate malformed/skipped milestones are healed and partial phase masks can resume. The probe normalizes dictionaries directly; save/restart and child replay were not observed.",
+    "fun_score": null
+  },
+  "play_sequence": {
+    "status": "Proposed acceptance script; not performed. Current baseline is expected to stop at the Farmer route/start defect. Later beats are conditional on repairing the route and must be tested with normal input.",
+    "beats": [
+      "On an isolated fresh save, finish Day One through the visible boss route. After Chapter Two opens, wait for the spoken Farmer cue and its picture pointer; use the career foyer card once, then follow it to the Dining Room Farmer picture. Wait two rendered frames after each tap and record whether the expected room and activity appear (scripts/main.gd:2733-2789; scripts/main.gd:6955-6962; scripts/castle_career_routes.gd:401-425).",
+      "At the first Farmer activity, make no input for exactly 9 seconds; record whether the phase-specific prompt/demo repeats. Continue to exactly 20 seconds and record whether Roshan reaches a visible actionable station. The auto-walk has no valid target when armed_station is -1 (scripts/opera_career_world_2d.gd:4622-4638; MA-PLAY-005 reproduction).",
+      "If a visible Farmer task opens, tap each of five visible berries once, waiting two rendered frames after every tap; verify one berry changes per tap, then complete basket and delivery through the visible prompts. Leave and re-enter after three berries and check that only remaining progress is requested. Stop and record the first route or state that cannot be reached without debug setup.",
+      "Continue from actual visible Castle room cards in the required order: Chef, Candy Maker, Painter; after Painter, verify Ballerina, Pop Star, Astronaut, Detective become available. Use one finger and the voiced/pictured next cue only; record room transitions, task starts, saves, and whether each finished prop remains in its world location (scripts/chapter_two_director.gd:236-247,430-438; design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md, Locked roster and order).",
+      "After the final Detective candle search, enter Main Hall and equip Roshan's party dress through the visible wardrobe route. Tap the visible party table/rainbow cue once; wait two rendered frames, then verify ignition and the lawn route are visible, with no progress awarded by waiting alone (scripts/chapter_two_director.gd:441-459; scripts/chapter_two_room_plot.gd:35-44,66-72).",
+      "Concrete appeal test on the target phone: without adult route or reading help, observe whether the child follows one career pointer, chooses the pictured task, notices the lasting party object, and voluntarily continues to the next job. Record where they hesitate, request help, repeat actions, exit, or choose to continue; do not assign a numeric fun score."
+    ]
+  },
+  "observations": [
+    {
+      "title": "The normal Chapter Two career start omits required story phases",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/main.gd:2733-2789 launches the selected act through ChapterTwoDirector.opera_config_overrides(plot_context, act_index); the normal story career call uses the empty plot context.",
+        "scripts/chapter_two_director.gd:604-618 returns reward/run-context fields for an eligible story career but does not include phase_overrides; scripts/chapter_two_career_scene_adapter.gd:85-105 rejects an empty phase set for Chapter Two.",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:973-991 records MA-PLAY-005 as CONFIRMED_OPEN P0 and documents exact-baseline runtime diagnostics reporting phases=0/stations=0 and setup rejection. The L54 log itself contains no routed setup assertion because probe_chapter2.gd:5-8 explicitly bypasses a rendered Opera game."
+      ],
+      "rules": [
+        "DL-AGE-03",
+        "DL-AGE-06",
+        "DL-SAVE-04",
+        "DL-QA-02",
+        "DL-INT-12"
+      ],
+      "existing_findings": [
+        "MA-PLAY-005"
+      ],
+      "reproduction": "Trace the real _start_opera_now caller into opera_config_overrides with empty plot context, then through ChapterTwoCareerSceneAdapter validation. The active MA-PLAY-005 exact-baseline receipts in the finding show the production configuration rejection; L54's passing director-only probe does not run that chain.",
+      "child_impact": "A child following the voiced Farmer objective can reach a broken or empty career scene before contributing to the party. The authored eight-job party arc may therefore be inaccessible through normal play.",
+      "proposed_repair": "Pass the resolved complete Chapter Two story phase set on the real launch path and ensure each story phase has a visible opening; retain separate story reward and save semantics. Add normal-room route coverage rather than treating director callback tests as career-launch evidence.",
+      "acceptance_test": "From a fresh save after the visible Day One boss, use the voiced/pictured route to start each of the eight jobs through its owned Castle room, complete all story phases with ordinary touch, verify persistent objects and return routes, and reach the party without debug state injection; run the same launch on the target phone."
+    },
+    {
+      "title": "The passing probe directly advances career and party state instead of proving the route",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_chapter2.gd:5-8 states that the probe exercises the causal chain without starting a rendered Opera game.",
+        "scripts/probe_chapter2.gd:277-313 directly obtains phase callbacks and invokes callback.call with fabricated phase dictionaries; :325-365 calls record_party_contribution directly to advance ordered careers.",
+        "scripts/probe_chapter2.gd:390-415 directly calls start_main_hall_party and synchronizes ChapterTwoRoomPlot to rooms; L54 attempt_2/probe.log:1-20,53-57 reports these director assertions OK and RESULT PASS, not a room touch route."
+      ],
+      "rules": [
+        "DL-AGE-01",
+        "DL-AGE-06",
+        "DL-SAVE-04",
+        "DL-QA-02",
+        "DL-QA-05",
+        "DL-QA-07"
+      ],
+      "existing_findings": [
+        "MA-PLAY-001",
+        "MA-PLAY-005",
+        "MA-CHILD-001"
+      ],
+      "reproduction": "Run the assigned L54 command and inspect the probe's direct method/callback calls. They can pass even while the real career configuration path remains invalid, as the separate MA-PLAY-005 receipt confirms.",
+      "child_impact": "The PASS supports ordering and state-policy logic but cannot tell whether a non-reader finds, starts, completes, exits, or resumes the activity independently.",
+      "proposed_repair": "Keep the existing director assertions and add a routed probe that presses the actual room-owned picture, verifies the Opera phase list/station and ordinary action, then returns through the same room and save lifecycle.",
+      "acceptance_test": "A trusted probe starts Farmer and the remaining ordered jobs from their live Castle room entry with normal touch events and no injected callbacks/progress; a paired phone/child session confirms discoverability and recovery."
+    },
+    {
+      "title": "Director safeguards support a coherent party sequence, but not a rendered play claim",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_chapter2.gd:263-405 and audit/cycles/luna-playtest-20261012/runtime/L54/attempt_2/probe.log:20-57 report OK for ordered act gating, Farmer-before-Chef rejection, eight-career milestones, party dress gating, unrelated-room rejection, and candle/party event state.",
+        "scripts/chapter_two_director.gd:236-247 gates career entry to the next unlocked act; :441-459 gates party ignition on readiness and the special dress; :466-505 requires the lawn route/protection state before the King takes the candle.",
+        "scripts/chapter_two_director.gd:648-656 binds phase completion back to the main-state callback; :659-690 serializes the additive director state."
+      ],
+      "rules": [
+        "DL-AGE-03",
+        "DL-AGE-04",
+        "DL-SAVE-01",
+        "DL-SAVE-04",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-PLAY-005"
+      ],
+      "reproduction": "The retained L54 probe initializes the director, invokes ordered state transitions and callbacks, and rejects out-of-order or ineligible party actions; inspect the cited log assertions.",
+      "child_impact": "If reached through the intended route, ordering prevents skipped preparation and party readiness; the probe supports that policy while leaving the actual child's access and visible feedback unresolved.",
+      "proposed_repair": "Preserve these monotonic order, dress, and party gates while repairing and testing the production start path.",
+      "acceptance_test": "Complete the ordered jobs through normal room actions, attempt Chef early and party ignition before readiness/dress, and verify both are blocked; then complete the sequence and confirm only the intended next story event advances."
+    },
+    {
+      "title": "Tactile affordance and party appeal are unmeasured by the headless director review",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "L54 attempt_2/receipt.json records headless=true and rendered_mobile_acceptance=false; its command runs scripts/probe_chapter2.gd with no GUI session.",
+        "scripts/probe_chapter2.gd:5-8 explicitly excludes rendered play; scripts/chapter_two_room_plot.gd:85-101 defines a broad party-table touch surface, but the probe never dispatches a screen touch to it.",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:714-720 requires generous child targets/one-finger ownership and :1246-1266 separates machine probes from device and child acceptance."
+      ],
+      "rules": [
+        "DL-UI-01",
+        "DL-UI-03",
+        "DL-UI-04",
+        "DL-QA-04",
+        "DL-QA-05",
+        "DL-QA-07"
+      ],
+      "existing_findings": [
+        "MA-TOUCH-001",
+        "MA-CHILD-001"
+      ],
+      "reproduction": "Compare the headless probe assertions with the actual party touch surface in chapter_two_room_plot.gd. No rendered tap, target measurement, finger ownership, child observation, or visual review is present in the L54 evidence.",
+      "child_impact": "A wide source rectangle does not by itself prove that the intended painted party object reads as actionable or that its projected target works comfortably on the phone; children may need help to find the route.",
+      "proposed_repair": "No code repair is inferred from this absence alone. Measure the rendered room target and perform one-finger device and observed-child review after the start route is repaired.",
+      "acceptance_test": "On the exact target phone, capture the party room at device aspect, measure the projected visible hit region and neighboring controls, verify one tap starts the correct scene within the response budget, test second-finger/cancel/focus-loss behavior, and observe unprompted child recognition."
+    }
+  ],
+  "strengths": [
+    {
+      "title": "The director enforces a clear eight-job order and gates the candle/party events",
+      "evidence": [
+        "scripts/probe_chapter2.gd:263-405",
+        "audit/cycles/luna-playtest-20261012/runtime/L54/attempt_2/probe.log:20-57",
+        "scripts/chapter_two_director.gd:236-247,441-459,466-505"
+      ]
+    },
+    {
+      "title": "The party does not advance just because the child waits in Main Hall",
+      "evidence": [
+        "scripts/probe_chapter2.gd:406-415",
+        "audit/cycles/luna-playtest-20261012/runtime/L54/attempt_2/probe.log:53-55",
+        "scripts/chapter_two_room_plot.gd:66-72"
+      ]
+    },
+    {
+      "title": "Story progress is separately serialized and the probe checks malformed/future masks",
+      "evidence": [
+        "scripts/chapter_two_director.gd:659-690,735-790",
+        "scripts/probe_chapter2.gd:469-540",
+        "audit/cycles/luna-playtest-20261012/runtime/L54/attempt_2/probe.log:61-66"
+      ]
+    }
+  ],
+  "acceptance_gaps": [
+    "Normal visible career start remains blocked by the open MA-PLAY-005 production configuration/station defect at this baseline.",
+    "No full fresh-save route from Day One through all eight jobs, persistent objects, party dress, lawn, and return/re-entry was performed.",
+    "No rendered Mobile composition/touch geometry, target-phone latency/performance, or one-finger/cancellation evidence was gathered.",
+    "No child comprehension, voluntary continuation, session comfort, or owner visual/narrative acceptance was gathered.",
+    "L54 source/audio assertions confirm cue resources/catalog entries, not authorized voice-listening or target-device audibility acceptance."
+  ]
+}

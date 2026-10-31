@@ -1,0 +1,91 @@
+{
+  "status": "PASS_LOCAL82_NATIVE606_PUBLISHED_REVIEW_ONLY_REMOTE_CI_PENDING",
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "exact_engine": "4.7.2-stable official.ed1daf0bf",
+  "full_ci": {
+    "command": "Unmodified scripts/ci.sh",
+    "result": "PASS",
+    "probe_count": 82,
+    "elapsed_seconds": 3195.957,
+    "log_sha256": "99041edfd65f0b5a9b8c28ebc961e7477ae6cea8ca061ec518e96f412aec7089",
+    "evidence": "full_ci/FULL_CI_RESULT.json"
+  },
+  "native": {
+    "cases": 8,
+    "engine_checks": 606,
+    "current_raw_frames": 100,
+    "all_retained_frames": 349,
+    "direct_partial_agent_views": 8,
+    "formal_QA11": false
+  },
+  "source_pin_exact": true,
+  "preflight": "FULL_CI_PREFLIGHT.json; stockCI supplies required units/stress/authority/coverage/2D and trustedprobes",
+  "historical_failures": "ATTEMPT_HISTORY.json, expectedexpansionnegative, rawpreservedfirstfit/JSONobserver/operationalpreflight; no trustedprobe modified.",
+  "accepted_removed": 0,
+  "dev_integrated": false,
+  "remote_exact_head_ci": "PENDING: current published topic revision; earlier dependency CI is historical only.",
+  "remaining": "Semanticglyph/caller/acquisition scope, new-use/source approval, formalQA11/device/child/owner and unknown whole-game inventory.",
+  "visual_advisory": {
+    "evidence": "VISUAL_ADVISORY_SCOPE.json",
+    "result": "UNSATISFIED",
+    "separate_from_ci_exit_and_82probes": true,
+    "not_artwork_or_regression_denominator": true
+  },
+  "first_full_ci_failure": {
+    "evidence": "full_ci_attempt1/FULL_CI_RESULT.json",
+    "zero_exits": 81,
+    "nonzero_probe": "probe_ui_system",
+    "reason": "Semantic crest hook renamed on real painted replacement; original name restored without changing trusted probe.",
+    "old_source_and_fixtures": "ATTEMPT5_SOURCE_AND_FIXTURES.json"
+  },
+  "focused_unchanged_ui": {
+    "evidence": "crest_ui_target/RESULT.json",
+    "result": "PASS",
+    "normal_source_probe_guards": true
+  },
+  "payload_actual_staged_2d": {
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "log": "PAYLOAD_STAGED_2D.log",
+    "status": "NO_REGRESSION"
+  },
+  "payload_actual_committed_2d": {
+    "revision": "c524e0855559bf14e3f1c502b290baf90458a171",
+    "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+    "log": "PAYLOAD_COMMITTED_2D.log",
+    "status": "NO_REGRESSION"
+  },
+  "publication": {
+    "payload_revision": "c524e0855559bf14e3f1c502b290baf90458a171",
+    "manifest_sha256": "55fca21887b9fc73b360686cb7c9855129d3c2047fc824d7969b059135796770",
+    "required_files": 818,
+    "required_bytes": 430522018,
+    "access_mode": "anonymous exact immutable raw GitHub files",
+    "checked_at_utc": "2026-10-17T13:03:06.432286+00:00"
+  },
+  "receipt_metadata_checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "output": "DOCAUTH|INVENTORY=705|LEDGER=705|ACTIVE=69|RECORDS=72\r\nDOCAUTH|RESULT|ALL OK\r\n",
+      "sha256": "8abe14d0b60da35e8867c7ebad46af372e4f3368aa3ba0747da86337b9aa2bd4",
+      "checked_at_utc": "2026-10-17T13:05:37.342912+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "output": "AUDITDEV|BASE|dd799b2d43871b29d1d6e0503646308a194dad1e\r\nAUDITDEV|RESULT|ALL OK\r\n",
+      "sha256": "d95290b1cdd6d0543f96700a87d24ed2358ab752613e7dc0adf02b770db8b61d",
+      "checked_at_utc": "2026-10-17T13:05:39.005249+00:00"
+    }
+  ]
+}

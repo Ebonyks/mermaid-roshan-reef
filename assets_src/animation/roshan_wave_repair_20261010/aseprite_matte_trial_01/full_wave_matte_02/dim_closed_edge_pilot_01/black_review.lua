@@ -1,0 +1,1 @@
+local root=app.params.root;local pc=app.pixelColor;for _,lane in ipairs({'native_rgba','frames'}) do local im=Image{fromFile=root..'/'..lane..'/0014.png'};local bg=Image(im.width,im.height,ColorMode.RGB);bg:clear(pc.rgba(0,0,0,255));bg:drawImage(im);bg:saveAs(root..'/'..lane..'_on_black_0014.png') end

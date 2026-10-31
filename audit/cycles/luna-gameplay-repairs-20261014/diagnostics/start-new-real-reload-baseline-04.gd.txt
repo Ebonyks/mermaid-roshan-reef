@@ -1,0 +1,425 @@
+extends SceneTree
+## SCRATCH CANDIDATE, not yet run or applied to production.
+## Real current_scene/deferred reload plus fresh-process Continue verification.
+## Only the save dependency is injected, before every real main _ready().
+
+const MAIN_SCENE_PATH := "res://scenes/main.tscn"
+const PROBE_SAVE_PREFIX := "probe_start_menu_new_game_save_"
+const SAVE_SUFFIXES: Array[String] = [
+	"", ".tmp0", ".tmp1", ".tmp", ".old", ".bak", ".bak.tmp", ".bak.old",
+	".before_new_game", ".before_new_game.tmp", ".before_new_game.old",
+]
+const SEEDED_GENERATION := 7
+const RELOAD_DEADLINE_MSEC := 12000
+const CHILD_DEADLINE_MSEC := 30000
+
+var main: ReefMain
+var failures := 0
+var probe_save_path := ""
+var start_presses := 0
+var scene_boots := 0
+var child_mode := false
+var child_receipt_path := ""
+var expected_child_generation := -1
+var expected_parent_pid := -1
+var expected_primary_hash := ""
+var expected_archive_hash := ""
+var last_boot_loaded_generation := -1
+var loaded_main_id := 0
+
+
+func _init() -> void:
+	var args := OS.get_cmdline_user_args()
+	if args.has("--verify-reset-save"):
+		child_mode = true
+		probe_save_path = _arg_value(args, "--verify-reset-save")
+		child_receipt_path = _arg_value(args, "--receipt")
+		expected_child_generation = int(_arg_value(args, "--expected-generation"))
+		expected_parent_pid = int(_arg_value(args, "--parent-pid"))
+		expected_primary_hash = _arg_value(args, "--expected-primary-sha256")
+		expected_archive_hash = _arg_value(args, "--expected-archive-sha256")
+		if not _own_disposable_path(probe_save_path) \
+				or child_receipt_path != probe_save_path + ".fresh-process.json" \
+				or expected_child_generation <= SEEDED_GENERATION \
+				or expected_parent_pid <= 0 or expected_parent_pid == OS.get_process_id() \
+				or expected_primary_hash.length() != 64 or expected_archive_hash.length() != 64 \
+				or FileAccess.file_exists(child_receipt_path):
+			print("START_MENU_NEW_GAME_CHILD|FAIL unsafe or reused child fixture")
+			quit(1)
+			return
+		node_added.connect(_inject_isolated_save_before_ready)
+		await _run_child_resume()
+		return
+	probe_save_path = ProjectSettings.globalize_path(
+		"user://" + PROBE_SAVE_PREFIX + "%d_%d.json" % [
+			OS.get_process_id(), Time.get_ticks_usec()])
+	_check("parent uses a unique disposable save",
+		_own_disposable_path(probe_save_path) and not FileAccess.file_exists(probe_save_path))
+	if failures > 0:
+		quit(1)
+		return
+	_seed_existing_save()
+	node_added.connect(_inject_isolated_save_before_ready)
+	await _boot_current_scene()
+	_check("seeded save counts as an adventure to keep", main.has_saved_game)
+	await _show_headless_menu()
+	var menu_layer: Node = main.start_menu_layer
+	var new_game := _find_button(menu_layer, "StartMenuNewGameButton")
+	var confirm := menu_layer.find_child("StartMenuNewGameConfirmation", true, false) as Control \
+		if menu_layer != null else null
+	var start := _find_button(menu_layer, "StartMenuConfirmNewGameButton")
+	var keep := _find_button(menu_layer, "StartMenuKeepGameButton")
+	var caption := menu_layer.find_child("StartMenuNewGameHoldCaption", true, false) as Label \
+		if menu_layer != null else null
+	var fill := menu_layer.find_child("StartMenuNewGameHoldFill", true, false) as Panel \
+		if menu_layer != null else null
+	_check("start menu, confirm sheet and START NEW exist",
+		new_game != null and confirm != null and start != null and keep != null)
+	_check("START NEW names the hold gesture for a grown-up",
+		caption != null and caption.text == "PRESS AND HOLD")
+	_check("START NEW carries a hold progress bar", fill != null)
+	if new_game == null or confirm == null or start == null \
+			or keep == null or caption == null or fill == null:
+		await _finish()
+		return
+	start.button_down.connect(_record_start_press)
+	var baseline_generation: int = main.save_generation
+	await _click(new_game, 0.08)
+	_check("NEW GAME opens the confirm sheet", confirm.is_visible_in_tree())
+	_check("hold caption is visible on the confirm sheet", caption.is_visible_in_tree())
+	_check("START NEW starts disarmed", start.disabled)
+	await _click(start, 0.08)
+	_check("a tap on the disarmed START NEW changes nothing",
+		confirm.is_visible_in_tree() and main.save_generation == baseline_generation)
+	await _wait(StartMenu.NEW_GAME_ARM_DELAY_SECONDS + 0.2)
+	_check("START NEW arms after its delay", not start.disabled)
+	_press(start, true)
+	await _wait(StartMenu.NEW_GAME_HOLD_SECONDS * 0.4)
+	var partial_width: float = fill.size.x
+	_press(start, false)
+	await _wait(StartMenu.NEW_GAME_HOLD_SECONDS + 0.3)
+	_check("the pointer press reached START NEW", start_presses >= 1)
+	_check("the bar fills while START NEW is held",
+		partial_width > 4.0 and partial_width < start.size.x)
+	_check("a lifted partial hold never starts a new game",
+		confirm.is_visible_in_tree() and main.save_generation == baseline_generation
+		and not FileAccess.file_exists(probe_save_path + SaveState.NEW_GAME_ARCHIVE_SUFFIX))
+	_check("a lifted press empties the bar", is_zero_approx(fill.size.x))
+	_check("a lifted press pulses the hold caption",
+		int(caption.get_meta("hold_hint_pulses", 0)) == 1)
+	await _click(keep, 0.08)
+	await _wait(StartMenu.NEW_GAME_HOLD_SECONDS + 0.1)
+	_check("KEEP GAME cancels confirmation without touching the old adventure",
+		not confirm.visible and main.save_generation == baseline_generation
+		and not FileAccess.file_exists(probe_save_path + SaveState.NEW_GAME_ARCHIVE_SUFFIX))
+	await _click(new_game, 0.08)
+	await _wait(StartMenu.NEW_GAME_ARM_DELAY_SECONDS + 0.2)
+	await _full_hold_real_reload(start, fill, baseline_generation)
+	await _finish()
+
+
+func _inject_isolated_save_before_ready(node: Node) -> void:
+	if not node is ReefMain or node.get_parent() != root:
+		return
+	var candidate := node as ReefMain
+	if candidate.scene_file_path != MAIN_SCENE_PATH:
+		return
+	_check("isolated save is injected before production _ready", not candidate.is_node_ready())
+	candidate._save_state = SaveState.new(candidate, probe_save_path)
+	candidate.ready.connect(_record_loaded_main.bind(candidate), CONNECT_ONE_SHOT)
+	main = candidate
+	scene_boots += 1
+
+
+func _record_loaded_main(candidate: ReefMain) -> void:
+	last_boot_loaded_generation = candidate.save_generation
+	loaded_main_id = candidate.get_instance_id()
+
+
+func _boot_current_scene() -> void:
+	var packed := load(MAIN_SCENE_PATH) as PackedScene
+	main = packed.instantiate() as ReefMain
+	root.add_child(main)
+	current_scene = main
+	# The ready callback snapshots after synchronous _load_save, before process.
+	await _frames(2)
+	_check("real production main is registered as current_scene",
+		current_scene == main and main.scene_file_path == MAIN_SCENE_PATH)
+	_check("loaded state was captured from this actual main ready signal", loaded_main_id == main.get_instance_id())
+	_check("production main uses only the disposable save",
+		main._save_state != null and main._save_state.save_path == probe_save_path)
+
+
+func _show_headless_menu(consume_reset_marker_only: bool = false) -> void:
+	# Display boot builds the menu itself; this established headless bootstrap
+	# remains explicit and cannot establish rendered/phone acceptance.
+	if main.intro_active and not main.start_menu_active:
+		main._skip_intro()
+	await _frames(2)
+	if not main.start_menu_active:
+		if not consume_reset_marker_only or root.has_meta(StartMenu.DAY_ONE_AFTER_RESET_META):
+			main._build_start_menu()
+	await _frames(4)
+
+
+func _full_hold_real_reload(start: Button, fill: Panel, baseline_generation: int) -> void:
+	var old_id := main.get_instance_id()
+	var old_ref: WeakRef = weakref(main)
+	var old_boots := scene_boots
+	var start_point := start.get_global_rect().get_center()
+	_press_point(start_point, true)
+	# The old controls are invalid once production reload runs; sample the bar
+	# before the threshold and never dereference those controls after it.
+	await _wait(StartMenu.NEW_GAME_HOLD_SECONDS * 0.70)
+	_check("a complete hold shows progressing fill before resetting",
+		is_instance_valid(fill) and fill.size.x > 4.0)
+	var deadline := Time.get_ticks_msec() + RELOAD_DEADLINE_MSEC
+	while Time.get_ticks_msec() < deadline:
+		if current_scene is ReefMain and current_scene.get_instance_id() != old_id:
+			break
+		await process_frame
+	_press_point(start_point, false)
+	var replaced := current_scene is ReefMain and current_scene.get_instance_id() != old_id
+	_check("the production deferred reload replaces the actual current scene", replaced)
+	if not replaced:
+		return
+	main = current_scene as ReefMain
+	await _frames(3)
+	_check("the old scene is released before shutdown", old_ref.get_ref() == null)
+	_check("one hold causes one production reload", scene_boots == old_boots + 1)
+	await _show_headless_menu(true)
+	_check("actual reload consumes the one-shot marker",
+		not root.has_meta(StartMenu.DAY_ONE_AFTER_RESET_META))
+	_check("actual reload starts Day One and dismisses the menu",
+		main.day_one_is_active() and not main.start_menu_active)
+	_check("actual reload reads a fresh generation from isolated storage",
+		main.save_generation > baseline_generation
+		and main._save_state.save_path == probe_save_path)
+	_check("the prior adventure remains recoverable in its archive",
+		_archived_generation() == SEEDED_GENERATION)
+	_check("fresh Day One has no completed rooms",
+		main._day_one_ref().completed_rooms.is_empty())
+	var current_id := main.get_instance_id()
+	var fresh_generation := main.save_generation
+	await _wait(StartMenu.NEW_GAME_HOLD_SECONDS + 0.25)
+	_check("a completed hold cannot reload or archive a second time",
+		is_instance_valid(main) and main.get_instance_id() == current_id
+		and scene_boots == old_boots + 1 and _archived_generation() == SEEDED_GENERATION
+		and main.save_generation == fresh_generation)
+	await _fresh_process_resume(fresh_generation)
+
+
+func _fresh_process_resume(generation: int) -> void:
+	# A restart has one writer: dispatch production pause-save flushing, then
+	# release the parent's whole scene before its child opens the same save.
+	# Keeping both games alive allowed legitimate arrival autosaves to race.
+	main.notification(MainLoop.NOTIFICATION_APPLICATION_PAUSED)
+	await _release_main()
+	var committed: Variant = JSON.parse_string(FileAccess.get_file_as_string(probe_save_path))
+	_check("restart has a committed fresh primary", committed is Dictionary)
+	if not committed is Dictionary:
+		return
+	generation = int((committed as Dictionary).get("save_generation", -1))
+	_check("committed restart generation remains newer than the old adventure", generation > SEEDED_GENERATION)
+	var primary_hash := FileAccess.get_sha256(probe_save_path)
+	var archive_hash := FileAccess.get_sha256(probe_save_path + SaveState.NEW_GAME_ARCHIVE_SUFFIX)
+	var receipt_path := probe_save_path + ".fresh-process.json"
+	var log_path := probe_save_path + ".fresh-process.log"
+	_check("child evidence paths have never been written",
+		not FileAccess.file_exists(receipt_path) and not FileAccess.file_exists(log_path))
+	if FileAccess.file_exists(receipt_path) or FileAccess.file_exists(log_path):
+		return
+	var arguments := PackedStringArray([
+		"--headless", "--path", ProjectSettings.globalize_path("res://"),
+		"--log-file", log_path, "--script", get_script().resource_path, "--",
+		"--verify-reset-save", probe_save_path,
+		"--expected-generation", str(generation), "--receipt", receipt_path,
+		"--parent-pid", str(OS.get_process_id()),
+		"--expected-primary-sha256", primary_hash, "--expected-archive-sha256", archive_hash,
+	])
+	for flag: String in ["--touch", "--classic-touch-test"]:
+		if OS.get_cmdline_user_args().has(flag):
+			arguments.append(flag)
+	var child_pid := OS.create_process(OS.get_executable_path(), arguments)
+	_check("a separate verifier process starts", child_pid > 0 and child_pid != OS.get_process_id())
+	if child_pid <= 0:
+		return
+	var deadline := Time.get_ticks_msec() + CHILD_DEADLINE_MSEC
+	while OS.is_process_running(child_pid) and Time.get_ticks_msec() < deadline:
+		await _wait(0.05)
+	if OS.is_process_running(child_pid):
+		OS.kill(child_pid)
+		_check("child verifier completes within its deadline", false)
+		return
+	# Official OS API documents Windows/Linux/Android support. An unavailable
+	# or nonzero exit is a failed machine check even if a receipt was written.
+	var child_exit := OS.get_process_exit_code(child_pid)
+	_check("fresh-process verifier exits successfully", child_exit == 0)
+	var parsed: Variant = null
+	if FileAccess.file_exists(receipt_path):
+		parsed = JSON.parse_string(FileAccess.get_file_as_string(receipt_path))
+	var child_ok := parsed is Dictionary
+	if child_ok:
+		var receipt := parsed as Dictionary
+		child_ok = bool(receipt.get("finished", false)) \
+			and int(receipt.get("failures", -1)) == 0 \
+			and int(receipt.get("loaded_generation", -1)) == generation \
+			and int(receipt.get("generation", -1)) >= generation \
+			and String(receipt.get("preboot_primary_sha256", "")) == primary_hash \
+			and String(receipt.get("archive_sha256", "")) == archive_hash \
+			and int(receipt.get("process_id", -1)) == child_pid \
+			and int(receipt.get("parent_process_id", -1)) == OS.get_process_id() \
+			and String(receipt.get("save_path", "")) == probe_save_path
+	_check("fresh process verifies saved reset and real Continue", child_ok)
+	var child_log := FileAccess.get_file_as_string(log_path) if FileAccess.file_exists(log_path) else ""
+	_check("fresh process has no script or runtime errors",
+		not child_log.is_empty() and not child_log.contains("SCRIPT ERROR:")
+		and not child_log.contains("ERROR:"))
+	_check("fresh process emits no failed assertions", not child_log.contains("FAIL"))
+	print("START_MENU_NEW_GAME|fresh_process_receipt=", JSON.stringify(parsed))
+	print("START_MENU_NEW_GAME|fresh_process_exit=", child_exit, " child_pid=", child_pid,
+		" parent_pid=", OS.get_process_id())
+	print("START_MENU_NEW_GAME|fresh_process_log=", log_path)
+	# Preserve uniquely named child evidence until the run's evidence archive.
+
+
+func _run_child_resume() -> void:
+	_check("parent's disposable save exists", FileAccess.file_exists(probe_save_path))
+	var preboot_primary_hash := FileAccess.get_sha256(probe_save_path)
+	_check("fresh process opens the exact committed primary bytes", preboot_primary_hash == expected_primary_hash)
+	_check("fresh process opens the exact old-adventure archive",
+		FileAccess.get_sha256(probe_save_path + SaveState.NEW_GAME_ARCHIVE_SUFFIX) == expected_archive_hash)
+	await _boot_current_scene()
+	_check("fresh process loads the exact fresh generation",
+		last_boot_loaded_generation == expected_child_generation)
+	_check("fresh process preserves the prior archive", _archived_generation() == SEEDED_GENERATION)
+	_check("fresh process has no finished Day One rooms",
+		main._day_one_ref().completed_rooms.is_empty())
+	await _show_headless_menu()
+	var continue_button := _find_button(main.start_menu_layer, "StartMenuContinueButton")
+	_check("fresh process exposes the real Continue button", continue_button != null)
+	if continue_button != null:
+		await _click(continue_button, 0.08)
+		await _frames(4)
+	_check("fresh-process Continue resumes Day One",
+		main.day_one_is_active() and not main.start_menu_active)
+	_check("Continue preserves fresh adventure and exact old archive",
+		main.save_generation >= expected_child_generation
+		and _archived_generation() == SEEDED_GENERATION
+		and FileAccess.get_sha256(probe_save_path + SaveState.NEW_GAME_ARCHIVE_SUFFIX) == expected_archive_hash
+		and not root.has_meta(StartMenu.DAY_ONE_AFTER_RESET_META) and scene_boots == 1
+		and main._day_one_ref().completed_rooms.is_empty())
+	var observed_generation := main.save_generation
+	await _release_main()
+	var receipt := {"finished": true, "failures": failures,
+		"generation": observed_generation, "loaded_generation": last_boot_loaded_generation,
+		"loaded_main_id": loaded_main_id,
+		"preboot_primary_sha256": preboot_primary_hash,
+		"archive_sha256": FileAccess.get_sha256(probe_save_path + SaveState.NEW_GAME_ARCHIVE_SUFFIX),
+		"save_path": probe_save_path,
+		"process_id": OS.get_process_id(), "parent_process_id": expected_parent_pid,
+		"touch_flags": OS.get_cmdline_user_args().has("--touch"),
+		"classic_touch_flags": OS.get_cmdline_user_args().has("--classic-touch-test")}
+	var file := FileAccess.open(child_receipt_path, FileAccess.WRITE)
+	if file == null:
+		print("START_MENU_NEW_GAME_CHILD|FAIL cannot write receipt")
+		quit(1)
+		return
+	file.store_string(JSON.stringify(receipt))
+	file.close()
+	print("START_MENU_NEW_GAME_CHILD|RESULT: ", "PASS" if failures == 0 else "FAIL")
+	quit(1 if failures > 0 else 0)
+
+
+func _arg_value(args: PackedStringArray, key: String) -> String:
+	var index := args.find(key)
+	return String(args[index + 1]) if index >= 0 and index + 1 < args.size() else ""
+
+
+func _own_disposable_path(path: String) -> bool:
+	var user_dir := ProjectSettings.globalize_path("user://").simplify_path().trim_suffix("/")
+	var candidate := path.simplify_path()
+	return not path.is_empty() and candidate.get_base_dir() == user_dir \
+		and candidate.get_file().begins_with(PROBE_SAVE_PREFIX) and candidate.ends_with(".json")
+
+
+func _seed_existing_save() -> void:
+	var file := FileAccess.open(probe_save_path, FileAccess.WRITE)
+	file.store_string(JSON.stringify({
+		"schema_version": 1, "save_generation": SEEDED_GENERATION,
+		"day_one_active": true, "music": true,
+	}))
+	file.close()
+
+
+func _archived_generation() -> int:
+	var path := probe_save_path + SaveState.NEW_GAME_ARCHIVE_SUFFIX
+	if not FileAccess.file_exists(path):
+		return -1
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	return int((parsed as Dictionary).get("save_generation", -1)) if parsed is Dictionary else -1
+
+
+func _record_start_press() -> void:
+	start_presses += 1
+
+
+func _find_button(node: Node, node_name: String) -> Button:
+	return node.find_child(node_name, true, false) as Button if node != null else null
+
+
+func _click(button: Button, seconds: float) -> void:
+	var point := button.get_global_rect().get_center()
+	_press_point(point, true)
+	await _wait(seconds)
+	_press_point(point, false)
+	await _frames(2)
+
+
+func _press(button: Button, pressed: bool) -> void:
+	_press_point(button.get_global_rect().get_center(), pressed)
+
+
+func _press_point(point: Vector2, pressed: bool) -> void:
+	var event := InputEventMouseButton.new()
+	event.button_index = MOUSE_BUTTON_LEFT
+	event.pressed = pressed
+	event.button_mask = MOUSE_BUTTON_MASK_LEFT if pressed else 0
+	event.position = point
+	event.global_position = point
+	root.push_input(event, true)
+
+
+func _wait(seconds: float) -> void:
+	await create_timer(seconds).timeout
+
+
+func _frames(count: int) -> void:
+	for _i in range(count):
+		await process_frame
+
+
+func _release_main() -> void:
+	if main != null and is_instance_valid(main):
+		main.queue_free()
+	await _frames(4)
+	main = null
+
+
+func _finish() -> void:
+	if root.has_meta(StartMenu.DAY_ONE_AFTER_RESET_META):
+		root.remove_meta(StartMenu.DAY_ONE_AFTER_RESET_META)
+	await _release_main()
+	if _own_disposable_path(probe_save_path) and not child_mode:
+		for suffix: String in SAVE_SUFFIXES:
+			var path := probe_save_path + suffix
+			if FileAccess.file_exists(path):
+				DirAccess.remove_absolute(path)
+	print("START_MENU_NEW_GAME|RESULT: ", "PASS" if failures == 0 else "FAIL", " failures=", failures)
+	quit(1 if failures > 0 else 0)
+
+
+func _check(label: String, ok: bool) -> void:
+	if not ok:
+		failures += 1
+	print("START_MENU_NEW_GAME|", label, ": ", "OK" if ok else "FAIL")

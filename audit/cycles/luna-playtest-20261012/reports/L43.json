@@ -1,0 +1,188 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L43",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l43",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Picture games five mechanic varieties",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L43/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "One unchanged invocation of probe_mg2d passed on Godot 4.7.2-stable with an isolated save profile. It directly calls _mg2d_open for snowman and then garden, trampoline and xmas, drives state/touch-like input from code, and checks completion, feedback and teardown (scripts/probe_mg2d.gd:71-99,133-160,196-249,289-329; runtime/L43/attempt_1/receipt.json; runtime/L43/attempt_1/probe.log:27-53).",
+    "route_gaps": "The matrix labels this family dormant. main.gd retains a legacy court:picture callback into _touch_open_picture and PIC_GAME artwork mappings, but this probe bypasses that caller and starts each game directly; the source routes p_slide to _l2_start_slide, and the tested loop omits slide (audit/cycles/luna-playtest-20261012/matrix.json L43; scripts/main.gd:4836-4851,5836-5839; scripts/games/picture_games.gd:14-19; scripts/probe_mg2d.gd:133-136). These references establish code wiring, not a current ordinary child-discovery route. No child-visible entry/exit/re-entry path is proven. Headless scripted success is not Mobile rendering, physical touch, child comprehension/fun or owner acceptance; the helper's wall time is not game duration."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Snowman rolling asks for 3 full circles on the first ball, 2.5 on the second and 2 on the third; after eight seconds without progress, a held stick intent activates assisted accumulation at 2.4 radians per second (scripts/games/picture_games.gd:351-360; scripts/main.gd:5668-5687).",
+        "scope": "Authored thresholds. The probe's accelerated engine time and synthetic stick do not represent child-paced duration or touch speed."
+      },
+      {
+        "value": "Trampoline reaches the star on the third tap by the current geometry (rest center 430, 85-pixel higher apex per bounce, sprite top threshold star_y+35); each bounce animates up for 0.25 seconds and back for 0.3 seconds (scripts/games/picture_games.gd:661-714).",
+        "scope": "Derived from current code geometry and tween durations; no rendered play timing was measured."
+      },
+      {
+        "value": "Garden has five plants with two taps per plant (seed→sprout→flower), while Christmas has five ornament taps then one friendship-flower tap. A win schedules close after 1.6 seconds (scripts/games/picture_games.gd:569-656,765-797,274-290).",
+        "scope": "State thresholds and authored delay; not an estimate of a full session."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "The report sequence below is a code-grounded hypothetical play path, not observed play. Probe log winner durations are under Engine.time_scale=6 and not transferable to a child session (scripts/probe_mg2d.gd:71,160; runtime/L43/attempt_1/receipt.json)."
+  },
+  "tactile": {
+    "target_size": "Snow face controls are checked against StorybookUI.MIN_TOUCH; the carrot button is 150×110 and coal buttons use that minimum (scripts/games/picture_games.gd:407-416; scripts/probe_mg2d.gd:168-185; runtime/L43/attempt_1/probe.log:36). Garden's 140×140 seed hit buttons, trampoline's 400×140 target, and Christmas ornaments at 110×110 meet the 110×110 base-canvas guideline in source (scripts/games/picture_games.gd:585-601,673-679,770-777; design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:714-716). This is source geometry only; no phone-projected or finger-occlusion measurement was made.",
+    "press_response": "Garden, face-piece, trampoline and ornament interactions use Button signals or direct screen-touch handlers; the probe emits pressed signals and synthetic input. It checks visible growth and feedback counters, not rendered response within two frames or audible chimes on a device (scripts/games/picture_games.gd:407-416,615-656,683-714,781-797; scripts/probe_mg2d.gd:196-239; DL-AGE-07).",
+    "drag_hold_release": "Garden, trampoline and Christmas are tap actions. Snowman offers circular drawing around the snowball, virtual-stick circles, and later a held-direction assist; a single circle-direction jump is clamped to 0.32 radians per frame to ignore teleport-like motion (scripts/main.gd:5634-5666,5677-5687). The probe uses the stick vector for rolling/chase, not a physical finger trace (scripts/probe_mg2d.gd:163-195).",
+    "ownership": "Open/close state and feedback tweens are tied to the current picture-game stage, and a win-close callback checks both generation and root identity before closing (scripts/games/picture_games.gd:20-33,274-321). The probe checks cleanup and fresh-stage state across four opens (scripts/probe_mg2d.gd:129-160,289-315,324-325; runtime/L43/attempt_1/probe.log:53). This is scripted lifecycle evidence only.",
+    "cancellation": "Back/pause paths eventually call _mg2d_close; close kills the win and feedback tweens and frees the stage (scripts/games/picture_games.gd:293-321). The focused probe exercises close/re-entry cleanup but does not establish natural Android focus loss, real multitouch cancellation or child recovery."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: the family varies the child's verb—circle, tap a visible plant, bounce, chase, choose face pieces, or decorate—so agency may come from changing hand action rather than merely changing art. The scripted probe supports distinct state transitions but gives no child appeal evidence.",
+    "variety": "Four stages are exercised in the probe: snowman, garden, trampoline and xmas. Slide is a fifth listed picture route but delegates to the full Lagoon slide activity and is not included in this probe loop (scripts/probe_mg2d.gd:133-136; scripts/games/picture_games.gd:14-19,719-760).",
+    "world_response": "Source has immediate object changes: snowballs grow/stack, flowers change from seed to sprout to distinct flowers, Roshan bounces toward the star, and ornaments appear at fixed tree spots (scripts/games/picture_games.gd:381-404,615-656,696-714,781-797).",
+    "replay": "Hypothesis: visible completed garden flowers and varied manual actions could invite replay, but source closes completed sessions and no child-initiated replay choice is tested (scripts/games/picture_games.gd:257-290; scripts/probe_mg2d.gd:289-325).",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": 1,
+      "wait": "No timed wait is prescribed; first establish whether the picture wall and tap target are reachable in the ordinary child route.",
+      "input": "Tap a visible snowman picture once.",
+      "expected": "Snowman stage opens with its snowball and circular-motion cue; route currently unproven (scripts/main.gd:4836-4851; scripts/games/picture_games.gd:327-349)."
+    },
+    {
+      "beat": 2,
+      "wait": "Continue until each ball settles; no fixed child duration is established. If a deliberate held stick attempt stalls, source assist threshold is 8 seconds.",
+      "input": "Draw circles around the ball with one finger; alternatively circle the virtual stick. After the assist threshold, keep a direction held to use assisted progress.",
+      "expected": "Three differently sized snowballs grow and stack; each requires 3, 2.5, then 2 turns, with a settle cue (scripts/games/picture_games.gd:351-404; scripts/main.gd:5656-5687)."
+    },
+    {
+      "beat": 3,
+      "wait": "Wait only for the face phase to appear after ball three.",
+      "input": "Tap the carrot once and each of the two coal pieces once.",
+      "expected": "Each chosen face part appears on the snowman; the snowman then runs and the chase phase begins (scripts/games/picture_games.gd:407-444)."
+    },
+    {
+      "beat": 4,
+      "wait": "Chase until three catches and the carrot-drop phase; code uses a 0.9-second bite cooldown.",
+      "input": "Hold or steer the virtual stick left/right toward the runner; then move Roshan to the dropped carrot.",
+      "expected": "Each catch removes one body ball; the last carrot remains collectible and completes the snowman story (scripts/games/picture_games.gd:446-459,493-553)."
+    },
+    {
+      "beat": 5,
+      "wait": "Open garden after returning to its picture; no live route has been proven.",
+      "input": "Tap each of five seeds twice, pausing after the first tap to see the sprout and again for the flower.",
+      "expected": "Each plant grows in place into its own flower type; after ten intentional taps the garden completes and remains visible through its payoff (scripts/games/picture_games.gd:569-656)."
+    },
+    {
+      "beat": 6,
+      "wait": "Open trampoline and allow each bounce animation to finish (0.55 seconds total per bounce).",
+      "input": "Tap the visible trampoline art three times.",
+      "expected": "Roshan bounces progressively higher and the third bounce reaches the star (scripts/games/picture_games.gd:661-714)."
+    },
+    {
+      "beat": 7,
+      "wait": "Open Christmas tree; no timing window is authored.",
+      "input": "Tap each of five ornaments once, then tap the friendship flower once when it brightens.",
+      "expected": "Each ornament appears at a distinct fixed tree spot; the flower becomes available only after all five, then completes the activity (scripts/games/picture_games.gd:765-797)."
+    }
+  ],
+  "observations": [
+    {
+      "title": "Snowball circle action changes the object and has a bounded assist",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "Each ball initializes with 3, 2.5, then 2 required turns, and visibly grows with accumulated angular change (scripts/games/picture_games.gd:351-375; scripts/main.gd:5656-5667).",
+        "After 8 seconds without progress, assistance requires ongoing stick intent and adds progress; zero input is explicitly neutral (scripts/main.gd:5668-5687). The probe passed its zero-input/held-stick assist assertions (scripts/probe_mg2d.gd:77-90; runtime/L43/attempt_1/probe.log:27-28)."
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-04", "DL-AGE-05", "DL-INT-02", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "Source review plus the one unchanged probe invocation. The probe writes the stick vector directly and accelerates Engine.time_scale; it does not draw a physical circle or prove visible route entry.",
+      "child_impact": "The circle is a distinct motor action; the held-direction assist could help a child who attempted but cannot sustain the circle. Physical discoverability and comfort are unknown.",
+      "proposed_repair": "No code repair is evidenced. Include actual circular finger input and an attempted-but-stalled assist path in routed device and child review.",
+      "acceptance_test": "On the target phone, enter by the natural picture route; observe an uncoached circle gesture, object growth within two rendered frames, zero-input neutrality, and the 8-second assist after a real attempted stall."
+    },
+    {
+      "title": "Four tested games have distinct, truthful object responses; the fifth is a separate Lagoon route",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "The probe directly opens snowman, garden, trampoline and xmas, then passes all four; its log records WON times under accelerated simulation and confirms garden flower retention (scripts/probe_mg2d.gd:133-160,196-239,289-325; runtime/L43/attempt_1/probe.log:29-53).",
+        "Source changes the affected objects: garden seed→sprout→flower and trampoline bounce toward the star; ornaments are placed at listed tree spots (scripts/games/picture_games.gd:615-656,696-714,781-797).",
+        "Slide is redirected to _l2_start_slide by _mg2d_open; the probe does not exercise that fifth family entry (scripts/games/picture_games.gd:14-19; scripts/probe_mg2d.gd:133-136)."
+      ],
+      "rules": ["DL-INT-01", "DL-INT-02", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "Receipt shows PASS for probe_mg2d; the probe directly invokes open methods and advances frames at Engine.time_scale 6. Its WIN timings are not child timing evidence.",
+      "child_impact": "Distinct visible state changes may help make the actions understandable. The fifth route's completeness and ordinary discovery remain unverified.",
+      "proposed_repair": "No defect demonstrated in four tested mechanics. Cover the delegated Lagoon slide with its own routed lifecycle evidence and clarify whether the legacy picture wall remains a live child route.",
+      "acceptance_test": "From ordinary play, open all five destinations by visible route, perform each intended one-finger verb, verify correct object response and completion, then leave/re-enter without a debug call."
+    },
+    {
+      "title": "Tap targets meet base-canvas geometry in source, while physical usability remains open",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "Garden has 140×140 seed hit buttons with 100px clear spacing; trampoline has a 400×140 art target; Christmas ornaments are 110×110 (scripts/games/picture_games.gd:585-601,673-679,770-777).",
+        "Snowman face buttons are checked against StorybookUI.MIN_TOUCH; probe logs the target-size assertion OK (scripts/games/picture_games.gd:407-416; scripts/probe_mg2d.gd:168-185; runtime/L43/attempt_1/probe.log:36).",
+        "The source sizes are compared with 110×110 guideline, but receipt is headless and says rendered_mobile_acceptance=false (design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:714-716; runtime/L43/attempt_1/receipt.json)."
+      ],
+      "rules": ["DL-AGE-02", "DL-UI-03", "DL-QA-04", "DL-QA-07"],
+      "existing_findings": ["MA-TOUCH-001", "MA-CHILD-001"],
+      "reproduction": "Static dimensions and one scripted face target check; no native-resolution rendered capture or physical phone interaction.",
+      "child_impact": "Nominal canvas hit regions look generous by the rule, but thumb occlusion, Android projection and neighboring target comfort have not been observed.",
+      "proposed_repair": "No hit-box change follows from headless dimensions. Measure on-device before changing layout.",
+      "acceptance_test": "On the intended phone, measure projected hit boxes and observe uncoached taps with natural thumb occlusion across each target, including near-misses and adjacent choices."
+    },
+    {
+      "title": "Snowman, trampoline, garden and Christmas objectives rely heavily on on-screen text",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "The objectives and phase cues are label strings such as circle instructions, tap-the-carrot, trampoline directions, and Christmas ornaments (scripts/games/picture_games.gd:83-86,332-348,407-416,453-459,573-574,664-665,766-777).",
+        "Probe validates state progression, target sizes and feedback but does not check voice lines, a moving pointer, or comprehension (scripts/probe_mg2d.gd:66-71,133-185,196-240; runtime/L43/attempt_1/probe.log:27-53).",
+        "Non-reader objective guidance requires a spoken cue plus moving visual pointer or equally clear diegetic cue (design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:320-326)."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Inspect objective strings and probe assertions. This is a coverage gap rather than confirmation that no voice or cue exists elsewhere; the route is dormant and no full child-facing screen was rendered.",
+      "child_impact": "If text is the only cue in any live phase, a non-reader may not know the intended action; whether scene art communicates it independently has not been assessed.",
+      "proposed_repair": "Review the complete live screens and voice routing before changing anything; add no substitute line without checking approved voice authority.",
+      "acceptance_test": "On device, observe whether a child starts and understands each verb without adult reading; separately verify an authorized voice cue and visible action cue for every objective."
+    },
+    {
+      "title": "Win close is generation-bound and stage-owned, but routed interruption remains unverified",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "Win schedules a 1.6-second close callback bound to the opening generation and root; stale generation/root returns without closing a newer activity (scripts/games/picture_games.gd:274-290).",
+        "Close kills the close and feedback tweens, frees the stage and restores controls/music; the probe verifies four close/re-entry teardown cycles (scripts/games/picture_games.gd:293-321; scripts/probe_mg2d.gd:289-325; runtime/L43/attempt_1/probe.log:53)."
+      ],
+      "rules": ["DL-SAVE-03", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "Probe returns each opened test stage to a fresh stage and passes cleanup checks; no natural Back or Android interruption path is asserted in this focused source review.",
+      "child_impact": "A stale win callback should not close a later activity by the guarded code path. Whether a child can leave, pause and re-enter through visible controls remains unknown.",
+      "proposed_repair": "No lifecycle repair indicated by the scoped probe. Add routed Back/pause/re-entry coverage if this picture wall is confirmed live.",
+      "acceptance_test": "Win, leave during the payoff, open another activity, and confirm the old callback cannot close it; repeat with pause/background/foreground and verify progress safety."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The tested family has varied object-led mechanics with visible progress and no punitive failure in the exercised paths.",
+      "evidence": "Snowball size accumulates from angular input, garden stages each plant through seed/sprout/flower, trampoline moves Roshan toward the star, and ornaments appear in fixed spots (scripts/games/picture_games.gd:351-404,615-656,696-714,781-797). Probe passes the four paths (runtime/L43/attempt_1/probe.log:29-53)."
+    },
+    {
+      "claim": "Snowman idle remains neutral while deliberate stick input activates a bounded alternative after the stall interval.",
+      "evidence": "Probe explicitly checks no rotation and no assist for nine simulated seconds with zero stick, followed by held direction and positive progress/assist (scripts/probe_mg2d.gd:77-90; scripts/main.gd:5668-5687; runtime/L43/attempt_1/probe.log:27-28)."
+    },
+    {
+      "claim": "Picture-game feedback and delayed close have scoped teardown, and the four direct opens return to fresh stages in the probe.",
+      "evidence": "The probe reports feedback teardown/re-entry across four closes and four fresh opens (scripts/games/picture_games.gd:274-321; scripts/probe_mg2d.gd:289-325; runtime/L43/attempt_1/probe.log:53)."
+    }
+  ],
+  "acceptance_gaps": [
+    "The matrix says the picture family route is dormant. The probe uses direct _mg2d_open calls; legacy picture-wall callbacks do not by themselves prove current ordinary discovery or a child-visible route.",
+    "Only four picture games are exercised. The slide is redirected to the Lagoon implementation and needs separate focused route/lifecycle evidence if counted in this five-variety scope.",
+    "The one probe run is headless, accelerated, and synthetic. It does not establish Mobile rendering, real target-device latency/touch projection/audio, child comprehension or fun, or owner acceptance.",
+    "The probe's additional Painter checks are not evidence for this picture-games focus; its log contains those checks before the MG2D section."
+  ]
+}

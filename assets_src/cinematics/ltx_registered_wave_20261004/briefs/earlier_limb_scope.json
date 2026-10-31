@@ -1,0 +1,57 @@
+{
+  "lane": "MOTION_STUDY_REFERENCE_ONLY",
+  "baseline": "f07c1a4820fb5222289802ad712db677b56400bc",
+  "identity": "Approved Roshan 2D gesture atlas, frame row0",
+  "source": {
+    "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+    "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+    "original_unchanged": true
+  },
+  "gap": "Missing stable, smooth transition between existing wave pose keys; reuse original body/head/tail and arm drawings.",
+  "intent": "Roshan raises her image-left hand in a friendly greeting, lowers it, and settles into her original resting pose.",
+  "scene": "Neutral source-only study; no room or gameplay event.",
+  "translation": "None; face, torso, tail and opposite arm fixed.",
+  "geometry": {
+    "width": 896,
+    "height": 512,
+    "joint_px": [
+      437,
+      207
+    ],
+    "body_anchor_tolerance_px": 3,
+    "hand_motion": "Above-head apex matching authored key, then below shoulder at final rest.",
+    "units": "Full native canvas pixels, x right, y down; joint is study joint, not accepted runtime socket."
+  },
+  "timeline": {
+    "fps": 24,
+    "frames": 41,
+    "pose_indices": [
+      0,
+      7,
+      17,
+      27,
+      36,
+      40
+    ],
+    "endpoints": "Original rest pose at entry, frame36 and final frame40; seam velocity review pending, sample is one-shot."
+  },
+  "contact": "No prop contact/reward/voice or runtime state. Shoulder attachment must remain continuous.",
+  "interruptions": "Not applicable to source-only sample; future runtime must separately implement existing cancellation/state-owner contracts.",
+  "settings": {
+    "seed": 20261003,
+    "steps": 7,
+    "model": "ltxv-2b-0.9.8-distilled.safetensors",
+    "prompt_enhancer": false
+  },
+  "caps": {
+    "generated_takes": 2,
+    "render_seconds_per_take": 1800,
+    "cleanup_seconds_per_take": 900,
+    "aggregate_render_seconds": 3600,
+    "new_model_downloads": 0,
+    "paid_api_usd": 0
+  },
+  "acceptance": "Not accepted production footage or runtime sprite.",
+  "status": "SUPERSEDED_LIMB_ONLY_SCOPE",
+  "history_note": "Earlier declared brief preserved from existing fields; native generation workflows/receipts bind exact submitted prompts and guides. This sidecar is not a new generation job."
+}

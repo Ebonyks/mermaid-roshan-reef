@@ -1,0 +1,78 @@
+{
+  "baseline": "e90c0daa83cf05644f0e9942e85c1198ed7901f7",
+  "owner_scope": "JA-NUR01..06; older Nursery wash/care frames used as directed. Available builtin ImageGen approved, model revision unexposed. No paid API/CLI budget.",
+  "lane": "Named static gameplay object states and reuse of whole authored poses, not cinematic footage or per-frame generation",
+  "sources": "Source_inventory.json and source_license_rows.txt preserve17hash-bound prior images from cfcadc966bc2f3d9962243589d8a820c19ac2b0d. Existing baby0..2, bottle, moon-bed and nursery room are appearance/geometry inputs only; protected originals unchanged.",
+  "jobs": [
+    {
+      "id": "nursery-crib",
+      "verb": "Present one stationary empty crib under each existing bedtime recipient",
+      "fixed": "Natural crib footprint, cream/lilac/pink/gold nursery palette; clear head area and lower front edge; source baby identity separate",
+      "entry_exit": "Same stationary crib before/during/after the existing downward tuck; whole-object picture only",
+      "method": "One ImageGen empty crib, uniform sampling/registration only; quilt and baby use separate painted layers",
+      "native_runtime": "Native retained;512square runtime, alpha box aspect~1.25 to match existing90x72crib footprint without nonuniform stretching",
+      "tolerances": "Crib/baby/blanket support <=3runtime px; no cropped fixture or face occlusion",
+      "attempt_cap": 2,
+      "local_cleanup_minutes_cap": 20,
+      "stop": "After2nonviable takes, diagnose and revise input/method; no extra campaign or API spend",
+      "reviews": "Source/current Mobile context>=4.5each applicable dimension, transition/contact, exactengine and physical-device/child/owner separate"
+    },
+    {
+      "id": "nursery-quilt-states",
+      "verb": "Existing downward swipe unfolds/tucks one quilt over one baby",
+      "fixed": "Same pink/lilac/cream patterned cloth, width and upper edge below face, same view/lighting; no moving crib or covered face",
+      "entry_exit": "Short folded strip, halfway unfolded, fully tucked lower body. Three whole authored stills, no UV stretching or animated body part",
+      "method": "ImageGen three registered named object keys using the same approved crib and selected first cloth as inputs; whole source-preserving selection/reveal, no generated video",
+      "native_runtime": "All native outputs retained; final512x512RGBA whole keys, natural width and same top below face; no nonuniform stretch.",
+      "tolerances": "Upper edge/corners <=3runtime px across states; same cloth identity and correct baby overlap",
+      "attempt_cap": "2sets of3states,6calls total including rejects",
+      "local_cleanup_minutes_cap": 30,
+      "stop": "Diagnose after first nonviable set; stop after second. No task-cap reset through per-frame briefs",
+      "reviews": "Every affected state/transition and contact, source/context>=4.5each applicable dimension; fullspeed/human/device/child/owner remain separate"
+    },
+    {
+      "id": "nursery-bottle-emptying",
+      "verb": "Hold the bottle; nipple touches the existing baby's mouth while milk empties",
+      "fixed": "Original bottle's shell medallion, coral cap, nipple and glass contour, palette, camera and scale; baby identity unchanged",
+      "entry_exit": "Existing full source, named half and empty states; source bottle exterior stays registered and opaque where authored",
+      "method": "Two local ImageGen object edits, cavity-only reveal/whole registered state selection; no slab meter or whole-object ghosting",
+      "native_runtime": "Native retained;256square runtime states alongside original full bottle",
+      "tolerances": "Nipple/mouth support <=3runtime px, state contour IoU>=.98, no mirror/anatomy redesign or hidden background",
+      "attempt_cap": "2sets of2missing states,4calls total including rejects",
+      "local_cleanup_minutes_cap": 25,
+      "stop": "After2nonviable sets diagnose/change method, no extra spend",
+      "reviews": "Source/context4.5each applicable dimension; existing hold ownership, safe interruption, all contact/endpoint/device/owner separate"
+    },
+    {
+      "id": "nursery-pat-hand",
+      "verb": "A gentle pat affordance moves toward the swaddled baby's back for each existing slow tap",
+      "fixed": "One complete painted hand and lavender cuff; no disembodied procedural disc, no limb rig, no baby face contact or anatomy change",
+      "entry_exit": "Rest at right, palm approaches back, returns after the existing.42second pat timer; whole sprite translation only",
+      "method": "One ImageGen hand cutout matched to restored cradle hands; no independently deformed anatomy or generated frame sequence",
+      "native_runtime": "Native retained;256square runtime, contact edge measured from native",
+      "tolerances": "Contact <=3runtime px, no intersected face or hand crop, monotonic approach and readable settle",
+      "attempt_cap": 2,
+      "local_cleanup_minutes_cap": 20,
+      "stop": "Stop/diagnose after2nonviable takes; no API spend",
+      "reviews": "Source/context>=4.5each applicable dimension; fullspeed/frame-step contact and human/device/child/owner separate"
+    }
+  ],
+  "accounting": "Record all calls/rejects and observed generation wall time when exposed; seed/provider revision/cost unexposed must remain explicit. Existing pose reuse uses0new generation calls. Do not invent cleanup timings or review scores.",
+  "actual_call_accounting": {
+    "total": 13,
+    "crib": 1,
+    "quilt_all_keys_including_reject": 6,
+    "bottle_all_states_including_rejects_and_guide": 4,
+    "pat_hand_including_reject": 2,
+    "model_seed_cost": "unexposed; no paid API/CLI",
+    "cleanup_minutes": "Not instrumented; no invented actual time."
+  },
+  "method_change": "Three half-bottle generations retained rejected for fill-height, one empty retained selected. Stop at4aggregate bottle calls. Original full bottle exterior/label and registered ImageGen empty glass are rendered with disjoint textured cavity windows. No generated half accepted, no procedural replacement art.",
+  "reviews": "PENDING actual-source/current Mobile/frame/contact review, full exact-engine and device/child/owner gates; no4.5score yet.",
+  "runtime_diagnosis_current01": "All100configured GUI frames and behavior checks pass, but visual acceptance fails: wide half/tucked cloth differs too little from folded at actual80pxwidth; foreground crib masks its lower extension. Use last2remaining quilt calls (aggregate6cap, not reset) to author taller natural half-unfolded and front-draped cloth with same width/top/material, then draw the quilt in front of the existing low rail. No stretching, face cover or gesture/reward change.",
+  "quilt_runtime_revision": "512square transparent canvases may replace initial512x256 delivery canvas so taller authored cloth retains its natural aspect. World use remains uniformly sampled, samewidth/top/canonicalbaby. Initial source/runtime attempts retained rejected by actual-use readability; no4.5pass.",
+  "quilt_generation_closed": "Aggregate6calls exhausted. Final source/current context review still pending; no more quilt generations under this card. Current01 prior source selection explicitly failed actual-use readability; all native and prior runtime/provenance preserved.",
+  "runtime_revision": "Final selected quilts use512x512transparent canvases with preserved whole-object aspect, not initial512x256exports. Earlier short keys retained and rejected for in-context role readability.",
+  "source_static_review": "review/art_review.json binds28runtime uses to current06stills, localAIappearance floor4.5, no formal/motion/device/owner acceptance.",
+  "attempt_accounting": "generation_accounting.json;13calls incl7rejected/retired native outputs; quilt6/6,bottle4/4,hand2/2caps reached. No further generation in these exhausted actions."
+}

@@ -1,0 +1,37 @@
+{
+  "provider": "built-in image_gen",
+  "source": "assets/flats/castle/opera_house_venue_2d/room_opera_house_venue.png",
+  "source_sha256": "4378b9eb65d7d009afc3dbbe4c92f45bbbb57e273f9ef762dd0c9f66e7029dd0",
+  "attempts": 3,
+  "charged_usage": "Not exposed by built-in tool",
+  "outputs": [
+    {
+      "path": "assets_src/imagegen/opera_door_icons_20261017/rejected_move_01.png",
+      "sha256": "9ccceb0ffdd858f1ec9fe5337cb85bec8135a46a33c677c1e8307c4e4ab94ea5",
+      "status": "rejected_still_attached_to_arch",
+      "input": "assets/flats/castle/opera_house_venue_2d/room_opera_house_venue.png"
+    },
+    {
+      "path": "assets_src/imagegen/opera_door_icons_20261017/rejected_move_02.png",
+      "sha256": "5f270f236f5d933f1284252051a2b1f90f155f20ecf6eee2a5657664a3f3e3da",
+      "status": "rejected_still_attached_to_arch",
+      "input": "assets_src/imagegen/opera_door_icons_20261017/rejected_move_01.png"
+    },
+    {
+      "path": "assets_src/imagegen/opera_door_icons_20261017/foyer_icons_above_doors.png",
+      "sha256": "c88841448c1eab1e5e34acb21f0326a29b417b0b32495ea2526f4a99bbe76880",
+      "status": "selected_local_badge_healing_source_only",
+      "input": "assets/flats/castle/opera_house_venue_2d/room_opera_house_venue.png"
+    }
+  ],
+  "prompts": {
+    "first": "Use case: precise-object-edit. Edit target: the attached clean 1024x576 painted three-floor opera foyer. Make ONLY the requested icon-placement correction. There are twelve round gold-rimmed career emblem medallions, four above each of three rows of central arched curtained doors. Currently each overlaps the arch keystone. Move every entire medallion vertically UP so it floats on the wall ABOVE its own door arch with clearly visible wall/air gap between the lowest gold flourish of the emblem and the highest stone of the arch. Keep all twelve horizontally centered above exactly the same doors, same symbols/colors/order. Modestly reduce emblem size only if needed for the narrow space between balcony soffit and arch; preserve readability. Locally repair the exposed gold arch/curtain underneath each old medallion location; continuous intact door arches. Keep door arch locations/dimensions, curtain shapes, balconies, railings, stairs, chandeliers, columns, windows, plants, sofas, floor pattern and central seat EXACTLY as source. No relocation or redesign of any room feature, no extra icons, no UI, no text, no people. Preserve polished painted 2D storybook style, warm palette, framing and 16:9 composition. The icons must have a visible gap above the arches, never touch or overlap the door frame."
+  },
+  "preservation_limit": "Generative local healing changes small painted details; architecture retains the same layout. Native generated size and exact runtime mapping are recorded in the tile manifest. Original painting remains unchanged.",
+  "resolution_acceptance": "Existing source was 1024x576; normalization does not count as native2K. Target-device and formal visual acceptance remain pending.",
+  "provider_revision": "Not exposed by the built-in tool",
+  "request_ids": "Provider request IDs not exposed; native output filenames retained",
+  "clean_prompt_reference": "assets_src/imagegen/opera_door_icons_20261017/clean_prompt.json",
+  "named_gap": "The inventoried accepted foyer master and all8 original tiles have badges painted into the arches. There is no existing badge-free background to move beneath reusable signs. ImageGen heals these sites; the runtime reuses the original round emblems as non-destructive crops.",
+  "runtime_use": "Only12 native crops at old badge locations enter the game. The rest of the generated full scene is not displayed. Original background tiles remain in use."
+}

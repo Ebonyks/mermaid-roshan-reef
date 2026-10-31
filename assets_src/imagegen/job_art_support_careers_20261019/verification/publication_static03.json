@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_world_hotspot_2d.gd",
+        "scripts/opera_world_backdrop_2d.gd",
+        "scripts/probe_opera_gesture_quality.gd",
+        "scripts/support_career_painted_art.gd"
+      ],
+      "exit": 0,
+      "log": "assets_src/imagegen/job_art_support_careers_20261019/verification/publication_parser03.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_world_hotspot_2d.gd",
+        "scripts/opera_world_backdrop_2d.gd",
+        "scripts/probe_opera_gesture_quality.gd",
+        "scripts/support_career_painted_art.gd"
+      ],
+      "exit": 0,
+      "log": "assets_src/imagegen/job_art_support_careers_20261019/verification/publication_inference03.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit": 0,
+      "log": "assets_src/imagegen/job_art_support_careers_20261019/verification/publication_authority03.log",
+      "sha256": "03642b04f6dd63b44829d298d5f4eded9b05dc434625881fdaaff7ebdd534cd8"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit": 0,
+      "log": "assets_src/imagegen/job_art_support_careers_20261019/verification/publication_development03.log",
+      "sha256": "3b6f35a931f7717d8fd7df3d5c20e3f040263f36b8729dfadd9953f66428a1bb"
+    }
+  ]
+}

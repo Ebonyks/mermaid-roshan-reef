@@ -63,6 +63,27 @@ func _run_probe() -> void:
 		bad += 1
 	else:
 		print("DAY_ONE_DRESSING|pool shore bunny: OK one landlocked cutout")
+	# MA-VIS-009: the dirty Pool shows its dirt through authored art and its
+	# declared room tint, so no code-drawn wash, grime, drips or cracks remain
+	# over the room and Roshan there; the approved land bunny stays.
+	var pool_snapshot: Dictionary = dressing.audit_snapshot()
+	var pool_land_bunny: Sprite2D = dressing.get_node("DustBunny_mermaid_pool") as Sprite2D
+	if bool(pool_snapshot.get("procedural_grime_visible", true)) \
+			or not dressing.room_is_dirty("mermaid_pool") \
+			or not dressing.room_owns_authored_dirt("mermaid_pool") \
+			or pool_land_bunny == null or not pool_land_bunny.visible:
+		print("DAY_ONE_DRESSING|authored-dirt pool draws no code grime: FAIL ", pool_snapshot)
+		bad += 1
+	else:
+		print("DAY_ONE_DRESSING|authored-dirt pool draws no code grime: OK")
+	var dressing_source: String = FileAccess.get_file_as_string(
+		"res://scripts/arena/day_one_castle_dressing.gd")
+	if dressing_source.contains("func _draw(") or dressing_source.contains("draw_rect(") \
+			or dressing.get_node_or_null("DayOneCastleGrime") == null:
+		print("DAY_ONE_DRESSING|code-drawn marks live only in the grime child: FAIL")
+		bad += 1
+	else:
+		print("DAY_ONE_DRESSING|code-drawn marks live only in the grime child: OK")
 	dressing.set_visible_room("bubble_bath")
 	dressing.update_dressing(0.25)
 	var bathroom_bunny: Sprite2D = dressing.get_node("DustBunny_bubble_bath") as Sprite2D
@@ -71,6 +92,11 @@ func _run_probe() -> void:
 		bad += 1
 	else:
 		print("DAY_ONE_DRESSING|approved bunny: OK visible room card")
+	if not bool(dressing.audit_snapshot().get("procedural_grime_visible", false)):
+		print("DAY_ONE_DRESSING|rooms without authored dirt keep their grime: FAIL")
+		bad += 1
+	else:
+		print("DAY_ONE_DRESSING|rooms without authored dirt keep their grime: OK")
 	dressing.set_room_dirty("mermaid_pool", false)
 	dressing.set_door_unlocked("mermaid_pool", true)
 	dressing.set_visible_room("mermaid_pool")

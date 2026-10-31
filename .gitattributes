@@ -24,3 +24,84 @@ assets/audio/voices/filler_v1/GRAND_PUFF_COHORT_20260912.json -text whitespace=c
 
 # Literal external-reference packet hashes must survive Windows/Linux checkouts.
 assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/** -text whitespace=cr-at-eol
+
+# Native faerie review evidence binds literal bytes, including diagnostic spaces.
+assets_src/prototypes/fairy_restoration_2026-09-30/** -text whitespace=-blank-at-eol,cr-at-eol
+# New prototype code hashes bind the same UTF-8 LF source on Windows and Linux.
+scripts/fairy_restoration_prototype.gd text eol=lf
+scripts/probe_fairy_restoration.gd text eol=lf
+tools/build_fairy_restoration_voices.py text eol=lf
+# The audio-summary inventory hash binds the generator's canonical LF CSV bytes.
+audit/audio_quality_ledger_2026-08-24.csv text eol=lf
+
+# Preserve the literal hashes in the source-based Sky Lagoon reference archive.
+assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/** -text whitespace=cr-at-eol
+
+# Literal moderate-reference packet hashes survive every checkout.
+assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/** -text whitespace=cr-at-eol
+assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/** -text whitespace=cr-at-eol
+assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/verification/*.log whitespace=-blank-at-eof,cr-at-eol
+
+# Chef review/native-generation manifests bind literal packet bytes.
+# Runtime GDScript source hashes separately declare canonical UTF-8 LF.
+audit/chef_overdraw_20261003/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+assets_src/imagegen/chef_overdraw_v1_20261003/** -text whitespace=cr-at-eol
+
+# Whole-wave source/reject receipts bind literal bytes across Windows/Linux.
+assets_src/animation/roshan_wave_repair_20261010/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# Preserve literal Luna report, native log, capture and verifier receipt hashes.
+audit/cycles/luna-playtest-20261012/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+
+# Luna repair and neutral Guide provenance bind literal native bytes.
+audit/cycles/luna-gameplay-repairs-20261014/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+assets_src/audio/objective_guides_20261014/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json -text whitespace=cr-at-eol
+
+# Literal unified-diff context prefixes precede authored GDScript tabs.
+audit/cycles/luna-gameplay-repairs-20261014/**/*.patch whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+
+# Preserve literal R91 Godot/import/CI diagnostic log bytes.
+docs/handoffs/codex_flat_vector_art_2026-10-07/r91_critter_insect_tab_runtime/**/*.log -text -diff
+
+# Preserve literal Grand Puff native logs, diagnostic sources and capture hashes.
+audit/grand_puff_crash_20261017/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/**/*.log -text -diff
+
+
+# Preserve exact Windows/native-CI evidence bytes for the Opera room removal.
+audit/remove_opera_anteroom_20261017/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/**/*.log -text -diff
+
+# Preserve exact native Opera icon-placement verification logs.
+audit/opera_door_icons_20261017/*.log -text -diff
+audit/opera_door_icons_20261017/*.txt -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/**/*.log -text -diff
+# Beta diagnostic evidence keeps canonical LF text and native warning spacing.
+assets_src/fashion_designer/beta_20261025/verification/*.log -text whitespace=-blank-at-eof,-blank-at-eol,cr-at-eol
+docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/**/*.log -text -diff
+docs/handoffs/codex_flat_vector_art_2026-10-07/r102_geologist_mint_runtime/**/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/**/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r105_geologist_pan_sediment_runtime/**/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/**/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r107_geologist_fossil_runtime/**/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r108_geologist_soil_runtime/**/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r109_geologist_gallery_runtime/**/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r110_geologist_river_pools_runtime/**/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r111_geologist_seam_runtime/**/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/**/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/**/*.log -text -diff
+
+docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/**/*.log -text -diff

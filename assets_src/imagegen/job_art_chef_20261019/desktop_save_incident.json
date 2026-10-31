@@ -1,0 +1,29 @@
+{
+  "incident": "Unsupported --user-data-dir was passed to Chef GUI captures01-03. Local check proved it was ignored, so captures used actual desktop save folder. Prior state not established; do not guess a restore. Phone save not accessed.",
+  "checked_utc": "2026-10-19T09:35:19.716124+00:00",
+  "preserved": [
+    {
+      "name": "reef_save.json",
+      "sha256": "d7886012a491badc77529be31a6c25dc1dcef2e4eec42ed73fc5255674012318",
+      "bytes": 4952,
+      "last_write_utc": "2026-10-19T09:31:38.175427+00:00",
+      "preserved_copy": "C:\\Users\\Peter\\.codex\\worktrees\\art-chef-20261019\\mermaid-roshan-reef\\tmp\\desktop_save_preserved_20261019\\reef_save.json"
+    },
+    {
+      "name": "reef_save.json.bak",
+      "sha256": "50317a2a23ae53ab0c9dc7fa4ebc422de9841a867792e7d4293028f31a8fe63e",
+      "bytes": 4813,
+      "last_write_utc": "2026-10-19T09:21:26.779498+00:00",
+      "preserved_copy": "C:\\Users\\Peter\\.codex\\worktrees\\art-chef-20261019\\mermaid-roshan-reef\\tmp\\desktop_save_preserved_20261019\\reef_save.json.bak"
+    },
+    {
+      "name": "reef_save.json.before_new_game",
+      "sha256": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+      "bytes": 1916,
+      "last_write_utc": "2026-08-26T17:06:13.842879+00:00",
+      "preserved_copy": "C:\\Users\\Peter\\.codex\\worktrees\\art-chef-20261019\\mermaid-roshan-reef\\tmp\\desktop_save_preserved_20261019\\reef_save.json.before_new_game"
+    }
+  ],
+  "recovery": "Pending known-good prior backup; existing live files left untouched. Subsequent capture requires APPDATA isolation proof before main scene initialization and before/after actual-save hash equality.",
+  "additional_ignored_preservation_copy": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\artwork-quality-20261018\\desktop_save_preserved_20261019"
+}

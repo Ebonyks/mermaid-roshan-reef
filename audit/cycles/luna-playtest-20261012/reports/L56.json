@@ -1,0 +1,180 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L56",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l56",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Butterfly World rescue return and saved origin",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L56/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe_galaxy_state passed once on exact Godot 4.7.2-stable with an isolated save profile. It exercises a real Level-2 promenade departure through _start_galaxy and the actual _end_galaxy callback, checks exact position plus master-route restoration for closed and open lagoon returns, and verifies partial rescue persistence, one-time reward and completed-world construction (scripts/probe_galaxy_state.gd:84-205; runtime/L56/attempt_1/receipt.json; runtime/L56/attempt_1/probe.log:3-19).",
+    "route_gaps": "The current Chapter 3 authority describes Main Hall → Moonflower doorway → Rainbow Skyway → Butterfly House → seven-butterfly rescue, then return through the Skyway to exact Hall context; the ordinary handoff source captures context, starts Galaxy from the House, and returns to the handoff (design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md:14-30,74-85; scripts/main.gd:2170-2247,2249-2278,2340-2372). This code wiring and the matrix's 'live' hint are not proof of the visible journey: the probe injects Chapter/return state and directly builds Galaxy nodes, and does not activate the door, walk the Skyway, enter the House or exercise the Fairy Conservatory return callbacks. The canonical MA-PLAY-005 fresh-save Chapter 2 blocker also prevents claiming fresh-save access to this route. No rendered Mobile view, target-phone input/latency, child comprehension/agency, heard voice or owner acceptance was observed."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Butterfly pickup occurs when Roshan's feet are within 5.0 world units of the baby; the grand star triggers within 7.0, and crossing the home ring within 5.5 tears down the world (scripts/galaxy.gd:1301-1307,1341-1346).",
+        "scope": "World-space code thresholds, not screen-space hit targets or observed child timing."
+      },
+      {
+        "value": "The seven babies are indexed by SHARDS=7; each successful pickup checkpoints its _bwd_butterfly_<index> sticker and writes the save immediately (scripts/galaxy.gd:34,835-843,1303-1318).",
+        "scope": "Authored count and persistence behavior; probe validates one restored sticker, not seven manual touch pickups."
+      },
+      {
+        "value": "Galaxy movement reads touch_ui.stick_vec when either axis exceeds 0.15; directional movement uses RUN_SPD=13.5 and turning uses TURN_SPD=2.4 (scripts/galaxy.gd:32-34,1064-1097,1223-1233).",
+        "scope": "Code constants only. No projected control geometry or physical device timing was measured."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "Sequence beats describe a code- and design-grounded acceptance pass, not an observed playthrough. Probe Engine.time_scale is 6.0 and its 15.301-second runner duration is not game duration (scripts/probe_galaxy_state.gd:39; runtime/L56/attempt_1/receipt.json)."
+  },
+  "tactile": {
+    "target_size": "Galaxy movement consumes the main touch UI's stick vector and the touch action can trigger a grounded jump; no Galaxy-specific projected touch-target dimensions or phone-size separation were measured (scripts/galaxy.gd:1064-1097,1099-1106).",
+    "press_response": "The probe checks state and callback outcomes, not rendered feedback within two frames or audible pickup cues on a device (scripts/probe_galaxy_state.gd:84-205; DL-AGE-07, DL-QA-04).",
+    "drag_hold_release": "Movement is continuous stick direction plus a grounded jump action; the probe does not synthesize or observe a finger trace, hold, lift, retarget or miss (scripts/galaxy.gd:1064-1106,1223-1233; scripts/probe_galaxy_state.gd:84-205).",
+    "ownership": "World teardown calls the completion callback once in the exercised paths, and the return tuple is cleared by main's callback; test covers source state, not competing real touch owners (scripts/galaxy.gd:1754-1763; scripts/main.gd:2340-2397; runtime/L56/attempt_1/probe.log:8-19).",
+    "cancellation": "The probe calls teardown and validates clean returns. It does not exercise natural pause, focus loss, Back, or interrupted phone input/re-entry; these remain required lifecycle evidence (DL-SAVE-03, DL-SAVE-04, DL-QA-04)."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: approaching visible baby butterflies and choosing a route across a small planet may make rescue feel self-directed; the probe directly sets one saved butterfly and does not observe discovery or choice.",
+    "variety": "Source offers walking/jumping around the planet, fruit trays that attract ambient butterflies, a home castle, and an optional Fairy Fountain detour. Whether these are legible and distinct to a child is untested (scripts/galaxy.gd:1181-1204,1265-1277).",
+    "world_response": "The code keeps each rescued baby visible in Roshan's follower train, hides its beacon, updates the counter, chimes/sparkles and enlarges the final beacon; the probe verifies persistence and counts, not rendered readability (scripts/galaxy.gd:1303-1344; runtime/L56/attempt_1/probe.log:6-7,11-14).",
+    "replay": "Hypothesis: after the one-time rescue, the castle playground and dance floor may invite voluntary return play. Source builds no babies or grand reward after bwd_done; no child-selected replay or return desire was observed (scripts/galaxy.gd:181-214,1632-1651; probe_galaxy_state.gd:60-77).",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": 1,
+      "wait": "Wait for the eligible save's ordinary Main Hall reveal and voiced/pointer cue; the design requires both Chapter 2 story completion and candle-taken state unless legacy Opera completion applies. Do not infer this from a debug state assignment (scripts/main.gd:2151-2168; design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md:39-62).",
+      "input": "Tap the opened Moonflower threshold once.",
+      "expected": "The petals open and the handoff begins; a non-reader can identify the target without reading (design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md:49-56)."
+    },
+    {
+      "beat": 2,
+      "wait": "Wait after each of the three sequential skyway targets until Roshan advances; there is no timer, fall or fail state.",
+      "input": "Tap the three large one-finger route targets in order, then tap the Butterfly House hotspot when it becomes active.",
+      "expected": "Roshan reaches the always-visible house and enters Butterfly World; voice and animated pointer should carry the objective (design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md:120-139)."
+    },
+    {
+      "beat": 3,
+      "wait": "Allow the initial Butterfly World cue; observe first action before explaining. If no clear action follows, stop the discovery pass rather than teaching the gesture.",
+      "input": "Use the visible one-finger movement control to approach a baby butterfly; jump only if it is visibly useful.",
+      "expected": "The child should understand that proximity rescues a baby; code collects within 5.0 units of Roshan's feet (scripts/galaxy.gd:1301-1318)."
+    },
+    {
+      "beat": 4,
+      "wait": "Continue until all seven babies have been rescued or the player chooses to leave; no fixed play duration is evidenced.",
+      "input": "Choose a route to each remaining baby and approach it; allow each pickup response to settle before moving on.",
+      "expected": "Each baby joins the follower train and checkpoints independently; when one remains, its beacon is enlarged (scripts/galaxy.gd:1303-1331)."
+    },
+    {
+      "beat": 5,
+      "wait": "After the seventh pickup, follow the appearing grand star when ready; pickup proximity is 7.0 units.",
+      "input": "Move Roshan to the grand star, then continue to the home ring when ready to return.",
+      "expected": "The one-time reward is saved, then home proximity (5.5 units) ends Galaxy and returns through the Butterfly House handoff; exact restoration of the originating hall/lagoon is a separate routed acceptance check (scripts/galaxy.gd:1332-1346,1726-1763; scripts/main.gd:2340-2372)."
+    },
+    {
+      "beat": 6,
+      "wait": "On a later visit with one or more saved babies, wait for the source's current welcome and count before moving.",
+      "input": "Re-enter from the ordinary route, rescue a remaining baby if any, or choose the castle/playground and then return home.",
+      "expected": "Previously rescued babies remain safe and are not recreated; once all are complete the world stays open without repeating the one-time grand reward (scripts/galaxy.gd:181-214,835-843,1726-1752)."
+    }
+  ],
+  "observations": [
+    {
+      "title": "A rescued baby is checkpointed and omitted on the next build",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "The unchanged probe seeds one compatible sticker, builds the shard list, and confirms one rescued baby plus six live nodes (scripts/probe_galaxy_state.gd:84-100; runtime/L56/attempt_1/probe.log:6).",
+        "Runtime pickup stores the indexed sticker and calls _write_save; next build skips stickered babies (scripts/galaxy.gd:835-843,1303-1318)."
+      ],
+      "rules": ["DL-SAVE-01", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "One exact-engine probe pass. It directly seeds the first sticker and calls _build_shards; it does not rescue a butterfly by normal input or reload the disk save.",
+      "child_impact": "The code path should preserve earned rescue progress if a child leaves partway through. Whether the child sees the save response and can re-enter without help is unknown.",
+      "proposed_repair": "No repair is demonstrated. Verify a real pickup, leave, reload, and ordinary return with one baby retained and six still discoverable.",
+      "acceptance_test": "On an eligible routed profile, rescue one baby by normal touch, leave through home, fully save/reload, return by the visible route, and verify that baby remains with Roshan while exactly six remain available; no duplicate award or lost progress."
+    },
+    {
+      "title": "Level-2 returns preserve the saved origin for both closed and open routes",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "The probe starts from a real promenade, records its position and master-route coordinate, tears down that canvas, starts Galaxy, and confirms closed-route restoration and clean tuple/cooldown state (scripts/probe_galaxy_state.gd:118-177; runtime/L56/attempt_1/probe.log:9-16).",
+        "A separate seeded open-route callback restores open state, its exact master x, and clears the return tuple (scripts/probe_galaxy_state.gd:184-205; runtime/L56/attempt_1/probe.log:17-19)."
+      ],
+      "rules": ["DL-SAVE-03", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "The unchanged headless probe passed all real departure/return assertions at exact Godot 4.7.2-stable. It does not prove touch navigation through the Chapter 3 House route.",
+      "child_impact": "Returning to the same open/closed promenade and location should reduce disorientation and preserve exploration context; phone-scale readability and child recognition remain unknown.",
+      "proposed_repair": "No code defect shown. Preserve these checks while adding separate routed Chapter 3 return coverage.",
+      "acceptance_test": "From both open and closed Sky Lagoon origins on target Android, enter Galaxy from the visible route and return; compare screen/camera master coordinate, player position, open state and neighboring routes before/after, then repeat after pause and save reload."
+    },
+    {
+      "title": "Direct fallback return restores the ocean origin and clears transient return state",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "With an origin vector saved and player moved away, the probe invokes _end_galaxy(false) and confirms zero-distance return plus original ocean environment; it then confirms the return flags/position are cleared (scripts/probe_galaxy_state.gd:101-117; runtime/L56/attempt_1/probe.log:8).",
+        "The main callback restores the saved world position and ocean environment for non-Level-2 return paths (scripts/main.gd:2378-2397)."
+      ],
+      "rules": ["DL-SAVE-03", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "One passing scripted callback check with injected origin; it does not establish a live visible portal or child-accessible direct route.",
+      "child_impact": "If a compatibility/debug entry is used, the callback avoids stranding Roshan at the fallback origin. Normal route availability and recognition remain unobserved.",
+      "proposed_repair": "No repair indicated by this callback assertion. Keep compatibility entry claims separate from the current Chapter 3 route.",
+      "acceptance_test": "Where an authorized direct route remains visible, enter from a known ocean position, leave Galaxy without completing the quest, and verify exact return position, camera/environment, and no stale Galaxy callback after re-entry."
+    },
+    {
+      "title": "The seven-baby reward is one-time and later visits become a playground",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "The probe confirms first reward sets bwd_done and Fairy skin and pays pearls once; a second _win leaves pearls unchanged and state out of won (scripts/probe_galaxy_state.gd:60-77; runtime/L56/attempt_1/probe.log:5).",
+        "A completed-world construction sets all seven rescued and builds no baby nodes or grand star; source gates reward and saved flags (scripts/galaxy.gd:181-214,1726-1752; runtime/L56/attempt_1/probe.log:6-7)."
+      ],
+      "rules": ["DL-AGE-03", "DL-SAVE-01", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "The no-duplicate reward and completed-world checks pass in the unchanged scripted probe; direct _win and direct bwd_done state mean this is not observed replay behavior.",
+      "child_impact": "The code avoids asking a returning child to repeat a completed rescue and keeps the location available. Whether the welcome communicates a freely chosen activity is not established.",
+      "proposed_repair": "No defect demonstrated. Observe whether the post-rescue destination and playground choices are clear and whether the child elects to continue or replay.",
+      "acceptance_test": "After a normally completed rescue, save/reload and revisit; confirm no babies or grand reward reappear, the castle remains accessible, and a child can choose to play or leave without adult explanation or accidental reward repetition."
+    },
+    {
+      "title": "The ordinary Butterfly House return and fresh-save access remain unproven",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "Chapter 3's binding route requires doorway reveal, three Skyway targets, Butterfly House entry, rescue, and exact hall-context return; the route design requires voiced/pointer guidance (design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md:14-30,39-62,120-139).",
+        "Main code wires the compatibility court gateway to the handoff, captures the current context, and routes the House result into Galaxy and back to a return handoff, but the L56 probe bypasses all these methods (scripts/main.gd:2170-2247,2249-2278; scripts/probe_galaxy_state.gd:84-205).",
+        "The current P0 MA-PLAY-005 explicitly blocks fresh-save reachability of the Galaxy and Fairy route until Chapter 2 careers and finale become reachable (audit/findings/ACTIVE_FINDINGS_2026-08-13.md:973-993)."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-SAVE-04", "DL-QA-02", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-PLAY-005"],
+      "reproduction": "Code route trace and the exact single probe invocation. This is a coverage/acceptance gap, not evidence that the wired callbacks fail. The normal route and spoken cues were not exercised or heard.",
+      "child_impact": "A child on a fresh save may not be able to reach Butterfly World at all while the upstream Chapter 2 route remains blocked; without routed return observation, a child could also lose their place or need adult recovery.",
+      "proposed_repair": "No Galaxy change follows from this probe. After the upstream route is reachable, add a trusted routed positive and negative check for reveal → Skyway → House → partial rescue → leave/re-enter → completed rescue → exact hall return, then observe the same on device and with a child.",
+      "acceptance_test": "From a fresh save after upstream Chapter 2 is repaired, use only visible one-finger actions and authorized spoken/diegetic cues to enter the door, traverse all three skyway steps, enter the House, rescue one baby, leave and return, finish the seven, visit the Fountain if chosen, and return to the identical Main Hall room/camera context. Repeat zero-input and wrong-touch checks; capture target-phone touch/render/audio and child comprehension separately."
+    }
+  ],
+  "strengths": [
+    {
+      "title": "Per-baby progress is additive and resilient to leaving early",
+      "evidence": "Each collected index maps to an existing compatible sticker key and is saved immediately; the reconstruction skips saved keys without deleting them (scripts/galaxy.gd:835-843,1303-1318)."
+    },
+    {
+      "title": "The final missing rescue gains a stronger beacon and completed visits omit quest objects",
+      "evidence": "At six of seven, the last beam is enlarged; after bwd_done, start constructs no baby nodes or grand star and changes the welcome (scripts/galaxy.gd:1322-1344,181-214)."
+    },
+    {
+      "title": "Real lagoon teardown/rebuild tests protect the saved route coordinate",
+      "evidence": "The probe performs a genuine promenade departure and validates a single rebuilt Canvas layer, route-master position, open state, visibility, and cleared transient return tuple (scripts/probe_galaxy_state.gd:118-177; runtime/L56/attempt_1/probe.log:9-16)."
+    }
+  ],
+  "acceptance_gaps": [
+    "The probe's bare Galaxy instances and injected return state do not exercise the live Butterfly House entry or the wrapped Fairy Conservatory callbacks.",
+    "The assigned probe checks one pre-seeded baby, not a physical one-finger pickup, seven natural rescues, disk reload, or a child-selected departure and replay.",
+    "The fresh-save Chapter 2 route remains blocked by canonical P0 MA-PLAY-005; no fresh-save access claim is made.",
+    "No rendered Mobile/phone capture, actual Tab M11 input or frame timing, heard protected voice, child observation, or owner acceptance was available."
+  ]
+}

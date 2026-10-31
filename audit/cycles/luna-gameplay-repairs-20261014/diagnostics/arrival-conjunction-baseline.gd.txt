@@ -1,0 +1,33 @@
+extends SceneTree
+
+const NAVIGATION = preload("res://scripts/encounter_navigation_2d.gd")
+var bad: int = 0
+
+func _init() -> void:
+	# Deterministic component proof only; does not explain historical episode125.
+	var initial := Vector2(-21.42087, 4.348433)
+	var requested := Vector2(-12.0, 8.0)
+	var nav: EncounterNavigation2D = NAVIGATION.new()
+	nav.move_to(requested)
+	var position: Vector2 = initial
+	var armed: bool = nav.travelling and nav.destination == requested
+	for delta: float in [0.5, 0.025]:
+		var speed: float = nav.step_speed(24.0, delta)
+		position += nav.direction_for_step(position, speed, delta) * speed * delta
+	var moved: float = position.distance_to(initial)
+	var original_conjunction: bool = nav.travelling and moved > 0.05
+	_ck("valid press arms its requested destination", armed)
+	_ck("two updates arrive correctly without overshoot", position.distance_to(requested) < 0.001)
+	_ck("correct arrival clears travelling", not nav.travelling)
+	_ck("original conjunction rejects that successful movement", moved > 0.05 and not original_conjunction)
+	nav.cancel()
+	var idle: Vector2 = position
+	position += nav.direction_for_step(position, 24.0, 0.1) * 24.0 * 0.1
+	_ck("cancelled navigation cannot manufacture movement", position == idle)
+	print("ARRIVAL_CONTRACT|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
+	quit(1 if bad > 0 else 0)
+
+func _ck(label: String, ok: bool) -> void:
+	print("ARRIVAL_CONTRACT|", label, ": ", "OK" if ok else "FAIL")
+	if not ok:
+		bad += 1

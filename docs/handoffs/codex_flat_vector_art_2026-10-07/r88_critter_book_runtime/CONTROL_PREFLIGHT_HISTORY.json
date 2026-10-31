@@ -1,0 +1,32 @@
+{
+  "attempt3_first_launch": "Driver still hard-coded attempt2; exclusive directory guard rejected reuse before native engine launch. No frames overwritten and no launch credit.",
+  "fix": "Respect R88_ATTEMPT argument/defaultattempt3; source code unchanged by operational fix.",
+  "checked_at_utc": "2026-10-17T10:19:56.111250+00:00",
+  "attempt6_execution_copy_preflight": {
+    "attempt": "attempt6_capture_preflight",
+    "failure": "Owned capture_entry execution copy still contained prior fixture; byte guard stopped before engine.",
+    "empty_exclusive_directories": {
+      "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-critter-book-runtime-20261017\\attempt6_critter_1280": "empty; engine never launched; no frame overwritten",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r88_critter_book_runtime\\native\\attempt6_critter_1280": "empty; engine never launched; no frame overwritten"
+    },
+    "correction": "Sync3current ignored execution copies byte-exact; continue in new attempt7namespace. No source/probe/game/asset correction and no frame credit.",
+    "fixture_mappings": [
+      {
+        "name": "capture_entry.gd",
+        "prior_sha256": "cb18a3e1d09e40968177983fb8c618e1378f477feab092202ff13a2115a0e223",
+        "current_sha256": "7836757758dd6dfa69fca6231623a4f53a597244a07075034660f06c659694b6"
+      },
+      {
+        "name": "capture_saved.gd",
+        "prior_sha256": "28921d6b29fa357efad77d4bed84f5993c05430d6bb783dd47cb6dd3a3c26630",
+        "current_sha256": "650ed5e800632b452118bdb871898b6e88de7eb51206b7c6363442aa5eaeab0f"
+      },
+      {
+        "name": "capture_states.gd",
+        "prior_sha256": "f49d2d9259ed517a11cfafaa86950cc634c7f51a8f1abbf2ac4d79d5c72ca3c0",
+        "current_sha256": "92a60b5c128112d120a557bc3a2d3364077397010939ad62d4de712e8718fb28"
+      }
+    ],
+    "checked_at_utc": "2026-10-17T11:45:57.990986+00:00"
+  }
+}

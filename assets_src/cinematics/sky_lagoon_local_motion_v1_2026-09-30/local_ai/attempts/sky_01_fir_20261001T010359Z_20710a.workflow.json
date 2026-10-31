@@ -1,0 +1,144 @@
+{
+  "0": {
+    "class_type": "SaveLatent",
+    "inputs": {
+      "samples": [
+        "9",
+        0
+      ],
+      "filename_prefix": "local_reference/sky_01_fir_20261001T010359Z_20710a"
+    }
+  },
+  "1": {
+    "class_type": "UnetLoaderGGUFAdvanced",
+    "inputs": {
+      "unet_name": "Wan2.2-TI2V-5B-Q4_K_S.gguf",
+      "dequant_dtype": "bfloat16",
+      "patch_dtype": "bfloat16",
+      "patch_on_device": true
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoaderGGUF",
+    "inputs": {
+      "clip_name": "umt5-xxl-encoder-Q4_K_S.gguf",
+      "type": "wan"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "wan2.2_vae.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "source_d96c84fa0e99d1ed.png"
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "text": "A wind gust bends the upper branches of the illustrated pine tree noticeably to the right, then they spring back left and settle upright. The top moves about one tenth of the tree's width. The lower trunk and the base stay planted in exactly the same place throughout. Flexible branches visibly change angle; this is a bending action, with stable painted colors and lighting. Keep the same branch tiers, connected needles, and storybook drawing. One isolated tree on the input's uniform light gray background. Fixed camera, one continuous two-second shot. Sound: silence.\n"
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "text": "camera movement, zoom, cut, new objects, new branches, detaching branches, melting foliage, photorealism, 3D shading, brightness flicker, texture flicker, color pumping, text, watermark"
+    }
+  },
+  "7": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "shift": 8.0
+    }
+  },
+  "8": {
+    "class_type": "Wan22ImageToVideoLatent",
+    "inputs": {
+      "vae": [
+        "3",
+        0
+      ],
+      "width": 1280,
+      "height": 704,
+      "length": 49,
+      "batch_size": 1,
+      "start_image": [
+        "4",
+        0
+      ]
+    }
+  },
+  "9": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "7",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "8",
+        0
+      ],
+      "seed": 20261011,
+      "steps": 24,
+      "cfg": 5.0,
+      "sampler_name": "uni_pc",
+      "scheduler": "simple",
+      "denoise": 1.0
+    }
+  },
+  "10": {
+    "class_type": "VAEDecodeTiled",
+    "inputs": {
+      "samples": [
+        "9",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "tile_size": 256,
+      "overlap": 64,
+      "temporal_size": 4096,
+      "temporal_overlap": 8
+    }
+  },
+  "11": {
+    "class_type": "SaveWEBM",
+    "inputs": {
+      "images": [
+        "10",
+        0
+      ],
+      "filename_prefix": "local_reference/sky_01_fir_20261001T010359Z_20710a",
+      "codec": "vp9",
+      "fps": 24.0,
+      "crf": 18.0
+    }
+  }
+}

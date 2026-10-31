@@ -1,0 +1,346 @@
+{
+  "schema": "reef.local-full-ci-evidence.v1",
+  "command": "C:/Program Files/Git/bin/bash.exe scripts/ci.sh",
+  "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\roshan-wave-keys-20261007\\mermaid-roshan-reef",
+  "baseline_head": "245e9c543be771d297b60dafb91b8a3baf73e211",
+  "actual_process_exit": 0,
+  "actual_stdout_terminal": "CI_EXIT=0",
+  "finished_observed_at_utc": "2026-10-11T02:49:14.396166+00:00",
+  "log_path": "assets_src/animation/roshan_wave_repair_20261010/full_ci_final.log",
+  "log_sha256": "480e27fa774e20e888e4a3556a24c51d9f279356d5542a34ffcba18335685891",
+  "log_bytes": 467606,
+  "required_godot": "4.7.2.stable.official.ed1daf0bf",
+  "trusted_probe_count": 82,
+  "all_trusted_probe_process_exits_zero": true,
+  "probes": [
+    {
+      "name": "probe_reef_districts",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_ocean_kingdoms",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_audit",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_passive",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_living_world",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_load",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_rank",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_save_recovery",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_galaxy_state",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_collection",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_mg2d",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_fetch",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_melody",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dolls",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_seek",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_audio",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dance",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_l2",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_l2_living_cards",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_sky_lagoon_animals",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_l2_reenter",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_crown",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_throne",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_northern",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_human_art_audit",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_train",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_verbs",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_skins",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_touch_router",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_touch_stress",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_interaction",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_touch_adversary",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_touch_look",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_ui_system",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_voice",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_voice",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_d8_revisits",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_handoffs",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_kart_feel",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_combat",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dust_bunny",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dust_bunny_boss",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dust_boss",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_hit",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_partner",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_combat_tutorial",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_imp_ai",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_mic",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_stuffie",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dungeon",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_ember",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_2d",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_diegetic_paths",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_detective",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_pipe",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_nursery",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_gesture_quality",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_kitchen_props",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_bathroom_props",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_castle_door_language",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_bathroom_integration",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_bathroom_bunny",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_bathroom_cleanup",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_bathroom_movie_handoff",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_director",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_integration",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_pool_cleanup",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_art_attack_state",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_castle_dressing",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_story_clips",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_chapter2",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_chapter2_farmer_resume",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_chapter2_lawn",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_alpha_milestone_save",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dust_boss_balance",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_start_menu_routing",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_start_menu_new_game",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_castle_pool_life_2d",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_castle_pearl_art",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_fairy_art",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_props",
+      "process_exit": 0
+    }
+  ],
+  "scope": "Full repository scripts/ci.sh machine regression verification. Deliberate negative self-test fixtures remain in literal log. This does not accept source art, complete W3 landmarks, human/owner/device/child review, runtime integration or master-audit satisfaction."
+}

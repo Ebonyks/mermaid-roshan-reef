@@ -27,7 +27,14 @@ class DollsNurserySurface extends OperaNurseryCatch:
 	const SAFE_VISUAL_EXTENT := 50.0
 	const SAFE_Y := 0.956
 
-	var safe_mat_style: StyleBoxFlat = null
+	const SAFE_MAT_PATH := "res://assets/dolls/safety_mat_painted.png"
+	const SAFE_MAT_CONTENT := Rect2(101.0, 64.0, 823.0, 127.0)
+
+	const PAINTED_CRADLE_PATH := "res://assets/dolls/cradle_sling_painted.png"
+	const PAINTED_CRADLE_CONTENT := Rect2(60.0, 144.0, 393.0, 232.0)
+
+	var safe_mat_texture: Texture2D = null
+	var painted_cradle_texture: Texture2D = null
 
 	func _ready() -> void:
 		mouse_filter = Control.MOUSE_FILTER_STOP
@@ -44,11 +51,10 @@ class DollsNurserySurface extends OperaNurseryCatch:
 		set_meta("live_input_gate_seconds", INPUT_MEMORY)
 		set_meta("presentation", "approved_world_nursery_tiles")
 		set_meta("placeholder_widgets_loaded", false)
-		safe_mat_style = StyleBoxFlat.new()
-		safe_mat_style.bg_color = Color(0.27, 0.20, 0.49, 0.90)
-		safe_mat_style.border_color = Color(0.75, 0.66, 0.92, 0.96)
-		safe_mat_style.set_border_width_all(7)
-		safe_mat_style.set_corner_radius_all(38)
+		safe_mat_texture = load(SAFE_MAT_PATH) as Texture2D
+		assert(safe_mat_texture != null, "Dolls painted safety mat is required")
+		painted_cradle_texture = load(PAINTED_CRADLE_PATH) as Texture2D
+		assert(painted_cradle_texture != null, "Dolls painted cradle sling is required")
 
 	func focus_rect_at(at_elapsed: float) -> Rect2:
 		var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)
@@ -75,10 +81,31 @@ class DollsNurserySurface extends OperaNurseryCatch:
 		return Rect2(catch_point + Vector2(-outer_radius, -11.0),
 			Vector2(outer_radius * 2.0, outer_radius + 11.0))
 
+	func painted_cradle_destination() -> Rect2:
+		# The whole illustration keeps its aspect and original catch width. Its
+		# padded base sits beneath the unchanged settled-baby feet; bowl_rect stays
+		# the functional/source geometry authority.
+		var bowl := bowl_rect()
+		var scale_factor := bowl.size.x / PAINTED_CRADLE_CONTENT.size.x
+		return Rect2(
+			Vector2(bowl.get_center().x - PAINTED_CRADLE_CONTENT.get_center().x * scale_factor,
+				bowl.end.y + 18.0 - PAINTED_CRADLE_CONTENT.end.y * scale_factor),
+			painted_cradle_texture.get_size() * scale_factor)
+
 	func safe_mat_rect() -> Rect2:
 		return Rect2(
 			Vector2(size.x * 0.035, size.y * 0.775),
 			Vector2(size.x * 0.93, size.y * 0.225))
+
+	func safe_mat_destination() -> Rect2:
+		# Fit the whole visible object uniformly to the original width and bottom.
+		# Transparent padding may extend beyond the clipped panel; cloth does not.
+		var mat := safe_mat_rect()
+		var scale_factor := mat.size.x / SAFE_MAT_CONTENT.size.x
+		return Rect2(
+			Vector2(mat.get_center().x - SAFE_MAT_CONTENT.get_center().x * scale_factor,
+				mat.end.y - SAFE_MAT_CONTENT.end.y * scale_factor),
+			safe_mat_texture.get_size() * scale_factor)
 
 	func safe_landing_point(entry: Dictionary) -> Vector2:
 		return Vector2(float(entry.get("x", 0.5)) * size.x,
@@ -110,21 +137,10 @@ class DollsNurserySurface extends OperaNurseryCatch:
 				Color(1.0, 0.72, 0.76) if index < caught
 				else Color(0.94, 0.90, 1.0, 0.62))
 
-		# A single padded safety mat is the honest code-native fallback for the
-		# rejected flat pillow strip. Quilt seams and tufts keep the landing zone
-		# legible without adding transparent sprite layers or scene nodes.
-		var mat_rect := safe_mat_rect()
-		if safe_mat_style != null:
-			draw_style_box(safe_mat_style, mat_rect)
-		for index in range(7):
-			var seam_x := mat_rect.position.x + 28.0 + float(index) * mat_rect.size.x / 7.0
-			draw_line(
-				Vector2(seam_x, mat_rect.position.y + 14.0),
-				Vector2(seam_x + 46.0, mat_rect.end.y - 14.0),
-				Color(0.88, 0.80, 1.0, 0.25), 3.0, true)
-			draw_circle(
-				Vector2(seam_x + 23.0, mat_rect.get_center().y), 4.5,
-				Color(1.0, 0.87, 0.66, 0.82))
+		# One whole painted quilt keeps its authored contour and padded front edge.
+		# Babies and the cradle draw afterward; all catch and landing geometry stays
+		# on the original helpers. There is no procedural mat fallback.
+		draw_texture_rect(safe_mat_texture, safe_mat_destination(), false)
 
 		# The selected-skin child is explicitly drawn behind this parent. A pulsing
 		# U-shaped focus halo belongs to the cradle itself: it bobs without a node
@@ -141,16 +157,10 @@ class DollsNurserySurface extends OperaNurseryCatch:
 			draw_arc(focus_center, focus_radius - 9.0, 0.04, PI - 0.04, 36,
 				Color(0.62, 0.95, 0.84, focus_alpha), 3.0, true)
 
-		# Three layered lower semicircles read as one rounded open sling. There is
-		# no concave fill or limb-like line work, and babies draw afterward so the
-		# target can never paint over them.
-		var catch_radius := minf(CATCH_RADIUS, size.x * 0.15)
-		draw_arc(catch_point, catch_radius, 0.0, PI, 40,
-			Color(0.20, 0.14, 0.34, 0.98), 22.0, true)
-		draw_arc(catch_point, catch_radius, 0.0, PI, 40,
-			Color(0.96, 0.79, 0.43, 0.98), 14.0, true)
-		draw_arc(catch_point, catch_radius, 0.02, PI - 0.02, 40,
-			Color(0.69, 0.94, 0.85, 0.98), 7.0, true)
+		# One whole painted sling replaces the stacked semicircle artwork. Babies
+		# draw afterward on its broad padded seat; catch/input/settled geometry and
+		# the separate focus cue retain their original behavior.
+		draw_texture_rect(painted_cradle_texture, painted_cradle_destination(), false)
 
 		for landing: Dictionary in safe_landings:
 			var landing_point := safe_landing_point(landing)
@@ -247,15 +257,19 @@ func build(fr: Dictionary) -> void:
 	_layout_catcher_card()
 	# Accessibility debt is explicit: the available Faron nursery catch clip
 	# says five, while this legacy activity's fixed goal is three. Keep the live
-	# pointer and generic spoken greeting; do not play a semantically false clip.
+	# pointer and historical family-source gap. The neutral Guide supplies the
+	# exact instruction before the retained family greeting.
 	surface.set_meta("objective_recording_gap", "faron_catch_three")
+	surface.set_meta("objective_guide_key", "guide_dolls_catch_three")
+	surface.set_meta("objective_guide_path", "res://assets/audio/objective_guides/guide_dolls_catch_three.ogg")
 	surface.set_meta("visual_pointer", true)
 	m.g["dolls_layer"] = layer
 	m.g["dolls_backdrop"] = world_backdrop
 	m.g["dolls_surface"] = surface
 	m.g["dolls_catcher"] = catcher_card
 	_sync_state()
-	m.show_msg(fr["fname"], "Catch 3 sleepy dolls in your arms!")
+	m.show_msg("", "Catch 3 sleepy dolls in your arms!")
+	m._audio_ref().objective_guide("dolls_catch_three", m._speaker_key(String(fr["fname"])))
 
 
 func _layout_surface() -> void:
@@ -312,6 +326,8 @@ func _on_baby_missed() -> void:
 	# The exact recorded Faron miss stays rate-limited so close landings never
 	# talk over one another.
 	m._say("faron", "miss", 3.0)
+	if surface != null and surface.elapsed >= 8.0:
+		m._audio_ref().objective_guide("dolls_catch_three", "", 8.0)
 
 
 func _tick_dolls(_delta: float, fr: Dictionary) -> void:
@@ -327,6 +343,8 @@ func _tick_dolls(_delta: float, fr: Dictionary) -> void:
 
 
 func stage_close() -> void:
+	if m != null and controls_owned:
+		m._audio_ref().clear_objective_guide("dolls")
 	if surface != null and is_instance_valid(surface):
 		surface.stop()
 	var old_layer: CanvasLayer = layer

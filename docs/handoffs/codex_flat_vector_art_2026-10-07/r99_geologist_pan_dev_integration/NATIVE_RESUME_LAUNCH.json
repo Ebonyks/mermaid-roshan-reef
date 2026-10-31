@@ -1,0 +1,28 @@
+{
+  "started_at_utc": "2026-10-18T01:43:32.489821+00:00",
+  "source": "ce05d4d38636fefc82af1172153c7f4d6119b562",
+  "incoming_dev": "a9875690ceff436e9ce012a675db09a236aef0f5",
+  "index_tree": "8fb161de45f9d29aef4afb2589e839bf6b99d1ff",
+  "method": "Retain the two healthy original checks, diagnose failed third and continue remaining unchanged scripts through exact native Godot executable. No original result rewritten.",
+  "reason": "Original console wrapper exited -1 mid-Slide assertions with no failure line or final verdict; exact cause UNKNOWN. Native executable removes intermediate console wrapper as a bounded launcher diagnostic; source/sidecars/CI and normal-save pins unchanged.",
+  "prior_failure": "../merged_validation/FINAL_RESULT.json",
+  "native_engine": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+  "native_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "static_import": "Retained current merged five gates/import; no runtime or checker changes since freeze.",
+  "failure_regex": "FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error",
+  "runtime_error_regex": "SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)",
+  "normal_before": {
+    "": "50317a2a23ae53ab0c9dc7fa4ebc422de9841a867792e7d4293028f31a8fe63e",
+    ".bak": "812066f1e3a4ca395b82e8629d1e607ab41e652db5cc269b87bc41d560e9fe78",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "status": "NORMALIZED_CANDIDATE",
+  "source_path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/native.png",
+  "source_sha256": "6280c70173971c67e00e791cfb51eee63a958f1e1bcbb5f860a8f8c790462817",
+  "source_canvas": [
+    1254,
+    1254
+  ],
+  "delivery_canvas": [
+    256,
+    256
+  ],
+  "uniform_scale": 0.20414673046251994,
+  "transform": "Aseprite bilinear uniform whole-canvas resize only; no crop, reposition or per-part edit",
+  "normalized_path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/normalized/frames/0000.png",
+  "normalized_sha256": "bea9b82317185d6d0d9df2ba350a3d5991318432c118d6897264e4b98a1c5b95",
+  "master_sha256": "3b8452d7b9bc6661cc4dcc0a8c58754f4a2221c0d586855f63ec00ce498a3273",
+  "alpha_islands": {
+    "status": "FAIL",
+    "evidence": {
+      "detached": [
+        {
+          "box": [
+            162,
+            7,
+            3,
+            3
+          ],
+          "area": 7
+        },
+        {
+          "box": [
+            104,
+            242,
+            3,
+            3
+          ],
+          "area": 6
+        }
+      ],
+      "minimum_area": 4,
+      "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+    }
+  },
+  "geometry": "PENDING_REMEASUREMENT",
+  "runtime_ready": false
+}

@@ -1,0 +1,1220 @@
+{
+  "schema": "reef.whole-sprite-pipeline.v1",
+  "job_id": "roshan_repaired_full_wave_matte_03_sprite",
+  "catalog_sha256": "c2a296459aacd9d6b5b0eab018898430ea18706f228c9c1c4f6b3de8dc0136b1",
+  "frame_hashes": [
+    "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+    "9409b42b6c68b66979b62fbab607041083e8e326d74b70924fd116ce8c831c05",
+    "0de271f00f2560272b24d2a8138af1504426c9efb97edc04e26dc441bb01128f",
+    "a3a9cd4c5f3b1094eb7c076ae90154ef178d819ed33656757509069ebf3db430",
+    "3664a1dadc21383c0972752d5b3cb97fbd1c5bf34b566b4a0fe49f63dbc8e753",
+    "e41c1fd50cd5cc46220ff6b9ccda5d2a84f25f82a3159e3060a0260827600f32",
+    "c990c853721c0f7c4fa5488b98cf9df11f4b72304f5df73c446231b4394f93bf",
+    "9acd62a6f512cf00db2926d7fffcbe65c26455346d67a213357767743543be07",
+    "f878c3d38624b12e43d70fc8e4f258ecead82b4af1b731e7b59fda4b0f92c9a6",
+    "2c365d69a4d4fe4488f2e826ea2ee2ba0385827c0a26fffe07a9b8e8689e58dd",
+    "0d766a3c43ac4a5de7b91d28cd9a346378cc88c961f1a0f871c69775751e33a7",
+    "68c8e441f9e0a839ab81864f72cf63efd6f396de61a561cf78a00bab745dfd7c",
+    "bb4564860cceb2b10aa805f32dcaddeac71177c4ac5180075defa6ea137647ff",
+    "8febee0a50094bd9fb7bd304603e65b36ec91d284114dbc8ca674ffacb53653e",
+    "3e495cbeb963cee5404e8b8b4310b2a84759a19f67c517ceda6200ad4261babf",
+    "e498323175fc46d6c70e1f0a55afe310cb2c0e3a16c41811156b87832989b8e6",
+    "959fdca6afb6b5c5451ed96c5355dc81b96e3400a7f705a137d15929214bbf20",
+    "5cf9cdc19c7965e2b1c24361bdbe61c9bd251606691085c5765895efb39c1770",
+    "6ffda72742f434b7d4cc30030d1803ce6ac82f4f6577ed09a85a24c513cb2aca",
+    "c99a69e1d9924630fcb6393c755a8978c9c585cbb49bbf3c7807c4eba5962399",
+    "7c482280a485af1f410390956abaa7184794af22d7580e05a3a1b04c67034884",
+    "83d2a161bf3fbf7f225edbeb629a9b0950e15a3f344c0bbc3c465fb02fef252b",
+    "4606162a360f282eaa0bb839e067d544e5a1a22c1fedb8b306a5e674c204d143",
+    "7472a9f6fff8ae5f0b896005e94a6634b3b5ed935d9bfb241f34d156c117bdaf",
+    "6e2b2a8c92480c28437080c244ab11eabdb813b8d35f72206a8f052f2906ac7f",
+    "b23fb5969a03110719801e97a3ebb0c68842a14b61fa2bd7528c530b723a0214",
+    "113daa2446ae657d8a82a07206e936eb081e5bfc0a2778d773e7bdf9b4e7d25c",
+    "2b5e1b97f769b637c2d9fbdb172c7e5a50c0e8f269cae08a8482e3f9c0683119",
+    "995c27f96d235b66790ea800585f19cb9d3975e01e6609cb5aafdb13ae6e5f0e",
+    "6eaf78d3469c1646e76bc9eef1d07125c88acc398022e8ae000f370d74f5e502",
+    "18c81782f8579738ab8d5766dcfaa923a63685b60a74e0e673e8cacceba9d853",
+    "293aa5b8774d8ea6c276cd779fa37182d9ff6c07f1709030a2fa709514785e72",
+    "b1aa77994c970ab62b09138b67ef18b20186f2471636271be3ee129f63df7695",
+    "cad38b1f506711ff2342c42f44424af68b925f5ef1813038e495fd49c123d7ce",
+    "ce3f7e63f746bc7ad02ed564039290071747db31f71d44af75e93b639d8316ac",
+    "f3602036fff3ccd107e5edd83faa880a70887ab8147de4e42724fc62d82d6cce",
+    "9d82e229247bfb95a2cb13c4ccf36f28247fe17065568f3cad8643510d484349",
+    "0dd7b839b1b328acddf9a94c3ab0ddd72c758db188972af43b4aae264d439d8a",
+    "88e815dafbeda3a51dbe13a69bbe16503d58565953ca65d5407fa46844fb92c8",
+    "b674cdc6d1950fbbdd875dd7a7202d77454a7d32f1713e835a9869614a4aabc2",
+    "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789"
+  ],
+  "checks": {
+    "landmark_coverage": {
+      "status": "PASS",
+      "evidence": {
+        "missing_indices": []
+      }
+    },
+    "figure_scale": {
+      "status": "PASS",
+      "evidence": {
+        "peak_to_peak_pct": 0.8923392669670571,
+        "limit_pct": 1.0,
+        "per_frame_pct": [
+          0.0,
+          -0.2953940814482747,
+          -0.028516327205141412,
+          -0.16476953203635736,
+          -0.21890936002152417,
+          -0.2163334754152868,
+          -0.18833537704284753,
+          -0.22252462031299158,
+          -0.09069652696147568,
+          -0.08893906403628637,
+          -0.07660338761203977,
+          -0.14599584345973415,
+          -0.06769646248476757,
+          0.09387100305575657,
+          0.06954930901241774,
+          0.013794731582650321,
+          -0.043197118774973564,
+          0.13194354940777586,
+          0.13945040195149083,
+          0.16668704816753532,
+          0.10316712885183321,
+          0.18287221303350254,
+          0.2447594788719254,
+          0.41094281714360026,
+          0.4212334438317811,
+          0.39236642851858683,
+          0.38414944683418106,
+          0.5414619663878018,
+          0.5969451855187824,
+          0.3066924286992734,
+          0.2981709758375528,
+          0.30338831353975415,
+          0.13128315519135292,
+          0.13539200567891374,
+          0.07664847212027759,
+          -0.049471096973863204,
+          -0.05962581640704956,
+          -0.12519518656896045,
+          -0.04437974267726963,
+          -0.12428858101714013,
+          0.0
+        ]
+      }
+    },
+    "head_scale": {
+      "status": "PASS",
+      "evidence": {
+        "peak_to_peak_pct": 0.6535708904266357,
+        "limit_pct": 2.0,
+        "per_frame_pct": [
+          -0.17060637474060059,
+          -0.15218853950500488,
+          -0.10595321655273438,
+          -0.1365184783935547,
+          -0.10443925857543945,
+          -0.06412267684936523,
+          -0.11284351348876953,
+          -0.05785226821899414,
+          0.06361007690429688,
+          0.13561248779296875,
+          0.14159679412841797,
+          0.10747909545898438,
+          0.11701583862304688,
+          0.2190113067626953,
+          0.27076005935668945,
+          0.2232074737548828,
+          0.09616613388061523,
+          0.10001659393310547,
+          0.16345977783203125,
+          0.1864314079284668,
+          0.2721548080444336,
+          0.33576488494873047,
+          0.34617185592651367,
+          0.36368370056152344,
+          0.3984689712524414,
+          0.4589200019836426,
+          0.44209957122802734,
+          0.48296451568603516,
+          0.38585662841796875,
+          0.3715395927429199,
+          0.3546714782714844,
+          0.3013491630554199,
+          0.27010440826416016,
+          0.22125244140625,
+          0.13196468353271484,
+          0.15287399291992188,
+          0.12496709823608398,
+          0.08074045181274414,
+          0.1747727394104004,
+          0.1794576644897461,
+          -0.17060637474060059
+        ]
+      }
+    },
+    "single_layer": {
+      "status": "PASS",
+      "evidence": {
+        "layers": 1
+      }
+    },
+    "canvas": {
+      "status": "PASS",
+      "evidence": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ]
+    },
+    "sprite_alpha": {
+      "status": "PASS",
+      "evidence": {
+        "opaque_indices": [],
+        "scope": "export/matte defect; not a request to redraw every frame"
+      }
+    },
+    "border": {
+      "status": "PASS",
+      "evidence": {
+        "failed_indices": []
+      }
+    },
+    "alpha_islands": {
+      "status": "PASS",
+      "evidence": [
+        {
+          "index": 0,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 1,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 2,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 3,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 4,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 5,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 6,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 7,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 8,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 9,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 10,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 11,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 12,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 13,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 14,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 15,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 16,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 17,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 18,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 19,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 20,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 21,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 22,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 23,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 24,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 25,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 26,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 27,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 28,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 29,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 30,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 31,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 32,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 33,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 34,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 35,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 36,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 37,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 38,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 39,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        },
+        {
+          "index": 40,
+          "status": "PASS",
+          "evidence": {
+            "detached": [],
+            "minimum_area": 4,
+            "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+          }
+        }
+      ]
+    },
+    "endpoints": {
+      "status": "PASS",
+      "evidence": [
+        {
+          "index": 0,
+          "source_id": "K0",
+          "source_binding": "@rest",
+          "decoded_rgba_byte_exact": true
+        },
+        {
+          "index": 40,
+          "source_id": "K0",
+          "source_binding": "@rest",
+          "decoded_rgba_byte_exact": true
+        }
+      ]
+    },
+    "whole_frame_provenance": {
+      "status": "PASS",
+      "evidence": {
+        "failed_indices": [],
+        "scope": "Pinned declaration/ancestry check; method and pixels still require human review"
+      }
+    },
+    "proportions": {
+      "status": "FAIL",
+      "evidence": {
+        "missing_indices": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39
+        ],
+        "lengths": [
+          {
+            "index": 0,
+            "segment": "upper_arm",
+            "deviation_pct": -3.8615633558332307
+          },
+          {
+            "index": 0,
+            "segment": "forearm",
+            "deviation_pct": 4.061622726383374
+          },
+          {
+            "index": 1,
+            "segment": "forearm",
+            "deviation_pct": -2.2019587360508908
+          },
+          {
+            "index": 2,
+            "segment": "forearm",
+            "deviation_pct": 2.4467819334222707
+          },
+          {
+            "index": 3,
+            "segment": "forearm",
+            "deviation_pct": -1.9478674757658188
+          },
+          {
+            "index": 4,
+            "segment": "forearm",
+            "deviation_pct": -1.9478674757658188
+          },
+          {
+            "index": 5,
+            "segment": "forearm",
+            "deviation_pct": 1.6623183349247173
+          },
+          {
+            "index": 6,
+            "segment": "forearm",
+            "deviation_pct": -3.357229209329937
+          },
+          {
+            "index": 7,
+            "segment": "forearm",
+            "deviation_pct": 1.827009742293062
+          },
+          {
+            "index": 8,
+            "segment": "forearm",
+            "deviation_pct": 0.9583684600734221
+          },
+          {
+            "index": 8,
+            "segment": "hand",
+            "deviation_pct": -1.310194145046395
+          },
+          {
+            "index": 9,
+            "segment": "forearm",
+            "deviation_pct": 1.278941830644409
+          },
+          {
+            "index": 9,
+            "segment": "hand",
+            "deviation_pct": -2.0117780261430296
+          },
+          {
+            "index": 10,
+            "segment": "forearm",
+            "deviation_pct": 0.5743467714882655
+          },
+          {
+            "index": 10,
+            "segment": "hand",
+            "deviation_pct": -1.586930432144651
+          },
+          {
+            "index": 11,
+            "segment": "forearm",
+            "deviation_pct": 3.3940459206597717
+          },
+          {
+            "index": 11,
+            "segment": "hand",
+            "deviation_pct": -1.943347106288973
+          },
+          {
+            "index": 12,
+            "segment": "forearm",
+            "deviation_pct": 1.8486103130596732
+          },
+          {
+            "index": 12,
+            "segment": "hand",
+            "deviation_pct": -1.4962657912346966
+          },
+          {
+            "index": 13,
+            "segment": "forearm",
+            "deviation_pct": -0.19954747946883122
+          },
+          {
+            "index": 13,
+            "segment": "hand",
+            "deviation_pct": -2.1443313891539084
+          },
+          {
+            "index": 14,
+            "segment": "forearm",
+            "deviation_pct": 2.124961431684058
+          },
+          {
+            "index": 14,
+            "segment": "hand",
+            "deviation_pct": -1.2673142894538247
+          },
+          {
+            "index": 15,
+            "segment": "forearm",
+            "deviation_pct": 2.323177509615615
+          },
+          {
+            "index": 15,
+            "segment": "hand",
+            "deviation_pct": -2.023261805058796
+          },
+          {
+            "index": 16,
+            "segment": "forearm",
+            "deviation_pct": 2.483479835404623
+          },
+          {
+            "index": 16,
+            "segment": "hand",
+            "deviation_pct": -1.566981903774689
+          },
+          {
+            "index": 17,
+            "segment": "forearm",
+            "deviation_pct": 1.837305748291529
+          },
+          {
+            "index": 17,
+            "segment": "hand",
+            "deviation_pct": -1.3896212981647227
+          },
+          {
+            "index": 18,
+            "segment": "forearm",
+            "deviation_pct": 2.0188699374570795
+          },
+          {
+            "index": 18,
+            "segment": "hand",
+            "deviation_pct": -2.676059280442322
+          },
+          {
+            "index": 19,
+            "segment": "forearm",
+            "deviation_pct": 2.538948810080588
+          },
+          {
+            "index": 19,
+            "segment": "hand",
+            "deviation_pct": -1.656863154088739
+          },
+          {
+            "index": 20,
+            "segment": "forearm",
+            "deviation_pct": 2.124961431684058
+          },
+          {
+            "index": 20,
+            "segment": "hand",
+            "deviation_pct": -1.2673142894538247
+          },
+          {
+            "index": 21,
+            "segment": "forearm",
+            "deviation_pct": 1.7168295690856539
+          },
+          {
+            "index": 21,
+            "segment": "hand",
+            "deviation_pct": -0.9971356012864252
+          },
+          {
+            "index": 22,
+            "segment": "forearm",
+            "deviation_pct": 2.2046905179083254
+          },
+          {
+            "index": 22,
+            "segment": "hand",
+            "deviation_pct": -1.5094090106975488
+          },
+          {
+            "index": 23,
+            "segment": "forearm",
+            "deviation_pct": 2.6555852392361468
+          },
+          {
+            "index": 23,
+            "segment": "hand",
+            "deviation_pct": -1.6072840723059922
+          },
+          {
+            "index": 24,
+            "segment": "forearm",
+            "deviation_pct": 2.124961431684058
+          },
+          {
+            "index": 24,
+            "segment": "hand",
+            "deviation_pct": -1.2673142894538247
+          },
+          {
+            "index": 25,
+            "segment": "forearm",
+            "deviation_pct": 0.5286819523152797
+          },
+          {
+            "index": 25,
+            "segment": "hand",
+            "deviation_pct": -1.128559027135756
+          },
+          {
+            "index": 26,
+            "segment": "forearm",
+            "deviation_pct": 2.0979537495353195
+          },
+          {
+            "index": 26,
+            "segment": "hand",
+            "deviation_pct": -1.6554552325433125
+          },
+          {
+            "index": 27,
+            "segment": "forearm",
+            "deviation_pct": 1.3403715938919536
+          },
+          {
+            "index": 27,
+            "segment": "hand",
+            "deviation_pct": -1.6004465720874772
+          },
+          {
+            "index": 28,
+            "segment": "forearm",
+            "deviation_pct": 0.9337593662561039
+          },
+          {
+            "index": 28,
+            "segment": "hand",
+            "deviation_pct": -1.074010340834275
+          },
+          {
+            "index": 29,
+            "segment": "forearm",
+            "deviation_pct": -1.288492109534789
+          },
+          {
+            "index": 29,
+            "segment": "hand",
+            "deviation_pct": -2.1366057575766706
+          },
+          {
+            "index": 30,
+            "segment": "forearm",
+            "deviation_pct": 4.999384129123863
+          },
+          {
+            "index": 30,
+            "segment": "hand",
+            "deviation_pct": -1.5478719451206602
+          },
+          {
+            "index": 31,
+            "segment": "forearm",
+            "deviation_pct": 5.251587466177221
+          },
+          {
+            "index": 32,
+            "segment": "forearm",
+            "deviation_pct": 8.188549039987425
+          },
+          {
+            "index": 33,
+            "segment": "forearm",
+            "deviation_pct": 4.158311731089226
+          },
+          {
+            "index": 34,
+            "segment": "forearm",
+            "deviation_pct": 2.682612197078349
+          },
+          {
+            "index": 35,
+            "segment": "forearm",
+            "deviation_pct": -2.2019587360508908
+          },
+          {
+            "index": 36,
+            "segment": "forearm",
+            "deviation_pct": 2.4467819334222707
+          },
+          {
+            "index": 37,
+            "segment": "forearm",
+            "deviation_pct": 2.682612197078349
+          },
+          {
+            "index": 38,
+            "segment": "forearm",
+            "deviation_pct": -2.2019587360508908
+          },
+          {
+            "index": 39,
+            "segment": "forearm",
+            "deviation_pct": 2.4467819334222707
+          },
+          {
+            "index": 40,
+            "segment": "upper_arm",
+            "deviation_pct": -3.8615633558332307
+          },
+          {
+            "index": 40,
+            "segment": "forearm",
+            "deviation_pct": 4.061622726383374
+          }
+        ]
+      }
+    },
+    "human_frame_review": {
+      "status": "PENDING",
+      "evidence": "Exact-hash identity/outfit/topology/motion review by a declared human on every frame required; model observations may block but cannot accept"
+    },
+    "full_speed_review": {
+      "status": "PENDING",
+      "evidence": "Declared human review of exact sequence and repaired boundaries at normal speed; static/model observations do not fill this lane"
+    }
+  },
+  "defects": [
+    {
+      "index": 31,
+      "category": "proportions",
+      "source": "joint_annotation"
+    },
+    {
+      "index": 32,
+      "category": "proportions",
+      "source": "joint_annotation"
+    }
+  ],
+  "repair_spans": [
+    {
+      "from": 31,
+      "to": 32,
+      "context_from": 28,
+      "context_to": 35,
+      "categories": [
+        "proportions"
+      ],
+      "replacement_unit": "complete_figure_frame"
+    }
+  ],
+  "durations_ms": [
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41,
+    42,
+    42,
+    41
+  ],
+  "candidate_ready": false,
+  "blockers": [
+    "proportions",
+    "human_frame_review",
+    "full_speed_review"
+  ],
+  "claims": {
+    "ARCHIVE_COMPLETE": "PENDING_REMOTE_VERIFICATION",
+    "GENERATION_READY": "PENDING_KEY_REVIEW",
+    "DELIVERY_ACCEPTED": false,
+    "runtime": "NOT_INTEGRATED",
+    "device_child_owner": "PENDING"
+  },
+  "adapter_scope": "Source-bound machine inspection only; hidden shoulders and human/full-speed lanes remain pending",
+  "exact_K0_export_file_bytes": [
+    {
+      "index": 0,
+      "same": true
+    },
+    {
+      "index": 40,
+      "same": true
+    }
+  ],
+  "derivation_archive_complete": false
+}

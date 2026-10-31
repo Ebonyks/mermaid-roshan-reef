@@ -1,0 +1,144 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L07",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l07",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Pool skimmer repeated scoop loop",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L07/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe passes under exact Godot 4.7.2-stable with an isolated profile. It checks six single-press/release collections, the Roshan travel/contact/scoop gate, second-finger rejection, cancellation, saved progress/re-entry, passive non-collection, quiet re-prompts, and waterfall unlock. Code routes this activity from the live Mermaid Pool room while Day One is active and the room is unfinished (scripts/main.gd:6283-6285; scripts/arena/castle_rooms_25d.gd:1991-2002).",
+    "gaps": "The probe constructs a test host and cleanup owner directly (scripts/probe_day_one_pool_cleanup.gd:28-64), then calls the activity's _gui_input handler with synthetic InputEventScreenTouch events and advances _process directly (scripts/probe_day_one_pool_cleanup.gd:187-202). It does not traverse the fresh-save room route or the engine's ordinary routed touch path. The retained receipt is headless and explicitly says rendered_mobile_acceptance=false. No actual Mobile composition, target-device touch/frame/audio session, child observation, or owner review occurred."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "source_constants": [
+      {
+        "value": "Roshan travels at 440 base-canvas pixels per second toward skimmer contact; the scoop action then accumulates for 0.42 seconds after arrival.",
+        "evidence": "scripts/games/pool_skimmer_activity.gd:32-34,351-375",
+        "scope": "Code-defined travel and contact/action gate, not measured rendered or child-perceived duration. Travel duration varies with starting position and target."
+      },
+      {
+        "value": "A quiet pool-surface activity re-prompts after 8 seconds, at most twice; the probe manually advances 30 seconds of owner/activity time and confirms both cues without progress.",
+        "evidence": "scripts/games/day_one_pool_cleanup.gd:57-67,265-285; scripts/probe_day_one_pool_cleanup.gd:177-185; runtime/L07/attempt_1/probe.log:111-112",
+        "scope": "The idle threshold and bounded prompt count are source values; probe time is not a child-session duration."
+      }
+    ],
+    "estimated_activity_duration": null,
+    "assumptions": "No total session duration is estimated. Runner wall time (26.078 seconds) is probe execution time, not gameplay timing."
+  },
+  "tactile": {
+    "target_size": "Selection uses a 118 px radius around each remaining trash contact point on the 1280x720 base canvas, then chooses the nearest eligible item (scripts/games/pool_skimmer_activity.gd:20-22,332-348). Trash art is sized up to 62-88 px per item (lines 59-65). This is invisible selection geometry; no projected phone hit-area or visible target measurement was made.",
+    "press_response": "A press immediately hides the authored demo pointer and selects the nearest piece; the next activity processing moves Roshan and the hand-held net toward it (scripts/games/pool_skimmer_activity.gd:324-329,351-368). The probe verifies resulting travel and eventual scoop, not rendered-frame response latency.",
+    "drag_hold_release": "One quick tap followed by release is enough to keep the selected job active while Roshan travels, arrives, and performs the 0.42-second scoop; a held drag may retarget to another nearest remaining piece. Ordinary release stops retargeting but preserves the selected work; explicit cancel clears target and scoop progress. The probe exercises press/release, drag retarget, and cancel through direct handler calls, not physical touch.",
+    "ownership": "The first touch index owns the active gesture; a second finger cannot replace its target until release/cancel (scripts/games/pool_skimmer_activity.gd:281-303). The probe's focused contact leg asserts second-finger rejection (scripts/probe_day_one_pool_cleanup.gd:392-397; runtime/L07/attempt_1/probe.log:64).",
+    "cancellation": "cancel_touch clears drag ownership, selected target, and partial scoop; stop invokes it before releasing Roshan and disabling processing (scripts/games/pool_skimmer_activity.gd:138-157). The probe confirms a canceled press earns no later progress and re-entry retains the collected bit (scripts/probe_day_one_pool_cleanup.gd:399-431; runtime/L07/attempt_1/probe.log:65,93)."
+  },
+  "play_appeal": {
+    "hypothesis": "The loop may feel agentic because each tap chooses one visible piece, Roshan swims there, the net stays attached to her hand, and the piece flies to the basket. Six distinct targets give a simple repeated goal; whether the travel and scoop remain lively rather than repetitive needs normal-speed phone and child observation.",
+    "variety": "The six debris positions and artwork vary, but the core action repeats the same target, travel, scoop, and basket-flight pattern. The script does not establish whether that repetition feels satisfying to a child.",
+    "world_response": "Each paid collection advances a monotonic bit, triggers collection feedback, sends the piece toward the basket, and the sixth collection unlocks the waterfall phase (scripts/games/pool_skimmer_activity.gd:439-465; scripts/games/day_one_pool_cleanup.gd:448-475). Probe state checks pass; rendered feedback/audio were not reviewed.",
+    "replay": "The focused probe checks re-entry and saved-mask progression at the controller level, but not a full leave/return route or a child's desire to replay.",
+    "fun_score": null
+  },
+  "observations": [
+    {
+      "title": "A tap-release can start one complete, intentional scoop and the six-piece loop unlocks the next activity",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_day_one_pool_cleanup.gd:187-202 (six synthetic touch presses are each released immediately; the probe waits for each item bit)",
+        "scripts/games/pool_skimmer_activity.gd:351-375 (travel and contact-gated scoop continue from the selected target)",
+        "scripts/games/day_one_pool_cleanup.gd:448-475 (progress is recorded and completion advances the activity)",
+        "runtime/L07/attempt_1/probe.log:91,113,115,139 (quick tap/contact, six collections, waterfall unlock, and final PASS assertions)"
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-05", "DL-INT-02", "DL-UI-01", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The retained L07 probe passes. It directly sends each synthetic touch press and release at a debris contact point, advances the controller, and confirms the six-bit mask reaches 0x3F and cleanup step 1 unlocks waterfall.",
+      "child_impact": "The child can make a discrete one-finger choice without holding through Roshan's swim and scoop, while progress waits for local contact and work. The probe does not show whether this timing or repeated loop feels clear or engaging on the phone.",
+      "proposed_repair": "No change is indicated by this assertion. Review the complete six-pickup loop at normal speed on the target phone before considering pacing changes.",
+      "acceptance_test": "From the ordinary live room, tap and release each visible debris item in turn. Confirm Roshan travels, nets each item at contact, the item reaches the single basket, six intentional actions unlock the waterfall, and no child hold is needed."
+    },
+    {
+      "title": "Roshan and the net are contact-gated, and cancellation does not award the selected item",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/pool_skimmer_activity.gd:351-375 (bounded movement, hand/net alignment, 0.42-second scoop, and 24 px net-contact condition)",
+        "scripts/games/pool_skimmer_activity.gd:281-303,150-157 (touch ownership, matching drag/release, and explicit cancellation reset)",
+        "scripts/probe_day_one_pool_cleanup.gd:363-431 (far tap, travel, second finger, cancel, hand grip, quick tap, stop, and re-entry checks)",
+        "runtime/L07/attempt_1/probe.log:61-65,91,93 (one visible Roshan, no remote pickup, bounded travel, ownership, cancellation, quick scoop, and re-entry assertions pass)"
+      ],
+      "rules": ["DL-INT-01", "DL-INT-02", "DL-AGE-03", "DL-UI-04", "DL-UI-05", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-004"],
+      "reproduction": "The unchanged focused contact leg passes: a far target earns no immediate bit, Roshan moves at bounded speed, the second touch cannot steal the target, cancellation earns nothing, and a quick selected job progresses only after the hand/net contact action.",
+      "child_impact": "The tested state sequence ties collection to Roshan doing the work at the chosen location and leaves completed bits intact after stop/re-entry. This is scoped machine evidence for the pool skimmer only; MA-PLAY-004 remains open game-wide and device/child/owner acceptance is outstanding.",
+      "proposed_repair": "No skimmer repair is indicated by this probe. Preserve the contact gate; separately review every other job and complete MA-PLAY-004's remaining scope.",
+      "acceptance_test": "On the target device, select a distant piece, introduce a second touch, cancel/focus out during travel and during work, then re-enter. Confirm only the owning gesture can select work, unearned work stops, Roshan's hand remains attached, and only the previously completed bit is retained."
+    },
+    {
+      "title": "Invisible catch neighborhoods are broad relative to the debris art and deserve phone-size legibility review",
+      "classification": "HYPOTHESIS",
+      "evidence": [
+        "scripts/games/pool_skimmer_activity.gd:20-22 (118 px selection radius)",
+        "scripts/games/pool_skimmer_activity.gd:43-49,59-65 (debris centers and 62-88 px maximum art sizes)",
+        "scripts/games/pool_skimmer_activity.gd:332-348 (nearest uncollected debris wins inside the invisible radius)",
+        "scripts/probe_day_one_pool_cleanup.gd:187-202 (synthetic presses occur exactly at each contact point rather than at ambiguous gaps)"
+      ],
+      "rules": ["DL-AGE-02", "DL-UI-03", "DL-INT-01", "DL-QA-03", "DL-QA-04", "DL-QA-05"],
+      "existing_findings": [],
+      "reproduction": "Code inspection shows 118 px radial selection around each contact point. For example, the centers at (310,316) and (404,401) are about 127 px apart, so their nominal 118 px neighborhoods overlap substantially; the nearest remaining target is selected. No rendered or routed input reproduction has established a defect.",
+      "child_impact": "Broad invisible zones may help a young child succeed, but when pieces are close together the child may select a neighboring item without understanding why. This remains a geometry/readability hypothesis; the probe only taps exact centers.",
+      "proposed_repair": "Do not shrink the forgiving radius from source math alone. Inspect the hit neighborhoods against visible artwork at phone size and test ordinary taps; adjust only if observations show confusing selection.",
+      "acceptance_test": "At supported phone aspect and display scale, test center, edge, and midpoint taps for each close debris pair. Confirm every generous target produces a predictable, visible selection and that the selected piece and Roshan's travel match the intended touch without a precision requirement."
+    },
+    {
+      "title": "Quiet-time cues are bounded and passive waiting does not collect trash",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/day_one_pool_cleanup.gd:57-67,265-285 (8-second idle threshold, two-prompt cap, and exact skimmer prompt IDs)",
+        "scripts/probe_day_one_pool_cleanup.gd:173-185 (no-input and simulated 30-second idle assertions)",
+        "runtime/L07/attempt_1/probe.log:111-112 (passive demo does not advance; both re-prompts occur without award)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-04", "DL-AGE-06", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The unchanged probe passes the passive assertion, then manually advances the cleanup and skimmer process methods by 30 one-second ticks. It observes the clean and hint cue IDs, a visible demo pointer, and an unchanged progress mask.",
+      "child_impact": "The source has a finite second prompt while preserving the child's need to act. The test does not establish cue audibility, pointer visibility/comprehension, or the real-time feel of the interval.",
+      "proposed_repair": "No change indicated by this probe. Confirm voice playback and pointer visibility on the rendered device route.",
+      "acceptance_test": "Leave the live skimmer untouched on the target phone. Confirm both spoken cues and the pointer are clear, passive waiting earns no pickup, and prompt frequency remains supportive rather than nagging."
+    },
+    {
+      "title": "L07 does not prove fresh-save discovery, rendered response, or child appeal",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_day_one_pool_cleanup.gd:28-64 (test constructs its own ReefMain, host, fixtures, and cleanup owner)",
+        "scripts/probe_day_one_pool_cleanup.gd:187-202 (synthetic InputEventScreenTouch events are passed directly to _gui_input)",
+        "scripts/main.gd:6283-6285; scripts/arena/castle_rooms_25d.gd:1991-2002 (live Mermaid Pool route and cleanup mount conditions)",
+        "audit/cycles/luna-playtest-20261012/runtime/L07/attempt_1/receipt.json (SCRIPTED_PROBE, headless=true, rendered_mobile_acceptance=false, exit_code 0)",
+        "runtime/L07/attempt_1/probe.log:139 (RESULT: PASS checks_failed=0)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-UI-01", "DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-VIS-009"],
+      "reproduction": "Compare the probe setup/direct handler calls with the live room caller and the retained receipt. The test checks controller assertions but does not enter the room through the fresh-save route or exercise the ordinary viewport/touch pipeline. MA-VIS-009 remains FIXED_PENDING_VERIFICATION; this run supplies no look-alike/device/owner evidence for its outstanding acceptance.",
+      "child_impact": "This pass cannot establish whether a non-reader discovers the scoop action, sees the response within two rendered frames, can distinguish adjacent targets at phone size, or enjoys the repeated loop. It also cannot close the missing route/device/child/owner gates.",
+      "proposed_repair": "No gameplay defect is reproduced by the coverage gap alone. Keep the passing focused probe as scoped machine evidence and obtain separate routed Mobile/device and child/owner evidence before making acceptance claims.",
+      "acceptance_test": "From a fresh Day One save, enter the Mermaid Pool by its ordinary route and complete the skimmer with native touch on the target phone. Record the actual visual/voice cues, target geometry, touch response/frame pacing, recovery and return, and observe a child without coaching; review the pool look with the owner separately."
+    }
+  ],
+  "strengths": [
+    {
+      "strength": "The skimmer loop requires intentional selection and then gates credit on Roshan's travel, attached tool, local scoop, and net contact; its probe covers cancellation, second-finger ownership, and retained partial progress.",
+      "evidence": "scripts/games/pool_skimmer_activity.gd:281-375; scripts/probe_day_one_pool_cleanup.gd:363-431; runtime/L07/attempt_1/probe.log:61-65,91,93"
+    },
+    {
+      "strength": "Six pickups advance monotonically to the next phase, while passive waiting earns nothing and quiet-time reminders are capped.",
+      "evidence": "scripts/games/pool_skimmer_activity.gd:439-465; scripts/games/day_one_pool_cleanup.gd:265-285,448-475; runtime/L07/attempt_1/probe.log:111-115"
+    }
+  ],
+  "acceptance_gaps": [
+    "The PASS covers the unchanged headless internal probe only. The probe sets up owners/fixtures directly and calls the activity handler with synthetic touch events; it does not prove fresh-save discovery or ordinary routed input (DL-QA-02, DL-QA-03).",
+    "No rendered Mobile capture, phone-size projected hit geometry, two-frame response measurement, real-device touch/frame/audio evidence, child comprehension/play observation, or owner acceptance is present (DL-QA-03 through DL-QA-07).",
+    "MA-PLAY-001 route acceptance and MA-VIS-009's outstanding look-alike, phone stutter, and owner-look acceptance remain open. This skimmer-specific probe does not close the broader MA-PLAY-004 game-wide embodied-work scope."
+  ]
+}

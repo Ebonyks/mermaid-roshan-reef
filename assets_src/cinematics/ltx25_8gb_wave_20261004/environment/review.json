@@ -1,0 +1,84 @@
+{
+  "status": "REJECTED_REFERENCE_ONLY",
+  "reviewer": "Codex native frame inspection; no human owner acceptance",
+  "base_two_pass": {
+    "inspected_native_indices": [
+      19,
+      22,
+      25
+    ],
+    "findings": [
+      "Lowering reaches forehead height at frame22, unlike earlier2B rest snap.",
+      "Torn/duplicated gray finger strokes persist in22-25.",
+      "Shoulder/bodice follow arm; no isolated limb composite."
+    ]
+  },
+  "temporal_retake": {
+    "inspected_native_indices": [
+      19,
+      22,
+      25
+    ],
+    "findings": [
+      "Torn fingers remain; complete-figure quality not repaired.",
+      "Four of six video latents frozen exactly, but zero decoded frames pixel-identical; outside differences reach53/255."
+    ]
+  },
+  "anti_blur_nag": {
+    "inspected_native_indices": [
+      7,
+      17,
+      19,
+      20,
+      22,
+      23,
+      25,
+      26,
+      27,
+      40
+    ],
+    "findings": [
+      "528 active GPU attention calls; not an inert CFG1 negative.",
+      "Hand22-27 still has torn/duplicated finger strokes.",
+      "Visible broad softness at7/40 and gray tail streaks; some tail marks already exist in guide22.",
+      "No demonstrated reason to enable NAG by default for this wave."
+    ]
+  },
+  "temporal_48fps": {
+    "inspected_native_indices": [
+      14,
+      38,
+      44,
+      50,
+      80
+    ],
+    "source24fps_equivalent_indices": [
+      7,
+      19,
+      22,
+      25,
+      40
+    ],
+    "findings": [
+      "Hand44 is substantially clearer than24fps frame22.",
+      "Frame50 has broad figure/arm/hair/tail smear;14/38/80 remain soft.",
+      "Partial key improvement does not repair neighboring motion."
+    ]
+  },
+  "decoder_preflight": {
+    "inspected_native_indices": [
+      0
+    ],
+    "source": "inputs/guide_0022.png",
+    "findings": [
+      "Source and single-image reconstruction retain distinct fingers.",
+      "This does not exclude temporal VAE effects."
+    ]
+  },
+  "production_accepted": false,
+  "runtime_integration": false,
+  "device_review": false,
+  "child_review": false,
+  "owner_acceptance": false,
+  "next_method": "Official Refine Details IC-LoRA, one same-content repair candidate if its separate access agreement is approved; full DFR/de-rope not executed."
+}

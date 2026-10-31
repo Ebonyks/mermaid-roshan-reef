@@ -1,0 +1,10 @@
+[
+  {
+    "prompt": "Use case: precise-object-edit. Clean up this six-huckleberry-bush animation sheet. Preserve each of the SIX exact existing drawings and its leaf/twig motion pose, same two clusters of three purple berries, same plant anatomy, palette and painted identity. Change ONLY layout padding and repair tiny clipped leaf tips. Keep PORTRAIT 1024 x 1536 RGBA, TWO columns x THREE rows of 512px cells. Fit each entire bush into a SMALL 370px-wide envelope, centered x=256 with base at y=410. Leave at least 60px completely empty transparent space to ALL cell edges and wide visible gutters. No leaf or twig touches/crosses a cell boundary. Redraw only the missing outer tips that were clipped in the previous sheet. Keep the six distinct existing leaf angles/branch curves, no redesign, extra foliage or changed berries. Crisp clean edges; true alpha transparency without glow, halos or opaque matte. No background, checkerboard, labels, numbers or borders. The purpose is six completely separated intact higher-detail samples for Aseprite, not another motion redesign.",
+    "mode": "built-in image_gen",
+    "referenced_image_paths": [
+      "objects/02_huckleberry/generated_native.png"
+    ],
+    "reason": "Two bush silhouettes touch cell edges; restore tips and add safe gutters."
+  }
+]

@@ -39,6 +39,7 @@ var backdrop_texture: Texture2D = null
 var retired_backdrop_path := ""
 var cradle_texture: Texture2D = null
 var pillows_texture: Texture2D = null
+var painted_art: NurseryPaintedArt = null
 
 
 func _ready() -> void:
@@ -47,8 +48,10 @@ func _ready() -> void:
 	# Keep the path as audit evidence, but never paint the framed legacy card.
 	retired_backdrop_path = "res://assets/opera/worlds/widgets/widget_catch_nursery.png"
 	backdrop_texture = null
-	cradle_texture = _load_if_exists("res://assets/opera/worlds/widgets/widget_catch_nursery_cradle.png")
-	pillows_texture = _load_if_exists("res://assets/opera/worlds/widgets/widget_catch_nursery_pillows.png")
+	cradle_texture = _load_if_exists("res://assets/opera/worlds/nursery_quality_20261019/cradle.png")
+	pillows_texture = _load_if_exists("res://assets/opera/worlds/nursery_quality_20261019/pillows.png")
+	painted_art = NurseryPaintedArt.new()
+	painted_art.bind(self)
 	for path: String in BABY_PATHS:
 		var texture := load(path) as Texture2D
 		if texture != null:
@@ -229,64 +232,38 @@ func _draw_baby(texture_index: int, point: Vector2, extent: float, opacity: floa
 
 
 func _draw() -> void:
-	# Borderless room-grown mobile. The room remains visible through every gap.
-	var mobile_y := size.y * 0.12
-	draw_line(Vector2(size.x * 0.50, 0), Vector2(size.x * 0.50, mobile_y), Color(0.94, 0.83, 0.55), 4.0)
-	for index in range(3):
-		var mobile_x := size.x * (0.34 + float(index) * 0.16)
-		var bob := sin(elapsed * (1.4 + float(index) * 0.13) + float(index)) * 5.0
-		draw_line(Vector2(size.x * 0.50, mobile_y), Vector2(mobile_x, mobile_y + 22.0 + bob), Color(0.78, 0.72, 0.92), 3.0)
-		draw_circle(Vector2(mobile_x, mobile_y + 29.0 + bob), 7.0, Color(1.0, 0.88, 0.42))
-
-	# Pillow-safe floor. A miss rests here while Faron gently returns the baby.
+	# One complete painted mobile, not code rods/dots or a separate card.
+	if painted_art != null:
+		var mobile_side := minf(size.x * 0.28, size.y * 0.44)
+		painted_art.picture("mobile", Rect2(
+			Vector2(size.x * 0.5 - mobile_side * 0.5, 0), Vector2.ONE * mobile_side))
 	if pillows_texture != null:
-		draw_texture_rect(pillows_texture, Rect2(0.0, size.y * 0.78, size.x, size.y * 0.22), false)
-	else:
-		for index in range(5):
-			var pillow_x := size.x * (0.10 + float(index) * 0.20)
-			draw_circle(Vector2(pillow_x, size.y * 0.91), size.x * 0.085, Color(0.66, 0.55 + float(index % 2) * 0.08, 0.82, 0.88))
+		var ratio := float(pillows_texture.get_height()) / float(pillows_texture.get_width())
+		var height := size.x * ratio
+		draw_texture_rect(pillows_texture,
+			Rect2(0, size.y * PILLOW_Y - height * 0.5, size.x, height), false)
 	for landing: Dictionary in safe_landings:
+		var extent := minf(76.0, size.x * 0.21)
 		var fade := clampf(float(landing.get("time", 0.0)) / 0.35, 0.0, 1.0)
-		_draw_baby(
-			int(landing.get("texture", 0)),
-			Vector2(float(landing.get("x", 0.5)) * size.x, size.y * 0.82),
-			minf(76.0, size.x * 0.21),
-			fade
-		)
-
-	# Roshan's broad cradle/arms move directly under the player's finger.
+		_draw_baby(int(landing.get("texture", 0)),
+			Vector2(float(landing.get("x", 0.5)) * size.x,
+				size.y * PILLOW_Y - extent * 0.47), extent, fade)
 	var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)
 	var catch_radius := minf(58.0, size.x * 0.15)
 	if cradle_texture != null:
-		draw_texture_rect(
-			cradle_texture,
-			Rect2(catch_point - Vector2(catch_radius, catch_radius * 1.55), Vector2(catch_radius * 2.0, catch_radius * 2.0)),
-			false
-		)
-	else:
-		draw_circle(catch_point + Vector2(0, 12), catch_radius, Color(0.35, 0.76, 0.78, 0.34))
-		draw_arc(catch_point, catch_radius, 0.10, PI - 0.10, 36, Color(1.0, 0.74, 0.78), 12.0)
-		draw_line(catch_point + Vector2(-catch_radius, 2), catch_point + Vector2(-catch_radius * 0.42, -18), Color(1.0, 0.86, 0.72), 11.0, true)
-		draw_line(catch_point + Vector2(catch_radius, 2), catch_point + Vector2(catch_radius * 0.42, -18), Color(1.0, 0.86, 0.72), 11.0, true)
-	if input_live_t <= 0.0:
-		var arrow := catch_point + Vector2(0, -72)
-		draw_colored_polygon(PackedVector2Array([
-			arrow + Vector2(-18, -22), arrow + Vector2(18, -22), arrow + Vector2(0, 12),
-		]), Color(1.0, 0.88, 0.30))
-
+		draw_texture_rect(cradle_texture,
+			Rect2(catch_point - Vector2(catch_radius, catch_radius * 1.55),
+				Vector2.ONE * catch_radius * 2.0), false)
+	if input_live_t <= 0.0 and painted_art != null:
+		painted_art.draw_guide(catch_point + Vector2(0, size.y * 0.08), false)
 	for entry: Dictionary in fallers:
-		_draw_baby(
-			int(entry.get("texture", 0)),
-			Vector2(float(entry.get("x", 0.5)) * size.x, float(entry.get("y", 0.0)) * size.y),
-			minf(86.0, size.x * 0.23)
-		)
-
-	# Every caught baby remains visibly safe in the shared cradle.
+		var extent := minf(86.0, size.x * 0.23)
+		# The completed-care hold shows any already-spawned extra baby safe on
+		# a pillow, with no sixth catch/reward or airborne frozen recipient.
+		var center_y := size.y * PILLOW_Y - extent * 0.47 if not active and caught >= goal 			else float(entry.get("y", 0.0)) * size.y - extent * 0.315
+		_draw_baby(int(entry.get("texture", 0)),
+			Vector2(float(entry.get("x", 0.5)) * size.x, center_y), extent)
 	var shown := mini(settled.size(), 5)
 	for index in range(shown):
 		var spread := float(index) - float(shown - 1) * 0.5
-		_draw_baby(
-			settled[index],
-			Vector2(catch_point.x + spread * 25.0, size.y * 0.89),
-			42.0
-		)
+		_draw_baby(settled[index], catch_point + Vector2(spread * 20.0, -42.0 * 0.43), 42.0)

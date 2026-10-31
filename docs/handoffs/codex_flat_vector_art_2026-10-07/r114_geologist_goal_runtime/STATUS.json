@@ -1,0 +1,45 @@
+{
+  "state": "PAINTED_GEOLOGIST_GOAL_SOURCE_LOCAL82_STATIC_NATIVE70_PASS_EXACT_CI_PENDING",
+  "stable_id": "FV-2E260E1F7107",
+  "baseline": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+  "new_generation_calls": 0,
+  "rejected_takes": 0,
+  "new_runtime_images": 0,
+  "technical_exports": 0,
+  "new_bounded_implementation_artifacts": 1,
+  "implementation_unit": "One finalgoal whole painted resource binding; original194functions unchanged. Catalog-only source loaded notdrawn, no backdrop art credit.",
+  "new_frame_events": {
+    "bounded": 16,
+    "excluded": 12,
+    "retained_total": 28
+  },
+  "native_checks": 76,
+  "baseline_checks": 66,
+  "candidate_frames_reviewed": 8,
+  "baseline_frames_reviewed": 8,
+  "retired_source": {
+    "baseline": "ca58aacd96bf10b2c5413659b1ee0f1b1a45f63b",
+    "old_path": "assets/opera/worlds/props/goal_geologist.svg",
+    "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+    "exact_runtime_callers": [
+      "scripts/opera_career_world_2d.gd:463:\t\"geologist\": \"goal_geologist.svg\",",
+      "scripts/opera_hotspot_catalog.gd:137:\t\t\"GEODE\": {\"path\": \"res://assets/opera/worlds/props/goal_geologist.svg\", \"motion\": \"pulse\", \"size\": Vector2(150, 150), \"presentation\": \"painted\"},",
+      "scripts/opera_hotspot_catalog.gd:196:\t\"res://assets/opera/worlds/props/goal_geologist.svg\": {\"dimensions\": Vector2i(256, 256), \"role\": \"object_group\"},"
+    ],
+    "retired_svg_path_elements": 5,
+    "tracked_svg": true,
+    "old_import_was_ignored_generated_local_metadata": true,
+    "source_preserved": "assets_src/flat_vector_geologist_goal_20261030/retired_source/goal_geologist.svg",
+    "visible_owner": "Only original world curtain-call prop; painted hotspot catalog source loaded but notdrawn. Backdrop flatcrystal ownership separately open.",
+    "accepted_removal": 0
+  },
+  "functions_byte_identical": 194,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "checked_at_utc": "2026-10-30T20:35:02.980633+00:00"
+}

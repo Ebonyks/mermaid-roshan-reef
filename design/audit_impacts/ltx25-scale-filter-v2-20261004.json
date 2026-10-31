@@ -1,0 +1,182 @@
+{
+  "id": "ltx25-scale-filter-v2-20261004",
+  "scope": "Correct deterministic Aseprite registration bugs from the existing fifth LTX-2.5 take: process every reliable-anchor frame independently of anatomy status and preserve continuous uniform scale. Compare the prior Grok common-stage recipe. No new generation, model download, runtime or protected-original change.",
+  "baseline": "476ceda18ab83139696e4f8f705dbdc486a30250",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-MOT-01",
+    "DL-MOT-06",
+    "DL-MOT-12",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-CIN-03",
+    "DL-CIN-04",
+    "DL-CIN-05",
+    "DL-CIN-11"
+  ],
+  "findings": [],
+  "no_findings_reason": "Source-only correction does not repair runtime atlases or sampling; MA-ROSHAN-003, MA-ROSHAN-005 and MA-ROSHAN-006 remain unchanged.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/.gitattributes",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/README.md",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/aseprite_export.log",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/aseprite_feedback.log",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/comparison_metrics.json",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/comparison_verification.json",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/costs.json",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0000.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0001.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0002.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0003.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0004.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0005.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0006.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0007.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0008.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0009.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0010.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0011.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0012.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0013.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0014.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0015.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0016.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0017.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0018.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0019.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0020.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0021.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0022.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0023.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0024.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0025.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0026.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0027.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0028.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0029.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0030.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0031.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0032.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0033.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0034.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0035.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0036.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0037.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0038.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0039.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0040.png",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/initial_verification.json",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/manifest.json",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/master_metadata.json",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/project_gates.json",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/raw_v1_v2_comparison.mp4",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/registered_review.aseprite",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/registered_review.mp4",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/registration_plan.json",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/remote_verification.json",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/compare.lua",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/feedback.py",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/prepare.py",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/refresh.py",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/register.lua",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/run.py",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/verify.py",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/verify_master.lua",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/verify_remote.py",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/verification.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "design/05_DOC_LEDGER.md",
+    "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json"
+  ],
+  "validation": [
+    {
+      "command": "Aseprite full-frame continuous affine export and independent256 pixel samples on each of41 frames",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/ltx25_scale_filter_v2_20261004/verification.json; all41 source indices retained, including seven anatomy failures; zero new generation."
+    },
+    {
+      "command": "Actual exported root/global scale and foreground clipping checks",
+      "result": "PASS",
+      "evidence": "verification.json, registration_plan.json, comparison_metrics.json: max root0.7955px, max residual scale0.2791%; no additional source-foreground clipping. Initial10/31/32 feedback retained and rerendered from native."
+    },
+    {
+      "command": "Internal anatomy geometry and native artwork review",
+      "result": "FAIL",
+      "evidence": "verification.json:12\u201315 and22\u201324 fail proportions; native14/22/40 inspected, fingers/blur/tail/seam remain. Frame29 already cropped in native source."
+    },
+    {
+      "command": "Reopen Aseprite master and compare all41 exports,205 slices and41 tags",
+      "result": "PASS",
+      "evidence": "verification.json, master_metadata.json; exact PNG pixel roundtrip and1708ms authored millisecond clock."
+    },
+    {
+      "command": "Same-timeline three-column raw/v1/v2 comparison and video metadata",
+      "result": "PASS",
+      "evidence": "comparison_verification.json:123 exact native columns; both encoded videos41frames24fps, declared H264 CRF15."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B tools/record_owner_decision.py --check --base476ceda18ab83139696e4f8f705dbdc486a30250; python -B tools/audit_roshan_2d.py",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/ltx25_scale_filter_v2_20261004/project_gates.json; rechecked after final manifest/coverage refresh before commit."
+    },
+    {
+      "command": "Anonymous immutable GitHub packet/source verification",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/ltx25_scale_filter_v2_20261004/remote_verification.json: anonymous HTTPS at82e000875ec28b1b72d8b6cd4dd2214ecc0bbba6, 225files, 107770492bytes allSHA256PASS, checked2026-10-05T03:50:47.517747+00:00."
+    },
+    {
+      "command": "Exact new-head project CI before dev integration",
+      "result": "PENDING",
+      "evidence": "PR24; preceding7744 exact push/PR probes green, revised head needs its own green checks."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "A geometry-rejected frame must not bypass global correction; coarse scale quantization can introduce size jumps.",
+      "write_back": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#filter-scale-continuity-through-aseprite"
+    }
+  ],
+  "acceptance_gaps": "Global registration is separate from internal proportions, anatomy, blur and loop acceptance. Owner identity/motion, device and child acceptance remain outstanding; no runtime integration.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-ANIMATION-SCALE-CORRECTION-20261004",
+      "evidence": "assets_src/cinematics/ltx25_scale_filter_v2_20261004/README.md#owner-correction",
+      "write_back": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#filter-scale-continuity-through-aseprite"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "design/GROK_MASTER_HANDOFF_FORMULA_2026-08-30.md",
+      "purpose": "Reuse common-stage/scale inputs and actual-return validation; retain source acceptance scope."
+    },
+    {
+      "path": "design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md",
+      "purpose": "Reuse common-stage/scale inputs and actual-return validation; retain source acceptance scope."
+    },
+    {
+      "path": "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/SCALE_CONTRACT.json",
+      "purpose": "Reuse common-stage/scale inputs and actual-return validation; retain source acceptance scope."
+    },
+    {
+      "path": "tools/aseprite/roshan_grok_openings.lua",
+      "purpose": "Reuse common-stage/scale inputs and actual-return validation; retain source acceptance scope."
+    },
+    {
+      "path": "tools/build_day_one_grok_regeneration_handoffs.py",
+      "purpose": "Reuse common-stage/scale inputs and actual-return validation; retain source acceptance scope."
+    }
+  ],
+  "concurrent_register_reconciliation": "Retain origin/dev476ceda owner-register prefix and append two concurrent animation decisions unchanged, then the new owner correction; no existing decision content removed or rewritten."
+}

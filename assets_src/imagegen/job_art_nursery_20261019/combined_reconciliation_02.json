@@ -1,0 +1,49 @@
+{
+  "before_head": "58339deb6cb25d5793c3623981e66fad5be0858a",
+  "garden_parent": "90fc5d56ef99648af65c51fa4f0d4ca1e6eb2629",
+  "chef_parent": "eb6f0de424c0770a244ad1c2c417b4e9b5c6dace",
+  "tracked_paths": [
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "scripts/opera_boxing_surface.gd",
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_nursery_catch.gd",
+    "scripts/opera_roshan_actor.gd",
+    "scripts/opera_stage_paths.gd",
+    "scripts/opera_world_backdrop_2d.gd"
+  ],
+  "pre_stash_sha256": {
+    "ASSET_LICENSES.md": "b34cbb5cd505466306789a9c2e058d883a522babdaac08c916485282ba42b5c9",
+    "audit/MASTER_AUDIT_2026-08-09.md": "3ff2ad5e17b9aa492204878cdd6e92de4f97ed3b02c5d7c3812d9dc3eb485c43",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md": "1d488fe2ef24025daf9871eebcd99d8623bec7600f8eddaf508a9f347b25fbf1",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md": "2ca8e5afa93e656b69decdcfe0aab13c7455b3e5a960630c95ca1d991e64ee15",
+    "design/05_DOC_LEDGER.md": "845339dd5ddbc0f30eb38b30a681cb123063a880cf8eea085803c6b6f5249b27",
+    "scripts/opera_boxing_surface.gd": "ee087759240e78b6ec49786e247c272573590d6b381d992928d8fd8e63348241",
+    "scripts/opera_career_world_2d.gd": "5d7beaad9904b4c9bcfbff266ebe075a707b2fd9c31851f5a99645b82b0f01f2",
+    "scripts/opera_gesture_surface.gd": "80cbb6f9beb19ea820ff6f08aa37e72d597934f5a3f7ed43c308a1d2867484e3",
+    "scripts/opera_nursery_catch.gd": "12d82b0febc1b1505ec329e15bf227a5f3f2126829e16e3b056330ac49a5b09c",
+    "scripts/opera_roshan_actor.gd": "e64855906ea24fd5e50da2ffd045baab3c3eea0a8098eb0ca797c023158cfd12",
+    "scripts/opera_stage_paths.gd": "80ff76e38eaf9f544f45474195541c0ffb2d59ac08718cb43105b616a0bed40f",
+    "scripts/opera_world_backdrop_2d.gd": "6335d6054cfec79d9a7a03bc9a11f5eb0f4dff5684e823b04cfa24baa64425f6"
+  },
+  "operation": "Retain exact12trackedP5paths in stash, keep every newruntime/sourceartifact/privatehome untouched; FFtopictoGarden thenmergeChef, restoreP5beforecombinedfull02.",
+  "stash": "9487007f7360334e0e71138486e0c0caacc8dc36",
+  "merge_conflicts": [
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md"
+  ],
+  "parent_merge_resolution": "Two additive license/changelog conflicts resolved; both entire parent license payloads retained. No productioncodeconflict mergingGardenandChef.",
+  "p5_apply_exit": 1,
+  "p5_apply_conflicts": [
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_world_backdrop_2d.gd"
+  ],
+  "resolution": "Parent2additive docs conflicts, then4P5stash conflicts. Canonical history base retained once with both distinct suffixes; all changelog sections retained. Nursery care pose early return precedes exactChefworkplacement; completion picture exemption union teacher/geologist/chef/nursery; code backdrop beam exclusion unionchef/nursery/boxer. Allthree shared handdispatches Chef/pipe/Nursery eachreturn. Boxer/NurseryCatch/StagePaths pre-stashbytes exact,37P5runtimeprovenancehashesmatch; no conflictignored.",
+  "status": "RESOLVED_COMBINED_SOURCE_MACHINE_AND_GUI_PENDING"
+}

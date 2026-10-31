@@ -1,0 +1,7 @@
+python -B tools/audit_document_authority.py
+DOCAUTH|INVENTORY=657|LEDGER=657|ACTIVE=63|RECORDS=66
+DOCAUTH|RESULT|ALL OK
+
+python -B tools/audit_development.py --base auto
+AUDITDEV|BASE|f07c1a4820fb5222289802ad712db677b56400bc
+AUDITDEV|RESULT|ALL OK

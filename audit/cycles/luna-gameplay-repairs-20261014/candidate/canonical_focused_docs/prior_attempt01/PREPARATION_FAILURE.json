@@ -1,0 +1,9 @@
+{
+  "schema": "reef.canonical-doc-preparation-failure.v1",
+  "status": "SCRATCH_BUILDER_FAILED_BEFORE_DRAFT_OUTPUT",
+  "error": "KeyError: verification",
+  "cause": "Table-row extraction incorrectly expected three delimiter segments; Markdown terminal pipe has no trailing space.",
+  "correction": "Use anchored field/value regular expression; preserve this failed attempt and use canonical_focused_docs_02.",
+  "production_or_worktree_or_pin_changes": false,
+  "recorded_utc": "2026-10-15T03:46:03.462257+00:00"
+}

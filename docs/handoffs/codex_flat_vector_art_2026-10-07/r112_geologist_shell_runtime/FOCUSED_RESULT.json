@@ -1,0 +1,894 @@
+{
+  "state": "FOCUSED_IMPORT_AND_GEODE_TWO_ASPECT_CONTEXT_PASS_AGENT_REVIEW_REQUIRED",
+  "imports": [
+    {
+      "pass": 1,
+      "exit_code": 0,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-shell-20261030\\import1\\engine.log",
+      "sha256": "11fa15c43029c1a607b92ec97b94628a1ceb7edde62e5daa96726dde5177cc14"
+    },
+    {
+      "pass": 2,
+      "exit_code": 0,
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-shell-20261030\\import2\\engine.log",
+      "sha256": "19d0a5a31f70c2ef9c890f28e1d6f3e94802b1647ee2aea2172e5734a2bc783d"
+    }
+  ],
+  "cases": [
+    {
+      "width": 1280,
+      "phase": 3,
+      "checks": 67,
+      "frames": [
+        {
+          "castle_layer_visible": false,
+          "id": "01_initial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "01_initial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "26d2ae248e04156a4a96510ee23c8f74dfdcd4661ff82518d8dcbbff91fb0f2d",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 0.0,
+            "seams": [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "stage": "GEODE_SEAM",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "02_partial_seams",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "02_partial_seams.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "9498a1004cbfaf9206afdbb3a81b2929021e90fbd9b14b274a9d7dc053a45bc1",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 0.0,
+            "seams": [
+              true,
+              true,
+              false,
+              false,
+              false
+            ],
+            "stage": "GEODE_SEAM",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "03_ready_to_pull",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "03_ready_to_pull.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "80ff0eaf4e90bd3455993e83e6ffe919d5b895e75342acd98710b6de1955ceb8",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 0.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "04_reveal_2",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "04_reveal_2.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "5387a912c191a294d810b92e3be725a1021501f2948cc129e0f9aeb908dcc387",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 2.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "05_reveal_6",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "05_reveal_6.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "e82e82a98edc34f0d79c65cd5551911252b60148466b48de927fe18fd3215426",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 6.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "06_reveal_12",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "06_reveal_12.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "b5c5649d5eff598a9fadcf11aea58981978f093d6e0d72de355e4f4244dad4a4",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 12.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "07_reveal_25",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "07_reveal_25.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "a308713822385f729f5eb8f784180bb9b0dae8c7c3e128696acb7b2169fea786",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 25.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "08_reveal_40",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "08_reveal_40.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "ebe3606262d9ea23cb30951b86d7e7a83cc9fdccf3e4f49d1199f78e7e4c091d",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 40.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "09_reveal_60_released",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "09_reveal_60_released.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "c779817aeb7482c38e3550975e32ad1fe03ed6d0f7dbdb54bd1157bd62055ef2",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 60.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "10_reveal_90",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "10_reveal_90.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "69895d21b797aafdff40d518d4ea9978133c77f7d604e318362674f558418482",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 90.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "11_reveal_100",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "11_reveal_100.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "0d916bcefd2d01cda0ccacf5756740e4293a1be9c01ef0c6ca19c876991ee60d",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 100.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "12_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "12_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "d19bbb3cf45f04b2505c831ae7cbfe282052f8e359ea4ba58826a00affba5014",
+          "size": [
+            1280,
+            720
+          ],
+          "snapshot": {
+            "complete": true,
+            "mode": "geology_geode",
+            "pull": 120.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-shell-20261030\\candidate_1280_3\\output\\RESULT.json",
+      "result_sha256": "b57914d4c730ab00f695ab9b7a7359708026d45dcfd8901543c2abc1f13a1cf9"
+    },
+    {
+      "width": 1600,
+      "phase": 3,
+      "checks": 67,
+      "frames": [
+        {
+          "castle_layer_visible": false,
+          "id": "01_initial",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "01_initial.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "6c35859160026db62b515f75cd54aa5d064c6190e29b949e100cae46beba765a",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 0.0,
+            "seams": [
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "stage": "GEODE_SEAM",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "02_partial_seams",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "02_partial_seams.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "a668dcb0cad7f3ccc51249ba03ad2a01b2f748a4fdf6709c776dbae567f69a1d",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 0.0,
+            "seams": [
+              true,
+              true,
+              false,
+              false,
+              false
+            ],
+            "stage": "GEODE_SEAM",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "03_ready_to_pull",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "03_ready_to_pull.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "1768eea73188d930ed72b9844c68d97403f88ad514bf6ccb729222c6952c2d69",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 0.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "04_reveal_2",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "04_reveal_2.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "5a191979717714cc98942ccca08e56d9ec4f4be50ea415856b6484343cc2df14",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 2.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "05_reveal_6",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "05_reveal_6.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "6f24c81db393915c0b58396c6359a60ff82606ba7a2bedfc8ad00fcc31e4526a",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 6.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "06_reveal_12",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "06_reveal_12.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "3624f187fe0ba381838692e1d9ae015a47414eab60d0da03ccc070dc957242b5",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 12.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "07_reveal_25",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "07_reveal_25.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "ac7ccfb2a992bdc59dc6173f933041f8b76d24f019581d14c29a0d9eb21ba5c5",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 25.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "08_reveal_40",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "08_reveal_40.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "404548945917627acd4c2779c7d7796b6033618590db66fb2bc27d58d8039cc4",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 40.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "09_reveal_60_released",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "09_reveal_60_released.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "ca5b8ee2928b5f26fbefb8c7e20c77839d9b7f64dbf3d9c824067f1a50fc0349",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 60.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "10_reveal_90",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "10_reveal_90.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "cd0ede1c7f778128f1c078cfb1baa72deb403aeb2a2d40eb7698c4a9babbd3b2",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 90.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "11_reveal_100",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "11_reveal_100.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "8a3c09297235db3bf055ae4a28ee0cf14d7c1c69fcb84971955a74f6518ece05",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": false,
+            "mode": "geology_geode",
+            "pull": 100.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        },
+        {
+          "castle_layer_visible": false,
+          "id": "12_complete",
+          "main_game": "opera",
+          "pan_texture": {
+            "path": "",
+            "size": "(1024.0, 1024.0)"
+          },
+          "pan_visual_x": 0.0,
+          "path": "12_complete.png",
+          "root_canvas_size": "(1280.0, 720.0)",
+          "sha256": "c5c3a6cb907b6e542700be62b274af3967091b00aa65c951a7a49a960abb4892",
+          "size": [
+            1600,
+            720
+          ],
+          "snapshot": {
+            "complete": true,
+            "mode": "geology_geode",
+            "pull": 120.0,
+            "seams": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "stage": "GEODE_OPEN",
+            "version": 1
+          },
+          "start_menu_active": false,
+          "world_phase": 3,
+          "world_visible": true
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-shell-20261030\\candidate_1600_3\\output\\RESULT.json",
+      "result_sha256": "01f71bbcde953fd344bcf0eee34907ace8b93a07ae868a94196c5bcd7cc0c0f3"
+    }
+  ],
+  "checks": 134,
+  "new_native_frame_events": 24,
+  "source_drift": [],
+  "normal_unchanged": true,
+  "normal_before": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "normal_after": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.tmp": "absent",
+    ".before_new_game.old": "absent"
+  },
+  "new_generation_calls": 2,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "full_trusted_suite": "PENDING_AFTER_AGENT_SCENE_REVIEW",
+  "completed_at_utc": "2026-10-30T10:45:18.286261+00:00",
+  "scope": "Configured originalMain/Opera geode phase3 at1280/1600. Whole shell/derivedhalves closed-to2/6/12/25/40/60/90/100/120 reveal, realtap/wrongfinger/cancel/JSONrestore and ordinary100-to120pull. Preexisting119gap remains separate unchanged debt.",
+  "excluded_native_events": 0,
+  "total_new_native_events": 24,
+  "reported_call_count_correction": "Runner inherited a hardcoded1; actual source PLAN/DERIVATION record2 static takes and1aspectreject, no engine/source/art rerun."
+}

@@ -1,0 +1,170 @@
+{
+  "id": "claude-2d-deform-wave-20261005",
+  "scope": "Owner-commissioned replication of Codex's Roshan hand-raising wave by a non-LTX method: same 41-frame/24 fps timeline and 640x896 comparison canvas, built only from the approved roshan_gesture_a.png row-0 keys with layered whole-figure 2D deformation (MLS body, per-segment arm, overlap lags, drawing switches without blends), layered Aseprite master, same-index comparison with the published LTX-2.5 Union take 1, reproducible CPU pipeline and machine checks. Source-only reference study; benefits development by testing a blur-free production lane for the wave before more model takes are spent. No runtime change.",
+  "baseline": "f73236759755fd220cc495cc48f9e822a3d65ced",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16"
+  ],
+  "findings": [],
+  "no_findings_reason": "Source-only animation-method study under assets_src; it does not change the runtime atlas, playback or topology, so MA-ROSHAN-003, MA-ROSHAN-005 and MA-ROSHAN-006 lifecycles are unchanged.",
+  "files": [
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/.gdignore",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/.gitattributes",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/JOB_CARD.md",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/README.md",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/comparison/codex_source.json",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/comparison/comparison.gif",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/comparison/comparison_codex_vs_claude.mp4",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/comparison/comparison_frame_step_6fps.mp4",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/comparison/hand_closeups.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/data/anchors.json",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/data/codex_canvas_fit.json",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/data/correspondences.json",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/data/frame_sources.json",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/data/roots.json",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0000.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0001.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0002.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0003.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0004.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0005.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0006.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0007.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0008.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0009.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0010.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0011.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0012.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0013.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0014.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0015.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0016.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0017.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0018.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0019.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0020.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0021.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0022.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0023.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0024.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0025.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0026.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0027.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0028.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0029.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0030.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0031.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0032.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0033.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0034.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0035.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0036.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0037.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0038.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0039.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/frames/native/0040.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/layers/arm_k0.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/layers/arm_k1.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/layers/arm_k2.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/layers/arm_k3.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/layers/body_fill_k0.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/layers/body_fill_k1.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/layers/body_fill_k2.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/layers/body_fill_k3.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/manifest.json",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/review/contact_sheet.png",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/review/wave_native256_x3_nearest.mp4",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/review/wave_review.mp4",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/anchors.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/arm.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/aseprite_io.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/codex_inputs.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/common.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/corr.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/fill.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/fit_codex_canvas.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/manifest.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/masks.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/master.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/mls.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/paths.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/produce.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/render.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/run_all.sh",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/track.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/verify.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/videos.py",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/verification.json",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/wave_master.aseprite",
+    "ASSET_LICENSES.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/animation/README.md"
+  ],
+  "validation": [
+    {
+      "command": "sh assets_src/cinematics/claude_2d_deform_wave_20261005/scripts/run_all.sh (WAVE2D_WORK set to a scratch directory)",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/claude_2d_deform_wave_20261005/verification.json: 21 machine checks (atlas hash, 41x256 RGBA frames, K0-verbatim endpoints, border clearance, 6 pixel-identical re-renders, root <=1 px (0.607), inter-anchor distances inside the approved keys' range, Aseprite master final==PNG and 1708 ms via the project reader). Clean rebuild reproduced the reviewed frames 1-39 pixel-identically."
+    },
+    {
+      "command": "Agent frame-step review of native, 3x and 640x896 renders versus LTX-2.5 Union take 1",
+      "result": "PASS",
+      "evidence": "comparison/hand_closeups.png and comparison/*.mp4: painted hands in every frame; README known defects list shoulder seam (frames ~12/22), elbow fold (12-16), drawing changes (body 5, 32; arm 7, 12, 23, 33), straight-out arm (5-6, 31-33) and ragged donor hair edge. Agent review only; it cannot grant human/owner acceptance."
+    },
+    {
+      "command": "Open and re-save wave_master.aseprite in Aseprite",
+      "result": "PENDING",
+      "evidence": "No Aseprite binary in this cloud session; the file follows the published format and round-trips through scripts/aseprite_io.py only."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Run on the candidate before commit; see commit message."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Run on the candidate before commit; see commit message."
+    },
+    {
+      "command": "Human identity/topology/style and motion/seam review; runtime atlas sampling; device; child; owner",
+      "result": "PENDING",
+      "evidence": "Not available to the agent; required before any production use."
+    }
+  ],
+  "acceptance_gaps": "REFERENCE_ONLY. Human identity/motion/seam review, Aseprite open/save check, runtime atlas packing and engine sampling (MA-ROSHAN-003), device playback, child and owner acceptance are all outstanding. Known defects are listed in the packet README.",
+  "lessons": [
+    {
+      "lesson": "When video-model takes keep smearing hands, a deterministic whole-figure 2D deformation of the approved keys with drawing switches (never blends) keeps every painted contour crisp at the same timeline and costs no generation budget.",
+      "write_back": "assets_src/cinematics/claude_2d_deform_wave_20261005/README.md#options-after-this-study"
+    },
+    {
+      "lesson": "Four approved keys leave elbow-angle and straight-out-arm in-betweens soft; name those specific keys as the generation gap instead of re-running whole-clip video takes.",
+      "write_back": "assets_src/cinematics/claude_2d_deform_wave_20261005/README.md#known-defects-agent-review-not-owner-review"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "assets_src/cinematics/ltx_registered_wave_20261004/README.md",
+      "purpose": "Codex's wave brief, owner-rejected limb-only correction and blur failures; the compared LTX-2.5 Union take 1 is read from https://github.com/Ebonyks/mermaid-roshan-reef/tree/405cb1c6d4869c15edd032494c83f383d6e3e398/assets_src/cinematics/ltx25_union_trial_20261004 (not yet on dev)."
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "purpose": "Figure-wide continuity, crisp contour and constant-scale corrections that the method targets."
+    }
+  ]
+}

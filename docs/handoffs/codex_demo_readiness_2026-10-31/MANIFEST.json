@@ -1,0 +1,62 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_demo_readiness_2026-10-31",
+ "status": "PROPOSED / CANDIDATE (owner accepted the defaults for Q1-Q8 on 2026-10-31)",
+ "prepared_by": "Claude (written analysis and specification only; no game changes and no images)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev 218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+ "entry": "README.md",
+ "owner_request": "2026-10-31: publish a demo for Roshan next week; cap new development; part 2 may stay unresolved; identify priorities and improvement areas, plan them, and hand off analysis of high-priority fixes to Codex",
+ "findings_opened": [
+  "MA-VIS-011",
+  "MA-SAVE-002"
+ ],
+ "findings_updated": [
+  "MA-TOUCH-004",
+  "MA-PLAY-005",
+  "MA-ACCESS-001",
+  "MA-CI-006"
+ ],
+ "impact_record": "design/audit_impacts/demo-readiness-handoff-20261031.json",
+ "file_count": 4,
+ "total_bytes": 59524,
+ "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
+ "revision": "2 (2026-10-31): owner answers recorded as ODR-DEMO-*-20261031; revision 1 was dcf6f6e29fa9ea2c6899e0edb324a1bc8762b121",
+ "owner_decisions": [
+  "ODR-DEMO-FREEZE-20261031",
+  "ODR-DEMO-START-20261031",
+  "ODR-DEMO-GRAND-PUFF-20261031",
+  "ODR-DEMO-PART2-SCOPE-20261031",
+  "ODR-DEMO-MIC-20261031",
+  "ODR-DEMO-PLAYTEST-ELEVATOR-20261031",
+  "ODR-DEMO-NO-NEW-AUDIO-20261031",
+  "ODR-DEMO-BOOK-FILE-20261031",
+  "ODR-DEMO-DATE-DEVICE-20261031"
+ ],
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 19284,
+   "sha256": "a7d501c0e5ced730058ca1c1ad858e3da523c7a1f123b4059bda5ddef4097ce2",
+   "role": "handoff entry point: request, status, demo definition, freeze, priorities, work packages DR0-DR7, schedule, owner answers Q1-Q8, gates"
+  },
+  {
+   "path": "AUDIT.md",
+   "bytes": 31173,
+   "sha256": "47c3e359d4f900438ddf14bb3d7a30e7ed7257f713575a43554ef2a191ee86fa",
+   "role": "analysis of each high-priority fix with code references: release state, stranded repairs, Day One, Part 2, release/save/performance, post-demo areas"
+  },
+  {
+   "path": "DEMO_RUNBOOK.md",
+   "bytes": 9067,
+   "sha256": "a8a06f2c4b302953e12c1ab8e8d2f174d82cef104644de93e3e13fd121f67b5f",
+   "role": "release candidate, save rehearsal, install-over, device rehearsal, promotion, rollback and demo-day procedure"
+  }
+ ]
+}

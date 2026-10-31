@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "comparison": "17237c3b8ca78b1981ed9aa1da75fba77b23505a -> integration baseline8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622",
+  "runtime_paths": [
+    {
+      "path": "assets",
+      "git_object": "c742c92e29bd1bd5ae85caa8d75c557b589b1864",
+      "unchanged": true
+    },
+    {
+      "path": "scripts",
+      "git_object": "b2b58068bb302716c8f02b2466a9684adeb251e8",
+      "unchanged": true
+    },
+    {
+      "path": "scenes",
+      "git_object": "c609d0fff2c5c64d1bbd5013542fc3c08adaeee7",
+      "unchanged": true
+    },
+    {
+      "path": "tools",
+      "git_object": "273c1b228a70a6e331644fb99ad5fd58247651a4",
+      "unchanged": true
+    },
+    {
+      "path": ".github",
+      "git_object": "ffaae46bf0fc8794ab2e3354ea4b104a5eefccb5",
+      "unchanged": true
+    },
+    {
+      "path": "project.godot",
+      "git_object": "2351cb32085bcefe893ee220ed1b9ec88c4d2875",
+      "unchanged": true
+    }
+  ],
+  "local_full_suite": "assets_src/cinematics/ltx_retake_repair_20261004/environment/project_ci.json",
+  "local_full_suite_status": {
+    "command": "Git Bash scripts/ci.sh",
+    "exit_code": 0,
+    "elapsed_seconds": 2999.73,
+    "status": "PASS"
+  },
+  "exact_prior_head_ci": "All four required checks on17237c3b were SUCCESS; PR22 merged to dev. New head CI required before this change integrates.",
+  "reuse_scope": "Source-only footage and documentation; no runtime code/assets/import settings changed. New document/impact/roundtrip gates run separately."
+}

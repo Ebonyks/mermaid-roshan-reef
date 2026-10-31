@@ -1,0 +1,51 @@
+{
+  "id": "LTX-TWO-PASS-WAVE-20261004",
+  "owner_direction": "2026-10-04: correct omitted refinement; prioritize installed2B, portrait complete-figure inputs and named lowering/anticipation keys; defaulttwo takes perbrief/backend.",
+  "baseline": "8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/ltx-two-pass-wave-20261004",
+  "destination": "assets_src/cinematics/ltx_two_pass_wave_20261004",
+  "access_mode": "Public anonymous HTTPS verified at immutable revision before archive delivery claim",
+  "lane": "SOURCE_ONLY_MOTION_STUDY",
+  "identity_source": "assets/characters/roshan_25d/roshan_gesture_a.png",
+  "purpose": "Complete-figure greeting with crisp hand contours and continuous lowering; compare stage1 and refined output plus declared animation-on-twos.",
+  "gaps": [
+    "Prior2B runs omitted official3-step refinement and latent spatial upscaler.",
+    "Frames19-26 lack mid-lowering key around22; anticipation/rest around3 addresses rushed rise.",
+    "256px atlas cells are low-detail source; enlargement adds no original detail."
+  ],
+  "native_target": [
+    576,
+    832
+  ],
+  "frames": 41,
+  "fps": 24,
+  "guide_indices": [
+    0,
+    3,
+    7,
+    17,
+    22,
+    27,
+    36,
+    40
+  ],
+  "caps": {
+    "generated_takes_total": 4,
+    "generated_takes_per_backend": 2,
+    "queued_jobs_and_failed_model_submissions_total": 6,
+    "imagegen_calls": 1,
+    "new_model_download_bytes": 1000000000,
+    "paid_api_usd": 0,
+    "active_generation_seconds": 7200,
+    "seconds_per_take": 1800,
+    "automated_cleanup_seconds": 1800
+  },
+  "prior_costs_preserved": [
+    "assets_src/cinematics/ltx_registered_wave_20261004/briefs/job_card.json",
+    "assets_src/cinematics/ltx_retake_repair_20261004/environment/usage.json"
+  ],
+  "new_scope_reason": "Owner commissions changed inputs and omitted two-pass method; previous rejects and7/6 submission overrun remain visible, no historical cap reset.",
+  "fallback": "If two2B variants fail, use already-installed LTX-2.3 Q4_K_S/Gemma Q4_K_S with same keys and bounded2takes; no new22Bquant download or upscale. Profile compatible acceleration before changing runtime; do not close otherapps automatically.",
+  "review": "Native complete frames, no resized QA thumbnails. Aseprite tags/exports and whole-figure/context inspection; sampled twos must preserve action and seams. No production/runtime/device/child/owner acceptance granted."
+}

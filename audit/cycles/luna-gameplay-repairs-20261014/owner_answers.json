@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ODR-LUNA-OBJECTIVE-GUIDES-20261014",
+    "date": "2026-10-14",
+    "subject": "Two missing exact Seek and Dolls objective recordings",
+    "authority": "recorded_owner",
+    "question": "The approved recordings lack Evie's 'Tap the wiggly bush' and Faron's three-catch objective. Which source should supply these exact lines? The repository protects family voices, so I need an authorized source rather than altering the existing recordings. I'll continue the code repairs meanwhile.",
+    "decision": "Owner response: 'Just make something up'. For these two missing objectives, implement neutral synthetic Guide recordings using the existing local Kokoro workflow, preserving the family recordings and protected speaker policies. The inspected Seek target is a tree: 'Tap the wiggly tree!' Dolls: 'Move left and right. Catch three sleepy dolls!' This bounded implementation choice does not authorize family imitation, protected-original edits, unrelated new dialogue or paid services; human/device/child acceptance remains separate.",
+    "source": "audit/cycles/luna-gameplay-repairs-20261014/owner_voice_instruction.json",
+    "checks": [
+      "scripts/probe_audio.gd",
+      "tools/audit_audio_quality.py"
+    ],
+    "checkable": true,
+    "cycle": "luna-gameplay-repairs-20261014"
+  }
+]

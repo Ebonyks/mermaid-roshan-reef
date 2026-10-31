@@ -1,0 +1,89 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L47",
+  "reviewer": {"agent_id": "/root/luna_playtest_coordinator/luna_l47", "model": "gpt-6-luna"},
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Continue saved route and orientation",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L47/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "At the frozen baseline, the one authorized helper invocation ran probe_start_menu_routing under Godot 4.7.2-stable with an isolated save profile. The probe's 30 checks passed (exit 0, no failure lines): Continue/New Game mode selection, active Day One flag preservation, legacy-save policy, Day One room mappings and invalid-room fallback, save normalization, fresh-entry wiring and route cleanup. The receipt and log identify the same probe and PASS result.",
+    "route_gaps": "This is headless scripted evidence, not a visible start-menu/Continue run: probe_start_menu_routing calls _prepare_start_menu_launch directly and tests source wiring rather than pressing the real Continue button or loading a real saved profile. It does not establish rendered orientation/layout, physical touch response, room arrival visuals, save-write failure recovery, or child comprehension. project.godot declares handheld orientation 4, but that setting was not exercised. The separate open MA-PLAY-005 chapter-career reachability finding is not tested by this start-menu probe."
+  },
+  "verdict": "PASS",
+  "timing": {
+    "source": "scripts/start_menu.gd:29-31,86-109,303-313; scripts/main.gd:3319-3349; scripts/probe_start_menu_routing.gd:10-41,100-130",
+    "gameplay_estimate": "No timed gameplay segment is measured in this focus. Continue itself has no authored wait in its handler; scene loading, save reading and visible arrival time were not measured. Probe/helper wall time is not play duration.",
+    "probe_windows": "The probe sets up ReefMain and calls _prepare_start_menu_launch(false), checks the Day One and legacy-intro flags, then calls it with true and checks fresh Day One mode. It evaluates helper predicates for explicit day_one_active true and a legacy dictionary without that key; tests each of bathroom/pool/stuffie/art room mapping plus an invalid room; checks valid/invalid normalization and clears Day Two routing. It does not send a press, wait for a frame, or time Continue."
+  },
+  "tactile": {
+    "target_size": "The visible Continue button is 340x118 logical base-canvas pixels at Rect2(290,548,340,118) (scripts/start_menu.gd:86-91). Probe does not build/measure its screen-projected hit area, and physical touch was not exercised.",
+    "press_response": "Code connects the Continue button's pressed signal to _continue_game; that handler checks has_saved_game, dismisses the menu, selects the saved mode and calls launch. The probe checks mode preparation and source wiring, not a button press or frame-level feedback.",
+    "drag_hold_release": "Continue is an ordinary button press with no hold timer in the inspected handler. Drag-out/release and Android touch cancellation were not tested.",
+    "ownership": "No real or synthetic pointer sequence was sent in this probe, so finger ownership and second-finger behavior are unmeasured.",
+    "cancellation": "No in-flight Continue cancellation, scene interruption, focus loss, or storage error was driven."
+  },
+  "play_appeal": {
+    "hypothesis": "A saved-game Continue button emphasized in gold and initially focused can make resuming feel like the obvious next step, while preserving a child-selected room. Returning to the same room could support agency if the saved location and room entrance are immediately recognizable; this remains an untested hypothesis because the probe does not load or display the route.",
+    "agency_variety_world_response_replay": "The code maps a valid Day One room to its castle room and normalizes invalid saved rooms to a safe fallback. These are sensible orientation safeguards in source, but no world response, replay choice or understandable arrival was observed. Legacy saves without the Day One flag intentionally route outside Day One; that policy is asserted in the probe.",
+    "fun_score": null,
+    "concrete_appeal_test": "On a Lenovo Tab M11 using the exact approved build and a consented, non-identifying test save, film the ordinary boot-to-menu-to-Continue path for each representative bathroom/pool/stuffie/art saved location and one legacy save. After each single tap, check visible acknowledgment within two rendered frames, confirm the expected room/landmark and orientation without adult pointing, then let the player choose whether to act or leave. Repeat after a normal save/reopen; record adult help, misroutes, voluntary repeat choice and actual touch coordinates. Do not infer child appeal from machine PASS."
+  },
+  "observations": [
+    {
+      "title": "Saved Day One mode follows the explicit saved flag",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/start_menu.gd:29-31", "scripts/start_menu.gd:303-310", "scripts/probe_start_menu_routing.gd:16-21", "audit/cycles/luna-playtest-20261012/runtime/L47/attempt_1/probe.log:5-6"],
+      "rules": ["DL-SAVE-01", "DL-SAVE-04", "DL-AGE-01", "DL-AGE-02"],
+      "existing_findings": "No active finding directly targets this Continue flag policy. MA-PLAY-005 is an independent Chapter Two career reachability blocker and is not evidence of a defect in this route.",
+      "reproduction": "Probe calls continue_day_one_mode with {day_one_active:true} and with a legacy dictionary lacking that field; both expected outcomes pass. Source calls the helper with m.save_data when Continue is pressed.",
+      "child_impact": "Preserving a saved route can reduce disorientation after resuming, but no child-visible return was tested.",
+      "proposed_repair": "None indicated by this evidence; retain additive flag interpretation and validate a real load path before claiming child orientation.",
+      "acceptance_test": "Load isolated real saves with day_one_active true and absent/false through the ordinary UI, verify the intended respective route and saved room, then repeat on device with a child-observation protocol."
+    },
+    {
+      "title": "Valid saved room IDs map to their matching room scenes",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/main.gd:3324-3336", "scripts/probe_start_menu_routing.gd:100-110", "audit/cycles/luna-playtest-20261012/runtime/L47/attempt_1/probe.log:13-16"],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-SAVE-04"],
+      "existing_findings": "No directly applicable active finding identified for this mapping.",
+      "reproduction": "The probe sets bathroom, pool, stuffie and art as current room IDs and asserts bubble_bath, mermaid_pool, playroom and craft_room respectively. Main uses that result when the Day One castle has been discovered and is open.",
+      "child_impact": "A mismatch could place a returning child in an unexpected room; assertions show the logical mapping but not the visible room contents or recognizable orientation.",
+      "proposed_repair": "No code repair indicated. Exercise every representative mapping through a loaded saved profile and inspect the landing view.",
+      "acceptance_test": "For each saved room, launch through Continue and verify correct room, expected entry camera/character placement, no stale overlay and a clear next action on rendered device capture."
+    },
+    {
+      "title": "Invalid room values fail closed and normalization uses a fallback",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/probe_start_menu_routing.gd:111-125", "scripts/main.gd:3348-3349", "audit/cycles/luna-playtest-20261012/runtime/L47/attempt_1/probe.log:17-19"],
+      "rules": ["DL-SAVE-01", "DL-SAVE-02", "DL-AGE-03", "DL-SAVE-04"],
+      "existing_findings": "No directly applicable active finding identified for this behavior.",
+      "reproduction": "Set day_one_current_room_id to not_a_day_one_room and assert main_hall; normalize a patch with day_one_current_room=reef and bathroom completed and assert fallback pool. Both probe checks pass.",
+      "child_impact": "Corrupt or unknown routing state should avoid a broken/no-room entry. The probe does not test truncated file recovery, retained backups or a visible fallback cue.",
+      "proposed_repair": "No change indicated from this focused probe; consider separately covered save-recovery evidence before judging disk corruption behavior.",
+      "acceptance_test": "Use isolated malformed-but-readable route fields and confirm a stable playable fallback plus preserved progress; cover actual corrupt/truncated files under the save-recovery session."
+    },
+    {
+      "title": "The probe does not exercise the live Continue tap or saved orientation",
+      "classification": "COVERAGE_GAP",
+      "evidence": ["scripts/probe_start_menu_routing.gd:10-21", "scripts/probe_start_menu_routing.gd:100-130", "audit/cycles/luna-playtest-20261012/runtime/L47/attempt_1/receipt.json:1-34", "project.godot:47"],
+      "rules": ["DL-AGE-01", "DL-AGE-02", "DL-AGE-07", "DL-UI-03", "DL-QA-01", "DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-06", "DL-QA-07"],
+      "existing_findings": "MA-PLAY-005 remains an open, separate blocker for Chapter Two story-career reachability; it neither proves nor disproves Continue orientation.",
+      "reproduction": "Run the recorded L47 command once. The harness calls launch-preparation methods and value mappings; its log records assertion PASS, while receipt explicitly says headless and rendered_mobile_acceptance=false. No button press, rendered display, or child session occurs.",
+      "child_impact": "A correct route in code may still leave a non-reader unsure where Roshan is or what can be done next; actual visual/tactile orientation remains unknown.",
+      "proposed_repair": "No implementation change from absence of evidence. Capture the ordinary Continue path and identify any reproducible confusion before proposing a repair.",
+      "acceptance_test": "Use the concrete_appeal_test protocol above; record visible response, location recognition, adult assistance and route correctness separately for actual device and child review."
+    }
+  ],
+  "strengths": [
+    {"claim": "Saved Continue is visually prioritized and receives initial focus when a save exists.", "evidence": ["scripts/start_menu.gd:86-109", "scripts/probe_start_menu_routing.gd:30-33", "audit/cycles/luna-playtest-20261012/runtime/L47/attempt_1/probe.log:9"]},
+    {"claim": "Day One route IDs are normalized and invalid room selection has a safe fallback in the focused assertions.", "evidence": ["scripts/probe_start_menu_routing.gd:100-125", "audit/cycles/luna-playtest-20261012/runtime/L47/attempt_1/probe.log:13-19"]},
+    {"claim": "L47 runtime helper passed with exact Godot 4.7.2-stable and isolated profile; it proves these scripted assertions only.", "evidence": ["audit/cycles/luna-playtest-20261012/runtime/L47/attempt_1/receipt.json:1-34", "audit/cycles/luna-playtest-20261012/runtime/L47/attempt_1/probe.log:1-30"]}
+  ],
+  "acceptance_gaps": [
+    "Ordinary boot, visible Continue tap, actual save loading and room landing were not exercised.",
+    "Mobile-rendered layout and orientation on the Lenovo Tab M11 remain unverified; project.godot orientation declaration is source evidence only.",
+    "Actual touch latency, child comprehension/appeal, and owner acceptance remain pending under DL-QA-01..07.",
+    "Disk corruption/write failure behavior is outside this probe; see the dedicated save recovery review."
+  ]
+}

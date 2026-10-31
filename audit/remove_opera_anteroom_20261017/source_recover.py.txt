@@ -1,0 +1,25 @@
+from pathlib import Path
+import subprocess,json,time,hashlib
+root=Path(__file__).resolve().parents[1]
+paths=subprocess.check_output(['git','diff','--name-only','--diff-filter=D','-z','--','assets','assets_src','gen2','export'],cwd=root).split(b'\0')
+paths=[p for p in paths if p]
+assert paths
+for raw in paths:
+    relative=raw.decode('utf-8')
+    path=root/relative
+    assert relative.split('/')[0] in {'assets','assets_src','gen2','export'}
+    assert path.absolute().is_relative_to(root) and not path.exists()
+spec=root/'tmp/opera_exact_restore_paths.nul'
+spec.write_bytes(b'\0'.join(paths)+b'\0')
+head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
+started=time.time()
+subprocess.run(['git','restore','--source='+head,'--worktree','--pathspec-from-file='+str(spec),'--pathspec-file-nul'],cwd=root,check=True)
+remaining=subprocess.check_output(['git','diff','--name-only','--diff-filter=D','-z','--','assets','assets_src','gen2','export'],cwd=root).strip(b'\0')
+assert not remaining,remaining[:300]
+# Filtered Git comparison validates every restored tracked source against the
+# exact pre-incident commit, including binary art and protected recordings.
+changed=subprocess.check_output(['git','diff','--name-only','-z',head,'--','assets','assets_src','gen2','export'],cwd=root).strip(b'\0')
+assert not changed,changed[:300]
+receipt={'status':'RESTORED_EXACT','source_commit':head,'restored_tracked_files':len(paths),'elapsed_seconds':time.time()-started,'remaining_deleted':0,'source_diff_against_commit':[],'path_manifest_sha256':hashlib.sha256(spec.read_bytes()).hexdigest(),'scope':'Recovery of tracked source files removed when Git sparse checkout traversed directory junctions in a temporary review worktree. Restored from immutable pre-incident Git blobs without creative edits or save changes. All tracked assets/assets_src/gen2/export compare clean to that commit. Initial incident evidence remains separate; private review must no longer use source-folder junctions.'}
+(root/'tmp/opera_original_asset_recovery.json').write_text(json.dumps(receipt,indent=2)+'\n')
+print(json.dumps(receipt))

@@ -1,0 +1,139 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L09",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l09",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Seahorse rescue tug rhythm",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L09/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The single unchanged exact-Godot 4.7.2 headless invocation reached and passed the focused seahorse socket, input-contract, and contact-action assertions. Those assertions used a standalone Control host, directly called _gui_input with synthetic touch/drag objects, and manually advanced action processing; the full probe then stopped after a later waterfall assertion without a terminal RESULT line.",
+    "gaps": "No fresh-save pool entry, skimmer-to-waterfall-to-seahorse route, normal GUI event dispatch on a rendered screen, or seahorse completion/persistence route was demonstrated here. The receipt says headless=true and rendered_mobile_acceptance=false. Actual visual legibility, audible voice, phone target projection/latency, observed-child comprehension/fun, and owner acceptance remain unproven."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      "TAP_TOTAL=8 tugs (scripts/games/pool_seahorse_rescue_activity.gd:18)",
+      "PULL_DISTANCE=48 canvas units for one deliberate pull to add a tug (scripts/games/pool_seahorse_rescue_activity.gd:37-39,293-300)",
+      "GUIDE_IDLE_SECONDS=2.0 s before the idle hand demonstration (scripts/games/pool_seahorse_rescue_activity.gd:36,536-548)",
+      "BUBBLE_LIFETIME=1.35 s for the authored bubble response (scripts/games/pool_seahorse_rescue_activity.gd:21)"
+    ],
+    "gameplay_duration": null,
+    "assumptions": "These are source constants, not measured child timing or a complete activity duration. The probe helper's 17.433-second wall time is execution time and is not gameplay duration."
+  },
+  "tactile": {
+    "target_size": "For the probe's 208.75×241.25 fixture, TAP_REGION_GROWTH=0.55 grows each edge by 132.6875 units, yielding a 474.125×506.625 canvas-unit rectangular acceptance region (scripts/games/pool_seahorse_rescue_activity.gd:21,95-104; scripts/probe_day_one_pool_cleanup.gd:581-583). This is broad in source coordinates, but the probe does not establish the displayed/projected phone hit area or neighboring-action separation.",
+    "press_response": "A valid press registers one tug request immediately; with the room actor bound, progress is not credited until the contact callback runs. Bubble/tug feedback is started in the progress callback. The assertion checks state and transforms, not rendered response latency (source: scripts/games/pool_seahorse_rescue_activity.gd:285-320,323-349).",
+    "drag_hold_release": "No hold is required. A drag from the owning touch adds at most one extra tug after moving 48 units from press origin; a sub-threshold wobble adds none. Release clears touch ownership without undoing the already-requested initial tug (scripts/games/pool_seahorse_rescue_activity.gd:246-281,285-300; probe log:21-23).",
+    "ownership": "The first active touch ID owns the gesture; secondary touch/drag input cannot take it over. The synthetic contract assertions passed across three fixture sizes (scripts/games/pool_seahorse_rescue_activity.gd:249-266; probe log:9-20,22).",
+    "cancellation": "A canceled owning press clears the touch and cancels contact work before further progress; the focused synthetic checks passed. The probe also manually interrupts the actor action and verifies it does not award the pending tug (scripts/games/pool_seahorse_rescue_activity.gd:160-184; scripts/probe_day_one_pool_cleanup.gd:607-610,713-719; probe log:11,28,33). Displayed pause/back/teardown behavior was not exercised."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a child can choose repeated taps or a purposeful pull, with the pull yielding an extra tug. The probe verifies the rule but cannot establish whether the difference feels understandable or rewarding to a child.",
+    "variety": "Within this focus, tap cadence affects tug strength and a longer pull adds one progress action; the eight-step bead row offers a code-defined progress cue. Whether these differences read as variety in the rendered scene is unobserved.",
+    "world_response": "The separate mouth obstruction is transformed around its authored nozzle/mouth anchors and eventually flies toward a room basket; the focused probe checks socket geometry across three fixture shapes but not the final rendered payoff in the room (scripts/games/pool_seahorse_rescue_activity.gd:27-28,370-374,383-427).",
+    "replay": "The activity receives saved tug count at setup from the cleanup controller, and the controller wires progress and completion signals to save/voice progression (scripts/games/day_one_pool_cleanup.gd:391-401,505-535). This review did not perform visible re-entry or a save restore for the seahorse stage.",
+    "fun_score": null
+  },
+  "observations": [
+    {
+      "title": "A deliberate pull adds one tug while a small wobble remains a single press",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/pool_seahorse_rescue_activity.gd:293-300 sets a 48-unit threshold and limits the extra tug to once per touch.",
+        "scripts/probe_day_one_pool_cleanup.gd:620-651 sends synthetic touch/drag events and asserts wobble, wrong-finger, and deliberate-pull behavior.",
+        "audit/cycles/luna-playtest-20261012/runtime/L09/attempt_1/probe.log:21-23 reports the wobble, secondary-finger, and one-extra-tug assertions OK."
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-05", "DL-UI-04", "DL-QA-02"],
+      "existing_findings": ["MA-TOUCH-001", "MA-CHILD-001"],
+      "reproduction": "Run the retained L09 receipt command and inspect the focused synthetic input segment at probe source lines 620-651; its log entries 21-23 are the recorded outcomes.",
+      "child_impact": "The code provides one-finger tap progress and one additional progress action for a sufficiently deliberate drag. Whether a 48-unit move is comfortable or the pull's extra payoff is discoverable on the target phone remains unobserved.",
+      "proposed_repair": "No production repair is established by this lane. Check the pull gesture and feedback on the actual target device before deciding whether the threshold needs adjustment.",
+      "acceptance_test": "On the Lenovo Tab M11 with ordinary routed touch input, compare one short wobble, one deliberate pull, and repeated taps; confirm one owning finger, a visible tug for each credited action, and no accidental extra tug from normal finger tremor."
+    },
+    {
+      "title": "The rescue prop stays registered to the seahorse mouth across the tested fixture shapes",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/pool_seahorse_rescue_activity.gd:27-28 defines the mouth and obstruction nozzle anchors; :450-469 derives their positions from the fitted textures.",
+        "scripts/probe_day_one_pool_cleanup.gd:514-575 samples the transformed nozzle-to-mouth gap during slow/rapid tugs and after stopping at three fixture sizes.",
+        "audit/cycles/luna-playtest-20261012/runtime/L09/attempt_1/probe.log:3-8 reports all three socket and partial-progress assertions OK."
+      ],
+      "rules": ["DL-INT-02", "DL-INT-04", "DL-MOT-03", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-004"],
+      "reproduction": "Use the retained L09 probe; it measures the two authored texture points in global coordinates on every rendered test frame and requires a maximum gap below 0.5 units.",
+      "child_impact": "Within these synthetic fixtures, the trash remains visually anchored at the mouth through the tested tug timing instead of separating as a floating reward token. This does not establish how clear the action looks at phone size.",
+      "proposed_repair": "No repair indicated by this assertion set; retain the mouth anchor if future fixture sizing or art changes are made.",
+      "acceptance_test": "Capture the live activity at supported aspect ratios and verify the mouth prop stays attached through slow, rapid, interrupted, and completion transitions at actual rendered scale."
+    },
+    {
+      "title": "Progress is gated on local actor contact and canceled work does not earn a tug",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/pool_seahorse_rescue_activity.gd:302-320 requests the bound contact action and routes progress through _finish_tug; :323-349 applies the count in that callback.",
+        "scripts/probe_day_one_pool_cleanup.gd:693-703 checks that the tap waits for the actor action and earns after contact; :713-719 interrupts later work and checks that progress remains unchanged.",
+        "audit/cycles/luna-playtest-20261012/runtime/L09/attempt_1/probe.log:24-30,33 records the contact and interruption assertions OK."
+      ],
+      "rules": ["DL-AGE-03", "DL-INT-02", "DL-UI-05", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-004", "MA-TOUCH-001"],
+      "reproduction": "Inspect the standalone contact-action block in probe source lines 693-719 and the matching retained log entries.",
+      "child_impact": "The asserted model ties earned progress to Roshan's local action and drops unearned work on interruption. It does not establish whether the approach or tug wait feels responsive to a child.",
+      "proposed_repair": "No defect established here. Observe perceived wait and interruption recovery on device while retaining contact-gated credit.",
+      "acceptance_test": "With rendered routed input, verify Roshan reaches the seahorse before the tug/progress cue, then pause or interrupt before contact and confirm no stale progress appears on resume."
+    },
+    {
+      "title": "The nominal target region is generous in base-canvas coordinates, but its phone projection is unmeasured",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/games/pool_seahorse_rescue_activity.gd:21,95-104 grows the fixture rectangle on every side by 55% of its larger dimension and tests presses against that rectangle at :302-308.",
+        "scripts/probe_day_one_pool_cleanup.gd:581-583 supplies a 208.75×241.25 test fixture; this computes to a 474.125×506.625 acceptance rectangle in that test setup.",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:714-716 specifies the 110×110 base-canvas target or equivalent projected region/separation guidance."
+      ],
+      "rules": ["DL-UI-03", "DL-INT-01", "DL-QA-04", "DL-QA-07"],
+      "existing_findings": ["MA-TOUCH-001", "MA-CHILD-001"],
+      "reproduction": "Evaluate Rect2.grow(max(fixture_size.x, fixture_size.y) * 0.55) for the first L09 fixture, then compare to the source-coordinate guideline; do not read this as a device measurement.",
+      "child_impact": "The broad rectangle may be forgiving for an imprecise first touch, but the synthetic test cannot show whether the active target is obvious, separated from neighboring actions, or remains generous after phone scaling.",
+      "proposed_repair": "No repair indicated from source geometry alone. Measure the target's projected region and neighboring action separation on the shipping device.",
+      "acceptance_test": "On the target phone, measure the projected hit region from the live scene and verify varied child-sized touches inside it work while touches outside it do not trigger the rescue or another control."
+    },
+    {
+      "title": "The focused mechanics passed, but the probe process ended before the complete suite result",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L09/attempt_1/receipt.json records status FAIL, exit_code 4294967295, timed_out false, no parsed failure lines, and only the waterfall assertion as a terminal line.",
+        "audit/cycles/luna-playtest-20261012/runtime/L09/attempt_1/probe.log:3-23 and :24-33 contain the focused seahorse assertions; the log ends at :122 without a RESULT line.",
+        "scripts/probe_day_one_pool_cleanup.gd:29-36 directly constructs the host, invokes seahorse helpers, and runs a broader sequence of pool checks; it is not a full displayed play route."
+      ],
+      "rules": ["DL-QA-02", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-TOUCH-001", "MA-CHILD-001"],
+      "reproduction": "Read the one retained attempt_1 receipt and log. No rerun was made; the session instruction required this invocation once.",
+      "child_impact": "The focused L09 assertions before the abnormal exit did report OK, but this incomplete probe cannot provide the full Day One regression result, and no child-facing route or tactile outcome was observed.",
+      "proposed_repair": "Do not infer a gameplay defect from the abnormal exit alone. Diagnose the probe process termination in its own follow-up while preserving this attempt as evidence.",
+      "acceptance_test": "A separately authorized diagnostic run should reach a terminal RESULT with exit code zero and no failed assertions; a displayed route/device/child review remains a separate acceptance lane."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The input contract accepts the main visible target, ignores off-target and secondary-finger attempts, and resets ownership on cancellation across three tested fixture sizes.",
+      "evidence": "scripts/games/pool_seahorse_rescue_activity.gd:246-308; scripts/probe_day_one_pool_cleanup.gd:577-619; audit/cycles/luna-playtest-20261012/runtime/L09/attempt_1/probe.log:9-20."
+    },
+    {
+      "claim": "The obstruction is modeled as a separate prop anchored to the authored mouth point, allowing the tug animation without deforming the seahorse base image.",
+      "evidence": "scripts/games/pool_seahorse_rescue_activity.gd:5-7,27-28,450-469; probe.log:3-8."
+    },
+    {
+      "claim": "The rescue controller pairs a spoken objective/hint with an idle animated hand at the live trash target, then records progress and milestone cues through the pool controller.",
+      "evidence": "scripts/games/day_one_pool_cleanup.gd:67-69,505-535,572-575; scripts/games/pool_seahorse_rescue_activity.gd:536-548. The probe checks wiring/source behavior, not audible or rendered quality."
+    }
+  ],
+  "acceptance_gaps": [
+    "The retained exact Godot 4.7.2 invocation ended with status FAIL and exit code 4294967295 after the log's waterfall assertion; it produced no final RESULT line, although the focused seahorse assertions logged before that point were OK.",
+    "No normal input dispatch on a displayed screen or fresh-save route through pool arrival, skimmer, waterfall and seahorse was exercised; the probe constructs Controls and calls _gui_input directly.",
+    "No Mobile-rendered capture establishes the seahorse, obstruction, guide hand, progress beads or reward readability at supported aspect ratios.",
+    "No Lenovo Tab M11 measurement establishes projected target size, touch latency, frame pacing, or audio audibility.",
+    "No child comprehension, gesture comfort, observed play length, replay appeal/fun, or owner acceptance evidence was collected."
+  ]
+}

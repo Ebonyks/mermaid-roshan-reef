@@ -1,0 +1,12 @@
+--- a/scripts/probe_chapter2.gd
++++ b/scripts/probe_chapter2.gd
+@@ -1492,6 +1492,9 @@
+ 	if label == "story_complete":
+ 		_check("parent Continue restores the earned party dress and completed story",
+ 			FashionDesigner.party_dressed(resumed) and resumed.chapter2_story_complete)
++	if checks_failed != checkpoint_failures:
++		await _fixture_release_scene(resumed)
++		return null
+ 	resumed._enter_castle_interior_now(false)
+ 	await process_frame
+ 	return resumed

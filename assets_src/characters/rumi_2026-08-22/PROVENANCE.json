@@ -21,18 +21,22 @@
   "selected_files": [
     {
       "path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
-      "sha256": "39cd43295adfce51249ac97647520aee9643e397fe417bf0374727297b34528e",
+      "sha256": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
       "dimensions": [
         1024,
         512
       ],
       "role": "runtime_cell_safe_idle_and_swim_frames",
       "source": "existing local Mermaid Pool Rumi integration pack",
-      "modifications_this_task": "none"
+      "modifications_this_task": "none",
+      "repair_2026_09_30": {
+        "method": "Native Aseprite drawPixel source recovery; complete lower tail from approved pose 1 for upright poses 0,2,3; owned pose component extraction; no generated art.",
+        "provenance": "assets_src/repairs/rumi_transparency_2026-09-30/REPAIR.json"
+      }
     },
     {
       "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
-      "sha256": "9833ee5c9deaa1ee39bbbe1f81a790e5f609993dbf3b9b0179b0cca993ae0014",
+      "sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
       "dimensions": [
         1024,
         768
@@ -44,6 +48,10 @@
       "repair_2026_09_26": {
         "method": "Aseprite reviewed pixel clearing; pose pixels retained",
         "provenance": "assets_src/repairs/visual_polish_2026-09-26/PIXEL_EDITS.json"
+      },
+      "repair_2026_09_30": {
+        "method": "Native Aseprite drawPixel source recovery; complete lower tail from approved pose 1 for upright poses 0,2,3; owned pose component extraction; no generated art.",
+        "provenance": "assets_src/repairs/rumi_transparency_2026-09-30/REPAIR.json"
       }
     },
     {

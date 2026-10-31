@@ -1,0 +1,56 @@
+extends SceneTree
+## Input-coordinate diagnostic only: no game routing, pixels, device or child claim.
+var pressed_count := 0
+var received_local := Vector2.INF
+var failures := 0
+
+func _init() -> void:
+	call_deferred("_run")
+
+func _run() -> void:
+	for extent: Vector2i in [Vector2i(1280, 720), Vector2i(1280, 800), Vector2i(1600, 720)]:
+		root.size = extent
+		root.content_scale_size = Vector2i(1280, 720)
+		root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+		root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
+		var canvas := CanvasLayer.new()
+		canvas.offset = Vector2(73, 41)
+		canvas.scale = Vector2(1.21, 0.83)
+		root.add_child(canvas)
+		var parent := Control.new()
+		parent.position = Vector2(127, 86)
+		parent.scale = Vector2(0.91, 1.16)
+		canvas.add_child(parent)
+		var button := Button.new()
+		button.position = Vector2(33, 47)
+		button.size = Vector2(176, 112)
+		button.pressed.connect(func() -> void: pressed_count += 1)
+		button.gui_input.connect(_observe)
+		parent.add_child(button)
+		await process_frame
+		await process_frame
+		var local := button.size * 0.5
+		var point := button.get_global_transform_with_canvas() * local
+		var before := pressed_count
+		for pressed: bool in [true, false]:
+			var event := InputEventScreenTouch.new()
+			event.index = 19
+			event.position = point
+			event.pressed = pressed
+			button.get_viewport().push_input(event, true)
+			await process_frame
+		var passed := pressed_count == before + 1 and received_local.distance_to(local) <= 0.01
+		print("VIEWPORT_TRANSFORM|window=%s visible=%s transform=%s expected_local=%s received_local=%s pressed_delta=%d: %s" % [
+			extent, root.get_visible_rect().size, root.get_final_transform(), local, received_local,
+			pressed_count - before, "OK" if passed else "FAIL"])
+		if not passed:
+			failures += 1
+		canvas.queue_free()
+		await process_frame
+	print("VIEWPORT_TRANSFORM|RESULT: %s failures=%d scope=COORDINATE_DIAGNOSTIC_ONLY" % [
+		"PASS" if failures == 0 else "FAIL", failures])
+	quit(1 if failures > 0 else 0)
+
+func _observe(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		received_local = (event as InputEventScreenTouch).position

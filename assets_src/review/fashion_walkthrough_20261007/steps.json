@@ -1,0 +1,531 @@
+{
+  "schema": "reef.fashion_walkthrough_steps/1",
+  "steps": [
+    {
+      "id": "01",
+      "group": "Entry and everyday clothes",
+      "title": "Start a fresh adventure",
+      "native": "native/11-fresh-launch.png",
+      "status": "NATURAL INPUT • ENTRY ONLY",
+      "see": "The launch splash has New Game on the right. Continue is disabled in this isolated fresh profile.",
+      "do": "Tap New Game at (820,607), inside StartMenuNewGameButton. A real mouse press/release entered through the normal UI.",
+      "action": "The menu hands off to the existing Day One opening; this is entry evidence, not Fashion progress.",
+      "next": "Watch the opening, then follow Roshan toward the castle.",
+      "cue": null,
+      "target": [
+        650,
+        548,
+        340,
+        118
+      ],
+      "gap": null,
+      "source_refs": [
+        "scripts/start_menu.gd:322"
+      ],
+      "annotation": "annotations/01.png"
+    },
+    {
+      "id": "02",
+      "group": "Entry and everyday clothes",
+      "title": "The castle introduction",
+      "native": "native/13-after-opening.png",
+      "status": "NATURAL INPUT • ENTRY ONLY",
+      "see": "Roshan is outside the castle. The visible message says “Let’s go to the castle!”",
+      "do": "This panel records the reached state after the opening. No additional action was injected.",
+      "action": "New Game → opening → castle arrival was observed. No wardrobe selection or party unlock was created.",
+      "next": "Play Day One and follow the real castle route. That traversal was not captured in this bounded check.",
+      "cue": null,
+      "target": null,
+      "gap": "Natural footage from this arrival through Royal Bedroom wardrobe entry is missing. The short run is not a full-route test.",
+      "source_refs": [],
+      "annotation": "annotations/02.png"
+    },
+    {
+      "id": "03",
+      "group": "Entry and everyday clothes",
+      "title": "Find the shell wardrobe",
+      "native": "native/asset-wardrobe.png",
+      "status": "ASSET ILLUSTRATION • CAPTURE GAP",
+      "see": "Source artwork for the shell wardrobe in Royal Bedroom, item ID shell_wardrobe. This is a prop reference, not a room screenshot.",
+      "do": "Tap the actual wardrobe object in Royal Bedroom. Its room-authored target is the prop, not this illustration.",
+      "action": "The handler flashes the wardrobe through four short glint states, emits a sparkle burst and opens the old look picker. It does not make Roshan travel to or touch the wardrobe.",
+      "next": "In the old picker, tap the pictured Clothes button at (1080,548), size 132×132.",
+      "cue": null,
+      "target": null,
+      "gap": "Entry, glint midpoint, picker and hand/contact captures are absent. Text cue: “Pretend dress-up time! A crown, a cape, or both!” The exact entry voice/pointer is not bound by this packet.",
+      "source_refs": [
+        "scripts/arena/castle_rooms_25d.gd:698",
+        "scripts/wardrobe_ui.gd"
+      ],
+      "annotation": "annotations/03.png"
+    },
+    {
+      "id": "04",
+      "group": "Entry and everyday clothes",
+      "title": "Choose who to dress",
+      "native": "native/01-wardrobe-1280x720.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "Five portraits: Roshan, Rumi, Baby Eagle, Daddy and Rainbow Friend. The large left picture previews the chosen person.",
+      "do": "Tap a portrait. Rumi’s target is (171,106), size 116×136. Portraits are the visual choice cue.",
+      "action": "The selected portrait turns warm gold; the preview and three clothing cards rebuild for that person. No fitting animation occurs.",
+      "next": "Choose one of that person’s clothing cards.",
+      "cue": {
+        "caption": "Tap a friend, then tap their clothes!",
+        "path": "audio/roshan_fashion_choose.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": [
+        171,
+        106,
+        116,
+        136
+      ],
+      "gap": null,
+      "source_refs": [
+        "scripts/fashion_wardrobe.gd:89"
+      ],
+      "annotation": "annotations/04.png"
+    },
+    {
+      "id": "05",
+      "group": "Entry and everyday clothes",
+      "title": "Rumi has her own saved look",
+      "native": "native/02-rumi-1280x720.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "Rumi replaces Roshan in the preview and clothing cards; the selected Rumi portrait is highlighted.",
+      "do": "Tap an unlocked pictured outfit on the right. Original and Ribbon are always available; Party and Garden depend on earned milestones.",
+      "action": "The look replaces Rumi’s texture and saves independently of Roshan’s choice. The existing capture was staged by direct model/UI calls; it does not prove a natural tap.",
+      "next": "Select another friend or return to Roshan.",
+      "cue": {
+        "caption": "We will keep these clothes on!",
+        "path": "audio/roshan_fashion_changed.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": [
+        787,
+        258,
+        196,
+        306
+      ],
+      "gap": null,
+      "source_refs": [
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_outfit_renderer.gd"
+      ],
+      "annotation": "annotations/05.png"
+    },
+    {
+      "id": "06",
+      "group": "Entry and everyday clothes",
+      "title": "Try a ribbon on Roshan",
+      "native": "native/asset-ribbon.png",
+      "status": "ASSET ILLUSTRATION • CAPTURE GAP",
+      "see": "The existing ribbon derivative is shown alone so its change is inspectable. This is not a captured equip moment.",
+      "do": "In the wardrobe choose Roshan, then the Ribbon card, the middle card on page one.",
+      "action": "Original → ribbon detail on existing Roshan. The model equips, saves immediately, refreshes the portrait and emits a bounded sparkle burst. No drag, sewing or physical dressing is implemented.",
+      "next": "Keep exploring clothes; leaving does not undo the choice.",
+      "cue": {
+        "caption": "We will keep these clothes on!",
+        "path": "audio/roshan_fashion_changed.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": null,
+      "gap": "Actual before / press / sparkle / after sequence was not captured. This illustration cannot establish the transition.",
+      "source_refs": [
+        "scripts/fashion_wardrobe.gd:207"
+      ],
+      "annotation": "annotations/06.png"
+    },
+    {
+      "id": "07",
+      "group": "Entry and everyday clothes",
+      "title": "Dress Baby Eagle",
+      "native": "native/asset-eagle.png",
+      "status": "ASSET ILLUSTRATION • CAPTURE GAP",
+      "see": "Existing Baby Eagle Party derivative: accessory changes on the original character.",
+      "do": "Tap the third portrait (297,106), then its unlocked outfit card. The party look shown requires the party milestone.",
+      "action": "Baby Eagle’s outfit is saved separately and used by the companion texture lookup. No cape fitting or Eagle reaction is authored.",
+      "next": "Tap Daddy or Rainbow Friend to dress them.",
+      "cue": {
+        "caption": "Tap a friend, then tap their clothes!",
+        "path": "audio/roshan_fashion_choose.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": null,
+      "gap": "No native Baby Eagle chooser/equip/world-reload capture is available.",
+      "source_refs": [],
+      "annotation": "annotations/07.png"
+    },
+    {
+      "id": "08",
+      "group": "Entry and everyday clothes",
+      "title": "Dress Daddy",
+      "native": "native/asset-daddy.png",
+      "status": "ASSET ILLUSTRATION • CAPTURE GAP",
+      "see": "Existing Daddy Party derivative; this is accessory clothing rather than a new tailored coat.",
+      "do": "Tap the fourth portrait (423,106), then a pictured unlocked outfit.",
+      "action": "Daddy’s saved selection updates participating family/world portraits. The illustration proves only the available source pixels.",
+      "next": "Choose Rainbow Friend or finish.",
+      "cue": {
+        "caption": "Tap a friend, then tap their clothes!",
+        "path": "audio/roshan_fashion_choose.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": null,
+      "gap": "No native Daddy chooser, family appearance or save-reload capture is available.",
+      "source_refs": [],
+      "annotation": "annotations/08.png"
+    },
+    {
+      "id": "09",
+      "group": "Entry and everyday clothes",
+      "title": "Dress Rainbow Friend",
+      "native": "native/asset-rainbow.png",
+      "status": "ASSET ILLUSTRATION • CAPTURE GAP",
+      "see": "Existing Rainbow Friend Party derivative, reused without a character redraw.",
+      "do": "Tap the fifth portrait (549,106), then an unlocked clothing card.",
+      "action": "The saved selection is independent of the other four people. This is a texture change; there is no wrap fitting animation.",
+      "next": "Browse the next clothing page or close the wardrobe.",
+      "cue": {
+        "caption": "Tap a friend, then tap their clothes!",
+        "path": "audio/roshan_fashion_choose.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": null,
+      "gap": "No native Rainbow Friend equip, following or save-reload capture is available.",
+      "source_refs": [],
+      "annotation": "annotations/09.png"
+    },
+    {
+      "id": "10",
+      "group": "Entry and everyday clothes",
+      "title": "Locked clothes explain where to earn them",
+      "native": "native/03-locked-source-1280x720.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "The next Roshan page shows Garden and Garden Disguise with locks and source pictures. On page one, Party has a cake picture.",
+      "do": "Tap Next at (738,577), size 132×110. Tap a locked card to hear its source cue; it never equips locked clothes.",
+      "action": "Party earns the party looks; Farmer strawberries / earned Farmer progress earns Garden. Finishing disguise practice earns the disguise. Unlocking makes a choice available; it does not automatically change anyone’s look.",
+      "next": "Earn the pictured milestone, then reopen the wardrobe and choose the look.",
+      "cue": {
+        "caption": "Help grow our strawberries to unlock these clothes!",
+        "path": "audio/roshan_fashion_locked_garden.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": [
+        575,
+        258,
+        196,
+        306
+      ],
+      "gap": null,
+      "source_refs": [
+        "scripts/fashion_designer.gd:109"
+      ],
+      "annotation": "annotations/10.png"
+    },
+    {
+      "id": "11",
+      "group": "Entry and everyday clothes",
+      "title": "Leave wearing the selected look",
+      "native": "native/06-dress-in-castle-1280x720.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "A diagnostic world capture shows Roshan in the party look in Throne Hall. The older harness used the bedroom alias, which resolved here; this is not a Royal Bedroom capture.",
+      "do": "In the wardrobe tap the bottom-right check at (1040,577), size 165×110, or the top-left Back button.",
+      "action": "The overlay closes and the equipped look remains in the world. Roshan’s position in this screenshot was staged, so it proves composition only.",
+      "next": "Return to normal play. Reopening should display saved choices.",
+      "cue": null,
+      "target": null,
+      "gap": "Natural leave, cross-room traversal and close/relaunch captures are missing. Save/re-entry model checks are machine evidence, not visible player-route proof.",
+      "source_refs": [
+        "scripts/wardrobe_ui.gd",
+        "scripts/save_state.gd"
+      ],
+      "annotation": "annotations/11.png"
+    },
+    {
+      "id": "12",
+      "group": "The pre-party special dress",
+      "title": "Finish preparations and touch the party table",
+      "native": "native/asset-table.png",
+      "status": "ASSET ILLUSTRATION • CAPTURE GAP",
+      "see": "The existing dining-table source stands for the Main Hall party display. This isolated prop is not the finished in-room party table.",
+      "do": "After all eight preparation careers and the rainbow candle are ready, tap the Main Hall party display/rainbow hotspot. ChapterTwoPartyTableTouch occupies room coordinates (285,352), size 710×238.",
+      "action": "The real route asks for Roshan’s dress before first lawn ignition. Room text says “Your friends are waiting outside! Tap the rainbow to visit the party!”",
+      "next": "The special-dress page opens.",
+      "cue": null,
+      "target": null,
+      "gap": "Natural eight-job completion and party-hotspot entry capture are absent. MA-PLAY-005 tracks the existing fresh-play Chapter 2 route problem; this packet does not repair or close it. Room text is source-backed; its exact voice/pointer is not captured.",
+      "source_refs": [
+        "scripts/chapter_two_room_plot.gd:92",
+        "scripts/main.gd:6019"
+      ],
+      "annotation": "annotations/12.png"
+    },
+    {
+      "id": "13",
+      "group": "The pre-party special dress",
+      "title": "Put on the special dress",
+      "native": "native/04-before-party-1280x720.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "The Party dress page offers one outfit card and a downward hand pointer above it.",
+      "do": "Tap the dress card at (575,258), size 196×306. Help repeats the same instruction.",
+      "action": "The intentional choice equips the party look, writes the outfit and dress milestone, then closes the wardrobe. The child does not drag a garment or personalise its flower/bow in this alpha.",
+      "next": "The deferred normal route opens the lawn party before Iko Iko / Ember King.",
+      "cue": {
+        "caption": "Let's get dressed for our party! Tap your special dress!",
+        "path": "audio/roshan_fashion_party_dress.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": [
+        575,
+        258,
+        196,
+        306
+      ],
+      "gap": null,
+      "source_refs": [
+        "scripts/fashion_wardrobe.gd:207",
+        "scripts/main.gd:6019"
+      ],
+      "annotation": "annotations/13.png"
+    },
+    {
+      "id": "14",
+      "group": "The pre-party special dress",
+      "title": "Inspect the equipped dress",
+      "native": "native/05-dress-equipped-1280x720.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "Roshan’s preview has the floral party clothing; the card carries a check.",
+      "do": "This image was made by direct model equip followed by reopening the dress page. In normal play, selecting the dress closes this page immediately.",
+      "action": "Before: original clothing in step 13. After: party clothing shown here. The midpoint, Roshan’s physical dressing and the natural lawn handoff are not recorded.",
+      "next": "Normal gameplay proceeds onto the lawn. This reopened diagnostic page is not an additional child step.",
+      "cue": null,
+      "target": null,
+      "gap": "No actual dress fitting/contact or admiration acting exists. No natural party arrival / Iko Iko / Ember King capture is included.",
+      "source_refs": [],
+      "annotation": "annotations/14.png"
+    },
+    {
+      "id": "15",
+      "group": "Later disguise practice",
+      "title": "Open the mask button after the story",
+      "native": "native/10-wide-phone-1920x900.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "The wide-screen clothes page includes the mask button at lower left after Chapter 2 story completion. It is not an Opera career card.",
+      "do": "Open clothes, then tap FashionDisguisePlay at design coordinates (55,577), size 180×110. At wide aspects, the stage scales these coordinates.",
+      "action": "The wardrobe switches to a pictured three-phase practice. No Fashion Opera star is added and the eight birthday preparation bits are unchanged.",
+      "next": "Start or resume the first incomplete practice phase.",
+      "cue": null,
+      "target": null,
+      "gap": "Practice entry was staged by setting the story-complete flag and calling the UI method. Natural unlock and mask-button press are not captured.",
+      "source_refs": [
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_wardrobe.gd:201"
+      ],
+      "annotation": "annotations/15.png"
+    },
+    {
+      "id": "16",
+      "group": "Later disguise practice",
+      "title": "Phase 1: pick Garden",
+      "native": "native/07-disguise-role-1280x720.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "A small Garden Roshan picture is above three full-character outfit cards: Ribbon, Party and Garden.",
+      "do": "Tap the Garden card on the right at (999,258), size 196×306. Static hand pointers sit above all cards.",
+      "action": "Correct pick: equips Garden and saves practice prefix 1; next prompt opens. Roshan’s torso changes to green. There is no garden station, prop selection or gardening act.",
+      "next": "Phase 2 replaces the goal picture with Garden Rumi.",
+      "cue": {
+        "caption": "Tap the garden outfit in the picture!",
+        "path": "audio/roshan_fashion_role_pick.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": [
+        999,
+        258,
+        196,
+        306
+      ],
+      "gap": null,
+      "source_refs": [
+        "scripts/fashion_designer.gd:166"
+      ],
+      "annotation": "annotations/16.png"
+    },
+    {
+      "id": "17",
+      "group": "Later disguise practice",
+      "title": "Phase 2: choose Garden again",
+      "native": "native/08-disguise-blend-1280x720.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "Garden Rumi is now the goal picture. Roshan is already wearing Garden, which is checked on the right.",
+      "do": "Tap the same Garden card again. A Ribbon or Party choice repeats the gentle help cue without advancing.",
+      "action": "Practice prefix becomes 3. Usually no visible clothing change occurs because phase 1 already equipped Garden. No plant camouflage, movement or Rumi hide-and-seek is implemented.",
+      "next": "Phase 3 offers a single Bow card.",
+      "cue": {
+        "caption": "Let us blend in! Pick clothes like our garden friend!",
+        "path": "audio/roshan_fashion_blend_pick.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": [
+        999,
+        258,
+        196,
+        306
+      ],
+      "gap": null,
+      "source_refs": [
+        "scripts/fashion_designer.gd:166"
+      ],
+      "annotation": "annotations/17.png"
+    },
+    {
+      "id": "18",
+      "group": "Later disguise practice",
+      "title": "Phase 3: choose the finished bow look",
+      "native": "native/09-disguise-bow-1280x720.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "One card labelled Bow pictures the full finished disguise, not an isolated bow piece or attachment socket.",
+      "do": "Tap that card at (575,258), size 196×306.",
+      "action": "The model saves prefix 7, grants the Garden Disguise once, records the reward and equips it. The UI then returns to the normal clothes page and says the done cue.",
+      "next": "Keep wearing the reward in normal play.",
+      "cue": {
+        "caption": "Tap the bow to finish our disguise!",
+        "path": "audio/roshan_fashion_finish_piece.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": [
+        575,
+        258,
+        196,
+        306
+      ],
+      "gap": "The old diagnostic harness stopped before this choice. There is no input midpoint, completed page or reward-transition screenshot.",
+      "source_refs": [
+        "scripts/fashion_wardrobe.gd:116",
+        "scripts/fashion_designer.gd:166"
+      ],
+      "annotation": "annotations/18.png"
+    },
+    {
+      "id": "19",
+      "group": "Later disguise practice",
+      "title": "The persistent reward",
+      "native": "native/asset-disguise.png",
+      "status": "ASSET ILLUSTRATION • CAPTURE GAP",
+      "see": "The existing Garden Disguise derivative illustrates the earned look. It is not a captured completion screen.",
+      "do": "No further confirmation is needed. Leave clothes with Check / Back.",
+      "action": "Garden → finished disguise with its accessory. The done cue plays on the ordinary wardrobe. Reward is once-only; no score, loss, timer or party star.",
+      "next": "Return later with the reward available as an everyday choice.",
+      "cue": {
+        "caption": "Our disguises are ready!",
+        "path": "audio/roshan_fashion_done.ogg",
+        "status": "PROVISIONAL_MACHINE_SCREENED"
+      },
+      "target": null,
+      "gap": "Native before / bow contact / completion / return / reload evidence is missing. The alpha has no authored bow-placement contact or pretend-show finish.",
+      "source_refs": [],
+      "annotation": "annotations/19.png"
+    },
+    {
+      "id": "20",
+      "group": "Persistence and variants",
+      "title": "Return, resume and replay limits",
+      "native": "native/10-wide-phone-1920x900.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "The ordinary wardrobe remains available in free play and preserves five independent character choices.",
+      "do": "Reopen the wardrobe and choose any owned look. If practice was unfinished, the mask button resumes its first incomplete phase.",
+      "action": "Saved prefixes and outfits survive reload in machine probes. Completed practice redirects to normal clothes with the done cue; there is currently no reset button for a fresh round.",
+      "next": "Use the wardrobe for repeated dressing; completed disguise practice is not a replayable minigame yet.",
+      "cue": null,
+      "target": null,
+      "gap": "No natural close/relaunch capture is available. Existing model/UI save probes prove data behavior, not the complete child route.",
+      "source_refs": [
+        "scripts/fashion_designer_test_case.gd"
+      ],
+      "annotation": "annotations/20.png"
+    },
+    {
+      "id": "21",
+      "group": "Persistence and variants",
+      "title": "World and Opera presentation",
+      "native": "native/06-dress-in-castle-1280x720.png",
+      "status": "SYNTHETIC RUNTIME REFERENCE",
+      "see": "The diagnostic Throne Hall capture is one world appearance example. Other participating scenes use the shared texture lookup.",
+      "do": "Continue normal play to see chosen clothes on recurring characters where their shared renderer is used.",
+      "action": "Career uniforms retain their activity-specific presentation; fixed owner-selected Day One clips retain their flattened original pixels. There is no separate Fashion Opera career or authored costume reaction here.",
+      "next": "Review actual wardrobe-to-world, Opera return and family appearances on a device.",
+      "cue": null,
+      "target": null,
+      "gap": "Castle companion, Rumi, family/lawn, kart, Galaxy, combat/dungeon, Conservatory and Opera return natural captures are absent. Source integration is not visual acceptance.",
+      "source_refs": [
+        "scripts/fashion_outfit_renderer.gd",
+        "assets_src/review/fashion_runtime_20261007/machine_verification.json"
+      ],
+      "annotation": "annotations/21.png"
+    },
+    {
+      "id": "P1",
+      "group": "Proposed redesign — not yet playable",
+      "title": "Make clothes for a friend",
+      "native": "native/02-rumi-1280x720.png",
+      "status": "PROPOSED • NOT YET PLAYABLE",
+      "see": "Current Rumi chooser is used only as a reference for the proposed dressing doll.",
+      "do": "Proposed: choose a friend, then a distinct garment, pattern and accessory from pictured hangers. Every everyday combination is welcome.",
+      "action": "Proposed: garments fit visibly onto the friend; use a dress for Rumi, coat for Daddy, cape for Baby Eagle and wrap for Rainbow Friend. These tailored garments and contact animations are missing sources, not existing gameplay.",
+      "next": "Admire the outfit together and save it immediately.",
+      "cue": null,
+      "target": null,
+      "gap": "Proposal only. Current alpha uses small outfit variants and card taps. No new garment/acting art was generated for this walkthrough.",
+      "source_refs": [],
+      "annotation": "annotations/P1.png"
+    },
+    {
+      "id": "P2",
+      "group": "Proposed redesign — not yet playable",
+      "title": "A birthday dressing ritual",
+      "native": "native/04-before-party-1280x720.png",
+      "status": "PROPOSED • NOT YET PLAYABLE",
+      "see": "The existing special-dress page anchors the owner-required placement before the party / Iko Iko / Ember King.",
+      "do": "Proposed: open the special dress, choose a flower or bow, and place it on Roshan with one generous gesture.",
+      "action": "Proposed: Roshan looks down at the fitted dress, admires it and enters the party in her personalised look. Keep save immediate and Back safe.",
+      "next": "The birthday begins after the dressing beat.",
+      "cue": null,
+      "target": null,
+      "gap": "Personalisation, placement contact and admiration are not implemented. This screenshot is a reference, not a new storyboard scene.",
+      "source_refs": [],
+      "annotation": "annotations/P2.png"
+    },
+    {
+      "id": "P3",
+      "group": "Proposed redesign — not yet playable",
+      "title": "Dress for a role, then act it",
+      "native": "native/07-disguise-role-1280x720.png",
+      "status": "PROPOSED • NOT YET PLAYABLE",
+      "see": "The existing Garden choice is a limited costume reference for a later pretend-play rehearsal.",
+      "do": "Proposed: pick role clothes and a pictured prop, then help the friend act that role through one simple touch activity.",
+      "action": "Proposed: Roshan travels to the station, visibly uses the prop and completes the act before advancing. Role-specific clothes, location, actions and exact voice/pointer need authoring.",
+      "next": "Try blending into a friendly setting.",
+      "cue": null,
+      "target": null,
+      "gap": "Role rehearsal and a specific narrative disguise mission are not playable or bound. Preserve later story placement; do not treat this proposal as canon approval.",
+      "source_refs": [],
+      "annotation": "annotations/P3.png"
+    },
+    {
+      "id": "P4",
+      "group": "Proposed redesign — not yet playable",
+      "title": "Blend, finish a friend and play together",
+      "native": "native/08-disguise-blend-1280x720.png",
+      "status": "PROPOSED • NOT YET PLAYABLE",
+      "see": "The current Garden Rumi picture is a reference for a friend-based disguise activity.",
+      "do": "Proposed: choose a flower or leaf silhouette, swim among plants for gentle hide-and-seek, then fit a missing piece onto a friend.",
+      "action": "Proposed: placement has generous contact, the friend reacts, and both join a pretend show. Roshan remains recognisable. A mismatch invites another playful try without losing progress.",
+      "next": "The earned clothes remain wearable across the game and the rehearsal can be replayed.",
+      "cue": null,
+      "target": null,
+      "gap": "Camouflage shapes, hiding location, fitting/contact, friend reaction, show and repeat-round flow are missing. No invented gameplay screenshot or new art is supplied.",
+      "source_refs": [],
+      "annotation": "annotations/P4.png"
+    }
+  ]
+}

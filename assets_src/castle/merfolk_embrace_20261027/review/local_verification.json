@@ -1,0 +1,366 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-28T03:25:47.243855+00:00",
+  "baseline": "95b68269f67650958c21ec1186385821eec10792",
+  "method": "Complete source-bound local validation across original CI prefix, exact V4 binding recheck and unchanged CI suffix; original failed run preserved separately. No altered tests, thresholds, timeouts, classifiers or probes.",
+  "initial_prefix": "scripts/ci.sh through strict V4 per-frame gate; prior static gates passed, whole-controller binding rejected, then revalidated with exact96-frame/12-occlusion equivalence.",
+  "continuation": {
+    "mode": "Source-bound continuation after metadata-only V4 binding revalidation; no changed runtime inputs",
+    "ci_script_sha256_utf8_lf": "99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c",
+    "continuation_start_marker": "RUNTIME_ERROR_RE='SCRIPT ERROR|",
+    "continuation_start_line": 180,
+    "continuation_sha256_utf8_lf": "f41da84077ffdb5502dd1b8f22840144eb9e35029e6121aa49e55b011c3f1b32",
+    "commands_and_thresholds": "Exact suffix of unchanged scripts/ci.sh, including import, shrinking-debt gate and every ordered trusted probe with original timeouts/classifiers. Earlier static gates passed in full_ci.log; only failing whole-controller approval binding rechecked after exact96-frame equivalence.",
+    "frozen_inputs": {
+      "baseline": "95b68269f67650958c21ec1186385821eec10792",
+      "hash_mode": "text canonical UTF-8 LF; PNG raw bytes",
+      "sha256": {
+        "scripts/arena/castle_rooms_25d.gd": "fec7a125523e4b1588cf138a597c5bfde0331108de35ab970f45989642a41c5b",
+        "tools/build_castle_embrace_painting.py": "99b5aed3fc35e3618eb012fa203e2b55508d68ca73df3f830efee30c9895ea2f",
+        "assets/flats/castle/rooms/merfolk_embrace_painting.png": "b5c367b86043840accc1f47ac00e9cc5646687d34cd07f51c79e717fbca49c3c",
+        "assets_src/castle/merfolk_embrace_20261027/source.png": "a20ea329d3cd71078611e9363a8c3f94cd15274005fc7da3de04dc6af6e7aad2"
+      }
+    }
+  },
+  "process_exit": 0,
+  "expected_probe_count": 82,
+  "completed_probes": [
+    {
+      "name": "probe_reef_districts",
+      "exit": 0
+    },
+    {
+      "name": "probe_ocean_kingdoms",
+      "exit": 0
+    },
+    {
+      "name": "probe_audit",
+      "exit": 0
+    },
+    {
+      "name": "probe_passive",
+      "exit": 0
+    },
+    {
+      "name": "probe_living_world",
+      "exit": 0
+    },
+    {
+      "name": "probe_load",
+      "exit": 0
+    },
+    {
+      "name": "probe_rank",
+      "exit": 0
+    },
+    {
+      "name": "probe_save_recovery",
+      "exit": 0
+    },
+    {
+      "name": "probe_galaxy_state",
+      "exit": 0
+    },
+    {
+      "name": "probe_collection",
+      "exit": 0
+    },
+    {
+      "name": "probe_mg2d",
+      "exit": 0
+    },
+    {
+      "name": "probe_fetch",
+      "exit": 0
+    },
+    {
+      "name": "probe_melody",
+      "exit": 0
+    },
+    {
+      "name": "probe_dolls",
+      "exit": 0
+    },
+    {
+      "name": "probe_seek",
+      "exit": 0
+    },
+    {
+      "name": "probe_audio",
+      "exit": 0
+    },
+    {
+      "name": "probe_dance",
+      "exit": 0
+    },
+    {
+      "name": "probe_l2",
+      "exit": 0
+    },
+    {
+      "name": "probe_l2_living_cards",
+      "exit": 0
+    },
+    {
+      "name": "probe_sky_lagoon_animals",
+      "exit": 0
+    },
+    {
+      "name": "probe_l2_reenter",
+      "exit": 0
+    },
+    {
+      "name": "probe_crown",
+      "exit": 0
+    },
+    {
+      "name": "probe_throne",
+      "exit": 0
+    },
+    {
+      "name": "probe_northern",
+      "exit": 0
+    },
+    {
+      "name": "probe_human_art_audit",
+      "exit": 0
+    },
+    {
+      "name": "probe_train",
+      "exit": 0
+    },
+    {
+      "name": "probe_verbs",
+      "exit": 0
+    },
+    {
+      "name": "probe_skins",
+      "exit": 0
+    },
+    {
+      "name": "probe_touch_router",
+      "exit": 0
+    },
+    {
+      "name": "probe_touch_stress",
+      "exit": 0
+    },
+    {
+      "name": "probe_interaction",
+      "exit": 0
+    },
+    {
+      "name": "probe_touch_adversary",
+      "exit": 0
+    },
+    {
+      "name": "probe_touch_look",
+      "exit": 0
+    },
+    {
+      "name": "probe_ui_system",
+      "exit": 0
+    },
+    {
+      "name": "probe_voice",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_voice",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_d8_revisits",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_handoffs",
+      "exit": 0
+    },
+    {
+      "name": "probe_kart_feel",
+      "exit": 0
+    },
+    {
+      "name": "probe_combat",
+      "exit": 0
+    },
+    {
+      "name": "probe_dust_bunny",
+      "exit": 0
+    },
+    {
+      "name": "probe_dust_bunny_boss",
+      "exit": 0
+    },
+    {
+      "name": "probe_dust_boss",
+      "exit": 0
+    },
+    {
+      "name": "probe_hit",
+      "exit": 0
+    },
+    {
+      "name": "probe_partner",
+      "exit": 0
+    },
+    {
+      "name": "probe_combat_tutorial",
+      "exit": 0
+    },
+    {
+      "name": "probe_imp_ai",
+      "exit": 0
+    },
+    {
+      "name": "probe_mic",
+      "exit": 0
+    },
+    {
+      "name": "probe_stuffie",
+      "exit": 0
+    },
+    {
+      "name": "probe_dungeon",
+      "exit": 0
+    },
+    {
+      "name": "probe_ember",
+      "exit": 0
+    },
+    {
+      "name": "probe_opera",
+      "exit": 0
+    },
+    {
+      "name": "probe_opera_2d",
+      "exit": 0
+    },
+    {
+      "name": "probe_opera_diegetic_paths",
+      "exit": 0
+    },
+    {
+      "name": "probe_opera_detective",
+      "exit": 0
+    },
+    {
+      "name": "probe_opera_pipe",
+      "exit": 0
+    },
+    {
+      "name": "probe_opera_nursery",
+      "exit": 0
+    },
+    {
+      "name": "probe_opera_gesture_quality",
+      "exit": 0
+    },
+    {
+      "name": "probe_kitchen_props",
+      "exit": 0
+    },
+    {
+      "name": "probe_bathroom_props",
+      "exit": 0
+    },
+    {
+      "name": "probe_castle_door_language",
+      "exit": 0
+    },
+    {
+      "name": "probe_bathroom_integration",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_bathroom_bunny",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_bathroom_cleanup",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_bathroom_movie_handoff",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_director",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_integration",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_pool_cleanup",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_art_attack_state",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_castle_dressing",
+      "exit": 0
+    },
+    {
+      "name": "probe_day_one_story_clips",
+      "exit": 0
+    },
+    {
+      "name": "probe_chapter2",
+      "exit": 0
+    },
+    {
+      "name": "probe_chapter2_farmer_resume",
+      "exit": 0
+    },
+    {
+      "name": "probe_chapter2_lawn",
+      "exit": 0
+    },
+    {
+      "name": "probe_alpha_milestone_save",
+      "exit": 0
+    },
+    {
+      "name": "probe_dust_boss_balance",
+      "exit": 0
+    },
+    {
+      "name": "probe_start_menu_routing",
+      "exit": 0
+    },
+    {
+      "name": "probe_start_menu_new_game",
+      "exit": 0
+    },
+    {
+      "name": "probe_castle_pool_life_2d",
+      "exit": 0
+    },
+    {
+      "name": "probe_castle_pearl_art",
+      "exit": 0
+    },
+    {
+      "name": "probe_fairy_art",
+      "exit": 0
+    },
+    {
+      "name": "probe_props",
+      "exit": 0
+    }
+  ],
+  "source_drift": [],
+  "game_2d_status": "NO_REGRESSION; global migration remains UNSATISFIED",
+  "raw_continuation_log": {
+    "path": "assets_src/castle/merfolk_embrace_20261027/review/ci_continuation.log.gz",
+    "encoding": "gzip of literal native log bytes",
+    "decompressed_sha256": "6f9f4c1ffb6c008b87d9097418229dafbd7852cafa9a702c9720a96207432ca4",
+    "archive_sha256": "d104ee1571f197c9c266002ccc54a31a5e0ad30ce518fca3f3db826f6aacbfa6"
+  },
+  "limits": "Configured desktop Mobile composition captured separately; canonical QA11, physical-device, child and owner acceptance pending. Exact-head GitHub CI must pass before integration."
+}

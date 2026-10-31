@@ -1,0 +1,41 @@
+{
+  "current04_machine": "PASS238configuredGUI/source drift0/saveunchanged, but rejected B1 pixels and selected HERDcontext not accepted",
+  "before_context": "Three pig faces partly hidden by direct-centre guide; gate drawn at.48surfaceH while herd feet follow original.66H lane, so their floor baselines differ.",
+  "repairs": [
+    "Guide points to belly below faces, still within the unchanged generous start/corridor hit region.",
+    "Gate rendercentre uses fixed original endpoint y plus measured native hoof/cap bottom offsets; its floor now coincides with pig floor. Original input endpoints, hitrects, goals/progress unchanged.",
+    "B2cleanup replaces only anatomically rejected B1source; old native/runtime/current04evidence retained."
+  ],
+  "changed_helper_functions": [
+    "guide",
+    "herd"
+  ],
+  "unchanged_helper_functions": [
+    "bind",
+    "art",
+    "value",
+    "complete",
+    "picture",
+    "progress_key",
+    "pearls",
+    "patient_rect",
+    "patient",
+    "doctor_trace_point",
+    "basin",
+    "scanner",
+    "portal",
+    "rope_rect",
+    "rope_point",
+    "rope",
+    "garden",
+    "picnic",
+    "lanes",
+    "painting_rect",
+    "paint_window",
+    "clipped_cloud",
+    "paint"
+  ],
+  "original_helper_sha256": "4b17772d87122cd9dedd8811bc2bd06fbbfd23c195d471d5540c48bdda2b8d2f",
+  "current_helper_sha256": "59b0cfb30da570c65e66557aa09b984b3d3dda991b37cf1ea024780f65117d44",
+  "source_scope": "Current04nonHERDart/functions unchanged; refresh only affectedHERD views at bothaspects current05. Whole-time motion, canonical/device/child/owner/finalcampaign pending."
+}

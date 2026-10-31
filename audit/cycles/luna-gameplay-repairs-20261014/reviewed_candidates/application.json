@@ -1,0 +1,67 @@
+{
+  "schema": "luna_reviewed_candidate_application/1",
+  "applied_utc": "2026-10-15T02:32:43.666061+00:00",
+  "branch": "codex/luna-gameplay-repairs-20261014",
+  "worktree": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+  "baseline": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "rescue_commit": "0120da93dc7c281b6f71852858e3b902a483ad95",
+  "patches": [
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\chapter2_complete_draft_v3_story_prop_aspect.patch",
+      "sha256": "81562b47284fb26a5a43d72972210fd6ee56a87e71608bfb918ca2a81654bc56"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\patches\\combat_probe_fidelity_v4_entry.patch",
+      "sha256": "74d2aaf17e2445d90dbe9905abfb11226852cd3986ef6c42fbe25c680e81b451"
+    },
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\final_patch_packet_v1\\ALL_SOURCE.patch",
+      "sha256": "8f1e46cc75e929c786f1c151bc4e04d66fdab11582d0a850cdbbe03cf580e601"
+    }
+  ],
+  "before": {
+    "scripts/audio_director.gd": "fbf1328fa94307523eeefd18613cf8cc79ef0e4e6d3fbd2e4148dc74c942c26e",
+    "scripts/chapter_two_career_scene_adapter.gd": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a",
+    "scripts/games/dolls.gd": "5cb9e511e002b9de4bfab5b6e9c41923308fac29690875e90a90c03ecb58162f",
+    "scripts/games/seek.gd": "05451ce46119fcd02818e98498d8dc80baede04f0068be47eabfa9686050a427",
+    "scripts/kart.gd": "d4bd2c7e56eae2e683bd28ecf53544e3e6edaee83bd0a5062aa425cf1bf6e0ff",
+    "scripts/opera_act.gd": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63",
+    "scripts/opera_career_world_2d.gd": "bef433ce6869d268bae3ee07948b37ba8b2d93bed8a9d82005a031e817db0edf",
+    "scripts/opera_gesture_surface.gd": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017",
+    "scripts/opera_house.gd": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+    "scripts/opera_world_backdrop_2d.gd": "82ba08a1f9d396fd38879b28e44411868d67b024aefd6aa2570113aaa964dc02",
+    "scripts/probe_chapter2.gd": "e4f8833b1634706e8e8f7239b17a3e0fa5d2a7093295de165a0b483fd5ea0526",
+    "scripts/probe_combat_tutorial.gd": "4386e067905614d85dd4856636ec441c817881e41fe199da7ae6c10150fabe19",
+    "scripts/probe_dolls.gd": "fe9fa7e868cb4feb2c8c7c1906beca3844652da9effd354965ce1784542cc9e5",
+    "scripts/probe_dust_boss.gd": "43640e183679a53fc8dc4543f83f6383f98b8c3a3a3976f1205a8030e249533d",
+    "scripts/probe_kart_feel.gd": "4b784becd5542d7e74e7932803c01c0dbddc3f8ab8a7af4ada821350d3cbbb98",
+    "scripts/probe_seek.gd": "c9d9a5c3a11bcebe08c47a76a89def689aeb415f9fa1e240971e54da9a996da8",
+    "scripts/probe_start_menu_new_game.gd": "e1212dc0ef7feba7c4f63b8b3b84af21d99e644334729664243384a61df4aa84",
+    "scripts/probe_voice.gd": "69cd427945ef038e67f6cf65717f65e708258d3a16b7583b655c891a312d2255",
+    "tools/audit_audio_quality.py": "95cbfc242d74b5f0b8927c29609a4fafe2187b96407d20cff37607c347139019",
+    "tools/tests/test_audit_audio_quality.py": "6c028dd7c8ffa73a2b7846843e53722d035b38a4dfad34483741202469e6a877"
+  },
+  "after": {
+    "scripts/audio_director.gd": "000f6f196978192c377af45c2418202890b18327ae9bf0877003055007d0b75e",
+    "scripts/chapter_two_career_scene_adapter.gd": "4706748be96d7234a3959229071e6cd9a3e7ec270ea02fca0188fe68f24c9bae",
+    "scripts/games/dolls.gd": "bfad8fa618543967375755bbbbb66c4cfc0b27fb1050e64323df2cc7ed9782cf",
+    "scripts/games/seek.gd": "3218ae0d3f134b97b48161ff830981b8b1ed52d71cda174b0fa81654e60fffd4",
+    "scripts/kart.gd": "2be58780a3caab0e72f8006f21ab1564d49bd82851fbb75cb35f27e289e16d28",
+    "scripts/opera_act.gd": "859df1ba7f344a14391f7b9855d1aca5e9299bb3e33733fe8bf3776a4258a305",
+    "scripts/opera_career_world_2d.gd": "6caaa6ef2863a3cc37b3ec6ca29b00f2efb9bfdc6282e7fff4e0c2a2e6802b51",
+    "scripts/opera_gesture_surface.gd": "a9687219adfb4672200bd65f1df6ee3cf9268c184f9c391e84a722b00c4022ab",
+    "scripts/opera_house.gd": "45efa470ee23378d66ab575cc3df1d1d9559ef012c3d33cdddbf6e1a4fad5f00",
+    "scripts/opera_world_backdrop_2d.gd": "a371cae65bbc320615cb8dc01d32145fbeb9cb7a87e8d4e7377669313d7d1af0",
+    "scripts/probe_chapter2.gd": "6c77970f187381426dfe77e26f5cb0850d0e706ba9785cf3cb9fa796dcff800c",
+    "scripts/probe_combat_tutorial.gd": "b8efbf1592be2ff993189839efc7bc92844fa318de0dae80f95098f24fc87b17",
+    "scripts/probe_dolls.gd": "42fae7d77c7bce35a4b343f9566b542733879b6a6b82d14032d6018e929b0dce",
+    "scripts/probe_dust_boss.gd": "eecaec72640defe75024347cbbf9956921fa707adcdd9f2e3676cbe59c5cc3dc",
+    "scripts/probe_kart_feel.gd": "67f7d125c4f8543e765301abde9f517e852b748288148327d065852230caa214",
+    "scripts/probe_seek.gd": "0a191136979859343139b068ce0c67966d89fc1792d985a1d420a315611937c4",
+    "scripts/probe_start_menu_new_game.gd": "92a271fde35876d4595a33ceca3471eb728bed799cb85b51d01c7bf31c65fef3",
+    "scripts/probe_voice.gd": "e0735639ec9b8006005197b377c21b14b164b3f52c6f891e87f7e9be558bab23",
+    "tools/audit_audio_quality.py": "882554bdf8209d53d940affc220f4cf838f19e88762c1b6f2d30d88e7228faf7",
+    "tools/tests/test_audit_audio_quality.py": "5a3a46d794e4814648c1c0407924cea435486ea7e89070e775b4721a76c0e01f"
+  },
+  "state": "SOURCE_APPLIED; audio assets/owner/audit records and exact candidate runtime gates still required"
+}

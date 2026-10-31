@@ -1,0 +1,304 @@
+{
+ "measured_at_head": "55032e88936b22723fd9af5282c61ba6696b3d43",
+ "data": {
+  "live": {
+   "main_gd_lines": 9826,
+   "probe_scripts": 137,
+   "gdscript_files": 314,
+   "game2d_model_files": 0,
+   "game2d_model_scan_coverage_files": 0,
+   "game2d_active_export_model_files": 0,
+   "game2d_model_import_sidecars": 0,
+   "game2d_active_untracked_model_import_sidecars": 0,
+   "game2d_model_archive_files": 0,
+   "game2d_production_3d_files": 52,
+   "game2d_probe_3d_files": 61,
+   "game2d_scene_3d_files": 1,
+   "game2d_configuration_3d_files": 1,
+   "game2d_archive_now_model_files": 0,
+   "game2d_status": "UNSATISFIED"
+  },
+  "stale_claims": [
+   {
+    "path": "CLAUDE.md",
+    "line": 110,
+    "claim": "model files",
+    "claimed": 513,
+    "live": 0,
+    "text": "**`UNSATISFIED`** at 513 model files and 70 production 3D files."
+   },
+   {
+    "path": "CLAUDE.md",
+    "line": 110,
+    "claim": "production 3D files",
+    "claimed": 70,
+    "live": 52,
+    "text": "**`UNSATISFIED`** at 513 model files and 70 production 3D files."
+   },
+   {
+    "path": "CLAUDE.md",
+    "line": 162,
+    "claim": "main.gd lines",
+    "claimed": 8465,
+    "live": 9826,
+    "text": "- scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized"
+   },
+   {
+    "path": "AGENTS.md",
+    "line": 114,
+    "claim": "model files",
+    "claimed": 513,
+    "live": 0,
+    "text": "The synchronized committed audit snapshot is **`UNSATISFIED`** at 513 model"
+   },
+   {
+    "path": "AGENTS.md",
+    "line": 115,
+    "claim": "production 3D files",
+    "claimed": 70,
+    "live": 52,
+    "text": "files and 70 production 3D files. See"
+   },
+   {
+    "path": "AGENTS.md",
+    "line": 304,
+    "claim": "main.gd lines",
+    "claimed": 8465,
+    "live": 9826,
+    "text": "- scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized"
+   },
+   {
+    "path": "audit/MASTER_AUDIT_2026-08-09.md",
+    "line": 269,
+    "claim": "model files",
+    "claimed": 509,
+    "live": 0,
+    "text": "manifest shrink at `a3d3bce1` now records the resulting 509-model/68-production"
+   },
+   {
+    "path": "audit/MASTER_AUDIT_2026-08-09.md",
+    "line": 554,
+    "claim": "production 3D files",
+    "claimed": 65,
+    "live": 52,
+    "text": "| Game-wide 2D scanner and archive | Made every model/sidecar/3D API measurable, fail-closed, and shrink-only; archived verified retired bytes | The current res"
+   },
+   {
+    "path": "audit/MASTER_AUDIT_2026-08-09.md",
+    "line": 576,
+    "claim": "production 3D files",
+    "claimed": 65,
+    "live": 52,
+    "text": "| Architecture and maintainability | **2/5** | Satellites, bounded surfaces, the collapsed Canvas-only Opera controllers, the Sky Canvas satellite, and the cent"
+   },
+   {
+    "path": "audit/MASTER_AUDIT_2026-08-09.md",
+    "line": 881,
+    "claim": "main.gd lines",
+    "claimed": 8734,
+    "live": 9826,
+    "text": "| `scripts/main.gd` | 8,734 lines at current source `51d0abc0` (historical `09e5e356`: 8,647) |"
+   },
+   {
+    "path": "audit/MASTER_AUDIT_2026-08-09.md",
+    "line": 1447,
+    "claim": "model files",
+    "claimed": 509,
+    "live": 0,
+    "text": "| `MA-2D-002` | P1 | `IN_PROGRESS` | V2/V3 partial | Source `51d0abc0` records 509 model/export files, 157 tracked model sidecars, 352 active untracked sidecars"
+   },
+   {
+    "path": "audit/MASTER_AUDIT_2026-08-09.md",
+    "line": 1447,
+    "claim": "production 3D files",
+    "claimed": 65,
+    "live": 52,
+    "text": "| `MA-2D-002` | P1 | `IN_PROGRESS` | V2/V3 partial | Source `51d0abc0` records 509 model/export files, 157 tracked model sidecars, 352 active untracked sidecars"
+   },
+   {
+    "path": "audit/MASTER_AUDIT_2026-08-09.md",
+    "line": 1516,
+    "claim": "probe scripts",
+    "claimed": 106,
+    "live": 137,
+    "text": "| `MA-CI-003` | P2 | `CONFIRMED_OPEN` | V1 | All 106 probe scripts still need exactly one trusted/runtime-visual/advisory/diagnostic/obsolete/quarantined classi"
+   },
+   {
+    "path": "audit/MASTER_AUDIT_2026-08-09.md",
+    "line": 1594,
+    "claim": "production 3D files",
+    "claimed": 68,
+    "live": 52,
+    "text": "| `EV-2D-013` | `MA-2D-002`, `MA-2D-003` | Record the Dolls/Seek/visual-probe shrink without relaxing the baseline | `a3d3bce1`; default exact and regression mo"
+   },
+   {
+    "path": "audit/MASTER_AUDIT_2026-08-09.md",
+    "line": 2016,
+    "claim": "probe scripts",
+    "claimed": 106,
+    "live": 137,
+    "text": "Every one of the current 106 probe scripts receives exactly one state:"
+   },
+   {
+    "path": "audit/MASTER_AUDIT_2026-08-09.md",
+    "line": 2205,
+    "claim": "model files",
+    "claimed": 509,
+    "live": 0,
+    "text": "509-model/65-production-file inventory until every GAME2D category is zero;"
+   },
+   {
+    "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "line": 57,
+    "claim": "model files",
+    "claimed": 509,
+    "live": 0,
+    "text": "| evidence | Master audit sections 1 and 5.1; `tools/audit_game_2d.py`; source `51d0abc0` records 509 model/export files, 157 tracked and 352 active-untracked s"
+   },
+   {
+    "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "line": 57,
+    "claim": "production 3D files",
+    "claimed": 65,
+    "live": 52,
+    "text": "| evidence | Master audit sections 1 and 5.1; `tools/audit_game_2d.py`; source `51d0abc0` records 509 model/export files, 157 tracked and 352 active-untracked s"
+   },
+   {
+    "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "line": 563,
+    "claim": "production 3D files",
+    "claimed": 65,
+    "live": 52,
+    "text": "| evidence | Runtime `09e5e356` full local 1463.4 seconds/64; `ff068db` full local 1379.3 seconds/64; failed run `31678156887` retained. Historical `51887315`, "
+   },
+   {
+    "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "line": 646,
+    "claim": "probe scripts",
+    "claimed": 106,
+    "live": 137,
+    "text": "| title | The 106 probe scripts do not each have exactly one declared trust and execution classification. |"
+   },
+   {
+    "path": "design/00_MASTER_INDEX.md",
+    "line": 191,
+    "claim": "model files",
+    "claimed": 509,
+    "live": 0,
+    "text": "exact inventory to 509 model files, all 509 active/export, 157 tracked"
+   },
+   {
+    "path": "design/00_MASTER_INDEX.md",
+    "line": 192,
+    "claim": "production 3D files",
+    "claimed": 65,
+    "live": 52,
+    "text": "sidecars, 352 active-untracked generated sidecars, 65 production 3D files, 70"
+   },
+   {
+    "path": "design/00_MASTER_INDEX.md",
+    "line": 198,
+    "claim": "main.gd lines",
+    "claimed": 8734,
+    "live": 9826,
+    "text": "`scripts/main.gd`; current source `51d0abc0` has 8,734 lines."
+   },
+   {
+    "path": "design/01_GAME_DESIGN.md",
+    "line": 152,
+    "claim": "model files",
+    "claimed": 509,
+    "live": 0,
+    "text": "remains **`UNSATISFIED`**: 509 model files/509 active exports, 157 tracked and"
+   },
+   {
+    "path": "design/01_GAME_DESIGN.md",
+    "line": 153,
+    "claim": "production 3D files",
+    "claimed": 65,
+    "live": 52,
+    "text": "352 active-untracked generated model sidecars, 65 production 3D files, 70"
+   },
+   {
+    "path": "design/03_TECHNICAL_ARCHITECTURE.md",
+    "line": 38,
+    "claim": "model files",
+    "claimed": 509,
+    "live": 0,
+    "text": "Current source `51d0abc0` is **`UNSATISFIED`** at 509 model/export files, 65"
+   },
+   {
+    "path": "design/03_TECHNICAL_ARCHITECTURE.md",
+    "line": 302,
+    "claim": "probe scripts",
+    "claimed": 106,
+    "live": 137,
+    "text": "Exhaustive classification of all 106 probe scripts remains `CONFIRMED_OPEN`"
+   },
+   {
+    "path": "design/03_TECHNICAL_ARCHITECTURE.md",
+    "line": 554,
+    "claim": "model files",
+    "claimed": 509,
+    "live": 0,
+    "text": "| `MA-2D-002` | `IN_PROGRESS` | GAME2D at `51d0abc0`: 509 model/export files, 157 tracked model sidecars, 352 active untracked model sidecars, 65 production and"
+   },
+   {
+    "path": "design/03_TECHNICAL_ARCHITECTURE.md",
+    "line": 558,
+    "claim": "probe scripts",
+    "claimed": 106,
+    "live": 137,
+    "text": "| `MA-CI-003` | `CONFIRMED_OPEN` | Every one of the 106 probe scripts still needs exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarant"
+   },
+   {
+    "path": "design/04_OPEN_WORK.md",
+    "line": 53,
+    "claim": "model files",
+    "claimed": 509,
+    "live": 0,
+    "text": "77-probe checkpoint. Current source reports 509 model files/509 active"
+   },
+   {
+    "path": "design/04_OPEN_WORK.md",
+    "line": 58,
+    "claim": "probe scripts",
+    "claimed": 106,
+    "live": 137,
+    "text": "Markdown paths, 195 GDScript files under `scripts/`, 106 probe scripts and an 8,519-line"
+   },
+   {
+    "path": "design/04_OPEN_WORK.md",
+    "line": 151,
+    "claim": "probe scripts",
+    "claimed": 106,
+    "live": 137,
+    "text": "| `MA-CI-003` | `CONFIRMED_OPEN` | Give every one of the 106 probe scripts exactly one trusted, runtime-visual, advisory, diagnostic, obsolete or quarantined cl"
+   },
+   {
+    "path": "design/04_OPEN_WORK.md",
+    "line": 290,
+    "claim": "probe scripts",
+    "claimed": 106,
+    "live": 137,
+    "text": "total / 45 outside” count is stale. The merged tree counts 106 probe scripts,"
+   },
+   {
+    "path": "design/04_OPEN_WORK.md",
+    "line": 360,
+    "claim": "main.gd lines",
+    "claimed": 8734,
+    "live": 9826,
+    "text": "`main.gd` is 8,734 lines at current source `51d0abc0` (historical `09e5e356` was"
+   },
+   {
+    "path": "design/04_OPEN_WORK.md",
+    "line": 391,
+    "claim": "production 3D files",
+    "claimed": 65,
+    "live": 52,
+    "text": "true-2D gameplay family at a time from 509 models/65 production/70 probe"
+   }
+  ]
+ }
+}

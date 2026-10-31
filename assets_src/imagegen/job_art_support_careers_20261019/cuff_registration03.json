@@ -1,0 +1,148 @@
+{
+  "records": [
+    {
+      "source": "doctor_hands_ready_retry",
+      "reference": "doctor_hands_ready_retry",
+      "source_sha256": "37921526a78b255dc31c47f60f73fe8544991d190c77d5412742c8ec6853d20c",
+      "uniform_scale": 0.9999999999999999,
+      "translation_at_512": [
+        -3.3321518505973524e-14,
+        1.2924697769328113e-15
+      ],
+      "cuff_centres_at_512": [
+        [
+          84.97385620915033,
+          353.24400871459693
+        ],
+        [
+          434.3053949903661,
+          352.26878612716763
+        ]
+      ],
+      "reference_cuff_centres_at_512": [
+        [
+          84.97385620915033,
+          353.24400871459693
+        ],
+        [
+          434.3053949903661,
+          352.26878612716763
+        ]
+      ],
+      "residual_per_cuff_at_512": [
+        7.105427357601002e-14,
+        1.2710574864626038e-13
+      ],
+      "method": "Two separately measured original coral cuff stripe largest connected components; whole-pair uniform scale+translation only, no part warp/alpha/paint change. Source pixels merely measured, never changed. SIFT hands low confidence/left-right near-identical texture matches rejected; original measurement retained.",
+      "status": "MEASURED_REGISTRATION_NOT_MOTION_ACCEPTANCE"
+    },
+    {
+      "source": "doctor_hands_wet",
+      "reference": "doctor_hands_ready_retry",
+      "source_sha256": "01d1817db238e99d3e827fd70232178bd59ac28177c21e068d34e14faf063221",
+      "uniform_scale": 1.0582270910950207,
+      "translation_at_512": [
+        -14.893960716496998,
+        -30.921064492846845
+      ],
+      "cuff_centres_at_512": [
+        [
+          94.38208616780045,
+          361.53514739229024
+        ],
+        [
+          424.4736275565124,
+          363.59741657696446
+        ]
+      ],
+      "reference_cuff_centres_at_512": [
+        [
+          84.97385620915033,
+          353.24400871459693
+        ],
+        [
+          434.3053949903661,
+          352.26878612716763
+        ]
+      ],
+      "residual_per_cuff_at_512": [
+        1.5788166652536118,
+        1.5788166652537827
+      ],
+      "method": "Two separately measured original coral cuff stripe largest connected components; whole-pair uniform scale+translation only, no part warp/alpha/paint change. Source pixels merely measured, never changed. SIFT hands low confidence/left-right near-identical texture matches rejected; original measurement retained.",
+      "status": "MEASURED_REGISTRATION_NOT_MOTION_ACCEPTANCE"
+    },
+    {
+      "source": "doctor_hands_rub_palms",
+      "reference": "doctor_hands_ready_retry",
+      "source_sha256": "4a896b90e28aeb95a001e2b09122649c52b1631610534b6067429eafc64ec574",
+      "uniform_scale": 1.0894088941081361,
+      "translation_at_512": [
+        -30.83287837763732,
+        -40.002840386631476
+      ],
+      "cuff_centres_at_512": [
+        [
+          106.47646219686163,
+          355.4636233951498
+        ],
+        [
+          426.78979907264295,
+          365.58655332302936
+        ]
+      ],
+      "reference_cuff_centres_at_512": [
+        [
+          84.97385620915033,
+          353.24400871459693
+        ],
+        [
+          434.3053949903661,
+          352.26878612716763
+        ]
+      ],
+      "residual_per_cuff_at_512": [
+        6.004612590606081,
+        6.004612590606241
+      ],
+      "method": "Two separately measured original coral cuff stripe largest connected components; whole-pair uniform scale+translation only, no part warp/alpha/paint change. Source pixels merely measured, never changed. SIFT hands low confidence/left-right near-identical texture matches rejected; original measurement retained.",
+      "status": "MEASURED_REGISTRATION_NOT_MOTION_ACCEPTANCE"
+    },
+    {
+      "source": "doctor_hands_rub_backs",
+      "reference": "doctor_hands_ready_retry",
+      "source_sha256": "763e3eb5751dc3f4053d5ea8ec7645547f94b5819378442317addb6efe3947b7",
+      "uniform_scale": 1.2998934246851266,
+      "translation_at_512": [
+        -81.12888186893161,
+        -121.53874706214076
+      ],
+      "cuff_centres_at_512": [
+        [
+          127.78260869565217,
+          365.4369034994698
+        ],
+        [
+          396.51961639058413,
+          364.3077593722755
+        ]
+      ],
+      "reference_cuff_centres_at_512": [
+        [
+          84.97385620915033,
+          353.24400871459693
+        ],
+        [
+          434.3053949903661,
+          352.26878612716763
+        ]
+      ],
+      "residual_per_cuff_at_512": [
+        0.24627439335489587,
+        0.2462743933548951
+      ],
+      "method": "Two separately measured original coral cuff stripe largest connected components; whole-pair uniform scale+translation only, no part warp/alpha/paint change. Source pixels merely measured, never changed. SIFT hands low confidence/left-right near-identical texture matches rejected; original measurement retained.",
+      "status": "MEASURED_REGISTRATION_NOT_MOTION_ACCEPTANCE"
+    }
+  ]
+}

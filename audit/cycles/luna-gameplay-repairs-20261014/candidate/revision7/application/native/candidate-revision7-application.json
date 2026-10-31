@@ -1,0 +1,24 @@
+{
+  "schema": "luna_candidate_revision_application/1",
+  "revision": 7,
+  "applied_utc": "2026-10-15T03:33:14.479004+00:00",
+  "root": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+  "previous_pin_sha256": "aa9241bd18f8f5599033fe451a42cad4040742106df1f7b8650c61ac2280694f",
+  "review_config_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\reviewed-revision7.json",
+  "review_config_sha256": "c19fe8ab26383d61d5249fb665f23865637e2202d1ecbda215c2fc5de346f8d8",
+  "patches": [
+    {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\freeplay_fixture_repair_01.patch",
+      "sha256": "da0dc794d3c9ba97838d0b8f35e10c933d08f8b22ec98ea2b0b13a0d681c6d2f"
+    }
+  ],
+  "files": [
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "before_sha256": "8da969c10bc40a0274d9aa06deb57cb42ac72033d69a711d2954c64b124656d2",
+      "after_sha256": "0276b386e1a8f4432fc88a533dec6723d77791fa518f15f37960112c5155d6ff"
+    }
+  ],
+  "reason": "Correct only the configuration-level freeplay Detective intro compatibility fixture: use actual default SEARCH/lens phase0 instead of erroneous CROWN/index2 override, and assert catalog/mode/phase/binding prerequisites. Production source, real story route, voice/touch/copy controls unchanged. Prior route05 retains invalid-fixture limitation; finalrerun required.",
+  "verification": "Applied/source-verified only; runtime and full CI pending."
+}

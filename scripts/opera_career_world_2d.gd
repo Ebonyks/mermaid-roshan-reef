@@ -28,6 +28,7 @@ const PerformancePlan := preload("res://scripts/opera_performance_plan.gd")
 const Mastery := preload("res://scripts/opera_mastery.gd")
 const PerformanceOverlay := preload("res://scripts/opera_performance_overlay.gd")
 const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
+const ChefSurface := preload("res://scripts/opera_chef_surface.gd")
 const BoxingSurface := preload("res://scripts/opera_boxing_surface.gd")
 const RacerSurface := preload("res://scripts/opera_racer_surface.gd")
 const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
@@ -406,7 +407,7 @@ const FINALE_START := {
 ## object; their stage-wide play only starts after Roshan reaches it.
 const PHASE_STATIONS := {
 	"teacher": {"PATTERN": "lesson_desk", "COUNT": "lesson_desk", "ADD": "lesson_desk", "MATCH": "lesson_desk"},
-	"chef": {"MIX": "mixing_bowl", "STIR": "mixing_bowl", "BAKE": "hearth_oven", "FROST": "grand_cake_stage", "TOP": "grand_cake_stage"},
+	"chef": {"MIX": "mixing_bowl", "STIR": "mixing_bowl", "BAKE": "hearth_oven", "STACK": "grand_cake_stage", "FROST": "grand_cake_stage", "TOP": "grand_cake_stage"},
 	"detective": {"SEARCH": "magnifier_tower", "CASE BOARD": "evidence_shelves", "CROWN": "treasure_dais"},
 	"ballerina": {"PEARL MIRROR": "trifold_mirror", "RIBBON TRAIL": "wave_tuffets", "GRAND TWIRL": "rose_finale_stage"},
 	"candymaker": {"SYRUP": "gumball_vat", "SORT": "taffy_press", "WRAP": "candy_bag_cottage", "SHARE": "candy_cart"},
@@ -445,7 +446,7 @@ const HOTSPOT_PHASE_ALIASES := {
 ## codex flat-package cards matted by tools/prepare_opera_2d_props.py; a
 ## missing file simply hides the prop.
 const GOAL_PROPS := {
-	"teacher": "../hotspots/teacher_lesson_board.svg",
+	"teacher": "../hotspots/teacher_lesson_board.png",
 	"chef": "goal_chef",
 	"detective": "goal_detective",
 	"ballerina": "goal_ballerina",
@@ -459,17 +460,19 @@ const GOAL_PROPS := {
 	"racer": "goal_racer",
 	"popstar": "goal_popstar",
 	"nursery": "goal_nursery",
-	"geologist": "goal_geologist.svg",
+	"geologist": "goal_geologist.tres",
 }
 var m: ReefMain
 var config: Dictionary = {}
 var competition: OperaCompetition
 var win_callback: Callable
+var painted_feedback_art: PaintedFeedbackArt = null
 var career_id := ""
 var phases: Array = []
 var phase_index := 0
 var phase_progress := 0.0
-var active := true
+var active := false
+var setup_complete := false
 var guided := false
 var reveal_t := 0.0
 var elapsed := 0.0
@@ -596,6 +599,7 @@ var teacher_save_pending := false
 var teacher_save_cool := 0.0
 var teacher_voice_queue: Array[String] = []
 var teacher_caption: Label
+var teacher_playtest_progress: Dictionary = {}
 
 var backdrop_node: OperaWorldBackdrop2D
 var action_panel: ColorRect
@@ -647,10 +651,18 @@ var chapter2_detective_candle_button: Button = null
 
 func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 		on_win: Callable, phase_overrides: Array = [],
-		scene_adapter_config: Dictionary = {}, context: Dictionary = {}) -> void:
+		scene_adapter_config: Dictionary = {}, context: Dictionary = {}) -> bool:
+	# A rejected configuration never becomes a processing activity or owns
+	# lifecycle callbacks. The caller restores any acquired route state.
+	active = false
+	setup_complete = false
+	set_process(false)
 	m = main
 	config = act_config
 	competition = director
+	if competition == null:
+		push_error("OperaCareerWorld2D: missing career competition")
+		return false
 	competition.pause()
 	win_callback = on_win
 	career_id = String(config.get("costume", "chef"))
@@ -661,18 +673,22 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 	if run_context.is_empty() and config.get("run_context", {}) is Dictionary:
 		run_context = (config.get("run_context", {}) as Dictionary).duplicate(false)
 	var override_config: Dictionary = {}
-	if config.get("phase_overrides", []) is Array:
-		override_config["phase_overrides"] = config.get("phase_overrides", [])
+	if config.has("phase_overrides"):
+		# Absence selects the authored catalog; an explicit empty or malformed
+		# override stays present so validation can reject it.
+		override_config["phase_overrides"] = config.get("phase_overrides")
 	if config.get("finale_start", null) != null:
 		override_config["finale_start"] = int(config.get("finale_start", 0))
 	var requested_adapter: Dictionary = scene_adapter_config.duplicate(true)
-	if requested_adapter.is_empty() and config.get("scene_adapter", {}) is Dictionary:
-		requested_adapter = (config.get("scene_adapter", {}) as Dictionary).duplicate(true)
+	if requested_adapter.is_empty() and config.has("scene_adapter"):
+		var configured_adapter: Variant = config.get("scene_adapter")
+		if configured_adapter is Dictionary:
+			requested_adapter = (configured_adapter as Dictionary).duplicate(true)
+		else:
+			override_config["scene_adapter"] = configured_adapter
 	scene_adapter = requested_adapter
-	var adapter_phases: Variant = scene_adapter.get(
-		"phase_overrides", scene_adapter.get("phases", null))
-	if phase_overrides.is_empty() and adapter_phases is Array:
-		phase_overrides = (adapter_phases as Array).duplicate(true)
+	if not scene_adapter.is_empty():
+		override_config["scene_adapter"] = scene_adapter
 	if config.get("finale_start", null) == null and scene_adapter.has("finale_start"):
 		override_config["finale_start"] = int(scene_adapter.get("finale_start", 0))
 	var callbacks: Variant = run_context.get("callbacks", {})
@@ -687,20 +703,20 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 		if direct_callback is Callable \
 				and (direct_callback as Callable).is_valid():
 			adapter_callbacks[event] = direct_callback
-	var supplied_phases := phase_overrides
-	if supplied_phases.is_empty() and config.get("phase_overrides", []) is Array:
-		supplied_phases = config.get("phase_overrides", []) as Array
-	if not supplied_phases.is_empty():
-		override_config["phase_overrides"] = supplied_phases
+	# The existing empty positional argument remains an optional placeholder
+	# for callers that supply a scene adapter. Explicit config keys are never
+	# manufactured from that default.
+	if not phase_overrides.is_empty():
+		override_config["phase_overrides"] = phase_overrides.duplicate(true)
 	var chapter_marker := String(run_context.get("chapter", "")).to_lower()
 	var chapter_requested := chapter_marker in ["2", "chapter2", "chapter_2"]
-	using_chapter_two_phases = not supplied_phases.is_empty() \
-			or not scene_adapter.is_empty() \
+	using_chapter_two_phases = override_config.has("phase_overrides") \
+			or override_config.has("scene_adapter") \
 			or chapter_requested
 	if using_chapter_two_phases:
 		if not ChapterTwoAdapter.validate_config_overrides(career_id, override_config):
 			push_error("OperaCareerWorld2D: rejected invalid Chapter 2 phase override")
-			return
+			return false
 		var chapter_set := ChapterTwoAdapter.resolve(career_id, override_config)
 		var chapter_phases: Array = chapter_set.get("phases", []) as Array
 		phases = chapter_phases.duplicate(true) if not chapter_phases.is_empty() \
@@ -716,6 +732,9 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 			config["chapter2_scene"] = backdrop_variant
 	else:
 		phases = (PHASES.get(career_id, []) as Array).duplicate(true)
+	if phases.is_empty():
+		push_error("OperaCareerWorld2D: career has no playable phases")
+		return false
 	if bool(config.get("chapter2_tutorial", false)) and not phases.is_empty():
 		# The opening Opera lessons teach one physical verb and grant a skill.
 		# The complete Ballerina number therefore first occurs later with the
@@ -733,11 +752,11 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 	phase_index = 0
 	if two_act_enabled:
 		_performance_restore()
-	if career_id == "teacher":
+	if career_id == "teacher" and not _is_dev_playtest():
 		var saved: Variant = m.save_data.get("teacher_lesson_checkpoint", {})
 		if saved is Dictionary and saved.get("version", 0) == 1:
 			phase_index = clampi(int(saved.get("phase_index", 0)), 0, phases.size())
-	if career_id == "geologist" and not using_chapter_two_phases:
+	if career_id == "geologist" and not using_chapter_two_phases and not _is_dev_playtest():
 		var checkpoint: Variant = m.save_data.get("opera_geology_checkpoint", {})
 		if checkpoint is Dictionary and int((checkpoint as Dictionary).get("version", 0)) == 1:
 			phase_index = clampi(int((checkpoint as Dictionary).get("phase_index", 0)), 0, phases.size())
@@ -777,11 +796,17 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 			performance_rival_surface.visible = false
 	# The room is part of every activity. Setup arms the first physical object;
 	# it never bypasses discovery by opening a minigame synchronously.
+	setup_complete = true
+	active = true
+	set_process(true)
 	_adapter_hook("scene_ready", scene_snapshot())
 	_arm_phase()
+	return true
 
 
 func _adapter_hook(event: String, payload: Dictionary = {}) -> void:
+	if _is_dev_playtest():
+		return
 	var callback: Variant = adapter_callbacks.get(event, Callable())
 	if not _valid_callback(callback):
 		callback = scene_adapter.get(event, Callable())
@@ -857,7 +882,7 @@ func _sync_root_scale() -> void:
 
 
 func _is_chapter2_story_scene() -> bool:
-	return using_chapter_two_phases and not scene_adapter.is_empty()
+	return not _is_dev_playtest() and using_chapter_two_phases and not scene_adapter.is_empty()
 
 
 func _is_chapter2_cake_scene() -> bool:
@@ -884,6 +909,9 @@ func _build_chapter2_story_props() -> void:
 		chapter2_cake_scene.setup()
 		chapter2_cake_scene.position = Vector2(790.0, 200.0)
 		chapter2_cake_scene.z_index = 4
+		if career_id in ["chef", "candymaker"]:
+			chapter2_cake_scene.z_index = 0
+			chapter2_cake_scene.set_kitchen_display_layout(true)
 		chapter2_cake_scene.set_meta("scene_specific_art", true)
 		chapter2_cake_scene.set_meta("same_asset_as_party_table", true)
 		root.add_child(chapter2_cake_scene)
@@ -919,7 +947,7 @@ func _build_chapter2_story_props() -> void:
 		if ResourceLoader.exists(rumi_path):
 			chapter2_rumi_scene = Sprite2D.new()
 			chapter2_rumi_scene.name = "Chapter2RumiSoundCheckPartner"
-			chapter2_rumi_scene.texture = load(rumi_path) as Texture2D
+			chapter2_rumi_scene.texture = load(FashionOutfitRenderer.path(m, rumi_path)) as Texture2D
 			chapter2_rumi_scene.hframes = 4
 			chapter2_rumi_scene.vframes = 2
 			chapter2_rumi_scene.frame = 0
@@ -974,7 +1002,7 @@ func _build_chapter2_strawberry_pickups() -> void:
 
 
 func _is_chapter2_strawberry_pick_phase() -> bool:
-	if career_id != "farmer" or not using_chapter_two_phases \
+	if _is_dev_playtest() or career_id != "farmer" or not using_chapter_two_phases \
 			or phase_index < 0 or phase_index >= phases.size():
 		return false
 	var phase := phases[phase_index] as Dictionary
@@ -1088,7 +1116,7 @@ func _refresh_chapter2_cake_scene() -> void:
 	var strawberry_mask := int(m.chapter2_strawberry_mask) if m != null else 0
 	var cake_mask := int(m.chapter2_cake_piece_mask) if m != null else 0
 	chapter2_cake_scene.apply_milestone_masks(strawberry_mask, cake_mask)
-	chapter2_cake_scene.visible = true
+	chapter2_cake_scene.visible = not (surface is OperaChefSurface and task_open)
 	set_meta("chapter2_cake_state", chapter2_cake_scene.persistent_state())
 	set_meta("chapter2_cake_stage", chapter2_cake_scene.stage_id())
 
@@ -1263,7 +1291,14 @@ func _build_world() -> void:
 	action_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	action_panel.draw.connect(_draw_activity_focus)
 	root.add_child(action_panel)
-	if career_id == "boxer":
+	if career_id == "chef" and _is_chapter2_story_scene():
+		surface = ChefSurface.new() as OperaGestureSurface
+		# Room-owned food stays behind the foreground characters, including
+		# during celebration when their hands overlap the rack or cake.
+		player_actor.z_index = 1
+		if rival_actor != null:
+			rival_actor.z_index = 1
+	elif career_id == "boxer":
 		surface = BoxingSurface.new() as OperaGestureSurface
 	elif career_id == "ballerina":
 		surface = BalletSurface.new() as OperaGestureSurface
@@ -1439,6 +1474,10 @@ func _is_tutorial_run() -> bool:
 	return bool(config.get("chapter2_tutorial", false))
 
 
+func _is_dev_playtest() -> bool:
+	return String(config.get("reward_policy", "")) == "dev_playtest"
+
+
 func _animate_chapter2_guest(guest: TextureRect, target_rotation: float,
 		lift: float, target_scale: float, duration: float) -> void:
 	if guest == null or not is_instance_valid(guest):
@@ -1542,9 +1581,52 @@ func _configure_stage_paths() -> void:
 			var connection := StagePaths.point_along(stage_points,
 				StagePaths.nearest_t(stage_points, approach))
 			station["spur"] = PackedVector2Array([connection, approach])
+	elif _is_chapter2_story_scene() and career_id == "farmer":
+		# The approved Sky Lagoon meadow and its existing basket are a different
+		# place from the freeplay barn. These are explicit story floor contacts.
+		stage_points = PackedVector2Array([Vector2(86, 590), Vector2(300, 590),
+			Vector2(520, 605), Vector2(760, 610), Vector2(1040, 620)])
+		station_list = [
+			_story_station("strawberry_grove", Vector2(610, 270), Vector2(610, 607)),
+			_story_station("strawberry_basket", Vector2(1040, 620), Vector2(940, 616)),
+			_story_station("kitchen_delivery", Vector2(1040, 620), Vector2(940, 616)),
+		]
+	elif _is_chapter2_story_scene() and career_id == "detective":
+		# Reuse the existing Library/Teacher floor lane with the story-owned book
+		# and separately revealed candle; no treasure chest or crown destination.
+		stage_points = StagePaths.path_points("teacher")
+		station_list = [
+			_story_station("magic_storybook", Vector2(620, 300), Vector2(620, 518.4)),
+			_story_station("unlit_rainbow_candle", Vector2(838, 238), Vector2(838, 518.4)),
+		]
+	elif _is_chapter2_story_scene() and career_id == "candymaker":
+		# The same carried cake stays on the clean kitchen supports.
+		stage_points = StagePaths.path_points("chef")
+		station_list = StagePaths.stations("chef")
 	else:
 		stage_points = StagePaths.path_points(career_id)
 		station_list = StagePaths.stations(career_id)
+		if _is_chapter2_story_scene() and career_id == "popstar":
+			var stage_socket := _station_index_for_id("record_dais")
+			if stage_socket >= 0:
+				var rumi_socket: Dictionary = station_list[stage_socket].duplicate(true)
+				rumi_socket["id"] = "rumi_stage"
+				rumi_socket["object_pos"] = Vector2(1040, 390)
+				station_list.append(rumi_socket)
+
+
+func _story_station(id: String, object: Vector2, approach: Vector2) -> Dictionary:
+	var connection := StagePaths.point_along(stage_points, StagePaths.nearest_t(stage_points, approach))
+	return {"id": id, "object_pos": object, "pos": approach,
+		"approach_pos": approach, "arrival_radius": 4.0,
+		"visual_size": Vector2(144, 144), "hotspot_size": Vector2(172, 172),
+		"spur": PackedVector2Array([connection, approach]),
+		"landmark": id, "authored_object": true, "authored_spur": true}
+
+
+func _uses_story_stage_paths() -> bool:
+	return _is_chapter2_stuffie_scene() or (_is_chapter2_story_scene()
+		and career_id in ["farmer", "candymaker", "detective", "popstar"])
 
 
 func navigation_snapshot() -> Dictionary:
@@ -1876,10 +1958,15 @@ func _assign_stations() -> void:
 	station_for_phase = {}
 	if station_list.is_empty():
 		return
-	var preferred: Dictionary = PHASE_STATIONS.get(career_id, {}) as Dictionary
+	var preferred: Dictionary = (PHASE_STATIONS.get(career_id, {}) as Dictionary).duplicate()
+	if career_id == "chef" and _is_chapter2_story_scene():
+		preferred["MIX"] = "mixing_bowl"
+		preferred["STIR"] = "mixing_bowl"
+		preferred["STACK"] = "cake_tower"
 	for index in range(phases.size()):
 		var phase := phases[index] as Dictionary
-		var station_id := String(preferred.get(String(phase.get("name", "")), ""))
+		var station_id := String(phase.get("station_id",
+			preferred.get(String(phase.get("name", "")), "")))
 		if not station_id.is_empty():
 			var resolved := _station_index_for_id(station_id)
 			if resolved >= 0:
@@ -1900,6 +1987,8 @@ func _build_station_markers() -> void:
 	for index in range(station_list.size()):
 		var station: Dictionary = station_list[index]
 		var hotspot := WorldHotspot.new() as OperaWorldHotspot2D
+		if career_id == "chef" and _is_chapter2_story_scene():
+			hotspot.set_meta("kitchen_local_cue", true)
 		hotspot.name = "ActivityHotspot_%s" % String(station.get("id", index))
 		var object_pos: Vector2 = station.get(
 			"object_pos", (station.get("pos", Vector2(640, 480)) as Vector2)
@@ -1928,6 +2017,10 @@ func _refresh_hotspots() -> void:
 	if aliases.has(phase_name):
 		invitation_name = String(aliases[phase_name])
 	var spec: Dictionary = HotspotCatalog.spec(career_id, invitation_name)
+	if using_chapter_two_phases and phase_index >= 0 and phase_index < phases.size():
+		var invitation: Variant = (phases[phase_index] as Dictionary).get("invitation", null)
+		if invitation is Dictionary:
+			spec = (invitation as Dictionary).duplicate(true)
 	for index in range(station_nodes.size()):
 		var hotspot := station_nodes[index] as OperaWorldHotspot2D
 		var is_current := index == armed_station and not task_open \
@@ -1980,7 +2073,7 @@ func _on_hotspot_pressed(station_index: int) -> void:
 		hotspot.set_focused(index == station_index)
 	var station_id := String(station_list[station_index].get("id", ""))
 	var route: PackedVector2Array
-	if _is_chapter2_stuffie_scene():
+	if _uses_story_stage_paths():
 		var approach: Vector2 = station_list[station_index].get(
 			"approach_pos", station_list[station_index].get(
 				"pos", wander_feet)) as Vector2
@@ -2005,24 +2098,11 @@ func _on_hotspot_opening_finished(station_index: int) -> void:
 
 
 func _draw_activity_focus() -> void:
-	if career_id in ["teacher", "geologist"] or _racer_is_driving():
+	if career_id in ["teacher", "geologist", "chef"] or _racer_is_driving():
 		return
-	# No clipboard, easel, title ribbon, or reading chrome. The existing themed
-	# minigame art floats in a soft theatre-light bloom, with a tiny pearl trail
-	# carrying the only generic progress information.
-	# The three Hall performances already have local gesture cues and a status
-	# card. A room-sized dark lens masks the painted stage and performer contact.
-	if not two_act_enabled:
-		var centre := action_panel.size * Vector2(0.5, 0.48)
-		var radius := maxf(action_panel.size.x, action_panel.size.y) * 0.52
-		action_panel.draw_set_transform(centre, 0.0, Vector2(1.0, 0.62))
-		action_panel.draw_circle(Vector2.ZERO, radius,
-			Color(0.04, 0.08, 0.24, 0.32))
-		action_panel.draw_circle(Vector2.ZERO, radius * 0.88,
-			Color(0.18, 0.46, 0.92, 0.12))
-		action_panel.draw_arc(Vector2.ZERO, radius * 0.94, -PI * 0.84,
-			-PI * 0.16, 42, Color(0.44, 0.78, 1.0, 0.48), 5.0)
-		action_panel.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	# Local objects and their own cues provide focus; no room-sized alpha lens.
+	if surface is OperaChefSurface:
+		return
 	var custom_progress := clampf(float(phase_fill.value) / 100.0, 0.0, 1.0) \
 		if phase_fill != null else 0.0
 	if _is_chapter2_candymaker_scene():
@@ -2039,6 +2119,13 @@ func _draw_activity_focus() -> void:
 	for index in range(pearl_count):
 		var at := Vector2(start_x + span * float(index) / float(pearl_count - 1), y)
 		var filled := progress + 0.001 >= float(index + 1) / float(pearl_count)
+		if career_id == "nursery":
+			if painted_feedback_art == null:
+				painted_feedback_art = PaintedFeedbackArt.new()
+			var partial := progress * float(pearl_count) - float(index)
+			var state := "full" if filled else ("filling" if partial > 0.0 else "empty")
+			painted_feedback_art.pearl(action_panel, at, state)
+			continue
 		var colour := Color("#fff1b2") if filled else Color(0.34, 0.55, 0.86, 0.42)
 		action_panel.draw_circle(at, 8.5 if filled else 6.5, colour)
 		if filled:
@@ -2300,7 +2387,10 @@ func _glide_roshan_to(feet: Vector2, duration: float = 1.3) -> void:
 
 func _finish_player_glide() -> void:
 	_finish_actor_motion("player", player_actor)
-	_play_roshan_animation("idle")
+	if surface is OperaChefSurface and task_open and phase_index < phases.size():
+		_play_roshan_task_pose(phases[phase_index] as Dictionary)
+	else:
+		_play_roshan_animation("idle")
 
 
 func _play_roshan_animation(animation: String) -> void:
@@ -2311,6 +2401,14 @@ func _play_roshan_animation(animation: String) -> void:
 
 
 func _play_roshan_task_pose(phase: Dictionary) -> void:
+	if career_id == "nursery" and String(phase.get("name", "")) in ["CATCH BABIES", "FEED", "BURP", "BEDTIME"]:
+		_update_nursery_care_pose(phase)
+		return
+	if career_id == "chef" and is_instance_valid(player_animator):
+		# The generic work strip already holds a second mixing bowl. The
+		# approved empty-hand presenting pose keeps one room-owned work object.
+		player_animator.show_pose("idle", 0)
+		return
 	if String(phase.get("mode", "")) == "talk":
 		_play_roshan_animation("idle")
 		return
@@ -2325,6 +2423,15 @@ func _play_roshan_task_pose(phase: Dictionary) -> void:
 		player_animator.show_pose("work", int(reviewed[phase_name]))
 		return
 	_play_roshan_animation("work")
+
+
+func _update_nursery_care_pose(phase: Dictionary) -> void:
+	if not is_instance_valid(player_animator) or surface == null:
+		return
+	var amount := phase_progress / maxf(0.1, float(phase.get("goal", 1.0)))
+	var frame := clampi(floori(amount * 8.0), 0, 7)
+	var texture := surface._nursery_art().art("care_%02d" % frame)
+	player_animator.show_authored_nursery_pose(texture, frame)
 
 
 func _widget_template(phase: Dictionary) -> String:
@@ -2454,7 +2561,7 @@ func _arm_phase() -> void:
 	_set_finale_visible(false)
 	# Boxing switches to first-person gloves only after the invitation opens;
 	# Roshan must remain visible while she walks to the physical training prop.
-	if career_id == "boxer" and player_actor != null:
+	if career_id in ["boxer", "nursery"] and player_actor != null:
 		player_actor.visible = true
 	if backdrop_node != null:
 		# The navigable room owns every interaction. Stage masters use different
@@ -2487,8 +2594,8 @@ func _arm_phase() -> void:
 		# A separate unlit goal overlay competes with the one active blue object
 		# and looked like a floating sticker. It returns only for celebration.
 		prop_rect.visible = false
-	var defer_detective_intro := career_id == "detective" and phase_index == 0 \
-		and mode_name == "lens" and not detective_intro_played
+	var defer_detective_intro := career_id == "detective" and not _is_chapter2_detective_scene() \
+		and phase_index == 0 and mode_name == "lens" and not detective_intro_played
 	if m != null and not defer_detective_intro:
 		_show_phase_prompt(phase)
 	# Bind static game art while clocks are held. The activity itself stays
@@ -2557,16 +2664,33 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 	teacher_restoring = career_id == "teacher"
 	geology_restoring = career_id == "geologist"
 	surface.configure(mode_name, accent, choice_target, context)
+	if _is_chapter2_story_scene():
+		# Metadata alone does not replace the shared surface's loaded art. Bind
+		# existing story identities explicitly, preserving all freeplay branches.
+		if career_id == "farmer" and context in ["chapter2_basket_fill", "chapter2_basket_delivery"]:
+			surface.widget_mover = load("res://assets/castle/day_one_pool/activities/cleanup_basket.png") as Texture2D
+			surface.widget_stamp = chapter2_single_strawberry_texture
+			surface.widget_overlay = load("res://assets/flats/castle/rooms/room_kitchen_item_oven.png") as Texture2D
+			if context == "chapter2_basket_fill":
+				surface.target_piece_textures = [chapter2_single_strawberry_texture]
+		elif career_id == "painter":
+			var banner := load("res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png") as Texture2D
+			surface.paint_reveal_texture = banner
+			surface.widget_mover = banner
+			surface.widget_overlay = null
+		elif career_id == "astronaut" and context == "chapter2_rocket_park":
+			surface.widget_mover = load("res://assets/opera/worlds/props/goal_astronaut.png") as Texture2D
 	if surface is TeacherSurface:
 		var kind := mode_name.trim_prefix("teacher_")
-		(surface as TeacherSurface).set_lesson(TeacherLessons.make_lesson(kind, m.save_data.get("teacher_learning_progress", {}) as Dictionary))
-		var checkpoint: Variant = m.save_data.get("teacher_lesson_checkpoint", {})
+		(surface as TeacherSurface).set_lesson(TeacherLessons.make_lesson(kind, _teacher_learning_progress()))
+		var checkpoint: Variant = {} if _is_dev_playtest() \
+			else m.save_data.get("teacher_lesson_checkpoint", {})
 		if checkpoint is Dictionary and int(checkpoint.get("phase_index", -1)) == phase_index:
 			var mechanic: Variant = checkpoint.get("mechanic", {})
 			if mechanic is Dictionary:
 				(surface as TeacherSurface).restore_progress(mechanic)
 	teacher_restoring = false
-	if career_id == "geologist" and surface is OperaGeologySurface:
+	if career_id == "geologist" and surface is OperaGeologySurface and not _is_dev_playtest():
 		var saved: Variant = m.save_data.get("opera_geology_checkpoint", {})
 		if saved is Dictionary and int((saved as Dictionary).get("phase_index", -1)) == phase_index:
 			var mechanic: Variant = (saved as Dictionary).get("mechanic", {})
@@ -2576,12 +2700,15 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 	# while she is still wandering, the bound widget shows but its clocks
 	# (oven heat, pipe fuel, echo song) hold still until she arrives
 	surface.armed_only = armed
+	if surface is OperaChefSurface:
+		_refresh_chapter2_cake_scene()
 
 
 func _open_task() -> void:
 	if task_open or not active or phase_index >= phases.size():
 		return
 	task_entry_feet = wander_feet
+	_capture_actor_rest("player", player_actor)
 	task_entry_actor_size = player_actor.size if player_actor != null else Vector2.ZERO
 	task_open = true
 	wander_walking = false
@@ -2610,10 +2737,14 @@ func _open_task() -> void:
 		# The walk-in is third person; the opened lesson is the specialist's
 		# first-person two-glove view.
 		player_actor.visible = false
+	if career_id == "nursery" and String(phase.get("visual_context", "")) == "nursery_wash" 			and player_actor != null:
+		# The approved connected wash picture already includes Roshan and basin.
+		# Draw her exactly once, restoring the stage actor when the next phase arms.
+		player_actor.visible = false
 	if phase_index >= _finale_start() or competition.is_cooperative():
 		_stage_room_finale_partner()
 	_adapter_hook("phase_opened", scene_snapshot())
-	if action_panel.visible:
+	if action_panel.visible and not surface is OperaChefSurface:
 		# The activity grows out of the room object Roshan just opened instead
 		# of appearing as an unrelated card at screen centre.
 		action_panel.pivot_offset = _activity_reveal_pivot()
@@ -2662,6 +2793,16 @@ func _open_task() -> void:
 		else:
 			nursery_catch.stop()
 	_bind_widget(phase, mode_name, accent)
+	if surface is OperaChefSurface:
+		var work_feet := Vector2(875, 405)
+		if mode_name in ["pourt", "circle"]:
+			work_feet = Vector2(550, 430)
+		elif mode_name == "oven":
+			work_feet = Vector2(715, 405)
+		elif mode_name == "tap":
+			work_feet = Vector2(875, 405)
+		_glide_roshan_to(work_feet, 0.28)
+		reveal_t = maxf(reveal_t, 0.30)
 	if career_id == "teacher":
 		_show_phase_prompt(phase)
 	if career_id == "magician" and mode_name == "choice":
@@ -2739,16 +2880,30 @@ func _show_phase_prompt(phase: Dictionary) -> void:
 		surface.set_meta("chapter2_voice_recording_gap", is_recording_gap)
 		surface.set_meta("chapter2_voice_gap_phase", String(
 			phase.get("name", "")) if is_recording_gap else "")
+	# A phase owns its current instruction. Completed or explicitly repeated
+	# work supersedes older route speech and queued dialogue on every career,
+	# including the legacy Racer phases outside the Chapter Two adapter.
+	m.clear_dialogue()
 	m.show_msg(
-		String(phase.get("speaker", "Roshan")),
+		"" if using_chapter_two_phases else String(phase.get("speaker", "Roshan")),
 		String(phase.get("voice", "Follow the golden sparkle!")),
-		voice_key)
+		voice_key, 0.0)
+	if using_chapter_two_phases:
+		m._audio_ref().chapter_two_prompt(voice_key)
 
 
 func _apply_panel_layout(phase: Dictionary) -> void:
 	if action_panel == null:
 		return
 	var mode := String(phase.get("mode", "tap"))
+	if surface is OperaChefSurface:
+		action_panel.visible = true
+		action_panel.position = Vector2.ZERO
+		action_panel.size = StagePaths.SCREEN
+		surface.position = Vector2.ZERO
+		surface.size = StagePaths.SCREEN
+		phase_fill.visible = false
+		return
 	if career_id in ["teacher", "geologist"]:
 		if career_id == "geologist":
 			if backdrop_node != null:
@@ -3325,6 +3480,12 @@ func _on_ballet_gesture(kind: String, amount: float, quality: float) -> void:
 	var phase := phases[phase_index] as Dictionary
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
 	phase_progress = minf(goal, phase_progress + amount)
+	if using_chapter_two_phases and kind in ["ballet_ribbon", "ballet_twirl"] \
+			and is_equal_approx(goal, 1.0) and String(phase.get("mode", "")) == kind and surface is OperaBalletSurface \
+			and (surface as OperaBalletSurface)._mode_complete():
+		# The authored specialist endpoint is authoritative. Its normalized
+		# ribbon sum can be 0.99999994 and input is already correctly blocked.
+		phase_progress = goal
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	_performance_record_progress(progress, kind, quality)
 	phase_fill.value = progress * 100.0
@@ -3466,6 +3627,24 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		# accumulation; no unrelated gesture can manufacture this distance.
 		phase_progress = minf(goal, float((surface as OperaRacerSurface).kart["s"])
 			/ RacerSurface.LAP_DISTANCE)
+	if mode == "pourt" and _kind == "pourt" and surface.pour_level >= 1.0:
+		phase_progress = goal
+	elif mode == "swipe" and _kind == "swipe" and surface._uses_authored_trace_context() \
+			and (surface.trace_journey >= 1.0 \
+			or (career_id in ["chef", "doctor"] and surface.trace_journey >= 0.999)):
+		# Canvas touch transforms can return the final authored point as
+		# 0.99999994. Match the surface's existing finished-prefix threshold;
+		# otherwise its own input guard stops before this world earns the goal.
+		phase_progress = goal
+	elif mode == "swipe" and _kind == "swipe" and using_chapter_two_phases \
+			and amount > 0.0 and quality >= 0.9 and surface.held and surface.long_push_engaged \
+			and surface.visual_context in ["chapter2_basket_delivery", "chapter2_rocket_park"] \
+			and String(phase.get("widget_context", "")) == surface.visual_context \
+			and surface._uses_long_push_context() and surface.long_push_journey >= 1.0 \
+			and is_equal_approx(goal, surface._long_push_goal_units()):
+		# Read the owning surface's completed endpoint before set_fill feeds the
+		# accumulated world fraction back. Six real units can sum to5.999999999999998.
+		phase_progress = goal
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	_performance_record_progress(progress, _kind, quality)
 	phase_fill.value = progress * 100.0
@@ -3478,7 +3657,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	surface.note_result(quality >= 0.5)
 	# one bounce per 0.22s: mashing used to restart the tween every frame and
 	# leave her drifting off her rest transform
-	if bounce_cool <= 0.0:
+	if bounce_cool <= 0.0 and not surface is OperaChefSurface:
 		bounce_cool = 0.22
 		_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
 	if mode == "choice":
@@ -3526,7 +3705,9 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 
 
 func _uses_authored_completion_picture(mode: String) -> bool:
-	if career_id in ["teacher", "geologist"] \
+	if surface is OperaChefSurface:
+		return true
+	if career_id in ["teacher", "geologist", "chef", "nursery", "doctor", "farmer", "magician", "painter"] \
 			or (career_id == "racer" and mode == "kart_race"):
 		return true
 	return career_id == "candymaker" and mode == "pourt" \
@@ -4265,7 +4446,7 @@ func _start_lens_phase(phase: Dictionary) -> void:
 		lens_trail_to = lens_clues[0] if not lens_clues.is_empty() \
 			else Vector2(0.20, 0.56) * StagePaths.SCREEN
 		lens_trail_t = LENS_TRAIL_DURATION
-		if m != null:
+		if m != null and not _is_chapter2_detective_scene():
 			m.say_sequence(DETECTIVE_INTRO_LINES)
 
 
@@ -4524,6 +4705,10 @@ func _draw_lens_layer() -> void:
 
 func _process(delta: float) -> void:
 	_performance_tick(delta)
+	if career_id == "nursery" and task_open and phase_index < phases.size():
+		var nursery_phase := phases[phase_index] as Dictionary
+		if String(nursery_phase.get("name", "")) in ["CATCH BABIES", "FEED", "BURP", "BEDTIME"]:
+			_update_nursery_care_pose(nursery_phase)
 	_tick_teacher_voice()
 	teacher_save_cool = maxf(0.0, teacher_save_cool - delta)
 	if teacher_save_pending and teacher_save_cool <= 0.0:
@@ -4617,28 +4802,40 @@ func _process(delta: float) -> void:
 			_tick_lens(delta)
 	if reveal_t > 0.0:
 		reveal_t -= delta
-		# the reveal shows the ACTUAL answer, steady — recognition, not a light show
-		surface.target_choice = choice_target
-		surface.choice_flash = 0.6
-		surface.queue_redraw()
-		if reveal_t <= 0.0:
-			guided = true
-			phase_index = _finale_start()
-			phase_progress = 0.0
-			active = true
-			competition.guided_retry()
-			# A guided retry keeps the no-fail clue memory, but still returns to
-			# the room's glowing object. It must not resurrect the old auto-open
-			# card flow after the reveal.
-			_arm_phase()
-			if String((phases[phase_index] as Dictionary).get("mode", "")) == "choice":
-				# remembered clues earn a head start on a MEMORY rematch;
-				# a bop finale credits no hits she never landed
-				phase_progress = 2.0
-				phase_fill.value = clampf(2.0 / maxf(0.1, float((phases[phase_index] as Dictionary).get("goal", 1.0))), 0.0, 1.0) * 100.0
+		# Chef also uses this timer for the short walk to a work pose. Only
+		# Detective's answer reveal owns a retry or a change of phase.
+		if career_id == "detective":
+			# the reveal shows the ACTUAL answer, steady — recognition, not a light show
+			surface.target_choice = choice_target
+			surface.choice_flash = 0.6
+			surface.queue_redraw()
+			if reveal_t <= 0.0:
+				guided = true
+				phase_index = _finale_start()
+				phase_progress = 0.0
+				active = true
+				competition.guided_retry()
+				# A guided retry keeps the no-fail clue memory, but still returns to
+				# the room's glowing object. It must not resurrect the old auto-open
+				# card flow after the reveal.
+				_arm_phase()
+				if String((phases[phase_index] as Dictionary).get("mode", "")) == "choice":
+					# remembered clues earn a head start on a MEMORY rematch;
+					# a bop finale credits no hits she never landed
+					phase_progress = 2.0
+					phase_fill.value = clampf(2.0 / maxf(0.1, float((phases[phase_index] as Dictionary).get("goal", 1.0))), 0.0, 1.0) * 100.0
 
 
 func close() -> void:
+	if not setup_complete:
+		# Startup failed before this activity existed. Do not save checkpoints,
+		# clear the caller's dialogue, or announce a scene_closed event.
+		active = false
+		set_process(false)
+		win_callback = Callable()
+		adapter_callbacks.clear()
+		queue_free()
+		return
 	_performance_checkpoint(true)
 	teacher_voice_queue.clear()
 	if career_id == "teacher":
@@ -4744,7 +4941,7 @@ func _wander_input(event: InputEvent) -> void:
 	# Empty-room input only changes travel. Hotspot buttons sit above this
 	# layer and are the sole source of activity intent.
 	var route: PackedVector2Array = _chapter2_stuffie_route_to(point, false) \
-		if _is_chapter2_stuffie_scene() \
+		if _uses_story_stage_paths() \
 		else StagePaths.player_route_to_point(career_id, wander_feet, point)
 	_begin_wander_route(route)
 
@@ -4866,8 +5063,18 @@ func _on_teacher_progress(_snapshot: Dictionary) -> void:
 func _on_teacher_result(kind: String, assisted: bool) -> void:
 	if teacher_restoring or not active or not task_open or phase_advance_pending:
 		return
+	if _is_dev_playtest():
+		teacher_playtest_progress = TeacherLessons.record_result(
+			teacher_playtest_progress, kind, assisted)
+		return
 	m.save_data["teacher_learning_progress"] = TeacherLessons.record_result(
 		m.save_data.get("teacher_learning_progress", {}) as Dictionary, kind, assisted)
+
+
+func _teacher_learning_progress() -> Dictionary:
+	if _is_dev_playtest():
+		return teacher_playtest_progress
+	return m.save_data.get("teacher_learning_progress", {}) as Dictionary
 
 
 func _on_teacher_count(number: int) -> void:
@@ -4892,7 +5099,7 @@ func _tick_teacher_voice() -> void:
 
 
 func _checkpoint_teacher(flush: bool) -> void:
-	if teacher_restoring or career_id != "teacher" or m == null or not (surface is TeacherSurface):
+	if _is_dev_playtest() or teacher_restoring or career_id != "teacher" or m == null or not (surface is TeacherSurface):
 		return
 	var next_phase := mini(phases.size(), phase_index + (1 if phase_advance_pending else 0))
 	var snapshot := (surface as TeacherSurface).progress_snapshot() \
@@ -4913,7 +5120,7 @@ func _on_geology_progress_changed(_snapshot: Dictionary) -> void:
 
 
 func _checkpoint_geology(flush: bool) -> void:
-	if geology_restoring or career_id != "geologist" or m == null \
+	if _is_dev_playtest() or geology_restoring or career_id != "geologist" or m == null \
 			or not (surface is OperaGeologySurface):
 		return
 	var next_phase := mini(phases.size(), phase_index + (1 if phase_advance_pending else 0))
@@ -5147,7 +5354,7 @@ func _performance_checkpoint_echo_prefix() -> void:
 
 
 func _performance_checkpoint(flush: bool) -> void:
-	if not two_act_enabled or m == null:
+	if _is_dev_playtest() or not two_act_enabled or m == null:
 		return
 	var raw: Variant = m.save_data.get("opera_performance_checkpoints", {})
 	var checkpoints: Dictionary = (raw as Dictionary).duplicate(true) if raw is Dictionary else {}
@@ -5161,6 +5368,8 @@ func _performance_checkpoint(flush: bool) -> void:
 
 
 func _performance_restore() -> void:
+	if _is_dev_playtest():
+		return
 	var raw: Variant = m.save_data.get("opera_performance_checkpoints", {})
 	if not raw is Dictionary:
 		return

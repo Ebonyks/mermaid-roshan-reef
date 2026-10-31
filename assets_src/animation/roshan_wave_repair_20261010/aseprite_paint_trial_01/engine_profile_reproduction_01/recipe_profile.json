@@ -1,0 +1,256 @@
+{
+  "schema": "reef.aseprite-whole-cel-paint-profile.v2",
+  "purpose": "Explicit source-profile controls reproducing frozen full06, with no final artwork change",
+  "frame_count": 41,
+  "fps": 24,
+  "duration_ms": 1708,
+  "master_name": "sample_proof.aseprite",
+  "source_dir": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames",
+  "paint_range": [
+    1,
+    39
+  ],
+  "shoulder_native": [
+    213,
+    345
+  ],
+  "lengths_native": {
+    "upper": 80.2,
+    "fore": 80.2,
+    "open_hand": 65.651
+  },
+  "paint_half_widths_native": {
+    "upper": 12,
+    "fore": 8.5,
+    "wrist": 7
+  },
+  "visible_tip_fringe_compensation": 2.4,
+  "interpolation": "Monotone cubic Hermite; harmonic interior tangents; bounded to each neighboring angle pair",
+  "angle_keys": [
+    {
+      "frame": 4,
+      "upper": 101.77,
+      "fore": 115.56,
+      "hand": 111.8,
+      "shoulder_x": 208,
+      "shoulder_y": 363
+    },
+    {
+      "frame": 8,
+      "upper": 125,
+      "fore": 155,
+      "hand": 175,
+      "shoulder_x": 210,
+      "shoulder_y": 354
+    },
+    {
+      "frame": 14,
+      "upper": 194,
+      "fore": 255,
+      "hand": 270,
+      "shoulder_x": 213,
+      "shoulder_y": 345
+    },
+    {
+      "frame": 18,
+      "upper": 194,
+      "fore": 258,
+      "hand": 282,
+      "shoulder_x": 213,
+      "shoulder_y": 345
+    },
+    {
+      "frame": 22,
+      "upper": 194,
+      "fore": 252,
+      "hand": 258,
+      "shoulder_x": 213,
+      "shoulder_y": 345
+    },
+    {
+      "frame": 24,
+      "upper": 194,
+      "fore": 255,
+      "hand": 270,
+      "shoulder_x": 213,
+      "shoulder_y": 345
+    },
+    {
+      "frame": 26,
+      "upper": 174.25,
+      "fore": 220,
+      "hand": 225,
+      "shoulder_x": 212,
+      "shoulder_y": 348
+    },
+    {
+      "frame": 32,
+      "upper": 124.875,
+      "fore": 132.5,
+      "hand": 145,
+      "shoulder_x": 209,
+      "shoulder_y": 360
+    },
+    {
+      "frame": 34,
+      "upper": 101.77,
+      "fore": 115.56,
+      "hand": 111.8,
+      "shoulder_x": 208,
+      "shoulder_y": 363
+    }
+  ],
+  "palette": {
+    "base": [
+      255,
+      223,
+      192
+    ],
+    "shadow": [
+      248,
+      188,
+      141
+    ],
+    "highlight": [
+      255,
+      240,
+      217
+    ],
+    "outline": [
+      88,
+      82,
+      64
+    ],
+    "crease": [
+      168,
+      111,
+      72
+    ]
+  },
+  "fixture_domain": {
+    "boundary": [
+      [
+        130,
+        238
+      ],
+      [
+        470,
+        238
+      ],
+      [
+        480,
+        190
+      ],
+      [
+        590,
+        190
+      ]
+    ],
+    "fixture_color_seed": "B>G+8, B>R-70, R>80; x176..242, y318..590",
+    "fixture_color_dilation_native_px": 2,
+    "role": "appearance-preservation and local paint domain mask; contains no copied appearance pixels",
+    "hair_boundary": "Bound native head coordinates scope actual hair/outline non-skin pixels with2px fringe; no protected lower half-plane",
+    "narrow_dilation_until_y": 440,
+    "old_skin_erase": "Inside same source repair domain, belowy332: R-G>10,G-B>10,R-B>25 overrides outfit-margin preservation; violet garment outline retained",
+    "sleeve_seed_bounds": [
+      176,
+      318,
+      242,
+      590
+    ],
+    "color_membership": {
+      "blue_minus_green_min": 8,
+      "blue_minus_red_min": -70,
+      "red_min": 80
+    },
+    "lower_dilation_native_px": 5,
+    "old_skin_start_y": 333,
+    "old_skin_color_differences": [
+      10,
+      10,
+      25
+    ]
+  },
+  "topology": "One connected closed contour: complete arm/palm, four unequal fingers and opposed thumb; no copied parts or detached sprites",
+  "native_unpainted_geometry": "Only RGB source0/40 retained in source master; final RGBA master will replace with approved complete K0 whole drawing",
+  "review_notes": [
+    "Fingers gradually open on5..8 and relax on31..33; required full-motion and actual visible-joint review still pending",
+    "Native source RGB endpoints are retained here; root replaces export0/40 with exact approved K0 after the whole-figure mapping",
+    "No RIFE, limb warping, crossfades or part-image compositing",
+    "Configuration does not grant visual, owner, device or runtime acceptance",
+    "Draft04 retained old arm-shadow strip beside bodice; body_skin_pilot03 removes it without moving the native garment contour"
+  ],
+  "workspace_padding_left": 128,
+  "output_canvas": [
+    768,
+    896
+  ],
+  "repair_y_range": [
+    130,
+    590
+  ],
+  "repair_right_max": 238,
+  "head_boundary_masks": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/engine_profile_reproduction_01/head_boundary_masks.json",
+  "relaxed_hand_native": 51.728,
+  "preview_mapping": {
+    "whole_size": [
+      240,
+      280
+    ],
+    "translation": [
+      15,
+      -10
+    ],
+    "canvas": [
+      256,
+      256
+    ],
+    "uniform_scale": 0.3125
+  },
+  "finger_opening": "Two directly authored curved-finger relaxed/open contour states, control-coordinate interpolation, easing4..8 and30..34; no image warps",
+  "relaxed_lateral_scale": 0.8,
+  "erase_preserved_old_skin": true,
+  "relaxed_outline": [
+    121,
+    103,
+    76
+  ],
+  "profile_parent": {
+    "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/engine_profile.json",
+    "sha256": "83f5469a01c3ee554821c1bfb4e94b743b97c064b7af7bb5810eb95304ef82a5"
+  },
+  "source_canvas": [
+    640,
+    896
+  ],
+  "head_protection": {
+    "seed_bounds": [
+      150,
+      130,
+      242,
+      326
+    ],
+    "coordinate_margin": 3,
+    "skin_exclusion_min": [
+      215,
+      140,
+      100
+    ],
+    "hair_max_channel": 235,
+    "hair_blue_max": 160,
+    "dilation_native_px": 2,
+    "halfplane_until_y": 279,
+    "face_guard_until_y": 313,
+    "face_guard_left_x": 205
+  },
+  "fresh_fill_membership": {
+    "red_min": 245,
+    "green_max": 235,
+    "blue_max": 220,
+    "green_minus_blue_min": 13
+  },
+  "aseprite_version": "1.3.18.4",
+  "sample_frames": [
+    28
+  ]
+}

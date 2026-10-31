@@ -7,8 +7,18 @@ signal comic_reaction_finished
 const SWIMMER_TEXTURE_PATH := \
 	"res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png"
 const COMIC_REACTION_SECONDS := 0.68
+# Approved project-original water-FX vocabulary (ASSET_LICENSES.md, 2026-08-02):
+# a 4x2 atlas of a face-on ripple ring expanding over the water. One fully formed
+# cell grounds the swimmer on the water instead of code-drawn arcs (OD3).
+const RIPPLE_ATLAS_PATH := "res://assets/sprites/fx_water/fx_water_ripple_ring_atlas.png"
+const RIPPLE_ATLAS_GRID := Vector2i(4, 2)
+const RIPPLE_HELD_FRAME := 3
+# Outer ring of the held cell inside its 256 px square, measured from alpha > 0.1.
+const RIPPLE_CELL_RING := Vector2(219.0, 65.0)
+const RIPPLE_OFFSET := Vector2(0.0, 13.0)
 
 var _sprite: Sprite2D = null
+var _ripple: Sprite2D = null
 var _swim_bounds := Rect2()
 var _rest_position := Vector2.ZERO
 var _travel := Vector2.ZERO
@@ -77,6 +87,7 @@ func setup(swim_bounds: Rect2, start_position: Vector2,
 	position = _rest_position
 	_sprite.scale = _base_scale
 	_apply_waterline_fade()
+	_build_ripple()
 	add_child(_sprite)
 	set_meta("true_2d", true)
 	set_meta("shared_swimmer_asset", SWIMMER_TEXTURE_PATH)
@@ -84,7 +95,6 @@ func setup(swim_bounds: Rect2, start_position: Vector2,
 	set_meta("simple_animation", "bounded_bob_paddle")
 	set_meta("comic_reaction", "one_shot_spin_no")
 	set_process(true)
-	queue_redraw()
 	return true
 
 
@@ -118,6 +128,10 @@ func audit_snapshot() -> Dictionary:
 		"comic_shout": "NO!" if _reaction_count > 0 else "",
 		"comic_no_visible": _comic_no != null
 			and is_instance_valid(_comic_no) and _comic_no.visible,
+		"ripple_authored": _ripple != null and is_instance_valid(_ripple)
+			and _ripple.texture != null
+			and _ripple.texture.resource_path == RIPPLE_ATLAS_PATH,
+		"code_drawn_ripple": false,
 	}
 
 
@@ -220,14 +234,27 @@ func _process(delta: float) -> void:
 		1.0 + paddle * 0.015, 1.0 - paddle * 0.012)
 
 
-func _draw() -> void:
+func _build_ripple() -> void:
+	# The ring lies under the swimmer, sized to the requested ripple footprint and
+	# tinted toward the owner's water colour; it moves with the swimmer's bob.
+	if _ripple != null and is_instance_valid(_ripple):
+		_ripple.free()
+	_ripple = null
 	if _ripple_size.x <= 0.0 or _ripple_size.y <= 0.0:
 		return
-	var radius: float = _ripple_size.x * 0.5
-	var vertical_scale: float = _ripple_size.y / maxf(_ripple_size.x, 1.0)
-	draw_set_transform(Vector2(0.0, 13.0), 0.0, Vector2(1.0, vertical_scale))
-	draw_arc(Vector2.ZERO, radius, 0.0, TAU, 40, _ripple_color, 3.0, true)
-	draw_arc(Vector2.ZERO, radius * 0.70, 0.15, TAU - 0.20, 32,
-		Color(_ripple_color.r, _ripple_color.g, _ripple_color.b,
-			_ripple_color.a * 0.68), 2.0, true)
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	var texture: Texture2D = load(RIPPLE_ATLAS_PATH) as Texture2D
+	if texture == null:
+		return
+	_ripple = Sprite2D.new()
+	_ripple.name = "SwimmerWaterRipple"
+	_ripple.texture = texture
+	_ripple.hframes = RIPPLE_ATLAS_GRID.x
+	_ripple.vframes = RIPPLE_ATLAS_GRID.y
+	_ripple.frame = RIPPLE_HELD_FRAME
+	_ripple.position = RIPPLE_OFFSET
+	_ripple.scale = Vector2(_ripple_size.x / RIPPLE_CELL_RING.x,
+		_ripple_size.y / RIPPLE_CELL_RING.y)
+	var tint := Color(1.0, 1.0, 1.0).lerp(_ripple_color, 0.5)
+	_ripple.self_modulate = Color(tint.r, tint.g, tint.b,
+		clampf(_ripple_color.a * 2.5, 0.0, 0.7))
+	add_child(_ripple)

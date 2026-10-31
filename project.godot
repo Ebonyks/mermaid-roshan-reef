@@ -1,7 +1,7 @@
 ; Engine configuration file.
 ; It's best edited using the editor UI and not directly,
 ; since the parameters that go here are not all obvious.
-; Runtime/editor baseline: Godot 4.7.2-stable (owner decision 2026-08-29).
+; Runtime/editor baseline: Godot 4.7.2-stable (owner decision 2026-08-29; latest stable reverified 2026-10-03).
 ;
 ; Format:
 ;   [section] ; section goes between []
@@ -14,6 +14,8 @@ config_version=5
 compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
+
+config/quit_on_go_back=false
 
 boot_splash/bg_color=Color(0.094, 0.557, 0.839, 1)
 boot_splash/image="res://assets/ui/boot_splash_mermaid_roshan.png"

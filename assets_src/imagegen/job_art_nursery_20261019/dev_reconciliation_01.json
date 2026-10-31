@@ -1,0 +1,40 @@
+{
+  "before_head": "e90c0daa83cf05644f0e9942e85c1198ed7901f7",
+  "incoming_dev": "58339deb6cb25d5793c3623981e66fad5be0858a",
+  "tracked_paths": [
+    "ASSET_LICENSES.md",
+    "scripts/opera_boxing_surface.gd",
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_nursery_catch.gd",
+    "scripts/opera_roshan_actor.gd",
+    "scripts/opera_stage_paths.gd",
+    "scripts/opera_world_backdrop_2d.gd"
+  ],
+  "before_sha256": {
+    "ASSET_LICENSES.md": "6bcab66621fb45c174173956d22577b701cd5edd0e3afe8c3880d8a422eca5ab",
+    "scripts/opera_boxing_surface.gd": "ee087759240e78b6ec49786e247c272573590d6b381d992928d8fd8e63348241",
+    "scripts/opera_career_world_2d.gd": "5d7beaad9904b4c9bcfbff266ebe075a707b2fd9c31851f5a99645b82b0f01f2",
+    "scripts/opera_gesture_surface.gd": "c8904112546d4ab24081b2b4ddbcd63ab757a3a8843ec0f5aefe1b1a985cd5c0",
+    "scripts/opera_nursery_catch.gd": "12d82b0febc1b1505ec329e15bf227a5f3f2126829e16e3b056330ac49a5b09c",
+    "scripts/opera_roshan_actor.gd": "e64855906ea24fd5e50da2ffd045baab3c3eea0a8098eb0ca797c023158cfd12",
+    "scripts/opera_stage_paths.gd": "80ff76e38eaf9f544f45474195541c0ffb2d59ac08718cb43105b616a0bed40f",
+    "scripts/opera_world_backdrop_2d.gd": "6335d6054cfec79d9a7a03bc9a11f5eb0f4dff5684e823b04cfa24baa64425f6"
+  },
+  "operation": "Stash only8semantic tracked P5files; preserve all new source/runtime artifacts and ignored private saves. FF topic to currentdev, apply exact stash without dropping until verified.",
+  "stash": "3a4c546f5fcc912240af4a74c441ad6dfc73bf9e",
+  "apply_exit": 1,
+  "conflicts": [
+    "ASSET_LICENSES.md",
+    "scripts/opera_gesture_surface.gd"
+  ],
+  "resolved": "Additive license tails; both pipe and Nursery cue branches have return. Six non-conflict tracked P5files exact pre-stashbytes; generated PNGs/newfiles remained in place. Stash retained.",
+  "unchanged_nonconflict_files": {
+    "scripts/opera_boxing_surface.gd": true,
+    "scripts/opera_career_world_2d.gd": true,
+    "scripts/opera_nursery_catch.gd": true,
+    "scripts/opera_roshan_actor.gd": true,
+    "scripts/opera_stage_paths.gd": true,
+    "scripts/opera_world_backdrop_2d.gd": true
+  }
+}

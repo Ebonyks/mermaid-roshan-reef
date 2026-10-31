@@ -1,0 +1,17 @@
+{
+  "schema": "luna_gate_receipt/1",
+  "command": [
+    "python",
+    "-B",
+    "tools/audit_development.py",
+    "--base",
+    "auto"
+  ],
+  "checked_utc": "2026-10-13T01:42:54.702951+00:00",
+  "exit_code": 1,
+  "status": "FAIL",
+  "reason": "Undefined DL-INT-15 in newly expanded impact record invalidated that record and cascaded path-coverage errors. This is an audit metadata error, not a game failure.",
+  "log": "audit/cycles/luna-playtest-20261012/verification/impact_undefined_rule.log",
+  "log_sha256": "0efe3aba20677c4e046287bcce05f9603ff39e9bc2b95eb0f7a1ec2c08dc04e0",
+  "source_impact_sha256": "26bcd7fade3844311bcd86f5c9820aa456ba37ece76090392a54c3adaaf33af2"
+}

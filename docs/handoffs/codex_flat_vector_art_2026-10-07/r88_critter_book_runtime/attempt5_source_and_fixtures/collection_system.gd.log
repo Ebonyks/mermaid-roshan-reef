@@ -1,0 +1,461 @@
+class_name CollectionSystem
+extends RefCounted
+# Animal-Crossing-inspired Critter Book. All mutable state stays on ReefMain;
+# this Phase-7-style satellite owns only catalog, spawn, motion and UI logic.
+
+var m: ReefMain
+
+const TOTAL := 18
+const BOOK_CARD: Texture2D = preload("res://assets/fashion/skin_engine_v2/ui/wardrobe_card.png")
+const BOOK_PANEL: Texture2D = preload("res://assets/fashion/skin_engine_v2/ui/wardrobe_panel.png")
+const CATCH_RADIUS := 9.0
+const CATEGORY_ORDER := ["fish", "insect", "bird"]
+const CATEGORY_ICON := {"fish": "🐟", "insect": "🦋", "bird": "🐦"}
+const HABITAT_ICON := {"reef": "🌊", "meadow": "🌸", "river": "💧", "alpine": "❄"}
+const HABITAT_LABEL := {
+	"reef": "Ocean Garden",
+	"meadow": "Lagoon Meadow",
+	"river": "Lagoon River",
+	"alpine": "Alpine Ridge",
+}
+
+# pos is local to its world. Reef Y is replaced with seabed height; lagoon Y
+# is replaced with the analytic terrain height. The authored Y is the hover.
+const DEFS := [
+	{"id": "coral_clownfish", "name": "Coral Clownfish", "category": "fish", "habitat": "reef", "context": "ocean", "pos": Vector3(-42, 7, -28), "scale": 1.45, "color": Color(0.98, 0.46, 0.46)},
+	{"id": "pearl_seahorse", "name": "Pearl Seahorse", "category": "fish", "habitat": "reef", "context": "ocean", "pos": Vector3(36, 9, 22), "scale": 1.85, "color": Color(0.75, 0.60, 0.94)},
+	{"id": "rainbow_angelfish", "name": "Rainbow Angelfish", "category": "fish", "habitat": "reef", "context": "ocean", "pos": Vector3(18, 10, -62), "scale": 1.35, "color": Color(0.30, 0.82, 0.88)},
+	{"id": "sky_koi", "name": "Sky Koi", "category": "fish", "habitat": "river", "context": "lagoon", "pos": Vector3(-118, 2.2, 66), "scale": 1.35, "color": Color(1.0, 0.58, 0.55)},
+	{"id": "cloud_minnow", "name": "Cloud Minnow", "category": "fish", "habitat": "river", "context": "lagoon", "pos": Vector3(126, 2.2, 62), "scale": 1.45, "color": Color(0.48, 0.80, 1.0)},
+	{"id": "frostfin", "name": "Frostfin", "category": "fish", "habitat": "alpine", "context": "lagoon", "pos": Vector3(-152, 2.4, -128), "scale": 1.35, "color": Color(0.86, 0.96, 1.0)},
+	{"id": "coral_ladybug", "name": "Coral Ladybug", "category": "insect", "habitat": "meadow", "context": "lagoon", "pos": Vector3(-62, 3.0, 126), "scale": 1.75, "color": Color(0.98, 0.43, 0.48)},
+	{"id": "blue_dragonfly", "name": "Blue Dragonfly", "category": "insect", "habitat": "river", "context": "lagoon", "pos": Vector3(92, 4.0, 112), "scale": 1.65, "color": Color(0.27, 0.82, 0.91)},
+	{"id": "moon_moth", "name": "Moon Moth", "category": "insect", "habitat": "meadow", "context": "lagoon", "pos": Vector3(64, 4.6, 138), "scale": 1.65, "color": Color(0.74, 0.61, 0.95)},
+	{"id": "honeybee", "name": "Honeybee", "category": "insect", "habitat": "meadow", "context": "lagoon", "pos": Vector3(-24, 4.0, 76), "scale": 1.85, "color": Color(1.0, 0.82, 0.28)},
+	{"id": "snow_beetle", "name": "Snow Beetle", "category": "insect", "habitat": "alpine", "context": "lagoon", "pos": Vector3(-112, 3.0, -186), "scale": 1.75, "color": Color(0.82, 0.95, 1.0)},
+	{"id": "crystal_butterfly", "name": "Crystal Butterfly", "category": "insect", "habitat": "alpine", "context": "lagoon", "pos": Vector3(-172, 5.2, -170), "scale": 1.65, "color": Color(0.50, 0.70, 1.0)},
+	{"id": "lagoon_bluebird", "name": "Lagoon Bluebird", "category": "bird", "habitat": "meadow", "context": "lagoon", "pos": Vector3(-84, 9.0, 96), "scale": 1.45, "color": Color(0.43, 0.76, 0.97)},
+	{"id": "ruby_hummingbird", "name": "Ruby Hummingbird", "category": "bird", "habitat": "meadow", "context": "lagoon", "pos": Vector3(52, 8.0, 94), "scale": 1.35, "color": Color(0.94, 0.40, 0.52)},
+	{"id": "river_kingfisher", "name": "River Kingfisher", "category": "bird", "habitat": "river", "context": "lagoon", "pos": Vector3(154, 8.5, 26), "scale": 1.45, "color": Color(0.28, 0.80, 0.86)},
+	{"id": "cloud_puffin", "name": "Cloud Puffin", "category": "bird", "habitat": "river", "context": "lagoon", "pos": Vector3(-164, 8.5, 12), "scale": 1.45, "color": Color(0.20, 0.18, 0.42)},
+	{"id": "snowy_owl", "name": "Snowy Owl", "category": "bird", "habitat": "alpine", "context": "lagoon", "pos": Vector3(-126, 10.0, -148), "scale": 1.55, "color": Color(0.90, 0.97, 1.0)},
+	{"id": "aurora_tern", "name": "Aurora Tern", "category": "bird", "habitat": "alpine", "context": "lagoon", "pos": Vector3(-190, 11.0, -138), "scale": 1.45, "color": Color(0.64, 0.94, 0.88)},
+]
+
+
+func _init(main: ReefMain) -> void:
+	m = main
+
+
+func total_count() -> int:
+	return TOTAL
+
+
+func caught_count(category: String = "") -> int:
+	var count := 0
+	for d: Dictionary in DEFS:
+		if category != "" and String(d["category"]) != category:
+			continue
+		if bool(m.critter_collection.get(String(d["id"]), false)):
+			count += 1
+	return count
+
+
+func has_nearby() -> bool:
+	return m.collection_nearby_id != ""
+
+
+func build() -> void:
+	# No persistent Critter launcher or empty compatibility CanvasLayer. The
+	# collection itself remains intact for diegetic activity routes.
+	m.collection_button_layer = null
+	m.collection_button = null
+
+
+func _context() -> String:
+	if m.game == "":
+		return "ocean"
+	if m.game == "level2" and String(m.g.get("phase", "court")) == "court":
+		return "lagoon"
+	return ""
+
+
+func tick(delta: float, ppos: Vector3) -> void:
+	var context := _context()
+	if m.collection_button_layer != null:
+		# Preserve the layer's context lifecycle for overlay restoration code; it
+		# is intentionally empty now that the corner launcher is retired.
+		m.collection_button_layer.visible = context != "" \
+			and not m.intro_active and m.collection_layer == null \
+			and m.mg_kind == ""
+	if context != m.collection_habitat:
+		_spawn_context(context)
+	if context == "" or m.collection_layer != null:
+		m.collection_nearby_id = ""
+		m.collection_action_prev = _action_down()
+		return
+	if not m.collection_hint_shown and not m.intro_active:
+		m.collection_hint_shown = true
+		m.show_msg("Roshan", "Look! Little critters! Swim close and tap CATCH to add one to our book!", "")
+
+	var now := Time.get_ticks_msec() / 1000.0
+	var best := CATCH_RADIUS
+	var best_id := ""
+	for row_value: Variant in m.collection_nodes:
+		var row: Dictionary = row_value
+		var node: Node3D = row["node"]
+		if not is_instance_valid(node):
+			continue
+		var d: Dictionary = row["def"]
+		var base: Vector3 = row["base"]
+		var phase: float = float(row["phase"])
+		var category := String(d["category"])
+		var speed: float = 0.55 + fmod(phase, 0.5)
+		var angle: float = now * speed + phase
+		if category == "fish":
+			node.position = base + Vector3(cos(angle) * 3.2, sin(angle * 1.7) * 0.65, sin(angle) * 3.2)
+			node.rotation.y = -angle
+		elif category == "insect":
+			node.position = base + Vector3(cos(angle) * 2.2, 0.6 + sin(angle * 2.3) * 0.8, sin(angle) * 2.2)
+			node.rotation.y = -angle + PI * 0.5
+			_flap(row, sin(now * 11.0 + phase) * 0.42)
+		else:
+			node.position = base + Vector3(cos(angle) * 5.0, 1.0 + sin(angle * 1.6) * 1.2, sin(angle) * 5.0)
+			node.rotation.y = -angle + PI * 0.5
+			_flap(row, sin(now * 7.0 + phase) * 0.24)
+
+		var caught: bool = bool(m.critter_collection.get(String(d["id"]), false))
+		var marker: Label3D = row["marker"]
+		marker.visible = not caught
+		var star: Label3D = row["star"]
+		star.visible = caught
+		if not caught:
+			var dist: float = node.position.distance_to(ppos)
+			if dist < best:
+				best = dist
+				best_id = String(d["id"])
+		marker.modulate.a = 0.72 + sin(now * 3.0 + phase) * 0.22
+	m.collection_nearby_id = best_id
+	var action: bool = _action_down()
+	if action and not m.collection_action_prev and best_id != "":
+		_catch(best_id)
+	m.collection_action_prev = action
+
+
+func _action_down() -> bool:
+	var down := Input.is_physical_key_pressed(KEY_SPACE) or m.joy_pressed(JOY_BUTTON_A) or m.joy_pressed(JOY_BUTTON_B)
+	if m.touch_ui != null and bool(m.touch_ui.action_down):
+		down = true
+	return down
+
+
+func _spawn_context(context: String) -> void:
+	if m.collection_root != null and is_instance_valid(m.collection_root):
+		m.collection_root.queue_free()
+	m.collection_nodes.clear()
+	m.collection_nearby_id = ""
+	m.collection_habitat = context
+	if context == "":
+		m.collection_root = null
+		return
+	var root_node := Node3D.new()
+	root_node.name = "CollectibleCritters"
+	m.add_child(root_node)
+	m.collection_root = root_node
+	var index := 0
+	for d: Dictionary in DEFS:
+		if String(d["context"]) != context:
+			continue
+		# Collection critters are represented by the existing marker label while
+		# retired 3D source resources are absent. The label remains a clear,
+		# animated, touch-target-sized collectible in the world.
+		var node := Label3D.new()
+		node.name = String(d["id"])
+		var scale_value: float = float(d["scale"])
+		node.scale = Vector3.ONE * scale_value
+		var authored: Vector3 = d["pos"]
+		var base: Vector3
+		if context == "ocean":
+			base = Vector3(authored.x, m.seabed_y(authored.x, authored.z) + authored.y, authored.z)
+		else:
+			base = Vector3(m.LEVEL2_POS.x + authored.x, m.lagoon_h(m.LEVEL2_POS.x + authored.x, m.LEVEL2_POS.z + authored.z) + authored.y, m.LEVEL2_POS.z + authored.z)
+		node.position = base
+		root_node.add_child(node)
+
+		var marker = node
+		marker.text = CATEGORY_ICON.get(String(d["category"]), "✦")
+		marker.font_size = 150
+		marker.outline_size = 22
+		marker.modulate = Color(1.0, 0.88, 0.35, 0.9)
+		marker.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		marker.no_depth_test = true
+		marker.position = Vector3(0, 3.4 / scale_value, 0)
+		var star := Label3D.new()
+		star.text = "★"
+		star.font_size = 100
+		star.outline_size = 18
+		star.modulate = Color(0.55, 1.0, 0.72, 0.88)
+		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+		star.no_depth_test = true
+		star.position = Vector3(0, 3.4 / scale_value, 0)
+		node.add_child(star)
+		var wings: Array[Node3D] = []
+		_find_wings(node, wings)
+		m.collection_nodes.append({
+			"def": d,
+			"node": node,
+			"base": base,
+			"phase": float(index) * 1.731,
+			"scale": scale_value,
+			"marker": marker,
+			"star": star,
+			"wings": wings,
+		})
+		index += 1
+
+
+func _find_wings(node: Node, out: Array[Node3D]) -> void:
+	if node is Node3D and String(node.name).to_lower().begins_with("wing_"):
+		out.append(node as Node3D)
+	for child: Node in node.get_children():
+		_find_wings(child, out)
+
+
+func _flap(row: Dictionary, amount: float) -> void:
+	var wings: Array = row["wings"]
+	for i in range(wings.size()):
+		var wing_node: Node3D = wings[i]
+		if is_instance_valid(wing_node):
+			wing_node.rotation.x = amount * (-1.0 if i % 2 == 0 else 1.0)
+
+
+func _def_by_id(id: String) -> Dictionary:
+	for d: Dictionary in DEFS:
+		if String(d["id"]) == id:
+			return d
+	return {}
+
+
+func _row_by_id(id: String) -> Dictionary:
+	for row_value: Variant in m.collection_nodes:
+		var row: Dictionary = row_value
+		var d: Dictionary = row["def"]
+		if String(d["id"]) == id:
+			return row
+	return {}
+
+
+func _catch(id: String) -> void:
+	if bool(m.critter_collection.get(id, false)):
+		return
+	var d := _def_by_id(id)
+	var row := _row_by_id(id)
+	if d.is_empty() or row.is_empty():
+		return
+	m.critter_collection[id] = true
+	m.collection_nearby_id = ""
+	var node: Node3D = row["node"]
+	if is_instance_valid(node):
+		m._sparkle_burst(node.position + Vector3(0, 1.0, 0), d["color"])
+		var base_scale: float = float(row["scale"])
+		var tween := node.create_tween()
+		tween.tween_property(node, "scale", Vector3.ONE * base_scale * 1.35, 0.18).set_trans(Tween.TRANS_BACK)
+		tween.tween_property(node, "scale", Vector3.ONE * base_scale, 0.24).set_trans(Tween.TRANS_BOUNCE)
+	_sweep_net()
+	if m.player != null:
+		m.player.play_verb("cheer")
+	if m.chime != null:
+		m.chime.pitch_scale = 1.2
+		m.chime.play()
+	var habitat := String(HABITAT_LABEL.get(String(d["habitat"]), "the ocean"))
+	m.show_msg("Roshan", "I found a %s! It lives in %s. Into our Critter Book!" % [String(d["name"]), habitat], "")
+	m._update_hud()
+	m._write_save()
+
+
+func _sweep_net() -> void:
+	# The visible catch marker and sparkle burst already communicate the action;
+	# the retired net source is intentionally omitted.
+	return
+
+
+func open_book() -> void:
+	if m.collection_layer != null:
+		return
+	m._navigation_push("critter_book", self,
+		Callable(self, "close_book"))
+	m._set_world_controls_enabled(false, "collection")
+	m.collection_layer = CanvasLayer.new()
+	m.collection_layer.layer = 28
+	m.add_child(m.collection_layer)
+	var root_control := Control.new()
+	root_control.set_anchors_preset(Control.PRESET_FULL_RECT)
+	m.collection_layer.add_child(root_control)
+	var dim := ColorRect.new()
+	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.color = StorybookUI.DIM
+	root_control.add_child(dim)
+	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
+	var stage := StorybookUI.add_stage(root_control, viewport_size)
+	m.collection_stage = stage
+	if m.player != null:
+		m.player.vel = Vector3.ZERO
+	m.collection_category = "fish"
+	_draw_book()
+	m._say("roshan", "collection_book_open")
+
+
+func close_book() -> void:
+	m._navigation_remove("critter_book")
+	if m.collection_layer != null and is_instance_valid(m.collection_layer):
+		m.collection_layer.queue_free()
+	m.collection_layer = null
+	m.collection_stage = null
+	m._set_world_controls_enabled(true, "collection")
+
+
+func _switch_category(category: String) -> void:
+	m.collection_category = category
+	_draw_book()
+
+
+func _draw_book() -> void:
+	var stage: Control = m.collection_stage
+	if stage == null or not is_instance_valid(stage):
+		return
+	for child: Node in stage.get_children():
+		child.queue_free()
+	var panel := Panel.new()
+	panel.name = "CritterBookPanel"
+	panel.position = Vector2(34, 24)
+	panel.size = Vector2(1212, 672)
+	panel.add_theme_stylebox_override("panel", _book_frame_style())
+	stage.add_child(panel)
+	_add_book_shell(stage, Rect2(150, 43, 64, 48), "CritterBookPaintedShell")
+
+	var title := Label.new()
+	title.name = "CritterBookTitle"
+	title.text = "My Critter Book   %d / %d" % [caught_count(), TOTAL]
+	StorybookUI.style_label(title, 46, StorybookUI.INK, 4, StorybookUI.ROLE_TITLE)
+	title.position = Vector2(230, 34)
+	title.size = Vector2(970, 70)
+	title.autowrap_mode = TextServer.AUTOWRAP_OFF
+	title.max_lines_visible = 1
+	title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	stage.add_child(title)
+
+	for i in range(CATEGORY_ORDER.size()):
+		var category: String = CATEGORY_ORDER[i]
+		var tab := Button.new()
+		tab.name = "CritterBookTab_%s" % category
+		tab.text = "%s  %d / 6" % [String(CATEGORY_ICON[category]), caught_count(category)]
+		tab.position = Vector2(88 + float(i) * 270.0, 122)
+		tab.custom_minimum_size = Vector2(242, 110)
+		_style_book_tab(tab, category == m.collection_category)
+		tab.pressed.connect(_switch_category.bind(category))
+		stage.add_child(tab)
+
+	var visible_defs: Array[Dictionary] = []
+	for d: Dictionary in DEFS:
+		if String(d["category"]) == m.collection_category:
+			visible_defs.append(d)
+	for i in range(visible_defs.size()):
+		var d: Dictionary = visible_defs[i]
+		var caught: bool = bool(m.critter_collection.get(String(d["id"]), false))
+		var card_color: Color = d["color"]
+		var card := Panel.new()
+		card.name = "CritterCard_%s" % String(d["id"])
+		card.position = Vector2(82 + float(i % 2) * 556.0, 244 + float(i / 2) * 126.0)
+		card.size = Vector2(540, 116)
+		var paper: Color = Color.WHITE.lerp(card_color, 0.12) if caught else Color.WHITE
+		card.add_theme_stylebox_override("panel", _book_frame_style(paper))
+		stage.add_child(card)
+		var icon := Label.new()
+		icon.name = "CritterBookCategoryOrUnknown"
+		icon.text = String(CATEGORY_ICON[m.collection_category]) if caught else "?"
+		StorybookUI.style_label(icon, 68, StorybookUI.INK, 3, StorybookUI.ROLE_STATUS)
+		icon.position = Vector2(22, 10)
+		icon.size = Vector2(96, 96)
+		icon.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		card.add_child(icon)
+		var name_label := Label.new()
+		name_label.name = "CritterBookSpeciesName"
+		name_label.text = String(d["name"]) if caught else "Mystery Friend"
+		StorybookUI.style_label(name_label, 29 if caught else 28, StorybookUI.INK if caught else StorybookUI.MUTED, 2)
+		name_label.position = Vector2(126, 12)
+		name_label.size = Vector2(388, 42)
+		name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		card.add_child(name_label)
+		var habitat := Label.new()
+		habitat.name = "CritterBookHabitat"
+		var habitat_id := String(d["habitat"])
+		habitat.text = "%s  %s" % [String(HABITAT_ICON[habitat_id]), String(HABITAT_LABEL[habitat_id])]
+		StorybookUI.style_label(habitat, 28, StorybookUI.INK_SOFT, 2,
+			StorybookUI.ROLE_STATUS)
+		habitat.position = Vector2(126, 60)
+		habitat.size = Vector2(388, 44)
+		habitat.max_lines_visible = 2
+		card.add_child(habitat)
+
+	var help := Label.new()
+	help.name = "CritterBookHelp"
+	help.text = "Swim close to a sparkling critter, then tap CATCH!"
+	StorybookUI.style_label(help, 25, StorybookUI.INK_SOFT, 2, StorybookUI.ROLE_ADULT_CAPTION)
+	help.position = Vector2(88, 640)
+	help.size = Vector2(1104, 38)
+	help.autowrap_mode = TextServer.AUTOWRAP_OFF
+	help.max_lines_visible = 1
+	help.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	help.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	stage.add_child(help)
+
+
+func _book_frame_style(tint: Color = Color.WHITE, pressed: bool = false,
+		border_only: bool = false) -> StyleBoxTexture:
+	var style := StyleBoxTexture.new()
+	style.texture = BOOK_CARD
+	# Preserve the painted corners; only the paper and straight borders stretch.
+	style.region_rect = Rect2(10, 23, 222, 209)
+	for side: int in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
+		style.set_texture_margin(side, 36.0)
+	style.content_margin_left = 18.0
+	style.content_margin_right = 18.0
+	style.content_margin_top = 12.0
+	style.content_margin_bottom = 12.0
+	style.modulate_color = tint
+	style.draw_center = not border_only
+	if pressed:
+		style.expand_margin_top = -2.0
+		style.expand_margin_bottom = -2.0
+	return style
+
+
+func _style_book_tab(tab: Button, selected: bool) -> void:
+	# Shared typography and native input stay authoritative. All six visual
+	# states are replaced synchronously, before this Button enters the tree.
+	StorybookUI.style_button(tab, "selected" if selected else "secondary", 30, 28)
+	var normal_tint: Color = Color(1.0, 0.95, 0.83) if selected else Color.WHITE
+	tab.add_theme_stylebox_override("normal", _book_frame_style(normal_tint))
+	tab.add_theme_stylebox_override("hover", _book_frame_style(Color(1.0, 0.95, 0.83)))
+	tab.add_theme_stylebox_override("pressed", _book_frame_style(Color(1.0, 0.86, 0.64), true))
+	tab.add_theme_stylebox_override("hover_pressed", _book_frame_style(Color(1.0, 0.86, 0.64), true))
+	tab.add_theme_stylebox_override("focus", _book_frame_style(Color(1.0, 0.86, 0.64), false, true))
+	tab.add_theme_stylebox_override("disabled", _book_frame_style(Color(0.65, 0.65, 0.70, 0.65)))
+	if selected:
+		_add_book_shell(tab, Rect2(101, 0, 40, 30), "CritterBookSelectedShell")
+
+
+func _add_book_shell(parent: Control, rect: Rect2, node_name: String) -> void:
+	var shell := TextureRect.new()
+	shell.name = node_name
+	var crop := AtlasTexture.new()
+	crop.atlas = BOOK_PANEL
+	crop.region = Rect2(430, 0, 165, 116)
+	# Set the minimum-size policy before assigning/sizing an AtlasTexture.
+	shell.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	shell.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	shell.texture = crop
+	shell.position = rect.position
+	shell.size = rect.size
+	shell.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	parent.add_child(shell)

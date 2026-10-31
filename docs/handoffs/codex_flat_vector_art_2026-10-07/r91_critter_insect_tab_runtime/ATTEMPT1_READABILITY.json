@@ -1,0 +1,20 @@
+{
+  "status": "PARTIAL_AGENT_READABILITY_REJECTED_AT_TARGET_SIZE",
+  "machine": "Native84checks/14frames pass original controls and source/profile guards; not visual acceptance.",
+  "views": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r91_critter_insect_tab_runtime/native/attempt1_critter_1280/book_initial_captured_view.png",
+      "sha256": "7c43385f3904f5ae5dbc3c874f63cfa0dd9f9742f6dc5f49945b358ff0542076",
+      "direct_agent_view": true
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r91_critter_insect_tab_runtime/native/attempt1_critter_1280/book_insects_selected.png",
+      "sha256": "d72a71dadedc267f363bda3bcb41021122f05a1e83e0440d62ffa674e6ea8183",
+      "direct_agent_view": true
+    }
+  ],
+  "observed": "Fine painted wing detail and edge appear noisy/pixelated at64px tab size; do not qualify fit from the machine pass. Existing shared source import has no mip chain.",
+  "next": "Use mipmaps and per-tab linear mip sampling; original PNG unchanged, whole unit intact. Audit the only other source caller garden for level0/filter equivalence; no new drawing or generation.",
+  "source_snapshot": "attempt1_source_and_fixtures",
+  "accepted_removed": 0
+}

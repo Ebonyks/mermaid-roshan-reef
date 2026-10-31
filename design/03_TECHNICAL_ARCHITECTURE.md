@@ -66,7 +66,7 @@ Current satellites: `save_state`, `audio_director`, `companion`,
 `medal_system`, `hit_engine`, `interaction_director`, `tap_move_director`,
 `camera_kit`, `collection_system`, `living_world*`,
 `storybook_ui`, `story_art`, `intro_overlay`, `craft_studio`, `wardrobe_ui`,
-`pause_menu`, `boot_splash_overlay`, `arena/{castle_rooms_25d, sky_lagoon,
+`pause_menu`, `boot_splash_overlay`, `day_one_flow`, `arena/{castle_rooms_25d, sky_lagoon,
 sky_lagoon_promenade, courtyard_train, northern_kingdom}`,
 `games/{fetch, dolls, seek, melody, slide_race, treasure, shop, fairy,
 picture_games, side_scroll, brawl, dance_engine}`.

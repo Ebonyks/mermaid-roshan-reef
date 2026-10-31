@@ -1,0 +1,139 @@
+{
+  "id": "gold-star-overdraw-20261004",
+  "scope": "Owner-requested refinement of the gold-star criteria: \"Under 9, overdraw needs to be specifically analyzed, it is a big issue in the current games so far. Refine criteria\". Claude added a numbers-only overdraw meter (scripts/probe_overdraw.gd: live Canvas tree plus a GPU layer count read from a real Mobile-renderer frame and discarded, proven exact by a self-test) and tools/measure_overdraw.py, measured the Mermaid Pool in its real castle room and all fifteen Opera careers through their real room routes, and wrote six overdraw checks (OD1-OD6) under C7 into the rubric with starting budgets and a hash-bound classification of every code-drawing script seen on screen. tools/gold_star.py now derives the checks from the measurements, caps C7 at 1 until they all pass, requires the core criteria (C1, C3, C4, C5, C6) at 2 for a 4/5, and ends every --compare with the ordered list that lifts the game to 4/5, then 5/5. The analysis found overdraw on the reference game's screen from shared room layers, so the Pool drops from 4/5 to 3/5 (MA-VIS-008, new P1); sixteen assessments made stale by Codex's Chef overdraw repair (f07c1a48) were re-assessed and rebound. The Codex handoff gains GS5 and owner questions 5-6 (packet revision 4).",
+  "baseline": "f07c1a4820fb5222289802ad712db677b56400bc",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-MED-02",
+    "DL-MED-05",
+    "DL-LAY-03",
+    "DL-LAY-08",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-VIS-03",
+    "DL-MOT-04",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-07",
+    "DL-QA-10"
+  ],
+  "findings": [
+    "MA-VIS-008",
+    "MA-OPERA-001",
+    "MA-VIS-007",
+    "MA-DOC-009"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/GOLD_STAR.md",
+    "design/reference/games.json",
+    "design/reference/gold_star.json",
+    "design/reference/overdraw.json",
+    "design/reference/prompt_intents.json",
+    "design/reference/recipes/gold_star.md",
+    "docs/handoffs/codex_gold_star_2026-10-03/AUDIT.md",
+    "docs/handoffs/codex_gold_star_2026-10-03/MANIFEST.json",
+    "docs/handoffs/codex_gold_star_2026-10-03/POOL_FIVE_STAR.md",
+    "docs/handoffs/codex_gold_star_2026-10-03/README.md",
+    "scripts/probe_overdraw.gd",
+    "tools/gold_star.py",
+    "tools/measure_overdraw.py",
+    "tools/tests/test_gold_star.py"
+  ],
+  "validation": [
+    {
+      "command": "Exact Godot 4.7.2-stable, Mobile renderer, isolated APPDATA: scripts/probe_overdraw.gd -- --group=selftest at two window sizes (2560x1369 and 1080x1849)",
+      "result": "PASS",
+      "evidence": "Six visible full-screen layers counted exactly 6 on every sampled canvas point (mean 6.0, max 6), the one half-transparent layer exactly 1, and a hidden layer 0; the node meter agreed. Earlier runs at the native frame size sampled the letterboxed area and were corrected by sampling a fixed 256x144 canvas grid."
+    },
+    {
+      "command": "python -B tools/measure_overdraw.py (self-test, then the pool and opera groups, exact Godot 4.7.2-stable)",
+      "result": "PASS",
+      "evidence": "design/reference/overdraw.json written for 16 games with zero errors and zero script errors; each game bound to SHA-256 hashes of its sources, evidence files, the code-drawing scripts on its screen, the probe and the tool."
+    },
+    {
+      "command": "Measurement corrections before trusting the numbers",
+      "result": "PASS",
+      "evidence": "Careers launched directly left the castle (CanvasLayer 14) drawn over the career world (layer 10); they are now launched through main._start_opera_from_room, which suspends the castle as for the child. A frozen main kept the room's entry transition up and a first-arrival story clip covered the room; main now processes and clips are skipped through their own skip route before play states are measured. Three GPU frames per state: the median feeds the budget and the worst is kept as the peak."
+    },
+    {
+      "command": "python -m gdtoolkit.parser and python tools/lint_inference.py on scripts/probe_overdraw.gd",
+      "result": "PASS",
+      "evidence": "No parse or inference findings."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_record_owner_decision tools.tests.test_run_advisory_sensor tools.tests.test_study_game tools.tests.test_build_study_roadmap tools.tests.test_plan_prompt tools.tests.test_resolve_godot tools.tests.test_gold_star",
+      "result": "PASS",
+      "evidence": "131 tests OK, including OverdrawTests (unmeasured and stale measurements cap C7 and stop at 3/5; a clean reviewed measurement allows 4/5; every failure kind is named; only the child's own marks may be allowed; the core rule; the guide ends with a numbered list) and MeasureOverdrawTests."
+    },
+    {
+      "command": "Re-assessment of the sixteen games made stale by Codex's Chef overdraw repair at f07c1a48, then --rebind",
+      "result": "PASS",
+      "evidence": "_assign_stations changed only Chapter Two Chef (scores kept, rebound); _draw_activity_focus no longer draws the room-sized lens, so nine C7 notes drop the bloom and cite the measured overdraw instead; Chef C3, C6 and C7 notes record the station mapping, the reversed pitcher tilt and the removed duplicates (owner verification pending), and Chef C8 rises from 0 to 1 because the lens is gone and measured completion effects clear within a second. The Pool's C7 is reassessed from 2 to 1 because a shared code-drawn wash lies over Roshan."
+    },
+    {
+      "command": "python -B tools/gold_star.py --check --strict; python -B tools/plan_prompt.py --check; python -B tools/audit_game_2d.py --regression-gate; python -B tools/audit_probe_parity.py",
+      "result": "PASS",
+      "evidence": "Local run on this change before commit: GOLDSTAR OK (60 games, 0 errors, 0 stale), PROMPTS ALL OK, GAME2D NO_REGRESSION, PROBE_PARITY ALL OK."
+    },
+    {
+      "command": "Anonymous remote verification of packet revision 4: HTTPS GET without credentials from raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/088f38987224beac95a19ce5edcd2595223c463d/ for MANIFEST.json and every listed file and reference",
+      "result": "PASS",
+      "evidence": "Checked 2026-10-04T15:39:27Z: manifest SHA-256 fc151a474e6bbfdc15745250353c25cab2c928a07cdf57ff4eda5740771c4c4e; 25 of 25 items matched their manifest bytes and SHA-256, including design/reference/overdraw.json, tools/measure_overdraw.py and scripts/probe_overdraw.gd; the commit's tree page answered 200 anonymously."
+    },
+    {
+      "command": "Probe Suite (graphics fork) on the pushed branch head",
+      "result": "PENDING",
+      "evidence": "The run on the first pushed commit is superseded by the workflow's cancel-in-progress concurrency; the branch is merged into dev only after a green run on its exact head, which carries this record."
+    },
+    {
+      "command": "Phone frame time, owner review of the overdraw budgets (README question 6) and the dirty-room look (question 5)",
+      "result": "PENDING",
+      "evidence": "Not performed; the GPU counts are layer counts on a desktop GPU, not phone frame time."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "A node-level meter cannot see what code-drawn content covers, and most Opera career art is drawn inside _draw functions; only a GPU layer count sees it, and it must be proven exact by a self-test before any number is trusted.",
+      "write_back": "scripts/probe_overdraw.gd",
+      "recurrence_key": "overdraw-needs-gpu-count"
+    },
+    {
+      "lesson": "Measuring a screen means using the child's real route: a directly launched career kept the castle drawn over it, a frozen main kept the room transition up, and a story clip covered the room; each gave plausible but wrong numbers.",
+      "write_back": "scripts/probe_overdraw.gd",
+      "recurrence_key": "measure-the-real-route"
+    },
+    {
+      "lesson": "The reference game's own code was clean, but shared room layers drew a wash over Roshan; a check that only tests a game's own code (like the counter-tint arithmetic) misses what shared layers draw on its screen.",
+      "write_back": "design/reference/gold_star.json",
+      "recurrence_key": "shared-layers-on-screen"
+    }
+  ],
+  "strengths_observed": [
+    {
+      "id": "S-11",
+      "evidence": "Codex's Chef repair at f07c1a48 made sixteen gold-star assessments stale on the next check; each was re-assessed against the changed functions before rebinding, and Chef's C8 rose only where the evidence changed."
+    }
+  ],
+  "references_used": [
+    {
+      "path": "audit/chef_overdraw_20261003/START.json",
+      "purpose": "The owner's overdraw observation and Codex's reading of it (duplicate painted states, competing look-alikes)"
+    },
+    {
+      "path": "tools/audit_visual_design.py",
+      "purpose": "The existing per-zone alpha-mural budget (DL-PERF-03), which skips the castle and Opera zones"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "purpose": "DL-PERF-02/03, DL-LAY-03/08, DL-READ-02 and DL-VIS-03 behind the overdraw checks"
+    }
+  ],
+  "acceptance_gaps": "Machine measurement only. Only the Pool and the fifteen Opera careers are measured; the other live games score overdraw as not measured. No painted-copy (OD1) or look-alike (OD2) review is recorded for any game. The budgets are starting values for the owner to confirm, and layer counts are not phone frame time (MA-PERF-001). Codex GS5 repairs, the phone session and owner acceptance remain."
+}

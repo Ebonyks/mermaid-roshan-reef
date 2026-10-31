@@ -4,11 +4,18 @@ extends Control
 ##
 ## The accepted master painting supplies every visible portal. Controls are
 ## invisible physical portal hit regions; there is no card grid, career
-## crest, floating door frame, completion pearl, or all-career menu.
+## floating door frame, completion pearl, or all-career menu. The owner-directed
+## round signs sit above the arches, separate from the door touch regions.
 
 const CANVAS_SIZE := Vector2(1280.0, 720.0)
 const TILE_ROOT := \
 	"res://assets/flats/castle/opera_house_venue_2d/background_tiles/"
+const BADGE_REPAIR_ROOT := "res://assets/flats/castle/opera_house_venue_2d/badge_repairs/"
+const DOOR_ICON_SOURCE := "res://assets/flats/castle/opera_house_venue_2d/room_opera_house_venue.png"
+const DOOR_ICON_X: Array[int] = [357, 459, 565, 667]
+const DOOR_ICON_Y: Array[int] = [70, 195, 328]
+const DOOR_SIGN_Y: Array[float] = [47.0, 203.0, 367.0]
+const DOOR_SIGN_SIZE := Vector2(28.0, 28.0)
 const TILE_LOGICAL_SIZE := Vector2(320.0, 360.0)
 const TILE_COLUMNS := 4
 const TILE_ROWS := 2
@@ -61,6 +68,9 @@ var guide_pointer: Sprite2D
 var guide_pointer_base := Vector2.ZERO
 var motion: Tween
 var elapsed := 0.0
+var practice_book: TextureButton
+var tree_book_test: OperaTreeBookTest
+var job_playtest_menu: OperaJobPlaytestMenu
 
 
 func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
@@ -85,23 +95,35 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 	set_meta("floating_portal_decoration_count", 0)
 	set_meta("chapter2_initial_tutorial_mode", chapter2_tutorial_mode)
 	_build_background_tiles()
+	_build_badge_repairs()
+	_build_door_signs()
 	_build_input_blocker()
 	_build_floor_glow()
 	_build_actor()
 	_build_portals()
 	_build_guide_pointer()
+	_build_practice_book()
+	_build_playtest_elevator()
 	refresh(star_mask)
 
 
 func open(star_mask: int) -> void:
-	m._navigation_push("opera_venue", self, Callable(self, "close"))
+	m._navigation_push("opera_venue", self, Callable(self, "_go_back"))
 	visible = true
 	accepting_input = true
 	refresh(star_mask)
 	guide_current_floor()
 
 
+func _go_back() -> void:
+	close()
+	m._castle_rooms_ref().show_room("main_hall", true)
+
+
 func close() -> void:
+	if job_playtest_menu != null:
+		job_playtest_menu.shutdown()
+	_close_tree_book(false)
 	m._navigation_remove("opera_venue")
 	accepting_input = false
 	guide_button = null
@@ -137,6 +159,8 @@ func career_buttons() -> Array[Button]:
 
 
 func refresh(star_mask: int) -> void:
+	if practice_book != null:
+		practice_book.disabled = not accepting_input
 	for button: Button in buttons:
 		var act_index := int(button.get_meta("act_index", -1))
 		var complete := _portal_is_complete(act_index, star_mask)
@@ -273,6 +297,53 @@ func _build_background_tiles() -> void:
 			tile_root.add_child(tile)
 
 
+func _build_badge_repairs() -> void:
+	# Heal only the old badge sites. Every original background tile remains
+	# unchanged, and no generated pixel is drawn outside these local patches.
+	var feather := ShaderMaterial.new()
+	feather.shader = load("res://shaders/opera_badge_repair_feather.gdshader") as Shader
+	for row in range(DOOR_ICON_Y.size()):
+		for column in range(DOOR_ICON_X.size()):
+			var repair := TextureRect.new()
+			repair.name = "DoorBadgeRepair_%d_%d" % [row, column]
+			repair.position = Vector2(float(DOOR_ICON_X[column] - 22),
+				float(DOOR_ICON_Y[row] - 22)) * 1.25
+			repair.size = Vector2(55.0, 62.5)
+			repair.texture = load(BADGE_REPAIR_ROOT
+				+ "door_badge_heal_r%d_c%d.png" % [row, column]) as Texture2D
+			repair.material = feather
+			repair.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			repair.stretch_mode = TextureRect.STRETCH_SCALE
+			repair.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			repair.z_index = 1
+			add_child(repair)
+
+
+func _build_door_signs() -> void:
+	# Reuse the twelve original round emblems. Local repair patches restore
+	# their old arch positions; each sign now has an independently placed quad.
+	var source_texture := load(DOOR_ICON_SOURCE) as Texture2D
+	var source_image := source_texture.get_image()
+	var mask := ShaderMaterial.new()
+	mask.shader = load("res://shaders/opera_door_icon_mask.gdshader") as Shader
+	for row in range(DOOR_ICON_Y.size()):
+		for column in range(DOOR_ICON_X.size()):
+			var source_rect := Rect2i(DOOR_ICON_X[column] - 14,
+				DOOR_ICON_Y[row] - 14, 28, 28)
+			var sign := TextureRect.new()
+			sign.name = "DoorIcon_%d_%d" % [row, column]
+			sign.texture = ImageTexture.create_from_image(source_image.get_region(source_rect))
+			sign.material = mask
+			sign.position = Vector2(float(DOOR_ICON_X[column]) * 1.25,
+				DOOR_SIGN_Y[row]) - DOOR_SIGN_SIZE * 0.5
+			sign.size = DOOR_SIGN_SIZE
+			sign.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			sign.stretch_mode = TextureRect.STRETCH_SCALE
+			sign.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			sign.z_index = 2
+			add_child(sign)
+
+
 func _build_input_blocker() -> void:
 	var blocker := Control.new()
 	blocker.name = "VenueWorldInputBlocker"
@@ -302,7 +373,7 @@ func _build_actor() -> void:
 	actor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	actor.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	actor.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	actor.texture = load(ROSHAN_TEXTURE) as Texture2D
+	actor.texture = load(FashionOutfitRenderer.path(m, ROSHAN_TEXTURE)) as Texture2D
 	actor.z_index = 5
 	actor.set_meta("source_asset_role", "character")
 	add_child(actor)
@@ -432,3 +503,81 @@ func _process(delta: float) -> void:
 			+ sin(elapsed * 4.0) * 10.0
 	if floor_glow != null:
 		floor_glow.modulate.a = 0.72 + sin(elapsed * 2.6) * 0.20
+
+func _build_practice_book() -> void:
+	practice_book = TextureButton.new()
+	practice_book.name = "TreeBookPractice"
+	practice_book.position = Vector2(1032, 552)
+	practice_book.size = Vector2(174, 131)
+	practice_book.texture_normal = load("res://assets/opera/tree_book_test/book.png") as Texture2D
+	practice_book.ignore_texture_size = true
+	practice_book.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+	practice_book.tooltip_text = "Tree Book practice"
+	practice_book.pressed.connect(open_tree_book)
+	add_child(practice_book)
+	var tree := TextureRect.new()
+	tree.position = Vector2(58, 33)
+	tree.size = Vector2(66, 64)
+	var atlas := AtlasTexture.new()
+	atlas.atlas = load("res://assets/opera/tree_book_test/patient.png") as Texture2D
+	atlas.region = Rect2(0, 0, 512, 512)
+	tree.texture = atlas
+	tree.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	tree.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	tree.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	practice_book.add_child(tree)
+
+
+func _build_playtest_elevator() -> void:
+	if not OperaJobPlaytestMenu.ENABLED:
+		return
+	job_playtest_menu = OperaJobPlaytestMenu.new()
+	job_playtest_menu.setup(m, self)
+	add_child(job_playtest_menu)
+	var elevator := Button.new()
+	elevator.name = "OperaLeftElevatorPlaytest"
+	# The accepted painting's left brass elevator gate at base-canvas scale.
+	elevator.position = Vector2(178.0, 390.0)
+	elevator.size = Vector2(136.0, 134.0)
+	elevator.text = ""
+	elevator.tooltip_text = "Open job playtesting"
+	elevator.z_index = 8
+	elevator.set_meta("painted_elevator_hit_region", true)
+	_style_portal_button(elevator)
+	elevator.pressed.connect(job_playtest_menu.open)
+	add_child(elevator)
+
+
+func open_tree_book() -> void:
+	if not visible or not accepting_input or tree_book_test != null:
+		return
+	accepting_input = false
+	m._set_world_controls_enabled(false, "tree_book_practice")
+	refresh(m.opera_stars)
+	if guide_pointer != null:
+		guide_pointer.hide()
+	tree_book_test = OperaTreeBookTest.new()
+	tree_book_test.setup(m, m.save_data.get(OperaTreeBookTest.SAVE_KEY, {}))
+	tree_book_test.checkpoint_changed.connect(_save_tree_book)
+	tree_book_test.close_requested.connect(_close_tree_book)
+	add_child(tree_book_test)
+	m._navigation_push("arborist_tree_book_test", tree_book_test, Callable(self, "_close_tree_book"))
+
+
+func _save_tree_book(checkpoint: Dictionary) -> void:
+	m.save_data[OperaTreeBookTest.SAVE_KEY] = checkpoint
+	m._queue_save()
+
+
+func _close_tree_book(restore_venue: bool = true) -> void:
+	if tree_book_test == null:
+		return
+	tree_book_test.shutdown()
+	tree_book_test.queue_free()
+	tree_book_test = null
+	m._navigation_remove("arborist_tree_book_test")
+	m._set_world_controls_enabled(true, "tree_book_practice")
+	m._write_save()
+	if restore_venue and visible:
+		accepting_input = true
+		refresh(m.opera_stars)

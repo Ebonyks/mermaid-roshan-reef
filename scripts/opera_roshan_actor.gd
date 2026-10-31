@@ -161,6 +161,18 @@ func show_pose(animation: String, frame: int) -> void:
 	_apply_frame()
 
 
+func show_authored_nursery_pose(texture: Texture2D, frame: int) -> void:
+	if _career_key != "nursery" or not _has_target() or texture == null:
+		return
+	current_animation = "work"
+	current_frame = clampi(frame, 0, 7)
+	_frame_elapsed = 0.0
+	_playing = false
+	_one_shot = false
+	set_process(false)
+	_target.texture = texture
+
+
 func stop() -> void:
 	_playing = false
 	_one_shot = false

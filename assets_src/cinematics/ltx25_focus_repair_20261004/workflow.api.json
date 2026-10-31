@@ -1,0 +1,62 @@
+{
+  "1": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ltx-2.5-video-vae-bf16.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "LoadLatent",
+    "inputs": {
+      "latent": "focus_registered_video.latent"
+    }
+  },
+  "3": {
+    "class_type": "FocusDecoderAblation",
+    "inputs": {
+      "samples": [
+        "2",
+        0
+      ],
+      "vae": [
+        "1",
+        0
+      ],
+      "steps": 1
+    }
+  },
+  "5": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "3",
+        0
+      ],
+      "filename_prefix": "focus_decoder_ablation/steps_1/frame"
+    }
+  },
+  "4": {
+    "class_type": "FocusDecoderAblation",
+    "inputs": {
+      "samples": [
+        "2",
+        0
+      ],
+      "vae": [
+        "1",
+        0
+      ],
+      "steps": 2
+    }
+  },
+  "6": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "4",
+        0
+      ],
+      "filename_prefix": "focus_decoder_ablation/steps_2/frame"
+    }
+  }
+}

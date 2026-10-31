@@ -1,0 +1,158 @@
+{
+ "schema": "strengths_seed/1",
+ "measured_at_head": "f2140465b0d97575cf1855b1d0422a2c4be6110f",
+ "tiers": {
+  "candidate": "evidence exists (file, capture, probe or owner note); recipes may bind it, labelled",
+  "accepted": "owner or child evidence, or a binding owner rule"
+ },
+ "strengths": [
+  {
+   "id": "S-01",
+   "strength": "The child can never lose: no fail states, and doing nothing wins nothing",
+   "tier": "accepted",
+   "evidence": [
+    "CLAUDE.md hard rules",
+    "scripts/probe_passive.gd (every push)"
+   ],
+   "reuse": "Every recipe keeps it; a recipe step that could fail the child is rejected"
+  },
+  {
+   "id": "S-02",
+   "strength": "Touching the world changes it truthfully and visibly (dirt clears where the child scrubs)",
+   "tier": "candidate",
+   "evidence": [
+    "pattern PAT-OBJ-01 (STANDARD) in docs/handoffs/codex_master_audit_refinement_2026-09-30/seed/patterns_seed.json",
+    "commit f2140465 (fixture dirt clears along the scrub path)"
+   ],
+   "reuse": "Every activity recipe names the visible change each touch makes"
+  },
+  {
+   "id": "S-03",
+   "strength": "Picture-first interface a non-reader can use",
+   "tier": "candidate",
+   "evidence": [
+    "pattern PAT-UI-01 (STANDARD)",
+    "scripts/storybook_ui.gd"
+   ],
+   "reuse": "UI in any new content follows the Storybook UI tokens"
+  },
+  {
+   "id": "S-04",
+   "strength": "Roshan has a written acting profile that keeps her motion consistent",
+   "tier": "candidate",
+   "evidence": [
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "pattern PAT-ACT-01"
+   ],
+   "reuse": "Every new character gets a movement profile before animation"
+  },
+  {
+   "id": "S-05",
+   "strength": "Story clips between scenes carry the plot without replacing a child action",
+   "tier": "accepted",
+   "evidence": [
+    "DL-CIN-16 (owner decision 2026-09-23)",
+    "pattern PAT-STORY-01"
+   ],
+   "reuse": "Day One only until the owner extends it"
+  },
+  {
+   "id": "S-06",
+   "strength": "Identity locks make a character reproducible",
+   "tier": "candidate",
+   "evidence": [
+    "assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json",
+    "Roshan identity decision 2026-09-30"
+   ],
+   "reuse": "Every recurring character gets an identity sheet in this format"
+  },
+  {
+   "id": "S-07",
+   "strength": "The real family voices and the book art make the game personal",
+   "tier": "accepted",
+   "evidence": [
+    "assets/audio/voices/VOICE_MANIFEST.md",
+    "CLAUDE.md protected content"
+   ],
+   "reuse": "Protected; never altered or imitated; new lines use the approved synthetic voices"
+  },
+  {
+   "id": "S-08",
+   "strength": "Reuse-first prototypes reach a playable state the same day",
+   "tier": "candidate",
+   "evidence": [
+    "design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md (zero new art, chapter brief followed, combined CI green the same day)"
+   ],
+   "reuse": "Recipes start from an asset shortlist before any generation"
+  },
+  {
+   "id": "S-09",
+   "strength": "Owner questions numbered with a default get one-line answers",
+   "tier": "accepted",
+   "evidence": [
+    "owner answers of 2026-09-30 to Q12-Q16 in docs/handoffs/codex_visual_design_language_2026-09-30/README.md",
+    "Day One \"2 yes\" answer"
+   ],
+   "reuse": "Every cycle asks at most five numbered questions with defaults"
+  },
+  {
+   "id": "S-10",
+   "strength": "A lesson that becomes a rule, a tool and a card stays learned",
+   "tier": "accepted",
+   "evidence": [
+    "audit/GROK_HANDOFF_RETROSPECTIVE_2026-08-30.md",
+    "tools/audit_imagine_handoff.py",
+    "design/templates/IMAGINE_SHOT_CARD_V2.md"
+   ],
+   "reuse": "Every lesson names its write-back target"
+  },
+  {
+   "id": "S-11",
+   "strength": "Reviews that invalidate themselves when their source changes",
+   "tier": "candidate",
+   "evidence": [
+    "audit/day2_art_library_2026-09-30/REPORT.md (refresh trigger)"
+   ],
+   "reuse": "Strengths and exemplars expire when their evidence changes"
+  },
+  {
+   "id": "S-12",
+   "strength": "Acts shaped Teach / Play / Twist / Bow, with every beat a different verb",
+   "tier": "candidate",
+   "evidence": [
+    "OPERA_ACT_PACING_2026-07-25.md",
+    "OPERA_JOB_GIMMICKS_2026-07-25.md (superseded file that still holds the act shape)"
+   ],
+   "reuse": "The job recipe uses this shape and refuses a repeated verb"
+  },
+  {
+   "id": "S-13",
+   "strength": "Silly humour and an imp who can lose or win and restart instantly delight the owner",
+   "tier": "candidate",
+   "evidence": [
+    "DL-INT-14",
+    "docs/handoffs/codex_opera_imp_contest_2026-09-30/README.md (OD-B, OD-D)"
+   ],
+   "reuse": "Competitive jobs end in a silly, instantly restartable contest"
+  },
+  {
+   "id": "S-14",
+   "strength": "Companions who follow Roshan (Baby Eagle, the rainbow dust bunny) and stuffed animals matter to the family",
+   "tier": "candidate",
+   "evidence": [
+    "STUFFIE_COMPANIONS.md",
+    "DL-CIN-16 (rainbow dust bunny follows Roshan)"
+   ],
+   "reuse": "The companion recipe and the grow lane favour them"
+  },
+  {
+   "id": "S-15",
+   "strength": "A seeded challenge deck (Mischief, Helper, Coach, Hint) makes replays differ",
+   "tier": "candidate",
+   "evidence": [
+    "origin/ccr-ba906acd-1aepcb:design/day_two_story_v2/00_DAY_TWO_PLOTLINE.md (unmerged)"
+   ],
+   "reuse": "Variety grammar for nuanced content; merge decision needed"
+  }
+ ]
+}

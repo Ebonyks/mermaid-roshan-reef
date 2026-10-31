@@ -1,0 +1,11 @@
+{
+  "state": "SOURCE_FIXTURE_REAL_OWNER_RETURN_CORRECTION",
+  "failed_handle": 76747,
+  "checks": 29,
+  "passed": 28,
+  "excluded_frames": 5,
+  "cause": "Configured legacyFaron launcher was entered over the still-visible Castle room from Continue. PauseMenu correctly prioritizes that room owner on Leave, so Dolls teardown assertion failed. Unwind via original _exit_level2 API before Faron launch. Keep same teardown assertion; no productioncode orart changes.",
+  "normal_unchanged": true,
+  "healthy_job_restarted": false,
+  "at_utc": "2026-10-31T09:19:26.985485+00:00"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "ltx-retake-repair-20261004",
+  "authorization": "Owner 2026-10-04: complete proposed bounded repair trial; prioritize retake on 8GB; Aseprite correction strategy.",
+  "baseline": "a4674e81d1528639b0a23b7b7d34a5c013f90925",
+  "scope": "Whole-figure lowering repair, source-only; no runtime changes or acceptance.",
+  "source_packet": "assets_src/cinematics/ltx_registered_wave_20261004",
+  "source_take": "figure_wide_slow",
+  "source_frame_window_inclusive": [
+    40,
+    64
+  ],
+  "defect_frames_inclusive": [
+    44,
+    52
+  ],
+  "fps": 24,
+  "caps": {
+    "additional_generated_takes": 4,
+    "per_backend_takes": 2,
+    "submissions_including_failed_preflight": 6,
+    "imagegen_calls": 1,
+    "paid_api_usd": 0,
+    "download_bytes": 26000000000,
+    "active_render_seconds": 7200,
+    "per_take_seconds": 1800,
+    "cleanup_automation_seconds": 1800,
+    "aggregate_generated_take_cap_including_prior_task": 8
+  },
+  "prior_task_costs": {
+    "generated_takes": 4,
+    "submissions": 5,
+    "accepted_production_seconds": 0
+  },
+  "root_anchor_is_not_pixel_freeze": true,
+  "moving_parts": "Arm, shoulder, torso/dress, hair, tail as one coherent figure.",
+  "delivery_repository": "Ebonyks/mermaid-roshan-reef",
+  "delivery_branch": "codex/ltx-registered-wave-20261004",
+  "recipient_access": "Public anonymous GitHub; verify immutable revision before completion.",
+  "status": "TRIAL_COMPLETED_REFERENCE_ONLY",
+  "comparison_controls": "Same 25 source frames, corrected pose, seed, prompt and cadence. Old guides and new temporal source-retake are distinct declared methods; second newer-model take changes resolution/profile to 448x256 LOW_VRAM for hardware diagnosis. Model schedules differ as declared.",
+  "scope_revision": "After slow full-size LTX-2.3 sampling, second newer-model take uses 448x256 and isolated LOW_VRAM/CPU VAE/text profile. Same content/timing/seed/guides. No new take or download cap.",
+  "outcome": "One quantized LTX-2.3 temporal retake executed on8GB at448x256; latent boundaries preserved within tolerance; all completed motion rejected for production. Four additional take requests and six total model submissions used; no more generation in this task.",
+  "budget_audit": "Four generated-take requests met that cap. Six queued model jobs plus one failed diagnostic-client preflight make seven against the literal six submission/preflight cap: FAIL by one. Two separate server setup failures/diagnostic aborts are also logged. No owner exception or cap reset; no more submissions."
+}

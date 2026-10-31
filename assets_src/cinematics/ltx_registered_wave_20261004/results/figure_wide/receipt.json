@@ -1,0 +1,47 @@
+{
+  "status": "FAILED",
+  "acceptance": "REFERENCE_ONLY",
+  "model": "LTX-Video 2B 0.9.8 distilled",
+  "attempt": 3,
+  "started_at_utc": "2026-10-04T15:33:12.756546+00:00",
+  "workflow_sha256": "dadecbc38d6b1ff9e5b5b5c21a47547ecad3f9d2dc1fee7450883a4bd09db2cb",
+  "prompt_sha256": "2c70f73880a51c7d8ee0d645754fede677a8732b5a4fd50d46fed441b0f9a903",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "fps": 24,
+    "steps": 7,
+    "seed": 20261003,
+    "first_frame_strength": 1.0,
+    "guide_strength": 1.0,
+    "refinement_pass": false
+  },
+  "outputs": [],
+  "resource_samples": [
+    {
+      "elapsed_seconds": 0.14,
+      "gpu_used_mib_util_percent": "2478, 36"
+    },
+    {
+      "elapsed_seconds": 15.26,
+      "gpu_used_mib_util_percent": "2477, 25"
+    },
+    {
+      "elapsed_seconds": 30.42,
+      "gpu_used_mib_util_percent": "2477, 42"
+    },
+    {
+      "elapsed_seconds": 45.54,
+      "gpu_used_mib_util_percent": "2457, 37"
+    }
+  ],
+  "queue_ahead_prompt_ids": [],
+  "prompt_id": "9b5e076e-b767-46bb-8b38-a3e6a7b73c81",
+  "sampling_started_elapsed_seconds": 0.054,
+  "error": "{'status_str': 'error', 'completed': False, 'messages': [['execution_start', {'prompt_id': '9b5e076e-b767-46bb-8b38-a3e6a7b73c81', 'timestamp': 1791127992817}], ['execution_cached', {'nodes': [], 'prompt_id': '9b5e076e-b767-46bb-8b38-a3e6a7b73c81', 'timestamp': 1791127992885}], ['execution_interrupted', {'prompt_id': '9b5e076e-b767-46bb-8b38-a3e6a7b73c81', 'node_id': '5', 'node_type': 'CLIPTextEncode', 'executed': ['2', '26', '22', '6', '30', '1', '24'], 'timestamp': 1791128047109}]]}",
+  "elapsed_seconds": 55.014,
+  "completed_at_utc": "2026-10-04T15:34:07.782173+00:00",
+  "disposition": "INTENTIONALLY_ABORTED_PRE_SAMPLING_INPUT_REGISTRATION",
+  "reason": "Whole-figure inputs must register waist/root, not reuse arm-only shifts; stopped at CLIPTextEncode, no denoising/frame outputs."
+}

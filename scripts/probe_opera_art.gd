@@ -10,6 +10,7 @@ const SCHEMA := "reef.opera.route_capture.v1"
 const MANIFEST_NAME := "opera_capture_manifest.json"
 const CAPTURE_METHOD := "same_process_viewport"
 const ROUTE_ENTRY_METHOD := "guarded_castle_career_route_launch"
+const GODOT_BASELINE_PATH := "res://tools/godot_baseline.json"
 const READY_FRAME_LIMIT := 240
 const VENUE_READY_FRAME_LIMIT := 1200
 const VENUE_READY_TIMEOUT_MSEC := 5000
@@ -25,6 +26,8 @@ const VENUE_FLOOR_ACTS: Array[int] = [2, 8, 13]
 const SOURCE_FIXED_FILES: Array[String] = [
 	"project.godot",
 	"tools/audit_opera_capture.py",
+	"tools/audit_godot_baseline.py",
+	"tools/godot_baseline.json",
 ]
 const SOURCE_TREE_ROOTS: Array[String] = [
 	"assets", "scenes", "scripts", "shaders",
@@ -126,9 +129,26 @@ func _engine_contract() -> Dictionary:
 
 func _exact_engine() -> bool:
 	var engine := _engine_contract()
-	return int(engine["major"]) == 4 and int(engine["minor"]) == 7 \
-		and int(engine["patch"]) == 1 and String(engine["status"]) == "stable" \
-		and String(engine["build"]) == "official"
+	if not FileAccess.file_exists(GODOT_BASELINE_PATH):
+		return false
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(GODOT_BASELINE_PATH))
+	if not parsed is Dictionary:
+		return false
+	var baseline: Dictionary = parsed
+	var parts: PackedStringArray = String(baseline.get("version", "")).split(".")
+	if parts.size() != 3:
+		return false
+	for part: String in parts:
+		if not part.is_valid_int():
+			return false
+	var status: String = String(baseline.get("status", ""))
+	var release: String = String(baseline.get("release", ""))
+	if status != "stable" or release != "%s-%s" % [String(baseline.get("version", "")), status]:
+		return false
+	return int(engine["major"]) == int(parts[0]) and int(engine["minor"]) == int(parts[1]) \
+		and int(engine["patch"]) == int(parts[2]) and String(engine["status"]) == status \
+		and String(engine["build"]) == "official" \
+		and String(engine["version_string"]) == "%s (official)" % release
 
 
 func _source_suffixes(root_name: String) -> Array[String]:

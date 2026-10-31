@@ -1,0 +1,153 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_gold_star_2026-10-03",
+ "revision": 6,
+ "revision_note": "Revision 5 (2026-10-04): README GS2 and GS5 and POOL_FIVE_STAR.md gain status notes. The Pool's GS5 items are done and carved out as MA-VIS-009, the 255-layer burst was a meter artifact, and GS2 continues in docs/handoffs/codex_pool_five_star_2026-10-04/. Reference hashes refreshed. Revision 4 (2026-10-04): the owner asked for overdraw to be analysed specifically. The gold-star criteria gain overdraw checks OD1-OD6 under C7, measured on the real routes by tools/measure_overdraw.py (GPU layer counts, numbers only); README adds GS5 (MA-VIS-008) and owner questions 5-6; POOL_FIVE_STAR.md and AUDIT.md correct the Pool to 3/5 under the refined criteria. Revisions 1-3 were published and verified anonymously first. Revision 6 (2026-10-05): reference hashes refreshed after the Pool five-star packet's revision 2 (owner answers) and the dev merge; no change to this packet's own files.",
+ "evidence_baseline": "dev 87f992680c0b6a690bf45b1950275579c45e15ab",
+ "rules_checked_at": "dev f07c1a4820fb5222289802ad712db677b56400bc (after Codex's Chef overdraw repair)",
+ "tracking_findings": [
+  "MA-PLAY-005",
+  "MA-OPERA-013",
+  "MA-PLAY-004",
+  "MA-VIS-008",
+  "MA-DOC-009",
+  "MA-VIS-009"
+ ],
+ "entry": "README.md",
+ "file_count": 4,
+ "total_bytes": 46054,
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 11298,
+   "sha256": "3790e05d1c9cedd25f4f4195f11218408e57a44ba7b3d72e55788b753537c96b",
+   "role": "Codex handoff entry point: GS0-GS4 and four owner questions"
+  },
+  {
+   "path": "AUDIT.md",
+   "bytes": 20535,
+   "sha256": "160f298184d5072f7fe0ee0746a21a2216de9d80a216732018483f59639945b5",
+   "role": "game-wide audit at dev 87f99268: strongest and weakest games, reachability, new findings, the reference choice"
+  },
+  {
+   "path": "POOL_FIVE_STAR.md",
+   "bytes": 14221,
+   "sha256": "3ba13b7838b8127c4e31e428d3fc9d0f20b0837b5bbeede8560f27a2d84a1da1",
+   "role": "Mermaid Pool five-star proposal (Claude's code), verification, human checks, art and voice handoff GS2"
+  }
+ ],
+ "references": [
+  {
+   "path": "design/reference/GOLD_STAR.md",
+   "bytes": 29172,
+   "sha256": "20028048661c0a1a59f59ea3013536a462a758d26b6068e49f106bf15d5a7230"
+  },
+  {
+   "path": "design/reference/games.json",
+   "bytes": 150554,
+   "sha256": "bc144a4a257fc60cad31edeae407a370295c7d4198042b09af3800505d2238f8"
+  },
+  {
+   "path": "design/reference/gold_star.json",
+   "bytes": 35698,
+   "sha256": "bdc01561b5439b86cbf87466fca2f958232a0b3a4425d75ccab7782d258510d6"
+  },
+  {
+   "path": "design/reference/recipes/gold_star.md",
+   "bytes": 6123,
+   "sha256": "6a0b6250d83699a67fe0a71a9007c20b07066408bf83a448182c39f7329100d9"
+  },
+  {
+   "path": "tools/gold_star.py",
+   "bytes": 56075,
+   "sha256": "5a0121de444c6606b7454ba7bd5403a4153c4b4d448a055aa529dde5a24c9355"
+  },
+  {
+   "path": "scripts/games/day_one_pool_cleanup.gd",
+   "bytes": 28592,
+   "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44"
+  },
+  {
+   "path": "scripts/games/pool_skimmer_activity.gd",
+   "bytes": 22079,
+   "sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce"
+  },
+  {
+   "path": "scripts/games/pool_waterfall_activity.gd",
+   "bytes": 20079,
+   "sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da"
+  },
+  {
+   "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+   "bytes": 22256,
+   "sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0"
+  },
+  {
+   "path": "scripts/day_one_contact_action_2d.gd",
+   "bytes": 4954,
+   "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac"
+  },
+  {
+   "path": "scripts/probe_day_one_pool_cleanup.gd",
+   "bytes": 36294,
+   "sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c"
+  },
+  {
+   "path": "assets/castle/training/ghost_hand.png",
+   "bytes": 123283,
+   "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9"
+  },
+  {
+   "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+   "bytes": 233301,
+   "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08"
+  },
+  {
+   "path": "assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png",
+   "bytes": 138297,
+   "sha256": "f3472eaadd8cffc08d4ea9e0dcf8d4455b5a5e4eea16eb4721a0d945c7cbac62"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_base.png",
+   "bytes": 50051,
+   "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_directional.png",
+   "bytes": 396741,
+   "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a"
+  },
+  {
+   "path": "design/templates/ANIMATION_JOB_CARD_V1.md",
+   "bytes": 4903,
+   "sha256": "67a35e72c4844a2a4290829d02e709452494cf7fb823ef27aa95de9de10ba922"
+  },
+  {
+   "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+   "bytes": 26593,
+   "sha256": "a8d9da857376f69a4e82e9e5ab3dfa5f3af6b9e6b0f50d1fc688c8d40f71dfac"
+  },
+  {
+   "path": "design/reference/overdraw.json",
+   "bytes": 85539,
+   "sha256": "47f2bfd476c72f50ba5b422dd6f32d3df8aa714b95f800654e22010bdef14d1b"
+  },
+  {
+   "path": "tools/measure_overdraw.py",
+   "bytes": 11760,
+   "sha256": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+  },
+  {
+   "path": "scripts/probe_overdraw.gd",
+   "bytes": 44097,
+   "sha256": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433"
+  }
+ ],
+ "non_delivery": "No art, voice, capture or board is delivered; GS2 asks Codex to build them. No acceptance is granted."
+}

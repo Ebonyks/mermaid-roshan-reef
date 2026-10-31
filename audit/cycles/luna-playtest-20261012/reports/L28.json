@@ -1,0 +1,171 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L28",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l28",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Doctor treatment contact and sequencing",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L28/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The sole L28 invocation ran the unchanged probe_opera_diegetic_paths on Godot 4.7.2-stable with an isolated save profile. It passed 2,432 assertions covering 14 careers, 68 authored stations, 57 treatment/play phase anchors, 52 authored spurs, and Doctor's approach geometry plus the clinic-to-recovery route avoiding the painted canal. Source maps Doctor's five treatment phases to five room stations.",
+    "route_gaps": "The probe calls StagePaths helpers and validates its mirrored station/phase tables; it does not instantiate OperaCareerWorld2D, enter Doctor from the ordinary Castle room, activate visible hotspots, deliver routed touches, or test phase completion. The run is headless and has no rendered Mobile, phone, child, or owner evidence. The probe PASS establishes route geometry only.",
+    "ordinary_entry": "Doctor is registered as a Castle career and as an Opera House career definition (scripts/castle_career_routes.gd:39; scripts/opera_house.gd:55-60), but normal gameplay entry was not executed in this session."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "source_constants": [
+      {
+        "value": "Chapter Two Doctor phase goals: WASH 3.6, FIND 4.0, X-RAY 2.0, CAST 2.0; this story adapter ends after CAST.",
+        "evidence": "scripts/chapter_two_career_scene_adapter.gd:44-49"
+      },
+      {
+        "value": "Free-play Doctor treatment goals include WASH 4.5, FIND 6.0, X-RAY 3.0, CAST 3.6, BANDAGE 6.5; the broader seven-phase list also includes two imp encounters.",
+        "evidence": "scripts/opera_career_world_2d.gd:161-168"
+      },
+      {
+        "value": "Each completed phase holds its finished picture for 2.2 seconds; phase-advance timing is distinct from the goal-work time.",
+        "evidence": "scripts/opera_career_world_2d.gd:3558-3577"
+      },
+      {
+        "value": "Doctor X-ray has two ordered scan spots.",
+        "evidence": "scripts/opera_gesture_surface.gd:142,4282-4320"
+      }
+    ],
+    "estimated_activity_duration": null,
+    "assumptions": "No child session duration is inferred. The 4.056-second runner wall time is probe execution, not gameplay timing. Gesture goals are abstract progress units except the Doctor hold, which accumulates elapsed held time in the career-world tick (scripts/opera_career_world_2d.gd:4658-4667); hand travel and touch latency are not measured."
+  },
+  "tactile": {
+    "target_size": "The probe asserts Doctor station hit regions meet 110×110 base-canvas pixels and that hotspots remain in bounds and clear Roshan's idle body (scripts/probe_opera_diegetic_paths.gd:222-273,300-324). This is table-level geometry; device projection and visual prominence were not measured.",
+    "press_response": "Source routes a press on the currently armed hotspot through the approved station path, then opens the phase after the hotspot opening finishes (scripts/opera_career_world_2d.gd:1991-2029). No visible routed press was exercised. X-ray feedback code lights a found spot and emits one unit of progress on a qualifying scan segment (scripts/opera_gesture_surface.gd:4290-4316).",
+    "drag_hold_release": "Hold is elapsed while the same surface touch remains down; X-ray advances only when a drag segment intersects the next ordered spot, and a partial release restarts the demonstration without clearing already found spots (scripts/opera_career_world_2d.gd:4658-4667; scripts/opera_gesture_surface.gd:4290-4326). Circle and swipe gestures are configured for Doctor, but their real touch, release, and progress were not exercised (scripts/chapter_two_career_scene_adapter.gd:44-49; scripts/opera_gesture_surface.gd:1249-1284).",
+    "ownership": "The surface tracks the active touch index and ignores another finger while held (scripts/opera_gesture_surface.gd:1249-1270). Code inspection only; finger ownership was not tested on hardware.",
+    "cancellation": "No pause, focus-loss, scene-exit, premature release, or re-entry cancellation was tested. X-ray's partial-release rehint is present in code (scripts/opera_gesture_surface.gd:4319-4326), but its preservation behavior was not run."
+  },
+  "play_appeal": {
+    "hypothesis": "The ordered care sequence could feel varied because it changes from a sustained wash to a choice, a two-point scan, and a circular cast. The progress is tied to different gestures rather than passive waiting. Whether the patient cues are noticeable, the order makes sense to a preschooler, or the repeated hand motions stay enjoyable is unobserved.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": "Ordinary-entry and first contact",
+      "input": "On an isolated test profile, enter Doctor through the normal Castle room route; let the Doctor room and its spoken/pointer cue appear, then tap the one currently glowing treatment object once.",
+      "wait": "Wait until Roshan reaches the authored approach and the hotspot opening completes; source has no fixed travel duration, so do not infer one.",
+      "expected": "The chosen station opens the current phase; unrelated room taps do not skip the physical station route.",
+      "grounding": "scripts/opera_career_world_2d.gd:1991-2029; scripts/probe_opera_diegetic_paths.gd:300-324"
+    },
+    {
+      "beat": "Wash",
+      "input": "Press and continuously hold one finger on the bubbly basin for 3.6 seconds in the Chapter Two story phase; keep the same finger down until the wash completes.",
+      "wait": "After completion, leave the result visible for 2.2 seconds. Allow the next phase's 1.0-second between-phase gap; the finale-entry gap is 2.6 seconds when CAST begins at finale_start 3.",
+      "expected": "Held-time progress reaches WASH's 3.6 goal, then advances to FIND after the result hold.",
+      "grounding": "scripts/chapter_two_career_scene_adapter.gd:44-49; scripts/opera_career_world_2d.gd:4658-4667,3558-3577,2516-2527"
+    },
+    {
+      "beat": "Find the sore plush",
+      "input": "Tap the currently glowing patient choice four times, waiting for the refreshed cue after each correct choice; do not drum on the screen.",
+      "wait": "Wait for the phase to open and for each choice reflash; after the fourth accepted choice, wait 2.2 seconds for the completion picture.",
+      "expected": "FIND's story goal is four; a correct choice updates the target, while a wrong choice retains and reflashes the same answer.",
+      "grounding": "scripts/chapter_two_career_scene_adapter.gd:45-46; scripts/opera_career_world_2d.gd:3536-3555,3558-3577"
+    },
+    {
+      "beat": "Scan the X-ray",
+      "input": "Touch the scanner, drag one continuous finger segment through the first sore spot at normalized surface point (0.65, 0.50), then the next at (0.48, 0.40), and release. If the child lifts early, allow the demonstration to replay and continue from the remaining spot.",
+      "wait": "Allow the 2.2-second completion-picture hold after both spots register. Before CAST, allow the 2.6-second finale-entry gap coded for phase index 3.",
+      "expected": "The scanner reveals two spots in order; each qualifying segment earns one X-ray unit and an incomplete release preserves found progress.",
+      "grounding": "scripts/opera_gesture_surface.gd:142,4290-4326; scripts/chapter_two_career_scene_adapter.gd:46-49; scripts/opera_career_world_2d.gd:3558-3577,2516-2527"
+    },
+    {
+      "beat": "Wrap the cast and test appeal",
+      "input": "Draw two full circles with one finger over the cast surface, following the Doctor's demonstration, then allow the story result to settle. Observe without coaching whether the child anticipates the next step, recognizes the plush is treated, and chooses to replay or leave.",
+      "wait": "Hold the completed cast picture for 2.2 seconds. For an appeal check, offer one voluntary replay after the final result; do not require an adult prompt or measure duration from the probe runner.",
+      "expected": "CAST reaches the story goal of 2.0 circle units and completes the four-phase story treatment. Free-play BANDAGE is a separate additional mechanic and should be assessed only on that route.",
+      "grounding": "scripts/chapter_two_career_scene_adapter.gd:44-49; scripts/opera_gesture_surface.gd:1191-1208; scripts/opera_career_world_2d.gd:3558-3577; scripts/opera_career_world_2d.gd:161-168"
+    }
+  ],
+  "observations": [
+    {
+      "title": "Doctor's authored treatment stations have safe, ordered room routes",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/opera_career_world_2d.gd:408-414 (WASH/FIND/X-RAY/CAST/BANDAGE station bindings)",
+        "scripts/probe_opera_diegetic_paths.gd:82-85,300-324,401-429 (five playable treatment anchors, hotspot clearances, Doctor semantic approach constraints and canal avoidance)",
+        "audit/cycles/luna-playtest-20261012/runtime/L28/attempt_1/receipt.json (Godot 4.7.2-stable, isolated profile, attempt 1, PASS; rendered_mobile_acceptance=false)",
+        "audit/cycles/luna-playtest-20261012/runtime/L28/attempt_1/probe.log:2 (ALL OK: 2,432 checks, 14 careers, 68 stations, 57 playable phases, 52 authored spurs)"
+      ],
+      "rules": ["DL-INT-01", "DL-INT-04", "DL-UI-03", "DL-QA-02"],
+      "existing_findings": ["MA-OPERA-012"],
+      "reproduction": "Run the recorded L28 helper invocation once; the unchanged diegetic-path probe passes its Doctor location, hit-region, clearance, spur, and route assertions. It tests StagePaths contracts, not the actual rendered Doctor room.",
+      "child_impact": "Safe approach points and large authored targets reduce the chance that a child must touch a painted canal or select an overlapping object. Phone-size appearance and true projected touch size remain unknown.",
+      "proposed_repair": "No code repair indicated by this bounded route evidence. Bind the route result to a rendered Mobile/device session before treating Doctor discovery as accepted.",
+      "acceptance_test": "From the normal Doctor room entry on the target phone, verify each treatment hotspot is visually identifiable, at least 110×110 projected pixels, separated from neighboring controls, reachable along the authored path, and does not obscure Roshan."
+    },
+    {
+      "title": "Treatment phases use different one-finger verbs and ordered targets",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/chapter_two_career_scene_adapter.gd:44-49 (WASH → FIND → X-RAY → CAST story order, goals, and voice prompts)",
+        "scripts/opera_career_world_2d.gd:408-414,2603-2688,3423-3577 (station mapping, task opening, progress, choice refresh, and completion hold)",
+        "scripts/opera_gesture_surface.gd:142,4282-4326 (two ordered X-ray targets; partial-release rehint)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-02", "DL-AGE-05", "DL-INT-02", "DL-SAVE-04", "DL-MOT-04"],
+      "existing_findings": ["MA-PLAY-004"],
+      "reproduction": "Source defines four sequential Chapter Two phases: 3.6-second hold, four choices, two ordered X-ray scans, and two circle units. The free-play treatment set additionally includes five-unit swipe bandaging. This code path was not driven by actual routed input in L28.",
+      "child_impact": "Different gestures and a persistent patient may support agency and make treatment feel like a series of distinct actions. The probe cannot show that Roshan or the plush visibly contacts each relevant object or that a child understands the sequence.",
+      "proposed_repair": "No repair indicated by source alone. Inspect actual contact and result changes in a routed-input run; keep the story's four-step arc distinct from free-play's extra bandage phase.",
+      "acceptance_test": "On the shipping path, capture before/during/after each actual touch: visible Roshan arrival/contact where required, the basin state change, selected plush response, ordered X-ray spot reveals, cast wrap, and phase advance only after the named gesture goal."
+    },
+    {
+      "title": "The X-ray scan banks progress and demonstrates the next target after a lift",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_gesture_surface.gd:142 (two normalized sore-spot locations)",
+        "scripts/opera_gesture_surface.gd:4282-4326 (drag must cross the next ordered spot; found state and feedback are recorded; partial release restarts the demo)",
+        "scripts/opera_gesture_surface.gd:1249-1270 (one active touch index owns drag/release)"
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-05", "DL-UI-04", "DL-UI-05", "DL-MOT-04"],
+      "existing_findings": [],
+      "reproduction": "Read the X-ray scan handlers. A drag shorter than three pixels or missing the current spot earns nothing; a qualifying segment marks the next spot found. Early release leaves found flags intact and restarts the visual demonstration. No part of this sequence was manually driven in L28.",
+      "child_impact": "Ordered feedback can make a diagnostic action legible and preserve a successful first scan if the finger slips. The hit tolerance, cue contrast, and recovery readability remain unmeasured on device.",
+      "proposed_repair": "No change indicated. Test accidental lift and second-finger interference with a real routed-touch probe and phone capture; check whether the replay makes the remaining target apparent.",
+      "acceptance_test": "Scan the first sore spot, lift before the second, and confirm its highlight remains while the next target is demonstrated; reacquire it with one finger, release, and verify the second highlight and phase completion without a second finger stealing input."
+    },
+    {
+      "title": "The assigned PASS does not verify treatment contact or child sequencing",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_opera_diegetic_paths.gd:2-4 (probe purpose: authored station geography and deterministic route network)",
+        "scripts/probe_opera_diegetic_paths.gd:300-324,349-429 (station geometry, route projection, and Doctor semantic floor only)",
+        "scripts/probe_opera_diegetic_paths.gd:454-473 (probe enumerates static path tables and prints aggregate PASS)",
+        "audit/cycles/luna-playtest-20261012/runtime/L28/attempt_1/receipt.json (SCRIPTED_PROBE; headless; rendered_mobile_acceptance=false; no failures)",
+        "audit/cycles/luna-playtest-20261012/runtime/L28/attempt_1/probe.log:2"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-UI-01", "DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-OPERA-012", "MA-PLAY-004"],
+      "reproduction": "The probe initializes EXPECTED_STATIONS and PLAYABLE_PHASE_STATIONS, calls StagePaths geometry helpers, and checks semantic Doctor points. It never constructs OperaCareerWorld2D or sends gestures to OperaGestureSurface; its 2,432-check PASS cannot evidence treatment action or completion order.",
+      "child_impact": "A child could still miss a cue, struggle with the scan gesture, or fail to perceive treatment despite a mathematically valid route; the current evidence says nothing about those outcomes.",
+      "proposed_repair": "No code defect is established here. Add or reuse a focused routed-input test for Doctor's live touch-to-contact-to-progress chain, then obtain phone and child evidence under the existing acceptance gates.",
+      "acceptance_test": "Drive the ordinary room path with actual routed touches and assert each stage's physical station, goal mechanic, patient/art state, completion hold, phase order, pause/exit cancellation, and re-entry. Separately observe an uncoached child on target hardware and record discoverability, comprehension, comfort, and voluntary replay; keep owner and visual acceptance separate."
+    }
+  ],
+  "strengths": [
+    {
+      "strength": "Doctor phase anchors are explicit instead of being inferred from station order, and the focused route probe checks both physical clearance and semantic upper-walk/recovery placement.",
+      "evidence": "scripts/opera_career_world_2d.gd:408-414; scripts/probe_opera_diegetic_paths.gd:300-324,401-429; runtime/L28/attempt_1/probe.log:2"
+    },
+    {
+      "strength": "The X-ray mechanic preserves found spots after a lift and offers a next-target replay, giving a source-grounded recovery path for an interrupted scan.",
+      "evidence": "scripts/opera_gesture_surface.gd:4290-4326"
+    }
+  ],
+  "acceptance_gaps": [
+    "Ordinary Castle-to-Doctor entry and visible routed hotspot input were not executed; route_state_hint=live remains a source-level context only.",
+    "No routed hold, choice, X-ray drag/release, circle, bandage swipe, treatment contact, cancellation, save/re-entry, or actual phase-order assertion ran in this probe.",
+    "No rendered Mobile capture, target-device projected hit-area, touch latency/ownership, frame pacing, or audio audibility evidence (DL-QA-03, DL-QA-04).",
+    "No observed child evidence for comprehension, discoverability, comfort, agency, session length, or voluntary replay; no owner acceptance (DL-QA-05, DL-QA-06).",
+    "PASS is scoped to Doctor room-route geometry within the unchanged internal probe and does not close MA-OPERA-012, MA-PLAY-004, or the game-wide audit."
+  ]
+}
+

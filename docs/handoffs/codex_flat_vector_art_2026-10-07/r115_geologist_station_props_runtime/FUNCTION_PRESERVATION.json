@@ -1,0 +1,45 @@
+{
+  "changed_functions": [
+    "setup",
+    "_draw_geologist"
+  ],
+  "new_functions": [
+    "_geologist_prop_destination"
+  ],
+  "unchanged_count": 28,
+  "unchanged_functions": {
+    "_load_sky_lagoon_tiles": "6054378131a789a892c156f9241c0006b9c90a721c40fc9c1ff63aec7cd5a96b",
+    "_load_stuffie_room_tiles": "8c62cfc7209ce0b91301ab82569a53279b405ba5bd661a3efff05ab733f942bc",
+    "_draw_stuffie_room_tiles": "6e36a92153fa565f9bca18031314db932b4149c22672bb4e68efe53c9eb12e04",
+    "_draw_sky_lagoon_farmer": "68bdb084c7a74219cfe740fbcbeb7097b2c07b484fa19f54a51091e20ff5844f",
+    "_load_tile_set": "001753a25a0a10a1fdcf05f5ead89e3e0f9b46bc09b06684f49c813e985ffd61",
+    "_draw_tile_set": "ba1adce8f638ad9ed5431483fbcbf44b5e2a7da58b06c469717bb0d295626214",
+    "_draw_nursery_sharp_room": "ccaf12ae866fc1513eacaab20f4ad4e1b373d70d035b2525c1ac0c48dcb6d58b",
+    "_draw_boxer_native_room": "d1464d3e854ea2950b92df2ce7f6d3a4e54832e5796fba74d4b6656a0c24c479",
+    "_draw_racer_circuit": "97ff06ae2ccd4e21ab4791a708dcf20aad0b93fbeefe1757442664a96d78d865",
+    "set_stage": "4901a45dffd865c1319a4247e4e40b2378c97b31919f9695bdc1a4cfb4167314",
+    "_is_chapter2_clean_kitchen": "443b3434fc65bc620dbb86777ef0ad519d233d68d09af0c3c78de535f0f11486",
+    "_process": "12856f8c4b3037c267ed2df5ae2eb74d3da6b65ab9b46c9fd4c559cf008d552b",
+    "_draw": "68ee47967ff0b0ed247731f39050909496e05c9fd0849359a3090709fe1dd9c6",
+    "_draw_stage_frame": "bb66ab34697b424d7e750147729bd00120d5c4068a7a91f8fb0b45f9f7d543bc",
+    "_draw_spotlights": "184f40f8bcae50aab0e86fe6a857a417c70c40a70a0c66130e3ba92108165f22",
+    "_draw_chef": "b005617b858de0a16cf35093c0221e772ae6d4fb96374f332564adff8a59ec02",
+    "_draw_detective": "5f07a1749707e83a70a1b35a9b6c092f7dd7e2c30374c7d36b9aba6b996e7d07",
+    "_draw_ballerina": "ab8dde01a13814955f5533a3089427fa3719422361a793ac9245ed5ef0a66708",
+    "_draw_candy": "2ac67f515525a64db1788ce6e45087bf7777b6433beef51ba836ce3f1af498c0",
+    "_draw_doctor": "88af2381e2fdc3b211338f158c97f4d2a12364079ccf5bbc09a5f48ea8f92bad",
+    "_draw_farmer": "ab33f080ee3a3b79e10248a8c9fd6cc0e3b31832329abd332270ccc7bd8f34c3",
+    "_draw_boxer": "41d3aaf8e7f1d1fa1fc6776c3141d6cca135c991be2d3cbb8a4e7f0ff77a9518",
+    "_draw_magician": "381083734b0a1066321d82a9baf256b5392951e50bd2744a5890ec0ae3785d68",
+    "_draw_painter": "ea9bea4efb20115b83255781e843a85bfa7c1656e8d9d5760f5a71393d0ffa19",
+    "_draw_astronaut": "be4582319c928de07b3859bd7f0cd8176ab3078bf26b5e5151fbeb73b48a6502",
+    "_draw_racer": "471c3185e9725be2e4be2e3c14e962001cd3e9c0e7f6ecc7054a9505e2061106",
+    "_draw_nursery": "0c9c73c2ac68f49f7241f55e33ea0122dd63e4c0c382c36c947ca8c0cc6d3f04",
+    "_draw_popstar": "0d5824d4ac79b7170028d9bb7e619c3da0e21e7a3be2c2bae84b931ceabafe14"
+  },
+  "world_controller_sha256": "3c47e585d9535e29308bc65a1bf8d02d265e3421eb289c890eb22d5003d1541f",
+  "geology_surface_sha256": "6678cff8f010f296771ed45084517a0f2873c2052b05add1b490fa7e6fb524f3",
+  "before_primitive_calls": 7,
+  "after_primitive_calls": 1,
+  "scope": "Only backdrop setup and actual Geologist foreground draw; original five strata bands retained. All input/save/physics/phase/hotspot logic byte-identical. No new functional geometry or backdrop resolution claim."
+}

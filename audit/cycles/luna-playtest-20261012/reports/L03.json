@@ -1,0 +1,122 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L03",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l03",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Bathroom wobbly scrub and release",
+  "runtime_receipt": "../runtime/L03/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe instantiates bathroom cleanup state, feeds synthetic screen touch/drag events and scripted gesture points, and asserts partial fixture reveal, one-finger ownership, release, focus cancellation, lifted-stroke progress, and completion thresholds. It verifies the bathroom scrub mechanic under Godot 4.7.2 headless.",
+    "gaps": "The probe directly calls setup with announcements disabled and directly invokes gesture handlers/probe seams. It does not establish the fresh-save visible route into the bathroom, ordinary production input routing on a rendered display, actual voice playback, or the clean-phone visual/tactile result. No target-device, child, or owner observation occurred."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "source_constants": [
+      {
+        "value": "Sink scrub requires at least 1.5 seconds of valid motion, 520 px accumulated travel, and 1.05 turns of arc; its configured gesture window is 1.5–5.0 seconds.",
+        "evidence": "scripts/games/day_one_bathroom_cleaning.gd:21-27,633-636"
+      },
+      {
+        "value": "Tub scrub requires at least 1.5 seconds of valid motion, 520 px travel, and two direction reversals; its configured gesture window is 1.5–5.0 seconds.",
+        "evidence": "scripts/games/day_one_bathroom_cleaning.gd:28-34,655-658"
+      },
+      {
+        "value": "The probe passes three 0.8-second sink motion segments separated by 0.5-second lifts, and asserts the gesture completes.",
+        "evidence": "scripts/probe_day_one_bathroom_cleanup.gd:348-366; audit/cycles/luna-playtest-20261012/runtime/L03/attempt_1/probe.log:62-69"
+      }
+    ],
+    "estimated_activity_duration": null,
+    "assumptions": "No child session duration is inferred. The probe's segment durations and runner wall time are not observed play duration."
+  },
+  "tactile": {
+    "target_size": "The gesture surface covers the 1280×720 base canvas (scripts/games/day_one_bathroom_cleaning.gd:476-483); sink press start is accepted within 314 px of its center, and tub press start within the configured horizontal band (scripts/games/day_one_bathroom_cleaning.gd:322-330). These are source geometry only; projected phone hit area and comfort were not measured.",
+    "press_response": "A valid sink drag moves the sponge with the touch and emits a sink scrub segment; the fixture mask is updated on changed pixels (scripts/games/day_one_bathroom_cleaning.gd:613-635; scripts/games/day_one_fixture_scrub.gd:46-70). The headless probe observes local reveal values, not a rendered response-time measurement.",
+    "drag_hold_release": "Dragging accumulates sink arc/distance or tub distance/reversals. A stationary hold cannot finish. Finger release ends the active gesture while preserving accumulated counters and visible scrub marks; focus loss clears ownership and cancels the active gesture (scripts/games/day_one_bathroom_cleaning.gd:351-365,575-590). Probe asserts these scripted behaviors, including lifted strokes.",
+    "ownership": "The first touch ID owns the gesture until release; another finger ID is ignored (scripts/games/day_one_bathroom_cleaning.gd:548-572). The probe asserts second-finger rejection, but the input is delivered through test calls rather than a physical phone session.",
+    "cancellation": "Release clears a press buffered while the sponge travels; a still-held press begins after travel completes. Focus-loss cancellation clears touch ownership and does not erase already visible partial mask progress (scripts/games/day_one_bathroom_cleaning.gd:585-602; probe.log:34-41,70-73)."
+  },
+  "play_appeal": {
+    "hypothesis": "A sponge that follows the finger while dirt clears along its path can give a direct cause-and-effect scrub. Preserved progress across brief lifts may make a wobbly, stop-start motion forgiving; the sink circle and tub back-and-forth ask for two distinct motions. Whether those cues feel satisfying or understandable to a child remains unobserved.",
+    "fun_score": null
+  },
+  "observations": [
+    {
+      "title": "Partial dirt reveal follows the scrub path and remains local",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/day_one_fixture_scrub.gd:46-70 (segment mask draws a bounded brush path and updates its texture)",
+        "scripts/games/day_one_bathroom_cleaning.gd:627-630 (moved sink tool emits the exact previous-to-current segment)",
+        "scripts/probe_day_one_bathroom_cleanup.gd:215-232; audit/cycles/luna-playtest-20261012/runtime/L03/attempt_1/probe.log:42-46 (probe observes reveal on the scrubbed region, untouched pixels remain dirty, and progress remains incomplete)"
+      ],
+      "rules": ["DL-INT-02", "DL-AGE-07", "DL-MOT-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Run the focused probe once; its synthetic sink drag creates mask marks and checks reveal_at on a touched and untouched source point. Receipt records PASS with zero failure lines.",
+      "child_impact": "The local visible state change is tied to the scrub path and does not claim the whole fixture is clean early. Actual on-screen legibility and two-frame response were not measured headlessly.",
+      "proposed_repair": "No code repair indicated by this evidence. Review the same partial and completed states in a rendered Mobile capture and on the target phone.",
+      "acceptance_test": "On the target phone, make a short routed scrub and verify dirt visibly clears exactly under the tool within the response budget, untouched dirt remains visible, and full cleanliness appears only after the intended gesture gate."
+    },
+    {
+      "title": "Brief lifts preserve accumulated scrub effort",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/day_one_bathroom_cleaning.gd:351-355 (gesture release ends active motion without resetting scrub counters)",
+        "scripts/probe_day_one_bathroom_cleanup.gd:348-366; audit/cycles/luna-playtest-20261012/runtime/L03/attempt_1/probe.log:62-69 (three 0.8-second sink touches with 0.5-second lifts complete the scripted gesture)"
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-05", "DL-INT-05", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The focused probe issues successive sink gestures with simulated motion durations and calls probe_end_gesture between parts; its final assertion passes.",
+      "child_impact": "Stop-start movement can still progress, which may accommodate an unsteady finger. This does not establish that the timing or circle is comfortable for a child.",
+      "proposed_repair": "No repair indicated. Keep progress-preserving release behavior and validate physical stop-start play before tuning thresholds.",
+      "acceptance_test": "With ordinary touch on the target device, perform several short circular segments with natural lifts; verify partial grime remains, the child can resume, and completion requires continued intentional scrubbing."
+    },
+    {
+      "title": "Finger ownership, busy release, and focus cancellation are covered in the scripted path",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/day_one_bathroom_cleaning.gd:548-590 (single touch ID ownership, ID-matched release, buffered press cleanup, and focus reset)",
+        "scripts/probe_day_one_bathroom_cleanup.gd:202-213,297-324; audit/cycles/luna-playtest-20261012/runtime/L03/attempt_1/probe.log:37-41,70-73 (second touch, focus-loss, buffered-release and held-buffer assertions pass)"
+      ],
+      "rules": ["DL-UI-04", "DL-UI-05", "DL-QA-02"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "The probe injects a second finger while the first owns the scrub, cancels during a partial gesture, and tests release versus hold during tool travel. All corresponding assertions pass.",
+      "child_impact": "The code path rejects the tested competing touch and prevents a released busy press from unexpectedly starting later. Actual device interruption and native focus behavior remain unverified; MA-TOUCH-001 still requires phone evidence.",
+      "proposed_repair": "No runtime change indicated. Obtain target-device hold, drag, second-finger, release, pause, and focus-loss evidence for this activity.",
+      "acceptance_test": "On the exact Android build, record an owned scrub, competing second finger, release during tool travel, app focus loss, pause, and resume; verify no stale scrub starts, ownership does not stick, and partial progress is retained."
+    },
+    {
+      "title": "This PASS does not prove the child-facing bathroom entry or rendered scrub route",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_day_one_bathroom_cleanup.gd:196-213,287-324 (local setup disables announcements and directly drives the cleaning object / gesture handler)",
+        "scripts/probe_day_one_bathroom_cleanup.gd:221-232,348-366 (test uses scripted gesture seams for completion and lift behavior)",
+        "audit/cycles/luna-playtest-20261012/runtime/L03/attempt_1/receipt.json (SCRIPTED_PROBE, headless=true, rendered_mobile_acceptance=false; 0 failure lines)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-UI-01", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-ACCESS-001"],
+      "reproduction": "Inspect probe setup and assertions: they instantiate the mechanic directly, suppress announcements, and use direct helper/input-handler calls; the receipt confirms headless scripted evidence only.",
+      "child_impact": "This run cannot show that a child reaches the sink stage, understands the circle cue, sees the scrub response at phone size, or hears the exact instruction.",
+      "proposed_repair": "No gameplay repair can be justified from this gap alone. Capture a routed fresh-entry session with actual sound and rendered output, then observe child discovery before adjusting the mechanic.",
+      "acceptance_test": "From a fresh save on the target phone, enter the bathroom through visible gameplay, hear and see the sink instruction, and perform a wobbly one-finger scrub; record the routed input, visible path, release/resume behavior, and child comprehension without coaching."
+    }
+  ],
+  "strengths": [
+    {
+      "strength": "Scrubbing exposes only the path under the moving tool, with unvisited grime preserved until the sink or tub gate completes.",
+      "evidence": "scripts/games/day_one_fixture_scrub.gd:46-70; scripts/games/day_one_bathroom_cleaning.gd:613-635; runtime/L03/attempt_1/probe.log:42-46,52-59"
+    },
+    {
+      "strength": "The probe exercises intermittent touch, competing-finger rejection, release while busy, and focus cancellation; its unchanged run exits PASS with zero failed checks.",
+      "evidence": "runtime/L03/attempt_1/probe.log:34-41,62-73,118; runtime/L03/attempt_1/receipt.json"
+    }
+  ],
+  "acceptance_gaps": [
+    "The PASS is limited to the existing headless scripted probe at Godot 4.7.2-stable; it is not a routed visible-input or production visual acceptance (DL-QA-02, DL-QA-03).",
+    "No target-device touch geometry, latency, frame pacing, rendered cleanliness legibility, or audible voice evidence (DL-QA-04, DL-QA-07).",
+    "No observed child comprehension, comfort, discoverability, or fun evidence, and no owner review (DL-QA-05, DL-QA-06).",
+    "Fresh-save route proof remains open under MA-PLAY-001; exact spoken cue/playback evidence remains open under MA-ACCESS-001."
+  ]
+}

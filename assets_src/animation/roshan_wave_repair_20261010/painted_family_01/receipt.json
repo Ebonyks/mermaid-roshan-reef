@@ -1,0 +1,82 @@
+{
+  "schema": "reef.imagegen-native-receipt.v1",
+  "recorded_at_utc": "2026-10-11T00:16:51.326228+00:00",
+  "method": "One built-in ImageGen whole-figure pose-family call; no per-frame campaign",
+  "execution_output_id": "exec-7f0a534e-63d5-42ae-8aec-5f82417a2b19",
+  "execution_output_id_scope": "Codex execution/output filename identifier, not an exposed provider API request ID",
+  "provider_request_id": null,
+  "provider_revision": null,
+  "seed": null,
+  "reported_billing": null,
+  "unexposed_fields": "Provider API ID/model revision/seed/billing and exact generation start/completion times are not exposed; no estimates recorded",
+  "reservation_at_utc": "2026-10-10T23:58:30.1239214Z",
+  "call_number": 1,
+  "call_count": 1,
+  "settings": {
+    "transparent_background": true,
+    "referenced_images_count": 2
+  },
+  "prompt": {
+    "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_01/prompt.txt",
+    "sha256": "b87c4661a1e0abbe60ef0bea06cd69e7158a27395f7a2b4b59a0753e5f5e0a56",
+    "bytes": 2884,
+    "role": "exact submitted generation prompt",
+    "acceptance_scope": "Brief only; no output acceptance"
+  },
+  "reference_images": [
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "original identity/head/outfit; exact rest endpoint source",
+      "acceptance_scope": "Existing approved atlas crop; unchanged original source authority retained",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K2.png",
+      "sha256": "a46c318a627a4904dbf1115b1c764d8842de6f9281fe21a4803d31b65add4bbb",
+      "bytes": 56597,
+      "role": "approved raised-arm pose/anatomy reference; not authority to change K0 head",
+      "acceptance_scope": "Existing approved atlas crop; unchanged original source authority retained",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    }
+  ],
+  "reference_parent": {
+    "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+    "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+    "operation": "Existing exact256px atlas-cell crops K0 and K2; source hashes in prior source packet"
+  },
+  "native": {
+    "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_01/native.png",
+    "sha256": "aab6277b0e13ecf0747d3b9ccc1f3fac6eb2474db5523b6c345583f7a4471831",
+    "bytes": 1872367,
+    "role": "native complete-figure sheet",
+    "acceptance_scope": "Unaccepted source candidate; inspect every derived cel",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA"
+  },
+  "native_original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-de3f-7381-bc1e-9b9b31020fd4\\exec-7f0a534e-63d5-42ae-8aec-5f82417a2b19.png",
+  "native_copy_verified_byte_identical": true,
+  "native_modifications": "NONE; original output bytes retained",
+  "attempt_state_at_snapshot": "REJECTED",
+  "acceptance": {
+    "artifact_free_sample": false,
+    "human": false,
+    "owner": false,
+    "runtime": false,
+    "delivery_accepted": false
+  },
+  "reference_license": "Project-owned Roshan source artwork; inherited source restrictions and existing ASSET_LICENSES rows retained; new derivative rows must be added before publication",
+  "observed_diagnosis": "Requested4x3 square cells returned square1254canvas with rectangular cells; right-edge fin clipping, pose/size inconsistency and diffuse low-alpha matte noise. Native retained."
+}

@@ -6,39 +6,41 @@
     "music": 60,
     "sfx": 7,
     "ui": 1,
-    "voice": 721
+    "voice": 765
   },
   "cohorts": {
     "ambience": 3,
     "castle_sfx": 15,
     "combat_sfx": 6,
-    "filler_v1": 477,
-    "legacy_voice": 231,
+    "filler_v1": 500,
+    "legacy_voice": 250,
     "music": 60,
+    "objective_guides": 2,
     "protected_family": 6,
     "protected_faron": 7,
     "sfx": 7,
     "ui": 1
   },
   "decisions": {
-    "KEEP_PENDING_HUMAN": 164,
+    "KEEP_PENDING_HUMAN": 183,
     "KEEP_PROTECTED": 13,
     "KEEP_REVIEW_DEVICE": 6,
     "LISTEN_REPLACE_CANDIDATE": 31,
     "RENDER_TRUE_PEAK_SAFE": 120,
+    "REVIEW_NEUTRAL_OBJECTIVE_GUIDE": 2,
     "REVIEW_NEW_EXACT_VOICE": 2,
-    "REVIEW_PROVISIONAL_FILLER": 477
+    "REVIEW_PROVISIONAL_FILLER": 500
   },
   "filler_manifest": {
     "blocking": false,
-    "entry_count": 477,
+    "entry_count": 500,
     "issues": [],
     "manifest_path": "assets/audio/voices/filler_v1/FILLER_MANIFEST.json",
     "present": true
   },
   "human_review_state": "OPEN_DEVICE_LISTENING",
-  "inventory_count": 813,
-  "inventory_sha256": "6998224ade9e9cff44c340363d2fbfaaee8892667e030b1585d76f8295c1e303",
+  "inventory_count": 857,
+  "inventory_sha256": "002978326361e1e1f52be984b93454d4154beb77d8c897bbc8893c8d4bcc42db",
   "protected_count": 13,
   "protected_recordings": {
     "blocking": false,
@@ -155,7 +157,7 @@
     "present": true
   },
   "technical_grades": {
-    "A": 643,
+    "A": 687,
     "B": 139,
     "C": 26,
     "D": 5

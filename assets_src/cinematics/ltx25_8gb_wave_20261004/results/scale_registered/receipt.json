@@ -1,0 +1,54 @@
+{
+  "take": "scale_registered",
+  "backend": "ltx25_w4a8",
+  "model_job": true,
+  "started_at_utc": "2026-10-05T02:35:41.309038+00:00",
+  "status": "EXECUTION_PASS",
+  "native_stage1": [
+    288,
+    416
+  ],
+  "native_refined": [
+    576,
+    832
+  ],
+  "frames": 41,
+  "fps": 24,
+  "seed": 20261004,
+  "guides": [
+    0,
+    3,
+    7,
+    17,
+    22,
+    27,
+    36,
+    40
+  ],
+  "negative_conditioning_effective": false,
+  "guidance_method": "StandardCFG1",
+  "steps": [
+    8,
+    3
+  ],
+  "source_only": true,
+  "source_preflight_sha256": "b5f2c2987903a3a3799ee2718eeb84592010ed568b7f9028d3744523f97b67d5",
+  "guide_hashes": {
+    "scale_continuity/registered_guides/guide_0000.png": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+    "scale_continuity/registered_guides/guide_0003.png": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+    "scale_continuity/registered_guides/guide_0007.png": "38ed515d21b9b45fbb1606dcfaef2b31b9ca71663dbdf592a53126f6f2355b8c",
+    "scale_continuity/registered_guides/guide_0017.png": "c93a6859d176f79e72a542e5720ee74876788cff30656201e61ac133cbde1461",
+    "scale_continuity/registered_guides/guide_0022.png": "21aabb27cf3cef2b8eded16bca51ed686eea02fdcd6ceddcaba5d523cf2601cf",
+    "scale_continuity/registered_guides/guide_0027.png": "6b3372fa17af620b7078c28bd77039138c6fa2c8b02a581a88363347ba6ddd6d",
+    "scale_continuity/registered_guides/guide_0036.png": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+    "scale_continuity/registered_guides/guide_0040.png": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244"
+  },
+  "prompt_sha256": "438f2eb3baa06d5b82d54f56af96191258f91710d5a80d0f5dc0ebbede16a63f",
+  "workflow_sha256": "0c83142844e722e300920bd46dfbe3969361ce86061de0afede3544aee475ae4",
+  "renderer_sha256": "d7f8a0a426ffa0f90c0e8b755b1669c4bed3b11a41774f02598acfc5b3dd06af",
+  "retake_temporal_mask": null,
+  "prompt_id": "0a284496-c9bb-4567-b3d9-9e00f035e575",
+  "elapsed_seconds": 158.501,
+  "observed_total_card_peak_mib": 7406,
+  "memory_sampling_interval_seconds": 5
+}

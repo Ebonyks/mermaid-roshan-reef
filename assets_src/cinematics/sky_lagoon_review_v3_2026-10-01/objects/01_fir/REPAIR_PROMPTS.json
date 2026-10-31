@@ -1,0 +1,10 @@
+[
+  {
+    "prompt": "Use case: precise-object-edit. Clean up this six-tree pose sheet for Aseprite. Preserve the exact SIX existing fir drawings, each drawing's branch pose, identity, anatomy, needle clumps, colours and lighting. Correct ONLY the sprite-sheet spacing and clipped root edges. Keep PORTRAIT 1024 x 1536 RGBA, TWO columns by THREE rows of 512px cells. Make each tree SMALLER within its cell: around 350px tall, maximum 370px, rooted at y=440 with at least 60px empty transparent space above and below. Leave very wide empty gutters between all sprites. Fit all six ENTIRE trees and their COMPLETE rounded roots inside their own cells; redraw only any missing tiny root/stone edge caused by the previous clipping. Do not add/delete needles or change motion poses. Remove any opaque matte or glow outside silhouettes; background is actual alpha transparency. No cell borders, text, numbers, labels or checkerboard. The goal is six completely contained sharp high-detail reference drawings with no clipped pixels and no neighbour contamination.",
+    "mode": "built-in image_gen",
+    "referenced_image_paths": [
+      "objects/01_fir/generated_native.png"
+    ],
+    "reason": "First four root drawings touch native cell borders; safe-padding repair."
+  }
+]

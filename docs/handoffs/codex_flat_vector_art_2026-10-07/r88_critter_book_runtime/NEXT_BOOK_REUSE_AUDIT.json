@@ -1,0 +1,124 @@
+{
+  "schema": "reef.flat_vector_reuse_source_audit/1",
+  "role_id": "FV-1CABD96A7D49",
+  "family": "shared_ambience",
+  "scope": "Preliminary existing-source audit for the faint procedural book still visible at the margin. This is neither an implemented sample nor an accepted art/animation candidate. Exact runtime ownership/idle-state/context publication remains a prerequisite before repair.",
+  "context_frame": "native/attempt7_saved_full_1600/saved_initial_fish.png",
+  "context_sha256": "5d85426c95c434d6fda8cde568b0b8d123619b88c1aba2851159fcebde1e1a3e",
+  "path_search_qualification": "14runtime path-name matches included files under a book_test directory that were not book artwork. This lexical search is not a source-artwork count or an exhaustive approved-source inventory.",
+  "source_files": [
+    {
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "path": "assets/flats/castle/rooms/room_library_item_magic_book.png",
+      "sha256": "76c8e99cdc68f86cc6d21cd14d1042d42f31888581cc3e2571350d30b338641d",
+      "bytes": 43496,
+      "dimensions": [
+        137,
+        169
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "direct_partial_agent_source_view": true,
+      "assessment": "Unmodified source includes the surrounding niche, glow and clamshell pedestal; it is not an isolated generic book icon. Direct placement would bring unrelated environment pixels.",
+      "status": "TARGET_REUSE_GAP_ISOLATION_AND_CONTEXT",
+      "new_use_approved": false,
+      "target_runtime_or_device_acceptance": false
+    },
+    {
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "path": "assets/flats/castle/rooms/room_library_item_book_stack.png",
+      "sha256": "981ad1ed30b57494afab4eee3080bf40281e79e9742534e5a470d0cc67ef94e7",
+      "bytes": 73708,
+      "dimensions": [
+        165,
+        211
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "direct_partial_agent_source_view": true,
+      "assessment": "Unmodified source includes several books plus surrounding room/seat pixels. A stack differs from the current open-book silhouette; direct use needs separate isolation/scale/purpose review.",
+      "status": "TARGET_REUSE_GAP_ISOLATION_AND_SILHOUETTE",
+      "new_use_approved": false,
+      "target_runtime_or_device_acceptance": false
+    },
+    {
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "path": "assets/opera/tree_book_test/book.png",
+      "sha256": "4516c82b24804b081154edd5fb507c072619a26782b9bbfabd1b5ff05d28c70f",
+      "bytes": 725412,
+      "dimensions": [
+        1024,
+        768
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "direct_partial_agent_source_view": true,
+      "assessment": "Clean open-book silhouette, cream/gold pages and green binding look plausible beside the painted frame. The source license declares no runtime acceptance; provenance/approval scope and actual tiny-scale context still need review.",
+      "status": "POTENTIAL_EXISTING_SOURCE_APPROVAL_AND_SCALE_PENDING",
+      "new_use_approved": false,
+      "target_runtime_or_device_acceptance": false
+    },
+    {
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+      "sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+      "bytes": 493855,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "direct_partial_agent_source_view": true,
+      "assessment": "Existing alpha sheet has painted closed/open book states with pearl tether and clamshell base. A static whole-object cell may be reusable; source provenance, pose, included fixture, target-scale readability and new-use acceptance remain unresolved. No cell or animation is accepted here.",
+      "status": "POTENTIAL_EXISTING_SOURCE_CELL_AND_CONTEXT_PENDING",
+      "new_use_approved": false,
+      "target_runtime_or_device_acceptance": false
+    },
+    {
+      "revision": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+      "path": "assets/flats/castle/interactions/library_magic_book_atlas.png",
+      "sha256": "10078f19faea394367f95b0bbcaa6593e86f9155d6dca34ecae4dcedda62b2dc",
+      "bytes": 49663,
+      "dimensions": [
+        548,
+        338
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "direct_partial_agent_source_view": true,
+      "assessment": "The viewed atlas sequence has conspicuous flat rectangular page-fan overlays above a closed book. Do not adopt that sequence as a painted-art replacement. Other individual holds have no target-use approval from this inspection.",
+      "status": "DIRECT_SEQUENCE_FAILED_PAINTED_STYLE_AND_PAGE_GEOMETRY",
+      "new_use_approved": false,
+      "target_runtime_or_device_acceptance": false
+    }
+  ],
+  "license_scope": "Existing ASSET_LICENSES.md and source provenance retain their original scopes. Project ownership, source inclusion, a historical accepted chroma master, or runtime presence does not supply approval for this new purpose. Exact broader provenance still needs closure.",
+  "new_generation_calls": 0,
+  "new_source_pixels": 0,
+  "new_runtime_changes": [],
+  "new_samples": 0,
+  "new_roles": 0,
+  "new_families": 0,
+  "new_native_frame_events": 0,
+  "accepted_removed": 0,
+  "reuse_ready_whole_role": false,
+  "new_drawing_required": null,
+  "next_step": "Complete source acceptance/provenance and current actual owner/state binding; test a suitable existing whole painted source at the real margin scale before considering a named failed-reuse drawing gap. Preserve all originals and do not revive a rejected sequence.",
+  "checked_at_utc": "2026-10-17T12:43:20.612297+00:00"
+}

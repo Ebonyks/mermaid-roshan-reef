@@ -1,0 +1,75 @@
+{
+ "schema": "job_record/1",
+ "_note": "Example built from today's code at dev 7f068cb8 (scripts/opera_house.gd ACTS[17], opera_career_world_2d.gd, castle_career_routes.gd, opera_competition.gd, opera_mastery.gd, opera_performance_plan.gd, opera_performance_overlay.gd, audio_director.gd, save_state.gd) and the imp contest specification. Values marked TODO need a direct read in package JP0.",
+ "id": "teacher",
+ "aliases": [],
+ "status": "LIVE",
+ "family": "opera_career",
+ "owner_decision": "Teacher career commissioned 2026-09-05 (design/TEACHER_LEARNING_ENGINE_2026-09-05.md)",
+ "title": "The Castle Learning Circle",
+ "career_label": "Teacher",
+ "star_bit": 17,
+ "progress_key": null,
+ "home": {
+  "room": "library",
+  "room_order": 2,
+  "venue": null,
+  "crest": "res://assets/opera/worlds/actors/roshan_teacher.png"
+ },
+ "presentation": {
+  "colors": {
+   "floor": [0.43, 0.52, 0.68],
+   "trim": [0.88, 0.84, 1.0],
+   "curtain": [0.38, 0.34, 0.62],
+   "accent": [0.68, 0.62, 0.94],
+   "overlay": "#a79de6"
+  },
+  "backdrop": {"mode": "room_tiles", "room": "library"},
+  "actors": {"partner": "rival_doctor.png", "partner_visible_solo": false},
+  "goal_prop": "../hotspots/teacher_lesson_board.svg"
+ },
+ "phases": [
+  {"name": "PATTERN", "mode": "teacher_pattern", "vo": "teacher_pattern", "station": "lesson_desk"},
+  {"name": "COUNT", "mode": "teacher_count", "vo": "teacher_count", "station": "lesson_desk"},
+  {"name": "ADD", "mode": "teacher_add", "vo": "teacher_add", "station": "lesson_desk"},
+  {"name": "MATCH", "mode": "teacher_match", "vo": "teacher_match", "station": "lesson_desk", "final_act": true}
+ ],
+ "finale_start": 3,
+ "practice_count": 4,
+ "surface": "res://scripts/opera_teacher_surface.gd",
+ "capabilities": ["hide_partner", "uses_room_tiles"],
+ "voice": {
+  "engine": "kokoro (tools/make_voices.py), as used for Teacher's lines",
+  "speaker": "roshan",
+  "folder": "res://assets/audio/teacher/",
+  "prefix": "teacher_",
+  "required_keys": ["teacher_pattern", "teacher_count", "teacher_add", "teacher_match", "teacher_help", "teacher_choose", "roshan_teacher_start"],
+  "intro_line": "Teacher Roshan! Find the patterns, count the pictures, join the groups and match every learning card together!",
+  "win_line": "Teacher Roshan and her learning buddy filled the Castle library with bright ideas!",
+  "win_suffix": " What a lovely learning day!"
+ },
+ "music": {"cue": "opera_teacher"},
+ "art": {
+  "costume_sheet": "res://assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+  "costume_sheet_sha256": "TODO: compute from the committed blob",
+  "provenance": "assets_src/imagegen/teacher_roshan_2026-09-03/PROVENANCE.md",
+  "props": ["res://assets/opera/worlds/hotspots/teacher_lesson_board.svg"]
+ },
+ "checkpoint": {"key": "teacher_lesson_checkpoint", "schema_version": 1},
+ "competition": {"par_time": 40.0, "rival_cap": 0.82, "cooperative": true},
+ "mastery": {"min_actions": 16, "gold_seconds": 60.0, "silver_seconds": 90.0, "silver_misses": 1, "silver_assists": 1},
+ "two_act": false,
+ "contest": {
+  "status": "specified (DL-INT-14 target; implementation pending)",
+  "name": "IMP'S LESSON",
+  "inserted_after": "MATCH",
+  "archetype": "inverted",
+  "points_to_win": 3,
+  "source": "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/contest_spec.json careers.teacher"
+ },
+ "chapter2": null,
+ "living_world": {"row_id": "opera.act.17", "name": "The Learning Circle"},
+ "stage_inventory_id": "opera.act.17.teacher",
+ "probes": ["probe_opera", "probe_opera_2d", "probe_save_recovery"],
+ "docs": ["design/TEACHER_LEARNING_ENGINE_2026-09-05.md"]
+}

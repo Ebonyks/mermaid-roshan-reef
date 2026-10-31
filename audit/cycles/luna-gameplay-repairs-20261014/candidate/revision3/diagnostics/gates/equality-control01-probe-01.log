@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+EQUALITY|OBSERVATION|native_dictionary=false|typed_vs_plain_int_array=true|typed_vs_plain_float_array=false|int_vs_float_scalar=true
+EQUALITY|TYPES|typed_builtin=2|parsed_builtin=0|typed_element=2|parsed_element=3|expected_generation=2|parsed_generation=3
+EQUALITY|SERIALIZED|expected={"active":true,"generation":19,"masks":[1,3,7],"nested":{"color":"blue"}}|actual={"active":true,"generation":19.0,"masks":[1.0,3.0,7.0],"nested":{"color":"blue"}}
+EQUALITY|source uses typed integer array: OK
+EQUALITY|JSON parser uses untyped array and floating numbers: OK
+EQUALITY|CASE|equal small numeric values across storage types|roundtrip=true|canonical=true
+EQUALITY|equal small numeric values across storage types JSON roundtrip comparison: OK
+EQUALITY|equal small numeric values across storage types sorted full-precision canonical comparison: OK
+EQUALITY|CASE|dictionary insertion order is semantically irrelevant|roundtrip=true|canonical=true
+EQUALITY|dictionary insertion order is semantically irrelevant JSON roundtrip comparison: OK
+EQUALITY|dictionary insertion order is semantically irrelevant sorted full-precision canonical comparison: OK
+EQUALITY|CASE|changed integer value is rejected|roundtrip=false|canonical=false
+EQUALITY|changed integer value is rejected JSON roundtrip comparison: OK
+EQUALITY|changed integer value is rejected sorted full-precision canonical comparison: OK
+EQUALITY|CASE|changed fractional numeric value is rejected|roundtrip=false|canonical=false
+EQUALITY|changed fractional numeric value is rejected JSON roundtrip comparison: OK
+EQUALITY|changed fractional numeric value is rejected sorted full-precision canonical comparison: OK
+EQUALITY|CASE|numeric string is not a number|roundtrip=false|canonical=false
+EQUALITY|numeric string is not a number JSON roundtrip comparison: OK
+EQUALITY|numeric string is not a number sorted full-precision canonical comparison: OK
+EQUALITY|CASE|renamed key is rejected|roundtrip=false|canonical=false
+EQUALITY|renamed key is rejected JSON roundtrip comparison: OK
+EQUALITY|renamed key is rejected sorted full-precision canonical comparison: OK
+EQUALITY|CASE|missing key is rejected|roundtrip=false|canonical=false
+EQUALITY|missing key is rejected JSON roundtrip comparison: OK
+EQUALITY|missing key is rejected sorted full-precision canonical comparison: OK
+EQUALITY|CASE|added key is rejected|roundtrip=false|canonical=false
+EQUALITY|added key is rejected JSON roundtrip comparison: OK
+EQUALITY|added key is rejected sorted full-precision canonical comparison: OK
+EQUALITY|CASE|changed boolean value is rejected|roundtrip=false|canonical=false
+EQUALITY|changed boolean value is rejected JSON roundtrip comparison: OK
+EQUALITY|changed boolean value is rejected sorted full-precision canonical comparison: OK
+EQUALITY|CASE|changed array order is rejected|roundtrip=false|canonical=false
+EQUALITY|changed array order is rejected JSON roundtrip comparison: OK
+EQUALITY|changed array order is rejected sorted full-precision canonical comparison: OK
+EQUALITY|CASE|changed array number is rejected|roundtrip=false|canonical=false
+EQUALITY|changed array number is rejected JSON roundtrip comparison: OK
+EQUALITY|changed array number is rejected sorted full-precision canonical comparison: OK
+EQUALITY|PRECISION|full_precision_distinguishes_adjacent_float=true|a={"number":1.0}|b={"number":1.0000000000000002}
+EQUALITY|LIMIT|distinct_int64_native=true|roundtrip_equal=true|canonical_equal=true|scope=JSON number normalization intentionally removes storage type; large integers require a bound
+EQUALITY|RESULT: ALL OK

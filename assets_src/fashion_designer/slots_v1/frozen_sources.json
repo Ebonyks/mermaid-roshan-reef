@@ -1,0 +1,3632 @@
+{
+  "schema": 1,
+  "baseline": "c3b39155d8ab03e09224c0796456c35d1ec410bd",
+  "scope": "All scripts/ GDScript, all scenes, project.godot, fashion runtime PNG/catalogs and named test/capture/compiler tools. Other environment assets are covered by existing regression gates, not frozen by this receipt.",
+  "files": [
+    {
+      "path": "assets/fashion/outfits/baby_eagle_garden.png",
+      "sha256": "66e162c19e9606dfde53237cfe24a2da8307891014d1c550e0a067aa7be39068",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/baby_eagle_party.png",
+      "sha256": "e9dcf4ad973fd5240df7ebebd73c00d8475df0ffb25af0f9e704057d8defb10d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/baby_eagle_ribbon.png",
+      "sha256": "18b0c684923309df282228a35f3a881d90dfa6d3669a37d9b4f9241d9098e0aa",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/daddy_garden.png",
+      "sha256": "ed3134a3242fcfda3cedfc91d1f50144c3cd58a08ff68d3d6d4369a419d823da",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/daddy_party.png",
+      "sha256": "790d7bbd2ed80351083d73ac56c90669531b1cf6d7d5a659f2c5b6edd5861ee4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/daddy_ribbon.png",
+      "sha256": "08f0b74c1fd0150765248115ff91939fc7c379327fe167f12a92c03363161762",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/rainbow_friend_garden.png",
+      "sha256": "c2599588072959dbf8dbd636bfce794b696f1a08285a27198322a64c1adb1c71",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/rainbow_friend_party.png",
+      "sha256": "c178a181a415fa61f1f8f436e22b9941ede9d4790be78bc289472277eccc48f6",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/rainbow_friend_ribbon.png",
+      "sha256": "f0e8839612042dab404784ce948bc7c5ac207e5232ca41c16e169511b54e988f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_base_disguise.png",
+      "sha256": "7a9183be66ac44a54a1058a0b64766d395c319787720df9cd404f84d676a9d6e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_base_garden.png",
+      "sha256": "6a1d0897e1e6d116862f758ed641776382ca64b494e28ff4d49a548ed527a46a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_base_party.png",
+      "sha256": "0800d4e0c8f9b70d275cafc6c6d23469bff43c62714f64ba0a57fe6bbec5f3d2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_base_ribbon.png",
+      "sha256": "f9c4f27eb1c340adf1278569f44072798e5db95741b0c10b628aa228f729461e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_directional_disguise.png",
+      "sha256": "724686a7c34a3a1d6531e9bbd22bf90ff3d508941064782873bdf10353b5ab5c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_directional_garden.png",
+      "sha256": "e1c0c20cab3f10eb8d2c6941a5647800a80b8a4632a5782d5c7b98daee05c5c3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_directional_party.png",
+      "sha256": "9924bb821fe8fed348ca946e115474b3215f4e800c838998ea313c7ff23820dd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_directional_ribbon.png",
+      "sha256": "654616ae6e1b9b95f671e824a871e2e0deef7e2177b1badb42f622697c66e6a9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_a_disguise.png",
+      "sha256": "894e3e50f39d003db4df730d549d7cdce42d801ac0046140c77144a345fe2644",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_a_garden.png",
+      "sha256": "6f4094ad11a672f18f34ab4857570d818c9409a0b1ab290993d8d85ffb3993bc",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_a_party.png",
+      "sha256": "f880fbac37668518e0f784b7b3f70a6cb507c22b2dbc0b7aa20c051bca846012",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_a_ribbon.png",
+      "sha256": "c9b6b383758281401a31e4045d9f319a37498666d1c3c8bd28a5063c0e252605",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_b_disguise.png",
+      "sha256": "2dc07b9465264c1d7349d23eb5f7dbf52eeb371f71fb54a73ab3e7d33005bb0e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_b_garden.png",
+      "sha256": "514079774899dd9a5e28b8af0e87b7efc5dc4085d66586f706962afb8f8bd291",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_b_party.png",
+      "sha256": "76c8ec34b7bace24214c7bc2679c867b1088e8c8eb719050a85990b94197e7f6",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_b_ribbon.png",
+      "sha256": "5446eb3198b5592e561d41313b4e9b2cc5b1c6523f6fe15eb6d45751e00095d0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_c_disguise.png",
+      "sha256": "ca1f0213ee7856a41efd5be9e604fd886a5013c3cfcfad5fece5c5059704da4c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_c_garden.png",
+      "sha256": "b9f171271e62d3891723fa0e1d163f5448f5e514392d8d2697089d002eb3f609",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_c_party.png",
+      "sha256": "33f3f36711e83a3af4bdc5b683c42f79c292409e727d63f1f3f6472700bc1f74",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_c_ribbon.png",
+      "sha256": "8b051a69e24a21912ddc9ae171c630d7e58398b619a247b91a28015dd68900b3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_d_disguise.png",
+      "sha256": "c8451f99c9082606bfac52d5d6bdc2b04148570a01300471fde67b7acc881281",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_d_garden.png",
+      "sha256": "aeed10e246b3ff7405f18d147b32e897de9703b1d39467110522f22a5940ed7f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_d_party.png",
+      "sha256": "e029273fafabd2ec3009f31ceb596598bfaa9219c4c2020d357dd5659030845e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_d_ribbon.png",
+      "sha256": "744373644caaf0c9fd812069279ff791ea1d562e6d3445ca2b7060a2f61848db",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_a_disguise.png",
+      "sha256": "b2f9a5a6c317b74eef8ef2dd923b2e78a54198399296f1cade515780f9c877af",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_a_garden.png",
+      "sha256": "6c8c84e1d2dfa22ef2eab5831d846b8cb9d736f1d1a8ed98c7ed49cbd482ac08",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_a_party.png",
+      "sha256": "719f5d44afcb698169560cc3fd97d3b48edf1cdac6979bc510e9b96ffddb4b1c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_a_ribbon.png",
+      "sha256": "0f273e8f922c9efe16a031dd56b4eb685260d33e4696120bf77e6d8eb7436b51",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_b_disguise.png",
+      "sha256": "a5397a7b67042ccb2c1b33a659892d58181f210a3611a86f9480da3e06dd33bc",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_b_garden.png",
+      "sha256": "b1c4b847c6fb2ea1eb5624f81136093e4ca25cc92d01457034ab46bda4c696cb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_b_party.png",
+      "sha256": "ee52de0cc3bef066b94844f133cf2b549e6c16bd489152ebcce66aa62ce11632",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_b_ribbon.png",
+      "sha256": "a4e6462902c89e337913dd28ea7a34afbb307830711bf1ad192e355d172b0436",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_back_disguise.png",
+      "sha256": "ab24834ceb1325f7d3cbbe81efc6cbe1bcda8f9b3d97a8a2dc8c1ff5e364dba2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_back_garden.png",
+      "sha256": "1d2417e3d00ae9185d4014d307c46120335796c27828ea858430a3ccd01384e1",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_back_party.png",
+      "sha256": "2ccc6bccd4c7852902c3b10e756e00c3b5b0df6db60fc8311f1754c460453c78",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_back_ribbon.png",
+      "sha256": "68a9d486e47c95f97d26ed90802ccca7780f40b0552abb822930bbaeff82052f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_front_disguise.png",
+      "sha256": "12286ef3db5821fb2899a2c24f2e7c557934f0a5f23ad8509aa6aa129c23e856",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_front_garden.png",
+      "sha256": "24c2b18750d8828239d283dc38e714d0c24013727df15eb6ac75a97cd928dc49",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_front_party.png",
+      "sha256": "57c12d9be00394828bd5ea0518c2687ee55a4424c57d46412ee0e938eb5a875d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_front_ribbon.png",
+      "sha256": "66b41c1b61b0c15a45af411ed92eb44663d209a714971d288f13c316ef6e2268",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_eight_pose_runtime_garden.png",
+      "sha256": "696ef375e1f210bb042fa543d7f8a4dfd388c08f6ce9dd97be9e55cfdb71a00e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_eight_pose_runtime_party.png",
+      "sha256": "aa5456d3e343e46aad38b7a3d8e62bd96b014edac16624bbc5cd0a97f9324ab2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_eight_pose_runtime_ribbon.png",
+      "sha256": "8422ea525cbd1f7279029516e9e99a013a649527a408ccd43db589c4811596f6",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_pool_idle_swim_atlas_garden.png",
+      "sha256": "bf30df830fd644227aafd2d1c84eed95a6e7e34c165a84ec3b5edc7f17110d37",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_pool_idle_swim_atlas_party.png",
+      "sha256": "2c53b6ea924823d01e6072f180f6f94574387eba0362999ab8b4928ad7a191b0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_pool_idle_swim_atlas_ribbon.png",
+      "sha256": "cc74fa2ef67e9955b242ac10bd020974bc968bae8642b39174a6884e488e29be",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/party_dress_garment.png",
+      "sha256": "e7d3d9a9ba1e6f47ee1d1092992d264cc131af655ab86fae95480320dbd57d07",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/baby_eagle_garden.png",
+      "sha256": "9fb720dbee8f4a279b81b5b011ee9ea493c82210f893b94c7d717e126a52da49",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/baby_eagle_party.png",
+      "sha256": "a06e26817bd97242f00295ade379f64e0962b363cc115836ffe15f3d8741bbbd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/baby_eagle_ribbon.png",
+      "sha256": "5238c3a505f03f83d98416d9d45b1914e726b7b8aa07016992048ddcc68d669e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/daddy_garden.png",
+      "sha256": "ba64b768aa621db3ee147fec333914efd32166016b5cbcb7c6daa06bfe23ac99",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/daddy_original.png",
+      "sha256": "cdd19e21805e312f1ebefc6a4ece9f19f92e5bdcf49f1e771298e7985ac1fd4b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/daddy_party.png",
+      "sha256": "655bb2f75cdc43916c61faf25afc8b06d1f29f5c160cd7b22de7c0a9c0e77426",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/daddy_ribbon.png",
+      "sha256": "1382c75fed72cf3a1d6070730c1ce666785ef7cf78524fdaed7b791d36db427f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rainbow_friend_garden.png",
+      "sha256": "3086a666a73405f7fcc567f5e34a1df93003d89abb9a4ce5108ce189a37309ce",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rainbow_friend_party.png",
+      "sha256": "56f647f938efb7fde5116a33edbc893796409f17a5ca66327ae88eb3ca05cf2d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rainbow_friend_ribbon.png",
+      "sha256": "96c41e90d341c244a2ff9bbe4a756c203531ccd4d9aedb9c7b6080d1dfb6fa4d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_base_disguise.png",
+      "sha256": "91cd7a6c321425c7d0917ec7ef8cd32af00449e5f206ef1b1403cb28f0cbfe9f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_base_garden.png",
+      "sha256": "bb7d3a2901e49338a551e834c9d397abeb0004d856cd143cce8e554190165f27",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_base_party.png",
+      "sha256": "fe113e84b14c4784c2bb86860afa6e7e4d21cd38d2fa7268ee3978146aea421b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_base_ribbon.png",
+      "sha256": "1a0a5ba7a6c7cde7da58d993721e2cf4a35fd301a870465065614684931678a4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_directional_disguise.png",
+      "sha256": "653684591263e62e57aa724867a959ff7797658438793a4869dbdf068c4740b4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_directional_garden.png",
+      "sha256": "54ef6b18c2a57c6b2d03cf79f3cd3e7817f2400bdf31e69fad2f863affdec3a7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_directional_party.png",
+      "sha256": "3d4c0572ce2796c92ccd513958d6e7048e8a21aaee947ba74912ed8eba6bc78d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_directional_ribbon.png",
+      "sha256": "95abfedeab2738c1f1e5805eb745223e149f5cbffc7fb9541c485c3411407e24",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_disguise.png",
+      "sha256": "f1776174cd1a67358bb8393f534c037172dda1e38e8c46043337edf1bdb0228c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_garden.png",
+      "sha256": "8ff584b68e9b46af47028f5c35bba5a72ca8b04ea695c7d1a7bde550517bbb0a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_party.png",
+      "sha256": "650473adb5733ceb0487b4d1ce1706832a3b252910545ea02f4933868a0e4f17",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_a_ribbon.png",
+      "sha256": "67e983ad669ee8b24b1f09723dd7389f70453575160ece2bef8478fb46c40858",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_disguise.png",
+      "sha256": "2c6a0dba7f82cc20a7fd2c42f5664db4590e76104906f1ed49ec28e888a3d391",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_garden.png",
+      "sha256": "1cfdd1c8aa1901fd4f0537d90d35cefab27ea6c3e984d930a0f5b943ea36141b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_party.png",
+      "sha256": "8305f4db011b840133a98649fc466cdad91713380d27a543e82c6a20da438945",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_b_ribbon.png",
+      "sha256": "1320fdd628f6ed7618b5870695b4812efcfd9d412ca5af2ad39f887efdd1e3c7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_disguise.png",
+      "sha256": "457f8a416a1cd19e0c1170824c283dd94d002461f0c6e5c6f3d389422788406d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_garden.png",
+      "sha256": "9c4be40be8f46153f81054a088a31f48ba7c83848b8912e3f55ee696bcc5361b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_party.png",
+      "sha256": "d469b56f26dcb803be59cc92e8146f1ca211b2ddfe868277220af5ee51de2461",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_c_ribbon.png",
+      "sha256": "13023617d7ed54f36f9602114b80b671d26b9763d3fd4c046e9cfe7812310bdb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_disguise.png",
+      "sha256": "ad620c6a286337b3a6de5e68cb181d1251bbb0275cb94cca699602926ae6af88",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_garden.png",
+      "sha256": "b2db3660e0f4e74542476e860a0eef2b27efd99f5c864c5eeb3d7859cb65dbc5",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_party.png",
+      "sha256": "57dd695ae1cf1cae666e21021c94e98d47793a7646a0904df866da82f8520437",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_gesture_d_ribbon.png",
+      "sha256": "79ee52961c918dd83a1e7b2c0feb425631ad89df7b57f9fcbaf0e823d29342db",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_a_disguise.png",
+      "sha256": "ec0a9cb0413408cac042b8412fec1bb5629a71103d6f60df540d9ca00c7ef477",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_a_garden.png",
+      "sha256": "2af2d8ff12a509bb0fe52310239b29cd06b41d5169300a9a47d745736427f7a8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_a_party.png",
+      "sha256": "75414e2024f2011f53c1597318322815bde26e7e37f0ee046694ec8c2f803160",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_a_ribbon.png",
+      "sha256": "d371ce51bf986fb35bf5a793aad33ed27f5cab83e1828f5c72be4ff351f36693",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_b_disguise.png",
+      "sha256": "0a01eedc2adffd12e84b86b6a3dbfc3929c619d60474fc335831c6262e059700",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_b_garden.png",
+      "sha256": "d5f838d8ef3f234be461e308e2e8179983235255b93ac0432e60011d335ce308",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_b_party.png",
+      "sha256": "6a4c4ae7effb42338778d5ab5df8221166238bda74939bfe2e10a1601206e61b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_play_b_ribbon.png",
+      "sha256": "19669801f4994a6c2a6ac480ae1d7841ace3c790881068c61033b8a272037e3c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_back_disguise.png",
+      "sha256": "5e763600a4c431ff1b68a54808bb299ec4ae77ec8ec048b1e16c21c728e65a84",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_back_garden.png",
+      "sha256": "15153593f7abcaadbeff952d6a100b4f5e9707f7068c7369723a3e7395f92267",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_back_party.png",
+      "sha256": "7d2930efff1da2274871f24635e90dfee98ea00a4da205b78f36cd0fb215f277",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_back_ribbon.png",
+      "sha256": "620117bc0bd1f919761b97d1900678e36b0db0926ba6d34041f2792b8fef8a86",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_front_disguise.png",
+      "sha256": "b707110f714826f7e9eeb34ef79d8bc1658001bdc792107ca805f1b949f71df0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_front_garden.png",
+      "sha256": "41f9696d391cd5223454b104fc8e3e9b17457ec95142e024764902199851f9e3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_front_party.png",
+      "sha256": "199a4e47e8dfb8f003a3371741325d99e7886caee584ac144ae6e27739ed49dc",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/roshan_swim_front_ribbon.png",
+      "sha256": "3838b5340e1285028d2fb10ae2207068d6070e9195784af8e12776a8db780085",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_eight_pose_runtime_garden.png",
+      "sha256": "4b4cd3e82f017898cee14bf2f79ac076c1b17d7db185750db2f690af0f20059a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_eight_pose_runtime_party.png",
+      "sha256": "af82f6a15ae52806c67086aa027ae8791273ba3001dae44528a2582c6ed6148a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_eight_pose_runtime_ribbon.png",
+      "sha256": "34d0867ab298ee15638b4f5b343bd92585890a04d12dc6c89f0e0351a0f52332",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_pool_idle_swim_atlas_garden.png",
+      "sha256": "bd8d089f0cab67dc3de615725dc322641e724f97d95051c3c85aad8e231e93bf",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_pool_idle_swim_atlas_party.png",
+      "sha256": "1c748e00435156f47df6830f0befdcb714aa690293e73c8186ffc38ed20b4072",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/atlases/rumi_pool_idle_swim_atlas_ribbon.png",
+      "sha256": "cae24f908504ad96f2480c8a0f0554b7278473d4b9f2427c60d7133e758ad41b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/catalog.tres",
+      "sha256": "250279580460de47d6e1e9310d467ed0cd1a838800a473c26c0d07e1e6518c35",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/daddy_garden.png",
+      "sha256": "f53d6e487fefd683455a44b9332f62f20a8738dcfb18d97cc1975d0e82fc7c43",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/daddy_party.png",
+      "sha256": "6428c0606f1fd7f03e3d76e809732a3fa5df00fb5ddb744d49046e5793b913b8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+      "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/party.png",
+      "sha256": "064bc733d96309a9e08469bd2fb684f72a2329d13246a94cd36e040ffc1038e3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/ribbon.png",
+      "sha256": "8db1ec00bdcd4efa18ec270631e15da7f2c8c1b237a0bbcdcc3cc419c49f2ab0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/garments/rumi_party.png",
+      "sha256": "126778bb5130de01cc9afd5b0368853d65f8f48ef5699181a2462ef8963c9606",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_panel.png",
+      "sha256": "b533b95074f1466ee0519448c992de89d5683432f7a994c4de2628659da7f1ef",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/catalog.tres",
+      "sha256": "55c3686f675b0c951bf5c7a52e17e1d9127f2eddb55d2371aa7e967ce6b1c4ba",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/blossom_body.png",
+      "sha256": "176e76a36836f95324958769a9e137595fee13600a90dd64363520bbcd04397b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/blossom_head.png",
+      "sha256": "6e872b442ad694b87b3f063b64667357f5aa4591f027676a38f8daf1677c971e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/blossom_tail.png",
+      "sha256": "89ec399b06e61c0dc2aba5b69e0cb13fff68e5f242ab1715fcb3893b519387b4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/chef_body.png",
+      "sha256": "71bd0e45fc242d4df60a1a529ab5c319168f95aff0e4a33309e8bae26d14dfbd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/chef_head.png",
+      "sha256": "46f4a10b9387946c875597eead161542dfcbb0f4e3f50a51f8007c572522dc3c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/chef_tail.png",
+      "sha256": "be8a9a49dd78e8a7626c35e412b340026279e638d62bc4478a9d4b5f55164e3f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/original_return.png",
+      "sha256": "26ef57f4068e8d292b09c2df97be8ad7a505860d8f2b19add866edbc776faf98",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/painter_body.png",
+      "sha256": "ea13ddb9ec11d091a7f94c4433033f1553c455412fdfe63166a31eb2bd370340",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/painter_head.png",
+      "sha256": "bce4f28d17cd605ecbdc54da6ced44ce53f491768f4075518e8fa105339ed8cd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/painter_tail.png",
+      "sha256": "69aa47579dcf0957ae833150d3080fce5cd11bf99c4f5beb445e3eed00aba668",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/pearl_head.png",
+      "sha256": "e3682c543252494dd735ac8f80d15e39a4a3f16b0c1cf0c2973ba71918b5d902",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/royal_head.png",
+      "sha256": "59bc4e2ca35f03383181f702cb7336441c75e1020abff0401dbb6fa3f43429a2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/star_body.png",
+      "sha256": "920e5b0d47608f0d3dbf300a4d10dd1bb11a368b6996ab2741336c037c7b76e5",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/star_head.png",
+      "sha256": "572ca0102e9877f0d1683a301e3b828e72f363543c910a99bb7ab1ee7b69613c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/star_tail.png",
+      "sha256": "9d59c6acd2f985d15cd7dbef3faaf9dec88c0d6a0456a3ca68c4b8c024813d21",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/strawberry_body.png",
+      "sha256": "15a9bbc50dc754053d4a5c6f2371295068bab32ade1afcd95c0104fd0a66328f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/strawberry_head.png",
+      "sha256": "2999db2d4135022d23b05a1820156508e2c94ed6919e67068c95c746619cb414",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/strawberry_tail.png",
+      "sha256": "35b509ec1a90f0b2eb0560f4e86db0e4e5e43ece6b535f7ca04586d4ce511442",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/winter_body.png",
+      "sha256": "f6bcc42f1df6f3e37b9cc85f2ec2a67df9ae9b68d4be0a3838fe2ed9c3c35542",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/winter_head.png",
+      "sha256": "73be165fde54f690237596daca72456b9b66e19fd31518619a6183b411c31897",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/items/winter_tail.png",
+      "sha256": "5b1ec719745f99b541f7c7393d6962d14cd8c22188a57df6107c2576437cec28",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_blossom_v1.png",
+      "sha256": "ecd6430a6aee86b95961ed569c2935d757818bb5135a70467b7d820b919de3a4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_chef_v1.png",
+      "sha256": "8c69179757a0bfb80c13e844697c6059341e5aad7c6b7e2e618edaf1dd64b59c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_painter_v1.png",
+      "sha256": "dffd476d0c8e8e56a56ef8e795b66b123d5943ccfd15642799add2f8c2621289",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_star_v1.png",
+      "sha256": "227efecc136638a86a6631ab3b053247fa9bfe0e1cc56eb57cde026d1691c2c1",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_strawberry_v1.png",
+      "sha256": "e1f3842a982e63986e3d2b20902c2e71cea4f0b1d9b840d0d27a704e9cddc4f0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_body_winter_v1.png",
+      "sha256": "0b780badc1b21f16af80e08a5f042654f46d6c4489100627ee0015403dac5383",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_blossom_v1.png",
+      "sha256": "a2ee1ebd331c09ab26315a80d35039444ece5493a69ba1b3478adc66f3cbbcbf",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_chef_v1.png",
+      "sha256": "3eb4276b469b5100554d84aebdaacd3bfedb50ddc65ff5e15c2a53b3581c4033",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_painter_v1.png",
+      "sha256": "e3d7090639f6e8cbb780c9cfee87adda8616c4c2ed92263ee69acd036f309daa",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_pearl_v1.png",
+      "sha256": "e648b0116dc39b5b1bf04d7d5705259e54c2839a2888319eb12e14425878f3ea",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_royal_v1.png",
+      "sha256": "91220f5f1638ff1d69909b01f7301295028e1ce99dd3fb1395fd08c46d98a425",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_star_v1.png",
+      "sha256": "0af6f11c03c42c9c2f1d264d2e7366c13c7685d208312f33651d94483bec4853",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_strawberry_v1.png",
+      "sha256": "f048e6a52522d9b17cffefe122ba3f745bd49df3f32006f3ca08c1b9d8814670",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_head_winter_v1.png",
+      "sha256": "183b7a8304237fa65871e26e5b7d80157e82c0cf3751398f8762195e55fa2369",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_blossom_v1.png",
+      "sha256": "1a4bcbecc9ddd5d14b365b6ca0650af38820210486c822213cd31651123f0c4c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_chef_v1.png",
+      "sha256": "33b0f602f8ec9ed15816fb8d76621f02a1982a944d0f0510dd902c46d9f3f257",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_painter_v1.png",
+      "sha256": "117cbdec46912b6dbfa1814028e75a83bac3eb8d6cbec4e42c64530816e57a3b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_star_v1.png",
+      "sha256": "983b167a97171d3f24e6d853d55774e4431de759e06e93f6e28a450bef77f301",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_strawberry_v1.png",
+      "sha256": "0fef7819691693efeef6bde4aac18308877b938493480256b96bd0e749a1a90b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/daddy_tail_winter_v1.png",
+      "sha256": "d1186129ed11801cc68aaf7c416cf9a440aea837db90b5aad7c9b2b6a3a6bfcf",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_blossom_v1.png",
+      "sha256": "b78ca153b901915cde7fd6e8a3b608d921986fec53a9e5b8f84b455d1018f1ea",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_chef_v1.png",
+      "sha256": "3f80e0cfc6db12bd130146de09f7677262354aba4529238b81745c0ad317eee3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_painter_v1.png",
+      "sha256": "2fb49296631527d4c8076b596d346293135b4cb35b60dbf104e0830b3825376d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_star_v1.png",
+      "sha256": "ecbec164733fdc2810186d856c8cc6323d064950520b9e33f76fd0309776153c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_strawberry_v1.png",
+      "sha256": "27b131fda03758672aa4cddfff7bd48afd983221bb8cc52ae8b8d2c139d38195",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_body_winter_v1.png",
+      "sha256": "58ec53a0c0451899c60b14ec29125aa5754550f1d0961d4df63685f035cb5861",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_blossom_v1.png",
+      "sha256": "d09612cc82e5458456f75dac6953469e75e729a28abbc0d57be7191a3ecf0eec",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_chef_v1.png",
+      "sha256": "04609374a9b6c82b8be09065f8cfe49d9ce3547413571179ffafb9eb8f5aeaa9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_painter_v1.png",
+      "sha256": "9aa6a8390f9381be1766b509e5295a29d1d5f59a8a2bfc0cc43c1ba565240f7c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_pearl_v1.png",
+      "sha256": "c59f02c0f9b8cda6410e2f4214b74b8218d00ab031de531b0ead5ce48dbec6e3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_royal_v1.png",
+      "sha256": "e2595c2dfe1d8f07da6104646e9edb1e595dfdab91217d9a99b0f8aeb2cd6853",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_star_v1.png",
+      "sha256": "08fdc28029546376431b6b97d59ebd1038293d7022492ad520f88003b33fdddc",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_strawberry_v1.png",
+      "sha256": "4e86706245fe2fa97fa40f883a38152340bfba6b5ea2c5fa9e8f580852c61bc0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_head_winter_v1.png",
+      "sha256": "ec959860419185bc0cdf22435100c975b2daf74491df8a4e792e1b0577d7d3f4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_blossom_v1.png",
+      "sha256": "4360721622028081a3e8dc92f73796c18ba1f1bb212334aac0bd45695746e605",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_chef_v1.png",
+      "sha256": "65f10420baa80ca400c02a877c8c1d9185677d238da4d2ba71bc5f25d8bda526",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_painter_v1.png",
+      "sha256": "6aa367d00c04632c354613b5c443ead858879f960842021b6c30db1af51ef8cd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_star_v1.png",
+      "sha256": "f5478fc397683bee40d3c8710d7eae7e02cd7243464ec34ee1c9103385e50f20",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_strawberry_v1.png",
+      "sha256": "0c98830a159a25e868c89d5eb55444a69426092ca2c84faaf2b1ba2c0344f08f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_base_tail_winter_v1.png",
+      "sha256": "4464cb16d798c387d5b48a60a4f99d2cc381a213e3d8bc5900685209eb4a965e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_blossom_v1.png",
+      "sha256": "566c0c9e21cfe7a1822b1352d356598e8f44d53782b36c843c6f751f8fba629b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_chef_v1.png",
+      "sha256": "42059af95441e3a83d34d759bee34b0ba3d9d6716616a8b941c99e454c33f5a5",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_painter_v1.png",
+      "sha256": "879f374cc5cc26cc3fe8e006542aa8baed97f25f4c06d8466bf47a7b95b266d7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_star_v1.png",
+      "sha256": "066e4f40c2d34555a025b5541e9ee7adf442e58d94c75b9a13b600ccfb14ce7e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_strawberry_v1.png",
+      "sha256": "61e97bf2bbcc0bca02c3692f4b26654eebc41313f1806911e39b093d62242ed0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_body_winter_v1.png",
+      "sha256": "3d44a1d066cdffd793259186dfb5f75a45a4221f336d59725bf2ca1bc9d5627c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_blossom_v1.png",
+      "sha256": "c2416b4f05d9457bd020f74ee76856432ff3018b47cdff7baec325f24f8e8288",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_chef_v1.png",
+      "sha256": "89e300df8869fd6037a924bd65c0c8c88acb3f9ffb672e810f677a4f65015192",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_painter_v1.png",
+      "sha256": "e08b312146194ba72d121e0ceb6a59056a15dd588f7fd119afc2a6b0cd2eaeee",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_pearl_v1.png",
+      "sha256": "6ffb6478ba799c3998da725870b45e3920d8554612c8d4cadb359b85d457e037",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_royal_v1.png",
+      "sha256": "8c5aea1634d1233c03f362b3768708212eb91607666ded99fdef1b1c9e1a6108",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_star_v1.png",
+      "sha256": "e86b72e8cfbcd3aea8cf43ebf38941fb21c2ea9f096da87ae4e5432695d07c94",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_strawberry_v1.png",
+      "sha256": "fe3984f437200957964c6154bdd1e67cd3432b8363aa607ace94074923da4dca",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_head_winter_v1.png",
+      "sha256": "8083a579253f8518c16bd03aac6aff150e1f54e5474d19f30f782784dea70cd7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_blossom_v1.png",
+      "sha256": "6a3f77058c001131755eee7217af1954b13726eeda8e40f4143058624b25c365",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_chef_v1.png",
+      "sha256": "1e2a86c1154fc79cdf678825ed0f2ecd9a1db8812cf9ed4f55a2541de8303fd8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_painter_v1.png",
+      "sha256": "33f0a4eadf9d815ce6effe14486ae1cfb391e5c9929bfb6c372d72d4ce6fd4c7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_star_v1.png",
+      "sha256": "c695fbe0b42b4e8a410f70e3c7d5e85dfd158b3ab4a5f54b04bd6c6f9850a36a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_strawberry_v1.png",
+      "sha256": "2b5b07d0f7033ed08c2947d876d6eb2581ecad87114a5b7608b01d8077531daf",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_directional_tail_winter_v1.png",
+      "sha256": "67f08a98691e35cfba1772571177a2fd324cd97121f5192939b1cecfa97db8ff",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_blossom_v1.png",
+      "sha256": "496ccabbb9781587d5c05a535111cbc42d6d99ae04352ea01e41ff157b154474",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_chef_v1.png",
+      "sha256": "0b1e687687c4cbd0a8429ffd4b5c59912c514008d3da7c85ac5f86b2107986a9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_painter_v1.png",
+      "sha256": "7f022fae6ada13eaaeb5419e303b6dde2da2944513b8205aa89df6ba22b76ece",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_star_v1.png",
+      "sha256": "c80bed2a84cc18891a74207e0becc518e4614a6a15d7198091028c48207e1ae8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_strawberry_v1.png",
+      "sha256": "821e54bb21092b4435915be80fb1b4d3d90d511043df1542825b5e87f139f143",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_body_winter_v1.png",
+      "sha256": "574af3b5390d55cb08c2ccbdabd49d6392c0de684dc0ddc97790d48531e15a35",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_blossom_v1.png",
+      "sha256": "ea9b321d215de3ef3fd1ce4895cca8eac2841d0084d6efbffcfe994d1bd8d71a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_chef_v1.png",
+      "sha256": "d00d8d1df3fe6b6c0151c2fc1349beeb909c2fff74dd4f0528bf2263728cb7a2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_painter_v1.png",
+      "sha256": "aad1a9d697cdb16639f69dda61fd2bf64cd127fea567c7c5cd78953dc902fa27",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_pearl_v1.png",
+      "sha256": "29e7d4de02a10f393a847652d5c5f7450054d7bfb12f6a833ca40036e17a1c07",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_royal_v1.png",
+      "sha256": "56e91ba3e80dba472ef34f81cb6f08e62f3250badd54a07dc3fee3fab47213a3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_star_v1.png",
+      "sha256": "25ae7a86d05ed8caf31999c6414f3a2c0cf2143641cd00cb31fc9c66112b50d7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_strawberry_v1.png",
+      "sha256": "22eec70252bfb7b083cb13e9796aa7241002a2e7e6b71c3f4e74a6df5e14e3f4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_head_winter_v1.png",
+      "sha256": "ddac7865724ef147389a70e9889e179b3e1656f55e36f113038ff62474f6980c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_blossom_v1.png",
+      "sha256": "4a4855ac27810082a6acc844edcf22566293423292a33ff92f13a3cb0b768979",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_chef_v1.png",
+      "sha256": "871ae0d4e4abdaea7455200c809e9a35d59cb29d59404af469d4f9f782ef8618",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_painter_v1.png",
+      "sha256": "32bc96d928eca1017ac2a5974f1f764cbd11b0b80d2d33048501512802282c3c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_star_v1.png",
+      "sha256": "564f2fcf77b55b88d099107a1fcb358d1dcd154debf20589b2f422bd2b37ebf6",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_strawberry_v1.png",
+      "sha256": "03f0d37b17c0d55c5b85200d31157705c92d256f5533fbebec1e51d24f900281",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_a_tail_winter_v1.png",
+      "sha256": "0a19de4eafda28d58eb2c126257582fadaae090f1855d6c81f101747eeac14ca",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_blossom_v1.png",
+      "sha256": "fbf3e6dc852e1aafe9ddf58c40df4ea9b868ce479a2f054ad7991742f80c1fdf",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_chef_v1.png",
+      "sha256": "508d8cdb980e7bf3a609e6f58617f3cbf9264d22b29b904ad9687802e29713db",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_painter_v1.png",
+      "sha256": "2c9e20e3c7774196234471739e37b64edf3ab985231ccefb3c2e9fe3f31ad80c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_star_v1.png",
+      "sha256": "6213243f78778109d584edc8371bb5dd25c513df7772fbeeb24c3d1af28b9b03",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_strawberry_v1.png",
+      "sha256": "a45196a97c7a3592ba701bab8ed1c371d425787e8abc54a0946e69076a3c8192",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_body_winter_v1.png",
+      "sha256": "6e510defcba698ce7ea6a51d7694971eabc66c1000a8ce4b74b230eadd4bfda0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_blossom_v1.png",
+      "sha256": "a306db1f4484a67b5fa2ecac081ac8f98b31262b6e76adb1db99574549a90ce5",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_chef_v1.png",
+      "sha256": "44e84734ceb2c8e1cf34d89e89a1f93de9b0429d0b721c3717c50b6e06cb342e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_painter_v1.png",
+      "sha256": "2239d438d25a6174cfc95d1eec9968ea71b76d4c1b5cc73762116acd28ef7843",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_pearl_v1.png",
+      "sha256": "d8dbb0c7b7dbcfabb29effa9cab247607df14d855889c5c11e0fb21028e8abed",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_royal_v1.png",
+      "sha256": "224ea7dd61427a8c503389851659cbf8263cea966fa49187c1253e2f7a32187d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_star_v1.png",
+      "sha256": "ae56061ea9f974e5d0afe663e372f5739ecddf345d8dc653e9a5ab3486ba5601",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_strawberry_v1.png",
+      "sha256": "14a89e1efb0aeb29a870eb964f29def7ca30eee34c2931deadc93d03a28890fd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_head_winter_v1.png",
+      "sha256": "5df785fd5e20ef6b763f3d65795f6deea1b4dd563505f805c07541db6d14842e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_blossom_v1.png",
+      "sha256": "8c4791108294e2ef9d175e4500552870930cf5f719005077be2ba6ac1f36eacb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_chef_v1.png",
+      "sha256": "3b7d64603a6e2ebcaa4d415e9b8739c278aa500aa05a42ee8b322019d7cc97b4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_painter_v1.png",
+      "sha256": "beb912a880960efd277530b691c3cdefe08dc3311ab62dbadb906ea11c09db8e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_star_v1.png",
+      "sha256": "a1c3d874a35a0982b877ab8bbbc42d07e5e646c58c7258223b13cb66a4926b78",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_strawberry_v1.png",
+      "sha256": "81972bc8d75550597cc087c0012c12d13d601a0cfc34338215a8accbbdef56c4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_b_tail_winter_v1.png",
+      "sha256": "115596368f2108e5bd3cdc0218b7109c9a2369da8f1f492f2c9c1048b0ab64c3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_blossom_v1.png",
+      "sha256": "006f2dbfe70b034b82245e38ee3e1cbda7d9e0a074808e70e151744f770c15a0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_chef_v1.png",
+      "sha256": "a8d477245491f15e2b3d3165bf4ebcaef97f292af266c5bfcf6a86814a808bea",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_painter_v1.png",
+      "sha256": "90e9a8819a9dafd8580feae56a379fb477912dbc764be95c228487449a8ba7b4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_star_v1.png",
+      "sha256": "4ddc6ba60f62d7294fa495a804cbae98d8642196a815af4cefb1c9c3e2c2310d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_strawberry_v1.png",
+      "sha256": "4c46f1582d004e856f855623137eb3e4fabd1a32c09f7e2e561221fe36203706",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_body_winter_v1.png",
+      "sha256": "ec8ad5ad3ec68ff471aa9f711caaa083c6383657d9baefde9a8512f403dc081c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_blossom_v1.png",
+      "sha256": "5a4ca43e3619945eded8e2d4e5ca1e4e15bec2b8740197833a99129191703abe",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_chef_v1.png",
+      "sha256": "be06b011658499b6af73b84faf99bd32478584922b61ee6c4b1db4586facd91a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_painter_v1.png",
+      "sha256": "aaa14f52603778251dff47d8eee28af43046b84fa086f31bb7d526f9be827f1b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_pearl_v1.png",
+      "sha256": "05bbb8d11fa7691ab09f562b7b21fd0012e2a937690010f79249b15d0697be31",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_royal_v1.png",
+      "sha256": "39a268b41e13d48ef855f2a00153491b8a353ee69634030c40fb2f552beafe38",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_star_v1.png",
+      "sha256": "f622830fcd4448eeee676d5372daecff25e5c7b49d15c62e0aba1028c656f48c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_strawberry_v1.png",
+      "sha256": "804ec542140c40d05b619956006bb080c269d4e200c2ccbc944105bb169d9667",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_head_winter_v1.png",
+      "sha256": "c8c7ba53abe4c2fde8e89a0f5ad174f0121ac70ca518b462a161bab2b05a04a1",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_blossom_v1.png",
+      "sha256": "59d68d05b1084cc534b6357e6e3c259e67fbf52699e2a24a610a0bc967aa4868",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_chef_v1.png",
+      "sha256": "63b223d918ae427bb1a181f46934d55a9771de79f17c8539ab0344b3eefe0376",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_painter_v1.png",
+      "sha256": "e5953bfff600579438192770f899a4ef5d455aefb880ca08c4169671ddcb4467",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_star_v1.png",
+      "sha256": "da1842a6accabfdbbc802d25d1969e656843400fb6aeba664c097226f53bebdf",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_strawberry_v1.png",
+      "sha256": "5e563f0daf3d0092961d63dec074776fc73d5354a8d9a4d50b5cccf7fc58858f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_c_tail_winter_v1.png",
+      "sha256": "da3308ba55908f28ffe8894c9c150f681ef1c68df4256608069560b3d33238f0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_blossom_v1.png",
+      "sha256": "d93926080695ccaff93abc5f8185d693e82e99c0709df65dd8b319cf8b81266d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_chef_v1.png",
+      "sha256": "8fc6c15acd1f4725c658cadbe540ac0cc7e49c49460e42b57f0ebf7d53642f92",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_painter_v1.png",
+      "sha256": "83e29cebbb9a05165245ab4c2f305eb5cd0f574b2eaabb8361e251ec04fd4120",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_star_v1.png",
+      "sha256": "f48d3b147a7febffc938978a8442d7d8311911d46e62c7e7ba4466723d591b75",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_strawberry_v1.png",
+      "sha256": "ffc8cdb1b3d753850b1e8b23c9030f7f9ee2bf8c2e21adfbc48a30c20b7054d4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_body_winter_v1.png",
+      "sha256": "73f03c261791663e86dba982d7ca4dc79feb597de0a1cd805a817b802424b2c3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_blossom_v1.png",
+      "sha256": "bf0d6d313a9d0af9154f052baa06d6d376961060844e82559a2fc7d189f08f73",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_chef_v1.png",
+      "sha256": "0788abc1b94911f3be8c7fd18b0194bdac9304b493ae2ee15c1cd548587111af",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_painter_v1.png",
+      "sha256": "3139722bb9b4fff5bcc7e27a5f0251aed49c29dce108e0f7e32b366d66448716",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_pearl_v1.png",
+      "sha256": "a5368e38da5b981eb625736218ea5a3acd0669192af9d169f7211e180a453af5",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_royal_v1.png",
+      "sha256": "66414beef580c0e3548217d20497d97a415e0d37fac16cd9fa698ddd61cc7ae7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_star_v1.png",
+      "sha256": "7f1c0323afb908c3a31f829e353522ab3d8aabc51c15c338da128ebbd98a5c4a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_strawberry_v1.png",
+      "sha256": "47a76c3f9e95d518975534857dc603ca1506d34e6daff4d116b09bd6ec58d494",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_head_winter_v1.png",
+      "sha256": "cd7661fbfab726f73e5588f4556347bf63903b83c50c6eec915b5a896c723b1c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_blossom_v1.png",
+      "sha256": "f21e5d67c8f02440de50397e274ecbdcb5a8500b22b6f141f4e149ad8343490e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_chef_v1.png",
+      "sha256": "853d7db39f86381b04f3cb70ce499a725487ce541293a07cd1cd4b8dbeeb6223",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_painter_v1.png",
+      "sha256": "3ccd8a98e2a911d16b8f88a33d579b544d8462760dc13b2a7e1219a61628d5ee",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_star_v1.png",
+      "sha256": "ddf5df310b8c3fd463eb2865ef68a8eac860a6e19f6f337720d0fb433b7be4af",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_strawberry_v1.png",
+      "sha256": "bd95e7017af90bda9d82b696a3b9e4192af2521559e60fa9e8c834f62eafe2a9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_gesture_d_tail_winter_v1.png",
+      "sha256": "73d8cc7e8faa474becc5565019f739b3a1f4761ee9cd5048b421f3926d7c5c85",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_blossom_v1.png",
+      "sha256": "e9fb878d1120c9cb2e26aee91414e26584529acb7818df8383e43d4ef85f265c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_chef_v1.png",
+      "sha256": "7cea8d3ad01f72cf45bd7dadc66b02d683dd8349a2463bbc69ef3b22842f8710",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_painter_v1.png",
+      "sha256": "84c56f1bfa967610bb2637a7a5cd8f3673e30c33fbf0c81a9041e4ef2c119653",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_star_v1.png",
+      "sha256": "893594ac2abad8a492864a46d77f1f2c4cdc5c31aa21c311e8c2127f3b50b0ed",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_strawberry_v1.png",
+      "sha256": "98daa23bada62ae41febd06e70b15cd934c66d756cdfbeead62f91f2e5b0b34e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_body_winter_v1.png",
+      "sha256": "4ee014e0baab6ada24825075b08b0ffccca7f8623320ad1b5acfbbbc8ead2956",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_blossom_v1.png",
+      "sha256": "ad97966f0435e0a8ef5f98b5fdd695292d96b48888954168deb2dbf916a4b544",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_chef_v1.png",
+      "sha256": "68899e7751e8650ec7a76fbc79a61b081f0e6bd8ea835fe7a84c42e14d6f473c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_painter_v1.png",
+      "sha256": "8038cbb34d5c6e82a5753d1d66f6a6e6e08a1d628ef4be7ccd8b9f74c62384b3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_pearl_v1.png",
+      "sha256": "b1489ee27ca9c15029ae818eaf67a0324252d10bc3a9e55e2e5876c2f48d9f4e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_royal_v1.png",
+      "sha256": "7b0768651b05edc653c6619484a7a31d454c392f02a6100a7c5ab8265f21cc74",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_star_v1.png",
+      "sha256": "8b5e2d7bc9a5ee6ecdccd0f5052920731da464cc181b4cf498b8b44f0abedf5e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_strawberry_v1.png",
+      "sha256": "6e9983cbe1dc4fb2aef419b0434ce0ac123ea8a7092e467978270f380ab930b2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_head_winter_v1.png",
+      "sha256": "5c3a913cb5ab95c9eb878d0c9443e947e78cf9b5bee30ac1ac00555a04ce06cc",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_blossom_v1.png",
+      "sha256": "c32b25c1460bfa1664e06cdad32e1423e242280e054321a2014b77fe331c96de",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_chef_v1.png",
+      "sha256": "bbeb5b9d6b2d34aa77e46d902ca62328a761249515d9fc8831451deca12247f8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_painter_v1.png",
+      "sha256": "d38f902ae6eb1ee58672a9240bcf9b89568b9b2ee6b8524ceced85cb591e8431",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_star_v1.png",
+      "sha256": "31561ba8dda438f12688666d8abd64102c66d11204aed33cdb31239328583f9c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_strawberry_v1.png",
+      "sha256": "64333c60339f9797852df50bd6550c568b1feafaf8ebfc5b361d0efabef02324",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_a_tail_winter_v1.png",
+      "sha256": "e76442724fe15c520cb0c05cfe22dda77c47ab2ae3bcd7d59218d898bdfbee50",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_blossom_v1.png",
+      "sha256": "7fc0d7afc3c94f7678ac9d8924aab5116a987c50a5753d541ecf759a380b01a0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_chef_v1.png",
+      "sha256": "56f6270ffe531415517d64e6ee172b6634a4fe35be8a013dff7a4f90a74fddca",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_painter_v1.png",
+      "sha256": "c0271ceaf82884223072820cca08d89625cb5f40e49681e1761b69c2cf728a1d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_star_v1.png",
+      "sha256": "9544d5407df18e5a098573ba3fd105ee007ea6d9bf5bd3e56f74e098f2bb7748",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_strawberry_v1.png",
+      "sha256": "f8c814b0a3232bc018b2ff5cf0087215ec591ca79540a8a458bce05e9f7b5d10",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_body_winter_v1.png",
+      "sha256": "189c04968f39c738983f1f2b30daceec4acb38b8a7b348149f579b29e669442c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_blossom_v1.png",
+      "sha256": "1c4185c9caca2d64c85de2d33275c244d8ca9e5cb83b2ac1ad0605e081f6dcfd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_chef_v1.png",
+      "sha256": "da6c3e00392231122fe24e6003e5514939ef4e9fc717add843bf7b7e58dddf77",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_painter_v1.png",
+      "sha256": "48c4990940de3a959bc887c3db66c6e38b44d32bf495682b164d18fc7c22f93b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_pearl_v1.png",
+      "sha256": "803169cf977dcd13b864393b7704fbe117f9b4b3398ad616569f6df67b3a2cd0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_royal_v1.png",
+      "sha256": "7e0e3f62f68211c0ac3743b2f01cfba0970ab7e69e63384e1272589db0ec8d3a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_star_v1.png",
+      "sha256": "6da7d959232989494053651956c60b3e023e0731ee632f64ce3fbbee63e2e3da",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_strawberry_v1.png",
+      "sha256": "3b3bcc86fe6cf3a080fa7c92c089163ecc543a0a8650e270288befc48e93cbc1",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_head_winter_v1.png",
+      "sha256": "d5a0faad96c3661e90e1ba21b622b52797cd47c58835e5f4ac0e3a1f513401c0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_blossom_v1.png",
+      "sha256": "7f70082bb59f67fc526a73631b05d1c75537bceae26fbcd4a9b12b631841c431",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_chef_v1.png",
+      "sha256": "cd89ace4c0f099eb1b5a66249ccc738877489a67bb3d2e8e61401c6913885b09",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_painter_v1.png",
+      "sha256": "b7581b46c17f6761fb87c8e53b3617b92aaa9b4e29f7979928a4a2a0c7aacac6",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_star_v1.png",
+      "sha256": "8818fe752fc9e4b542672d56c34958962156f1db0c8f64eb1ebeffe293c7f056",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_strawberry_v1.png",
+      "sha256": "7238b64591aa9ab04d88b45164fd89bc55582a526e2511d74ddd484cf7816acb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_play_b_tail_winter_v1.png",
+      "sha256": "3c7f42bdebf499b4d75e8c024204e0a17eb2d8e104f96b11da9fe4f69e7b7d14",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_blossom_v1.png",
+      "sha256": "8bc68a0adce10f8e44fa3ff09d60f3630b0c57ba4b14bbf6fcd4c9257cafc239",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_chef_v1.png",
+      "sha256": "d0a458cf873fb432248839fb30e82e1655a6fd7909eae95c4b6eef72fe0d4969",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_painter_v1.png",
+      "sha256": "f3849c15ff2ff7978cd2e6112ea82ad83037d344be6d9d1c36f513ce3b07b0da",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_star_v1.png",
+      "sha256": "fc5856af535f746bd27eee9e562374f6eabd3090bf2ac3c6ebe3d6cde74ca84d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_strawberry_v1.png",
+      "sha256": "1f16c2829698e94ecf238dda1094e6c8434b5c40a6733230adc7ca2991a3f3e7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_body_winter_v1.png",
+      "sha256": "d58d8a7e4900ea31905f1714522627a01eccd501bc29589d8895a79a5e472183",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_blossom_v1.png",
+      "sha256": "3aa956ac96580d1dab73cb60fdbf99103fd33083cda57792a116a8035ee923fc",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_chef_v1.png",
+      "sha256": "5808d48fb8056d244cde219076f91482527f0663125bb461cbc0c546be188ec6",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_painter_v1.png",
+      "sha256": "ebe9295cf652638c5c44fa5d6d7563101f382d38b444bd3b08e14434bbc34c2d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_pearl_v1.png",
+      "sha256": "385e456218f195dd15e8138ea0240c0b5c4e0bb8584ee65ed8245a1719611b81",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_royal_v1.png",
+      "sha256": "0ef535001781b649aa9d4d1848277c7ca4aaa0cd4c021287aede88fb44802e37",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_star_v1.png",
+      "sha256": "861e05c021a1bed414a7c058fe85aca48d01594f989eda37eb313ce8006e6700",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_strawberry_v1.png",
+      "sha256": "0f45d735bb042ff953e9fbc30d0e496d5c695fa0eb1bb6cbb031ad11a36b5d69",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_head_winter_v1.png",
+      "sha256": "30f262d265060abb960a76a5a6f58c8de0ccfbbf2ee9f231046a01ed59a32ffd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_blossom_v1.png",
+      "sha256": "063c44f0a9f67ef4fd9306f8daf8490ab4bed2f009882cb5d3f70fbaa962bc37",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_chef_v1.png",
+      "sha256": "a9b6cd01e4622211f831f8e3bfe3ce72b15bc51958c04570070df8279f8bf044",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_painter_v1.png",
+      "sha256": "e152674209dcaf939f73f35baacef70d8d9b247f92c94a94d420a2792ff29320",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_star_v1.png",
+      "sha256": "0f0c9d259e7f96e23668dcb28653e6c7e3a27c9b9a6cd8d7a6bf2151740c2fa8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_strawberry_v1.png",
+      "sha256": "a2223a5d73a3bfc2e66a879f37d121feb0c2d297043c56bada7cdc6b639f5081",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_back_tail_winter_v1.png",
+      "sha256": "30f23794d9238602a083052d6a7a42f2171f6bc0fe5bfc9fcb8c9d3b4f05adc0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_blossom_v1.png",
+      "sha256": "7e5edad903b6ec9cc7542d412b83c0eb3c2e9afecf89f3d974b80e2383bdc3f4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_chef_v1.png",
+      "sha256": "cbf1b496d395635eac24931841e2fde67d5dfd72845b53a3a3a3c3380876902e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_painter_v1.png",
+      "sha256": "3a23bef1bcf38b1953d29ffdd287b6a2a698184faeee6d2a12f2d527eb6da365",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_star_v1.png",
+      "sha256": "00bc7925ac7a964ef91682db7626e067ad76f4f3a705979bd367a71aeb67e15e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_strawberry_v1.png",
+      "sha256": "596bce4dcc8bd9e9ed135ee317430b1b65d4a42bc5c8c03825a772d1309ec29b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_body_winter_v1.png",
+      "sha256": "ca8008f61a959d35845008dfa72348dc852042fadaa82e6cb13da50bb5353fbc",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_blossom_v1.png",
+      "sha256": "bcfff219db2bc3107ebabf0d4f6bf5450454a13287c6ee5432d0430b09510016",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_chef_v1.png",
+      "sha256": "b5f7c389a17321826eb4f568e76a7bc8840d255c2969efd82c94d995ce2ffd14",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_painter_v1.png",
+      "sha256": "11ddd1d04389aaece79309e7b93493f36227d23f5e1d5cd3f1d8d9a3f381b78a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_pearl_v1.png",
+      "sha256": "e5822289d8192632d5f33b6fb7fc24d553a29338d679c13842c8790cea035264",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_royal_v1.png",
+      "sha256": "2b641fb05578f4ba94dac5adb9e35fdc8a39b927571942adeec1f079dfcc03ce",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_star_v1.png",
+      "sha256": "7cbadaf6539dfbd701e004fb9fe93590d4176295fed0c0ef705e50325a3b0945",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_strawberry_v1.png",
+      "sha256": "b31ade87b0b84522881edcaf12ed55f37f64bcbaec37f4bbf8804c9a20e9738d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_head_winter_v1.png",
+      "sha256": "969059cab827c574ac9295e179a754b08a0e75fe4695dc963141d012a00466b9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_blossom_v1.png",
+      "sha256": "f5b59effd10ed358092320c28f291d9b170102c7d9e9d26a75822c9544f32420",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_chef_v1.png",
+      "sha256": "ad34087d55da8495f047a628afd914ffe979d9041899653cf3086d6896e97494",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_painter_v1.png",
+      "sha256": "860ab083926f45966a08a0641dfadcbbeb4fdf085c5084420b04b86ce7d86558",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_star_v1.png",
+      "sha256": "e4435d04cca18357fdcc93ad0222f8d173d0772f0b66724316707133a184d8eb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_strawberry_v1.png",
+      "sha256": "1767990c3722153b00b8fceee1dbb2455642b9ba33eeaacea3d262db31b2b3ad",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/roshan_swim_front_tail_winter_v1.png",
+      "sha256": "f4d73895239c96fedfc1a2197c359551faee33f32c7b81e2232e227e1bcb73bd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_blossom_v1.png",
+      "sha256": "d989ef6467ea843cc14c6d54e4d57ce39abbe7c1a45c112c917332ba0f751d4d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_chef_v1.png",
+      "sha256": "d681429e487b38f2b54d67ffb781afbacb4e319976df9d434de94cf2df9781c8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_painter_v1.png",
+      "sha256": "9e5419391d72a332cbe54b2592c97a07dd0a66daa545986ecab3213529e8157c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_star_v1.png",
+      "sha256": "261f8b0ff1de2662d90c15f8c5641249abe4dec2403ccf0a68b2551e1249ce41",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_strawberry_v1.png",
+      "sha256": "999d2f43d7250c58a47cd64dc3b6b7f84e3aa52ed0237625f655b7057dab2904",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_body_winter_v1.png",
+      "sha256": "18a69eca5d384d0bf5f95d3067a46b073b03b37ff06c27b9af72f17a4067bb9a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_blossom_v1.png",
+      "sha256": "d3b380fe4f0c13b847d7f25a915c5339b251d57b693f43e1f11e476b1720ad93",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_chef_v1.png",
+      "sha256": "0570212f49a6d3d7e54e9aaee12e76fedfbcdbc4c54d71185ab1feaf5fa290bc",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_painter_v1.png",
+      "sha256": "d575ecbdb4031d40cebdcd89d12269df4d0b1fdee206471d08b2592304168eb4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_pearl_v1.png",
+      "sha256": "f8c0b9ff0b5a96022844b7d7365d50ba3fba70df9068af6b02892d153fbb5847",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_royal_v1.png",
+      "sha256": "19d2be34089472d7bc6591cbfeed2c495fb6d22c5e78de16f867f32659ba8e24",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_star_v1.png",
+      "sha256": "d0baa344c94be585c8c7c856f937fc272cb8f26924612af57dc176cb5a416d37",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_strawberry_v1.png",
+      "sha256": "e18c00a3a05b42e89b4b836ad17dda1191cca3d2939913a97030c3a04d262b9c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_head_winter_v1.png",
+      "sha256": "cd9f754650beb8569e05e941bc1f553d7f7fa6a9ca23a5ea1bf7fd28d3677694",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_blossom_v1.png",
+      "sha256": "97c4975d531611b76de2bc5d04c687c2f58baf88625988529383c69b72b4afdd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_chef_v1.png",
+      "sha256": "ff7734793a2df0c6f96f20e20c51815f1ae742448a463141021c24af8a5d74e9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_painter_v1.png",
+      "sha256": "ed24930feac0f1f56c074fdf3e5e0c1e8df5a436d79cd7786cd13a341ff13da6",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_star_v1.png",
+      "sha256": "4ea4df11a45ec59c1c0b38fe14c46802129f902638d168f7ae4f76bb05748392",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_strawberry_v1.png",
+      "sha256": "a8bce0dae5e35a3aabd676c86424e67b9b2a16b7c156a4354752dce51cd9b758",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_eight_pose_runtime_tail_winter_v1.png",
+      "sha256": "ad9440a1f4888224c94f78ca0e9eb5810e12a07d76d955fb559da88d328e8e08",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_blossom_v1.png",
+      "sha256": "d184b697e2162c09e4ed00ee5e0975c6dcec346066689bd1636c82e5edf0604d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_chef_v1.png",
+      "sha256": "bd6e35d0777fbd05d362796b14e2d8b3bca10728d03559e754d05ca194a07358",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_painter_v1.png",
+      "sha256": "a349969822409ef51a78f7c183514d326bfe5416dbd051b72693ffcbc4ea5325",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_star_v1.png",
+      "sha256": "f7b65826b44186becff4a3b46fe2505cba140887949acf464e906de3c5eb2073",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_strawberry_v1.png",
+      "sha256": "8218293877f1b7e413ad8ff67d6c3d7b82df3664d95b400a75fd64591acde3a9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_body_winter_v1.png",
+      "sha256": "8245d496cb98c36fb01bc14b73b85b2390a22861260cf5d329013c4f40ae186e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_blossom_v1.png",
+      "sha256": "b1d0edd105ae8e031bc5f94bd7b41cb8530aa4e588f98f800d32bc410337cb2b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_chef_v1.png",
+      "sha256": "1a41004c497a9a2eb371c06ef848831ab3a1bc14df8a18007ab6a2dc1bc5cf7d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_painter_v1.png",
+      "sha256": "22534d51fb69bcab4ed7c10fe071a62ae0a591e66fea98fcbbd9816cc7211773",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_pearl_v1.png",
+      "sha256": "e1cbfa9d7e5ca7d869bc4259df599e82887eb4683be826beabdcc59b30be9d13",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_royal_v1.png",
+      "sha256": "266754dcdd19d6c4b84a79d43a60219f0a3c920087fc277469b5daea1140ed4c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_star_v1.png",
+      "sha256": "e09c9d7df9440fb669e585ca1db9d0adad61b639b3c85d1adb246afea29dea80",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_strawberry_v1.png",
+      "sha256": "d5f6553a467f3f53985b3606f5331affbba2271df557f5932cd8cbc9325cdfd9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_head_winter_v1.png",
+      "sha256": "1b4bf7801044852f2658e14e3885f18641798e5f2116c5ed34f72ea762c7c9c5",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_blossom_v1.png",
+      "sha256": "c32280d3ccad2f6a518f67e522968dc9cb13acf759d66be2165a58f96721fb9b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_chef_v1.png",
+      "sha256": "49b142937979cae8dae7fd71bc2158ca425a9bfe1a9e96c98a63fe1d38cea87c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_painter_v1.png",
+      "sha256": "bccb171b82a5216438d9a8cdac46cd2957fba3f4bbc301b10bd586255e0d1879",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_star_v1.png",
+      "sha256": "0a005d4ae44d008431bc10c7ff7965a201a06334b41413628879115c42e067ee",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_strawberry_v1.png",
+      "sha256": "ac7483ed97fa4c79d596658cabc6870b9959c8f6581851e33c899c01b7dfa45b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "assets/fashion/slots_v1/layers/rumi_pool_idle_swim_atlas_tail_winter_v1.png",
+      "sha256": "5b0217f685f6578d47dddef51de4029d26ee40075fb80154c6efc5036fe9021d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "ef6e56681ebd8b9c9abfc7654be1a2bcf90d55e1d697522eb3871b0e6750d207",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scenes/arborist_tree_book_test.tscn",
+      "sha256": "42e3654eb4d95a464dfb93eb0c72b2240529e366bb9cf58f5e75640b58cf92fc",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scenes/fairy_restoration_prototype.tscn",
+      "sha256": "8daee0e0a0bc6e78eb4d74d65ada04e732de21259cf6610c0009e830276057ff",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "sha256": "1de477913ac3db6efe5d66d04967279dc9b66217bea01afeeddb4d98ef692f21",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scenes/painter_prototype.tscn",
+      "sha256": "810599851777d0a69535e9734189c5859a90b13dc63a9086fdc7053427ddaa61",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "sha256": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "sha256": "5bf165f546860121beb6c19369dce9833d8b665274e0edff75bc2d00b7ccbd34",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/arena/northern_kingdom.gd",
+      "sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "sha256": "c3b81b4d6b2cb500c8d4e1f6ff2e4064a8b9c7ca4c8b0010c20236ccbb2e0395",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "sha256": "a6c72599809ddace2e94e02ba10db518483008ace62655e9059a76d3eacd2dfa",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "sha256": "b47bbfc164cc8508354bece86096245a2152fe627f5dbfed8440ec54db5198e0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "sha256": "982ae2bcbeabdb7a76c1c193aa391319bf255a3cd046108f6361dacc655eb666",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/boot_splash_overlay.gd",
+      "sha256": "d90b8692f1632eedcd957a6ca46539aa3ad85b87d3abe93c20cd9cfc0dc64b0d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/boss_encounter_2d.gd",
+      "sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/camera_kit.gd",
+      "sha256": "ec980456ed35789e273ea7b28964e63959277ecc61eb8438251bfe012bb0927b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "sha256": "d2e9f24b10bf6b25bc7fd71c76630a6e88b8d8f3134db9b01139203fba925bb5",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "sha256": "0932feb34209b3dbd3e2738b32a7dddf0ee99ab607251356bb4fbac9cc7f895d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "sha256": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "sha256": "b87490ac66083cee44ba3f469c9c8cbfa158930167614169e0f63759f8b3f70b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "sha256": "e4c07fb5e9404dd247d3aa10186b69f3df9f8f0fc5cd5679b8bf2f625f400797",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/chapter_two_voice_catalog.gd",
+      "sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/ci.sh",
+      "sha256": "f6c0b7cf8e4e549c8c3cb34ec0cf69e115be92df2c34b39e5678ca15411e2859",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "sha256": "fa2b2f537ee83689b414b64d95ba19e18663f7dbfa10a88301932013c20f5de8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "sha256": "2f1dc422c6bd9ee9e4d4cfc08d9863146d8a04afb60a943f8116cf6dc9861327",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "sha256": "0baeb7256a209b5266ebdf48cdccb7af6497b30fd0666021c597eced6e04d269",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/day_one_contextual_voice_catalog.gd",
+      "sha256": "c14e8403fb36e82b2a3c6eb20eb0d5839424707046c64c3ded52893918ada75b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "sha256": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "sha256": "913cfc362e1a2a9cc3a73ed0e1d3e491b73731d335c51af3f2f3753bb98a10e1",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/day_one_story_clips.gd",
+      "sha256": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/day_two_transition_2d.gd",
+      "sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/debug_export_stage_pathfinding.gd",
+      "sha256": "771e7d06e7b7ed206bb8ae23d056f55dfbabe39aff28246ad260d716a8203736",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/dev_mode.gd",
+      "sha256": "ff65b0693736fad7123a0ee54c48b4ca2e9c96a7c83c157c7da88ae29e016a5c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "sha256": "d29527c4a8e23f4aaab430fe67d2b3cf6e54d7a99126f3fc23606cf7e77e3e33",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/dust_bunny_ai.gd",
+      "sha256": "129f1fb65b4854b6fbd481932883a5240c9dc289aa985cb2ba258d3e3025c55b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/dust_bunny_sprite.gd",
+      "sha256": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "sha256": "dbaec3f196f1b2bd3bab68db44555ea75c35cd756b21fd26e0897fb92f41a2a9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/encounter_attack_2d.gd",
+      "sha256": "f427ccd622a7bde0308998976bba7141a7b6b8bdc21e4fa562537af014617bed",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/encounter_contract_checks.gd",
+      "sha256": "910c876867420ddf2b1e9249512910c0838894285e3d07af755ce82195aae639",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "sha256": "5a0481f8edda1874ccf7fb3bc95aa669e1aa0ce30e1b9b8ed9304901b2c2508f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/encounter_navigation_2d.gd",
+      "sha256": "e8d0fc1913b781fe0494a11dc2e642b7088c27d3f12077e81c950171e0819e71",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/encounter_patterns_2d.gd",
+      "sha256": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/encounter_phase_2d.gd",
+      "sha256": "b78240e2844a33dc55d021286ef612b344ee8022701de7324f0732d53c36ddda",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/encounter_profile_2d.gd",
+      "sha256": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/encounter_warning_cue_2d.gd",
+      "sha256": "750a09cad16bd8517551aab6b091d37f2d76bcb0b517b4d51ce0c553e2b2fb59",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fashion_designer.gd",
+      "sha256": "f3c6165baa08f6e99f21d4d02782d1b1f1658ad348aae0e79a4f79740442165d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fashion_designer_test_case.gd",
+      "sha256": "9dcbba0a3ffd837db69b702e03a0262987c1b6abb7447e76cbc302dceb777d22",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fashion_dressing_input.gd",
+      "sha256": "45d02a87cf842a5deb427f15269f776cb4c430b0272ceea7add8d037df7ceadf",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "sha256": "cb37b3ed5df0ccba26b54f146021ddcad1f9f6693fb32b48b9bbda6a3ca96b93",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "sha256": "d5b440608b63510446196233ef5fb559c006b0a90c5dcee74516e84dba5e1cfc",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fashion_parts_test_case.gd",
+      "sha256": "27399d2be439afe62e653b9d484cb36a28828412e1cd50a950af5a7d8b750351",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fashion_skin_catalog.gd",
+      "sha256": "c71d558cff766d25cd7835657f7e0e10ebe268d8e74a7b4c2e083b8b28adf548",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "sha256": "e94b42966c75092835dc134b0dc4b1eb59f432655b266a0dc1aa82580d9f95ad",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fashion_skin_engine_test_case.gd",
+      "sha256": "dc77bc632c87a4587f24fcd317d3e185f833fa1e822f049a558eed69c90648ed",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "sha256": "fbdedcca120066389563d5b678da30de83012737b1a14958cbe0306118c0cd59",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/fx_water.gd",
+      "sha256": "e33ff31788951f89715cc926cbbfc9a05bb8e6324b76c9e0137ce2b658f5d4c0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "sha256": "54278a504f031e001e1e2eb2f13082040da6b6967f02522f5f73cc46ed664f59",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/brawl.gd",
+      "sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "sha256": "a3cf7ffd6f6a7bcf1072fa1a753e465f742190f46d9809830589a2242c77c7e0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/fairy.gd",
+      "sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/fetch.gd",
+      "sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/octagon_stage.gd",
+      "sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/seek.gd",
+      "sha256": "d559447c82c29a33ddb319ef191cf9542d55304f62cae649e39cb2f9d9079741",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/slide_race.gd",
+      "sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/games/treasure.gd",
+      "sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/hit_engine.gd",
+      "sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/imp_ai.gd",
+      "sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/interaction_affordance.gd",
+      "sha256": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/interaction_director.gd",
+      "sha256": "22d206cc7e278b9e46557f20d358e0fd80b3dec26fae61bf6d2f51aedd86c5ab",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "sha256": "d39288491fd4e37024905faa11c66eee0e3a98d7de1cb340ca703c8a907ff2eb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/juice.gd",
+      "sha256": "a356054344800d52edddb531108cd50f6d941582ea44d123b8397d5663de0fb4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "sha256": "621bf52117af06641285b25a046fe0462c581889fcb53b899c0fb101be88f2bf",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/landmark_art.gd",
+      "sha256": "01e8e9bb7332ab76decfa093a98ed6b1940e8d9b424221fd8b27a9591ea300e0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/light_rig.gd",
+      "sha256": "09e97441be4aa77a390e813298d1848a5d5f5c291d2efbcbf706cf10e3611551",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/living_world.gd",
+      "sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "sha256": "2db85ea403333cd6b71fca87195b927a44b282d0233d79051b8bf0314f53ae2e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "b6e905824a4b60461181deda525c816fc790613479e9321d12ae7f71df666a33",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "sha256": "585959372cbe4bf2e98d0830097b3b98c9519b52645516857a61ce22b489d36d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/mic_input.gd",
+      "sha256": "02d0af4179486e1a1b43d197917b1eb015caa7ca355cdea9783b281c22810532",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "sha256": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "sha256": "7a8db71dfd827efabeee50a348d7849ea646d2693c2ec2b6930c80938d2517b0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "2195e137800fd840e4a813a83e6ac9b393a9e7851fd80ca84ca51fb964232702",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_competition.gd",
+      "sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "sha256": "713a43c5e2245f5dd4496a1a1909a5ba7c3bbd6961ebe4a8dd3db34e89b57222",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "sha256": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "sha256": "cdb1c43991cd3a63cddb2a063be105435a343e469f84e4b49da93c10c45f1243",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_imp_clips.gd",
+      "sha256": "e061de84be9831d4e9662c11d3440461078c505b4b1484d499fdf1fa37df0797",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "sha256": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "sha256": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "sha256": "dd353ac7377557900f15d3b98a317f8ad5da33a5f6d4d0b4635f8b50740ecad4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "sha256": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "sha256": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/painter/painter_document.gd",
+      "sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/painter/painter_guided_probe.gd",
+      "sha256": "356738628280b63dcb6885726538f85033267386f123bb1c7f0672188e3bb5a0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/painter/painter_probe.gd",
+      "sha256": "288ce1900225597006e16c2ddc23ddf8990df131ad9d5b5b4162daea5f8aee9c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/painter/painter_studio.gd",
+      "sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/painter/painter_template.gd",
+      "sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/painter/vendor/painter_flood_fill.gd",
+      "sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/partner_assist.gd",
+      "sha256": "b2450228b9f22d2c6d652b43c6dc577dad8863293a9b2270a4a8d9da76a9dbad",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "sha256": "2afc6103f8a750c437c1aa23c94419191a0b303cdec54aabd9345b560a5646b0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/physics.gd",
+      "sha256": "39a8a3ecf72e79ff797d2f6eb067ad3d186626a282d044af6f8ce64a57a78cce",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/player.gd",
+      "sha256": "91ae8a4e9dccc090c7e1ce86bbec387ff8c761951e794e9d93b3c753be7c49b8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe.gd",
+      "sha256": "ea448c210f0f9bd5e72192c98678129037c27c3da6340f130046f9c0c4d3eedb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_alpha_milestone_save.gd",
+      "sha256": "a489a5b8221e2c658183ae745ef803c0622889f6791c16c69e190c6f5382ff27",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_anim_lab.gd",
+      "sha256": "d3f4c44ba6ea48d8be715566f5c19cf9397fb304fce7891aaa96d7e88dc9cfde",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_aq_ref.gd",
+      "sha256": "96eb39b2ac7347c045f6c950c8c0dc3e058af9594284e5480156c0905f3b35bd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_aquatic2.gd",
+      "sha256": "ec5c083cb87192192d34bef61909446f4e2507371fd171fb27761144b816fd1d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "sha256": "bed079ec48075b154715101d6bd61ac700590c32d43c8cb5265476ee9370258c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_art_manifest.gd",
+      "sha256": "0e12eb251a3ad47bb0d6e67885c32b08995f36effbd1c37c6826b83ef6fa7324",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_audio.gd",
+      "sha256": "14360c356e8f1b3034fed30bd4cb7cde35adc4754ebfee83c882843a39e2ae78",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "sha256": "79ef070b36b4188c2995a9dab0e0df99efd7469937267b4ac49cd58e2bd0d4cb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_basement.gd",
+      "sha256": "93c9559622c211bc2b838343bc415978a78e904cbfe5e5608fd0152eaf1a9358",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_bathroom_integration.gd",
+      "sha256": "9ece4ba9b7c3ab0cea901cc8586e0bc9c492cf42acd24f6c5c4e5358bfaab2e2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_bathroom_props.gd",
+      "sha256": "e054e3e0dfecfac60092a0d53af9561aeddc25dc875769f6249273fc9b21e73f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_boot_display.gd",
+      "sha256": "6789deb6af82abfe5c5007610c7da5f60a56ddd62edbb602c938decac1096130",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_camera.gd",
+      "sha256": "6ed68fd06bbd30e0823dfceada40eaa260e1a93e96dc62c673db98e3daabb424",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_castle_cam.gd",
+      "sha256": "5f20a771fe3c628af84ce1647bc52d70df55fa551a745bf6895139fbbe2ba5e5",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_castle_canvas2d.gd",
+      "sha256": "a62ceb2931cb0cf1ff015f9144b99f9a9a41ee5d684f3498059b5b647a8242d7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_castle_door_language.gd",
+      "sha256": "c1c7e269e3511b674389848944d17b363b9c4561716662521cf748be23f7318e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_castle_mobile_capture.gd",
+      "sha256": "6ef116981f77ac4546045d7d354554a48356bd2a1e2e19639838eb6163609126",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_castle_pearl_art.gd",
+      "sha256": "718266c7d3073b88f864b2d3c391afbef9eb2096b80a1e59d459b9b73719386f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_castle_pool_life_2d.gd",
+      "sha256": "e3a6118904c327625625f86f948014133ed9cb8a3686a818424d5bd80f232708",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_castle_shots.gd",
+      "sha256": "5d8cfc789564a5a2bfec70e1121d632e159eaaf44d59033fe7b17f55f285999e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_castle_shots_2d.gd",
+      "sha256": "7f2c3a74daad7d28577298caccc2ca98861c8674a576c4dfe0f76d5c2b25d03b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "sha256": "ef57883e5bd895bbce85b22785c1d296317a060a20a35d70da3580625b53748c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_chapter2_farmer_resume.gd",
+      "sha256": "906fbc9c29a8a463159ca2eb2e34cf4ce2f9798ffee6fa4da778727a3d4259ff",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_chapter2_lawn.gd",
+      "sha256": "7e4c92d34c646c5fdd5ff560f4b2c0bf59def8b98763b7ccce7a61272a4f8b94",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_chuck.gd",
+      "sha256": "1ced289dca74a3f847ff8968d4925b53becf53a5e90d80a274c7b624138ce759",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_collection.gd",
+      "sha256": "c071175071874f16572bdb3cba940088415c830e4c77b38404b672643197956c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_combat.gd",
+      "sha256": "48c87ff11aa0749598067207371c06b7963bbf2e3fbde34eb0c1ebf1d3ba4793",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_combat_tutorial.gd",
+      "sha256": "9fd9b82f2accd761a22c77c69fbbb6aae99153665c1dd1f1729aada7751783e0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_creatures.gd",
+      "sha256": "1c8456acf2f44413c109ffc67714959e7d900c8fdaeaac3b4c461522d94af033",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_crown.gd",
+      "sha256": "2b1deb2cb1fa71fac67fa9b331408cb68bf4ed2a0a5ebaece439f538d5c47b24",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_dance.gd",
+      "sha256": "91d6ab9f51863709cb754569ddc1398da70513f5279b927e4d67d0bc77b2b29b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_art_attack_state.gd",
+      "sha256": "49361c6470bd8aa137af417e03aa14e9d0038ac907af05303ea3cf6dbe279ed3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_art_studio_shots.gd",
+      "sha256": "0a9dc0cd4d4b1502cc7ecf2d4ff819773a7a43bc05f330bd87fb367dd9b5873a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_bunny.gd",
+      "sha256": "11572f42eaefe255f8682b6960da694a56518c23b8937311548c24a959684895",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+      "sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_integration.gd",
+      "sha256": "e0ad83990468fb3506fe46319fae32894cec45f85c5f01bf736e2f60dc087cac",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_movie_handoff.gd",
+      "sha256": "a12cb8aff301348284b86faa6ef07064abdcfb6bebd7b1f5daaf383001cba305",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_shots.gd",
+      "sha256": "069bb0daf6dcaa274c95f4a81cad4c4fc678cc2e53cec9b6d746a4b24f931a16",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_castle_dressing.gd",
+      "sha256": "cbdfbe8cca0c92c78dd5562e66f73cf07e2e2091db877b2016f3411119143c82",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_contextual_voice.gd",
+      "sha256": "9167f0095236e9966fc53d9ebdab5949d44082e91e6a03c46dd57e770cef1b18",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_d8_revisits.gd",
+      "sha256": "aee7b1ad437ded36aaf1c7c517e6e2fbe1151b329e4af1e1f0dbe1222796ae3f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_director.gd",
+      "sha256": "3385a3a3c38c075126075d290c8def3a65118b2859670b183fa6416a764586e0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_handoffs.gd",
+      "sha256": "f19c9e76056c61cf8136a26e1027f4b907d6377f433ca7aa02ab06260718ae71",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_integration.gd",
+      "sha256": "a5b158a699b7a32f5cf5bb035620f236114140643a30a7dba8fe5637e123a0ae",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_cleanup.gd",
+      "sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_shots.gd",
+      "sha256": "b5d36a535a72975d7c2c2000fba5e94facde3f949ea92dbf18d85de9f9f5dafd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_story_clips.gd",
+      "sha256": "210e1637b7d14fcd942a2480814d0726c8a3008e5c19770dec127b042b4ba2e1",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_day_one_voice.gd",
+      "sha256": "056e9c9158654bb462410d0a0a299dcdb19cc03532d11201142b72d2bbd334bb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "sha256": "536e12af775c2c4ee320c024622bab54db6596bfaefa089c18d081d34da2cf08",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_dungeon.gd",
+      "sha256": "081d763e8836d8767aa647c80df26402ab67c273ac776202e7c7a89b98157bef",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "sha256": "1a8640957f477ac4756e08b5fdfc37a1ef70608124c43229a2896e968461fee3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_dust_boss_balance.gd",
+      "sha256": "f4940fb4b5d6398e5d1fab94fdf92f4666c2302ff6c36f533312c6f3956be235",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_dust_boss_shots.gd",
+      "sha256": "b3345765e089d6d56595e905f16746cff09a3f4c01bfea096b0dd9e3406b3794",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_dust_bunny.gd",
+      "sha256": "103bd3ff509df3d5a612faa4fd00ce66b3f85885a8c51e622496ec5211d36735",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_dust_bunny_boss.gd",
+      "sha256": "348413471e2d2ae7adf4b7a9554f2180cb26e948897996f8e032b9f27a8a3d6d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_ember.gd",
+      "sha256": "7242fedd587854ec1de6b6f9913b5c71f7322b469727622403d07535d8964673",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_ember_art.gd",
+      "sha256": "61f7722b735e18cbe771864fbc9e298fdd36788ed98365d4d10dcc1d05c10e3a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_fable_audit.gd",
+      "sha256": "3ef6191d3c25933d2a72eb07d26b9e41953a1cddb0a467f2eafc08ae5189af51",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_fable_kit.gd",
+      "sha256": "e431067b4f080a62f68c658033a2ec592d96b3fdedc419ad47ae0d7089e2d404",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_fairy_art.gd",
+      "sha256": "b6043069021eb19bb8a94a1d5a98a1109f29f93b8ae2d277bbe970ca25b5e26e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_fairy_conservatory_handoff.gd",
+      "sha256": "3d57dea550657ff8903937dede613bec619919a0bbd3331f99d461cadb17c7ce",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_fairy_conservatory_route.gd",
+      "sha256": "acd22101ed22eeace09014bffd0ad071a83a2f9587831951775716f2eb2db83a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_fairy_restoration.gd",
+      "sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_fetch.gd",
+      "sha256": "394df697279ae83894967ca44e5724d61da98dc3e473337fcdeb2eefba5e4b59",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_galaxy_peek.gd",
+      "sha256": "a6e33fc764ff9d5f55080b4f8e7986e74ad5768255010dda56c12dff9c7a11c9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_galaxy_state.gd",
+      "sha256": "37b564bcf73b37a4c38f08213af58a47ebb0c4554d8d539b445f24987afa38ad",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_garden_shots.gd",
+      "sha256": "17894d0dd1070508108956bed19d9ad056f9089a2bf855dae45f4dafecfd0dec",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_heading.gd",
+      "sha256": "96e370796521188ddc7f5d22c69398a7412b7f41ef372deea8150bbe50a0ec13",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_hit.gd",
+      "sha256": "a472adaf30aae6d20e07835f73b2a8a74a0cf41eb50ca0dc32db746d0b0df226",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "sha256": "810a4cab317b459f8e280a5c959de2ee9b8c46a378b2dc79ab21010ac70cd214",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_imp_ai.gd",
+      "sha256": "69c38ecdd142fdedacb68c7995ec41338e84333aeeb09d7359d648610b4a260d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_imp_animation_art.gd",
+      "sha256": "3e0a7a8db8fa72df607799a3a8cd5f5e3d70d59f16e66743eac59b15ce0f850a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_interaction.gd",
+      "sha256": "46c39f611758851372e904bf67200808ac884e42e8de205c588466f38151fb3f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "sha256": "d3e0ef31b9e092d1cb898f28099866685bfe21f0f6257d96537f57b51f33d0ed",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_kitchen_props.gd",
+      "sha256": "5b0b5f839439540331160bfc1dde572b20d93d577ee3aad4601423550768cde3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_l2.gd",
+      "sha256": "4f6350c9eada515f8671be18d3a897ade7974da0aab5725107cfffa92d2434c2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_l2_living_cards.gd",
+      "sha256": "a05d3bb578c16339e2154dcccb5fcbe3976c286a67e0ed531388e21372c9cab4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_l2_reenter.gd",
+      "sha256": "4a753fbfe0c51a93630f610f2da089e0381c8b1a980750df6476bcb7611a93cd",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_living_world.gd",
+      "sha256": "034d914bfb39042b9e264d873ffc95c64bb1423e22df4c134be19958f392be41",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_load.gd",
+      "sha256": "698a51a2f3f6dbb72e1c7070baa04af21dd255756ab88919bd15dab03efe1bb2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "sha256": "2a3be501e7999c6c62533b539d33c26d5bd246838670a9bd695694d885eddb0d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_mg2d.gd",
+      "sha256": "f37008aa1844e82b761921c914df83756c87ed3508c53d555ce95842e139555b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_mic.gd",
+      "sha256": "00ede493070f7ab68d35da9f5297244772aa00095196b76d3ee1b06bd7882b19",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_mouselook.gd",
+      "sha256": "e21289452def93c1cbd88ab3df48a04e043cbcd61a0c8d0df36a9111ec9fa49f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_northern.gd",
+      "sha256": "5ded882b3ffebd1e9611ff43d1d069680543ffe7aec958094c11b402c1e4801d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_northern_art_audit.gd",
+      "sha256": "940fbd7bbae151b325c36fe2c86b5e143a48a3cb66a6d816d4933c3c4cc28992",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_ocean_kingdoms.gd",
+      "sha256": "abc55cfb52424e44970f905b2b298537c6b0f43dafe750ef879e2dd967e3a3b0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "sha256": "7ae3134a6197f8dfe0ac3a415c67ed02bcf5a8f9dfe02c96c5880bff5033d1c0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera_2d_balance.gd",
+      "sha256": "bafc7d595550580552369de1f5728651ccb8af2478ffe01127775dea719b95c3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera_art.gd",
+      "sha256": "77ca60f8c50fb60836f5f6445ccd52ebb03445fdc9d948fa2c21002dd05947e0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera_balance.gd",
+      "sha256": "c0351582019b13a7b7d8d51e6d5ac1e8d09f1f11b7fe6e5e7da2826a5f5113ba",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera_detective.gd",
+      "sha256": "4ea70a97288fd0c0feba2fe4d7382d9319a3345538010916c99a3ed54304f7ea",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera_diegetic_paths.gd",
+      "sha256": "6f7c6a451e9669885e514c18b107013b4bd11e4afa503b3dd1587785fe2aa81e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "33c4835b8bc039bda37fd851a773e16aace450939f5a6526f75e251d4cbcb458",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera_mastery.gd",
+      "sha256": "7d7a38da9517de21c3f4b5b74c5857410b04fab51dcb4f3449c84c6d94152782",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera_nursery.gd",
+      "sha256": "b79612ce95275915902fe7d7a334e4b2d45ce866be977be6b46f6551356bd7f9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera_performance.gd",
+      "sha256": "ab9af4d9e5b90d4e3224de5145412ae7bfd4e8c763285b31938205dee1656152",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_opera_pipe.gd",
+      "sha256": "5ad9f1953ecc666d9b9e21a1d250294a37e9d0159c515fdf250b7dbd6eaae9c2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_overdraw.gd",
+      "sha256": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_painter.gd",
+      "sha256": "8084b3475c1ab3ff668be78216471e129718aacfc2d90ae5437f0218e332cd88",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_partner.gd",
+      "sha256": "1309875b832c3f80b5945515148d562145838913bc65d3f54851af6a40cf47a3",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "sha256": "e266e523af5c629f98ca8b52acfd931de7659b455a58634ccde6a917f3b50e97",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_peng_pal.gd",
+      "sha256": "0084bb4d8ac1f4b97869457554a51708fe2b2ed2e091a4d85fc2377503a61afa",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_penguin_beak.gd",
+      "sha256": "69f32b2482e621501380aa953d52bb0ae230105b78a9f2cb25dd4a8486708286",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_penguin_face.gd",
+      "sha256": "2a038330d9bb60d0382a62a6b4ccb2524827c476416ddf8a6f98f9fb4c63ce9d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_pg_water.gd",
+      "sha256": "dbc065c22259e16fdebc8feee124620cd74a66f6132d77dec6ee426ab277c610",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_pg_wide.gd",
+      "sha256": "14f277647806d166f77740625053f38f2df1970914df64c51c1f237cb01794c4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_playground_shots.gd",
+      "sha256": "4bb1f21d49a526a02e8c29d8e0d44a8d6ff9b5ad7b86d885ecacdcfdd385c988",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_props.gd",
+      "sha256": "7175e1342e2f54e609ca801c131601305239e6f84499294c2f6c4647937f1240",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_race_feel.gd",
+      "sha256": "5eb883cdca4a6221fd0ccd07d86cf7670c6a95aa9bbdc22ef77066390ab7c372",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_rank.gd",
+      "sha256": "51a50bd847052b0f578b478929d98ab4f3bae27cef0e0c0b65ef76dbfda6d0c2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_reef_districts.gd",
+      "sha256": "17ae88e94945694fe4547216d0fe0262d3be38c987cfa10c946feedeb2eb2f54",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_reef_shots.gd",
+      "sha256": "8ec9908b5ca952e1c9080c1cac075fd541c1abec5cae0f61f0aa6c55eba49b5f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_river_profile.gd",
+      "sha256": "fd0a40360f704fd537b2abd44ce61668e095a2970fa82259d9f48733dac7b939",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_save_recovery.gd",
+      "sha256": "5210bdca9be34fb530411460073fc06281f7df48754219cfaae20ad306d5f135",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "sha256": "7cf244cb1ab89e745d564ba9b8da9cfd4a448bb766ce00f57134f5e77bba8601",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_skins.gd",
+      "sha256": "c25092a82d2722579ff1d1d41eddb51fb499438a2c1ff959b5fbfc584b6f0763",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_animals.gd",
+      "sha256": "fcde9f8ec2a518776a94ca2d116dbf12f00ef02f6d7a7be1f32de27495c5966a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_art.gd",
+      "sha256": "ab91b10e1abe0ced1b0288e568d73b6987d35a084c52ff4a612935ca5c215151",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_stage_navigation_2d.gd",
+      "sha256": "4532005e0033392a3f2ee37d7ff3f20ee46083e4230e2a515db1a2467958cbaf",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_start_menu_new_game.gd",
+      "sha256": "01fadd2ec67be31e93626f0eba4fd41983c8137cc760acac46aedd901c340e2d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_start_menu_routing.gd",
+      "sha256": "cb78dc83a64764bbff81aec0835f8354fbb20cc886cf9ca1e60f80792a4c19d8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_stuffie.gd",
+      "sha256": "6a70cad9c8b4a992061af670a4d75c7db1afab671a7a1f6b2ecea9d0ea899286",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_texture_seams.gd",
+      "sha256": "ffe196d19782bba373ff06f7764382b1164e9a3605a4bed176b4e0adbcad400a",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_throne.gd",
+      "sha256": "e1f37bcc4c328caa013d6d24ded2154ce47a5a5f884e5926a2508a1dc0c64a15",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_throne_shots.gd",
+      "sha256": "0917812438b062bee51adf567a8a8265161d263c722eee5d5309b72b82668e37",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_touch_adversary.gd",
+      "sha256": "5e9dc0fe8cb3b806f244eb7699ba46a5fdbb614ce945f7f178f15a065c056bdf",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_touch_look.gd",
+      "sha256": "bd29130a50f3936919534d4a183d7c91e38d9059457e86d5ef9ac93f71641adb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_touch_router.gd",
+      "sha256": "508a7b07ebc81c20504de626d4385544cc4440333785c85cec7e2c3916a6e334",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_touch_stress.gd",
+      "sha256": "8cb81fdbb115d46ca67c5263ce1905b3fcfdfd7d629480c27396c865391d5832",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_toy_anim.gd",
+      "sha256": "6f5d5a06d7841cb035513649cd734cafc8ec1aa09411e96615e949e6c635c5b0",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_train.gd",
+      "sha256": "07d450f692623e6ed8ff0fee27046b6e18c94c2cdc566df71bddef4696d3c8d2",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_tree_book_test.gd",
+      "sha256": "81bbb378b8b70ce2c12925602892614c94e215e18419973b87f1fdd0b916dfb6",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_ui.gd",
+      "sha256": "bb5403c37599646886809c92af9ae82dc4c0335d28b60409e9b5331f0c9165a1",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_ui_system.gd",
+      "sha256": "871337431bb6f9518cd5e40e4b8bd41688303d013872841e2f24ab9faa2a1e2f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_upstairs.gd",
+      "sha256": "a7b57f7f8d3602180721acdf5a7dd9af63b8c14f9e207783ac50c319a82ca3f9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_verbs.gd",
+      "sha256": "0b2f612e6d050f6a5fbc30292d739e0eb132cb9efb592a922af5aece558d63c4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_visual_audit.gd",
+      "sha256": "2422faa70bd47b947b51e96543d761364e0fea106c03b6145fe57498b5201a60",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "sha256": "0534d422920b0448f95ef6378883752215d4ddc48599ea752e374df2c2d48413",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/rainbow_friend_follower.gd",
+      "sha256": "745c323c562a51628c0d8b268e07dd640fe7d6b0e22aedd975bd4a7ccd1f72cb",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/roshan_sprite_anchors.gd",
+      "sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/roshan_sprite_frames.gd",
+      "sha256": "41860fcd11e0ee071cc1c7c8bacc8242160b209b73c3a5d4bc1d2eda4a908d81",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/roshan_sprite_loop.gd",
+      "sha256": "73663a09ec2bf6f3f87d37596a7bcd1818346d744492deb109cac4a31e65362e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "de380b088c8dcdd4623804d44a8fe35be5bfe7f8095cdcff1ca40c24e2c9c9b9",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "sha256": "b55765cfd7926b755563f9017891c955fc23ae5c050c3d7141b7b2f2b1cdbc08",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/sprite_transition_2d.gd",
+      "sha256": "0a5c87ff8c4eb812bc2b352382f069c82771f1f39860e9adece4b35a04bf4bd5",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "sha256": "2eb3a55dba1db6e223de967df6465e137d7bfcfa5309cd770a36ff7a3833f771",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/story_art.gd",
+      "sha256": "3ff0367f3be0801e4a40f233d42cf66baef8a952948b373c2a33ffab6f176f8b",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "sha256": "839e53d6893347808341523d4e4b58e3727cc4fd4cd698726c92d494edce0fa7",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/tap_move_director.gd",
+      "sha256": "dbe2d50e6b0dfb40b0f24f7cc9a73065c267209cd6a399e3fde601af4ce2a263",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/tree_book_test_checks.gd",
+      "sha256": "739daaaa3e501ec636999619c4ea5894b9e6551faaee53fbefc66e2f1931aed8",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "sha256": "0d7f4c5241f141ca4bbb9464f21aa5bd46545e1817b8b2638fea1caadf9f6573",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "tools/audit_fashion_skin_engine.py",
+      "sha256": "bc8e1be4d1bce573e7868129af7a5fd6543fd43217b05e91415368ce8b9b4a59",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "tools/audit_fashion_slots.py",
+      "sha256": "c27a688af6fc53c614afe34f6740ad7c4adfdfe357aabe01088846e39894a56f",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "tools/build_fashion_slots.gd",
+      "sha256": "ac519c4e2f0ca898b3533a38e5fc3acc35e2e38a9f03ab4a84a921ba0e85bf8e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    },
+    {
+      "path": "tools/capture_fashion_slots_review.gd",
+      "sha256": "1bd30a47b1efa8af9193565d156ffca95d61966afe47c7b4ec5d484ba58db30e",
+      "byte_basis": "UTF-8 LF for text; literal bytes for images"
+    }
+  ]
+}

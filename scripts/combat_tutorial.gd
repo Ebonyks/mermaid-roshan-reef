@@ -125,6 +125,7 @@ func _build_stage() -> void:
 	avatar.position = CENTER + Vector3(7.0, 1.1, 10.0)
 	add_child(avatar)
 	var animator := ROSHAN_SPRITE_LOOP.new()
+	animator.wardrobe_owner = m
 	avatar.add_child(animator)
 	animator.setup_sprite_3d(avatar, false, avatar)
 	cam = Camera3D.new()

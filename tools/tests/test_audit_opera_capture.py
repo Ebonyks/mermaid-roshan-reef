@@ -49,6 +49,8 @@ class OperaCaptureAuditTests(unittest.TestCase):
                     "Vector2i(1280, 720)\n"
                     "Vector2i(1600, 720)\n"
                 )
+            if relative == "tools/godot_baseline.json":
+                source = (ROOT / relative).read_text(encoding="utf-8")
             if path.suffix.lower() == ".png":
                 path.write_bytes(source.encode("utf-8"))
             else:
@@ -139,14 +141,7 @@ class OperaCaptureAuditTests(unittest.TestCase):
                 "viewport": {"width": dimensions[0], "height": dimensions[1]},
                 "capture_method": "same_process_viewport",
                 "rendering_method": "mobile",
-                "engine": {
-                    "major": 4,
-                    "minor": 7,
-                    "patch": 1,
-                    "status": "stable",
-                    "build": "official",
-                    "version_string": "4.7.1-stable (official)",
-                },
+                "engine": audit.expected_engine(self.source_root),
                 "source_signature": source_signature,
                 "expected_state_ids": expected_ids,
                 "states": states,
@@ -470,9 +465,30 @@ class OperaCaptureAuditTests(unittest.TestCase):
 
     def test_unapproved_engine_version_string_fails_closed(self) -> None:
         manifest = self._manifest()
-        manifest["engine"]["version_string"] = "4.7.1.stable.official.fixture"
+        manifest["engine"]["version_string"] = "4.7.2.stable.official.fixture"
         self._write_manifest("1280x720", manifest)
         self.assertIn("engine", self._codes())
+
+    def test_previous_patch_baseline_fails_closed(self) -> None:
+        manifest = self._manifest()
+        manifest["engine"]["patch"] = 1
+        manifest["engine"]["version_string"] = "4.7.1-stable (official)"
+        self._write_manifest("1280x720", manifest)
+        self.assertIn("engine", self._codes())
+
+    def test_missing_and_invalid_baseline_fail_closed(self) -> None:
+        path = self.source_root / "tools/godot_baseline.json"
+        path.unlink()
+        self.assertIn("engine_baseline", self._codes())
+        path.write_text("{}", encoding="utf-8")
+        self.assertIn("engine_baseline", self._codes())
+
+    def test_baseline_changes_invalidate_capture_source_signature(self) -> None:
+        path = self.source_root / "tools/godot_baseline.json"
+        baseline = json.loads(path.read_text(encoding="utf-8"))
+        baseline["release_date"] = "2026-08-19"
+        path.write_text(json.dumps(baseline), encoding="utf-8")
+        self.assertIn("source_signature", self._codes())
 
     def test_ancestor_hidden_route_is_forbidden(self) -> None:
         path = self.source_root / "scripts/probe_opera_art.gd"

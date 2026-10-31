@@ -1,0 +1,121 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L19",
+  "reviewer": {"agent_id": "/root/luna_playtest_coordinator/luna_l19", "model": "gpt-6-luna"},
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Racer acceleration steering and finish",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L19/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The assigned probe passed in one isolated Godot 4.7.2-stable headless invocation. Its Racer checks enter a Canvas career world, directly call _show_phase() for the finale, send synthetic screen-touch/drag events to OperaRacerSurface, verify progress from two completed lap distances, and observe the trophy state. Source also defines the three phase career sequence and a Cloud Movie Lounge room/portal.",
+    "route_gaps": "The focused final-race leg assigns the finale phase directly; it does not prove a fresh child can discover and enter the Movie Lounge, complete TUNE and TO THE LINE, or reach RACE through ordinary visible touch. No displayed Mobile frame, alternate aspect, physical phone, child, or owner session was observed. The internal completion checks do not exercise the target-contract case where the imp finishes first and the contest restarts."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {"value": "LAP_DISTANCE is 800 units and LAP_SECONDS is 24 seconds, yielding 33.3 distance units/second at the unboosted nominal speed; two laps therefore imply about 48 seconds of full-speed driving before countdown, acceleration, steering, turbo and pauses (scripts/opera_racer_surface.gd:10-11,278).", "scope": "An arithmetic source estimate only; actual race and child session duration were not measured."},
+      {"value": "The first accepted race touch starts a 1.5-second countdown, and released steering input has a 2.0-second grace window before the surface stops advancing (scripts/opera_racer_surface.gd:13,209-216,244-256).", "scope": "Code constants/branches only; rendered cue timing and perceived pause behavior were not measured."},
+      {"value": "RACE's career goal is two lap units (scripts/opera_career_world_2d.gd:331-334); phase progress is derived from kart distance divided by 800, capped at that goal (scripts/opera_career_world_2d.gd:3511-3515).", "scope": "Source progress mapping; not observed gameplay duration."}
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No child-paced session time was observed. The helper's 23.843-second wall time is probe execution time, not game duration. The 48-second estimate assumes sustained nominal unboosted speed and omits the preceding two career phases."
+  },
+  "tactile": {
+    "target_size": "The visible steering control is a 770×126 base-canvas-pixel horizontal strip, with a 794×150 accepted region after the code's 12-pixel hit expansion (scripts/opera_racer_surface.gd:14,146-148,439-452). Turbo is a 120-pixel diameter circle (center 1134,632; radius 60; lines 15-16,455-464). These are logical canvas dimensions; projection, spacing and one-finger comfort on the Lenovo Tab M11 were not tested.",
+    "press_response": "A press inside the steering strip starts the race and 1.5-second countdown; drag immediately updates the steering value and queues redraw (scripts/opera_racer_surface.gd:172-196,209-216). The probe verifies state transitions, not visible response frames or physical latency.",
+    "drag_hold_release": "Horizontal position maps to steering from -1 to +1; releasing clears held state and centers steering. While held, driving input remains active; after release, the 2-second grace expires and the race pauses (scripts/opera_racer_surface.gd:189-210,244-249). The probe uses small repeated horizontal drags while retaining ownership; real finger comfort was not tested.",
+    "ownership": "The steering touch index and Turbo touch index are tracked independently. The probe's synthetic second touch fires Turbo while preserving the steering owner's drag, and an unrelated drag ID is ignored (scripts/opera_racer_surface.gd:136-156; scripts/probe_opera_2d.gd:2071-2085; L19 probe.log:1030).",
+    "cancellation": "cancel_race_touch clears steering, Turbo and input grace; application pause/focus-out invokes it (scripts/opera_racer_surface.gd:219-233). Probe coverage confirms a direct cancel freezes distance and a fresh touch resumes, then cancellation/re-entry cleanup (scripts/probe_opera_2d.gd:1980-2028; L19 probe.log:1404-1412). Actual app pause/focus transitions on device were not exercised in this focused input leg."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a long steering bar, visible moving wheel/knob and coral-gate instruction may let a child feel that small left/right swipes guide Roshan's kart. The probe establishes that synthetic owned steering inputs can move the kart to the two-lap finish, not that a child understands or enjoys it.",
+    "variety": "Hypothesis: alternating bends, lap markers, pearls, boost strips and the rival could make repeated steering feel varied; no rendered sequence or child choice was observed.",
+    "world_response": "Source emits lap, pearl and Turbo events and paints lap progress/collection/boost effects (scripts/opera_racer_surface.gd:267-337,419-464). The probe checks causal inside-line pace and pearl payoff (L19 probe.log:1413), but not their legibility or sound in play.",
+    "replay": "The probe confirms clean scripted cancel/re-entry and trophy recovery (L19 probe.log:1404-1412). Whether the child chooses another race, or whether the race feels too long or repetitive, remains unknown.",
+    "fun_score": null,
+    "concrete_test_or_proposal": "On the exact Lenovo Tab M11 build, observe a consented non-reader entering through the normal Movie Lounge route and receiving no adult coaching. Check whether the child independently uses the pictured steering bar, notices the lap markers, can resume after a brief lift, and chooses whether to replay. Separately run a controlled race where the imp reaches the two-lap condition first to verify the declared short rematch beat and preserved progress."
+  },
+  "play_sequence": [
+    {"beat": 1, "input": "From the Castle family wing, tap the pictured Cloud Movie Lounge doorway, then tap the Racer invitation when the room is ready.", "wait": "Wait for the room transition and the TUNE instruction; no duration was measured.", "basis": "The Movie Lounge room and its portal are defined at scripts/arena/castle_rooms_25d.gd:301-313,631-633; the Racer sequence is defined at scripts/opera_career_world_2d.gd:331-334."},
+    {"beat": 2, "input": "At TUNE, trace broad circles over the visible wrench/work object with one finger, then lift.", "wait": "Wait for the completed TUNE cue and next phase; source goal is 1.8 circle units, not a measured number of circles (scripts/opera_career_world_2d.gd:331-334).", "basis": "Racer TUNE is a circle phase with the exact instruction 'Turn the wrench to finish the pit stop!' at scripts/opera_career_world_2d.gd:332."},
+    {"beat": 3, "input": "At TO THE LINE, swipe the kart toward its pictured starting arch with one finger, then lift.", "wait": "Wait for the next race instruction; no route duration was measured.", "basis": "The phase tells the player to push the kart to the pearl starting arch and uses the swipe mode at scripts/opera_career_world_2d.gd:333,420."},
+    {"beat": 4, "input": "After the RACE cue, press in the long steering strip and drag slightly left or right while keeping the same finger down.", "wait": "Wait through the three-step countdown (1.5 seconds in source) before judging movement.", "basis": "The voice/mode and two-lap goal are at scripts/opera_career_world_2d.gd:334; touch mapping and countdown are at scripts/opera_racer_surface.gd:129-156,189-216,252-256."},
+    {"beat": 5, "input": "Keep the owned finger on the strip and make gentle left/right corrections as the route bends; move toward each visible pearl lane when it appears.", "wait": "Continue until the first lap ring/flag changes, then observe the response before the next bend.", "basis": "Steering, route pearls and lap signals are implemented at scripts/opera_racer_surface.gd:267-337,419-452; the probe's synthetic driving cadence alternates small swipes every 12 frames at scripts/probe_opera_2d.gd:2096-2100."},
+    {"beat": 6, "input": "Continue steering through the second lap, then lift when the finish response appears.", "wait": "Wait for the trophy response; source progress reaches its goal at two lap distances and the probe checks the win/trophy state.", "basis": "Two-lap completion is at scripts/opera_racer_surface.gd:307-316 and award verification at scripts/probe_opera_2d.gd:1940-1955; L19 probe.log:1031-1033 reports the scripted completion checks passing."}
+  ],
+  "observations": [
+    {
+      "title": "The focused synthetic steering path earns the two-lap trophy without passive progress",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_opera_2d.gd:1911 checks ten quiet seconds for zero progress; :1932-1940 checks resumed owned touches and two-lap distance; :1950-1955 checks the trophy and retained Canvas world.",
+        "audit/cycles/luna-playtest-20261012/runtime/L19/attempt_1/probe.log:1023,1029-1033 reports the relevant passive, ownership, finish and trophy assertions OK.",
+        "audit/cycles/luna-playtest-20261012/runtime/L19/attempt_1/receipt.json:3-5,13-16,24-39 records attempt 1, exact Godot 4.7.2, baseline, headless isolated profile, no rendered-Mobile acceptance, exit 0 and no failures."
+      ],
+      "rules": ["DL-AGE-04", "DL-AGE-05", "DL-INT-02", "DL-INT-10", "DL-QA-02"],
+      "existing_findings": ["MA-OPERA-010"],
+      "reproduction": "Use the L19 receipt: the probe stages RACE by calling _show_phase() and sends generated screen-touch/drag events to the real OperaRacerSurface. It confirms the mechanic and two-lap trophy in that fixture; it does not traverse the fresh child route.",
+      "child_impact": "A deliberate steering input maps to actual lap distance and trophy state, and ten seconds of no input awards nothing in this assertion. Visible response, comprehension and enjoyment remain unknown.",
+      "proposed_repair": "No mechanical repair is supported by this passing path. Preserve the input-causal lap completion and verify the normal rendered route on device and with a child.",
+      "acceptance_test": "On a rendered exact-build session, enter through Movie Lounge, perform the three Racer phases with one finger, and confirm steering changes the vehicle, each lap response is readable, and a deliberate two-lap finish awards the trophy while idle never does."
+    },
+    {
+      "title": "Current Racer code and probe use a different spoken cue and steering shape than the written DL-INT-10 target",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:617-623 specifies a large painted circle/steering grammar and exact op_racer_lap_two cue.",
+        "scripts/opera_career_world_2d.gd:334 specifies mode kart_race and voice key op_racer_steer with 'Swipe to steer through the coral gates!'; scripts/probe_opera_2d.gd:1858-1860 asserts that current key and phrase.",
+        "scripts/opera_racer_surface.gd:14,189-196,439-452 implements and draws a wide horizontal strip with a circular knob; L19 probe.log:1018 and receipt checks confirm the current scripted instruction path."
+      ],
+      "rules": ["DL-INT-10", "DL-INT-14", "DL-QA-07"],
+      "existing_findings": ["MA-OPERA-008", "MA-OPERA-010"],
+      "reproduction": "Compare the current written rule with the career phase config and rendered-control drawing code. The probe intentionally treats the current op_racer_steer/strip implementation as expected; no owner or visual acceptance in L19 resolves the documented difference.",
+      "child_impact": "The in-game voice and strip appear internally aligned, but the probe cannot establish whether the current implementation is the approved cue/gesture. The acceptance record could validate a different intended experience unless the authority is reconciled.",
+      "proposed_repair": "Have the authority owner reconcile DL-INT-10 with the current steering design and cue, then bind the focused probe and voice-resource check to that approved contract. Do not infer which version is approved from this review.",
+      "acceptance_test": "After authority reconciliation, confirm the exact approved voice resource, instruction, painted control shape and one-finger route agree on the same rendered build; probe that same route and retain separate audio/device/child evidence."
+    },
+    {
+      "title": "The race stops only when Roshan reaches the two-lap distance; the declared imp-first rematch is not exercised",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:673-687 describes the target head-to-head rule: an imp may win, with a short beat and contest-only restart; it adds a finish rule to Racer.",
+        "scripts/opera_racer_surface.gd:299-312 advances the rival but sets race_finished only when player progress reaches LAP_DISTANCE × LAPS.",
+        "scripts/probe_opera_2d.gd:1940-1955 checks a player-driven finish and trophy/no-placement-fail branch; it does not arrange an imp-first finish or restart. L19 probe.log:1031-1033 records only player completion."
+      ],
+      "rules": ["DL-INT-10", "DL-INT-14", "DL-AGE-03", "DL-AGE-04", "DL-QA-02"],
+      "existing_findings": ["MA-OPERA-010"],
+      "reproduction": "The focused probe supplies ongoing steering until the player reaches two laps. In the inspected surface, the rival's distance affects rival movement/rendering but the finish branch tests only player progress. No imp-first test or restart assertion exists in the assigned focus path.",
+      "child_impact": "The current passing win path does not tell us whether an intentional rival win produces the owner-directed quick rematch or risks leaving the contest behavior inconsistent with its declared target.",
+      "proposed_repair": "First confirm the DL-INT-14 target applies to this shipping Racer phase, then add a narrowly staged imp-first route and preserve the existing no-input rule and earned non-race progress. Keep the pending acceptance lifecycle intact.",
+      "acceptance_test": "Set up a deterministic case with the imp one lap from finishing while Roshan remains active; verify the imp can win only during active play, plays the approved beat (at most two seconds), restarts only the race with imp pace retained on first restart, preserves saved/non-race progress, and cannot win while input is absent."
+    },
+    {
+      "title": "Large steering affordance is supported by source dimensions, but actual child touch response remains unmeasured",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/opera_racer_surface.gd:14,136-156,189-210 defines a 770×126 steering area, 12-pixel hit expansion, drag-derived steering, touch ownership and release reset.",
+        "scripts/probe_opera_2d.gd:2071-2100 uses synthetic touch IDs and center/±36-pixel drags; L19 probe.log:1030-1031 passes ownership and finish checks.",
+        "audit/cycles/luna-playtest-20261012/runtime/L19/attempt_1/receipt.json:26-33 says headless=true and rendered_mobile_acceptance=false."
+      ],
+      "rules": ["DL-AGE-02", "DL-UI-03", "DL-UI-04", "DL-UI-05", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-OPERA-010", "MA-OPERA-012"],
+      "reproduction": "Inspect the logical target and the synthetic drag helpers, then compare them with the receipt's headless/no-render flags. No physical finger, device projection, ordinary route, or child was involved.",
+      "child_impact": "The logical strip is broad, but phone projection, visibility, latency, the child's understanding of horizontal steering and sustained-finger comfort are not established.",
+      "proposed_repair": "No code change is supported by this probe. Collect exact-build rendered Mobile and Lenovo Tab M11 evidence first; observe a short uncoached one-finger route and record comprehension and replay choice separately.",
+      "acceptance_test": "At the approved aspect and on the Lenovo Tab M11, verify the strip and turbo hit areas remain distinct and reachable, initial press/countdown feedback is visible within the rule, a child's gentle left/right drag changes the kart, brief lift pauses safely, and the child can independently finish or choose to stop."
+    }
+  ],
+  "strengths": [
+    {"claim": "The probe's controlled steering drive completed exactly two lap distances and recovered the Racer trophy; no player placement-loss branch appeared in the tested win case.", "evidence": "scripts/probe_opera_2d.gd:1940-1955; audit/cycles/luna-playtest-20261012/runtime/L19/attempt_1/probe.log:1031-1033."},
+    {"claim": "Ten quiet seconds in the staged finale did not advance lap distance, phase progress, or the act state.", "evidence": "scripts/probe_opera_2d.gd:1911-1915; L19 probe.log:1023."},
+    {"claim": "Cancellation/re-entry and separate steering/Turbo touch IDs pass in the scripted fixture.", "evidence": "scripts/probe_opera_2d.gd:1932-1938,1983-2028; L19 probe.log:1030,1404-1412."}
+  ],
+  "acceptance_gaps": [
+    "Natural fresh-save discovery and ordinary touch traversal from the Castle route through Movie Lounge, TUNE, TO THE LINE and RACE were not proven by the focused finale leg, which directly stages _show_phase().",
+    "No approved Mobile rendering capture, second-aspect composition, Lenovo Tab M11 frame pacing/latency/thermal test, or projected hit-target assessment was collected.",
+    "No observed non-reader child evidence for cue comprehension, steering discoverability, comfort over the two-lap sequence, session length, replay choice or fun; no owner acceptance.",
+    "The exact voice stream resource was resolved by the headless probe but audible playback, intelligibility and approval were not assessed; its current key/phrase differs from the written DL-INT-10 target.",
+    "The written DL-INT-10 circle/legacy cue contract and current strip/steer cue need authority reconciliation; DL-INT-14's imp-first rematch target also needs a focused runtime/probe scenario if applicable to this Racer contest."
+  ],
+  "voice_status": "The probe resolves res://assets/audio/voices/filler_v1/roshan_op_racer_steer.ogg and verifies a single pooled request with no caption/fallback (scripts/probe_opera_2d.gd:1889-1902; L19 probe.log:1021-1022). It did not audibly play or approve the recording; the current key also differs from DL-INT-10's specified op_racer_lap_two cue."
+}

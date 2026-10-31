@@ -1,0 +1,1838 @@
+{
+  "schema": "reef.wave-repair-provenance-snapshot.v1",
+  "status": "INCOMPLETE_ACTIVE_CAMPAIGN_SNAPSHOT_NOT_DELIVERY_MANIFEST",
+  "recorded_at_utc": "2026-10-11T00:16:51.326228+00:00",
+  "baseline": "245e9c543be771d297b60dafb91b8a3baf73e211",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-02",
+    "DL-VIS-06",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MOT-01",
+    "DL-MOT-06",
+    "DL-MOT-12",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16"
+  ],
+  "related_findings_unchanged": [
+    "MA-ROSHAN-003",
+    "MA-ROSHAN-005",
+    "MA-ROSHAN-006"
+  ],
+  "scope": "Source-only current-wave drafts and provenance preparation; no runtime or finding closure",
+  "job_sha256_at_read": "957d65996162c420d03e60208cfb0b043238326c75f7ab68fd3e623210643557",
+  "job_is_concurrently_mutable": true,
+  "approved_references": [
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "original identity/head/outfit; exact rest endpoint source",
+      "acceptance_scope": "Existing approved atlas crop; unchanged original source authority retained",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K2.png",
+      "sha256": "a46c318a627a4904dbf1115b1c764d8842de6f9281fe21a4803d31b65add4bbb",
+      "bytes": 56597,
+      "role": "approved raised-arm pose/anatomy reference; not authority to change K0 head",
+      "acceptance_scope": "Existing approved atlas crop; unchanged original source authority retained",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    }
+  ],
+  "reference_parent": {
+    "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+    "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+    "operation": "Existing exact256px atlas-cell crops K0 and K2; source hashes in prior source packet"
+  },
+  "image_inventory": [
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0000.png",
+      "sha256": "d6886554ce2518664049bdfecbf483dca914498a3f26f0700c133fff8c4a287d",
+      "bytes": 473692,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0001.png",
+      "sha256": "b1549c171534643afee2b020e027b486def90de7145e00b9463047f12fedf33b",
+      "bytes": 479244,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0002.png",
+      "sha256": "df5357ae3314fbbba4525af2fe5ddcb0f41fb4b349d6907b5703bf8591eaa17a",
+      "bytes": 484666,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0003.png",
+      "sha256": "f77dac4b845263497bc3d4bb1554f5a5de745b7bff2f515ff716bf6db49fd30c",
+      "bytes": 493821,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0004.png",
+      "sha256": "27940e74b8081a9c53dd4a96d7f231eaf916b6f610a79e091f4e7f8f10d235d5",
+      "bytes": 502324,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0005.png",
+      "sha256": "cacc15855a9b38e99729e5460f566af17d6345b2b0e3a8780e05639c9d0583ae",
+      "bytes": 509967,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0006.png",
+      "sha256": "edca4ef1a299c51c5af8225323889ea0368319917da23ee58ac2ed2887378c78",
+      "bytes": 511241,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0007.png",
+      "sha256": "dfe01a61ddd074209d620a7489b32c5f013a283fc653a110d4ca1fa5e8a7232d",
+      "bytes": 512993,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0008.png",
+      "sha256": "186d01bc8ee06af5305a4bb8f0e3aabc31f659a8a33f0a0aac1f887aad013fef",
+      "bytes": 512874,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0009.png",
+      "sha256": "6cc337796f985d775bac942266254300d217af4a3690340e81428db367d9807e",
+      "bytes": 512877,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0010.png",
+      "sha256": "c48361f23abf2d884c44c665e0eb69400cd755fd28a7efe3f19abfd08fd02373",
+      "bytes": 512463,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0011.png",
+      "sha256": "241ca3b42b5ea00145e6a1de3b60837b75d20668bbf789fe39aaec87b4f3d048",
+      "bytes": 513834,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0012.png",
+      "sha256": "d6a5b1cf38fbe865e272f49d7beb557fa1c66c3fa22f2def3087aa4370cc7b6a",
+      "bytes": 511941,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0013.png",
+      "sha256": "154944b6ea3af40544236666af80cb8284610438f2ddfc26534c75db028458e2",
+      "bytes": 510229,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0014.png",
+      "sha256": "15db04d7153268e187ddf8195b5169dd5e830858eaf2fabefbcbb6eeeb1256ff",
+      "bytes": 506911,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0015.png",
+      "sha256": "efd06ec616ac20540f8d2e4adf321b051083983d306146d13111fc774e1e4c99",
+      "bytes": 507760,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0016.png",
+      "sha256": "b2f3be8b4ab4c627be835482a96b04d5ccfcb840496af9be37eb27a6eca46098",
+      "bytes": 507269,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0017.png",
+      "sha256": "be4b67324b8c6cc2a38c06346c92405a4fe4d669d5931c0c539b49ce09e7b3e3",
+      "bytes": 507364,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0018.png",
+      "sha256": "67d697d772899404fdd8415a7379127139fcbefb0a95a68df43a51abfd5728eb",
+      "bytes": 506867,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0019.png",
+      "sha256": "b0f6903351b2b3c2a21711779c703ba5adc8198d1e4b2d0132fbea6169474917",
+      "bytes": 507899,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0020.png",
+      "sha256": "99254a2d392b289d0e7252a02ee891c3719b97c3c6d31ace707f0adb3628907e",
+      "bytes": 506564,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0021.png",
+      "sha256": "bf4d4b2709391a9b33556e8d8e388f6fbc043d2bc5a61cf4a689f99c44291b5c",
+      "bytes": 508124,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0022.png",
+      "sha256": "67c88341f0554cf28aa9f7f824be21ee6a3cc46f1b70fb633656e3943c5a77bb",
+      "bytes": 507434,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0023.png",
+      "sha256": "bdc2ec7f7fc92d263efbee2e43a38e142ad4c3c3488d82a684291e3d20e6cf03",
+      "bytes": 509224,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0024.png",
+      "sha256": "a7bc0daa67aac7ef8f32600abba7f083199b8acc91e17d254d3bead2a0200b0e",
+      "bytes": 508130,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0025.png",
+      "sha256": "0beac751bbddfadaad43a145de69ff57a5a20da854108a0d5086d469bc3d4773",
+      "bytes": 510654,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0026.png",
+      "sha256": "01ad535d0cac0eb0e34a4bca90aab6f9c582c1b6f3ed9bcc9baff59149fd50a9",
+      "bytes": 514499,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0027.png",
+      "sha256": "3636c272ef8fa68dc04d3297711cc14295580d3ebd45fd2886665f2e5632d208",
+      "bytes": 517214,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0028.png",
+      "sha256": "9cebd825b18f920a95cc32d9efbaa0fdc8c6aed8174bed03b3d97748b436996e",
+      "bytes": 515950,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0029.png",
+      "sha256": "8c43184fe29a64edf72abdc98875b25a22b1db8c288f4ae61f6322412a4b900b",
+      "bytes": 513646,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0030.png",
+      "sha256": "5bddd6d9dd3bf14e69fec9310eef9639afd2192384820afb8e9fa88fb6427f7e",
+      "bytes": 510485,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0031.png",
+      "sha256": "3c33bc9692be7bf596fb0009962b09b3fa8ba937298215a17f51bc7034a67d7a",
+      "bytes": 509569,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0032.png",
+      "sha256": "e47da634b1f95336768816cca7c1953e783a682af897c78fc8d0467c2b1a0b75",
+      "bytes": 508168,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0033.png",
+      "sha256": "4054053ddb51cac7e03e328424cf395e5b7aad54aa547508967e5dc7c6e21139",
+      "bytes": 501570,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0034.png",
+      "sha256": "f8f94d230d34bf7b51327290df14c69deb9ac94d60cad76ccbdfffbfe86565e0",
+      "bytes": 497682,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0035.png",
+      "sha256": "99f28b3353205bb0b1136d9d71bb0b3b614f2c1e6074ef8df34e6a9312c38543",
+      "bytes": 495388,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0036.png",
+      "sha256": "3a4a900d86ab3f8bab804c000185c279a995df1d25b4eaa31e497e7b3ea99910",
+      "bytes": 491760,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0037.png",
+      "sha256": "610a1992da8e12201aba0f2328b9b4189f970ea11873311f23b510ca8c5fc71a",
+      "bytes": 487719,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0038.png",
+      "sha256": "dd32d8a41fc38e0ae0d68f6d263c4a57e481cdc2c76c1a27eb5e8a3363cf41e7",
+      "bytes": 486187,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0039.png",
+      "sha256": "3661539198725bb20efa49ba999951b81167dfa895a078a783acc791422eefec",
+      "bytes": 485301,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0040.png",
+      "sha256": "82f6da7023b0944dd63ff4fd95e4c5353e471304be4ad73b99330bd449fba936",
+      "bytes": 487773,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_01/native.png",
+      "sha256": "aab6277b0e13ecf0747d3b9ccc1f3fac6eb2474db5523b6c345583f7a4471831",
+      "bytes": 1872367,
+      "role": "original native ImageGen output",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0000.png",
+      "sha256": "7b528ab7c2459fe1d38604426ba8947bfc2d4f85797c897c1b01266505425f4e",
+      "bytes": 93052,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0001.png",
+      "sha256": "8dba87ca7612ee59f34c781708891c963be2ea51270780fdedcd690e1a179c74",
+      "bytes": 96583,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0002.png",
+      "sha256": "98ee4f159769d464a0e4cd095cf1d454bd46fcc6084c28a6dfd01d5f405107f0",
+      "bytes": 93447,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0003.png",
+      "sha256": "a4f8817c489ca7362b3e20e60821e80f456bfb1a0ad6485c5d9523789caa23ad",
+      "bytes": 92851,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0004.png",
+      "sha256": "52b460d321b77376325cc1dc98ac164576904e38e7729e2dbc0dfbe09c8b0f0d",
+      "bytes": 95768,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0005.png",
+      "sha256": "035b9c8ca295969be2c6db1088e714773af574bed2d99721bcbdc45a13af5465",
+      "bytes": 97171,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0006.png",
+      "sha256": "1753bb4faac110ace769e7325d58a66aee448abfded16c8425a4f98a39ed1f71",
+      "bytes": 96059,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0007.png",
+      "sha256": "a904e01c517f22e1b47f139b9baa3991254068742c317d4f6379aafde0192b79",
+      "bytes": 98754,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0008.png",
+      "sha256": "bed2d13edfdec338b8d82c5c3a9f9988e3f285eb30c6e7db1a6a110be4c5e435",
+      "bytes": 96624,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0009.png",
+      "sha256": "277d75acf39d9f4db0c3ad74b1804dab649075fa88732e15b24a63f4d8ae3d76",
+      "bytes": 98422,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0010.png",
+      "sha256": "6cce6ce6f8584aae3dfcef6d298951d90301498cee349431e2228a08ab65c036",
+      "bytes": 96168,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0011.png",
+      "sha256": "229ce5caaa30a818210ac2d076f9a936183985c9bb662f00e1211ba5349ecafc",
+      "bytes": 97716,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0012.png",
+      "sha256": "3be76ef174a491564e2367dd906ef2c11f0f9aa0ed1b13df348eeb255a67b31b",
+      "bytes": 94580,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0013.png",
+      "sha256": "cad641a3562984869ef66a42a0f5fb8aeabc933688f5b9e4cdcb036e719a5aae",
+      "bytes": 96715,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0014.png",
+      "sha256": "027202959a468915f09ff860762508ef360ebfeadf1d574d6be6b92da89846c1",
+      "bytes": 96477,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/0015.png",
+      "sha256": "b1d24198a50d8e31ed018598be4e00dd5a41122d228081d42db2d9b16d25e383",
+      "bytes": 94833,
+      "role": "Aseprite whole-cell extraction candidate",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/clean_alpha_test.png",
+      "sha256": "7afdcb2e49eddb79a12100a303008711149bac8c7c1a6df598f33107709ffa21",
+      "bytes": 85139,
+      "role": "Single-cell alpha cleanup diagnostic; no complete-loop acceptance",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/clean_alpha_test_on_gray.png",
+      "sha256": "99488aa248ca2bd0f0d79714aa0de607f19462f666cd1d1a4942957ead27c4a1",
+      "bytes": 79296,
+      "role": "Single-cell alpha cleanup diagnostic; no complete-loop acceptance",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        314,
+        314
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/contact_sheet.png",
+      "sha256": "10aa4837cd2d4f4cc49c4a3dd8e502c9e240d4161238122d1e4bfea697eb6fe4",
+      "bytes": 876168,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        2048,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0000.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0001.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0002.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0003.png",
+      "sha256": "81f3e05140d1eda45fba922fb22de933e4f1154d3292cbd34255229f702f9248",
+      "bytes": 60270,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0004.png",
+      "sha256": "81f3e05140d1eda45fba922fb22de933e4f1154d3292cbd34255229f702f9248",
+      "bytes": 60270,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0005.png",
+      "sha256": "81f3e05140d1eda45fba922fb22de933e4f1154d3292cbd34255229f702f9248",
+      "bytes": 60270,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0006.png",
+      "sha256": "f0cda28db829e7f3debd476486620a596d93e5ca0830cdb1c7b4c5d637af2aa6",
+      "bytes": 58554,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0007.png",
+      "sha256": "f0cda28db829e7f3debd476486620a596d93e5ca0830cdb1c7b4c5d637af2aa6",
+      "bytes": 58554,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0008.png",
+      "sha256": "6443f2c9a28e345a8988076b7ad001fc209e1462548f08150c2f936f1f67b26e",
+      "bytes": 58289,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0009.png",
+      "sha256": "6443f2c9a28e345a8988076b7ad001fc209e1462548f08150c2f936f1f67b26e",
+      "bytes": 58289,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0010.png",
+      "sha256": "c53a1ed2d7674a150c43696b9c2317a6dc90ba40879ec6cb138c02308477c0ca",
+      "bytes": 59946,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0011.png",
+      "sha256": "c53a1ed2d7674a150c43696b9c2317a6dc90ba40879ec6cb138c02308477c0ca",
+      "bytes": 59946,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0012.png",
+      "sha256": "9c3b23f13466e66fd5d2e7934a85c7e5380f944c49046f9f53c4b3675fe2edec",
+      "bytes": 60064,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0013.png",
+      "sha256": "9c3b23f13466e66fd5d2e7934a85c7e5380f944c49046f9f53c4b3675fe2edec",
+      "bytes": 60064,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0014.png",
+      "sha256": "e32890bbfa063d765287d51664318bc9e84874d8b8a6ab320e0c41d733d61a26",
+      "bytes": 59293,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0015.png",
+      "sha256": "e32890bbfa063d765287d51664318bc9e84874d8b8a6ab320e0c41d733d61a26",
+      "bytes": 59293,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0016.png",
+      "sha256": "e32890bbfa063d765287d51664318bc9e84874d8b8a6ab320e0c41d733d61a26",
+      "bytes": 59293,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0017.png",
+      "sha256": "9c3b23f13466e66fd5d2e7934a85c7e5380f944c49046f9f53c4b3675fe2edec",
+      "bytes": 60064,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0018.png",
+      "sha256": "9c3b23f13466e66fd5d2e7934a85c7e5380f944c49046f9f53c4b3675fe2edec",
+      "bytes": 60064,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0019.png",
+      "sha256": "e32890bbfa063d765287d51664318bc9e84874d8b8a6ab320e0c41d733d61a26",
+      "bytes": 59293,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0020.png",
+      "sha256": "e32890bbfa063d765287d51664318bc9e84874d8b8a6ab320e0c41d733d61a26",
+      "bytes": 59293,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0021.png",
+      "sha256": "e32890bbfa063d765287d51664318bc9e84874d8b8a6ab320e0c41d733d61a26",
+      "bytes": 59293,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0022.png",
+      "sha256": "9c3b23f13466e66fd5d2e7934a85c7e5380f944c49046f9f53c4b3675fe2edec",
+      "bytes": 60064,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0023.png",
+      "sha256": "9c3b23f13466e66fd5d2e7934a85c7e5380f944c49046f9f53c4b3675fe2edec",
+      "bytes": 60064,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0024.png",
+      "sha256": "c53a1ed2d7674a150c43696b9c2317a6dc90ba40879ec6cb138c02308477c0ca",
+      "bytes": 59946,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0025.png",
+      "sha256": "c53a1ed2d7674a150c43696b9c2317a6dc90ba40879ec6cb138c02308477c0ca",
+      "bytes": 59946,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0026.png",
+      "sha256": "6443f2c9a28e345a8988076b7ad001fc209e1462548f08150c2f936f1f67b26e",
+      "bytes": 58289,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0027.png",
+      "sha256": "6443f2c9a28e345a8988076b7ad001fc209e1462548f08150c2f936f1f67b26e",
+      "bytes": 58289,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0028.png",
+      "sha256": "f0cda28db829e7f3debd476486620a596d93e5ca0830cdb1c7b4c5d637af2aa6",
+      "bytes": 58554,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0029.png",
+      "sha256": "f0cda28db829e7f3debd476486620a596d93e5ca0830cdb1c7b4c5d637af2aa6",
+      "bytes": 58554,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0030.png",
+      "sha256": "81f3e05140d1eda45fba922fb22de933e4f1154d3292cbd34255229f702f9248",
+      "bytes": 60270,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0031.png",
+      "sha256": "81f3e05140d1eda45fba922fb22de933e4f1154d3292cbd34255229f702f9248",
+      "bytes": 60270,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0032.png",
+      "sha256": "81f3e05140d1eda45fba922fb22de933e4f1154d3292cbd34255229f702f9248",
+      "bytes": 60270,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0033.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0034.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0035.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0036.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0037.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0038.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0039.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0040.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/wave.aseprite",
+      "sha256": "4fd83dc0367932ba265cc20189992a8479971279e8f9be7e3d281eb27f139648",
+      "bytes": 2819115,
+      "role": "Unaccepted draft image/master; inspect derivation",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/native.png",
+      "sha256": "5dd046d9d11f21f5d43ef220bde99657b139dcf95c12621eacb5e95acc208195",
+      "bytes": 1633861,
+      "role": "original native ImageGen output",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/native_cells.aseprite",
+      "sha256": "c70d69a39369d7795fd240b7d22eeb5b8cd1da78de36f367022d3921c005ca13",
+      "bytes": 1754018,
+      "role": "Editable one-layer whole-cell extraction master; not41-frame wave",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/identity_shift40.png",
+      "sha256": "324c9e459ea0229b85e67e890762110d0d3a3b4eea12781844585195e7b4a292",
+      "bytes": 327833,
+      "role": "identity_candidate_from_prior_approved_source",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        640,
+        896
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0000.png",
+      "sha256": "620c0a766083ff4128d9fb68290ed1b9d3135f85614450ee7e9193c8cc45356f",
+      "bytes": 10676,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0001.png",
+      "sha256": "4d7022583dcf7cca4b04bb0af1f068e623cdf851f9ea14d6d4ce0b7f7a8f4f5a",
+      "bytes": 10564,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0002.png",
+      "sha256": "7018a55dc91fc97e4bdcecc4bba29690cbda841800a7dc793a142627dd42c67e",
+      "bytes": 10626,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0003.png",
+      "sha256": "9f0111f8a3d2f2d7fb1fec76287506766ec5987093ece381864ef38d0b060d5b",
+      "bytes": 10552,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0004.png",
+      "sha256": "b593cb180ceef9c9978e9abcd75f8a4f9cb954e5c7380cbfe6b09eb6f5d124ab",
+      "bytes": 10638,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0005.png",
+      "sha256": "fcf95992b305b32a86bb5aae888fd2bd11b1590901625f4204e87cded13b793b",
+      "bytes": 10599,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0006.png",
+      "sha256": "922bdddbf11ea0df42327341e8b2055b44eeb3311b4e8aee885f697a016eb32c",
+      "bytes": 10633,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0007.png",
+      "sha256": "af90cf1423b944d238fa860e055d00154af56f5c587e3a5a69b8f6920bbe6249",
+      "bytes": 10608,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0008.png",
+      "sha256": "36f437344c8695ca6303c15b81e7da462a3ceb3f0c64538e5c1d52b8c3241558",
+      "bytes": 10618,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0009.png",
+      "sha256": "eba7a0c15dc9c3e76958ff1bce8c45954b095f76438c3931c3b0b444b05ea924",
+      "bytes": 10639,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0010.png",
+      "sha256": "c3b53cc2cb7ec68030a86325036877853594141aeb0cac7e1fd356671abc514b",
+      "bytes": 10701,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0011.png",
+      "sha256": "326836a00a9884e735ec6fe75ecc01e9ee4d3b15ca5b65b7946b692a2cbccb81",
+      "bytes": 10753,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0012.png",
+      "sha256": "67db6effa1aced8f25e46ed25a369dff01dabc23efd78bce93e92fae05805495",
+      "bytes": 10640,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0013.png",
+      "sha256": "20d8eb1d8fbe590987688b4c98bad5c9059ba77cbc159ef55885440b6d4ef018",
+      "bytes": 10764,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0014.png",
+      "sha256": "7f96199b1eea82cc10dc7f97a94f5a92449a02d66ebc32ddff7f8964ff4bf1cc",
+      "bytes": 10750,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0015.png",
+      "sha256": "22e3a60ebe8df479ef2836a3bc3ea49b473c15d6b4b5f6c9c5153e89d745da16",
+      "bytes": 10708,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0016.png",
+      "sha256": "adb873e0e6e765a0fb1d87666c21b4b22e7fb4b05b2bf42724bf7a9098e0206e",
+      "bytes": 10731,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0017.png",
+      "sha256": "69cf036a2f4a88843093dfd426a5188a6ecb89f27fab10c5bd157d8d6d4047dc",
+      "bytes": 10793,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0018.png",
+      "sha256": "7546d62ea271ba6287b981de059433e6920af26a2d7b8a3694a5597f278f7d75",
+      "bytes": 10755,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0019.png",
+      "sha256": "27328ad2d3e8695bbf002c6f5abc8ed05bf3d42367581b8ba6ab405feeae29f5",
+      "bytes": 10720,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0020.png",
+      "sha256": "40c41cc4248180d2e3a6023bd39e4c1914f1c7e8f9c622b7edfdfc6f93962a0f",
+      "bytes": 10815,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0021.png",
+      "sha256": "d3d43e6a3870f7fc9e040b62987f3fd8affd5d45adc83980c369ce18df56d64a",
+      "bytes": 10831,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0022.png",
+      "sha256": "34912e1674e86ff5c4d621b8c3365dfabb769adcfc58cde91716bfab8adb632f",
+      "bytes": 10770,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0023.png",
+      "sha256": "2de5618fe49b44f74ff635a60b186cba7a32986f970050b81ea1275e22115b49",
+      "bytes": 10757,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0024.png",
+      "sha256": "9b3e4c743c815a9b5719f1963d2faa4d255fac0e4804e9c7b4b3027862282d2f",
+      "bytes": 10730,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0025.png",
+      "sha256": "bae3fe0630e6bcb75c526a1b6cbb5f4789e58167d7d678deffffd0407636cad9",
+      "bytes": 10759,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0026.png",
+      "sha256": "8690e7031c232efed1eb03a735ac60b7ee556111baa5d02e2f54854fc3563dcf",
+      "bytes": 10770,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0027.png",
+      "sha256": "47a7cc52a311568fdf004f932db92874ff160ffb0f566b4269c4a4ce7351e74f",
+      "bytes": 10840,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0028.png",
+      "sha256": "39c724ca632e8a4e4ccd3ec0694376d89e870c6905199abf9cc7a66b1168f53c",
+      "bytes": 10810,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0029.png",
+      "sha256": "8a67953004165e23346afe94c93770072704ad237ab096cfc3a76f97a21576c5",
+      "bytes": 10734,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0030.png",
+      "sha256": "06ab99181d2ffbd44de52dd2cea423ae0adc17595e96d84887ecec07254c2dfc",
+      "bytes": 10671,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0031.png",
+      "sha256": "40dbd62c7a27a33c3609e1d7c2ca481c141d6d259bad05de13e97d81ebda17ec",
+      "bytes": 10661,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0032.png",
+      "sha256": "15a8b250124c61367124d65b0f4ac16309769aaf3d7055e44d3743fb421fb419",
+      "bytes": 10755,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0033.png",
+      "sha256": "731e3c1de3b8ca47113e9867b7d5f976eef2456ae98fd40fecb3e35ab3bb4943",
+      "bytes": 10715,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0034.png",
+      "sha256": "3bb0e93daf15e46ec15fb00f3c4a6f827d5855a8a96b737a871243e17afae959",
+      "bytes": 10631,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0035.png",
+      "sha256": "21f33fe007e1da89c8e2addc9192930313b27f1bc3e4c4ff1800f56a9ced5a65",
+      "bytes": 10677,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0036.png",
+      "sha256": "3a815f87073c64d9aedec5a62e07106a431ca0f09cf8861470194883a6421465",
+      "bytes": 10700,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0037.png",
+      "sha256": "88e6a28485f2012a774f2df879c48c112fe8fd393177c21622a4509a83c44a9f",
+      "bytes": 10614,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0038.png",
+      "sha256": "e800b5c382d5eced8bf2d6449f16cd9cc4164420a5b3427bf3e84a0a49b44acb",
+      "bytes": 10603,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0039.png",
+      "sha256": "1115620af266416d6e36fe0442bdc401796645e94fce2637b5132669b7cb1f7e",
+      "bytes": 10535,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0040.png",
+      "sha256": "452596faf7d80b9c2f33d9302ab36a0c9e7875ef07433faf56309937c9e55eb8",
+      "bytes": 10658,
+      "role": "structural_motion_control_only",
+      "acceptance_scope": "SOURCE_CANDIDATE_ONLY; no human/runtime/device/child/owner acceptance",
+      "dimensions": [
+        320,
+        448
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "image_inventory_payload_definition": "SHA256 of sorted UTF8 relative_path + space + exact file SHA256 + LF for listed images/masters only; not entire campaign packet",
+  "image_inventory_payload_sha256": "861885d98486656a8ffa04c0afdf511e2f3d926d381f2616dcbcbcd6fa29c1b4",
+  "known_pending_metadata": [
+    "Complete native640_01 execution receipt and all native output hashes after owned GPU job finishes",
+    "Record actual joint annotations, first-pass visual findings, complete41-frame review and loop seam",
+    "Fill exact original source/authoring script and numeric geometry provenance for local run7 family; copied current guides are hashed but their missing authored ancestry is not acceptance",
+    "Publish actual prior local rejects or label their local-only archive gap; an inventory JSON does not deliver source frames",
+    "Add missing ASSET_LICENSES rows, audit-impact coverage, document-ledger authority row and anonymous GitHub byte-verification receipt",
+    "Replace nonfinite missing measurements with null/PENDING rather than accept them",
+    "Record every registration, alpha cleanup, extraction and retiming operation; verify exact master/export pixels",
+    "Record separate owner/device/child and production runtime evidence when applicable"
+  ],
+  "acceptance": {
+    "archive_complete": false,
+    "generation_ready": false,
+    "delivery_accepted": false,
+    "artifact_free_sample": false
+  }
+}

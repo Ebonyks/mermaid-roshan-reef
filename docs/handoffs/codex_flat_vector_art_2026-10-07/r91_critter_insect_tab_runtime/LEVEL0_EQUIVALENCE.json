@@ -1,0 +1,31 @@
+{
+  "status": "PASS_MIP_CHAIN_ADDED_LEVEL0_EXACT",
+  "before": {
+    "has_mipmaps": false,
+    "level0_RGBA8_sha256": "a29dc4187c195fabd31d2480e51be6b9fe84df9ccd0596887a8acfcf7ce56f25",
+    "rendering_method": "mobile",
+    "scope": "Isolated texture decode/readback, no Main scene or visual acceptance.",
+    "size": [
+      1024,
+      657
+    ],
+    "source": "res://assets/mg/butterfly.png",
+    "source_sha256": "310539d933f1027402eea118c61819c052dd76f0bd2bbb752d87e94327eb0a26",
+    "viewport_default_filter": 1
+  },
+  "after": {
+    "has_mipmaps": true,
+    "level0_RGBA8_sha256": "a29dc4187c195fabd31d2480e51be6b9fe84df9ccd0596887a8acfcf7ce56f25",
+    "rendering_method": "mobile",
+    "scope": "Isolated texture decode/readback, no Main scene or visual acceptance.",
+    "size": [
+      1024,
+      657
+    ],
+    "source": "res://assets/mg/butterfly.png",
+    "source_sha256": "310539d933f1027402eea118c61819c052dd76f0bd2bbb752d87e94327eb0a26",
+    "viewport_default_filter": 1
+  },
+  "old_default_garden_sampling": "Read-only source caller has no filter override; engine default recorded here. Default non-mip level0 sampling remains exact; no garden/phone/child visual acceptance inferred.",
+  "checked_at_utc": "2026-10-17T15:15:32.508031+00:00"
+}

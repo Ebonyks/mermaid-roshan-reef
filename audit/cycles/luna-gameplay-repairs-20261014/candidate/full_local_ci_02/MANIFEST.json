@@ -1,0 +1,115 @@
+{
+  "archive_root": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef\\audit\\cycles\\luna-gameplay-repairs-20261014\\candidate\\full_local_ci_02",
+  "created_utc": "2026-10-15T05:17:01.998608+00:00",
+  "files": [
+    {
+      "bytes": 10781,
+      "exact_byte_copy": false,
+      "path": "ANALYSIS.json",
+      "role": "machine_regression_and_unmet_acceptance_separated",
+      "sha256": "af09dc69a80971983610fefcd3ca9f85160d14a28900a0648373660723e0b4f3",
+      "source": "derived only from exact archived native evidence"
+    },
+    {
+      "bytes": 3886,
+      "exact_byte_copy": true,
+      "path": "gate/candidate-full-ci-02.json",
+      "role": "native_terminal_ci_gate",
+      "sha256": "5ca8de3339e885cf1ae7238f571099a463eddc82b7970c7fbd34d383ab89167a",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\candidate-full-ci-02.json"
+    },
+    {
+      "bytes": 514619,
+      "exact_byte_copy": true,
+      "path": "gate/candidate-full-ci-02.log",
+      "role": "native_terminal_ci_gate",
+      "sha256": "0f910fe429949007a5fd72e22dfeb3318418f580f4d6f6cb1dd8d20e993a211a",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\candidate-full-ci-02.log"
+    },
+    {
+      "bytes": 712709,
+      "exact_byte_copy": true,
+      "path": "gate/candidate-full-ci-02.sources.json",
+      "role": "native_terminal_ci_gate",
+      "sha256": "8caeb792aa0f66829a479da4037441a4afe6a5ac02070474f38139d2f8ef997d",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\candidate-full-ci-02.sources.json"
+    },
+    {
+      "bytes": 1440,
+      "exact_byte_copy": true,
+      "path": "gate/candidate-full-ci-02.started.json",
+      "role": "native_terminal_ci_gate",
+      "sha256": "8c2b8abbe02a4d36d0d2123ed6e769cc6dff83b89c3e5c89a9a6a91ec6fbff5c",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\candidate-full-ci-02.started.json"
+    },
+    {
+      "bytes": 782,
+      "exact_byte_copy": true,
+      "path": "launcher/candidate-full-ci-02.launcher.json",
+      "role": "native_launcher",
+      "sha256": "a768f0bd8c3995c9b9426188721c0bf327cf6897b6687cc07ba504ec09c840bc",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-full-ci-02.launcher.json"
+    },
+    {
+      "bytes": 0,
+      "exact_byte_copy": true,
+      "path": "launcher/candidate-full-ci-02.runner.stderr.log",
+      "role": "native_terminal_runner_stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-full-ci-02.runner.stderr.log"
+    },
+    {
+      "bytes": 3886,
+      "exact_byte_copy": true,
+      "path": "launcher/candidate-full-ci-02.runner.stdout.log",
+      "role": "native_terminal_runner_stdout",
+      "sha256": "5ca8de3339e885cf1ae7238f571099a463eddc82b7970c7fbd34d383ab89167a",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-full-ci-02.runner.stdout.log"
+    },
+    {
+      "bytes": 4726,
+      "exact_byte_copy": true,
+      "path": "tools/PREPARATION_RECEIPT.json",
+      "role": "scratch_archiver_preparation_receipt",
+      "sha256": "ee2b45b4af0783a79aea8d465acc58db3d37d00beb667e6d0793d65d7ee2ef7b",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\full_local_ci_02_archive_preparation_01\\PREPARATION_RECEIPT.json"
+    },
+    {
+      "bytes": 15664,
+      "exact_byte_copy": true,
+      "path": "tools/archive_full_local_ci_02.py.txt",
+      "role": "exact_evidence_archiver_source",
+      "sha256": "1c2bf5e4ae7a0087a6f7c5e73090e988293b72a01ec0e139b4f364a224d34720",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\full_local_ci_02_archive_preparation_01\\archive_full_local_ci_02.py"
+    },
+    {
+      "bytes": 15163,
+      "exact_byte_copy": true,
+      "path": "tools/ci.sh.txt",
+      "role": "exact_frozen_trusted_roster_and_ci_source",
+      "sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+      "source": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef\\scripts\\ci.sh"
+    },
+    {
+      "bytes": 13972,
+      "exact_byte_copy": true,
+      "path": "tools/run_candidate_full_ci_gate.py.txt",
+      "role": "exact_reviewed_ci_runner_source",
+      "sha256": "5db4c749192286a433382617a71a3eb257c8464871c144dc5a774c71e9cd8d50",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\run_candidate_full_ci_gate.py"
+    }
+  ],
+  "frozen_pin_reference": {
+    "bytes": 719530,
+    "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-runtime-sources.v8.json",
+    "sha256": "786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388"
+  },
+  "native_copy_count": 11,
+  "native_machine_gate_passed": true,
+  "overwrite_policy": "New destination and exclusive creation; no deletion or conflicting overwrite",
+  "payload_count": 12,
+  "schema": "reef.immutable-evidence-archive-manifest.v1",
+  "scope": "Exact completed full local CI evidence; machine regression only",
+  "source_pin_sha256": "786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388",
+  "worktree_mutations": "Only this new evidence archive; no runtime/canonical/impact/source-pin edits"
+}

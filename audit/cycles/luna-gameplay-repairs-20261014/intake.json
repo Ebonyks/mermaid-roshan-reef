@@ -1,0 +1,14 @@
+{
+  "id": "luna-gameplay-repairs-20261014-intake",
+  "scope": "Implement the owner-requested software change guide while preserving unfinished book work; stage Chapter Two repair, combat diagnosis, objective voice reuse assessment, reload/teardown and route/persistence verification.",
+  "tested_baseline": "056d890ef38f2496ab52669c955ada654f902511",
+  "integration_baseline": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "rules": ["DL-AUTH-05", "DL-AUTH-06", "DL-AUTH-07", "DL-AGE-01", "DL-AGE-03", "DL-AGE-04", "DL-AGE-06", "DL-SAVE-01", "DL-SAVE-02", "DL-SAVE-03", "DL-SAVE-04", "DL-SAVE-06", "DL-INT-12", "DL-SND-01", "DL-SND-02", "DL-SND-03", "DL-SND-04", "DL-SND-05", "DL-SND-10", "DL-SND-11", "DL-SND-12", "DL-SND-13", "DL-SND-14", "DL-SND-15", "DL-SND-16", "DL-SND-17", "DL-QA-01", "DL-QA-02", "DL-QA-04", "DL-QA-05", "DL-QA-06", "DL-QA-07"],
+  "findings": ["MA-PLAY-005", "MA-PLAY-001", "MA-PLAY-003", "MA-PLAY-004", "MA-CI-005", "MA-CI-008", "MA-CHILD-001", "MA-PERF-001"],
+  "evidence": "Task-owned luna-findings.json and 730-file verified payload under C:/Users/Peter/.codex/visualizations/2026/10/14/01a13860-5096-76d3-8130-30e48e47bc62; original campaign failures and acceptance limits preserved.",
+  "required_evidence": ["failing baseline and production viewport input reproduction", "minimal code/harness repairs with negative controls", "exact Godot4.7.2 analyzer/import and all trusted probes", "audit_document_authority and audit_development coverage", "exact-head remote CI before dev integration", "separate rendered/device/child/owner acceptance and protected-voice source gaps"],
+  "state": "DURABLE_BASELINE_GATE_RUNNING; CLEAN_WORKTREE_READY; NO_GAME_EDITS; TWO_AUTHORIZED_NEUTRAL_CUES_STAGING",
+  "worktree": "C:/Users/Peter/.codex/worktrees/luna-gameplay-repairs-20261014/mermaid-roshan-reef",
+  "owner_voice_instruction": {"date": "2026-10-14", "verbatim": "Just make something up", "context": "Response to missing exact Evie tap-target and Faron three-catch recording-source question", "scope": "Two neutral synthetic guide cues using approved local Kokoro workflow; no protected-original modification, family impersonation, paid API budget or global voice-policy weakening"},
+  "notes": "Create committed design/audit_impacts record in clean implementation worktree covering every changed project file. Preserve original dirty checkout via rescue snapshot without modifying its files/index/branch. No release promotion requested."
+}

@@ -1,0 +1,79 @@
+{
+  "status": "PASS_SCOPED_LOCAL_DISPLAY",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "mobile",
+  "display": "Vulkan1.4 NVIDIA RTX3060Ti",
+  "dimensions": [
+    1280,
+    720
+  ],
+  "route": "Real OGV arrival -> propagated focus-out -> mounted castle -> viewport Royal Hall retry -> real three-round combat -> earned DayTwo",
+  "fixture_limits": "Prior room completion supplied; earlier clips marked seen for focused encounter test; no fresh-save/QA11/device/child/owner acceptance. Captures are diagnostic runtime evidence, not new artwork or generation pixels.",
+  "source_pin": "audit/grand_puff_crash_20261017/source_pin_attempt1.json",
+  "harness": "audit/grand_puff_crash_20261017/display.gd.txt",
+  "log": "audit/grand_puff_crash_20261017/display.log",
+  "images": [
+    {
+      "path": "audit/grand_puff_crash_20261017/display/01_arrival.png",
+      "sha256": "24dccbcb675b1e67f0bec41a887a03e823945a7eb108c968755dbd8751713893",
+      "bytes": 1069645
+    },
+    {
+      "path": "audit/grand_puff_crash_20261017/display/02_recovered_castle.png",
+      "sha256": "f649e8dbcafe068f19f3ed3a2172c9fd6126eadb7ddc1c021e1a60c4f191037b",
+      "bytes": 1510586
+    },
+    {
+      "path": "audit/grand_puff_crash_20261017/display/03_boss_entry.png",
+      "sha256": "e168ae55421a740e0450e00f09e7875d1e40128db740bb803e3602ac41530d95",
+      "bytes": 1112486
+    },
+    {
+      "path": "audit/grand_puff_crash_20261017/display/04_live_fight.png",
+      "sha256": "230863d2f4d783e0bb76bc78c6351b7aad6c97172ec4bdeef0f3183e359204f6",
+      "bytes": 1132443
+    },
+    {
+      "path": "audit/grand_puff_crash_20261017/display/05_after_fight.png",
+      "sha256": "4bd6384e4a5fe326c666d82c9252db168da26042af85194f8a5e49391a56ca0c",
+      "bytes": 645800
+    }
+  ],
+  "final_candidate_equivalence": {
+    "final_source_pin": "audit/grand_puff_crash_20261017/source_pin_final.json",
+    "only_changed_source": [
+      "scripts/probe_dust_boss.gd",
+      "scripts/probe_throne.gd",
+      "scripts/probe_verbs.gd"
+    ],
+    "explanation": "Production runtime and the standalone display harness are unchanged from capture. Only independent trusted-probe preconditions differ; their rerun/reconciliation records are separate. No formal QA11/clean-Git/device/child/owner acceptance."
+  },
+  "rejected_attempt_images": [
+    {
+      "path": "audit/grand_puff_crash_20261017/display_attempt1/01_arrival.png",
+      "sha256": "4a96e2bacfb0442d6e7bb78ace1099b812648a5e0251108cd42fe12a537dc6d3",
+      "bytes": 1072410
+    },
+    {
+      "path": "audit/grand_puff_crash_20261017/display_attempt1/02_recovered_castle.png",
+      "sha256": "d93968fcabdfd13355a484d5c10f96db47743323c141b06a2c57b8c1a6d4405b",
+      "bytes": 1510554
+    },
+    {
+      "path": "audit/grand_puff_crash_20261017/display_attempt1/03_boss_entry.png",
+      "sha256": "5eaba4016a1b02583da5d3405236cd08f875f29ad7bb521374804fc33e124500",
+      "bytes": 1112582
+    },
+    {
+      "path": "audit/grand_puff_crash_20261017/display_attempt1/04_live_fight.png",
+      "sha256": "8c0a6089506a672451929ebd74cc11409a50bf7068235d69ca58daa30020dc0f",
+      "bytes": 1132415
+    },
+    {
+      "path": "audit/grand_puff_crash_20261017/display_attempt1/05_after_fight.png",
+      "sha256": "93cc4262a272e96ed381f0166becf12c7488b8d9cf5a86c76e2a30d64600589d",
+      "bytes": 1510292
+    }
+  ],
+  "rejected_attempt_log": "audit/grand_puff_crash_20261017/display_attempt1.log"
+}

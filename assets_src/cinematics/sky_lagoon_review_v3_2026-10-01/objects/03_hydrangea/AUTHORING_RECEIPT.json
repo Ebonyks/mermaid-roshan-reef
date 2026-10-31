@@ -1,0 +1,100 @@
+{
+  "id": "03_hydrangea",
+  "status": "REFERENCE_SAMPLE",
+  "frame_canvas": [
+    512,
+    512
+  ],
+  "unique_generated_pose_drawings": 6,
+  "authored_light_states": 0,
+  "method": "Fresh generated pose drawings; Aseprite alpha cleanup and anchor registration. No deformation of the old source supplies motion.",
+  "input": "generated_native.png",
+  "input_sha256": "352c59432f4d88f80cd648ac5d2f8a3ec63b49d899d09345b1acb99e501b9a1c",
+  "state_rgba_sha256": [
+    "3d7e6f33251b7cee6775ed21c7e74a33405dbff2328b310e915b853ba718454a",
+    "21708b1982968b71ebcd027043c1f3b2084c4a20c34e8ff2a39b429a4dd54e6a",
+    "828f86ee8e1c05c9af55155d63a469b7378313cc9f6dc231026a87f8ba7ac02f",
+    "82bb76011a77491e964cdf7fcab1016776886f80dfc64dbdd93a82e938adc7e4",
+    "b48ce392d9e7d63319b7bbf022e20cb37a39ba480c598d73b7328133d2acdf78",
+    "c58974ee1ab5cc505aa352cbd3a3c649fff8ee400b05cbe619defea334bd3ba8"
+  ],
+  "pose_native_bounds": [
+    [
+      44,
+      62,
+      494,
+      507
+    ],
+    [
+      40,
+      71,
+      477,
+      510
+    ],
+    [
+      57,
+      85,
+      484,
+      499
+    ],
+    [
+      36,
+      41,
+      482,
+      495
+    ],
+    [
+      29,
+      25,
+      503,
+      470
+    ],
+    [
+      58,
+      78,
+      493,
+      485
+    ]
+  ],
+  "border_cap_repairs": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "fixed_bottom_y": null,
+  "fixed_base_rect": null,
+  "edge_cleanup": {
+    "alpha_cutoff": 192,
+    "opaque_contours": true,
+    "method": "Largest connected subject mask; Aseprite rejects stray semi-transparent border noise, nearest-neighbor native pose registration."
+  },
+  "loop_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "duration_units_12fps": [
+    2,
+    2,
+    4,
+    2,
+    2,
+    4
+  ],
+  "limits": "Six-key acting examples remain coarse. AI detail/topology continuity and manual contacts require owner/production review. Not human hand drawing, accepted runtime art or full-frame cinematic delivery.",
+  "playback_duration_units_12fps": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "reference_phase_units_12fps": 19
+}

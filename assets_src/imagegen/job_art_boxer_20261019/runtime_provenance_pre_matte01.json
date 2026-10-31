@@ -1,0 +1,239 @@
+{
+  "records": [
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/glove_left.png",
+      "sha256": "05404e12d2b5d57435de2772cf416622929cbaf1b2a516ca570b8c1b4e704033",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/boxing_glove_left_native.png",
+      "source_sha256": "8749d71eb5cdd5f84dc5a9bd96197b8ec6ac808b51333cd31bce9e1a032176ea",
+      "modifications": "Whole original canvas uniformly downsampled1024to512; no crop, flip, paint or warp. Separate original left/right sources preserve coral/teal cuffs."
+    },
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/glove_right.png",
+      "sha256": "ec18be3560ffcf9b88f62282da2dc7bd52b162ec4e81c6ea6b9d22105a40248f",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/boxing_glove_right_native.png",
+      "source_sha256": "6a748cb12f71b81f4b9d01cf08bdf14d99831c48a13530288dc537ef4bc150b9",
+      "modifications": "Whole original canvas uniformly downsampled1024to512; no crop, flip, paint or warp. Separate original left/right sources preserve coral/teal cuffs."
+    },
+    {
+      "path": "assets/ui/pearl_empty.png",
+      "sha256": "8c0307da6cbf0838715875a749b8cd6fef77adb9b1dbd4115f272f5cb4bf3976",
+      "dimensions": [
+        128,
+        128
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/pearl_empty_retry_native.png",
+      "source_sha256": "520549605193a3404b068be34810fad37396d0ccf08a10aba3e12de01cce5391",
+      "modifications": "Common native crop104,108,1152,1144; uniform fit<=116px and transparent128padding, no paint/warp.",
+      "placement": [
+        6,
+        6
+      ]
+    },
+    {
+      "path": "assets/ui/pearl_filling.png",
+      "sha256": "3134fee17b574903a6dcee86ad447b77a9da1f05e36f2741fc6e7eddd32f6f79",
+      "dimensions": [
+        128,
+        128
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/pearl_filling_retry_native.png",
+      "source_sha256": "a347c253af199c4061b6a685d531eb7d375e521cd2f77216209caecd3ade3e71",
+      "modifications": "Common native crop104,108,1152,1144; uniform fit<=116px and transparent128padding, no paint/warp.",
+      "placement": [
+        6,
+        6
+      ]
+    },
+    {
+      "path": "assets/ui/pearl_full.png",
+      "sha256": "9a0e76dd56e32efbb201d77901d0147b99be0d002ff36430f4a656c64060e2d5",
+      "dimensions": [
+        128,
+        128
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/pearl_full_native.png",
+      "source_sha256": "829625262dbf1aa507eee2a5380d62df84a48f18b85da0d868494d3eacea0b8e",
+      "modifications": "Common native crop104,108,1152,1144; uniform fit<=116px and transparent128padding, no paint/warp.",
+      "placement": [
+        6,
+        6
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_open.png",
+      "sha256": "ad9d78ea23fc85c404c3466224a27a2813ba3fec80fb254976fcfeb5e7ec01ba",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/invite_open_native.png",
+      "source_sha256": "8775dde0b545a1d5374e029484927c0f74ba5711976829c7f7c2ea1fce3d9a66",
+      "modifications": "Uniform measured opaque-ring-body registration with transparent256canvas; preserve all glints and source pixels; no recolor/paint/warp.",
+      "alpha128_main_body_bbox": [
+        44,
+        362,
+        1213,
+        953
+      ],
+      "uniform_scale": 0.19846022241231823,
+      "body_native_center": [
+        628.5,
+        657.5
+      ],
+      "placement": [
+        3,
+        -2
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_0.png",
+      "sha256": "f99a5e2ef98aa3de9df1be8c646df7d63c4551930d701a5cbd6e64df48e8f993",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/invite_ring_native.png",
+      "source_sha256": "77a46513dcefab2821201b23e2681cadd432d5ab343615feeaba3afbb54e51b7",
+      "modifications": "Declared whole-object uniform breathing scale on registered source, transparent256canvas. Four named technical scale keys, not four generated frames.",
+      "body_registration": {
+        "alpha128_main_body_bbox": [
+          41,
+          433,
+          1213,
+          913
+        ],
+        "uniform_scale": 0.19795221843003413,
+        "body_native_center": [
+          627.0,
+          673.0
+        ],
+        "placement": [
+          4,
+          -5
+        ]
+      },
+      "scale_key": 0.94
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_1.png",
+      "sha256": "0b540c21ca763148efb9d1ec2a9dcbb8c5e1b75dc018ef82ae8fa407fac2e0c0",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/invite_ring_native.png",
+      "source_sha256": "77a46513dcefab2821201b23e2681cadd432d5ab343615feeaba3afbb54e51b7",
+      "modifications": "Declared whole-object uniform breathing scale on registered source, transparent256canvas. Four named technical scale keys, not four generated frames.",
+      "body_registration": {
+        "alpha128_main_body_bbox": [
+          41,
+          433,
+          1213,
+          913
+        ],
+        "uniform_scale": 0.19795221843003413,
+        "body_native_center": [
+          627.0,
+          673.0
+        ],
+        "placement": [
+          4,
+          -5
+        ]
+      },
+      "scale_key": 1.0
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_2.png",
+      "sha256": "9028055d40d77b04d4a6c4de402a8c0e6d32602bfbaf66223c5efffa1e24af3e",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/invite_ring_native.png",
+      "source_sha256": "77a46513dcefab2821201b23e2681cadd432d5ab343615feeaba3afbb54e51b7",
+      "modifications": "Declared whole-object uniform breathing scale on registered source, transparent256canvas. Four named technical scale keys, not four generated frames.",
+      "body_registration": {
+        "alpha128_main_body_bbox": [
+          41,
+          433,
+          1213,
+          913
+        ],
+        "uniform_scale": 0.19795221843003413,
+        "body_native_center": [
+          627.0,
+          673.0
+        ],
+        "placement": [
+          4,
+          -5
+        ]
+      },
+      "scale_key": 1.04
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_3.png",
+      "sha256": "0b540c21ca763148efb9d1ec2a9dcbb8c5e1b75dc018ef82ae8fa407fac2e0c0",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/invite_ring_native.png",
+      "source_sha256": "77a46513dcefab2821201b23e2681cadd432d5ab343615feeaba3afbb54e51b7",
+      "modifications": "Declared whole-object uniform breathing scale on registered source, transparent256canvas. Four named technical scale keys, not four generated frames.",
+      "body_registration": {
+        "alpha128_main_body_bbox": [
+          41,
+          433,
+          1213,
+          913
+        ],
+        "uniform_scale": 0.19795221843003413,
+        "body_native_center": [
+          627.0,
+          673.0
+        ],
+        "placement": [
+          4,
+          -5
+        ]
+      },
+      "scale_key": 1.0
+    },
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/focus_mitt.png",
+      "sha256": "7e992937b342b9c30d064e4e7b4d33bc6ed19c0df31b08e8a59603fd570b32d2",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/focus_mitt_native.png",
+      "source_sha256": "1483fea9c19b6b1a5688ff0c93cd0b942bf2412bf48ef278720b10583eb127ed",
+      "modifications": "Whole native canvas uniformly downsampled to512; transparent margins and all authored contours retained. No crop/paint/warp."
+    },
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/impact_puff.png",
+      "sha256": "459d5f4ed6f11d51540fd31611056b739c2c7113f7a55d72ff78ec0445bb96ea",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source": "assets_src/imagegen/job_art_boxer_20261019/impact_puff_native.png",
+      "source_sha256": "94eee12a67bf100294bec139387e2cfaf04cd9464d28252ae3c2c028a4fb1361",
+      "modifications": "Whole native canvas uniformly downsampled to512; transparent margins and all authored contours retained. No crop/paint/warp."
+    }
+  ],
+  "source_roles": "All appearance pixels are original/recovered ImageGen raster. Python only technical sampling/padding/translation and diagnostic mask measurement; no RGB repaint or code-art substitution.",
+  "guide_reuse": "Exact published Teacher guide_hand.png used by Boxer, no regeneration or protected-source modification.",
+  "attempts": "9new calls:2ring/open,5pearl states including first empty/filling readability rejects,1focusmitt and1cleanpuff. Native/prompts/hashes preserved. No paid API/CLI; revision unexposed.",
+  "lane": "Static object keys and rigid whole-object local effects; fulltime/contact/human/device/child/owner acceptance separate."
+}

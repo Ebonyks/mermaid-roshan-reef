@@ -1,0 +1,22 @@
+{
+  "baseline": "a9875690ceff436e9ce012a675db09a236aef0f5",
+  "source_sha256_raw_checkout": {
+    "scripts/opera_house_venue_2d.gd": "c8e66c290ae720ff6eaae2284566043ed5abd83c348241a38df149904dc872d9",
+    "scripts/probe_opera.gd": "4298aa4b5847a2ab94e65612037aa49cafa5820c110bc074b6a2b227327e0dc0",
+    "shaders/opera_door_icon_mask.gdshader": "12030c82821b266247b802327fa9198067d385f97591caec4cbee21641bb9921",
+    "shaders/opera_badge_repair_feather.gdshader": "58b86c3ac4965dcae8d2fafc7922e27f1d8a682becfbdb5e1f05dd533382f079",
+    "tools/build_opera_door_icon_patches.gd": "e9bbbe6d814630264e966acd79a6eda03b3aa70fdb2dc9f3c06006eb13cdaf4c"
+  },
+  "captures_sha256_raw": {
+    "local_foyer.png": "608d3ea57994626773caf8b7dbfae3e2b3d5a1217c356768658f282ff6946355",
+    "local_display.json": "2fa44d6df09405717982a34bc23981f3c82aeb26d700daddc0b59111328bea9e",
+    "local_ai_bridge.json": "f0da4d96edaea621bd9cc05ea0038ac6dd24b216463cda55171c484121cf15f4",
+    "local_editor.log": "bf5ca45ce2d7332fea7d43279d561a28116f85c0e626a44e6038e932920d7735",
+    "local_review_launcher.py.txt": "3eb1b633daf49eb6749cf3d2fc505a489aa8ec3b97fe171e7b1801ef0dc1740b",
+    "local_display_driver.gd.txt": "53e54d26eddd0e05b3ad2b52f11e45ad27bbd5f014190bd9972ed31c2c9f4ca6"
+  },
+  "visual_review": "Root inspected the final native Mobile framebuffer. All12 round original emblems sit centered above restored arches with a visible gap. Twelve local feathered patches heal the old badge sites without visible hard rectangle seams. All8 original background tiles remain byte-identical and still render the room.",
+  "preservation": "original_background_preservation.json binds the original tiles; badge_repairs/manifest.json binds only small native crop rectangles. No full generated background enters runtime.",
+  "limits": "Isolated diagnostic foyer mount. Not fresh-save reachability, formal QA11, physical-device, child or owner acceptance. Existing native-background resolution debt is unchanged.",
+  "bridge": "Local native Godot AI plugin/server/debugger is live in the main foyer; no model-facing MCP call is claimed."
+}

@@ -1,0 +1,55 @@
+[
+  {
+    "id": "oven_open",
+    "prompt": "Use case: precise-object-state edit. Image1 is the exact accepted target oven; preserve its terracotta body, shell crest, cream columns, feet, gold hardware, front camera, canvas placement, painted texture and RGBA outer transparency. Make its OPEN state. Image2 only demonstrates the existing design's door folding DOWN into a short horizontal warm-gold tray. Open the circular-window door downward on its bottom edge; the same shell handle is attached to the outer door, not left floating in the opening. The body stays fixed; only that complete door changes pose. Show a dark warm amber EMPTY circular-arched cavity behind the open door, no cake/pan/food or extra fixture. Right-side gold fittings stay attached to the frame. The lowered door fits fully in the lower part of the same square canvas, with its complete front contour visible and safe transparent gutter; no cropping. Same polished softly painted storybook2D finish, strong plum/brown contours, broad value bands and upper-left light. No floor, shadows, scene, glow outside, words, arrows, new panels, numbers or extra props. This is ONE whole open-oven cutout, not a diagram or two views.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_cool_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_gameplay_oven_open.png"
+    ],
+    "native_file": "oven_open_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 43889,
+    "disposition": "CANDIDATE_PENDING_SOURCE_CONTEXT_TECHNICAL_REVIEW"
+  },
+  {
+    "id": "frosting_segment",
+    "prompt": "Use case: isolated painted game decoration. Match the creamy soft PIPED FROSTING finish and plum-brown contours on the reference cake, using PINK frosting. Render ONE SHORT STRAIGHT HORIZONTAL frosting ribbon as a repeatable stroke segment, with a broad rounded ridged cross section, soft salmon-pink shadow on lower edge and cream-pink broad top highlight. It runs from x10% to90% at y50%, constant thickness about18% of square canvas height, with flat clean cut left/right ends so copies can meet end-to-end. Two or three broad lengthwise piping grooves, never tiny noisy texture. Front-facing2D, no depth perspective or diagonal tilt. Complete segment, real RGBA transparency outside, generous empty space top/bottom. NO whole cake, piping bag, mound, swirled dollop, plate, bowl, shadow, background, glow, sparkles, labels or extra piece. A soft painted edible ribbon, not vector/code geometry, glossy3D or a fabric strip.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_gauge_chef_success.png"
+    ],
+    "native_file": "frosting_segment_first_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 67793,
+    "disposition": "REJECTED_ROLE_MISMATCH: decorative swags, not a straight trace stroke"
+  },
+  {
+    "id": "frosting_segment_retry",
+    "prompt": "Create ONE straight short length of PINK PIPED BUTTERCREAM, like a straight line of toothpaste extruded through a star nozzle. This is a game sprite. Absolutely straight HORIZONTAL centerline. Rounded ribbed cylindrical cross-section, constant thickness, TWO flat cut ends. Four shallow grooves run straight from left to right. Soft coral-pink shadow below, broad creamy-pink highlight above, confident warm plum painted contour. Soft hand-painted2D storybook food illustration matching reference material and broad brush finish. Width about six times its thickness. NO sagging, drooping, scallops, swags, loops, hanging points, knots, bows, fabric, decorative garland or multiple pieces. No whole cake, dollop mound, piping bag, plate, scene, cast shadow, halo, label, lettering or sparkles. Entire single rope visible on true RGBA transparent background with blank gutter. A plain straight usable stroke segment, not the reference cake's ornamental trim.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_gauge_chef_success.png"
+    ],
+    "native_file": "frosting_segment_retry_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 48811,
+    "disposition": "CANDIDATE_PENDING_SOURCE_CONTEXT_TECHNICAL_REVIEW"
+  },
+  {
+    "id": "batter_stream",
+    "prompt": "Create ONE simple STRAIGHT VERTICAL narrow strip of flowing pale vanilla-gold cake batter for a painted2D storybook game. Reference is MATERIAL COLOR only: match the creamy yellow batter inside the pitcher, do not draw any pitcher. The strip is a constant-width liquid ribbon with softly rounded cross section, two broad cream highlights and warm ochre edge shadow, restrained hand-painted texture, clean plum-brown outer contour. It is about seven times taller than wide, perfectly straight with no bends. Its TOP and BOTTOM are FLAT CUT ends so identical sections can join into a continuous stream. No tapered drip tip, splashes, beads or gaps in this tile. Entire single vertical strip centered, true RGBA transparent background and generous empty gutter; no vessel, spoon, food, frame, floor, cast shadow, glow, background, words or extra objects. Broad painted value bands, not flat vector, noisy realism or glossy3D. Clear enough for a narrow12px-wide stream in gameplay.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_pour_chef_mover.png"
+    ],
+    "native_file": "batter_stream_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 26834,
+    "disposition": "CANDIDATE_PENDING_SOURCE_CONTEXT_TECHNICAL_REVIEW"
+  }
+]

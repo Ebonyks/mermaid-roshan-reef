@@ -1,0 +1,175 @@
+{
+ "id": "job-art-imagegen-audit-20261017",
+ "scope": "Owner request 2026-10-17: identify weak artwork in the game, particularly in the jobs; identify where ImageGen versions were made but are not properly in the game and where ImageGen art is still needed, to eliminate flat vector art; then make a Codex handoff to revise them. Claude wrote an audit, written ImageGen briefs and a 108-item register (docs/handoffs/codex_job_art_imagegen_2026-10-17/), with a numbers-only measurement tool that never writes images. Findings at dev 7a65b9f0: the Opera career code makes 972 primitive draw calls against 107 texture draws; 28 of 61 career phases draw their own picture; five SVG files are live; 74 finished painted job images sit on four unmerged branches with no copy on dev; a painted Geologist grotto has sat unprepared in assets_src since 2026-09-05; four code paths request painted art that was never made and two Geologist texture paths are empty strings; much painted art is loaded but not drawn, or is stretched, ghosted or covered. New finding MA-VIS-010 (P1). Cross-reference history added to MA-VIS-008 and MA-OPERA-001 with lifecycles unchanged; master audit triage row, task route and change history; document ledger rows. No game file, asset, image or other finding lifecycle changes. Revision 2 (same task, after review of revision 1): corrected three counts. Every career, not nine, has a code-drawn object the child acts on. Four code paths, not three, request never-made art (the fourth is six per-career success images). The shared gesture surface serves eleven careers. It also records that no stranded image is named in Codex's flat-vector packet. The finding, triage row and README status were updated to match. Revision 3 (2026-10-18): the owner answered Q1-Q5 in the session: \"all the above\", \"yes\", \"use them\", \"use extra stuffies\" and \"yes\". They were recorded verbatim with tools/record_owner_decision.py as ODR-JOBART-ORDER-20261018, ODR-JOBART-DECORATION-20261018, ODR-JOBART-NURSERY-FRAMES-20261018, ODR-JOBART-SHARE-STUFFIES-20261018 and ODR-JOBART-PROCESS-20261018. README gains an owner-answers section and package notes. Brief JB-CDY-02 becomes stuffie recipients (Lamb-a' reused, Mewsha painted, consistent with Codex's in-flight ODR-CANDY-BOXES-FAMILY-20261017). JB-SHR-01 closes. The register, the MA-VIS-010 owner decision and history, the master change history and the ledger note were updated. Revision 4 (2026-10-18): merged dev fa0ee524, which added Claude's owner-accepted ground-up rebuild of Pop Star, Ballerina and Racer (MA-OPERA-014). The register items JA-POP, JA-BAL and JA-RAC become SUPERSEDED_BY_REBUILD (diagnosis only). BRIEFS sections 10, 11 and 13 are closed. README P7 points to the rebuild and notes two stranded inputs: the kart side views and the Lamb-a' art. The decision register conflict was resolved append-only, with dev's decisions first and the five ODR-JOBART decisions after them.",
+ "baseline": "7a65b9f0abacddeee70230f220955f4d18d551b5",
+ "rules": [
+  "DL-AUTH-05",
+  "DL-AUTH-06",
+  "DL-AUTH-07",
+  "DL-VIS-01",
+  "DL-VIS-02",
+  "DL-VIS-04",
+  "DL-VIS-05",
+  "DL-VIS-07",
+  "DL-MED-05",
+  "DL-LAY-03",
+  "DL-LAY-05",
+  "DL-INT-02",
+  "DL-INT-03",
+  "DL-READ-02",
+  "DL-READ-04",
+  "DL-PERF-04",
+  "DL-PERF-06",
+  "DL-ASSET-01",
+  "DL-ASSET-02",
+  "DL-ASSET-03",
+  "DL-ASSET-04",
+  "DL-ASSET-06",
+  "DL-UI-06"
+ ],
+ "findings": [
+  "MA-VIS-010",
+  "MA-VIS-008",
+  "MA-OPERA-001",
+  "MA-TYPE-004",
+  "MA-2D-002",
+  "MA-ASSET-001",
+  "MA-DOC-008"
+ ],
+ "files": [
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/.gdignore",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/AUDIT.md",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/BRIEFS.md",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/MANIFEST.json",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/job_art_register.json",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/data/measure_baseline.json",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/tools/measure_job_art.py",
+  "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+  "audit/MASTER_AUDIT_2026-08-09.md",
+  "design/05_DOC_LEDGER.md",
+  "docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json",
+  "design/reference/owner_decisions.json",
+  "design/reference/OWNER_DECISIONS.md",
+  "audit/cycles/job-art-imagegen-20261018/owner_answers.json"
+ ],
+ "validation": [
+  {
+   "command": "Read-only source review: the master audit planning entry and task index, design 06 sections 4, 5, 6, 12 and 14, the development contract, the active findings, the document ledger, the gold-star scorecard (design/reference/games.json), the owner decision register, and Codex's flat-vector program on codex/flat-vector-r6-20261012 (CURRENT.json, PRODUCTION_QUEUE.json, PRODUCTION_WORKFLOW.md, r96 tally and per-piece register, r95 OWNER_PRIORITY.json)",
+   "result": "PASS",
+   "evidence": "Cited by path in AUDIT.md sections 2, 3 and 7 and in the MA-VIS-010 record."
+  },
+  {
+   "command": "Code reading of every job script in four read-only sweeps (shared gesture surface; career world, backdrop, hotspots, living world and chef surface; specialist surfaces; Day One and Chapter Two), with every claim used spot-checked by Claude against the source",
+   "result": "PASS",
+   "evidence": "Line citations in AUDIT.md sections 3-6 and in data/job_art_register.json. Spot checks include opera_geology_surface.gd:40-47, opera_boxing_surface.gd:761-780, opera_gesture_surface.gd:655-682, 704-725, 740-770, 1961-1972, 3131-3149, 3685-3740, 5021-5032, 5358-5382, 5816-5860, opera_career_world_2d.gd:1217-1228, 2164-2182, 2335-2348, 2417-2473, 2740-2752, 4650-4660, opera_world_backdrop_2d.gd:255-270, 350-361, opera_world_hotspot_2d.gd:273-310, opera_chef_surface.gd:166-177, castle_career_routes.gd:44-50, main.gd:7446-7472."
+  },
+  {
+   "command": "python -B docs/handoffs/codex_job_art_imagegen_2026-10-17/tools/measure_job_art.py --base origin/dev --branch origin/codex/job-art-review-v2-20261001 --branch origin/codex/racer-existing-engine-2d-20261003 --branch origin/codex/astronaut-clearance-20261006 --branch origin/codex/flat-vector-geologist-pan-runtime-20261017 --branch origin/codex/studio-scene-integration --program-branch origin/codex/flat-vector-r6-20261012 --out docs/handoffs/codex_job_art_imagegen_2026-10-17/data/measure_baseline.json",
+   "result": "PASS",
+   "evidence": "At 7a65b9f0: 61 phases in 15 careers, 33 with painted widget art, 28 drawing their own picture; 1,169 primitive draw calls in 70 runtime scripts (1,047 in job scripts, 972 in the Opera career groups against 107 texture draws); 5 runtime SVG files; stranded images 40 + 25 + 3 + 6 with no same bytes on dev (the pan's bytes exist only under assets_src); cutout check 74 CUTOUT_OK and 1 NO_ALPHA; 3 of 243 non-merge commits on the flat-vector branch change scripts, assets or scenes. A second run reproduced the file byte for byte. The tool reads pixels for the alpha profile and writes no image."
+  },
+  {
+   "command": "Viewing existing images only: stranded Geologist fossil, layered rock, mineral, pan, work slab, opened geode, six-state geode sheet, river junctions and nodes; Nursery care_00, wash ready and cradle; boxing glove; kart straight and side; Astronaut gear, pipe and fluid; Pool skimmer; the geology grotto candidate; one July concept card; approved props used as style anchors",
+   "result": "PASS",
+   "evidence": "Branch files were byte-copied with git show to the session scratchpad for viewing only; nothing was created or edited. Verdicts in AUDIT.md section 3.1."
+  },
+  {
+   "command": "python -B tools/audit_document_authority.py",
+   "result": "PASS",
+   "evidence": "DOCAUTH|INVENTORY=709|LEDGER=709|ACTIVE=70|RECORDS=73; DOCAUTH|RESULT|ALL OK on the staged candidate from 7a65b9f0."
+  },
+  {
+   "command": "python -B tools/audit_development.py --base auto",
+   "result": "PASS",
+   "evidence": "AUDITDEV|BASE|7a65b9f0abacddeee70230f220955f4d18d551b5; AUDITDEV|RESULT|ALL OK on the staged candidate (rerun after MANIFEST.json and this record were staged)."
+  },
+  {
+   "command": "python -B tools/audit_game_2d.py --regression-gate",
+   "result": "PASS",
+   "evidence": "Result NO_REGRESSION: the production and probe 3D-debt counts (52 and 61) and the zero model-file count are unchanged, and the status stays UNSATISFIED as before. Run after the last JSON edit, before push."
+  },
+  {
+   "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+   "result": "PASS",
+   "evidence": "Ran 54 tests, OK, on the staged candidate."
+  },
+  {
+   "command": "Probe Suite (.github/workflows/probes.yml) on the pushed branch head",
+   "result": "PASS",
+   "evidence": "Run 39114940121 on d4448ae3. Attempt 1: the probes job passed (09:20-10:20Z); area-music-provenance timed out at its 15-minute limit inside the actions/checkout fetch before any step ran. Attempt 2 re-ran only that job, and it passed (10:22-10:29Z). dev was then fast-forwarded from 7a65b9f0 to d4448ae3."
+  },
+  {
+   "command": "Anonymous HTTPS GET of every MANIFEST.json file from raw.githubusercontent.com at the pushed commit (revision 1)",
+   "result": "PASS",
+   "evidence": "Revision 1 at 569dbf04f9e26619e6e9ffa896d2ad43b80497f2, checked 2026-10-18T09:12:35+00:00: manifest HTTP 200, sha256 54de18385c453ef3ebd09be17c97a441a7b2899b5510f1d8f5135a9ab3ab37fa; 7 of 7 listed files match bytes and SHA-256. Receipt: docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json."
+  },
+  {
+   "command": "Anonymous HTTPS GET of every MANIFEST.json file from raw.githubusercontent.com at the pushed commit (revision 2)",
+   "result": "PASS",
+   "evidence": "Revision 2 at 4da0a78ad65c0955d11e33bef7b345e8b3e2c4c2, checked 2026-10-18T09:19:15+00:00: manifest HTTP 200, sha256 da37951018b289794fca91e27aa5eefaca637bbed07864e0c71808b1725453ac; 7 of 7 listed files match bytes and SHA-256. Receipt: docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json."
+  },
+  {
+   "command": "git grep of codex/flat-vector-r6-20261012 docs/handoffs/codex_flat_vector_art_2026-10-07 for the stranded file names and branches",
+   "result": "PASS",
+   "evidence": "painted_work_v1, painted_geode_v1, coherent_geode, wash_connected, refinement_v1/cradle and boxing_glove appear in 0 files. geology_grotto_candidate appears in 5 files (source hash lists and licence snapshots). job-art-review-v2 and racer-existing-engine appear in 8 files each (CI checkout logs)."
+  },
+  {
+   "command": "python -B tools/record_owner_decision.py --answers <five 2026-10-18 answers> --cycle job-art-imagegen-20261018 --answered-on 2026-10-18; then --check --base origin/dev",
+   "result": "PASS",
+   "evidence": "DECISIONS|COUNT|52 and DECISIONS|RESULT|ALL OK; append-only against origin/dev d4448ae3. Answers quoted verbatim; interpretations stay in the handoff README, not in the decision text."
+  },
+  {
+   "command": "Anonymous HTTPS GET of every MANIFEST.json file from raw.githubusercontent.com at the pushed commit (revision 3)",
+   "result": "PASS",
+   "evidence": "Revision 3 at fbd540332485cfb0b88b5aee3d1bb024cce79e5c, checked 2026-10-18T14:35:32+00:00: manifest HTTP 200, sha256 f840720e75ee8186e4cd39860639e9f6d549aec56b8ce9b8fd62136bb4ba8f9c; 7 of 7 listed files match bytes and SHA-256. Receipt: docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json."
+  },
+  {
+   "command": "Probe Suite (.github/workflows/probes.yml) on the revision 3 branch head, before merging into dev",
+   "result": "PASS",
+   "evidence": "Run 39136781801 on bb9e2320: probes success (14:38-15:40Z) and area-music-provenance success. dev had moved to fa0ee524 meanwhile, so revision 4 merges dev and needs its own run before the fast-forward."
+  },
+  {
+   "command": "git merge --no-commit origin/dev (fa0ee524); register conflict resolved by appending the five ODR-JOBART decisions after dev's; python -B tools/record_owner_decision.py --check --base origin/dev",
+   "result": "PASS",
+   "evidence": "DECISIONS|COUNT|58, DECISIONS|RESULT|ALL OK. The resolved register differs from dev only by the five appended decisions (+60 JSON lines, +5 view rows). The master audit, findings and ledger merged without conflict, and both sessions' entries are present."
+  },
+  {
+   "command": "Anonymous HTTPS GET of every MANIFEST.json file from raw.githubusercontent.com at the pushed commit (revision 4)",
+   "result": "PASS",
+   "evidence": "Revision 4 at 06a12ee7302dc22d6ac2cd16ece44c4de6870507, checked 2026-10-18T15:46:25+00:00: manifest HTTP 200, sha256 58ab9f3de39b4c4fd117e681dd0e359afc5fdd9a69d42e13499f1cf94035803c; 7 of 7 listed files match bytes and SHA-256. Receipt: docs/handoffs/codex_job_art_imagegen_2026-10-17/REMOTE_VERIFICATION.json."
+  },
+  {
+   "command": "Probe Suite (.github/workflows/probes.yml) on the revision 4 merge head, before fast-forwarding dev",
+   "result": "PENDING",
+   "evidence": "Required because the merge result has not been probed."
+  }
+ ],
+ "acceptance_gaps": "This is a written audit and handoff: no runtime capture, phone, child or owner session exists for any item, and every visual judgement comes from code and source images. Codex implements packages P0-P10; the owner answers Q1-Q5 and accepts each job's look on the phone (DL-VIS-07). The owner's 2026-10-17 ImageGen text is not yet on dev, and design rules DL-ASSET-01, DL-ASSET-02 and DL-ASSET-06 still state the earlier reuse-first rule (package P0).",
+ "lessons": [
+  {
+   "lesson": "Finished painted art can sit on topic branches for weeks while audits of dev report the gap as unsolved; dev-only inventories miss it.",
+   "write_back": "tools/measure_job_art.py --branch reconciliation (git blob check against dev) and the P10 census gate in the job-art handoff",
+   "recurrence_key": "stranded-art"
+  },
+  {
+   "lesson": "Code-drawn fallbacks behind texture loads hide missing or never-made art: pipe tiles, star notes and portal rings failed no check.",
+   "write_back": "BRIEFS.md rule C9 (delete the fallback and make the job probe fail when its texture is missing)",
+   "recurrence_key": "silent-fallback-art"
+  }
+ ],
+ "references_used": [
+  {
+   "path": "docs/handoffs/codex_gold_star_2026-10-03/README.md",
+   "purpose": "GS5 item 5 asks for painted replacements of code props, halos, spotlights and motifs; the briefs supply the written descriptions"
+  },
+  {
+   "path": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md",
+   "purpose": "Roshan identity decisions (ODR-ROSHAN-IDENTITY, -IRIDESCENT, -Q12, -Q13) bound in BRIEFS rule C6"
+  },
+  {
+   "path": "design/reference/games.json",
+   "purpose": "Gold-star C7 authored-art scores per career"
+  }
+ ]
+}

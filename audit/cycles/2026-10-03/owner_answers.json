@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ODR-GODOT-LATEST-STABLE-20261003",
+    "date": "2026-10-03",
+    "subject": "Project engine baseline",
+    "question": "Which engine baseline should this implementation use?",
+    "decision": "Update the project across the board to the latest stable Godot. Official latest-stable verification is recorded separately in the project baseline.",
+    "source": "audit/cycles/2026-10-03/IMPLEMENTATION.md#owner-engine-direction",
+    "authority": "recorded_owner",
+    "checks": [
+      "tools/audit_godot_baseline.py",
+      "tools/resolve_godot.py"
+    ],
+    "checkable": true,
+    "cycle": "2026-10-03"
+  }
+]

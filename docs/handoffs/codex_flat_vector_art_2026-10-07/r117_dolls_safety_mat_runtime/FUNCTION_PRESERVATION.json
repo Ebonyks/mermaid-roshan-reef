@@ -1,0 +1,33 @@
+{
+  "source_baseline": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+  "source": "scripts/games/dolls.gd",
+  "original_functions": 18,
+  "unchanged": 16,
+  "changed_render_load_only": [
+    "1:_ready",
+    "1:_draw"
+  ],
+  "added_render_only": [
+    "1:safe_mat_destination"
+  ],
+  "unchanged_functions": {
+    "1:focus_rect_at": "ca48c00e7788b139963c7e0d4a13468c3c0909984bdb6314833d9b18f8d15cb2",
+    "1:focus_envelope_rect": "4612b1e78aae5ca618b19348bcbe33eb62b56a1ae5e2a4919ef6c65294a8c07c",
+    "1:bowl_rect": "1305dcc443032346b3186acbe662301fc17c8f5271dcb8f4aaa0ee087c375829",
+    "1:safe_mat_rect": "dfaf832113766f43b656a65b14f7be5100ca3ac7aa61bf689af13ddb6064562b",
+    "1:safe_landing_point": "6c0ca8dae886f1fbcdbf67b3e10f6446ac8a0d36132a08fb2e9e7e509dac84c9",
+    "1:safe_landing_rect": "2940598fe56d909d90f5ba56ccf0d9714dd05b31956594261c48614c0d94e2fa",
+    "1:faller_rect": "df11e49b4f853342055438aadf08812dd78879aef02d24d5b5cf6d8b245d9ee2",
+    "0:_init": "ab923bf024232cc800ca22085ce24e69c178e54d68a42c3bf8eaca0dfebf1fb0",
+    "0:build": "ce68bd16a970f036cf73300b5fd0c34fbbd45a89a14eba6a4883fadbfb333050",
+    "0:_layout_surface": "3a785a0c1f2bbfa236ec13f0ecae0637246c711975de2587f36ebee480bce827",
+    "0:_layout_catcher_card": "1f3212aedb0441ec5f98f25365774bb1345346ca3beffd3478cf2810005d4820",
+    "0:_sync_state": "631dded0cb19fb8a8bb4189548e08f87644c59b51ef7a64b62b1a65c255912ce",
+    "0:_on_baby_caught": "4ceca147b78b5d81d8755a138825e9bc13c833b3e40fdac02b36a97a695571f6",
+    "0:_on_baby_missed": "694010df4f598f0c3b96e2d8e1dc9dfc0facb263cc0f19ef37a596251b20a773",
+    "0:_tick_dolls": "7630e270d99c5dd0a4dd5c9bf91c3f357b58ffbe0dca0fe4853496d6c3fcf2c0",
+    "0:stage_close": "817ff74bf1f6126af00a3a9160d95bf563dd470051f1b6906caf9a92aa5c5f73"
+  },
+  "parent_unchanged_sha256": "12d82b0febc1b1505ec329e15bf227a5f3f2126829e16e3b056330ac49a5b09c",
+  "scope": "Only inner load/render functions and pure texture destination helper; original safe_mat_rect and all other behavior functions exact LF bytes."
+}

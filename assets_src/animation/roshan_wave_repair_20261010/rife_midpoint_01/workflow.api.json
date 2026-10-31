@@ -1,0 +1,155 @@
+{
+  "1": {
+    "class_type": "FrameInterpolationModelLoader",
+    "inputs": {
+      "model_name": "rife_v4.25.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wave_repair_20261010/rife_midpoint_01/0006.png"
+    }
+  },
+  "3": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wave_repair_20261010/rife_midpoint_01/0003.png"
+    }
+  },
+  "4": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "2",
+        0
+      ],
+      "image2": [
+        "3",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "FrameInterpolate",
+    "inputs": {
+      "interp_model": [
+        "1",
+        0
+      ],
+      "images": [
+        "4",
+        0
+      ],
+      "multiplier": 2
+    }
+  },
+  "6": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "5",
+        0
+      ],
+      "filename_prefix": "wave_repair_20261010/rife_midpoint_01/pair_0006_0003"
+    }
+  },
+  "12": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wave_repair_20261010/rife_midpoint_01/0014.png"
+    }
+  },
+  "13": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wave_repair_20261010/rife_midpoint_01/0012.png"
+    }
+  },
+  "14": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "12",
+        0
+      ],
+      "image2": [
+        "13",
+        0
+      ]
+    }
+  },
+  "15": {
+    "class_type": "FrameInterpolate",
+    "inputs": {
+      "interp_model": [
+        "1",
+        0
+      ],
+      "images": [
+        "14",
+        0
+      ],
+      "multiplier": 2
+    }
+  },
+  "16": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "15",
+        0
+      ],
+      "filename_prefix": "wave_repair_20261010/rife_midpoint_01/pair_0014_0012"
+    }
+  },
+  "22": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wave_repair_20261010/rife_midpoint_01/0010.png"
+    }
+  },
+  "23": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "wave_repair_20261010/rife_midpoint_01/0012.png"
+    }
+  },
+  "24": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "22",
+        0
+      ],
+      "image2": [
+        "23",
+        0
+      ]
+    }
+  },
+  "25": {
+    "class_type": "FrameInterpolate",
+    "inputs": {
+      "interp_model": [
+        "1",
+        0
+      ],
+      "images": [
+        "24",
+        0
+      ],
+      "multiplier": 2
+    }
+  },
+  "26": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "25",
+        0
+      ],
+      "filename_prefix": "wave_repair_20261010/rife_midpoint_01/pair_0010_0012"
+    }
+  }
+}

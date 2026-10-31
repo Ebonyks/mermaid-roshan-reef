@@ -1,0 +1,1008 @@
+{
+ "schema": "roshan_repair_targets/1",
+ "measured_at_head": "b65c21fdddd79f272a6854f241faa1441abe6616",
+ "frame_numbering": "256 px cells read left to right, top to bottom from 0; career atlas rows are idle (0-3), travel (4-7), work (8-11), cheer (12-15)",
+ "rule": "Repair within each image's own design (owner kept the older career and playground Roshan on 2026-09-30); change only the named defect",
+ "not_in_this_batch": [
+  "playground colour jump (slide_3_v2, swing_3_v2)",
+  "boot splash rainbow hair",
+  "Tree Book test line weight and green hair patch",
+  "swim atlas ponytail side"
+ ],
+ "targets": [
+  {
+   "id": "R-01a",
+   "file": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+   "sha256_before": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+   "bytes": 910920,
+   "priority": 1,
+   "kind": "art",
+   "frames": [
+    {
+     "index": 0,
+     "rect_xywh": [
+      0,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 1,
+     "rect_xywh": [
+      256,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    }
+   ],
+   "defect": "Tail ends in a point with no fins",
+   "required_change": "Give the tail its rainbow fins, matching frames 2 and 3 of the same sheet in shape, colour and line",
+   "reuse_first": "Copy and fit the fins from frames 2 and 3",
+   "seen_by_the_child": "Castle career route card (idle frame 0) and the Opera stage idle loop",
+   "pins_to_update": [
+    "assets_src/imagegen/geologist_roshan_2026-08-30/PROVENANCE.md",
+    "assets_src/minigame_art_quality_2026-09-05/generation_manifest.json",
+    "audit/day2_art_library_2026-09-30/inventory.json",
+    "audit/day2_art_library_2026-09-30/reviews.json (if listed)",
+    "audit/day2_art_library_2026-09-30/preview_provenance.json",
+    "audit/day2_art_library_2026-09-30/priority_queue.csv",
+    "audit/day2_art_library_2026-09-30/index.html"
+   ]
+  },
+  {
+   "id": "R-01b",
+   "file": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+   "sha256_before": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+   "bytes": 910920,
+   "priority": 1,
+   "kind": "art",
+   "frames": [
+    {
+     "index": 12,
+     "rect_xywh": [
+      0,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    },
+    {
+     "index": 14,
+     "rect_xywh": [
+      512,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    }
+   ],
+   "defect": "Leftover white background inside the tail loop",
+   "required_change": "Make the enclosed background transparent; leave the tail and fins unchanged",
+   "reuse_first": "Alpha cleanup only",
+   "seen_by_the_child": "Cheer animation",
+   "pins_to_update": [
+    "same as R-01a"
+   ]
+  },
+  {
+   "id": "R-01c",
+   "file": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+   "sha256_before": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+   "bytes": 910920,
+   "priority": 3,
+   "kind": "check",
+   "frames": [
+    {
+     "index": 10,
+     "rect_xywh": [
+      512,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    }
+   ],
+   "defect": "Sand patch baked into the frame",
+   "required_change": "Check the native and provenance: if it is intended dig dust keep it; if leftover, remove it",
+   "reuse_first": "Alpha cleanup only",
+   "seen_by_the_child": "Work animation",
+   "pins_to_update": [
+    "same as R-01a"
+   ]
+  },
+  {
+   "id": "R-02a",
+   "file": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+   "sha256_before": "0084e74b73042832f248c26f6688e484b7376ea6418caee09b2e4beeebfb0ee9",
+   "bytes": 1028924,
+   "priority": 1,
+   "kind": "art",
+   "frames": [
+    {
+     "index": 0,
+     "rect_xywh": [
+      0,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 1,
+     "rect_xywh": [
+      256,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 2,
+     "rect_xywh": [
+      512,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 3,
+     "rect_xywh": [
+      768,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 4,
+     "rect_xywh": [
+      0,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 5,
+     "rect_xywh": [
+      256,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 6,
+     "rect_xywh": [
+      512,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 7,
+     "rect_xywh": [
+      768,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 8,
+     "rect_xywh": [
+      0,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 9,
+     "rect_xywh": [
+      256,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 10,
+     "rect_xywh": [
+      512,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 11,
+     "rect_xywh": [
+      768,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 12,
+     "rect_xywh": [
+      0,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    },
+    {
+     "index": 13,
+     "rect_xywh": [
+      256,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    },
+    {
+     "index": 14,
+     "rect_xywh": [
+      512,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    },
+    {
+     "index": 15,
+     "rect_xywh": [
+      768,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    }
+   ],
+   "defect": "A dark ribbon from the waist reads as a second thin tail (it flares up in frame 4)",
+   "required_change": "Shorten or restyle the ribbon so it ends at the hip as part of the costume and cannot read as a tail; keep the rest of the costume",
+   "reuse_first": "Paint from the same sheet; no regeneration",
+   "seen_by_the_child": "Opera stage (every animation)",
+   "pins_to_update": [
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_popstar_sheet_a_pack_report.json",
+    "audit/day2_art_library_2026-09-30/inventory.json",
+    "audit/day2_art_library_2026-09-30/reviews.json (if listed)",
+    "audit/day2_art_library_2026-09-30/preview_provenance.json",
+    "audit/day2_art_library_2026-09-30/priority_queue.csv",
+    "audit/day2_art_library_2026-09-30/index.html"
+   ]
+  },
+  {
+   "id": "R-02b",
+   "file": "assets/opera/worlds/actors/roshan_popstar.png",
+   "sha256_before": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523",
+   "bytes": 258084,
+   "priority": 1,
+   "kind": "art",
+   "frames": "whole image",
+   "defect": "The same ribbon reads as a second tail",
+   "required_change": "Same change as R-02a",
+   "reuse_first": "Paint from the card itself",
+   "seen_by_the_child": "The Melody game draws this card directly (scripts/games/melody.gd)",
+   "pins_to_update": [
+    "ASSET_LICENSES.md modification note",
+    "assets_src/concepts/opera_jobs_flat_2026-07-21/ provenance"
+   ]
+  },
+  {
+   "id": "R-03",
+   "file": "assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+   "sha256_before": "768e6980fa8f4ca9cc3281a2fb1f23f0fcdeac8f2d524e6135b3be03eafc13cb",
+   "bytes": 984016,
+   "priority": 2,
+   "kind": "art+code",
+   "frames": [
+    {
+     "index": 8,
+     "rect_xywh": [
+      0,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 9,
+     "rect_xywh": [
+      256,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 10,
+     "rect_xywh": [
+      512,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 11,
+     "rect_xywh": [
+      768,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    }
+   ],
+   "defect": "Spell rings and portals are baked into the character frames and float apart from her",
+   "required_change": "Move the effect pixels to a separate overlay sheet drawn at the same positions by the Magician surface; leave clean character frames",
+   "reuse_first": "Cut the effect pixels from these frames; do not repaint them",
+   "seen_by_the_child": "Opera stage work animation",
+   "pins_to_update": [
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_magician_sheet_a_pack_report.json",
+    "audit/day2_art_library_2026-09-30/inventory.json",
+    "audit/day2_art_library_2026-09-30/reviews.json (if listed)",
+    "audit/day2_art_library_2026-09-30/preview_provenance.json",
+    "audit/day2_art_library_2026-09-30/priority_queue.csv",
+    "audit/day2_art_library_2026-09-30/index.html"
+   ],
+   "notes": "The overlay keeps the look identical; it follows family F-FX (effects are overlays, never baked)."
+  },
+  {
+   "id": "R-04",
+   "file": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+   "sha256_before": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+   "bytes": 897042,
+   "priority": 2,
+   "kind": "art",
+   "frames": [
+    {
+     "index": 0,
+     "rect_xywh": [
+      0,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 1,
+     "rect_xywh": [
+      256,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 2,
+     "rect_xywh": [
+      512,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 3,
+     "rect_xywh": [
+      768,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 4,
+     "rect_xywh": [
+      0,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 5,
+     "rect_xywh": [
+      256,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 6,
+     "rect_xywh": [
+      512,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 7,
+     "rect_xywh": [
+      768,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 8,
+     "rect_xywh": [
+      0,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 9,
+     "rect_xywh": [
+      256,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 10,
+     "rect_xywh": [
+      512,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 11,
+     "rect_xywh": [
+      768,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 12,
+     "rect_xywh": [
+      0,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    },
+    {
+     "index": 13,
+     "rect_xywh": [
+      256,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    },
+    {
+     "index": 14,
+     "rect_xywh": [
+      512,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    },
+    {
+     "index": 15,
+     "rect_xywh": [
+      768,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    }
+   ],
+   "defect": "Long hair hangs outside the sealed bubble helmet",
+   "required_change": "Keep the hair inside the helmet in all sixteen frames, same pose and helmet",
+   "reuse_first": "Edit the native frames; regenerate only if editing fails, binding this sheet as identity and style anchor",
+   "seen_by_the_child": "Opera stage (every animation)",
+   "pins_to_update": [
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_astronaut_sheet_a_pack_report.json",
+    "audit/day2_art_library_2026-09-30/inventory.json",
+    "audit/day2_art_library_2026-09-30/reviews.json (if listed)",
+    "audit/day2_art_library_2026-09-30/preview_provenance.json",
+    "audit/day2_art_library_2026-09-30/priority_queue.csv",
+    "audit/day2_art_library_2026-09-30/index.html"
+   ]
+  },
+  {
+   "id": "R-05a",
+   "file": "assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png",
+   "sha256_before": "f0c9947b093c489145945467af62e50ce748b56b344c55942b7532742bc64bc5",
+   "bytes": 928607,
+   "priority": 2,
+   "kind": "art",
+   "frames": [
+    {
+     "index": 3,
+     "rect_xywh": [
+      768,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    }
+   ],
+   "defect": "Apron turns coral and loses its pocket",
+   "required_change": "Match the apron in frames 0 to 2",
+   "reuse_first": "Copy the apron from frame 2",
+   "seen_by_the_child": "Opera stage idle loop (flicker)",
+   "pins_to_update": [
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_farmer_sheet_a_pack_report.json",
+    "audit/day2_art_library_2026-09-30/inventory.json",
+    "audit/day2_art_library_2026-09-30/reviews.json (if listed)",
+    "audit/day2_art_library_2026-09-30/preview_provenance.json",
+    "audit/day2_art_library_2026-09-30/priority_queue.csv",
+    "audit/day2_art_library_2026-09-30/index.html"
+   ]
+  },
+  {
+   "id": "R-05b",
+   "file": "assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png",
+   "sha256_before": "f0c9947b093c489145945467af62e50ce748b56b344c55942b7532742bc64bc5",
+   "bytes": 928607,
+   "priority": 3,
+   "kind": "check",
+   "frames": [
+    {
+     "index": 9,
+     "rect_xywh": [
+      256,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    }
+   ],
+   "defect": "Soil patch baked in under her hands",
+   "required_change": "Check the native and provenance: keep if intended work dirt, remove if leftover",
+   "reuse_first": "Alpha cleanup only",
+   "seen_by_the_child": "Work animation",
+   "pins_to_update": [
+    "same as R-05a"
+   ]
+  },
+  {
+   "id": "R-06",
+   "file": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+   "sha256_before": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179",
+   "bytes": 958648,
+   "priority": 2,
+   "kind": "art",
+   "frames": [
+    {
+     "index": 14,
+     "rect_xywh": [
+      512,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    }
+   ],
+   "defect": "Rainbow lock and sash bow are on the opposite side",
+   "required_change": "Put both back on the same side as frames 12, 13 and 15",
+   "reuse_first": "Copy from frame 13 or 15",
+   "seen_by_the_child": "Cheer animation (flicker)",
+   "pins_to_update": [
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/OPERA_ROSHAN_ANIMATION_REVIEW_2026-08-09.json",
+    "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_candymaker_sheet_a_pack_report.json",
+    "audit/day2_art_library_2026-09-30/inventory.json",
+    "audit/day2_art_library_2026-09-30/reviews.json (if listed)",
+    "audit/day2_art_library_2026-09-30/preview_provenance.json",
+    "audit/day2_art_library_2026-09-30/priority_queue.csv",
+    "audit/day2_art_library_2026-09-30/index.html"
+   ]
+  },
+  {
+   "id": "R-07",
+   "file": "assets/characters/roshan_25d/roshan_gesture_b.png",
+   "sha256_before": "59daf2a2efdbabba1a28bedfed5312805b4351627f0882704b11c4b6ca488ead",
+   "bytes": 913582,
+   "priority": 2,
+   "kind": "art",
+   "frames": [
+    {
+     "index": 2,
+     "rect_xywh": [
+      512,
+      0,
+      256,
+      256
+     ]
+    }
+   ],
+   "defect": "Tail curls the opposite way from frames 0, 1 and 3 of the \"look\" row",
+   "required_change": "Match the tail curl of frames 1 and 3; change nothing else on this canonical sheet",
+   "reuse_first": "Copy the tail from frame 1 or 3",
+   "seen_by_the_child": "Exploring \"look\" gesture",
+   "pins_to_update": [
+    "assets_src/repairs/visual_polish_2026-09-26/ROSHAN_REPACK.json",
+    "audit/day2_art_library_2026-09-30/inventory.json",
+    "audit/day2_art_library_2026-09-30/reviews.json (if listed)",
+    "audit/day2_art_library_2026-09-30/preview_provenance.json",
+    "audit/day2_art_library_2026-09-30/priority_queue.csv",
+    "audit/day2_art_library_2026-09-30/index.html",
+    "scripts/roshan_sprite_anchors.gd (pivots must not move)"
+   ]
+  },
+  {
+   "id": "R-08",
+   "file": "assets/opera/worlds/actors/roshan_racer.png",
+   "sha256_before": "b3e92a0f3204e2277e1fdd06988c9393288223fcfc98a9f4c8e033c8c517c6bc",
+   "bytes": 240395,
+   "priority": 2,
+   "kind": "art",
+   "frames": "whole image",
+   "defect": "Thin white glow along the inner outlines",
+   "required_change": "Remove the halo; keep everything else",
+   "reuse_first": "Edge cleanup only",
+   "seen_by_the_child": "The Racer driver art (scripts/opera_racer_surface.gd)",
+   "pins_to_update": [
+    "ASSET_LICENSES.md modification note"
+   ]
+  },
+  {
+   "id": "R-09",
+   "file": "assets/opera/worlds/actors/animation/roshan_nursery_sheet_a.png",
+   "sha256_before": "9880fc9ac328b0112d8a7162c656b2a2d9471a4995dd11bd606607f12ca13a52",
+   "bytes": 579196,
+   "priority": 3,
+   "kind": "code",
+   "frames": [
+    {
+     "index": 0,
+     "rect_xywh": [
+      0,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 1,
+     "rect_xywh": [
+      256,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 2,
+     "rect_xywh": [
+      512,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 3,
+     "rect_xywh": [
+      768,
+      0,
+      256,
+      256
+     ],
+     "row": "idle"
+    },
+    {
+     "index": 4,
+     "rect_xywh": [
+      0,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 5,
+     "rect_xywh": [
+      256,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 6,
+     "rect_xywh": [
+      512,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 7,
+     "rect_xywh": [
+      768,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    },
+    {
+     "index": 8,
+     "rect_xywh": [
+      0,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 9,
+     "rect_xywh": [
+      256,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 10,
+     "rect_xywh": [
+      512,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 11,
+     "rect_xywh": [
+      768,
+      512,
+      256,
+      256
+     ],
+     "row": "work"
+    },
+    {
+     "index": 12,
+     "rect_xywh": [
+      0,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    },
+    {
+     "index": 13,
+     "rect_xywh": [
+      256,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    },
+    {
+     "index": 14,
+     "rect_xywh": [
+      512,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    },
+    {
+     "index": 15,
+     "rect_xywh": [
+      768,
+      768,
+      256,
+      256
+     ],
+     "row": "cheer"
+    }
+   ],
+   "defect": "Drawn at about 76% of canon height (166-171 px against about 220)",
+   "required_change": "Give the Nursery a per-career display scale for the stage actor and the route card, as the Ballerina already has; do not resample the art",
+   "reuse_first": "No art change",
+   "seen_by_the_child": "Opera stage and castle route card",
+   "pins_to_update": [
+    "scripts/opera_career_world_2d.gd scale contract (owner 2026-08-03: never above 1.5x a crew imp)"
+   ]
+  },
+  {
+   "id": "R-10a",
+   "file": "assets/opera/worlds/actors/roshan_magician.png",
+   "sha256_before": "4c602d34ea7cf2cf6c9e49fb608751bc77481a4220a8ac89c67d64ae05d7b34d",
+   "bytes": 259689,
+   "priority": 3,
+   "kind": "check",
+   "frames": "whole image",
+   "defect": "Stray speck at the left edge, mid-height",
+   "required_change": "Verify in an alpha-aware view; clean if real",
+   "reuse_first": "Alpha cleanup only",
+   "seen_by_the_child": "Fallback only",
+   "pins_to_update": []
+  },
+  {
+   "id": "R-10b",
+   "file": "assets/characters/roshan_25d/roshan_play_a.png",
+   "sha256_before": "31eb7efc2da0bfe33305f13097b59e959b2ed02637dc8d36116a47b3e2804a08",
+   "bytes": 736195,
+   "priority": 3,
+   "kind": "check",
+   "frames": [
+    {
+     "index": 2,
+     "rect_xywh": [
+      512,
+      0,
+      256,
+      256
+     ]
+    },
+    {
+     "index": 3,
+     "rect_xywh": [
+      768,
+      0,
+      256,
+      256
+     ]
+    }
+   ],
+   "defect": "Possible specks above the figure",
+   "required_change": "Verify; the 2026-09-26 repack probably erased them",
+   "reuse_first": "Alpha cleanup only",
+   "seen_by_the_child": "Exploring play poses",
+   "pins_to_update": [
+    "assets_src/repairs/visual_polish_2026-09-26/ROSHAN_REPACK.json"
+   ]
+  },
+  {
+   "id": "R-10c",
+   "file": "assets/characters/roshan_25d/roshan_gesture_c.png",
+   "sha256_before": "43ebe0e42cd9db5cf612bfaa4acbc9f14a3ad99f49909535b5508707fad15a0e",
+   "bytes": 861358,
+   "priority": 3,
+   "kind": "check",
+   "frames": [
+    {
+     "index": 2,
+     "rect_xywh": [
+      512,
+      0,
+      256,
+      256
+     ]
+    }
+   ],
+   "defect": "Possible specks above the figure",
+   "required_change": "Verify; clean if real",
+   "reuse_first": "Alpha cleanup only",
+   "seen_by_the_child": "Exploring gestures",
+   "pins_to_update": [
+    "assets_src/repairs/visual_polish_2026-09-26/ROSHAN_REPACK.json"
+   ]
+  },
+  {
+   "id": "R-10d",
+   "file": "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+   "sha256_before": "2bddeebd6ca4fe0647e1f6deb670bfcab4d1183f36417e0a033e59c4788dd28c",
+   "bytes": 929771,
+   "priority": 3,
+   "kind": "check",
+   "frames": [
+    {
+     "index": 4,
+     "rect_xywh": [
+      0,
+      256,
+      256,
+      256
+     ],
+     "row": "travel"
+    }
+   ],
+   "defect": "Small pale patch at the hip, probably leftover background",
+   "required_change": "Verify; clean if real",
+   "reuse_first": "Alpha cleanup only",
+   "seen_by_the_child": "Travel animation",
+   "pins_to_update": [
+    "assets_src/imagegen/teacher_roshan_2026-09-03/PROVENANCE.md",
+    "audit/day2_art_library_2026-09-30/inventory.json",
+    "audit/day2_art_library_2026-09-30/reviews.json (if listed)",
+    "audit/day2_art_library_2026-09-30/preview_provenance.json",
+    "audit/day2_art_library_2026-09-30/priority_queue.csv",
+    "audit/day2_art_library_2026-09-30/index.html"
+   ]
+  },
+  {
+   "id": "R-11",
+   "file": "assets/opera/worlds/actors/roshan_boxer.png",
+   "sha256_before": "6e8bed8acab5232e86f317deeb728133a4292f4de495febfaa894872ef66d462",
+   "bytes": 284542,
+   "priority": 4,
+   "kind": "optional",
+   "frames": "whole image",
+   "defect": "Tail and fin cut off at the bottom edge (Chef and Candy Maker cards the same; Astronaut and Ballerina touch the edge)",
+   "required_change": "Optional: these cards are drawn only when an atlas fails to load. Add a probe assertion that stage and route cards draw atlas frames; repaint only if the owner asks",
+   "reuse_first": "None",
+   "seen_by_the_child": "Fallback only",
+   "pins_to_update": [],
+   "notes": "Same for assets/opera/worlds/actors/roshan_chef.png, roshan_candymaker.png, roshan_astronaut.png, roshan_ballerina.png"
+  }
+ ]
+}

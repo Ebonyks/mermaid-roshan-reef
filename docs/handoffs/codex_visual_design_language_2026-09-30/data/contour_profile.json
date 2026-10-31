@@ -1,0 +1,1178 @@
+{
+ "measure": "contour",
+ "method": "Opaque pixels (alpha >= 200) with a 4-neighbour below alpha 40, on a grid of about 250,000 samples per file; 'dark' means luma < 90. Up to 8 files per family, shuffled with seed 7.",
+ "families": [
+  {
+   "family": "opera/worlds",
+   "files": 553,
+   "sampled": [
+    "assets/opera/worlds/actors/rival_boxer_flee.png",
+    "assets/opera/worlds/actors/rival_farmer_windup.png",
+    "assets/opera/worlds/actors/imp_captain_recover.png",
+    "assets/opera/worlds/widgets/widget_magic_vanish_wand.png",
+    "assets/opera/worlds/actors/rival_chef_taunt.png"
+   ],
+   "edge_pixels": 8656,
+   "dark_edge_share": 1.0,
+   "dark_edge_mean": {
+    "hex": "#101314",
+    "hue": 187,
+    "saturation": 0.09,
+    "lightness": 0.07
+   },
+   "top_dark_bins": [
+    [
+     "#000000",
+     2632
+    ],
+    [
+     "#101010",
+     1266
+    ],
+    [
+     "#001010",
+     687
+    ],
+    [
+     "#101000",
+     550
+    ],
+    [
+     "#001000",
+     390
+    ]
+   ]
+  },
+  {
+   "family": "flats/castle",
+   "files": 420,
+   "sampled": [
+    "assets/flats/castle/interactions/playroom_stacking_toy_atlas.png",
+    "assets/flats/castle/rooms/room_bubble_bath_item_toilet.png",
+    "assets/flats/castle/interactions_v4/sheets/bubble_bath_vanity_mirror_sheet.png",
+    "assets/flats/castle/dream_house/provisions_hutch.png",
+    "assets/flats/castle/logo_studio_v2/castle_banner_ocean.png"
+   ],
+   "edge_pixels": 6150,
+   "dark_edge_share": 0.09,
+   "dark_edge_mean": {
+    "hex": "#4b364c",
+    "hue": 297,
+    "saturation": 0.17,
+    "lightness": 0.25
+   },
+   "top_dark_bins": [
+    [
+     "#504050",
+     64
+    ],
+    [
+     "#403050",
+     62
+    ],
+    [
+     "#000000",
+     55
+    ],
+    [
+     "#504060",
+     40
+    ],
+    [
+     "#303060",
+     31
+    ]
+   ]
+  },
+  {
+   "family": "art35/cards",
+   "files": 86,
+   "sampled": [
+    "assets/art35/cards/mg/snowman_snowman.png",
+    "assets/art35/cards/mg/sprout_sprout.png",
+    "assets/art35/cards/gen2/clownfish_side_clownfish_side.png"
+   ],
+   "edge_pixels": 493,
+   "dark_edge_share": 0.38,
+   "dark_edge_mean": {
+    "hex": "#4c4f82",
+    "hue": 236,
+    "saturation": 0.26,
+    "lightness": 0.4
+   },
+   "top_dark_bins": [
+    [
+     "#404080",
+     104
+    ],
+    [
+     "#405080",
+     78
+    ],
+    [
+     "#605050",
+     1
+    ],
+    [
+     "#504040",
+     1
+    ],
+    [
+     "#404040",
+     1
+    ]
+   ]
+  },
+  {
+   "family": "sprites/sky_lagoon",
+   "files": 59,
+   "sampled": [
+    "assets/sprites/sky_lagoon/animals/otter_startle_atlas.png",
+    "assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
+    "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+    "assets/sprites/sky_lagoon/sky_lagoon_cloud_family_v7_hd_grade.png",
+    "assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png",
+    "assets/sprites/sky_lagoon/sky_lagoon_castle_gate.png",
+    "assets/sprites/sky_lagoon/sky_lagoon_seesaw.png",
+    "assets/sprites/sky_lagoon/roshan_playground/roshan_swing_0.png"
+   ],
+   "edge_pixels": 4032,
+   "dark_edge_share": 0.79,
+   "dark_edge_mean": {
+    "hex": "#2c272d",
+    "hue": 288,
+    "saturation": 0.08,
+    "lightness": 0.16
+   },
+   "top_dark_bins": [
+    [
+     "#202030",
+     362
+    ],
+    [
+     "#101010",
+     310
+    ],
+    [
+     "#000000",
+     219
+    ],
+    [
+     "#000010",
+     187
+    ],
+    [
+     "#203030",
+     128
+    ]
+   ]
+  },
+  {
+   "family": "mg",
+   "files": 37,
+   "sampled": [
+    "assets/mg/flower4.png",
+    "assets/mg/k_bush.png",
+    "assets/mg/flower2.png",
+    "assets/mg/k_flower2.png",
+    "assets/mg/rainbow_swatch.png",
+    "assets/mg/orn3.png",
+    "assets/mg/bird_accent.png",
+    "assets/mg/k_sprout.png"
+   ],
+   "edge_pixels": 2948,
+   "dark_edge_share": 0.99,
+   "dark_edge_mean": {
+    "hex": "#3a236c",
+    "hue": 259,
+    "saturation": 0.51,
+    "lightness": 0.28
+   },
+   "top_dark_bins": [
+    [
+     "#405080",
+     552
+    ],
+    [
+     "#404080",
+     322
+    ],
+    [
+     "#200050",
+     230
+    ],
+    [
+     "#100040",
+     169
+    ],
+    [
+     "#300060",
+     161
+    ]
+   ]
+  },
+  {
+   "family": "castle/dirty_cleanup_2d",
+   "files": 16,
+   "sampled": [
+    "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+    "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+    "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_family.png",
+    "assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
+    "assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png",
+    "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+    "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+    "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+   ],
+   "edge_pixels": 1595,
+   "dark_edge_share": 0.77,
+   "dark_edge_mean": {
+    "hex": "#4f336c",
+    "hue": 269,
+    "saturation": 0.35,
+    "lightness": 0.31
+   },
+   "top_dark_bins": [
+    [
+     "#502080",
+     185
+    ],
+    [
+     "#603080",
+     119
+    ],
+    [
+     "#602080",
+     83
+    ],
+    [
+     "#502060",
+     73
+    ],
+    [
+     "#603090",
+     70
+    ]
+   ]
+  },
+  {
+   "family": "props/story",
+   "files": 16,
+   "sampled": [
+    "assets/props/story/flower_lavender.png",
+    "assets/props/story/leaf_spear.png",
+    "assets/props/story/fruit_banana.png",
+    "assets/props/story/ladybug.png",
+    "assets/props/story/leaf_fern.png",
+    "assets/props/story/play_swing_seat.png",
+    "assets/props/story/flower_coral.png",
+    "assets/props/story/leaf_broad.png"
+   ],
+   "edge_pixels": 8758,
+   "dark_edge_share": 0.99,
+   "dark_edge_mean": {
+    "hex": "#241d63",
+    "hue": 246,
+    "saturation": 0.55,
+    "lightness": 0.25
+   },
+   "top_dark_bins": [
+    [
+     "#001050",
+     496
+    ],
+    [
+     "#002060",
+     435
+    ],
+    [
+     "#001040",
+     415
+    ],
+    [
+     "#002050",
+     406
+    ],
+    [
+     "#001060",
+     346
+    ]
+   ]
+  },
+  {
+   "family": "characters/roshan_25d",
+   "files": 13,
+   "sampled": [
+    "assets/characters/roshan_25d/roshan_gesture_c.png",
+    "assets/characters/roshan_25d/roshan_gesture_b.png",
+    "assets/characters/roshan_25d/roshan_play_a.png",
+    "assets/characters/roshan_25d/roshan_swim_back.png",
+    "assets/characters/roshan_25d/roshan_swim.png",
+    "assets/characters/roshan_25d/roshan_base.png",
+    "assets/characters/roshan_25d/roshan_swim_front.png",
+    "assets/characters/roshan_25d/roshan_gesture_a.png"
+   ],
+   "edge_pixels": 5355,
+   "dark_edge_share": 0.68,
+   "dark_edge_mean": {
+    "hex": "#3d3833",
+    "hue": 32,
+    "saturation": 0.09,
+    "lightness": 0.22
+   },
+   "top_dark_bins": [
+    [
+     "#403010",
+     87
+    ],
+    [
+     "#203040",
+     76
+    ],
+    [
+     "#302010",
+     71
+    ],
+    [
+     "#101010",
+     70
+    ],
+    [
+     "#000000",
+     64
+    ]
+   ]
+  },
+  {
+   "family": "fairy/sprites",
+   "files": 13,
+   "sampled": [
+    "assets/fairy/sprites/boss_opening.png",
+    "assets/fairy/sprites/boss_bloom.png",
+    "assets/fairy/sprites/boss_seed.png",
+    "assets/fairy/sprites/bug_firefly.png",
+    "assets/fairy/sprites/helpful_flower_gate.png",
+    "assets/fairy/sprites/bug_jewel.png",
+    "assets/fairy/sprites/ornament_lily_cluster.png",
+    "assets/fairy/sprites/boss_leaf.png"
+   ],
+   "edge_pixels": 4165,
+   "dark_edge_share": 0.57,
+   "dark_edge_mean": {
+    "hex": "#333541",
+    "hue": 233,
+    "saturation": 0.12,
+    "lightness": 0.23
+   },
+   "top_dark_bins": [
+    [
+     "#303030",
+     205
+    ],
+    [
+     "#202020",
+     129
+    ],
+    [
+     "#303040",
+     106
+    ],
+    [
+     "#404040",
+     97
+    ],
+    [
+     "#202040",
+     90
+    ]
+   ]
+  },
+  {
+   "family": "castle/day_one_pool",
+   "files": 12,
+   "sampled": [
+    "assets/castle/day_one_pool/seahorse_sick.png",
+    "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png",
+    "assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+    "assets/castle/day_one_pool/pool_rim_grime.png",
+    "assets/castle/day_one_pool/activities/cleanup_basket.png",
+    "assets/castle/day_one_pool/waterfall_clogged_turgid.png",
+    "assets/castle/day_one_pool/activities/pool_skimmer.png",
+    "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png"
+   ],
+   "edge_pixels": 3146,
+   "dark_edge_share": 0.91,
+   "dark_edge_mean": {
+    "hex": "#4b2772",
+    "hue": 269,
+    "saturation": 0.49,
+    "lightness": 0.3
+   },
+   "top_dark_bins": [
+    [
+     "#400040",
+     259
+    ],
+    [
+     "#500050",
+     87
+    ],
+    [
+     "#503050",
+     85
+    ],
+    [
+     "#603050",
+     75
+    ],
+    [
+     "#704050",
+     71
+    ]
+   ]
+  },
+  {
+   "family": "chapter2/birthday",
+   "files": 12,
+   "sampled": [
+    "assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+    "assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
+    "assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png",
+    "assets/chapter2/birthday/chapter2_chef_batter_unstirred.png",
+    "assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+    "assets/chapter2/birthday/rainbow_candle_large_flame.png",
+    "assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png",
+    "assets/chapter2/birthday/chapter2_chef_batter_stirred.png"
+   ],
+   "edge_pixels": 695,
+   "dark_edge_share": 0.6,
+   "dark_edge_mean": {
+    "hex": "#552f6e",
+    "hue": 276,
+    "saturation": 0.4,
+    "lightness": 0.31
+   },
+   "top_dark_bins": [
+    [
+     "#503090",
+     41
+    ],
+    [
+     "#100060",
+     25
+    ],
+    [
+     "#403080",
+     23
+    ],
+    [
+     "#503080",
+     20
+    ],
+    [
+     "#604090",
+     13
+    ]
+   ]
+  },
+  {
+   "family": "terrain",
+   "files": 12,
+   "sampled": [
+    "assets/terrain/leaf.png",
+    "assets/terrain/beachball.png"
+   ],
+   "edge_pixels": 491,
+   "dark_edge_share": 0.98,
+   "dark_edge_mean": {
+    "hex": "#2e3058",
+    "hue": 237,
+    "saturation": 0.32,
+    "lightness": 0.26
+   },
+   "top_dark_bins": [
+    [
+     "#002030",
+     67
+    ],
+    [
+     "#403060",
+     61
+    ],
+    [
+     "#102040",
+     36
+    ],
+    [
+     "#002040",
+     33
+    ],
+    [
+     "#404060",
+     21
+    ]
+   ]
+  },
+  {
+   "family": "ui/castle_room_buttons_v2",
+   "files": 12,
+   "sampled": [
+    "assets/ui/castle_room_buttons_v2/room_movie_lounge.png",
+    "assets/ui/castle_room_buttons_v2/room_sleepover_bedroom.png",
+    "assets/ui/castle_room_buttons_v2/room_main_hall.png"
+   ],
+   "edge_pixels": 305,
+   "dark_edge_share": 0.82,
+   "dark_edge_mean": {
+    "hex": "#2a2625",
+    "hue": 11,
+    "saturation": 0.07,
+    "lightness": 0.15
+   },
+   "top_dark_bins": [
+    [
+     "#101030",
+     50
+    ],
+    [
+     "#304060",
+     30
+    ],
+    [
+     "#101000",
+     20
+    ],
+    [
+     "#201000",
+     15
+    ],
+    [
+     "#000000",
+     13
+    ]
+   ]
+  },
+  {
+   "family": "sprites/dust_bunnies",
+   "files": 10,
+   "sampled": [
+    "assets/sprites/dust_bunnies/boss/dust_bunny_boss_flinch.png",
+    "assets/sprites/dust_bunnies/dust_bunny_idle.png",
+    "assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png",
+    "assets/sprites/dust_bunnies/boss/dust_bunny_boss_angry.png",
+    "assets/sprites/dust_bunnies/dust_bunny_clean_bubbles.png",
+    "assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png",
+    "assets/sprites/dust_bunnies/dust_bunny_defeat.png",
+    "assets/sprites/dust_bunnies/boss/dust_bunny_boss_implode.png"
+   ],
+   "edge_pixels": 9770,
+   "dark_edge_share": 0.63,
+   "dark_edge_mean": {
+    "hex": "#353b4e",
+    "hue": 226,
+    "saturation": 0.19,
+    "lightness": 0.26
+   },
+   "top_dark_bins": [
+    [
+     "#203030",
+     585
+    ],
+    [
+     "#303040",
+     430
+    ],
+    [
+     "#203040",
+     389
+    ],
+    [
+     "#304040",
+     330
+    ],
+    [
+     "#204040",
+     315
+    ]
+   ]
+  },
+  {
+   "family": "castle/day_one_art_studio",
+   "files": 8,
+   "sampled": [
+    "assets/castle/day_one_art_studio/grime_left.png",
+    "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+    "assets/castle/day_one_art_studio/paint_cups.png",
+    "assets/castle/day_one_art_studio/paint_bottle_pink.png",
+    "assets/castle/day_one_art_studio/grime_desk.png",
+    "assets/castle/day_one_art_studio/grime_right.png",
+    "assets/castle/day_one_art_studio/loose_brush_bundle.png",
+    "assets/castle/day_one_art_studio/paint_bottle_blue.png"
+   ],
+   "edge_pixels": 2866,
+   "dark_edge_share": 0.83,
+   "dark_edge_mean": {
+    "hex": "#531d62",
+    "hue": 287,
+    "saturation": 0.55,
+    "lightness": 0.25
+   },
+   "top_dark_bins": [
+    [
+     "#401060",
+     438
+    ],
+    [
+     "#501050",
+     246
+    ],
+    [
+     "#501060",
+     166
+    ],
+    [
+     "#502050",
+     162
+    ],
+    [
+     "#401050",
+     135
+    ]
+   ]
+  },
+  {
+   "family": "opera/tree_book_test",
+   "files": 8,
+   "sampled": [
+    "assets/opera/tree_book_test/roshan_book.png",
+    "assets/opera/tree_book_test/spray_poses.png",
+    "assets/opera/tree_book_test/leaves_medicine.png",
+    "assets/opera/tree_book_test/patient.png",
+    "assets/opera/tree_book_test/sky_lagoon_tree_sticker_tall_v1.png",
+    "assets/opera/tree_book_test/book.png"
+   ],
+   "edge_pixels": 3423,
+   "dark_edge_share": 0.82,
+   "dark_edge_mean": {
+    "hex": "#33222e",
+    "hue": 318,
+    "saturation": 0.19,
+    "lightness": 0.17
+   },
+   "top_dark_bins": [
+    [
+     "#401030",
+     297
+    ],
+    [
+     "#301030",
+     251
+    ],
+    [
+     "#401040",
+     143
+    ],
+    [
+     "#104020",
+     136
+    ],
+    [
+     "#302040",
+     121
+    ]
+   ]
+  },
+  {
+   "family": "sprites/fx_water",
+   "files": 6,
+   "sampled": [
+    "assets/sprites/fx_water/fx_water_splash_small_atlas.png",
+    "assets/sprites/fx_water/fx_water_foamline_strip.png",
+    "assets/sprites/fx_water/fx_water_bubble_burst_atlas.png",
+    "assets/sprites/fx_water/fx_water_splash_breach_atlas.png",
+    "assets/sprites/fx_water/fx_water_ripple_ring_atlas.png",
+    "assets/sprites/fx_water/fx_water_splash_medium_atlas.png"
+   ],
+   "edge_pixels": 5088,
+   "dark_edge_share": 0.78,
+   "dark_edge_mean": {
+    "hex": "#161f56",
+    "hue": 231,
+    "saturation": 0.59,
+    "lightness": 0.21
+   },
+   "top_dark_bins": [
+    [
+     "#101040",
+     422
+    ],
+    [
+     "#101050",
+     353
+    ],
+    [
+     "#102060",
+     262
+    ],
+    [
+     "#101030",
+     259
+    ],
+    [
+     "#101060",
+     244
+    ]
+   ]
+  },
+  {
+   "family": "castle/training",
+   "files": 4,
+   "sampled": [
+    "assets/castle/training/verb_chip_hold.png",
+    "assets/castle/training/ghost_hand.png",
+    "assets/castle/training/verb_chip_tap.png"
+   ],
+   "edge_pixels": 497,
+   "dark_edge_share": 0.67,
+   "dark_edge_mean": {
+    "hex": "#28165d",
+    "hue": 255,
+    "saturation": 0.62,
+    "lightness": 0.23
+   },
+   "top_dark_bins": [
+    [
+     "#201050",
+     190
+    ],
+    [
+     "#201060",
+     55
+    ],
+    [
+     "#200050",
+     21
+    ],
+    [
+     "#200060",
+     16
+    ],
+    [
+     "#301060",
+     15
+    ]
+   ]
+  },
+  {
+   "family": "characters",
+   "files": 4,
+   "sampled": [
+    "assets/characters/fairy_fairy_mermaid.png",
+    "assets/characters/roshan_sprite.png",
+    "assets/characters/huluu_huluu.png"
+   ],
+   "edge_pixels": 5706,
+   "dark_edge_share": 0.29,
+   "dark_edge_mean": {
+    "hex": "#2f1c26",
+    "hue": 329,
+    "saturation": 0.26,
+    "lightness": 0.15
+   },
+   "top_dark_bins": [
+    [
+     "#100000",
+     236
+    ],
+    [
+     "#200000",
+     157
+    ],
+    [
+     "#000000",
+     126
+    ],
+    [
+     "#200010",
+     84
+    ],
+    [
+     "#201010",
+     59
+    ]
+   ]
+  },
+  {
+   "family": "sprites/stuffie_studio",
+   "files": 4,
+   "sampled": [
+    "assets/sprites/stuffie_studio/lamma.png",
+    "assets/sprites/stuffie_studio/toy_chest.png",
+    "assets/sprites/stuffie_studio/worktable.png",
+    "assets/sprites/stuffie_studio/display_shelf.png"
+   ],
+   "edge_pixels": 2661,
+   "dark_edge_share": 1.0,
+   "dark_edge_mean": {
+    "hex": "#232255",
+    "hue": 241,
+    "saturation": 0.43,
+    "lightness": 0.23
+   },
+   "top_dark_bins": [
+    [
+     "#002040",
+     207
+    ],
+    [
+     "#000050",
+     182
+    ],
+    [
+     "#101050",
+     154
+    ],
+    [
+     "#302050",
+     149
+    ],
+    [
+     "#402050",
+     144
+    ]
+   ]
+  },
+  {
+   "family": "icon",
+   "files": 3,
+   "sampled": [
+    "assets/icon/adaptive_fg_432.png"
+   ],
+   "edge_pixels": 276,
+   "dark_edge_share": 0.02,
+   "dark_edge_mean": {
+    "hex": "#57525b",
+    "hue": 275,
+    "saturation": 0.05,
+    "lightness": 0.34
+   },
+   "top_dark_bins": [
+    [
+     "#505050",
+     2
+    ],
+    [
+     "#504050",
+     2
+    ],
+    [
+     "#505060",
+     1
+    ]
+   ]
+  },
+  {
+   "family": "minigames/seek",
+   "files": 3,
+   "sampled": [
+    "assets/minigames/seek/evie_animation.png",
+    "assets/minigames/seek/evie_portrait.png",
+    "assets/minigames/seek/lamma_animation.png"
+   ],
+   "edge_pixels": 2702,
+   "dark_edge_share": 0.31,
+   "dark_edge_mean": {
+    "hex": "#57403c",
+    "hue": 8,
+    "saturation": 0.18,
+    "lightness": 0.29
+   },
+   "top_dark_bins": [
+    [
+     "#604030",
+     52
+    ],
+    [
+     "#504030",
+     46
+    ],
+    [
+     "#503020",
+     44
+    ],
+    [
+     "#403020",
+     36
+    ],
+    [
+     "#504020",
+     35
+    ]
+   ]
+  },
+  {
+   "family": "chapter2/ember_alpha",
+   "files": 2,
+   "sampled": [
+    "assets/chapter2/ember_alpha/king_v4_cutout.png",
+    "assets/chapter2/ember_alpha/prince_idle.png"
+   ],
+   "edge_pixels": 3502,
+   "dark_edge_share": 0.05,
+   "dark_edge_mean": {
+    "hex": "#35252d",
+    "hue": 331,
+    "saturation": 0.18,
+    "lightness": 0.18
+   },
+   "top_dark_bins": [
+    [
+     "#101020",
+     19
+    ],
+    [
+     "#202020",
+     18
+    ],
+    [
+     "#101010",
+     17
+    ],
+    [
+     "#302030",
+     10
+    ],
+    [
+     "#202030",
+     10
+    ]
+   ]
+  },
+  {
+   "family": "characters/rumi",
+   "files": 2,
+   "sampled": [
+    "assets/characters/rumi/rumi_eight_pose_runtime.png",
+    "assets/characters/rumi/rumi_pool_idle_swim_atlas.png"
+   ],
+   "edge_pixels": 1570,
+   "dark_edge_share": 0.03,
+   "dark_edge_mean": {
+    "hex": "#3c4486",
+    "hue": 233,
+    "saturation": 0.38,
+    "lightness": 0.38
+   },
+   "top_dark_bins": [
+    [
+     "#204080",
+     4
+    ],
+    [
+     "#604070",
+     4
+    ],
+    [
+     "#203080",
+     3
+    ],
+    [
+     "#3050a0",
+     3
+    ],
+    [
+     "#304090",
+     3
+    ]
+   ]
+  },
+  {
+   "family": "characters/skins",
+   "files": 2,
+   "sampled": [
+    "assets/characters/skins/fairy_wing_card.png",
+    "assets/characters/skins/fairy_mermaid.png"
+   ],
+   "edge_pixels": 1187,
+   "dark_edge_share": 0.42,
+   "dark_edge_mean": {
+    "hex": "#39344c",
+    "hue": 253,
+    "saturation": 0.19,
+    "lightness": 0.25
+   },
+   "top_dark_bins": [
+    [
+     "#404060",
+     36
+    ],
+    [
+     "#303060",
+     27
+    ],
+    [
+     "#202050",
+     25
+    ],
+    [
+     "#404070",
+     22
+    ],
+    [
+     "#201010",
+     18
+    ]
+   ]
+  },
+  {
+   "family": "kart",
+   "files": 2,
+   "sampled": [
+    "assets/kart/boost_ribbon.png",
+    "assets/kart/finish_banner.png"
+   ],
+   "edge_pixels": 1580,
+   "dark_edge_share": 0.93,
+   "dark_edge_mean": {
+    "hex": "#0c2e65",
+    "hue": 217,
+    "saturation": 0.79,
+    "lightness": 0.22
+   },
+   "top_dark_bins": [
+    [
+     "#002060",
+     257
+    ],
+    [
+     "#001060",
+     183
+    ],
+    [
+     "#002050",
+     122
+    ],
+    [
+     "#001050",
+     101
+    ],
+    [
+     "#003060",
+     94
+    ]
+   ]
+  },
+  {
+   "family": "opera/rivals",
+   "files": 2,
+   "sampled": [
+    "assets/opera/rivals/opera_rival_boxer_match.png",
+    "assets/opera/rivals/opera_rival_racer_portrait.png"
+   ],
+   "edge_pixels": 237,
+   "dark_edge_share": 0.38,
+   "dark_edge_mean": {
+    "hex": "#302740",
+    "hue": 261,
+    "saturation": 0.24,
+    "lightness": 0.2
+   },
+   "top_dark_bins": [
+    [
+     "#202030",
+     12
+    ],
+    [
+     "#100020",
+     11
+    ],
+    [
+     "#303050",
+     10
+    ],
+    [
+     "#201020",
+     10
+    ],
+    [
+     "#101030",
+     8
+    ]
+   ]
+  },
+  {
+   "family": "characters/companions",
+   "files": 1,
+   "sampled": [
+    "assets/characters/companions/baby_eagle.png"
+   ],
+   "edge_pixels": 1019,
+   "dark_edge_share": 1.0,
+   "dark_edge_mean": {
+    "hex": "#222427",
+    "hue": 219,
+    "saturation": 0.07,
+    "lightness": 0.14
+   },
+   "top_dark_bins": [
+    [
+     "#202020",
+     300
+    ],
+    [
+     "#000000",
+     101
+    ],
+    [
+     "#102020",
+     89
+    ],
+    [
+     "#203030",
+     86
+    ],
+    [
+     "#101020",
+     77
+    ]
+   ]
+  },
+  {
+   "family": "effects/grand_puff",
+   "files": 1,
+   "sampled": [
+    "assets/effects/grand_puff/purple_vortex_v4.png"
+   ],
+   "edge_pixels": 450,
+   "dark_edge_share": 1.0,
+   "dark_edge_mean": {
+    "hex": "#6922a3",
+    "hue": 273,
+    "saturation": 0.65,
+    "lightness": 0.39
+   },
+   "top_dark_bins": [
+    [
+     "#501090",
+     90
+    ],
+    [
+     "#6020a0",
+     52
+    ],
+    [
+     "#6010a0",
+     47
+    ],
+    [
+     "#7030a0",
+     41
+    ],
+    [
+     "#7020a0",
+     38
+    ]
+   ]
+  }
+ ]
+}

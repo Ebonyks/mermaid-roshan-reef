@@ -1,0 +1,432 @@
+{
+  "_id": "6805c1af55761835bc31da4a",
+  "id": "unsloth/gemma-3-12b-it-qat-GGUF",
+  "private": false,
+  "pipeline_tag": "image-text-to-text",
+  "library_name": "transformers",
+  "tags": [
+    "transformers",
+    "gguf",
+    "gemma3",
+    "image-text-to-text",
+    "unsloth",
+    "gemma",
+    "google",
+    "arxiv:1905.07830",
+    "arxiv:1905.10044",
+    "arxiv:1911.11641",
+    "arxiv:1904.09728",
+    "arxiv:1705.03551",
+    "arxiv:1911.01547",
+    "arxiv:1907.10641",
+    "arxiv:1903.00161",
+    "arxiv:2009.03300",
+    "arxiv:2304.06364",
+    "arxiv:2103.03874",
+    "arxiv:2110.14168",
+    "arxiv:2311.12022",
+    "arxiv:2108.07732",
+    "arxiv:2107.03374",
+    "arxiv:2210.03057",
+    "arxiv:2106.03193",
+    "arxiv:1910.11856",
+    "arxiv:2502.12404",
+    "arxiv:2502.21228",
+    "arxiv:2404.16816",
+    "arxiv:2104.12756",
+    "arxiv:2311.16502",
+    "arxiv:2203.10244",
+    "arxiv:2404.12390",
+    "arxiv:1810.12440",
+    "arxiv:1908.02660",
+    "arxiv:2312.11805",
+    "base_model:google/gemma-3-12b-it-qat-q4_0-unquantized",
+    "base_model:quantized:google/gemma-3-12b-it-qat-q4_0-unquantized",
+    "license:gemma",
+    "endpoints_compatible",
+    "region:us",
+    "conversational"
+  ],
+  "downloads": 79056,
+  "likes": 54,
+  "modelId": "unsloth/gemma-3-12b-it-qat-GGUF",
+  "author": "unsloth",
+  "sha": "858acec7ec0541a46c39985c95d3b52d8f3ab183",
+  "lastModified": "2025-05-12T03:54:19.000Z",
+  "gated": false,
+  "disabled": false,
+  "widgetData": [
+    {
+      "text": "Hi, what can you help me with?"
+    },
+    {
+      "text": "What is 84 * 3 / 2?"
+    },
+    {
+      "text": "Tell me an interesting fact about the universe!"
+    },
+    {
+      "text": "Explain quantum computing in simple terms."
+    }
+  ],
+  "model-index": null,
+  "config": {
+    "architectures": [
+      "Gemma3ForConditionalGeneration"
+    ],
+    "model_type": "gemma3"
+  },
+  "cardData": {
+    "base_model": [
+      "google/gemma-3-12b-it-qat-q4_0-unquantized"
+    ],
+    "license": "gemma",
+    "tags": [
+      "gemma3",
+      "unsloth",
+      "gemma",
+      "google"
+    ],
+    "pipeline_tag": "image-text-to-text",
+    "library_name": "transformers",
+    "extra_gated_heading": "Access Gemma on Hugging Face",
+    "extra_gated_prompt": "To access Gemma on Hugging Face, you\u2019re required to review and agree to Google\u2019s usage license. To do this, please ensure you\u2019re logged in to Hugging Face and click below. Requests are processed immediately.",
+    "extra_gated_button_content": "Acknowledge license"
+  },
+  "transformersInfo": {
+    "auto_model": "AutoModelForMultimodalLM",
+    "pipeline_tag": "image-text-to-text",
+    "processor": "AutoProcessor"
+  },
+  "gguf": {
+    "total": 11766034176,
+    "architecture": "gemma3",
+    "context_length": 131072,
+    "chat_template": "{{ bos_token }}\n{%- if messages[0]['role'] == 'system' -%}\n    {%- if messages[0]['content'] is string -%}\n        {%- set first_user_prefix = messages[0]['content'] + '\n\n' -%}\n    {%- else -%}\n        {%- set first_user_prefix = messages[0]['content'][0]['text'] + '\n\n' -%}\n    {%- endif -%}\n    {%- set loop_messages = messages[1:] -%}\n{%- else -%}\n    {%- set first_user_prefix = \"\" -%}\n    {%- set loop_messages = messages -%}\n{%- endif -%}\n{%- for message in loop_messages -%}\n    {%- if (message['role'] == 'user') != (loop.index0 % 2 == 0) -%}\n        {{ raise_exception(\"Conversation roles must alternate user/assistant/user/assistant/...\") }}\n    {%- endif -%}\n    {%- if (message['role'] == 'assistant') -%}\n        {%- set role = \"model\" -%}\n    {%- else -%}\n        {%- set role = message['role'] -%}\n    {%- endif -%}\n    {{ '<start_of_turn>' + role + '\n' + (first_user_prefix if loop.first else \"\") }}\n    {%- if message['content'] is string -%}\n        {{ message['content'] | trim }}\n    {%- elif message['content'] is iterable -%}\n        {%- for item in message['content'] -%}\n            {%- if item['type'] == 'image' -%}\n                {{ '<start_of_image>' }}\n            {%- elif item['type'] == 'text' -%}\n                {{ item['text'] | trim }}\n            {%- endif -%}\n        {%- endfor -%}\n    {%- else -%}\n        {{ raise_exception(\"Invalid content type\") }}\n    {%- endif -%}\n    {{ '<end_of_turn>\n' }}\n{%- endfor -%}\n{%- if add_generation_prompt -%}\n    {{'<start_of_turn>model\n'}}\n{%- endif -%}\n",
+    "bos_token": "<bos>",
+    "eos_token": "<end_of_turn>",
+    "totalFileSize": 23540151552
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes",
+      "blobId": "b73ed6fe0cffb375c5b03d2a7cae9f038710fae4",
+      "size": 3634
+    },
+    {
+      "rfilename": "README.md",
+      "blobId": "96c32a9943de93d51a6c6a6ef7f542ecf35ff89f",
+      "size": 22817
+    },
+    {
+      "rfilename": "config.json",
+      "blobId": "4ceeceb3bc2495ff138f9abb9b4caa47b8e30a9b",
+      "size": 1661
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-BF16.gguf",
+      "blobId": "e41e22bc45c26bcb1a0914606ea15ad7978e0ebd",
+      "size": 23540151552,
+      "lfs": {
+        "sha256": "0528dea01a0d14f9eda69956b24e864722ab1f7309f1251d29cd97c5c53623cb",
+        "size": 23540151552,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-IQ4_NL.gguf",
+      "blobId": "752554aca5aeb19052b8deebcdfeaedaad7c848e",
+      "size": 6887164288,
+      "lfs": {
+        "sha256": "7e3eab4b7c54d622388b357f23448a452e0770a4f6b45591e2cc9b8cc1e65ab5",
+        "size": 6887164288,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-IQ4_XS.gguf",
+      "blobId": "23d240b952eb249499f928ae5dd8b6315a930eec",
+      "size": 6550964608,
+      "lfs": {
+        "sha256": "101f7ffc3d6e90cab19c6c9ec80b8ec9011a006c314d425b79b2f9dc3e373036",
+        "size": 6550964608,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q2_K.gguf",
+      "blobId": "4aa87cb75056b9d6a10f65ba4b09db17a0c96bf8",
+      "size": 4768221568,
+      "lfs": {
+        "sha256": "bc8e8b4de07b06795f0105b3dc5901352b3eb62ecc33ef67cac01b4d86a6d9c0",
+        "size": 4768221568,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q2_K_L.gguf",
+      "blobId": "4aa87cb75056b9d6a10f65ba4b09db17a0c96bf8",
+      "size": 4768221568,
+      "lfs": {
+        "sha256": "bc8e8b4de07b06795f0105b3dc5901352b3eb62ecc33ef67cac01b4d86a6d9c0",
+        "size": 4768221568,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q3_K_M.gguf",
+      "blobId": "fa5dceb5777e738f4dbd332c9a695f0b595959da",
+      "size": 6008818048,
+      "lfs": {
+        "sha256": "6980afafca549190e3e806cf5a210b6c92771827ffb196c88de78d81cf5af227",
+        "size": 6008818048,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q3_K_S.gguf",
+      "blobId": "64fe37987b52fde01269e20c322a5f76f311bd61",
+      "size": 5458315648,
+      "lfs": {
+        "sha256": "7b100ce9bf663c6a5b519922da73e97487009ae736ec947c827003b7cb4d31c5",
+        "size": 5458315648,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q4_0.gguf",
+      "blobId": "1c56a6a11de14295fdcb8ad0f3e68b4a21f126dc",
+      "size": 6909282688,
+      "lfs": {
+        "sha256": "a6e5c91ed89bcfba3677c33706bc195ca5784c3bc35736bef78d23bb612d1fe8",
+        "size": 6909282688,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q4_1.gguf",
+      "blobId": "e4d2f52f5fa54fa1879472b8ae3f4546a51e8c2c",
+      "size": 7559563648,
+      "lfs": {
+        "sha256": "5fe0a88eb1f695e06b1f23858969bbe982e9a0a2f2c61806bca24c2ae9ee33b3",
+        "size": 7559563648,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q4_K_M.gguf",
+      "blobId": "4aa149094db946757207b6831cefb205d823021f",
+      "size": 7300778368,
+      "lfs": {
+        "sha256": "5be55c72dac2e6ccaf8140bb6e793ad1c9d39f54fc4f3ccde54f2412e75cc830",
+        "size": 7300778368,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q4_K_S.gguf",
+      "blobId": "8851c8e26afcf5066052a608cc9f82fddf278b5e",
+      "size": 6935333248,
+      "lfs": {
+        "sha256": "6982605635eca6d92a3bcd6434c913b2a83eee8db17aa30c1fafec133646ce69",
+        "size": 6935333248,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q5_K_M.gguf",
+      "blobId": "e9689bca266046e1aff83493ccd5672b9ab7aaca",
+      "size": 8445036928,
+      "lfs": {
+        "sha256": "2e55337157a2539750db7ace007c66b53e9ff53a1eee27a24b442c0d42b8c9e8",
+        "size": 8445036928,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q5_K_S.gguf",
+      "blobId": "1d55917cbee7e3987d0949cb91668cf80302e42a",
+      "size": 8231963008,
+      "lfs": {
+        "sha256": "a94970490b53d2b877dfae070408dabd99832764df09504c93e2327599146ac1",
+        "size": 8231963008,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q6_K.gguf",
+      "blobId": "ff0588e36946bedcb7882dd74b0aa70ac431e69b",
+      "size": 9660811648,
+      "lfs": {
+        "sha256": "5f448373b4c8faaf41cbe65b9eb0840c27ebfcf891319ac7e3024cb66ee447c7",
+        "size": 9660811648,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-Q8_0.gguf",
+      "blobId": "e367334d392675cc814bfb69f7e73a88f32a8e63",
+      "size": 12510213056,
+      "lfs": {
+        "sha256": "18473e5f54e7a101cb748f529fe26ef6f9179b255e26cf77ad6667ae74312531",
+        "size": 12510213056,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-UD-IQ1_M.gguf",
+      "blobId": "168c94d0bd595128ca2ee3588f86253861565193",
+      "size": 3249207808,
+      "lfs": {
+        "sha256": "0e069b7b0c667dd28644a5f5a21b68a0951976e283ea5e96cb072c2ccc67586e",
+        "size": 3249207808,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-UD-IQ1_S.gguf",
+      "blobId": "0bea927b8b41c043e6b3f92189f8f774f383b633",
+      "size": 3057668608,
+      "lfs": {
+        "sha256": "5bb52752cec17e5bbe6b084b96bbdaa766226f6a67234317efb9f9d5b578f420",
+        "size": 3057668608,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-UD-IQ2_M.gguf",
+      "blobId": "ad3923ad0438b2b6ff5fefdcb5539e9c3082ee63",
+      "size": 4366371328,
+      "lfs": {
+        "sha256": "4818d83870955bdca0b55bf9b701a7cf380855672217f2340b88f63dc82ed4f4",
+        "size": 4366371328,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-UD-IQ2_XXS.gguf",
+      "blobId": "fe6a92d7ccce888b19d1a186fd8b7a83d3c27768",
+      "size": 3604238848,
+      "lfs": {
+        "sha256": "14c8325c123d68aaa5a32a51ea9bf4d1fd84abe659988b5c20042bf42b3272ec",
+        "size": 3604238848,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-UD-IQ3_XXS.gguf",
+      "blobId": "5b531c49c1a12938ab474daf8f0c4e2256343f12",
+      "size": 4834206208,
+      "lfs": {
+        "sha256": "7facde8f6d59ebbeb62fff725b06487d360b7c4a89800795442c462f978f9d2a",
+        "size": 4834206208,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-UD-Q2_K_XL.gguf",
+      "blobId": "b13631288e17932f4beb1547c8d880819e1e854e",
+      "size": 4860535168,
+      "lfs": {
+        "sha256": "bf117394bd102b7b0087c3106ef7c591066b684634ac83e8ffb4360481458bee",
+        "size": 4860535168,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-UD-Q3_K_XL.gguf",
+      "blobId": "8e642d176c47cb9b64dfa2b586267a80538be656",
+      "size": 6142818688,
+      "lfs": {
+        "sha256": "a94ed2a55fb406e445a814548b94593e05a68138a86ce18ef7e75e392639603b",
+        "size": 6142818688,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-UD-Q4_K_XL.gguf",
+      "blobId": "206e0e5db101ffaf79ad2a831bc8463a3f15bdc8",
+      "size": 7432229248,
+      "lfs": {
+        "sha256": "da98f81c86916ed1c76b3eeda56b25cb7b8352b01093e2edb8028110fe2cb53b",
+        "size": 7432229248,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-UD-Q5_K_XL.gguf",
+      "blobId": "dbee613b2417b7ffdbdd763d6ddb6c8f887e64ac",
+      "size": 8462578048,
+      "lfs": {
+        "sha256": "59ddeaade918e45e4eb5316f3997b97cc8c4bc375f713244c55a510202fee1fa",
+        "size": 8462578048,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-UD-Q6_K_XL.gguf",
+      "blobId": "49955d6281a8e2443d44ff4003e8766c11bab4f5",
+      "size": 10556051968,
+      "lfs": {
+        "sha256": "bad697b0f01c9dfd9693c90fc24c7602f1b064dc4c07c94fd92a2a70802e10f3",
+        "size": 10556051968,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "gemma-3-12b-it-qat-UD-Q8_K_XL.gguf",
+      "blobId": "3bda9443c98965d4a7930a54873c9da775c131a1",
+      "size": 14394193408,
+      "lfs": {
+        "sha256": "bbb1253ff1fc30d33e8823be5c2d1f8662cd2c71080bfa3e0555a5c87ec8c765",
+        "size": 14394193408,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "imatrix_unsloth.dat",
+      "blobId": "6b3e7f9d2952f28c5964320335beb9df1fa33e59",
+      "size": 7433120,
+      "lfs": {
+        "sha256": "852d52ada402549193273980f964403545b22254a631c9a2770c396fe8d9569f",
+        "size": 7433120,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "mmproj-BF16.gguf",
+      "blobId": "73cd0996c9c9655fa08942951aeff6836bcbf9cb",
+      "size": 854200448,
+      "lfs": {
+        "sha256": "e63e63bf219e0faa4ff2ec178745ca01674b5acf426d059ce9992f305654e4c5",
+        "size": 854200448,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "mmproj-F16.gguf",
+      "blobId": "ff35a3d6c3e97d3beb8bbcd454ae0aabfae54bcc",
+      "size": 854200448,
+      "lfs": {
+        "sha256": "2b76abdbdbebd0487c80359a964c0d35a96b7b21350a41cd2a810b8871a9e913",
+        "size": 854200448,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "mmproj-F32.gguf",
+      "blobId": "113b0b77d17325b503af78f0466401e2b7d8598e",
+      "size": 1676341376,
+      "lfs": {
+        "sha256": "b62f123180afd52b5f46e22c93188b211b90ede060a407a6de607a290ca43235",
+        "size": 1676341376,
+        "pointerSize": 135
+      }
+    }
+  ],
+  "spaces": [
+    "tardellirs/model-pulse"
+  ],
+  "createdAt": "2025-04-21T03:55:27.000Z",
+  "usedStorage": 932942072576
+}

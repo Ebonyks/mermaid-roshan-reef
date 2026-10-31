@@ -1,0 +1,549 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+VOICE|Harper objective filler retains exact generator and ledger provenance: OK|
+VOICE|Yay and This is so much fun are exact synthetic filler cues: OK|
+VOICE|common Roshan reactions use distinct contextual cues: OK|
+VOICE|expected Roshan clips present: OK|15 / 15
+VOICE|Racer repair owns exact generated objective text: OK|
+VOICE|beans cue speaks once: OK|voice_i=2->3
+VOICE|beans cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_beans.ogg actual=res://assets/audio/voices/filler_v1/roshan_beans.ogg
+VOICE|Melody Daddy route exists for exact cue coverage: OK|
+VOICE|Melody entry makes one intended request: OK|requests=0->1 cue=roshan_op_popstar_rhythm
+VOICE|Melody entry plays one cue: OK|voice_i=3->4
+VOICE|Melody entry resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg
+VOICE|Melody exact cue path and immutable bytes are present: OK|
+VOICE|Melody entry retains the exact semantic objective copy: OK|
+VOICE|brawl entry makes one intended request: OK|requests=1->2 cue=huluu_greet
+VOICE|brawl entry plays one cue: OK|voice_i=4->5
+VOICE|brawl entry resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/huluu_greet.ogg actual=res://assets/audio/voices/filler_v1/huluu_greet.ogg
+VOICE|brawl entry caption and state stay intact: OK|
+VOICE|brawl route makes one intended request: OK|requests=2->3 cue=huluu_talk
+VOICE|brawl route plays one cue: OK|voice_i=5->6
+VOICE|brawl route resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/huluu_talk.ogg actual=res://assets/audio/voices/filler_v1/huluu_talk.ogg
+VOICE|brawl route caption and progression stay intact: OK|
+VOICE|brawl warning makes one intended request: OK|requests=3->4 cue=huluu_talk
+VOICE|brawl warning plays one cue: OK|voice_i=6->7
+VOICE|brawl warning resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/huluu_talk.ogg actual=res://assets/audio/voices/filler_v1/huluu_talk.ogg
+VOICE|brawl warning caption and one-shot state stay intact: OK|
+VOICE|fallback speech replaces prior exact speech: OK|
+VOICE|fallback speech is active before clear: OK|
+VOICE|clear stops every pooled voice: OK|
+VOICE|clear stops fallback voice: OK|
+VOICE|sequence starts one cue: OK|
+VOICE|sequence starts first exact clip: OK|
+VOICE|first rapid skip is consumed: OK|
+VOICE|first rapid skip stops prior cue: OK|
+VOICE|first rapid skip starts only next cue: OK|
+VOICE|second rapid skip is consumed: OK|
+VOICE|second rapid skip stops prior cue: OK|
+VOICE|second rapid skip starts only next cue: OK|
+VOICE|final rapid skip is consumed: OK|
+VOICE|sequence exhaustion stops final cue: OK|
+VOICE|sequence exhaustion clears dialogue state: OK|
+VOICE|voice cooldown still suppresses duplicate cue: OK|
+VOICE|chapter2_farmer_gather_strawberries cue speaks once: OK|voice_i=13->14
+VOICE|chapter2_farmer_gather_strawberries cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_gather_strawberries.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_gather_strawberries.ogg
+VOICE|one speech channel after changed objective chapter2_farmer_gather_strawberries: OK|
+VOICE|chapter2_farmer_fill_basket cue speaks once: OK|voice_i=14->15
+VOICE|chapter2_farmer_fill_basket cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_fill_basket.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_fill_basket.ogg
+VOICE|one speech channel after changed objective chapter2_farmer_fill_basket: OK|
+VOICE|chapter2_farmer_deliver_to_kitchen cue speaks once: OK|voice_i=15->16
+VOICE|chapter2_farmer_deliver_to_kitchen cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_deliver_to_kitchen.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_deliver_to_kitchen.ogg
+VOICE|one speech channel after changed objective chapter2_farmer_deliver_to_kitchen: OK|
+VOICE|chapter2_route_farmer cue speaks once: OK|voice_i=16->17
+VOICE|chapter2_route_farmer cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_farmer.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_farmer.ogg
+VOICE|one speech channel after changed objective chapter2_route_farmer: OK|
+VOICE|op_chef_pour_stage cue speaks once: OK|voice_i=17->18
+VOICE|op_chef_pour_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_chef_pour_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_chef_pour_stage.ogg
+VOICE|one speech channel after changed objective op_chef_pour_stage: OK|
+VOICE|op_chef_stir_stage cue speaks once: OK|voice_i=18->19
+VOICE|op_chef_stir_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_chef_stir_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_chef_stir_stage.ogg
+VOICE|one speech channel after changed objective op_chef_stir_stage: OK|
+VOICE|op_chef_bake_stage cue speaks once: OK|voice_i=19->20
+VOICE|op_chef_bake_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_chef_bake_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_chef_bake_stage.ogg
+VOICE|one speech channel after changed objective op_chef_bake_stage: OK|
+VOICE|chapter2_chef_stack cue speaks once: OK|voice_i=20->21
+VOICE|chapter2_chef_stack cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_chef_stack.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_chef_stack.ogg
+VOICE|one speech channel after changed objective chapter2_chef_stack: OK|
+VOICE|op_chef_pipe_stage cue speaks once: OK|voice_i=21->22
+VOICE|op_chef_pipe_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_chef_pipe_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_chef_pipe_stage.ogg
+VOICE|one speech channel after changed objective op_chef_pipe_stage: OK|
+VOICE|chapter2_route_chef cue speaks once: OK|voice_i=22->23
+VOICE|chapter2_route_chef cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_chef.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_chef.ogg
+VOICE|one speech channel after changed objective chapter2_route_chef: OK|
+VOICE|chapter2_candymaker_coat_strawberries cue speaks once: OK|voice_i=23->24
+VOICE|chapter2_candymaker_coat_strawberries cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_coat_strawberries.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_coat_strawberries.ogg
+VOICE|one speech channel after changed objective chapter2_candymaker_coat_strawberries: OK|
+VOICE|chapter2_candymaker_sort_strawberries cue speaks once: OK|voice_i=24->25
+VOICE|chapter2_candymaker_sort_strawberries cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_sort_strawberries.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_sort_strawberries.ogg
+VOICE|one speech channel after changed objective chapter2_candymaker_sort_strawberries: OK|
+VOICE|chapter2_candymaker_glaze_strawberries cue speaks once: OK|voice_i=25->26
+VOICE|chapter2_candymaker_glaze_strawberries cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_glaze_strawberries.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_glaze_strawberries.ogg
+VOICE|one speech channel after changed objective chapter2_candymaker_glaze_strawberries: OK|
+VOICE|chapter2_candymaker_place_candied_strawberries cue speaks once: OK|voice_i=26->27
+VOICE|chapter2_candymaker_place_candied_strawberries cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_place_candied_strawberries.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_place_candied_strawberries.ogg
+VOICE|one speech channel after changed objective chapter2_candymaker_place_candied_strawberries: OK|
+VOICE|chapter2_route_candy_maker cue speaks once: OK|voice_i=27->28
+VOICE|chapter2_route_candy_maker cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_candy_maker.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_candy_maker.ogg
+VOICE|one speech channel after changed objective chapter2_route_candy_maker: OK|
+VOICE|chapter2_painter_paint_banner cue speaks once: OK|voice_i=28->29
+VOICE|chapter2_painter_paint_banner cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_painter_paint_banner.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_painter_paint_banner.ogg
+VOICE|one speech channel after changed objective chapter2_painter_paint_banner: OK|
+VOICE|op_painter_splat_stage cue speaks once: OK|voice_i=29->30
+VOICE|op_painter_splat_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_painter_splat_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_painter_splat_stage.ogg
+VOICE|one speech channel after changed objective op_painter_splat_stage: OK|
+VOICE|chapter2_painter_hang_banner cue speaks once: OK|voice_i=30->31
+VOICE|chapter2_painter_hang_banner cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_painter_hang_banner.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_painter_hang_banner.ogg
+VOICE|one speech channel after changed objective chapter2_painter_hang_banner: OK|
+VOICE|chapter2_route_painter cue speaks once: OK|voice_i=31->32
+VOICE|chapter2_route_painter cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_painter.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_painter.ogg
+VOICE|one speech channel after changed objective chapter2_route_painter: OK|
+VOICE|chapter2_ballerina_stuffies_mirror cue speaks once: OK|voice_i=32->33
+VOICE|chapter2_ballerina_stuffies_mirror cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_ballerina_stuffies_mirror.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_ballerina_stuffies_mirror.ogg
+VOICE|one speech channel after changed objective chapter2_ballerina_stuffies_mirror: OK|
+VOICE|op_ballerina_ribbon cue speaks once: OK|voice_i=33->34
+VOICE|op_ballerina_ribbon cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_ballerina_ribbon.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_ballerina_ribbon.ogg
+VOICE|one speech channel after changed objective op_ballerina_ribbon: OK|
+VOICE|op_ballerina_twirl cue speaks once: OK|voice_i=34->35
+VOICE|op_ballerina_twirl cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_ballerina_twirl.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_ballerina_twirl.ogg
+VOICE|one speech channel after changed objective op_ballerina_twirl: OK|
+VOICE|chapter2_route_ballerina cue speaks once: OK|voice_i=35->36
+VOICE|chapter2_route_ballerina cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_ballerina.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_ballerina.ogg
+VOICE|one speech channel after changed objective chapter2_route_ballerina: OK|
+VOICE|op_popstar_sound_check_stage cue speaks once: OK|voice_i=36->37
+VOICE|op_popstar_sound_check_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_popstar_sound_check_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_popstar_sound_check_stage.ogg
+VOICE|one speech channel after changed objective op_popstar_sound_check_stage: OK|
+VOICE|op_popstar_dance cue speaks once: OK|voice_i=37->38
+VOICE|op_popstar_dance cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_popstar_dance.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_popstar_dance.ogg
+VOICE|one speech channel after changed objective op_popstar_dance: OK|
+VOICE|op_popstar_rhythm_stage cue speaks once: OK|voice_i=38->39
+VOICE|op_popstar_rhythm_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm_stage.ogg
+VOICE|one speech channel after changed objective op_popstar_rhythm_stage: OK|
+VOICE|op_popstar_encore_stage cue speaks once: OK|voice_i=39->40
+VOICE|op_popstar_encore_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_popstar_encore_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_popstar_encore_stage.ogg
+VOICE|one speech channel after changed objective op_popstar_encore_stage: OK|
+VOICE|chapter2_route_popstar cue speaks once: OK|voice_i=40->41
+VOICE|chapter2_route_popstar cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_popstar.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_popstar.ogg
+VOICE|one speech channel after changed objective chapter2_route_popstar: OK|
+VOICE|op_astronaut_pipes_stage cue speaks once: OK|voice_i=41->42
+VOICE|op_astronaut_pipes_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_astronaut_pipes_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_astronaut_pipes_stage.ogg
+VOICE|one speech channel after changed objective op_astronaut_pipes_stage: OK|
+VOICE|op_astronaut_patch_stage cue speaks once: OK|voice_i=42->43
+VOICE|op_astronaut_patch_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_astronaut_patch_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_astronaut_patch_stage.ogg
+VOICE|one speech channel after changed objective op_astronaut_patch_stage: OK|
+VOICE|op_astronaut_valve cue speaks once: OK|voice_i=43->44
+VOICE|op_astronaut_valve cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_astronaut_valve.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_astronaut_valve.ogg
+VOICE|one speech channel after changed objective op_astronaut_valve: OK|
+VOICE|chapter2_astronaut_ready_park cue speaks once: OK|voice_i=44->45
+VOICE|chapter2_astronaut_ready_park cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_astronaut_ready_park.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_astronaut_ready_park.ogg
+VOICE|one speech channel after changed objective chapter2_astronaut_ready_park: OK|
+VOICE|chapter2_route_astronaut cue speaks once: OK|voice_i=45->46
+VOICE|chapter2_route_astronaut cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_astronaut.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_astronaut.ogg
+VOICE|one speech channel after changed objective chapter2_route_astronaut: OK|
+VOICE|op_detective_lens_stage cue speaks once: OK|voice_i=46->47
+VOICE|op_detective_lens_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_detective_lens_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_detective_lens_stage.ogg
+VOICE|one speech channel after changed objective op_detective_lens_stage: OK|
+VOICE|op_detective_match cue speaks once: OK|voice_i=47->48
+VOICE|op_detective_match cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_detective_match.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_detective_match.ogg
+VOICE|one speech channel after changed objective op_detective_match: OK|
+VOICE|chapter2_detective_unlit_rainbow_candle_reveal cue speaks once: OK|voice_i=48->49
+VOICE|chapter2_detective_unlit_rainbow_candle_reveal cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_detective_unlit_rainbow_candle_reveal.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_detective_unlit_rainbow_candle_reveal.ogg
+VOICE|one speech channel after changed objective chapter2_detective_unlit_rainbow_candle_reveal: OK|
+VOICE|chapter2_route_detective cue speaks once: OK|voice_i=49->50
+VOICE|chapter2_route_detective cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_detective.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_detective.ogg
+VOICE|one speech channel after changed objective chapter2_route_detective: OK|
+VOICE|chapter2_party_ready cue speaks once: OK|voice_i=50->51
+VOICE|chapter2_party_ready cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_party_ready.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_party_ready.ogg
+VOICE|one speech channel after changed objective chapter2_party_ready: OK|
+VOICE|chapter2_ember_clue cue speaks once: OK|voice_i=51->52
+VOICE|chapter2_ember_clue cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_ember_clue.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_ember_clue.ogg
+VOICE|one speech channel after changed objective chapter2_ember_clue: OK|
+VOICE|missing exact Day Two cue is silent without generic fallback: OK|
+VOICE|op_racer_tune_up_stage cue speaks once: OK|voice_i=53->54
+VOICE|op_racer_tune_up_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_racer_tune_up_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_racer_tune_up_stage.ogg
+VOICE|new Opera objective replaces required Day Two route without overlap: OK|
+VOICE|generic Opera talk cannot replace required Day Two instruction: OK|
+VOICE|generic Opera win cannot replace required Day Two instruction: OK|
+VOICE|generic Opera pearl cannot replace required Day Two instruction: OK|
+VOICE|result: ALL OK
+
+WINDOWS_NATIVE|probe_voice|exit=0|has_exited=True
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_VOICE|exact filler path for castle_home_day_one: OK
+DAY_ONE_VOICE|required event is classified: castle_home_day_one: OK
+DAY_ONE_VOICE|exact filler path for castle_door_resting: OK
+DAY_ONE_VOICE|required event is classified: castle_door_resting: OK
+DAY_ONE_VOICE|exact filler path for day_one_jobs_resting: OK
+DAY_ONE_VOICE|required event is classified: day_one_jobs_resting: OK
+DAY_ONE_VOICE|exact filler path for day_one_rescue_bunnies: OK
+DAY_ONE_VOICE|required event is classified: day_one_rescue_bunnies: OK
+DAY_ONE_VOICE|exact filler path for day_one_finish_current: OK
+DAY_ONE_VOICE|required event is classified: day_one_finish_current: OK
+DAY_ONE_VOICE|exact filler path for day_one_room_clean: OK
+DAY_ONE_VOICE|required event is classified: day_one_room_clean: OK
+DAY_ONE_VOICE|exact filler path for day_one_new_door: OK
+DAY_ONE_VOICE|required event is classified: day_one_new_door: OK
+DAY_ONE_VOICE|exact filler path for day_one_all_rooms_clean: OK
+DAY_ONE_VOICE|required event is classified: day_one_all_rooms_clean: OK
+DAY_ONE_VOICE|exact filler path for day_one_pool_ready: OK
+DAY_ONE_VOICE|required event is classified: day_one_pool_ready: OK
+DAY_ONE_VOICE|exact filler path for bathroom_supplies_found: OK
+DAY_ONE_VOICE|required event is classified: bathroom_supplies_found: OK
+DAY_ONE_VOICE|exact filler path for bathroom_cleanup_start: OK
+DAY_ONE_VOICE|required event is classified: bathroom_cleanup_start: OK
+DAY_ONE_VOICE|exact filler path for bathroom_basket_hint: OK
+DAY_ONE_VOICE|required event is classified: bathroom_basket_hint: OK
+DAY_ONE_VOICE|exact filler path for bathroom_sink_scrub: OK
+DAY_ONE_VOICE|required event is classified: bathroom_sink_scrub: OK
+DAY_ONE_VOICE|exact filler path for bathroom_tub_drain: OK
+DAY_ONE_VOICE|required event is classified: bathroom_tub_drain: OK
+DAY_ONE_VOICE|exact filler path for bathroom_tub_brush: OK
+DAY_ONE_VOICE|required event is classified: bathroom_tub_brush: OK
+DAY_ONE_VOICE|exact filler path for bathroom_cleanup_done: OK
+DAY_ONE_VOICE|required event is classified: bathroom_cleanup_done: OK
+DAY_ONE_VOICE|exact filler path for pool_surface_clean: OK
+DAY_ONE_VOICE|required event is classified: pool_surface_clean: OK
+DAY_ONE_VOICE|exact filler path for pool_waterfall_clean: OK
+DAY_ONE_VOICE|required event is classified: pool_waterfall_clean: OK
+DAY_ONE_VOICE|exact filler path for pool_seahorse_clean: OK
+DAY_ONE_VOICE|required event is classified: pool_seahorse_clean: OK
+DAY_ONE_VOICE|exact filler path for castle_playroom_rescue_start: OK
+DAY_ONE_VOICE|required event is classified: castle_playroom_rescue_start: OK
+DAY_ONE_VOICE|exact filler path for art_studio_hint: OK
+DAY_ONE_VOICE|required event is classified: art_studio_hint: OK
+DAY_ONE_VOICE|exact filler path for art_studio_material_hint: OK
+DAY_ONE_VOICE|required event is classified: art_studio_material_hint: OK
+DAY_ONE_VOICE|exact filler path for art_studio_scrub_hint: OK
+DAY_ONE_VOICE|required event is classified: art_studio_scrub_hint: OK
+DAY_ONE_VOICE|exact filler path for dustboss_show: OK
+DAY_ONE_VOICE|required event is classified: dustboss_show: OK
+DAY_ONE_VOICE|exact filler path for dustboss_tell_opening: OK
+DAY_ONE_VOICE|required event is classified: dustboss_tell_opening: OK
+DAY_ONE_VOICE|exact filler path for dustboss_tell_shielded: OK
+DAY_ONE_VOICE|required event is classified: dustboss_tell_shielded: OK
+DAY_ONE_VOICE|exact filler path for dustboss_again_miss: OK
+DAY_ONE_VOICE|required event is classified: dustboss_again_miss: OK
+DAY_ONE_VOICE|exact filler path for dustboss_again_closer: OK
+DAY_ONE_VOICE|required event is classified: dustboss_again_closer: OK
+DAY_ONE_VOICE|exact filler path for dustboss_again_mercy: OK
+DAY_ONE_VOICE|required event is classified: dustboss_again_mercy: OK
+DAY_ONE_VOICE|exact filler path for dustboss_dizzy_first: OK
+DAY_ONE_VOICE|required event is classified: dustboss_dizzy_first: OK
+DAY_ONE_VOICE|exact filler path for dustboss_dizzy_round: OK
+DAY_ONE_VOICE|required event is classified: dustboss_dizzy_round: OK
+DAY_ONE_VOICE|exact filler path for dustboss_angry: OK
+DAY_ONE_VOICE|required event is classified: dustboss_angry: OK
+DAY_ONE_VOICE|exact filler path for dustboss_win: OK
+DAY_ONE_VOICE|required event is classified: dustboss_win: OK
+DAY_ONE_VOICE|exact filler path for day_two_begins: OK
+DAY_ONE_VOICE|required event is classified: day_two_begins: OK
+DAY_ONE_VOICE|prefixed event still resolves one speaker prefix: OK
+DAY_ONE_VOICE|generic talk remains distinct from required objective paths: OK
+DAY_ONE_VOICE|generic talk cannot truncate required objective: OK
+DAY_ONE_VOICE|second Roshan objective is queued, not overlapped: OK
+DAY_ONE_VOICE|required path never resolves retired fallback: OK
+DAY_ONE_VOICE|RESULT: PASS failures=0
+
+WINDOWS_NATIVE|probe_day_one_voice|exit=0|has_exited=True
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+CHAPTER2|boss defeat is blocked before the boss trigger: OK
+CHAPTER2|the four clean rooms arm the boss door: OK
+CHAPTER2|boss defeat starts Chapter 2: OK
+CHAPTER2|Detective telemetry names the accepted unlit candle asset: OK
+CHAPTER2|there is no standalone tutorial prelude: OK
+CHAPTER2|chapter starts at Farmer, not Detective: OK
+CHAPTER2|foyer cards resolve to truthful Castle launch owners: OK
+CHAPTER2|foyer rejects a non-Opera career from hardcoded opera_hall: OK
+CHAPTER2|plot-only Ballerina and Detective keep their room owners: OK
+CHAPTER2|Farmer hands the same five visible strawberries to the kitchen: OK
+CHAPTER2|Chef visibly builds one persistent cake through five distinct states: OK
+CHAPTER2|Candy Maker keeps the frosted cake and stages five glazed berries: OK
+CHAPTER2|Candy placement reveals the selected runtime cake without a candle: OK
+CHAPTER2|Chef and Candy Maker phase data names the actual resulting art: OK
+CHAPTER2|the Chapter 2 party roster is exactly eight stable Opera bits: OK
+CHAPTER2|Chef cannot precede Farmer: OK
+CHAPTER2|stale phase callbacks cannot award the wrong act: OK
+CHAPTER2|Farmer phase callback fills exactly five strawberries: OK
+CHAPTER2|ordered party act 6 completes: OK
+CHAPTER2|Chef phase callback records the bottom cake piece: OK
+CHAPTER2|ordered party act 0 completes: OK
+CHAPTER2|ordered party act 3 completes: OK
+CHAPTER2|ordered party act 10 completes: OK
+CHAPTER2|Farmer ingredient and Chef cake milestones persist: OK
+CHAPTER2|Painter unlocks the second four story careers: OK
+CHAPTER2|Ballerina remains a plot-owned room action: OK
+CHAPTER2|Ballerina completes after Painter: OK
+CHAPTER2|Pop Star sound check follows Ballerina: OK
+CHAPTER2|Astronaut parks the rocket before the final candle search: OK
+CHAPTER2|all eight Chapter 2 careers teach a nonempty truthful skill: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_chef_stack: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_detective_unlit_rainbow_candle_reveal: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_ballerina_stuffies_mirror: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_candymaker_coat_strawberries: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_candymaker_sort_strawberries: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_candymaker_glaze_strawberries: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_candymaker_place_candied_strawberries: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_farmer_gather_strawberries: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_farmer_fill_basket: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_farmer_deliver_to_kitchen: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_painter_paint_banner: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_painter_hang_banner: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_astronaut_ready_park: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_farmer: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_chef: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_candy_maker: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_painter: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_ballerina: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_popstar: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_astronaut: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_detective: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_party_ready: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_ember_clue: OK
+CHAPTER2|exact phase audio farmer/GATHER STRAWBERRIES: OK
+CHAPTER2|exact phase audio farmer/FILL BASKET: OK
+CHAPTER2|exact phase audio farmer/DELIVER TO KITCHEN: OK
+CHAPTER2|exact door guidance farmer: OK
+CHAPTER2|exact phase audio chef/MIX: OK
+CHAPTER2|exact phase audio chef/STIR: OK
+CHAPTER2|exact phase audio chef/BAKE: OK
+CHAPTER2|exact phase audio chef/STACK: OK
+CHAPTER2|exact phase audio chef/FROST: OK
+CHAPTER2|exact door guidance chef: OK
+CHAPTER2|exact phase audio candymaker/COAT STRAWBERRIES: OK
+CHAPTER2|exact phase audio candymaker/SORT STRAWBERRIES: OK
+CHAPTER2|exact phase audio candymaker/GLAZE STRAWBERRIES: OK
+CHAPTER2|exact phase audio candymaker/PLACE ON CAKE: OK
+CHAPTER2|exact door guidance candymaker: OK
+CHAPTER2|exact phase audio painter/PAINT: OK
+CHAPTER2|exact phase audio painter/STAMP: OK
+CHAPTER2|exact phase audio painter/HANG: OK
+CHAPTER2|exact door guidance painter: OK
+CHAPTER2|exact phase audio ballerina/STUFFIES MIRROR: OK
+CHAPTER2|exact phase audio ballerina/STUFFIES TWIRL: OK
+CHAPTER2|exact phase audio ballerina/STUFFIES BOW: OK
+CHAPTER2|exact door guidance ballerina: OK
+CHAPTER2|exact phase audio popstar/SOUND CHECK: OK
+CHAPTER2|exact phase audio popstar/STAGE RUMI: OK
+CHAPTER2|exact phase audio popstar/RHYTHM: OK
+CHAPTER2|exact phase audio popstar/ENCORE: OK
+CHAPTER2|exact door guidance popstar: OK
+CHAPTER2|exact phase audio astronaut/BUILD ROCKET: OK
+CHAPTER2|exact phase audio astronaut/PATCH: OK
+CHAPTER2|exact phase audio astronaut/VALVE: OK
+CHAPTER2|exact phase audio astronaut/READY PARK: OK
+CHAPTER2|exact door guidance astronaut: OK
+CHAPTER2|exact phase audio detective/LENS: OK
+CHAPTER2|exact phase audio detective/STORYBOOK BOARD: OK
+CHAPTER2|exact phase audio detective/UNLIT RAINBOW CANDLE: OK
+CHAPTER2|exact door guidance detective: OK
+CHAPTER2|all 29 required Day Two phases covered: OK
+CHAPTER2|Detective waits until every earlier preparation is ready: OK
+CHAPTER2|Detective finds the last missing candle unlit: OK
+CHAPTER2|party event phase stays at candle-found until ignition: OK
+CHAPTER2|party cannot start in unrelated rooms: OK
+CHAPTER2|party ignition starts only after all eight milestones: OK
+CHAPTER2|Main Hall offers the lawn route without advancing the story on a timer: OK
+CHAPTER2|leaving Main Hall cancels party beat timing without progress: OK
+CHAPTER2|the safe ember scout beat precedes the King take: OK
+CHAPTER2|King theft rejects missing protection and Main Hall callers: OK
+CHAPTER2|Ember King takes the lit candle for his birthday: OK
+CHAPTER2|Main Hall does not reintroduce the departed Prince placeholder: OK
+CHAPTER2|Ember take removes only the candle and leaves the cake: OK
+CHAPTER2|save healing rejects skipped milestones and early crash: OK
+CHAPTER2|save normalization retains all eight milestones: OK
+CHAPTER2|new milestone fields have strict boolean validation: OK
+CHAPTER2|new masks are fixed, typed, and heal future bits: OK
+CHAPTER2|save healing stores the same contiguous cake rendered after load: OK
+CHAPTER2|phase healing preserves the current job and prunes later jobs: OK
+CHAPTER2|Ember protection uses valid shared boss rules: OK
+CHAPTER2|Ember round 0 offers a counter after safe dodges: OK
+CHAPTER2|held and off-target input cannot protect a round: OK
+CHAPTER2|one visible fresh counter saves exactly one protection round: OK
+CHAPTER2|Ember re-entry preserves completed rounds: OK
+CHAPTER2|Ember round 1 offers a counter after safe dodges: OK
+CHAPTER2|held and off-target input cannot protect a round: OK
+CHAPTER2|one visible fresh counter saves exactly one protection round: OK
+CHAPTER2|Ember re-entry preserves completed rounds: OK
+CHAPTER2|Ember round 2 offers a counter after safe dodges: OK
+CHAPTER2|held and off-target input cannot protect a round: OK
+CHAPTER2|one visible fresh counter saves exactly one protection round: OK
+CHAPTER2|Ember re-entry preserves completed rounds: OK
+CHAPTER2|protecting friends does not itself steal the candle or finish the story: OK
+CHAPTER2|Ember checkpoint rejects malformed types: OK
+CHAPTER2|Ember cannot pre-win before party preparation: OK
+CHAPTER2|RESULT: PASS checks_failed=0
+
+WINDOWS_NATIVE|probe_chapter2|exit=0|has_exited=True
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+OPERA|the real Castle picture stage is the only career entry surface: OK
+OPERA|Castle careers, ambient motion and phone pause stack visibly: OK
+OPERA|Opera keeps sixteen historical positions and appends Geologist and Teacher: OK
+OPERA|the fifteen playable positions keep legacy slots stable: OK
+OPERA|the three retired boss positions remain inert tombstones: OK
+OPERA|the nine owner-approved Castle route sets are exact: OK
+OPERA|Opera Hall contains exactly Ballerina, Pop Star and Magician: OK
+OPERA|Movie Lounge is Racer's one canonical Castle home: OK
+OPERA|there is no generic all-career lobby script: OK
+OPERA|all and only the fifteen live slots have one room route: OK
+OPERA|every live career and tombstone retains its original bit: OK
+OPERA|all fifteen careers keep unique Canvas identities: OK
+OPERA|save migration keeps legacy progress 0 exact: OK
+OPERA|save migration keeps legacy progress 15 exact: OK
+OPERA|save migration keeps legacy progress 16 exact: OK
+OPERA|save migration keeps retired bits only exact: OK
+OPERA|save migration keeps all live careers exact: OK
+OPERA|save migration keeps all live careers including Geologist exact: OK
+OPERA|save migration keeps all live careers including Teacher exact: OK
+OPERA|save migration keeps old all-bits completion exact: OK
+OPERA|save migration keeps overflow clamps to eighteen bits exact: OK
+OPERA|save migration keeps negative mask clamps safely exact: OK
+OPERA|kitchen exposes its exact room-owned career pictures: OK
+OPERA|kitchen route cards stay full-size, separated and clear Roshan: OK
+OPERA|opera_hall exposes its exact room-owned career pictures: OK
+OPERA|Opera Hall opens the recovered three-floor explorable venue: OK
+OPERA|library exposes its exact room-owned career pictures: OK
+OPERA|library route cards stay full-size, separated and clear Roshan: OK
+OPERA|craft_room exposes its exact room-owned career pictures: OK
+OPERA|craft_room route cards stay full-size, separated and clear Roshan: OK
+OPERA|playroom exposes its exact room-owned career pictures: OK
+OPERA|playroom route cards stay full-size, separated and clear Roshan: OK
+OPERA|bubble_bath exposes its exact room-owned career pictures: OK
+OPERA|bubble_bath route cards stay full-size, separated and clear Roshan: OK
+OPERA|mermaid_pool exposes its exact room-owned career pictures: OK
+OPERA|mermaid_pool route cards stay full-size, separated and clear Roshan: OK
+OPERA|dining_room exposes its exact room-owned career pictures: OK
+OPERA|dining_room route cards stay full-size, separated and clear Roshan: OK
+OPERA|movie_lounge exposes its exact room-owned career pictures: OK
+OPERA|movie_lounge route cards stay full-size, separated and clear Roshan: OK
+OPERA|the nine visible room sets contain every career exactly once: OK
+OPERA|the Opera stage star opens the recovered three-floor venue: OK
+OPERA|the recovered venue is not an all-career picker: OK
+OPERA|idle room pictures cannot award or launch a career: OK
+OPERA|a career picture cannot launch from the wrong room: OK
+OPERA|a valid career tuple cannot launch outside its current Castle room: OK
+OPERA|retired slot 4 has no route or playable config: OK
+OPERA|retired slot 9 has no route or playable config: OK
+OPERA|retired slot 14 has no route or playable config: OK
+OPERA|slot 1 exposes its real library picture: OK
+OPERA|slot 1 reaches its routed career after the reveal: OK
+OPERA|slot 1 launches through raw viewport touch: OK
+OPERA|Detective owns its career cue while Library remains its return music: OK
+OPERA|an idle Detective act cannot advance or award itself: OK
+OPERA|cancel returns to the exact Library with no reward: OK
+OPERA|slot 0 exposes its real kitchen picture: OK
+OPERA|slot 0 reaches its routed career after the reveal: OK
+OPERA|slot 0 launches through raw viewport touch: OK
+OPERA|chef starts only its stable Canvas career: OK
+OPERA|chef cannot award itself while idle: OK
+OPERA|chef saves once and returns to kitchen: OK
+OPERA|slot 1 exposes its real library picture: OK
+OPERA|slot 1 reaches its routed career after the reveal: OK
+OPERA|slot 1 launches through raw viewport touch: OK
+OPERA|detective starts only its stable Canvas career: OK
+OPERA|detective cannot award itself while idle: OK
+OPERA|detective saves once and returns to library: OK
+OPERA|Opera Hall touch route enters the recovered foyer: OK
+OPERA|slot 2 exposes its real opera_hall picture: OK
+OPERA|slot 2 reaches its routed career after the reveal: OK
+OPERA|slot 2 launches through raw viewport touch: OK
+OPERA|ballerina starts only its stable Canvas career: OK
+OPERA|ballerina cannot award itself while idle: OK
+OPERA|ballerina saves once and returns to opera_hall: OK
+OPERA|slot 3 exposes its real kitchen picture: OK
+OPERA|slot 3 reaches its routed career after the reveal: OK
+OPERA|slot 3 launches through raw viewport touch: OK
+OPERA|candymaker starts only its stable Canvas career: OK
+OPERA|candymaker cannot award itself while idle: OK
+OPERA|candymaker saves once and returns to kitchen: OK
+OPERA|slot 5 exposes its real playroom picture: OK
+OPERA|slot 5 reaches its routed career after the reveal: OK
+OPERA|slot 5 launches through raw viewport touch: OK
+OPERA|doctor starts only its stable Canvas career: OK
+OPERA|doctor cannot award itself while idle: OK
+OPERA|doctor saves once and returns to playroom: OK
+OPERA|slot 6 exposes its real dining_room picture: OK
+OPERA|slot 6 reaches its routed career after the reveal: OK
+OPERA|slot 6 launches through raw viewport touch: OK
+OPERA|farmer starts only its stable Canvas career: OK
+OPERA|farmer cannot award itself while idle: OK
+OPERA|farmer saves once and returns to dining_room: OK
+OPERA|slot 7 exposes its real playroom picture: OK
+OPERA|slot 7 reaches its routed career after the reveal: OK
+OPERA|slot 7 launches through raw viewport touch: OK
+OPERA|boxer starts only its stable Canvas career: OK
+OPERA|boxer cannot award itself while idle: OK
+OPERA|boxer saves once and returns to playroom: OK
+OPERA|Opera Hall touch route enters the recovered foyer: OK
+OPERA|slot 8 exposes its real opera_hall picture: OK
+OPERA|slot 8 reaches its routed career after the reveal: OK
+OPERA|slot 8 launches through raw viewport touch: OK
+OPERA|magician starts only its stable Canvas career: OK
+OPERA|magician cannot award itself while idle: OK
+OPERA|magician saves once and returns to opera_hall: OK
+OPERA|slot 10 exposes its real craft_room picture: OK
+OPERA|slot 10 reaches its routed career after the reveal: OK
+OPERA|slot 10 launches through raw viewport touch: OK
+OPERA|painter starts only its stable Canvas career: OK
+OPERA|painter cannot award itself while idle: OK
+OPERA|painter saves once and returns to craft_room: OK
+OPERA|slot 11 exposes its real mermaid_pool picture: OK
+OPERA|slot 11 reaches its routed career after the reveal: OK
+OPERA|slot 11 launches through raw viewport touch: OK
+OPERA|astronaut starts only its stable Canvas career: OK
+OPERA|astronaut cannot award itself while idle: OK
+OPERA|astronaut saves once and returns to mermaid_pool: OK
+OPERA|slot 12 exposes its real movie_lounge picture: OK
+OPERA|slot 12 reaches its routed career after the reveal: OK
+OPERA|slot 12 launches through raw viewport touch: OK
+OPERA|racer starts only its stable Canvas career: OK
+OPERA|Racer overlap fixture begins with audible route speech: OK
+OPERA|Racer phase clears stale required speech and its queued route: OK
+OPERA|Racer exact objective voice replaces its caption fallback: OK
+OPERA|pause sheet rises above the room-started Opera career: OK
+OPERA|resume restores the nonblocking pause layer: OK
+OPERA|racer cannot award itself while idle: OK
+OPERA|racer saves once and returns to movie_lounge: OK
+OPERA|Opera Hall touch route enters the recovered foyer: OK
+OPERA|slot 13 exposes its real opera_hall picture: OK
+OPERA|slot 13 reaches its routed career after the reveal: OK
+OPERA|slot 13 launches through raw viewport touch: OK
+OPERA|popstar starts only its stable Canvas career: OK
+OPERA|popstar cannot award itself while idle: OK
+OPERA|popstar saves once and returns to opera_hall: OK
+OPERA|slot 15 exposes its real bubble_bath picture: OK
+OPERA|slot 15 reaches its routed career after the reveal: OK
+OPERA|slot 15 launches through raw viewport touch: OK
+OPERA|nursery starts only its stable Canvas career: OK
+OPERA|nursery cannot award itself while idle: OK
+OPERA|nursery saves once and returns to bubble_bath: OK
+OPERA|slot 16 exposes its real library picture: OK
+OPERA|slot 16 reaches its routed career after the reveal: OK
+OPERA|slot 16 launches through raw viewport touch: OK
+OPERA|geologist starts only its stable Canvas career: OK
+OPERA|geologist cannot award itself while idle: OK
+OPERA|geologist saves once and returns to library: OK
+OPERA|slot 17 exposes its real library picture: OK
+OPERA|slot 17 reaches its routed career after the reveal: OK
+OPERA|slot 17 launches through raw viewport touch: OK
+OPERA|teacher starts only its stable Canvas career: OK
+OPERA|teacher cannot award itself while idle: OK
+OPERA|teacher saves once and returns to library: OK
+OPERA|Teacher checkpoint clears only after its win is recorded: OK
+OPERA|all fifteen sparse careers complete through their nine rooms: OK
+OPERA|the finale reward and sticker are awarded exactly once: OK
+OPERA|slot 0 exposes its real kitchen picture: OK
+OPERA|slot 0 reaches its routed career after the reveal: OK
+OPERA|slot 0 launches through raw viewport touch: OK
+OPERA|replay curtain has earned but not yet duplicated the saved bit: OK
+OPERA|leaving during a replay curtain commits only the replay pearl: OK
+OPERA|slot 0 exposes its real kitchen picture: OK
+OPERA|slot 0 reaches its routed career after the reveal: OK
+OPERA|slot 0 launches through raw viewport touch: OK
+OPERA|neutral pause leave returns to the exact room without reward: OK
+OPERA|later frames cannot duplicate the curtain reward: OK
+OPERA|result: ALL OK
+
+WINDOWS_NATIVE|probe_opera|exit=0|has_exited=True

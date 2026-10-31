@@ -1,0 +1,52 @@
+{
+  "status": "SOURCE_ONLY_REGISTRATION",
+  "root_anchor_px": [
+    464,
+    282
+  ],
+  "source_poses_move_entire_figure": true,
+  "allow_anatomical_motion_including_shoulders_torso_bodice_hair_tail": true,
+  "anchors_are_landmarks_not_pixel_freezes": true,
+  "poses": [
+    {
+      "path": "inputs/figure_rgba_00.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "parent": "inputs/source_rgba_00.png",
+      "whole_figure_integer_translation": [
+        0,
+        0
+      ],
+      "fixed_body_plate_used": false
+    },
+    {
+      "path": "inputs/figure_rgba_01.png",
+      "sha256": "a9df531e31ee2fd6858120544f99e416b152b6392c5cde457df696eb96f904ab",
+      "parent": "inputs/source_rgba_01.png",
+      "whole_figure_integer_translation": [
+        23,
+        -3
+      ],
+      "fixed_body_plate_used": false
+    },
+    {
+      "path": "inputs/figure_rgba_02.png",
+      "sha256": "76e741d5d5ddeecc819f94e3c35777d1b2365a87dfbda31f2230dddaaa696273",
+      "parent": "inputs/source_rgba_02.png",
+      "whole_figure_integer_translation": [
+        50,
+        -9
+      ],
+      "fixed_body_plate_used": false
+    },
+    {
+      "path": "inputs/figure_rgba_03.png",
+      "sha256": "ddb1fbe3a4c3a60ffddaf2f04bddcb3e999fa8425f237c83db054292cd870378",
+      "parent": "inputs/source_rgba_03.png",
+      "whole_figure_integer_translation": [
+        74,
+        -6
+      ],
+      "fixed_body_plate_used": false
+    }
+  ]
+}

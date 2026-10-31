@@ -1,0 +1,1495 @@
+{
+  "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/chef-overdraw-20261003",
+  "revision": "32aee3361cb86ff039d6dffb129d8d4740a3d677",
+  "checked_utc": "2026-10-04T07:11:23.583004+00:00",
+  "access_mode": "Authenticated Codex Git fetch, not recipient/Grok access or creative acceptance",
+  "verification": "Remote branch read and fetched at exact revision; every task-covered blob verified through the fetched content-addressed Git tree against local candidate bytes. Git may reuse identical cached objects. No raw-HTTP download claim.",
+  "pull_request": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/20",
+  "entry": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/32aee3361cb86ff039d6dffb129d8d4740a3d677/audit/chef_overdraw_20261003",
+  "machine_receipt": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/32aee3361cb86ff039d6dffb129d8d4740a3d677/audit/chef_overdraw_20261003/RECEIPT.json",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "git_blob": "dc5ac7f10d810afd24c2fc91802af86ac61b7657",
+      "sha256": "3d1432b4b7fdb904205b084df26f5628a4f34a70d156ec895d2ab8eea372e64b",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "git_blob": "86ff1c53fb1f8216dcf8e9ae2a7f8c8209ea0ba7",
+      "sha256": "f9871adf1f292ef9d20b6d25d5927ed739bb05d761ccef92a50708735ceec956",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "assets/chapter2/birthday/chef_empty_shell_bowl_v1.png",
+      "git_blob": "d0862041306052619172651fda88d01093e37433",
+      "sha256": "2538ae452b0f681c2832f328a9d844cba482cd9829a9414d2d3c732ca533c129",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets/chapter2/birthday/chef_empty_shell_bowl_v1.png.import",
+      "git_blob": "b75d1468be3e1710b23f48afb947843a5b78187a",
+      "sha256": "a50a8f0a92853234d230b4c420c14084e75ed01e6764df27e0abea3d91435abb",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c0r0.png",
+      "git_blob": "db6a5d3baf35877a2e7dc5a4aaa9e3c0e19beab2",
+      "sha256": "6840274d4ac7e7a0acb67035e815a7877694c69120aa1f776e75cdad90258191",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c0r0.png.import",
+      "git_blob": "aa6efb4be5b62ac8ef846ad4c9a5c54c471ee8e2",
+      "sha256": "648013ef1a80fa637c8dfd1ff093c72f0b79519545b14842ab0a7981832fb446",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c0r1.png",
+      "git_blob": "2f08e08e2177488ad92346799f5c9b45ceb2eea6",
+      "sha256": "0d3786dc187ae4798e0c2024b106154992c5bca90065de9f108c1d778cb9e96f",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c0r1.png.import",
+      "git_blob": "8739701b3ac23ddf2e51d6fcab63e5899cfa8ebb",
+      "sha256": "adeab9e9e7e8769939f7a839beccb97f4444ffb9326f09ad30532387831ba249",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c1r0.png",
+      "git_blob": "efce1bfcf6fae58ba24f84e50e1ee2b141c70616",
+      "sha256": "4e0179192a157f329caaa5b16dd5175e3db6df9cd4ec2ef1782a4229cc9047be",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c1r0.png.import",
+      "git_blob": "e8d7b2a51dca7d47388e5eb65ccb71b8960cd61a",
+      "sha256": "3b1369d904022e5360cf34c2f48ee54b032165a2b66c79c19081a4a90756e577",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c1r1.png",
+      "git_blob": "0b9f6f31f0a229dd0deb43c5db0ec54415c49c33",
+      "sha256": "ea8e1ad494ff3b0e76b1e4c497c20f459f806204df2b189775fedf4c10000986",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c1r1.png.import",
+      "git_blob": "d393873a8199f7da8a24c834c0d6d21dfe38637a",
+      "sha256": "779868d4c98ebae018a4c792bec9ba7335e1ad9e05070c70578779a5c6e6447b",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/EMPTY_BOWL_PROVENANCE.json",
+      "git_blob": "7bcff9c0540b89ccaef146205f17b18fea9cc98b",
+      "sha256": "0f23f12099b9b44441d8c31b736a8de8f7fdcc9d3e9012b20159e23fb153da38",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/PROMPT_A1.txt",
+      "git_blob": "90bfcbc71c81718b477d441eadb15fdbb8563164",
+      "sha256": "969ddae52c2de36c95e705124d37da01445f040dc731823330de88ce5d571973",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/PROMPT_A2.txt",
+      "git_blob": "a5939bfa18c6a38b6eefd41acd78860eac0753ca",
+      "sha256": "0362fab267fc0fa52a90b519cb3b5d5b7f79a54d08d2f3e436007d6f368cb0f1",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/PROMPT_EMPTY_BOWL_A1.txt",
+      "git_blob": "cb75052f1d93ece2c1edfb1ae04adb5b5697f42d",
+      "sha256": "b91d430c1b382a18455230c82ba8fd451c0a92e81f1e71797b02a9793c6402df",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/PROVENANCE.json",
+      "git_blob": "530f064226d0f6133f96965d767c7567cffac67f",
+      "sha256": "a158842b9287f5fed6c90a38a54468040603307e1e7c5fb1f71ea209c78d24bd",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/STATIONS_PROVENANCE.json",
+      "git_blob": "ca8d76751e7babef317a172de86bbe8f9ede4ea8",
+      "sha256": "11897c668a2c47932d97691ed0cb7fe318d564570d78dd96231863b9221fa1d3",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/a1_tiles/world_chef_c0r0.png",
+      "git_blob": "a5bdf168a563d665e589df7b162fb9c3c77edb9b",
+      "sha256": "a3a7721ae5692a0c3cd8e781eadda45183b074ea6442b75ea2df87a56bae1630",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/a1_tiles/world_chef_c0r1.png",
+      "git_blob": "1bd4b3a194ec1f35a1571f321a615ef22ef1a5a4",
+      "sha256": "0e327465c7b669c92998c9d5abf9b4554a45cd11caff709e3ec1f0c9cc6ba934",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/a1_tiles/world_chef_c1r0.png",
+      "git_blob": "b1839fae964135b952855e44075d88046ea625fe",
+      "sha256": "22fbab5dbac915157f7331f73c8c82665d4e9a9a25960ddb0a4ded6629d3995a",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/a1_tiles/world_chef_c1r1.png",
+      "git_blob": "56de69c8458af5f01a70a59883000a3994b053a6",
+      "sha256": "f041166d2eac3307f7fbdc895b594628f18f0b101f02fe1a938b87ebcb455e63",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/chef_empty_shell_bowl_native.png",
+      "git_blob": "e52581a507e4cd8e4387908abf059d26900b6730",
+      "sha256": "c162c82017da4982e2ac5ac4f34bc4293b7ef7fa7135f02272e00485f49e02fd",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/prepare_runtime.py",
+      "git_blob": "7f9670deb944c42b85299d98c7d173dc80466429",
+      "sha256": "d41745da076b040fee3d7070774537cf0a24e10bc451ffc9739c038803030439",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/world_chef_clean_master.png",
+      "git_blob": "3f8d5c552efae5447effb564d8cd6f346e54d031",
+      "sha256": "f670e0d8cbab224e07ca04d02c8f6fdcc714ca09e49777c70d0384e487614814",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/world_chef_clean_native.png",
+      "git_blob": "acd4c647d5945ca6786b2e1b560d88eb5884f391",
+      "sha256": "8611985b5adfc49c7662b32cb92ec2789bf16691512c4e948ca78956e9dd546c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/world_chef_stations_master.png",
+      "git_blob": "bf341e58f85811bc52dba07eeb030d3f30ecf4fb",
+      "sha256": "e8f9da0fa0188fa7cc08f32b6a3ca770492cf14de6c6a2eba6fc35123664a72e",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/world_chef_stations_native.png",
+      "git_blob": "56e913a5fd7bd447a3a6c1d3afad409a6375d8b0",
+      "sha256": "af59eb6488ab8bbc0e9a4e27b526b5e310a9f9cf6bdbeedc234daf0d3398b910",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "git_blob": "8256f77b4fb93befd4af43292d757c46fa223a94",
+      "sha256": "553c32d28e7b1be0dfafaf339a790c3530720c74af48bb554feaf45d2fa4bd9a",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/ACTIVE_CAPTURE_MANIFEST.json",
+      "git_blob": "f8117241dd59c841c6e42c57ee40560fc9d94889",
+      "sha256": "f6a2863d1cbb84224341bdfd3d88569d05d0aa6a76b9d0a9e4e34553ae443a81",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/CANDIDATE_SOURCE.json",
+      "git_blob": "509ef9d9a4ba6a96c631914d48b62fdd3b621529",
+      "sha256": "07336cbedf107b28425a58690da835d211401bae0df236cd31513c3cc5cc279b",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/CAPTURE_MANIFEST.json",
+      "git_blob": "cb3cb89eec6819e36f4eb9628b32c0f5db7edc1d",
+      "sha256": "20e2e1319008fe9251f168693a3719982daff7cf80ff11f2fa2d243582bb12ce",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/ORIGINALS_UNCHANGED.json",
+      "git_blob": "c0389fd1db629cba5212ec6043ea6d34a16bdd53",
+      "sha256": "3e8cec57f81d2a1edd61e960321465319b03a6fd4bd3af9761b2ca6a7f603c1f",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/RECEIPT.json",
+      "git_blob": "5b157a8926f6eb7becf01cb18bb4e56bf0eeeded",
+      "sha256": "0377c12dfb1580dcf63995a53547dacfcbc1433052a9cb1b58815a3d960fe0d7",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/REJECTED_LAYOUT_TRIAL.json",
+      "git_blob": "5ad1a129ba603d275a17dae64a5b917ac5aae1dd",
+      "sha256": "7c6d72bdac6e8a2eee8706cbf41e491fa47505c3316674232a5236f58f57ad7a",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/START.json",
+      "git_blob": "7efe44a44b1fbc8d3cfacdb7c7e8ddbd528002a4",
+      "sha256": "760c9a161bb013c056d7f7b283bbbd94c30ad32628fcb86d18b954d5c209a2a9",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/TERMINAL_ACTING_REVIEW.json",
+      "git_blob": "6881d22d16b3affd15f42bb059f8c64338a48450",
+      "sha256": "4afb7ae5f44dbdb3c549e9bb49a2a2e0447a454116217a0e834914f45279417d",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280/phase_0_done.png",
+      "git_blob": "475236d91e6bbe40304b7657f77e49f2b8628f69",
+      "sha256": "90bdc703e3b6d3a20da6cfca8f6796b0196182784d149af12a29574ce44409e5",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280/phase_0_work.png",
+      "git_blob": "3f52832e242d8aaa36e2e1a8afb3811353ad9f78",
+      "sha256": "bbdbafe83cdfcc7882244d317da007d3d40c7cea2015ad7be59744864a12920c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280/phase_1_done.png",
+      "git_blob": "299f3160a4908fce0f5203cd30fcb3a927f43b26",
+      "sha256": "8e9f333ebd5a4631840ab7c9fed91dcf54ada689b87fff40857fe7edd12afb10",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280/phase_1_work.png",
+      "git_blob": "454eec04487d4b842fbe82f53b9509b719ea50fa",
+      "sha256": "2d8a50693ebc48b251db512b9cb00ee264ba28272b63c1b5006f3e4110c5bc28",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280/phase_2_done.png",
+      "git_blob": "eba9ba31554a74416d993d592802a0ba747ed7ce",
+      "sha256": "7eab6b93992374b963e3feb2929fd6e4960ba4d4fd82cd6e7f37285e6d17a070",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280/phase_2_work.png",
+      "git_blob": "7faeb6f68976cc025c8b990858bbdaf68738f151",
+      "sha256": "6e09791857c3753f97452b8bf88f359c70623a8c62a7f5ebf72505f82f4ea9dc",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280/phase_3_done.png",
+      "git_blob": "e2639e9141d6ddc645555711095d987a8304aeda",
+      "sha256": "50e50a1e02a5a3aed0029459a660b746d16b0b8c094c1071318fa25dd2d4b6ad",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280/phase_3_two_pairs.png",
+      "git_blob": "72b211875cd98e4931b98955fdac1d7b6add6251",
+      "sha256": "9b5056f56da9a633aaf9aedc4eeb03eab74b2af0caa93b8dccdb3f053a345efe",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280/phase_3_work.png",
+      "git_blob": "be0ac03235136d423690566638c951272b49c753",
+      "sha256": "47f63e8abe067e99c7c131e16137e0de0b48641ce2a6c84e896625e17814e46e",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280/phase_4_done.png",
+      "git_blob": "7d39b505d8c14d1686255826fa29cc85b87cc03d",
+      "sha256": "3dcebb5e4d22581afe8cce99efb842ab6b7918077ff6c1fddc296be7b63bd471",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280/phase_4_work.png",
+      "git_blob": "17e03cbcb8452fe1859009295a90b57d0b91a7f9",
+      "sha256": "552fc9e76689887f98c61be3bd41ffe21a0c7d4d6b556ddac0d9e3287f94cbab",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1280_final.log",
+      "git_blob": "82d686f1cec08f55030f251e2762950506a23c49",
+      "sha256": "2b2f79844d9876615117f9a11d3a9e948f2efb6f9da59efedbab4091d9f8caf9",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600/phase_0_done.png",
+      "git_blob": "70089d9db148e89fb8b5ff2b4707c1104904d8a9",
+      "sha256": "e3b449e0d44a54a27a4ad5093b53fb23bd4a39f89acb7e9148fb032f155bb8c0",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600/phase_0_work.png",
+      "git_blob": "cf9f4e3614b3dd0171c48ad537da2b6689798da7",
+      "sha256": "e5ea9ca2d4e4d19d5baf0bc8c25082527807cfd3a40d062c4df3f7ceec0dda43",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600/phase_1_done.png",
+      "git_blob": "163bf41813d30a4b7a8db8adf095e98c2d612d2d",
+      "sha256": "8b12be79e9650bd431adc582272d9d8e519b87d624a83ccd31d9189686e8a197",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600/phase_1_work.png",
+      "git_blob": "b245bf2e21b49332684c46b119394e49375e48bc",
+      "sha256": "4235b9e8b8f08e3939d93ae29a7d6026d17e5be89a52a6e276bf65712089987e",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600/phase_2_done.png",
+      "git_blob": "1f68a7060bb7d2a0839f942ff5aff23bf7571fde",
+      "sha256": "cc34c5cdb4c52fd3a71797facf7a269efc6ffeebc8a3968feae948524f2a24d8",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600/phase_2_work.png",
+      "git_blob": "8852a83608e8f7233d1de4aea636de9378f7b0c8",
+      "sha256": "e09e5d3563bbfeb22525185f9770aadadc0c1fa69cf057272e171135fffbe72f",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600/phase_3_done.png",
+      "git_blob": "629482e0619866173c7e35a235c1df2da702858f",
+      "sha256": "d98e1bff5d28fec9a24a0266b5880ed0d41b8aed2e7ea94c319bb2bc7f84303d",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600/phase_3_two_pairs.png",
+      "git_blob": "ad73be33347526e433dfc9e421134b8d7f40de9f",
+      "sha256": "4559e560f070debda16c3611b1956a70bd45075112c38695f6ed75068b1c82bd",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600/phase_3_work.png",
+      "git_blob": "c40115512a49f9a755f8b22dc35dc231a6e9eaee",
+      "sha256": "dae7e221c98a7bf9484219e39cac17a9a6a93338f28eb824a1c0e66671d808fa",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600/phase_4_done.png",
+      "git_blob": "75df482aaff0ab2b0b345b84fac1cba3924e76d6",
+      "sha256": "ffdfece23b741d5d9a2edc8cc290cc7286569aecebf0fc78013ecd735ed651ea",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600/phase_4_work.png",
+      "git_blob": "b1d3d1b873d87119e472a6582cdbe5a0f5e631df",
+      "sha256": "f398644042b9c466cd4f2f0201b6cad9d84bee46f492db23c758d2808d4bf073",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_1600_final.log",
+      "git_blob": "6d880e601387575a83caace6a558a319fb169c42",
+      "sha256": "20322ccec6d53090acd73554d56adb13b8a89077609759745b54176e302fe069",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_capture.gd",
+      "git_blob": "cb5eba2b33fecaf5c76fb65ef1ddc356e35254bb",
+      "sha256": "af007f22f80d15903677cdf187c3f66d5cf5b20fc48fb1e2d61713fbd3e5b8b7",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/active_geometry_attempt.log",
+      "git_blob": "a0c7607af7d8d7af244a08613ff09d7ba2fbf4f3",
+      "sha256": "22d8b28ccce6ec2b5140eb022f653a2c6c2d17ab18ffd5f8242c4fa76bc9142c",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/analyzer_all_final.log",
+      "git_blob": "23a14e2dddebbe7005aa3fa34e6ae835225e358f",
+      "sha256": "663e32382756128ca0b68e172be1f63faf0bd43fdbf4b9a1ac881d911cc6111a",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/analyzer_depth_final.log",
+      "git_blob": "c369b05ca5cbbfcff89cdf6e69324f4250ad70cd",
+      "sha256": "d1368198cb86356d04d7e9f8b21598d12b2bba429e7e1446d82fa9e42ac3f15a",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/analyzer_geometry_attempt.log",
+      "git_blob": "5a2dd25e311d467edfe24f5d044f8ac76cfec674",
+      "sha256": "c385c33c647bf73fccac646dc70730f39d821231cb81a92c0f613004abd7fd6e",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/analyzer_surface_final.log",
+      "git_blob": "1161b0135976584721c65b28c010e2526008639f",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/audit_direct_retry2.log",
+      "git_blob": "1161b0135976584721c65b28c010e2526008639f",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/authority_final.log",
+      "git_blob": "5b0ba0701e88088e1750b1f88445a6df9bc05cb2",
+      "sha256": "f4e8bf2a16424ba665ebb61d36450544dfe3f6f8253646bb6b0517772f898698",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1280/mask_00.png",
+      "git_blob": "a96191e208c5221ada9a71af578e2d4d3373bc54",
+      "sha256": "3e35526d1e6ce9068fff4d9b74166d10a98da70b18ce0eece36d0e4f44170ea4",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1280/mask_01.png",
+      "git_blob": "8eb7296b2c5deb12a57069a9a4a27b3be0132ee1",
+      "sha256": "ac3f2c041a1b3fc156c1314ddefbbdaf922572fde6283f2fc5065cb5253250ca",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1280/mask_03.png",
+      "git_blob": "d2818b0e380f8876ab93a91b06c17c905239f93b",
+      "sha256": "862c107f729d2a62a757b380f04175912f724e5521273afdc079faad282862d3",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1280/mask_07.png",
+      "git_blob": "3516519d95f9ffefc36255028e5521d1251e9038",
+      "sha256": "57f93b1ff59a465abc05ebab368f940a412fa74ae8be1c1a5cf8c7a606874503",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1280/mask_0f.png",
+      "git_blob": "0cdf8db7e2c154499cde0cb60793e3ed711bdc84",
+      "sha256": "fab7661e524953aba1fb9f4d39cdfe850a7275b9a715978379cf8e1bc3b70e19",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1280/mask_1f.png",
+      "git_blob": "ae219fa8e73272030084d52d18789650b441b917",
+      "sha256": "1e33ad17558645692e9c2c49aeef4eca89501da152711132dc04eadd6d97c44a",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1280/mask_3f.png",
+      "git_blob": "27bd0fd94b5f3baa084a3e7af7f9cca4885d07b9",
+      "sha256": "25e7d0e3fcd7af5ca6743e77091cde2468b0d1a18014ff139e82d1af99602a73",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1280/mask_7f.png",
+      "git_blob": "93643ebba8079db081d144a3fce79fd0bc73b450",
+      "sha256": "553599e6679594539734e4f5a0cd06495c9e08d2c254cf699d92fae1eb173508",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1600/mask_00.png",
+      "git_blob": "478ffdac76aab05a51bee18e5f2f7ec84c6f0e5d",
+      "sha256": "9d07c12e9b520e025937c7f55ae0f7e9b054f3ef388f703e4a0c0611654641eb",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1600/mask_01.png",
+      "git_blob": "3dbcd6a44ae522334217d573805554f2a33e180c",
+      "sha256": "75080c3726e8269a2fa790938c68ee1373b6a5f4a243f0bcffe98c614083bec6",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1600/mask_03.png",
+      "git_blob": "f64d5e925bb769f95a1c6caa75179a4f7ba35973",
+      "sha256": "b122ac8b83caaa1e9acecfc2da55a2873b0a1a165d42a0a5c9b56513ed4329fb",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1600/mask_07.png",
+      "git_blob": "3e3639aa121b93c1e8c0f4062e9f750447c31d98",
+      "sha256": "367b162940b1c8837feea89dbb7c078b95d801882d5bef4ce00b070a470e1ede",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1600/mask_0f.png",
+      "git_blob": "707bc88d78a08de84c6cfb6df1504b2527b22729",
+      "sha256": "4b7bb2bd3c2f9a95c57e5ec96a7d15b4cfadcbac44a25d058b5594e180bc6b9a",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1600/mask_1f.png",
+      "git_blob": "cc68eab34e06f2aa1400400e044b751a5e857062",
+      "sha256": "908280ed5721cafd865e19c492179e13939c4b2e0a826e9eaa2dcf3e58e32940",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1600/mask_3f.png",
+      "git_blob": "3fa2e07e9b98dd15f91e55411d579db65303fad2",
+      "sha256": "cdd38de45509dd8c46653ee1e1299bea7070fb5d60f84f3fbbd8a89ac83bc5ad",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/baseline_1600/mask_7f.png",
+      "git_blob": "b82a25145dca002d4d2f46b989b3baf36f1fa388",
+      "sha256": "469b624c17faa6e897d858341332fefbf46dde459fcd9e22e9d32e7f4833762f",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/boss_retry.log",
+      "git_blob": "a4a6bc796d6045f52138a0c766233634b148ae4f",
+      "sha256": "c82ac355f310d907854a85f5c1f28d5680a0d11f22ce287dedf2a9fec3fe958c",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/capture.gd",
+      "git_blob": "03527a8e76012ef620e8471c4bb15d6ac4e3a394",
+      "sha256": "1d1b304a95d05c6b41fad6accde35057386a7bcd9f9580d54807e2c85756f93c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/development_final.log",
+      "git_blob": "341c2c9b3de9e8dba88d5fcef856a8b2000db477",
+      "sha256": "dc6a684406df73f69e5a921253abe4cda171a3d5087496f2731c4c1f672281a2",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1280/mask_00.png",
+      "git_blob": "6c907d011c04094acc510784ebc5a832bbe90a8e",
+      "sha256": "05e77475147305262f113184a94a115db95a76c51b5a0453b060e107ad838769",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1280/mask_01.png",
+      "git_blob": "26dde437bd7aa5dacf90525ce62838a8b486efcf",
+      "sha256": "15ea3d9b1907ea3aa9c1f5777ab67e550883be6376ac2bc67e052fccff8af270",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1280/mask_03.png",
+      "git_blob": "249b593b461c8a44594a329761c4c166149c3f03",
+      "sha256": "77ec9ced80102f4c0831a1a79781bdc8f9f240c08249219e9c1d50572a78e637",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1280/mask_07.png",
+      "git_blob": "f349be4732a6863bf8f28fb4942f5a65372f9f1a",
+      "sha256": "b91e3d28fbf1cda60b3b3119eaae28f18bdda0ed817d140314fb79fff63bfd10",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1280/mask_0f.png",
+      "git_blob": "4da84174c955518e8ca5019f01c47c577985ab40",
+      "sha256": "d7f3bb8ec7f6d19f79e453c6d24faa4b58c1371b5880c5d1dc313ee944718443",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1280/mask_1f.png",
+      "git_blob": "fbe1a33f6b5a13a37fafe502b4f3a5a83ab03a49",
+      "sha256": "adb7c57a5f9f56a66946059cbb4f859d563500577c0d28bbced5044661d99424",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1280/mask_3f.png",
+      "git_blob": "b490da5fdce1b79bbee05b0bc5cfcb7dbee2c5e9",
+      "sha256": "7bb0f73b80a03ba7c6824de3c31770d65c4d776b2553f27f1dff134a53c927f7",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1280/mask_7f.png",
+      "git_blob": "4413629f7de6f8be78c81320a73e48fcaa26e88d",
+      "sha256": "8091e8ae4e6d7119244768b438e459c1577678810de54aaf87504471d74451ee",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1280_final.log",
+      "git_blob": "32ee25469f42bca4ded4d4faf5036335018aec21",
+      "sha256": "2461c08f247998ad5c74fb5f1058d3a0d1beb2f01d368e63f5d641a6af9905f9",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1600/mask_00.png",
+      "git_blob": "6937ca4fd2c123f2ff1b77b2314c42e67f813046",
+      "sha256": "989d5fc3fc8ef190b818d5ba63575cd57d6c38f93300e481fd60a8f753687390",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1600/mask_01.png",
+      "git_blob": "266de657072cfb972ab13e56b74c0176c0406092",
+      "sha256": "bdbf0245e5470a3fb1719b87ebcd16c6a3c4f88bd274bda44ad58d84234bac3c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1600/mask_03.png",
+      "git_blob": "5b5fd6cdc9349191741eb494bab79728eecd616e",
+      "sha256": "5d050ed1aa16c40aec7806ba7154088043b48fda5fba05ed2b0f94640c6a447a",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1600/mask_07.png",
+      "git_blob": "521ecfafaef55d36e824b23d94a00147fe7054ef",
+      "sha256": "faedeb8b6450c0da6a9e259df0ca8c9dc470d312436e4608df2926d57971d5a1",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1600/mask_0f.png",
+      "git_blob": "ef19f7269cbfea0387417c557ed0781ee1cbc1a0",
+      "sha256": "cfc5f0a51dac06dc4454e22dd230cdb87acac2829679b06fe15fcbc07bdd5e55",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1600/mask_1f.png",
+      "git_blob": "ba9321083e7e40e619d346ceaedc04f96dbbb135",
+      "sha256": "e85ffed88f1763931c9c6992aff002e320d8968f6f5b9c7df8b44fbd4f82f083",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1600/mask_3f.png",
+      "git_blob": "1249b239378a792ffa64fb99223447be1e3bb732",
+      "sha256": "cfc47dbe2f97256040a73606387af86490cb63b73ae14e599ecbd03a11ea7ea5",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1600/mask_7f.png",
+      "git_blob": "cdb319a86db57d8443536ea7218a88802a50e91b",
+      "sha256": "6a367c91e409177ca1138cb6460476d14c5cc7d23311350bf3a410a895905dc2",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/fixed_1600_final.log",
+      "git_blob": "1f82d21d0750e831da48bb2d465dad94451e505c",
+      "sha256": "621e13c64d0e0eb1560073e5f647e6fb20fd94534fab19290dd164b76ca5a97e",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/focused_final.log",
+      "git_blob": "2df05196a3985c0b4536cdb17053e2f53a8db24c",
+      "sha256": "a02f5b9ef37a9c0881d8a92e9469045eeff7ed02e3bf2d4e4ebc2a3e1163892e",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/full_ci_attempt1.log",
+      "git_blob": "1d8191dd8734d44775a0f50faabcc310fd877cc7",
+      "sha256": "5e78aecdd250d38073050cac2ae1a462ebc2dd1a0b75713fceb457b9218106a7",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/full_ci_attempt2.log",
+      "git_blob": "ec7f1ef702d64081bd4f423cc9fe3c0ac3bd7874",
+      "sha256": "14d44646a26979f080834ac7f6b6823e477e3d16cc028f56f62aa2ba3217c1d6",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/full_ci_final.log",
+      "git_blob": "f7080b3a8f447917949dd9da12d33b82ede81878",
+      "sha256": "501be77eecfd0259b267b92abeb83d5bc0aa855c3554fd61bf98a2b0dd7cb2d4",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/import_final.log",
+      "git_blob": "248ef9cb18609dfe4c088b1de80d45ab98d1ca98",
+      "sha256": "d20d9e4ae0066af25e22d8e8e92db4cb2f3d9e0f47ced85321db45487f5ac744",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/inference_all_final.log",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/inference_depth_final.log",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/inference_drivers_final.log",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/inference_final.log",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/inference_surface_final.log",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/lawn_retry.log",
+      "git_blob": "f1e5411bd667b7924138ac0d5b8dba784759c6d3",
+      "sha256": "0efea3f7ebb8f855bf79dee9a3abc8944e3337f33cb0e5a9b464ca1949f35dac",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_audit_isolated.log",
+      "git_blob": "88abf0d1d691807e966b977ca28ab15fa3bcec62",
+      "sha256": "b68ab14d4568420f3d1557dbe1c87db64a8abe19dd43680f40e79a3a44431faf",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_audit_isolated/MANIFEST.json",
+      "git_blob": "740388a4a5570c0d366a4ed864ee146938ec43f3",
+      "sha256": "94c8ad9ba27f47ad357287a84ac22032df381b540c73c413a1c4e7717e5061da",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_audit_isolated/probe_audit.log",
+      "git_blob": "4d1944f78f50916e258a2244802426a16de13e8f",
+      "sha256": "c5c51e295af88b80570a216a198c3f187ad19990af839267ddb09921ae5cb06c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_audit_retry.log",
+      "git_blob": "1efbbbc410ee0ee8728a1a7a27fdea033444c98d",
+      "sha256": "e56a924c01c8a3ad3ad0e6cf042c920567fcadeeff800c96042dfb434663d9ee",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated.log",
+      "git_blob": "74793e0e4aef637d5a3353f895a257b3f5d559e7",
+      "sha256": "d551d87196f1607554a05ffa1eba7739dc3966c0945dd9eab7e1b8bd60d77359",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/MANIFEST.json",
+      "git_blob": "d75aacf1b965314ec44bb817e38ad9872ec3ea3e",
+      "sha256": "50f02f0789e522f90cd077af752ca149048497452a1b51cdf095e1cf11b52984",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_alpha_milestone_save.log",
+      "git_blob": "e0818d61970c1e8b7a6300e6547e298af1813133",
+      "sha256": "a4886763477d308ad01962df699e3da66a13089504efca08e876d0da2df07030",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_audio.log",
+      "git_blob": "84ea9c6769981d6a11689a24b1cb6cc5690d1626",
+      "sha256": "77f5798679c662252183956de1db32619ea0d4ce05380fbf66601e1e267ccc6c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_audit.log",
+      "git_blob": "98e4951fda1b6fbb3749cbf8434742e8d938e515",
+      "sha256": "6bf02bda94c986711f76feca85959ffeeb2a8a2e08489287669831ab43cf4d5b",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_bathroom_integration.log",
+      "git_blob": "c6780ae79c8d7dbed22e2e69b21b4ec578ad49c0",
+      "sha256": "66fbd5bb0f8bd4d18e8f2ac134e6c2c8f11eeb52fa8fe91e1fc185e282b5de86",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_bathroom_props.log",
+      "git_blob": "32969f58f237ab83f3a4a5103b8765153cf2cf13",
+      "sha256": "6778013505aca3a88b55748435fd48e47938162620ef6cfa28299c0cd57d51b4",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_castle_door_language.log",
+      "git_blob": "418e970c6f64879a4da9467f56fd540f5503d19f",
+      "sha256": "a80a3391351395375b653a6a69dca24060d168483c1131ee005ede44b0a056c4",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_castle_pearl_art.log",
+      "git_blob": "1833bb11fefef7d55a11aa9cfc8938c08164ab06",
+      "sha256": "8b2081600b9b48a195ce36eabd58ef34193d669a670410de22cd3efb9c1a0202",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_castle_pool_life_2d.log",
+      "git_blob": "e6d7a65b0768f826e09e79fc504c13cf3af52bd5",
+      "sha256": "04986d4f25574e0ca3644cd9581c7a9c3a8a93d72476f0497dd3ba69e9c900d9",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_chapter2.log",
+      "git_blob": "8402745eb1592473214dcec6bd00187bd0b00bc4",
+      "sha256": "f7a71635c3fde0a0f76c0a688cededa8b902c48ad977b469e62d05c68b12724c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_chapter2_farmer_resume.log",
+      "git_blob": "cd78101d4ba349a7d5b36124fc224d672b4f3b7b",
+      "sha256": "177a6f09a146164cb6945425e4e1527f4809afd94877465cdb9b3c5c200eaf93",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_chapter2_lawn.log",
+      "git_blob": "962b85806e769245fc1dea39d14867dd374f6787",
+      "sha256": "462151f00a14b288c3978d6779d0699e1b5db026007d978a020f0c6712c0f395",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_collection.log",
+      "git_blob": "a632b8a17c416052c4596b70e5cb063d3e55c9f9",
+      "sha256": "c02cd4840ee92c36934037070681c2fe4856e7960d4abb09fa1f01f43245b722",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_combat.log",
+      "git_blob": "7231cb3f03eab5cc45a844a6d85cdba2bbdd3703",
+      "sha256": "698548714f2ed7b4dbe5253712bee5b09816995afef195978d9095573ed1b13d",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_combat_tutorial.log",
+      "git_blob": "35a639f17951e874841b5a576c19e9d03cbc31e5",
+      "sha256": "7721d6d74cfee01fa391ff61bfa6d664b4a6b89e482eb2b921ba01e0ec8ed887",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_crown.log",
+      "git_blob": "e7d7d65dd6a5d7492a1a5291160c633bce324d5c",
+      "sha256": "894e9cbfba55b71067f4a83a6480f3345a92ae372b5e0107be41888f235d6c1c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_dance.log",
+      "git_blob": "0004c61ab0c451290a549d4701d5196567e43658",
+      "sha256": "ca0b444b14518848cfe01da3a21629a014665f8fe4775b28bea3cf59be74da99",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_art_attack_state.log",
+      "git_blob": "77a8a006503c432c09f33dc65cb5e3b17de18bd9",
+      "sha256": "4c2b8ce47b250b004a5a2b66a7d4ff513b30ca342caa031bce707056c9faaa3d",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_bathroom_bunny.log",
+      "git_blob": "27b652374fb7b4947c8921eb286f31f21fed9f80",
+      "sha256": "6bd9e5c8d16dfcbd36ab1d5c49cc4227307c5c154cc090fb76d071375e63f77c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_bathroom_cleanup.log",
+      "git_blob": "3e4176077eacb577f242fc4b62709783e7b53752",
+      "sha256": "6d5e5af3736e566283c6f7610da305a56119337b301904f4e2c47c5133e40c53",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_bathroom_movie_handoff.log",
+      "git_blob": "0ecbe7c63a91cddb23e8afc28cdbe58bfad6c54b",
+      "sha256": "3053fa550c7c174f1e4a94647062cf14659689586420f09178181b6115bc9fb3",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_castle_dressing.log",
+      "git_blob": "0e12a9a69211f9229aa921c333bffd4bd81f1750",
+      "sha256": "71cc03766f94028bcc2c06eade6e03e28a10fdcbb5c0e7353d1b40f351acf71d",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_d8_revisits.log",
+      "git_blob": "927150a67fc383a0084bc343204e4ad89727df55",
+      "sha256": "e7fd2582d109ff003c9487b5bfb79c38e62c68e57644a9b8bdc601ca158a3e7e",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_director.log",
+      "git_blob": "f7cfc91c9fd9113f0c1ecfc7de6fdb4b08005b2a",
+      "sha256": "f6556ebb45ca916cd5baee24b69db46817258af5d247192cb2fdbb68cfc84102",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_handoffs.log",
+      "git_blob": "5ce41e75c42e05e234abb659ff564ad4234958b2",
+      "sha256": "bd8a5c445846a61be63dd5a042fddc3d03aeb14a876aa601280c11c81d9defe7",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_integration.log",
+      "git_blob": "77726393749cac79cb475580c87e15d43127a22b",
+      "sha256": "bb16614b600a894ec88f1a1ba85a3bc8d66385bac2a344ea2ade206f74fa55d4",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_pool_cleanup.log",
+      "git_blob": "3a83c4bfe5ea263f212d4b949ea987c860a4a765",
+      "sha256": "a9dedfbc410619a8adce779b6b6eadca9a230c460bb413a4d80082b3502e2659",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_story_clips.log",
+      "git_blob": "80f81dc895aa072de9a443d4402a5b25719fe410",
+      "sha256": "45d734ea0d4b84c776d05cfe07a55d37f716ad73c51c888a045a424e80c17627",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_day_one_voice.log",
+      "git_blob": "31a506bdef903dbd9f4076541d72fb9cb94255b8",
+      "sha256": "e3510ecb12f7e077b2aaa86a8ddfb3f791f131dd03cae9febf16f2215e65d5e9",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_dolls.log",
+      "git_blob": "ad92eab1f935b06c061bc72caadd196e4deb7763",
+      "sha256": "9a8b552c98b7e71e21bc34b0bc71a2f0173566aef27cd5015313bd17af775708",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_dungeon.log",
+      "git_blob": "b6fce89b3a3b65a59bdce2831a8a03664f42818a",
+      "sha256": "644a2224ab00d9e48e7f320babc536c190e4188c267d552a0124eccf9e6fee7d",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_dust_boss.log",
+      "git_blob": "9480850af3e61fe36c3f63628abade2e81d544e5",
+      "sha256": "6da6e74553927c3b233f8acfad046f3b18af19d752f466969a4dd2a7dd27c3c6",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_dust_boss_balance.log",
+      "git_blob": "e9900e2a5f522026df00822a3bd27fa1ef34b52c",
+      "sha256": "de44351d6ac123172ce4c547c66bf7ce36914e47156494344b8b0cfe61aad8dc",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_dust_bunny.log",
+      "git_blob": "2c668f2e5d1b5270c8109f40c1441c8e73a6e9a0",
+      "sha256": "3d8fe545d3100100952530e4d3accbadebb1157aa25930663d7f34c863d22452",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_dust_bunny_boss.log",
+      "git_blob": "0644d088b35e9fb29579a3213d1e4030f59253d4",
+      "sha256": "b94d95e3a338214c93bf99e63acbca428a0e464ae33fba0f7b735b8d7284eba5",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_ember.log",
+      "git_blob": "f78a0c8598f681d21980ba284a0d1957a99e5e80",
+      "sha256": "c89a29606a3df69d6e88ee8f02629506d92d4b135dac14de335f87ae6b844b55",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_fairy_art.log",
+      "git_blob": "003c8ce632b07796fa15783a5048c7af8a9b676d",
+      "sha256": "e74f8ef95e466a707cc875b9b2c9fde49b293108e7dfd16f84ced1ee687eb82d",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_fetch.log",
+      "git_blob": "f6db989fe6d24f3a5a3ac289a96584f84a72f48a",
+      "sha256": "4343f0bc62353e089053259900b86327d6ee5db2e14a12b91b24865a778f3ae0",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_galaxy_state.log",
+      "git_blob": "1735ad7fbd088a260f1663ce801be9a92ccfdcbc",
+      "sha256": "d490209822aeeef09fd670abcbb89d03053161fae1a5c318f4773d576d2223a3",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_hit.log",
+      "git_blob": "7ed09a12e593bc91b7ae037a300acbcaa222c849",
+      "sha256": "4feefef0def07ac1575357ae65c078e9daa0b956c2f4e069da26568f6e2c4440",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_human_art_audit.log",
+      "git_blob": "06adbebaba77659cb01643fa380eb9e091584a21",
+      "sha256": "a02fc2aff6d0c691a3444fc8a4b4ded23e3d9b4d1e7a1b0e684501e2ffac8e53",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_imp_ai.log",
+      "git_blob": "f540b0dc898d92636948ec4ea32ff9cec9a0a0ce",
+      "sha256": "2ac7d55e4ca594c4b3a1a5a06f1c107c2d034a583e765bd9397a7649c31881f1",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_interaction.log",
+      "git_blob": "78b3572724dcd100ca3b00bddb0370615147c453",
+      "sha256": "ce65894c4ac6a1fd2aeb433d8c73c6eb29234e70fbf2ed75363745393ff873ee",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_kart_feel.log",
+      "git_blob": "8d07bbe844d9979f7455646090ed67fa8c2f56ce",
+      "sha256": "3cc65bcdd593d930e48627a26ce13fbf472f81afdf0da21ecf7807b1b1a095ec",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_kitchen_props.log",
+      "git_blob": "c0efd3126d1207ae663da2fa2b48c1f7ec9c342e",
+      "sha256": "46872c880556d6be3d7ca85d82d67efa20d27d4863fd6985d3c6a6b9605eb634",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_l2.log",
+      "git_blob": "ee9a8fc97d6ae5eaf0705ebf323c105ac8fb03e1",
+      "sha256": "3c1860869fb2b9b2665239067a3d1b9811b34036f3111cf6842b8fdd8effdfb4",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_l2_living_cards.log",
+      "git_blob": "4663dfda54e2f9514ee8eee008358d6fae1e0fec",
+      "sha256": "7517e29f3765ea6a75bea5b40b8d198429db4b503fce656ab260e47490e8b093",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_l2_reenter.log",
+      "git_blob": "1e3e77fdb40d992efb33eb15daf7c1bf2fa2d46b",
+      "sha256": "584d1c2ee7d955154d81b2bd7717678ed0681a166690ca476456ef7bffefb490",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_living_world.log",
+      "git_blob": "90f8e4ec456334f6100228a5a8501d5e2da9a179",
+      "sha256": "bf4ce7936ba874e6a2e43b0c355cc8721df407e7450ab7acc150345123103a15",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_load.log",
+      "git_blob": "c33eb2a4ca191bc2d5aa659d050ef896d1f5e236",
+      "sha256": "b1f9a24c3105d95e449b1a9944cbd0efa31f328c163ca0f5d5a6ccf48acc3c8c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_melody.log",
+      "git_blob": "717461c434d80f7c9165827506195d4d8f14c317",
+      "sha256": "7b82696448334adb0739351ad73dde848fc165a790ddfa98e670afcf0b5d1189",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_mg2d.log",
+      "git_blob": "599cea2916aee950b87ae70fa3b47bb5cd036449",
+      "sha256": "c46b3d2eefb2ef97ad6b30d6af34a22fa407c35afe132ddc55e4d5cd767a45f4",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_mic.log",
+      "git_blob": "f84dedd7baa42e7607b0e32b2f87be70ebcb94b7",
+      "sha256": "0529cecabf1fb7ea1ca4a3c1b8077efb3c44fc7d2a64d57c69832f0dc983b6fc",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_northern.log",
+      "git_blob": "48d4dae1a1cffb1048fe9ce0780f99dd7fc2093e",
+      "sha256": "9a8a9d1f79d0fb3c963c5c223a8f5c159b10ca3effdea50be6a39605ae086f69",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_ocean_kingdoms.log",
+      "git_blob": "02148f23db6e929bd982f3fb7119bdd19d1be4a1",
+      "sha256": "a42257a191ade3d1efd45c0f8e698b7bbce5442f7be67575b09aa91b40f3cd24",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_opera.log",
+      "git_blob": "7c1e20f6a421975971168849271dc87d15caeb4e",
+      "sha256": "916bd167d3ce20fa1b60363227f8f974535f01a233d0592c8d0dacc902d26d53",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_opera_2d.log",
+      "git_blob": "4c2d86201822444f062e6a0b7da698e46b1ffdbc",
+      "sha256": "aee5b47f7228cbd94fdeed73fa8c62c71b8b229dd96ec414e2ecd5be06aa8df2",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_opera_detective.log",
+      "git_blob": "1202058282b76524e64e7d6c4eb4a960c341442f",
+      "sha256": "b6024f1e44cf716f0b2db0c05b9c9fd2d42c468396696382c029f4207ec2bac2",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_opera_diegetic_paths.log",
+      "git_blob": "a720a4427560078b355f3897256269bbec0f7282",
+      "sha256": "d241a1dc0ec21afd0d0aae1cf91f32e0db35e948d23ba27bd4cb3fede79d3149",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_opera_gesture_quality.log",
+      "git_blob": "57c2ff7d9e7797d2d93dcda6ffc9d91a1f64c775",
+      "sha256": "873f6ba8bf822fc46c07550126a7118ddc84e88b303a65fb6d30a421b24ed32d",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_opera_nursery.log",
+      "git_blob": "1276b343df4f5f2689924ac1e84acddd2aeecda2",
+      "sha256": "3124c94d6417d21cc918d9ebad230658cc756d9a2dc6e3a48478c5e944ff5feb",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_opera_pipe.log",
+      "git_blob": "4247f55a9c310e3a3cc3f2c3225a508bb032413d",
+      "sha256": "af6f51c388365a8b1bd270706ea5e529bd9995123bcc12273b3ba0720202c51f",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_partner.log",
+      "git_blob": "254a847104e4077420ea46d62028e16358cac0b3",
+      "sha256": "f171fb7764879bda7a50d5597a7460a39e46a1a9f0481008acfc95912f34d309",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_passive.log",
+      "git_blob": "3340f77f091a92f6737dff91d472d5deb8a4cecc",
+      "sha256": "213f3033ab2c437517eba5b5bbf76fec9bde22f246aaec8f3a57fc58c4143a1b",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_props.log",
+      "git_blob": "7bc33eddb6b0ba92a8b1c43fd1cc36cbe68d8231",
+      "sha256": "bdf54db29ecc53bde7b8c17d717ee32ac9421fb2b199d2cc577e1b85e39822e2",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_rank.log",
+      "git_blob": "794ce80c43d9906f3539d3ae9f2bb4b559156dde",
+      "sha256": "5bddfc8844adf8e776dd6ec155540e32f9a74210e763547da2df932b53c5d42f",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_reef_districts.log",
+      "git_blob": "e5ee9b19a93aaf7046e5bfd579f645b53cbf619b",
+      "sha256": "1761c2619c7a90deedd5d986c08ac68563d5b188fd89a67f08ae492756fa1b17",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_save_recovery.log",
+      "git_blob": "b24db58027f0975d60e7412eda9485efb2782125",
+      "sha256": "fc6867ec56d8c060e2e0785e710a6a61c7be27b5e06f2c1f0ba7c03cbdf3cc37",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_seek.log",
+      "git_blob": "9759fd45870fcded3e5d1ec177842cd40c6151e7",
+      "sha256": "d72de69912682dabd8c4333d97740de1b310a62fd0b4a719be84fe207fe2806b",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_skins.log",
+      "git_blob": "ef0bdf793a87eee45093c6d7f7527ef26490e71c",
+      "sha256": "75e272e64e2fb3de8b9ecafd1a1cfd2ccd3c69ac1c4bc5c595ebb47933183fca",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_sky_lagoon_animals.log",
+      "git_blob": "5349f68b1fa1ef0e91a70410342bf86cfb1f3ce9",
+      "sha256": "92ebed756e57d7ab418ca64dab1043d5be605dd8b5ce63c153a75b7f97739ec4",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_start_menu_new_game.log",
+      "git_blob": "234aad9f38ee3f6e036a25544257f4954ca428d2",
+      "sha256": "fa2f397dd72d2266a4a44ec1fe28c55203d4ece6452e05c28605d049b1188758",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_start_menu_routing.log",
+      "git_blob": "831540a48bade9e8f3fe4253f85a1a63c9c82d70",
+      "sha256": "f95223f1915f2f2eb5b13606bb20c86a1ec9c1bad170ecb275b1748c4fb08026",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_stuffie.log",
+      "git_blob": "d93ebda5d08fecd26ecd6bc1dadef10a5d174804",
+      "sha256": "aa40c22851efd777de38df7270681197973ba43756604aff8f3609b688d2b92b",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_throne.log",
+      "git_blob": "043272df1b25c9c2d8f29938bcd15cbf874edf9c",
+      "sha256": "8b871a06cc6db3cc5e5b73d3a878cf849be8a9a9964d8c131ce09229872868bb",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_touch_adversary.log",
+      "git_blob": "1f4e540f51bfcebc1e5f5faa15a6ca1923ae72a1",
+      "sha256": "254b154115692a9f9bf3719501af16f6b95929cdd49f390c4e3d32337c13537b",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_touch_look.log",
+      "git_blob": "07710b4ee0f77a5ab38657428c20becc9e03c52e",
+      "sha256": "c04dfab9591877107cc6ebe75adfbce7cf932ea25057773efe87052f45f03bfd",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_touch_router.log",
+      "git_blob": "0693d8395fd8a06153272abddac9692d333d35a9",
+      "sha256": "e5ad2c7401b648954b157a0d3cf390fce7137a3b9583b06485d1044bc9519984",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_touch_stress.log",
+      "git_blob": "76e2e1e1dc596f8d2fbeedbfd49d322e742e53f8",
+      "sha256": "14329b065683cd57c6d8fbb5a5c401afe16f71f95c14f7e5087311e71904c4e1",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_train.log",
+      "git_blob": "b85b0d536dc97604fc2a7e2a0e733ecee714995b",
+      "sha256": "a5e482e5170cb4ac48016235f3f6139674642986caa579253717437a1ab71dc0",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_ui_system.log",
+      "git_blob": "668e656714d234e582ded0baa9b135910a3c0633",
+      "sha256": "c3b228bb0ade5d0ac364562b74b3075974fe4816f4c4b4649bf3d869ec44f0d4",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_verbs.log",
+      "git_blob": "9fd45d92b357c850ffd8038029ba2b648aebddc7",
+      "sha256": "781b89afa56430350d2518c47a717572e682ccfe1e69377f5afcec3e774bb925",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_full_isolated/probe_voice.log",
+      "git_blob": "3ed50e30d8a19e7a0c6feb024a9ae0a2b5c218c8",
+      "sha256": "78915c8b524b6a87878e189b0d56a53e2d0e9aff133c95d94eed7bfc9732697b",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_probe_suite.py",
+      "git_blob": "80beb445dfd725943a42b603dc6e208f597a981f",
+      "sha256": "9707f3b31f97780b267565ce75c22471669f2d466ae905eb5a577c65b18bf2dc",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_suite/MANIFEST.json",
+      "git_blob": "38b1b9a3118de1fabbcbb4a60d0d453aed52f3d8",
+      "sha256": "d1a7f380e4b751400097e7f2fd2f10e605e7ba55a297296a05e36277386a600e",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/native_suite/probe_audit.log",
+      "git_blob": "1feb23c91f9a33d060abfc3b4b63e17a8cd3d822",
+      "sha256": "aa727f1758ea945caea65ec4d50167d122932d692c345c28acef2ea7e512f4f3",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/owner_active_pour.png",
+      "git_blob": "5322b06bd43eb82fc24ef10b58e23a15c34760fc",
+      "sha256": "d1e6e3959704e7775493096e2a9e1a4afd9cd310424de277665d39b07e51b4da",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/owner_active_stir.png",
+      "git_blob": "10486da8d1ca5f090451a287038c9231af17dc3b",
+      "sha256": "6762afc390b4eb4b94dd9c4e30fb3ce86cf4e085db22cba652de25a8d6e2c18b",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/owner_report.png",
+      "git_blob": "3928e5b165cd4b432f19242f18c4807f379244b3",
+      "sha256": "16c922923421aa81cc8b034039a4d75635fc566ca8baf8c546171144950a1d3a",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/parser_all_final.log",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/parser_depth_final.log",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/parser_drivers_final.log",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/parser_final.log",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/parser_surface_final.log",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/reproduce_final.log",
+      "git_blob": "a9a0a9e6916bc3ae84aa1cdcd729042627d76a45",
+      "sha256": "6d927c4a5690ab294ea5d9a03fb4163e5bbf5c7b7d40ba38c5693398499577ba",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/sibling_capture.gd",
+      "git_blob": "a134a66624eba6dd81bf93cb13ef66d251ef8560",
+      "sha256": "60e63b8d864e6499726fb45543b2ddfc90111f9dc20c57ea5dd613ae413f42c9",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280.log",
+      "git_blob": "687a58180358a2c25f748f2293b95160864b6811",
+      "sha256": "cb9d60b440e585c242611787282e4c6af763ade01d33091053d0bdb3e9fa08dc",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/LAYOUT_REVIEW.json",
+      "git_blob": "332cd170887109abf85f711f996dbebadbccb0b4",
+      "sha256": "38d74a7ed0b23eca842f344a426eac826d4efc2f1677a9c16288d1f1328ed869",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/astronaut_0.png",
+      "git_blob": "5302d7edcad450eaffdce11475744444ece5e0e3",
+      "sha256": "3b13ae77511dce9f2e8d2f8e8edbc71a55806b869195df9888b37ec30d9baa0f",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/astronaut_1.png",
+      "git_blob": "d65a41f307302af1832531e41077f52167331569",
+      "sha256": "77851bbb267fa6e70a3cbf935f7281eadd63717b44d6faa64998ca685e223813",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/candymaker_0.png",
+      "git_blob": "a505104a3e421a542249fec582d01c53b2c51eaf",
+      "sha256": "dda1053e1e4c435d73b47e9b50cd497f6001fddbe25ad73580c819516e34ebcf",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/candymaker_1.png",
+      "git_blob": "c8300451328cb1b6eca7701e235a1b4d4629bebc",
+      "sha256": "7994f335d61881d213cbf3410fe8519cc9f324822112c3cfc7f2f3e543820755",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/doctor_0.png",
+      "git_blob": "8f2290b48ef45e1893683ee6e32d62e7930b6cb8",
+      "sha256": "dae1b64407e92affee32202dacc84e2d3fe33d6295c1fc758d13208900b02295",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/doctor_1.png",
+      "git_blob": "05ca1bf391f1610b6303cd704461bf850913e5e6",
+      "sha256": "c56a8c5fe06a85f61cfa5cca83bb918ad8377b2179ae82e22efbdb2ef195968c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/farmer_0.png",
+      "git_blob": "1ef412942dc8f6184c189ec2c13ea4dc47f7ff5f",
+      "sha256": "0f5370b5400664d2699e741d61c6fc48e9cdee460bff042d8f5e7d49a522a7ab",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/farmer_1.png",
+      "git_blob": "1e3ea62b2fdc549c6397ccb1b7c9628a71088db3",
+      "sha256": "024da8b85071aec473f4ad4d284bdaea5becdca242e4d35abdccec86615ccabf",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/magician_0.png",
+      "git_blob": "76ae900b71235b9516d68e8ae0d1bd8d6cd5e776",
+      "sha256": "1918caefa764e032d80b4eb5b034531f201923a9b64516ca1ec0f56d4dbdda58",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/magician_1.png",
+      "git_blob": "55765771f6c99589968ac6bb979250b36a2db78e",
+      "sha256": "dde694d178057d0160214976d141626e80986cf8a5425721312b9beb9832a841",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/nursery_0.png",
+      "git_blob": "4e6fae9f63f6d6106c3281382f82395f8db68b09",
+      "sha256": "072175bb3dd28c9e4e8d47d3c2eb0fc96fa1837d90f0944f8a065e910317972e",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/nursery_1.png",
+      "git_blob": "ab3e6d975aa9702637734f1bf59f0293eb0527ed",
+      "sha256": "45291030981b5151beca9270a68786a91a043b7cefc427c7211858dbeb4dd217",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/painter_0.png",
+      "git_blob": "730fddfcd578a3d1d2dbe3857e7e7e007ba8bcf2",
+      "sha256": "ead68fda852f7c896e7a39536edf03ad8745eca72a5c7d89ca3beb9211936192",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/painter_1.png",
+      "git_blob": "a3e2ddf47f24504be9393cb220e1900e5ec04d49",
+      "sha256": "c13c77585f260697d3dcbc7401f21d2ecff85678d071a701782a2d835b755625",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/popstar_0.png",
+      "git_blob": "56f2fea93435e58b4a21c37d7d313d2d149ec1a4",
+      "sha256": "822fc600e69724f2d8c59d5d365704f8e2c8d7e8e3ad089bb5e6dd9affb3d525",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/chef_overdraw_20261003/siblings_1280/popstar_1.png",
+      "git_blob": "783036e308381e00cb37fcb9ba26faf7bdb5624e",
+      "sha256": "c09784b5e164549342971dd9174ac4e582187c5a8c7c61e8b152e124511d2dde",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "git_blob": "4d35cc43bd85136eb048c388ad94f2c48857236d",
+      "sha256": "4b4b04251a70e789e578d8297514e800914c60cf1496d7ffce46cde973f698e4",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "design/audit_impacts/chef-overdraw-20261003.json",
+      "git_blob": "4d8b6dbe1905042d9f1ada065754a6e6a1edbaa0",
+      "sha256": "008e5374ca05c428424a0567606e0be7c901f508872d005ebba5eec571dff949",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "git_blob": "51f4f656a16ae615e068c7b675da8d7c2a0463ab",
+      "sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "git_blob": "4a339803ff970c209bc15ead46b93602cb8c0733",
+      "sha256": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "git_blob": "2e8d4c9a0ba38bdc075fe638d5a60064bfc29b6d",
+      "sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd.uid",
+      "git_blob": "0ea767ce71e96cef591bd62a8546c88bd7618992",
+      "sha256": "96ec7b59ad6c38190c2cf71aabd0202ae3905efb481e063791769df64231c73c",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "git_blob": "08ce3cbf6d00ebd18d63b33f789652929d6f56dd",
+      "sha256": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "git_blob": "afbadd785a2cbe2fc8be4f9701b50fdcb2ffec91",
+      "sha256": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "git_blob": "1be32e302db28492ec6cde60fbe3bd2a9c89a5a2",
+      "sha256": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+      "comparison": "literal bytes"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "git_blob": "e003aeb032b644c7d4c03cf81768a92ac8d8b34c",
+      "sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    },
+    {
+      "path": "scripts/probe_chapter2_farmer_resume.gd",
+      "git_blob": "cf31c8af97c3a1f65c6d19fe87fe1bf9a5b21b00",
+      "sha256": "906fbc9c29a8a463159ca2eb2e34cf4ce2f9798ffee6fa4da778727a3d4259ff",
+      "comparison": "Git canonical LF; only CRLF normalization"
+    }
+  ]
+}

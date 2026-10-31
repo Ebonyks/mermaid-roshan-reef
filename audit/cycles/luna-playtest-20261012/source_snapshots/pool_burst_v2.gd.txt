@@ -1,0 +1,91 @@
+extends "res://scripts/probe_day_one_pool_shots.gd"
+## Separate diagnostic fixture: saved Pool seahorse state, real viewport touches,
+## explicit clip cancellation, no new gameplay/art or complete-route claim.
+
+func _run() -> void:
+	Engine.max_fps = 60
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	DisplayServer.window_set_size(Vector2i(1280, 720))
+	root.size = Vector2i(1280, 720)
+	process_frame.connect(_cancel_fixture_clips)
+	capture_root = OS.get_environment("DAY_ONE_POOL_CAPTURE_OUT")
+	if capture_root == "":
+		capture_root = ProjectSettings.globalize_path("user://day_one_pool_shots")
+	var dir_error: Error = DirAccess.make_dir_recursive_absolute(capture_root)
+	_check("capture directory", dir_error == OK, capture_root)
+	var scene: PackedScene = load("res://scenes/main.tscn") as PackedScene
+	var main: ReefMain = scene.instantiate() as ReefMain
+	root.add_child(main)
+	await _frames(3)
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		main._launch_from_start_menu(false)
+	else:
+		main._skip_intro()
+	await _frames(3)
+	main._day_one_ref().restore_state({
+		"day_one_active": true,
+		"day_one_completed_rooms": ["bathroom"],
+		"day_one_pool_cleanup_step": 2,
+		"day_one_pool_skimmer_mask": 63,
+		"day_one_pool_waterfall_mask": 7,
+		"day_one_pool_seahorse_tugs": 0,
+	})
+	main.pearl_count = 10
+	main.level2_done_once = true
+	main._enter_level2_now(true, false, false)
+	await _frames(12)
+	main._enter_castle_interior_now(false)
+	await _frames(18)
+	var rooms: CastleRooms25D = main._castle_rooms_ref()
+	rooms.show_room("mermaid_pool", false)
+	await _frames(12)
+	var cleanup: DayOnePoolCleanup = rooms.day_one_pool_cleanup
+	_check("dirty pool mounted", cleanup != null)
+	if cleanup == null:
+		main.queue_free()
+		quit(1)
+		return
+	var waterfall_record: Dictionary = main.castle_room_item_sprites.get(
+		"waterfall", {}) as Dictionary
+	var clean_waterfall: Sprite2D = waterfall_record.get("sprite") as Sprite2D
+	_check("saved seahorse step restores cleared waterfall",
+		clean_waterfall != null and clean_waterfall.visible)
+
+	var rescue: PoolSeahorseRescueActivity = cleanup.seahorse_activity
+	_check("seahorse fixture is active", rescue != null and rescue.audit_snapshot()["active"])
+	if rescue == null:
+		quit(1)
+		return
+	var point: Vector2 = rescue.get_global_transform_with_canvas() * rescue.fixture_center
+	print("SEAHORSE_BURST|before|" + JSON.stringify(rescue.audit_snapshot()))
+	var interval: float = maxf(OS.get_environment("LUNA_TAP_INTERVAL").to_float(), 0.30)
+	print("SEAHORSE_BURST|cadence_seconds|" + str(interval))
+	for index: int in range(8):
+		var press := InputEventScreenTouch.new()
+		press.index = 0
+		press.pressed = true
+		press.position = point
+		root.push_input(press, true)
+		await create_timer(0.05).timeout
+		var release := InputEventScreenTouch.new()
+		release.index = 0
+		release.pressed = false
+		release.position = point
+		root.push_input(release, true)
+		print("SEAHORSE_BURST|touch_%d|%s" % [index + 1, JSON.stringify(rescue.audit_snapshot())])
+		await create_timer(interval - 0.05).timeout
+	await create_timer(6.0).timeout
+	print("SEAHORSE_BURST|after|" + JSON.stringify(rescue.audit_snapshot()))
+	await _capture("burst_after")
+	_check("eight intended valid taps preserve every requested tug", int(rescue.audit_snapshot()["taps"]) == 8)
+	main.queue_free()
+	await _frames(4)
+	print("SEAHORSE_BURST|RESULT|%s" % ("PASS" if failures == 0 else "FAIL"))
+	quit(1 if failures > 0 else 0)
+
+func _cancel_fixture_clips() -> void:
+	for child: Node in root.get_children():
+		var main: ReefMain = child as ReefMain
+		if main != null and main._day_one_story_clip != null:
+			main._day_one_cancel_story_clips()

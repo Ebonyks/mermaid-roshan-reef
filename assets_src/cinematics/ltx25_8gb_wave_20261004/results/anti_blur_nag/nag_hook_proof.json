@@ -1,0 +1,17 @@
+{
+  "status": "ACTUAL_GPU_HOOK_PASS",
+  "calls": 528,
+  "first_call": {
+    "shape": [
+      1,
+      1638,
+      4096
+    ],
+    "positive_negative_mean_absolute_difference": 0.3984375
+  },
+  "nag_scale": 5.0,
+  "nag_alpha": 0.15,
+  "nag_tau": 2.5,
+  "guaranteed_blur_disable": false,
+  "visual_acceptance": "Pending native review"
+}

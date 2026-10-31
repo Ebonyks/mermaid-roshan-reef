@@ -1,0 +1,262 @@
+{
+ "schema": "reef.roshan-animation-card.v1",
+ "_notes": {
+  "use": "One card per clip, filled from TEMPLATE.md steps 1-4. Replace every <placeholder>; write TO_MEASURE or OWNER_QUESTION with a reason instead of guessing.",
+  "decision_values": "NONE | CINEMATIC | REUSE | CODE_FIX | VARIANT | GENERATE | KEYS_THEN_GENERATE",
+  "status_values": "DRAFT | DECIDED | KEYS_READY | GENERATING | IN_REVIEW | ACCEPTED_TEST | ACCEPTED | REJECTED",
+  "phase_values": "A_test | B_census | C_polish",
+  "locks": "Generator-independent identity and continuity locks adapted from the V2 shot card; every required_prompt_phrase must appear in generation.prompt.",
+  "claims": "ARCHIVE_COMPLETE, GENERATION_READY and DELIVERY_ACCEPTED stay separate; runtime integration and owner, device and child acceptance are separate again."
+ },
+ "card_id": "RAC-<SCENE>-<VERB>-<VARIANT>",
+ "revision": 1,
+ "status": "DRAFT",
+ "phase": "A_test",
+ "scene": {
+  "id": "<room, game or route id>",
+  "kind": "room | game | route | story",
+  "entry_points": [
+   "<scripts/...gd:line>"
+  ],
+  "context": "water | sky_lagoon | castle_interior | stage | <other>",
+  "tempo_variant": "standard | gentle | <other>",
+  "costume": "base | <career id>",
+  "other_characters": [
+   "<character id>"
+  ],
+  "camera": "fixed | follow",
+  "roshan_display_height_px": "<base-canvas pixels or TO_MEASURE>",
+  "layer_and_contact": "<z order, occluders, shadow or contact rule>"
+ },
+ "interaction": {
+  "id": "<interaction id>",
+  "trigger": "<child input or game event>",
+  "intention": "<who wants what, does what, and what visibly changes>",
+  "register": "ribbon_glide | playful_dolphin",
+  "states": [
+   "<state in this clip>"
+  ],
+  "current_presentation": "<atlas, cells and playback method today>",
+  "problem": "<what is wrong or missing>"
+ },
+ "decision": {
+  "value": "<decision value>",
+  "reason": "<one sentence>",
+  "priority": {
+   "frequency": "every_session | most_sessions | rare",
+   "story_weight": "required | optional",
+   "defect": "identity_or_anatomy | snap_or_ghost | stiffness | none"
+  },
+  "depends_on": [
+   "<card_id>"
+  ],
+  "used_by_scenes": [
+   "<scene id>"
+  ]
+ },
+ "orientation": {
+  "authored_facing": "right",
+  "mirror_for_left": true,
+  "home_pose": {
+   "path": "<approved art path>",
+   "cell": [
+    0,
+    0,
+    256,
+    256
+   ],
+   "sha256": "<64 hex>",
+   "fin_side": "left | right",
+   "ponytail_side": "left | right"
+  }
+ },
+ "performance": {
+  "phases": [
+   {
+    "name": "anticipation | action | contact | settle | loop",
+    "start_s": 0.0,
+    "end_s": 0.0,
+    "description": "<what visibly happens>"
+   }
+  ],
+  "loop": {
+   "kind": "loop | one_shot | hold",
+   "seam": "<matching pose and velocity at the cut, or not applicable>"
+  },
+  "follow_through": {
+   "ponytail": "<lag and settle>",
+   "fin": "<lag and settle>",
+   "sleeves": "<settle>"
+  },
+  "contact": {
+   "socket": "<hand_r | hand_l | none>",
+   "target": "<object id>",
+   "window_s": [
+    0.0,
+    0.0
+   ]
+  },
+  "end_state": "<one visible sentence>"
+ },
+ "keys": [
+  {
+   "role": "home | start | contact | end | breakdown",
+   "source": "existing | imagegen_missing",
+   "path": "<path or planned path>",
+   "sha256": "<64 hex or PENDING>",
+   "guide_frame_index": 0,
+   "missing_description": "<what ImageGen must draw, or empty>"
+  }
+ ],
+ "props": [
+  {
+   "id": "<prop id>",
+   "art_path": "<path>",
+   "sha256": "<64 hex>",
+   "mode": "baked | socket_card",
+   "socket": "<hand_r | hand_l>",
+   "tool_point_px": [
+    0,
+    0
+   ]
+  }
+ ],
+ "generation": {
+  "route": "ltx_local",
+  "runner": "<Codex runner script path, RM1>",
+  "model": "LTX-Video 2B 0.9.8 distilled (LTX 2.5 after its preflight passes)",
+  "recipe": "two_pass_multiscale: first pass, learned 2x latent upscale, AdaIN, refine",
+  "workflow": "<ComfyUI API workflow path>",
+  "requested_canvas": [
+   576,
+   832
+  ],
+  "canvas_note": "Portrait for upright actions, landscape [832, 576] for horizontal swims; the whole figure plus a motion margin",
+  "native_canvas": "TO_MEASURE (the recipe maps the request; portrait 576x832 measured 352x544 first pass, 704x1088 native)",
+  "first_pass_steps": 7,
+  "refine_steps": 3,
+  "fps": 24,
+  "frames": 41,
+  "seed": 0,
+  "guides": [
+   {
+    "frame_index": 0,
+    "key_role": "start",
+    "strength": 1.0
+   }
+  ],
+  "registration_landmark": "<waist or bodice tip pixel on the fixed canvas>",
+  "extraction_background": "<flat colour tested with the cleanup path>",
+  "prompt": "<action-first prompt that contains every required prompt phrase>",
+  "negative": "<optional; the sampler ignores it at CFG 1 unless a compatible negative-guidance implementation is bound and shown to run>",
+  "caps": {
+   "takes_per_backend": 2,
+   "wall_minutes": 0,
+   "cleanup_minutes": 0,
+   "money": 0
+  }
+ },
+ "locks": {
+  "exact_cast": [
+   "roshan"
+  ],
+  "identity_anchor": "assets/characters/roshan_25d/roshan_base.png",
+  "identity_invariants": [
+   "<at least three discriminative traits>"
+  ],
+  "anatomy_invariants": [
+   "one tail with one fin",
+   "two arms, no legs"
+  ],
+  "forbidden_changes": [
+   "<at least two explicit failures>"
+  ],
+  "required_prompt_phrases": [
+   "<at least two exact phrases that must appear in the prompt>"
+  ],
+  "causal_chain": {
+   "trigger": "<cause>",
+   "visible_change": "<consequence>",
+   "end_confirmation": "<settled proof>"
+  },
+  "continuity": {
+   "kind": "new_setup | continuous_action",
+   "previous_card_id": null,
+   "inherited_state": [
+    "<state carried in>"
+   ]
+  }
+ },
+ "aseprite": {
+  "master": "<assets_src/.../clip.aseprite>",
+  "layers": [
+   "native (hidden)",
+   "clean",
+   "reference (hidden)"
+  ],
+  "tags": [
+   {
+    "name": "<phase>",
+    "from": 0,
+    "to": 0,
+    "direction": "forward | pingpong"
+   }
+  ],
+  "pivot": "<root landmark in clip pixels>",
+  "socket_tracks": [
+   "<hand_r>"
+  ],
+  "export": {
+   "atlas": "<runtime atlas path>",
+   "cell": [
+    256,
+    256
+   ],
+   "timing_json": "<path>"
+  },
+  "round_trip": "reopen the master and compare exported pixels"
+ },
+ "runtime": {
+  "target": "<scripts/...gd>",
+  "node": "Sprite2D",
+  "playback_fps": "<from review and device budget>",
+  "events": [
+   {
+    "name": "<contact_begin | release | finish>",
+    "frame": 0,
+    "owner": "gameplay validates and commits"
+   }
+  ],
+  "interruptions": "<retarget, pause, exit and reload behaviour>",
+  "mirror": "flip the whole sprite for left",
+  "residency": "loaded with its scene only"
+ },
+ "review": {
+  "locks_checklist": [
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "M5",
+   "M6",
+   "M7",
+   "M8",
+   "M9",
+   "M10"
+  ],
+  "machine": [
+   "measure_roshan_motion.py: fin side at entry and exit equals home pose",
+   "native-frame crispness review of hands and edges",
+   "scene probes and the full suite"
+  ],
+  "human": "owner at normal speed on the tablet",
+  "device": "frame time and memory on the target phone"
+ },
+ "evidence": {
+  "attempts": [],
+  "receipts": [],
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false
+ }
+}

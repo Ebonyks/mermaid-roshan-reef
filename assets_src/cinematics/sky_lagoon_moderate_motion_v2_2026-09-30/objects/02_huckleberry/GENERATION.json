@@ -1,0 +1,9 @@
+{
+  "id": "02_huckleberry",
+  "prompt": "Use case: illustration-story. Asset type: six newly drawn animation keys for this exact 2D storybook huckleberry bush, imported into Aseprite. Input image is the exact plant identity/colour/style reference. Make a PORTRAIT 1024 x 1536 transparent RGBA pose sheet, TWO columns by THREE rows, SIX equal 512px square cells, one complete low wide bush per cell. Each bush is 400px wide or less, centered on x=256 with base fixed at y=410; generous transparent margins on all sides. Match this exact low sprawling huckleberry plant, blue-green oval leaves, purple-blue berries and rosy stems. Camera, root/base location, scale, branch connections, berry count and lighting stay fixed. Six row-major phases: neutral; small rightward leaf flutter; rightward gust apex; upright return; leftward leaf flutter; leftward gust apex. Individually DRAW new leaf angles, turned leaf undersides, twig bends and leaf-over-leaf occlusion while keeping all leaves attached; visible local motion about 15-25 pixels. Change the leaf silhouettes meaningfully; do not slide, rotate, blur, scale or rubber-warp the whole bush. Preserve the same plant across poses, no growth, falling leaves, new flowers or random berries. High-detail CRISP painted edges and outlines at moderate resolution, no atmospheric blur, bloom, rim glow, matte or shadows outside the bush. Actual transparent background; no text, grid borders, numbers or checkerboard pixels. No clipped stems/leaves; every bush stays within its own cell.",
+  "mode": "built-in image_gen",
+  "referenced_image_paths": [
+    "objects/02_huckleberry/identity_source.png"
+  ],
+  "transparent_background": true
+}

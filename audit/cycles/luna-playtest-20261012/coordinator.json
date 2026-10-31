@@ -1,0 +1,426 @@
+{
+  "schema": "luna_coordinator_manifest/1",
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "branch": "codex/luna-playtest-20261012",
+  "model": "gpt-6-luna",
+  "planned_sessions": 57,
+  "completed_count": 57,
+  "spawn_order": [
+    "L01",
+    "L02",
+    "L03",
+    "L04",
+    "L05",
+    "L06",
+    "L07",
+    "L08",
+    "L09",
+    "L10",
+    "L11",
+    "L12",
+    "L13",
+    "L14",
+    "L15",
+    "L16",
+    "L17",
+    "L18",
+    "L19",
+    "L20",
+    "L21",
+    "L22",
+    "L23",
+    "L24",
+    "L25",
+    "L26",
+    "L27",
+    "L28",
+    "L29",
+    "L30",
+    "L31",
+    "L32",
+    "L33",
+    "L34",
+    "L35",
+    "L36",
+    "L37",
+    "L38",
+    "L39",
+    "L40",
+    "L41",
+    "L42",
+    "L43",
+    "L44",
+    "L45",
+    "L46",
+    "L47",
+    "L48",
+    "L49",
+    "L50",
+    "L51",
+    "L52",
+    "L53",
+    "L54",
+    "L55",
+    "L56",
+    "L57"
+  ],
+  "agents": [
+    {
+      "session_id": "L01",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l01",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L02",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l02",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L03",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l03",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L04",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l04",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L05",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l05",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L06",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l06",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L07",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l07",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L08",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l08",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L09",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l09",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L10",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l10",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L11",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l11",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L12",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l12",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L13",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l13",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L14",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l14",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L15",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l15",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L16",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l16",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L17",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l17",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L18",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l18",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L19",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l19",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L20",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l20",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L21",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l21",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L22",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l22",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L23",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l23",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L24",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l24",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L25",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l25",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L26",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l26",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L27",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l27",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L28",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l28",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L29",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l29",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L30",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l30",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L31",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l31",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L32",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l32",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L33",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l33",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L34",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l34",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L35",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l35",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L36",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l36",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L37",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l37",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L38",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l38",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L39",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l39",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L40",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l40",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L41",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l41",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L42",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l42",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L43",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l43",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L44",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l44",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L45",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l45",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L46",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l46",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L47",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l47",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L48",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l48",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L49",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l49",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L50",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l50",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L51",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l51",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L52",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l52",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L53",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l53",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L54",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l54",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified",
+      "runtime_attempt": 2,
+      "root_smoke_attempt_1_excluded": true
+    },
+    {
+      "session_id": "L55",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l55",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L56",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l56",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    },
+    {
+      "session_id": "L57",
+      "agent_id": "/root/luna_playtest_coordinator/luna_l57",
+      "model": "gpt-6-luna",
+      "status": "completed_report_verified"
+    }
+  ],
+  "runtime_gate": "GO_RUNTIME_RECEIVED",
+  "notes": [
+    "Runtime sessions are existing repeated scripted regression anchors, not 57 distinct GUI or autonomous full-game playthroughs.",
+    "L54 attempt 1 is root smoke evidence and excluded from the 57 worker sessions; L54 worker must run attempt 2."
+  ],
+  "format_corrections": [
+    {
+      "session_id": "L42",
+      "old_agent_id": "/root/luna-playtest_coordinator/luna_l42",
+      "new_agent_id": "/root/luna_playtest_coordinator/luna_l42",
+      "correction": "The original reviewer field used a hyphen in luna-playtest_coordinator; the actual canonical task identity uses luna_playtest_coordinator. The original bytes were not retained before the reviewer corrected the field. No runtime rerun or substantive report change."
+    }
+  ]
+}

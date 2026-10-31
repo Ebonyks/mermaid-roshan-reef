@@ -1,0 +1,560 @@
+[
+  {
+    "id": "pipe_h_rest",
+    "prompt": "Use case: illustration-story. One isolated HORIZONTAL STRAIGHT toy fuel pipe, front/top orthographic view for a preschool2D storybook puzzle grid. Input1 is MATERIAL DESIGN reference only: teal glass pipe, ivory-gold shell collars and exactly two broad visible rivets per collar; do not copy its vertical orientation, perspective, background or framing. Input2 is POSITION_GUIDE_ONLY: neutral gray footprint and black coordinate ticks locate a straight horizontal centerline from(96,512) to(928,512) on a1024square. No guide pixels, gray field or tick can enter output; it supplies no appearance. Render one horizontal pipe along that centerline, open dark mouth at each left/right end, matching collars, straight and symmetric. Its two end-port CENTERS must lie exactly on horizontal y50% and its span about82% of canvas width. Body width about16% canvas height. A quiet dark teal EMPTY bore is visible through the glass; no liquid yet. Soft top light, broad hand-painted teal/aqua value bands, warm ivory-gold collar highlights, lavender shadows, confident deep-plum contour. Polished painted storybook finish, not vector, glossy3D or noisy texture. Entire object visible, clean square canvas with real RGBA transparency outside; no tile plate, background, surrounding shadow, halo, labels, letters, arrows or extra piece. At64px it must read as one straight pipe with TWO opposing open ends.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-1a5889d4-057a-4875-bcff-ca61efe973f8.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+    "native_sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+    "inputs": [
+      {
+        "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_astronaut_engineer_gameplay_straight_pipe.png",
+        "sha256": "0236da6ad35cf15eb6a486550da54769f6c75c621180197e6240baa876aa75e1",
+        "role": "material/design only"
+      },
+      {
+        "path": "tmp/artwork-quality-20261018/pipe_h_position_only.png",
+        "sha256": "81a0dda9ee53e98d30090a548d1eb03bd45269f5ece76b6a5530837ad8a6de59",
+        "role": "position_only",
+        "used_as_delivery_pixels": false,
+        "appearance_authority": false
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_h_fueled",
+    "prompt": "Use case: precise-object-edit. Exact horizontal toy pipe target. Preserve EVERY contour, two open end mouths, port centers, collars/rivets, upper-left light, dimensions, framing and clean square RGBA transparency. Change only the EMPTY interior of the teal glass to a visible bright aqua FUEL fill with two tiny contained ivory sparkles. Fuel belongs INSIDE the glass body, not a colored wash over the gold collars. Keep the dark depth at the two end mouths. The rest/fueled images must register pixel-for-pixel in a puzzle grid. Same broad painted storybook brushwork. No scene, extra pipes, lettering, exterior glow or shadow.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-4e5edb7a-daa6-49c5-9ba1-824703c34b1c.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_fueled_native.png",
+    "native_sha256": "8c0fea749fa13011af6e68b3630e99f92b6f05a97494c0359f66f1f2612444b0",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "exact edit target",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_ne_rest",
+    "prompt": "Use case: illustration-story. One NORTH-to-EAST elbow toy fuel pipe for the same preschool2D storybook puzzle as input1. Input1 is material/scale/style reference ONLY: preserve its teal empty glass body, ivory-gold collars with exactly two visible rivets each, broad grouped paint bands, plum contours and soft top light. Input2 is POSITION_GUIDE_ONLY: neutral gray footprint/black coordinate ticks specify a centerline from north port(512,96), smoothly bending near(512,512), to east port(928,512) on1024square. No guide pixels or gray background enters output. The north open mouth must point UP, east mouth point RIGHT, and their centers align to that guide; one continuous smooth90degree elbow, no third arm. No rectangular tile or plate. Orthographic front/top view; do not turn the shape diagonally or invent perspective that moves the port centers. Quiet EMPTY dark-teal bore in the glass, no fuel. Match body/collar thickness to input1. Entire single object visible on square native RGBA transparency; no labels, letters, scenery, extra objects, halo, exterior shadow or code-like flat shape. Geometry must remain readable at64px.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-3749c4aa-77ab-41c5-ac8b-849e0bad614b.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_ne_rest_native.png",
+    "native_sha256": "8ca2d4d2f8ef39fc0d122d0b609311164c66953bd4e803510df5bec53ba2976b",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "material/style only",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      },
+      {
+        "path": "tmp/artwork-quality-20261018/pipe_ne_position_only.png",
+        "sha256": "c3d7757cdda39c59bf13df01ce35edca995ce5d3ff61edda8844b34c3c5e9d6c",
+        "role": "position_only",
+        "used_as_delivery_pixels": false,
+        "appearance_authority": false
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_v_rest",
+    "prompt": "Use case: illustration-story. One vertical straight, with exactly two opposing UP and DOWN ports toy fuel pipe for the EXACT family shown in input1. Input1 is material/style/thickness authority, not orientation: quiet EMPTY teal glass body, dark bore, ivory-gold collars with two broad visible rivets each, broad painterly value bands, plum contour, upper-left light. Keep the lighting at upper left for this new orientation; do not rotate lit pixels. Input2 is POSITION_GUIDE_ONLY: neutral gray footprint gives the centerline and port directions on1024square, no appearance. It must not contribute gray field/footprint pixels to output. Follow its orthogonal geometry and equal arm lengths: middle is(512,512), ports are corresponding edge-midpoints at96 or928. Smooth continuous rounded bend where needed, no third arm, no decorative center socket. Match input1's body/collar thickness and palette. Each port visibly OPEN and dark. This is the REST state with NO luminous fuel. Front/top orthographic view, no diagonal pose or perspective skew. Entire single object visible on a square true RGBA transparent canvas. No plate, labels, text, arrows, background, cast shadow, halo, extra piece, flat vector fills or glossy3D.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-a55d1de5-b461-4606-9d68-3e6f0b32422b.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_v_rest_native.png",
+    "native_sha256": "dfb22719d98219548d6973a92d56f8462de2994aa0370d012a6bda35ad189dfe",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "material/style only",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      },
+      {
+        "path": "tmp/artwork-quality-20261018/pipe_v_position_only.png",
+        "sha256": "a1d78cffa4c2bc2295f5c58d90a6a521a933b408332d003aab277299d6d66ecd",
+        "role": "position_only",
+        "used_as_delivery_pixels": false,
+        "appearance_authority": false
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_nw_rest",
+    "prompt": "Use case: illustration-story. One 90degree elbow joining UP and LEFT ports toy fuel pipe for the EXACT family shown in input1. Input1 is material/style/thickness authority, not orientation: quiet EMPTY teal glass body, dark bore, ivory-gold collars with two broad visible rivets each, broad painterly value bands, plum contour, upper-left light. Keep the lighting at upper left for this new orientation; do not rotate lit pixels. Input2 is POSITION_GUIDE_ONLY: neutral gray footprint gives the centerline and port directions on1024square, no appearance. It must not contribute gray field/footprint pixels to output. Follow its orthogonal geometry and equal arm lengths: middle is(512,512), ports are corresponding edge-midpoints at96 or928. Smooth continuous rounded bend where needed, no third arm, no decorative center socket. Match input1's body/collar thickness and palette. Each port visibly OPEN and dark. This is the REST state with NO luminous fuel. Front/top orthographic view, no diagonal pose or perspective skew. Entire single object visible on a square true RGBA transparent canvas. No plate, labels, text, arrows, background, cast shadow, halo, extra piece, flat vector fills or glossy3D.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-199db69a-74a2-497d-a60d-0e4c8d4d951c.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_nw_rest_native.png",
+    "native_sha256": "f19bb85e86febbddfd60867c99f3dee57c1d857124ac33d885a1670c7548763f",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "material/style only",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      },
+      {
+        "path": "tmp/artwork-quality-20261018/pipe_nw_position_only.png",
+        "sha256": "aa741a0799266f08f774bddb2b3c9f23060d4ab40ed394071e5a4f40fca19547",
+        "role": "position_only",
+        "used_as_delivery_pixels": false,
+        "appearance_authority": false
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_se_rest",
+    "prompt": "Use case: illustration-story. One 90degree elbow joining DOWN and RIGHT ports toy fuel pipe for the EXACT family shown in input1. Input1 is material/style/thickness authority, not orientation: quiet EMPTY teal glass body, dark bore, ivory-gold collars with two broad visible rivets each, broad painterly value bands, plum contour, upper-left light. Keep the lighting at upper left for this new orientation; do not rotate lit pixels. Input2 is POSITION_GUIDE_ONLY: neutral gray footprint gives the centerline and port directions on1024square, no appearance. It must not contribute gray field/footprint pixels to output. Follow its orthogonal geometry and equal arm lengths: middle is(512,512), ports are corresponding edge-midpoints at96 or928. Smooth continuous rounded bend where needed, no third arm, no decorative center socket. Match input1's body/collar thickness and palette. Each port visibly OPEN and dark. This is the REST state with NO luminous fuel. Front/top orthographic view, no diagonal pose or perspective skew. Entire single object visible on a square true RGBA transparent canvas. No plate, labels, text, arrows, background, cast shadow, halo, extra piece, flat vector fills or glossy3D.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-6f083f98-7bd3-47fb-9fad-4aa414e5aefc.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_se_rest_native.png",
+    "native_sha256": "9587fbd89188d9444ea1ba3151a655f5a18dfedf0db146ff923ebe47a6a7b8fb",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "material/style only",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      },
+      {
+        "path": "tmp/artwork-quality-20261018/pipe_se_position_only.png",
+        "sha256": "64645a7537277e4c86b10a2e7cd051023a3be442367b6fb5406ad31b240b19ea",
+        "role": "position_only",
+        "used_as_delivery_pixels": false,
+        "appearance_authority": false
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_sw_rest",
+    "prompt": "Use case: illustration-story. One 90degree elbow joining DOWN and LEFT ports toy fuel pipe for the EXACT family shown in input1. Input1 is material/style/thickness authority, not orientation: quiet EMPTY teal glass body, dark bore, ivory-gold collars with two broad visible rivets each, broad painterly value bands, plum contour, upper-left light. Keep the lighting at upper left for this new orientation; do not rotate lit pixels. Input2 is POSITION_GUIDE_ONLY: neutral gray footprint gives the centerline and port directions on1024square, no appearance. It must not contribute gray field/footprint pixels to output. Follow its orthogonal geometry and equal arm lengths: middle is(512,512), ports are corresponding edge-midpoints at96 or928. Smooth continuous rounded bend where needed, no third arm, no decorative center socket. Match input1's body/collar thickness and palette. Each port visibly OPEN and dark. This is the REST state with NO luminous fuel. Front/top orthographic view, no diagonal pose or perspective skew. Entire single object visible on a square true RGBA transparent canvas. No plate, labels, text, arrows, background, cast shadow, halo, extra piece, flat vector fills or glossy3D.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-07922133-c1e2-4741-ac8a-c083d3c8b2a2.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_sw_rest_native.png",
+    "native_sha256": "9ca8a783f232252c69d64e093bf1397674e4dae9add8fb573db3f77e59eac04e",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "material/style only",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      },
+      {
+        "path": "tmp/artwork-quality-20261018/pipe_sw_position_only.png",
+        "sha256": "b7c31459ab9d625c3545a6cd407e2190abf364de498b9b782725374adbfe7c4d",
+        "role": "position_only",
+        "used_as_delivery_pixels": false,
+        "appearance_authority": false
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_ne_fueled",
+    "prompt": "Use case: precise-object-edit. Exact NORTH-to-EAST elbow pipe target. Preserve EVERY contour, two open end mouths, port centers, collars/rivets, upper-left light, dimensions, framing and clean square RGBA transparency. Change only the EMPTY interior of the teal glass to visible bright aqua FUEL with two tiny contained ivory sparkles. Fuel belongs INSIDE the glass, never a wash over gold collars. Keep dark depth at end mouths. Rest/fueled images must register pixel-for-pixel in the puzzle. Same broad painted storybook brushwork. No scene, extra pipe, lettering, exterior glow or shadow.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-62512097-49ef-4e9e-a40e-e5bfb1969650.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_ne_fueled_native.png",
+    "native_sha256": "2d8e1659c11cb6e2c6ce1c4039c8b645713d02fc0dafa5a7947fbdc8aed2d3e2",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_ne_rest_native.png",
+        "sha256": "8ca2d4d2f8ef39fc0d122d0b609311164c66953bd4e803510df5bec53ba2976b",
+        "role": "exact edit target",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_v_fueled",
+    "prompt": "Use case: precise-object-edit. Exact painted v toy pipe edit target. Preserve the entire silhouette, orientation, port centers/open mouths, ivory-gold collars and rivets, dimensions, size/position in square canvas, upper-left light and painted brushwork. Change ONLY the empty teal glass interior to clearly bright aqua fuel, with two tiny ivory sparkle dots CONTAINED inside the glass. Match the existing rest/fuelled family: saturated aqua but keep broad painted value bands, quiet dark depth in open end mouths, original gold collar colors. No tint overlay on collars, no change to anatomy/geometry/framing. No new objects, labels, glyphs, exterior glow, shadow or background. True RGBA transparency. Rest/fuelled pictures must register exactly when swapped.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-8a1f307d-b1f3-4bfe-af26-9656e3d77af1.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_v_fueled_native.png",
+    "native_sha256": "7c1a831677f9b13b0f3a832b81615476fe4871132aa23f81522b40e45a27c19f",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_v_rest_native.png",
+        "sha256": "dfb22719d98219548d6973a92d56f8462de2994aa0370d012a6bda35ad189dfe",
+        "role": "exact edit target",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_nw_fueled",
+    "prompt": "Use case: precise-object-edit. Exact painted nw toy pipe edit target. Preserve the entire silhouette, orientation, port centers/open mouths, ivory-gold collars and rivets, dimensions, size/position in square canvas, upper-left light and painted brushwork. Change ONLY the empty teal glass interior to clearly bright aqua fuel, with two tiny ivory sparkle dots CONTAINED inside the glass. Match the existing rest/fuelled family: saturated aqua but keep broad painted value bands, quiet dark depth in open end mouths, original gold collar colors. No tint overlay on collars, no change to anatomy/geometry/framing. No new objects, labels, glyphs, exterior glow, shadow or background. True RGBA transparency. Rest/fuelled pictures must register exactly when swapped.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-32612aac-e831-4754-91b7-5971543d518c.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_nw_fueled_native.png",
+    "native_sha256": "b102bfc7d1e1f51582ed32818698324dd60ff165efa283290676050713f7e02a",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_nw_rest_native.png",
+        "sha256": "f19bb85e86febbddfd60867c99f3dee57c1d857124ac33d885a1670c7548763f",
+        "role": "exact edit target",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_se_fueled",
+    "prompt": "Use case: precise-object-edit. Exact painted se toy pipe edit target. Preserve the entire silhouette, orientation, port centers/open mouths, ivory-gold collars and rivets, dimensions, size/position in square canvas, upper-left light and painted brushwork. Change ONLY the empty teal glass interior to clearly bright aqua fuel, with two tiny ivory sparkle dots CONTAINED inside the glass. Match the existing rest/fuelled family: saturated aqua but keep broad painted value bands, quiet dark depth in open end mouths, original gold collar colors. No tint overlay on collars, no change to anatomy/geometry/framing. No new objects, labels, glyphs, exterior glow, shadow or background. True RGBA transparency. Rest/fuelled pictures must register exactly when swapped.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-e2ba2d68-c2df-40ab-99be-fd10d880f72d.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_se_fueled_native.png",
+    "native_sha256": "b10c32cedf7b5da885005807ddeda0e925ea088bd61947ca4d593055890a2959",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_se_rest_native.png",
+        "sha256": "9587fbd89188d9444ea1ba3151a655f5a18dfedf0db146ff923ebe47a6a7b8fb",
+        "role": "exact edit target",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_sw_fueled",
+    "prompt": "Use case: precise-object-edit. Exact painted sw toy pipe edit target. Preserve the entire silhouette, orientation, port centers/open mouths, ivory-gold collars and rivets, dimensions, size/position in square canvas, upper-left light and painted brushwork. Change ONLY the empty teal glass interior to clearly bright aqua fuel, with two tiny ivory sparkle dots CONTAINED inside the glass. Match the existing rest/fuelled family: saturated aqua but keep broad painted value bands, quiet dark depth in open end mouths, original gold collar colors. No tint overlay on collars, no change to anatomy/geometry/framing. No new objects, labels, glyphs, exterior glow, shadow or background. True RGBA transparency. Rest/fuelled pictures must register exactly when swapped.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-d2e3d24a-7545-41bd-b493-214643201768.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_sw_fueled_native.png",
+    "native_sha256": "7d4f06383d1147fb01265bbcd784e82e0d366b9505a92fb2258afc6385a29392",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_sw_rest_native.png",
+        "sha256": "9ca8a783f232252c69d64e093bf1397674e4dae9add8fb573db3f77e59eac04e",
+        "role": "exact edit target",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_sw_rest_retry",
+    "prompt": "Use case: precise-object-edit. Exact SOUTH-to-WEST elbow pipe target. One geometry correction ONLY: EXTEND the straight vertical lower leg downward, carrying its whole lower gold collar and open mouth downward by about90 pixels on this1254-square image. Keep the left-facing mouth/collar and upper curved elbow where they are. In the corrected geometry, the vertical distance between the two dark open-mouth CENTERS must equal their horizontal distance (currently the lower mouth is too high). Keep the pipe's body width, soft bend, left/down port directions, identical empty teal glass, gold collars/rivets, painterly bands, upper-left light and plum contour. It remains the REST state without luminous fuel. The extended lower collar must stay entirely visible; you may recenter the complete corrected object uniformly within the square canvas to preserve transparent margins. Do not stretch or squish the body/collars. No new objects, text, halo, shadow, plate, background, or guide pixels. True RGBA transparency.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-428d3101-5a61-4989-bb9e-d57f140d94f8.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "REJECT_OVEREXTENDED_LEG",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_sw_rest_retry_native.png",
+    "native_sha256": "abe136f8312a9a157703b7470a3d40e25eb143d0c86486057a8e654e9ddd14de",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_sw_rest_native.png",
+        "sha256": "9ca8a783f232252c69d64e093bf1397674e4dae9add8fb573db3f77e59eac04e",
+        "role": "exact edit target",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "REJECTED: Asymmetric arm length overcorrected; source pair retained and registered by uniform scale/translation."
+  },
+  {
+    "id": "pipe_plate",
+    "prompt": "Use case: illustration-story. Input1 is style/material reference ONLY. One square softly rounded pale-lavender stone grid plate for a toy space-engine puzzle. Thin cream-gold rim and four broad understated corner rivets. Very large completely EMPTY quiet pale-lavender face for separately overlaid pipes. Flat front/top view, no perspective skew. The plate is shallow, no legs, no pipe/socket/marking on it. Match the pipe family's polished painted2D storybook finish: broad grouped paint bands, clean plum contours, warm ivory/gold materials, restrained lavender shadows and soft upper-left light. Calm matte/satin toy material, not glossy3D or flat vector. Entire object visible on SQUARE true RGBA transparency with8% margin. No labels, text, glyphs, scenery, exterior glow/shadow, white sticker edge or extra object.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-528d662d-b68d-47d7-8817-3048a1ab928f.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_plate_native.png",
+    "native_sha256": "c51b22faaeb673e26b9078c6f27bb854a0e7089744cdbe22ce10ad31a5b10a40",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "material/style only",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_tank",
+    "prompt": "Use case: illustration-story. Input1 is exact pipe material/scale reference, not the target shape. One rounded bubble fuel tank: a teal glass round reservoir full of luminous aqua fuel, an ivory-gold shell collar around its base, two small supporting feet, and ONE short horizontal right-facing outlet nozzle matching the reference pipe's gold collar/open dark mouth. Whole compact tank, body centered slightly LEFT of canvas center so the nozzle reaches the right edge margin. The nozzle's dark opening center must be at about(90% width,50% height). A broad quiet glass reservoir with two contained tiny ivory sparkles; no gauge/numbers/letters. Front view, friendly toy scale. Match the pipe family's polished painted2D storybook finish: broad grouped paint bands, clean plum contours, warm ivory/gold materials, restrained lavender shadows and soft upper-left light. Calm matte/satin toy material, not glossy3D or flat vector. Entire object visible on SQUARE true RGBA transparency with8% margin. No labels, text, glyphs, scenery, exterior glow/shadow, white sticker edge or extra object.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-527e98b7-a44b-4bf0-bc77-8fa66981fbfc.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_tank_native.png",
+    "native_sha256": "e3ae20e04b39dbd14419d37f8bd9c33a13a9010270f2aea242a7a01abc9d0db3",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "material/style only",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_intake",
+    "prompt": "Use case: illustration-story. Input1 is exact pipe material/style reference ONLY. One round front-facing rocket fuel intake socket, cream-gold metal shell collar with four broad gold rivets around a deep empty dark-teal circular bore. Soft lavender underside depth, upper-left ivory light, symmetrical round toy connector. Simple readable socket only, no attached rocket, extra pipe or flat card. REST/empty state, no luminous fuel yet. Match the pipe family's polished painted2D storybook finish: broad grouped paint bands, clean plum contours, warm ivory/gold materials, restrained lavender shadows and soft upper-left light. Calm matte/satin toy material, not glossy3D or flat vector. Entire object visible on SQUARE true RGBA transparency with8% margin. No labels, text, glyphs, scenery, exterior glow/shadow, white sticker edge or extra object.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-9f026ccb-95bf-4a5e-8471-5041935d72d7.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_intake_native.png",
+    "native_sha256": "dd1a3e8ec44eb5a4adeb60f23fdf6df2bf58ccb789ee0c62a8ab9f6080105f51",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "material/style only",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "imp_napping",
+    "prompt": "Use case: identity-preserve. The reference is the EXACT approved little purple mischief imp identity. Create one static whole-body NAPPING pose: curled comfortably on his side, eyes gently CLOSED with a happy sleepy smile, both hands tucked near his cheek/belly, knees comfortably curled, two feet accounted for, tail curling beside his body. Keep exactly his purple skin, two striped curved horns, pointed ears, hair tuft, purple wrap vest and shorts, rounded friendly anatomy and original polished painted storybook finish. No redesign, new costume or background. Two tiny round pale sleeping bubbles above his head are allowed, NEVER letters/z glyphs. All visible horns/limbs/tail complete and natural; one complete little imp only, easy to read at80px. Square native RGBA transparent cutout,8% margin, no floor, cast shadow, halo, stickers, text or extra characters.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-08d346cc-1d18-403c-90dd-415889908826.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/imp_napping_native.png",
+    "native_sha256": "8ab4ce0d03664497695c2e728e121de4b5c52f7158876e382039d95a3500b71c",
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/actors/imp_mischief.png",
+        "sha256": "fa68c88fb78817dcbfcdb7dc011ffa277529fb1d3c6bbc2a0bde8c532ac8744a",
+        "role": "exact approved identity"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_plate_selected",
+    "prompt": "Use case: precise-object-edit. Exact EMPTY square stone grid-plate target. Preserve full silhouette, exact size/position/framing, pale lavender blank face, four corner rivets, plum outline and painterly material. This is its SELECTED state: brighten only the narrow cream-gold rim with a soft painted ivory-gold inner highlight, and add two tiny warm glints confined INSIDE its rim. No content in the blank face, no exterior halo or shadow, no words/numbers/symbols. Keep native square RGBA transparency and exact rest/selected registration.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-dba9cac2-28e4-4c64-9774-ee188438028f.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "REJECT_EXTERIOR_GLINT",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_plate_selected_native.png",
+    "native_sha256": "a228cf2dc03c1e039693962f7c83f008af901d40111bdf5262552d7fa0b9f5bd",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_plate_native.png",
+        "sha256": "c51b22faaeb673e26b9078c6f27bb854a0e7089744cdbe22ce10ad31a5b10a40",
+        "role": "exact edit target",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "REJECTED: Unwanted exterior glint; second selected-plate attempt used."
+  },
+  {
+    "id": "pipe_intake_fueled",
+    "prompt": "Use case: precise-object-edit. Exact circular rocket fuel socket target. Preserve every outer contour, fixed port center, four gold rivets, ivory-gold collar, dimensions, upper-left light and registration. Its COMPLETE/fueled state has bright aqua fuel painted INSIDE the dark teal bore, with two tiny ivory sparkle dots inside that bore. Keep the gold collar entirely original, no tint wash or glow over it, no exterior halo. Same broad storybook painted value bands. Square true RGBA transparency; no writing, extra object, scene, arrows or symbols.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-13735889-9b75-4ef8-a643-f881d31c211f.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_intake_fueled_native.png",
+    "native_sha256": "d061b1332da6620ea55c3f73ae104945425da439d707d24d8f6e8ef6bbd9aae2",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_intake_native.png",
+        "sha256": "dd1a3e8ec44eb5a4adeb60f23fdf6df2bf58ccb789ee0c62a8ab9f6080105f51",
+        "role": "exact edit target",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "patch_0",
+    "prompt": "Use case: illustration-story. Input1 is MATERIAL/PAINTED FINISH reference only. Create one SOLID rocket repair patch shaped as a rounded square, colored pastel coral, with a thin warm ivory-gold rim and four corner gold rivets. Broad rounded friendly toy metal, soft top-left light, gentle lavender underside value band, confident deep-plum contour and authored grouped brush strokes matching the pipe family. The center is solid colored metal, not an open socket: no hole, emblem, letters, arrows, symbol or inset icon. Clear rounded square silhouette at64px. Front/top orthographic view, no skew; whole single patch centered in square true RGBA transparent canvas with8% margin. No scene, plate behind it, external shadow, glow, white rim or extra piece. Painted2D storybook quality, not flat vector or glossy3D.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-557511ba-d440-4cd8-8f19-a09aac28a70c.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/patch_0_native.png",
+    "native_sha256": "1b472d80efa9e937b355536ad1d10be8a2d60a9a3e403239396c8db16403047e",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "material/style only",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "patch_1",
+    "prompt": "Use case: illustration-story. Input1 is MATERIAL/PAINTED FINISH reference only. Create one SOLID rocket repair patch shaped as a circle, colored soft lavender, with a thin warm ivory-gold rim and four small gold rivets evenly around the rim. Broad rounded friendly toy metal, soft top-left light, gentle lavender underside value band, confident deep-plum contour and authored grouped brush strokes matching the pipe family. The center is solid colored metal, not an open socket: no hole, emblem, letters, arrows, symbol or inset icon. Clear circle silhouette at64px. Front/top orthographic view, no skew; whole single patch centered in square true RGBA transparent canvas with8% margin. No scene, plate behind it, external shadow, glow, white rim or extra piece. Painted2D storybook quality, not flat vector or glossy3D.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-c53e27b0-acf0-4510-9d2b-563269796c41.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/patch_1_native.png",
+    "native_sha256": "0fb1b3401ef027ee0d5b756b76b319e0ba0a9335c75574d70063715a925f793a",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "material/style only",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "patch_2",
+    "prompt": "Use case: illustration-story. Input1 is MATERIAL/PAINTED FINISH reference only. Create one SOLID rocket repair patch shaped as a five-point rounded star, colored teal aqua, with a thin warm ivory-gold rim and five small gold rivets, one near each rounded point. Broad rounded friendly toy metal, soft top-left light, gentle lavender underside value band, confident deep-plum contour and authored grouped brush strokes matching the pipe family. The center is solid colored metal, not an open socket: no hole, emblem, letters, arrows, symbol or inset icon. Clear five-point rounded star silhouette at64px. Front/top orthographic view, no skew; whole single patch centered in square true RGBA transparent canvas with8% margin. No scene, plate behind it, external shadow, glow, white rim or extra piece. Painted2D storybook quality, not flat vector or glossy3D.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-74ce55b6-f011-44d5-952b-6f623bb57a36.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/patch_2_native.png",
+    "native_sha256": "a1a35ce5fae957fbfc9f94a0955d5ffe502aa502d0f5cfda46258e001c9685b6",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_h_rest_native.png",
+        "sha256": "75d89f8a7335d162796933a0b6143fa1be268729892d8b88e9f95d8d724fef77",
+        "role": "material/style only",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "pipe_plate_selected_retry",
+    "prompt": "Use case: precise-object-edit. Exact selected square grid-plate target. Remove ONLY every exterior sparkle/glint point and exterior glow, especially the star extending above the top rim. Keep the full original square contour, corner rivets, warm selected gold INNER rim, quiet blank lavender face, size, placement and painted material exactly unchanged. All selected emphasis stays inside the contour. The outside must be true transparent alpha with no glow or detached marks. No new objects, symbols, text or background. Square RGBA.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-22380e84-5da1-4880-8359-83313a50ad5a.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_plate_selected_retry_native.png",
+    "native_sha256": "a0abf830e93ae5ac837a26ab377b377c604971cd025840bd5f7e849582b57530",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/pipe_plate_selected_native.png",
+        "sha256": "a228cf2dc03c1e039693962f7c83f008af901d40111bdf5262552d7fa0b9f5bd",
+        "role": "exact edit target",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "launch_flame_full",
+    "prompt": "Use case: illustration-story. Input1 is the approved toy rocket's PALETTE/PAINTED STYLE reference ONLY; do NOT include a rocket or metal. One isolated rocket exhaust FLAME plume pointing DOWN. Its small attachment neck is at the TOP center; the flame flows downward into three broad rounded tapered lobes at the BOTTOM. Width:height about1:2.5. Warm ivory/pale-gold core, soft gold middle, pastel coral outer edge and restrained plum contour. Rich grouped hand-painted value bands matching this polished2D storybook game, no spiky scary fire, no glossy3D or flat triangle. One complete plume, front view, strong legible silhouette, fully contained. Center in a SQUARE canvas with8% transparent margins. No rocket, nozzle, smoke cloud, scenery, detached sparkles, symbols, text, exterior glow, white sticker rim or background. True RGBA transparency. This is a named full-strength static effect key; do not make a sprite sheet or collage.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-ba2caf3f-6dd9-4f47-ae24-1b00c131e9fd.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "REJECT_INCLUDED_METAL_NOZZLE",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/launch_flame_full_native.png",
+    "native_sha256": "c70760e81ee4731ac5e6e554aaa29c6376ab5324693e3af12eea2272a47ae56e",
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/props/goal_astronaut.png",
+        "sha256": "910f531303ec813a522f98b8ac2f97adeb5ed24bd0b438ecef9f136e19d77845",
+        "role": "palette/style only; rocket excluded from output"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "REJECTED: Unwanted metal nozzle; targeted clean plume replacement used."
+  },
+  {
+    "id": "launch_cloud",
+    "prompt": "Use case: illustration-story. Input1 is palette/painted-storybook finish reference ONLY, do NOT include the rocket. One small round puffy toy rocket EXHAUST CLOUD, made of five broad overlapping soft lobes as one continuous silhouette. Warm cream top, lilac/lavender underside, restrained plum-soft contour, broad authored brush strokes and gentle upper-left light. Quiet matte painted2D style, fluffy but clean and readable at32px, not flat circles or glossy3D. Single complete cloud centered in square native RGBA transparency with8% margin. No face, letters, symbols, ground, rocket, flame, exterior glow/shadow, white rim or scenery.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-2182abc7-7dd9-4c7e-b27b-9c86fbbcb993.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/launch_cloud_native.png",
+    "native_sha256": "856dfddfdd9dfb89a8695532ef9303627f5c7bf23b203c3a1e1b1680a316e94d",
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/props/goal_astronaut.png",
+        "sha256": "910f531303ec813a522f98b8ac2f97adeb5ed24bd0b438ecef9f136e19d77845",
+        "role": "palette/style only; rocket excluded from output"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  },
+  {
+    "id": "launch_flame_clean",
+    "prompt": "Use case: precise-object-edit. Remove the ENTIRE gold metal nozzle/collar at the top of this image. Keep ONLY the painted downward flame: ivory/gold center and coral rounded lobes. Restore the small missing upper flame attachment neck as warm pale-gold flame pigment, not hardware. Preserve the rest of the flame's existing complete silhouette, painted bands, proportions and true transparent canvas. The upper neck should meet the top-center attachment area; no separate cap or rim anywhere. No metal, rocket, nozzle, cloud, text, symbols, exterior glow/shadow or background. One complete flame-only RGBA cutout, square canvas. Do not add another object.",
+    "native_source": "C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-e49e88bd-bf86-418d-b47f-6a4fe8411a74.png",
+    "model_revision": "unexposed builtin ImageGen",
+    "status": "CANDIDATE_PENDING_RUNTIME_REVIEW",
+    "native_path": "assets_src/imagegen/job_art_astronaut_20261018/launch_flame_clean_native.png",
+    "native_sha256": "5b6d08f83a0b51468561b69a33798e985d94304da81e7ddb6a437a45a6d0745a",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_astronaut_20261018/launch_flame_full_native.png",
+        "sha256": "c70760e81ee4731ac5e6e554aaa29c6376ab5324693e3af12eea2272a47ae56e",
+        "role": "exact edit target",
+        "used_as_delivery_pixels": "generated derivative reference only"
+      }
+    ],
+    "transparent_background_requested": true,
+    "seed_and_provider_request_id": "unexposed",
+    "disposition": "SELECTED_STATIC_ART_CANDIDATE; exact runtime/full/external evidence separate"
+  }
+]

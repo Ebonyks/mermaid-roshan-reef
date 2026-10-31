@@ -5,6 +5,9 @@ const Lessons := preload("res://scripts/teacher_lesson_plan.gd")
 const BOARD := Rect2(330, 105, 850, 555)
 const HINT_CENTER := Vector2(1115, 150)
 const JOIN_CENTER := Vector2(755, 325)
+const TEACHER_ART := "res://assets/opera/worlds/teacher/"
+const SHAPE_NAMES := ["circle", "triangle", "square", "star", "heart"]
+const GUIDE_HAND := "res://assets/opera/worlds/teacher/guide_hand.png"
 const INK := Color("#392958")
 const TOKEN_COLORS := [Color("#71d9dd"), Color("#f3bd73"), Color("#be9ae9"),
 	Color("#f293b9"), Color("#8ed5ad")]
@@ -28,6 +31,7 @@ var join_t := 0.0
 var idle_demo_t := 0.0
 var _restored_complete := false
 var _numerals: Array[Label] = []
+var _teacher_textures: Dictionary = {}
 
 func configure(next_mode: String, next_accent: Color, choice: int = 1,
 		next_context: String = "") -> void:
@@ -260,11 +264,22 @@ func _update_numerals() -> void:
 		add_child(label)
 		_numerals.append(label)
 
+func _paint(asset: String, rect: Rect2) -> void:
+	var path := GUIDE_HAND if asset == "guide_hand" else TEACHER_ART + asset + ".png"
+	if not _teacher_textures.has(path):
+		_teacher_textures[path] = load(path) as Texture2D
+	var picture: Texture2D = _teacher_textures[path] as Texture2D
+	assert(picture != null, "Missing painted Teacher object: " + path)
+	var dimensions := picture.get_size()
+	var ratio := minf(rect.size.x / dimensions.x, rect.size.y / dimensions.y)
+	var fitted := dimensions * ratio
+	draw_texture_rect(picture, Rect2(rect.get_center() - fitted * 0.5, fitted), false)
+
 func _draw() -> void:
 	if lesson.is_empty():
 		return
-	draw_style_box(StorybookUI.panel_style(Color("#a57ab3"), Color("#f8ead5"), 32, 7), BOARD)
-	draw_line(Vector2(375, 420), Vector2(1135, 420), Color("#d8c2d3"), 4, true)
+	# The object is drawn whole, uniformly fitted. Input/lesson coordinates stay fixed.
+	_paint("lesson_board", Rect2(300, 56, 910, 654))
 	_draw_hint_button()
 	match lesson_kind():
 		"pattern":
@@ -276,17 +291,17 @@ func _draw() -> void:
 	var choices: Array = lesson.get("choices", []) as Array
 	for index in range(choices.size()):
 		var card := choice_rect(index)
-		var fill := Color("#fffaf0") if can_answer() else Color("#dfdcde")
-		if solved and index == chosen:
-			fill = Color("#b6eadc")
-		elif help_visible and can_answer() and index == answer_index():
-			fill = Color("#fff0a9")
-		draw_style_box(StorybookUI.panel_style(INK, fill, 25, 5), card)
+		var state := "rest"
+		if solved and index == chosen or help_visible and can_answer() and index == answer_index():
+			state = "right"
+		elif index == chosen:
+			state = "chosen"
+		_paint("answer_card_" + state, card)
 		if lesson_kind() in ["count", "add"]:
 			var amount := int(choices[index])
-			var pearl_radius := _group_radius(amount, card.size.x - 24.0, 40.0)
-			_draw_group(amount, card.get_center() + Vector2(0, -15),
-				pearl_radius, Color("#75d3df"))
+			# Whole square cards fit the old rectangular hits. Pearls stay inside their blank face.
+			var pearl_radius := _group_radius(amount, minf(card.size.x, card.size.y) - 44.0, 40.0)
+			_draw_group(amount, card.get_center() + Vector2(0, -15), pearl_radius)
 		else:
 			_draw_shape(int(choices[index]), card.get_center(), 49.0)
 	if not solved:
@@ -295,15 +310,11 @@ func _draw() -> void:
 		var at := choice_rect(answer_index()).get_center()
 		for index in range(6):
 			var angle := float(index) * TAU / 6.0 + idle_demo_t * 0.3
-			_draw_shape(3, at + Vector2.from_angle(angle) * 118.0, 10.0)
+			_draw_shape(3, at + Vector2.from_angle(angle) * 118.0, 10.0, true)
 
 func _draw_hint_button() -> void:
-	draw_circle(HINT_CENTER, 30, Color("#e4d3ee"))
-	draw_arc(HINT_CENTER - Vector2(0, 4), 12, PI, TAU + PI * 0.65, 24, INK, 5, true)
-	draw_line(HINT_CENTER + Vector2(-7, 13), HINT_CENTER + Vector2(7, 13), INK, 4, true)
-	for index in range(3):
-		var at := HINT_CENTER + Vector2.from_angle(-PI * 0.8 + float(index) * 0.8) * 23
-		draw_circle(at, 3, Color("#b18355"))
+	_paint("shape_slot", Rect2(HINT_CENTER - Vector2(32, 32), Vector2(64, 64)))
+	_paint_hand(HINT_CENTER + Vector2(0, 18), 50.0)
 
 func _draw_pattern() -> void:
 	var tokens: Array = lesson.get("prompt_tokens", []) as Array
@@ -311,32 +322,24 @@ func _draw_pattern() -> void:
 	var start := 755.0 - float(tokens.size()) * step * 0.5
 	for index in range(tokens.size()):
 		var at := Vector2(start + float(index) * step, 285)
-		_draw_shape(int(tokens[index]), at, 32.0)
-		if int(idle_demo_t / 0.6) % (tokens.size() + 1) == index and not solved:
-			draw_arc(at, 42, 0, TAU, 32, Color("#c29acb"), 4, true)
+		var lit := int(idle_demo_t / 0.6) % (tokens.size() + 1) == index and not solved
+		_draw_shape(int(tokens[index]), at, 32.0, lit)
 	var blank := Vector2(start + float(tokens.size()) * step, 285)
 	if solved:
-		_draw_shape(int(lesson.get("target", 0)), blank, 32)
+		_draw_shape(int(lesson.get("target", 0)), blank, 32, true)
 	else:
-		draw_style_box(StorybookUI.panel_style(INK, Color("#e8ddeb"), 16, 3),
-			Rect2(blank - Vector2(37, 45), Vector2(74, 90)))
-		draw_line(blank - Vector2(16, 0), blank + Vector2(16, 0), Color("#947ca9"), 5)
+		_paint("shape_slot", Rect2(blank - Vector2(37, 45), Vector2(74, 90)))
 
 func _draw_counting() -> void:
 	if lesson_kind() == "add" and not joined:
 		var operands: Array = lesson.get("operands", [1, 1]) as Array
-		draw_style_box(StorybookUI.panel_style(INK, Color("#d8eff0"), 30, 4), Rect2(410, 200, 265, 205))
-		draw_style_box(StorybookUI.panel_style(INK, Color("#f5d8e4"), 30, 4), Rect2(835, 200, 265, 205))
+		_paint("tray_aqua", Rect2(410, 200, 265, 205))
+		_paint("tray_pink", Rect2(835, 200, 265, 205))
 		var left_amount := int(operands[0])
 		var right_amount := int(operands[1])
-		_draw_group(left_amount, Vector2(542, 295),
-			_group_radius(left_amount, 241.0, 40.0), Color("#74d5df"))
-		_draw_group(right_amount, Vector2(967, 295),
-			_group_radius(right_amount, 241.0, 40.0), Color("#efa3c7"))
-		draw_circle(JOIN_CENTER, 49, Color("#f0d48c"))
-		draw_arc(JOIN_CENTER, 49, 0, TAU, 40, INK, 5, true)
-		draw_line(JOIN_CENTER - Vector2(22, 0), JOIN_CENTER + Vector2(22, 0), INK, 8, true)
-		draw_line(JOIN_CENTER - Vector2(0, 22), JOIN_CENTER + Vector2(0, 22), INK, 8, true)
+		_draw_group(left_amount, Vector2(542, 295), _group_radius(left_amount, 190.0, 40.0))
+		_draw_group(right_amount, Vector2(967, 295), _group_radius(right_amount, 190.0, 40.0))
+		_paint("join_shell", Rect2(JOIN_CENTER - Vector2(56, 56), Vector2(112, 112)))
 		return
 	for index in range(counted.size()):
 		var at := counter_position(index)
@@ -344,14 +347,8 @@ func _draw_counting() -> void:
 			var operands: Array = lesson.get("operands", [1, 1]) as Array
 			var start := Vector2(542 if index < int(operands[0]) else 967, 295)
 			at = start.lerp(at, 1.0 - join_t / 0.4)
-		var color := Color("#f4cf79") if counted[index] else Color("#78d9df")
-		draw_circle(at + Vector2(0, 4), 31, Color("#b99bba"))
-		draw_circle(at, 29, INK)
-		draw_circle(at, 24, color)
-		draw_circle(at - Vector2(8, 8), 7, Color(1, 1, 1, 0.6))
-		if counted[index]:
-			draw_line(at + Vector2(-10, 0), at + Vector2(-2, 8), INK, 4, true)
-			draw_line(at + Vector2(-2, 8), at + Vector2(11, -8), INK, 4, true)
+		var state := "counted" if counted[index] else "uncounted"
+		_paint("pearl_" + state, Rect2(at - Vector2(31, 31), Vector2(62, 62)))
 
 func _group_radius(amount: int, available_width: float,
 		max_radius: float) -> float:
@@ -363,7 +360,7 @@ func _group_radius(amount: int, available_width: float,
 	return minf(max_radius, width_bound)
 
 
-func _draw_group(amount: int, center: Vector2, radius: float, color: Color) -> void:
+func _draw_group(amount: int, center: Vector2, radius: float) -> void:
 	var columns := mini(5, amount)
 	for index in range(amount):
 		var row := index / 5
@@ -371,37 +368,14 @@ func _draw_group(amount: int, center: Vector2, radius: float, color: Color) -> v
 		var x := (float(index % 5) - float(row_count - 1) * 0.5) * radius * 1.55
 		var y := (float(row) - (0.5 if amount > columns else 0.0)) * radius * 1.65
 		var at := center + Vector2(x, y)
-		draw_circle(at, radius * 0.65 + 3, INK)
-		draw_circle(at, radius * 0.65, color)
-		draw_circle(at - Vector2(radius * 0.2, radius * 0.2), radius * 0.16, Color("#fff7dc"))
+		var side := radius * 1.3 + 6.0
+		_paint("pearl_uncounted", Rect2(at - Vector2.ONE * side * 0.5, Vector2.ONE * side))
 
-func _draw_shape(shape: int, at: Vector2, radius: float) -> void:
-	var color: Color = TOKEN_COLORS[posmod(shape, TOKEN_COLORS.size())]
-	if shape == 0:
-		draw_circle(at, radius, INK)
-		draw_circle(at, radius - 6, color)
-		return
-	if shape == 2:
-		draw_style_box(StorybookUI.panel_style(INK, color, 8, 6),
-			Rect2(at - Vector2.ONE * radius * 0.8, Vector2.ONE * radius * 1.6))
-		return
-	var points := PackedVector2Array()
-	if shape == 1:
-		points = PackedVector2Array([at + Vector2(0,-radius),
-			at + Vector2(radius * 0.92, radius * 0.75), at + Vector2(-radius * 0.92, radius * 0.75)])
-	elif shape == 3:
-		for index in range(10):
-			points.append(at + Vector2.from_angle(-PI * 0.5 + float(index) * PI / 5.0)
-				* radius * (1.0 if index % 2 == 0 else 0.48))
-	else:
-		for index in range(36):
-			var t := float(index) * TAU / 36.0
-			points.append(at + Vector2(16.0 * pow(sin(t), 3),
-				-(13.0 * cos(t) - 5.0 * cos(2*t) - 2.0 * cos(3*t) - cos(4*t))) * radius / 18.0)
-	draw_colored_polygon(points, color)
-	var outline := points.duplicate()
-	outline.append(points[0])
-	draw_polyline(outline, INK, 6, true)
+func _draw_shape(shape: int, at: Vector2, radius: float, lit := false) -> void:
+	var name: String = SHAPE_NAMES[posmod(shape, SHAPE_NAMES.size())]
+	var state := "lit" if lit else "rest"
+	_paint("shape_" + name + "_" + state,
+		Rect2(at - Vector2.ONE * radius, Vector2.ONE * radius * 2.0))
 
 func _draw_demo() -> void:
 	var at := Vector2.ZERO
@@ -411,10 +385,12 @@ func _draw_demo() -> void:
 		at = counter_position(counted.find(false))
 	elif help_visible:
 		at = choice_rect(answer_index()).get_center()
-	elif lesson_kind() == "pattern":
-		return
 	else:
 		return
-	var pulse := 1.0 + sin(idle_demo_t * 4) * 0.12
-	draw_arc(at, 41.0 * pulse, 0, TAU, 32, Color("#f2d58e"), 6, true)
-	draw_circle(at + Vector2(25, 34), 11, Color("#fff4d5"))
+	var offset := Vector2(0, sin(idle_demo_t * 4.0) * 3.0)
+	# Reuse the authored pointing hand rather than drawing a ring over the object.
+	_paint_hand(at + offset, 58.0)
+
+func _paint_hand(tip: Vector2, side: float) -> void:
+	var tip_uv := Vector2(0.436523, 0.986328)
+	_paint("guide_hand", Rect2(tip - tip_uv * side, Vector2.ONE * side))

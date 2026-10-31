@@ -1,0 +1,1687 @@
+{
+  "schema": "rumi_book_pacing_metrics/1",
+  "measured_with": "docs/handoffs/codex_rumi_book_revision_2026-10-17/tools/measure_book_pacing.py --spreads",
+  "source_commit": "c3e0da5107b9f3d18be4a07ffa3183196ddeb574",
+  "source_branch": "rescue/peter-20261015-arborist-start",
+  "note": "Numbers only. Word and panel counts cover story pages (cover excluded). 'ends_open' is a text proxy for a page-turn hook; it does not judge pictures.",
+  "editions": [
+    {
+      "edition": "2026-10-10 first 32-page comic",
+      "path": "assets_src/books/rumi_underpool_20261010/comic_script.json",
+      "sha256": "2768f91d56ef4d7a65e71abea9fce1b8b18c41aeefd050817ccd1607c671b45a",
+      "metrics": {
+        "pages_total": 32,
+        "story_pages": 30,
+        "panels_total": 87,
+        "words_total": 1322,
+        "panels_per_page": {
+          "n": 30,
+          "min": 2,
+          "median": 3.0,
+          "mean": 2.9,
+          "max": 3,
+          "stdev": 0.3
+        },
+        "words_per_page": {
+          "n": 30,
+          "min": 32,
+          "median": 45.5,
+          "mean": 44.07,
+          "max": 54,
+          "stdev": 6.66
+        },
+        "words_per_panel_mean": 15.2,
+        "one_panel_pages": 0,
+        "pages_with_5_plus_panels": 0,
+        "longest_run_same_panel_count": 16,
+        "silent_panels": 0,
+        "silent_panel_share": 0.0,
+        "sound_effect_entries": 0,
+        "speaker_lines": {
+          "Narrator": 70,
+          "Roshan": 29,
+          "Rumi": 12,
+          "Nari": 11,
+          "Duri": 9,
+          "Hana": 8,
+          "Magician Imp": 3,
+          "Performer Imp": 3,
+          "Everyone": 2,
+          "Trio": 1
+        },
+        "speaker_words": {
+          "Narrator": 823,
+          "Roshan": 163,
+          "Rumi": 87,
+          "Duri": 83,
+          "Nari": 52,
+          "Hana": 39,
+          "Everyone": 25,
+          "Magician Imp": 24,
+          "Performer Imp": 15,
+          "Trio": 11
+        },
+        "narrator_word_share": 0.623,
+        "per_page": [
+          {
+            "page": 2,
+            "panels": 3,
+            "words": 33,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 3,
+            "panels": 3,
+            "words": 32,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 4,
+            "panels": 3,
+            "words": 52,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 5,
+            "panels": 3,
+            "words": 48,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 6,
+            "panels": 3,
+            "words": 39,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 7,
+            "panels": 3,
+            "words": 54,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 8,
+            "panels": 3,
+            "words": 38,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 9,
+            "panels": 3,
+            "words": 39,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 10,
+            "panels": 3,
+            "words": 47,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 11,
+            "panels": 2,
+            "words": 40,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 12,
+            "panels": 3,
+            "words": 52,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 13,
+            "panels": 2,
+            "words": 34,
+            "speakers": 3,
+            "ends_open": true
+          },
+          {
+            "page": 14,
+            "panels": 3,
+            "words": 53,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 15,
+            "panels": 2,
+            "words": 32,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 16,
+            "panels": 3,
+            "words": 42,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 17,
+            "panels": 3,
+            "words": 40,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 18,
+            "panels": 3,
+            "words": 43,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 19,
+            "panels": 3,
+            "words": 49,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 20,
+            "panels": 3,
+            "words": 52,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 21,
+            "panels": 3,
+            "words": 43,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 22,
+            "panels": 3,
+            "words": 47,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 23,
+            "panels": 3,
+            "words": 45,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 24,
+            "panels": 3,
+            "words": 48,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 25,
+            "panels": 3,
+            "words": 49,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 26,
+            "panels": 3,
+            "words": 50,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 27,
+            "panels": 3,
+            "words": 51,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 28,
+            "panels": 3,
+            "words": 50,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 29,
+            "panels": 3,
+            "words": 36,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 30,
+            "panels": 3,
+            "words": 46,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 31,
+            "panels": 3,
+            "words": 38,
+            "speakers": 3,
+            "ends_open": false
+          }
+        ],
+        "page_turns": 15,
+        "page_turns_ending_open": 1,
+        "page_turn_pages_ending_open": [
+          13
+        ]
+      },
+      "sha256_basis": "git blob bytes at source_commit"
+    },
+    {
+      "edition": "2026-10-10 bathhouse iteration",
+      "path": "assets_src/books/rumi_underpool_iteration_20261010/comic_script.json",
+      "sha256": "8df4c21e6bf73e3c872ef4c394de4c9efa8ff5cb40531b124eba051e2af286dc",
+      "metrics": {
+        "pages_total": 32,
+        "story_pages": 30,
+        "panels_total": 88,
+        "words_total": 1357,
+        "panels_per_page": {
+          "n": 30,
+          "min": 2,
+          "median": 3.0,
+          "mean": 2.93,
+          "max": 3,
+          "stdev": 0.25
+        },
+        "words_per_page": {
+          "n": 30,
+          "min": 32,
+          "median": 47.0,
+          "mean": 45.23,
+          "max": 54,
+          "stdev": 6.6
+        },
+        "words_per_panel_mean": 15.42,
+        "one_panel_pages": 0,
+        "pages_with_5_plus_panels": 0,
+        "longest_run_same_panel_count": 18,
+        "silent_panels": 0,
+        "silent_panel_share": 0.0,
+        "sound_effect_entries": 0,
+        "speaker_lines": {
+          "Narrator": 73,
+          "Roshan": 30,
+          "Nari": 13,
+          "Rumi": 12,
+          "Hana": 10,
+          "Duri": 9,
+          "Magician Imp": 3,
+          "Performer Imp": 3,
+          "Everyone": 2,
+          "Trio": 1
+        },
+        "speaker_words": {
+          "Narrator": 835,
+          "Roshan": 166,
+          "Rumi": 87,
+          "Duri": 82,
+          "Nari": 62,
+          "Hana": 52,
+          "Everyone": 25,
+          "Magician Imp": 22,
+          "Performer Imp": 15,
+          "Trio": 11
+        },
+        "narrator_word_share": 0.615,
+        "per_page": [
+          {
+            "page": 2,
+            "panels": 3,
+            "words": 33,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 3,
+            "panels": 3,
+            "words": 32,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 4,
+            "panels": 3,
+            "words": 52,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 5,
+            "panels": 3,
+            "words": 48,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 6,
+            "panels": 3,
+            "words": 39,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 7,
+            "panels": 3,
+            "words": 54,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 8,
+            "panels": 3,
+            "words": 38,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 9,
+            "panels": 3,
+            "words": 39,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 10,
+            "panels": 3,
+            "words": 47,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 11,
+            "panels": 2,
+            "words": 40,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 12,
+            "panels": 3,
+            "words": 52,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 13,
+            "panels": 2,
+            "words": 34,
+            "speakers": 3,
+            "ends_open": true
+          },
+          {
+            "page": 14,
+            "panels": 3,
+            "words": 53,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 15,
+            "panels": 3,
+            "words": 42,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 16,
+            "panels": 3,
+            "words": 54,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 17,
+            "panels": 3,
+            "words": 53,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 18,
+            "panels": 3,
+            "words": 43,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 19,
+            "panels": 3,
+            "words": 49,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 20,
+            "panels": 3,
+            "words": 52,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 21,
+            "panels": 3,
+            "words": 43,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 22,
+            "panels": 3,
+            "words": 47,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 23,
+            "panels": 3,
+            "words": 45,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 24,
+            "panels": 3,
+            "words": 48,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 25,
+            "panels": 3,
+            "words": 49,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 26,
+            "panels": 3,
+            "words": 50,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 27,
+            "panels": 3,
+            "words": 51,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 28,
+            "panels": 3,
+            "words": 50,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 29,
+            "panels": 3,
+            "words": 36,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 30,
+            "panels": 3,
+            "words": 46,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 31,
+            "panels": 3,
+            "words": 38,
+            "speakers": 3,
+            "ends_open": false
+          }
+        ],
+        "page_turns": 15,
+        "page_turns_ending_open": 1,
+        "page_turn_pages_ending_open": [
+          13
+        ]
+      },
+      "sha256_basis": "git blob bytes at source_commit"
+    },
+    {
+      "edition": "2026-10-11 manga feast",
+      "path": "assets_src/books/rumi_manga_feast_20261011/comic_script.json",
+      "sha256": "8a483dcfe68acc9c3c620c8abd1bc8eab294df335811fd888e89cb4f766e699d",
+      "metrics": {
+        "pages_total": 32,
+        "story_pages": 30,
+        "panels_total": 127,
+        "words_total": 1357,
+        "panels_per_page": {
+          "n": 30,
+          "min": 3,
+          "median": 5.0,
+          "mean": 4.23,
+          "max": 5,
+          "stdev": 0.96
+        },
+        "words_per_page": {
+          "n": 30,
+          "min": 32,
+          "median": 47.0,
+          "mean": 45.23,
+          "max": 54,
+          "stdev": 6.6
+        },
+        "words_per_panel_mean": 10.69,
+        "one_panel_pages": 0,
+        "pages_with_5_plus_panels": 18,
+        "longest_run_same_panel_count": 4,
+        "silent_panels": 18,
+        "silent_panel_share": 0.142,
+        "sound_effect_entries": 0,
+        "speaker_lines": {
+          "Narrator": 73,
+          "Roshan": 30,
+          "Nari": 13,
+          "Rumi": 12,
+          "Hana": 10,
+          "Duri": 9,
+          "Magician Imp": 3,
+          "Performer Imp": 3,
+          "Everyone": 2,
+          "Trio": 1
+        },
+        "speaker_words": {
+          "Narrator": 835,
+          "Roshan": 166,
+          "Rumi": 87,
+          "Duri": 82,
+          "Nari": 62,
+          "Hana": 52,
+          "Everyone": 25,
+          "Magician Imp": 22,
+          "Performer Imp": 15,
+          "Trio": 11
+        },
+        "narrator_word_share": 0.615,
+        "per_page": [
+          {
+            "page": 2,
+            "panels": 3,
+            "words": 33,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 3,
+            "panels": 3,
+            "words": 32,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 4,
+            "panels": 5,
+            "words": 52,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 5,
+            "panels": 5,
+            "words": 48,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 6,
+            "panels": 3,
+            "words": 39,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 7,
+            "panels": 5,
+            "words": 54,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 8,
+            "panels": 3,
+            "words": 38,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 9,
+            "panels": 5,
+            "words": 39,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 10,
+            "panels": 5,
+            "words": 47,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 11,
+            "panels": 3,
+            "words": 40,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 12,
+            "panels": 5,
+            "words": 52,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 13,
+            "panels": 3,
+            "words": 34,
+            "speakers": 3,
+            "ends_open": true
+          },
+          {
+            "page": 14,
+            "panels": 5,
+            "words": 53,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 15,
+            "panels": 3,
+            "words": 42,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 16,
+            "panels": 5,
+            "words": 54,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 17,
+            "panels": 5,
+            "words": 53,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 18,
+            "panels": 3,
+            "words": 43,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 19,
+            "panels": 5,
+            "words": 49,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 20,
+            "panels": 5,
+            "words": 52,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 21,
+            "panels": 5,
+            "words": 43,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 22,
+            "panels": 5,
+            "words": 47,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 23,
+            "panels": 4,
+            "words": 45,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 24,
+            "panels": 5,
+            "words": 48,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 25,
+            "panels": 5,
+            "words": 49,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 26,
+            "panels": 5,
+            "words": 50,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 27,
+            "panels": 3,
+            "words": 51,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 28,
+            "panels": 5,
+            "words": 50,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 29,
+            "panels": 5,
+            "words": 36,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 30,
+            "panels": 3,
+            "words": 46,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 31,
+            "panels": 3,
+            "words": 38,
+            "speakers": 3,
+            "ends_open": false
+          }
+        ],
+        "page_turns": 15,
+        "page_turns_ending_open": 1,
+        "page_turn_pages_ending_open": [
+          13
+        ]
+      },
+      "sha256_basis": "git blob bytes at source_commit"
+    },
+    {
+      "edition": "2026-10-11 action story (script proof only)",
+      "path": "assets_src/books/rumi_action_story_20261011/story_script.json",
+      "sha256": "bf25c331b148bdd67451766df110da8b8da7c087e4fc3dfe51375ddc2802cd62",
+      "metrics": {
+        "pages_total": 32,
+        "story_pages": 30,
+        "panels_total": 128,
+        "words_total": 1535,
+        "panels_per_page": {
+          "n": 30,
+          "min": 3,
+          "median": 4.0,
+          "mean": 4.27,
+          "max": 6,
+          "stdev": 1.12
+        },
+        "words_per_page": {
+          "n": 30,
+          "min": 32,
+          "median": 49.0,
+          "mean": 51.17,
+          "max": 75,
+          "stdev": 10.31
+        },
+        "words_per_panel_mean": 11.99,
+        "one_panel_pages": 0,
+        "pages_with_5_plus_panels": 14,
+        "longest_run_same_panel_count": 7,
+        "silent_panels": 0,
+        "silent_panel_share": 0.0,
+        "sound_effect_entries": 0,
+        "speaker_lines": {
+          "Narrator": 71,
+          "Roshan": 39,
+          "Duri": 22,
+          "Nari": 20,
+          "Rumi": 19,
+          "Hana": 16,
+          "Performer Imp": 7,
+          "Trio": 5,
+          "Magician Imp": 5,
+          "Everyone": 3
+        },
+        "speaker_words": {
+          "Narrator": 720,
+          "Roshan": 257,
+          "Duri": 141,
+          "Rumi": 118,
+          "Nari": 91,
+          "Hana": 67,
+          "Trio": 44,
+          "Performer Imp": 36,
+          "Everyone": 32,
+          "Magician Imp": 29
+        },
+        "narrator_word_share": 0.469,
+        "per_page": [
+          {
+            "page": 2,
+            "panels": 3,
+            "words": 42,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 3,
+            "panels": 3,
+            "words": 47,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 4,
+            "panels": 3,
+            "words": 41,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 5,
+            "panels": 3,
+            "words": 52,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 6,
+            "panels": 3,
+            "words": 32,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 7,
+            "panels": 3,
+            "words": 40,
+            "speakers": 6,
+            "ends_open": false
+          },
+          {
+            "page": 8,
+            "panels": 3,
+            "words": 42,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 9,
+            "panels": 5,
+            "words": 47,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 10,
+            "panels": 5,
+            "words": 46,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 11,
+            "panels": 5,
+            "words": 49,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 12,
+            "panels": 5,
+            "words": 53,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 13,
+            "panels": 6,
+            "words": 66,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 14,
+            "panels": 6,
+            "words": 75,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 15,
+            "panels": 4,
+            "words": 58,
+            "speakers": 6,
+            "ends_open": false
+          },
+          {
+            "page": 16,
+            "panels": 4,
+            "words": 55,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 17,
+            "panels": 4,
+            "words": 59,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 18,
+            "panels": 3,
+            "words": 46,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 19,
+            "panels": 3,
+            "words": 39,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 20,
+            "panels": 3,
+            "words": 39,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 21,
+            "panels": 4,
+            "words": 43,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 22,
+            "panels": 5,
+            "words": 42,
+            "speakers": 6,
+            "ends_open": false
+          },
+          {
+            "page": 23,
+            "panels": 6,
+            "words": 49,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 24,
+            "panels": 5,
+            "words": 65,
+            "speakers": 6,
+            "ends_open": false
+          },
+          {
+            "page": 25,
+            "panels": 6,
+            "words": 63,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 26,
+            "panels": 6,
+            "words": 62,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 27,
+            "panels": 5,
+            "words": 58,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 28,
+            "panels": 4,
+            "words": 56,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 29,
+            "panels": 5,
+            "words": 58,
+            "speakers": 7,
+            "ends_open": false
+          },
+          {
+            "page": 30,
+            "panels": 5,
+            "words": 69,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 31,
+            "panels": 3,
+            "words": 42,
+            "speakers": 3,
+            "ends_open": false
+          }
+        ],
+        "page_turns": 15,
+        "page_turns_ending_open": 0,
+        "page_turn_pages_ending_open": []
+      },
+      "sha256_basis": "git blob bytes at source_commit"
+    },
+    {
+      "edition": "2026-10-11 Here I Am! voice rewrite",
+      "path": "assets_src/books/rumi_voice_book_20261011/story_script.json",
+      "sha256": "febb9d5c7f6d82c29dcf8fa3556715577842b2284749fd2f1fea055a046d5967",
+      "metrics": {
+        "pages_total": 32,
+        "story_pages": 31,
+        "panels_total": 93,
+        "words_total": 991,
+        "panels_per_page": {
+          "n": 31,
+          "min": 3,
+          "median": 3,
+          "mean": 3,
+          "max": 3,
+          "stdev": 0.0
+        },
+        "words_per_page": {
+          "n": 31,
+          "min": 16,
+          "median": 31,
+          "mean": 31.97,
+          "max": 51,
+          "stdev": 10.21
+        },
+        "words_per_panel_mean": 10.66,
+        "one_panel_pages": 0,
+        "pages_with_5_plus_panels": 0,
+        "longest_run_same_panel_count": 31,
+        "silent_panels": 0,
+        "silent_panel_share": 0.0,
+        "sound_effect_entries": 3,
+        "speaker_lines": {
+          "Roshan": 37,
+          "Narrator": 21,
+          "Rumi": 19,
+          "Hana": 17,
+          "Duri": 16,
+          "Magician": 11,
+          "Nari": 11,
+          "Performer": 8,
+          "Sound": 3,
+          "Trio": 2,
+          "Everyone": 1
+        },
+        "speaker_words": {
+          "Roshan": 248,
+          "Narrator": 202,
+          "Duri": 129,
+          "Rumi": 125,
+          "Hana": 103,
+          "Magician": 64,
+          "Nari": 53,
+          "Performer": 39,
+          "Trio": 13,
+          "Everyone": 12,
+          "Sound": 3
+        },
+        "narrator_word_share": 0.204,
+        "per_page": [
+          {
+            "page": 2,
+            "panels": 3,
+            "words": 49,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 3,
+            "panels": 3,
+            "words": 47,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 4,
+            "panels": 3,
+            "words": 45,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 5,
+            "panels": 3,
+            "words": 24,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 6,
+            "panels": 3,
+            "words": 32,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 7,
+            "panels": 3,
+            "words": 26,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 8,
+            "panels": 3,
+            "words": 31,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 9,
+            "panels": 3,
+            "words": 21,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 10,
+            "panels": 3,
+            "words": 22,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 11,
+            "panels": 3,
+            "words": 19,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 12,
+            "panels": 3,
+            "words": 16,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 13,
+            "panels": 3,
+            "words": 51,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 14,
+            "panels": 3,
+            "words": 48,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 15,
+            "panels": 3,
+            "words": 39,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 16,
+            "panels": 3,
+            "words": 33,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 17,
+            "panels": 3,
+            "words": 28,
+            "speakers": 4,
+            "ends_open": true
+          },
+          {
+            "page": 18,
+            "panels": 3,
+            "words": 25,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 19,
+            "panels": 3,
+            "words": 38,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 20,
+            "panels": 3,
+            "words": 36,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 21,
+            "panels": 3,
+            "words": 35,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 22,
+            "panels": 3,
+            "words": 17,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 23,
+            "panels": 3,
+            "words": 28,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 24,
+            "panels": 3,
+            "words": 19,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 25,
+            "panels": 3,
+            "words": 25,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 26,
+            "panels": 3,
+            "words": 31,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 27,
+            "panels": 3,
+            "words": 21,
+            "speakers": 6,
+            "ends_open": false
+          },
+          {
+            "page": 28,
+            "panels": 3,
+            "words": 48,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 29,
+            "panels": 3,
+            "words": 42,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 30,
+            "panels": 3,
+            "words": 26,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 31,
+            "panels": 3,
+            "words": 31,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 32,
+            "panels": 3,
+            "words": 38,
+            "speakers": 3,
+            "ends_open": false
+          }
+        ],
+        "page_turns": 15,
+        "page_turns_ending_open": 1,
+        "page_turn_pages_ending_open": [
+          17
+        ]
+      },
+      "sha256_basis": "git blob bytes at source_commit"
+    },
+    {
+      "edition": "2026-10-12 visual/detective edition (latest)",
+      "path": "assets_src/books/rumi_visual_detective_20261012/story_script.json",
+      "sha256": "ab77f7740592a82b9185c10eb22a7b85ff785726b2f9eb8f01158861d54db6cd",
+      "metrics": {
+        "pages_total": 32,
+        "story_pages": 31,
+        "panels_total": 101,
+        "words_total": 1050,
+        "panels_per_page": {
+          "n": 31,
+          "min": 3,
+          "median": 3,
+          "mean": 3.26,
+          "max": 6,
+          "stdev": 0.8
+        },
+        "words_per_page": {
+          "n": 31,
+          "min": 16,
+          "median": 31,
+          "mean": 33.87,
+          "max": 92,
+          "stdev": 15.28
+        },
+        "words_per_panel_mean": 10.4,
+        "one_panel_pages": 0,
+        "pages_with_5_plus_panels": 3,
+        "longest_run_same_panel_count": 28,
+        "silent_panels": 0,
+        "silent_panel_share": 0.0,
+        "sound_effect_entries": 3,
+        "speaker_lines": {
+          "Roshan": 46,
+          "Rumi": 22,
+          "Narrator": 21,
+          "Hana": 17,
+          "Duri": 16,
+          "Magician": 11,
+          "Nari": 11,
+          "Performer": 8,
+          "Sound": 3,
+          "Trio": 2,
+          "Everyone": 1
+        },
+        "speaker_words": {
+          "Roshan": 297,
+          "Narrator": 202,
+          "Rumi": 135,
+          "Duri": 129,
+          "Hana": 103,
+          "Magician": 64,
+          "Nari": 53,
+          "Performer": 39,
+          "Trio": 13,
+          "Everyone": 12,
+          "Sound": 3
+        },
+        "narrator_word_share": 0.192,
+        "per_page": [
+          {
+            "page": 2,
+            "panels": 6,
+            "words": 65,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 3,
+            "panels": 6,
+            "words": 40,
+            "speakers": 2,
+            "ends_open": false
+          },
+          {
+            "page": 4,
+            "panels": 5,
+            "words": 92,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 5,
+            "panels": 3,
+            "words": 24,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 6,
+            "panels": 3,
+            "words": 32,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 7,
+            "panels": 3,
+            "words": 26,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 8,
+            "panels": 3,
+            "words": 31,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 9,
+            "panels": 3,
+            "words": 21,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 10,
+            "panels": 3,
+            "words": 22,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 11,
+            "panels": 3,
+            "words": 19,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 12,
+            "panels": 3,
+            "words": 16,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 13,
+            "panels": 3,
+            "words": 51,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 14,
+            "panels": 3,
+            "words": 48,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 15,
+            "panels": 3,
+            "words": 39,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 16,
+            "panels": 3,
+            "words": 33,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 17,
+            "panels": 3,
+            "words": 28,
+            "speakers": 4,
+            "ends_open": true
+          },
+          {
+            "page": 18,
+            "panels": 3,
+            "words": 25,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 19,
+            "panels": 3,
+            "words": 38,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 20,
+            "panels": 3,
+            "words": 36,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 21,
+            "panels": 3,
+            "words": 35,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 22,
+            "panels": 3,
+            "words": 17,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 23,
+            "panels": 3,
+            "words": 28,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 24,
+            "panels": 3,
+            "words": 19,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 25,
+            "panels": 3,
+            "words": 25,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 26,
+            "panels": 3,
+            "words": 31,
+            "speakers": 3,
+            "ends_open": false
+          },
+          {
+            "page": 27,
+            "panels": 3,
+            "words": 21,
+            "speakers": 6,
+            "ends_open": false
+          },
+          {
+            "page": 28,
+            "panels": 3,
+            "words": 48,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 29,
+            "panels": 3,
+            "words": 42,
+            "speakers": 5,
+            "ends_open": false
+          },
+          {
+            "page": 30,
+            "panels": 3,
+            "words": 26,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 31,
+            "panels": 3,
+            "words": 31,
+            "speakers": 4,
+            "ends_open": false
+          },
+          {
+            "page": 32,
+            "panels": 3,
+            "words": 41,
+            "speakers": 3,
+            "ends_open": false
+          }
+        ],
+        "page_turns": 15,
+        "page_turns_ending_open": 1,
+        "page_turn_pages_ending_open": [
+          17
+        ]
+      },
+      "sha256_basis": "git blob bytes at source_commit"
+    }
+  ]
+}

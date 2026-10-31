@@ -1,0 +1,541 @@
+{
+  "schema": "reef.rife-midpoint-packet.v1",
+  "status": "LOCAL_SOURCE_STUDY_UNACCEPTED",
+  "created_at_utc": "2026-10-11T00:24:39.700752+00:00",
+  "method": "Three complete-frame midpoint RIFE tests, one campaign invocation; internal full-frame warped-image mask fusion disclosed",
+  "files": [
+    {
+      "path": "contact_sheet.png",
+      "sha256": "0ca536fe38d5b426001b8f2f9bbb5bab50a0e83bfc60c9dc4eeeaa73b31def5c",
+      "bytes": 458988,
+      "role": "review_only_contact_or_crop",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        768,
+        768
+      ],
+      "mode": "RGBA",
+      "modification": "Aseprite diagnostic review derivative; excluded from generation and delivery"
+    },
+    {
+      "path": "hand_comparison_2x_nearest.png",
+      "sha256": "c4a0e54308161a615e446113ed6da305423960ab6ed5b30fc26c27e8270ca585",
+      "bytes": 160682,
+      "role": "review_only_contact_or_crop",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        480,
+        720
+      ],
+      "mode": "RGBA",
+      "modification": "Aseprite diagnostic review derivative; excluded from generation and delivery"
+    },
+    {
+      "path": "hand_comparison_native_crop.png",
+      "sha256": "c3b6007c65612bcb03a5be7cf7c3c412ad5c4c204de26d6327dc9599092920be",
+      "bytes": 126124,
+      "role": "review_only_contact_or_crop",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        240,
+        360
+      ],
+      "mode": "RGBA",
+      "modification": "Aseprite diagnostic review derivative; excluded from generation and delivery"
+    },
+    {
+      "path": "inputs/native_rgba/0003.png",
+      "sha256": "81f3e05140d1eda45fba922fb22de933e4f1154d3292cbd34255229f702f9248",
+      "bytes": 60270,
+      "role": "preserved_candidate_whole_cel",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0003.png",
+      "modification": "Byte-exact copy; already rejected source draft"
+    },
+    {
+      "path": "inputs/native_rgba/0006.png",
+      "sha256": "f0cda28db829e7f3debd476486620a596d93e5ca0830cdb1c7b4c5d637af2aa6",
+      "bytes": 58554,
+      "role": "preserved_candidate_whole_cel",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0006.png",
+      "modification": "Byte-exact copy; already rejected source draft"
+    },
+    {
+      "path": "inputs/native_rgba/0010.png",
+      "sha256": "c53a1ed2d7674a150c43696b9c2317a6dc90ba40879ec6cb138c02308477c0ca",
+      "bytes": 59946,
+      "role": "preserved_candidate_whole_cel",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0010.png",
+      "modification": "Byte-exact copy; already rejected source draft"
+    },
+    {
+      "path": "inputs/native_rgba/0012.png",
+      "sha256": "9c3b23f13466e66fd5d2e7934a85c7e5380f944c49046f9f53c4b3675fe2edec",
+      "bytes": 60064,
+      "role": "preserved_candidate_whole_cel",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0012.png",
+      "modification": "Byte-exact copy; already rejected source draft"
+    },
+    {
+      "path": "inputs/native_rgba/0014.png",
+      "sha256": "e32890bbfa063d765287d51664318bc9e84874d8b8a6ab320e0c41d733d61a26",
+      "bytes": 59293,
+      "role": "preserved_candidate_whole_cel",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0014.png",
+      "modification": "Byte-exact copy; already rejected source draft"
+    },
+    {
+      "path": "inputs/neutral_gray/0003.png",
+      "sha256": "0abf63bca745eb26bf5a08710f9ca4a217b392723716150de7aec23ba45331d6",
+      "bytes": 52661,
+      "role": "actual_whole_frame_interpolation_input",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source_path": "inputs/native_rgba/0003.png",
+      "modification": "Aseprite composited complete original RGBA cell over RGB245 neutral field once; no geometric edit"
+    },
+    {
+      "path": "inputs/neutral_gray/0006.png",
+      "sha256": "5b6e50689797ec7312d9342e8315edf67a2890a8a7e4571a7edf885495f552b0",
+      "bytes": 51335,
+      "role": "actual_whole_frame_interpolation_input",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source_path": "inputs/native_rgba/0006.png",
+      "modification": "Aseprite composited complete original RGBA cell over RGB245 neutral field once; no geometric edit"
+    },
+    {
+      "path": "inputs/neutral_gray/0010.png",
+      "sha256": "4f7ee58d1fd198b3f2ad34bf0c78647d9d8c908859c25cccec27933531b921ac",
+      "bytes": 52571,
+      "role": "actual_whole_frame_interpolation_input",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source_path": "inputs/native_rgba/0010.png",
+      "modification": "Aseprite composited complete original RGBA cell over RGB245 neutral field once; no geometric edit"
+    },
+    {
+      "path": "inputs/neutral_gray/0012.png",
+      "sha256": "3d94e6575297757a13c56bdf3b7143ae47d15e651028e4cf94c961ef839cb45b",
+      "bytes": 52820,
+      "role": "actual_whole_frame_interpolation_input",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source_path": "inputs/native_rgba/0012.png",
+      "modification": "Aseprite composited complete original RGBA cell over RGB245 neutral field once; no geometric edit"
+    },
+    {
+      "path": "inputs/neutral_gray/0014.png",
+      "sha256": "eeb9eb0851539571735ed2040a78d4c068f1633e387176ada68cbfae13a0fc06",
+      "bytes": 52342,
+      "role": "actual_whole_frame_interpolation_input",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source_path": "inputs/native_rgba/0014.png",
+      "modification": "Aseprite composited complete original RGBA cell over RGB245 neutral field once; no geometric edit"
+    },
+    {
+      "path": "outputs.json",
+      "sha256": "bce5b20295eaa811c50fcc70d8e9c02418c6031cffa87fc2821be5b7c0712e20",
+      "bytes": 439,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "pair_0006_0003.aseprite",
+      "sha256": "f8549beaa968a7548350c76fdbfb84b45bf40be1ad3abc1b4ba6254bf6858797",
+      "bytes": 184101,
+      "role": "one_layer_native_pair_master",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "modification": "Complete native RGB frames placed one per cel, one layer,24fps; no separate parts"
+    },
+    {
+      "path": "pair_0010_0012.aseprite",
+      "sha256": "7f6cb3cf3b7bbc7c7b5cdceddc115407c811951e2300df98678dca2d22b2d792",
+      "bytes": 186876,
+      "role": "one_layer_native_pair_master",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "modification": "Complete native RGB frames placed one per cel, one layer,24fps; no separate parts"
+    },
+    {
+      "path": "pair_0014_0012.aseprite",
+      "sha256": "3823fbc333a3e0952aeeb33508d15448d2c988ecb50677445ada14cfcbb11f1c",
+      "bytes": 186838,
+      "role": "one_layer_native_pair_master",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "modification": "Complete native RGB frames placed one per cel, one layer,24fps; no separate parts"
+    },
+    {
+      "path": "prepare_neutral.lua",
+      "sha256": "c3bd6cb00807c2fa717097bee3089970348bb2748cf7459cadd7572b262669bb",
+      "bytes": 524,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "prepare_workflow.py",
+      "sha256": "88edf36d6bf89390d70fecb8357f3770f8713c51797cb5590a1397db087b5a56",
+      "bytes": 3619,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "preserve_masters.lua",
+      "sha256": "232cf1372057b78e723d757eaf26bdcc5796faae9c1bf861a889a8fb025f7003",
+      "bytes": 806,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "README.md",
+      "sha256": "aa7d74cba61ae651ce7eca6e886d103ceb2aa071cb11ed318605e8e3b50bd54c",
+      "bytes": 3756,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "review.json",
+      "sha256": "18d47ab4f38a40cd7f39e64cc4d0c0276f5e4070c64d8d89dac77f28b52eab10",
+      "bytes": 8547,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "review_board.lua",
+      "sha256": "7f91772f80f6955106ecc53656f631c61f3951a78571ca3d8cf756e66cde63e1",
+      "bytes": 428,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "review_hand.lua",
+      "sha256": "c1e8883d602a9625ccbf3334aab980232276a6d45b4be6d258ad038dc4635f98",
+      "bytes": 474,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "review_outputs.py",
+      "sha256": "f7d4240d83aaf077b2cf80e9d21c9ab3da294ae063449a620a3cb0a3b69041c1",
+      "bytes": 3840,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "sources.json",
+      "sha256": "6dd0dea1a6f8d226e12b8aa72e2cba6a0154ac4cdb7c1401c6d8625badf93e4f",
+      "bytes": 5756,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "take_01/history.json",
+      "sha256": "1b61bb47f00b666dc349eca6eeb885860426ee911aadf866dbe24526a01a7014",
+      "bytes": 6107,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "take_01/installed_node_schema.json",
+      "sha256": "da35f864bc8cb829e8123781e39d47012942782e70d5f9b72a9d3bc81d69312d",
+      "bytes": 5718,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "take_01/memory_samples.json",
+      "sha256": "60901b1717d7547314b4ca79867b766ae09388828635a653af189a4b66f23ff3",
+      "bytes": 598,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "take_01/native_outputs.json",
+      "sha256": "ede8abf3c9680facd105f3242e30a9164ce0826461537c5939a23cbe857114b7",
+      "bytes": 4189,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "take_01/outputs.json",
+      "sha256": "bce5b20295eaa811c50fcc70d8e9c02418c6031cffa87fc2821be5b7c0712e20",
+      "bytes": 439,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "take_01/pair_0006_0003/0000.png",
+      "sha256": "a3b86552500181f94d2c2711dc1f4d2cde30f97913b3e3c35a36ce60a1a9b515",
+      "bytes": 48397,
+      "role": "preserved_model_endpoint_roundtrip",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "source_path": "sources.json pair binding",
+      "modification": "Decoded endpoint pixels identical to bound gray source; saved by Comfy"
+    },
+    {
+      "path": "take_01/pair_0006_0003/0001.png",
+      "sha256": "0fc24fae5bfbd63c774139fba31923a912e593560611ed1f562ab9747501bda2",
+      "bytes": 48422,
+      "role": "generated_midpoint",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "source_path": "sources.json pair binding",
+      "modification": "Whole-frame RIFE4.25 RGB optical-flow synthesis"
+    },
+    {
+      "path": "take_01/pair_0006_0003/0002.png",
+      "sha256": "950f947df95682449546b5f1be627b6db23d9239e8531771fbbe56b5b9482fb4",
+      "bytes": 49643,
+      "role": "preserved_model_endpoint_roundtrip",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "source_path": "sources.json pair binding",
+      "modification": "Decoded endpoint pixels identical to bound gray source; saved by Comfy"
+    },
+    {
+      "path": "take_01/pair_0010_0012/0000.png",
+      "sha256": "3c7e0a7dbede46dfed3fa5f8098ba5745d34a7929bafc519633ede1521d9145c",
+      "bytes": 49508,
+      "role": "preserved_model_endpoint_roundtrip",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "source_path": "sources.json pair binding",
+      "modification": "Decoded endpoint pixels identical to bound gray source; saved by Comfy"
+    },
+    {
+      "path": "take_01/pair_0010_0012/0001.png",
+      "sha256": "baadcf6be8e3d1d63b7f19ac557b129d70ee54573d1659b2fb22a3f0a078a532",
+      "bytes": 49043,
+      "role": "generated_midpoint",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "source_path": "sources.json pair binding",
+      "modification": "Whole-frame RIFE4.25 RGB optical-flow synthesis"
+    },
+    {
+      "path": "take_01/pair_0010_0012/0002.png",
+      "sha256": "bb2216ab147effda7cb788d6d34ef5db0b347fe6dd1c8a244fbe6c3bfc58fd48",
+      "bytes": 49755,
+      "role": "preserved_model_endpoint_roundtrip",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "source_path": "sources.json pair binding",
+      "modification": "Decoded endpoint pixels identical to bound gray source; saved by Comfy"
+    },
+    {
+      "path": "take_01/pair_0014_0012/0000.png",
+      "sha256": "e382e7d3526b0cac4473ba854599474ad6dbca0f80936a3547f64dcea3189d86",
+      "bytes": 49336,
+      "role": "preserved_model_endpoint_roundtrip",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "source_path": "sources.json pair binding",
+      "modification": "Decoded endpoint pixels identical to bound gray source; saved by Comfy"
+    },
+    {
+      "path": "take_01/pair_0014_0012/0001.png",
+      "sha256": "87308fb0c3dd1263741a22f5f249638aee2072da26fdeaa0a0721e29c3da6ebc",
+      "bytes": 48889,
+      "role": "generated_midpoint",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "source_path": "sources.json pair binding",
+      "modification": "Whole-frame RIFE4.25 RGB optical-flow synthesis"
+    },
+    {
+      "path": "take_01/pair_0014_0012/0002.png",
+      "sha256": "bb2216ab147effda7cb788d6d34ef5db0b347fe6dd1c8a244fbe6c3bfc58fd48",
+      "bytes": 49755,
+      "role": "preserved_model_endpoint_roundtrip",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGB",
+      "source_path": "sources.json pair binding",
+      "modification": "Decoded endpoint pixels identical to bound gray source; saved by Comfy"
+    },
+    {
+      "path": "take_01/receipt.json",
+      "sha256": "044a354d407eaf3025e7b4279e1d91e65bea373d573da88b95ee30b5a99aa156",
+      "bytes": 7730,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "take_01/sources.json",
+      "sha256": "6dd0dea1a6f8d226e12b8aa72e2cba6a0154ac4cdb7c1401c6d8625badf93e4f",
+      "bytes": 5756,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "take_01/submission.json",
+      "sha256": "dd9f93edc96f7b2a03aaba6a37b92b3372bebf47c602a73ef93f8f67b7aecb5a",
+      "bytes": 95,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "take_01/workflow.api.json",
+      "sha256": "4f683b8df465e40685d3601b57afaa50ed219253639b53d320fa5fc5a6fcb822",
+      "bytes": 2637,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "weight_receipt.json",
+      "sha256": "68716b17d0d5575005a193da57fd2664fbbd41bacee6bb99f5e311050021864d",
+      "bytes": 872,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    },
+    {
+      "path": "workflow.api.json",
+      "sha256": "4f683b8df465e40685d3601b57afaa50ed219253639b53d320fa5fc5a6fcb822",
+      "bytes": 2637,
+      "role": "workflow_or_derivation_record",
+      "used_as_delivery_pixels": false,
+      "license": "Project-authored record; source art provenance from painted_family_02 and approved K0/K2 identity references; RIFE weight license in weight_receipt.json"
+    }
+  ],
+  "packet_payload_rule": "Sorted relative POSIX path + TAB + sha256 + LF for every file except manifest.json; SHA256 over UTF8 payload",
+  "packet_payload_sha256": "42e8bd5e47abf533d3e1efe6b764eedf44c091856b1f6d327ac75a60e6ca01cd",
+  "acceptance": {
+    "artifact_free_full_wave": false,
+    "owner": false,
+    "device": false,
+    "child": false,
+    "runtime": false,
+    "delivery_accepted": false,
+    "github_publication": "PENDING_ROOT_PROJECT_PACKET"
+  }
+}

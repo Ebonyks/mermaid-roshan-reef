@@ -1,0 +1,208 @@
+{
+  "schema": "reef.reviewed-source-patch-packet.v1",
+  "status": "FROZEN_REVIEW_READY",
+  "created_utc": "2026-10-15T02:05:44.057331+00:00",
+  "base_worktree": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+  "base_head": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "scope": "Eleven reviewed source drafts only; no production edits, runtime asset copy or acceptance granted",
+  "files": [
+    {
+      "path": "scripts/audio_director.gd",
+      "base_sha256": "fbf1328fa94307523eeefd18613cf8cc79ef0e4e6d3fbd2e4148dc74c942c26e",
+      "draft_sha256": "000f6f196978192c377af45c2418202890b18327ae9bf0877003055007d0b75e",
+      "source_draft_name": "scripts__audio_director.gd.draft",
+      "patch": "01_scripts__audio_director.gd.patch",
+      "patch_sha256": "a4aa9a0e69f430ccec0af7486e3f3c05f3f3d832dc7a8037f0546b3b77c07355",
+      "patch_bytes": 6951,
+      "normalized_draft_sha256": "b9b139e44d368eda0268aa757a8863d66ade79864ffc640bd613c7050a5b4e04"
+    },
+    {
+      "path": "scripts/games/seek.gd",
+      "base_sha256": "05451ce46119fcd02818e98498d8dc80baede04f0068be47eabfa9686050a427",
+      "draft_sha256": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c",
+      "source_draft_name": "scripts__games__seek.gd.draft",
+      "patch": "02_scripts__games__seek.gd.patch",
+      "patch_sha256": "4e28899e177fa008de0a54cb8a15c5d21f0b3399e371cc1f139c17fb15759975",
+      "patch_bytes": 2836,
+      "normalized_draft_sha256": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c"
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "base_sha256": "5cb9e511e002b9de4bfab5b6e9c41923308fac29690875e90a90c03ecb58162f",
+      "draft_sha256": "bfad8fa618543967375755bbbbb66c4cfc0b27fb1050e64323df2cc7ed9782cf",
+      "source_draft_name": "scripts__games__dolls.gd.draft",
+      "patch": "03_scripts__games__dolls.gd.patch",
+      "patch_sha256": "56b93b03cd83f8eab16fd7e3bdc53f35eb5f5b990f2a6951317c482d4aead308",
+      "patch_bytes": 1743,
+      "normalized_draft_sha256": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "base_sha256": "d4bd2c7e56eae2e683bd28ecf53544e3e6edaee83bd0a5062aa425cf1bf6e0ff",
+      "draft_sha256": "2be58780a3caab0e72f8006f21ab1564d49bd82851fbb75cb35f27e289e16d28",
+      "source_draft_name": "kart.gd.draft",
+      "patch": "04_scripts__kart.gd.patch",
+      "patch_sha256": "480d75fbc3a60ed8eead79fa231b78377af880e46124222168808fd060d91dd1",
+      "patch_bytes": 248,
+      "normalized_draft_sha256": "0c5ce86e7361ea04287ba322709461a4a9feb84603307cefa20f7d55b4ea5caa"
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "base_sha256": "4b784becd5542d7e74e7932803c01c0dbddc3f8ab8a7af4ada821350d3cbbb98",
+      "draft_sha256": "67f7d125c4f8543e765301abde9f517e852b748288148327d065852230caa214",
+      "source_draft_name": "scripts__probe_kart_feel.gd.draft",
+      "patch": "05_scripts__probe_kart_feel.gd.patch",
+      "patch_sha256": "03ea0adef2e7cf0cda86e159fd2f2ee2bd3a8a307330ab8d859db9a6f4d40995",
+      "patch_bytes": 2945,
+      "normalized_draft_sha256": "7914d0edb8cece8a12dd2e3213a93b7307ddda49da02422f46081eaad89814a6"
+    },
+    {
+      "path": "scripts/probe_start_menu_new_game.gd",
+      "base_sha256": "e1212dc0ef7feba7c4f63b8b3b84af21d99e644334729664243384a61df4aa84",
+      "draft_sha256": "92a271fde35876d4595a33ceca3471eb728bed799cb85b51d01c7bf31c65fef3",
+      "source_draft_name": "probe_start_menu_new_game.gd.draft",
+      "patch": "06_scripts__probe_start_menu_new_game.gd.patch",
+      "patch_sha256": "34c4fa3d16d140e21df19d5884a8613a098dc9da4c7f33fed8d42fcef8493cbb",
+      "patch_bytes": 23560,
+      "normalized_draft_sha256": "2fceedcd447a8d9059915ee232cd8ebcfd1a1fda07d71b9f3f2a1b989b585b69"
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "base_sha256": "69cd427945ef038e67f6cf65717f65e708258d3a16b7583b655c891a312d2255",
+      "draft_sha256": "e0735639ec9b8006005197b377c21b14b164b3f52c6f891e87f7e9be558bab23",
+      "source_draft_name": "scripts__probe_voice.gd.draft",
+      "patch": "07_scripts__probe_voice.gd.patch",
+      "patch_sha256": "379f1ce10607f933cd916b51787a5e4134ea67d2ff606f47edc162b6af8a38c3",
+      "patch_bytes": 4776,
+      "normalized_draft_sha256": "1cd4051f2886982b13f3b1aa2f35febb21ec0f9db99787d0b8f83039fd0d0c05"
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "base_sha256": "c9d9a5c3a11bcebe08c47a76a89def689aeb415f9fa1e240971e54da9a996da8",
+      "draft_sha256": "0a191136979859343139b068ce0c67966d89fc1792d985a1d420a315611937c4",
+      "source_draft_name": "scripts__probe_seek.gd.draft",
+      "patch": "08_scripts__probe_seek.gd.patch",
+      "patch_sha256": "08446745b6687153fec3371be7595853f9e4fd2dd8784d435e0f5857eed0b9df",
+      "patch_bytes": 1144,
+      "normalized_draft_sha256": "f8fc20152b00f7b0e80d5a24610fd00aff7943098fed50789698cb2136ff0739"
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "base_sha256": "fe9fa7e868cb4feb2c8c7c1906beca3844652da9effd354965ce1784542cc9e5",
+      "draft_sha256": "42fae7d77c7bce35a4b343f9566b542733879b6a6b82d14032d6018e929b0dce",
+      "source_draft_name": "scripts__probe_dolls.gd.draft",
+      "patch": "09_scripts__probe_dolls.gd.patch",
+      "patch_sha256": "de5a4dfbfbebaae16cff225182e4125defb7f99edb1b30692beca8ed9010cbf2",
+      "patch_bytes": 1266,
+      "normalized_draft_sha256": "7908a93152d3aed66195eaf1f7b372fe7ed86d0dec12338680423e5b5c615611"
+    },
+    {
+      "path": "tools/audit_audio_quality.py",
+      "base_sha256": "95cbfc242d74b5f0b8927c29609a4fafe2187b96407d20cff37607c347139019",
+      "draft_sha256": "882554bdf8209d53d940affc220f4cf838f19e88762c1b6f2d30d88e7228faf7",
+      "source_draft_name": "tools__audit_audio_quality.py.draft",
+      "patch": "10_tools__audit_audio_quality.py.patch",
+      "patch_sha256": "617e2f74d7ee996c7bdd31ea025f714e87fa0d5f02987def8df9767167a5dc77",
+      "patch_bytes": 7839,
+      "normalized_draft_sha256": "89a3590785fa5286b997a7533afd1069384d685a3ad25f37b7387e79dfbc9aff"
+    },
+    {
+      "path": "tools/tests/test_audit_audio_quality.py",
+      "base_sha256": "6c028dd7c8ffa73a2b7846843e53722d035b38a4dfad34483741202469e6a877",
+      "draft_sha256": "5a3a46d794e4814648c1c0407924cea435486ea7e89070e775b4721a76c0e01f",
+      "source_draft_name": "tools__tests__test_audit_audio_quality.py.draft",
+      "patch": "11_tools__tests__test_audit_audio_quality.py.patch",
+      "patch_sha256": "a8412c922615249b47a34842969d2db642b0482840c3f23af3018a572cf76c89",
+      "patch_bytes": 3523,
+      "normalized_draft_sha256": "ec5397022e945e94556157959a0d5e5138adb486b73e8efdd4c9babbdfa7d29a"
+    }
+  ],
+  "combined_patch": "ALL_SOURCE.patch",
+  "combined_patch_sha256": "8f1e46cc75e929c786f1c151bc4e04d66fdab11582d0a850cdbbe03cf580e601",
+  "earlier_patch_bytes_preserved": [
+    {
+      "name": "kart_shell_holder_teardown.patch",
+      "sha256": "0b0a5493a5548248cb6833769733ca4ef20c8d404ce3ba3d0172c0b1b47d70cf",
+      "bytes": 255
+    },
+    {
+      "name": "probe_start_menu_new_game.patch",
+      "sha256": "76e14507c8a546679ab1d7804666ee2d28d5fa36b304bbe14ca012fb2c90e9be",
+      "bytes": 24082
+    },
+    {
+      "name": "scripts__audio_director.gd.patch",
+      "sha256": "6f7cd75e982514d333de7dc788a0035ed01ba2d2a154988289080e9b4e35a8fb",
+      "bytes": 5023
+    },
+    {
+      "name": "scripts__games__dolls.gd.patch",
+      "sha256": "ac364b632b0ebdecfe5a5681c37cd7a4c2a39a481240f85a3ca13b8ca1254168",
+      "bytes": 1785
+    },
+    {
+      "name": "scripts__games__seek.gd.patch",
+      "sha256": "4e28899e177fa008de0a54cb8a15c5d21f0b3399e371cc1f139c17fb15759975",
+      "bytes": 2836
+    },
+    {
+      "name": "scripts__probe_dolls.gd.patch",
+      "sha256": "1fcb9b60b12f450b412e43f5c473f62c50aa3133968953fafec739762bd9a847",
+      "bytes": 1293
+    },
+    {
+      "name": "scripts__probe_kart_feel.gd.patch",
+      "sha256": "2bf0dd071fee1d62f233990c1b0727852f54e187f727983d781058d2c57d820f",
+      "bytes": 3019
+    },
+    {
+      "name": "scripts__probe_seek.gd.patch",
+      "sha256": "c1ccb6404a509bbffe8b8a52abe6052c06e420683813f49d1699d324c1dc99c3",
+      "bytes": 1165
+    },
+    {
+      "name": "scripts__probe_voice.gd.patch",
+      "sha256": "93d35f88e19b95a67c463217ebd5d17243a11f1dabda00912d5b92ebd93c697b",
+      "bytes": 3774
+    },
+    {
+      "name": "tools__audit_audio_quality.py.patch",
+      "sha256": "8834a89bea4a4bca8ca2d34a24f3909c60f8ddd2500dc49896055d879721f3f3",
+      "bytes": 7972
+    },
+    {
+      "name": "tools__tests__test_audit_audio_quality.py.patch",
+      "sha256": "f096551b8a0ba59a6cbb0236a2caceaf0c7dc85e447f7107a2917ad947d4e5d2",
+      "bytes": 3590
+    }
+  ],
+  "start_new_v4": {
+    "path": "probe_start_menu_real_reload_v4.gd",
+    "sha256": "92a271fde35876d4595a33ceca3471eb728bed799cb85b51d01c7bf31c65fef3",
+    "baseline_log_sha256": "059cb39e88d7ddfc56d16a83870507ffe9ec28f927119a63913f95cd19ee8472",
+    "baseline_status": "PASS unchanged production",
+    "check_only_status": "PASS exact4.7.2"
+  },
+  "guide_review": "Exact missing-key guard, direct/queued mode guard, actual successful-start cooldown, same-flush stale-entry skip; ordinary family/protected policy retained",
+  "runtime_assets": "Separate candidates folder and OBJECTIVE_GUIDE_MANIFEST.json.draft; copy unchanged hashes only after authorization",
+  "apply_check": {
+    "exit_code": 0,
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+      "apply",
+      "--check",
+      "--whitespace=error-all",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\final_patch_packet_v1\\ALL_SOURCE.patch"
+    ],
+    "production_mutation": false
+  },
+  "static_checks": {
+    "gdtoolkit_parser": "PASS",
+    "lint_inference": "PASS",
+    "python_ast": "PASS",
+    "candidate_runtime": "NOT_RUN; apply and exact-head gates remain required"
+  },
+  "line_endings": "Patch comparison normalizes text newlines; exact base/draft hashes and normalized draft hashes are separately retained. Verify hashes before applying; never use old loose patch files."
+}

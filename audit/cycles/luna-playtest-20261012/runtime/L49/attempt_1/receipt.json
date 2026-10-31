@@ -1,0 +1,50 @@
+{
+  "schema": "luna_probe_receipt/1",
+  "session_id": "L49",
+  "attempt": 1,
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Corrupt/truncated saves recovery and unknown keys",
+  "probe": "probe_save_recovery",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-playtest-20261012\\mermaid-roshan-reef",
+    "-s",
+    "scripts/probe_save_recovery.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "started_utc": "2026-10-13T02:19:34.205217+00:00",
+  "status": "PASS",
+  "evidence_kind": "SCRIPTED_PROBE",
+  "engine": {
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643"
+  },
+  "source_hashes": {
+    "project.godot": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f",
+    "scenes/main.tscn": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+    "scripts/ci.sh": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+    "scripts/probe_save_recovery.gd": "6a85d25701cfc8b125ff3189192bf088efb7e9792fe0693f9529d1d7b58bf991",
+    "scripts/save_state.gd": "34ed8239321ee3f2362b3718d4d0e6f9467e7c500e54b7dec78333ccbf90c884"
+  },
+  "helper_sha256": "2ff23721f7e50a2abe878afde1f797fa3c27c66285b33aa1a549157005e3c953",
+  "save_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-luna-L49-ax3oby1v",
+  "profile_isolated": true,
+  "headless": true,
+  "rendered_mobile_acceptance": false,
+  "log": "audit/cycles/luna-playtest-20261012/runtime/L49/attempt_1/probe.log",
+  "wall_clock_is_gameplay_timing": false,
+  "finished_utc": "2026-10-13T02:19:48.146614+00:00",
+  "wall_elapsed_seconds": 13.933,
+  "exit_code": 0,
+  "timed_out": false,
+  "failure_lines": [],
+  "terminal_lines": [
+    "SAVE_RECOVERY|RESULT: ALL OK"
+  ],
+  "log_sha256": "113bce7f4f4618f7dadfe05c3dfbb527ddb58bc8cc0f915590c473f07c5de38f",
+  "log_bytes": 6054
+}

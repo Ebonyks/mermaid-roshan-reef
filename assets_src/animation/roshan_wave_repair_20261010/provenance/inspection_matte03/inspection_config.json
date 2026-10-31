@@ -1,0 +1,1126 @@
+{
+  "schema": "reef.repaired-sequence-inspection-adapter.v1",
+  "paint": "assets_src/animation/roshan_wave_repair_20261010/aseprite_paint_trial_01/full_wave_draft_06",
+  "matte": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03",
+  "all41_coverage": true,
+  "exact_matte_profile": {
+    "connected_background_min_rgb": 170,
+    "connected_background_max_chroma": 22,
+    "boundary_radius": 4,
+    "foreground_search_radius": 6,
+    "foreground_depth_min": 2,
+    "neutral_fit_residual_max": 25,
+    "neutral_fit_chroma_max": 15,
+    "colored_fit_residual_max": 10,
+    "recover_visited_background_pixels": false,
+    "fit_new_closed_neutral_edges_only_if_each_rgb_le_local_background_minus": 4,
+    "closed_neutral_fit_residual_max": 10,
+    "preserve_original_strict205_chroma10_closed_highlights": true,
+    "preserve_original_strict_closed_cells_if_broader_field_connects_them": true
+  },
+  "canonical_catalog": {
+    "path": "assets_src/animation/whole_sprite_pipeline_20261007/catalog.json",
+    "sha256": "e64db30dee8bd5ab4121fba956a98b949348fece3710e7f5e3eb1617a787d212",
+    "bytes": 12179,
+    "role": "reused_Roshan_geometry"
+  },
+  "generation": {
+    "enabled": false,
+    "generator_calls": 0,
+    "gpu_calls": 0,
+    "paid_calls": 0,
+    "budget_reset": false,
+    "parent_campaign_origin_at_capture": {
+      "historical_path": "assets_src/animation/roshan_wave_repair_20261010/job.json",
+      "sha256_at_capture": "b816478f973d54caa2b2a0a0070bcdc6ac34461637a477061385fcf66a842bb4",
+      "scope": "Original campaign may continue changing; literal snapshot is the immutable budget/provenance reference"
+    },
+    "literal_parent_snapshot": {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/provenance/inspection_matte03/parent_campaign_snapshot.json",
+      "sha256": "b816478f973d54caa2b2a0a0070bcdc6ac34461637a477061385fcf66a842bb4",
+      "bytes": 9785,
+      "role": "immutable_parent_campaign_snapshot"
+    }
+  },
+  "missing_archived_preparation_script": true,
+  "actual_K0_native_raster_scale": 3.19921875,
+  "native_geometry_reference_scale": 3.2,
+  "joint_policy": "Hidden authored shoulder excluded from validated points; projected native RGB observations remain partial. No fabricated W3 PASS.",
+  "human_policy": "No model record is submitted as human review; exact human frame/full-speed lanes remain pending",
+  "jobs": {
+    "native": {
+      "id": "roshan_repaired_full_wave_matte_03_native",
+      "character": {
+        "sources": [
+          "K0"
+        ],
+        "identity_locks": [
+          "same face, head size and brown eyes as K0",
+          "brown curls and rainbow ponytail",
+          "rigid gold tiara with turquoise gem",
+          "one connected lavender-blue iridescent tail and rainbow fin",
+          "two arms, no legs or duplicate anatomy"
+        ],
+        "geometry": {
+          "units": "approved 256px cell; canvas = scale * cell + offset",
+          "calibration": "W2/W3 from codex_roshan_wave_whole_sprites_2026-10-07 and unchanged measure_wave.py",
+          "landmarks": {
+            "crown": [
+              145,
+              25
+            ],
+            "eyeL": [
+              130,
+              63.6
+            ],
+            "eyeR": [
+              153,
+              63.6
+            ],
+            "mouth": [
+              142,
+              75.7
+            ],
+            "neck": [
+              141,
+              93
+            ],
+            "waist": [
+              135.5,
+              143
+            ],
+            "tailmid": [
+              128,
+              190
+            ],
+            "tailbot": [
+              150,
+              228
+            ]
+          },
+          "head_box": [
+            118,
+            38,
+            172,
+            92
+          ],
+          "segments": {
+            "upper_arm": {
+              "points": [
+                "shoulder",
+                "elbow"
+              ],
+              "length_px": 25.5,
+              "tolerance_pct": 5
+            },
+            "forearm": {
+              "points": [
+                "elbow",
+                "wrist"
+              ],
+              "length_px": 24.5,
+              "tolerance_pct": 5
+            },
+            "hand": {
+              "points": [
+                "wrist",
+                "tip"
+              ],
+              "length_px": 20.5,
+              "tolerance_pct": 5,
+              "required_when": "hand_open"
+            }
+          }
+        }
+      },
+      "outfit": {
+        "character_id": "roshan",
+        "sources": [
+          "K0"
+        ],
+        "description": "Approved pink ruffled-sleeve bodice, pointed front hem, blue V waist trim, iridescent lavender tail and rainbow fin",
+        "locks": [
+          "preserve pink bodice shade and ruffled sleeves",
+          "preserve blue V waist trim and pointed pink hem",
+          "no accessory additions or garment redesign",
+          "paint cloth response into the same complete figure"
+        ],
+        "source_aliases": {
+          "rest": "K0",
+          "raised": "K2"
+        }
+      },
+      "action": {
+        "verb": "one friendly wave",
+        "count": 41,
+        "fps": 24,
+        "sources": [
+          "@rest",
+          "@raised",
+          "native_study"
+        ],
+        "phases": [
+          {
+            "name": "rest",
+            "from": 0,
+            "to": 3,
+            "description": "Approved rest pose, attentive greeting"
+          },
+          {
+            "name": "raise",
+            "from": 4,
+            "to": 16,
+            "description": "Connected whole-body response while raising the waving hand in the picture plane"
+          },
+          {
+            "name": "apex",
+            "from": 17,
+            "to": 21,
+            "description": "Open hand above shoulder; face stays the same size"
+          },
+          {
+            "name": "lower",
+            "from": 22,
+            "to": 35,
+            "description": "Lower through face then chest height with coordinated torso, hair, sleeve and fin response"
+          },
+          {
+            "name": "settle",
+            "from": 36,
+            "to": 40,
+            "description": "Return to the exact approved rest pose"
+          }
+        ],
+        "context_frames": 3,
+        "boundaries": [
+          {
+            "index": 0,
+            "source_id": "@rest"
+          },
+          {
+            "index": 40,
+            "source_id": "@rest"
+          }
+        ],
+        "limits": {
+          "figure_scale_pp_pct": 1.0,
+          "head_scale_pp_pct": 2.0,
+          "border_px": 1
+        },
+        "key_canvas": [
+          1024,
+          1024
+        ],
+        "motion_locks": [
+          "one size, no foreshortened elbow toward viewer",
+          "upper arm25.5px, forearm24.5px, open hand20.5px, each within5% in256px cell",
+          "arm, shoulders, head, hair, torso and tail respond together",
+          "same fixed camera and figure framing as K0",
+          "no per-part layers or delays; no limb stretching; crisp five-finger hand"
+        ],
+        "key_gaps": [],
+        "backend": {
+          "auto_dispatch": false,
+          "route": "INSPECTION_ONLY_GENERATION_DISABLED"
+        },
+        "delivery_cell": [
+          256,
+          256
+        ]
+      },
+      "sources": {
+        "K0": {
+          "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+          "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+          "role": "identity",
+          "dimensions": [
+            256,
+            256
+          ],
+          "license": "Project-owned approved Roshan RGBA atlas; inherited ASSET_LICENSES.md attribution. Exact lossless cell crop; originals unchanged.",
+          "acceptance_scope": "APPROVED_SOURCE",
+          "pixel_input_allowed": true,
+          "binding_note": "Identity, head scale, pink outfit and rest-pose authority",
+          "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+          "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+          "source_cell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "modifications": "Aseprite exact whole-cell extraction only"
+        }
+      },
+      "frames": [
+        {
+          "index": 0,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0000.png",
+          "sha256": "7b8c8cb81e0f31b35bfd51ab6c8075515ec4ef6f47a7f0aac347eb64464e4415",
+          "bytes": 386245,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 1,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0001.png",
+          "sha256": "cbcafbfaa273d5fc8adfcbc22759262422fea6d6fa8bd7dad69fdecc294af657",
+          "bytes": 322613,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 2,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0002.png",
+          "sha256": "8cc8eed8723f6b29b6acca7671f759c2ef4a09a6abe4156700508e418a8ed7d9",
+          "bytes": 327256,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 3,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0003.png",
+          "sha256": "2977521969f87819a52345f8ea675c04e656a609dc75a92bb65cd35254c82c5a",
+          "bytes": 335133,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 4,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0004.png",
+          "sha256": "d00dcfe0b37101d0846a710019eac526839108920959d2dfdf3b23090e1aec2e",
+          "bytes": 343664,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 5,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0005.png",
+          "sha256": "38f7d9ca736427bb262be9402780b886b95c43da61e82c8de2566dcc4c5894c0",
+          "bytes": 349527,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 6,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0006.png",
+          "sha256": "f17e4f03f27c64118c70936b05a25600ac8eb01070d7a7d5d112ba25e618d223",
+          "bytes": 352450,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 7,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0007.png",
+          "sha256": "0dcd7d7a0571b1031b58e422e4632ba6a982130df7f1b3eedd6528a014ed2237",
+          "bytes": 353073,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 8,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0008.png",
+          "sha256": "d46b47f9ced703764c55c3c569b32854fc610a181a2da154d1053ccd7f3062f0",
+          "bytes": 354210,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 9,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0009.png",
+          "sha256": "0fc99b6dd1790ecdca8d9e8d1e3132e74e28eb2304cadb36496d716c41fb9c9d",
+          "bytes": 352312,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 10,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0010.png",
+          "sha256": "a42679643d289f714fe1b859569440f3c594e65fc53d8ab71af5fa09096cf26c",
+          "bytes": 353500,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 11,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0011.png",
+          "sha256": "fca778dd7a0574a4f5632715451cd83a22fa84d553840000a5a7d1551cac615a",
+          "bytes": 353694,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 12,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0012.png",
+          "sha256": "cbe41a6226482a64cad45b8b5e6726a4ed746400d4266a7ba5c710c5366251d2",
+          "bytes": 353061,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 13,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0013.png",
+          "sha256": "daa0a93b0c49d15dc611f5b833e2883aacbaf0ffa20b541935f0de7a5a19be4a",
+          "bytes": 352724,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 14,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0014.png",
+          "sha256": "c7a408e1cb9a769fe6564749fe3ff7a490e4668ce9deb683cfb35f46f301ff16",
+          "bytes": 352746,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 15,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0015.png",
+          "sha256": "87445d6b672132346333e85fa61a8e596939a56f3e6265b21cf067f17c6fea96",
+          "bytes": 352949,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 16,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0016.png",
+          "sha256": "aea31a815d20db9a3d7b321d57c045b5f37922284fb19dbd534938cc68542955",
+          "bytes": 353333,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 17,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0017.png",
+          "sha256": "09ec7ff24b6caaa8fc1886a49094bef333b668820ae7ceac896d5cacd2b6769b",
+          "bytes": 353225,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 18,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0018.png",
+          "sha256": "2337b9ed4a6eaad820cd87c3f1d99afe4e0f5388dd29f284341403254048a5d8",
+          "bytes": 353974,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 19,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0019.png",
+          "sha256": "1c39297b20019726ea5afe13a3043aafa0e0fe8b4cefe37b63e0d37cd964f22b",
+          "bytes": 353730,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 20,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0020.png",
+          "sha256": "395c326cbe20c53464c8a309900a1e7c207fa367de76926e28f7f7c8d7e242b3",
+          "bytes": 354440,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 21,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0021.png",
+          "sha256": "42da4bbe5c5879e189b56cb52eafe204f89a29ef324d702832feb8c680630457",
+          "bytes": 355087,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 22,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0022.png",
+          "sha256": "47cbdab8b56fc256eb69b3fc15f7b1250ade4071ad339ce65691aba0194aa2b0",
+          "bytes": 355634,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 23,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0023.png",
+          "sha256": "4809ee620b84d581ebfa5a4778c09e3a60e80ffddaa738598f8f79b58ad2548c",
+          "bytes": 354607,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 24,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0024.png",
+          "sha256": "6f99e8b444f1d124f62a18c0a15829a179d2fee24f75ad5bc351cad55d1d3709",
+          "bytes": 354100,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 25,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0025.png",
+          "sha256": "2654e3ab04afc0e7218bde461efaf1712f23710292a07a2e4452d1f8f413869b",
+          "bytes": 353823,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 26,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0026.png",
+          "sha256": "1aec0245cb6beeaaa64b95ba732b147f8ae681effb4a19ef1ec9999d1f5d2ce7",
+          "bytes": 354241,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 27,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0027.png",
+          "sha256": "523a36bec6504f62ddaa1fa9abe6375dee5eabcd03e3d69b827442eafa3b0e3c",
+          "bytes": 353362,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 28,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0028.png",
+          "sha256": "1003d1580dce1cec04283271f604656951dc51b89a54ad851675abaf7d3bb7e9",
+          "bytes": 351148,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 29,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0029.png",
+          "sha256": "521c10d60dd864884945367d1692ad91d3fb3c287d715be9dc5b29c04487bfea",
+          "bytes": 350083,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 30,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0030.png",
+          "sha256": "34328e6137d8629d6ea69bd23862a506a2b8147df528d65ee6b0e872db75a904",
+          "bytes": 350359,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 31,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0031.png",
+          "sha256": "2e7021adf016523e33ff1874f2ebca48e8c06bfef7ee912c418870155d561ed1",
+          "bytes": 349648,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 32,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0032.png",
+          "sha256": "a7eee4d95abc3b777f366f2990a9ed9a70f01e8ed73527494bd738e95bcf63e5",
+          "bytes": 348339,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 33,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0033.png",
+          "sha256": "14f581e79ead5dbf55da1a17bd2486cbbf6331b14bff3459144211b342c1c5a4",
+          "bytes": 342492,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 34,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0034.png",
+          "sha256": "0126358a1a39672c64c1b6100e64222c506bc86433ccdfa27667f615e129a43f",
+          "bytes": 339731,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 35,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0035.png",
+          "sha256": "0d03abeedbe7ad0b3e0947da7d13cc4854d652adde5e7f9a9e9887f66a001bf1",
+          "bytes": 336381,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 36,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0036.png",
+          "sha256": "70ce81b0098001d6e7ed56022018fdfe02e0e23887931c68914263c6d1310340",
+          "bytes": 334502,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 37,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0037.png",
+          "sha256": "ba0509fba7d5c63729c775113ab23631b1443ce49ec47111a4f9a1245db8ae1b",
+          "bytes": 328482,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 38,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0038.png",
+          "sha256": "37814262925cf88f500f615ed011263daf0b6d4613cbe3e8e6df29cbd8ed8368",
+          "bytes": 327865,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 39,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0039.png",
+          "sha256": "660ea4695afc301d61be7643d42ad3a032583b920ededa6364719bb62d3447bb",
+          "bytes": 325194,
+          "role": "actual_complete_final_native_RGBA"
+        },
+        {
+          "index": 40,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_rgba/0040.png",
+          "sha256": "7b8c8cb81e0f31b35bfd51ab6c8075515ec4ef6f47a7f0aac347eb64464e4415",
+          "bytes": 386245,
+          "role": "actual_complete_final_native_RGBA"
+        }
+      ],
+      "frames_manifest": "assets_src/animation/roshan_wave_repair_20261010/provenance/inspection_matte03/native_frames.json",
+      "mapping": {
+        "scale": 3.2,
+        "offset": [
+          -48,
+          32
+        ]
+      },
+      "native_canvas": [
+        768,
+        896
+      ],
+      "master": {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/native_final_wave.aseprite",
+        "sha256": "95f07f23dff2444fe205fafc6ec913733ebed8ff51a526e915e6a576bce89042",
+        "bytes": 20894573,
+        "role": "actual_final_native_editable_master"
+      },
+      "derivation": {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/provenance/inspection_matte03/native_derivation.json",
+        "sha256": "0716709e9b84de25d1671c222332a2b85ef1928b889e2d0cd4ae3b86c7e5c8f3",
+        "bytes": 480493,
+        "role": "whole_cel_derivation_declaration"
+      },
+      "joints": "assets_src/animation/roshan_wave_repair_20261010/provenance/inspection_matte03/native_joints.json",
+      "generation": {
+        "enabled": false,
+        "generator_calls": 0,
+        "gpu_calls": 0,
+        "paid_calls": 0,
+        "budget_reset": false,
+        "parent_campaign_origin_at_capture": {
+          "historical_path": "assets_src/animation/roshan_wave_repair_20261010/job.json",
+          "sha256_at_capture": "b816478f973d54caa2b2a0a0070bcdc6ac34461637a477061385fcf66a842bb4",
+          "scope": "Original campaign may continue changing; literal snapshot is the immutable budget/provenance reference"
+        },
+        "literal_parent_snapshot": {
+          "path": "assets_src/animation/roshan_wave_repair_20261010/provenance/inspection_matte03/parent_campaign_snapshot.json",
+          "sha256": "b816478f973d54caa2b2a0a0070bcdc6ac34461637a477061385fcf66a842bb4",
+          "bytes": 9785,
+          "role": "immutable_parent_campaign_snapshot"
+        }
+      }
+    },
+    "sprite": {
+      "id": "roshan_repaired_full_wave_matte_03_sprite",
+      "character": {
+        "sources": [
+          "K0"
+        ],
+        "identity_locks": [
+          "same face, head size and brown eyes as K0",
+          "brown curls and rainbow ponytail",
+          "rigid gold tiara with turquoise gem",
+          "one connected lavender-blue iridescent tail and rainbow fin",
+          "two arms, no legs or duplicate anatomy"
+        ],
+        "geometry": {
+          "units": "approved 256px cell; canvas = scale * cell + offset",
+          "calibration": "W2/W3 from codex_roshan_wave_whole_sprites_2026-10-07 and unchanged measure_wave.py",
+          "landmarks": {
+            "crown": [
+              145,
+              25
+            ],
+            "eyeL": [
+              130,
+              63.6
+            ],
+            "eyeR": [
+              153,
+              63.6
+            ],
+            "mouth": [
+              142,
+              75.7
+            ],
+            "neck": [
+              141,
+              93
+            ],
+            "waist": [
+              135.5,
+              143
+            ],
+            "tailmid": [
+              128,
+              190
+            ],
+            "tailbot": [
+              150,
+              228
+            ]
+          },
+          "head_box": [
+            118,
+            38,
+            172,
+            92
+          ],
+          "segments": {
+            "upper_arm": {
+              "points": [
+                "shoulder",
+                "elbow"
+              ],
+              "length_px": 25.5,
+              "tolerance_pct": 5
+            },
+            "forearm": {
+              "points": [
+                "elbow",
+                "wrist"
+              ],
+              "length_px": 24.5,
+              "tolerance_pct": 5
+            },
+            "hand": {
+              "points": [
+                "wrist",
+                "tip"
+              ],
+              "length_px": 20.5,
+              "tolerance_pct": 5,
+              "required_when": "hand_open"
+            }
+          }
+        }
+      },
+      "outfit": {
+        "character_id": "roshan",
+        "sources": [
+          "K0"
+        ],
+        "description": "Approved pink ruffled-sleeve bodice, pointed front hem, blue V waist trim, iridescent lavender tail and rainbow fin",
+        "locks": [
+          "preserve pink bodice shade and ruffled sleeves",
+          "preserve blue V waist trim and pointed pink hem",
+          "no accessory additions or garment redesign",
+          "paint cloth response into the same complete figure"
+        ],
+        "source_aliases": {
+          "rest": "K0",
+          "raised": "K2"
+        }
+      },
+      "action": {
+        "verb": "one friendly wave",
+        "count": 41,
+        "fps": 24,
+        "sources": [
+          "@rest",
+          "@raised",
+          "native_study"
+        ],
+        "phases": [
+          {
+            "name": "rest",
+            "from": 0,
+            "to": 3,
+            "description": "Approved rest pose, attentive greeting"
+          },
+          {
+            "name": "raise",
+            "from": 4,
+            "to": 16,
+            "description": "Connected whole-body response while raising the waving hand in the picture plane"
+          },
+          {
+            "name": "apex",
+            "from": 17,
+            "to": 21,
+            "description": "Open hand above shoulder; face stays the same size"
+          },
+          {
+            "name": "lower",
+            "from": 22,
+            "to": 35,
+            "description": "Lower through face then chest height with coordinated torso, hair, sleeve and fin response"
+          },
+          {
+            "name": "settle",
+            "from": 36,
+            "to": 40,
+            "description": "Return to the exact approved rest pose"
+          }
+        ],
+        "context_frames": 3,
+        "boundaries": [
+          {
+            "index": 0,
+            "source_id": "@rest"
+          },
+          {
+            "index": 40,
+            "source_id": "@rest"
+          }
+        ],
+        "limits": {
+          "figure_scale_pp_pct": 1.0,
+          "head_scale_pp_pct": 2.0,
+          "border_px": 1
+        },
+        "key_canvas": [
+          1024,
+          1024
+        ],
+        "motion_locks": [
+          "one size, no foreshortened elbow toward viewer",
+          "upper arm25.5px, forearm24.5px, open hand20.5px, each within5% in256px cell",
+          "arm, shoulders, head, hair, torso and tail respond together",
+          "same fixed camera and figure framing as K0",
+          "no per-part layers or delays; no limb stretching; crisp five-finger hand"
+        ],
+        "key_gaps": [],
+        "backend": {
+          "auto_dispatch": false,
+          "route": "INSPECTION_ONLY_GENERATION_DISABLED"
+        },
+        "delivery_cell": [
+          256,
+          256
+        ]
+      },
+      "sources": {
+        "K0": {
+          "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+          "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+          "role": "identity",
+          "dimensions": [
+            256,
+            256
+          ],
+          "license": "Project-owned approved Roshan RGBA atlas; inherited ASSET_LICENSES.md attribution. Exact lossless cell crop; originals unchanged.",
+          "acceptance_scope": "APPROVED_SOURCE",
+          "pixel_input_allowed": true,
+          "binding_note": "Identity, head scale, pink outfit and rest-pose authority",
+          "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+          "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+          "source_cell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "modifications": "Aseprite exact whole-cell extraction only"
+        }
+      },
+      "frames": [
+        {
+          "index": 0,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0000.png",
+          "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+          "bytes": 55208,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 1,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0001.png",
+          "sha256": "9409b42b6c68b66979b62fbab607041083e8e326d74b70924fd116ce8c831c05",
+          "bytes": 49175,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 2,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0002.png",
+          "sha256": "0de271f00f2560272b24d2a8138af1504426c9efb97edc04e26dc441bb01128f",
+          "bytes": 49501,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 3,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0003.png",
+          "sha256": "a3a9cd4c5f3b1094eb7c076ae90154ef178d819ed33656757509069ebf3db430",
+          "bytes": 49895,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 4,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0004.png",
+          "sha256": "3664a1dadc21383c0972752d5b3cb97fbd1c5bf34b566b4a0fe49f63dbc8e753",
+          "bytes": 50415,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 5,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0005.png",
+          "sha256": "e41c1fd50cd5cc46220ff6b9ccda5d2a84f25f82a3159e3060a0260827600f32",
+          "bytes": 50906,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 6,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0006.png",
+          "sha256": "c990c853721c0f7c4fa5488b98cf9df11f4b72304f5df73c446231b4394f93bf",
+          "bytes": 51213,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 7,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0007.png",
+          "sha256": "9acd62a6f512cf00db2926d7fffcbe65c26455346d67a213357767743543be07",
+          "bytes": 51454,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 8,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0008.png",
+          "sha256": "f878c3d38624b12e43d70fc8e4f258ecead82b4af1b731e7b59fda4b0f92c9a6",
+          "bytes": 51433,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 9,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0009.png",
+          "sha256": "2c365d69a4d4fe4488f2e826ea2ee2ba0385827c0a26fffe07a9b8e8689e58dd",
+          "bytes": 51144,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 10,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0010.png",
+          "sha256": "0d766a3c43ac4a5de7b91d28cd9a346378cc88c961f1a0f871c69775751e33a7",
+          "bytes": 51210,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 11,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0011.png",
+          "sha256": "68c8e441f9e0a839ab81864f72cf63efd6f396de61a561cf78a00bab745dfd7c",
+          "bytes": 51222,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 12,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0012.png",
+          "sha256": "bb4564860cceb2b10aa805f32dcaddeac71177c4ac5180075defa6ea137647ff",
+          "bytes": 50986,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 13,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0013.png",
+          "sha256": "8febee0a50094bd9fb7bd304603e65b36ec91d284114dbc8ca674ffacb53653e",
+          "bytes": 50940,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 14,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0014.png",
+          "sha256": "3e495cbeb963cee5404e8b8b4310b2a84759a19f67c517ceda6200ad4261babf",
+          "bytes": 50966,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 15,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0015.png",
+          "sha256": "e498323175fc46d6c70e1f0a55afe310cb2c0e3a16c41811156b87832989b8e6",
+          "bytes": 51016,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 16,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0016.png",
+          "sha256": "959fdca6afb6b5c5451ed96c5355dc81b96e3400a7f705a137d15929214bbf20",
+          "bytes": 51025,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 17,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0017.png",
+          "sha256": "5cf9cdc19c7965e2b1c24361bdbe61c9bd251606691085c5765895efb39c1770",
+          "bytes": 50929,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 18,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0018.png",
+          "sha256": "6ffda72742f434b7d4cc30030d1803ce6ac82f4f6577ed09a85a24c513cb2aca",
+          "bytes": 51055,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 19,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0019.png",
+          "sha256": "c99a69e1d9924630fcb6393c755a8978c9c585cbb49bbf3c7807c4eba5962399",
+          "bytes": 51161,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 20,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0020.png",
+          "sha256": "7c482280a485af1f410390956abaa7184794af22d7580e05a3a1b04c67034884",
+          "bytes": 51208,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 21,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0021.png",
+          "sha256": "83d2a161bf3fbf7f225edbeb629a9b0950e15a3f344c0bbc3c465fb02fef252b",
+          "bytes": 51248,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 22,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0022.png",
+          "sha256": "4606162a360f282eaa0bb839e067d544e5a1a22c1fedb8b306a5e674c204d143",
+          "bytes": 51347,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 23,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0023.png",
+          "sha256": "7472a9f6fff8ae5f0b896005e94a6634b3b5ed935d9bfb241f34d156c117bdaf",
+          "bytes": 51289,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 24,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0024.png",
+          "sha256": "6e2b2a8c92480c28437080c244ab11eabdb813b8d35f72206a8f052f2906ac7f",
+          "bytes": 51112,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 25,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0025.png",
+          "sha256": "b23fb5969a03110719801e97a3ebb0c68842a14b61fa2bd7528c530b723a0214",
+          "bytes": 51232,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 26,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0026.png",
+          "sha256": "113daa2446ae657d8a82a07206e936eb081e5bfc0a2778d773e7bdf9b4e7d25c",
+          "bytes": 51342,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 27,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0027.png",
+          "sha256": "2b5e1b97f769b637c2d9fbdb172c7e5a50c0e8f269cae08a8482e3f9c0683119",
+          "bytes": 51295,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 28,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0028.png",
+          "sha256": "995c27f96d235b66790ea800585f19cb9d3975e01e6609cb5aafdb13ae6e5f0e",
+          "bytes": 50857,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 29,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0029.png",
+          "sha256": "6eaf78d3469c1646e76bc9eef1d07125c88acc398022e8ae000f370d74f5e502",
+          "bytes": 50887,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 30,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0030.png",
+          "sha256": "18c81782f8579738ab8d5766dcfaa923a63685b60a74e0e673e8cacceba9d853",
+          "bytes": 51257,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 31,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0031.png",
+          "sha256": "293aa5b8774d8ea6c276cd779fa37182d9ff6c07f1709030a2fa709514785e72",
+          "bytes": 51323,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 32,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0032.png",
+          "sha256": "b1aa77994c970ab62b09138b67ef18b20186f2471636271be3ee129f63df7695",
+          "bytes": 50930,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 33,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0033.png",
+          "sha256": "cad38b1f506711ff2342c42f44424af68b925f5ef1813038e495fd49c123d7ce",
+          "bytes": 50457,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 34,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0034.png",
+          "sha256": "ce3f7e63f746bc7ad02ed564039290071747db31f71d44af75e93b639d8316ac",
+          "bytes": 50128,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 35,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0035.png",
+          "sha256": "f3602036fff3ccd107e5edd83faa880a70887ab8147de4e42724fc62d82d6cce",
+          "bytes": 49945,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 36,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0036.png",
+          "sha256": "9d82e229247bfb95a2cb13c4ccf36f28247fe17065568f3cad8643510d484349",
+          "bytes": 49732,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 37,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0037.png",
+          "sha256": "0dd7b839b1b328acddf9a94c3ab0ddd72c758db188972af43b4aae264d439d8a",
+          "bytes": 49352,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 38,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0038.png",
+          "sha256": "88e815dafbeda3a51dbe13a69bbe16503d58565953ca65d5407fa46844fb92c8",
+          "bytes": 49190,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 39,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0039.png",
+          "sha256": "b674cdc6d1950fbbdd875dd7a7202d77454a7d32f1713e835a9869614a4aabc2",
+          "bytes": 48953,
+          "role": "actual_complete_final_256_RGBA"
+        },
+        {
+          "index": 40,
+          "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/frames/0040.png",
+          "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+          "bytes": 55208,
+          "role": "actual_complete_final_256_RGBA"
+        }
+      ],
+      "frames_manifest": "assets_src/animation/roshan_wave_repair_20261010/provenance/inspection_matte03/sprite_frames.json",
+      "mapping": {
+        "scale": 1,
+        "offset": [
+          0,
+          0
+        ]
+      },
+      "native_canvas": [
+        256,
+        256
+      ],
+      "master": {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/full_wave_matte_03/wave.aseprite",
+        "sha256": "0335ee9a652048f713d0d19cc2f6a3b16088f433314fb8467e8ec712c516193e",
+        "bytes": 2399215,
+        "role": "actual_final_256_editable_master"
+      },
+      "derivation": {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/provenance/inspection_matte03/sprite_derivation.json",
+        "sha256": "09210b80dbe28120a8a5fd0d407bca103323e777addc725dede94247dee82a89",
+        "bytes": 506692,
+        "role": "whole_cel_derivation_declaration"
+      },
+      "joints": "assets_src/animation/roshan_wave_repair_20261010/provenance/inspection_matte03/sprite_joints.json",
+      "generation": {
+        "enabled": false,
+        "generator_calls": 0,
+        "gpu_calls": 0,
+        "paid_calls": 0,
+        "budget_reset": false,
+        "parent_campaign_origin_at_capture": {
+          "historical_path": "assets_src/animation/roshan_wave_repair_20261010/job.json",
+          "sha256_at_capture": "b816478f973d54caa2b2a0a0070bcdc6ac34461637a477061385fcf66a842bb4",
+          "scope": "Original campaign may continue changing; literal snapshot is the immutable budget/provenance reference"
+        },
+        "literal_parent_snapshot": {
+          "path": "assets_src/animation/roshan_wave_repair_20261010/provenance/inspection_matte03/parent_campaign_snapshot.json",
+          "sha256": "b816478f973d54caa2b2a0a0070bcdc6ac34461637a477061385fcf66a842bb4",
+          "bytes": 9785,
+          "role": "immutable_parent_campaign_snapshot"
+        }
+      }
+    }
+  }
+}

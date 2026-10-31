@@ -1,0 +1,90 @@
+{
+  "stable_id": "FV-8C7C289334A2",
+  "baseline": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+  "backend": "built-in image_gen.imagegen",
+  "model_version": "NOT_EXPOSED",
+  "request_id": "NOT_EXPOSED",
+  "seed": "NOT_EXPOSED",
+  "usage": "NOT_EXPOSED",
+  "returned_keys": [
+    "image_url",
+    "output_hint"
+  ],
+  "native_original": "C:/Users/Peter/.codex/generated_images/01a119cc-74b1-7d23-b956-126129405418/exec-1dbb2517-9c02-4fe3-964b-52af2f6ad187.png",
+  "native_sha256": "3eff4de08b63ffa035486069bcd9c1c376847d2099b37e19465654ff711c7951",
+  "native_dimensions": [
+    1254,
+    1254
+  ],
+  "static_takes": 1,
+  "static_take_cap": 2,
+  "rejected_takes": 0,
+  "animation_calls": 0,
+  "aseprite_version": "Aseprite 1.3.18.4-x64",
+  "native_visible_RGBA_changed_pixels": 0,
+  "technical_operations": "Actual Aseprite native master and roundtrip preserve every visibleRGBA pixel. Uniform216/1254 complete-source resize then20px transparentpadding on eachside to256. No crop of authored pixels, recolour, deformation or code-drawn appearance.",
+  "commands": [
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_crest_20261030\\take01_native.png",
+      "--save-as",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_crest_20261030\\crest_native.aseprite"
+    ],
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_crest_20261030\\crest_native.aseprite",
+      "--save-as",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_crest_20261030\\native_roundtrip.png"
+    ],
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_crest_20261030\\crest_native.aseprite",
+      "--scale",
+      "0.1722488038277512",
+      "--save-as",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_crest_20261030\\crest_uniform216.png"
+    ],
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "--script",
+      "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-crest-20261030\\export_whole_crest.lua"
+    ]
+  ],
+  "exports": [
+    {
+      "role": "whole_geologist_crest",
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "sha256": "bd9812cf9dd0c58743ef5a0625ea0493bf7b1a96ecf346f83ba6027b2a61b969",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 62.2,
+        "faint_haze_pct_of_canvas": 0.3,
+        "semi_pct_of_visible": 0.6,
+        "near_opaque_pct_of_visible": 98.7,
+        "opaque_255_pct": 0.1,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          45,
+          26,
+          212,
+          225
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    }
+  ],
+  "originals_preserved": true
+}

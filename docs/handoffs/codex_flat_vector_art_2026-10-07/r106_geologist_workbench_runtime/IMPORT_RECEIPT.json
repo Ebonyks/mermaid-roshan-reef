@@ -1,0 +1,44 @@
+{
+  "state": "SUCCESSFUL_ACTUAL_IMPORT_RETAINED",
+  "imports": [
+    {
+      "pass": 1,
+      "launch": {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+          "--headless",
+          "--log-file",
+          "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-work-slab-20261029\\import1\\native_engine.log",
+          "--path",
+          "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef",
+          "--import"
+        ],
+        "at_utc": "2026-10-29T13:46:49.779453+00:00"
+      },
+      "log_sha256": "856aea4631e9aeb4b7bee7dfe270a3e7f033b56ef6c914819c2eb8b19dee6031",
+      "runner_guard": "Original import_and_capture.py requires q.returncode==0/no resource/compile errors before final source pin and capture. It reached the original river fixture assertion after import; native220later verifies actual final mipmapped1024 resource. No new import rerun.",
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-work-slab-20261029\\import1\\engine.log"
+    },
+    {
+      "pass": 2,
+      "launch": {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+          "--headless",
+          "--log-file",
+          "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-work-slab-20261029\\import2\\native_engine.log",
+          "--path",
+          "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef",
+          "--import"
+        ],
+        "at_utc": "2026-10-29T13:47:13.618989+00:00"
+      },
+      "log_sha256": "611bbc1e7ab85962b0d3356403509618921c17b8a4887e5c56159a99e4707048",
+      "runner_guard": "Original import_and_capture.py requires q.returncode==0/no resource/compile errors before final source pin and capture. It reached the original river fixture assertion after import; native220later verifies actual final mipmapped1024 resource. No new import rerun.",
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-work-slab-20261029\\import2\\engine.log"
+    }
+  ],
+  "actual_resource_verified_in_220_native_checks": true,
+  "renderer": "Mobile",
+  "normal_unchanged": true
+}

@@ -1,0 +1,80 @@
+{
+  "stable_id": "FV-66629DC58A20",
+  "baseline": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+  "candidate_source_lf_sha256": "b8c93a9daf36bee77f533db3604b9d0045bf7a632f1a991a24ec468f55195323",
+  "all_eight_current_frames_inspected": true,
+  "current_frames": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/native/1280/01_pan_start.png",
+      "sha256": "df8893625908eb706c91fe92b0f0f0ffd1a50114f183c6f3ce7bbb81a47b21ff",
+      "direct_agent_view": true
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/native/1280/02_pan_partial.png",
+      "sha256": "f7cae89c618a24df03a6505c478defddafcdd07355b0740104f47d173ada283f",
+      "direct_agent_view": true
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/native/1280/03_pan_near_complete.png",
+      "sha256": "f80d615f731551fee494efad101a9b5d055d78ae69f3931e172687e65b3be4e5",
+      "direct_agent_view": true
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/native/1280/04_pan_complete.png",
+      "sha256": "ad16ec2bbca0553c533c18e675934f5289173aaf5c3568d3cc31ce46474265cd",
+      "direct_agent_view": true
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/native/1600/01_pan_start.png",
+      "sha256": "eb0c41c6bf29b8a7b357858268c680d18991cf9390c1c379cbced57e812fd828",
+      "direct_agent_view": true
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/native/1600/02_pan_partial.png",
+      "sha256": "5c382228aa12f60a5dd6683338ba45de3d735e3300287d571956c7e73071c324",
+      "direct_agent_view": true
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/native/1600/03_pan_near_complete.png",
+      "sha256": "c804b7671c5c242b18abc3c2ac6508d22525c117b269efc03ca95b3a07955859",
+      "direct_agent_view": true
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r104_geologist_mineral_variants_runtime/native/1600/04_pan_complete.png",
+      "sha256": "efd63a5967504367db95943dc70ac0808446091c8dc8f9b20139d289f9cfaa03",
+      "direct_agent_view": true
+    }
+  ],
+  "same_scene_baseline_frames_directly_inspected": [
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r102_geologist_mint_runtime/native/1280/04_pan_complete.png at8f86192b",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r102_geologist_mint_runtime/native/1600/04_pan_complete.png at8f86192b"
+  ],
+  "ten_axes": {
+    "medium": "Three coherent whole painted2D cutouts now appear in PAN; blue/lavender flat polygons removed at their only active callsite.",
+    "identity": "Mint unchanged; blue and lavender maintain upright apex, attached broad low base and matching authored facet family.",
+    "contour": "Rounded irregular outer contours and plum lower edge match existing mint at actual43-46px body; no visible sticker border.",
+    "material": "Painted value planes and cream highlights read as solid opaque specimens; no glass/CGI metal.",
+    "palette": "Mint, cornflower blue and amethyst lavender remain clearly separated over turquoise water and tan work panel in both widths.",
+    "light": "Upper-left cream plane/darkcool lower-right planes remain consistent across three specimens and pan light.",
+    "perspective": "Whole top/front specimen bodies sit inside the pan at existing centers; no skew or nonuniform stretch.",
+    "scale": "All three use56squarecanvas with about43-46px bodies. Native current sizes and interspecimen spacing match two aspects; no clipping or HUD overlap with specimens.",
+    "contact_occlusion": "Bottoms remain fully inside inner painted pan/front rim and do not intersect each other. No new outer cast shadow/halo visible. Existing Roshan/imp overlap at completion remains a separate inherited scene defect, not resolved here.",
+    "readability_action": "Start0, partial1mint, nearcomplete2mint/blue, complete3mint/blue/lavender are legible. Original motion center,reversal completion and secondfinger rejection pass. Phone/child readability and naturally earned route remain untested."
+  },
+  "native_check_count": 90,
+  "runtime": "CONFIGURED_PRIVATE_MAIN_PAN_CONTEXT_PASS_TWO_ASPECTS",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "whole_job_closed": false,
+  "remaining_debt": [
+    "Flat cave/background panel/sediment",
+    "Separate crystal gallery/other rock/fossil renderers",
+    "Inherited character completion overlap",
+    "Natural whole-route, allvariant and gamewide inventories"
+  ],
+  "generation_calls_this_runtime_change": 0,
+  "reviewed_at_utc": "2026-10-29T09:17:51.225859+00:00"
+}

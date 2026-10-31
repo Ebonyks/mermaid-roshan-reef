@@ -1,0 +1,107 @@
+{
+  "lane": "MOTION_STUDY_REFERENCE_ONLY",
+  "baseline": "f07c1a4820fb5222289802ad712db677b56400bc",
+  "identity": "Approved Roshan 2D gesture atlas, frame row0",
+  "source": {
+    "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+    "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+    "original_unchanged": true
+  },
+  "gap": "Coherent figure-wide transition between approved original full-body gesture poses, with crisp moving contours. Prior fixed-body limb-only finishing is owner-rejected.",
+  "intent": "Roshan raises her image-left hand in greeting while shoulder, torso, bodice/dress, hair and tail respond together, lowers the hand, and settles as a complete figure.",
+  "scene": "Neutral source-only study; no room or gameplay event.",
+  "translation": "Fixed camera; waist/root remains near initial location. Coordinated shoulder/torso/bodice/hair/tail acting is allowed and required; no body pixels are frozen.",
+  "geometry": {
+    "width": 896,
+    "height": 512,
+    "waist_root_study_px": [
+      461,
+      280
+    ],
+    "root_tolerance_px": 3,
+    "units": "Full native canvas pixels, x right, y down. Waist-root source landmark is a study proxy, not an accepted runtime socket. Native root motion/acceptance remains unvalidated.",
+    "source_registration": "environment/figure_registration.json",
+    "hand_motion": "Shoulder-height guide at7, above-head17, lower27, rest36/40; timing/blur failures remain recorded."
+  },
+  "timeline": {
+    "fps": 24,
+    "frames": 41,
+    "pose_indices": [
+      0,
+      7,
+      17,
+      27,
+      36,
+      40
+    ],
+    "endpoints": "Complete approved source rest pose guides at0/36/40; native frames preserved without endpoint substitutions. Loop pose/velocity not accepted."
+  },
+  "contact": "No prop contact/reward/voice or runtime state. Shoulder attachment must remain continuous.",
+  "interruptions": "Not applicable to source-only sample; future runtime must separately implement existing cancellation/state-owner contracts.",
+  "settings": {
+    "seed": 20261003,
+    "steps": 7,
+    "model": "ltxv-2b-0.9.8-distilled.safetensors",
+    "prompt_enhancer": false,
+    "positive_prompt": "briefs/figure_wide_crisp.txt",
+    "input_series": "figure_key",
+    "guide_strength": 1.0
+  },
+  "caps": {
+    "generated_takes": 4,
+    "render_seconds_per_take": 1800,
+    "cleanup_seconds_per_take": 900,
+    "aggregate_render_seconds": 7200,
+    "new_model_downloads": 0,
+    "paid_api_usd": 0,
+    "max_submissions_including_aborted_text_encode": 5
+  },
+  "acceptance": "REFERENCE_ONLY / QUALITY_FAIL. No production/runtime/device/child/owner acceptance.",
+  "blur_correction": {
+    "requested_by_owner": true,
+    "method": "Aseprite source-cutout triangular joint mapping, no temporal pixel blending",
+    "generated_takes_after_correction": 0,
+    "source_pose_indices": [
+      0,
+      7,
+      17,
+      27,
+      36,
+      40
+    ],
+    "declared_hold": {
+      "frames": [
+        36,
+        40
+      ],
+      "purpose": "Return to original rest and settle after complete raise/lower."
+    },
+    "reference_only": true
+  },
+  "owner_figure_wide_revision": {
+    "scope": "Shoulder/torso/dress/bodice/hair/tail must respond together; pelvis/root anchor registers whole source poses, never freezes body pixels.",
+    "previous_limb_only_correction": "REJECTED_BY_OWNER_FOR_NARROW_SCOPE",
+    "additional_calls": 2,
+    "aggregate_max_calls": 4,
+    "aggregate_active_render_cap_seconds": 7200,
+    "prompt": "figure_wide_crisp.txt",
+    "input_series": "figure_key"
+  },
+  "history": "Previous two generated takes and one pre-sampling abort remain charged; owner-directed scope change permits one complete-figure generated revision. No reset or silent retries.",
+  "final_slow_native_trial": {
+    "hypothesis": "Lower native motion rate may reduce hand smearing; prompt-only41-frame trial failed.",
+    "frames": 81,
+    "fps": 24,
+    "pose_indices": [
+      0,
+      14,
+      34,
+      54,
+      72,
+      80
+    ],
+    "prompt": "figure_wide_slow.txt",
+    "interpolation_or_retiming": false,
+    "final_generated_take_in_this_pilot": true
+  }
+}

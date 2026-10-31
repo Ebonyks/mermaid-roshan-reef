@@ -80,9 +80,12 @@ const BATHTUB_SWIMMER_START := Vector2(277.0, 255.0)
 const BLOCKED_DOOR_SFX_COOLDOWN_SECONDS := 1.2
 const BLOCKED_DOOR_SECOND_TAP_WINDOW_SECONDS := 6.0
 const RUMI_IDLE_POSITION := Vector2(650.0, 350.0)
+const RUMI_POSE_ATLAS := \
+	"res://assets/characters/rumi/rumi_eight_pose_runtime.png"
 const RUMI_IDLE_SCALE := 0.96
 const RUMI_TAP_HIT_RECT := Rect2(530.0, 230.0, 240.0, 240.0)
 const HALL_SIGN_Z := 0.68
+const HALL_DOOR_GLOW_STAGE_Z := -950
 const HALL_LIGHT_Z := 7.0
 const PLAYER_STAGE_HEIGHT := 270.0
 const HALL_PLAYER_STAGE_HEIGHT := 190.0
@@ -162,38 +165,47 @@ const HALL_PORTALS: Array[Dictionary] = [
 	# visual footprint but never adds a second independent touch hotspot.
 	{"id": "family_gallery", "name": "Dream House Wing",
 		"rect": Rect2(210.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(290.0, 620.0), "sign_pos": Vector2(290.0, 340.0),
 		"sign_tex": "sign_family_gallery.png", "sign_scale": 1.0},
 	{"id": "opera_hall", "name": "Opera Hall",
 		"rect": Rect2(875.0, 180.0, 300.0, 425.0),
+		"frame_family": "opera",
 		"foot": Vector2(1025.0, 620.0), "sign_pos": Vector2(1025.0, 225.0),
 		"sign_tex": "sign_opera_hall.png", "sign_scale": 1.55},
 	{"id": "library", "name": "Royal Library",
 		"rect": Rect2(380.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(455.0, 620.0), "sign_pos": Vector2(455.0, 340.0),
 		"sign_tex": "sign_library.png", "sign_scale": 1.0},
 	{"id": "kitchen", "name": "Royal Kitchen",
 		"rect": Rect2(545.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(620.0, 620.0), "sign_pos": Vector2(620.0, 340.0),
 		"sign_tex": "sign_kitchen.png", "sign_scale": 1.0},
 	{"id": "playroom", "name": "Stuffie Playroom",
 		"rect": Rect2(1940.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(2015.0, 620.0), "sign_pos": Vector2(2015.0, 340.0),
 		"sign_tex": "sign_playroom.png", "sign_scale": 1.0},
 	{"id": "craft_room", "name": "Craft Room",
 		"rect": Rect2(2140.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(2215.0, 620.0), "sign_pos": Vector2(2215.0, 340.0),
 		"sign_tex": "sign_craft_room.png", "sign_scale": 1.0},
 	{"id": "mermaid_pool", "name": "Mermaid Pool",
 		"rect": Rect2(2340.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(2415.0, 620.0), "sign_pos": Vector2(2415.0, 340.0),
 		"sign_tex": "sign_mermaid_pool.png", "sign_scale": 1.0},
 	{"id": "bubble_bath", "name": "Bubble Bath",
 		"rect": Rect2(2540.0, 300.0, 160.0, 305.0),
+		"frame_family": "small",
 		"foot": Vector2(2615.0, 620.0), "sign_pos": Vector2(2615.0, 340.0),
 		"sign_tex": "sign_bubble_bath.png", "sign_scale": 1.0},
 	{"id": "__royal_hall", "name": "Royal Hall",
 		"rect": Rect2(2870.0, 150.0, 350.0, 470.0),
+		"frame_family": "royal",
 		"foot": Vector2(3045.0, 620.0)},
 ]
 const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
@@ -1024,16 +1036,13 @@ func open(start_room: String = "main_hall") -> void:
 	# fitted stage may leave safe bands on wider/taller viewports; a quiet
 	# storybook violet keeps those bands congruent instead of exposing the
 	# renderer's attention-grabbing default gray.
-	var viewport_backdrop := ColorRect.new()
-	viewport_backdrop.name = "CastleLetterboxBackdrop"
-	viewport_backdrop.color = Color(0.055, 0.035, 0.105, 1.0)
-	viewport_backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	viewport_backdrop.z_index = -2000
-	viewport_backdrop.set_meta("castle_safe_frame_backdrop", true)
+	var viewport_backdrop := _new_letterbox_band("CastleLetterboxBackdrop")
 	root.add_child(viewport_backdrop)
-	viewport_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var far_backdrop := _new_letterbox_band("CastleLetterboxBackdropFar")
+	root.add_child(far_backdrop)
 	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
 	m.castle_room_stage = StorybookUI.add_stage(root, viewport_size)
+	_fit_letterbox_bands(viewport_backdrop, far_backdrop, viewport_size)
 	_build_castle_voice_caption()
 	# StorybookUI stages default to MOUSE_FILTER_STOP, which is right for the
 	# menus and pickers that own the whole screen. Here the stage sits ON TOP
@@ -1237,6 +1246,7 @@ func close() -> void:
 	_blocked_door_feedback_cool = 0.0
 	_blocked_door_last_tap.clear()
 	m.g.erase("castle_room_affordance")
+	m.g.erase("castle_room_door_visual_layer")
 	m.g.erase("castle_dust_bunnies_cleared")
 	m.g.erase("castle_dust_bunny_runner_time")
 	m.g.erase("castle_dining_plates")
@@ -1344,6 +1354,7 @@ func _build_stage() -> void:
 	m.castle_room_world_root.add_child(m.castle_room_player_sprite)
 	if m.skin_id == "classic":
 		var animator := ROSHAN_SPRITE_LOOP.new()
+		animator.wardrobe_owner = m
 		animator.name = "AlwaysAliveSpriteLoop"
 		m.castle_room_player_sprite.add_child(animator)
 		animator.setup_sprite_2d(
@@ -1365,6 +1376,13 @@ func _build_stage() -> void:
 	m.castle_room_item_hotspot_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	m.castle_room_item_hotspot_layer.z_index = 24
 	stage.add_child(m.castle_room_item_hotspot_layer)
+	var door_visual_layer := Control.new()
+	door_visual_layer.name = "MainHallDoorGlowVisuals"
+	door_visual_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# Above the painted hall (-1000), below signs (-932), Roshan and input.
+	door_visual_layer.z_index = HALL_DOOR_GLOW_STAGE_Z
+	stage.add_child(door_visual_layer)
+	m.g["castle_room_door_visual_layer"] = door_visual_layer
 	m.castle_room_door_hotspot_layer = Control.new()
 	m.castle_room_door_hotspot_layer.name = "MainHallDoorHotspots"
 	m.castle_room_door_hotspot_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1399,6 +1417,46 @@ func _build_stage() -> void:
 	transition_cover.set_meta("covers_complete_room_composition", true)
 	stage.add_child(transition_cover)
 	transition_cover.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+func _new_letterbox_band(band_name: String) -> ColorRect:
+	var band := ColorRect.new()
+	band.name = band_name
+	band.color = Color(0.055, 0.035, 0.105, 1.0)
+	band.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	band.z_index = -2000
+	band.set_meta("castle_safe_frame_backdrop", true)
+	return band
+
+
+func _fit_letterbox_bands(near_band: ColorRect, far_band: ColorRect,
+		viewport_size: Vector2) -> void:
+	# Fill only the safe bands the fitted stage leaves. A full-screen fill under
+	# the opaque room tiles was an extra layer drawn on every hidden pixel
+	# (gold-star OD6, MA-VIS-009). Each band overlaps the stage edge by one
+	# pixel so a fractional stage scale never opens a hairline seam.
+	var stage_rect := Rect2(m.castle_room_stage.position,
+		StorybookUI.CANVAS_SIZE * m.castle_room_stage.scale)
+	var bands: Array[Rect2] = []
+	if stage_rect.position.x >= 0.5:
+		var near_width: float = ceilf(stage_rect.position.x) + 1.0
+		var far_start: float = floorf(stage_rect.end.x) - 1.0
+		bands = [Rect2(0.0, 0.0, near_width, viewport_size.y),
+			Rect2(far_start, 0.0, viewport_size.x - far_start, viewport_size.y)]
+	elif stage_rect.position.y >= 0.5:
+		var near_height: float = ceilf(stage_rect.position.y) + 1.0
+		var far_top: float = floorf(stage_rect.end.y) - 1.0
+		bands = [Rect2(0.0, 0.0, viewport_size.x, near_height),
+			Rect2(0.0, far_top, viewport_size.x, viewport_size.y - far_top)]
+	var targets: Array[ColorRect] = [near_band, far_band]
+	for index: int in range(targets.size()):
+		var band: ColorRect = targets[index]
+		band.visible = index < bands.size()
+		if band.visible:
+			band.position = bands[index].position
+			band.size = bands[index].size
+		else:
+			band.size = Vector2.ZERO
+
 
 func _build_hall_background_tiles() -> void:
 	m.castle_room_background_tiles.clear()
@@ -1478,6 +1536,9 @@ func _set_hall_background_visible(visible: bool,
 		m.castle_room_background.visible = not visible and not detail_tiles_ready
 	if m.castle_room_door_hotspot_layer != null:
 		m.castle_room_door_hotspot_layer.visible = visible
+	var door_visual_layer: Control = m.g.get("castle_room_door_visual_layer") as Control
+	if door_visual_layer != null:
+		door_visual_layer.visible = visible
 	_sync_hall_horizontal_culling()
 
 func _hall_horizontal_cull_span() -> Vector2:
@@ -1657,13 +1718,17 @@ func _build_room_background_tiles(room_id: String) -> bool:
 func _build_hall_portals() -> void:
 	if m.castle_room_door_hotspot_layer == null:
 		return
+	var door_visual_layer: Control = m.g.get("castle_room_door_visual_layer") as Control
+	if door_visual_layer == null:
+		return
 	m.castle_room_door_hotspots.clear()
 	for portal_data: Dictionary in HALL_PORTALS:
 		var portal_id: String = String(portal_data["id"])
 		var cue: CastleDoorCue = DoorCue.new() as CastleDoorCue
 		cue.name = "HallDoorCue_" + portal_id
 		cue.z_index = 0
-		m.castle_room_door_hotspot_layer.add_child(cue)
+		cue.configure_physical_frame(String(portal_data["frame_family"]))
+		door_visual_layer.add_child(cue)
 		var button := Button.new()
 		button.name = "HallDoor_" + portal_id
 		button.flat = true
@@ -1682,6 +1747,7 @@ func _build_hall_portals() -> void:
 			"data": portal_data,
 		})
 	m.castle_room_door_hotspot_layer.visible = false
+	door_visual_layer.visible = false
 
 func door_state(destination_id: String) -> String:
 	if m.day_one_is_active():
@@ -2039,8 +2105,7 @@ func _sync_day_one_persistent_rumi() -> void:
 	if _day_one_persistent_rumi != null \
 			and is_instance_valid(_day_one_persistent_rumi):
 		return
-	var pose_atlas: Texture2D = load(
-		DAY_ONE_POOL_CLEANUP.RUMI_POSE_ATLAS) as Texture2D
+	var pose_atlas: Texture2D = load(FashionOutfitRenderer.path(m, RUMI_POSE_ATLAS)) as Texture2D
 	if pose_atlas == null:
 		return
 	var frames := SpriteFrames.new()
@@ -2056,7 +2121,7 @@ func _sync_day_one_persistent_rumi() -> void:
 		frames.add_frame(&"idle", frame)
 	_day_one_persistent_rumi = AnimatedSprite2D.new()
 	_day_one_persistent_rumi.name = "DayOnePersistentRumi"
-	_day_one_persistent_rumi.sprite_frames = frames
+	_day_one_persistent_rumi.sprite_frames = FashionSkinEngine.animation_frames(m,frames)
 	_day_one_persistent_rumi.animation = &"idle"
 	_day_one_persistent_rumi.position = RUMI_IDLE_POSITION
 	_day_one_persistent_rumi.scale = Vector2.ONE * RUMI_IDLE_SCALE
@@ -2193,8 +2258,11 @@ func _on_day_one_pool_cleanup_step(step: int, cleanup_id: String) -> void:
 
 
 func _on_day_one_pool_finale_started() -> void:
+	# The authored waterfall and fountain sequences are the clean-pool reveal;
+	# Rumi rises once, in the room-completion story clip (owner QP-1). A generic
+	# star burst at the same spot drew nine copies of one star over it (OD1,
+	# MA-VIS-009), as the bathroom finale already avoids.
 	_activate_room_item("waterfall")
-	_burst("✦", Color(0.74, 0.94, 1.0))
 
 
 func _on_day_one_pool_reveal_completed() -> void:
@@ -2914,6 +2982,22 @@ func _rebuild_depth_layers(room_id: String) -> void:
 		_add_layer_piece(m.castle_room_mid_layer, piece_data, MIDGROUND_Z)
 	for piece_data: Dictionary in layout.get("front", []):
 		_add_layer_piece(m.castle_room_front_layer, piece_data, FOREGROUND_Z)
+	if room_id == "royal_bedroom":
+		_build_embrace_wall_painting()
+
+func _build_embrace_wall_painting() -> void:
+	# The full owner-supplied image sits above the bedside area, outside the
+	# walk band. Room depth-layer teardown also owns this decorative card.
+	var texture: Texture2D = load(ROOM_ART + "merfolk_embrace_painting.png")
+	var painting: Sprite2D = _new_card("MerfolkEmbracePainting", texture)
+	var art_rect := Rect2(806.0, 104.0, 140.0, 200.0)
+	painting.position = _art_to_world(art_rect.get_center(), 0.25)
+	painting.scale = art_rect.size / texture.get_size() * ART_TO_STAGE
+	painting.z_index = _depth_to_z_index(0.25)
+	painting.set_meta("source_asset_role", "noninteractive_wall_painting")
+	painting.set_meta("source_art_rect", art_rect)
+	painting.set_meta("depth_z", 0.25)
+	m.castle_room_mid_layer.add_child(painting)
 
 func _build_hall_door_signs() -> void:
 	if m.castle_room_mid_layer == null:
@@ -4593,6 +4677,8 @@ func _player_texture_scale() -> float:
 	return desired_stage_height / maxf(1.0, frame_height)
 
 func refresh_player_skin() -> void:
+	_clear_day_one_persistent_rumi()
+	_sync_day_one_persistent_rumi()
 	# WardrobeUI changes the primary 2D player through ReefMain._apply_skin().
 	# The castle owns a separate Sprite2D standee, so refresh that same selected
 	# look in place without replacing the room actor or disturbing its position.
@@ -4611,6 +4697,7 @@ func refresh_player_skin() -> void:
 	sprite.texture = load(m.skin_sprite_path()) as Texture2D
 	if m.skin_id == "classic":
 		var animator: RoshanSpriteLoop = ROSHAN_SPRITE_LOOP.new()
+		animator.wardrobe_owner = m
 		animator.name = "AlwaysAliveSpriteLoop"
 		sprite.add_child(animator)
 		animator.setup_sprite_2d(sprite, false, sprite)
@@ -5007,11 +5094,13 @@ func sync_castle_companion_card() -> void:
 		m.castle_room_item_visual_layer.add_child(card)
 	var identity: String = String(card.get_meta("companion_id", ""))
 	var saved_colors: Array = card.get_meta("companion_colors", []) as Array
+	var saved_outfit: Variant = m.character_outfits.get("baby_eagle", "")
+	var eagle_outfit: String = saved_outfit if saved_outfit is String else ""
 	var current_colors: Array[Color] = m._companion_ref().colors()
 	var color_tokens: Array[String] = []
 	for color: Color in current_colors:
 		color_tokens.append(color.to_html(false))
-	if identity != m.companion_id or saved_colors != color_tokens:
+	if identity != m.companion_id or saved_colors != color_tokens or String(card.get_meta("fashion_outfit", "")) != eagle_outfit:
 		for child: Node in card.get_children():
 			child.free()
 		var asset_paths: Array[String] = []
@@ -5036,7 +5125,7 @@ func sync_castle_companion_card() -> void:
 						+ String(layer_names[draw_index]) + ".png")
 					tints.append(ordered_tints[asset_paths.size() - 1])
 		for index: int in range(asset_paths.size()):
-			var texture: Texture2D = load(asset_paths[index]) as Texture2D
+			var texture: Texture2D = load(FashionOutfitRenderer.path(m, asset_paths[index])) as Texture2D
 			if texture == null:
 				continue
 			var visual := TextureRect.new()
@@ -5050,6 +5139,7 @@ func sync_castle_companion_card() -> void:
 			visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			card.add_child(visual)
 		card.set_meta("companion_id", m.companion_id)
+		card.set_meta("fashion_outfit", eagle_outfit)
 		card.set_meta("companion_colors", color_tokens)
 		card.set_meta("source_object_id", "castle:companion:" + m.companion_id)
 		card.set_meta("source_asset_paths", asset_paths)
@@ -5121,8 +5211,11 @@ func _tick_item_affordances(_delta: float) -> void:
 		var record: Dictionary = m.castle_room_item_sprites[item_id_value]
 		var sprite: Sprite2D = record.get("sprite") as Sprite2D
 		var hotspot: Button = record.get("hotspot") as Button
+		# Only a prop the child can touch right now earns the touring halo: an
+		# activity that suspends the hotspot layer (the Day One cleanups) must not
+		# be undercut by a pulse inviting taps that cannot answer (DL-READ-03).
 		if sprite != null and is_instance_valid(sprite) and sprite.visible \
-				and hotspot != null and hotspot.visible \
+				and hotspot != null and hotspot.is_visible_in_tree() \
 				and not bool(sprite.get_meta("busy", false)):
 			candidate_ids.append(item_id)
 	if candidate_ids.is_empty():
@@ -5226,6 +5319,9 @@ func _update_hall_portals() -> void:
 		return
 	var hall_visible: bool = _is_wide_hall() and is_open()
 	m.castle_room_door_hotspot_layer.visible = hall_visible
+	var door_visual_layer: Control = m.g.get("castle_room_door_visual_layer") as Control
+	if door_visual_layer != null:
+		door_visual_layer.visible = hall_visible
 	if not hall_visible or m.castle_room_world_root == null:
 		return
 	for record: Dictionary in m.castle_room_door_hotspots:
@@ -5255,10 +5351,9 @@ func _update_hall_portals() -> void:
 		var canvas_rect := Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)
 		button.visible = projected.intersects(canvas_rect)
 		if cue != null:
-			var cue_rect: Rect2 = projected.intersection(canvas_rect) \
-				if button.visible else Rect2()
-			cue.position = cue_rect.position
-			cue.size = cue_rect.size
+			# Only touch bounds are clipped; keep the complete painted silhouette.
+			cue.position = projected.position
+			cue.size = projected.size
 			cue.visible = button.visible and state != DoorLanguage.OPEN
 		if m.DAY_ONE_CASTLE_ROOM_IDS.has(portal_id) \
 				and m.day_one_castle_dressing != null \

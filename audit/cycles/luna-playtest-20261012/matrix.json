@@ -1,0 +1,410 @@
+{
+  "schema": "luna_playtest_matrix/1",
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "requested_agents_minimum": 51,
+  "planned_review_sessions": 57,
+  "scouts_excluded": 3,
+  "runtime_kind": "existing Godot scripted probes with focused independent source review; no GUI exploration or physical touch",
+  "sessions": [
+    {
+      "id": "L01",
+      "focus": "Fresh Day One entry and cues",
+      "probe": "probe_day_one_integration",
+      "source": "scripts/day_one_flow.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L02",
+      "focus": "Bathroom first-action discoverability",
+      "probe": "probe_day_one_bathroom_cleanup",
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L03",
+      "focus": "Bathroom wobbly scrub and release",
+      "probe": "probe_day_one_bathroom_cleanup",
+      "source": "scripts/games/day_one_fixture_scrub.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L04",
+      "focus": "Bathroom fixture action and feedback",
+      "probe": "probe_bathroom_integration",
+      "source": "scripts/games/day_one_bathroom_toilet.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L05",
+      "focus": "Bathroom swimming bunny pacing",
+      "probe": "probe_day_one_bathroom_bunny",
+      "source": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L06",
+      "focus": "Bathroom completion and clip boundary",
+      "probe": "probe_day_one_bathroom_movie_handoff",
+      "source": "scripts/day_one_bathroom_movie_handoff.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L07",
+      "focus": "Pool skimmer repeated scoop loop",
+      "probe": "probe_day_one_pool_cleanup",
+      "source": "scripts/games/pool_skimmer_activity.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L08",
+      "focus": "Waterfall lane strokes and tap assist",
+      "probe": "probe_day_one_pool_cleanup",
+      "source": "scripts/games/pool_waterfall_activity.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L09",
+      "focus": "Seahorse rescue tug rhythm",
+      "probe": "probe_day_one_pool_cleanup",
+      "source": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L10",
+      "focus": "Travel/contact delayed payoff and retarget",
+      "probe": "probe_day_one_pool_cleanup",
+      "source": "scripts/day_one_contact_action_2d.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L11",
+      "focus": "Baby Eagle rescue and re-entry",
+      "probe": "probe_stuffie",
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "route_state_hint": "mixed"
+    },
+    {
+      "id": "L12",
+      "focus": "Craft cleanup and attack customization",
+      "probe": "probe_day_one_art_attack_state",
+      "source": "scripts/day_one_art_studio.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L13",
+      "focus": "Castle doors and royal-hall approach",
+      "probe": "probe_throne",
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L14",
+      "focus": "Day One voice/visual goal agreement",
+      "probe": "probe_day_one_voice",
+      "source": "scripts/audio_director.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L15",
+      "focus": "Day One revisit and repeat incentive",
+      "probe": "probe_day_one_d8_revisits",
+      "source": "scripts/day_one_flow.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L16",
+      "focus": "Grand Puff reaction window and mercy",
+      "probe": "probe_dust_boss_balance",
+      "source": "scripts/games/dust_boss.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L17",
+      "focus": "Boxer jab/guard intentional rhythm",
+      "probe": "probe_opera_gesture_quality",
+      "source": "scripts/opera_boxing_surface.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L18",
+      "focus": "Teacher lesson choice and recovery",
+      "probe": "probe_opera_2d",
+      "source": "scripts/opera_teacher_surface.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L19",
+      "focus": "Racer acceleration steering and finish",
+      "probe": "probe_opera_2d",
+      "source": "scripts/opera_racer_surface.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L20",
+      "focus": "Magician tracking rope and contact",
+      "probe": "probe_opera_2d",
+      "source": "scripts/opera_career_world_2d.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L21",
+      "focus": "Nursery catch forgiving one-finger timing",
+      "probe": "probe_opera_nursery",
+      "source": "scripts/opera_nursery_catch.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L22",
+      "focus": "Pop Star rhythm and encouragement",
+      "probe": "probe_opera_2d",
+      "source": "scripts/opera_performance_plan.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L23",
+      "focus": "Ballerina pose ribbon and twirl input",
+      "probe": "probe_opera_gesture_quality",
+      "source": "scripts/opera_ballet_surface.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L24",
+      "focus": "Candy Maker tactile phase variety",
+      "probe": "probe_opera_2d",
+      "source": "scripts/opera_career_world_2d.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L25",
+      "focus": "Chef stirring and changing physical states",
+      "probe": "probe_opera_2d",
+      "source": "scripts/opera_career_world_2d.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L26",
+      "focus": "Detective clue intention vs random tapping",
+      "probe": "probe_opera_detective",
+      "source": "scripts/opera_career_world_2d.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L27",
+      "focus": "Farmer lawn/resume and waiting",
+      "probe": "probe_chapter2_farmer_resume",
+      "source": "scripts/chapter_two_director.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L28",
+      "focus": "Doctor treatment contact and sequencing",
+      "probe": "probe_opera_diegetic_paths",
+      "source": "scripts/opera_career_world_2d.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L29",
+      "focus": "Painter pictured creativity and repeat value",
+      "probe": "probe_opera_2d",
+      "source": "scripts/opera_career_world_2d.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L30",
+      "focus": "Astronaut pipes turning and feedback",
+      "probe": "probe_opera_pipe",
+      "source": "scripts/opera_career_world_2d.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L31",
+      "focus": "Geologist tactile work and state truth",
+      "probe": "probe_opera_2d",
+      "source": "scripts/opera_geology_surface.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L32",
+      "focus": "Tap-to-world routing and action ownership",
+      "probe": "probe_interaction",
+      "source": "scripts/touch_ui.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L33",
+      "focus": "Swipe continuity rapid retarget and release",
+      "probe": "probe_touch_stress",
+      "source": "scripts/touch_ui.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L34",
+      "focus": "Second finger rejection and held ownership",
+      "probe": "probe_touch_router",
+      "source": "scripts/touch_ui.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L35",
+      "focus": "Hidden stick regions and discoverability",
+      "probe": "probe_touch_look",
+      "source": "scripts/touch_ui.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L36",
+      "focus": "Sky Lagoon approach animal boundaries return",
+      "probe": "probe_sky_lagoon_animals",
+      "source": "scripts/arena/sky_lagoon_promenade.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L37",
+      "focus": "Pause resume held input and stale callbacks",
+      "probe": "probe_ui_system",
+      "source": "scripts/pause_menu.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L38",
+      "focus": "Voice guidance without readable captions",
+      "probe": "probe_voice",
+      "source": "scripts/audio_director.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L39",
+      "focus": "Fetch mechanic vs missing child route",
+      "probe": "probe_fetch",
+      "source": "scripts/games/fetch.gd",
+      "route_state_hint": "dormant"
+    },
+    {
+      "id": "L40",
+      "focus": "Dolls mechanic vs missing child route",
+      "probe": "probe_dolls",
+      "source": "scripts/games/dolls.gd",
+      "route_state_hint": "dormant"
+    },
+    {
+      "id": "L41",
+      "focus": "Seek tree cue and repeatability",
+      "probe": "probe_seek",
+      "source": "scripts/games/seek.gd",
+      "route_state_hint": "dormant"
+    },
+    {
+      "id": "L42",
+      "focus": "Melody rhythm recovery and input variety",
+      "probe": "probe_melody",
+      "source": "scripts/games/melody.gd",
+      "route_state_hint": "dormant"
+    },
+    {
+      "id": "L43",
+      "focus": "Picture games five mechanic varieties",
+      "probe": "probe_mg2d",
+      "source": "scripts/games/picture_games.gd",
+      "route_state_hint": "dormant"
+    },
+    {
+      "id": "L44",
+      "focus": "Sky Lagoon playground pacing and return",
+      "probe": "probe_l2_reenter",
+      "source": "scripts/arena/sky_lagoon_promenade.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L45",
+      "focus": "Wardrobe direct choices and back lifecycle",
+      "probe": "probe_ui_system",
+      "source": "scripts/wardrobe_ui.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L46",
+      "focus": "New game existing progress safety",
+      "probe": "probe_start_menu_new_game",
+      "source": "scripts/start_menu.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L47",
+      "focus": "Continue saved route and orientation",
+      "probe": "probe_start_menu_routing",
+      "source": "scripts/start_menu.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L48",
+      "focus": "Interrupted action persisted vs unfinished",
+      "probe": "probe_load",
+      "source": "scripts/save_state.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L49",
+      "focus": "Corrupt/truncated saves recovery and unknown keys",
+      "probe": "probe_save_recovery",
+      "source": "scripts/save_state.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L50",
+      "focus": "Chapter Two milestone no duplicate award",
+      "probe": "probe_alpha_milestone_save",
+      "source": "scripts/chapter_two_director.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L51",
+      "focus": "Zero-input wait never wins",
+      "probe": "probe_passive",
+      "source": "scripts/main.gd",
+      "route_state_hint": "mixed"
+    },
+    {
+      "id": "L52",
+      "focus": "Adversarial wrong touch vs intentional action",
+      "probe": "probe_touch_adversary",
+      "source": "scripts/touch_ui.gd",
+      "route_state_hint": "mixed"
+    },
+    {
+      "id": "L53",
+      "focus": "Session handoffs and scene clip agency",
+      "probe": "probe_day_one_story_clips",
+      "source": "scripts/day_one_story_clips.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L54",
+      "focus": "Chapter Two career route starts and party",
+      "probe": "probe_chapter2",
+      "source": "scripts/chapter_two_director.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L55",
+      "focus": "Fairy Conservatory door/Skyway start and return",
+      "probe": "probe_fairy_conservatory_route",
+      "source": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L56",
+      "focus": "Butterfly World rescue return and saved origin",
+      "probe": "probe_galaxy_state",
+      "source": "scripts/galaxy.gd",
+      "route_state_hint": "live"
+    },
+    {
+      "id": "L57",
+      "focus": "Family Evening direct ingredients movie bedtime and replay",
+      "probe": "probe_ui_system",
+      "source": "scripts/comfy_games.gd",
+      "route_state_hint": "live"
+    }
+  ],
+  "scope_expansion": "Added L55-L57 before invocation for current early Chapter3, Butterfly return and Family Evening source/route coverage. No chapter implementation or acceptance."
+}

@@ -14,6 +14,7 @@ static func run() -> Array[String]:
 	_check_profile("pepper", EncounterProfile2D.pepper(7), failures)
 	_check_custom_order(failures)
 	_check_restore(failures)
+	_check_patient_checkpoint(failures)
 	return failures
 
 
@@ -175,3 +176,34 @@ static func _same_geometry(a: Dictionary, b: Dictionary) -> bool:
 
 static func _fail(failures: Array[String], message: String) -> void:
 	failures.append(message)
+
+
+static func _check_patient_checkpoint(failures: Array[String]) -> void:
+	var profile: EncounterProfile2D = EncounterProfile2D.grand_puff()
+	var encounter := BossEncounter2D.new()
+	encounter.configure(profile, 1, 2, 2, 1)
+	encounter.begin_attack(PLAYER_POSITION, BOSS_POSITION, ARENA_RADIUS)
+	if encounter.patterns.step_index != 1 or not encounter.patient_warning():
+		_fail(failures, "Grand Puff lost the saved first dodge or patient warning")
+	encounter.tick_tell(20.0)
+	encounter.begin_strike()
+	encounter.resolve_impact(encounter.patterns.readout().get("safe_point", Vector2.ZERO) as Vector2,
+		BOSS_POSITION, ARENA_RADIUS)
+	if encounter.completed_attacks != 2:
+		_fail(failures, "Grand Puff did not preserve the second earned dodge")
+	var restored := BossEncounter2D.new()
+	restored.configure(profile, encounter.completed_rounds, encounter.damage_taken,
+		encounter.opening_misses, encounter.completed_attacks)
+	restored.begin_attack(PLAYER_POSITION, BOSS_POSITION, ARENA_RADIUS)
+	if restored.state != BossEncounter2D.State.COUNTER_READY:
+		_fail(failures, "Grand Puff replayed earned attacks after restore")
+	restored.open_counter()
+	if restored.tick_counter(300.0, true) or restored.try_counter(false, true, true) \
+			or restored.try_counter(true, false, true) or restored.completed_rounds != 1:
+		_fail(failures, "patient opening advanced from waiting, held, or off-target input")
+	if not restored.try_counter(true, true, true) or restored.completed_attacks != 0:
+		_fail(failures, "patient opening rejected a fresh target or retained stale attack progress")
+	var pepper := BossEncounter2D.new()
+	pepper.configure(EncounterProfile2D.pepper(), 1, 2, 2, 1)
+	if pepper.completed_attacks != 0 or pepper.patient_warning() or is_inf(pepper.counter_window()):
+		_fail(failures, "Grand Puff assistance leaked into Pepper")

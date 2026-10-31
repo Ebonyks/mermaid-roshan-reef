@@ -1,0 +1,19 @@
+{
+  "status": "COMPLETE",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef",
+    "-s",
+    "scripts/probe_opera.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "exit": 0,
+  "elapsed_seconds": 120.56147360801697,
+  "source_pin": "audit/grand_puff_crash_20261017/source_pin.json",
+  "assertion_or_script_failures": [],
+  "qualification": "Exact unchanged trusted probe retry after a preserved baseline cold-init deadline failure; this does not accept first-load/device performance."
+}

@@ -1,0 +1,322 @@
+{
+ "schema": "study_rerun_summary/1",
+ "purpose": "Compact numbers from Claude's read-only rerun of tools/study_game.py at the post-implementation head, used as review evidence. The full study.json is not committed (size); rerun the command to reproduce.",
+ "command": "python -B tools/study_game.py --cycle 2026-10-03-audit --as-of 2026-10-03 --previous audit/cycles/2026-10-03/study.json --output <scratch> --timeout 300",
+ "studied_head": "4cb14febc2c5f0074d5ad8386ce66f19f940c84d",
+ "working_tree": "clean",
+ "full_study_json_bytes": 2608656,
+ "full_study_json_sha256": "c3e407d3db2c4604a8b1aac0fd2d97c289f4ed7ea61a853630ad8bc1ef56aa93",
+ "report_bytes": 15656,
+ "largest_sections_bytes": {
+  "impacts": 843317,
+  "impact_records": 801666,
+  "sensors": 634831,
+  "ci": 39153
+ },
+ "ci_run": {
+  "id": 37161828730,
+  "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37161828730",
+  "status": "MEASURED"
+ },
+ "advisory_steps": [
+  {
+   "name": "Dust boss balance playtest (advisory)",
+   "status": "FAIL"
+  },
+  {
+   "name": "Opera balance playtest (advisory)",
+   "status": "CAPPED"
+  },
+  {
+   "name": "Publish opera art manifest (advisory)",
+   "status": "FAIL"
+  },
+  {
+   "name": "Upload opera art manifest",
+   "status": "MEASURED"
+  },
+  {
+   "name": "Capture first-world visual review",
+   "status": "NOT_MEASURED"
+  },
+  {
+   "name": "Capture legacy human-art diagnostic",
+   "status": "FAIL"
+  },
+  {
+   "name": "Upload legacy human-art diagnostic",
+   "status": "MEASURED"
+  },
+  {
+   "name": "Capture Sky Lagoon visual review",
+   "status": "FAIL"
+  },
+  {
+   "name": "Upload Sky Lagoon visual review",
+   "status": "MEASURED"
+  },
+  {
+   "name": "Capture northern-world visual review",
+   "status": "FAIL"
+  },
+  {
+   "name": "Upload northern-world visual review",
+   "status": "MEASURED"
+  },
+  {
+   "name": "Capture dust-boss arena review",
+   "status": "FAIL"
+  },
+  {
+   "name": "Upload dust-boss arena review",
+   "status": "MEASURED"
+  },
+  {
+   "name": "Capture pearl-castle visual review",
+   "status": "FAIL"
+  },
+  {
+   "name": "Upload pearl-castle visual review",
+   "status": "MEASURED"
+  },
+  {
+   "name": "Upload advisory sensor receipts",
+   "status": "MEASURED"
+  }
+ ],
+ "sensors": {
+  "document_authority": {
+   "collection": "MEASURED",
+   "summary_status": null
+  },
+  "game_2d": {
+   "collection": "MEASURED",
+   "summary_status": "UNSATISFIED"
+  },
+  "typography": {
+   "collection": "MEASURED",
+   "summary_status": "OPEN"
+  },
+  "visual_profile": {
+   "collection": "MEASURED",
+   "summary_status": "FINDINGS_RECORDED"
+  }
+ },
+ "loop_health": {
+  "open_findings": 61,
+  "open_without_history_entry_30_days": 38,
+  "fixed_pending_verification": 12,
+  "impact_records": 79,
+  "structured_lessons": 2,
+  "pending_validations": 38,
+  "pending_resolved_by_collector": 2,
+  "failed_validations": 36
+ },
+ "health_targets": [
+  {
+   "id": "stale_open_fraction",
+   "value": 0.6229508196721312,
+   "status": "NEEDS_ATTENTION"
+  },
+  {
+   "id": "old_unverified_fixes",
+   "value": 7,
+   "status": "NEEDS_ATTENTION"
+  },
+  {
+   "id": "lessons_fraction_since_lp4",
+   "value": null,
+   "status": "NOT_MEASURED"
+  },
+  {
+   "id": "repeated_owner_corrections",
+   "value": 0,
+   "status": "NOT_MEASURED"
+  },
+  {
+   "id": "roadmap_current_cycle",
+   "value": null,
+   "status": "NOT_MEASURED"
+  },
+  {
+   "id": "handoffs_waiting_two_cycles",
+   "value": null,
+   "status": "NOT_MEASURED"
+  }
+ ],
+ "findings_changed_since_history": [
+  "MA-VIS-002",
+  "MA-ACCESS-003",
+  "MA-CI-004",
+  "MA-CODE-003",
+  "MA-PERF-002",
+  "MA-PERF-003",
+  "MA-SAVE-001",
+  "MA-AUDIO-002",
+  "MA-TYPE-004"
+ ],
+ "motion_studies": [
+  {
+   "id": "2026-09-06-chapter2-lawn-ember-alpha",
+   "kind": "character",
+   "owner_verdict_entries": 0
+  },
+  {
+   "id": "2026-09-06-chapter2-scale-handoff",
+   "kind": "character",
+   "owner_verdict_entries": 0
+  },
+  {
+   "id": "hall-art-followup-2026-09-06",
+   "kind": "character",
+   "owner_verdict_entries": 0
+  },
+  {
+   "id": "2026-09-12-roshan-grok-auditions",
+   "kind": "character",
+   "owner_verdict_entries": 0
+  },
+  {
+   "id": "2026-09-13-roshan-grok-video-first",
+   "kind": "character",
+   "owner_verdict_entries": 0
+  },
+  {
+   "id": "sky-lagoon-local-animation-20260930",
+   "kind": "object",
+   "owner_verdict_entries": 0
+  },
+  {
+   "id": "sky-lagoon-moderate-animation-20260930",
+   "kind": "object",
+   "owner_verdict_entries": 0
+  },
+  {
+   "id": "sky-lagoon-motion-owner-qc-20260930",
+   "kind": "object",
+   "owner_verdict_entries": 2
+  },
+  {
+   "id": "sky-lagoon-review-v3-20261001",
+   "kind": "object",
+   "owner_verdict_entries": 0
+  },
+  {
+   "id": "sky-lagoon-v14-animation-20260916",
+   "kind": "character",
+   "owner_verdict_entries": 0
+  }
+ ],
+ "handoffs": [
+  {
+   "handoff": "codex_job_platform_architecture_2026-09-30",
+   "status": "NOT_STARTED"
+  },
+  {
+   "handoff": "codex_master_audit_refinement_2026-09-30",
+   "status": "PARTLY_BUILT"
+  },
+  {
+   "handoff": "codex_opera_imp_contest_2026-09-30",
+   "status": "UNTRACKED"
+  },
+  {
+   "handoff": "codex_reference_consolidation_2026-09-30",
+   "status": "NOT_STARTED"
+  },
+  {
+   "handoff": "codex_roshan_art_repairs_2026-09-30",
+   "status": "NOT_STARTED"
+  },
+  {
+   "handoff": "codex_self_improvement_loop_2026-10-03",
+   "status": "TARGETS_PRESENT"
+  },
+  {
+   "handoff": "codex_visual_design_language_2026-09-30",
+   "status": "NOT_STARTED"
+  },
+  {
+   "handoff": "codex_visual_polish_2026-09-25",
+   "status": "UNTRACKED"
+  }
+ ],
+ "unmerged_fetched_branches": 194,
+ "surfaces": [
+  {
+   "id": "Day One",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Grand Puff",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Day Two",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Opera careers",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Sky Lagoon",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Castle rooms",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Roshan movement",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Companions",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Touch controls",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Pause and settings",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Wardrobe",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Craft studio",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Teacher",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  },
+  {
+   "id": "Geologist",
+   "present": true,
+   "acceptance": "NOT_MEASURED"
+  }
+ ],
+ "owner_decisions": {
+  "operating_default": 8,
+  "recorded_owner": 8,
+  "unclassified": 0
+ }
+}

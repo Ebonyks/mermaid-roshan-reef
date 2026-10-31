@@ -1,0 +1,50 @@
+{
+  "schema": "luna_probe_receipt/1",
+  "session_id": "L26",
+  "attempt": 1,
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Detective clue intention vs random tapping",
+  "probe": "probe_opera_detective",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-playtest-20261012\\mermaid-roshan-reef",
+    "-s",
+    "scripts/probe_opera_detective.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "started_utc": "2026-10-13T01:30:27.109870+00:00",
+  "status": "PASS",
+  "evidence_kind": "SCRIPTED_PROBE",
+  "engine": {
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643"
+  },
+  "source_hashes": {
+    "project.godot": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f",
+    "scenes/main.tscn": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+    "scripts/ci.sh": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+    "scripts/probe_opera_detective.gd": "e515878b2f542d87b74c3b371003eb723821411af3b7cd47b9d57287388c6369",
+    "scripts/opera_career_world_2d.gd": "bef433ce6869d268bae3ee07948b37ba8b2d93bed8a9d82005a031e817db0edf"
+  },
+  "helper_sha256": "2ff23721f7e50a2abe878afde1f797fa3c27c66285b33aa1a549157005e3c953",
+  "save_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-luna-L26-em7ymm5q",
+  "profile_isolated": true,
+  "headless": true,
+  "rendered_mobile_acceptance": false,
+  "log": "audit/cycles/luna-playtest-20261012/runtime/L26/attempt_1/probe.log",
+  "wall_clock_is_gameplay_timing": false,
+  "finished_utc": "2026-10-13T01:30:37.343894+00:00",
+  "wall_elapsed_seconds": 10.229,
+  "exit_code": 0,
+  "timed_out": false,
+  "failure_lines": [],
+  "terminal_lines": [
+    "OPERA_DETECTIVE|result: ALL OK"
+  ],
+  "log_sha256": "ada2802f1fd8ddfa452d4ca6d40b560d95e2fe6a0d784f3c5ebc5161755a2498",
+  "log_bytes": 1138
+}

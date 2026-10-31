@@ -1,0 +1,1153 @@
+{
+  "schema": "reef.fashion_garment/1",
+  "status": "PROVISIONAL_GAMEPLAY_CLOTHING_OWNER_REVIEW_PENDING",
+  "baseline": "a5fe2368ea56a6b0c1a01e48f20282435b15aa1e",
+  "source_reference": {
+    "path": "assets_src/fashion_designer/party_dress_v1/roshan_party_dress_candidate.png",
+    "sha256": "53f79246e32c9465f7975e0e35ccf242cdf22dd4dd95c2a64b198a01883f3f9b",
+    "role": "Garment design only; regenerated face and tiara excluded from gameplay"
+  },
+  "generation": {
+    "provider": "OpenAI built-in image_gen",
+    "method": "standalone transparent garment generation from design reference",
+    "attempt": 1,
+    "model": null,
+    "seed": null,
+    "unavailable_metadata": "Built-in tool did not expose model version, seed or request ID",
+    "prompt_path": "assets_src/fashion_designer/party_garment_v1/prompt.txt",
+    "prompt_sha256": "ebca3461e166c901e4ca7487143a6e56f9452324904478c27e47fb2c37f28987",
+    "native_output_preserved": true
+  },
+  "native": {
+    "path": "assets_src/fashion_designer/party_garment_v1/native.png",
+    "sha256": "b99743e3bd74a63fa04a02ab12fc1816ccc10ca9e662147f70c5e7ffc2a1427b",
+    "dimensions": [
+      1206,
+      1305
+    ]
+  },
+  "builder": {
+    "path": "tools/build_fashion_outfits.gd",
+    "method": "Godot Image 2D clothing assembly on new derivative paths; cropped garment is resized and blended, original skin/hands restored in garment area. Procedural ribbon accessories use the existing painted palette and rounded navy contours. Not cinematic frames.",
+    "pose_fit": "assets_src/fashion_designer/party_garment_v1/pose_fit.json",
+    "limits": "Pose fit is provisional; inspect every live pose before owner/art acceptance. Source character files remain unchanged.",
+    "sha256": "97ca73048b9f99018c2a8420968123ccacd0b65806882a6d8d4646db960df47a"
+  },
+  "runtime_outputs": [
+    {
+      "path": "assets/fashion/outfits/baby_eagle_garden.png",
+      "sha256": "66e162c19e9606dfde53237cfe24a2da8307891014d1c550e0a067aa7be39068",
+      "dimensions": [
+        290,
+        512
+      ],
+      "source_path": "assets/characters/companions/baby_eagle.png",
+      "source_sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        133,
+        212,
+        177,
+        237
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/baby_eagle_party.png",
+      "sha256": "e9dcf4ad973fd5240df7ebebd73c00d8475df0ffb25af0f9e704057d8defb10d",
+      "dimensions": [
+        290,
+        512
+      ],
+      "source_path": "assets/characters/companions/baby_eagle.png",
+      "source_sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        133,
+        212,
+        177,
+        237
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/baby_eagle_ribbon.png",
+      "sha256": "18b0c684923309df282228a35f3a881d90dfa6d3669a37d9b4f9241d9098e0aa",
+      "dimensions": [
+        290,
+        512
+      ],
+      "source_path": "assets/characters/companions/baby_eagle.png",
+      "source_sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        133,
+        212,
+        177,
+        237
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/daddy_garden.png",
+      "sha256": "ed3134a3242fcfda3cedfc91d1f50144c3cd58a08ff68d3d6d4369a419d823da",
+      "dimensions": [
+        727,
+        1024
+      ],
+      "source_path": "assets/characters/friends/daddy.webp",
+      "source_sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        348,
+        230,
+        436,
+        278
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/daddy_party.png",
+      "sha256": "790d7bbd2ed80351083d73ac56c90669531b1cf6d7d5a659f2c5b6edd5861ee4",
+      "dimensions": [
+        727,
+        1024
+      ],
+      "source_path": "assets/characters/friends/daddy.webp",
+      "source_sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        348,
+        230,
+        436,
+        278
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/daddy_ribbon.png",
+      "sha256": "08f0b74c1fd0150765248115ff91939fc7c379327fe167f12a92c03363161762",
+      "dimensions": [
+        727,
+        1024
+      ],
+      "source_path": "assets/characters/friends/daddy.webp",
+      "source_sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        348,
+        230,
+        436,
+        278
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/rainbow_friend_garden.png",
+      "sha256": "c2599588072959dbf8dbd636bfce794b696f1a08285a27198322a64c1adb1c71",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_path": "assets/sprites/dust_bunnies/rainbow_friend.png",
+      "source_sha256": "1cff185278d662b2fc049ffd1460848ca76aa7a57933dbc06279ae0a07747580",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        207,
+        373,
+        295,
+        421
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/rainbow_friend_party.png",
+      "sha256": "c178a181a415fa61f1f8f436e22b9941ede9d4790be78bc289472277eccc48f6",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_path": "assets/sprites/dust_bunnies/rainbow_friend.png",
+      "source_sha256": "1cff185278d662b2fc049ffd1460848ca76aa7a57933dbc06279ae0a07747580",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        207,
+        373,
+        295,
+        421
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/rainbow_friend_ribbon.png",
+      "sha256": "f0e8839612042dab404784ce948bc7c5ac207e5232ca41c16e169511b54e988f",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_path": "assets/sprites/dust_bunnies/rainbow_friend.png",
+      "source_sha256": "1cff185278d662b2fc049ffd1460848ca76aa7a57933dbc06279ae0a07747580",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        207,
+        373,
+        295,
+        421
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_base_disguise.png",
+      "sha256": "7a9183be66ac44a54a1058a0b64766d395c319787720df9cd404f84d676a9d6e",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "disguise",
+      "changed_pixel_bounds": [
+        133,
+        85,
+        171,
+        136
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_base_garden.png",
+      "sha256": "6a1d0897e1e6d116862f758ed641776382ca64b494e28ff4d49a548ed527a46a",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        138,
+        85,
+        167,
+        136
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_base_party.png",
+      "sha256": "0800d4e0c8f9b70d275cafc6c6d23469bff43c62714f64ba0a57fe6bbec5f3d2",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        135,
+        90,
+        173,
+        146
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_base_ribbon.png",
+      "sha256": "f9c4f27eb1c340adf1278569f44072798e5db95741b0c10b628aa228f729461e",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_base.png",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        139,
+        88,
+        165,
+        104
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_directional_disguise.png",
+      "sha256": "724686a7c34a3a1d6531e9bbd22bf90ff3d508941064782873bdf10353b5ab5c",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_directional.png",
+      "source_sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "disguise",
+      "changed_pixel_bounds": [
+        121,
+        83,
+        917,
+        390
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_directional_garden.png",
+      "sha256": "e1c0c20cab3f10eb8d2c6941a5647800a80b8a4632a5782d5c7b98daee05c5c3",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_directional.png",
+      "source_sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        125,
+        83,
+        913,
+        390
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_directional_party.png",
+      "sha256": "9924bb821fe8fed348ca946e115474b3215f4e800c838998ea313c7ff23820dd",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_directional.png",
+      "source_sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        122,
+        89,
+        920,
+        399
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_directional_ribbon.png",
+      "sha256": "654616ae6e1b9b95f671e824a871e2e0deef7e2177b1badb42f622697c66e6a9",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_directional.png",
+      "source_sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        127,
+        86,
+        911,
+        365
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_a_disguise.png",
+      "sha256": "894e3e50f39d003db4df730d549d7cdce42d801ac0046140c77144a345fe2644",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+      "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "disguise",
+      "changed_pixel_bounds": [
+        113,
+        90,
+        885,
+        896
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_a_garden.png",
+      "sha256": "6f4094ad11a672f18f34ab4857570d818c9409a0b1ab290993d8d85ffb3993bc",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+      "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        118,
+        90,
+        882,
+        896
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_a_party.png",
+      "sha256": "f880fbac37668518e0f784b7b3f70a6cb507c22b2dbc0b7aa20c051bca846012",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+      "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        115,
+        95,
+        889,
+        906
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_a_ribbon.png",
+      "sha256": "c9b6b383758281401a31e4045d9f319a37498666d1c3c8bd28a5063c0e252605",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+      "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        119,
+        93,
+        879,
+        867
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_b_disguise.png",
+      "sha256": "2dc07b9465264c1d7349d23eb5f7dbf52eeb371f71fb54a73ab3e7d33005bb0e",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_b.png",
+      "source_sha256": "59daf2a2efdbabba1a28bedfed5312805b4351627f0882704b11c4b6ca488ead",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "disguise",
+      "changed_pixel_bounds": [
+        107,
+        96,
+        894,
+        902
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_b_garden.png",
+      "sha256": "514079774899dd9a5e28b8af0e87b7efc5dc4085d66586f706962afb8f8bd291",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_b.png",
+      "source_sha256": "59daf2a2efdbabba1a28bedfed5312805b4351627f0882704b11c4b6ca488ead",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        110,
+        96,
+        888,
+        902
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_b_party.png",
+      "sha256": "76c8ec34b7bace24214c7bc2679c867b1088e8c8eb719050a85990b94197e7f6",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_b.png",
+      "source_sha256": "59daf2a2efdbabba1a28bedfed5312805b4351627f0882704b11c4b6ca488ead",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        107,
+        102,
+        894,
+        912
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_b_ribbon.png",
+      "sha256": "5446eb3198b5592e561d41313b4e9b2cc5b1c6523f6fe15eb6d45751e00095d0",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_b.png",
+      "source_sha256": "59daf2a2efdbabba1a28bedfed5312805b4351627f0882704b11c4b6ca488ead",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        113,
+        99,
+        888,
+        872
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_c_disguise.png",
+      "sha256": "ca1f0213ee7856a41efd5be9e604fd886a5013c3cfcfad5fece5c5059704da4c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_c.png",
+      "source_sha256": "43ebe0e42cd9db5cf612bfaa4acbc9f14a3ad99f49909535b5508707fad15a0e",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "disguise",
+      "changed_pixel_bounds": [
+        105,
+        87,
+        879,
+        894
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_c_garden.png",
+      "sha256": "b9f171271e62d3891723fa0e1d163f5448f5e514392d8d2697089d002eb3f609",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_c.png",
+      "source_sha256": "43ebe0e42cd9db5cf612bfaa4acbc9f14a3ad99f49909535b5508707fad15a0e",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        111,
+        87,
+        879,
+        894
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_c_party.png",
+      "sha256": "33f3f36711e83a3af4bdc5b683c42f79c292409e727d63f1f3f6472700bc1f74",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_c.png",
+      "source_sha256": "43ebe0e42cd9db5cf612bfaa4acbc9f14a3ad99f49909535b5508707fad15a0e",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        109,
+        92,
+        886,
+        905
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_c_ribbon.png",
+      "sha256": "8b051a69e24a21912ddc9ae171c630d7e58398b619a247b91a28015dd68900b3",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_c.png",
+      "source_sha256": "43ebe0e42cd9db5cf612bfaa4acbc9f14a3ad99f49909535b5508707fad15a0e",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        111,
+        90,
+        873,
+        883
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_d_disguise.png",
+      "sha256": "c8451f99c9082606bfac52d5d6bdc2b04148570a01300471fde67b7acc881281",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_d.png",
+      "source_sha256": "03cbc5931806ddc17675fb741f9dafcff66e8b16e08feb6795bda94aa1165abc",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "disguise",
+      "changed_pixel_bounds": [
+        121,
+        92,
+        913,
+        397
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_d_garden.png",
+      "sha256": "aeed10e246b3ff7405f18d147b32e897de9703b1d39467110522f22a5940ed7f",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_d.png",
+      "source_sha256": "03cbc5931806ddc17675fb741f9dafcff66e8b16e08feb6795bda94aa1165abc",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        125,
+        92,
+        913,
+        397
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_d_party.png",
+      "sha256": "e029273fafabd2ec3009f31ceb596598bfaa9219c4c2020d357dd5659030845e",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_d.png",
+      "source_sha256": "03cbc5931806ddc17675fb741f9dafcff66e8b16e08feb6795bda94aa1165abc",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        122,
+        97,
+        920,
+        407
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_gesture_d_ribbon.png",
+      "sha256": "744373644caaf0c9fd812069279ff791ea1d562e6d3445ca2b7060a2f61848db",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_d.png",
+      "source_sha256": "03cbc5931806ddc17675fb741f9dafcff66e8b16e08feb6795bda94aa1165abc",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        127,
+        95,
+        906,
+        366
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_a_disguise.png",
+      "sha256": "b2f9a5a6c317b74eef8ef2dd923b2e78a54198399296f1cade515780f9c877af",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_play_a.png",
+      "source_sha256": "31eb7efc2da0bfe33305f13097b59e959b2ed02637dc8d36116a47b3e2804a08",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "disguise",
+      "changed_pixel_bounds": [
+        105,
+        100,
+        889,
+        883
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_a_garden.png",
+      "sha256": "6c8c84e1d2dfa22ef2eab5831d846b8cb9d736f1d1a8ed98c7ed49cbd482ac08",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_play_a.png",
+      "source_sha256": "31eb7efc2da0bfe33305f13097b59e959b2ed02637dc8d36116a47b3e2804a08",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        108,
+        100,
+        887,
+        883
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_a_party.png",
+      "sha256": "719f5d44afcb698169560cc3fd97d3b48edf1cdac6979bc510e9b96ffddb4b1c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_play_a.png",
+      "source_sha256": "31eb7efc2da0bfe33305f13097b59e959b2ed02637dc8d36116a47b3e2804a08",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        105,
+        102,
+        894,
+        892
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_a_ribbon.png",
+      "sha256": "0f273e8f922c9efe16a031dd56b4eb685260d33e4696120bf77e6d8eb7436b51",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_play_a.png",
+      "source_sha256": "31eb7efc2da0bfe33305f13097b59e959b2ed02637dc8d36116a47b3e2804a08",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        111,
+        103,
+        883,
+        863
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_b_disguise.png",
+      "sha256": "a5397a7b67042ccb2c1b33a659892d58181f210a3611a86f9480da3e06dd33bc",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_play_b.png",
+      "source_sha256": "c72ba5279562b85f98d904a08e4d3e8953f11c698005b87d5b8068b790c27895",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "disguise",
+      "changed_pixel_bounds": [
+        94,
+        92,
+        906,
+        899
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_b_garden.png",
+      "sha256": "b1c4b847c6fb2ea1eb5624f81136093e4ca25cc92d01457034ab46bda4c696cb",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_play_b.png",
+      "source_sha256": "c72ba5279562b85f98d904a08e4d3e8953f11c698005b87d5b8068b790c27895",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        97,
+        92,
+        906,
+        899
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_b_party.png",
+      "sha256": "ee52de0cc3bef066b94844f133cf2b549e6c16bd489152ebcce66aa62ce11632",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_play_b.png",
+      "source_sha256": "c72ba5279562b85f98d904a08e4d3e8953f11c698005b87d5b8068b790c27895",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        94,
+        98,
+        914,
+        909
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_play_b_ribbon.png",
+      "sha256": "a4e6462902c89e337913dd28ea7a34afbb307830711bf1ad192e355d172b0436",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_play_b.png",
+      "source_sha256": "c72ba5279562b85f98d904a08e4d3e8953f11c698005b87d5b8068b790c27895",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        100,
+        95,
+        896,
+        871
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_back_disguise.png",
+      "sha256": "ab24834ceb1325f7d3cbbe81efc6cbe1bcda8f9b3d97a8a2dc8c1ff5e364dba2",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_swim_back.png",
+      "source_sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "disguise",
+      "changed_pixel_bounds": [
+        109,
+        85,
+        931,
+        877
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_back_garden.png",
+      "sha256": "1d2417e3d00ae9185d4014d307c46120335796c27828ea858430a3ccd01384e1",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_swim_back.png",
+      "source_sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        111,
+        85,
+        930,
+        877
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_back_party.png",
+      "sha256": "2ccc6bccd4c7852902c3b10e756e00c3b5b0df6db60fc8311f1754c460453c78",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_swim_back.png",
+      "source_sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        108,
+        88,
+        937,
+        885
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_back_ribbon.png",
+      "sha256": "68a9d486e47c95f97d26ed90802ccca7780f40b0552abb822930bbaeff82052f",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_swim_back.png",
+      "source_sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        115,
+        88,
+        925,
+        858
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_front_disguise.png",
+      "sha256": "12286ef3db5821fb2899a2c24f2e7c557934f0a5f23ad8509aa6aa129c23e856",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_swim_front.png",
+      "source_sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "disguise",
+      "changed_pixel_bounds": [
+        118,
+        86,
+        913,
+        885
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_front_garden.png",
+      "sha256": "24c2b18750d8828239d283dc38e714d0c24013727df15eb6ac75a97cd928dc49",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_swim_front.png",
+      "source_sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        121,
+        86,
+        911,
+        885
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_front_party.png",
+      "sha256": "57c12d9be00394828bd5ea0518c2687ee55a4424c57d46412ee0e938eb5a875d",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_swim_front.png",
+      "source_sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        118,
+        91,
+        919,
+        895
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/roshan_swim_front_ribbon.png",
+      "sha256": "66b41c1b61b0c15a45af411ed92eb44663d209a714971d288f13c316ef6e2268",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_path": "assets/characters/roshan_25d/roshan_swim_front.png",
+      "source_sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        124,
+        89,
+        907,
+        867
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_eight_pose_runtime_garden.png",
+      "sha256": "696ef375e1f210bb042fa543d7f8a4dfd388c08f6ce9dd97be9e55cfdb71a00e",
+      "dimensions": [
+        1024,
+        768
+      ],
+      "source_path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "source_sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        133,
+        113,
+        964,
+        519
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_eight_pose_runtime_party.png",
+      "sha256": "aa5456d3e343e46aad38b7a3d8e62bd96b014edac16624bbc5cd0a97f9324ab2",
+      "dimensions": [
+        1024,
+        768
+      ],
+      "source_path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "source_sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        133,
+        113,
+        964,
+        519
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_eight_pose_runtime_ribbon.png",
+      "sha256": "8422ea525cbd1f7279029516e9e99a013a649527a408ccd43db589c4811596f6",
+      "dimensions": [
+        1024,
+        768
+      ],
+      "source_path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "source_sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        133,
+        113,
+        964,
+        519
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_pool_idle_swim_atlas_garden.png",
+      "sha256": "bf30df830fd644227aafd2d1c84eed95a6e7e34c165a84ec3b5edc7f17110d37",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "source_path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+      "source_sha256": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "garden",
+      "changed_pixel_bounds": [
+        108,
+        66,
+        974,
+        352
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_pool_idle_swim_atlas_party.png",
+      "sha256": "2c53b6ea924823d01e6072f180f6f94574387eba0362999ab8b4928ad7a191b0",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "source_path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+      "source_sha256": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "party",
+      "changed_pixel_bounds": [
+        108,
+        66,
+        974,
+        352
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    },
+    {
+      "path": "assets/fashion/outfits/rumi_pool_idle_swim_atlas_ribbon.png",
+      "sha256": "cc74fa2ef67e9955b242ac10bd020974bc968bae8642b39174a6884e488e29be",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "source_path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+      "source_sha256": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
+      "changes": "Separate clothing/accessory assembly; source identity pixels retained outside recorded clothing fit.",
+      "kind": "ribbon",
+      "changed_pixel_bounds": [
+        108,
+        66,
+        974,
+        352
+      ],
+      "owner_review": "PENDING",
+      "device_review": "PENDING"
+    }
+  ],
+  "acceptance": {
+    "source_identity": "Original source files preserved and hashed; fixed story clips and career uniforms remain scoped overrides.",
+    "owner": "PENDING",
+    "child": "PENDING",
+    "device": "PENDING"
+  },
+  "runtime_garment_export": {
+    "path": "assets/fashion/party_dress_garment.png",
+    "sha256": "e7d3d9a9ba1e6f47ee1d1092992d264cc131af655ab86fae95480320dbd57d07",
+    "dimensions": [
+      512,
+      512
+    ],
+    "changes": "Clothing-only crop and scale, transparent POT padding; original generation retained"
+  }
+}

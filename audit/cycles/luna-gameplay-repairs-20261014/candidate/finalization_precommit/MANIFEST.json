@@ -1,0 +1,126 @@
+{
+  "schema": "reef.immutable-evidence-archive-manifest.v1",
+  "created_utc": "2026-10-15T05:18:57.853952+00:00",
+  "files": [
+    {
+      "path": "audio_shutdown/gate/audio-shutdown-verbose-01.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\audio-shutdown-verbose-01.json",
+      "sha256": "5938b83295bedd2d6f37ee4357d765444e812e711a2e79c838e93e5c6937649b",
+      "bytes": 2370,
+      "role": "native_unchanged_verbose_audio_gate",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "audio_shutdown/gate/audio-shutdown-verbose-01.log",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\audio-shutdown-verbose-01.log",
+      "sha256": "7ab85e072890f487e8e8a0bb314ec92dcb89334dc01785de4f338329c7494bed",
+      "bytes": 60318,
+      "role": "native_unchanged_verbose_audio_gate",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "audio_shutdown/gate/audio-shutdown-verbose-01.started.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\audio-shutdown-verbose-01.started.json",
+      "sha256": "c91a921bc575d405c15c460709ce4fbc56dc19dd0d02dc52ea32f81cefccb1f3",
+      "bytes": 1845,
+      "role": "native_unchanged_verbose_audio_gate",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "audio_shutdown/gate/audio-shutdown-verbose-01.sources.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_gates\\audio-shutdown-verbose-01.sources.json",
+      "sha256": "8caeb792aa0f66829a479da4037441a4afe6a5ac02070474f38139d2f8ef997d",
+      "bytes": 712709,
+      "role": "native_unchanged_verbose_audio_gate",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "audio_shutdown/ANALYSIS.json",
+      "sha256": "5ca7b18146bf79c187a961b61a73c6876708ca7da55efbaf3a7001eabb2d7536",
+      "bytes": 1827,
+      "role": "derived_observation_not_causal_attribution",
+      "exact_byte_copy": false
+    },
+    {
+      "path": "integrity_review/evidence_integrity_review.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\combat\\evidence_integrity_review_20261015_01.json",
+      "sha256": "648c9f424dd4bec86ebab5a37a6d042c0d96dab71cef54b7e079724457a14bd0",
+      "bytes": 345155,
+      "role": "dated_preflight_manifest_review_scoped_to_its_inventory",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "canonical_update/APPLICATION_RECEIPT.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\terminal_full_ci_02_application_20261015T051802051404Z\\APPLICATION_RECEIPT.json",
+      "sha256": "78731365531a75671014a8d9b374a5ac3e9deca94adbe491de42056835dbf4a4",
+      "bytes": 2181,
+      "role": "native_guarded_canonical_application",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "canonical_update/apply_terminal_docs.py.txt",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\apply_terminal_full_ci_02_docs_conditional_01.py",
+      "sha256": "0160318e1de75b8eaa61465f4f79e954e5dc0e1159e4bc5a6dd853870d09bc1d",
+      "bytes": 23565,
+      "role": "exact_reviewed_helper_source",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "canonical_update/raw_backups/audit/findings/ACTIVE_FINDINGS_2026-08-13.md.raw",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\terminal_full_ci_02_application_20261015T051802051404Z\\raw_backups\\audit\\findings\\ACTIVE_FINDINGS_2026-08-13.md.raw",
+      "sha256": "c39e24271d5a719fefae1a811d08c6e7387574cb1f75fdbbac714b3175bfb08c",
+      "bytes": 257652,
+      "role": "exact_preapplication_canonical_bytes",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "canonical_update/raw_backups/audit/MASTER_AUDIT_2026-08-09.md.raw",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\terminal_full_ci_02_application_20261015T051802051404Z\\raw_backups\\audit\\MASTER_AUDIT_2026-08-09.md.raw",
+      "sha256": "e95d222af6c934c695c3894c69420bf73a4764c0e75ab1a383ab486a63829503",
+      "bytes": 300382,
+      "role": "exact_preapplication_canonical_bytes",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "canonical_update/raw_backups/audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md.raw",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\terminal_full_ci_02_application_20261015T051802051404Z\\raw_backups\\audit\\MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md.raw",
+      "sha256": "6ce249ec8cbd59744e23beaaf7bb64b0d1b21f27ef16c80b63e751dc41bbafd0",
+      "bytes": 146640,
+      "role": "exact_preapplication_canonical_bytes",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "canonical_update/raw_backups/design/05_DOC_LEDGER.md.raw",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\terminal_full_ci_02_application_20261015T051802051404Z\\raw_backups\\design\\05_DOC_LEDGER.md.raw",
+      "sha256": "6e9f1e5f2e6b6ba7b7400c2629b5a8c2353884875959a1505f5a85b0b3ec39b6",
+      "bytes": 217150,
+      "role": "exact_preapplication_canonical_bytes",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "canonical_update/raw_backups/design/audit_impacts/luna-gameplay-repairs-20261014.json.raw",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\terminal_full_ci_02_application_20261015T051802051404Z\\raw_backups\\design\\audit_impacts\\luna-gameplay-repairs-20261014.json.raw",
+      "sha256": "201cbe91b3d00f2f46267bd454c167ce442c0ace9e93ed8c0966320b000145f4",
+      "bytes": 85971,
+      "role": "exact_preapplication_canonical_bytes",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "postcommit_preparation/verify_committed_v8.py.txt",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\post_commit_verifier_preparation_01\\verify_committed_v8.py",
+      "sha256": "8e49f4eba96cb4c7aafe31553d4ec9dfd5d5ce45aee42925ba13775c425af1a1",
+      "bytes": 20404,
+      "role": "reviewed_unrun_verifier_source",
+      "exact_byte_copy": true
+    },
+    {
+      "path": "postcommit_preparation/PREPARATION_RECEIPT.json",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\post_commit_verifier_preparation_01\\PREPARATION_RECEIPT.json",
+      "sha256": "f2b920d82a43121650c2d89df1e256043b3a7d7757a1518142a13a7f205524de",
+      "bytes": 3920,
+      "role": "unrun_preparation_receipt",
+      "exact_byte_copy": true
+    }
+  ],
+  "scope": "Local fullCI02 followup and canonical update/prepared publication verifier; preserves non-gating unknown shutdown diagnostics. No source/runtime edits. Postcommit verifier remains unrun at this checkpoint."
+}

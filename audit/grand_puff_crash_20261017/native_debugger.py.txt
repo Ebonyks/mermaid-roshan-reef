@@ -1,0 +1,85 @@
+# Diagnostic observer for our own disposable child processes only.
+# API contracts: https://learn.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-debug_event
+# https://learn.microsoft.com/en-us/windows/win32/api/debugapi/nf-debugapi-continuedebugevent
+# No memory writes, memory dumps, or attachment to an existing process.
+from pathlib import Path
+import ctypes as C
+from ctypes import wintypes as W
+import subprocess,sys,os,json,time,hashlib,re
+
+class ExceptionRecord(C.Structure):
+    _fields_=[('code',W.DWORD),('flags',W.DWORD),('record',C.c_void_p),('address',C.c_void_p),('count',W.DWORD),('information',C.c_size_t*15)]
+class ExceptionInfo(C.Structure):
+    _fields_=[('record',ExceptionRecord),('first_chance',W.DWORD)]
+class EventData(C.Union):
+    _fields_=[('exception',ExceptionInfo),('raw',C.c_ubyte*160),('exit_code',W.DWORD)]
+class DebugEvent(C.Structure):
+    _fields_=[('code',W.DWORD),('pid',W.DWORD),('tid',W.DWORD),('data',EventData)]
+assert C.sizeof(C.c_void_p)==8 and C.sizeof(ExceptionRecord)==152 and C.sizeof(DebugEvent)==176
+kernel=C.WinDLL('kernel32',use_last_error=True)
+kernel.WaitForDebugEventEx.argtypes=[C.POINTER(DebugEvent),W.DWORD]; kernel.WaitForDebugEventEx.restype=W.BOOL
+kernel.ContinueDebugEvent.argtypes=[W.DWORD,W.DWORD,W.DWORD]; kernel.ContinueDebugEvent.restype=W.BOOL
+kernel.DebugSetProcessKillOnExit.argtypes=[W.BOOL]; kernel.DebugSetProcessKillOnExit.restype=W.BOOL
+kernel.DebugActiveProcessStop.argtypes=[W.DWORD]; kernel.DebugActiveProcessStop.restype=W.BOOL
+kernel.CloseHandle.argtypes=[W.HANDLE]; kernel.CloseHandle.restype=W.BOOL
+kernel.GetFinalPathNameByHandleW.argtypes=[W.HANDLE,W.LPWSTR,W.DWORD,W.DWORD]; kernel.GetFinalPathNameByHandleW.restype=W.DWORD
+root=Path.cwd(); evidence=root/'audit/grand_puff_crash_20261017'
+
+def observe(command,env,label,timeout):
+    start=time.time(); events=[]; modules=[]; initial_break=False; exit_code=None; counts={}; own_timeout=False
+    with (evidence/(label+'.log')).open('wb') as output:
+        child=subprocess.Popen(command,cwd=root,env=env,stdout=output,stderr=subprocess.STDOUT,creationflags=0x00000002)
+        if not kernel.DebugSetProcessKillOnExit(False): raise C.WinError(C.get_last_error())
+        print('OBSERVING '+label+' pid='+str(child.pid),flush=True)
+        try:
+            while exit_code is None:
+                event=DebugEvent()
+                if not kernel.WaitForDebugEventEx(C.byref(event),200):
+                    error=C.get_last_error()
+                    if error not in (0,121): raise C.WinError(error)
+                    if time.time()-start>timeout:
+                        own_timeout=True; child.kill()
+                    continue
+                assert event.pid==child.pid
+                counts[str(event.code)]=counts.get(str(event.code),0)+1
+                status=0x00010002
+                if event.code in (3,6):
+                    raw=bytes(event.data.raw); handle=int.from_bytes(raw[:8],'little'); base=int.from_bytes(raw[24:32] if event.code==3 else raw[8:16],'little')
+                    image='unknown'
+                    if handle and handle!=0xffffffffffffffff:
+                        buffer=C.create_unicode_buffer(2048)
+                        if kernel.GetFinalPathNameByHandleW(handle,buffer,2048,0): image=Path(buffer.value).name
+                        kernel.CloseHandle(handle)
+                    modules.append({'image':image,'base':hex(base)})
+                elif event.code==1:
+                    item=event.data.exception; code=int(item.record.code)
+                    events.append({'type':'exception','seconds':round(time.time()-start,6),'thread':event.tid,'code':hex(code),'first_chance':bool(item.first_chance),'address':hex(item.record.address or 0)})
+                    if code==0x80000003 and not initial_break: initial_break=True
+                    else: status=0x80010001
+                elif event.code==5:
+                    exit_code=int(event.data.exit_code)
+                    events.append({'type':'exit','seconds':round(time.time()-start,6),'code':exit_code})
+                if not kernel.ContinueDebugEvent(event.pid,event.tid,status): raise C.WinError(C.get_last_error())
+        except BaseException:
+            kernel.DebugActiveProcessStop(child.pid)
+            child.kill(); child.wait()
+            raise
+        child.returncode=exit_code
+    text=(evidence/(label+'.log')).read_text(encoding='utf-8',errors='replace')
+    return {'label':label,'pid':child.pid,'command':command,'exit':exit_code,'elapsed_seconds':time.time()-start,'observer_watchdog':own_timeout,'events':events,'event_counts':counts,'modules':modules,'assertion_failure_lines':[line for line in text.splitlines() if re.search(r'FAIL|FAILED|SCRIPT ERROR|Parse Error|Compile Error',line)],'game_verdict':'DUSTBOSS|result: ALL OK' in text}
+
+results=[]
+results.append(observe([sys.executable,'-c','import ctypes; ctypes.windll.kernel32.ExitProcess(7)'],os.environ.copy(),'native_debugger_control_exit',30))
+assert results[-1]['exit']==7
+results.append(observe([sys.executable,'-c','import ctypes; ctypes.windll.kernel32.RaiseException(0xE0123456,0,0,None)'],os.environ.copy(),'native_debugger_control_exception',30))
+assert any(event.get('code')=='0xe0123456' for event in results[-1]['events'])
+(evidence/'native_debugger.json').write_text(json.dumps({'status':'CONTROLS_PASS_GAME_RUNNING','controls':results},indent=2)+'\n')
+pin=json.loads((evidence/'source_pin_final.json').read_text(encoding='utf-8'))
+assert not [item['path'] for item in pin['source_files'] if hashlib.sha256((root/item['path']).read_bytes()).hexdigest()!=item['sha256']]
+env=os.environ.copy(); folder=root/'tmp/puff-crash/native-debugger'
+for key,part in [('APPDATA','appdata'),('LOCALAPPDATA','localappdata'),('XDG_DATA_HOME','data'),('XDG_CONFIG_HOME','config')]:
+    path=folder/part;path.mkdir(parents=True,exist_ok=True);env[key]=str(path)
+engine=r'C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\godot-4.7.2\editor\Godot_v4.7.2-stable_win64.exe'
+game=observe([engine,'--headless','--path',str(root),'-s','scripts/probe_dust_boss.gd','--','--touch','--classic-touch-test'],env,'native_debugger',480)
+receipt={'status':'COMPLETE','source_pin':'audit/grand_puff_crash_20261017/source_pin_final.json','observer':'DEBUG_ONLY_THIS_PROCESS; initial loader breakpoint alone handled; all other exceptions passed to normal handlers; no memory changes or dumps.','controls':results,'game':game,'qualification':'Diagnostic launch only. Prior unexplained exit remains preserved; this distinguishes native exception events from exits when reproduced.'}
+(evidence/'native_debugger.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps({'exit':game['exit'],'events':game['events'],'game_verdict':game['game_verdict'],'assertion_failures':game['assertion_failure_lines']}),flush=True)

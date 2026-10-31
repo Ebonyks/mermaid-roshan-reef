@@ -1,0 +1,106 @@
+{
+  "schema": "luna_ci_selftest_classifier_review/1",
+  "status": "SCRATCH_DRAFT_AST_AND_PURE_TEXT_CONTROLS_PASS_NO_RUNTIME_JOB",
+  "original": "tmp\\luna_repair_20261014\\run_candidate_gate.py",
+  "original_sha256": "b6bf16236ff03a5b6fccd83be276bd238c3c5e842072faad1f80dcebd78ce0a4",
+  "derivative": "tmp\\luna_repair_20261014\\run_candidate_full_ci_gate.py",
+  "derivative_sha256": "5db4c749192286a433382617a71a3eb257c8464871c144dc5a774c71e9cd8d50",
+  "diff": "tmp\\luna_repair_20261014\\combat\\run_candidate_full_ci_gate.diff",
+  "diff_sha256": "1cc6d759db8c09f0b10c2784d1adb33c7c555990fe27e35ab6f5b9ba8b357fee",
+  "source_attribution": {
+    "test_path": "tools/tests/test_gold_star.py",
+    "test_sha256": "41eb2a2aa54ba10d4e46a55372a1eaae9ed70c54e1a4a57f202ea4bb98e828ca",
+    "method": "FixtureTests.test_page_is_deterministic_and_check_reports_staleness",
+    "line": 294,
+    "expected_negative_exit_code": 1,
+    "emitter_line": 978,
+    "ci_caller_line": 81
+  },
+  "exact_allowed_line": "GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale",
+  "maximum_allowed_occurrences": 1,
+  "required_ci_exit_code": 0,
+  "baseline_log_sha256": "187a4a669afe6b67bfe19fb7ebdd3ca6538ac65cdcd4521c75be4d1bf2e00c77",
+  "controls": [
+    {
+      "label": "known-green exact baseline",
+      "expected_accept": true,
+      "observed_accept": true,
+      "raw_count": 1,
+      "ignored_count": 1,
+      "blocking_count": 0
+    },
+    {
+      "label": "additional ordinary FAIL",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 2,
+      "ignored_count": 1,
+      "blocking_count": 1
+    },
+    {
+      "label": "modified selftest FAIL",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 1,
+      "ignored_count": 0,
+      "blocking_count": 1
+    },
+    {
+      "label": "duplicate exact selftest FAIL",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 2,
+      "ignored_count": 0,
+      "blocking_count": 2
+    },
+    {
+      "label": "exit1 cannot ignore",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 1,
+      "ignored_count": 0,
+      "blocking_count": 1
+    },
+    {
+      "label": "non-CI cannot ignore",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 1,
+      "ignored_count": 0,
+      "blocking_count": 1
+    },
+    {
+      "label": "missing source attribution cannot ignore",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 1,
+      "ignored_count": 0,
+      "blocking_count": 1
+    },
+    {
+      "label": "additional script error",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 2,
+      "ignored_count": 1,
+      "blocking_count": 1
+    },
+    {
+      "label": "padding is not exact selftest",
+      "expected_accept": false,
+      "observed_accept": false,
+      "raw_count": 1,
+      "ignored_count": 0,
+      "blocking_count": 1
+    }
+  ],
+  "preserved_semantics": [
+    "Original runner byte-identical",
+    "Exact engine and source pin checks before/after unchanged",
+    "Isolated profile and no-overwrite receipts unchanged",
+    "CI wait remains unlimited",
+    "Original raw failure regex and raw failure_lines retained",
+    "Only exact known selftest line may be ignored, with full source pins and code0; all other lines block",
+    "No scripts/ci.sh or production edits, no runtime jobs executed"
+  ]
+}

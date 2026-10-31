@@ -1,0 +1,110 @@
+{
+  "official_workflow_revision": "3bf3ca62595f1764c47d01c35c8e5dfe47e1a88f",
+  "official_workflow_url": "https://raw.githubusercontent.com/Lightricks/ComfyUI-LTXVideo/3bf3ca62595f1764c47d01c35c8e5dfe47e1a88f/example_workflows/2.5/LTX-2.5_ICLoRA_Union_Control_Distilled.json",
+  "workflow_sha256": "cf3553a6bafd8d5398f36cfe06dc580a13dddea9387cc57b4a17c2c14c9a4df0",
+  "union_revision": "b4d1c4d8c9e544e9bbbd6811bb4363708b6093ff",
+  "union_gated": false,
+  "refine_revision": "4912c478b35dd96b6cdcc5f7c7ff9d72c2c57929",
+  "refine_gated": "auto",
+  "selected_model_bindings": [
+    {
+      "id": 5014,
+      "type": "c28230e9-b195-4ec2-9679-39e1e920f733",
+      "values": [
+        "ltx-2.3-22b-dev.safetensors"
+      ]
+    },
+    {
+      "id": 5004,
+      "type": "a1106ab2-2d57-4b7c-91af-f172c971b3af",
+      "values": [
+        "ltx-2.5-audio-vae-bf16.safetensors",
+        "ltx-2.5-video-vae-bf16.safetensors",
+        "ltx-2.5-22b-distilled-transformer-bf16.safetensors",
+        "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+        "gemma4_e2b_it_bf16.safetensors",
+        "gemma4-12b-with-proj-ltx-2.5-bf16.safetensors",
+        "ltx-2.3-22b-ic-lora-union-control-ref0.5.safetensors"
+      ]
+    },
+    {
+      "id": 5600,
+      "type": "VAELoader",
+      "values": [
+        "ltx-2.5-audio-vae-bf16.safetensors"
+      ]
+    },
+    {
+      "id": 5601,
+      "type": "VAELoader",
+      "values": [
+        "ltx-2.5-video-vae-bf16.safetensors"
+      ]
+    },
+    {
+      "id": 5602,
+      "type": "UNETLoader",
+      "values": [
+        "ltx-2.5-22b-distilled-transformer-bf16.safetensors"
+      ]
+    },
+    {
+      "id": 5604,
+      "type": "LatentUpscaleModelLoader",
+      "values": [
+        "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors"
+      ]
+    },
+    {
+      "id": 5605,
+      "type": "CLIPLoader",
+      "values": [
+        "gemma4_e2b_it_bf16.safetensors"
+      ]
+    },
+    {
+      "id": 5606,
+      "type": "CLIPLoader",
+      "values": [
+        "gemma4-12b-with-proj-ltx-2.5-bf16.safetensors"
+      ]
+    },
+    {
+      "id": 5607,
+      "type": "LTXICLoRALoaderModelOnly",
+      "values": [
+        "ltx-2.3-22b-ic-lora-union-control-ref0.5.safetensors"
+      ]
+    },
+    {
+      "id": 5504,
+      "type": "GemmaAPITextEncode",
+      "values": [
+        "ltx-2.3-22b-dev.safetensors",
+        "ltx-2.3-22b-dev.safetensors"
+      ]
+    },
+    {
+      "id": 5505,
+      "type": "GemmaAPITextEncode",
+      "values": [
+        "ltx-2.3-22b-dev.safetensors"
+      ]
+    }
+  ],
+  "no_adapter_downloaded": true,
+  "8gb_adapter_execution": "UNTESTED",
+  "current_video_nodes_sha": "3bf3ca62595f1764c47d01c35c8e5dfe47e1a88f",
+  "union_weight_metadata": [
+    {
+      "rfilename": "ltx-2.3-22b-ic-lora-union-control-ref0.5.safetensors",
+      "blobId": "edcafa8a25c35842670960b33d6de76d3302c016",
+      "size": 654465352,
+      "lfs": {
+        "sha256": "a1b888a87f661d27f08b394ae559e8e1050be33900bcc36a5cdf659e48f88d18",
+        "size": 654465352,
+        "pointerSize": 134
+      }
+    }
+  ]
+}

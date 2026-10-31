@@ -1,0 +1,25 @@
+{
+  "id": "teacher-painted-invitation-20261018",
+  "action": "Idle invitation and opening handoff cue",
+  "sources": [
+    "assets/opera/worlds/teacher/invitation_ring.png",
+    "assets/opera/worlds/hotspots/teacher_lesson_board.png"
+  ],
+  "verb": "Invite a deliberate tap on the existing station, then fade the ground cue during the existing opening.",
+  "fixed_parts": "Whole opaque board silhouette, station/hit/spur geometry, entire ring center and dimensions.",
+  "moving_parts": "Only ring opacity consumes the existing affordance clock; opening retains0.62s lifecycle.",
+  "method": "One ImageGen still plus declared Canvas alpha breathing. No character acting, topology deformation, retiming or generated video.",
+  "entry_exit": "Armed station and existing opening_finished signal unchanged.",
+  "tolerances": "Zero object geometry drift; whole texture rendered at original aspect; ring entirely behind object.",
+  "attempts": 1,
+  "generation_cap": 2,
+  "usage": "One builtin ImageGen call; monetary usage unexposed; no CLI/API spending.",
+  "review": "Local AI source/current Mobile review complete:review/capture_invitation.json records28frames, full idle cycle, opening and actual GUI activation at bothaspects. Object position/size unchanged; failures[]. Device/child/owner acceptance remains open.",
+  "required_checks": [
+    "Import exact4.7.2",
+    "routed viewport station activation",
+    "one complete opacity cycle and0.62s opening",
+    "existing Opera/diegetic/interaction probes",
+    "full unchanged CI"
+  ]
+}

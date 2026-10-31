@@ -1,0 +1,215 @@
+"""Evidence-only terminal CI archiver. Prepare now; run only after root authorization.
+No subprocess, engine, generation, runtime, canonical-doc, impact or source-pin writes.
+An absent/inconsistent terminal receipt fails before destination creation.
+"""
+import argparse
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
+import re
+
+ORIGINAL = Path(r'C:\Users\Peter\Documents\mermaid-roshan-reef')
+WORKTREE = Path(r'C:\Users\Peter\.codex\worktrees\luna-gameplay-repairs-20261014\mermaid-roshan-reef')
+SCRATCH = ORIGINAL / 'tmp/luna_repair_20261014'
+LABEL = 'candidate-full-ci-01'
+DESTINATION = WORKTREE / 'audit/cycles/luna-gameplay-repairs-20261014/candidate/full_local_ci'
+ENGINE_SHA = 'c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643'
+PIN_SHA = '20e942ec488d618a94af58663b00463987409c9640df53ec918f12a9632cfd9e'
+REVIEWED = {'runner': {'path': 'C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\run_candidate_full_ci_gate.py', 'sha256': '5db4c749192286a433382617a71a3eb257c8464871c144dc5a774c71e9cd8d50', 'bytes': 13972}, 'launcher': {'path': 'C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-full-ci-01.launcher.json', 'sha256': '15120a0382fd7a5c58535495cae2f1d4566d5451033bfe2745b70c95e8a202db', 'bytes': 763}, 'ci': {'path': 'C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef\\scripts\\ci.sh', 'sha256': '769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279', 'bytes': 15163}, 'pin_v7': {'path': 'C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-runtime-sources.v7.json', 'sha256': '20e942ec488d618a94af58663b00463987409c9640df53ec918f12a9632cfd9e', 'bytes': 719751}}
+KNOWN_SELFTEST = 'GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale'
+
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def read_file(path):
+    if not path.is_file():
+        raise ValueError('Required terminal artifact absent: ' + str(path))
+    return path.read_bytes()
+
+
+def json_bytes(data):
+    return (json.dumps(data, indent=2, sort_keys=True) + '\n').encode('utf-8')
+
+
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--archive-terminal', action='store_true', required=True,
+                        help='Use only after root authorizes completed full-CI archival.')
+    parser.parse_args()
+    require(not DESTINATION.exists(), 'Refusing existing archive destination')
+    preparation = Path(__file__).resolve().parent
+    preparation_receipt = preparation / 'PREPARATION_RECEIPT.json'
+    prepared = json.loads(read_file(preparation_receipt))
+    require(prepared['script']['sha256'] == digest(read_file(Path(__file__))),
+            'Archiver changed after preparation review')
+    # The terminal native receipt is required before creating any archive directory.
+    gate = SCRATCH / 'candidate_gates'
+    native = {suffix: gate / (LABEL + suffix)
+              for suffix in ('.json', '.log', '.started.json', '.sources.json')}
+    native_bytes = {suffix: read_file(path) for suffix, path in native.items()}
+    receipt = json.loads(native_bytes['.json'])
+    started = json.loads(native_bytes['.started.json'])
+    require(receipt.get('schema') == 'luna_candidate_gate/2' and receipt.get('kind') == 'ci'
+            and receipt.get('label') == LABEL, 'Wrong terminal native gate')
+    require(receipt.get('completed_utc') and isinstance(receipt.get('exit_code'), int)
+            and isinstance(receipt.get('machine_gate_passed'), bool),
+            'Native terminal result incomplete')
+    datetime.fromisoformat(receipt['completed_utc'])
+    require(receipt.get('source_pin_sha256') == PIN_SHA and
+            receipt.get('engine_sha256') == ENGINE_SHA, 'Wrong approved pin or engine')
+    require(receipt.get('log_sha256') == digest(native_bytes['.log']), 'Native log hash mismatch')
+    require(receipt.get('source_manifest_sha256') == digest(native_bytes['.sources.json']),
+            'Native source-manifest hash mismatch')
+    for key in ('command', 'cwd', 'branch', 'head', 'started_utc', 'runner_pid',
+                'child_pid', 'engine_sha256', 'profile', 'source_manifest_sha256',
+                'source_pin_sha256'):
+        require(receipt.get(key) == started.get(key), 'Journal/terminal identity mismatch: ' + key)
+    require(Path(receipt['cwd']).resolve() == WORKTREE.resolve(), 'Wrong gate worktree')
+    require(Path(receipt['log']).resolve() == native['.log'].resolve(), 'Wrong native log path')
+    require(Path(receipt['source_manifest']).resolve() == native['.sources.json'].resolve(),
+            'Wrong source manifest path')
+    reviewed_bytes = {}
+    for name, item in REVIEWED.items():
+        path = Path(item['path'])
+        data = read_file(path)
+        require(digest(data) == item['sha256'] and len(data) == item['bytes'],
+                'Reviewed preparation input changed: ' + name)
+        reviewed_bytes[name] = data
+    launcher = json.loads(reviewed_bytes['launcher'])
+    require(launcher['runner_pid'] == receipt['runner_pid'] and
+            launcher['runner_sha256'] == REVIEWED['runner']['sha256'] and
+            launcher['source_pin_sha256'] == PIN_SHA, 'Launcher attribution mismatch')
+    stdout_path, stderr_path = Path(launcher['stdout']), Path(launcher['stderr'])
+    require(stdout_path.resolve() == (SCRATCH / (LABEL + '.runner.stdout.log')).resolve()
+            and stderr_path.resolve() == (SCRATCH / (LABEL + '.runner.stderr.log')).resolve(),
+            'Unexpected runner output paths')
+    stdout, stderr = read_file(stdout_path), read_file(stderr_path)
+    require(json.loads(stdout.decode('utf-8-sig')) == receipt,
+            'Runner stdout has not completed matching native terminal receipt')
+    pin = json.loads(reviewed_bytes['pin_v7'])
+    require(json.loads(native_bytes['.sources.json']) == pin['sources'],
+            'Native prelaunch source inventory differs from frozen v7')
+    active_pin = SCRATCH / 'candidate-runtime-sources.json'
+    require(digest(read_file(active_pin)) == PIN_SHA, 'Active source pin changed after v7')
+    text = native_bytes['.log'].decode('utf-8', errors='replace').replace(chr(13) + chr(10), chr(10))
+    raw_failures = [line for line in text.splitlines() if re.search(
+        r'(^|[| :])FAIL([| :]|$)|SCRIPT ERROR|Parse Error|Compile Error', line)]
+    require(raw_failures == receipt['failure_lines'], 'Native failure-line classification mismatch')
+    ignored = receipt.get('ignored_failure_lines', [])
+    attribution = receipt.get('selftest_source_attribution', {})
+    allowed = (receipt['exit_code'] == 0 and attribution.get('matched') is True
+               and raw_failures.count(KNOWN_SELFTEST) == 1)
+    expected_ignored = [KNOWN_SELFTEST] if allowed else []
+    require(ignored == expected_ignored and receipt.get('selftest_allowance_applied') == allowed,
+            'Known negative self-test allowance changed')
+    blocking = [line for line in raw_failures if not (allowed and line == KNOWN_SELFTEST)]
+    require(blocking == receipt.get('blocking_failure_lines'), 'Blocking failure classification mismatch')
+    computed_pass = (receipt['exit_code'] == 0 and not receipt.get('timeout')
+                     and not receipt.get('source_mismatches')
+                     and not receipt.get('after_pin_mismatches')
+                     and receipt.get('source_pin_unchanged') is True and not blocking)
+    require(computed_pass == receipt['machine_gate_passed'], 'Native machine-result mismatch')
+    roster_match = re.search(r'^for p in (.+); do$', reviewed_bytes['ci'].decode('utf-8').replace(chr(13) + chr(10), chr(10)), re.M)
+    require(roster_match is not None, 'Frozen CI roster unavailable')
+    expected_roster = roster_match.group(1).split()
+    require(len(expected_roster) == 82 and len(set(expected_roster)) == 82, 'Wrong reviewed roster')
+    exits = [{'probe': match.group(1), 'exit_code': int(match.group(2))}
+             for match in re.finditer(r'^PROBE (probe_[A-Za-z0-9_]+) process exit: (-?\d+)\s*$', text, re.M)]
+    observed_roster = [entry['probe'] for entry in exits]
+    roster_complete = observed_roster == expected_roster
+    # A failed early gate is still preserved; it cannot become an 82/82 claim.
+    require(not receipt['machine_gate_passed'] or roster_complete,
+            'Native PASS lacks exact ordered82 completion markers')
+    advisory_lines = [line for line in text.splitlines() if
+                      line.startswith('VISUALAUDIT| STATE ') or
+                      re.match(r'^GAME2D\|\s*(STATUS|RESULT)\|', line) or
+                      re.match(r'^GOLDSTAR\|RESULT\|OK\|\d+ games, \d+ errors, [1-9]\d* stale$', line)]
+    stale = [{'games': int(m.group(1)), 'errors': int(m.group(2)), 'stale': int(m.group(3))}
+             for m in re.finditer(r'^GOLDSTAR\|RESULT\|OK\|(\d+) games, (\d+) errors, (\d+) stale$', text, re.M)
+             if int(m.group(3)) > 0]
+    analysis = {
+        'schema': 'reef.full-local-ci-machine-analysis.v1',
+        'machine_regression_result': 'PASS' if computed_pass else 'FAIL',
+        'native_exit_code': receipt['exit_code'], 'duration_seconds': receipt.get('duration_seconds'),
+        'engine_sha256': ENGINE_SHA, 'source_pin_sha256': PIN_SHA,
+        'source_mismatches': receipt.get('source_mismatches'),
+        'after_pin_mismatches': receipt.get('after_pin_mismatches'),
+        'source_pin_unchanged': receipt.get('source_pin_unchanged'),
+        'probe_roster': {'expected_count': 82, 'completed_count': len(exits),
+                         'exact_order_complete': roster_complete, 'native_exits': exits},
+        'raw_failure_lines': raw_failures, 'blocking_failure_lines': blocking,
+        'retained_negative_selftest': {'allowance_applied': allowed, 'ignored_lines': ignored,
+                                      'exact_native_source_attribution': attribution,
+                                      'scope': 'Existing reviewed runner classification only; no new allowance'},
+        'advisory_results': {'native_lines': advisory_lines, 'stale_catalogue_observations': stale,
+                            'interpretation': 'Visual/2D UNSATISFIED and stale catalogue facts retain their native scopes; regression PASS does not satisfy them.'},
+        'remaining_acceptance': ['master audit remains UNSATISFIED; strict-zero-2D not established',
+                                 'fresh-save Day One/normal-door/exact-camera Chapter Two reachability not established',
+                                 'displayed Mobile pixels and authored hand/tool/object contact not established',
+                                 'actual target-device performance/listening, child and owner acceptance not measured',
+                                 'MA-PLAY-005 remains IN_PROGRESS/V3 partial; MA-CI-007 remains OPEN/V1',
+                                 'published-head remote CI, integration and release are separate'],
+        'source_lock_limit': receipt.get('source_lock_scope'),
+        'authority': 'Evidence interpretation only; no new finding closure, authority or acceptance.'
+    }
+    plan = [(path, Path('gate') / path.name, 'native_terminal_ci_gate') for path in native.values()]
+    plan.extend([(Path(REVIEWED['launcher']['path']), Path('launcher') / (LABEL + '.launcher.json'), 'native_launcher'),
+                 (stdout_path, Path('launcher') / stdout_path.name, 'native_terminal_runner_stdout'),
+                 (stderr_path, Path('launcher') / stderr_path.name, 'native_terminal_runner_stderr'),
+                 (Path(REVIEWED['runner']['path']), Path('tools/run_candidate_full_ci_gate.py.txt'), 'exact_reviewed_ci_runner_source'),
+                 (Path(REVIEWED['ci']['path']), Path('tools/ci.sh.txt'), 'exact_frozen_trusted_roster_and_ci_source'),
+                 (Path(__file__).resolve(), Path('tools/archive_full_local_ci_01.py.txt'), 'exact_evidence_archiver_source'),
+                 (preparation_receipt, Path('tools/PREPARATION_RECEIPT.json'), 'scratch_archiver_preparation_receipt')])
+    payloads = [(src, rel, role, read_file(src)) for src, rel, role in plan]
+    # Freeze every source byte before any destination write; preserve a partial packet on later failure.
+    DESTINATION.mkdir(parents=True, exist_ok=False)
+    entries = []
+    for src, rel, role, data in payloads:
+        target = DESTINATION / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with target.open('xb') as stream:
+            stream.write(data)
+        require(target.read_bytes() == data and src.read_bytes() == data,
+                'Source changed during exact archival: ' + str(src))
+        entries.append({'path': rel.as_posix(), 'source': str(src), 'sha256': digest(data),
+                        'bytes': len(data), 'role': role, 'exact_byte_copy': True})
+    derived = json_bytes(analysis)
+    with (DESTINATION / 'ANALYSIS.json').open('xb') as stream:
+        stream.write(derived)
+    entries.append({'path': 'ANALYSIS.json', 'source': 'derived only from exact archived native evidence',
+                    'sha256': digest(derived), 'bytes': len(derived), 'role': 'machine_regression_and_unmet_acceptance_separated', 'exact_byte_copy': False})
+    for src, rel, role, data in payloads:
+        require(src.read_bytes() == data, 'Input changed before manifest freeze: ' + str(src))
+    manifest = {'schema': 'reef.immutable-evidence-archive-manifest.v1',
+                'created_utc': datetime.now(timezone.utc).isoformat(),
+                'archive_root': str(DESTINATION), 'files': sorted(entries, key=lambda x: x['path']),
+                'payload_count': len(entries), 'native_copy_count': len(payloads),
+                'source_pin_sha256': PIN_SHA,
+                'frozen_pin_reference': REVIEWED['pin_v7'],
+                'native_machine_gate_passed': receipt['machine_gate_passed'],
+                'scope': 'Exact completed full local CI evidence; machine regression only',
+                'overwrite_policy': 'New destination and exclusive creation; no deletion or conflicting overwrite',
+                'worktree_mutations': 'Only this new evidence archive; no runtime/canonical/impact/source-pin edits'}
+    manifest_data = json_bytes(manifest)
+    with (DESTINATION / 'MANIFEST.json').open('xb') as stream:
+        stream.write(manifest_data)
+    for entry in entries:
+        require(digest((DESTINATION / entry['path']).read_bytes()) == entry['sha256'],
+                'Final archived payload hash mismatch')
+    print(json.dumps({'archive': str(DESTINATION), 'manifest_sha256': digest(manifest_data),
+                      'native_copies': len(payloads), 'archive_files': len(entries) + 1,
+                      'native_machine_gate_passed': receipt['machine_gate_passed'],
+                      'ordered_completed_probes': len(exits), 'roster_complete': roster_complete,
+                      'canonical_runtime_impact_source_pin_writes': 0}, indent=2))
+
+
+if __name__ == '__main__':
+    main()

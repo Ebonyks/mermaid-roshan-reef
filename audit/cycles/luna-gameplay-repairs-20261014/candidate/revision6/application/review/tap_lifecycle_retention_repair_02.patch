@@ -1,0 +1,299 @@
+--- a/scripts/probe_chapter2.gd
++++ b/scripts/probe_chapter2.gd
+@@ -14,6 +14,15 @@
+ const SAVE_STATE_SCRIPT: GDScript = preload("res://scripts/save_state.gd")
+ const OPERA_WORLD_SCRIPT: GDScript = preload(
+ 	"res://scripts/opera_career_world_2d.gd")
++
++class TapLifecycleObserver extends Node:
++	var touches: Array[Dictionary] = []
++
++	func _input(event: InputEvent) -> void:
++		if event is InputEventScreenTouch and (event as InputEventScreenTouch).index == 71:
++			var touch := event as InputEventScreenTouch
++			touches.append({"pressed": touch.pressed, "position": touch.position, "index": touch.index})
++
+ 
+ const INITIAL_ACTS: Array[int] = []
+ const STORY_ORDER: Array[int] = [6, 0, 3, 10, 2, 13, 11, 1]
+@@ -72,6 +81,7 @@
+ 	day_one = null
+ 	chapter_two = null
+ 	await _audit_startup_configurations()
++	await _audit_route_tap_lifetime()
+ 	await _audit_production_story_route()
+ 
+ 	_print_result()
+@@ -641,6 +651,8 @@
+ 	await process_frame
+ 	await process_frame
+ 
++	await _audit_detective_intro_compatibility(host)
++
+ 	var invalid_cases: Array[Dictionary] = [
+ 		{"phase_overrides": []},
+ 		{"phase_overrides": "not an array"},
+@@ -741,6 +753,75 @@
+ 	startup_completion_count += 1
+ 
+ 
++func _audit_detective_intro_compatibility(host: ReefMain) -> void:
++	# Configuration-only compatibility seam: put the existing freeplay CLOCK
++	# lens at index0 so the legacy once-only branch has an actual caller.
++	# This is not measured progress through the shipping freeplay sequence.
++	var config: Dictionary = (OperaHouse.ACTS[1] as Dictionary).duplicate(true)
++	config["phase_overrides"] = [(OPERA_WORLD_SCRIPT.PHASES["detective"] as Array)[2].duplicate(true)]
++	config["finale_start"] = 0
++	var competition := OperaCompetition.new()
++	competition.configure("detective")
++	var world := OperaCareerWorld2D.new()
++	host.add_child(world)
++	var started := world.setup(host, config, competition, Callable())
++	_check("config: non-story Detective lens compatibility fixture starts", started
++		and not world._is_chapter2_detective_scene() and not world.detective_intro_played)
++	if started:
++		world._start_lens_phase(world.phases[0] as Dictionary)
++		var pending := host.dialogue_queue.duplicate(true)
++		var voice_serial := host.voice_i
++		_check("config: non-story lens retains its original once-only crown introduction and pointer",
++			world.detective_intro_played and world.lens_demo and world.lens_trail_t > 0.0
++			and host.dialogue_active and pending.size() == 1
++			and String((pending[0] as Dictionary).get("vo", "")) == "op_detective_search")
++		world._start_lens_phase(world.phases[0] as Dictionary)
++		_check("config: repeating non-story lens setup does not queue or play its intro twice",
++			host.dialogue_queue == pending and host.voice_i == voice_serial)
++	world.close()
++	await process_frame
++	await process_frame
++
++
++func _route_voice_is_playing(host: ReefMain, key: String) -> bool:
++	var exact := host._audio_ref()._voice_path("roshan", key, false)
++	if exact.is_empty():
++		return false
++	for item: Variant in host.voice_pool:
++		var player := item as AudioStreamPlayer
++		if player != null and player.playing and player.stream != null and player.stream.resource_path == exact:
++			return true
++	return false
++
++
++func _audit_route_tap_lifetime() -> void:
++	# A production Continue may remove its own stage on press. The release
++	# must still reach the same Viewport once, without using the freed Control.
++	var observer := TapLifecycleObserver.new()
++	root.add_child(observer)
++	var target := Button.new()
++	target.position = Vector2(400, 240)
++	target.size = Vector2(144, 144)
++	target.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
++	target.button_down.connect(target.queue_free)
++	root.add_child(target)
++	await process_frame
++	var expected_point := _route_point(target, target.size * 0.5)
++	var removed: WeakRef = weakref(target)
++	var completed: Variant = await _route_tap(target, target.size * 0.5)
++	var observed := observer.touches
++	_check("viewport: a removed-on-press Control still sends exactly one matching release",
++		completed is bool and bool(completed) and removed.get_ref() == null and observed.size() == 2
++		and bool(observed[0]["pressed"]) and not bool(observed[1]["pressed"])
++		and int(observed[0]["index"]) == 71 and int(observed[1]["index"]) == 71
++		and (observed[0]["position"] as Vector2).is_equal_approx(expected_point)
++		and (observed[1]["position"] as Vector2).is_equal_approx(expected_point))
++	if removed.get_ref() != null:
++		(removed.get_ref() as Node).queue_free()
++	observer.queue_free()
++	await process_frame
++
++
+ func _audit_production_story_route() -> void:
+ 	# Initial post-boss state and room mounting are explicit fixture seams.
+ 	# Every career entry, station selection and required work below uses raw
+@@ -790,6 +871,11 @@
+ 		var world := house.act.career_world_2d
+ 		_check("viewport: career %d has every authored phase mapped without spare-station fallback" % act_index,
+ 			world.station_for_phase.size() == world.phases.size())
++		if act_index == ChapterTwoDirector.ACT_DETECTIVE:
++			_check("viewport: armed storybook speaks its exact authored phase recording",
++				_route_voice_is_playing(host, "op_detective_lens_stage")
++				and String(host.hud_msg.get_meta("requested_voice_key", "")) == "op_detective_lens_stage"
++				and not host.dialogue_active and host.dialogue_queue.is_empty())
+ 		var passive_start := world.elapsed
+ 		var passive_exposed := await _route_wait(func() -> bool:
+ 			return not is_instance_valid(world) or world.elapsed - passive_start >= 21.0, 5.0)
+@@ -799,6 +885,10 @@
+ 			and is_zero_approx(world.phase_progress) \
+ 			and host.chapter2_party_piece_mask == completed_mask \
+ 			and [host.opera_stars, host.opera_progress, host.pearl_count] == freeplay_before)
++		if act_index == ChapterTwoDirector.ACT_DETECTIVE:
++			_check("viewport: passive storybook hints retain authored cue identity without finding clues",
++				String(host.hud_msg.get_meta("requested_voice_key", "")) == "op_detective_lens_stage"
++				and world.lens_find_count == 0 and not host.dialogue_active and host.dialogue_queue.is_empty())
+ 		# Leave through the shipping global Back surface and re-enter the same
+ 		# visible career target. This also cancels any passive approach intent.
+ 		if host.global_navigation_button != null:
+@@ -851,6 +941,15 @@
+ 				and hotspot.activation_count == activation_before + 1)
+ 			if not opened:
+ 				break
++			if act_index == ChapterTwoDirector.ACT_DETECTIVE and phase_index == 0:
++				_check("viewport: storybook lens keeps its authored prompt without freeplay crown dialogue",
++					String(phase.get("vo", "")) == "op_detective_lens_stage"
++					and not bool(world.get_meta("chapter2_voice_recording_gap", true))
++					and world.detective_intro_played and world.lens_demo and world.lens_trail_t > 0.0
++					and not host.dialogue_active
++					and host.dialogue_queue.is_empty()
++					and String(host.hud_msg.get_meta("requested_voice_key", "")) == "op_detective_lens_stage"
++					and hotspot.source_path == "res://assets/flats/castle/rooms/room_library_item_magic_book.png")
+ 			if String(phase.get("mode", "")) in ["ballet_ribbon", "ballet_twirl"]:
+ 				var idle_start := world.elapsed
+ 				var idle_full := await _route_wait(func() -> bool:
+@@ -1147,12 +1246,16 @@
+ 	return control.get_global_transform_with_canvas() * at
+ 
+ 
+-func _route_touch(control: Control, at: Vector2, pressed: bool) -> void:
++func _route_viewport_touch(viewport: Viewport, point: Vector2, pressed: bool) -> void:
+ 	var event := InputEventScreenTouch.new()
+ 	event.index = 71
+-	event.position = _route_point(control, at)
++	event.position = point
+ 	event.pressed = pressed
+-	control.get_viewport().push_input(event, true)
++	viewport.push_input(event, true)
++
++
++func _route_touch(control: Control, at: Vector2, pressed: bool) -> void:
++	_route_viewport_touch(control.get_viewport(), _route_point(control, at), pressed)
+ 
+ 
+ func _route_drag(control: Control, at: Vector2) -> void:
+@@ -1162,11 +1265,21 @@
+ 	control.get_viewport().push_input(event, true)
+ 
+ 
+-func _route_tap(control: Control, at: Vector2) -> void:
+-	_route_touch(control, at, true)
+-	await process_frame
+-	_route_touch(control, at, false)
+-	await process_frame
++func _route_tap(control: Variant, at: Vector2) -> bool:
++	if not is_instance_valid(control) or not control is Control:
++		_check("viewport: tap begins on a valid Control", false)
++		return false
++	var target := control as Control
++	var viewport := target.get_viewport()
++	var point := _route_point(target, at)
++	_route_viewport_touch(viewport, point, true)
++	await process_frame
++	if not is_instance_valid(viewport):
++		_check("viewport: tap retains its input Viewport through release", false)
++		return false
++	_route_viewport_touch(viewport, point, false)
++	await process_frame
++	return true
+ 
+ 
+ func _route_wait(predicate: Callable, seconds: float) -> bool:
+@@ -1423,6 +1536,28 @@
+ 	return true
+ 
+ 
++func _fixture_freeze_input(source: String, destination: String, expected_hash: String) -> bool:
++	if source not in [fixture_save_path, fixture_save_path + ".bak"] or expected_hash.is_empty():
++		return false
++	if destination.get_base_dir() != fixture_save_path.get_base_dir() \
++			or not destination.begins_with(fixture_save_path + ".milestone_") \
++			or not (destination.ends_with(".primary.input.json") or destination.ends_with(".backup.input.json")) \
++			or FileAccess.file_exists(destination):
++		return false
++	if FileAccess.get_sha256(source) != expected_hash:
++		return false
++	var bytes := FileAccess.get_file_as_bytes(source)
++	if bytes.is_empty():
++		return false
++	var file := FileAccess.open(destination, FileAccess.WRITE)
++	if file == null:
++		return false
++	file.store_buffer(bytes)
++	file.flush()
++	file.close()
++	return FileAccess.get_sha256(destination) == expected_hash and FileAccess.get_sha256(source) == expected_hash
++
++
+ func _fixture_checkpoint_restart(host: ReefMain, label: String) -> ReefMain:
+ 	var checkpoint_failures := checks_failed
+ 	var earned := _fixture_snapshot(host)
+@@ -1437,17 +1572,30 @@
+ 	var receipt_path := expected_path + ".receipt.json"
+ 	var log_path := expected_path + ".log"
+ 	var started_path := expected_path + ".started.json"
++	var primary_copy := stem + ".primary.input.json"
++	var backup_copy := stem + ".backup.input.json"
+ 	var primary_hash := FileAccess.get_sha256(fixture_save_path)
+ 	var backup_hash := FileAccess.get_sha256(fixture_save_path + ".bak")
+ 	var generation := int((committed as Dictionary).get("save_generation", -1))
+ 	var script_hash := FileAccess.get_sha256(get_script().resource_path)
+ 	_check("milestone evidence paths are unused", not FileAccess.file_exists(expected_path)
+ 		and not FileAccess.file_exists(receipt_path) and not FileAccess.file_exists(log_path)
+-		and not FileAccess.file_exists(started_path))
++		and not FileAccess.file_exists(started_path)
++		and not FileAccess.file_exists(primary_copy) and not FileAccess.file_exists(backup_copy))
+ 	if FileAccess.file_exists(expected_path) or FileAccess.file_exists(receipt_path) \
+-			or FileAccess.file_exists(log_path) or FileAccess.file_exists(started_path):
++			or FileAccess.file_exists(log_path) or FileAccess.file_exists(started_path) \
++			or FileAccess.file_exists(primary_copy) or FileAccess.file_exists(backup_copy):
+ 		return null
+-	var expected := {"snapshot": earned, "generation": generation,
++	var backup_exists := FileAccess.file_exists(fixture_save_path + ".bak")
++	var frozen := _fixture_freeze_input(fixture_save_path, primary_copy, primary_hash)
++	if frozen and backup_exists:
++		frozen = _fixture_freeze_input(fixture_save_path + ".bak", backup_copy, backup_hash)
++	_check("milestone %s retains exact primary and existing backup inputs before child boot" % label, frozen)
++	if not frozen:
++		return null
++	var frozen_inputs := {"primary": {"path": primary_copy, "sha256": primary_hash},
++		"backup": {"path": backup_copy if backup_exists else "", "sha256": backup_hash}}
++	var expected := {"snapshot": earned, "generation": generation, "frozen_inputs": frozen_inputs,
+ 		"primary_sha256": primary_hash, "backup_sha256": backup_hash,
+ 		"parent_process_id": OS.get_process_id(), "label": label, "script_sha256": script_hash}
+ 	var file := FileAccess.open(expected_path, FileAccess.WRITE)
+@@ -1498,6 +1646,7 @@
+ 					and String(receipt.get("preboot_primary_sha256", "")) == primary_hash \
+ 					and String(receipt.get("preboot_backup_sha256", "")) == backup_hash \
+ 					and String(receipt.get("script_sha256", "")) == script_hash \
++					and (receipt.get("frozen_inputs", {}) as Dictionary) == frozen_inputs \
+ 					and _fixture_snapshots_equal(receipt.get("loaded_snapshot", {}) as Dictionary, earned)
+ 			var child_log := FileAccess.get_file_as_string(log_path) if FileAccess.file_exists(log_path) else ""
+ 			var verified := child_exit == 0 and valid and not child_log.is_empty() \
+@@ -1552,6 +1701,22 @@
+ 	_check("child sees exact committed primary and backup before boot",
+ 		primary_hash == String(record.get("primary_sha256", ""))
+ 		and backup_hash == String(record.get("backup_sha256", "")))
++	var frozen_inputs := record.get("frozen_inputs", {}) as Dictionary
++	var frozen_primary := frozen_inputs.get("primary", {}) as Dictionary
++	var frozen_backup := frozen_inputs.get("backup", {}) as Dictionary
++	var frozen_stem := fixture_expected_path.trim_suffix(".expected.json")
++	var primary_copy := String(frozen_primary.get("path", ""))
++	var backup_copy := String(frozen_backup.get("path", ""))
++	var retained := primary_copy == frozen_stem + ".primary.input.json" \
++		and FileAccess.get_sha256(primary_copy) == primary_hash \
++		and String(frozen_primary.get("sha256", "")) == primary_hash
++	if backup_hash.is_empty():
++		retained = retained and backup_copy.is_empty()
++	else:
++		retained = retained and backup_copy == frozen_stem + ".backup.input.json" \
++			and FileAccess.get_sha256(backup_copy) == backup_hash \
++			and String(frozen_backup.get("sha256", "")) == backup_hash
++	_check("child sees the exact retained primary and backup inputs without loading the copies", retained)
+ 	var host := await _fixture_boot_scene()
+ 	var loaded := fixture_loaded_snapshot.duplicate(true)
+ 	var generation := fixture_loaded_generation
+@@ -1575,6 +1740,7 @@
+ 		"process_id": OS.get_process_id(), "parent_process_id": parent_pid,
+ 		"loaded_snapshot": loaded, "loaded_generation": generation,
+ 		"preboot_primary_sha256": primary_hash, "preboot_backup_sha256": backup_hash,
++		"frozen_inputs": frozen_inputs,
+ 		"script_sha256": FileAccess.get_sha256(get_script().resource_path)}))
+ 	file.close()
+ 	print("CHAPTER2_RESUME_CHILD|RESULT: ", "PASS" if checks_failed == 0 else "FAIL")

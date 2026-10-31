@@ -1,0 +1,80 @@
+{
+  "applied_audio_director_sha256": "000f6f196978192c377af45c2418202890b18327ae9bf0877003055007d0b75e",
+  "applied_top_level_fields": [
+    "m",
+    "_active_speaker",
+    "_day_one_context_catalog",
+    "_day_one_context_seen",
+    "_day_one_context_active_key",
+    "_active_required_key",
+    "_active_guide_mode",
+    "_required_voice_queue"
+  ],
+  "baseline_audio_director_sha256": "982ae2bcbeabdb7a76c1c193aa391319bf255a3cd046108f6361dacc655eb666",
+  "baseline_commit": "831d0bbb155b99d75ef0289cc5cc694e0ef00c1e",
+  "baseline_ref": "origin/dev",
+  "baseline_top_level_fields": [
+    "m",
+    "_active_speaker",
+    "_day_one_context_catalog",
+    "_day_one_context_seen",
+    "_day_one_context_active_key",
+    "_active_required_key",
+    "_required_voice_queue"
+  ],
+  "created_utc": "2026-10-15T03:11:56.351315+00:00",
+  "files": [
+    {
+      "base_lines": 8864,
+      "base_sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+      "draft_lines": 8865,
+      "draft_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\drafts\\scripts\\main.gd",
+      "draft_sha256": "b7141748c9664fa4023d254495fd61ae4e80d6e536c3ada3972c2ea0104696c7",
+      "line_delta": 1,
+      "normalized_draft_sha256": "77bddeb59b215fd2d993f6c124ef67e49314d992d00cbc7c1b9231e9c157c417",
+      "path": "scripts/main.gd"
+    },
+    {
+      "base_lines": 784,
+      "base_sha256": "000f6f196978192c377af45c2418202890b18327ae9bf0877003055007d0b75e",
+      "draft_lines": 783,
+      "draft_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\drafts\\scripts\\audio_director.gd",
+      "draft_sha256": "c2010e40d3e3e0ebb6928d1fab1efe9b997416c8a72a9ab8c547df5589552886",
+      "line_delta": -1,
+      "normalized_draft_sha256": "35ccacfec6860ceb984a5f91c6f8532f643d75c5739efa1f8f825164b175b76e",
+      "path": "scripts/audio_director.gd"
+    }
+  ],
+  "growth_rule_note": "main grows exactly1typedstate declaration line and helper shrinks1declaration. DL-CODE-01 requires parent impact to record the bounded ownership-correction waiver/follow-up extraction or supply a genuine same-branch mechanical net-out; do not hide growth by formatting. Existing Mode Platform/audio-service migration is the relevant follow-up boundary. No waiver or canonical impact edited by this draft task.",
+  "historical_helper_state_preserved": [
+    "m",
+    "_active_speaker",
+    "_day_one_context_catalog",
+    "_day_one_context_seen",
+    "_day_one_context_active_key",
+    "_active_required_key",
+    "_required_voice_queue"
+  ],
+  "inverse_mechanical_identity": "PASS: undoing only the5receiver qualifications and relocating the declaration reproduces exact current AudioDirector bytes; removing the1mainfield reproduces exact current main bytes.",
+  "lifecycle": "Main default empty; existing objective selection and clear_speech paths retain their same writes/teardown points. AudioDirector is lazily cached once per main in production. Shared ownership is intentional; do not add a helper-owned duplicate or constructor reset.",
+  "new_top_level_helper_fields": [
+    "_active_guide_mode"
+  ],
+  "ownership_contract": "AGENTS Phase7 satellites own logic only; ALL state stays on main. DL-CODE-03/04/06 and DL-AUTH-05/06/07 apply.",
+  "patch": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\main_owned_guide_mode.patch",
+  "patch_sha256": "8ae049616b896640056985d700cd3e0cbdd129bc166bd0d1f38cee709b69a2f9",
+  "probe_access_changes": [],
+  "project_source_or_pin_mutation": false,
+  "reason_no_probe_edits": "No probe accesses _active_guide_mode. Existing _active_required_key/_required_voice_queue probe accesses remain historical and unchanged.",
+  "related_findings": [
+    "MA-CODE-001",
+    "MA-CODE-002",
+    "MA-CODE-004"
+  ],
+  "runtime_verification": "NOT_RUN; parent Chapter gate active. After apply, exact engine analyzer on main/audio plus existing voice/Seek/Dolls focused gates and full applicable suite remain required.",
+  "save_finding_scope": "MA-SAVE-001 is not repaired; this field is ephemeral speech-owner bookkeeping, not earned child progress. No save schema or persisted state changes.",
+  "schema": "reef.audio-guide-state-ownership-draft.v1",
+  "source_changes": "Move only the packet-new Guide mode string from AudioDirector to typed ReefMain.audio_active_guide_mode; qualify all5existing reads/writes through m. No logic, init-time work, queue policy, audio path, protected policy or public method signature changes.",
+  "static_checks": "PENDING",
+  "status": "SCRATCH_REVIEW_READY_NOT_APPLIED"
+}

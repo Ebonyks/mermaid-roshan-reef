@@ -1,0 +1,140 @@
+--- a/scripts/probe_chapter2.gd
++++ b/tmp/luna_repair_20261014/chapter2/diagnostics/probe_chapter2_push_observe_01.gd
+@@ -33,6 +33,8 @@
+ var fixture_loaded_id := 0
+ var fixture_expected_path := ""
+ var fixture_boot_count := 0
++var push_observation: Dictionary = {}
++
+ 
+ 
+ 
+@@ -962,6 +964,9 @@
+ 			print("CHAPTER2|draw command route NOT_MEASURED in headless: ", context)
+ 		else:
+ 			_check("viewport: actual story draw route uses the source-specific identity", draw_route == expected_route)
++	var observing_push := context == "chapter2_basket_delivery"
++	if observing_push:
++		_push_observe_begin(world)
+ 	var deadline := Time.get_ticks_msec() + 15000
+ 	var sample := 0
+ 	while _route_phase_live(world, index) and Time.get_ticks_msec() < deadline:
+@@ -1010,10 +1015,17 @@
+ 					var start := surface._long_push_position(surface.long_push_journey)
+ 					var finish := surface._long_push_end()
+ 					_route_touch(surface, start, true)
++					if observing_push:
++						_push_observe_state(world, "after_original_press", start)
+ 					for step in range(1, 65):
+-						_route_drag(surface, start.lerp(finish, float(step) / 64.0))
++						var requested := start.lerp(finish, float(step) / 64.0)
++						_route_drag(surface, requested)
++						if observing_push:
++							_push_observe_state(world, "after_original_drag", requested)
+ 						await process_frame
+ 					_route_touch(surface, finish, false)
++					if observing_push:
++						_push_observe_state(world, "after_original_release", finish)
+ 				else:
+ 					_route_touch(surface, surface._trace_demo_point(0), true)
+ 					for step in range(1, 65):
+@@ -1107,6 +1119,8 @@
+ 				print("CHAPTER2|viewport unsupported mode: ", mode)
+ 				return false
+ 		sample += 1
++	if observing_push:
++		_push_observe_finish(world)
+ 	return is_instance_valid(world) and (world.phase_advance_pending or world.phase_index > index)
+ 
+ 
+@@ -1580,6 +1594,90 @@
+ 		and [host.opera_stars, host.opera_progress, host.pearl_count] == freeplay_before)
+ 
+ 
++
++func _push_observe_begin(world: OperaCareerWorld2D) -> void:
++	var surface := world.surface
++	push_observation = {"scope": "OBSERVATION_ONLY identical original press/64drags/release sequence and assertions",
++		"phase": world.phase_index, "goal": float((world.phases[world.phase_index] as Dictionary).get("goal", -1)),
++		"context": surface.visual_context, "surface_size": str(surface.size),
++		"surface_transform": str(surface.get_global_transform_with_canvas()),
++		"lane_start": str(surface._long_push_start()), "lane_end": str(surface._long_push_end()),
++		"gui_touches": 0, "gui_drags": 0, "gesture_count": 0, "positive_gesture_count": 0,
++		"positive_amount_sum": 0.0, "max_world_progress": world.phase_progress,
++		"max_surface_journey": surface.long_push_journey, "state_samples": 0, "gui_samples": 0,
++		"first": [], "last": [], "started_wall_msec": Time.get_ticks_msec()}
++	surface.gui_input.connect(_push_observe_gui.bind(world))
++	surface.gesture.connect(_push_observe_gesture.bind(world))
++	_push_observe_state(world, "before_unchanged_input", surface._long_push_position(surface.long_push_journey))
++
++
++func _push_observe_record(record: Dictionary) -> void:
++	# Never print inside the critical drag window. Retain a bounded prefix/tail
++	# while aggregate counters cover every actual input and emitted gesture.
++	var first := push_observation["first"] as Array
++	var last := push_observation["last"] as Array
++	if first.size() < 180:
++		first.append(record)
++	last.append(record)
++	if last.size() > 60:
++		last.pop_front()
++
++
++func _push_observe_state(world: OperaCareerWorld2D, stage: String, requested: Vector2) -> void:
++	if not is_instance_valid(world) or world.surface == null:
++		return
++	var surface := world.surface
++	push_observation["state_samples"] = int(push_observation["state_samples"]) + 1
++	push_observation["max_world_progress"] = maxf(float(push_observation["max_world_progress"]), world.phase_progress)
++	push_observation["max_surface_journey"] = maxf(float(push_observation["max_surface_journey"]), surface.long_push_journey)
++	_push_observe_record({"stage": stage, "requested_local": str(requested),
++		"world_progress": String.num(world.phase_progress, 16),
++		"surface_journey": String.num(surface.long_push_journey, 16),
++		"widget_fill": String.num(surface.widget_fill, 16), "held": surface.held,
++		"engaged": surface.long_push_engaged, "active_touch": surface.active_touch_index,
++		"previous_local": str(surface.previous_pos), "pointer_local": str(surface.pointer_pos),
++		"pending": world.phase_advance_pending})
++
++
++func _push_observe_gui(event: InputEvent, world: OperaCareerWorld2D) -> void:
++	var record: Dictionary = {}
++	if event is InputEventScreenTouch:
++		var touch := event as InputEventScreenTouch
++		push_observation["gui_touches"] = int(push_observation["gui_touches"]) + 1
++		record = {"stage": "actual_gui_touch_signal", "local": str(touch.position),
++			"pressed": touch.pressed, "index": touch.index, "canceled": touch.canceled}
++	elif event is InputEventScreenDrag:
++		var drag := event as InputEventScreenDrag
++		push_observation["gui_drags"] = int(push_observation["gui_drags"]) + 1
++		record = {"stage": "actual_gui_drag_signal", "local": str(drag.position), "index": drag.index}
++	if not record.is_empty():
++		push_observation["gui_samples"] = int(push_observation["gui_samples"]) + 1
++		record["world_progress_at_signal"] = String.num(world.phase_progress, 16)
++		record["surface_journey_at_signal"] = String.num(world.surface.long_push_journey, 16)
++		_push_observe_record(record)
++
++
++func _push_observe_gesture(kind: String, amount: float, quality: float, world: OperaCareerWorld2D) -> void:
++	push_observation["gesture_count"] = int(push_observation["gesture_count"]) + 1
++	if amount > 0.0:
++		push_observation["positive_gesture_count"] = int(push_observation["positive_gesture_count"]) + 1
++		push_observation["positive_amount_sum"] = float(push_observation["positive_amount_sum"]) + amount
++	_push_observe_record({"stage": "observed_actual_gesture_after_world_connection", "kind": kind,
++		"amount": String.num(amount, 16), "quality": quality,
++		"world_progress": String.num(world.phase_progress, 16),
++		"surface_journey": String.num(world.surface.long_push_journey, 16)})
++
++
++func _push_observe_finish(world: OperaCareerWorld2D) -> void:
++	if is_instance_valid(world) and world.surface != null:
++		_push_observe_state(world, "after_critical_push_window", world.surface.pointer_pos)
++		world.surface.gui_input.disconnect(_push_observe_gui.bind(world))
++		world.surface.gesture.disconnect(_push_observe_gesture.bind(world))
++	push_observation["finished_wall_msec"] = Time.get_ticks_msec()
++	push_observation["observation_script_sha256"] = FileAccess.get_sha256(get_script().resource_path)
++	print("CHAPTER2_PUSH_TELEMETRY|", JSON.stringify(push_observation))
++
++
+ func _check(label: String, ok: bool) -> void:
+ 	if not ok:
+ 		checks_failed += 1

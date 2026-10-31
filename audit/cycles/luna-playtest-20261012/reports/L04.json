@@ -1,0 +1,132 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L04",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l04",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Bathroom fixture action and feedback",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L04/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe_bathroom_integration ran at the frozen baseline under Godot 4.7.2-stable and reported 0 failed assertions. Its log checks the Bubble Bath room fixture cards, including the legacy toilet flush card/vortex, bathtub approach and related room input. Source trace shows the Day One toilet scrub is created after the tub drain, then its cleaned signal advances the cleanup/finale path.",
+    "gaps": "This probe does not instantiate or drive scripts/games/day_one_bathroom_toilet.gd; its toilet assertions concern the separate Bubble Bath fixture-card flush/vortex. The scrub controller’s mechanics were inspected in source and its separate existing probe code was read but not executed in this L04 run. No fresh-save child route, live routed touch through the scrub UI, Mobile rendered capture, target-device input, child observation, or owner acceptance was established."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "source_constants": [
+      {
+        "value": "TOUCH_RADIUS = 145.0 canvas pixels; ARC_REQUIRED = 1.05 × TAU; DISTANCE_REQUIRED = 400.0 canvas pixels; MOTION_SECONDS_REQUIRED = 1.5 seconds.",
+        "evidence": "scripts/games/day_one_bathroom_toilet.gd:6-10"
+      },
+      {
+        "value": "Roshan approaches at 360 canvas pixels/second; arrival is within 1.0 pixel. First idle reprompt is after 5.0 seconds; later reprompts after 12.0 seconds, at most three.",
+        "evidence": "scripts/games/day_one_bathroom_toilet.gd:198-216"
+      },
+      {
+        "value": "The final whole-room sparkle beat waits 0.92 seconds before the completion signal.",
+        "evidence": "scripts/games/day_one_bathroom_cleaning.gd:915-937"
+      }
+    ],
+    "estimated_activity_duration": null,
+    "assumptions": "The code requires about 1.05 circular turns, 400 pixels of in-radius travel and 1.5 seconds of held movement before cleaning. Actual first-time and repeat duration depend on actor start position, route and touch cadence; no child duration is estimated. The 46.463-second probe wall time is not gameplay duration."
+  },
+  "tactile": {
+    "target_size": "The scrub accepts a press within a 145-pixel radius of bowl center (290-pixel diameter); it is a circular region, not a measured phone-projected hitbox. Probe code calls it generous, but L04's executed probe did not exercise this controller.",
+    "press_response": "A valid begin_gesture claims the finger and resets idle timing. The source does not change grime opacity or brush pose on press alone; grime and brush change after qualifying movement. Headless integration results do not measure the two-frame visual response requirement.",
+    "drag_hold_release": "One-finger circular dragging is required. Progress counts only movement while both previous and current points are within the 145-pixel radius; completion requires arc, distance and held-motion thresholds together. Release cancels the owned finger while partial arc/distance/time remain in the controller.",
+    "ownership": "Only one finger id is held at a time; a second begin is rejected while _finger is owned. The controller is a full-canvas Control with mouse_filter STOP and receives its GUI input. No physical touch routing or neighboring hit-target competition was tested for the scrub.",
+    "cancellation": "Focus loss, pause and teardown cancel the held finger; pause/focus suspension stops approach and hides the pointer. Existing probe_day_one_bathroom_cleanup.gd contains direct assertions for focus/pause cancellation and stale-drag rejection, but those assertions were not part of the executed L04 probe."
+  },
+  "play_appeal": {
+    "hypothesis": "Roshan visibly approaching with the brush, followed by a bowl-centered circle cue and grime clearing as the child scrubs, could give a clear cause-and-effect action with a satisfying payoff. Repeated circular motion may feel repetitive if the required arc/distance takes several attempts; replay and child appeal are unmeasured.",
+    "fun_score": null
+  },
+  "observations": [
+    {
+      "title": "The toilet scrub requires Roshan to reach the bowl and make brush contact before progress can be earned",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/games/day_one_bathroom_toilet.gd:75-89 (brush anchored at the hand and bowl grime target)",
+        "scripts/games/day_one_bathroom_toilet.gd:198-206 (approach to bristle-aligned destination, then spoken cue)",
+        "scripts/games/day_one_bathroom_toilet.gd:164-188 (movement is rejected until arrival; cleaned state is recorded only after scrub thresholds)",
+        "scripts/games/day_one_bathroom_cleaning.gd:905-917 (toilet stage follows tub drain and its cleaned signal starts the finale)",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:948-969 (MA-PLAY-004 retains remaining embodied-job and external acceptance scope)"
+      ],
+      "rules": ["DL-INT-02", "DL-INT-04", "DL-AGE-01", "DL-AGE-02", "DL-QA-06"],
+      "existing_findings": ["MA-PLAY-004"],
+      "reproduction": "Follow the staged cleanup path to _begin_toilet(); the controller starts approach automatically and blocks scrub movement until _arrived. The code places the brush on Roshan’s hand and computes the actor destination from the brush bristles and bowl center.",
+      "child_impact": "The action is authored as Roshan doing the work at the target rather than a remote brush moving by itself. The actual visual readability and contact at phone size remain unverified.",
+      "proposed_repair": "No source repair indicated by this review. Keep this step in the remaining MA-PLAY-004 acceptance inventory until the full device/child/owner gates are met.",
+      "acceptance_test": "On the target device, capture before/during/after the toilet scrub and verify the actor travels to the bowl, brush stays attached to her hand, bristles contact the bowl, and progress changes only during the intentional scrub."
+    },
+    {
+      "title": "A press can claim the scrub without an immediate visible acknowledgment",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/games/day_one_bathroom_toilet.gd:155-162 (begin_gesture only stores finger, position and idle reset)",
+        "scripts/games/day_one_bathroom_toilet.gd:164-180 (visual grime/brush response occurs after qualifying movement)",
+        "scripts/games/day_one_bathroom_toilet.gd:216-223 (pointer and drawn circle are suppressed while a finger is owned)",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:345-348 (DL-AGE-07 visible response within two rendered frames)"
+      ],
+      "rules": ["DL-AGE-07", "DL-MOT-04", "DL-QA-03", "DL-QA-04"],
+      "existing_findings": [],
+      "reproduction": "After Roshan arrives, press inside the bowl radius and hold without moving. The begin handler changes only controller state; grime and brush changes require movement, while the circle/pointer guidance is hidden for the owned-finger state.",
+      "child_impact": "A child who touches the bowl and pauses may not see that the touch was accepted or understand that a circular drag is now expected. Whether the press itself is sufficiently obvious visually has not been rendered or observed here.",
+      "proposed_repair": "No repair conclusion without visual/device evidence. Review a press-state acknowledgment that preserves the source art and does not obscure the brush/bowl action.",
+      "acceptance_test": "At 30 fps on the target phone, press and hold at the bowl center without moving; verify an unambiguous visual response begins within two rendered frames, then verify it transitions coherently into scrub feedback after movement."
+    },
+    {
+      "title": "Touch during Roshan’s approach can be owned before scrubbing is enabled",
+      "classification": "HYPOTHESIS",
+      "evidence": [
+        "scripts/games/day_one_bathroom_toilet.gd:155-162 (begin_gesture has no _arrived guard)",
+        "scripts/games/day_one_bathroom_toilet.gd:164-167 (move_gesture rejects movement before _arrived but keeps the finger state)",
+        "scripts/games/day_one_bathroom_toilet.gd:203-217 (arrival announces while pointer visibility still depends on finger being released)",
+        "scripts/probe_day_one_bathroom_cleanup.gd:648-677 (existing controller check presses before arrival, releases, then confirms arrival/pointer; it does not test holding continuously through arrival)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-07", "DL-UI-01", "DL-UI-04"],
+      "existing_findings": ["MA-PLAY-004"],
+      "reproduction": "Touch inside the bowl radius while Roshan is still approaching and keep holding past arrival. Source allows begin_gesture, rejects pre-arrival drag, and makes pointer visibility false while the finger remains owned. The child-facing impact is a source-based hypothesis, not an executed device observation.",
+      "child_impact": "A child could start the scrub before the invitation, then see the spoken prompt without the circle/pointer and with no scrub progress until the next movement. That may make the accepted hold feel stuck or unexplained.",
+      "proposed_repair": "If routed input confirms this ambiguity, either reject/visibly acknowledge early presses and require release/re-touch after arrival, or safely queue the intended gesture with clear visible feedback.",
+      "acceptance_test": "Drive a routed touch from before approach arrival through arrival; confirm the finger’s ownership, pointer/circle, voice prompt and first scrub motion make the correct next action obvious and cannot strand the input."
+    },
+    {
+      "title": "The assigned integration probe passes but does not exercise this toilet scrub controller",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/matrix.json (L04 assigns probe_bathroom_integration and day_one_bathroom_toilet.gd)",
+        "scripts/probe_bathroom_integration.gd:22-25,818-819 (toilet checks concern fixture flush audio/vortex contract)",
+        "scripts/probe_bathroom_integration.gd:155,863 (probe reports BATHROOM_WORLD checks and final result)",
+        "audit/cycles/luna-playtest-20261012/runtime/L04/attempt_1/receipt.json (PASS, exact Godot 4.7.2, headless, rendered_mobile_acceptance=false)",
+        "audit/cycles/luna-playtest-20261012/runtime/L04/attempt_1/probe.log:2-48 (fixture/world checks; RESULT: 0 OK)",
+        "scripts/probe_day_one_bathroom_cleanup.gd:643-757 (separate existing direct controller assertions, not the executed L04 run)"
+      ],
+      "rules": ["DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-004"],
+      "reproduction": "The required unchanged L04 helper ran probe_bathroom_integration once and returned PASS. Its actual toilet-specific log line checks that the flush vortex stays within the bowl cavity; it does not exercise DayOneBathroomToilet.begin_gesture or its cleaning completion path.",
+      "child_impact": "The green L04 probe cannot establish that a child can find, understand, complete, or replay the staged toilet scrub. A separate existing source-bound probe has checks for those mechanics, but it was not executed for this review session.",
+      "proposed_repair": "Do not alter this probe result or claim it covers the scrub. Keep the existing focused cleanup probe and add routed touch/device evidence to the acceptance record when that review is commissioned.",
+      "acceptance_test": "Run the unchanged focused bathroom cleanup probe at the same pinned head and inspect its toilet assertions; separately exercise the ordinary live route with routed input, target-device capture and child/owner review."
+    }
+  ],
+  "strengths": [
+    {
+      "strength": "The focused source trace shows a one-finger circle action with movement/arc/time gates, visible grime fade during motion, and no completion from approach or demonstration alone.",
+      "evidence": "scripts/games/day_one_bathroom_toilet.gd:7-10,164-188; scripts/probe_day_one_bathroom_cleanup.gd:681-702 (existing assertions inspected, not run in L04)."
+    },
+    {
+      "strength": "The assigned integration probe passed all its bathroom world/fixture assertions on the exact approved engine and retained a zero-failure log.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L04/attempt_1/receipt.json; audit/cycles/luna-playtest-20261012/runtime/L04/attempt_1/probe.log:2-48"
+    }
+  ],
+  "acceptance_gaps": [
+    "The executed probe covers the bathroom fixture flush card rather than the Day One staged toilet scrub controller; direct scrub assertions exist in a separate probe but were not executed in L04 (DL-QA-02).",
+    "No ordinary fresh-save routed scrub path or actual touch response was shown; no Mobile rendered capture or 30 fps two-frame press-response evidence (DL-QA-03, DL-QA-04).",
+    "No target-device projected hit-area, latency, audio audibility, frame pacing, or touch ownership evidence (DL-QA-04).",
+    "No observed child comprehension, independent scrub discovery, replay appeal, or owner acceptance (DL-QA-05, DL-QA-06).",
+    "The probe PASS is limited to its 0-assertion-failure bathroom world checks and does not establish MA-PLAY-004 closure or game-wide audit satisfaction."
+  ]
+}

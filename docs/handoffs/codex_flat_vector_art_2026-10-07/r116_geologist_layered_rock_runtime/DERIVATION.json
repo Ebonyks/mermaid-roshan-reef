@@ -1,0 +1,60 @@
+{
+  "backend": "Built-in image_gen",
+  "model_version": null,
+  "model_selector_exposed": false,
+  "request_id": "exec-0795214f-35f4-43f9-93ea-6141c78bcfb3",
+  "native_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-0795214f-35f4-43f9-93ea-6141c78bcfb3.png",
+  "native_sha256": "bb3107da4cf6c580a5e87fda08b47dc61ad2d893ae96e7d026b7eafe4133702d",
+  "native_dimensions": [
+    1254,
+    1254
+  ],
+  "runtime_path": "assets/opera/worlds/hotspots/geologist_layered_rock_painted.png",
+  "runtime_sha256": "bbd5315020a266ede11c2337229b0f49ff5a9ceb7ee2c3184b63400464838687",
+  "runtime_dimensions": [
+    512,
+    512
+  ],
+  "whole_source": true,
+  "operations": [
+    "Aseprite1.3.18.4 preserve native full RGBA editable master",
+    "Uniform scale whole square to512; no crop/paint/composite",
+    "Lossless whole PNG runtime export"
+  ],
+  "native_master_sha256": "372f86c7096b89c5f37226bf96650b1113b880ca0e8314e929cb215903aa07d3",
+  "runtime_master_sha256": "2d562d27a1d62a9388a125cc4c4b18a6ef45ebf01d094531b09be1316b3e85aa",
+  "source_acceptance": "New provisional static candidate; no owner/human approval claimed",
+  "take": 1,
+  "static_takes": 1,
+  "static_cap": 2,
+  "animation_calls": 0,
+  "cost_usage": "Not exposed",
+  "cutout_profile": {
+    "mode": "RGBA",
+    "transparent_pct": 62.1,
+    "faint_haze_pct_of_canvas": 0.4,
+    "semi_pct_of_visible": 0.7,
+    "near_opaque_pct_of_visible": 98.2,
+    "opaque_255_pct": 0.0,
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "content_bbox": [
+      57,
+      105,
+      459,
+      436
+    ],
+    "verdict": "CUTOUT_OK"
+  },
+  "visual_review": "Native directly inspected: whole upright lilac/peach/aqua layered stone, exactlytwo golden inclusions, matching painted material and thinplum contour. Candidate scene review pending.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "native_master_visible_RGBA_exact_roundtrip": true,
+  "native_master_roundtrip_sha256": "f8189b4ce468c697d4f5c5aabd040d892c62bd129f60875d1ee1b6356bccbd1a"
+}

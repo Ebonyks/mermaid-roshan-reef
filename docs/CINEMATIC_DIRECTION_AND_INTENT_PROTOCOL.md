@@ -7,8 +7,10 @@ and [animation production protocol](../design/animation/ANIMATION_PRODUCTION_PRO
 Record the character profile/version and chosen register in the Scene Direction
 Brief; the [animation audit branch](../audit/animation/README.md) tracks evidence.
 These add character-specific attention, action and settling to this intent
-process. They do not replace shot authority, full-frame cinematic production,
-existing acceptance, or owner decisions. Routine drafting within an already
+process. Owner revision 2026-10-03 permits suitable declared animation methods
+and prefers Aseprite as the bridge where practical; use the production protocol
+for method selection and bounded iteration. Shot authority, approved appearance,
+provenance and human/device/child/owner acceptance remain binding. Routine drafting within an already
 authorized commission does not require a second planning conversation.
 
 This document defines the conscious pre-generation process for every cinematic

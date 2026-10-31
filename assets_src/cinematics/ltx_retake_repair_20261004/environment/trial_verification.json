@@ -1,0 +1,90 @@
+{
+  "status": "PASS",
+  "tagged_key_export_pixel_equal": 3,
+  "completed_takes": [
+    {
+      "take": "ltxv_guide_standard",
+      "status": "PASS",
+      "aseprite_pixel_equal_native_frames": 25,
+      "native_hashes_unchanged": true,
+      "outside_review_splice_byte_preserved_frames": 58,
+      "video_streams": [
+        {
+          "path": "window.mp4",
+          "dimensions": [
+            896,
+            512
+          ],
+          "frames": 25,
+          "fps": "24/1"
+        },
+        {
+          "path": "assembled.mp4",
+          "dimensions": [
+            896,
+            512
+          ],
+          "frames": 81,
+          "fps": "24/1"
+        }
+      ]
+    },
+    {
+      "take": "ltxv_guide_strong",
+      "status": "PASS",
+      "aseprite_pixel_equal_native_frames": 25,
+      "native_hashes_unchanged": true,
+      "outside_review_splice_byte_preserved_frames": 58,
+      "video_streams": [
+        {
+          "path": "window.mp4",
+          "dimensions": [
+            896,
+            512
+          ],
+          "frames": 25,
+          "fps": "24/1"
+        },
+        {
+          "path": "assembled.mp4",
+          "dimensions": [
+            896,
+            512
+          ],
+          "frames": 81,
+          "fps": "24/1"
+        }
+      ]
+    },
+    {
+      "take": "ltx23_retake_lowmem",
+      "status": "PASS",
+      "aseprite_pixel_equal_native_frames": 25,
+      "native_hashes_unchanged": true,
+      "outside_review_splice_byte_preserved_frames": 58,
+      "video_streams": [
+        {
+          "path": "window.mp4",
+          "dimensions": [
+            448,
+            256
+          ],
+          "frames": 25,
+          "fps": "24/1"
+        },
+        {
+          "path": "assembled.mp4",
+          "dimensions": [
+            896,
+            512
+          ],
+          "frames": 81,
+          "fps": "24/1"
+        }
+      ]
+    }
+  ],
+  "failed_attempt_has_no_invented_frames": true,
+  "all_artifacts_nonempty_except_intentional_godot_gdignore_marker": true,
+  "quality_acceptance": "FAIL/REFERENCE_ONLY; see human review; machine checks do not establish accepted motion"
+}

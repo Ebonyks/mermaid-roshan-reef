@@ -1,6 +1,9 @@
 # Character animation production protocol
 
-Status: current production protocol under `DL-MOT-10` through `DL-MOT-13`.
+Status: current production protocol under `DL-MOT-10` through `DL-MOT-16`.
+Owner revision 2026-10-03 permits final animation workflows with identity,
+motion, provenance and device checks and prefers Aseprite as the bridge.
+Compulsory independent still generation is superseded; historical rejects remain.
 Commission: 2026-09-11, richer Roshan movement direction and project integration.
 This defines how to brief, build and review animation. It accepts no new clip,
 asset, runtime behavior, cinematic delivery, device result or release.
@@ -31,10 +34,16 @@ additional character; unknown canon stays unknown until sourced or explicitly de
 
 ## Select the production lane before making pixels
 
+Default to local character design/animation and object workflows; APIs serve
+cinematic scenes, preserving approved storybook 2D identity. Use Aseprite as the
+editable sprite bridge where practical. The [dated workstation comparison](WORKFLOW_OPTIONS_2026-10-03.md#local-models-and-runners-for-this-pc)
+selects bounded pilots; it does not accept their output or commission an install.
+Record reasons for exceptions and respect the funded task budget.
+
 | Lane | Construction and evidence |
 |---|---|
 | Interactive gameplay | Authored approved 2D frames/states on Canvas with explicit anchors and draw order. Navigation moves the actor through the stage; accepted authored states explain propulsion and acting. Observe the production input, contact and save owners. |
-| Authored cinematic delivery | Complete flattened generated frames under `DL-CIN-01` through `DL-CIN-12` and the full [AGENTS cinematic contract](../../AGENTS.md). Every changed action frame independently passes the required full-frame evidence. |
+| Authored cinematic delivery | Suitable declared 2D/video workflow under revised `DL-CIN-01` through `DL-CIN-12` and the [AGENTS contract](../../AGENTS.md#animation-production-owner-decision-2026-10-03). Flattened footage requires exact provenance, production-profile scene/temporal/human gates and device/child/owner acceptance. |
 | Motion or editorial study | Label reference-only; record method and source. A useful study never becomes runtime art or accepted cinematic pixels by relabeling or encoding it. |
 
 Gameplay translation, gentle idle motion and effects remain subject to the
@@ -43,13 +52,249 @@ character animation; blending frames cannot repair missing contact or identity.
 Use `Node2D`, `Sprite2D`, `Control` and related Canvas nodes. Existing spatial
 staging is measured migration debt; no model, rig or 3D fallback is introduced.
 
-Cinematic action/review delivery forbids tweening, morphing, optical flow,
-interpolation, cross-dissolve, sprite/cutout animation, rig animation, procedural
-warping, static-layer/camera translation and duplicates concealing missing action.
-Intentional holds need a declared span and narrative purpose. Production-only
-whole-canvas normalization follows acceptance and preserves native generation hashes.
-Position guides remain neutral-field, `POSITION_GUIDE_ONLY`, non-delivery evidence
-under the complete binding exception; no guide pixels enter a delivered frame.
+Choose a method using the [dated workflow comparison](WORKFLOW_OPTIONS_2026-10-03.md)
+and complete the [job card](../templates/ANIMATION_JOB_CARD_V1.md). ImageGen fills
+specific art gaps, not an automatic animation-frame batch. Declared 2D
+articulation/compositing/interpolation is eligible when it preserves identity
+and performs the actual action. Declare authored key/frame durations and
+cadence; animation on twos may preserve a painted performance without adding
+synthetic in-betweens. Review the complete action and preserve frame mapping.
+Holds/duplicates/static-sticker motion cannot
+hide missing acting or contact. Historical owner rejections remain in force.
+
+Prefer an editable RGBA Aseprite master for sprite isolation, matte/detail
+cleanup, stable pivots/sockets, transitions, timing/tags and lossless atlas/JSON
+export. Keep sources and cleaned layers separate; preserve painted appearance,
+custom metadata and all master/export hashes. A video editor handles long
+footage/audio; Aseprite may bridge bounded repair windows. Review every affected
+transition, source-to-output mapping and actual engine sampling. Native outputs
+and all edit/retiming/interpolation declarations remain in the derivation log.
+
+Pilot one action before a batch. Set attempt, wall/cleanup-time and monetary/task
+caps; default two generated takes per brief/backend. Stop after two nonviable
+takes or the task cap, diagnose and change method/input. Rejects/cleanup count
+in total cost/minutes per accepted second. Use only an already-authorized funded
+budget for paid jobs; no routine new planning approval is introduced.
+Position-only guides retain their neutral-field and excluded-pixel contract.
+
+## Preserve crisp contours and figure-wide continuity
+
+Owner corrections 2026-10-04: character performances must move as a coherent
+figure. Shoulder, torso, dress/bodice, hair and tail respond to the acting when
+appropriate. Root/pelvis, sockets and scene landmarks provide registration and
+contact references; they do not authorize freezing the rest of the body while
+only a limb animates. Preserve the source figure's changing silhouette,
+attachments, cloth/hair response and counterbalance throughout the action.
+Object motion likewise includes its relevant support and moving parts.
+
+Owner correction 2026-10-05 (`ODR-ROSHAN-WHOLE-FRAME-20261005`): "No arm moves
+as a single figure, the whole body moves at once, drawn as a whole frame." A
+limb never moves as a separate cut-out over a body from another drawing, and
+parts do not run on their own delays. Each frame is one whole drawing of the
+figure; arm, shoulders, head, hair, torso and tail move together. The
+[rejected cut-out wave](../../assets_src/cinematics/claude_2d_deform_wave_20261005/README.md)
+and the [whole-frame revision](../../assets_src/cinematics/claude_whole_frame_wave_20261005/README.md)
+record the difference; neither is accepted output.
+
+Owner corrections 2026-10-07 (`ODR-ROSHAN-CONSTANT-SIZE-20261007`,
+`ODR-SPRITE-WHOLE-UNIT-20261007`): "roshan mutates in size still" and "sprites
+need to be drawn whole, as a single unit, in this game". Size covers the head,
+arms and hands, not only the overall figure: measure part sizes in the exported
+frames before owner review, not only the guides. Every sprite frame is one whole
+drawing in one layer; part layers, separately warped pieces, stacked copies and
+cross-fades are overdraw. Bending the four approved wave keys failed both rules,
+because the keys themselves differ in head size and arm length. The
+[wave handoff](../../docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md)
+sets the measurable contract and its numbers-only check.
+
+Inspect decoded native frames before encoding to distinguish generated smear
+from matte spill and export artifacts. Small character/object footage must
+retain clear painted hands, fingers and prop edges. Review moving edges at the
+intended scale through the complete action. Deliberate motion blur must be
+specified in the direction brief and preserve readable acting/contact.
+
+For a video pilot, request sharply defined painted poses, short-exposure motion
+and continuous whole-figure anatomy. Bind globally registered original figure
+poses rather than compositing unrelated limbs onto a frozen plate. Stronger
+pose guidance is a timing experiment, not a guaranteed blur repair. The
+[registered wave study](../../assets_src/cinematics/ltx_registered_wave_20261004/README.md)
+retains both smeared native takes and the owner-rejected limb-only correction.
+That correction sharpened arm pixels but did not meet figure-wide continuity.
+A prompt revision generates a new candidate; it does not certify sharpness.
+
+After bounded retries, diagnose and change inputs/method without hiding prior
+costs. Authored 2D may be suitable when it performs the complete coordinated
+figure action; isolated limb replacement alone is insufficient for this wave.
+Local repaint/cleanup can repair a named region while its neighboring body,
+cloth, hair and transitions remain temporally coherent. Global sharpening
+cannot recover missing anatomy/contact. Do not start a still-generation campaign
+or repeated upscaling in place of this diagnosis.
+
+Keep full native outputs and editable masters. Declare spatial resampling,
+pose-source switches, replacements, cadence and holds. Review the complete
+figure before and after matte/detail repairs, including shoulder/wrist seams
+and neighboring transitions. Export lossless frames and reopen the master.
+Neither a crisp key nor a pixel-check PASS proves acting, a loop or device
+performance.
+
+### Filter scale continuity through Aseprite
+
+Owner correction 2026-10-04: Roshan retains a constant world size. Use multiple
+corresponding anatomical landmarks for each whole-figure redraw, with Aseprite
+as the editable registration and continuity bridge. A single pivot or equal
+canvas dimensions cannot establish consistent figure scale. Slice/pivot metadata
+does not constrain a video model that receives only exported PNGs.
+
+Record a fixed root and pose-specific landmark targets before rendering. Use
+landmarks distributed across the figure: for the wave study, crown gem, both
+eyes, neckline and waist. Head/shoulder/cloth/hair/tail may move with the pose;
+distinguish that planned movement from a camera zoom or global size change.
+Do not measure scale from silhouette bounds alone, a moving sleeve edge or a
+hand travelling through the action. Review landmark confidence and record
+manual corrections when painted anatomy cannot be measured reliably.
+
+Fit one uniform scale and translation to the complete figure, preserving aspect
+ratio and fixing the declared root. Aseprite exports the transformed complete
+image; preserve its native source, editable master, target/observed anchors,
+actual raster transform and hashes. Check the exported pixels again because
+resampling and integer placement can shift measured landmarks. Reject clipping,
+nonuniform scaling, inconsistent inter-anchor proportions and low-confidence
+measurements. Do not warp separate body parts to force a numerical pass.
+
+Wire this preflight to the actual generation submission: any missing reference,
+changed hash or failed landmark tolerance blocks another take. Aseprite tags
+and review marks alone are insufficient. Inspect decoded native output with the
+same scale/root contract after generation, retain failed frames and identify
+the complete redraw/retake spans. Whole-figure registration can remove global
+size/position drift; it cannot repair torn anatomy, blur or internal stretching.
+Do not publish a corrected-loop claim while those defects or the loop seam fail.
+
+Separate **global registration** from **internal anatomy acceptance**. Apply a
+continuous uniform scale/translation to every frame with reliable corresponding
+anchors, including frames whose internal proportions fail. Preserve and tag those
+failures after correction. Never let an anatomy flag silently bypass registration
+and restore an uncorrected frame to the review sequence. Missing/ambiguous anchors
+require recorded native measurement review; do not fill them by copying a neighbor.
+
+Keep one common scale and stage contract across the complete clip, as in the
+[Grok master handoff formula](../GROK_MASTER_HANDOFF_FORMULA_2026-08-30.md).
+Opening-frame layout establishes scale before motion. Model keyframes and Aseprite
+slice metadata remain soft inputs unless an actual runtime constraint consumes them.
+Use subpixel scale and translation rather than coarse canvas-ratio scale steps;
+perform one whole-frame spatial resample from the preserved native frame. Same-frame
+bilinear sampling is a declared spatial transform, not temporal interpolation.
+Record a constant layout offset when required to protect visible boundary pixels;
+do not claim it reconstructs already cropped anatomy.
+
+Verify exported pixels, all timeline indices (including geometry failures), global
+root/scale residuals, clipping and internal proportions separately. A global fit does
+not prove a fixed head-to-torso ratio or a stable tail shape. Inspect head, shoulder,
+torso and tail landmarks in pose context before artwork acceptance. Source-loop
+errors remain failures; do not hide them with repeated frames, a partial-body warp
+or a tighter crop. The [zero-generation filter correction](../../assets_src/cinematics/ltx25_scale_filter_v2_20261004/README.md)
+retains the faulty v1 evidence and compares raw/v1/v2 footage at the same timeline.
+
+The [multi-anchor wave correction](../../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md)
+retains the original inconsistent key, one named complete-figure redraw, native
+Aseprite registration measurements and a bounded follow-up. It is source evidence,
+not an accepted runtime atlas or a grant of human/device/child acceptance.
+
+### Repair internal proportions and changing detail before acceptance
+
+Owner correction 2026-10-04: size changes remain visible after global registration,
+and the figure shifts in and out of focus. Regeneration through a different
+corrective workflow is allowed. A numerical root/global-scale pass does not
+override visible internal stretching or changing detail. Use pose-aware head,
+shoulder, torso/pelvis and tail-junction relationships across the complete figure;
+registration anchors must not freeze legitimate acting.
+
+Check native decoded PNGs before blaming Aseprite or encoding. Compare guide
+detail/style across the entire family; mixing enlarged low-resolution poses with
+a much sharper redraw can change the conditioning. Record this as a hypothesis
+unless a controlled experiment isolates its effect. Quiet-region edge metrics
+are diagnostic only: changing poses and added grain can raise them without
+recovering painted detail. Inspect both the figure and a quiet background region.
+
+Prefer coherent whole-figure structural video conditioning when sparse image
+keys leave proportion drift. Correct the geometry in Aseprite before deriving
+an outline/depth/pose control sequence; extracting controls from defective
+footage can reinforce its errors. Preserve all action indices and coordinated
+shoulder, torso/cloth, hair and tail response. Validate actual guide bindings,
+legal geometry, quantized adapter execution and memory before a full job.
+
+Treat temporal detail reconstruction as a separate step after geometry passes.
+An adapter trained to retain input geometry is not an anatomy repair guarantee.
+Use aligned sequence conditioning and consistent painted identity, then recheck
+every native frame and both boundaries. Independent still sharpening, per-limb
+repairs, tighter crops and held clean poses cannot accept a changing whole figure.
+
+Record actual decoder defaults and controlled changes. More decoder timesteps
+are not automatically more detail and are not equivalent to DFR or Refine Details.
+The [same-latent decoder comparison](../../assets_src/cinematics/ltx25_focus_repair_20261004/README.md)
+reproduces all default pixels, but rejects two-step decoding for added grain and
+persistent defects. Keep that rejected evidence and publisher default; no blur-off
+claim or adapter quality/8 GB acceptance follows from successful decoding.
+
+The subsequent [Union structural-control trial](../../assets_src/cinematics/ltx25_union_trial_20261004/README.md)
+executes two complete41-frame,8+3-step W4A8 takes on this8GB card with actual
+GPU LoRA weight-application proof. Authored whole-figure Canny-like outlines are
+motion controls only; the approved opening supplies appearance. Native shape
+diagnostics improve, but fingers/focus and strict guide-root limits still fail.
+A weaker opening-image lock does not fix focus and adds texture. Preserve both
+results; do not infer temporal-detail adapter execution or production acceptance.
+
+## Verify the model recipe before judging a take
+
+The [2026-10-04 two-pass wave trial](../../assets_src/cinematics/ltx_two_pass_wave_20261004/README.md)
+checks the omitted refinement in the installed LTX-Video 2B 0.9.8 recipe.
+Before submitting a multiscale job, record the actual first-pass dimensions,
+learned latent upscaler, latent-statistics normalization, second-pass sigmas
+and step count, guide bindings in both passes, and native decoded dimensions.
+A first-pass-only result cannot be reported as the two-pass recipe. Preserve
+both native outputs; whole-canvas output normalization is a declared production
+transform and does not replace native-resolution QA. A Comfy reproduction
+must state its differences from the publisher's executable pipeline.
+
+At CFG 1, ordinary negative conditioning is omitted by the sampler. An
+anti-blur phrase in the positive prompt can influence the request but cannot
+guarantee short exposure, sharp fingers or complete anatomy. To claim effective
+negative guidance, bind actual negative conditioning to a compatible dedicated
+implementation and retain evidence that its attention code executed. A generic
+NAG node whose hooks the model never calls supplies no such evidence.
+
+The [LTX-2.5 8 GB trial](../../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md)
+proves the matched W4A8 stack, learned upscale and refinement execute locally.
+Its LTX-specific NAG hook executed 528 times on GPU, yet torn fingers remained.
+Keep NAG optional unless a controlled native comparison improves the actual
+defect. No documented blur-off switch was found in the inspected official
+guides or pinned core; guidance execution alone does not establish repair.
+
+Distinguish diffusion-VAE decoding, ordinary latent refinement, Refine Details
+IC-LoRA, and the complete DFR pipeline. They perform different work. Record the
+actual loaded decoder class and matched checkpoint; do not claim a quality
+feature is enabled merely from the model version. Consult the exact adapter's
+training bucket, guide contract, sampler and legal geometry before use.
+Match the degradation to the adapter: the official Deblur card excludes
+motion-blur removal because it was trained only for spatial defocus.
+Higher temporal sampling or slower planned motion can reduce travel per latent
+block, but require a bounded same-action test with exact source/output frame
+mapping. Dropping generated frames is declared cadence, not proof of anatomy.
+A temporal-dilation repair must recover the original clock, preserve complete
+figures and audit boundaries; a large community recipe is not an 8 GB preset.
+
+Timed image guides influence motion; they do not lock poses to exact frames.
+Inspect anticipation, the largest travel interval, every contact and the actual
+settle time. Refine may improve contours while retaining a first-pass timing
+failure. Place missing complete-figure keys before another bounded take;
+register the body without freezing shoulder, torso, cloth, hair or tail pixels.
+
+Sampling on twos is an authored cadence choice, not anatomy repair. Record
+selected source indices, timing and any changed holds. Select a crisper frame
+within a pair only if the full figure and neighboring action remain coherent.
+If both frames fail, retain the defect as a failed span for repaint or temporal
+retake; do not hold an unrelated clean pose over it. Review Aseprite exports
+at their native resolution, reopen the editable master and verify pixel/timing
+round trips before any production claim.
 
 ## Inventory and bind sources
 
@@ -161,8 +406,9 @@ be averaged away by beauty, smoothness, a high style score or machine success:
   object penetration or ownership changing without a readable transfer.
 - Delayed touch response, unreachable approach, duplicate/passive reward, stale
   callback, lost progress, broken pause/re-entry or a trapped navigation state.
-- Forbidden cinematic method, missing native/provenance/frame-neighbor evidence,
-  guide-pixel reuse or unreviewed identity/topology/style.
+- Undeclared derivation, missing native/provenance/transition evidence, guide-
+  pixel reuse or unreviewed identity/topology/style/motion. The independent-still
+  lane also retains its strict per-index/accepted-neighbor records.
 - Runtime occlusion hiding the action/target, unsupported aspect behavior, or a
   measured device frame-time/performance failure against applicable project gates.
 
@@ -193,10 +439,22 @@ Fix the smallest cause, rerun its neighboring transitions and affected lifecycle
 checks, then rerun required surrounding gates. Never weaken a tolerance to promote
 a failed candidate; a justified contract revision retains the earlier failure.
 
-For cinematic regeneration, add every field required by `DL-CIN-11` and run
-`tools/audit_cinematic.py`; this protocol's clip summary cannot replace frame records.
-An external job also needs the complete GitHub-hosted archive packet and the
-[AGENTS-required V1 shot card](../templates/IMAGINE_SHOT_CARD_V1.md). Consult the
+For final footage retain the `DL-CIN-11` job-card derivation sidecar and run:
+
+```text
+python -B tools/audit_cinematic.py VIDEO --manifest QUALITY.json --profile production --report REPORT.json
+```
+
+Its existing scene/character/contact/track validator does not enforce every
+workflow hash, edit declaration or external acceptance: review these separately
+and retain exact receipts. No machine PASS alone is `DELIVERY_ACCEPTED`. A
+chosen independent-still method also retains per-index records and runs
+`--frame-regeneration-manifest`; keep that strict validator without mislabeling
+video/2D output or weakening its method requirements.
+An external job also needs the complete GitHub-hosted archive packet. A Grok job
+uses the [required V1 shot card](../templates/IMAGINE_SHOT_CARD_V1.md); another
+backend receives only supported bound inputs and the animation job sidecar.
+Consult the
 [current handoff formula](../GROK_MASTER_HANDOFF_FORMULA_2026-08-30.md) only within
 that higher-precedence contract. Keep `ARCHIVE_COMPLETE`, `GENERATION_READY` and
 `DELIVERY_ACCEPTED` independent. This document alone grants none of those claims.
@@ -206,3 +464,61 @@ analyzer, focused positive/negative/save/teardown and full trusted gates. Rechec
 authority and impact coverage before commit/push. Report implemented behavior,
 machine evidence and visual/device/child/owner acceptance separately in the
 [animation branch](../../audit/animation/README.md) and task impact record.
+
+### Iterative repair with Aseprite and temporal retakes
+
+Owner direction 2026-10-04: prioritize locally viable retake workflows and use
+Aseprite drawings to identify and correct frame defects. A completed hardware
+trial is required before describing a newer model as usable on the 8 GB card.
+A configured graph, successful download or vendor recommendation is not evidence
+of rendering speed, memory fit or acceptable animation.
+
+- Mark defects on native frames and group them into continuous temporal spans.
+  Distinguish torn/disconnected anatomy, ghost/smeared contours, matte/export
+  problems, identity drift and timing/contact errors. Include clean context on
+  both sides; expand the span when shoulder, clothing, hair or tail response
+  extends past the initially damaged hand/limb frames.
+- Prefer a few corrected complete-figure poses to an independent still job for
+  every frame. The default first repair experiment uses clean entry/exit poses,
+  one corrected intermediate pose and at most two generated candidates. Existing
+  task caps and prior rejected costs remain visible; changing a backend or
+  calling a render a retake does not reset them.
+- A new owner-authorized corrective brief may permit further generation through
+  a different method after an earlier cap. Record the new scope/limits and
+  cumulative prior costs before submission. Do not silently reset the old cap,
+  treat old limits as a permanent ban on the new commission, or infer unlimited
+  retries from permission to regenerate.
+- Store originals, corrected poses, timing/tags, defects and registration/contact
+  landmarks in an editable Aseprite master. Preserve painted contours and
+  antialiasing. Distinguish ImageGen/redraw pixels from Aseprite registration,
+  inspection and export; an import/roundtrip is not an automatic anatomy repair.
+  Landmarks constrain placement/contact while permitting figure-wide acting.
+- Feed corrected poses as declared keyframe guides, or use a temporal retake
+  mask that regenerates complete frames in the selected span. Spatial attention
+  masks and image-guide strength are influence controls, not promises that the
+  model will reproduce a pose or freeze outside pixels. Strongly conditioning
+  on bad source footage can retain its defects.
+- Preserve native retake outputs and exact source/global frame mapping. If a
+  model decodes the whole input again, verify reconstruction changes separately;
+  for a review splice, retain original complete frames outside the replacement
+  span and explicitly record the contiguous replacement. Never repair only a
+  limb against a frozen body or conceal a bad boundary with a dissolve.
+- Test frozen latent context and decoded source pixels independently. In the
+  2.5 trial, four of six video latents were bit-exact outside the mask, but no
+  decoded frame was pixel-identical and outside-frame differences reached
+  53/255. Do not describe latent preservation as untouched final footage.
+  A whole-frame source splice is a separately declared operation with boundary
+  review; no splice was performed in that trial.
+- Choose the retake window against the model's temporal VAE blocks and clean context, not only the visible defect indices. Retained source latents can contain failed neighboring motion. Prove mask behavior separately from decoded continuity; expand/replace contaminated context within the bounded brief when necessary.
+- For isolated character/object work, a measured whole-figure crop may reduce empty-canvas cost. Preserve all moving parts with a motion margin, apply one source crop to every frame/guide, retain full originals and record the transformed registration coordinates. Audit the complete figure; this is not permission for frozen-body limb repair. New dimensions require a hardware/quality check.
+- Cache unchanged conditioning/context only under exact model, VAE, source, prompt and dimension hashes. Preserve cold and warm timing separately. A completed low-resolution retake establishes hardware execution, not final-resolution quality or practical iteration speed.
+- Review both boundaries and the complete figure at full speed and frame-step.
+  Check velocity, identity/topology, contour clarity, body/clothing/hair response,
+  root/contact and settle timing. A clean guide, low pixel difference or successful
+  Aseprite export cannot accept the motion. Reject regressions and stop at the
+  cap; use the result to change inputs/method rather than starting a still-frame
+  generation campaign.
+
+The [bounded repair/8 GB retake study](../../assets_src/cinematics/ltx_retake_repair_20261004/README.md)
+records hardware execution and visual outcomes separately. It grants no runtime,
+owner, device, child or final cinematic acceptance.

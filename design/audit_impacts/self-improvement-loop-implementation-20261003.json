@@ -1,0 +1,184 @@
+{
+  "id": "self-improvement-loop-implementation-20261003",
+  "scope": "Implement LP0-LP10 of the commissioned feedback-loop handoff: measured study cycles, evidence-backed candidate strengths, owner-decision intake, validated lessons, prompt recipes, generated roadmap/history/verification sweep and truthful advisory sensor results. LP11 schedules and real owner/device/child cycles remain gated. Existing dirty animation-policy work is preserved separately on rescue/peter-windows-20261003-self-improvement-start at f558ead4 and is excluded from this implementation. Owner scope extension: verify latest stable Godot across project, align remaining 4.7.1 capture constraints to canonical 4.7.2, and prevent default local PATH 4.7.1 use. Current production pins already match the official latest stable; historical version evidence remains unchanged.",
+  "baseline": "30d82725661044de63b682f5b13ba8f19101892b",
+  "rules": [
+    "DL-AUTH-02",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-01",
+    "DL-PLAN-04",
+    "DL-PLAN-05",
+    "DL-PLAN-06",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-QA-15",
+    "DL-INT-02",
+    "DL-LAY-07",
+    "DL-VIS-07"
+  ],
+  "findings": [
+    "MA-DOC-009",
+    "MA-CI-008",
+    "MA-DOC-006"
+  ],
+  "files": [
+    ".github/workflows/probes.yml",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/ROADMAP.md",
+    "audit/cycles/2026-10-03-baseline/PLANNING_HISTORY.md",
+    "audit/cycles/2026-10-03-baseline/REPAIR_ORDER_HISTORY.md",
+    "audit/cycles/2026-10-03-baseline/loop_health.json",
+    "audit/cycles/2026-10-03/COLD_START_BAKERY_TEST.json",
+    "audit/cycles/2026-10-03/CURRENT_SURFACES.md",
+    "audit/cycles/2026-10-03/CYCLE_EVIDENCE.json",
+    "audit/cycles/2026-10-03/DEVICE_SESSION.md",
+    "audit/cycles/2026-10-03/GENERATED_CHANGE_HISTORY.md",
+    "audit/cycles/2026-10-03/IMPLEMENTATION.md",
+    "audit/cycles/2026-10-03/OWNER_REVIEW.md",
+    "audit/cycles/2026-10-03/ROADMAP.md",
+    "audit/cycles/2026-10-03/SENSOR_EVIDENCE.json",
+    "audit/cycles/2026-10-03/STUDY_REPORT.md",
+    "audit/cycles/2026-10-03/VERIFICATION_SWEEP.md",
+    "audit/cycles/2026-10-03/owner_answers.json",
+    "audit/cycles/2026-10-03/study.json",
+    "audit/cycles/README.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/STRENGTHS.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/prompt_intents.json",
+    "design/reference/recipes/add_job.md",
+    "design/reference/recipes/art.md",
+    "design/reference/recipes/character_animation.md",
+    "design/reference/recipes/companion.md",
+    "design/reference/recipes/event.md",
+    "design/reference/recipes/new_chapter.md",
+    "design/reference/recipes/polish.md",
+    "design/reference/recipes/publish_handoff.md",
+    "design/reference/recipes/release.md",
+    "design/reference/recipes/repair.md",
+    "design/reference/recipes/retire.md",
+    "design/reference/recipes/room_activity.md",
+    "design/reference/recipes/story_clip.md",
+    "design/reference/recipes/study.md",
+    "design/reference/recipes/voice_lines.md",
+    "design/reference/strengths.json",
+    "design/templates/PROMPT_RECIPE_V1.md",
+    "design/templates/STUDY_REPORT_V1.md",
+    "project.godot",
+    "scripts/ci.sh",
+    "scripts/probe_castle_shots_2d.gd",
+    "scripts/probe_opera_2d_balance.gd",
+    "scripts/probe_opera_art.gd",
+    "scripts/probe_opera_balance.gd",
+    "scripts/probe_sky_lagoon_art.gd",
+    "tools/audit_development.py",
+    "tools/audit_godot_baseline.py",
+    "tools/audit_opera_capture.py",
+    "tools/build_study_roadmap.py",
+    "tools/encode_cartoon.ps1",
+    "tools/godot_baseline.json",
+    "tools/measure_loop_health.py",
+    "tools/plan_audit_rollback.py",
+    "tools/plan_prompt.py",
+    "tools/record_owner_decision.py",
+    "tools/resolve_godot.py",
+    "tools/run_advisory_sensor.py",
+    "tools/run_godot.ps1",
+    "tools/study_game.py",
+    "tools/tests/test_audit_development.py",
+    "tools/tests/test_audit_godot_baseline.py",
+    "tools/tests/test_audit_opera_capture.py",
+    "tools/tests/test_build_study_roadmap.py",
+    "tools/tests/test_plan_prompt.py",
+    "tools/tests/test_record_owner_decision.py",
+    "tools/tests/test_resolve_godot.py",
+    "tools/tests/test_run_advisory_sensor.py",
+    "tools/tests/test_study_game.py"
+  ],
+  "validation": [
+    {
+      "command": "python -B docs/handoffs/codex_self_improvement_loop_2026-10-03/tools/measure_loop_health.py --today 2026-10-03 --out audit/cycles/2026-10-03-baseline/loop_health.json",
+      "result": "PASS",
+      "evidence": "LP0 output saved at head30d82725661044de63b682f5b13ba8f19101892b before implementation. 61openfindings,38 stale30days,12 pendingverification; five earlier handoffs unbuilt/file-presence only. No earlier runtime acceptance inferred."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; parser/inference checks; 69 loop fixtures and stress checks",
+      "result": "PASS",
+      "evidence": "Final isolated-worktree checks: document inventory/ledger 640/640, 61 active findings / 64 retained records, audit impact coverage against 30d82725661044de63b682f5b13ba8f19101892b, changed-GDScript parser/inference and 69 focused loop tests all pass. Required full runtime and exact-head remote CI are separate entries."
+    },
+    {
+      "command": "python -B tools/audit_godot_baseline.py --godot tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe; official latest-stable download check",
+      "result": "PASS",
+      "evidence": "2026-10-03 https://godotengine.org/download/windows/ lists4.7.2 released2026-08-18. Local exact build4.7.2-stable official.ed1daf0bf verified. Resolver regression tests verify rejection of old/development/explicit mismatched builds."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_opera_capture tools.tests.test_audit_godot_baseline tools.tests.test_plan_audit_rollback",
+      "result": "PASS",
+      "evidence": "66tests passed after version-source alignment; old4.7.1/missing/changed baseline capture controls rejected."
+    },
+    {
+      "command": "Exact4.7.2 Mobile Castle and Sky Lagoon diagnostic captures with isolated data directories",
+      "result": "PASS",
+      "evidence": "audit/cycles/2026-10-03/SENSOR_EVIDENCE.json preserves13Castle/20Sky metadata and log/hash receipts; normal save unchanged. Human visual/device/child acceptance is absent."
+    },
+    {
+      "command": "Exact4.7.2 advisory probe_opera_2d_balance.gd final rerun",
+      "result": "PASS",
+      "evidence": "Observation/coverage reporting only:12measured,3capped,30unsupported of45persona cases, exit0; audit/cycles/2026-10-03/SENSOR_EVIDENCE.json. Cap/unsupported statuses are not passing pacing evidence."
+    },
+    {
+      "command": "Fresh-agent cold-start plan_prompt.py add a bakery job --json; independent source-contract recheck",
+      "result": "PASS",
+      "evidence": "audit/cycles/2026-10-03/COLD_START_BAKERY_TEST.json preserves canonical source hashes and exact plan. Missing bake/retrieval and off-by-one finale were repaired; native coverage remains an explicit dependency. Planning PASS is not product acceptance."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_study_game tools.tests.test_build_study_roadmap tools.tests.test_plan_prompt tools.tests.test_record_owner_decision tools.tests.test_resolve_godot tools.tests.test_run_advisory_sensor",
+      "result": "PASS",
+      "evidence": "69 final fixture tests pass in the isolated worktree after attribution, deterministic-render/roadmap refresh, deliberate baking/finale, checkable-decision and fresh/error-output fixes. tmp/final-loop-tests.log is ignored local evidence; exact branch CI remains separately required."
+    },
+    {
+      "command": "Installed Godot / exact project resolver / user PATH / export-template version inspection",
+      "result": "PASS",
+      "evidence": "2026-10-03 installed MermaidReefTools/Godot/4.7.2/godot_console.exe reports 4.7.2.stable.official.ed1daf0bf and passes the baseline audit. Installed editor SHA-256 matches the verified project editor. Existing export_templates/4.7.2.stable/version.txt reports 4.7.2.stable. User PATH now selects 4.7.2; older installations are preserved. Already-running applications may need a restart to inherit the changed user PATH."
+    },
+    {
+      "command": "GODOT=<official 4.7.2 Windows console> scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "2026-10-03 isolated-worktree scripts/ci.sh exits 0 using 4.7.2.stable.official.ed1daf0bf: all 82 trusted probes exit 0, plus existing static, asset, audio, authority, inference and regression gates. Ignored local log tmp/self-improvement-ci.log SHA-256 803c0d8c47d87e09b00f10f12d1dbb2f8f789096d027641f5ff8aa3aa0069e4f. Headless display-only audit is explicitly skipped; production visual/2D debt remains UNSATISFIED and no device/child/owner acceptance is inferred. Final 69 loop tests separately cover late collector/recipe changes."
+    },
+    {
+      "command": "Exact implementation-head GitHub Probe Suite before dev integration",
+      "result": "PENDING",
+      "evidence": "Must be green for the committed topic head before integration. Remote evidence is linked in the delivery receipt; no future CI pass is asserted by this implementation record."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "A successful mandatory CI run does not prove that advisory pacing/capture sensors measured anything; studies must retain each sensor verdict and unavailable evidence.",
+      "write_back": "tools/study_game.py"
+    },
+    {
+      "lesson": "A recipe must include the intentional action that creates its promised result; a fresh bakery plan exposed a missing baking/retrieval transition and unproven native background coverage.",
+      "write_back": "tools/plan_prompt.py"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md",
+      "purpose": "Commissioned LP0-LP11 scope, defaults and acceptance limits at immutable handoff f927eb262889b5bc50bda09b5c1f6a67b2c3b340."
+    }
+  ],
+  "acceptance_gaps": "Two complete owner-answer/build/check/learn cycles, improvement on three health measures, owner review of cycle two, first monthly real-device/owner sweep and any scheduling approval remain outstanding. Machine evidence cannot supply visual/device/child/owner acceptance. No child-device telemetry or scheduled workflow is authorized by this change.",
+  "finding_scope": "MA-DOC-009/MA-CI-008 are the commissioned loop and truthful sensor work. MA-DOC-006 receives only the current planning route and cold-start planning evidence; full runtime catalogue/checker, takeover kit and owner V7 acceptance remain open. No new Bakery runtime or finding closure is claimed."
+}

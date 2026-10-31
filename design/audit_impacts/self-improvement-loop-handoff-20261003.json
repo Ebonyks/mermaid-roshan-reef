@@ -1,0 +1,75 @@
+{
+  "id": "self-improvement-loop-handoff-20261003",
+  "scope": "Owner-requested analysis (2026-10-03) of what is missing for a self-improving loop that studies the game, keeps its positive qualities as references, finds new weaknesses and gives a roadmap for nuanced content from simple prompts, and of the feedback loops in the master audit; published as a Codex handoff (owner: \"Upload it to git as a codex handoff\"). Adds docs/handoffs/codex_self_improvement_loop_2026-10-03/: LOOP_AUDIT (the parts exist but the loop does not turn; stage-by-stage gaps; twelve feedback loops with what breaks each and a refinement; what is and is not sensed, including two advisory sensors that fail silently; strengths, weaknesses, roadmap and simple prompts; learning), README (the eight-stage loop, invariants, work packages LP0-LP11, a build order across all outstanding handoffs, acceptance AC-1 to AC-10, owner questions Q1-Q8), CYCLE_0_STUDY_REPORT (the first turn of the loop written by hand as the worked example), two templates (study report, prompt recipe), seeds (loop inventory, 15 strengths with evidence, 15 prompt intents), the read-only loop measurement tool tools/measure_loop_health.py with its baseline output, .gdignore and MANIFEST. Records findings MA-DOC-009 (P2, the loop does not turn) and MA-CI-008 (P2, advisory sensors fail silently) with section-5 index rows, domain links, a \"Study the game or plan improvement\" task-route row and a change-history row; removes two blank lines that split the section 14 table; adds five ledger rows and a ledger heading over three Sky Lagoon motion-reference rows that were filed under the Roshan art repair section (rows unchanged). Documentation and an advisory read-only tool only: no game script, scene, asset, image, save key, rule text, workflow or other finding lifecycle changes.",
+  "baseline": "f2140465b0d97575cf1855b1d0422a2c4be6110f",
+  "rules": [
+    "DL-AUTH-02",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-01",
+    "DL-PLAN-04",
+    "DL-PLAN-05",
+    "DL-PLAN-06",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-DOC-009",
+    "MA-CI-008"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/self-improvement-loop-handoff-20261003.json",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/.gdignore",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/CYCLE_0_STUDY_REPORT.md",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/MANIFEST.json",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/data/loop_health_2026-10-03.json",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/data/loop_inventory.json",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/data/prompt_intents_seed.json",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/data/strengths_seed.json",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/templates/PROMPT_RECIPE_V1.md",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/templates/STUDY_REPORT_V1.md",
+    "docs/handoffs/codex_self_improvement_loop_2026-10-03/tools/measure_loop_health.py"
+  ],
+  "validation": [
+    {
+      "command": "Three read-only sweeps (governance feedback loops; game-study mechanisms; content pipelines and prompts) and direct reads of the master audit, finding register, design 06, impact records, workflows, probes and remote branches at dev f2140465",
+      "result": "PASS",
+      "evidence": "LOOP_AUDIT.md sections 1-8 and CYCLE_0_STUDY_REPORT.md. Verified directly: Probe Suite run 37100729058 at f2140465 succeeded while every Opera balance line reports verdict=capped at TIME_CAP 300 (scripts/probe_opera_2d_balance.gd:11, :58-59; header says thirteen acts at :4), the Sky Lagoon capture ends LAGOONSHOT|RESULT|FAIL and the run keeps 4 artifacts (reef-first-world-review, dust-boss-arena-review, opera-art-manifest, northern-world-review) under continue-on-error steps (.github/workflows/probes.yml:269-418); scripts/probe_dust_boss_balance.gd has no fun-band check; section 12 has 1 of 23 boxes ticked; 36 PENDING validation entries in 35 impact records and 36 FAIL entries in 22; all 10 backup.yml runs failed (latest 2026-09-28); 19 remote branches with commits since 2026-09-25 are not merged into dev (7 feature, 12 rescue); opera_geologist.ogg is a direct reuse of opera_detective.ogg (ASSET_LICENSES.md:2828) outside the score catalog; VOICE_MANIFEST.md:57-62 requires the Parler pipeline for new provisional lines while design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md:48 used Kokoro. Two sweep counts were corrected against the tool before commit (21 dated update paragraphs, not 26; 76 September impact records, not 68)."
+    },
+    {
+      "command": "python -B docs/handoffs/codex_self_improvement_loop_2026-10-03/tools/measure_loop_health.py --today 2026-10-03 --out docs/handoffs/codex_self_improvement_loop_2026-10-03/data/loop_health_2026-10-03.json",
+      "result": "PASS",
+      "evidence": "Read-only, standard library; head f2140465. 62 records, 59 open; open without a history entry for 7/14/30 days 42/41/38; 12 FIXED_PENDING_VERIFICATION (six last touched 2026-08-13); change-history rows 56 in 2026-08 and 11 in 2026-09, latest 2026-09-30; 21 dated update paragraphs before section 1; 77 impact records (76 added in 2026-09, 1 in 2026-10), 27 linking no finding, 4 recording a lesson; five tracked handoffs NOT_STARTED; one scheduled workflow (backup.yml). Run before the two new findings were added, so the counts are the baseline."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Staged candidate over base f2140465: DOCAUTH|INVENTORY=609|LEDGER=609|ACTIVE=61|RECORDS=64, RESULT ALL OK; --stress 6/6; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development: 52 tests OK. Also run: tools/audit_game_2d.py --regression-gate NO_REGRESSION (migration debt still UNSATISFIED) and tools/audit_imagine_handoff.py --all ALL OK. Not run by Claude: tools/audit_castle_card_alpha.py and tools/audit_fairy_art_v2.py, which write images; CI runs them."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Staged candidate: AUDITDEV|BASE|f2140465b0d97575cf1855b1d0422a2c4be6110f, RESULT ALL OK."
+    },
+    {
+      "command": "Anonymous fetch of the handoff manifest and every listed file from raw.githubusercontent.com at the pushed commit",
+      "result": "PASS",
+      "evidence": "Published at commit f927eb262889b5bc50bda09b5c1f6a67b2c3b340 on branch claude/self-improvement-loop-20261003 (https://github.com/Ebonyks/mermaid-roshan-reef/tree/f927eb262889b5bc50bda09b5c1f6a67b2c3b340/docs/handoffs/codex_self_improvement_loop_2026-10-03). Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-10-03T16:12:30Z: MANIFEST.json HTTP 200, 3,078 bytes, SHA-256 4798b1c7dbcb94086bd7ab8da5e39038ba1156ea6a4c2a0e035dfba9d4240813, revision 1, 11 of 11 files match; the master audit, finding register, ledger, this record and the manifest at the same commit are byte-identical to the committed blobs."
+    },
+    {
+      "command": "GitHub Probe Suite at the branch head",
+      "result": "PENDING",
+      "evidence": "Required green before merging into dev. Under the lesson in CYCLE_0_STUDY_REPORT.md section 8, the LP4 collector resolves this entry from the run for the commit that last changed this record."
+    }
+  ],
+  "acceptance_gaps": "Analysis, specification, templates, seeds and a read-only measurement only. MA-DOC-009 stays CONFIRMED_OPEN until Codex lands LP0-LP11 and two complete cycles meet AC-1 to AC-10 with owner review; MA-CI-008 stays CONFIRMED_OPEN until a green Probe Suite run reports every advisory result as measured or explicitly not measured (its workflow repair needs an explicit owner task because .github/workflows/ is high-risk). Owner questions Q1-Q8 and the cycle 0 questions are pending with defaults. Counts are dated measurements at dev f2140465, not live status. No runtime, visual, device, child or owner acceptance is claimed; the game-wide audit remains IN_PROGRESS / UNSATISFIED."
+}

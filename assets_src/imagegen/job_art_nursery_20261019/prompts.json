@@ -1,0 +1,386 @@
+[
+  {
+    "id": "crib",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets/flats/castle/dream_house/dream_bed_0.png",
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets/opera/worlds/props/goal_nursery.png"
+    ],
+    "prompt": "Create one polished painted 2D storybook empty baby crib cutout, consistent with reference1's rounded pink shell bed and reference2's ivory/lilac/gold moon nursery furniture. This is a game prop, no scene. A shallow oval ivory-and-pale-lavender bassinet on four short stable feet, soft pale lilac mattress, small crescent-moon and shell detail on a LOW rear headboard, restrained pink inset and gold piping. Front rim LOW enough that a separate swaddled baby's face and torso remain clearly visible above it; no vertical bars or canopy, no blanket, baby, pillow, loose toys or extra objects. Front view with a little view onto the mattress. Entire object and feet visible; strong broad painted value bands, warm plum contours and gentle brush texture, matte-to-satin finish, soft upper-left light, matching the high quality references. Natural object footprint approximately 1.25 times as wide as high: on a square transparent canvas, bounds x10..90%,y18..82%, centered. Preserve natural proportions, no surrounding floor, external drop shadow, background, halo, text or frame. Real RGBA transparency.",
+    "elapsed_ms": 42694,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-628c1acb-bea2-4dbc-afbd-3e85a31c81ac.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/crib_native.png",
+    "native_sha256": "267f7a268384afeb9543eb88450585525e355c48615dee4bcef1a6c741c8ea3a",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "inputs": [
+      {
+        "path": "assets/flats/castle/dream_house/dream_bed_0.png",
+        "sha256": "d78893db559b9693da9765022f05cd3432163ff755aadc8cfbda1b94c41b003e",
+        "role": "appearance/identity reference; protected originals unchanged"
+      },
+      {
+        "path": "assets/opera/worlds/props/goal_nursery.png",
+        "sha256": "95c39b70d035d72eb226610ba21093a75ddc893d24592b9951c13c58a06fd431",
+        "role": "appearance/identity reference; protected originals unchanged"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "b2ae648e04fee4a9e93fc67011bdf4c0c2317ff8de70f951675506c3806e349e",
+    "disposition": "SELECTED_LOCAL_AI_STATIC_APPEARANCE_CANDIDATE:4.5floor every scored dimension; C2runtimeprofilePASS. Motion/full02/canonical/device/child/owner pending."
+  },
+  {
+    "id": "pat_hand",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/recovered/refinement_v1/cradle.png"
+    ],
+    "prompt": "Derive one complete gentle patting-hand game affordance in the exact broad painted storybook style, warm peach skin, plum contours and soft lavender nurse cuff of the reference hands. Isolate a SINGLE small right hand entering from the RIGHT with a short lavender rolled sleeve cuff at the RIGHT edge, fingers held softly together pointing toward the LEFT, thumb anatomically separate and natural. Three-quarter side view: the soft palm/left fingertip side can approach a baby's back from the right. Calm, rounded, reassuring, five digits in total, no gripping, no finger pointing, no fist. Whole hand and whole cuff fully visible with safe transparent space on every side. Soft upper-left lighting, broad painted shading and restrained brush texture, consistent with the reference; no realistic photographic pores or shiny plastic. No baby or body, no other hand, no contact symbol, stars, arrows, rings, floor, background or text. Centered on square real RGBA transparent canvas; hand and cuff occupy about80%width and55%height, natural proportions.",
+    "elapsed_ms": 81547,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-dc6c3c62-c293-488a-9c69-92be21ea68e6.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/pat_hand_native.png",
+    "native_sha256": "af9c81008082585828d02a89b1ea7e385a751519081b64608bb7f9adfcc77467",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/recovered/refinement_v1/cradle.png",
+        "sha256": "81f2cba89d4e0c48d2d4ba1c4ac7386d7e96b4c50e58c6a93b1b27b5e0f10193",
+        "role": "appearance/identity reference; protected originals unchanged"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "8a525ba6d1fa316605e4fc3e9d0826b2e61fb66c5590d8c269498e564f645485",
+    "disposition": "REJECTED_ANATOMY_FOUR_FINGERS_PLUS_THUMB_NOT_CLEARLY_READABLE; second and final hand take changes viewpoint for visible topology"
+  },
+  {
+    "id": "pat_hand_retry",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/pat_hand_native.png"
+    ],
+    "prompt": "Repair this exact painted nurse-hand cutout's finger anatomy. Keep the lavender cuff at the right, warm peach skin, plum contours, upper-left painted light, overall horizontal leftward orientation, same hand/cuff proportions and broad storybook shading. The first hand's finger count is not clear enough. Show FOUR distinct long fingers plus ONE thumb, five digits total, with all FOUR fingertips clearly visible in a small natural stagger at the LEFT. Use a slightly more overhead palm-side view so no finger is hidden behind another. Fingers rest gently close together with clear fine painted separations, not a pointing finger, fist or gripping pose. Thumb sits naturally below the four fingers near the palm. This remains a gentle flat patting-hand affordance for a preschool game. One complete hand and short lavender cuff only, entire silhouette visible with safe transparent padding; no baby, body, second hand, arrows, symbols, background or external shadow. Do not simplify to four total cartoon digits, fuse fingers, add extra digits or crop the cuff. Real RGBA transparency.",
+    "elapsed_ms": 66125,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-21c1165d-82c9-45ac-a6d6-09a6e8ecb104.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/pat_hand_retry_native.png",
+    "native_sha256": "8b0ed3ac1b069876f3d4fafe2bc41b8197f2d4c1576e2eea37998a1e348d9e08",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/pat_hand_native.png",
+        "sha256": "af9c81008082585828d02a89b1ea7e385a751519081b64608bb7f9adfcc77467",
+        "role": "appearance/identity reference; protected originals unchanged"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "01a6df83128d736944ae3d55873202910d6eb893d8032b0ff9e52eea2eb2ac67",
+    "disposition": "SELECTED_LOCAL_AI_STATIC_APPEARANCE_CANDIDATE:4.5floor every scored dimension; C2runtimeprofilePASS. Motion/full02/canonical/device/child/owner pending."
+  },
+  {
+    "id": "quilt_folded",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/crib_native.png"
+    ],
+    "prompt": "Create ONLY an isolated painted baby quilt cutout for this exact crib's polished2Dstorybook nursery style and camera. Reference is appearance/material/camera guidance; DO NOT render the crib, mattress, baby, furniture or scene. The quilt is soft muted aqua-teal with a pale lilac hem and very restrained warm ivory/gold stitched trim, a single small ivory crescent embroidered near its center. Broad gentle painted fabric shading, matte-to-satin, soft upper-left light, warm plum thin contours, fine restrained brush texture, natural cozy cloth folds. FIRST STATE: the same wide quilt neatly folded into a SHORT horizontal bundle, ready to unfold DOWN over a baby's lower body from an upper edge below the chin. Top and bottom edges gently curved to the crib's shallow perspective; corners softly rounded, no bow or cords. Entire cloth visible. On a WIDE2:1 transparent canvas, quilt spans about80%width, centered horizontally, with top hem around25%canvasheight and short folded bundle about25%canvasheight; keep transparent padding everywhere. No text, pattern clutter, stars outside the cloth, glow, floor or separate shadow. This is one whole authored object state; not a sprite sheet or multi-state board. Real RGBA transparency.",
+    "elapsed_ms": 29274,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-c5252b30-3d14-4b40-950a-40dddb786d7e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/quilt_folded_native.png",
+    "native_sha256": "e80306b2103d7e271d0aa4e708cf4d19f17d3470dc6cdf13bbd4a2f8a952b5c5",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/crib_native.png",
+        "sha256": "267f7a268384afeb9543eb88450585525e355c48615dee4bcef1a6c741c8ea3a",
+        "role": "appearance/identity reference; protected originals unchanged"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "4039f36b45f20cfabeee1dbd91865e863e5bb7ea6d84e6dfdcd4eb4cf0c671e8",
+    "disposition": "SELECTED_LOCAL_AI_STATIC_APPEARANCE_CANDIDATE:4.5floor every scored dimension; C2runtimeprofilePASS. Motion/full02/canonical/device/child/owner pending."
+  },
+  {
+    "id": "bottle_half",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_pour_nursery_mover.png"
+    ],
+    "prompt": "Edit ONLY the milk level inside this exact existing storybook baby bottle. Keep its exact entire front-facing silhouette, upper-left light, proportions, glass outline, amber-gold glass trim, coral scalloped screw cap, round translucent nipple, little measuring ticks and cream/gold shell medallion COMPLETELY the same. It must register exactly with this full-state bottle as one object-state family. HALF STATE: the original warm golden creamy milk fills ONLY the LOWER HALF of the glass chamber, with a gently curved horizontal liquid surface. The upper half of the chamber is visibly empty translucent pale glass. No change to the cap, nipple, badge, bottom, glass contour, camera, angle, shadows or scale. Match the source's broad hand-painted shading, warm plum fine contours and soft painted storybook quality. No new symbol or lettering, no hand, baby, bubbles, floating drops, floor, background, external shadow, halo or redesign. Full complete bottle centred in the same square composition with safe transparent padding; real RGBA transparency outside the bottle. This is a single complete state, not a comparison sheet.",
+    "elapsed_ms": 40117,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-4dd36d85-b45e-45a9-9c34-290c39825e3c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/bottle_half_native.png",
+    "native_sha256": "69306935f4e353ed00a2d488a2409266b3f42ea27f9ed55c71a4d2bd4696a492",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/widgets/widget_pour_nursery_mover.png",
+        "sha256": "5b05584e0c0bdecd6e2f623c77738b4eaf4ea8dd908d04230b1214339604b901",
+        "role": "appearance/identity reference; protected originals unchanged"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "ea88690a90c60c8bd097cbc2380fb014cda3238f471b4546fbd8564bd0b62086",
+    "disposition": "REJECTED_FILL_LEVEL_TOO_HIGH_APPROX_TWO_THIRDS; silhouette registration passes.98645IoU, but half-state meaning does not pass"
+  },
+  {
+    "id": "bottle_empty",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_pour_nursery_mover.png"
+    ],
+    "prompt": "Edit ONLY the milk level inside this exact existing storybook baby bottle. Keep its exact entire front-facing silhouette, upper-left light, proportions, glass outline, amber-gold glass trim, coral scalloped screw cap, round translucent nipple, little measuring ticks and cream/gold shell medallion COMPLETELY the same. It must register exactly with this full-state bottle as one object-state family. EMPTY STATE: all milk is gone; the entire glass chamber reads empty, clean, translucent very pale warm glass, with the existing shell badge and gold outlines still completely intact and opaque where painted. No change to the cap, nipple, badge, bottom, glass contour, camera, angle, shadows or scale. Match the source's broad hand-painted shading, warm plum fine contours and soft painted storybook quality. No new symbol or lettering, no hand, baby, bubbles, floating drops, floor, background, external shadow, halo or redesign. Full complete bottle centred in the same square composition with safe transparent padding; real RGBA transparency outside the bottle. This is a single complete state, not a comparison sheet.",
+    "elapsed_ms": 77310,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-cce2cc7c-cd17-4e46-9dcf-cfa59151d829.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/bottle_empty_native.png",
+    "native_sha256": "48987272a6ee79a3be5b22233a9008b19d19a187413b951e9c304445deafc3a5",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/widgets/widget_pour_nursery_mover.png",
+        "sha256": "5b05584e0c0bdecd6e2f623c77738b4eaf4ea8dd908d04230b1214339604b901",
+        "role": "appearance/identity reference; protected originals unchanged"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "e4ad4d768f6c874a98b12865530b5ccb4fc06ce4f673bcb3d0fed1f2f9c1957f",
+    "disposition": "SELECTED_LOCAL_AI_STATIC_APPEARANCE_CANDIDATE:4.5floor every scored dimension; C2runtimeprofilePASS. Motion/full02/canonical/device/child/owner pending."
+  },
+  {
+    "id": "bottle_half_retry",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/bottle_half_native.png"
+    ],
+    "prompt": "Make a strictly local milk-level repair to this exact painted baby-bottle image. Every exterior pixel/contour/proportion, cap, nipple, shell medallion, measuring tick, lighting and square composition should stay the same. The first liquid surface is too high, leaving abouttwo-thirds of the glass filled. LOWER ONLY the horizontal curved milk surface to y67% of the FULL SQUARE CANVAS height (roughly840px if1254px canvas). The glass chamber runs abouty44..90%canvas, so this makes the chamber actually HALF FULL. The warm golden creamy milk remains below that new level, with the existing painted glass bottom and highlights; the area above the new level is empty translucent pale warm glass. Keep all shell-badge paint intact, no liquid showing over the badge. Do not move, widen, shorten, resize, recolor or rotate the bottle, cap or nipple. No hand, baby, extra bubbles, background, halo, labels or comparison board. Same complete bottle on real transparent RGBA background. This is the second and final attempt at the half-state.",
+    "elapsed_ms": 26032,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-3421be09-6176-4e31-91a0-4e00f7824522.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/bottle_half_retry_native.png",
+    "native_sha256": "1d138183a93e31558e7c9e4ce1ea96f6c0866edc608329f247df4fe8802b7e88",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/bottle_half_native.png",
+        "sha256": "69306935f4e353ed00a2d488a2409266b3f42ea27f9ed55c71a4d2bd4696a492",
+        "role": "appearance/identity reference; protected originals unchanged"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "6f722c65c22908dd9f1ac682485899ade2d10b2179f2cfbac46d879ddf141f7f",
+    "disposition": "REJECTED_FILL_LEVEL_LOCAL_EDIT_DID_NOT_REACH_HALF; next and final aggregate bottle call uses a measured position-only guide"
+  },
+  {
+    "id": "quilt_half",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/quilt_folded_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/crib_native.png"
+    ],
+    "prompt": "Create the HALFWAY UNFOLDED state of the EXACT SAME aqua-teal nursery quilt shown in reference1. Reference2 fixes crib palette and shallow front/above camera; DO NOT draw the crib, mattress, baby or any furniture. Keep the same pale-lilac scalloped hem, restrained gold/ivory stitched edges, one ivory crescent embroidery, diagonal soft quilting, broad painted shading and soft upper-left light. Same cloth, same horizontal width, same camera, same upper edge curved slightly away from the viewer. Unfold the lower layer DOWN by aboutone additional folded-band depth: one wide soft panel now hangs below the retained top fold, with one remaining layered fold at the bottom. Overall cloth silhouette should be about2.5times as wide as high, clearly longer than the folded source but still not fully open. Preserve the original small embroidery and pattern family, no extra repeated moons, no redesign or giant new motifs. Entire cloth with safe padding on wide2:1 transparent canvas; if more height is needed use transparent canvas extension, never squash the cloth. ONE complete object state only. No text, faces, body, crib, external shadow, floor, loose decorations or background. Real RGBA transparency.",
+    "elapsed_ms": 52642,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-ed4ae9a2-f15d-4983-b0f3-aacffe78f7d9.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/quilt_half_native.png",
+    "native_sha256": "3932a0dd036dddabaccbb4e929e1ca346224c75694d933fd62b4180e7f287dd5",
+    "dimensions": [
+      1983,
+      793
+    ],
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/quilt_folded_native.png",
+        "sha256": "e80306b2103d7e271d0aa4e708cf4d19f17d3470dc6cdf13bbd4a2f8a952b5c5",
+        "role": "appearance/identity reference; protected originals unchanged"
+      },
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/crib_native.png",
+        "sha256": "267f7a268384afeb9543eb88450585525e355c48615dee4bcef1a6c741c8ea3a",
+        "role": "appearance/identity reference; protected originals unchanged"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "81649573578313062f8cc30e02017571d3910ab2f80789dc0c7aa224d757b94c",
+    "disposition": "REJECTED_ROLE_STACKED_FOLDS_INSTEAD_OF_HALF_UNFOLDED_PANEL; revised input starts from a single flat full quilt"
+  },
+  {
+    "id": "bottle_half_guided",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/bottle_half_retry_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/tmp/p5_position_guides/bottle_half_position_only.png"
+    ],
+    "prompt": "IMAGE_1 is the exact appearance/identity image to edit. IMAGE_2 is POSITION_ONLY: its gray rectangle communicates measured bottle bounds, and its blue horizontal line communicates ONLY the required height of the liquid interface. No guide pixel, rectangle, line, cross, number or text may appear in the result. Reproduce IMAGE_1's same full bottle silhouette, cap, nipple, glass, coral shell badge, gold trim, proportions, camera and upper-left painted lighting without moving or redesigning any of it. Change ONLY the inside liquid level: LOWER the golden milk's surface to the height of IMAGE_2's blue line, y840 on a1254-square canvas, about67%of full canvas height. Remove the gold milk between its old high surface and this new LOWER line, replacing that upper space with the same empty translucent pale glass. Golden milk remains ONLY BELOW the new LOWER line. This must leave roughlyHALFthe glass chamber empty, HALFfilled; the glass chamber itself runs y550..1130. Preserve the opaque shell badge in front and paint the curved liquid edge naturally behind it. Exact source identity and glass contour matter. One complete painted bottle only on real RGBA transparent background. No guide graphics or text in output. This is the final bounded bottle-family call.",
+    "elapsed_ms": 41280,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-638e2cba-fab5-4f45-8b5e-8f7377438a8a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/bottle_half_guided_native.png",
+    "native_sha256": "6892bf3b5842fcdf5c2f7ae87b3f7cf8f3c5e90a66628345f54a4a66d5d2a044",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/bottle_half_retry_native.png",
+        "sha256": "1d138183a93e31558e7c9e4ce1ea96f6c0866edc608329f247df4fe8802b7e88",
+        "role": "appearance/identity reference; protected originals unchanged",
+        "used_as_delivery_pixels": "Source-bound ImageGen appearance input; output separately reviewed"
+      },
+      {
+        "path": "tmp/p5_position_guides/bottle_half_position_only.png",
+        "sha256": "53ebb1b8cb48003442d7328d41af581e3aaf1d98c92737af27858a7eb8f06d97",
+        "role": "position_only",
+        "used_as_delivery_pixels": false
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "167ac6eeabb4db201a8a20eeeb1972e7ef8effd25e5bc136cda2fbb82174d533",
+    "disposition": "REJECTED_FILL_HEIGHT_STILL_TOO_HIGH; aggregate bottle4call cap reached. Native/guide retained; no guide pixels permitted in delivery. Diagnose and use declared authored-source Canvas compositing, no further bottle generation."
+  },
+  {
+    "id": "quilt_tucked",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/quilt_folded_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/crib_native.png"
+    ],
+    "prompt": "Make ONE SINGLE-LAYER OPEN quilt, spread completely FLAT, in this exact painted nursery material family. IMAGE_1 supplies ONLY aqua-teal fabric, lilac scalloped hem, fine gold/ivory stitching and the one ivory crescent embroidery. IMAGE_2 supplies polished painted nursery finish and a shallow front/above camera. Do not copy the folded silhouette. Unfold that same quilt completely into ONE CONTINUOUS FLAT CLOTH PANEL, about2times as wide as high. NO stack, layered pile, mattress, overlapping folded bands, roll, double thickness or accordion folds. Just one soft rectangle with rounded corners and gentle fabric drape, top edge slightly curved away in shallow perspective, lower corners softly tucked inward. Keep the same small crescent embroidery and restrained diamond quilting; no new motifs. Whole open quilt visible with safe transparent padding on wide2:1canvas. Broad hand-painted shading, soft upper-left light and warm plum fine outlines matching the references. No crib, baby, furniture, floor, shadow plate, background, label, text or extra objects. Real RGBA transparency. The picture must read as one open blanket, never stacked bedding.",
+    "elapsed_ms": 70923,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-9f5e4faa-2ec1-4a6f-b97e-90515467e645.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/quilt_tucked_native.png",
+    "native_sha256": "3fac1546f0ab82c7a56fee5a591389db5f52a76c35e5035954e26ad2197b6c7e",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/quilt_folded_native.png",
+        "sha256": "e80306b2103d7e271d0aa4e708cf4d19f17d3470dc6cdf13bbd4a2f8a952b5c5",
+        "role": "appearance/identity reference; protected originals unchanged",
+        "used_as_delivery_pixels": "Source-bound ImageGen appearance input; output separately reviewed"
+      },
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/crib_native.png",
+        "sha256": "267f7a268384afeb9543eb88450585525e355c48615dee4bcef1a6c741c8ea3a",
+        "role": "appearance/identity reference; protected originals unchanged",
+        "used_as_delivery_pixels": "Source-bound ImageGen appearance input; output separately reviewed"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "5196d0d94ee4ee5734e91a81eb3bab6e15b9d28641ff4b7ee198223f59fff090",
+    "disposition": "REJECTED_IN_CURRENT_CONTEXT_TOO_SHORT_AND_INDISTINCT_AT_RUNTIME_SIZE; native retained, final taller keys selected within aggregate6callcap"
+  },
+  {
+    "id": "quilt_half_retry",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/quilt_tucked_native.png"
+    ],
+    "prompt": "Edit this exact open single-layer quilt into its HALFWAY UNFOLDED state. Keep the same aqua-teal fabric, lilac scalloped hem, gold/ivory stitch, one crescent embroidery, exact horizontal width, camera, lighting and top edge. The UPPER TWO-THIRDS remain one continuous open flat panel. Fold ONLY the BOTTOM THIRD upward ONCE, showing ONE soft folded-back flap across the lower edge. That flap belongs to the same continuous quilt, not another quilt. No pile, stacked mattresses, accordion folds, separate bottom layers or three-tier bedding. Overall visible cloth height is abouttwo-thirds of the open source, still wider than tall; its top edge and small crescent stay fixed in the upper open area. Whole cloth and all hem edges visible with transparent safe padding; preserve natural proportions, no stretched texture. Same polished2Dstorybook broad painted shading. Single object only, no crib, baby, furniture, floor, shadow plate, extra stars, words or background. Real RGBA transparency. This is the final replacement take for the half-state, using the open cloth as a corrected input.",
+    "elapsed_ms": 42808,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-5276e5de-48f7-4e13-aee3-a9250aab2dfc.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/quilt_half_retry_native.png",
+    "native_sha256": "0b37e9c28fcd4ef0ca15bd87d88c3bc8bca604f584cfc8d80645604c3be0fa23",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/quilt_tucked_native.png",
+        "sha256": "3fac1546f0ab82c7a56fee5a591389db5f52a76c35e5035954e26ad2197b6c7e",
+        "role": "appearance/identity reference; protected originals unchanged",
+        "used_as_delivery_pixels": "Source-bound ImageGen appearance input; output separately reviewed"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "42efb50140d10d1d3df114d171f70225690c761f6e2e0a61610312541536707d",
+    "disposition": "REJECTED_IN_CURRENT_CONTEXT_TOO_SHORT_AND_INDISTINCT_AT_RUNTIME_SIZE; native retained, final taller keys selected within aggregate6callcap"
+  },
+  {
+    "id": "quilt_half_long",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/quilt_folded_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/quilt_tucked_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/crib_native.png"
+    ],
+    "prompt": "Edit this exact aqua nursery quilt into one named object state, matching the same polished painted 2D storybook finish, aqua diamond quilting, lilac scalloped border, narrow ivory/gold piping and ONE small ivory crescent in the upper middle. Object cutout only, real RGBA transparency. Entire cloth visible with margins, no crib, baby, hand, floor, room, external shadow, text or guide marks. Preserve cloth width and top seam identity, camera and lighting. This must be an AUTHORED TALLER CLOTH with more natural quilt rows, not a vertical stretch of the reference: keep each diamond's natural geometry, piping thickness and crescent shape. At runtime the cloth is only80px wide, so the state must be clearly distinct from the short folded bundle. Upper edge remains below a separate baby's face. Square transparent canvas. HALF-UNFOLDED state: a flat, partly unrolled panel with exactly ONE clear broad fold turned up at its bottom. Cloth bounds approximately x10..90%, y18..66%, natural painted object width:height about1.7:1. Its upper third is open, and the lower folded band still visibly contains folded material. More open vertical area than the short bundle, less than the fully opened drape. Same aqua/lilac family; third reference sets nursery furniture/material style only, do not include furniture.",
+    "elapsed_ms": 33892,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-51920db8-4a48-421f-9954-91de0a8592b3.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/quilt_half_long_native.png",
+    "native_sha256": "4ccbb78dd5f15c961fd4d4694971460315982bd17b496924b924b5a2027b4d44",
+    "dimensions": [
+      1635,
+      962
+    ],
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/quilt_folded_native.png",
+        "sha256": "e80306b2103d7e271d0aa4e708cf4d19f17d3470dc6cdf13bbd4a2f8a952b5c5",
+        "role": "appearance/identity reference; protected originals unchanged",
+        "used_as_delivery_pixels": "Source-bound ImageGen appearance input; output separately reviewed"
+      },
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/quilt_tucked_native.png",
+        "sha256": "3fac1546f0ab82c7a56fee5a591389db5f52a76c35e5035954e26ad2197b6c7e",
+        "role": "appearance/identity reference; protected originals unchanged",
+        "used_as_delivery_pixels": "Source-bound ImageGen appearance input; output separately reviewed"
+      },
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/crib_native.png",
+        "sha256": "267f7a268384afeb9543eb88450585525e355c48615dee4bcef1a6c741c8ea3a",
+        "role": "appearance/identity reference; protected originals unchanged",
+        "used_as_delivery_pixels": "Source-bound ImageGen appearance input; output separately reviewed"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "9286ead86889eb79dde2ec6b04601dc41fea537df7c3d136c7c9214b988034cf",
+    "disposition": "SELECTED_LOCAL_AI_STATIC_APPEARANCE_CANDIDATE:4.5floor every scored dimension; C2runtimeprofilePASS. Motion/full02/canonical/device/child/owner pending."
+  },
+  {
+    "id": "quilt_tucked_long",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/quilt_tucked_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/quilt_folded_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-ci-control-20261018/mermaid-roshan-reef/assets_src/imagegen/job_art_nursery_20261019/crib_native.png"
+    ],
+    "prompt": "Edit this exact aqua nursery quilt into one named object state, matching the same polished painted 2D storybook finish, aqua diamond quilting, lilac scalloped border, narrow ivory/gold piping and ONE small ivory crescent in the upper middle. Object cutout only, real RGBA transparency. Entire cloth visible with margins, no crib, baby, hand, floor, room, external shadow, text or guide marks. Preserve cloth width and top seam identity, camera and lighting. This must be an AUTHORED TALLER CLOTH with more natural quilt rows, not a vertical stretch of the reference: keep each diamond's natural geometry, piping thickness and crescent shape. At runtime the cloth is only80px wide, so the state must be clearly distinct from the short folded bundle. Upper edge remains below a separate baby's face. Square transparent canvas. FULLY OPEN / TUCKED-DRAPED state: a single tall continuous quilt panel, gently bent over a low invisible crib front rail so its lower half hangs down toward the feet; no loose doubled stack or upturned bottom fold. Cloth bounds approximately x10..90%, y12..78%, natural object width:height about1.2:1. Rounded lower corners, slight natural curved hem. Plenty of whole diamond rows in the hanging lower half make this visibly longer than the folded reference. Keep ONE crescent in the upper third, no new motifs. Third reference sets nursery furniture/style only: draw only cloth, NO furniture or baby.",
+    "elapsed_ms": 74379,
+    "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-e804784c-88ef-4d3e-a78d-b73c1a365eee.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "native_path": "assets_src/imagegen/job_art_nursery_20261019/quilt_tucked_long_native.png",
+    "native_sha256": "d30ca668a62ca046d10cb455c3945dc1ea2aed574527f59213068a781849256d",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/quilt_tucked_native.png",
+        "sha256": "3fac1546f0ab82c7a56fee5a591389db5f52a76c35e5035954e26ad2197b6c7e",
+        "role": "appearance/identity reference; protected originals unchanged",
+        "used_as_delivery_pixels": "Source-bound ImageGen appearance input; output separately reviewed"
+      },
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/quilt_folded_native.png",
+        "sha256": "e80306b2103d7e271d0aa4e708cf4d19f17d3470dc6cdf13bbd4a2f8a952b5c5",
+        "role": "appearance/identity reference; protected originals unchanged",
+        "used_as_delivery_pixels": "Source-bound ImageGen appearance input; output separately reviewed"
+      },
+      {
+        "path": "assets_src/imagegen/job_art_nursery_20261019/crib_native.png",
+        "sha256": "267f7a268384afeb9543eb88450585525e355c48615dee4bcef1a6c741c8ea3a",
+        "role": "appearance/identity reference; protected originals unchanged",
+        "used_as_delivery_pixels": "Source-bound ImageGen appearance input; output separately reviewed"
+      }
+    ],
+    "provider": "Available builtin ImageGen; model revision/seed/paid charges unexposed; user approved available tool",
+    "prompt_sha256": "cdda2dee78e6ae374da08bf4b412c349847466730c3b994bd5b3f29ab60a4e6b",
+    "disposition": "SELECTED_LOCAL_AI_STATIC_APPEARANCE_CANDIDATE:4.5floor every scored dimension; C2runtimeprofilePASS. Motion/full02/canonical/device/child/owner pending."
+  }
+]

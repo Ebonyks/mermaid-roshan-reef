@@ -1,0 +1,36 @@
+{
+  "schema": "reef.local-full-matte-static-model-review.v1",
+  "status": "MODEL_STATIC_MATTE_SCOPE_REVIEWED; WHOLE_MOTION_AND_OWNER_DEVICE_PENDING",
+  "reviewed_at_utc": "2026-10-11T01:46:01.750576+00:00",
+  "bound_source_packet": "aseprite_paint_trial_01/full_wave_draft_06",
+  "exact_all41_native_and_export_hashes": "verification.json frame_records",
+  "reviewed_actual_outputs": [
+    "all41 positions on contact_256_on_black.png",
+    "all41 positions on contact_256_on_light.png",
+    "all41 native upper-body positions on contact_native_upperbody_on_black.png",
+    "native14/26/40 opaque black/light/dark individual files",
+    "approvedK0 versus source06/frame14 inside/dim512 opaque comparison preserved in full_wave_matte_02"
+  ],
+  "findings": "Matte preserves connected arm/hand/crown/curls/fins and genuine pale highlights. Actual256 contacts show complete readable hands through lift/wave/drop/rest; no new field speckle, clipping, shadow stub or pasted rectangle identified in this static matte scope. Original authored rims are retained. Native source softness/style and temporal full-speed/neighbor/seam review belong to separate root evidence.",
+  "machine_checks": {
+    "classified_field_stays_alpha_zero": true,
+    "all_source_copies_byte_exact": true,
+    "all_reviewed_background_seed_pixels_transparent": true,
+    "all_deep_retained_pixels_unchanged": true,
+    "all_closed_neutral_highlights_unchanged": true,
+    "all_final_frames_256": true,
+    "all_native_frames_match_source_size": true,
+    "masters_have_41_frames_one_layer_1708ms": true,
+    "native_endpoint_master_pixels_exact": true,
+    "endpoints_exact": true
+  },
+  "acceptance": {
+    "whole_wave_artifact_free": false,
+    "human": false,
+    "owner": false,
+    "runtime": false,
+    "device": false,
+    "child": false,
+    "delivery": false
+  }
+}

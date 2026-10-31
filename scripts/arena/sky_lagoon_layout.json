@@ -66,5 +66,194 @@
     "scale_master_per_pixel": 1.4921875,
     "contact_anchor_pixel": [60.5, 230.5],
     "shadow_contract": "contact_anchor"
+  },
+  "animal_ground": {
+    "coordinate_role": "floor_contact_master_pixels",
+    "source_plate_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "review": "Conservative visible stone/grass rectangles checked on the unchanged v5 native painting; full atlas-width footprint plus 8px horizontal and 12px vertical clearance. Both patrol and startle use the same polyline, escaping only to its first endpoint. Contact y is the last alpha>=0.10 row centre in each unchanged 256px cell. Human/device acceptance remains separate.",
+    "blocked_rects": [
+      [
+        0,
+        1050,
+        630,
+        420
+      ],
+      [
+        1290,
+        1000,
+        760,
+        580
+      ],
+      [
+        2048,
+        1815,
+        660,
+        233
+      ],
+      [
+        3390,
+        1830,
+        700,
+        218
+      ],
+      [
+        2220,
+        760,
+        680,
+        650
+      ],
+      [
+        2890,
+        700,
+        620,
+        750
+      ],
+      [
+        3580,
+        1230,
+        520,
+        310
+      ],
+      [
+        4670,
+        950,
+        1470,
+        580
+      ],
+      [
+        4096,
+        1350,
+        620,
+        690
+      ],
+      [
+        5510,
+        1450,
+        630,
+        598
+      ]
+    ],
+    "species": {
+      "otter": {
+        "bounds": [
+          640,
+          1410,
+          620,
+          145
+        ],
+        "surface": "stone",
+        "exit_endpoint": 0,
+        "idle_feet_y": [
+          199.5,
+          205.5,
+          174.5,
+          176.5
+        ],
+        "idle_sha256": "e6497ab0f6c7e4f98899c18451740cade7683abcaa97b7d342f9c783a8c599af",
+        "startle_feet_y": [
+          203.5,
+          206.5,
+          159.5,
+          153.5
+        ],
+        "startle_sha256": "8d3c8785dee831c71d22c11bd8c849b126a72d0bd1ac790822255a698b074560"
+      },
+      "frog": {
+        "bounds": [
+          640,
+          1375,
+          620,
+          180
+        ],
+        "surface": "stone",
+        "exit_endpoint": 0,
+        "idle_feet_y": [
+          212.5,
+          215.5,
+          187.5,
+          197.5
+        ],
+        "idle_sha256": "d6fc8b3e949a0c6885580a0b03e6088dba2c9fa7567b793ea36e8073cdd46c1d",
+        "startle_feet_y": [
+          213.5,
+          213.5,
+          190.5,
+          190.5
+        ],
+        "startle_sha256": "fa8b1442b6c270b91f2c69b9c143361adaabfbd044624598dc292c1e3692e4d5"
+      },
+      "hare": {
+        "bounds": [
+          2700,
+          1720,
+          650,
+          100
+        ],
+        "surface": "grass",
+        "exit_endpoint": 0,
+        "idle_feet_y": [
+          229.5,
+          228.5,
+          214.5,
+          219.5
+        ],
+        "idle_sha256": "723a3a473845c506aeb45fe1ff1b5da5ea4794495dbd4c7a4946918016fa63ff",
+        "startle_feet_y": [
+          225.5,
+          222.5,
+          195.5,
+          177.5
+        ],
+        "startle_sha256": "4a14b105659f7e771728d1f1d248cfa35fede871b73a59aca8a15c65d2ef9b57"
+      },
+      "squirrel": {
+        "bounds": [
+          2700,
+          1720,
+          650,
+          100
+        ],
+        "surface": "grass",
+        "exit_endpoint": 0,
+        "idle_feet_y": [
+          222.5,
+          226.5,
+          198.5,
+          201.5
+        ],
+        "idle_sha256": "28538c107947733672f80988ce08335bb8d78db11192de95de7891d4fcda1d88",
+        "startle_feet_y": [
+          223.5,
+          228.5,
+          190.5,
+          179.5
+        ],
+        "startle_sha256": "aa0705335434512d06657286ef3dabc712b8790a251ab5eac3644fe2f886e044"
+      },
+      "raccoon": {
+        "bounds": [
+          4900,
+          1830,
+          480,
+          110
+        ],
+        "surface": "stone",
+        "exit_endpoint": 0,
+        "idle_feet_y": [
+          219.5,
+          219.5,
+          191.5,
+          197.5
+        ],
+        "idle_sha256": "3ed12de88641330134844cdc37927aecf022ae74187f4b4deb2193a3c282d9dc",
+        "startle_feet_y": [
+          217.5,
+          217.5,
+          173.5,
+          166.5
+        ],
+        "startle_sha256": "f2b2686b506edee91e28b7bd32a1c053eda4ade46beb6263664adb5421838b48"
+      }
+    }
   }
 }

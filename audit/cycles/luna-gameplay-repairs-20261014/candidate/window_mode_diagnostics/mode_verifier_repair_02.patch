@@ -1,0 +1,32 @@
+--- a/scripts/probe_chapter2.gd
++++ b/scripts/probe_chapter2.gd
+@@ -1239,16 +1239,27 @@
+ 	# A headless --script root can retain a square backend window. Exercise
+ 	# the game's canonical landscape canvas in both parent and resume child.
+ 	# The project's canvas_items and expand settings remain unchanged.
++	# Child entry begins inside SceneTree._init: its first initialization tick
++	# resets pre-entry Window sizing to64x64, so set geometry after that tick.
++	await process_frame
+ 	root.mode = Window.MODE_WINDOWED
+ 	root.size = Vector2i(1280, 720)
+ 	root.content_scale_size = Vector2i(1280, 720)
+ 	await process_frame
+ 	var visible := root.get_visible_rect()
++	var backend := DisplayServer.get_name()
++	# Godot4.7.2's headless backend ignores mode requests and reports its
++	# MINIMIZED stub. Native display backends must honor WINDOWED instead.
++	# The actual landscape geometry assertions below apply to both backends.
++	var expected_mode := Window.MODE_MINIMIZED if backend == "headless" else Window.MODE_WINDOWED
++	var reported_mode := root.mode
+ 	_check("fixture: canonical landscape viewport is 1280x720 before production boot",
+-		root.mode == Window.MODE_WINDOWED and root.size == Vector2i(1280, 720)
++		reported_mode == expected_mode and root.size == Vector2i(1280, 720)
+ 		and root.content_scale_size == Vector2i(1280, 720)
+ 		and visible.position == Vector2.ZERO and visible.size == Vector2(1280, 720))
+-	print("CHAPTER2|viewport fixture: ", JSON.stringify({"window_size": str(root.size),
++	print("CHAPTER2|viewport fixture: ", JSON.stringify({"display_backend": backend,
++		"requested_mode": Window.MODE_WINDOWED, "expected_reported_mode": expected_mode,
++		"reported_mode": reported_mode, "window_size": str(root.size),
+ 		"content_scale_size": str(root.content_scale_size), "visible_origin": str(visible.position),
+ 		"visible_size": str(visible.size), "content_scale_mode": root.content_scale_mode,
+ 		"content_scale_aspect": root.content_scale_aspect, "process_id": OS.get_process_id()}))

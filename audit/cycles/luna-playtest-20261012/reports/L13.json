@@ -1,0 +1,165 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L13",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l13",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Castle doors and royal-hall approach",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/receipt.json",
+  "evidence_kind": "ROUTED_INPUT_PROBE",
+  "route_status": {
+    "proven_scope": "The exact Godot 4.7.2.stable.official.ed1daf0bf headless probe injects mouse-button press/release events through the viewport at stage and visible hotspot coordinates. From its staged Main Hall entry, floor taps move Roshan and pan the view; the visible Royal Hall hotspot accepts a tap. The tested blocked mist responds without opening/awarding, armed-event taps progress to the crown/companion offers, and Back or leaving during the approach cancels arrival while retaining the event owner. All 39 emitted THRONE checks pass; receipt exit_code=0, timed_out=false, with no failure lines.",
+    "route_gaps": "The probe bypasses fresh-save and world-entry routes: it directly skips intro, disables Day One, fills pearls/trophies, sets Chapter Two/companion/tutorial flags, enters Level 2 and calls castle entry (probe_throne.gd:190-210). It manually arms event callbacks and directly marks the tutorial complete in later legs. This proves the scoped input path after staged entry, not normal door-sequence reachability, the fresh-save story gate, all Castle door variants, or save/restart persistence. It is headless and not a Mobile-rendered capture or a physical phone/child session; synthetic input and the passing assertions do not establish actual touch latency, audio audibility, projected finger geometry, comprehension, enjoyment, or owner acceptance."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "The probe waits 90 process frames after each floor tap, allows up to 8 floor taps to bring the door onscreen, and uses a 1,250 ms wall-clock settle after a Royal Hall tap; its feedback wait has a 4,000 ms timeout.",
+        "evidence": "scripts/probe_throne.gd:25-29, :89-96, :145-154, :219-234",
+        "scope": "Probe control constants only. Headless process-frame pacing is not a rendered-frame or child-play time measurement; the helper's 35.655-second wall elapsed time is probe execution, not game duration."
+      },
+      {
+        "value": "The door transition tween waits 0.04 seconds after confirmed arrival before invoking the transition callback; the event callback also checks the player's current foot is within 72 stage units of the expected foot.",
+        "evidence": "scripts/arena/castle_rooms_25d.gd:5375-5394, :5413-5427",
+        "scope": "Code-defined transition interval and arrival guard. Actual visible transition timing and phone frame pacing were not measured."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "The probe log records five floor taps to show the Hall door at this seeded spawn. This is one scripted route outcome, not a child time estimate or a guaranteed tap count from a fresh save. No gameplay duration is inferred."
+  },
+  "play_sequence": [
+    {
+      "beat": "Stage at a seeded Level 2 Main Hall entry, with Roshan starting about two screens from the Royal Hall; this setup skips the fresh-save journey.",
+      "evidence": "scripts/probe_throne.gd:190-216; runtime probe.log:1-3."
+    },
+    {
+      "beat": "Tap clear floor; Roshan moves from foot x=380 to x=900 after the probe's 90-frame wait.",
+      "evidence": "scripts/probe_throne.gd:25-26, :219-224; runtime probe.log:4."
+    },
+    {
+      "beat": "Repeat floor taps until the camera brings the Royal Hall hotspot onscreen; this seeded run needed five taps, followed by a minimum-size assertion.",
+      "evidence": "scripts/probe_throne.gd:226-239; runtime probe.log:5-6."
+    },
+    {
+      "beat": "Tap the visible mist-sealed Hall door; wait for feedback (probe limit 4 seconds), then explicitly tick mist by 0.08 seconds for a deterministic movement assertion. The gate remains closed, gives the resting voice/caption and curtain sound, and awards no crown or picker.",
+      "evidence": "scripts/probe_throne.gd:241-290; runtime probe.log:7-11. The 0.08-second tick is a probe-driven state advance, not elapsed child time."
+    },
+    {
+      "beat": "Probe code arms a crown event and directly ticks the mist by 1.0 second; a Hall tap then reaches the callback, awards the crown flag and opens the friend offer.",
+      "evidence": "scripts/probe_throne.gd:333-350; runtime probe.log:16-18. This is a seeded event leg."
+    },
+    {
+      "beat": "Close the friend picker without choosing, tap the Hall again and verify the offer returns; then the probe directly sets tutorial state to check that the Hall mist returns afterward.",
+      "evidence": "scripts/probe_throne.gd:352-375; runtime probe.log:19-24."
+    },
+    {
+      "beat": "Exercise rapid re-tap, Back cancellation, room-navigation cancellation, Back-to-Hall, and close/reopen; event callbacks stay unconsumed until the owner clears them.",
+      "evidence": "scripts/probe_throne.gd:383-488; runtime probe.log:25-37."
+    }
+  ],
+  "tactile": {
+    "target_size": "The Hall probe reports the visible Royal Hall button as 200.0905×359.8086 logical canvas units, and asserts it is at least 112×112 (probe_throne.gd:238-239; runtime probe.log:6). The source projects the painted portal rectangle into the canvas and sizes the transparent button to at least 112×112 (castle_rooms_25d.gd:5294-5313, :5326-5335). Device projection, neighboring-target separation, visual-to-hitbox alignment under a finger, and finger occlusion are unmeasured.",
+    "press_response": "Synthetic viewport press/release events reached the floor movement and Royal Hall hotspot paths; assertions then observed movement or gate feedback. The probe does not time rendered response frames, and its headless wait loops do not establish the DL-AGE-07 two-frame phone response.",
+    "drag_hold_release": "This focus was exercised with tap press/release pairs only. No door drag, held press, or release outside/over a neighboring door was tested.",
+    "ownership": "The tested door button receives a center-point synthetic tap when visible. No second-finger, overlapping-hotspot, finger-occlusion, or competing-control test was performed in this probe.",
+    "cancellation": "The probe verifies that global Back during the approach cancels the pending arrival and preserves the event token, and that navigating to the Library cancels the pending Royal Hall callback while preserving its owner (probe_throne.gd:406-426, :430-459; runtime probe.log:29-36). It also checks close/reopen retains an armed event. These are scripted lifecycle checks, not physical interruption/focus-loss tests."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: letting Roshan walk toward a distant doorway after a floor tap, then letting the child choose the door, can make the Hall feel traversable and the destination intentional. Test whether the child independently discovers both floor movement and a doorway tap without a verbal route hint.",
+    "variety": "The tested route alternates floor taps that reposition Roshan with a tap on the sealed or available Royal Hall door. The probe does not assess whether repeated floor taps are tiring, whether the door cue is noticed among other doors, or whether other door types feel distinct.",
+    "world_response": "The blocked Royal Hall keeps five mist cards visible, flutters them, advances the voice player with the resting line, plays curtain-swish audio, and does not award the crown or open the picker; the log records these assertions as OK. The probe confirms state and resource selection, not audible/visual quality on a device.",
+    "replay": "The probe checks re-offering the friend picker after it is closed, and event ownership across cancellation and Hall close/reopen. It does not kill/restart the app or prove fresh-save/reloaded story progression.",
+    "fun_score": null,
+    "play_appeal_test": "On the exact approved phone and candidate, start from a fresh save and observe the Castle approach without speaking, pointing, or using debug entry. Record each child-initiated floor tap, target tap, unsuccessful tap, pause/Back, and whether Roshan's movement and camera reveal make the Royal Hall destination understandable; allow the child to stop or leave at any time and do not impose the probe's 8-tap ceiling. Separately, when the Hall is legitimately blocked, observe whether a tap on its mist is understood as a friendly wait response and whether the child returns to the highlighted story route, without explaining captions. Capture time to first movement/door response and audio with instrumentation on the target device; log route gaps rather than treating a scripted tap count or headless PASS as fun or comprehension evidence."
+  },
+  "observations": [
+    {
+      "title": "Floor taps move Roshan far enough to reveal the distant Royal Hall door in the routed probe",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_throne.gd:190-210 builds the probe scene and enters the Main Hall after directly seeding progress; :219-239 taps the floor, checks movement, loops until the Royal Hall button is visible, then checks target size.",
+        "audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/probe.log:4-6 records floor movement from foot x=380 to x=900, the Hall door visible after five floor taps at foot x=2415, and a 200.0905×359.8086 button.",
+        "audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/receipt.json records exact Godot 4.7.2, isolated profile, headless=true, rendered_mobile_acceptance=false, exit_code=0, and no failure lines."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-AGE-07", "DL-UI-03", "DL-INT-02", "DL-QA-02", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-PLAY-003", "MA-CHILD-001"],
+      "reproduction": "Run the retained command in the L13 receipt. The script routes its floor taps via root.push_input at the transformed stage location (probe_throne.gd:49-70), then checks :219-239; log lines 4-6 are the observed outputs. The setup is staged rather than fresh-save, and the coordinates/results are not physical phone evidence.",
+      "child_impact": "This bounded route check suggests that a non-reading child can move Roshan and eventually bring the distant door into view through floor taps. It does not show that the intended child recognizes the floor as a movement route, chooses a door, or can do this without adult guidance.",
+      "proposed_repair": "No runtime defect is established in this route slice. Preserve the tap-to-walk and large projected target while completing fresh-save, neighboring-door and actual-device route review.",
+      "acceptance_test": "From a genuinely fresh save on the target phone, observe an uncoached child enter the Castle and discover the floor movement and Royal Hall destination using one finger. Record all taps and whether the child reaches the intended door, can return, and can re-enter without a debug route or adult explanation; separately compare target bounds to the painted door at phone aspect."
+    },
+    {
+      "title": "A blocked Royal Hall tap returns local mist, voice, and sound without awarding or opening the event",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/arena/castle_rooms_25d.gd:1781-1807 triggers the mist flutter, cooldown-protected resting voice and local sound when the Royal Hall is blocked; :5337-5353 rejects blocked portal travel before scheduling an arrival.",
+        "scripts/probe_throne.gd:241-290 injects a tap on the visible button, waits up to 4,000 ms for feedback, advances the mist by a scripted 0.08 seconds, then checks the voice resource/caption, curtain sound, retained mist, no crown and no picker.",
+        "audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/probe.log:7-11 records five mist cards, the real button tap, flutter, `roshan_castle_mist_resting.ogg`, the resting caption and curtain-swish resource, with no crown/picker as OK."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-03", "DL-AGE-07", "DL-INT-02", "DL-MOT-04", "DL-QA-02", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Run L13 from its receipt and compare probe_throne.gd:241-290 with its log lines 7-11. The log establishes selected voice/audio resources and state assertions, not their audible or visible presentation on hardware.",
+      "child_impact": "The scripted blocked-state response preserves the gate and provides a kind local explanation instead of silent rejection or accidental reward. Whether the child hears the voice and interprets the mist as a temporary wait cue remains unobserved.",
+      "proposed_repair": "No change is indicated by this passing state check. Keep the locked response tied to the mist and independently review its visibility and recorded voice on the approved phone.",
+      "acceptance_test": "At the exact phone build with captions unread, let a child tap the legitimately blocked Royal Hall once. Verify prompt visible local flutter, the authorized resting voice and sound are audible, no progress/picker appears, and the child can find the current highlighted route without adult instruction."
+    },
+    {
+      "title": "Back or leaving during the Royal Hall approach prevents a stale callback and preserves its event owner",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/arena/castle_rooms_25d.gd:5379-5394 records arrival and expected event generations; :5413-5432 clears pending state and rejects stale arrival/event generations before calling the event.",
+        "scripts/probe_throne.gd:406-426 taps the Hall then invokes global Back; :430-459 starts the approach then navigates to the Library; :468-488 closes/reopens the Hall with the same event token.",
+        "audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/probe.log:29-37 records Back cancellation, no callback, navigation cancellation, return to Hall, and close/reopen token preservation as OK."
+      ],
+      "rules": ["DL-AGE-03", "DL-AGE-06", "DL-UI-05", "DL-INT-02", "DL-QA-02", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-PLAY-003"],
+      "reproduction": "Use the L13 receipt command. Inspect the two cancel legs and close/reopen leg in probe_throne.gd:406-488 and the matching runtime log lines 29-37. Event owners are deliberately armed by probe code; this does not establish save/restart persistence.",
+      "child_impact": "A scripted interruption cannot accidentally fire the pending Hall event, and returning keeps the event available to its owner. This can prevent a child from seeing a surprise reward or losing a waiting event after navigating away; real-device Back/focus behavior is still unknown.",
+      "proposed_repair": "No defect is established. Retain generation-checked arrival cancellation and verify the same behavior through visible navigation and actual Back/focus interruption on device.",
+      "acceptance_test": "On the approved device in a legitimately armed Hall event, start the door approach and press Back before arrival; confirm the event does not fire and re-entry preserves the expected cue. Repeat by entering another room, returning, and interrupting with app focus loss; verify no stale transition or lost child-visible progress."
+    },
+    {
+      "title": "The passing approach does not prove the fresh-save story route into the Castle or Royal Hall",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_throne.gd:190-210 directly skips intro, sets `day_one_active=false`, fills pearls and trophies, marks Level 2 done, assigns a companion/tutorial state, enters Level 2, and calls `_enter_castle_interior_now(false)` before the first Hall assertion.",
+        "scripts/probe_throne.gd:333-345 manually sets the crown-event prerequisite state; :361-374 directly closes the companion picker and marks `combat_tutorial_done=true` before checking the next locked state.",
+        "audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/receipt.json confirms headless scripted-probe evidence, no rendered Mobile acceptance, and baseline-bound source hashes; log line 1 starts after scene initialization and lines 1-39 report only the tested staged route.",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:397-418 (`MA-PLAY-001`) retains the open fresh-save, visible route/re-entry, device and child-session proof gap; :720-741 (`MA-CHILD-001`) retains missing observed-child evidence."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Inspect probe_throne.gd:190-210 and :333-374, then the L13 receipt. The test begins castle movement after seeded prerequisites and therefore cannot show that an ordinary fresh-save player can reach this door or its event in the authorized order.",
+      "child_impact": "A Castle hotspot can pass after direct staging while its visible parent route, prerequisite sequencing, child comprehension, phone-sized target and return route remain unproved. No defect in the skipped route is asserted here.",
+      "proposed_repair": "Do not alter runtime based on this evidence gap alone. Close the route with a fresh-save routed-input/device observation and capture any concrete blocker it reveals.",
+      "acceptance_test": "Starting from a fresh save, traverse the visible/spoken story route to the Castle, approach and enter only currently available doors, use Back to return and reopen, and reach the Royal Hall only after its legitimate event is armed. Record the exact candidate and device; no debug calls, direct state seeds, reading assistance, or adult prompts count as route proof."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The routed probe's Main Hall floor taps move Roshan and reveal the distant Hall hotspot; the reported target exceeds the minimum probe size check.",
+      "evidence": "scripts/probe_throne.gd:219-239; audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/probe.log:4-6. Staged headless route only."
+    },
+    {
+      "claim": "A blocked Royal Hall tap is checked for mist flutter, the resting voice/caption and curtain sound, with no crown or picker side effect.",
+      "evidence": "scripts/probe_throne.gd:241-290; audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/probe.log:7-11. Resource and state checks do not prove device presentation or audibility."
+    },
+    {
+      "claim": "Back, room navigation and close/reopen checks prevent stale arrival callbacks while retaining the test event token.",
+      "evidence": "scripts/probe_throne.gd:406-488; audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/probe.log:29-37. Probe-owned event setup is not a saved fresh-play route."
+    },
+    {
+      "claim": "The exact approved engine run completed all emitted probe checks without failures in an isolated save profile.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/receipt.json; audit/cycles/luna-playtest-20261012/runtime/L13/attempt_1/probe.log:1-39. This is scripted headless evidence only."
+    }
+  ],
+  "acceptance_gaps": [
+    "The probe directly seeds Level 2/Castle prerequisites and bypasses the fresh-save door sequence; L13 does not prove normal child-visible Castle entry or event reachability.",
+    "The headless run and synthetic input do not establish Mobile-rendered alignment, phone-projected door hitboxes/separation, visible response latency, frame pacing, or voice/sound audibility.",
+    "No physical device session, observed child comprehension/comfort/agency/session length, or owner review was collected; play appeal remains a testable hypothesis.",
+    "Door drag equivalence, second-finger ownership, focus-loss interruption, and save-process restart/re-entry were not exercised by this L13 probe."
+  ]
+}

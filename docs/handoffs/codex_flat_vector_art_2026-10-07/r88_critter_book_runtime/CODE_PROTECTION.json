@@ -1,0 +1,40 @@
+{
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "changed_runtime_file": "scripts/collection_system.gd",
+  "before_git_blob_sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a",
+  "after_sha256": "1f32d4f684766404da25d9b1432d412f00477fd2f14c68ac546eff0db159da6a",
+  "existing_function_bodies_unchanged": [
+    "_init",
+    "total_count",
+    "caught_count",
+    "has_nearby",
+    "build",
+    "_context",
+    "tick",
+    "_action_down",
+    "_spawn_context",
+    "_find_wings",
+    "_flap",
+    "_def_by_id",
+    "_row_by_id",
+    "_catch",
+    "_sweep_net",
+    "open_book",
+    "close_book",
+    "_switch_category"
+  ],
+  "open_book_only_intended_delta": "collection layer25->28; abovecaption27, belowglobalBack29",
+  "changed_visual_constructor": "_draw_book",
+  "new_visual_helpers": [
+    "_book_frame_style",
+    "_style_book_tab",
+    "_add_book_shell"
+  ],
+  "new_art": 0,
+  "source_pixel_edits": 0,
+  "logical_save_input_collection_changes": [],
+  "typography_delta": "Unknown name25->28 to satisfy child-state floor; caught name29/habitat28/tab30/title46/help25 retained. Category/unknown label uses STATUS; help declared supplemental ADULT_CAPTION. No packagedfont/semanticglyph/device acceptance inferred.",
+  "constructor_size_order_fix": "Native case1 proved AtlasTexture minimum clamping; corrected expand_mode-before-texture-and-size. See ATTEMPT_HISTORY.json.",
+  "geometry_revision": "Two540x116 columns/three rows,388px text slots, original native68 category font/96px slot and29/28px names/28px habitats. Same source DEFS/order/meanings/callbacks; negative required130percent test proved former300px habitat slot insufficient.",
+  "rechecked_after_CI": true
+}

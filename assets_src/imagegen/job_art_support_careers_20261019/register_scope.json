@@ -1,0 +1,460 @@
+{
+  "baseline": "58339deb6cb25d5793c3623981e66fad5be0858a",
+  "package": "P6Doctor/Farmer/Magician/Painter",
+  "items": [
+    {
+      "id": "JA-DOC-01",
+      "job": "doctor",
+      "phase": "WASH",
+      "element": "Sink, faucet, water, hands",
+      "where": [
+        "scripts/opera_gesture_surface.gd:2770-2797"
+      ],
+      "now": "ovals and lines",
+      "class": "FLAT_CENTRAL",
+      "severity": "HIGH",
+      "available_art": [
+        {
+          "path": "assets/opera/worlds/widgets/widget_basin_doctor.png",
+          "location": "dev",
+          "sha256": "4ac533cd383be7ba7aa8eb3fc679a1749f2e0c186ebed906b488e840d3e7fefd",
+          "size": [
+            1024,
+            608
+          ],
+          "note": "retired card holds a painted sink"
+        },
+        {
+          "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/ready.png",
+          "location": "branch codex/job-art-review-v2-20261001 @ cfcadc96",
+          "sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+          "size": [
+            1024,
+            1024
+          ],
+          "cutout_check": "CUTOUT_OK"
+        }
+      ],
+      "action": "IMAGEGEN",
+      "brief": "JB-DOC-01",
+      "package": "P6"
+    },
+    {
+      "id": "JA-DOC-02",
+      "job": "doctor",
+      "phase": "WASH",
+      "element": "Bubbles overlay is flat rings",
+      "where": [
+        "assets/opera/worlds/widgets/widget_basin_doctor_bubbles.png"
+      ],
+      "now": "flat-vector PNG",
+      "class": "VECTOR_FILE",
+      "severity": "MEDIUM",
+      "available_art": [
+        {
+          "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+          "location": "dev",
+          "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ],
+      "action": "WIRE_EXISTING",
+      "brief": null,
+      "package": "P6"
+    },
+    {
+      "id": "JA-DOC-03",
+      "job": "doctor",
+      "phase": "X-RAY",
+      "element": "Scan plate the child drags",
+      "where": [
+        "scripts/opera_gesture_surface.gd:4396-4409"
+      ],
+      "now": "cyan rectangle, gold card border",
+      "class": "FLAT_CENTRAL",
+      "severity": "HIGH",
+      "available_art": [],
+      "action": "IMAGEGEN",
+      "brief": "JB-DOC-02",
+      "package": "P6"
+    },
+    {
+      "id": "JA-DOC-04",
+      "job": "doctor",
+      "phase": "CAST",
+      "element": "Bed, cushion, cast strips",
+      "where": [
+        "scripts/opera_gesture_surface.gd:2401-2443"
+      ],
+      "now": "nine ovals, six lines",
+      "class": "FLAT_CENTRAL",
+      "severity": "MEDIUM",
+      "available_art": [
+        {
+          "path": "assets/opera/worlds/widgets/widget_crank_doctor.png",
+          "location": "dev",
+          "sha256": "7022b93eda577ff888d0c994ff6e79f103bff5b2531cb8700c34cea6c2d1deb2",
+          "size": [
+            1024,
+            608
+          ],
+          "note": "retired card holds cast and cushion"
+        }
+      ],
+      "action": "IMAGEGEN",
+      "brief": "JB-DOC-03",
+      "package": "P6"
+    },
+    {
+      "id": "JA-DOC-05",
+      "job": "doctor",
+      "phase": "BANDAGE",
+      "element": "Patient, roll and strip",
+      "where": [
+        "scripts/opera_gesture_surface.gd:1961-1975",
+        "scripts/opera_gesture_surface.gd:1855-1866"
+      ],
+      "now": "brown round plush instead of the starfish patient",
+      "class": "FLAT_CENTRAL",
+      "severity": "HIGH",
+      "available_art": [
+        {
+          "path": "assets/opera/worlds/widgets/widget_crank_doctor_patient.png",
+          "location": "dev",
+          "sha256": "ecf354fd812decbae250078cc2dc7bce8b8bb5c403afe5016bdabedbe0c8ffc9",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/opera/worlds/widgets/widget_crank_doctor_mover.png",
+          "location": "dev",
+          "sha256": "97444bdd816b53b883478b805647cdcfb15050afcf8d281a7422400639c6544f",
+          "size": [
+            256,
+            256
+          ]
+        },
+        {
+          "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_gameplay_bandage_roll.png",
+          "location": "dev (assets_src, design reference only)",
+          "sha256": "a0ce96c6602094f060cb3b919759ba6f61f306877bd0c0f809120e50d1f85ea6",
+          "size": [
+            1024,
+            1024
+          ]
+        },
+        {
+          "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_gameplay_bandage_wrap.png",
+          "location": "dev (assets_src, design reference only)",
+          "sha256": "6383a0f78914f5f7913886b2efea61c76bf8ea5b9658054920dbd61d507a1d8b",
+          "size": [
+            1024,
+            1024
+          ]
+        }
+      ],
+      "action": "IMAGEGEN",
+      "brief": "JB-DOC-03",
+      "package": "P6"
+    },
+    {
+      "id": "JA-FRM-01",
+      "job": "farmer",
+      "phase": "PLANT",
+      "element": "Seed bed, holes, sprouts, flowers",
+      "where": [
+        "scripts/opera_gesture_surface.gd:3823-3845"
+      ],
+      "now": "flat brown rectangle, dark holes, stick sprouts",
+      "class": "FLAT_CENTRAL",
+      "severity": "HIGH",
+      "available_art": [
+        {
+          "path": "assets/opera/worlds/backdrops/world_farmer_c0r0.png",
+          "location": "dev",
+          "sha256": "3d1a2bf91f141919f34a1f1dccb1846ea8a1db6e1f3d3fc80c067c21031a9794",
+          "size": [
+            1024,
+            1024
+          ],
+          "note": "crop reference for the tilled bed"
+        }
+      ],
+      "action": "IMAGEGEN",
+      "brief": "JB-FRM-01",
+      "package": "P6"
+    },
+    {
+      "id": "JA-FRM-02",
+      "job": "farmer",
+      "phase": "TOSS",
+      "element": "Munch face pasted over the painted piglet",
+      "where": [
+        "scripts/opera_gesture_surface.gd:5021-5045"
+      ],
+      "now": "pink circles",
+      "class": "FLAT_CENTRAL",
+      "severity": "HIGH",
+      "available_art": [
+        {
+          "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_farmer_gameplay_happy_piggy_group.png",
+          "location": "dev (assets_src, design reference only)",
+          "sha256": "d6571fcccb7009a4d070ab4e4aabdd57fad97677bf9b60572092ac64e197ba15",
+          "size": [
+            1024,
+            1024
+          ]
+        }
+      ],
+      "action": "IMAGEGEN",
+      "brief": "JB-FRM-02",
+      "package": "P6"
+    },
+    {
+      "id": "JA-FRM-03",
+      "job": "farmer",
+      "phase": "TOSS",
+      "element": "Duplicate basket, ring, sling, arc guide",
+      "where": [
+        "scripts/opera_gesture_surface.gd:5048-5094",
+        "scripts/opera_gesture_surface.gd:4992-4996"
+      ],
+      "now": "code over the painted basket",
+      "class": "FLAT_DECORATION",
+      "severity": "MEDIUM",
+      "available_art": [],
+      "action": "REMOVE",
+      "brief": null,
+      "package": "P6"
+    },
+    {
+      "id": "JA-FRM-04",
+      "job": "farmer",
+      "phase": "HERD",
+      "element": "Barn gate destination",
+      "where": [
+        "scripts/opera_gesture_surface.gd:1631-1655"
+      ],
+      "now": "lines, circles, arc",
+      "class": "FLAT_CENTRAL",
+      "severity": "HIGH",
+      "available_art": [
+        {
+          "path": "assets/opera/worlds/backdrops/world_farmer_c0r0.png",
+          "location": "dev",
+          "sha256": "3d1a2bf91f141919f34a1f1dccb1846ea8a1db6e1f3d3fc80c067c21031a9794",
+          "size": [
+            1024,
+            1024
+          ],
+          "note": "crop reference for the barn doors"
+        }
+      ],
+      "action": "IMAGEGEN",
+      "brief": "JB-FRM-03",
+      "package": "P6"
+    },
+    {
+      "id": "JA-FRM-05",
+      "job": "farmer",
+      "phase": "PLANT",
+      "element": "Seed squeezed into a square",
+      "where": [
+        "scripts/opera_gesture_surface.gd:3849-3851"
+      ],
+      "now": "assets/mg/seed.png 512x469 distorted",
+      "class": "MISUSED",
+      "severity": "LOW",
+      "available_art": [],
+      "action": "FIX_USE",
+      "brief": null,
+      "package": "P6"
+    },
+    {
+      "id": "JA-MAG-01",
+      "job": "magician",
+      "phase": "ROPE",
+      "element": "Rope and knots",
+      "where": [
+        "scripts/opera_gesture_surface.gd:1855-1866",
+        "scripts/opera_gesture_surface.gd:1981-1990"
+      ],
+      "now": "polylines and circles",
+      "class": "FLAT_CENTRAL",
+      "severity": "HIGH",
+      "available_art": [
+        {
+          "path": "assets/opera/worlds/hotspots/magician_rope.png",
+          "location": "dev",
+          "sha256": "f38205f3e00ab8de0b1dd176a52c7535abcfa369eafa1fe1032eacb003fc9843",
+          "size": [
+            512,
+            128
+          ]
+        }
+      ],
+      "action": "WIRE_EXISTING",
+      "brief": null,
+      "package": "P6"
+    },
+    {
+      "id": "JA-MAG-02",
+      "job": "magician",
+      "phase": "PORTAL",
+      "element": "Star portal swirl",
+      "where": [
+        "scripts/opera_gesture_surface.gd:657-677",
+        "scripts/opera_gesture_surface.gd:2040-2096"
+      ],
+      "now": "arcs and rotating dots; ring art never made",
+      "class": "MISSING_TEXTURE",
+      "severity": "HIGH",
+      "available_art": [],
+      "action": "IMAGEGEN",
+      "brief": "JB-MAG-01",
+      "package": "P6"
+    },
+    {
+      "id": "JA-MAG-03",
+      "job": "magician",
+      "phase": "TRACK",
+      "element": "Hats never move; a dot glides",
+      "where": [
+        "scripts/opera_gesture_surface.gd:5313-5327"
+      ],
+      "now": "code dots",
+      "class": "FLAT_CENTRAL",
+      "severity": "HIGH",
+      "available_art": [
+        {
+          "path": "assets/opera/worlds/widgets/widget_lanes_magician_lit.png",
+          "location": "dev",
+          "sha256": "d19c4bbf676670e37b34876082d457ae244394bab69867a1bc487d5718f72c8b",
+          "size": [
+            768,
+            256
+          ],
+          "note": "has white scratch marks on the hats"
+        }
+      ],
+      "action": "FIX_USE",
+      "brief": null,
+      "package": "P6"
+    },
+    {
+      "id": "JA-MAG-04",
+      "job": "magician",
+      "phase": "CABINET",
+      "element": "Flat gold slab over the painted knob; reveal has a white box",
+      "where": [
+        "scripts/opera_gesture_surface.gd:3980-3988"
+      ],
+      "now": "rectangle over painted art",
+      "class": "MISUSED",
+      "severity": "HIGH",
+      "available_art": [
+        {
+          "path": "assets/opera/worlds/widgets/widget_magic_cabinet_closed.png",
+          "location": "dev",
+          "sha256": "f0829a82157b1e1671fdca165dac68a8385645d648ec77604287e95a59796fcf",
+          "size": [
+            512,
+            512
+          ]
+        },
+        {
+          "path": "assets/opera/worlds/widgets/widget_magic_cabinet_reveal.png",
+          "location": "dev",
+          "sha256": "6e8764bc8031f9d09c360ba749f2c8fea89bf08b9316ad8b131ec255545cc2d9",
+          "size": [
+            512,
+            512
+          ]
+        }
+      ],
+      "action": "FIX_USE",
+      "brief": null,
+      "package": "P6"
+    },
+    {
+      "id": "JA-PNT-01",
+      "job": "painter",
+      "phase": "PAINT",
+      "element": "Cloudy veil",
+      "where": [
+        "scripts/opera_gesture_surface.gd:4844-4852"
+      ],
+      "now": "up to 60 flat squares",
+      "class": "FLAT_CENTRAL",
+      "severity": "HIGH",
+      "available_art": [
+        {
+          "path": "assets/opera/worlds/props/fx_dust_puff.png",
+          "location": "dev",
+          "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+          "size": [
+            256,
+            256
+          ]
+        }
+      ],
+      "action": "IMAGEGEN",
+      "brief": "JB-PNT-01",
+      "package": "P6"
+    },
+    {
+      "id": "JA-PNT-02",
+      "job": "painter",
+      "phase": "PAINT",
+      "element": "Extra frame slab and border",
+      "where": [
+        "scripts/opera_gesture_surface.gd:4834",
+        "scripts/opera_gesture_surface.gd:4853-4854"
+      ],
+      "now": "rectangle and border around a framed painting",
+      "class": "FLAT_DECORATION",
+      "severity": "MEDIUM",
+      "available_art": [],
+      "action": "REMOVE",
+      "brief": null,
+      "package": "P6"
+    },
+    {
+      "id": "JA-PNT-03",
+      "job": "painter",
+      "phase": "Chapter Two banner",
+      "element": "Banner squashed and cut into lane frames",
+      "where": [
+        "scripts/opera_gesture_surface.gd:4836",
+        "scripts/opera_gesture_surface.gd:1526",
+        "scripts/opera_gesture_surface.gd:2738-2741",
+        "scripts/opera_world_hotspot_2d.gd:304-307"
+      ],
+      "now": "256x512 banner distorted",
+      "class": "MISUSED",
+      "severity": "HIGH",
+      "available_art": [
+        {
+          "path": "assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+          "location": "dev",
+          "sha256": "1cbf785bded294e8e4f5814f5b85fb2a455e07c4fe16f8826b00545d095a6731",
+          "size": [
+            256,
+            512
+          ]
+        }
+      ],
+      "action": "FIX_USE",
+      "brief": null,
+      "package": "P6"
+    }
+  ],
+  "state": "PLANNING_INVENTORY_NO_NEW_ART_ACCEPTED",
+  "shared_edit_order": "P4Chef must finish its shared gesture file changes beforeP6implementation. Inventory/generation only until currentdevincludesgreenChef.",
+  "model": "AvailablebuiltinImageGen approved; revisionunexposed; noAPI/CLI budget."
+}

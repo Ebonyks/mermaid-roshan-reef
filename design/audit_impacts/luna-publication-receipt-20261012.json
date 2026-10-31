@@ -1,0 +1,26 @@
+{
+  "id": "luna-publication-receipt-20261012",
+  "scope": "Append the executed anonymous exact-revision study publication receipt after preserving the sealed core payload unchanged. No game source, finding facts or release change.",
+  "baseline": "e7d867105bce895a7540b5f2410e466a0b2e2a8c",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-01",
+    "DL-QA-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "Post-publication evidence attestation only; the initial study owns finding updates. No new defect or closure.",
+  "files": [
+    "audit/cycles/luna-playtest-20261012/verification/remote_publication.json"
+  ],
+  "validation": [
+    {
+      "command": "python -X utf8 -B audit/cycles/luna-playtest-20261012/review_tools/publication.py --revision e7d867105bce895a7540b5f2410e466a0b2e2a8c",
+      "result": "PASS",
+      "evidence": "Anonymous HTTPS fetched exact manifest and all296 payload files; every size/SHA-256 matched. Checked2026-10-13T02:51:10.272404+00:00; manifest SHA-256 4dab10029cfb3a8cbd796cd4ab662873b39951d9b908c0d04ff5609a385bba5a; payload SHA-256 2dee759f870937333d03b6e696e3821fa0d3d8f8bec498e0838cb337752a1b66. verification/remote_publication.json retains every verified file hash and access mode."
+    }
+  ],
+  "acceptance_gaps": "Durable public evidence bytes only. Existing device/child/owner/full-route/master satisfaction gaps and exact-head CI/integration gates keep their scopes. No release authority.",
+  "attestation_exclusion": "This supplementary impact and the post-publication receipt are excluded from the original content manifest self-hash. Original payload is unchanged; final commit will receive a second anonymous verification and explicit attestation-file checks."
+}

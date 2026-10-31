@@ -1,0 +1,170 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L36",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l36",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Sky Lagoon approach animal boundaries return",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L36/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The exact Godot 4.7.2.stable probe passed its habitat roster, ground/path negative cases, cell-foot contacts, complete patrols, startles, tap-radius metadata, arrival-plane gating, roster return, and day/night tint assertions (receipt PASS; probe log ends SKY_LAGOON_ANIMALS|ALL OK).",
+    "route_gaps": "The probe clears the start menu/story and enters the Lagoon by direct helper calls, writes lagoon_plane_departed, repositions the camera with set_master_route_x, binds species directly, and triggers startle directly. It does not reach the Lagoon through the ordinary progression or deliver an actual routed touch. Therefore approach discoverability, visible-device animal placement, real input response, and a child's return experience are not proven."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "ANIMAL_PAGE_SPAWN_S = 0.70 seconds; ANIMAL_RESPAWN_S = 5.5 seconds",
+        "evidence": "scripts/arena/sky_lagoon_promenade.gd:23-25",
+        "scope": "Page-change appearance delay and post-startle return delay; not total play-session timing."
+      },
+      {
+        "value": "ANIMAL_STARTLE_ALERT_S = 0.24 seconds; ANIMAL_STARTLE_SQUASH_S = 0.18 seconds; ANIMAL_STARTLE_HOP_S = 0.24 seconds",
+        "evidence": "scripts/arena/sky_lagoon_promenade.gd:26-28, 1388-1394",
+        "scope": "Authored startle phases. The code then holds the final phase 0.45 seconds and travels the authored route at species-specific exit_speed before hiding (scripts/arena/sky_lagoon_promenade.gd:1415-1416; species exit speeds at :103-127). Total travel duration depends on position and species speed."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No child play duration or route pacing is inferred. The helper's 12.036-second wall time is probe execution time only."
+  },
+  "tactile": {
+    "target_size": "The actor touch radius is 114 design-canvas pixels (228-pixel diameter footprint metadata) in scripts/arena/sky_lagoon_promenade.gd:23, 633. The probe checks a 110-pixel offset around the center (scripts/probe_sky_lagoon_animals.gd:87-98); physical size at target-device scale is unmeasured.",
+    "press_response": "Code routes a promenade world tap to handle_touch (scripts/main.gd:4608-4612); a tap within the animal radius starts its startle sequence and is consumed (scripts/arena/sky_lagoon_promenade.gd:344-350). The probe calls _startle_animal directly, so routed press latency/feel was not tested.",
+    "drag_hold_release": "Animal interaction is a tap. Drag handling cancels navigation and sets a walk goal (scripts/arena/sky_lagoon_promenade.gd:365-369); no held animal action, release gesture, or physical drag was exercised by L36.",
+    "ownership": "This classic scripted probe does not make touch-ownership claims. The one-touch route policy is defined by DL-UI-04, but this run does not deliver concurrent or routed touches.",
+    "cancellation": "The probe does not pause, lose focus, or cancel a routed animal tap. Existing route cancellation code clears walk goals and focus in scripts/arena/sky_lagoon_promenade.gd:371-389; its animal-specific interaction lifecycle was not exercised through UI."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a reachable small animal responding to a deliberate tap can make the long Lagoon walk feel inhabited and responsive. The configured radius is forgiving, and the response appears distinct from movement taps because animal hits take priority in handle_touch; actual agency was not observed.",
+    "variety": "Five authored species rotate by three camera pages: otter/frog at page 0, hare/squirrel at page 1, raccoon at page 2. A single pooled sprite changes species by page and cycle (scripts/arena/sky_lagoon_promenade.gd:89-127, 623-643, 1274-1279). L36 asserted the roster but directly selected each animal.",
+    "world_response": "The code specifies a short alert, squash, hop and retreat along the safe habitat path; the probe asserted the first three atlas frames and that all tested escape routes finish hidden at the safe endpoint. This is a plausible readable response, pending visual and child observation.",
+    "replay": "Hypothesis: seeing a different local species after walking to another page may reward revisiting the promenade. The current page roster and 5.5-second respawn are code facts; repeated natural visits were not observed.",
+    "play_sequence": [
+      "Beat 1: From a clean save, use only the normal on-screen Continue/start controls and ordinary progression to reach Sky Lagoon; do not call probe helpers. Record arrival cue and the first visible route landmark.",
+      "Beat 2: Wait 0.70 seconds after entering the animal's page (page spawn constant at scripts/arena/sky_lagoon_promenade.gd:24); observe whether an animal appears on the ground and whether Roshan can still be distinguished.",
+      "Beat 3: Tap once at the center of the animal; wait 0.24 seconds, then another 0.18 seconds, then another 0.24 seconds. Observe the alert, squash and hop response against the contact shadow (constants :26-28; frame timing asserted in scripts/probe_sky_lagoon_animals.gd:308-317).",
+      "Beat 4: Keep hands off until the animal follows its safe return path and disappears; observe whether the retreat reads as an intentional reaction rather than a lost or stuck character (scripts/arena/sky_lagoon_promenade.gd:1395-1416).",
+      "Beat 5: Wait 5.5 seconds after it hides and observe whether the page's next species appears (constant :25; roster cycle :1314-1338).",
+      "Beat 6: Tap empty ground once and let Roshan walk toward the next page; observe that empty-space movement still works and the animal tap did not steal movement control (touch routing :347-355).",
+      "Beat 7: Repeat one deliberate animal tap on each of two different pages, then return to the first page. Concrete appeal test: ask the child, without coaching, to show which animal they want to greet again and allow a self-chosen repeat; record whether they point/tap, wait through the response, and choose to revisit, without assigning a numeric fun score."
+    ],
+    "fun_score": null
+  },
+  "observations": [
+    {
+      "title": "The animal route and contact-anchor checks pass in the internal probe",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L36/attempt_1/receipt.json: status PASS; exact engine 4.7.2.stable.official.ed1daf0bf; no failure lines.",
+        "audit/cycles/luna-playtest-20261012/runtime/L36/attempt_1/probe.log: reject_old_rope_water_and_air_route, reject_old_shrub_canopy_route, reject_feet_inside_but_body_over_ground_edge, reject_obstacle_between_safe_waypoints, five complete patrol checks, and five all_startles_follow_ground_to_endpoint checks are OK.",
+        "scripts/probe_sky_lagoon_animals.gd:319-360 checks each frame's contact against safe bounds and same route, then tests invalid paths and a blocked segment."
+      ],
+      "rules": ["DL-QA-02", "DL-QA-07"],
+      "existing_findings": ["MA-VIS-002"],
+      "reproduction": "Run the retained L36 receipt command; it exits 0 and the log ends SKY_LAGOON_ANIMALS|ALL OK. Inspect the probe's explicit negative cases and full-path loops; the test modifies a temporary blocked_rects entry and removes it immediately.",
+      "child_impact": "Grounded patrol and predictable escape paths address the reported floating/through-bush behavior and should make animal motion easier to read. This headless assertion does not establish that the painted ground or contact is visually convincing on a phone.",
+      "proposed_repair": "No code repair is indicated by these assertions. Keep the existing source-bound floor and obstacle checks as regression coverage.",
+      "acceptance_test": "Capture the ordinary Mobile/Speedy route on the target phone with each species patrolling and startling; frame-step the feet and shadow at habitat corners and verify the whole body clears edges and obstacles at supported aspect ratios."
+    },
+    {
+      "title": "A deliberate animal tap wins priority over movement and starts a bounded reaction",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/arena/sky_lagoon_promenade.gd:344-363 checks an active playground, tests _animal_at first, starts the animal reaction and consumes the tap before searching playground targets or setting a walk goal.",
+        "scripts/arena/sky_lagoon_promenade.gd:1418-1424 accepts a visible non-startling pooled actor within 114 screen design pixels.",
+        "scripts/main.gd:4608-4612 routes a live level2 promenade world tap into handle_touch.",
+        "scripts/probe_sky_lagoon_animals.gd:289-306 checks the 110-pixel cardinal offsets and metadata footprint; probe log reports all five production-touch checks OK."
+      ],
+      "rules": ["DL-AGE-02", "DL-UI-01", "DL-UI-03", "DL-MOT-04"],
+      "existing_findings": ["MA-PLAY-004", "MA-TOUCH-001"],
+      "reproduction": "Code trace and L36 assertions only; no real touch events were injected. The helper checks points 110 pixels from center against _animal_at, then separately calls _startle_animal.",
+      "child_impact": "A generous single tap should be easier for a young child to land, and the immediate distinct reaction may show that the animal noticed. Actual target size and visual/hit alignment in physical millimetres remain unmeasured.",
+      "proposed_repair": "No change proposed from code inspection; verify hit footprint and moving-target feel through the ordinary input route on the target device.",
+      "acceptance_test": "On the target phone, tap the visible moving animal around its center and near each edge with one finger. Confirm the hit tracks the pictured animal, never routes an accidental walk/prop action, and responds promptly; test screen ratios and repeat with the animal moving."
+    },
+    {
+      "title": "The startle has three authored response phases and returns to a safe endpoint",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/arena/sky_lagoon_promenade.gd:26-28 declares 0.24s alert, 0.18s squash, and 0.24s hop phases; :1388-1416 selects the frames, keeps the shadow on the ground, returns through path corners, then hides after a 0.45s final hold and 5.5s respawn delay.",
+        "scripts/probe_sky_lagoon_animals.gd:308-317 samples after 0.10s, 0.20s, and 0.20s and asserts frames 0, 1, 2 for each species; :432-443 verifies the otter exits and the roster advances to frog.",
+        "audit/cycles/luna-playtest-20261012/runtime/L36/attempt_1/probe.log: five cute_startle_sequence, activation_exits_toward_safe_edge and shore_roster_advances_otter_to_frog checks are OK."
+      ],
+      "rules": ["DL-MOT-04", "DL-AGE-03", "DL-QA-02"],
+      "existing_findings": ["MA-ROSHAN-006"],
+      "reproduction": "The probe manually triggers startle, advances scripted deltas and checks frames/end state. It does not measure rendered animation or whether the timing feels kind or comprehensible.",
+      "child_impact": "A staged pause before the hop and a consistent retreat may make the animal's response legible and non-punitive. If the sprites or timing are unclear at phone scale, the child may instead read the animal as disappearing abruptly.",
+      "proposed_repair": "No timing change inferred. Preserve the authored cadence pending actual Mobile playback and child observation.",
+      "acceptance_test": "Review every species' complete reaction at full speed and frame-step on target device; ask an uncoached child what happened and whether they want to see the animal again, without prompting the expected answer."
+    },
+    {
+      "title": "Page changes rotate a small roster through one pooled actor",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/arena/sky_lagoon_promenade.gd:89-127 defines otter/frog, hare/squirrel and raccoon by page; :623-643 builds one pooled Sprite2D and its contact shadow.",
+        "scripts/arena/sky_lagoon_promenade.gd:1274-1279 selects by per-page cycle; :1314-1338 waits 0.70 seconds on page entry and advances the roster after an exit.",
+        "scripts/probe_sky_lagoon_animals.gd:270-306 confirms the same node instance is reused for each of five definitions, while :418-443 confirms shore arrival/plane gating and otter-to-frog rotation."
+      ],
+      "rules": ["DL-AGE-01", "DL-PERF-03", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-004"],
+      "reproduction": "Roster and pooling assertions pass, but the probe directly selects each species and teleports to page centers with set_master_route_x; it does not measure natural discovery or revisit incentive.",
+      "child_impact": "A recognizable local animal can give the long walk a small changing payoff without leaving a swarm of actors onscreen. A 5.5-second return timer could feel either inviting or repetitive; the code cannot answer that.",
+      "proposed_repair": "No repair proposed until natural play reveals whether repeated appearances help or interrupt the walk.",
+      "acceptance_test": "Let a child traverse all three pages at their own pace, observe one full cycle and a revisit, and record whether they notice/seek another species or prefer to keep moving. Keep save and route state intact."
+    },
+    {
+      "title": "Arrival-plane state intentionally gates shore animals and allows them to return",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/arena/sky_lagoon_promenade.gd:1285-1290 refuses to bind definitions marked requires_plane_departed until the saved plane-departed flag is true; otter and frog carry this requirement at :90-102.",
+        "scripts/probe_sky_lagoon_animals.gd:420-431 toggles the saved flag and checks the otter hidden before departure and visible/idle after departure.",
+        "audit/cycles/luna-playtest-20261012/runtime/L36/attempt_1/probe.log: arrival_plane_excludes_shore_animals, shore_returns_after_plane_departure_bind and shore_returns_after_plane_departure are OK."
+      ],
+      "rules": ["DL-INT-02", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-004"],
+      "reproduction": "The probe writes lagoon_plane_departed false/true and calls bind directly, so it verifies the predicate only; it does not prove the real arrival/plane event sets this flag at the right visible moment.",
+      "child_impact": "If tied correctly to the story event, delaying shore animals until the airplane leaves can make the scene feel causally coherent. A flag/wiring error could instead make an expected animal seem missing.",
+      "proposed_repair": "No repair indicated in this probe; verify the live airplane departure and natural return seam separately.",
+      "acceptance_test": "Enter via the supported story route, wait for the plane departure without debug calls, confirm the shore animal appears, leave and re-enter, and verify its presentation remains consistent with saved progress."
+    },
+    {
+      "title": "L36 cannot establish the live approach or the visual and tactile experience",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_sky_lagoon_animals.gd:491-518 dismisses menu/intro/story clips, writes lagoon_plane_departed, enters Level 2 via _enter_level2_now, and uses the helper to build the stage.",
+        "scripts/probe_sky_lagoon_animals.gd:270-276 calls set_master_route_x and _bind_animal_id; :420-441 writes the airplane flag, starts the reaction directly and ticks the actor.",
+        "audit/cycles/luna-playtest-20261012/runtime/L36/attempt_1/receipt.json: evidence_kind SCRIPTED_PROBE, headless true, rendered_mobile_acceptance false, wall_clock_is_gameplay_timing false."
+      ],
+      "rules": ["DL-AGE-01", "DL-UI-01", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-PLAY-004", "MA-VIS-002"],
+      "reproduction": "Read the setup and direct state writes in probe_sky_lagoon_animals.gd and the receipt limits. The runtime log is green but contains no normal stage-entry trace, actual touch trace, Mobile capture, or observed child.",
+      "child_impact": "A child could miss the animal, fail to connect the tap with its reaction, or be interrupted on a long route; L36 provides no evidence to distinguish these outcomes.",
+      "proposed_repair": "Keep this as a documented coverage gap. Gather ordinary route and phone evidence before changing the animal system or claiming the approach is proven.",
+      "acceptance_test": "On the exact production build on the Lenovo Tab M11, enter naturally from the prior scene, capture supported-ratio Mobile frames and a routed one-finger interaction, then observe a child discovering and choosing whether to revisit the animals without adult prompting. Report visual, device, child and owner acceptance separately."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The current animal paths and atlas feet anchors reject known air/water/canopy paths, body-over-edge routes, and a blocked segment while full idle/startle routes stay within declared ground envelopes.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L36/attempt_1/probe.log: reject_old_rope_water_and_air_route, reject_old_shrub_canopy_route, reject_feet_inside_but_body_over_ground_edge, reject_obstacle_between_safe_waypoints, and all five species' complete_patrol_stays_on_floor/all_startles_follow_ground_to_endpoint are OK."
+    },
+    {
+      "claim": "The interaction code gives a visible animal the first chance at a promenade tap and bounds its tap radius; ambient animal activity does not award progress.",
+      "evidence": "scripts/arena/sky_lagoon_promenade.gd:344-363, 1418-1424; audit/cycles/luna-playtest-20261012/runtime/L36/attempt_1/probe.log: ambient_patrol_and_taps_award_nothing and all production-touch checks are OK."
+    },
+    {
+      "claim": "One actor represents the local species roster and respects the saved airplane-departure prerequisite for shore animals.",
+      "evidence": "scripts/arena/sky_lagoon_promenade.gd:623-643, 1285-1312; probe log: single_pooled_canvas_animal, arrival_plane_excludes_shore_animals, and shore_returns_after_plane_departure are OK."
+    }
+  ],
+  "acceptance_gaps": [
+    "No ordinary progression into Sky Lagoon or visible approach to the animal habitats was exercised; direct state/camera/species setup makes this INTERNAL_PROBE evidence.",
+    "No routed physical touch, drag, hold/release, touch ownership, latency, or physical hit-size measurement was made.",
+    "Headless probe assertions do not establish Mobile-rendered clarity, camera/aspect-ratio composition, target-phone frame pacing, or actual rendered animation quality.",
+    "No child comprehension, discoverability, comfort, agency, session pacing, repeat interest, or fun evidence was collected.",
+    "No owner review or acceptance was performed; broader visual and play findings remain open under their existing lifecycle."
+  ]
+}

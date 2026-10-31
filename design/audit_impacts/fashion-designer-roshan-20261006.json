@@ -1,0 +1,173 @@
+{
+  "id": "fashion-designer-roshan-20261006",
+  "scope": "Record the owner's Fashion Designer Roshan commission as a buildable feature brief: persistent recurring-character clothing, unlockable outfits throughout the game, and later disguise dress-up activities. No runtime, story route or career allocation is implemented. Follow-up direction binds Roshan's special dress before party start and the Iko Iko/Ember King scene, retaining existing career identities. Scope expands to one non-runtime party-dress candidate using approved base Roshan identity and the existing Ballerina petal-gown design; that source gown has career-specific poses/tail colors and does not directly cover the base-world standing pose. Preserve originals, record generation provenance/license, and retain owner/pose/runtime acceptance gaps.",
+  "baseline": "96274aab9cebd563b10846a4a48de5d017588563",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-UI-01",
+    "DL-UI-02",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-UI-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-05",
+    "DL-INT-06",
+    "DL-INT-07",
+    "DL-INT-12",
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-MOT-04",
+    "DL-MOT-05",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MED-04",
+    "DL-MED-05",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-PERF-04",
+    "DL-PERF-07",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-SND-01",
+    "DL-SND-05",
+    "DL-SND-13",
+    "DL-CODE-01",
+    "DL-CODE-03",
+    "DL-CODE-05",
+    "DL-CODE-08",
+    "DL-CODE-10",
+    "DL-PLAN-01",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-04",
+    "DL-PLAN-05",
+    "DL-PLAN-06"
+  ],
+  "findings": [],
+  "no_findings_reason": "New owner-directed feature planning, not a reproduced defect or repair. MA-DOC-006 is current job-extension context and MA-SAVE-001 concerns different existing castle progress; neither lifecycle or factual record changes.",
+  "files": [
+    "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md",
+    "design/fashion_designer/FEATURE_CARD_V1.json",
+    "design/fashion_designer/REUSE_INVENTORY_20261006.json",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+    "ASSET_LICENSES.md",
+    "assets_src/fashion_designer/.gdignore",
+    "assets_src/fashion_designer/party_dress_v1/prompt.txt",
+    "assets_src/fashion_designer/party_dress_v1/roshan_party_dress_candidate.png",
+    "assets_src/fashion_designer/party_dress_v1/provenance.json"
+  ],
+  "validation": [
+    {
+      "command": "Source and visual review at 96274aab9cebd563b10846a4a48de5d017588563",
+      "result": "PASS",
+      "evidence": "Inspected current wardrobe/save/Canvas actor and recurring NPC callers; reviewed Roshan base, Rumi eight-pose and Detective costume pixels. Exact source paths, hashes, dimensions and reuse limits are recorded in design/fashion_designer/REUSE_INVENTORY_20261006.json. This is source-fit review, not product visual acceptance."
+    },
+    {
+      "command": "python -B tools/plan_prompt.py 'Add Fashion Designer Roshan: persistent recurring-character outfits with unlocks and later disguise dress-up activities' --intent INT-ADD-JOB --json",
+      "result": "PASS",
+      "evidence": "Read-only planning receipt at baseline derives next available Opera bit 18 and four existing 262143 clamps at save_state.gd lines 198, 294, 619, 681. No bit is reserved; feature brief separates wardrobe state from later story/job allocation. Planner reports changed strength evidence, so no cached strength grade is claimed."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH: 679 inventory/679 ledger, 68 active/71 records, ALL OK at the planning candidate; source baseline 96274aab."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV: base 96274aab9cebd563b10846a4a48de5d017588563, ALL OK for exact planning diff."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development tools.tests.test_record_owner_decision",
+      "result": "PASS",
+      "evidence": "63 tests passed in 57.699 seconds; document authority stress 6/6."
+    },
+    {
+      "command": "scripts/ci.sh with approved Godot 4.7.2-stable",
+      "result": "FAIL",
+      "evidence": "Initial full run exited 1 at IMPORT FAIL immediately after the filesystem scan. Static, document, audio and asset contract checks passed, including 95 visual contract tests and 64 castle review tests. No gameplay probes ran. tmp/fashion-full-ci-20261006.log SHA-256 20fee4bd3ae149e2f4c476db0979093b1ef1b39c221e6497ff375b6410cd153f"
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless --path . --import --verbose (native Windows retry)",
+      "result": "PASS",
+      "evidence": "Exact official.ed1daf0bf native import completed with exit 0 and no import/script errors. 25 engine-written .import files were proven identical to HEAD through Git clean filters and restored to checkout line endings; no runtime/asset source change remains. This import result does not replace the full gate. tmp/fashion-godot-import-20261006.log SHA-256 6ebf13d8c8e271a6127adfd827f8686bd76f52a64448dac5684cca514ff204e6"
+    },
+    {
+      "command": "scripts/ci.sh full retry with approved Godot 4.7.2-stable",
+      "result": "FAIL",
+      "evidence": "Stopped at the 2D gate on two retired Roshan GLBs in ignored .worktrees/codex-painter-purpose-20260811. Both paths were absent on immediate read-back, and the standalone 2D audit then passed without any project-source change. tmp/fashion-full-ci-final-20261006.log SHA-256 33a5e0c913a9301e63ea9de9de5cb8ef91282be53586e083bf9d114e0d7bed8e. An earlier retry stopped at the audit-development schema gate due an invalid validation label, corrected to FAIL."
+    },
+    {
+      "command": "scripts/ci.sh complete run after workspace recheck, approved Godot 4.7.2-stable",
+      "result": "PASS",
+      "evidence": "Full local command exited 0 using exact 4.7.2.stable.official.ed1daf0bf; 82/82 unique trusted probes exited 0, including intentional/passive, save recovery, touch, Day One and Chapter 2. All blocking static/audio/asset/import gates passed. Runtime sources are unchanged from baseline. The advisory visual audit retains its existing UNSATISFIED state (15 FAIL, 17 REVIEW_OPEN, 2 MANUAL_OPEN, 87 COVERAGE_GAP); no product/fashion-runtime acceptance is claimed. tmp/fashion-full-ci-complete-20261006.log SHA-256 44f9d13b8e3147544c77b73af873989c8b6606ae4ca4752010ed75e77548df6a. Later unrelated tracked tmp/pdfs deletions are excluded from this feature package through an isolated managed worktree; document/change gates rechecked there."
+    },
+    {
+      "command": "Single static party-dress generation and source inspection",
+      "result": "PASS",
+      "evidence": "One native transparent candidate produced and copied byte-identically into the non-runtime source directory; source hashes, exact prompt, native output hash, alpha/dimensions and identity/tiara review gaps are in assets_src/fashion_designer/party_dress_v1/provenance.json. PASS is execution/provenance only, not image acceptance. No original or runtime art modified."
+    }
+  ],
+  "acceptance_gaps": "Design and one non-runtime static outfit candidate only. The candidate still needs exact identity/tiara correction, alpha-border cleanup, garment review and complete compatible pose/anchor coverage. Runtime wardrobe/save/resolver, exact voices, disguise play, dress introduction before the confirmed party/Iko Iko/Ember scene, exact dressing room and actual disguise story purpose, Mobile visuals, device performance/touch, child comprehension and owner art acceptance remain outstanding. No audit finding is closed and game-wide satisfaction remains UNSATISFIED.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-FASHION-PERSISTENCE-20261006",
+      "evidence": "Owner follow-up quoted in design/FASHION_DESIGNER_ROSHAN_2026-10-06.md#owner-direction--2026-10-06",
+      "write_back": "design/reference/owner_decisions.json and the feature/save/render contracts; supersedes initial all-clothes-freely-available working assumption."
+    },
+    {
+      "decision_id": "ODR-FASHION-PARTY-DRESS-20261006",
+      "evidence": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md#owner-direction--2026-10-06",
+      "write_back": "Feature brief/card, Chapter 2 production spine and master planning route: special dress before party start and the Iko Iko/Ember King scene; preserve existing preparation career identities/mask. No Opera bit is allocated and no disguise plot is invented by this planning change."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "Treat outfit persistence across recurring character renderers as the primary payoff; optional teaching games and later disguise challenges consume the shared wardrobe rather than owning a separate temporary dress-up state.",
+      "write_back": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md#persistent-state-and-appearance-ownership"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "design/reference/recipes/add_job.md",
+      "purpose": "Read the actual job-extension contract; do not force a cosmetic feature into a competitive career or allocate a bit before its later route is bound."
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "purpose": "Keep owner direction, proposed design, runtime implementation and acceptance claims separate."
+    }
+  ]
+}

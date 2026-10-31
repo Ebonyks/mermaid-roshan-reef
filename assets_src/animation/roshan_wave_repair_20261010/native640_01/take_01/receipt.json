@@ -1,0 +1,397 @@
+{
+  "schema": "reef.ltx-stage-receipt.v1",
+  "attempt_id": "22750afc-adf4-4495-a70a-bd2a6acd12bf",
+  "method": "native-resolution-union",
+  "stage": "first-pass",
+  "status": "EXECUTION_PASS",
+  "started_at_utc": "2026-10-11T00:02:09.510390+00:00",
+  "endpoint": "http://127.0.0.1:8194",
+  "runtime": "H:\\MermaidReefTools\\LocalVideo\\ltx25",
+  "wall_seconds_max": 1200,
+  "job_path": "assets_src/animation/roshan_wave_repair_20261010/job.json",
+  "reserved_job_sha256": "db843e6685dbd29a39cbccb6f5541ec18b63b22771190fc093f30ff53794b6bc",
+  "model_pins_scope": "declared_in_source_manifest; source/runtime inputs independently byte-verified",
+  "acceptance": {
+    "artifact_free_sample": false,
+    "human": false,
+    "owner": false,
+    "device": false,
+    "child": false,
+    "runtime": false,
+    "delivery_accepted": false
+  },
+  "workflow_sha256": "04408d509d5430d924b19a7b21e0f83f3495740a4746a5cea3b27337645d2e7f",
+  "sources_manifest_sha256": "209c676c603dcbb8e06454307c291dff917d7a2f3a110f520dce25a82be713ea",
+  "outputs_spec_sha256": "066a05660217190a8321f7243feb85a038ed0d87929ded004be1666fbcbf6691",
+  "source_files": [
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/identity_shift40.png",
+      "sha256": "324c9e459ea0229b85e67e890762110d0d3a3b4eea12781844585195e7b4a292",
+      "runtime_path": "input/rig_pilot/identity_shift40.png",
+      "role": "identity_candidate_from_prior_approved_source",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "324c9e459ea0229b85e67e890762110d0d3a3b4eea12781844585195e7b4a292"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0000.png",
+      "sha256": "620c0a766083ff4128d9fb68290ed1b9d3135f85614450ee7e9193c8cc45356f",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0000.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "620c0a766083ff4128d9fb68290ed1b9d3135f85614450ee7e9193c8cc45356f"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0001.png",
+      "sha256": "4d7022583dcf7cca4b04bb0af1f068e623cdf851f9ea14d6d4ce0b7f7a8f4f5a",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0001.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "4d7022583dcf7cca4b04bb0af1f068e623cdf851f9ea14d6d4ce0b7f7a8f4f5a"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0002.png",
+      "sha256": "7018a55dc91fc97e4bdcecc4bba29690cbda841800a7dc793a142627dd42c67e",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0002.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "7018a55dc91fc97e4bdcecc4bba29690cbda841800a7dc793a142627dd42c67e"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0003.png",
+      "sha256": "9f0111f8a3d2f2d7fb1fec76287506766ec5987093ece381864ef38d0b060d5b",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0003.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "9f0111f8a3d2f2d7fb1fec76287506766ec5987093ece381864ef38d0b060d5b"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0004.png",
+      "sha256": "b593cb180ceef9c9978e9abcd75f8a4f9cb954e5c7380cbfe6b09eb6f5d124ab",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0004.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "b593cb180ceef9c9978e9abcd75f8a4f9cb954e5c7380cbfe6b09eb6f5d124ab"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0005.png",
+      "sha256": "fcf95992b305b32a86bb5aae888fd2bd11b1590901625f4204e87cded13b793b",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0005.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "fcf95992b305b32a86bb5aae888fd2bd11b1590901625f4204e87cded13b793b"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0006.png",
+      "sha256": "922bdddbf11ea0df42327341e8b2055b44eeb3311b4e8aee885f697a016eb32c",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0006.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "922bdddbf11ea0df42327341e8b2055b44eeb3311b4e8aee885f697a016eb32c"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0007.png",
+      "sha256": "af90cf1423b944d238fa860e055d00154af56f5c587e3a5a69b8f6920bbe6249",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0007.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "af90cf1423b944d238fa860e055d00154af56f5c587e3a5a69b8f6920bbe6249"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0008.png",
+      "sha256": "36f437344c8695ca6303c15b81e7da462a3ceb3f0c64538e5c1d52b8c3241558",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0008.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "36f437344c8695ca6303c15b81e7da462a3ceb3f0c64538e5c1d52b8c3241558"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0009.png",
+      "sha256": "eba7a0c15dc9c3e76958ff1bce8c45954b095f76438c3931c3b0b444b05ea924",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0009.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "eba7a0c15dc9c3e76958ff1bce8c45954b095f76438c3931c3b0b444b05ea924"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0010.png",
+      "sha256": "c3b53cc2cb7ec68030a86325036877853594141aeb0cac7e1fd356671abc514b",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0010.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "c3b53cc2cb7ec68030a86325036877853594141aeb0cac7e1fd356671abc514b"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0011.png",
+      "sha256": "326836a00a9884e735ec6fe75ecc01e9ee4d3b15ca5b65b7946b692a2cbccb81",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0011.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "326836a00a9884e735ec6fe75ecc01e9ee4d3b15ca5b65b7946b692a2cbccb81"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0012.png",
+      "sha256": "67db6effa1aced8f25e46ed25a369dff01dabc23efd78bce93e92fae05805495",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0012.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "67db6effa1aced8f25e46ed25a369dff01dabc23efd78bce93e92fae05805495"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0013.png",
+      "sha256": "20d8eb1d8fbe590987688b4c98bad5c9059ba77cbc159ef55885440b6d4ef018",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0013.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "20d8eb1d8fbe590987688b4c98bad5c9059ba77cbc159ef55885440b6d4ef018"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0014.png",
+      "sha256": "7f96199b1eea82cc10dc7f97a94f5a92449a02d66ebc32ddff7f8964ff4bf1cc",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0014.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "7f96199b1eea82cc10dc7f97a94f5a92449a02d66ebc32ddff7f8964ff4bf1cc"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0015.png",
+      "sha256": "22e3a60ebe8df479ef2836a3bc3ea49b473c15d6b4b5f6c9c5153e89d745da16",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0015.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "22e3a60ebe8df479ef2836a3bc3ea49b473c15d6b4b5f6c9c5153e89d745da16"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0016.png",
+      "sha256": "adb873e0e6e765a0fb1d87666c21b4b22e7fb4b05b2bf42724bf7a9098e0206e",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0016.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "adb873e0e6e765a0fb1d87666c21b4b22e7fb4b05b2bf42724bf7a9098e0206e"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0017.png",
+      "sha256": "69cf036a2f4a88843093dfd426a5188a6ecb89f27fab10c5bd157d8d6d4047dc",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0017.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "69cf036a2f4a88843093dfd426a5188a6ecb89f27fab10c5bd157d8d6d4047dc"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0018.png",
+      "sha256": "7546d62ea271ba6287b981de059433e6920af26a2d7b8a3694a5597f278f7d75",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0018.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "7546d62ea271ba6287b981de059433e6920af26a2d7b8a3694a5597f278f7d75"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0019.png",
+      "sha256": "27328ad2d3e8695bbf002c6f5abc8ed05bf3d42367581b8ba6ab405feeae29f5",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0019.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "27328ad2d3e8695bbf002c6f5abc8ed05bf3d42367581b8ba6ab405feeae29f5"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0020.png",
+      "sha256": "40c41cc4248180d2e3a6023bd39e4c1914f1c7e8f9c622b7edfdfc6f93962a0f",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0020.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "40c41cc4248180d2e3a6023bd39e4c1914f1c7e8f9c622b7edfdfc6f93962a0f"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0021.png",
+      "sha256": "d3d43e6a3870f7fc9e040b62987f3fd8affd5d45adc83980c369ce18df56d64a",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0021.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "d3d43e6a3870f7fc9e040b62987f3fd8affd5d45adc83980c369ce18df56d64a"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0022.png",
+      "sha256": "34912e1674e86ff5c4d621b8c3365dfabb769adcfc58cde91716bfab8adb632f",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0022.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "34912e1674e86ff5c4d621b8c3365dfabb769adcfc58cde91716bfab8adb632f"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0023.png",
+      "sha256": "2de5618fe49b44f74ff635a60b186cba7a32986f970050b81ea1275e22115b49",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0023.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "2de5618fe49b44f74ff635a60b186cba7a32986f970050b81ea1275e22115b49"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0024.png",
+      "sha256": "9b3e4c743c815a9b5719f1963d2faa4d255fac0e4804e9c7b4b3027862282d2f",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0024.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "9b3e4c743c815a9b5719f1963d2faa4d255fac0e4804e9c7b4b3027862282d2f"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0025.png",
+      "sha256": "bae3fe0630e6bcb75c526a1b6cbb5f4789e58167d7d678deffffd0407636cad9",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0025.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "bae3fe0630e6bcb75c526a1b6cbb5f4789e58167d7d678deffffd0407636cad9"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0026.png",
+      "sha256": "8690e7031c232efed1eb03a735ac60b7ee556111baa5d02e2f54854fc3563dcf",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0026.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "8690e7031c232efed1eb03a735ac60b7ee556111baa5d02e2f54854fc3563dcf"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0027.png",
+      "sha256": "47a7cc52a311568fdf004f932db92874ff160ffb0f566b4269c4a4ce7351e74f",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0027.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "47a7cc52a311568fdf004f932db92874ff160ffb0f566b4269c4a4ce7351e74f"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0028.png",
+      "sha256": "39c724ca632e8a4e4ccd3ec0694376d89e870c6905199abf9cc7a66b1168f53c",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0028.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "39c724ca632e8a4e4ccd3ec0694376d89e870c6905199abf9cc7a66b1168f53c"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0029.png",
+      "sha256": "8a67953004165e23346afe94c93770072704ad237ab096cfc3a76f97a21576c5",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0029.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "8a67953004165e23346afe94c93770072704ad237ab096cfc3a76f97a21576c5"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0030.png",
+      "sha256": "06ab99181d2ffbd44de52dd2cea423ae0adc17595e96d84887ecec07254c2dfc",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0030.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "06ab99181d2ffbd44de52dd2cea423ae0adc17595e96d84887ecec07254c2dfc"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0031.png",
+      "sha256": "40dbd62c7a27a33c3609e1d7c2ca481c141d6d259bad05de13e97d81ebda17ec",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0031.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "40dbd62c7a27a33c3609e1d7c2ca481c141d6d259bad05de13e97d81ebda17ec"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0032.png",
+      "sha256": "15a8b250124c61367124d65b0f4ac16309769aaf3d7055e44d3743fb421fb419",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0032.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "15a8b250124c61367124d65b0f4ac16309769aaf3d7055e44d3743fb421fb419"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0033.png",
+      "sha256": "731e3c1de3b8ca47113e9867b7d5f976eef2456ae98fd40fecb3e35ab3bb4943",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0033.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "731e3c1de3b8ca47113e9867b7d5f976eef2456ae98fd40fecb3e35ab3bb4943"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0034.png",
+      "sha256": "3bb0e93daf15e46ec15fb00f3c4a6f827d5855a8a96b737a871243e17afae959",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0034.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "3bb0e93daf15e46ec15fb00f3c4a6f827d5855a8a96b737a871243e17afae959"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0035.png",
+      "sha256": "21f33fe007e1da89c8e2addc9192930313b27f1bc3e4c4ff1800f56a9ced5a65",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0035.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "21f33fe007e1da89c8e2addc9192930313b27f1bc3e4c4ff1800f56a9ced5a65"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0036.png",
+      "sha256": "3a815f87073c64d9aedec5a62e07106a431ca0f09cf8861470194883a6421465",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0036.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "3a815f87073c64d9aedec5a62e07106a431ca0f09cf8861470194883a6421465"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0037.png",
+      "sha256": "88e6a28485f2012a774f2df879c48c112fe8fd393177c21622a4509a83c44a9f",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0037.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "88e6a28485f2012a774f2df879c48c112fe8fd393177c21622a4509a83c44a9f"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0038.png",
+      "sha256": "e800b5c382d5eced8bf2d6449f16cd9cc4164420a5b3427bf3e84a0a49b44acb",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0038.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "e800b5c382d5eced8bf2d6449f16cd9cc4164420a5b3427bf3e84a0a49b44acb"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0039.png",
+      "sha256": "1115620af266416d6e36fe0442bdc401796645e94fce2637b5132669b7cb1f7e",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0039.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "1115620af266416d6e36fe0442bdc401796645e94fce2637b5132669b7cb1f7e"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/sources/run7/run7/guide_half/0040.png",
+      "sha256": "452596faf7d80b9c2f33d9302ab36a0c9e7875ef07433faf56309937c9e55eb8",
+      "runtime_path": "input/rig_pilot/run7/guide_half/0040.png",
+      "role": "structural_motion_control_only",
+      "used_as_delivery_pixels": false,
+      "runtime_sha256": "452596faf7d80b9c2f33d9302ab36a0c9e7875ef07433faf56309937c9e55eb8"
+    }
+  ],
+  "declared_model_workflow_pins": {
+    "base_workflow_sha256": "e34a155a6786504358b9611f722181141193905ad39c99d2916160eb1777db19",
+    "comfy_core": "87465b8f1f64a27a46f16f22b13b410494dca66d",
+    "official_union_nodes": "3bf3ca62595f1764c47d01c35c8e5dfe47e1a88f",
+    "adapter": "LTX2.3 Union on LTX2.5",
+    "adapter_sha256": "a1b888a87f661d27f08b394ae559e8e1050be33900bcc36a5cdf659e48f88d18"
+  },
+  "settings": {
+    "method": "native-resolution-union",
+    "canvas": [
+      640,
+      896
+    ],
+    "control_canvas": [
+      320,
+      448
+    ],
+    "frames": 41,
+    "fps": 24,
+    "steps": 8,
+    "seed": 20261004,
+    "change_vs_g1": "Generate entire figure natively at640x896 with half-sized320x448 control, no low-resolution320x448 generation or separate upscale/refine. Guide/identity/prompt/seed held fixed.",
+    "new_refine_details": false,
+    "ordinary_negatives_active": false
+  },
+  "prompt_id": "3f849ef1-1ccb-4c9a-940e-6d378d1bb88f",
+  "native_outputs_sha256": "b71b1d76655cf9cc47b666c519dbe4923e2657ddb4dcf836db735f723b3e7754",
+  "image_count": 41,
+  "latent_count": 1,
+  "ended_at_utc": "2026-10-11T00:13:43.283652+00:00",
+  "elapsed_seconds": 693.7660000000033,
+  "memory_sampling_scope": "periodic total-card samples; peaks may be missed",
+  "sampled_card_peak_mib": 7020
+}

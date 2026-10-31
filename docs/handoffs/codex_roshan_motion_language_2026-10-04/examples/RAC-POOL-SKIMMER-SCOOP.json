@@ -1,0 +1,334 @@
+{
+ "schema": "reef.roshan-animation-card.v1",
+ "card_id": "RAC-POOL-SKIMMER-SCOOP",
+ "revision": 1,
+ "status": "DECIDED",
+ "phase": "A_test",
+ "scene": {
+  "id": "day_one_pool",
+  "kind": "room",
+  "entry_points": [
+   "scripts/games/pool_skimmer_activity.gd:29-34 (HAND_OFFSET, HANDLE_PIXEL, NET_PIXEL, SWIM_SPEED, CONTACT_RADIUS, SCOOP_SECONDS)",
+   "scripts/games/pool_skimmer_activity.gd:342-367 (_advance_cleaning)",
+   "scripts/games/pool_skimmer_activity.gd:374-378 (_hand_grip_error)"
+  ],
+  "context": "water",
+  "tempo_variant": "standard",
+  "costume": "base",
+  "other_characters": [
+   "Rumi and the seahorse later in the room"
+  ],
+  "camera": "fixed",
+  "roshan_display_height_px": "cell drawn at 243.2 px (256 x 0.95); figure height TO_MEASURE",
+  "layer_and_contact": "Skimmer z 35 above Roshan z 34; the skimmer handle sits on her measured hand socket"
+ },
+ "interaction": {
+  "id": "scoop_trash",
+  "trigger": "child selects a trash piece; Roshan arrives at the approach point",
+  "intention": "Roshan sweeps the skimmer net under the trash, lifts it out and checks that the water is clearer",
+  "register": "ribbon_glide",
+  "states": [
+   "arrive with skimmer ready",
+   "scoop",
+   "lift",
+   "settle"
+  ],
+  "current_presentation": "The still cutout (directional frame 1) rotates by up to 0.055 rad for 0.42 s while the attached skimmer follows; the trash is collected when the net is within 24 px",
+  "problem": "Contact is truthful (gold-star GS-01, GS-02) but the scoop is a tilted still picture; her hands never grip or move"
+ },
+ "decision": {
+  "value": "KEYS_THEN_GENERATE",
+  "reason": "No approved key shows Roshan gripping the skimmer; the scoop needs a ready grip, a sweep-through contact pose and a lift. Travel reuses the water swim.",
+  "priority": {
+   "frequency": "every_session",
+   "story_weight": "required",
+   "defect": "stiffness"
+  },
+  "depends_on": [
+   "RAC-WATER-SWIM-STANDARD"
+  ],
+  "used_by_scenes": [
+   "day_one_pool"
+  ]
+ },
+ "orientation": {
+  "authored_facing": "right",
+  "mirror_for_left": true,
+  "home_pose": {
+   "path": "PENDING: side or three-quarter right-facing ready pose holding the skimmer",
+   "cell": [
+    0,
+    0,
+    256,
+    256
+   ],
+   "sha256": "PENDING",
+   "fin_side": "left",
+   "ponytail_side": "left"
+  }
+ },
+ "performance": {
+  "phases": [
+   {
+    "name": "anticipation",
+    "start_s": 0.0,
+    "end_s": 0.25,
+    "description": "Eyes on the trash; both hands tighten on the handle and draw the net back"
+   },
+   {
+    "name": "contact",
+    "start_s": 0.25,
+    "end_s": 0.7,
+    "description": "The net sweeps under the trash; shoulders, torso and tail lean into the sweep"
+   },
+   {
+    "name": "action",
+    "start_s": 0.7,
+    "end_s": 1.1,
+    "description": "She lifts the net clear of the water with the trash in it"
+   },
+   {
+    "name": "settle",
+    "start_s": 1.1,
+    "end_s": 1.708,
+    "description": "She glances at the clearer water and returns to the ready grip (41 native frames at 24 fps end at 1.708 s)"
+   }
+  ],
+  "loop": {
+   "kind": "one_shot",
+   "seam": "ends on the ready grip so the next scoop or travel can start"
+  },
+  "follow_through": {
+   "ponytail": "swings with the lift and settles",
+   "fin": "counterbalances the lean",
+   "sleeves": "settle at the end"
+  },
+  "contact": {
+   "socket": "hand_r",
+   "target": "selected trash piece",
+   "window_s": [
+    0.25,
+    0.7
+   ]
+  },
+  "end_state": "Roshan holds the skimmer ready, the trash is out of the water and the spot is clear"
+ },
+ "keys": [
+  {
+   "role": "home",
+   "source": "imagegen_missing",
+   "path": "PENDING",
+   "sha256": "PENDING",
+   "guide_frame_index": 0,
+   "missing_description": "Right-facing Roshan in the water holding the existing pool_skimmer.png by its handle with both hands, net low and ready; identity from roshan_base.png"
+  },
+  {
+   "role": "contact",
+   "source": "imagegen_missing",
+   "path": "PENDING",
+   "sha256": "PENDING",
+   "guide_frame_index": 16,
+   "missing_description": "Same, leaning into a forward sweep, net under the water surface"
+  },
+  {
+   "role": "end",
+   "source": "imagegen_missing",
+   "path": "PENDING",
+   "sha256": "PENDING",
+   "guide_frame_index": 26,
+   "missing_description": "Same, net lifted above the surface, chest up, looking at the net"
+  }
+ ],
+ "props": [
+  {
+   "id": "pool_skimmer",
+   "art_path": "assets/castle/day_one_pool/activities/pool_skimmer.png",
+   "sha256": "308c86843ace9fb3d4a65a0c514d41b367d87ceabaf5f3d3676f54ce9be4b9b3",
+   "mode": "socket_card",
+   "socket": "hand_r",
+   "tool_point_px": [
+    780,
+    190
+   ]
+  }
+ ],
+ "generation": {
+  "route": "ltx_local",
+  "runner": "PENDING (README RM1)",
+  "model": "LTX-Video 2B 0.9.8 distilled (LTX 2.5 after its preflight passes)",
+  "recipe": "two_pass_multiscale: first pass, learned 2x latent upscale, AdaIN, refine",
+  "workflow": "PENDING",
+  "requested_canvas": [
+   832,
+   576
+  ],
+  "native_canvas": "TO_MEASURE (recipe flooring)",
+  "first_pass_steps": 7,
+  "refine_steps": 3,
+  "fps": 24,
+  "frames": 41,
+  "seed": 20261004,
+  "guides": [
+   {
+    "frame_index": 0,
+    "key_role": "home",
+    "strength": 1.0
+   },
+   {
+    "frame_index": 16,
+    "key_role": "contact",
+    "strength": 1.0
+   },
+   {
+    "frame_index": 26,
+    "key_role": "end",
+    "strength": 1.0
+   },
+   {
+    "frame_index": 40,
+    "key_role": "home",
+    "strength": 1.0
+   }
+  ],
+  "registration_landmark": "waist and bodice tip on a fixed canvas; handle grip point tracked as hand_r",
+  "extraction_background": "PENDING: same tested flat colour as the swims",
+  "prompt": "a cheerful young mermaid girl with brown wavy hair and a tied rainbow ponytail, facing right, holds a pool skimmer with both hands, sweeps the net under floating trash, lifts it out of the water and looks at the clear water; her shoulders, torso and tail lean into the sweep; crisp painted edges, distinct fingers, no motion blur.",
+  "negative": "Not relied on: the sampler ignores negatives at CFG 1; the prompt and locks carry the constraints (legs, second tail, extra hands, a second skimmer, the net leaving her hands, splashes covering the action, auburn hair, motion blur)",
+  "caps": {
+   "takes_per_backend": 2,
+   "wall_minutes": 60,
+   "cleanup_minutes": 180,
+   "money": 0
+  }
+ },
+ "locks": {
+  "exact_cast": [
+   "roshan"
+  ],
+  "identity_anchor": "assets/characters/roshan_25d/roshan_base.png",
+  "identity_invariants": [
+   "brown wavy hair with a tied rainbow ponytail",
+   "small gold tiara with a blue gem",
+   "pink ruffled top with lilac sleeves",
+   "iridescent lavender tail with rainbow fins"
+  ],
+  "anatomy_invariants": [
+   "one tail with one fin",
+   "two arms and two hands, no legs"
+  ],
+  "forbidden_changes": [
+   "the skimmer changes shape or leaves her hands",
+   "a second tail or split fin",
+   "hair colour drifting to auburn"
+  ],
+  "required_prompt_phrases": [
+   "brown wavy hair and a tied rainbow ponytail",
+   "holds a pool skimmer with both hands",
+   "lifts it out of the water"
+  ],
+  "causal_chain": {
+   "trigger": "the net sweeps under the trash",
+   "visible_change": "the trash is lifted out in the net",
+   "end_confirmation": "the water spot is clear and she returns to the ready grip"
+  },
+  "continuity": {
+   "kind": "continuous_action",
+   "previous_card_id": "RAC-WATER-SWIM-STANDARD",
+   "inherited_state": [
+    "arrives from the swim at the approach point"
+   ]
+  }
+ },
+ "aseprite": {
+  "master": "PENDING: assets_src/characters/roshan_anim/pool_skimmer_scoop/pool_skimmer_scoop.aseprite",
+  "layers": [
+   "native (hidden)",
+   "clean",
+   "keys (hidden)",
+   "skimmer reference (hidden)"
+  ],
+  "tags": [
+   {
+    "name": "anticipation",
+    "from": 0,
+    "to": 5
+   },
+   {
+    "name": "contact",
+    "from": 6,
+    "to": 16
+   },
+   {
+    "name": "lift",
+    "from": 17,
+    "to": 26
+   },
+   {
+    "name": "settle",
+    "from": 27,
+    "to": 40
+   }
+  ],
+  "pivot": "waist landmark",
+  "socket_tracks": [
+   "hand_r (handle grip, per frame)"
+  ],
+  "export": {
+   "atlas": "PENDING",
+   "cell": [
+    256,
+    256
+   ],
+   "timing_json": "PENDING (includes hand_r per frame)"
+  },
+  "round_trip": "reopen the master and compare exported pixels"
+ },
+ "runtime": {
+  "target": "scripts/games/pool_skimmer_activity.gd",
+  "node": "Sprite2D",
+  "playback_fps": "TO_MEASURE",
+  "events": [
+   {
+    "name": "contact_begin",
+    "frame": 6,
+    "owner": "gameplay checks the net tool point is within CONTACT_RADIUS of the selected trash"
+   },
+   {
+    "name": "lift",
+    "frame": 17,
+    "owner": "gameplay commits the collection once (the existing monotonic save signal)"
+   }
+  ],
+  "interruptions": "A new target before contact cancels without progress; after the lift the collection stands and the clip settles; pause, exit and reload follow the existing activity contract",
+  "mirror": "flip the whole sprite and the skimmer card together for left",
+  "residency": "loaded with the Pool only"
+ },
+ "review": {
+  "locks_checklist": [
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "M5",
+   "M6",
+   "M7",
+   "M8",
+   "M9",
+   "M10"
+  ],
+  "machine": [
+   "hand_r socket keeps the handle within the existing grip tolerance on every frame (_hand_grip_error)",
+   "net tool point reaches the trash inside the contact window",
+   "probe_day_one_pool_cleanup and the full suite"
+  ],
+  "human": "owner at normal speed on the tablet, A/B against the tilted still",
+  "device": "frame time and memory on the target phone"
+ },
+ "evidence": {
+  "attempts": [],
+  "receipts": [],
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false
+ }
+}

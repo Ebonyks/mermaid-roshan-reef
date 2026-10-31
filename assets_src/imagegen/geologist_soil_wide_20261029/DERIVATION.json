@@ -1,0 +1,120 @@
+{
+  "stable_id": "FV-4E515D6F7A64",
+  "source_baseline": "f02aec12181b28706cae1f79705ff95df9aac7b9",
+  "appearance_source_revision": "cfcadc966bc2f3d9962243589d8a820c19ac2b0d",
+  "appearance_source_sha256": "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd",
+  "native_sha256": "e49cf5308d56297ce5d097e6019627b4f102c2b8df6844533cc32819cc95abd3",
+  "native_dimensions": [
+    1659,
+    948
+  ],
+  "native_cutout": {
+    "mode": "RGBA",
+    "transparent_pct": 27.2,
+    "faint_haze_pct_of_canvas": 0.5,
+    "semi_pct_of_visible": 0.6,
+    "near_opaque_pct_of_visible": 98.7,
+    "opaque_255_pct": 0.1,
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "content_bbox": [
+      87,
+      68,
+      1574,
+      875
+    ],
+    "verdict": "CUTOUT_OK"
+  },
+  "actual_backend": "built-in image_gen.imagegen",
+  "returned_keys": [
+    "image_url",
+    "output_hint"
+  ],
+  "model_version": "NOT_EXPOSED",
+  "request_id": "NOT_EXPOSED",
+  "seed": "NOT_EXPOSED",
+  "usage_cost": "NOT_EXPOSED",
+  "static_takes": 2,
+  "brief_cap": 2,
+  "animation_calls": 0,
+  "take01_reject": "take_01/DISPOSITION.json",
+  "aseprite": "Aseprite1.3.18.4-x64",
+  "native_visible_RGBA_changed_pixels": 0,
+  "transparent_field_crop": [
+    71,
+    52,
+    1519,
+    839
+  ],
+  "source_pixels_alpha_ge16_cropped": 0,
+  "normalize_fit": [
+    822,
+    454
+  ],
+  "normalize_offset": [
+    93,
+    43
+  ],
+  "normalize_primary_scale": 0.5411203814064363,
+  "raster_rounding_aspect_error_pct": 0.004640196280303321,
+  "whole_canvas": [
+    1008,
+    540
+  ],
+  "whole_target_canvas": [
+    560,
+    300
+  ],
+  "whole_scale": 0.5555555555555556,
+  "functional_grid": [
+    8,
+    5
+  ],
+  "source_cell": [
+    126,
+    108
+  ],
+  "destination_cell": [
+    70,
+    60
+  ],
+  "registration_proof": "1008/560=540/300=1.8;126/70=108/60=1.8. One registered whole painted material, existing saved mask clips remaining cells without changing authored color/identity. No generated per-cell design.",
+  "exports": [
+    {
+      "role": "whole_soil_material",
+      "path": "assets/opera/worlds/props/geologist_fossil_soil_painted.png",
+      "dimensions": [
+        1008,
+        540
+      ],
+      "sha256": "e0f664a1685abe470333f624406340415208aa234db534b2e94ccfe575825058",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 38.4,
+        "faint_haze_pct_of_canvas": 0.5,
+        "semi_pct_of_visible": 0.8,
+        "near_opaque_pct_of_visible": 98.4,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          102,
+          52,
+          906,
+          488
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    }
+  ],
+  "originals_preserved": true,
+  "edits": "Named wider soil geometry, technical transparent-field trim, whole uniform fit with integer raster rounding and padding. Native/editable masters preserved; no warp/recolour/alpha-threshold appearance or code-drawn art substitute."
+}

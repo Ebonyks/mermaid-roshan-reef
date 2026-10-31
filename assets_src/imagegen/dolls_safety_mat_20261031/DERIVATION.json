@@ -1,0 +1,67 @@
+{
+  "method": "Aseprite1.3.18.4 whole-object technical crop, uniform resize, transparent padding; no Python image editing",
+  "native_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-fb5f5a9e-4908-443a-a913-845c7f05e193.png",
+  "native_sha256": "0b3eb2c42f2b2fa19072c823527bc9f659632b0121d6141c4260324ed62b05bd",
+  "native_rgba_roundtrip_exact": true,
+  "crop_rect": [
+    0,
+    200,
+    2167,
+    390
+  ],
+  "outside_crop_alpha_max": 1,
+  "whole_object_alpha_gt8_retained": true,
+  "scale": 0.3876326718966313,
+  "padding_origin": [
+    92,
+    52
+  ],
+  "runtime_dimensions": [
+    1024,
+    256
+  ],
+  "profile": {
+    "mode": "RGBA",
+    "transparent_pct": 59.7,
+    "faint_haze_pct_of_canvas": 0.9,
+    "semi_pct_of_visible": 0.5,
+    "near_opaque_pct_of_visible": 97.2,
+    "opaque_255_pct": 0.2,
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "content_bbox": [
+      101,
+      64,
+      924,
+      191
+    ],
+    "verdict": "CUTOUT_OK"
+  },
+  "static_takes": 2,
+  "rejected_take1": true,
+  "animation_calls": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "runtime_path": "assets/dolls/safety_mat_painted.png",
+  "runtime_sha256": "da27e6f70b2ecbe34f62408ee5b6ce716110e9066a71656399154392c7ede8b7",
+  "native_dimensions": [
+    2167,
+    726
+  ],
+  "editable_masters": [
+    "native/native_take2.aseprite",
+    "whole_crop.aseprite",
+    "scaled_whole.aseprite",
+    "safety_mat_master.aseprite"
+  ],
+  "alpha_support": "SUPPORT_GEOMETRY.json",
+  "backend": "Built-in image_gen",
+  "returned_version": null,
+  "model_selector_exposed": false
+}

@@ -1,0 +1,37 @@
+{
+  "review_id": "owner-qc-20260930",
+  "owner_date": "2026-09-30 America/Los_Angeles",
+  "source_revision": "c9bc34c0644efa18cfd7c1b4dd93df134c14346a",
+  "owner_quote": "These just transform the existing items than truly animating them. Some are better than others, the swing is especially bad because it swings on the wrong axis",
+  "set_disposition": "REJECTED_AS_REQUESTED_ANIMATION_REPLACEMENT",
+  "individual_acceptance": "No individual acceptance inferred from some are better than others.",
+  "swing_v1_disposition": "REJECTED_WRONG_AXIS",
+  "corrected_swing_contract": {
+    "camera": "The existing fixed front view with slight downward view; use existing painted frame/seat identity.",
+    "axis": "Pendulum rotates about the horizontal left-to-right suspension beam. Seat travels fore and aft, toward and away from the camera; no lateral slide, yaw or horizontal swaying of the frame.",
+    "fixed": "Frame, hooks, support posts, camera and lighting.",
+    "required_new_pixels": "Fresh seat inclination, seat/backrest surface visibility, foreshortening and occlusion in individually drawn poses; ropes attach to fixed upper pivots and corresponding seat sockets. Source deformation is not a substitute for these drawings.",
+    "physics": "Constant physical rope length; speed highest through lowest center, slower near the apices. Apparent rope length and seat projection follow perspective.",
+    "beats": [
+      "Lowest neutral, going away",
+      "Departing toward rear",
+      "Rear apex",
+      "Returning toward neutral",
+      "Lowest neutral, coming toward camera",
+      "Departing toward near apex",
+      "Near apex",
+      "Returning toward neutral"
+    ],
+    "pilot": "pilots/swing_pose_v2/preview.gif",
+    "pilot_status": "UNACCEPTED_POSE_DIRECTION_PILOT",
+    "remaining": [
+      "Native seat detail varies.",
+      "Cells 6-8 touch native boundaries; clipping/neighbor contamination needs correction.",
+      "Socket/contact topology and constant-length perspective require review.",
+      "Fresh in-between drawings are missing."
+    ],
+    "lane": "MOTION_REFERENCE_ONLY; no cinematic or runtime acceptance"
+  },
+  "delivery_accepted": false,
+  "generation_ready": false
+}

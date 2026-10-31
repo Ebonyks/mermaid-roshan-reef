@@ -1,7 +1,10 @@
 # Grok Handoff 2: sequence continuity and repair
 
 Status: `SUPPORTING_CURRENT`. Implements the 2026-09-09 owner commission under
-`DL-CIN-01` through `DL-CIN-15`; does not change cinematic delivery rules.
+`DL-CIN-01` through `DL-CIN-15`. Owner revision 2026-10-03 changes method
+eligibility through the [production protocol](animation/ANIMATION_PRODUCTION_PROTOCOL.md);
+identity, topology, setup/endpoint continuity and acceptance controls remain.
+Historical immutable packets and rejected outputs retain their recorded scope.
 Use with [MASTER](GROK_MASTER_HANDOFF_FORMULA_2026-08-30.md), the mandatory
 [V1 shot card](templates/IMAGINE_SHOT_CARD_V1.md), and the
 [Day One packet](../assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/README.md).
@@ -32,7 +35,7 @@ profiles from the [animation branch](../audit/animation/README.md). Put only the
 shot-specific intention, movement register, contact and settled end in the
 pasted prompt. The [animation protocol](animation/ANIMATION_PRODUCTION_PROTOCOL.md)
 adds acting consistency without changing the room, cast, shot order, source
-locks, readiness or full-frame delivery gates. Existing immutable packets
+locks, readiness or applicable declared-workflow delivery gates. Existing immutable packets
 retain their recorded sources until explicitly revised and revalidated.
 
 Use one location ID per actual room, shared across discovery, rescue,
@@ -64,7 +67,8 @@ establish drift. Record measured values, never prefill fictional observations.
    bindings. Select the exact room, subject and critical-object authorities.
 2. Prepare a complete, flattened opening candidate in the approved storybook
    medium. A plate alone is insufficient when cast, dirt, pins or props are
-   missing. No composite repair becomes a cinematic frame.
+   missing. A declared 2D composite needs its own exact source/derivation and
+   visual review; assembling approved parts does not accept the new frame.
 3. Review that candidate beside the room master, identities, predecessor and
    planned successor. Record a named human decision tied to its exact hash.
 4. Bind IMAGE_1 only after approval. A missing opening has `path: null` and an
@@ -116,7 +120,8 @@ Record these decisions independently:
 - incoming/outgoing cut: landmarks, screen side, scale, ownership and state;
 - runtime seam: actual entry/completion state and no unearned payoff;
 - editorial selection: exact variant and in/out frame range;
-- delivery: independent full-frame evidence and remaining acceptance gates.
+- delivery: exact workflow/derivation evidence, production-profile scene/identity/
+  contact audit, human review and remaining device/child/owner gates.
 
 Any hard failure overrides an aesthetic score or prior keep. A sampled board can
 prove a visible defect, but cannot prove the absence of one-frame errors or
@@ -137,8 +142,9 @@ Publish the complete reference archive on a durable branch. Record immutable
 content-commit URLs and verify every payload file against GitHub's commit tree
 and blob identity in a subsequent evidence commit. Report ARCHIVE_COMPLETE,
 GENERATION_READY and DELIVERY_ACCEPTED separately. No new returned footage is
-accepted by this protocol. The full-frame generation rule remains binding for
-final cinematic frames; Grok clips remain motion/editorial reference.
+accepted by this protocol. New final candidates may use the 2026-10-03 declared
+workflow after exact provenance, scene/identity/contact/human and device gates;
+historical Grok motion/editorial references retain their recorded scope.
 
 ## Revision 2: preserve stronger original direction
 

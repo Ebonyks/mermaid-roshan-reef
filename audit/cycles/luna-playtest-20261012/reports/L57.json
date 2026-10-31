@@ -1,0 +1,179 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L57",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l57",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Family Evening direct ingredients movie bedtime and replay",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L57/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe_ui_system invocation passed on Godot 4.7.2 stable with an isolated profile (runtime/L57/attempt_1/receipt.json; probe.log ends UI_SYSTEM|RESULT|ALL OK). For this focus, its assertions check safe default/reward state, migration from completed hide-and-seek, normalization of a fully completed quest, and source-string presence for the three room IDs, save calls and visual-pointer metadata (scripts/probe_ui_system.gd:405-455). Source tracing shows main ticks ComfyGames, which makes a non-modal castle layer when Day One is inactive; after all three friends are found it selects kitchen ingredients/stir, movie_lounge screen taps, then sleepover_bedroom tuck-ins (scripts/main.gd:7012-7015; scripts/comfy_games.gd:271-335).",
+    "route_gaps": "No Family Evening input was routed in this probe. The probe's setup sets day_one_active=false and directly normalizes a fully completed quest, rather than entering the rooms and pressing their visible targets (scripts/probe_ui_system.gd:457-467, 405-455). It does not establish fresh-save reachability through the prior hide-and-seek and Chapter Two route, rendered appearance, spoken-audio semantics, or actual save/reload during this quest. The matrix route_state_hint is not route evidence. After completion the code builds friend visits; no reset or repeat-play action was found in the assigned source (scripts/comfy_games.gd:312-315)."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Three ingredient taps, one soup-pot tap, three movie-screen taps, and four family-member taps complete the coded sequence.",
+        "evidence": "scripts/comfy_games.gd:52-106, 364-429, 540-613",
+        "scope": "Count derived from the named code state; no player time or animation duration was measured."
+      },
+      {
+        "value": "Ingredient, pot, screen and bedtime picture buttons pulse with authored tween legs of 0.72 seconds each.",
+        "evidence": "scripts/comfy_games.gd:382, 392, 406, 429, 715-720",
+        "scope": "A pulsing loop is not a gameplay-session length or a measured response latency."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "The isolated probe took 46.257 seconds according to the receipt; that is tool execution time, not play duration."
+  },
+  "tactile": {
+    "target_size": "Ingredients are 116x116 base-canvas units before the 1.06 pulse; the pot is 280x260, movie screen 390x300, and bedtime character targets 210px wide (scripts/comfy_games.gd:52-106, 385-388, 399-402, 421-425). Physical size, projected regions, spacing on a phone, and aspect-ratio behavior were not measured.",
+    "press_response": "TextureButton.pressed is connected to the ingredient, pot, movie and tuck-in callbacks, which each update state and call refresh; ingredient/movie/bedtime paths also save and show a message (scripts/comfy_games.gd:375-381, 385-394, 399-409, 421-429, 522-579, 582-613). No rendered response latency was measured.",
+    "drag_hold_release": "The named goals are press/tap actions; the source does not require drag or hold for these targets. Release behavior was not separately tested.",
+    "ownership": "The optional castle layer sets MOUSE_FILTER_IGNORE and its picture buttons receive their own pressed signals (scripts/comfy_games.gd:297-305, 477-490). The assigned probe did not test competing castle controls, multitouch or touch ownership.",
+    "cancellation": "No Family Evening cancellation, pause or focus-loss interaction was driven by probe_ui_system; activity teardown and interrupted presses remain unverified."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: choosing visible food, starting the screen and selecting each pictured family member could give a child a clear sequence of helping and caring actions. No player performed those actions in this review.",
+    "variety": "The code alternates ingredient taps, a stirring target, a movie screen and character taps. Whether these verbs feel distinct and easy to discover is unknown.",
+    "world_response": "State advances one ingredient/movie/member per press, with tailored text messages and a new room objective after each stage. The actual room presentation, animation and audio were not observed.",
+    "replay": "When the quest is complete, room refresh builds a friend visit rather than a new dinner/movie/bedtime path; no reset or replay entry is present in this source (scripts/comfy_games.gd:312-315). Whether children want replay or are satisfied with a visit is unknown.",
+    "concrete_test": "On the Lenovo Tab M11 with captions ignored, begin from an ordinary save that has reached the optional Family Evening prerequisite. Invite a child without naming the controls; record whether they discover and intentionally tap the three ingredients and pot, understand the move to the movie room, choose all three screen moments and tuck in all four characters, then decide whether to leave or revisit. Capture missed/duplicate presses, time to first correct action, whether the room change is noticed, and the child's own choice to repeat; repeat with zero input and a save/reload after a partial step.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": "Reach the optional Family Evening after the three hide-and-seek friends have been found, then enter the kitchen in ordinary play.",
+      "input": "Use the visible castle-room navigation to enter the kitchen; do not seed flags or call callbacks.",
+      "wait": "Wait for the kitchen scene and Roshan's dinner instruction. This route entry was not driven in the probe."
+    },
+    {
+      "beat": "Add the pictured ingredients one at a time.",
+      "input": "Tap the apple once, then the carrot, then the strawberry as each remains visible.",
+      "wait": "After each tap, wait for the ingredient to disappear/update, the response message, and the remaining targets to settle before the next tap."
+    },
+    {
+      "beat": "Finish preparing supper.",
+      "input": "When all ingredients are added and the pot appears, tap the soup pot once.",
+      "wait": "Wait for the dinner-ready message and the direction to the Cloud Movie Lounge."
+    },
+    {
+      "beat": "Watch the three family-movie moments.",
+      "input": "Navigate to movie_lounge and tap the large screen once per moment; do not rapid-tap through the feedback.",
+      "wait": "Wait after each press for its scene message; after the third, wait for the Sleepover Bedroom direction."
+    },
+    {
+      "beat": "Tuck in the pictured family members.",
+      "input": "Navigate to sleepover_bedroom and tap each still-visible character once: Rumi, Baby Eagle, Daddy Mermaid and Roshan.",
+      "wait": "Wait for each individual goodnight response and the final completion message."
+    },
+    {
+      "beat": "Check progress persistence at a meaningful partial point.",
+      "input": "After a normal partial stage, leave the room and return; for the acceptance test, save and reload before resuming.",
+      "wait": "Wait for the room state to rebuild, then check that completed actions remain complete and unfinished ones are still offered. The assigned probe only normalizes sample data, so this is a proposed routed test."
+    },
+    {
+      "beat": "Explore the completed visit and replay choice.",
+      "input": "After completion, revisit the rooms and observe the friend-visit target; do not fabricate a reset path.",
+      "wait": "Wait for the completed-state view. Source inspection shows friend visits, but neither a replay affordance nor a child's preference was tested."
+    }
+  ],
+  "observations": [
+    {
+      "title": "The assigned probe passes state normalization checks but does not play Family Evening",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L57/attempt_1/receipt.json: status PASS, exact Godot 4.7.2 stable, isolated profile, headless=true and rendered_mobile_acceptance=false.",
+        "audit/cycles/luna-playtest-20261012/runtime/L57/attempt_1/probe.log: UI_SYSTEM|RESULT|ALL OK, exit_code 0, no failure lines.",
+        "scripts/probe_ui_system.gd:405-455 checks defaults, migration, a supplied completed-state dictionary and source strings; :457-467 sets day_one_active=false and invokes those checks without routing Family Evening touches."
+      ],
+      "rules": ["DL-QA-02", "DL-QA-07"],
+      "existing_findings": ["MA-CI-005"],
+      "reproduction": "The one instructed run completed successfully. Its relevant checks do not instantiate or traverse the kitchen, movie lounge or bedtime interactions; passing assertions establish only their stated state/source contract.",
+      "child_impact": "This pass lowers uncertainty about normalization but cannot establish that a child can find or complete the activity.",
+      "proposed_repair": "No probe repair inferred. Add an independently routed lifecycle check for this activity before claiming end-to-end coverage.",
+      "acceptance_test": "From an ordinary eligible save, use visible room navigation and actual button input through all three stages, then leave/re-enter and save/reload after partial progress; include zero-input no-award assertions."
+    },
+    {
+      "title": "Source routes the optional sequence through kitchen, movie lounge and bedroom",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/main.gd:7012-7015 ticks ComfyGames during the castle frame loop; :5918-5920 exposes the room refresh used by castle-room flow.",
+        "scripts/comfy_games.gd:271-305 gates the optional non-blocking layer on Day One being inactive and a valid room stage; :308-335 selects hide-and-seek, then kitchen, movie_lounge and sleepover_bedroom by persisted completion state.",
+        "scripts/comfy_games.gd:364-429 builds the current room's direct picture targets and spoken-message calls."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-SAVE-04"],
+      "existing_findings": ["MA-PLAY-001", "MA-CI-005"],
+      "reproduction": "Code trace only. The study's route_state_hint='live' is a matrix annotation, not execution; the probe doesn't establish the prerequisite or room-to-room traversal in ordinary play.",
+      "child_impact": "A correct optional loop still depends on reaching the chapter/room prerequisites and understanding spoken plus pictured guidance without reading.",
+      "proposed_repair": "No route change follows from this inspection alone. Prove the prerequisite and whole room sequence from a normal profile on the audited build.",
+      "acceptance_test": "On an ordinary profile, enter through the actual available castle route after the hide-and-seek prerequisite and follow the visible/spoken kitchen → movie lounge → sleepover bedroom sequence without debug flags or adult coaching."
+    },
+    {
+      "title": "Each press persists a small intentional step and exposes the next state",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/comfy_games.gd:52-74 defines three 116x116 ingredient buttons and their distinct action responses; :364-394 builds them, then exposes the pot only once ingredients are all present.",
+        "scripts/comfy_games.gd:522-555 rejects duplicate ingredients, saves each new ingredient, gives a response and saves/announces pot completion.",
+        "scripts/comfy_games.gd:558-579 advances one screen scene per tap and saves each count; :582-613 records each unique bedtime member and saves the partial/final result."
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-05", "DL-INT-02", "DL-SAVE-01", "DL-SAVE-04"],
+      "existing_findings": ["MA-CI-005"],
+      "reproduction": "Source inspection only; no callback was fired by the assigned probe. Each operation is idempotent at the code guard and writes state before the user-facing message.",
+      "child_impact": "Small saved steps could make a multi-room activity forgiving after interruption, while the actual feedback clarity and save/re-entry experience remain unknown.",
+      "proposed_repair": "No defect demonstrated. Confirm each visible state change and partial-step restoration through normal input.",
+      "acceptance_test": "Tap each unique target once and attempt a duplicate; verify only one truthful progress step per target, immediate understood feedback, disk persistence and no loss of unfinished work after leave/re-entry/reload."
+    },
+    {
+      "title": "The required stage instructions use generic talk acknowledgement",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/comfy_games.gd:364-367 announces the ingredient goal with voice_event 'talk'; :393-394 does the same for stirring.",
+        "scripts/comfy_games.gd:397-409 announces the movie goal with 'talk'; :412-415 announces bedtime with 'talk'; :535-536 and :577-578 use 'talk' for ingredient/movie feedback.",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:424-441 (MA-ACCESS-001 history) records Family Evening dinner/movie/bedtime objectives added with generic talk acknowledgement and no authorized exact semantic cue/substitute."
+      ],
+      "rules": ["DL-AGE-01", "DL-SND-01", "DL-SND-03", "DL-QA-07"],
+      "existing_findings": ["MA-ACCESS-001"],
+      "reproduction": "Source inspection identifies objective captions passed to show_msg alongside the generic talk event. This run did not hear or inspect live routing, so it does not assert what audio plays on device.",
+      "child_impact": "A non-reader may not hear the exact action to take and could depend on an adult or the supplemental caption.",
+      "proposed_repair": "Use only authorized exact semantic cues or an independently sufficient approved diegetic cue; preserve protected family recordings and demonstrate playback/listening separately.",
+      "acceptance_test": "With captions unread on the target phone, enter each objective and verify the spoken cue itself explains the exact action, is intelligible and correctly routed; then observe a child understand it without coaching."
+    },
+    {
+      "title": "Completed Family Evening switches to friend visits without a replay affordance",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/comfy_games.gd:312-315 handles quest.completed by building a friend visit for the current room and returning.",
+        "scripts/comfy_games.gd:582-609 marks completion only after all four pictured family members are tucked in, then sets a future reward placeholder; no reset/replay action is present in this assigned source.",
+        "scripts/probe_ui_system.gd:429-447 constructs a fully completed sample only for normalization assertions and doesn't test a replay action."
+      ],
+      "rules": ["DL-AGE-06", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-CI-005"],
+      "reproduction": "Read the completed-state branch in refresh_castle_room. No observed player chose to replay; this is a code-confirmed absence of a reset in this source, not a claim that children require replay.",
+      "child_impact": "A child who wants to repeat the cozy sequence may find only a character visit; whether that is disappointing or sufficient is unobserved.",
+      "proposed_repair": "Do not add replay solely from code review. Test a child's spontaneous revisit choice and record whether the current completed-state visit satisfies them.",
+      "acceptance_test": "After normal completion, revisit each room and observe the available interaction and the child's voluntary choice to continue, leave, or repeat; verify no duplicated reward or lost saved progress."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The code exposes a short sequence of picture-based actions, and each partial action is saved before refresh rather than waiting for the whole evening to finish.",
+      "evidence": "scripts/comfy_games.gd:522-579, 582-613. This is source evidence only; the assigned probe does not fire these controls."
+    },
+    {
+      "claim": "Wrong-order room entry routes to a friend visit, while the current quest stage remains selected from saved state, keeping the optional activity from taking over story progression.",
+      "evidence": "scripts/comfy_games.gd:301-305, 316-335; normal room refresh is ticked by scripts/main.gd:7012-7015. Normal play was not traversed."
+    }
+  ],
+  "acceptance_gaps": [
+    "No visible touch was routed through Family Evening; the assigned probe tests save normalization and source strings only, so no gameplay pass is claimed.",
+    "Ordinary fresh-save reachability through the prior hide-and-seek and Chapter Two route was not proven; MA-PLAY-001 remains related, and the matrix route_state_hint is not evidence.",
+    "Required dinner, movie and bedtime cues use generic 'talk' voice events in code; exact semantics, authorized cue coverage, audible routing and child comprehension remain open under MA-ACCESS-001.",
+    "No target Lenovo Tab M11 visual/touch/audio/frame-pacing evidence, observed-child comprehension or appeal evidence, or owner acceptance was collected.",
+    "Partial save/reload, pause/focus loss, completion revisit and child-selected replay were not exercised; the completed code branch offers a friend visit and no replay/reset in this assigned source."
+  ]
+}

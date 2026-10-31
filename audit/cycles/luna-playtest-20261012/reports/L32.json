@@ -1,0 +1,170 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L32",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l32",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Tap-to-world routing and action ownership",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L32/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The exact Godot 4.7.2.stable.official.ed1daf0bf headless probe_interaction passed at the frozen baseline, with isolated save profile and no failure lines. It checks assisted travel intent/manual override, live touch-interactable inventory and affordances, navigation/room actions, overlay control blocks, transition cleanup, and Classic-mode rollback.",
+    "route_gaps": "The probe sets Hybrid mode and invokes _tap_move_ref().start(), _on_touch_manual_move(), _on_touch_world(), room methods, and other game methods directly. It does not synthesize InputEventScreenTouch/InputEventScreenDrag or establish a visible screen-to-handler tap/drag route. No rendered Mobile view, real phone, observed child, or full natural route was reviewed."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "TAP_SLOP = 22.0 px; R = 78.0 px",
+        "evidence": "scripts/touch_ui.gd:92-94, 237-244, 732-740",
+        "scope": "Hybrid movement begins after drag exceeds 22 px; stick magnitude is clamped over the 78 px radius. These are code thresholds, not measured phone geometry."
+      },
+      {
+        "value": "Probe waits: 2 initial frames, 8 frames after intro skip, 24 frames on promenade; Engine.time_scale = 4.0",
+        "evidence": "scripts/probe_interaction.gd:29-40, 68-70; runtime log INTERACTION|ALL OK",
+        "scope": "Scripted setup/settling only. It does not measure child play duration or displayed-frame response."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No gameplay-duration estimate inferred. The helper's 37.228-second wall time is probe execution time, not a play session."
+  },
+  "tactile": {
+    "target_size": "The broad Hybrid movement zone is the lower-left 48% of screen height and max(390 px, 34% of screen width) (scripts/touch_ui.gd:315-326); an unmoved press there still becomes a world tap on release (scripts/touch_ui.gd:272-286). These are canvas coordinates, not physical millimetres or a demonstrated touch target. The probe does not measure visible target size or neighboring-target separation.",
+    "press_response": "Source routes Hybrid world taps on release and flashes at the release/press coordinate (scripts/touch_ui.gd:688-722); the integration probe did not send a pointer event or verify a rendered response within two frames.",
+    "drag_hold_release": "A Hybrid world press is assigned WORLD_INTERACT and passed to world_press_probe on down; exceeding 22 px marks it WORLD_MOVE, a consumed press's own drag cancels its charge, release calls the consumed press's release callback, while an unconsumed unmoved release emits world_touched (scripts/touch_ui.gd:688-740). This lifecycle is source-confirmed, not physically exercised by L32.",
+    "ownership": "Touch owner is indexed per finger; the stick begins only when no stick finger is active, while other touches can own WORLD_INTERACT. The source keeps each pending world press with its original index and removes its pending entry on release (scripts/touch_ui.gd:688-740). No multi-finger event was fed by this probe.",
+    "cancellation": "Touch-state reset clears state (scripts/touch_ui.gd:543-553, 602-603); main wires press/release/drag/cancel callbacks (scripts/main.gd:3801-3813), and pause/focus teardown is governed by broader input lifecycle code. L32 does not drive focus loss or prove real-device cancellation."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: letting a deliberate tap in the lower-left thumb bay still act on the painted world, while a longer directional drag steers, may make the control grammar forgiving. The test did not experience that response through touch.",
+    "variety": "The source distinguishes world tap, stick travel, consumed press/charge, and swipe paths; L32 focuses routing/ownership and does not establish how varied or appealing those verbs feel to a child.",
+    "world_response": "Code routes enemy hit engines before the interaction director, and the promenade receives tap/drag coordinates (scripts/main.gd:4587-4635; touch drag routing at scripts/main.gd:4563-4585). No visual/audio response was observed in this headless review.",
+    "replay": "Not assessed. The probe returns from a room/Level 2 through scripted method calls, not a child's replay choice.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": 1,
+      "input": "On a Hybrid gameplay screen, touch an open lower-left point and lift without moving.",
+      "wait": "No minimum hold; release is the routing edge.",
+      "grounding": "scripts/touch_ui.gd:315-326, 272-286"
+    },
+    {
+      "beat": 2,
+      "input": "Tap a visible world destination outside the movement bay, then lift at the same point.",
+      "wait": "No tap-duration gate in Hybrid WORLD_INTERACT release path.",
+      "grounding": "scripts/touch_ui.gd:698-722; scripts/main.gd:4587-4635"
+    },
+    {
+      "beat": 3,
+      "input": "Press in the lower-left movement bay, drag 23 px in one direction, then lift.",
+      "wait": "One drag event beyond TAP_SLOP = 22.0 px; no probe-verified duration.",
+      "grounding": "scripts/touch_ui.gd:92-94, 237-253"
+    },
+    {
+      "beat": 4,
+      "input": "While the first world finger is down, place a second finger on a different world point; move/lift only the second finger, then lift the first.",
+      "wait": "One second-finger down/move/up sequence; exact multitouch latency is unmeasured.",
+      "grounding": "scripts/touch_ui.gd:688-740; L32 does not execute these events."
+    },
+    {
+      "beat": 5,
+      "input": "Press an enemy target and hold; then either lift in place or drag that same finger beyond 22 px before lifting.",
+      "wait": "Compare release-in-place with one over-threshold drag; source has no gameplay-time value for charge completion in this probe.",
+      "grounding": "scripts/main.gd:4469-4501, 4531-4549; scripts/touch_ui.gd:704-740"
+    },
+    {
+      "beat": 6,
+      "input": "After establishing a held movement/charge, invoke pause or background the app, resume, then tap a destination once.",
+      "wait": "One pause/focus transition and one post-resume tap; L32 did not run this sequence.",
+      "grounding": "scripts/touch_ui.gd:602-603; scripts/main.gd:3801-3813; MA-TOUCH-001 reproduction"
+    }
+  ],
+  "observations": [
+    {
+      "title": "Hybrid press ownership separates world tap, movement, and consumed action",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/touch_ui.gd:688-722 assigns a finger to ACTION, STICK, or WORLD_INTERACT; an unconsumed unmoved world release emits world_touched, while a consumed press gets its paired release callback.",
+        "scripts/touch_ui.gd:723-740 changes a world finger to WORLD_MOVE only after movement exceeds TAP_SLOP and cancels only its own consumed charge.",
+        "scripts/touch_ui.gd:92-94 sets TAP_SLOP to 22.0 px and stick radius R to 78.0 px."
+      ],
+      "rules": ["DL-AGE-02", "DL-UI-01", "DL-UI-04"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "Source trace only; the L32 probe does not feed raw touch or drag events.",
+      "child_impact": "If event ownership behaves as written, simple one-finger taps and drags can keep distinct meanings. Physical latency, hit feel, multi-finger rejection, and accidental ownership remain unverified.",
+      "proposed_repair": "No source repair inferred. Validate the present one-finger ownership grammar on the target phone before changing it.",
+      "acceptance_test": "On the exact candidate and phone, record one-finger world tap, movement drag, consumed hold/release, same-finger drag cancellation, second-finger interference, pause, and focus-loss. Confirm each gesture triggers only its owned action and no stale action fires."
+    },
+    {
+      "title": "The lower-left thumb bay preserves a tap when it never becomes a drag",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/touch_ui.gd:315-326 defines the lower-left movement zone and explicitly returns an empty zone while encounter press owns input.",
+        "scripts/touch_ui.gd:272-286 emits a Hybrid world tap on an unmoved stick-zone release; _rest_stick hides the visual stick at :292-303.",
+        "scripts/probe_interaction.gd:55-63 checks assisted steering intent and manual override, but uses _tap_move_ref().start() and _on_touch_manual_move() directly."
+      ],
+      "rules": ["DL-UI-01", "DL-UI-02", "DL-UI-03", "DL-QA-02"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "Code inspection and probe inspection. L32 confirms manual override state after direct method calls, but does not prove that a child-visible tap in this region reaches the intended destination.",
+      "child_impact": "This design may allow an imprecise tap to work in the broad thumb bay, but a hidden region may still feel surprising if a short touch is interpreted differently than a drag; child discoverability was not observed.",
+      "proposed_repair": "Keep the broad bay behavior unless routed touch observation shows it steals or misroutes visible world actions; avoid adding another visible control legend based only on this source review.",
+      "acceptance_test": "On device, compare a short release and a clear >22 px directional drag at three lower-left positions and one point outside the bay. Verify the same visible object receives a tap everywhere, while only the drag steers; check the child can discover the distinction without explanation."
+    },
+    {
+      "title": "Integration probe passes but reaches travel through internal method calls",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L32/attempt_1/receipt.json: status PASS, exact engine Godot 4.7.2.stable.official.ed1daf0bf, frozen baseline, isolated save profile, exit_code 0, no failure lines.",
+        "audit/cycles/luna-playtest-20261012/runtime/L32/attempt_1/probe.log:3: INTERACTION|ALL OK.",
+        "scripts/probe_interaction.gd:29-41 instantiates the game, skips intro, sets Hybrid mode, and repopulates interactables; :55-63 starts assisted movement and invokes manual override directly.",
+        "scripts/probe_interaction.gd:735 directly calls _on_touch_world during a transition; no InputEventScreenTouch or InputEventScreenDrag is constructed in this probe."
+      ],
+      "rules": ["DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "Rerun only under a separately authorized study invocation; this assigned L32 invocation already passed once. Inspect probe setup/calls and receipt/log to see the exact scope.",
+      "child_impact": "The pass supports state/routing policy and cleanup at method level; a broken input event route could still prevent a child from reaching those methods naturally.",
+      "proposed_repair": "Do not modify the passing probe to simulate coverage it does not have. Collect a routed-input trace and physical-device play evidence as separate lanes.",
+      "acceptance_test": "Capture an actual one-finger trace from an ordinary gameplay screen through tap-to-world, drag travel, release, and retarget on the intended phone; bind the trace to the exact candidate and confirm visible response, no stuck motion, and child comprehension without adult help."
+    },
+    {
+      "title": "Main binds press, release, drag, and cancellation to distinct world handlers",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/main.gd:3801-3813 connects world_touched/manual movement and assigns press, release, drag, swipe, and cancellation callables.",
+        "scripts/main.gd:4469-4501 press-probes Melody, Slide Race, then priority enemies; :4503-4518 releases held charges.",
+        "scripts/main.gd:4531-4549 changes a travelling press-fired finger from charge to drag; :4550-4561 cancels held charge without firing.",
+        "scripts/main.gd:4563-4585 routes unconsumed promenade drags or combat swipes; :4587-4635 gives enemies forefront priority before interaction fallback."
+      ],
+      "rules": ["DL-UI-01", "DL-UI-04", "DL-UI-05", "DL-AGE-07"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "Static route trace; the runtime probe does not exercise these handlers with pointer events or inspect two-frame rendered feedback.",
+      "child_impact": "Distinct handler ownership can prevent one gesture from accidentally becoming both an attack and a swipe. Incorrect coordinates or delayed visual confirmation could still make the interaction feel unresponsive.",
+      "proposed_repair": "No code change proposed from the current evidence; preserve the single-gesture ownership and verify rendered feedback/phone input separately.",
+      "acceptance_test": "On device, bind touch event coordinates to visible enemy/prop/promenade targets; verify one press-release yields at most one verb, a same-finger drag cancels its charge, and a miss causes no unintended world movement or action."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The exact-build probe passes assisted travel steering intent and explicit manual override checks.",
+      "evidence": "scripts/probe_interaction.gd:55-63; audit/cycles/luna-playtest-20261012/runtime/L32/attempt_1/probe.log:3 reports INTERACTION|ALL OK. This is direct method/state evidence, not routed input."
+    },
+    {
+      "claim": "The source gives each Hybrid finger an owner and carries consumed press release/cancel semantics through separate callbacks.",
+      "evidence": "scripts/touch_ui.gd:688-740; scripts/main.gd:3801-3813, 4503-4561. Not phone or child verification."
+    },
+    {
+      "claim": "The same broad lower-left zone permits a short world tap and directional steering drag rather than making a hidden-stick touch bay a dead zone.",
+      "evidence": "scripts/touch_ui.gd:272-286, 315-326. This claim is code behavior only; rendered discoverability is open."
+    }
+  ],
+  "acceptance_gaps": [
+    "No raw routed touch/drag input was executed in L32; probe state is set directly and gameplay handlers are invoked directly.",
+    "No Mobile-rendered capture, physical target-size measurement, latency or frame-pacing evidence.",
+    "No intended Android phone hold/drag/multitouch/focus-loss/pause/re-entry evidence; MA-TOUCH-001 remains FIXED_PENDING_VERIFICATION.",
+    "No observed-child comprehension, comfort, discoverability, agency, session-duration or appeal evidence.",
+    "The probe's 37.228-second runner time is not play duration; no fun score assigned."
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "runtime_source_comparison",
+      "command": [
+        "git",
+        "diff",
+        "origin/dev",
+        "--",
+        "scripts",
+        "scenes",
+        "assets",
+        "project.godot"
+      ],
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/verification/runtime_source_comparison.log"
+    },
+    {
+      "check": "document_authority",
+      "command": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\sky-lagoon-local-animation-20260930\\mermaid-roshan-reef\\build\\validation-venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/verification/document_authority.log"
+    },
+    {
+      "check": "document_tests",
+      "command": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\sky-lagoon-local-animation-20260930\\mermaid-roshan-reef\\build\\validation-venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/verification/document_tests.log"
+    },
+    {
+      "check": "godot_version",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--version"
+      ],
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/verification/godot_version.log"
+    },
+    {
+      "check": "godot_import",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\sky-lagoon-local-animation-20260930\\mermaid-roshan-reef",
+        "--import"
+      ],
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/verification/godot_import.log"
+    },
+    {
+      "check": "restore_platform_sidecars",
+      "command": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\sky-lagoon-local-animation-20260930\\mermaid-roshan-reef\\build\\validation-venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/build/local-sky-animation/restore_import_status.py"
+      ],
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/verification/restore_platform_sidecars.log"
+    },
+    {
+      "check": "development_coverage",
+      "command": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\sky-lagoon-local-animation-20260930\\mermaid-roshan-reef\\build\\validation-venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/verification/development_coverage.log"
+    },
+    {
+      "check": "development_coverage_origin_dev",
+      "command": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\sky-lagoon-local-animation-20260930\\mermaid-roshan-reef\\build\\validation-venv\\Scripts\\python.exe",
+        "-s",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "origin/dev"
+      ],
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/verification/development_coverage_origin_dev.log"
+    }
+  ],
+  "runtime_changes": "None relative to origin/dev 1e62991ee8db27afe045ed1791d938976762e38d; packet excluded by .gdignore",
+  "full_game_ci": "Exact new-topic CI required before integration",
+  "acceptance_limits": "Machine reference-only checks; no runtime/owner/device/child/cinematic acceptance"
+}

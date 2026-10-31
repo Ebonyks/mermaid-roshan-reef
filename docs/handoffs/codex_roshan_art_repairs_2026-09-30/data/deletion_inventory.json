@@ -1,0 +1,83 @@
+{
+ "schema": "roshan_retired_art_deletion/1",
+ "owner_decision": "2026-09-30: \"delete outright, this art is retired in this draft, existed in previous mermaid roshan wisconsia book\"",
+ "measured_at_head": "b65c21fdddd79f272a6854f241faa1441abe6616",
+ "delete": [
+  {
+   "path": "assets/characters/roshan_sprite.png",
+   "sha256": "cf38c4a6348f72d72bb88eafc55bf65eda8711f9a5cdba5c6a56eee0c901f04d",
+   "bytes": 339227
+  },
+  {
+   "path": "assets/characters/roshan_sprite.png.import",
+   "sha256": "2615e0c618b2f478165ef5c6ff28ce088f268d7c32cdd915a87bf52987c6d0b0",
+   "bytes": 960
+  },
+  {
+   "path": "assets/sprites/sky_lagoon/sky_lagoon_roshan.png",
+   "sha256": "abf0a3ec1caed7d4929756566d5bebfb096d11b22e3c9efa36955e3347fe4e52",
+   "bytes": 765841
+  },
+  {
+   "path": "assets/sprites/sky_lagoon/sky_lagoon_roshan_runtime_audited.png",
+   "sha256": "666fe66f257d4421563704d900de4697a1b27972d452274b45fb2c48c602c97f",
+   "bytes": 86554
+  }
+ ],
+ "update_live_references": [
+  {
+   "path": "tools/audit_sky_lagoon_kit.py",
+   "line": 30,
+   "action": "remove the entry for sky_lagoon_roshan_runtime_audited.png"
+  },
+  {
+   "path": "tools/build_sky_lagoon_preview.py",
+   "line": 117,
+   "action": "place assets/characters/roshan_25d/roshan_base.png instead, or remove the placement"
+  },
+  {
+   "path": "tools/tests/test_audit_visual_design.py",
+   "line": 120,
+   "action": "remove or replace the fixture path; keep the test meaningful"
+  },
+  {
+   "path": "ASSET_LICENSES.md",
+   "line": 47,
+   "action": "remove roshan_sprite.png from the combined book-art-derivatives row; list only files that still exist"
+  },
+  {
+   "path": "ASSET_LICENSES.md",
+   "line": 426,
+   "action": "mark the sky_lagoon_roshan.png entry removed on 2026-09-30 by owner decision"
+  },
+  {
+   "path": "ASSET_LICENSES.md",
+   "line": 558,
+   "action": "mark the sky_lagoon_roshan_runtime_audited.png entry removed on 2026-09-30 by owner decision"
+  },
+  {
+   "path": "art_library/ART_INVENTORY.csv",
+   "line": [
+    479,
+    1970,
+    1971
+   ],
+   "action": "remove the three rows or regenerate the inventory"
+  },
+  {
+   "path": "audit/congruency_sky_lagoon.json",
+   "line": 308,
+   "action": "regenerate with its tool after the kit list changes"
+  }
+ ],
+ "leave_as_history": [
+  "logs under audit/ and assets_src/ (import scans)",
+  "archived or historical documents: ART_STYLE_AUDIT.md, CHARACTER_RUNBOOK.md, CLAUDE_OPERA_JOB_3D_CONTINUATION_2026-07-21.md, docs/ROSHAN_FINAL_MODEL_2026-07-18.md",
+  "provenance that names the file as the identity source of the career cards: assets_src/concepts/opera_jobs_flat_2026-07-21/PROMPTS.md",
+  "gen2/ dependency and task records",
+  "backups/art_pre_dungeon_v2_2026-07-16/ (excluded from Godot by .gdignore)",
+  "assets_src/cinematics/grok_builder_2026-09-14/evidence/ASSET_LICENSES.txt (evidence snapshot)",
+  "tools/out/lighting_image_audit.json (generated output)"
+ ],
+ "git_history": "The files remain in Git history. Removing them from history would mean rewriting the public repository's history; that is not part of this decision."
+}

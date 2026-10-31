@@ -1,0 +1,64 @@
+--- a/scripts/main.gd
++++ b/scripts/main.gd
+@@ -786,6 +786,7 @@
+ var hop_sfx: AudioStreamPlayer     # soft cartoon boing per on-land hop touchdown
+ var voice_pool: Array = []
+ var voice_i := 0
++var audio_active_guide_mode: String = ""
+ var said_cool := {}
+ var intro_active := false
+ var intro_layer: CanvasLayer
+--- a/scripts/audio_director.gd
++++ b/scripts/audio_director.gd
+@@ -11,7 +11,6 @@
+ var _day_one_context_seen: Dictionary = {}
+ var _day_one_context_active_key := ""
+ var _active_required_key := ""
+-var _active_guide_mode := ""
+ var _required_voice_queue: Array[Dictionary] = []
+ const FILLER_VOICE_DIR := "res://assets/audio/voices/filler_v1/"
+ const LEGACY_VOICE_DIR := "res://assets/audio/voices/"
+@@ -270,14 +269,14 @@
+ 	# in the same bounded FIFO rather than speaking over the instruction.
+ 	_stop_active_speech()
+ 	_say("guide", event, min_gap)
+-	_active_guide_mode = mode
++	m.audio_active_guide_mode = mode
+ 	if greeting_speaker != "" and _active_required_key == key:
+ 		_required_voice_queue.append({"speaker": greeting_speaker, "event": "",
+ 			"min_gap": 0.0, "guide_mode": mode})
+ 
+ 
+ func clear_objective_guide(mode: String) -> void:
+-	if _active_guide_mode == mode:
++	if m.audio_active_guide_mode == mode:
+ 		_stop_active_speech()
+ 
+ 
+@@ -373,7 +372,7 @@
+ 			# Timestamp only an actual successful Guide start, including min_gap 0.
+ 			m.said_cool[key] = Time.get_ticks_msec() / 1000.0
+ 			var active_guide: Dictionary = OBJECTIVE_GUIDES.get(event_suffix, {})
+-			_active_guide_mode = String(active_guide.get("mode", ""))
++			m.audio_active_guide_mode = String(active_guide.get("mode", ""))
+ 	elif m.voice != null:
+ 		# graceful fallback until real clips are dropped in: the recorded "yay",
+ 		# pitched to give each character a recognisably different timbre
+@@ -421,7 +420,7 @@
+ 			continue
+ 		_say(pending_speaker, pending_event, float(pending.get("min_gap", 0.0)))
+ 		if pending_mode != "" and m.game == pending_mode:
+-			_active_guide_mode = pending_mode
++			m.audio_active_guide_mode = pending_mode
+ 		return true
+ 	return false
+ 
+@@ -477,7 +476,7 @@
+ 	_active_speaker = ""
+ 	_day_one_context_active_key = ""
+ 	_active_required_key = ""
+-	_active_guide_mode = ""
++	m.audio_active_guide_mode = ""
+ 	_required_voice_queue.clear()
+ 
+ 

@@ -1,0 +1,18 @@
+=== probe_dust_boss_balance ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DUSTBAL|schema persona,seconds,rounds,damage,avoids,opening_misses,taps,result
+DUSTBAL|attentive,31.46,3,0,5,0,3,OK
+DUSTBAL|learning,34.09,3,0,5,0,3,OK
+DUSTBAL|slow,39.68,3,0,5,0,3,OK
+DUSTBAL|slow_counter,50.23,3,0,5,2,3,OK
+DUSTBAL|patient_dodger,60.43,3,2,5,0,3,OK
+DUSTBAL|patient_counter,56.29,3,0,5,2,3,OK
+DUSTBAL|patient_both,99.96,3,2,5,2,3,OK
+DUSTBAL|moving_masher,30.13,3,0,5,0,192,OK
+DUSTBAL|idle,60.00,0,0,0,0,0,OK
+DUSTBAL|stationary_masher,60.01,0,0,0,0,384,OK
+DUSTBAL|held_action,60.01,0,0,0,0,0,OK
+DUSTBAL|movement_only,60.00,0,0,1,2,0,OK
+DUSTBAL|result: ALL OK
+PROBE probe_dust_boss_balance process exit: 0

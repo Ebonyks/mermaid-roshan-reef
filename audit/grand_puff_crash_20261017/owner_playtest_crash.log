@@ -1,0 +1,58 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.341 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 3060 Ti
+
+[godot_ai game_helper] registered mcp capture (debugger active=true, logger=true)
+ERROR: Parent node is busy setting up children, `add_child()` failed. Consider using `add_child.call_deferred(child)` instead.
+   at: add_child (scene/main/node.cpp:1721)
+   GDScript backtrace (most recent call first):
+       [0] build (res://scripts/arena/sky_lagoon_promenade.gd:221)
+       [1] _enter_level2_now (res://scripts/main.gd:4979)
+       [2] _fade_cut (res://scripts/main.gd:3046)
+       [3] _enter_level2 (res://scripts/main.gd:4925)
+       [4] _return_day_one_boss_to_castle (res://scripts/day_one_flow.gd:458)
+       [5] _day_one_suspend_boss_for_lifecycle (res://scripts/day_one_flow.gd:441)
+       [6] _day_one_suspend_boss_for_lifecycle (res://scripts/main.gd:6861)
+       [7] _notification (res://scripts/main.gd:3714)
+ERROR: Parent node is busy setting up children, `add_child()` failed. Consider using `add_child.call_deferred(child)` instead.
+   at: add_child (scene/main/node.cpp:1721)
+   GDScript backtrace (most recent call first):
+       [0] open (res://scripts/arena/castle_rooms_25d.gd:1028)
+       [1] _enter_castle_interior_now (res://scripts/main.gd:5793)
+       [2] _fade_cut (res://scripts/main.gd:3046)
+       [3] _enter_castle_interior (res://scripts/main.gd:5766)
+       [4] _return_day_one_boss_to_castle (res://scripts/day_one_flow.gd:459)
+       [5] _day_one_suspend_boss_for_lifecycle (res://scripts/day_one_flow.gd:441)
+       [6] _day_one_suspend_boss_for_lifecycle (res://scripts/main.gd:6861)
+       [7] _notification (res://scripts/main.gd:3714)
+ERROR: Parent node is busy setting up children, `add_child()` failed. Consider using `add_child.call_deferred(child)` instead.
+   at: add_child (scene/main/node.cpp:1721)
+   GDScript backtrace (most recent call first):
+       [0] _build_castle_voice_caption (res://scripts/arena/castle_rooms_25d.gd:1092)
+       [1] open (res://scripts/arena/castle_rooms_25d.gd:1046)
+       [2] _enter_castle_interior_now (res://scripts/main.gd:5793)
+       [3] _fade_cut (res://scripts/main.gd:3046)
+       [4] _enter_castle_interior (res://scripts/main.gd:5766)
+       [5] _return_day_one_boss_to_castle (res://scripts/day_one_flow.gd:459)
+       [6] _day_one_suspend_boss_for_lifecycle (res://scripts/day_one_flow.gd:441)
+       [7] _day_one_suspend_boss_for_lifecycle (res://scripts/main.gd:6861)
+       [8] _notification (res://scripts/main.gd:3714)
+ERROR: Object is locked and can't be freed.
+   at: callp (core/object/object.cpp:787)
+   GDScript backtrace (most recent call first):
+       [0] teardown (res://scripts/arena/day_one_castle_dressing.gd:239)
+       [1] _day_one_clear_castle_dressing (res://scripts/day_one_flow.gd:313)
+       [2] _day_one_clear_castle_dressing (res://scripts/main.gd:6499)
+       [3] close (res://scripts/arena/castle_rooms_25d.gd:1174)
+       [4] _exit_to_courtyard (res://scripts/arena/castle_rooms_25d.gd:5833)
+       [5] _go_back (res://scripts/arena/castle_rooms_25d.gd:5823)
+       [6] _leave_current_activity (res://scripts/pause_menu.gd:296)
+SCRIPT ERROR: Attempted to free a locked object (calling or emitting).
+   at: DayOneCastleDressing.teardown (res://scripts/arena/day_one_castle_dressing.gd:239)
+   GDScript backtrace (most recent call first):
+       [0] teardown (res://scripts/arena/day_one_castle_dressing.gd:239)
+       [1] _day_one_clear_castle_dressing (res://scripts/day_one_flow.gd:313)
+       [2] _day_one_clear_castle_dressing (res://scripts/main.gd:6499)
+       [3] close (res://scripts/arena/castle_rooms_25d.gd:1174)
+       [4] _exit_to_courtyard (res://scripts/arena/castle_rooms_25d.gd:5833)
+       [5] _go_back (res://scripts/arena/castle_rooms_25d.gd:5823)
+       [6] _leave_current_activity (res://scripts/pause_menu.gd:296)

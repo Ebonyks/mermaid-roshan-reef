@@ -1,0 +1,86 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.325 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 3060 Ti
+
+FAIRYCUE|enter|The candle is gone. Let's help the faerie garden!
+FAIRYPROBE|OK|capture 01_castle_entry
+FAIRYPROBE|OK|starts in castle
+FAIRYPROBE|OK|passive castle does not enter
+FAIRYCUE|arborist|Tap the tangled branches. Let's help our tree!
+FAIRYPROBE|OK|visible doorway enters garden through live touch
+FAIRYPROBE|OK|passive and wrong taps do not earn work
+FAIRYPROBE|OK|capture 02_sick_tree
+FAIRYCUE|enter|The candle is gone. Let's help the faerie garden!
+FAIRYPROBE|OK|Back cancels travel before any repair reward
+FAIRYCUE|arborist|Tap the tangled branches. Let's help our tree!
+FAIRYPROBE|OK|far selection awards nothing before arrival
+FAIRYPROBE|OK|second finger cannot redirect local work
+FAIRYPROBE|OK|capture 02b_arborist_contact
+FAIRYCUE|arborist|Tap the tangled branches. Let's help our tree!
+FAIRYPROBE|OK|local work completes cleared0
+FAIRYPROBE|OK|intentional tap performs one local repair
+FAIRYPROBE|OK|repeat repaired branch earns nothing
+FAIRYCUE|arborist|Tap the tangled branches. Let's help our tree!
+FAIRYPROBE|OK|local work completes cleared1
+FAIRYCUE|water|Rub across the thirsty roots to water our tree.
+FAIRYPROBE|OK|local work completes cleared2
+FAIRYPROBE|OK|tree untangling unlocks water only
+FAIRYPROBE|OK|capture 03_water_roots
+FAIRYPROBE|OK|tap and arrival cannot water tree
+FAIRYPROBE|OK|off-target water motion earns nothing
+FAIRYPROBE|OK|local water stroke advances partial checkpoint
+FAIRYPROBE|OK|focus loss cancels owned gesture
+FAIRYCUE|enter|The candle is gone. Let's help the faerie garden!
+FAIRYCUE|water|Rub across the thirsty roots to water our tree.
+FAIRYPROBE|OK|Back and re-entry preserve partial water
+FAIRYCUE|harvest|Our tree is well! Pick three apples for the butterflies.
+FAIRYPROBE|OK|intentional watering grows fruit
+FAIRYPROBE|OK|capture 04_healthy_fruit_tree
+FAIRYCUE|harvest|Our tree is well! Pick three apples for the butterflies.
+FAIRYPROBE|OK|local work completes picked0
+FAIRYCUE|harvest|Our tree is well! Pick three apples for the butterflies.
+FAIRYPROBE|OK|local work completes picked1
+FAIRYCUE|chef|Swipe across each apple to make little butterfly snacks.
+FAIRYPROBE|OK|local work completes picked2
+FAIRYPROBE|OK|harvest supplies three apples to chef
+FAIRYPROBE|OK|capture 05_chef_whole_apples
+FAIRYPROBE|OK|chef tapping cannot cut food
+FAIRYPROBE|OK|capture 05b_chef_contact
+FAIRYCUE|chef|Swipe across each apple to make little butterfly snacks.
+FAIRYCUE|chef|Swipe across each apple to make little butterfly snacks.
+FAIRYCUE|picnic|Tap each butterfly to share its snack.
+FAIRYPROBE|OK|local cross-fruit swipes prepare all snacks
+FAIRYPROBE|OK|capture 06_prepared_snacks
+FAIRYCUE|picnic|Tap each butterfly to share its snack.
+FAIRYPROBE|OK|local work completes fed0
+FAIRYCUE|picnic|Tap each butterfly to share its snack.
+FAIRYPROBE|OK|local work completes fed1
+FAIRYCUE|shooter|Hold and glide under the flowers. Your sparkles help them bloom!
+FAIRYPROBE|OK|local work completes fed2
+FAIRYPROBE|OK|feeding friends opens flower flight
+FAIRYPROBE|OK|capture 07_flower_flight
+FAIRYPROBE|OK|shooter never fires from passive play
+FAIRYPROBE|OK|wrong lane does not bloom a flower
+FAIRYPROBE|OK|holding in correct lane blooms first flower
+FAIRYCUE|complete|Happy butterflies helped the flowers bloom! Tap the magic to take it home.
+FAIRYPROBE|OK|one held finger can glide across all flower lanes
+FAIRYPROBE|OK|capture 08_fountain_restored
+FAIRYCUE|returned|The faerie magic is home! You can visit your butterfly friends.
+FAIRYPROBE|OK|intentional carry-home restores faerie half only
+FAIRYPROBE|OK|capture 09_castle_faerie_magic
+FAIRYCUE|complete|Happy butterflies helped the flowers bloom! Tap the magic to take it home.
+FAIRYCUE|returned|The faerie magic is home! You can visit your butterfly friends.
+FAIRYPROBE|OK|replay cannot duplicate or erase milestones
+FAIRYPROBE|OK|every phase has an exact cue and OGG
+FAIRYPROBE|OK|voice cue enter
+FAIRYPROBE|OK|voice cue returned
+FAIRYPROBE|OK|voice cue arborist
+FAIRYPROBE|OK|voice cue water
+FAIRYPROBE|OK|voice cue harvest
+FAIRYPROBE|OK|voice cue chef
+FAIRYPROBE|OK|voice cue picnic
+FAIRYPROBE|OK|voice cue shooter
+FAIRYPROBE|OK|voice cue complete
+FAIRYPROBE|OK|checkpoint round-trip preserves progress and future keys
+FAIRYPROBE|OK|corrupt main checkpoint recovers backup
+FAIRYPROBE|OK|production save canary remains byte-identical
+FAIRYPROBE|RESULT|ALL OK|failures=0

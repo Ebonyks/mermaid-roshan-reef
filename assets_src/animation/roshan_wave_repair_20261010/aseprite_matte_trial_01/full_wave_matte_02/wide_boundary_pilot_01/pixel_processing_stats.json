@@ -1,0 +1,40 @@
+{
+  "acceptance": "UNACCEPTED_MATTE_CANDIDATE_REVIEW_REQUIRED",
+  "frames": [
+    {
+      "adjusted_retained_edge_pixels": 16424,
+      "alpha_max": 251,
+      "alpha_min": 10,
+      "boundary_radius_px": 4,
+      "connected_outer_pixels_removed": 522344,
+      "fit_rejected_or_unchanged_edge_pixels": 15816,
+      "foreground_candidate_radius_px": 6,
+      "frame_index": 14,
+      "native_height": 896,
+      "native_width": 768,
+      "recovered_removed_edge_pixels": 4048,
+      "retained_closed_neutral_pixels": 709,
+      "reviewed_background_seeds": [
+        null
+      ]
+    }
+  ],
+  "parameters": {
+    "connected_background_min_rgb": 205,
+    "connected_background_max_chroma": 10,
+    "boundary_radius": 4,
+    "foreground_search_radius": 6,
+    "foreground_depth_min": 2,
+    "neutral_fit_residual_max": 10,
+    "neutral_fit_chroma_max": 15,
+    "colored_fit_residual_max": 10,
+    "recover_visited_background_pixels": true
+  },
+  "schema": "reef.aseprite-boundary-alpha-pilot.v1",
+  "metadata_correction": {
+    "reason": "Copied pilot footer retained stale threshold labels; executed Lua and source plan carry actual values. Raw emitted counts/header are preserved separately.",
+    "raw_record": "pixel_processing_stats_raw.json",
+    "executed_lua_sha256": "29dcf938bcd0a67a2fc74fc035d8e45b27a43e37de7b18c65cd755f6062309c2",
+    "reviewed_seed_coordinate_authority": "source_and_seed_plan.json; emitted nested seed arrays serialize null in Aseprite JSON"
+  }
+}

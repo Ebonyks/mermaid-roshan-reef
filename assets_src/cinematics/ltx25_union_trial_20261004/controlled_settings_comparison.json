@@ -1,0 +1,48 @@
+{
+  "status": "CONTROLLED_ABLATION",
+  "changes": [
+    {
+      "node": "13",
+      "field": "strength",
+      "first": 1.0,
+      "second": 0.65
+    },
+    {
+      "node": "20",
+      "field": "filename_prefix",
+      "first": "union_trial/take_1/stage1_video",
+      "second": "union_trial/take_2/stage1_video"
+    },
+    {
+      "node": "23",
+      "field": "strength",
+      "first": 1.0,
+      "second": 0.65
+    },
+    {
+      "node": "31",
+      "field": "filename_prefix",
+      "first": "union_trial/take_1/refined_video",
+      "second": "union_trial/take_2/refined_video"
+    },
+    {
+      "node": "42",
+      "field": "filename_prefix",
+      "first": "union_trial/take_1/stage1/frame",
+      "second": "union_trial/take_2/stage1/frame"
+    },
+    {
+      "node": "52",
+      "field": "filename_prefix",
+      "first": "union_trial/take_1/refined/frame",
+      "second": "union_trial/take_2/refined/frame"
+    },
+    {
+      "node": "90",
+      "field": "label",
+      "first": "take_1",
+      "second": "take_2"
+    }
+  ],
+  "held_fixed": "Full structural control strength1, adapter1, prompt, seed20261004,8+3steps, dimensions, cadence, actual guide frames and engine. Only opening-image strength1 vs0.65 changes, apart from output filenames/runtime label."
+}

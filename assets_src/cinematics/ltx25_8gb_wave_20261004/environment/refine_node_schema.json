@@ -1,0 +1,417 @@
+{
+  "LTXAddVideoICLoRAGuide": {
+    "input": {
+      "required": {
+        "positive": [
+          "CONDITIONING",
+          {}
+        ],
+        "negative": [
+          "CONDITIONING",
+          {}
+        ],
+        "vae": [
+          "VAE",
+          {}
+        ],
+        "latent": [
+          "LATENT",
+          {
+            "tooltip": "Video-only latent to condition. Must be a 5D video latent (batch, channels, frames, height, width)."
+          }
+        ],
+        "image": [
+          "IMAGE",
+          {}
+        ],
+        "frame_idx": [
+          "INT",
+          {
+            "tooltip": "RoPE position of the reference, in pixel frames.\n0 aligns the reference with the generated clip. Use for video references.\n>0 places the reference at a specific pixel-frame position in the clip.\n-1 places the reference outside the generated frame range, while still using it for attention conditioning. Use for single-image references.\nFor multi-frame references, >0 values are rounded down to 1 mod 8.",
+            "default": 0,
+            "min": -9999,
+            "max": 9999
+          }
+        ],
+        "strength": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 1.0,
+            "step": 0.01
+          }
+        ],
+        "latent_downscale_factor": [
+          "FLOAT",
+          {
+            "tooltip": "For IC-LoRA on small grid. 1 means original size, 2 means half size, 3 means third, etc.",
+            "default": 1.0,
+            "min": 1.0,
+            "max": 10.0,
+            "step": 1.0
+          }
+        ],
+        "crop": [
+          "COMBO",
+          {
+            "tooltip": "Crop mode when resizing. 'center' crops to fit, 'disabled' stretches to fit.",
+            "default": "disabled",
+            "multiselect": false,
+            "options": [
+              "disabled",
+              "center"
+            ]
+          }
+        ],
+        "use_tiled_encode": [
+          "BOOLEAN",
+          {
+            "tooltip": "Enable tiled VAE encoding for large resolutions/long videos to reduce memory usage.",
+            "default": false
+          }
+        ],
+        "tile_size": [
+          "INT",
+          {
+            "tooltip": "Spatial tile size for tiled encoding. Only used when use_tiled_encode is enabled.",
+            "default": 256,
+            "min": 64,
+            "max": 512,
+            "step": 32
+          }
+        ],
+        "tile_overlap": [
+          "INT",
+          {
+            "tooltip": "Overlap between tiles for tiled encoding. Only used when use_tiled_encode is enabled.",
+            "default": 64,
+            "min": 16,
+            "max": 256,
+            "step": 16
+          }
+        ]
+      },
+      "optional": {
+        "use_streaming": [
+          "BOOLEAN",
+          {
+            "tooltip": "Off (default): encode the whole clip as one IC-LoRA guide. On: re-encode one fresh guide per LTXVTiledFusionSampler temporal window and write the plan the sampler reads. Set tile_frames on this node and the sampler to the same value (97 for LTX).",
+            "default": false
+          }
+        ],
+        "tile_frames": [
+          "INT",
+          {
+            "tooltip": "Window length in pixel frames, used only when use_streaming is on. Snapped to 8n+1. Must match LTXVTiledFusionSampler. Ignored when use_streaming is off.",
+            "default": 97,
+            "min": 0,
+            "max": 1000,
+            "step": 1
+          }
+        ]
+      }
+    },
+    "input_order": {
+      "required": [
+        "positive",
+        "negative",
+        "vae",
+        "latent",
+        "image",
+        "frame_idx",
+        "strength",
+        "latent_downscale_factor",
+        "crop",
+        "use_tiled_encode",
+        "tile_size",
+        "tile_overlap"
+      ],
+      "optional": [
+        "use_streaming",
+        "tile_frames"
+      ]
+    },
+    "is_input_list": false,
+    "output": [
+      "CONDITIONING",
+      "CONDITIONING",
+      "LATENT"
+    ],
+    "output_is_list": [
+      false,
+      false,
+      false
+    ],
+    "output_name": [
+      "positive",
+      "negative",
+      "latent"
+    ],
+    "output_tooltips": [
+      null,
+      null,
+      null
+    ],
+    "output_matchtypes": null,
+    "name": "LTXAddVideoICLoRAGuide",
+    "display_name": "\ud83c\udd5b\ud83c\udd63\ud83c\udd67 Add Video IC-LoRA Guide",
+    "description": "Adds one or more conditioning frames starting at the specified frame index. Supports both single images and multi-frame videos. The latent_downscale_factor resizes input to a fraction of the target size (1 = original, 2 = half, 3 = third, etc.) for IC-LoRA on small grids. For LTXVTiledFusionSampler temporal windows, turn on use_streaming and set tile_frames to the same 8n+1 value as the sampler (97 for LTX).",
+    "python_module": "custom_nodes.mermaid_refine",
+    "category": "Lightricks/IC-LoRA",
+    "output_node": false,
+    "deprecated": false,
+    "experimental": false,
+    "dev_only": false,
+    "api_node": false,
+    "price_badge": null,
+    "search_aliases": null,
+    "essentials_category": null,
+    "has_intermediate_output": false
+  },
+  "LTXICLoRALoaderModelOnly": {
+    "input": {
+      "required": {
+        "model": [
+          "MODEL",
+          {}
+        ],
+        "lora_name": [
+          "COMBO",
+          {
+            "multiselect": false,
+            "options": []
+          }
+        ],
+        "strength_model": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": -100.0,
+            "max": 100.0,
+            "step": 0.01
+          }
+        ]
+      }
+    },
+    "input_order": {
+      "required": [
+        "model",
+        "lora_name",
+        "strength_model"
+      ]
+    },
+    "is_input_list": false,
+    "output": [
+      "MODEL",
+      "FLOAT"
+    ],
+    "output_is_list": [
+      false,
+      false
+    ],
+    "output_name": [
+      "model",
+      "latent_downscale_factor"
+    ],
+    "output_tooltips": [
+      null,
+      null
+    ],
+    "output_matchtypes": null,
+    "name": "LTXICLoRALoaderModelOnly",
+    "display_name": "\ud83c\udd5b\ud83c\udd63\ud83c\udd67 IC-LoRA Loader Model Only",
+    "description": "Loads a LoRA model and extracts the latent_downscale_factor from the safetensors metadata.",
+    "python_module": "custom_nodes.mermaid_refine",
+    "category": "Lightricks/IC-LoRA",
+    "output_node": false,
+    "deprecated": false,
+    "experimental": false,
+    "dev_only": false,
+    "api_node": false,
+    "price_badge": null,
+    "search_aliases": null,
+    "essentials_category": null,
+    "has_intermediate_output": false
+  },
+  "LTXVTiledFusionSampler": {
+    "input": {
+      "required": {
+        "model": [
+          "MODEL",
+          {
+            "tooltip": "The diffusion model to use."
+          }
+        ],
+        "positive": [
+          "CONDITIONING",
+          {
+            "tooltip": "Positive conditioning from the IC-LoRA guide node. Must carry keyframe_idxs / guide_attention_entries so each tile can be cropped to the LoRA's trained window."
+          }
+        ],
+        "negative": [
+          "CONDITIONING",
+          {
+            "tooltip": "Negative conditioning from the IC-LoRA guide node."
+          }
+        ],
+        "latents": [
+          "LATENT",
+          {
+            "tooltip": "The latent RETURNED BY the IC-LoRA guide node (it carries appended guide frames plus the noise mask). A bare empty video latent will not work."
+          }
+        ],
+        "sigmas": [
+          "SIGMAS",
+          {
+            "tooltip": "Denoise schedule. Must be descending and end at 0. Fusion walks this list one step at a time."
+          }
+        ],
+        "sampler": [
+          "SAMPLER",
+          {
+            "tooltip": "From KSamplerSelect (same type as SamplerCustomAdvanced). Discrete step samplers only: euler, euler_ancestral, heun, dpm_2, \u2026 History methods (DPM++ 2M, LMS) lose their multi-step memory because fusion owns the loop. Adaptive samplers cannot fuse. Ancestral methods add independent noise per tile and can seam."
+          }
+        ],
+        "seed": [
+          "INT",
+          {
+            "default": 42,
+            "min": 0,
+            "max": 18446744073709551615,
+            "control_after_generate": true,
+            "tooltip": "Seed for the single shared noise field across all tiles."
+          }
+        ],
+        "cfg": [
+          "FLOAT",
+          {
+            "default": 1.0,
+            "min": 0.0,
+            "max": 20.0,
+            "step": 0.1,
+            "tooltip": "Classifier-free guidance scale. Distilled models typically use 1.0."
+          }
+        ],
+        "tile_width": [
+          "INT",
+          {
+            "default": 1024,
+            "min": 256,
+            "max": 4096,
+            "step": 32,
+            "tooltip": "Tile width in pixels, multiple of 32. Set this to the IC-LoRA's trained spatial window. Tiles smaller than the trained window make every tile see content at the wrong scale."
+          }
+        ],
+        "tile_height": [
+          "INT",
+          {
+            "default": 576,
+            "min": 256,
+            "max": 4096,
+            "step": 32,
+            "tooltip": "Tile height in pixels, multiple of 32. Match tile_width to the IC-LoRA's trained spatial window."
+          }
+        ],
+        "overlap_frac": [
+          "FLOAT",
+          {
+            "default": 0.5,
+            "min": 0.25,
+            "max": 0.75,
+            "step": 0.05,
+            "tooltip": "Fraction of each tile overlapping its neighbor. Stay at 0.5 or above: below that a periodic grid appears on structured content."
+          }
+        ],
+        "blend_var": [
+          "FLOAT",
+          {
+            "default": 0.05,
+            "min": 0.01,
+            "max": 0.2,
+            "step": 0.01,
+            "tooltip": "Variance of the Gaussian blend weights in the overlaps. Leave at 0.05 unless you are measuring seams."
+          }
+        ],
+        "grid_cycle": [
+          "INT",
+          {
+            "default": 1,
+            "min": 1,
+            "max": 4,
+            "tooltip": "Cycle shifted tile grids across steps. 1 = fixed grid (cheapest), 4 = thorough. Spatial only: cycling the temporal grid slides content in time."
+          }
+        ],
+        "tile_frames": [
+          "INT",
+          {
+            "default": 0,
+            "min": 0,
+            "max": 1000,
+            "step": 1,
+            "tooltip": "Temporal window in pixel frames (97 for LTX). 0 = one extent. Other values are snapped to 8n+1. >0 needs LTXAddVideoICLoRAGuide with use_streaming on and the SAME tile_frames: that re-encodes a fresh guide per window and writes the plan this sampler reads. A whole-clip guide cannot be sliced, and windowing is disabled if the plan is missing."
+          }
+        ]
+      },
+      "optional": {
+        "vae": [
+          "VAE",
+          {
+            "tooltip": "Used to read the model's temporal and spatial downscale factors. If omitted, they are taken from the diffusion model (LTX defaults: 8 frames and 32 pixels per latent cell)."
+          }
+        ],
+        "canvas_device": [
+          [
+            "auto",
+            "gpu",
+            "cpu"
+          ],
+          {
+            "default": "auto",
+            "tooltip": "Where to keep the full-canvas tensors and cached tile latents/noise/masks. auto = GPU if there is enough free memory, otherwise CPU. Processed conds stay on the GPU."
+          }
+        ]
+      }
+    },
+    "input_order": {
+      "required": [
+        "model",
+        "positive",
+        "negative",
+        "latents",
+        "sigmas",
+        "sampler",
+        "seed",
+        "cfg",
+        "tile_width",
+        "tile_height",
+        "overlap_frac",
+        "blend_var",
+        "grid_cycle",
+        "tile_frames"
+      ],
+      "optional": [
+        "vae",
+        "canvas_device"
+      ]
+    },
+    "is_input_list": false,
+    "output": [
+      "LATENT"
+    ],
+    "output_is_list": [
+      false
+    ],
+    "output_name": [
+      "output"
+    ],
+    "name": "LTXVTiledFusionSampler",
+    "display_name": "LTXVTiledFusionSampler",
+    "description": "",
+    "python_module": "custom_nodes.mermaid_refine",
+    "category": "sampling",
+    "output_node": false,
+    "has_intermediate_output": false,
+    "search_aliases": []
+  }
+}

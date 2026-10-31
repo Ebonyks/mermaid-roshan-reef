@@ -1,0 +1,55 @@
+{
+  "reason": "Preserve exact pre-hook-correction source, current100frames and observer hashes. All prior attempt5passes remain historical/excluded; only renewed exact-source results can be current.",
+  "files": [
+    {
+      "prior_path": "scripts/collection_system.gd",
+      "retained_path": "attempt5_source_and_fixtures/collection_system.gd.log",
+      "bytes": 19360,
+      "sha256": "db5fe1876a8e79074e84c54c12bfecb545b73b9ef9face71987c01dcc6a0c0e1"
+    },
+    {
+      "prior_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/capture_entry.gd",
+      "retained_path": "attempt5_source_and_fixtures/capture_entry.gd.log",
+      "bytes": 38183,
+      "sha256": "cb18a3e1d09e40968177983fb8c618e1378f477feab092202ff13a2115a0e223"
+    },
+    {
+      "prior_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/capture_saved.gd",
+      "retained_path": "attempt5_source_and_fixtures/capture_saved.gd.log",
+      "bytes": 45777,
+      "sha256": "28921d6b29fa357efad77d4bed84f5993c05430d6bb783dd47cb6dd3a3c26630"
+    },
+    {
+      "prior_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/capture_states.gd",
+      "retained_path": "attempt5_source_and_fixtures/capture_states.gd.log",
+      "bytes": 44404,
+      "sha256": "f49d2d9259ed517a11cfafaa86950cc634c7f51a8f1abbf2ac4d79d5c72ca3c0"
+    },
+    {
+      "prior_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/CANDIDATE_SOURCE_PIN.json",
+      "retained_path": "attempt5_source_and_fixtures/CANDIDATE_SOURCE_PIN.json",
+      "bytes": 814701,
+      "sha256": "fc655eed88055cee750399a67c238b6dde21f7705e8f46a856ebe78373dd6076"
+    },
+    {
+      "prior_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/COMBINED_ANALYZER.json",
+      "retained_path": "attempt5_source_and_fixtures/COMBINED_ANALYZER.json",
+      "bytes": 3298,
+      "sha256": "5046f61a6d1e2bdd307b952be2bcc2864ba197606c323c6a00572d92a3c7b912"
+    },
+    {
+      "prior_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r88_critter_book_runtime/CAPTURE_INDEX.json",
+      "retained_path": "attempt5_source_and_fixtures/CAPTURE_INDEX.json",
+      "bytes": 126126,
+      "sha256": "d4acea1dc0e2795647d058a3c789e069391ff2bb0fa7ee390b024bae4f807539"
+    },
+    {
+      "prior_path": "temp/REVIEW_CURRENT_DRAFT.json",
+      "retained_path": "attempt5_source_and_fixtures/REVIEW.json",
+      "bytes": 3804,
+      "sha256": "1cc632a7c20f386a4321a4795040923d440b133d17d07018abb8b979d12036a4"
+    }
+  ],
+  "failed_full_ci": "full_ci_attempt1/FULL_CI_RESULT.json",
+  "no_trusted_probe_changed": true
+}

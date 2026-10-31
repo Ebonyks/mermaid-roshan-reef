@@ -1,0 +1,18 @@
+{
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "REJECTED_STYLE",
+      "reason": "Gritty soil and insufficient illustrated contour; below scene consistency threshold.",
+      "prompt": "Use case: illustration-story. Asset type: one isolated transparent RGBA flowerpot sprite for Mermaid Roshan's preschool garden. A low, broad, rounded terracotta flowerpot in a polished painted 2D storybook style. Warm coral-orange clay, clean plum/warm-brown contour, aqua-lavender shadows, soft upper-left highlights, broad paint value bands and tiny restrained brush texture. Slight three-quarter front view, symmetric oval open rim with a clear dark brown soil surface, stout tapering bowl, small rounded foot. The soil ellipse is in the upper third; empty with no plant, seeds or flowers. Must read as a hollow clay pot, not an orange ball. On square canvas centered at x50%, pot from y18% to88%, width80%; soil surface center y32%. The design stays very legible at 150x115 screen pixels and fits the same family as richly painted pink watering can, pastel garden flowers and golden shell props. True transparent background, transparent safety margins on all sides. Whole object visible. No text, labels, drawn icons, jewels, scenic background, floor, separate shadow, white sticker border, halo or checkerboard.",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-e8768226-ca49-4ea3-bcc6-4dcc278051f6.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "attempt": 2,
+      "status": "CANDIDATE",
+      "id": "pot",
+      "prompt": "Use case: precise-object-edit. Image 1 is the edit target: keep this exact low round terracotta pot, its shape, pose, hollow elliptical opening, soil and foot. Images 2 and 3 define the 2D painted storybook finish. Repaint the pot as an ILLUSTRATED GAME SPRITE matching those references. Correct only the finish: clear confident deep-plum/warm-brown illustrated contour around the entire pot silhouette and inner rim, broad calm orange painted bands with aqua/lavender shadows, softly hand-painted highlights with visible grouped strokes. Make the soil just three broad rounded brown clumps with a few smooth pebbles; REMOVE the photorealistic gritty granular soil and fine surface texture. The pot must have the same clean painted contour language as the flower and magic brush, not look like a 3D render or photographed ceramic. Preserve all geometry, front view, and the empty soil space; no plant, no new ornaments. Square true-alpha transparent canvas, generous transparent margin, complete object. No backdrop, floor, shadow outside pot, glow, lettering, white sticker rim or checkerboard.",
+      "output_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134 as C:\\Users\\Peter\\.codex\\generated_images\\01a15244-7ed0-7003-bf06-d1b835f1e134\\exec-56fb7fc2-03fa-4134-a6a1-65f7197dd438.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    }
+  ]
+}

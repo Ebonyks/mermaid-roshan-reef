@@ -1,0 +1,54 @@
+{
+  "schema": "reef.fashion_skin_desktop_review/1",
+  "scope": "Agent desktop Mobile fixture review; seven native captures; setup/unlocks synthetic, dressing/selector actions real GUI input",
+  "files": [
+    {
+      "path": "daddy-wide-1920x900.png",
+      "sha256": "cc5bd0d2b9c032f635902275146fbeff1730f9b6d12620d28ee389a7789ff548",
+      "bytes": 1416535
+    },
+    {
+      "path": "daddy_mermaid-garden-1280x720.png",
+      "sha256": "321ef00b019fcbae4c46b2dab9146e34e6e3114680dd6c93c7b032d4299f9a04",
+      "bytes": 895841
+    },
+    {
+      "path": "daddy_mermaid-party-1280x720.png",
+      "sha256": "ec9ab03bb3f797be895713c1b32cc67dc3ddb625376390541351fc4e547a16cb",
+      "bytes": 907966
+    },
+    {
+      "path": "input_fixture.json",
+      "sha256": "284f4cb562483f2df1858b038ec8e1b25605d07e74bf4da4ebb931a01ecc484d",
+      "bytes": 2620
+    },
+    {
+      "path": "roshan-garden-1280x720.png",
+      "sha256": "06721bea8d8af37a7308fd2161b22225adc6eee3187580de5fb2880df194b096",
+      "bytes": 842573
+    },
+    {
+      "path": "roshan-party-1280x720.png",
+      "sha256": "67cf9b65594d0721375390d0b9789005ca13e8342fc2c70865df2284ca7683b2",
+      "bytes": 852475
+    },
+    {
+      "path": "rumi-garden-1280x720.png",
+      "sha256": "343c68996461b1eec48153e38986c0cce926598f90c5c6516407b6104024f674",
+      "bytes": 860463
+    },
+    {
+      "path": "rumi-party-1280x720.png",
+      "sha256": "5a9ca612ab2300e8692af1eb559001b1c441f82bc5dbeb62eac5e9e8fe257e29",
+      "bytes": 859467
+    }
+  ],
+  "inspection": "All seven 1280x720/1920x900 desktop Mobile captures inspected by Codex. Existing character identities, garment detail and painted paper/shell UI are readable in these fixture captures. This does not establish device, child, owner or all-pose motion acceptance.",
+  "device_child_owner": "PENDING",
+  "additional_agent_inspection": [
+    "Whole roshan_directional_party atlas",
+    "Whole roshan_swim_back_garden atlas",
+    "Whole rumi_eight_pose_runtime_party atlas"
+  ],
+  "inspection_limits": "Static atlas/capture inspection only; all exact transitions, loops, every variant pose, target-device, child and owner review remain pending."
+}

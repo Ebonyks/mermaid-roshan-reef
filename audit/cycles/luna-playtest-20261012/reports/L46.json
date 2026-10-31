@@ -1,0 +1,108 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L46",
+  "reviewer": {"agent_id": "/root/luna_playtest_coordinator/luna_l46", "model": "gpt-6-luna"},
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "New game existing progress safety",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L46/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "At the frozen baseline, the assigned helper invoked probe_start_menu_new_game once with Godot 4.7.2-stable in an isolated save profile. The probe instantiates the main scene, seeds generation 7, builds the start menu, sends pointer-shaped synthetic presses to its real controls, waits through disarm/hold timers, checks fresh-save generation and archive, then recreates main and checks the one-shot Day One route. Receipt is PASS, exit code 0, failures empty; probe log ends START_MENU_NEW_GAME|RESULT: PASS failures=0.",
+    "route_gaps": "Source shows display builds construct the menu after loading the save, but the probe manually skips intro/builds the menu and uses synthetic mouse events in headless mode. It does not prove physical touch, visible Mobile rendering, adult understanding of the archive/restore process, failure recovery under actual storage errors, or a complete fresh-save route beyond Day One entry. Probe reload_current_scene logs current_scene is null because the harness has no current scene, then explicitly recreates main to model reload."
+  },
+  "verdict": "PASS",
+  "timing": {
+    "source": "scripts/start_menu.gd:9-10,322-376; scripts/probe_start_menu_new_game.gd:21-35,57-98,106-124",
+    "gameplay_estimate": "Assuming the authored waits map directly to elapsed runtime, a saved-game reset needs the 1.5-second arm delay plus a 0.8-second continuous hold, about 2.3 seconds after opening confirmation, aside from discovery and input time. This is a code/probe estimate, not an observed adult or child interaction time. The 0.08-second confirmation tap and 0.32-second partial hold are probe timings. Helper wall time is not gameplay duration.",
+    "probe_windows": "Probe scene setup waits 2 frames, skips intro if active, waits 4 frames, builds menu, then waits 3 frames. NEW GAME uses a 0.08-second press; disarmed START NEW uses 0.08 seconds; the probe then waits 1.7 seconds for arming. It holds 0.32 seconds, releases and waits 1.1 seconds to test cancellation; next it holds 1.1 seconds to cover the 0.8-second action, releases, and waits 2 frames. Recreated main waits 2 frames before menu build and 4 afterward."
+  },
+  "tactile": {
+    "target_size": "The saved-game NEW GAME control is 340x118 logical base-canvas pixels (scripts/start_menu.gd:92-94); confirmation KEEP GAME and START NEW are each 300x118 (scripts/start_menu.gd:249-256). Probe does not measure phone-projected dimensions or real touch hit geometry.",
+    "press_response": "Synthetic pointer press opens the confirmation sheet. START NEW is disabled at first; during a held synthetic press the fill grows, and early release resets it and pulses the hint. A full hold installs the fresh save. Physical press-to-feedback latency was not measured.",
+    "drag_hold_release": "The destructive confirmation is hold-based: button_down starts a 0.8-second timer and button_up invalidates a premature hold. Probe confirms a 0.32-second partial hold is cancelled and a 1.1-second press passes the hold window. Dragging outside the button, pointer cancellation, and touch-up behavior on Android were not exercised.",
+    "ownership": "This is a single-button press path; the probe delivers one synthetic mouse pointer at a time. Multi-touch ownership and focus-loss while holding were not tested.",
+    "cancellation": "Keep Game hides confirmation and invalidates a hold; early button_up increments the serial and resets the bar. Focus loss, pause, scene interruption during the timer, and storage-write failure were not driven by this probe."
+  },
+  "play_appeal": {
+    "hypothesis": "A clear Keep Game choice, visible growing bar, and fresh Day One arrival could make a grown-up-initiated reset feel deliberate while protecting the existing adventure. For a non-reader child, the text-heavy warning and the required 2.3-second arm-plus-hold gesture may be difficult to interpret; the child should not have to decide whether to replace saved progress.",
+    "agency_variety_world_response_replay": "The old save remains archived and a completed reset begins with no finished Day One rooms. The probe proves these state changes but does not establish that the confirmation, hold cue, or adult archive recovery is understandable or inviting. Replay appeal is not applicable to the reset itself; the new adventure's later replay is outside this focus.",
+    "fun_score": null,
+    "concrete_appeal_test": "On the Lenovo Tab M11, test with a consenting adult operating the reset while the child observes, then test fresh-save startup separately with no adult pointing. Capture whether the adult sees the warning, locates Keep Game, maintains the hold without accidental cancellation, and can restore the archived generation using the documented grown-up process. For the child, observe whether Day One arrival is clear and whether play begins without reading or spoken adult instruction; record prompts and touch trace."
+  },
+  "play_sequence": [
+    {"beat": "Probe seeds an isolated save with schema_version 1, generation 7, day_one_active true and music true; it instantiates main, waits 2 frames, skips intro if active, waits 4 more frames, builds the menu and waits 3 frames.", "input": "No child input; harness writes the probe save and calls _build_start_menu().", "appeal_test": "This is controlled state setup, not proof that a child reaches the menu from a real cold boot."},
+    {"beat": "Probe checks that the saved adventure enables Continue and that the confirmation sheet, START NEW button, PRESS AND HOLD caption and fill bar exist.", "input": "No input during the checks; controls are found by node name.", "appeal_test": "On-device review should verify the visual hierarchy makes Continue and the risky reset distinct at phone size."},
+    {"beat": "A 0.08-second NEW GAME pointer press opens confirmation; probe checks START NEW begins disabled.", "input": "Synthetic mouse down, wait 0.08 seconds, mouse up, then 2 frames.", "appeal_test": "Verify an accidental quick entry into the confirmation cannot reset anything and that Keep Game is easy to find."},
+    {"beat": "A 0.08-second START NEW tap while disarmed is followed by a check that the sheet remains and generation is unchanged; then probe waits 1.7 seconds and checks that START NEW arms.", "input": "Synthetic short tap, then no input for the 1.5-second arm delay plus 0.2-second margin.", "appeal_test": "The disabled state prevents early action, but assess whether the delayed arming communicates itself without adult explanation."},
+    {"beat": "Probe holds START NEW for 0.32 seconds, records a partial bar, releases, waits 1.1 seconds, and verifies the save is unchanged, the archive absent, the bar empty and caption pulsed.", "input": "One synthetic pointer held 0.4 of the 0.8-second threshold, then lifted.", "appeal_test": "An interrupted hold should visibly cancel without punishing the adult or child; the probe checks state, not whether the pulse is noticeable."},
+    {"beat": "Probe holds START NEW for 1.1 seconds, releases and waits 2 frames; it checks a full bar, increased generation, archived generation 7, and the one-shot Day One route marker.", "input": "One synthetic pointer held longer than the 0.8-second threshold.", "appeal_test": "The adult should understand that this action starts over and that the old adventure is recoverable before committing."},
+    {"beat": "The headless harness recreates main on the same probe save, waits 2 frames, builds the menu, waits 4 frames, then checks Day One is active, the marker is consumed, generation is fresh, and no rooms are marked complete.", "input": "No touch; direct recreation simulates the deferred scene reload because the SceneTree harness has no current scene.", "appeal_test": "A real cold-start run should show the expected fresh arrival without a menu flash and preserve the archived prior save."}
+  ],
+  "observations": [
+    {
+      "title": "Quick reset attempts leave the saved adventure untouched",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/start_menu.gd:322-338", "scripts/start_menu.gd:352-387", "scripts/probe_start_menu_new_game.gd:57-81", "audit/cycles/luna-playtest-20261012/runtime/L46/attempt_1/probe.log:5-15"],
+      "rules": ["DL-AGE-03", "DL-UI-01", "DL-UI-05", "DL-SAVE-02", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "With a seeded save, open NEW GAME, tap the disabled START NEW for 0.08 seconds, wait the 1.5-second arm delay plus margin, hold 0.32 seconds, release, and wait past the 0.8-second threshold. The probe confirms generation remains unchanged and no before-New-Game archive appears.",
+      "child_impact": "A stray or lifted press does not erase the prior adventure; the confirmation can still require grown-up interpretation, which this machine run cannot assess.",
+      "proposed_repair": "No repair indicated by this result. Keep the cancellation guard and independently review whether the cue is legible on the phone.",
+      "acceptance_test": "On the target phone, try a quick tap, a press released before 0.8 seconds, a drag out of the target, and focus loss during the hold; verify each leaves the original generation and archive state unchanged and gives visible cancellation feedback."
+    },
+    {
+      "title": "A full hold preserves the prior generation and installs a fresh save",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/start_menu.gd:346-376", "scripts/save_state.gd:334-374", "scripts/probe_start_menu_new_game.gd:83-97", "audit/cycles/luna-playtest-20261012/runtime/L46/attempt_1/probe.log:16-21"],
+      "rules": ["DL-SAVE-01", "DL-SAVE-02", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Seed generation 7, wait until START NEW arms, hold for 1.1 seconds, then inspect the primary generation and the .before_new_game archive. Probe reports fresh generation greater than baseline and archive generation 7.",
+      "child_impact": "The reset does not simply discard the previous journey; an adult recovery copy remains. The probe does not prove archive retrieval is accessible or understood.",
+      "proposed_repair": "No code repair indicated by this run. Check the grown-up restore instructions and actual archive recovery flow separately before describing progress as readily recoverable.",
+      "acceptance_test": "On an isolated device profile, archive a known save, confirm the new generation starts clean, then use the documented grown-up restore flow and verify the exact prior generation and fields are recovered after app restart."
+    },
+    {
+      "title": "The confirmation explains preservation in text and gives a hold-progress cue",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/start_menu.gd:235-247", "scripts/start_menu.gd:249-267", "scripts/start_menu.gd:274-300", "scripts/probe_start_menu_new_game.gd:46-50", "audit/cycles/luna-playtest-20261012/runtime/L46/attempt_1/probe.log:3-7"],
+      "rules": ["DL-AGE-01", "DL-UI-03", "DL-QA-03", "DL-QA-05"],
+      "existing_findings": [],
+      "reproduction": "Inspect the saved-game confirmation construction: it includes the Keep Game action, the note that a saved adventure will be kept for a grown-up to restore, a PRESS AND HOLD caption, an animated hand pointer and a fill bar. Probe confirms caption/bar presence and receives a partial-width value while held.",
+      "child_impact": "The non-reader facing protection is conveyed largely through adult-directed text and a hold gesture; a child may not know what the warning means, while the runtime must ensure only a grown-up chooses reset.",
+      "proposed_repair": "No defect is established from code alone. Consider whether a distinct spoken grown-up cue or a stronger picture-first keep/archive representation is needed only after visual and owner review; do not make reading a prerequisite for child play.",
+      "acceptance_test": "Capture the confirmation at phone resolution and observe adult comprehension without coaching; separately verify the child can choose Keep Game or back away without needing to read the warning. Record whether the hand and bar communicate the hold." 
+    },
+    {
+      "title": "Fresh reset routes to Day One and clears completed-room state",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/start_menu.gd:8-9,346-350", "scripts/main.gd:1080-1089", "scripts/main.gd:3314-3347", "scripts/probe_start_menu_new_game.gd:98-124", "audit/cycles/luna-playtest-20261012/runtime/L46/attempt_1/probe.log:22-26"],
+      "rules": ["DL-AGE-06", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "After a successful full hold, recreate main with the same isolated fresh save and allow the start-menu builder to consume the one-shot marker. Probe confirms Day One active, menu inactive, marker removed, same fresh generation, and empty completed_rooms.",
+      "child_impact": "The reset has a deterministic new-adventure destination and does not mark rooms complete; playability beyond Day One is outside this probe.",
+      "proposed_repair": "No repair indicated within L46. Preserve the one-shot marker's consume-once behavior.",
+      "acceptance_test": "Run a real display-build cold boot after reset and confirm the menu does not flash back in, Day One starts once, and the archive remains available; then use separate normal-route reviews for later progression."
+    },
+    {
+      "title": "This review does not establish end-to-end fresh-save progression or phone interaction",
+      "classification": "COVERAGE_GAP",
+      "evidence": ["scripts/probe_start_menu_new_game.gd:21-35,57-98,106-124", "scripts/main.gd:1080-1089,3319-3347", "audit/cycles/luna-playtest-20261012/runtime/L46/attempt_1/receipt.json:20-38", "audit/cycles/luna-playtest-20261012/runtime/L46/attempt_1/probe.log:16-26", "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:973-994"],
+      "rules": ["DL-AGE-01", "DL-UI-01", "DL-UI-03", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-005"],
+      "reproduction": "The focused probe creates its save, calls _build_start_menu(), synthesizes mouse events, and after reset checks fresh Day One state only. MA-PLAY-005 separately documents a later Chapter Two normal-route blocker; L46 neither exercises nor confirms that defect. The receipt explicitly marks headless and rendered_mobile_acceptance false. The log contains the expected harness warning that reload_current_scene has no current_scene, followed by the probe's explicit recreated-main route checks and PASS.",
+      "child_impact": "A green reset transaction cannot tell whether the visible menu or reset flow is understandable on a phone, whether restore is practical, or whether a child can continue through the whole fresh-save game.",
+      "proposed_repair": "No production change is supported by this focused probe. Retain the stated downstream route finding as separate work and obtain actual-device/observed-child evidence for menu discoverability, touch and restore comprehension.",
+      "acceptance_test": "On the exact Android build, cold-start with an existing save, physically choose Keep Game, test short/lifted/full holds and app interruption, reset in an adult-supervised test profile, restore the archive, then begin a fresh-save routed playthrough. Record screen/touch evidence, adult/child prompts, and later route checkpoints without treating this scripted probe as full-game acceptance."
+    }
+  ],
+  "strengths": [
+    {"claim": "A confirmation and arming delay separate the reset request from the destructive hold; early release invalidates the timer and resets the visible bar.", "evidence": ["scripts/start_menu.gd:322-338,352-387", "scripts/probe_start_menu_new_game.gd:57-81", "audit/cycles/luna-playtest-20261012/runtime/L46/attempt_1/probe.log:5-15"]},
+    {"claim": "On a full hold the old save generation is kept in its dedicated archive while a higher-generation fresh document is installed.", "evidence": ["scripts/save_state.gd:334-374", "scripts/probe_start_menu_new_game.gd:83-97", "audit/cycles/luna-playtest-20261012/runtime/L46/attempt_1/probe.log:16-21"]},
+    {"claim": "The reset marker launches one fresh Day One route and is consumed on the modeled reload; no rooms begin completed.", "evidence": ["scripts/start_menu.gd:8,346-350", "scripts/main.gd:3319-3347", "scripts/probe_start_menu_new_game.gd:106-124", "audit/cycles/luna-playtest-20261012/runtime/L46/attempt_1/probe.log:22-26"]}
+  ],
+  "acceptance_gaps": [
+    "The only runtime evidence is one headless INTERNAL_PROBE invocation with an isolated save; the harness's null-current-scene reload warning is followed by explicit main recreation, so display scene reload itself was modeled rather than observed.",
+    "No Mobile-rendered capture, Android physical touch trace, target-device latency/frame-pacing test, drag/focus-loss interruption, or storage-failure scenario was run.",
+    "No adult archive-restore usability, child comprehension/discoverability/comfort/appeal, complete fresh-save progression, or owner acceptance was observed. MA-PLAY-005 is a separate downstream open finding and was not exercised by L46."
+  ]
+}

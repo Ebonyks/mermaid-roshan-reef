@@ -1,0 +1,161 @@
+{
+  "id": "main-gd-dead-code-and-storage-plan-20260930",
+  "scope": "Owner-requested removal of audited unreachable main.gd code, obsolete loss-message fallback and unused declarations; preservation of save keys, null/cache/RNG behavior, live approved-art fallbacks and probe APIs. Read-only storage/document cleanup planning accompanies the code repair; no historical evidence, protected assets or other worktrees are deleted. Refresh the exact shrink-only medium inventory for deleted API references, preserving its immutable initial ceiling.",
+  "baseline": "b65c21fdddd79f272a6854f241faa1441abe6616",
+  "rules": [
+    "DL-AUTH-02",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CODE-01",
+    "DL-CODE-03",
+    "DL-CODE-06",
+    "DL-CODE-09",
+    "DL-MED-04",
+    "DL-MED-08",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-AGE-03",
+    "DL-TYPE-10",
+    "DL-MED-01",
+    "DL-QA-09",
+    "DL-MED-03",
+    "DL-MED-09"
+  ],
+  "findings": [
+    "MA-CODE-001",
+    "MA-CODE-005",
+    "MA-TYPE-006",
+    "MA-2D-002"
+  ],
+  "files": [
+    "scripts/main.gd",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/storage_cleanup_plan_2026-09-30.json",
+    "tests/test_audit_typography.py",
+    "tools/game_2d_migration_manifest.json"
+  ],
+  "baseline_evidence": {
+    "main_lines": 9817,
+    "main_functions": 499,
+    "source_sha256": "5393c6e82628e66b58dd620c0c6a91b04dbd05052a4be53a207109404f500cc3",
+    "probe_suite": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36807014650",
+    "probe_suite_result": "PASS at exact baseline b65c21fdddd79f272a6854f241faa1441abe6616"
+  },
+  "candidate_metrics": {
+    "main_lines": 9153,
+    "main_functions": 476,
+    "net_lines_removed": 664
+  },
+  "preserved_contracts": [
+    "All serialized save keys and existing awards remain unchanged.",
+    "sleep_t/hug_layer and their live consumers remain.",
+    "Shop turtle rig, developer lab and castle physics remain.",
+    "Starfish/spiralshell and layered craft cards remain.",
+    "Seagrass consumes the same randi/randf draws before null return.",
+    "_aq retains its null-cache side effect.",
+    "Every current _end_game caller passes true; signature/reward/boss lifecycle remain, obsolete non-win voice selection is gone.",
+    "No artwork, voice, protected original, hash-recorded handoff or archived finding history is removed.",
+    "Typography inventory is tightened from 37 to 36 after deleting the unreachable _sleep_z spatial-label. The immutable 45-node baseline and regression controls are unchanged; no runtime probe expectation is modified."
+  ],
+  "validation": [
+    {
+      "command": "python -B -m gdtoolkit.parser scripts/main.gd",
+      "result": "PASS",
+      "evidence": "Final LF source SHA-256 7048b66b560f1e712c764133c66e00d9ebb48621df7255bd2f6f32d746f17e83, parser exit 0."
+    },
+    {
+      "command": "python -B tools/lint_inference.py scripts/main.gd",
+      "result": "PASS",
+      "evidence": "Final source: no inference lint errors, exit 0."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "594 inventory / 594 ledger / 58 active / 60 records; ALL OK on staged seven-file diff."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "ALL OK at exact baseline b65c21fdddd79f272a6854f241faa1441abe6616 on staged seven-file diff."
+    },
+    {
+      "command": "Godot 4.7.2 scripts/ci.sh static/import prefix + unchanged import/regression/trusted-probe tail after manifest refresh",
+      "result": "PASS",
+      "evidence": "All static/art/audio checks and initial import completed. The first full run stopped at the correctly failing stale medium inventory. Guarded refresh reduced eleven token counts; continuation preserves the exact original trusted tail (SHA-256 f41da84077ffdb5502dd1b8f22840144eb9e35029e6121aa49e55b011c3f1b32), including isolation, timeouts and failure detection. All 82/82 trusted probe processes complete with exit 0 and no gate-detected probe failure. Continuation exit 0; source SHA unchanged. This is a resumed complete local gate, not a claimed successful exit for the earlier failed attempts."
+    },
+    {
+      "command": "GitHub Probe Suite at exact candidate SHA",
+      "result": "PENDING",
+      "evidence": "Topic push pending; no integration until green."
+    },
+    {
+      "command": "python -B -m unittest tests.test_audit_typography tests.test_type_c_layout",
+      "result": "PASS",
+      "evidence": "Full local gate passes the focused typography/layout tests with current 36/11 inventory and unchanged sealed 45 baseline. Initial stale exact-count failure remains recorded; no gameplay probe expectation changed."
+    },
+    {
+      "command": "Godot 4.7.2-stable official.ed1daf0bf --headless --path . --check-only --script scripts/main.gd",
+      "result": "PASS",
+      "evidence": "Post-import final-source analyzer exit 0; transcript checked for SCRIPT ERROR, Parse Error, Compile Error and ERROR. The first pre-import attempt failed missing imported resources and is not claimed as a pass."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --refresh-manifest",
+      "result": "PASS",
+      "evidence": "Guarded refresh reports exact debt inventory shrank; immutable initial ceiling preserved byte-for-byte. Only metadata and eleven main.gd token counts changed; no file/category ceiling growth."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "Regression control completed with the tool verdict NO_REGRESSION (not strict satisfaction). Resumed gate is exact at 0 model, 52 production, 61 probe, one scene and one configuration. Strict state remains UNSATISFIED."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_game_2d; python -B tools/audit_game_2d.py --stress",
+      "result": "PASS",
+      "evidence": "75 tests in 88.369 seconds; all 14 falsification/control assertions ALL OK. This verifies the inventory controls only, not strict medium satisfaction."
+    }
+  ],
+  "acceptance_gaps": "Local source, analyzer, static/art/audio, import, exact shrinking inventory and every trusted probe have passed. Exact-head GitHub CI is required after push before integration. Existing visual/device/child/owner, strict-zero 2D and release acceptance remain separate and open; this code-only repair adds no new child-facing behavior or acceptance checkpoint. MA-CODE-001 remains open above 2,500. Storage measurements are dated logical-byte estimates, not deletion savings.",
+  "source_evidence": {
+    "main_lf_sha256": "7048b66b560f1e712c764133c66e00d9ebb48621df7255bd2f6f32d746f17e83",
+    "removed_functions": [
+      "_apply_mat",
+      "_art35_prop",
+      "_art35_static_mesh",
+      "_begin_sleep",
+      "_bellgame_echo",
+      "_bellgame_new_round",
+      "_cel_outline",
+      "_cutout_tex",
+      "_dress_nature",
+      "_end_hug_cutscene",
+      "_end_sleep",
+      "_fail_line",
+      "_find_skel",
+      "_iwall",
+      "_mg_noop_ref",
+      "_panel_glass",
+      "_play_hug_cutscene",
+      "_ring_bell",
+      "_sleep_z",
+      "_start_bellgame",
+      "_texture_mats",
+      "_tick_bellgame",
+      "_tick_sleep"
+    ],
+    "remaining_tracked_script_scene_references": 0,
+    "save_state_unchanged": true,
+    "shared_fields_and_rng_order_preserved": true,
+    "trusted_probes_completed": 82,
+    "local_completion_utc": "2026-10-01T04:43:00.180914+00:00",
+    "log_sha256": {
+      "full-local-ci-v2.log": "ee221f49c23dc90c27f2292bfa3803f8bd7dfa14986fa3e8668badb4414efbbd",
+      "local-ci-runtime.log": "efdd327003c41748726da09d5ef6fb3069742ae5721b464bfeebdb11c991f976",
+      "main-analyzer-v2.log": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "game2d-refresh.log": "3a0ced012906e7e045c38b184f13ecdd39294295b107e96b13cd9f8c2d8a1c0e",
+      "source-contract-check.json": "1b097c51ba2091c5271a5202f660f82f1a9377d3b87eabb39b2ad5d92c59a36e"
+    }
+  }
+}

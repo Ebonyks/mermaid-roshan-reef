@@ -25,14 +25,14 @@ func _init(content: EncounterProfile2D = null) -> void:
 
 
 func begin_phase(phase: int, player_position: Vector2,
-		boss_position: Vector2, arena_radius: float) -> void:
+		boss_position: Vector2, arena_radius: float, first_step: int = 0) -> void:
 	if profile == null or not profile.is_valid():
 		active = false
 		geometry = {}
 		return
 	phase_index = clampi(phase, 0, profile.phases.size() - 1)
 	arena_limit = maxf(0.0, arena_radius * cos(PI / 8.0) - 2.6)
-	step_index = 0
+	step_index = clampi(first_step, 0, step_count() - 1)
 	_begin_step(player_position, boss_position, arena_radius)
 	geometry["safe_point"] = _safe_point()
 

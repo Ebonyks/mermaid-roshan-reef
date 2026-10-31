@@ -99,9 +99,12 @@ func _init() -> void:
 
 	var brawl_audio := CountingAudioDirector.new(main)
 	main._audio_dir = brawl_audio
+	await _check_neutral_objective_guides(main, brawl_audio)
 	await _check_melody_message_cue(main, brawl_audio)
 	await _check_brawl_message_cues(main, brawl_audio)
 	_check_dialogue_speech_lifecycle(main)
+
+	_probe_chapter_two_playback(main)
 
 	print("VOICE|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit(1 if bad > 0 else 0)
@@ -321,3 +324,134 @@ func _check(label: String, ok: bool, detail: String = "") -> void:
 	print("VOICE|%s: %s|%s" % [label, "OK" if ok else "FAIL", detail])
 	if not ok:
 		bad += 1
+
+
+func _probe_chapter_two_playback(main: ReefMain) -> void:
+	var prior_game: String = main.game
+	var cues: Array[String] = []
+	for entry: Dictionary in ChapterTwoPartyPlan.LIVE_CAREERS:
+		var career: String = String(entry["career"]).replace("_", "")
+		for phase: Dictionary in ChapterTwoCareerSceneAdapter.resolve(career).get("phases", []):
+			cues.append(String(phase["vo"]))
+		cues.append("chapter2_route_" + String(entry["career"]))
+	cues.append("chapter2_party_ready")
+	cues.append("chapter2_ember_clue")
+	var audio: AudioDirector = main._audio_ref()
+	for cue: String in cues:
+		var before: int = main.voice_i
+		audio.chapter_two_prompt(cue)
+		_check_exact_cue(main, cue, before)
+		_check("one speech channel after changed objective " + cue,
+			_playing_pool_count(main) == 1 and audio._required_voice_queue.is_empty())
+	var before_missing: int = main.voice_i
+	audio.chapter_two_prompt("chapter2_missing_negative_fixture")
+	_check("missing exact Day Two cue is silent without generic fallback",
+		main.voice_i == before_missing and _playing_pool_count(main) == 0)
+	main.clear_dialogue()
+	# Entering a career supersedes its old required route instruction. The
+	# exact existing activity recording must take the single speech channel.
+	main.game = "opera"
+	audio.chapter_two_prompt("chapter2_route_farmer")
+	var before_activity: int = main.voice_i
+	audio.show_msg("Roshan", "Turn the wrench in big circles!",
+		"op_racer_tune_up_stage", 0.0)
+	_check_exact_cue(main, "op_racer_tune_up_stage", before_activity)
+	_check("new Opera objective replaces required Day Two route without overlap",
+		_playing_pool_count(main) == 1 and audio._active_required_key.is_empty()
+		and audio._required_voice_queue.is_empty()
+		and main.hud_msg.text.is_empty() and not main.hud_msg.visible)
+	main.clear_dialogue()
+	audio.chapter_two_prompt("chapter2_route_farmer")
+	var before_generic: int = main.voice_i
+	for reaction: String in ["talk", "win", "pearl"]:
+		audio.show_msg("Roshan", "A generic reaction", reaction, 0.0)
+		_check("generic Opera %s cannot replace required Day Two instruction" % reaction,
+			main.voice_i == before_generic and _playing_pool_count(main) == 1
+			and audio._active_required_key == "roshan_chapter2_route_farmer")
+	main.clear_dialogue()
+	main.game = prior_game
+
+
+func _check_neutral_objective_guides(main: ReefMain, audio: CountingAudioDirector) -> void:
+	var expected := {
+		"seek_tap_wiggly_tree": "897f6b3ed74298bad03088284aa4780a6cb7cdfc64ddedf56e2505158cb321ac",
+		"dolls_catch_three": "4a37bcb6189a5df94fc31d2e659af4b50c7391aeb6d73ed8cd90a7aa36832a02",
+	}
+	for event: String in expected:
+		var path := audio._voice_path("guide", event, false)
+		_check("neutral Guide exact path/hash " + event,
+			path == "res://assets/audio/objective_guides/guide_" + event + ".ogg"
+			and FileAccess.get_sha256(path) == String(expected[event]))
+	_check("neutral Guide cannot fall back to any generic speaker",
+		audio._voice_path("guide", "unknown", true).is_empty())
+	main.clear_dialogue()
+	var missing_before := main.voice_i
+	audio._say("guide", "unknown")
+	_check("unknown Guide request cannot play a generic yay",
+		main.voice_i == missing_before and not audio._has_active_speech())
+	_check("Faron exact missing key stays missing and protected policy intact",
+		audio._voice_path("faron", "catch_three", false).is_empty()
+		and audio._voice_path("faron", "op_nursery_catch", false)
+			== "res://assets/audio/voices/faron_op_nursery_catch.ogg")
+	main.clear_dialogue()
+	main.game = "seek"
+	var before := main.voice_i
+	audio.objective_guide("seek_tap_wiggly_tree", "evie")
+	_check("Guide owns the required objective before the family greeting",
+		main.voice_i == before + 1
+		and audio._active_required_key == "guide_seek_tap_wiggly_tree"
+		and audio._required_voice_queue.size() == 1
+		and String(audio._required_voice_queue[0].get("speaker", "")) == "evie")
+	audio.objective_guide("seek_tap_wiggly_tree", "evie")
+	main._say("roshan", "talk")
+	main._play_success_yay()
+	_check("repeat requests/reactions do not restart or mask the objective",
+		main.voice_i == before + 1 and audio._required_voice_queue.size() == 1)
+	# Exercise the real FIFO transition without an elapsed-time audio guess.
+	for player_value: Variant in main.voice_pool:
+		(player_value as AudioStreamPlayer).stop()
+	main.voice.stop()
+	audio.tick_voice()
+	_check("existing Evie greeting follows through the single voice FIFO",
+		main.voice_i == before + 2 and audio._required_voice_queue.is_empty()
+		and audio._active_speaker == "evie")
+	var greeting_voice_i := main.voice_i
+	audio.objective_guide("seek_tap_wiggly_tree", "", 4.0)
+	_check("finished initial Guide still owns the four-second repeat cooldown",
+		main.said_cool.has("guide_seek_tap_wiggly_tree")
+		and main.voice_i == greeting_voice_i and audio._active_speaker == "evie")
+	audio.clear_objective_guide("seek")
+	_check("leaving clears owned greeting and queued objective speech",
+		not audio._has_active_speech() and audio._required_voice_queue.is_empty())
+	main.game = "dolls"
+	before = main.voice_i
+	audio.objective_guide("dolls_catch_three", "faron")
+	main._say("faron", "miss")
+	_check("Dolls exact three instruction is not replaced by a family reaction",
+		main.voice_i == before + 1 and audio._active_required_key == "guide_dolls_catch_three")
+	audio.clear_objective_guide("dolls")
+	_check("Dolls teardown clears instruction and pending family intro",
+		not audio._has_active_speech() and audio._required_voice_queue.is_empty())
+	main.game = ""
+	before = main.voice_i
+	audio.objective_guide("dolls_catch_three", "faron")
+	_check("out-of-context Guide cannot drain into another location", main.voice_i == before)
+	audio._say("guide", "dolls_catch_three")
+	_check("direct Guide request also enforces its catalog mode", main.voice_i == before)
+	main.clear_dialogue()
+	main.game = "seek"
+	audio.objective_guide("seek_tap_wiggly_tree", "evie")
+	audio._required_voice_queue.append({"speaker": "guide", "event": "dolls_catch_three"})
+	main.game = "dolls"
+	before = main.voice_i
+	for player_value: Variant in main.voice_pool:
+		(player_value as AudioStreamPlayer).stop()
+	main.voice.stop()
+	audio.tick_voice()
+	_check("discarding a stale Guide greeting does not strand the next valid cue",
+		main.voice_i == before + 1 and audio._required_voice_queue.is_empty()
+		and audio._active_required_key == "guide_dolls_catch_three")
+	audio.clear_objective_guide("dolls")
+	main.game = ""
+	main.clear_dialogue()
+	await process_frame

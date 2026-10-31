@@ -1,0 +1,35 @@
+{
+  "machine": "capture_current03_receipt.json PASS238GUI/0source drift/actualsaveunchanged",
+  "visual_review_scope": "Selected ready views inspected directly, not all238frames yet; no final4.5scores assigned.",
+  "failures": [
+    {
+      "item": "Farmer bed/holes",
+      "minimum_observed_dimension": "contact/context",
+      "score": 3.5,
+      "evidence": "review_current03/farmer-0-plant-ready-1280-026.png",
+      "observation": "Uppermost hole and left hole touch/overlap woodrim. Uniformly enlarge/reposition whole empty bed beneath unchanged five hole coordinates."
+    },
+    {
+      "item": "Farmer HERD",
+      "minimum_observed_dimension": "readability/purpose",
+      "score": 3.5,
+      "evidence": "review_current03/farmer-2-herd-ready-1280-048.png",
+      "observation": "Three repeated reclining pig pictures become tiny; generate two compact whole-group authored stepkeys with larger readable faces within existing footprint, no hitmapchange."
+    },
+    {
+      "item": "Painter clouds",
+      "minimum_observed_dimension": "composition/context",
+      "score": 3.5,
+      "evidence": "review_current03/painter-0-paint-ready-1280-107.png",
+      "observation": "Repeated60-cell puff drawing creates a regular dense pattern. Reuse six already-painted puffs once each with irregular overlap; actual existingcell coverage drives their fade, retain10x6requiredtouch logic."
+    },
+    {
+      "item": "Doctor FIND",
+      "minimum_observed_dimension": "contour/finish/context",
+      "score": 3.5,
+      "evidence": "review_current03/doctor-1-find-ready-1280-009.png; original widget_lanes_doctor_lit.png",
+      "observation": "Ghosted patients, pale circles and torn-alpha cushion edges do not match the new whole patient family. Three sourcebound clean expression keys; no transparent duplicate aura."
+    }
+  ],
+  "limits": "Existing performanceHUD flat card and peripheral blurs remain P8/room-resolution issues. No global/master/native2K/device/child/owner pass."
+}

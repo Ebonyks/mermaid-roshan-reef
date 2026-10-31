@@ -1,0 +1,211 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L31",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l31",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Geologist tactile work and state truth",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L31/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The single authorized run used Godot 4.7.2-stable, an isolated save profile, and unchanged probe_opera_2d.gd; its log reports the Geologist assertions from hotspot invitation through approach/open, full-canvas surface, one-finger mechanics, phase completion, and teardown as OK (runtime/L31/attempt_1/probe.log:1255-1304). The focused mechanics section directly instantiates OperaGeologySurface, calls its _gui_input wrappers, and uses helper setup, so this remains INTERNAL_PROBE evidence (scripts/probe_opera_2d.gd:2550-2575,2587-2600,2712-2752).",
+    "route_gaps": "This does not establish a fresh-save story route to the free-play Geologist career. MA-PLAY-005 remains CONFIRMED_OPEN and records that current story setup rejects its phase config and blocks normal progression to the free-play career cards (audit/findings/ACTIVE_FINDINGS_2026-08-13.md:973-994). The headless receipt explicitly says rendered_mobile_acceptance=false; no physical phone, child, voice audibility, or owner session occurred. The code fixture's hotspot route assertions are useful local route mechanics evidence, not a child-visible fresh-save playthrough.",
+    "ordinary_entry": "Career phase contracts are RIVER, FOSSIL, PAN, and GEODE (scripts/opera_career_world_2d.gd:349-353); the source builds OperaGeologySurface for the Geologist and connects progress (scripts/opera_career_world_2d.gd:1301-1303). Normal task opening is through the room object and Roshan's approach/open sequence, per probe assertions at runtime/L31/attempt_1/probe.log:1255-1289; the exact visible fresh-save route remains blocked/unproven under MA-PLAY-005."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "source_constants": [
+      {
+        "value": "River path is a 9 by 5 grid with 88 by 76 pixel cells and a 46 pixel brush radius; any wet connected route from spring to finish completes, not only the suggested bent path.",
+        "evidence": "scripts/opera_geology_surface.gd:11-22,399-442"
+      },
+      {
+        "value": "Fossil brushing uses an 8 by 5 grid and advances at 26 cleared cells; three pieces snap when released within 92 pixels of their target. Pan counts nine direction reversals after a same-direction run of at least 46 pixels.",
+        "evidence": "scripts/opera_geology_surface.gd:23-31,445-464,466-475,477-500"
+      },
+      {
+        "value": "Geode requires five seam taps, each with a 56 pixel hit radius and press-to-release movement no greater than 34 pixels, then a 120 pixel rightward pull.",
+        "evidence": "scripts/opera_geology_surface.gd:33-39,329-335,502-520"
+      },
+      {
+        "value": "The scripted probe simulates 30 seconds of zero-input per mode, then prescribed gestures; its _process simulation uses 0.25 second increments. These are test inputs, not measured child pacing.",
+        "evidence": "scripts/probe_opera_2d.gd:2577-2585,2701-2708"
+      }
+    ],
+    "estimated_activity_duration": null,
+    "assumptions": "No child activity duration is estimated. The helper's 57.187 second wall time is probe execution only. The demo animation repeats on a 2.4 second code cycle (scripts/opera_geology_surface.gd:943-976), but speech duration, travel, rendered response latency and child pace were not measured."
+  },
+  "tactile": {
+    "target_size": "The full-canvas surface is 1280x720 in the probe and its work area is Rect2(330,130,860,490) (scripts/opera_geology_surface.gd:11,2570-2573). Pan interaction accepts a grown work rect; fossil pieces use 130x234 rectangles grown 24 pixels; geode seam hit radius is 56 pixels (scripts/opera_geology_surface.gd:29-35,280-288,466-475,515-520). The geode's visible seam dot is radius 22 and halo radius 32 (lines 824-834), smaller than its code hit radius; actual projected size and child accuracy need Mobile/device review. The river path points are on an 88x76 cell grid with a 46 pixel brush radius (lines 11-16).",
+    "press_response": "Accepted touches call _press immediately; changed river/fossil/pan/geode material updates fill, a positive feedback anchor, a 0.24 second feedback timer, and redraw (scripts/opera_geology_surface.gd:264-289,399-414,445-464,477-500,502-512,528-537). Probe assertions establish state transitions, not visible response within two rendered frames.",
+    "drag_hold_release": "River and fossil brush interpolate the path between drag events; fossil assembly carries a selected piece and snaps on release within 92 pixels. Pan registers direction changes after a 46 pixel run. Geode tap-seam commits on release if the candidate stayed within 34 pixels; once all five are done, dragging the right half opens it (scripts/opera_geology_surface.gd:292-344,399-464,477-512).",
+    "ownership": "Screen touch start claims touch_owner; drag and release are accepted only for that index, and a second press is ignored while an owner exists (scripts/opera_geology_surface.gd:347-360). Probe verifies a second finger cannot advance or steal a river stroke, then cancellation resets owner and held state (scripts/probe_opera_2d.gd:2587-2599).",
+    "cancellation": "Focus loss or app pause calls cancel_input; it clears held ownership, fossil drag, pan run and geode candidate/pull state without progressing the task (scripts/opera_geology_surface.gd:225-237,379-383). Probe covers explicit cancellation for a held river stroke but not a real pause/focus-loss event (scripts/probe_opera_2d.gd:2594-2599)."
+  },
+  "play_appeal": {
+    "hypothesis": "The four verbs offer useful tactile variety: connect water, reveal and assemble a fossil, swish a pan, and pry open a crystal. The river accepting any connected spring-to-finish path gives room for a child's own route; the changing material and crystal reveal could invite another phase. The repeated generic voice event on RIVER/PAN/GEODE may make it less clear what each new touch should do. These are source-based hypotheses, not observed child reactions.",
+    "agency_test": "During a normal routed session, leave a small disconnected wet patch and observe whether the child joins it to the spring-to-finish stream without losing progress; then offer the geode's visible seam markers and observe whether they infer tap-then-pull from voice/demo alone. After completion, provide no adult suggestion and record whether they choose to revisit a mode or leave."
+  },
+  "play_sequence": [
+    {
+      "beat": "Reach the Geologist work object",
+      "input": "From an independently verified ordinary Geologist route, tap the lit object for the current phase once and lift; do not tap the work surface before Roshan arrives.",
+      "wait": "Wait for the authored approach and object opening to finish; no route duration was measured by this review.",
+      "expected": "The room invitation opens the matching full-canvas material workspace, with the demo finger showing the current verb; the probe asserts hotspot invitation, approach/open, handoff and workspace (runtime/L31/attempt_1/probe.log:1255-1290).",
+      "grounding": "scripts/opera_career_world_2d.gd:1301-1303,2799-2809; scripts/opera_geology_surface.gd:111-125,627-629; runtime/L31/attempt_1/probe.log:1255-1290"
+    },
+    {
+      "beat": "Join the spring to the river finish",
+      "input": "Press the spring at river_path_point(0), drag through the suggested path points in order through index 12, then lift at the finish. For an agency check, leave one disconnected wet cell before making the connected route.",
+      "wait": "Watch the channel as each drag lands; the source has no fixed river timer. The probe's wait is 30 simulated idle seconds only for the separate passive leg, not this route.",
+      "expected": "Touched cells turn wet, only cells connected to the spring flow, and any connected spring-to-finish path completes even if it takes a straighter route than the demo.",
+      "grounding": "scripts/opera_geology_surface.gd:17-22,399-442,631-657; scripts/probe_opera_2d.gd:2577-2585,2601-2626,2712-2719"
+    },
+    {
+      "beat": "Brush and assemble the fossil",
+      "input": "Press inside the fossil grid, sweep back and forth across its five rows with one continuous finger, and lift; once three pieces appear, drag each from fossil_piece_home(0..2) to the matching fossil_piece_target(0..2) and lift each there.",
+      "wait": "Keep brushing until 26 of 40 cells are clear, then wait for the phase to advance after all three release snaps; no fixed duration is established.",
+      "expected": "Dust clears under the brush and fossil pieces remain recoverable until snapped; each piece accepts release within 92 pixels of its target.",
+      "grounding": "scripts/opera_geology_surface.gd:23-29,445-475; scripts/probe_opera_2d.gd:2665-2672,2720-2735"
+    },
+    {
+      "beat": "Swish the pan",
+      "input": "Press the pan center, swipe at least 46 pixels to one side, reverse at least 46 pixels, and continue alternating direction until nine reversals register; then lift.",
+      "wait": "Observe mineral finds appear as wash progress changes; no timed hold is required by the source.",
+      "expected": "Pan movement follows the finger, directional reversals wash the pan and reveal up to three minerals, and the task completes on reversal nine.",
+      "grounding": "scripts/opera_geology_surface.gd:30-31,477-500,762-795; scripts/probe_opera_2d.gd:2736-2742"
+    },
+    {
+      "beat": "Tap five geode seams, then pull",
+      "input": "Tap and lift at each of the five geode_seam_spot indices 0 through 4; after the fifth, press the right half center and drag 120 pixels right, then lift.",
+      "wait": "After each seam, check that its marker changes; after the last, watch the split and crystals appear while pulling. There is no fixed timer.",
+      "expected": "Seam taps are individually recorded; only then can the right half move. The pull opens the geode and completes at 120 pixels.",
+      "grounding": "scripts/opera_geology_surface.gd:33-39,164-171,329-344,502-525,797-834; scripts/probe_opera_2d.gd:2743-2752"
+    },
+    {
+      "beat": "Check state recovery and replay appeal",
+      "input": "Interrupt a partial river stroke by lifting, then re-enter the same phase and confirm the wet section remains; after all four work verbs and the stage response, pause and let the child decide whether to repeat a favorite.",
+      "wait": "Wait for save/re-entry and any completion flourish to settle; do not impose a session-duration target from the probe.",
+      "expected": "Released partial material restores without a held pointer, malformed checkpoint data gives no phantom progress, and the final replay choice is left to the child.",
+      "grounding": "scripts/opera_geology_surface.gd:173-221,583-610; scripts/probe_opera_2d.gd:2631-2643,2645-2679,2701-2709; design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:341-347"
+    }
+  ],
+  "observations": [
+    {
+      "title": "A connected channel, rather than tracing the exact demo, is the truthful river goal",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/opera_geology_surface.gd:399-442 (wet cells are painted by stroke; completion checks connectivity from first to last path cell)",
+        "scripts/opera_geology_surface.gd:631-657 (connected cells render flowing cyan; disconnected wet cells retain a different color)",
+        "scripts/probe_opera_2d.gd:2601-2626 (isolated excavation stays incomplete; straight connected channel succeeds although suggested route turns)",
+        "audit/cycles/luna-playtest-20261012/runtime/L31/attempt_1/probe.log:1289-1302 (focused completion/room assertions all OK)"
+      ],
+      "rules": ["DL-AGE-04", "DL-AGE-05", "DL-INT-02", "DL-INT-05", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The focused probe wets cell (4,0), confirms it remains disconnected and below completion, then resets and strokes straight from grid cell (0,2) to (8,2); the connected river completes. Both assertions pass in the retained L31 log.",
+      "child_impact": "A child can experiment with a different route without being forced to copy a precise winding gesture, while a detached hole does not falsely claim water reached the finish.",
+      "proposed_repair": "No repair indicated by this evidence. Preserve the connected-path rule and its distinction between isolated and flowing material.",
+      "acceptance_test": "On the rendered Mobile build, independently let a child make one disconnected dig and then a non-demo connected shortcut; confirm the dry/flowing visual distinction is noticed and only the connected spring-to-finish path completes."
+    },
+    {
+      "title": "Fossil brushing and assembly use distinct, recoverable one-finger actions",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_geology_surface.gd:23-29,445-464 (40 brush cells; stage changes at 26 cleared cells)",
+        "scripts/opera_geology_surface.gd:154-161,316-328,466-475 (three home/target pieces, selection hit rect and forgiving release snap)",
+        "scripts/probe_opera_2d.gd:2720-2735 (single brush sweep followed by three one-finger home-to-target drags)"
+      ],
+      "rules": ["DL-AGE-02", "DL-INT-02", "DL-INT-05", "DL-UI-01"],
+      "existing_findings": [],
+      "reproduction": "Use the probe driver: brush a serpentine path across the grid; lift; then press each unsnapped piece at its home, drag to its target and release. Completion requires 26 cleared cells followed by three successful release snaps.",
+      "child_impact": "The task changes from broad brushing to purposeful matching; persistent piece state allows correction rather than losing a fragment on a slightly imprecise release.",
+      "proposed_repair": "Retain the two-stage action and generous snap area unless a child/device observation shows the pieces or transition are hard to understand.",
+      "acceptance_test": "At native phone scale, observe whether a non-reader recognizes the new matching task after brushing, can lift and reposition a piece after a miss, and understands when each piece has joined the fossil."
+    },
+    {
+      "title": "Pan progress is gated by deliberate back-and-forth travel",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_geology_surface.gd:30-31,477-500 (reversal only counts after a 46 pixel same-direction run; nine required)",
+        "scripts/opera_geology_surface.gd:762-795 (pan follows finger and grain count/mineral finds change with wash)",
+        "scripts/probe_opera_2d.gd:2736-2742 (one press, alternating 150-pixel endpoints, then release)"
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-04", "DL-AGE-05", "DL-INT-02", "DL-MOT-04"],
+      "existing_findings": [],
+      "reproduction": "Press at pan center and drive alternating endpoints as the probe does; each reversal after the accumulated run threshold increments wash, while merely waiting does not.",
+      "child_impact": "Progress depends on the implied swishing motion, and mineral appearance can make the repeated movement feel productive; whether nine reversals is tiring or monotonous is unknown.",
+      "proposed_repair": "Keep the directional work gate; measure child completion and fatigue before changing its count or thresholds.",
+      "acceptance_test": "Observe a child trying short and long swishes; verify intended alternating motion is discovered without coaching, progress feedback appears promptly on valid reversals, and nine turns fit the intended short activity."
+    },
+    {
+      "title": "Geode seam targets are substantially larger in code than their visible marks",
+      "classification": "HYPOTHESIS",
+      "evidence": [
+        "scripts/opera_geology_surface.gd:35-39 (five seam coordinates; 56 pixel actionable radius)",
+        "scripts/opera_geology_surface.gd:515-520,329-335 (candidate selection by seam radius; release commits if press remains within 34 pixels)",
+        "scripts/opera_geology_surface.gd:824-834 (visible spot radius 22 and halo radius 32)",
+        "scripts/probe_opera_2d.gd:2743-2752 (probe taps exact seam centers, not near-edge points)"
+      ],
+      "rules": ["DL-INT-01", "DL-UI-03", "DL-QA-03", "DL-QA-04", "DL-QA-05"],
+      "existing_findings": [],
+      "reproduction": "Compare the source hit radius (56) with the drawn circle (22) and ring (32); the scripted probe taps exact centers, so it does not reveal whether an edge tap looks accepted or a visibly-on-marker touch misses due to coordinate scale.",
+      "child_impact": "The generous invisible outer band may help an imprecise finger, but could make success feel detached from the marked seam or conceal a coordinate mismatch on a phone.",
+      "proposed_repair": "No code change from static comparison alone. Capture the full-size Mobile state and measure the projected marker and hit region before deciding whether to enlarge the visible halo or adjust the hit area.",
+      "acceptance_test": "On the target device, test taps on marker center, visible ring edge and outer hit edge at all supported aspects; observe immediate, consistent visual response and child understanding of which seams remain."
+    },
+    {
+      "title": "Three phase instructions reuse broad voice lines instead of naming the specific verb",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_career_world_2d.gd:349-353 (RIVER, PAN and GEODE share grotto_discovered / 'A secret grotto! The stones want to play!'; FOSSIL uses bathroom_tub_brush / 'Brush it back and forth. Swish, swish!')",
+        "scripts/opera_geology_surface.gd:943-976 (demo pose visibly demonstrates a mode-specific gesture on its repeating 2.4 second cycle)",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:320-326,341-347 (non-reader objective guidance and visible short-session requirements)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-02", "DL-AGE-07", "DL-INT-06"],
+      "existing_findings": [],
+      "reproduction": "Read the four free-play phase definitions and compare their voice fields; three share the same general discovery line, while only fossil names a physical verb. The probe does not assess speech comprehension or audibility.",
+      "child_impact": "If the animated pointer/demo is missed or hard to see, the broad discovery line may not distinguish whether to dig, swish, or pull; the mode-specific demo could compensate, but this needs a child test.",
+      "proposed_repair": "Review whether the authored one-finger demo plus current line is clear on the phone before commissioning any voice changes; no recording approval or voice change is implied here.",
+      "acceptance_test": "With audio at ordinary room volume and no adult instruction, observe whether a child starts the demonstrated verb in each mode, especially PAN and GEODE; keep visual pointer and voice/action agreement in the result."
+    },
+    {
+      "title": "The mechanics pass is not proof of ordinary fresh-save career reachability",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_opera_2d.gd:2550-2575,2712-2765 (constructs a surface and drives private methods with helper-created input; probe campaign supplies its own room setup)",
+        "audit/cycles/luna-playtest-20261012/runtime/L31/attempt_1/receipt.json (SCRIPTED_PROBE, headless=true, rendered_mobile_acceptance=false, isolated profile, Godot 4.7.2 stable)",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:973-994 (MA-PLAY-005 remains CONFIRMED_OPEN; story setup and progression block normal fresh-save access to free-play cards)",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:651-671 (MA-OPERA-012 external route/device/child acceptance remains pending)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-SAVE-04", "DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-005", "MA-OPERA-012"],
+      "reproduction": "Run the single L31 helper invocation: it returns PASS and the log contains OK assertions, but the focused exercise calls GeologySurface.new/configure and private input wrappers. Compare with MA-PLAY-005's open normal fresh-save route gap. No GUI route or phone was used.",
+      "child_impact": "A passing mechanic can remain inaccessible in ordinary play, and the probe cannot show that the child sees and understands the room cue, hears the instruction or wants to repeat the work.",
+      "proposed_repair": "Keep this as a route and external acceptance gap; do not infer a code defect from this focused review. Resolve the current Chapter Two route blocker, then test ordinary Geologist room entry on the exact candidate.",
+      "acceptance_test": "From fresh save, follow the ordinary story route through the required party jobs to the Geologist's thematic room; arrive, open and complete the four phases using routed touch, pause/re-enter, and return correctly. Separately inspect Mobile layout, target-device response, voice audibility, child discovery and replay, and owner acceptance."
+    }
+  ],
+  "strengths": [
+    {
+      "strength": "The connected river permits alternate successful channels while distinguishing isolated digs from flowing water.",
+      "evidence": "scripts/opera_geology_surface.gd:399-442,631-657; scripts/probe_opera_2d.gd:2601-2626; runtime/L31/attempt_1/probe.log:1289-1302"
+    },
+    {
+      "strength": "Touch ownership and partial checkpoint restoration preserve state in the tested river paths; malformed checkpoints do not mint progress and each task awards once in the probe.",
+      "evidence": "scripts/opera_geology_surface.gd:173-221,225-237,347-360,583-610; scripts/probe_opera_2d.gd:2587-2599,2631-2643,2645-2679,2701-2709"
+    },
+    {
+      "strength": "Four different physical verbs are kept as separate named modes and each is driven in its own probe leg.",
+      "evidence": "scripts/opera_geology_surface.gd:8-10,116-146; scripts/probe_opera_2d.gd:2712-2752"
+    }
+  ],
+  "acceptance_gaps": [
+    "Only one internal scripted probe invocation was run. It passed, but probe setup and private helpers mean this is not an independent child-visible, end-to-end playthrough.",
+    "MA-PLAY-005 is still CONFIRMED_OPEN; ordinary fresh-save reachability to the free-play Geologist career is not established by this focused review.",
+    "No Mobile-rendered capture or aspect comparison measured composition, visible-to-hit target alignment, or response within two rendered frames.",
+    "No Lenovo Tab M11 test measured projected target sizes, finger precision, latency, frame pacing, thermal behavior, pause/focus recovery or voice audibility.",
+    "No observed child evidence establishes instruction comprehension, comfort, agency, session length, fun or voluntary replay; no owner acceptance was obtained."
+  ]
+}

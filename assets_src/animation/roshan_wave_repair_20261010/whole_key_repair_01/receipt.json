@@ -1,0 +1,396 @@
+{
+  "schema": "reef.imagegen-native-receipt.v1",
+  "recorded_at_utc": "2026-10-11T00:32:37.028472+00:00",
+  "method": "One bounded built-in ImageGen complete-key-family edit after two rejected painted-family briefs; not a call per motion frame",
+  "execution_output_id": "exec-9a4c3636-7a2e-495d-87e0-609a8f9d2c5e",
+  "execution_output_id_scope": "Codex execution/output filename identifier, not an exposed provider API request ID",
+  "provider_request_id": null,
+  "provider_revision": null,
+  "seed": null,
+  "reported_billing": null,
+  "generation_started_at_utc": null,
+  "generation_completed_at_utc": null,
+  "generation_elapsed_seconds": null,
+  "unexposed_fields": "Provider API request ID, provider/model revision, seed, billing, exact generation start/completion and elapsed time were not exposed; no values estimated.",
+  "call_number": 3,
+  "call_count": 1,
+  "settings": {
+    "transparent_background": true,
+    "referenced_images_count": 3
+  },
+  "prompt": {
+    "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/prompt.txt",
+    "sha256": "ba1df8e8c3749b24224e963a31169dc91d79544d29ddf49b4720a627efc86710",
+    "bytes": 2303,
+    "role": "Exact submitted generation prompt supplied by root",
+    "acceptance_scope": "Brief only; no output acceptance"
+  },
+  "reference_images": [
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/edit_target.png",
+      "sha256": "955c9b1a9f4e5d8d38903a2a648fb86c4433a4863f5a731375642a3f8a9d5cb7",
+      "bytes": 1417580,
+      "role": "IMAGE_1: complete-frame edit target, not approved appearance authority",
+      "acceptance_scope": "Unaccepted native motion keys; generation edit target only",
+      "dimensions": [
+        1344,
+        1344
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "bytes": 55208,
+      "role": "IMAGE_2: approved original identity/head/outfit and rest endpoint source",
+      "acceptance_scope": "Existing approved atlas crop; unchanged original source authority",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K2.png",
+      "sha256": "a46c318a627a4904dbf1115b1c764d8842de6f9281fe21a4803d31b65add4bbb",
+      "bytes": 56597,
+      "role": "IMAGE_3: approved raised arm/anatomy reference; not authority to change K0 head",
+      "acceptance_scope": "Existing approved atlas crop; unchanged original source authority",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    }
+  ],
+  "reference_parent": {
+    "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+    "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+    "bytes": 890060,
+    "role": "Original Roshan appearance authority",
+    "acceptance_scope": "Project-owned approved source, unchanged",
+    "dimensions": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA"
+  },
+  "target_derivation": {
+    "script": {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/scripts/prepare_repair_board.lua",
+      "sha256": "92c7ab288aa25a2e519f138a95c1d15fa88019a7d57a77a44a519a60ffbba309",
+      "bytes": 554,
+      "role": "Exact complete-native-frame target-board construction",
+      "acceptance_scope": "Candidate edit-input derivation; not accepted art"
+    },
+    "native_frame_indices": [
+      0,
+      8,
+      12,
+      16,
+      22,
+      26,
+      29,
+      32,
+      36
+    ],
+    "source_frame_dir": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames",
+    "operation": "Aseprite whole-frame bilinear640x896 to320x448; draw nine complete frames on1344x1344 RGB245 neutral board at3x3 cells448x448, with64px horizontal margin; no limb transforms or assembly",
+    "source_frames": [
+      {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0000.png",
+        "sha256": "d6886554ce2518664049bdfecbf483dca914498a3f26f0700c133fff8c4a287d",
+        "bytes": 473692,
+        "role": "Complete native source key",
+        "acceptance_scope": "Unaccepted LTX native frame, exact bytes retained",
+        "dimensions": [
+          640,
+          896
+        ],
+        "mode": "RGB"
+      },
+      {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0008.png",
+        "sha256": "186d01bc8ee06af5305a4bb8f0e3aabc31f659a8a33f0a0aac1f887aad013fef",
+        "bytes": 512874,
+        "role": "Complete native source key",
+        "acceptance_scope": "Unaccepted LTX native frame, exact bytes retained",
+        "dimensions": [
+          640,
+          896
+        ],
+        "mode": "RGB"
+      },
+      {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0012.png",
+        "sha256": "d6a5b1cf38fbe865e272f49d7beb557fa1c66c3fa22f2def3087aa4370cc7b6a",
+        "bytes": 511941,
+        "role": "Complete native source key",
+        "acceptance_scope": "Unaccepted LTX native frame, exact bytes retained",
+        "dimensions": [
+          640,
+          896
+        ],
+        "mode": "RGB"
+      },
+      {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0016.png",
+        "sha256": "b2f3be8b4ab4c627be835482a96b04d5ccfcb840496af9be37eb27a6eca46098",
+        "bytes": 507269,
+        "role": "Complete native source key",
+        "acceptance_scope": "Unaccepted LTX native frame, exact bytes retained",
+        "dimensions": [
+          640,
+          896
+        ],
+        "mode": "RGB"
+      },
+      {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0022.png",
+        "sha256": "67c88341f0554cf28aa9f7f824be21ee6a3cc46f1b70fb633656e3943c5a77bb",
+        "bytes": 507434,
+        "role": "Complete native source key",
+        "acceptance_scope": "Unaccepted LTX native frame, exact bytes retained",
+        "dimensions": [
+          640,
+          896
+        ],
+        "mode": "RGB"
+      },
+      {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0026.png",
+        "sha256": "01ad535d0cac0eb0e34a4bca90aab6f9c582c1b6f3ed9bcc9baff59149fd50a9",
+        "bytes": 514499,
+        "role": "Complete native source key",
+        "acceptance_scope": "Unaccepted LTX native frame, exact bytes retained",
+        "dimensions": [
+          640,
+          896
+        ],
+        "mode": "RGB"
+      },
+      {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0029.png",
+        "sha256": "8c43184fe29a64edf72abdc98875b25a22b1db8c288f4ae61f6322412a4b900b",
+        "bytes": 513646,
+        "role": "Complete native source key",
+        "acceptance_scope": "Unaccepted LTX native frame, exact bytes retained",
+        "dimensions": [
+          640,
+          896
+        ],
+        "mode": "RGB"
+      },
+      {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0032.png",
+        "sha256": "e47da634b1f95336768816cca7c1953e783a682af897c78fc8d0467c2b1a0b75",
+        "bytes": 508168,
+        "role": "Complete native source key",
+        "acceptance_scope": "Unaccepted LTX native frame, exact bytes retained",
+        "dimensions": [
+          640,
+          896
+        ],
+        "mode": "RGB"
+      },
+      {
+        "path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0036.png",
+        "sha256": "3a4a900d86ab3f8bab804c000185c279a995df1d25b4eaa31e497e7b3ea99910",
+        "bytes": 491760,
+        "role": "Complete native source key",
+        "acceptance_scope": "Unaccepted LTX native frame, exact bytes retained",
+        "dimensions": [
+          640,
+          896
+        ],
+        "mode": "RGB"
+      }
+    ]
+  },
+  "native": {
+    "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/native.png",
+    "sha256": "2d7c88cce86375c9c495675aed0e47e38161bd1e0811c73d27fcfbf01a2ab35a",
+    "bytes": 1434156,
+    "role": "Native generated complete-figure sheet",
+    "acceptance_scope": "Unaccepted repair candidate; inspect every complete cel",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA"
+  },
+  "native_original_path": "C:/Users/Peter/.codex/generated_images/01a119cc-de3f-7381-bc1e-9b9b31020fd4/exec-9a4c3636-7a2e-495d-87e0-609a8f9d2c5e.png",
+  "native_copy_verified_byte_identical": true,
+  "native_modifications": "NONE; original generated output bytes retained",
+  "attempt_state_at_snapshot": "REJECTED_PROPORTIONS_AND_IDENTITY_REDRAWN",
+  "machine_geometry_evidence": {
+    "official_report": {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/geometry_native.json",
+      "sha256": "dcd2266f119b659023a6c460ca3e8267f39502de4220065d45e18991f560329c",
+      "bytes": 707,
+      "role": "Official measure_wave diagnostic report, retained unchanged",
+      "acceptance_scope": "FAIL; missing/failed fits are not evidence"
+    },
+    "declared_figure_scale_pp_pct": 1.11,
+    "declared_head_scale_pp_pct": 17.54,
+    "declared_all_pass": false,
+    "failure_limits": "Official head ECC has two failed/ambiguous fits among eight comparison frames; report contains nonfinite missing measurement. Figure exceeds1%; head report fails. Treat missing fits as null/PENDING during strict final record cleanup, without changing gate floors.",
+    "alternative_report": {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/registration_analysis.json",
+      "sha256": "a2a33d8b49284db473bee7b9c37fb40826c12b9eb5d381927aef971ab70207a1",
+      "bytes": 4463,
+      "role": "Alternate robust head/figure registration diagnostic",
+      "acceptance_scope": "DIAGNOSTIC_ONLY_NOT_ACCEPTANCE; does not replace official failed gate"
+    },
+    "alternative_head_scale_pp_pct_approx": 0.97,
+    "alternative_scope": "Robust search around tracked whole-figure displacement produces close head fits; root-supplied diagnostic only, not official gate, arm anatomy, identity or final acceptance.",
+    "alternative_all_nine_fits_finite": true
+  },
+  "extracted_native_derivatives": [
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0000.png",
+      "sha256": "cf09c656e9f7e5e71ba49c2ee02b35e251979f978ee5adb2c9b87cc1125a88ee",
+      "bytes": 146819,
+      "role": "Complete native cel / one-layer Aseprite storage derivative",
+      "acceptance_scope": "Unaccepted diagnostic; storage layer count does not accept W1 acting/anatomy",
+      "dimensions": [
+        418,
+        418
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0001.png",
+      "sha256": "f41f050e726fa188746d0c7f8ad07a3c6e56fcaba9fc219534c904d5881363a8",
+      "bytes": 149930,
+      "role": "Complete native cel / one-layer Aseprite storage derivative",
+      "acceptance_scope": "Unaccepted diagnostic; storage layer count does not accept W1 acting/anatomy",
+      "dimensions": [
+        418,
+        418
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0002.png",
+      "sha256": "2c0eef61fedcc478681953cc2f3b4b0f0ac5c125ffd6bb0d95074c51c395de79",
+      "bytes": 148390,
+      "role": "Complete native cel / one-layer Aseprite storage derivative",
+      "acceptance_scope": "Unaccepted diagnostic; storage layer count does not accept W1 acting/anatomy",
+      "dimensions": [
+        418,
+        418
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0003.png",
+      "sha256": "5c19e62152db5aca38c6dd89adec8a04a884400fcda74acd5dc36ee6a69330d8",
+      "bytes": 147520,
+      "role": "Complete native cel / one-layer Aseprite storage derivative",
+      "acceptance_scope": "Unaccepted diagnostic; storage layer count does not accept W1 acting/anatomy",
+      "dimensions": [
+        418,
+        418
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0004.png",
+      "sha256": "c0485dab0ca2db7e1efdc251e92c715602798ed31561f3a4163524544e2d3296",
+      "bytes": 150872,
+      "role": "Complete native cel / one-layer Aseprite storage derivative",
+      "acceptance_scope": "Unaccepted diagnostic; storage layer count does not accept W1 acting/anatomy",
+      "dimensions": [
+        418,
+        418
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0005.png",
+      "sha256": "9ad96698bbcc0b62dbaa9f070afc8fadaed48626e6d6115dc3f267683b003c38",
+      "bytes": 152780,
+      "role": "Complete native cel / one-layer Aseprite storage derivative",
+      "acceptance_scope": "Unaccepted diagnostic; storage layer count does not accept W1 acting/anatomy",
+      "dimensions": [
+        418,
+        418
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0006.png",
+      "sha256": "4f1b9e17f8d8de37a28f5eea056f131557bd0ef0affe82c18c2114f07489ade1",
+      "bytes": 151889,
+      "role": "Complete native cel / one-layer Aseprite storage derivative",
+      "acceptance_scope": "Unaccepted diagnostic; storage layer count does not accept W1 acting/anatomy",
+      "dimensions": [
+        418,
+        418
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0007.png",
+      "sha256": "44a451cdc0d7c76e90c771a9a7de007d6fe88b6eddf7290c2e238c7ac17605fe",
+      "bytes": 153483,
+      "role": "Complete native cel / one-layer Aseprite storage derivative",
+      "acceptance_scope": "Unaccepted diagnostic; storage layer count does not accept W1 acting/anatomy",
+      "dimensions": [
+        418,
+        418
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0008.png",
+      "sha256": "2db16c6e66c174165371afb40812bf64ddd3da812e9eafaf7a603f2463cf39ad",
+      "bytes": 150102,
+      "role": "Complete native cel / one-layer Aseprite storage derivative",
+      "acceptance_scope": "Unaccepted diagnostic; storage layer count does not accept W1 acting/anatomy",
+      "dimensions": [
+        418,
+        418
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/native_cells.aseprite",
+      "sha256": "8355caaf6549990ecb85d32ba15bd241b8505edbdcb012a166aef70c54fe02dc",
+      "bytes": 1590236,
+      "role": "Complete-key one-layer Aseprite master",
+      "acceptance_scope": "Unaccepted diagnostic storage derivative"
+    }
+  ],
+  "review": {
+    "arm_geometry": "PENDING_MISSING_HASH_BOUND_JOINTS",
+    "identity_model_review": "FAIL",
+    "exact_human_review": "PENDING",
+    "matte_full_sequence": "PENDING",
+    "full_speed_transitions": "PENDING",
+    "exact_K0_endpoint_loop_seam": "PENDING"
+  },
+  "acceptance": {
+    "artifact_free_sample": false,
+    "human": false,
+    "owner": false,
+    "runtime": false,
+    "device": false,
+    "child": false,
+    "delivery_accepted": false
+  },
+  "reference_license": "Original project Roshan artwork restrictions retained; candidate LTX edit target retains its recorded source/model provenance; new ImageGen derivative follows recorded service terms. ASSET_LICENSES source-only campaign rows apply.",
+  "status": "REJECTED_PROPORTIONS_AND_IDENTITY_REDRAWN",
+  "updated_at_utc": "2026-10-11T00:45:25.494603+00:00",
+  "rejection": {
+    "reviewer_kind": "model_observation",
+    "reason": "Root rejected nine generated cels: anatomy/proportions and identity were redrawn; robust finite head fits do not accept the family",
+    "strict_quality_summary": {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/quality_summary.json",
+      "sha256": "5289ab7638c16df2c69b974c69ef97e741b6ccdf56e77e60f1e3e13ef5297bb2",
+      "bytes": 7369,
+      "role": "Strict interpretation preserving raw reports and blocking incomplete geometry"
+    }
+  }
+}

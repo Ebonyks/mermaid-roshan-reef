@@ -1,0 +1,62 @@
+[
+  {
+    "date": "2026-10-18",
+    "authority": "recorded_owner",
+    "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-JOBART-ORDER-20261018",
+    "subject": "Job-art repair order",
+    "question": "Q1: Which jobs first? (default: Geologist and Teacher, then Astronaut and Chef, then Nursery and Boxer, then the rest)",
+    "decision": "The owner answered \"all the above\": every listed job package is first priority and none is deferred.",
+    "cycle": "job-art-imagegen-20261018"
+  },
+  {
+    "date": "2026-10-18",
+    "authority": "recorded_owner",
+    "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-JOBART-DECORATION-20261018",
+    "subject": "Decorative code layers in job scenes",
+    "question": "Q2: Ambient doodles, spotlights and sparkle rings drawn over the jobs: remove them, or repaint them as painted effects? (default: remove the spotlights, backdrop stripes and ambient doodles from job scenes; replace the invitation halo and sparkles with one painted ring and sparkle family)",
+    "decision": "The owner answered \"yes\", accepting the stated default: remove the spotlights, backdrop stripes and ambient doodles from job scenes, and replace the invitation halo and sparkles with one painted ring and sparkle family.",
+    "cycle": "job-art-imagegen-20261018"
+  },
+  {
+    "date": "2026-10-18",
+    "authority": "recorded_owner",
+    "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-JOBART-NURSERY-FRAMES-20261018",
+    "subject": "Stranded Nursery Roshan frames",
+    "question": "Q3: The stranded Nursery care and wash frames show Roshan in the older career design; use them, or regenerate them following the base-world child (ODR-ROSHAN-Q13)?",
+    "decision": "The owner answered \"use them\": the stranded Nursery care and wash frames are used as they are.",
+    "cycle": "job-art-imagegen-20261018"
+  },
+  {
+    "date": "2026-10-18",
+    "authority": "recorded_owner",
+    "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-JOBART-SHARE-STUFFIES-20261018",
+    "subject": "Candymaker SHARE recipients",
+    "question": "Q4: Candymaker SHARE needs six friends: new painted sea friends, or the protected family friend portraits?",
+    "decision": "The owner answered \"use extra stuffies\": the SHARE recipients are stuffies, not new painted sea creatures and not the protected friend portraits.",
+    "cycle": "job-art-imagegen-20261018"
+  },
+  {
+    "date": "2026-10-18",
+    "authority": "recorded_owner",
+    "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+    "checks": [],
+    "checkable": false,
+    "id": "ODR-JOBART-PROCESS-20261018",
+    "subject": "Codex job-art working process",
+    "question": "Q5: May Codex work in one branch per package, with one impact record and green CI before merging, and stop publishing per-step receipts for internal work? (external handoffs keep the full GitHub delivery rule)",
+    "decision": "The owner answered \"yes\": Codex works one branch per package with one impact record and green CI before merging, and stops publishing per-step receipts for internal work; external handoffs keep the full GitHub delivery rule.",
+    "cycle": "job-art-imagegen-20261018"
+  }
+]

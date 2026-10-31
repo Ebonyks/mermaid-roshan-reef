@@ -1,0 +1,76 @@
+{
+  "source_packet_path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\audit\\job_geologist_rebuild_v2_20261003\\source_review_parallel_v2\\final_actor_terminal_gap_supplement_v1\\MATRIX.json",
+  "source_packet_sha256": "c4fde855ca688e1ecf17dbf31825e8707e81f5d6a6d56b3724eb10334e9e8e5e",
+  "source_extract": {
+    "career": "chef",
+    "matrix_reference": "audit/job_native_resolution_inventory_v1_20261003/actual_phase_coverage_matrix_v1_20261003/chef.json",
+    "ordinary_terminal_and_enabled_stage_catalog": [
+      {
+        "existing_id": "OPERA-chef-04",
+        "context": "BASE_OPERA_PHASE",
+        "name": "TOP",
+        "mode": "tap",
+        "natural_birthday_selected": null,
+        "current_literal_lines": [
+          {
+            "source": "scripts/opera_career_world_2d.gd",
+            "line": 275,
+            "text": "{\"name\": \"TOP\", \"mode\": \"tap\", \"goal\": 7.0, \"vo\": \"op_chef_top_stage\", \"voice\": \"Place the bright toppings on the finished cake!\"},"
+          }
+        ],
+        "planning_not_runtime_acceptance": true
+      },
+      {
+        "existing_id": "BIRTHDAY-CATALOG-chef-04",
+        "context": "BIRTHDAY_ADAPTER_CATALOG",
+        "name": "FROST",
+        "mode": "swipe",
+        "natural_birthday_selected": true,
+        "current_literal_lines": [
+          {
+            "source": "scripts/chapter_two_career_scene_adapter.gd",
+            "line": 26,
+            "text": "{\"name\": \"FROST\", \"milestone\": \"frost\", \"mode\": \"swipe\", \"cake_stage_asset\": \"res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png\", \"goal\": 6.0, \"vo\": \"op_chef_pipe_stage\", \"voice\": \"Trace the frosting ribbon across the cake!\"},"
+          }
+        ],
+        "planning_not_runtime_acceptance": true
+      }
+    ],
+    "chapter2_initial_tutorial": "DISABLED INITIAL_TUTORIAL_ACTS=[]; configured tutorial fixture firstphase differs from full terminal and is not natural enabled route",
+    "freeplay_two_act_enabled": false,
+    "first_phase_tutorial_declaration": "OPERA-chef-00",
+    "birthday_route_literals": [
+      {
+        "act_index": 0,
+        "career": "chef",
+        "room": "kitchen",
+        "source": "scripts/chapter_two_party_plan.gd",
+        "expression": "{\"act_index\": 0, \"career\": \"chef\", \"room\": \"kitchen\", \"function\": \"bake the gigantic strawberry birthday cake\", \"piece\": \"birthday_cake\", \"lawn_nodes\": [\"Cake\"], \"seed\": \"chapter3_warm_cake\"},"
+      }
+    ],
+    "actual_job_day_status": "UNAVAILABLE_OR_UNBOUND_NO_EXACT_DAY_RUN_IN_THIS_PACKET",
+    "terminal_actor_contact_gap": "Ordinary TOP must show attached hands placing toppings onto supported finished cake; birthday FROST must show piping tool attached to hand, depositing onto that same cake. Root current no-shim partial1280 reaches ordinary FROST, not TOP; birthday terminal unproved. Cake/props must remain supported and readable through settle, not detached widgets.",
+    "existing_report_links": [
+      "audit/job_game_refinement_20261003/chef/REVIEW.json",
+      "audit/job_game_refinement_20261003/chef/RESOLUTION_REVIEW.json",
+      "audit/job_game_refinement_20261003/chef/VERIFY.json",
+      "audit/job_artwork_refinement_live/index.html"
+    ],
+    "existing_terminal_partial_image_review_refs": [],
+    "exact_actor_source": "Current career-approved actor atlas via existing animator + _play_roshan_task_pose2367; special surface and pose may override. No new mounting/appearance proof.",
+    "support_conservation_settle_transition": "UNVERIFIED as a whole final action; inspect source-specific contacts described above, earned settle and natural actor return.",
+    "numeric_grade": null,
+    "owner_or_runtime_acceptance": null
+  },
+  "local_scope": "Five-step birthday adapter MIX/STIR/BAKE/STACK/FROST only. Surface-event fixture, not full natural career/return/save day. Ordinary TOP uses separate generic surface and is not repaired by this Chef surface.",
+  "local_actor_review": "Empty-handed approved neutral Roshan stands beside each physical station. STIR native whisk is positioned into the bowl with handle toward Roshan; FROST has immediate finger feedback, no bound hand-held piping tool. Neither establishes accepted attached hands/tool acting.",
+  "acceptance": "UNSATISFIED for ordinary TOP and birthday FROST final acting; do not reuse matrix declarations as fresh visual grades.",
+  "current_sources": {
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_chef_surface.gd": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+    "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+    "scripts/chapter_two_director.gd": "eb3e820217b08b87cab8a8ea8758a8da16736fdbd57db896ab016af2173c69b5",
+    "scripts/opera_performance_plan.gd": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366"
+  },
+  "hash_basis": "Canonical UTF-8 LF code-source bytes; source packet hash remains literal original bytes."
+}

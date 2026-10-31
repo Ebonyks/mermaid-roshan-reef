@@ -1,0 +1,144 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L23",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l23",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Ballerina pose ribbon and twirl input",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L23/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The existing probe constructed OperaBalletSurface directly at 854x660 and exercised all three supported modes through their internal press/drag/release methods. It did not enter the Opera House or prove the child-visible Ballerina route.",
+    "route_gaps": ["fresh-save visible entry and return", "phone aspect/layout and Mobile renderer", "physical touch latency/ownership and focus-loss", "child comprehension, enjoyment, and session length"]
+  },
+  "verdict": "PASS",
+  "timing": {
+    "source_constants": {
+      "scripts/opera_ballet_surface.gd:23": "pose demonstration 2.15 seconds",
+      "scripts/opera_ballet_surface.gd:22": "ribbon/twirl demonstration 1.55 seconds",
+      "scripts/opera_ballet_surface.gd:30": "first assist after 5 seconds of playable no-progress time",
+      "scripts/opera_ballet_surface.gd:31": "strong assist after 10 seconds of playable no-progress time",
+      "scripts/opera_ballet_surface.gd:17": "three pose rounds"
+    },
+    "estimates": ["A successful in-game route that completes all acts may take at least the demos plus deliberate input; no total duration is inferable from the internal probe.", "The helper's 2.227-second wall time is tool runtime and is not gameplay duration."]
+  },
+  "tactile": {
+    "target_size": "Probe verifies pose portraits are at least 180x180 at its 854x660 test surface; ribbon resume target is 128x128 base pixels, corridor 116 pixels, twirl ring 116 pixels wide and handle diameter 112 pixels. DL-UI-03's 110x110 threshold is met in these assertions, but phone projection and finger occlusion are untested.",
+    "press_response": "Probe confirms a matching portrait banks one round; invalid portrait yields no payout and replays its demo. Ribbon/twirl wrong paths do not pay; positive progress emits gesture feedback. Rendered response latency is not measured.",
+    "drag_hold_release": "Ribbon accepts progress along the S curve and keeps monotonic partial progress after release; twirl accepts incremental movement around the ring and preserves partial progress after release. No long press is required.",
+    "ownership": "The surface's internal held state gates drags and is cleared on release. This probe directly calls private handlers and cannot establish real pointer ownership, competing fingers, pause/focus cancellation, or hardware sampling.",
+    "cancellation": "Lifting mid-ribbon or mid-twirl preserves accepted progress. Probe also checks straight-chord/diameter attempts do not bypass the required path. No real focus-loss cancellation was exercised."
+  },
+  "play_appeal": {
+    "hypothesis": "The three-act switch from pose matching to tracing a glowing current to orbiting a shell gives a young player distinct hand actions and visible authorship. The orbit's Roshan pose cues may make the final gesture feel like a performance rather than filling a meter. Repeating the recital could be satisfying if the child notices the held pose phrase and changing direction freedom.",
+    "fun_score": null,
+    "appeal_test": "On the intended phone, observe whether the child chooses to repeat a favorite act or asks to perform the recital again without adult prompting; note spontaneous smiles/vocalizations and whether they describe or imitate Roshan's poses. Do not infer appeal from probe completion."
+  },
+  "observations": [
+    {
+      "title": "Pose phrase varies pose and answer position",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/opera_ballet_surface.gd:19-21 defines target frames [3,2,1] and changing answer sets.", "scripts/probe_opera_gesture_quality.gd:255-264 verifies the low-open-crown phrase and correct portrait positions right, center, then left; runtime receipt reports ALL OK (274 checks)."],
+      "rules": ["DL-INT-08", "DL-AGE-05"],
+      "existing_findings": [],
+      "reproduction": "In the probe, allow each pose demo to finish, tap the matching portrait for three rounds, and inspect the target frame/answer x positions.",
+      "child_impact": "Distinct held poses and changing answer location can reward watching and intentional choice instead of repeated tapping.",
+      "proposed_repair": "No repair indicated by this evidence; confirm child can distinguish the poses on device.",
+      "acceptance_test": "At phone size, a child watches each held pose and selects the matching portrait on all three rounds without reading or adult instruction; wrong taps retain the current round."
+    },
+    {
+      "title": "Tracing tolerates lifting and resuming",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/opera_ballet_surface.gd:433-468 accepts forward samples near the painted curve and banks monotonic progress.", "scripts/probe_opera_gesture_quality.gd:293-314 traces in 0.075-progress increments, lifts near halfway, restarts the demo, resumes, and verifies completion."],
+      "rules": ["DL-INT-08", "DL-AGE-02", "DL-AGE-05"],
+      "existing_findings": ["MA-TOUCH-001"],
+      "reproduction": "Start at the resume pearl, trace to halfway, release, allow the demo to run, press the new resume pearl, and continue along the same S curve.",
+      "child_impact": "A brief finger slip does not erase already completed work, supporting forgiving one-finger play.",
+      "proposed_repair": "No repair indicated by the internal probe; test the real surface with a small finger and coarse movement on the target device.",
+      "acceptance_test": "On the exact phone build, lift/re-touch at early, middle, and late curve points; progress remains visible and resumes without jumping or requiring a precise continuous stroke."
+    },
+    {
+      "title": "Twirl requires a coherent orbit and allows either direction",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/opera_ballet_surface.gd:494-544 requires ring contact, bounded adjacent angular steps, and a consistent direction before banking progress.", "scripts/probe_opera_gesture_quality.gd:327-377 verifies center/diameter gestures pay nothing, a half-turn resumes, and clockwise and counter-clockwise full turns complete."],
+      "rules": ["DL-INT-08", "DL-AGE-02", "DL-AGE-05"],
+      "existing_findings": [],
+      "reproduction": "Press the ring handle, drag adjacent sectors around half the ring, release, replay, then continue; separately start a fresh twirl in the other direction.",
+      "child_impact": "A child can choose a direction and recover an interrupted turn, while random center rubbing cannot complete it.",
+      "proposed_repair": "No code repair indicated; assess whether the orbit remains visually and physically followable on the phone.",
+      "acceptance_test": "A child completes a twirl in either direction with ordinary finger movement, can lift and continue, and does not mistake center rubbing for progress."
+    },
+    {
+      "title": "Assistance waits for the child's turn and never auto-completes",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/opera_ballet_surface.gd:258-274 excludes demo time from the assist clock and starts demonstrations at 5 and 10 seconds without progress.", "scripts/probe_opera_gesture_quality.gd:212-226 checks both thresholds and confirms neither awards pose progress."],
+      "rules": ["DL-AGE-04", "DL-AGE-05", "DL-INT-08"],
+      "existing_findings": [],
+      "reproduction": "Finish the first pose demo, advance playable time to 4.9 seconds and then 5.1; after the assist demo, advance to the 10-second threshold and confirm pose_round stays unchanged.",
+      "child_impact": "Help can re-show or enlarge a cue without taking the accomplishment away from the child.",
+      "proposed_repair": "No repair indicated by the probe; observe whether the re-demonstration is understood as help rather than a repeated instruction.",
+      "acceptance_test": "With no input, assistance becomes more explicit at the documented active-play thresholds but the recital remains incomplete until the child performs the action."
+    },
+    {
+      "title": "Visible route and device feel remain unobserved",
+      "classification": "COVERAGE_GAP",
+      "evidence": ["scripts/probe_opera_gesture_quality.gd:185-194 creates BalletSurface directly at 854x660, bypassing Opera House navigation.", "audit/cycles/luna-playtest-20261012/runtime/L23/attempt_1/receipt.json records headless=true, rendered_mobile_acceptance=false, and 4.7.2.stable; it reports 274 checks passing.", "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:397-417 (MA-PLAY-001), :489-509 (MA-TOUCH-001), and :720-740 (MA-CHILD-001) retain route, phone-input, and child-observation gaps."],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-UI-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-TOUCH-001", "MA-CHILD-001", "MA-PERF-001", "MA-OPERA-012"],
+      "reproduction": "Review the probe setup and receipt: the surface is directly instantiated, no mobile visual capture or physical-device input is present, and no child session is recorded.",
+      "child_impact": "The mechanics may work in the scripted geometry while entry, hit targets, visibility, touch latency, or comprehension fail in the actual room and phone context.",
+      "proposed_repair": "Collect a route-based Mobile capture and intended-device touch/child observations before claiming usability or appeal; repair only issues those observations establish.",
+      "acceptance_test": "A fresh-save, no-debug session reaches and exits Ballerina through its visible Opera route; target-phone video/input trace confirms target visibility, one-finger response, lifting/resume, and a child independently understands each act."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The three mechanics use different input verbs and each has generous targets in the probe geometry.",
+      "evidence": ["scripts/opera_ballet_surface.gd:26-43 provides 116-pixel ribbon corridor, 128-pixel resume pearl, 116-pixel twirl ring and 112-pixel handle; pose portraits are at least 180 pixels per scripts/probe_opera_gesture_quality.gd:201-204.", "Probe receipt: ALL OK (274 checks)."]
+    },
+    {
+      "claim": "Wrong and passive actions do not award progress, and interrupted deliberate actions preserve earned progress.",
+      "evidence": ["scripts/probe_opera_gesture_quality.gd:205-239 verifies pose demo/no wrong payout and real matching payout; :284-314 tests chord rejection and ribbon resume; :327-377 tests invalid twirl and both directions."]
+    }
+  ],
+  "play_sequence": [
+    {
+      "beat": "Enter through the normal Opera House route and choose the Ballerina activity from its visible room trigger; record where Roshan and the activity choice appear.",
+      "input": "Tap the visible Ballerina trigger once; wait for the room transition and spoken cue to finish.",
+      "appeal_test": "Does the child identify the activity from its picture/setting without reading or adult direction?"
+    },
+    {
+      "beat": "Watch Pearl Mirror show a held pose and moving demonstration cue.",
+      "input": "No touch for the 2.15-second pose demonstration and its voice handoff; then wait one second.",
+      "appeal_test": "Does the child watch Roshan, then look toward a matching portrait?"
+    },
+    {
+      "beat": "Choose each matching mirror portrait and watch the pose phrase change position.",
+      "input": "Tap one portrait, lift fully, wait through the next 2.15-second demo, then tap the matching portrait; repeat for all three rounds.",
+      "appeal_test": "Does changing portrait position sustain attention, and does the child visibly enjoy Roshan's pose changes?"
+    },
+    {
+      "beat": "Trace the luminous Ribbon Trail from its pearl along the S current.",
+      "input": "Wait 1.55 seconds for the demo, press the highlighted start pearl, drag along the curve in short strokes, lift near halfway, wait through the 1.55-second replay, then press the new pearl and continue.",
+      "appeal_test": "Does the child treat the glowing trail as a path and choose to continue after lifting?"
+    },
+    {
+      "beat": "Perform Grand Twirl around the shell music box.",
+      "input": "Wait 1.55 seconds for the demo, press the pearl handle on the ring, drag around the ring in a comfortable direction, lift around halfway, wait through the replay, then press the moved handle and continue in the same direction.",
+      "appeal_test": "Does the child imitate the demonstrated turn and notice Roshan's pose cue changes?"
+    },
+    {
+      "beat": "Finish the recital and observe the return/replay choice.",
+      "input": "Release after the final twirl sector; wait for completion response and one second before touching any visible exit/replay control.",
+      "appeal_test": "Does the child request another act or recital on their own, or leave calmly without adult help?"
+    }
+  ],
+  "acceptance_gaps": [
+    "No visible Opera route or return was exercised by this session; MA-PLAY-001 and MA-OPERA-012 external/visual acceptance stay open.",
+    "No actual phone touch, Mobile-rendered frame, latency, focus-loss or frame-pacing evidence; MA-TOUCH-001 and MA-PERF-001 remain open.",
+    "No observed child session establishes comprehension, discoverability, enjoyment, comfort or independent replay; MA-CHILD-001 remains open.",
+    "Probe checks signal keys and an existing voice resource length, not recording approval, audibility, or exact spoken cue quality on device."
+  ]
+}

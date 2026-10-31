@@ -1,0 +1,75 @@
+{
+  "schema": "chapter2_route02_read_only_analysis/1",
+  "gate": "tmp\\luna_repair_20261014\\candidate_gates\\chapter2-route-02.json",
+  "exit_code": 1,
+  "duration_seconds": 49.926,
+  "log_sha256_matches": true,
+  "source_pin_sha256": "ca8a5145fb6505bca6ee7a853ebee84085f0886c9af9d1c99bf019bd76bb684d",
+  "source_mismatches": [],
+  "after_pin_mismatches": [],
+  "source_pin_unchanged": true,
+  "failure_lines": [
+    "CHAPTER2|milestone career_06 fresh process proves exact bytes, loaded state and Continue: FAIL",
+    "CHAPTER2|viewport: career 0 passive hints/auto-approach cannot advance or reward: FAIL",
+    "CHAPTER2|viewport: physical approach opens phase once at its declared floor contact: FAIL",
+    "CHAPTER2|viewport: career 0 result returns exactly to its launching room: FAIL",
+    "CHAPTER2|viewport: all 29 authored story phases complete in the eight-career order: FAIL",
+    "CHAPTER2|viewport: completed jobs expose the canonical next party/dress gate: FAIL",
+    "CHAPTER2|RESULT: FAIL checks_failed=6"
+  ],
+  "expected_configuration_diagnostics": {
+    "ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override": 8,
+    "ERROR: OperaAct: career world rejected its configuration": 3,
+    "ERROR: OperaHouse: slot 6 failed to start its Canvas career": 1
+  },
+  "unclassified_errors": [],
+  "script_error_lines": [],
+  "farmer_delivery_pass": true,
+  "farmer_endpoint_negative_guards_pass": true,
+  "fresh_process_children": [
+    {
+      "label": "career_06",
+      "expectation": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json.milestone_career_06.expected.json",
+      "expectation_sha256": "76ee05d14a8fb9ce2d4c9dc4ea6e9123cdff100e03b32662c375c14dd2c4b69a",
+      "receipt": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json.milestone_career_06.expected.json.receipt.json",
+      "receipt_sha256": "3ddd4ede6f4c12c864908d75af70578fdbca5890af0c876f19f38df2cdb8d823",
+      "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json.milestone_career_06.expected.json.log",
+      "log_sha256": "d0682cce9ae94dbd877b9c1396745241579267e01b1d599ff14a995aa89040b5",
+      "journal": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef_candidate_gate_r1ss9yb1\\roaming\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_44392_10573299.json.milestone_career_06.expected.json.started.json",
+      "child_pid_matches_journal": true,
+      "parent_pid_matches_expectation": true,
+      "distinct_pid": true,
+      "exact_probe_hash": true,
+      "primary_hash_matches": true,
+      "backup_hash_matches": true,
+      "loaded_generation": 19,
+      "expected_generation": 19,
+      "json_snapshot_equal": true,
+      "json_snapshot_key_count": 36,
+      "json_snapshot_field_differences": [],
+      "child_failures": 1,
+      "child_failure_lines": [
+        "CHAPTER2|child ready callback captures the exact saved milestone and generation: FAIL",
+        "CHAPTER2_RESUME_CHILD|RESULT: FAIL"
+      ],
+      "child_continue_pass": true,
+      "native_variant_types": "NOT_MEASURED in route02; JSON serialization removes native Array/int/float type distinctions"
+    }
+  ],
+  "remaining_child_labels_not_run": [
+    "career_00",
+    "career_02",
+    "career_11",
+    "career_01",
+    "story_complete"
+  ],
+  "measured_conclusion": "Farmer endpoint and negatives pass. First child has exact preboot byte hashes, generation19, matching serialized snapshot and real Continue PASS; native snapshot comparison fails. Parent later Chef passive/contact assertions fail without elapsed/pause telemetry.",
+  "not_proven": [
+    "Native GDScript snapshot comparison root cause",
+    "Chef clock/passive/contact cause",
+    "actual root viewport size or rendered surface clipping in route02",
+    "remaining26 story phases and later5 fresh-process checkpoints",
+    "visual/contact/device/child/owner acceptance"
+  ],
+  "follow_up_observation": "diagnostics/probe_chapter2_resume_observe_01.receipt.json; no production/probe behavior fix until measured"
+}

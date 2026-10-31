@@ -1,0 +1,143 @@
+{
+  "stable_id": "FV-4502C5860C45",
+  "baseline": "51b2e1ef7b32d155786277871fc3f5e941145ea6",
+  "backend": "built-in image_gen.imagegen",
+  "model_version": "NOT_EXPOSED",
+  "request_id": "NOT_EXPOSED",
+  "seed": "NOT_EXPOSED",
+  "usage": "NOT_EXPOSED",
+  "exposed_result_fields": [
+    "image_url",
+    "output_hint"
+  ],
+  "native_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-20fa5b81-43c7-4324-8e7b-26cea150e91c.png",
+  "native_sha256": "1ac72bb5decaed7315c0f3133b3dfdd90cd76051139540c8c0674edcbcef8261",
+  "native_dimensions": [
+    1774,
+    887
+  ],
+  "takes": 1,
+  "rejects": 0,
+  "animation_calls": 0,
+  "aseprite_version": "Aseprite 1.3.18.4-x64",
+  "native_visible_rgba_changed_pixels": 0,
+  "technical_operations": "Actual Aseprite whole native sheet/master/roundtrip, integer crop887-square at27,3 and849,3. Eachcrop extends3transparentpixels below originalcanvas, no visibleart removed; same512/887 uniformscale. Complete authored closed/mint-cleft states, no tint/deformation/newappearance pixels/composited objectparts.",
+  "state_alpha16_mask_iou": 0.9938873452892144,
+  "registration": "Same integer crop y, x translations align native bbox centres within1px, unchanged uniform scale/common512canvas. Small authored mineral edge differences retained and declared, not synthetic morph/interpolation.",
+  "commands": [
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_seams_20261030\\take01_native.png",
+      "--save-as",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_seams_20261030\\seams_native.aseprite"
+    ],
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_seams_20261030\\seams_native.aseprite",
+      "--save-as",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_seams_20261030\\native_roundtrip.png"
+    ],
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "--script",
+      "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-seam-20261030\\export_whole_states.lua"
+    ],
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_seams_20261030\\closed_crop.aseprite",
+      "--scale",
+      "0.5772266065388951",
+      "--save-as",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets\\opera\\worlds\\props\\geologist_geode_seam_closed_painted.png"
+    ],
+    [
+      "C:/Program Files/Aseprite/Aseprite.exe",
+      "--batch",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_seams_20261030\\done_crop.aseprite",
+      "--scale",
+      "0.5772266065388951",
+      "--save-as",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets\\opera\\worlds\\props\\geologist_geode_seam_done_painted.png"
+    ]
+  ],
+  "exports": [
+    {
+      "role": "closed",
+      "path": "assets/opera/worlds/props/geologist_geode_seam_closed_painted.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "5e0525f398d306e3e3b4e99d6a6e97036f0a6fdd0d5d05d6390388e31be9aea3",
+      "crop": [
+        27,
+        3,
+        887,
+        887
+      ],
+      "uniform_scale": 0.5772266065388951,
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 54.3,
+        "faint_haze_pct_of_canvas": 0.6,
+        "semi_pct_of_visible": 0.9,
+        "near_opaque_pct_of_visible": 97.8,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          54,
+          62,
+          458,
+          450
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    },
+    {
+      "role": "done",
+      "path": "assets/opera/worlds/props/geologist_geode_seam_done_painted.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "sha256": "c8c83d5a1504cf777f98174fa94ae409e9a1a32c0127132d4d59af0c213e41f7",
+      "crop": [
+        849,
+        3,
+        887,
+        887
+      ],
+      "uniform_scale": 0.5772266065388951,
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 54.2,
+        "faint_haze_pct_of_canvas": 0.6,
+        "semi_pct_of_visible": 0.9,
+        "near_opaque_pct_of_visible": 97.8,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          54,
+          62,
+          459,
+          450
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    }
+  ]
+}

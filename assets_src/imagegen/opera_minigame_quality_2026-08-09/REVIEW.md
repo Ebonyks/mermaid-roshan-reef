@@ -14,8 +14,9 @@ All approved source and native generated inputs are preserved; runtime transform
 
 ## Source-role audit notes
 
+- 2026-10-19 Astronaut revision replaces only the historical code-drawn patches and dependent mark with hash-bound native ImageGen coral square/lavender circle/teal star. Source/derivation in job_art_astronaut_20261018; local static4.5floor only, full/human motion/QA11/device/child/owner gates remain separate.
 - Source export labels were audited visually. Candy and Farmer source names are shifted; mappings above follow visible art.
-- Chef pieces retain only each topping's approved visible silhouette/lower outline; every serving pedestal/plate/base pixel is excluded.
+- Chef cherry/cream retain the historical authored silhouettes. The chocolate slot was revised2026-10-19 to a hash-bound ImageGen chocolate-dipped strawberry; historical sources remain preserved, and current context/device/owner acceptance stays separate.
 - Magician cabinet reveal continues VANISH by placing the approved Lamba reveal inside a cabinet shell derived only from approved crops.
 - Detective board slots are authored left-to-right; runtime hit targets must use the same horizontal order.
 - Candymaker SYRUP uses a scoped generated replacement because the binding art ledger marks all three prior layers REPLACE and no registered empty-mold/fill set exists.
@@ -46,10 +47,10 @@ All approved source and native generated inputs are preserved; runtime transform
 - `widget_pour_candymaker_mover_empty.png` — 512x256; alpha bbox `[13, 57, 499, 200]`; one complete visibly dry copper ladle matching the full state's direction and silhouette; no stream, crop, or green spill.
 - `widget_pour_chef_mover.png` — 256x256; alpha bbox `[21, 46, 234, 209]`; accepted source topology preserved; one complete object; no crop, detached part, or visible green spill.
 - `widget_pour_nursery_mover.png` — 256x256; alpha bbox `[75, 22, 181, 234]`; accepted source topology preserved; one complete object; no crop, detached part, or visible green spill.
-- `widget_target_astronaut_mark.png` — 128x128; alpha bbox `[9, 9, 119, 119]`; thematic filled stamp remains distinct from hollow invitation ring.
-- `widget_target_astronaut_piece_0.png` — 256x256; alpha bbox `[27, 27, 229, 229]`; unique shell/rivet patch silhouette; complete outline and >=24px transparent margin.
-- `widget_target_astronaut_piece_1.png` — 256x256; alpha bbox `[27, 23, 229, 234]`; unique shell/rivet patch silhouette; complete outline and >=24px transparent margin.
-- `widget_target_astronaut_piece_2.png` — 256x256; alpha bbox `[31, 42, 226, 214]`; unique shell/rivet patch silhouette; complete outline and >=24px transparent margin.
+- `widget_target_astronaut_mark.png` — 128x128; alpha bbox `[9, 11, 119, 116]`; thematic filled stamp remains distinct from hollow invitation ring.
+- `widget_target_astronaut_piece_0.png` — 256x256; alpha bbox `[9, 14, 247, 242]`; whole coral square/lavender circle/teal star painted patch; complete outline with8px minimum export padding.
+- `widget_target_astronaut_piece_1.png` — 256x256; alpha bbox `[9, 10, 247, 246]`; whole coral square/lavender circle/teal star painted patch; complete outline with8px minimum export padding.
+- `widget_target_astronaut_piece_2.png` — 256x256; alpha bbox `[8, 16, 248, 241]`; whole coral square/lavender circle/teal star painted patch; complete outline with8px minimum export padding.
 - `widget_target_candymaker_mark.png` — 128x128; alpha bbox `[13, 9, 115, 119]`; thematic filled stamp remains distinct from hollow invitation ring.
 - `widget_target_candymaker_piece_0.png` — 256x256; alpha bbox `[27, 18, 230, 238]`; one child-readable complete target prop; no frame bleed, crop, or detached part.
 - `widget_target_candymaker_piece_1.png` — 256x256; alpha bbox `[18, 23, 238, 234]`; one child-readable complete target prop; no frame bleed, crop, or detached part.
@@ -57,7 +58,7 @@ All approved source and native generated inputs are preserved; runtime transform
 - `widget_target_chef_mark.png` — 128x128; alpha bbox `[9, 15, 120, 114]`; thematic filled stamp remains distinct from hollow invitation ring.
 - `widget_target_chef_piece_0.png` — 256x256; alpha bbox `[20, 23, 236, 233]`; one complete topping-only token; no serving stand, plate, pedestal, flat cut, frame bleed, or detached part.
 - `widget_target_chef_piece_1.png` — 256x256; alpha bbox `[20, 31, 236, 226]`; one complete topping-only token; no serving stand, plate, pedestal, flat cut, frame bleed, or detached part.
-- `widget_target_chef_piece_2.png` — 256x256; alpha bbox `[21, 31, 231, 224]`; one complete topping-only token; no serving stand, plate, pedestal, flat cut, frame bleed, or detached part.
+- `widget_target_chef_piece_2.png` — 256x256; alpha bbox `[29, 9, 226, 248]`; complete chocolate-dipped strawberry; broad painted food material, no serving stand or swirl ambiguity; current source/context/owner acceptance separate.
 - `widget_target_farmer_mark.png` — 128x128; alpha bbox `[15, 9, 113, 119]`; thematic filled stamp remains distinct from hollow invitation ring.
 - `widget_target_farmer_piece_0.png` — 256x256; alpha bbox `[29, 17, 227, 239]`; one child-readable complete target prop; no frame bleed, crop, or detached part.
 - `widget_target_farmer_piece_1.png` — 256x256; alpha bbox `[24, 17, 233, 239]`; one child-readable complete target prop; no frame bleed, crop, or detached part.

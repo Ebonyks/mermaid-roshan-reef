@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "scope": "Day One sink and tub touch-removable dirt; desktop agent evidence only",
+  "audit_impact": "design/audit_impacts/day-one-bathroom-touch-dirt-20261002.json",
+  "baseline": "c5e98477efe4fe3c36d6bffe68818d84c2d08325",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "Vulkan Forward Mobile, NVIDIA GeForce RTX 3060 Ti",
+  "canvas": [
+    1280,
+    720
+  ],
+  "source_hash_basis": "sha256 identifies native Windows working-tree bytes used by local runs; git_blob_sha256 identifies the staged Git blob, including Git line-ending normalization. Runtime PNGs are unchanged binary sources.",
+  "source_files": [
+    {
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980",
+      "bytes": 3856,
+      "git_blob_sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "sha256": "fc2ed0ac3f966b50c9f33e741a8346ed92dbece27e1da25010043f481fb4087c",
+      "bytes": 37353,
+      "git_blob_sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "sha256": "84005d2724fa4f58cf290c725745db2410f90c5de947ebe9ca6cc733a115a73d",
+      "bytes": 36997,
+      "git_blob_sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+      "sha256": "9c200c439e7e1bef108005c8eb9001b7b4ea26e78b9f10f1e71d46bd3dde567d",
+      "bytes": 36877,
+      "git_blob_sha256": "cdb52e6116a50075042c80dbf8173c1aae87f8b49d14c2c4d3934afe6201b865"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_shots.gd",
+      "sha256": "ef51b0a8574af979b0ba614d0d8b99f09eae3930f742a301ecf0d4b96a67e557",
+      "bytes": 12430,
+      "git_blob_sha256": "069bb0daf6dcaa274c95f4a81cad4c4fc678cc2e53cec9b6d746a4b24f931a16"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_bubble_bath.png",
+      "sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+      "bytes": 986757,
+      "git_blob_sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "bytes": 1239053,
+      "git_blob_sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f"
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+      "sha256": "1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47",
+      "bytes": 1259130,
+      "git_blob_sha256": "1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47"
+    }
+  ],
+  "captures": [
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/00_dirty_basket_prompt.png",
+      "sha256": "de4c35b5893a49440acd3b788b4847a62e52049201d345f5cb30ced329511b2a",
+      "bytes": 1446291
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/01_sponge_travels_to_sink.png",
+      "sha256": "daaf7eb60a88ef2466f85ad270cb94a773dd9ffaf41ac9bf23eb887b50869b05",
+      "bytes": 1444285
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/02_sink_circle_guide.png",
+      "sha256": "40cb49d6672eec3552236b41fbc6fae157db2854c9523e6a69136d7d1d4c6128",
+      "bytes": 1447296
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/02b_sink_touch_removes_dirt.png",
+      "sha256": "1bbbadf7915022e010bae8afb085f1a6a0e04b3640531c8d4756196fd1d3bb32",
+      "bytes": 1444803
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/03_sink_clean_sponge_returns.png",
+      "sha256": "06fa7c5bf60ad103b01c1c7caa07241374942759b40b304503e6d82b862dcbd5",
+      "bytes": 1438131
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/04_brush_travels_to_tub.png",
+      "sha256": "b9d262acfd08e0fe5849f06ea2be3b9e93a0e40433c5c800b826aedfdfc3946d",
+      "bytes": 1443931
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/05_tub_drain_prompt.png",
+      "sha256": "2896814cc0f7ef1b4cea2620db7d31321cb2a2b0be2ca8c196da24d34a5785c4",
+      "bytes": 1443268
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/06_bunny_no_spin.png",
+      "sha256": "50a53e2fd834cad9ed2e8fe6fd1a9d080bc2bbe5387936719e2edfdaabad5842",
+      "bytes": 1438231
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/07_tub_arrow_guide.png",
+      "sha256": "dfdd3530a9caadf6472b04269fc7d58dbb8c9683845782e40c97046ce5957bb4",
+      "bytes": 1461973
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/07b_tub_touch_removes_dirt.png",
+      "sha256": "f2a74aadbfede991b9b2bf51be06aeeb9f1b96b14f4d08809f87c6723e300f0c",
+      "bytes": 1461418
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/08_whole_room_sparkle.png",
+      "sha256": "a80cf4c78979d0f608ec7771c6cc9b94eae9d1643d8a97a0e9aec46b265fb351",
+      "bytes": 1404709
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/08a_toilet_circle_prompt.png",
+      "sha256": "b0a1ea95a9cfeb12dbf020e841517bdd8745026888470e7b54c89e120a4913d4",
+      "bytes": 1459425
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/08b_toilet_scrubbing.png",
+      "sha256": "c6c8685dc8816b1f7ce35e0063afcde34ef544843dccd498fb37f045cfdf8fdc",
+      "bytes": 1450576
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/09_clean_pool_route.png",
+      "sha256": "edfd5efb1e2e00681d6fb6ec28ce9eede7c3915a6436b19af5bd7210e9a32309",
+      "bytes": 1499015
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/10_hall_glowing_pool_door.png",
+      "sha256": "7de555e1814f2cfa2414734bf8ead68e086cbd6ace53287dcd4345bf55def665",
+      "bytes": 1484358
+    }
+  ],
+  "logs": [
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/baseline.log",
+      "sha256": "6c64566ecde3d407eb7b0cfca4fc7b4f5ae10e9168698cae4c35d832500fb7bf",
+      "bytes": 7306
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/focused-final.log",
+      "sha256": "e3ac904c4ddad2ceec6937274324e0f46e845f5bc74095a74bd985a7a25a3d14",
+      "bytes": 7951
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/mobile-isolated-final.log",
+      "sha256": "bc76507461815acd332b19f1d689b92f7c8671ef77734fb73f2b4cbb830a33b2",
+      "bytes": 5648
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/save-guard-negative.log",
+      "sha256": "a1e0b1040ea333cc4b9168b71516a25a9a4f55c51bc81eb90b4b17de9bf3c0bd",
+      "bytes": 234
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/full-ci.log",
+      "sha256": "084b9a8ca6b965f5101666fcb34bce861e1224ee7d8cd21294cf512823a5a39a",
+      "bytes": 51015
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/import-clean.log",
+      "sha256": "2e4226df6d711973135a93faa2e7aae43ea4a7b652b0916c3bd37aad1cb6d11a",
+      "bytes": 1367
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/2d-clean.log",
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "bytes": 414
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/full-ci-clean.log",
+      "sha256": "57fdaebe6b0ecc8eb3ee21179a5efe64c5c52f44d39b045041dffa4f5c2af59e",
+      "bytes": 440734
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/crown-isolated.log",
+      "sha256": "7a46f391025a58516899a8b24e4cfe7b5c7997f970a311ae6245c4a6381a70c5",
+      "bytes": 2259
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/full-ci-confirm.log",
+      "sha256": "798c3a2a08d189e970b0eec8cd992eb8b633d8c15a92139c48f17ad3704c8edf",
+      "bytes": 129548
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/native-suite.log",
+      "sha256": "a35c1e04509a58f68b5a8dbdb450ee6d2627e69c35b6a757a3943d70c5af8264",
+      "bytes": 33237
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/passive-direct-engine/probe.log",
+      "sha256": "7ce1e73aea09c4306b4b219ddbed519c6c94aeb263be4ce4586cce3ba78302f8",
+      "bytes": 998
+    },
+    {
+      "path": "tmp/bathroom-touch-dirt-20261002/direct-engine-suite.log",
+      "sha256": "d90fa86e8d2f5a7988bdc46cb438daef1689139269ce3d9d5379aba459073ad8",
+      "bytes": 414547
+    }
+  ],
+  "baseline_negative_control": "Partial sink scrub failed at the baseline; all other focused probe assertions passed.",
+  "machine_review": "Final focused cleanup probe exits 0 with PASS/checks_failed=0. Isolated Mobile capture probe exits 0 with PASS/failures=0. Default-folder capture guard exits 1 before loading main, as expected.",
+  "full_suite": {
+    "command": "Unchanged scripts/ci.sh static/import gates, then every trusted probe from its exact list via the direct official Windows Godot engine and native subprocesses",
+    "direct_probe_exit_code": 0,
+    "trusted_probe_exits": 82,
+    "static_import_log": "tmp/bathroom-touch-dirt-20261002/full-ci-clean.log",
+    "probe_log": "tmp/bathroom-touch-dirt-20261002/direct-engine-suite.log"
+  },
+  "probe_runner": {
+    "path": "tmp/bathroom-touch-dirt-20261002/direct_engine_probe_suite.py",
+    "sha256": "36e831f63e66a833970a5fb4c1d2168693e254430cdd33bcc27bdd57d7628b5e",
+    "bytes": 2850
+  },
+  "remote_verification": "Exact commit-bound GitHub topic and dev checks are a separate integration requirement, reported at delivery; this sealed local receipt makes no remote CI claim.",
+  "environment_repair": "Initial full suite stopped on 29 3D API files in the ignored local addons/godot_ai editor package, outside the shrinking debt manifest. The untracked package was preserved intact under ignored environment-addon/godot_ai staging, then exact-engine import and the unchanged 2D regression gate passed. No tracked project configuration, gate, debt baseline or installed global tool copy was changed. The 2D gate remains UNSATISFIED with NO_REGRESSION.",
+  "interrupted_probes": "First clean MSYS full suite completed 82 probes with 81 exit-0 outcomes and Crown ending early with process exit127. Isolated Crown rerun exits0/CROWN|done: OK. Second MSYS confirmation passed static/import gates again but Passive ended early with exit127; the already-failed task-owned process tree was stopped. Native subprocess use of godot_console.exe also ended Passive early with exit4294967295, so changing shells alone did not resolve it. No failed assertion/script error or Godot Application crash event was found, and the root cause is unconfirmed. Running the actual official godot.exe directly with --headless and --log-file completes Passive with exit0/ALL OK. All original probes are then run through that direct engine, with identical scripts, touch modes, fresh APPDATA/LOCALAPPDATA isolation, eight-minute limits and failure rules. No nonzero interruption is accepted; failed transcripts are preserved. No production source, probe, gate or baseline was modified to bless an interruption.",
+  "visual_review": "Agent inspected dirty, partial sink, clean sink, drained dirty tub, partial tub and room-completion captures. Local source-bound masks reveal clean fixture artwork and erase the visible grime at contact. Existing approved artwork is preserved. Staged room checkpoint with story seams marked seen; not a fresh-save whole-game or voice acceptance run.",
+  "save_testing_incident": "Initial runs of the existing capture probe used the normal desktop save folder and changed that local save. Original preservation and older snapshots remain in ignored save-recovery staging; exact pre-test recovery is not verified. Capture now requires an explicit isolated root checked against OS.get_user_data_dir(); the isolated capture and negative-guard checks initially left preserved desktop hashes unchanged. Final review observes newer, differing default-desktop save bytes while another Godot capture task is active; attribution is unconfirmed. That later state is also preserved under save-recovery/post-validation-observed. Direct trusted probes write their saves under distinct task-owned APPDATA roots. No unverified older save is substituted. Phone data was not accessed. User recovery input is requested separately.",
+  "acceptance_limits": "No physical-device, child, owner, cinematic-delivery, MA-VIS-006, MA-PLAY-004 or game-wide closure. Existing completion checkpoints remain authoritative; partial scrub marks are transient action feedback."
+}

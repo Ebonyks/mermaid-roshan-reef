@@ -1,0 +1,667 @@
+{
+  "id": "restore-doorframes-20261015",
+  "baseline": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "historical_correction": "10ddff27a498a2c0b757b6a0e19c444cd7f00614",
+  "cause": "Missing integration; historical correction is not an ancestor of baseline, which still traces generic arches over clipped touch rectangles.",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "capture_profile": {
+    "renderer": "mobile",
+    "gpu": "NVIDIA GeForce RTX 3060 Ti",
+    "quality": "speedy",
+    "pixels": [
+      1280,
+      720
+    ],
+    "role": "DIAGNOSTIC_RUNTIME_CAPTURE",
+    "authoritative_visual_pass": false,
+    "limit": "No DL-QA-11 fresh-runtime challenge/dependency/decoded-target proof. Fixture sequences directly apply resolver states, not child-play progression."
+  },
+  "review": {
+    "agent": "Codex",
+    "result": "All 36 sampled family/state phases and six overview/sequence frames inspected. Masks follow painted gold/pearl contours; signs and Roshan remain in front; first sequence target is now on screen.",
+    "remaining": "Target-device, child and owner review; wider Door Guidance v2 brightness/beacon/voice work is not implemented or accepted by this restoration."
+  },
+  "captures": [
+    {
+      "path": "tmp/doorframe-evidence/captures/live_hall_before_resolver_fixtures.png",
+      "sha256": "f74f641f6a0daba18df460543655daa58fd2b36f68dc0ce368c68e3de3d04ca1",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_blocked_00.png",
+      "sha256": "03a6c0566f83e196557a2bb6fd3948ea89e429fd0f903e52c46379bbdb0b38c0",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_blocked_01.png",
+      "sha256": "f195ebd36a38944570fe08f428a83711ccfc652c3a2176a422747cab38a116a9",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_blocked_02.png",
+      "sha256": "9555bbaed5776cfd0d5d695db76ec773560e46ae71703c004e5fb27407bd5428",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_blocked_03.png",
+      "sha256": "a21a6d0c0bd05a9709f8f7c1873e243fd4a35d7acf407e49d89e808c020d9ed8",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_bonus_00.png",
+      "sha256": "fcb980410691f7e176e8bf9d934ace1a07eb39bfccceb572edb0085bc3852795",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_bonus_01.png",
+      "sha256": "ebef93009b3d96f8ca38d39283d17cea3e685d84b1cf49e1f3098c369adf6fb4",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_bonus_02.png",
+      "sha256": "fcb980410691f7e176e8bf9d934ace1a07eb39bfccceb572edb0085bc3852795",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_bonus_03.png",
+      "sha256": "5adedcb97af0a4a871e6358a7d79285d58bc5da58e488b1548d205859c03aa81",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_plot_00.png",
+      "sha256": "ce93299222e21c49723ebdc5e7fb14d49041b077b0d0f283e18c1e691e84f202",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_plot_01.png",
+      "sha256": "253da0e2f1e88b8ed7ff8f38534b4066032e68c55d9266d61873ed99c9af9699",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_plot_02.png",
+      "sha256": "f1407a80f626acafd10d6ab2a48e02487b194abfaf98b33fe459cf957065de6e",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/mermaid_pool_plot_03.png",
+      "sha256": "84c83bf3f4a3065d3b3b81e8c2ef30fe30fc7ce2115d5986f1764bf42e190f52",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_blocked_00.png",
+      "sha256": "67e3f8f6c76b2f12dcc1482cae7dea2ea54469a910e93b3d18b77139ec0f1661",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_blocked_01.png",
+      "sha256": "b9e9928e415151efffcb2e51afa871b1aa6beb1a10dfb7fb6321a0c15d4b8070",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_blocked_02.png",
+      "sha256": "1a0136b1bb6bec42690846cb54437c80149500285b7bc2d7c5b8e221dd229395",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_blocked_03.png",
+      "sha256": "5ad62cf811fbd134ad020279d8f1b09fc5428ae923997b0faef8dce70f69ed0f",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_bonus_00.png",
+      "sha256": "8e03452ec0828ec4ab62feaf4a5b8745548de509ea86ed83b0520229ee007060",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_bonus_01.png",
+      "sha256": "4aba2b4432dc2b7655adf39ebd59d18d01a6f3d6e15a73e2207b13ae569b0068",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_bonus_02.png",
+      "sha256": "8e03452ec0828ec4ab62feaf4a5b8745548de509ea86ed83b0520229ee007060",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_bonus_03.png",
+      "sha256": "986aa0b70fb743eb0e935ac87430c7c0bad1741113816e480a634b0c711cd9df",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_plot_00.png",
+      "sha256": "778b6b9bd964dacff1910de37e932459fb67a29a6117137d2bdd7642e25cc873",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_plot_01.png",
+      "sha256": "cb563089e7f34f38b7c295a5cb260ab3599107a748d9ae6a6457e378285728dc",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_plot_02.png",
+      "sha256": "bc2c333cf8a7625d95d6ae7a125e865969d8d23f9456a4f1d66b410a7ca92321",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/opera_hall_plot_03.png",
+      "sha256": "4f2eab7ef4d080fd0cb6ad18824594e56055c2819de2e5ece6a4bec0a70fc64a",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_blocked_00.png",
+      "sha256": "d4739e52de243d574a8bc4ab6ed2f4348bb91c72e78bd8894b165fde8196004c",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_blocked_01.png",
+      "sha256": "217ee32935f0ce862b2d1146169beceb3a330e43756fa97a8d9f852ae49c9c5c",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_blocked_02.png",
+      "sha256": "8c1bbf62553656e7c8e6d140ee5aa65ff11879a0c4af6de17466d87f2a362851",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_blocked_03.png",
+      "sha256": "efe16301a34b563a1df559ba6da9884fb9782e73d796bab174020e4ce946fcd5",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_bonus_00.png",
+      "sha256": "24361081e9532f6cc4c12358e2453e4004e392532944485a7fd025c0f8ee9d8e",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_bonus_01.png",
+      "sha256": "75e7f3bf15fd052bca3677e6a6c7623e9177e72757a8c6cc0d305dae8eb7a812",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_bonus_02.png",
+      "sha256": "24361081e9532f6cc4c12358e2453e4004e392532944485a7fd025c0f8ee9d8e",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_bonus_03.png",
+      "sha256": "fbb8f6cfcea94cb5772147ac0a0fc4548db4718c7b64e5595c8b380273fc6837",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_plot_00.png",
+      "sha256": "e93455e8ce3804e8a57b4583d95856993dbda824316bf0efbc03761d5c07ee17",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_plot_01.png",
+      "sha256": "f99ba7d662ad8544ed30412c2f5a3c4e0741442eb372902765c7f73691db67cc",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_plot_02.png",
+      "sha256": "e46472707546e2b28f336d5c55261dfd017b4cded82d6c355f782b36b1d4c6a3",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/royal_hall_plot_03.png",
+      "sha256": "0f448948e9e9bba0485d4bc4ef9882ec11fa6af4264626faeb5a78189b701f70",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/sequence_beat_01_bubble_bath.png",
+      "sha256": "528c0fc8981c0c52abb75ffce3bd30ad434af5d0ca2203d1f6addd47b0b0eed1",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/sequence_beat_02_mermaid_pool.png",
+      "sha256": "185cf0de4e965af5e920545c89a3fe6639f40c4c2cec7f08e51a90fe1e344269",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/sequence_beat_03_playroom.png",
+      "sha256": "e4b1f0446d11a10c5b4e7efdec640c632013f253c8500970426f5f52dfdc05bf",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/sequence_beat_04_craft_room.png",
+      "sha256": "b2ce53271e801e1eaf14f13510c6f942e34b199da0ef371f4a2a8e382171760b",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "tmp/doorframe-evidence/captures/sequence_beat_05_royal_hall.png",
+      "sha256": "b8a63556dff69b3d299697547fa1bd7e20008910f75d60cb6600befe3362de94",
+      "dimensions": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "published_diagnostics": [
+    {
+      "path": "assets_src/review/doorframe_restore_20261015/mermaid_pool-contact.png",
+      "sha256": "a4bf4a629eb5ebbac571a7c419d750e2fa5f42bb5e35a5f001f126ff02d2648c",
+      "dimensions": [
+        960,
+        1080
+      ]
+    },
+    {
+      "path": "assets_src/review/doorframe_restore_20261015/mermaid_pool_plot_02.png",
+      "sha256": "f1407a80f626acafd10d6ab2a48e02487b194abfaf98b33fe459cf957065de6e",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets_src/review/doorframe_restore_20261015/opera_hall-contact.png",
+      "sha256": "74ac4d0d06a815b06538e4958eba3819246f0d158c4295857523e8e220da51af",
+      "dimensions": [
+        960,
+        1080
+      ]
+    },
+    {
+      "path": "assets_src/review/doorframe_restore_20261015/opera_hall_plot_02.png",
+      "sha256": "bc2c333cf8a7625d95d6ae7a125e865969d8d23f9456a4f1d66b410a7ca92321",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets_src/review/doorframe_restore_20261015/royal_hall-contact.png",
+      "sha256": "7e2922c658cdf0cbec38d5a0769ff399af4fa8941299138bcb1cabc874124be9",
+      "dimensions": [
+        960,
+        1080
+      ]
+    },
+    {
+      "path": "assets_src/review/doorframe_restore_20261015/royal_hall_plot_02.png",
+      "sha256": "e46472707546e2b28f336d5c55261dfd017b4cded82d6c355f782b36b1d4c6a3",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "assets_src/review/doorframe_restore_20261015/sequence-contact.png",
+      "sha256": "458344cca79bcaf089a8b617491a9cc0c561846d139969663fa12a20a69e10ab",
+      "dimensions": [
+        1280,
+        1140
+      ]
+    }
+  ],
+  "diagnostic_derivation": {
+    "source": "42 unchanged engine screenshots, each hash above",
+    "contact_sheet_boxes": {
+      "opera_hall": [
+        505,
+        100,
+        755,
+        480
+      ],
+      "mermaid_pool": [
+        570,
+        215,
+        710,
+        480
+      ],
+      "royal_hall": [
+        900,
+        65,
+        1200,
+        480
+      ]
+    },
+    "edits": "Three state contact sheets: crop named target rect, fit within 230x320 using Pillow thumbnail default resampling, arrange four phases by three states with labels. Sequence sheet: whole frames thumbnail to 640x360, two columns/three rows; no scene/art repair. Three plot_02 views copied unchanged."
+  },
+  "restored_assets": [
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_opera_exact.png",
+      "sha256": "3d107eca1ad32cae40ac9bfa298d02c3ab1e94475b873f1905eedcc1ece64d42",
+      "dimensions": [
+        653,
+        925
+      ],
+      "historical_bytes_equal": true
+    },
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_royal_exact.png",
+      "sha256": "eae0fbef272947cea857b4a80ffe3a15da8f10761eae9abda71a88420bbcd2d9",
+      "dimensions": [
+        762,
+        1023
+      ],
+      "historical_bytes_equal": true
+    },
+    {
+      "path": "assets/flats/castle/door_cues/door_frame_small_exact.png",
+      "sha256": "4603157688afb263d20e9ce47b23ed3f24b1ba518f6104b62b592a05fb698c10",
+      "dimensions": [
+        349,
+        664
+      ],
+      "historical_bytes_equal": true
+    }
+  ],
+  "runtime_sources": {
+    "scripts/arena/castle_rooms_25d.gd": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+    "scripts/castle_door_cue.gd": "da2d19422b20b6a8cce724a441e09db80f4ac105757a4131233920054ac79c94",
+    "shaders/castle_door_frame_glow.gdshader": "26d052deea78357f345a0a290da5ef4df4f5d8ba446b79666ba3e3b119b96267",
+    "scripts/probe_castle_door_language.gd": "75918e67face762686ad8cabd5ad01c5442bc2cfeb89640b9ed68fd7ffc12e75",
+    "scripts/probe_castle_door_visual_capture.gd": "9e7b9eecc256d9a5a142609653b70fa80c570723ca00546402961ebad25f3fb7"
+  },
+  "logs": {
+    "audit/cycles/doorframe-restore-20261015/focused.log": "8e71287378f0e83ab7e9726d14ad4d5ad52570fb509db3da7d99e41bc5b0012c",
+    "audit/cycles/doorframe-restore-20261015/mobile-capture.log": "6130e8082eb714fcd60e2c6e46118fe09e1ffbb2b993271aa151c44fcb690999",
+    "audit/cycles/doorframe-restore-20261015/analyzer.log": "b203cbb83ac08a32d5baa699b80049e069d93e4407d0150ce6fa9ca9304786e6",
+    "audit/cycles/doorframe-restore-20261015/full-ci-initial-failed.log": "f2e380b714a1a47ce4240e0a631cee2f36ccdd7213e73b441c22592a2de29357",
+    "audit/cycles/doorframe-restore-20261015/full-ci.log": "4d6ba5f7a3e0a45255bda1756d63376221b864131fa79fa18fe75dd91dc35a34"
+  },
+  "rejected_capture_attempts": [
+    {
+      "path": "tmp/doorframe-evidence/rejected-covered-mobile-capture.log",
+      "sha256": "c0d8db20c23aed4a6a4a47f2052422f93123d73dfc0220c39629ed65ace58c78",
+      "reason": "Opening movie covered the hall; reject despite metadata assertions passing."
+    },
+    {
+      "path": "tmp/doorframe-evidence/banner-review-mobile-capture.log",
+      "sha256": "c181cba8133181e9fd18ab3be0b89b56b8b716c0129be144df04ca2028f980a6",
+      "reason": "Correct hall but narration obscured crest review."
+    },
+    {
+      "path": "tmp/doorframe-evidence/partial-camera-mobile-capture.log",
+      "sha256": "c181cba8133181e9fd18ab3be0b89b56b8b716c0129be144df04ca2028f980a6",
+      "reason": "First sequence target not yet visible; added timed camera settle and 95 percent area guard."
+    }
+  ],
+  "full_regression": {
+    "initial_result": "FAIL_BEFORE_PROBES_STALE_INTERACTION_CANDIDATE_BINDING",
+    "initial_log": "audit/cycles/doorframe-restore-20261015/full-ci-initial-failed.log",
+    "initial_log_sha256": "f2e380b714a1a47ce4240e0a631cee2f36ccdd7213e73b441c22592a2de29357",
+    "rerun": "PASS",
+    "process_exit": 0,
+    "trusted_probe_count": 82,
+    "trusted_probe_exits": {
+      "probe_reef_districts": "0",
+      "probe_ocean_kingdoms": "0",
+      "probe_audit": "0",
+      "probe_passive": "0",
+      "probe_living_world": "0",
+      "probe_load": "0",
+      "probe_rank": "0",
+      "probe_save_recovery": "0",
+      "probe_galaxy_state": "0",
+      "probe_collection": "0",
+      "probe_mg2d": "0",
+      "probe_fetch": "0",
+      "probe_melody": "0",
+      "probe_dolls": "0",
+      "probe_seek": "0",
+      "probe_audio": "0",
+      "probe_dance": "0",
+      "probe_l2": "0",
+      "probe_l2_living_cards": "0",
+      "probe_sky_lagoon_animals": "0",
+      "probe_l2_reenter": "0",
+      "probe_crown": "0",
+      "probe_throne": "0",
+      "probe_northern": "0",
+      "probe_human_art_audit": "0",
+      "probe_train": "0",
+      "probe_verbs": "0",
+      "probe_skins": "0",
+      "probe_touch_router": "0",
+      "probe_touch_stress": "0",
+      "probe_interaction": "0",
+      "probe_touch_adversary": "0",
+      "probe_touch_look": "0",
+      "probe_ui_system": "0",
+      "probe_voice": "0",
+      "probe_day_one_voice": "0",
+      "probe_day_one_d8_revisits": "0",
+      "probe_day_one_handoffs": "0",
+      "probe_kart_feel": "0",
+      "probe_combat": "0",
+      "probe_dust_bunny": "0",
+      "probe_dust_bunny_boss": "0",
+      "probe_dust_boss": "0",
+      "probe_hit": "0",
+      "probe_partner": "0",
+      "probe_combat_tutorial": "0",
+      "probe_imp_ai": "0",
+      "probe_mic": "0",
+      "probe_stuffie": "0",
+      "probe_dungeon": "0",
+      "probe_ember": "0",
+      "probe_opera": "0",
+      "probe_opera_2d": "0",
+      "probe_opera_diegetic_paths": "0",
+      "probe_opera_detective": "0",
+      "probe_opera_pipe": "0",
+      "probe_opera_nursery": "0",
+      "probe_opera_gesture_quality": "0",
+      "probe_kitchen_props": "0",
+      "probe_bathroom_props": "0",
+      "probe_castle_door_language": "0",
+      "probe_bathroom_integration": "0",
+      "probe_day_one_bathroom_bunny": "0",
+      "probe_day_one_bathroom_cleanup": "0",
+      "probe_day_one_bathroom_movie_handoff": "0",
+      "probe_day_one_director": "0",
+      "probe_day_one_integration": "0",
+      "probe_day_one_pool_cleanup": "0",
+      "probe_day_one_art_attack_state": "0",
+      "probe_day_one_castle_dressing": "0",
+      "probe_day_one_story_clips": "0",
+      "probe_chapter2": "0",
+      "probe_chapter2_farmer_resume": "0",
+      "probe_chapter2_lawn": "0",
+      "probe_alpha_milestone_save": "0",
+      "probe_dust_boss_balance": "0",
+      "probe_start_menu_routing": "0",
+      "probe_start_menu_new_game": "0",
+      "probe_castle_pool_life_2d": "0",
+      "probe_castle_pearl_art": "0",
+      "probe_fairy_art": "0",
+      "probe_props": "0"
+    },
+    "log": "audit/cycles/doorframe-restore-20261015/full-ci.log",
+    "log_sha256": "4d6ba5f7a3e0a45255bda1756d63376221b864131fa79fa18fe75dd91dc35a34",
+    "native_log_sha256": "df0266e7b03f018c4506807412f82ac649f6e44e6e4b83c9a1b5df9208b7696e",
+    "runtime_source_hashes_verified": true
+  },
+  "remote_ci": "PENDING",
+  "findings": "No lifecycle changes or closure; game-wide UNSATISFIED remains.",
+  "analyzer": "All four changed scripts exit 0 under exact Godot --headless --check-only --script, with no script/parse/compile error.",
+  "baseline_falsification": {
+    "invariant": "Trusted door probe rejects _arch_points and draw_polyline in cue source.",
+    "baseline_cue_sha256": "0932feb34209b3dbd3e2738b32a7dddf0ee99ab607251356bb4fbac9cc7f895d",
+    "baseline_invariant_pass": false,
+    "candidate_cue_sha256": "da2d19422b20b6a8cce724a441e09db80f4ac105757a4131233920054ac79c94",
+    "candidate_invariant_pass": true
+  },
+  "interaction_review_binding_revalidation": {
+    "date": "2026-10-15",
+    "reviewer": "Codex source/evidence revalidation; original per-frame reviewer and approvals unchanged",
+    "reason": "Only hall door cues, their separate below-character layer and projected mask bounds change. Room layouts, fixture rigs, V4 manifest, room art, card z/alpha and all 96 interaction-frame render/occlusion records are unchanged. The hall-only cue layer is hidden in rooms and lifecycle-tested.",
+    "prior_candidate_payload_sha256": "dd3f81565827c629563df9cf84bb82da80857985392426abe89faa622e3996d9",
+    "candidate_payload_sha256": "a569d56f51dc719620cd63372fd5977445662db20486d9d9c95e6c492a7a6bf4",
+    "prior_runtime_layout_semantic_sha256": "50c723043680c987cc959d9bfbbcad94cfb62162f24d305d3f058c0d2de05176",
+    "runtime_layout_semantic_sha256": "47b1e630d3cd9c99322dde48aa5dbbe4e94ab82d2980f1f706095ef9ffd00854",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "unchanged_reviewed_frames": 96,
+    "unchanged_asset_occlusion_records": 12,
+    "prior_payload_exactly_reproduced_by_restoring_layout_hash": true,
+    "owner_acceptance": "pending",
+    "limits": "No frame/pixel/occlusion approval or reviewer replacement. No new authoritative visual-runtime, device, child, owner or game-wide acceptance."
+  },
+  "native_log_archives": [
+    {
+      "path": "audit/cycles/doorframe-restore-20261015/analyzer.log.gz",
+      "sha256": "965af6fd2f4af336d2c5c4d3a127157ff95670483ebb3dee7612474947f70b67",
+      "decompressed_sha256": "7b7df7f01ccea2a95c05cf616e55d0e1b655089e58ee5c423b95f20ab973a988",
+      "human_readable_log": "audit/cycles/doorframe-restore-20261015/analyzer.log",
+      "human_readable_log_sha256": "b203cbb83ac08a32d5baa699b80049e069d93e4407d0150ce6fa9ca9304786e6",
+      "transformation": "Native stdout preserved byte-for-byte in gzip. Readable copy normalizes line endings to LF, strips trailing spaces/tabs and terminal blank lines for clean Git diffs."
+    },
+    {
+      "path": "audit/cycles/doorframe-restore-20261015/focused.log.gz",
+      "sha256": "b933946312553bf9c94e8a18f5637aaffd6f6e028c313339456cfee8e3f543a5",
+      "decompressed_sha256": "4abaa12c13b1268f31ba2dcbd5a0d01bef5d51f9d72bfae4a3e1289ea6b2240b",
+      "human_readable_log": "audit/cycles/doorframe-restore-20261015/focused.log",
+      "human_readable_log_sha256": "8e71287378f0e83ab7e9726d14ad4d5ad52570fb509db3da7d99e41bc5b0012c",
+      "transformation": "Native stdout preserved byte-for-byte in gzip. Readable copy normalizes line endings to LF, strips trailing spaces/tabs and terminal blank lines for clean Git diffs."
+    },
+    {
+      "path": "audit/cycles/doorframe-restore-20261015/full-ci-initial-failed.log.gz",
+      "sha256": "15f166e245cc2863a077b7ecd0726b0125b445df54469e6c8a48a24fdac476a0",
+      "decompressed_sha256": "75e8160f53cce51fb5270da699431bd200cf3f3fd40dd9ee05c0ba989e2a98a1",
+      "human_readable_log": "audit/cycles/doorframe-restore-20261015/full-ci-initial-failed.log",
+      "human_readable_log_sha256": "f2e380b714a1a47ce4240e0a631cee2f36ccdd7213e73b441c22592a2de29357",
+      "transformation": "Native stdout preserved byte-for-byte in gzip. Readable copy normalizes line endings to LF, strips trailing spaces/tabs and terminal blank lines for clean Git diffs."
+    },
+    {
+      "path": "audit/cycles/doorframe-restore-20261015/mobile-capture.log.gz",
+      "sha256": "6c794068707ed9ae029a6ac28d8fcd15c50ca0efe136851ce1dd0f2f211d0a22",
+      "decompressed_sha256": "d2563d6d325202a815680fc9af656b6cd147485b979167b5d502a614c6cbb784",
+      "human_readable_log": "audit/cycles/doorframe-restore-20261015/mobile-capture.log",
+      "human_readable_log_sha256": "6130e8082eb714fcd60e2c6e46118fe09e1ffbb2b993271aa151c44fcb690999",
+      "transformation": "Native stdout preserved byte-for-byte in gzip. Readable copy normalizes line endings to LF, strips trailing spaces/tabs and terminal blank lines for clean Git diffs."
+    },
+    {
+      "path": "audit/cycles/doorframe-restore-20261015/full-ci.log.gz",
+      "sha256": "bb2f7d928ef20847c4b3daa2bf55497baf72105b7a26144c70bf5ede35e40a11",
+      "decompressed_sha256": "df0266e7b03f018c4506807412f82ac649f6e44e6e4b83c9a1b5df9208b7696e",
+      "human_readable_log": "audit/cycles/doorframe-restore-20261015/full-ci.log",
+      "human_readable_log_sha256": "4d6ba5f7a3e0a45255bda1756d63376221b864131fa79fa18fe75dd91dc35a34",
+      "transformation": "Native stdout preserved byte-for-byte in gzip. Readable copy normalizes line endings to LF, strips trailing spaces/tabs and terminal blank lines for clean Git diffs."
+    }
+  ]
+}

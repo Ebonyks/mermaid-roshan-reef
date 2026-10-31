@@ -1,0 +1,110 @@
+{
+  "id": "02_huckleberry",
+  "status": "REFERENCE_SAMPLE",
+  "frame_canvas": [
+    512,
+    512
+  ],
+  "unique_generated_pose_drawings": 6,
+  "authored_light_states": 0,
+  "method": "Fresh generated pose drawings; Aseprite alpha cleanup and anchor registration. No deformation of the old source supplies motion.",
+  "input": "padded_native.png",
+  "input_sha256": "6be7965ca67d79fd41b1c5aa6a72f733aa61552b39c2d65728c9310902a2bf42",
+  "state_rgba_sha256": [
+    "58a514b9d7d5b986cf72db0fd2c111ba575b04f1e6cdd334b95afa9562179ad2",
+    "113bceea6a009f08b37ee5e802e5ea17385a677ff9b6cfe110a3efa328327f6c",
+    "56a91d93539a2ebdd6c039b381e7207029db1a7d9e023802420879dfa87d1303",
+    "4bdf657e7bc79f2f04bb5102806ba8aa9f01b6cab6b04f0aeecce41dddcb99d2",
+    "be2e75d138adafd19c0d99e8074f856ab47df9538c8dd020d931b3a9eb61e2ee",
+    "0430370e4a7b4e38ca3cf2520ad2b0399a1bc9e86d9f70383dff65f37027ad58"
+  ],
+  "pose_native_bounds": [
+    [
+      14,
+      131,
+      510,
+      443
+    ],
+    [
+      11,
+      142,
+      502,
+      447
+    ],
+    [
+      16,
+      101,
+      512,
+      402
+    ],
+    [
+      10,
+      85,
+      506,
+      399
+    ],
+    [
+      22,
+      62,
+      502,
+      382
+    ],
+    [
+      6,
+      77,
+      496,
+      390
+    ]
+  ],
+  "border_cap_repairs": [
+    [],
+    [],
+    [
+      [
+        "right",
+        332,
+        350
+      ],
+      [
+        "right",
+        358,
+        369
+      ]
+    ],
+    [],
+    [],
+    []
+  ],
+  "fixed_bottom_y": null,
+  "fixed_base_rect": null,
+  "edge_cleanup": {
+    "alpha_cutoff": 192,
+    "opaque_contours": true,
+    "method": "Largest connected subject mask; Aseprite rejects stray semi-transparent border noise, nearest-neighbor native pose registration."
+  },
+  "loop_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "duration_units_12fps": [
+    2,
+    2,
+    4,
+    2,
+    2,
+    4
+  ],
+  "limits": "Six-key acting examples remain coarse. AI detail/topology continuity and manual contacts require owner/production review. Not human hand drawing, accepted runtime art or full-frame cinematic delivery.",
+  "playback_duration_units_12fps": [
+    2,
+    2,
+    4,
+    2,
+    2,
+    4
+  ]
+}

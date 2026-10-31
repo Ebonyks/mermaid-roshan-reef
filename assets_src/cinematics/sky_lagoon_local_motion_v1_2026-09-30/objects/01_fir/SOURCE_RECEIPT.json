@@ -1,0 +1,48 @@
+{
+  "id": "01_fir",
+  "title": "Fir: branch settle",
+  "source": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+  "source_sha256": "3c12081abe82c7bb55a8dae260d2255cfd390bfc48b4a0dfd0c1be714a9c469e",
+  "source_dimensions": [
+    276,
+    440
+  ],
+  "source_crop": [
+    13,
+    13,
+    263,
+    427
+  ],
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\01_fir\\input.png",
+  "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The trunk and roots stay completely fixed. Only the upper pine branch tips bend gently to the right, relax, then ease back toward the starting pose. Preserve all branch tiers and the exact pine silhouette. No whole-tree rotation. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+  "seed": 20261001,
+  "fit_xy": [
+    186,
+    24
+  ],
+  "fit_size": [
+    140,
+    232
+  ],
+  "status": "PENDING",
+  "lane": "MOTION_REFERENCE_ONLY",
+  "derivative": "source.png",
+  "derivative_sha256": "d3a1e9f7f125178595eed56359f1834ed091a151451cd813584def2578453a35",
+  "fixed_source_crop": [
+    120,
+    4,
+    392,
+    276
+  ],
+  "canvas": [
+    256,
+    256
+  ],
+  "source_bounds": [
+    61,
+    17,
+    195,
+    239
+  ],
+  "method": "Nondestructive source RGBA isolation and whole-cell normalization; original unchanged."
+}

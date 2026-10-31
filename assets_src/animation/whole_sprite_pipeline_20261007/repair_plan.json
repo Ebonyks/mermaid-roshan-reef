@@ -1,0 +1,224 @@
+{
+  "schema": "reef.whole-sprite-pipeline.v1",
+  "job_id": "pink_wave_native",
+  "catalog_sha256": "927c57b7bb89fb0b5b8a687c69364e1f8d2e8d12e208223f2657084e5a9ee862",
+  "calls_used": 1,
+  "calls_remaining": 1,
+  "limits": {
+    "imagegen_calls_max": 2,
+    "wall_minutes_max": 30,
+    "cleanup_minutes_max": 20,
+    "paid_api_jobs": 0
+  },
+  "prior_campaigns": [
+    {
+      "id": "ltx25-union-trial-20261004",
+      "calls": 2,
+      "status": "REJECTED_REFERENCE_ONLY",
+      "evidence": "assets_src/cinematics/ltx25_union_trial_20261004/native_review.json"
+    },
+    {
+      "id": "claude-2d-deform-and-whole-frame-20261005",
+      "status": "OWNER_REJECTED",
+      "evidence": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md",
+      "cost": "Not exposed; not reset or treated as zero"
+    }
+  ],
+  "requests": [
+    {
+      "id": "raise_key",
+      "index": 7,
+      "state": "DIAGNOSE_REJECTED_KEY",
+      "campaign_id": "whole-sprite-engine-corrective-keys-20261007",
+      "bindings": [
+        {
+          "source_id": "K0",
+          "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+          "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+          "role": "identity",
+          "dimensions": [
+            256,
+            256
+          ],
+          "license": "Project-owned approved Roshan RGBA atlas; inherited ASSET_LICENSES.md attribution. Exact lossless cell crop; originals unchanged.",
+          "acceptance_scope": "APPROVED_SOURCE",
+          "pixel_input_allowed": true,
+          "binding_note": "Identity, head scale, pink outfit and rest-pose authority",
+          "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+          "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+          "source_cell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "modifications": "Aseprite exact whole-cell extraction only"
+        },
+        {
+          "source_id": "K2",
+          "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K2.png",
+          "sha256": "a46c318a627a4904dbf1115b1c764d8842de6f9281fe21a4803d31b65add4bbb",
+          "role": "pose",
+          "dimensions": [
+            256,
+            256
+          ],
+          "license": "Project-owned approved Roshan RGBA atlas; inherited ASSET_LICENSES.md attribution. Exact lossless cell crop; originals unchanged.",
+          "acceptance_scope": "APPROVED_SOURCE",
+          "pixel_input_allowed": true,
+          "binding_note": "Approved full-length arm and raised-pose reference only; match head size to K0",
+          "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+          "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+          "source_cell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "modifications": "Aseprite exact whole-cell extraction only"
+        }
+      ],
+      "prompt": "Use case: identity-preserve\nAsset type: complete RGBA storybook sprite key\nPrimary request: Draw the entire Roshan figure beginning a friendly wave, left hand beside face and elbow away from viewer. Correct the foreshortened raising pose; keep the K0 head size and full-length arm proportions. Subtle coordinated shoulder, bodice, hair and tail response; full figure visible.\nAction: one friendly wave; phase: Connected whole-body response while raising the waving hand in the picture plane; intended frame 7.\nOutfit: Approved pink ruffled-sleeve bodice, pointed front hem, blue V waist trim, iridescent lavender tail and rainbow fin\nInput roles: Image 1: identity, Identity, head scale, pink outfit and rest-pose authority; Image 2: pose, Approved full-length arm and raised-pose reference only; match head size to K0\nConstraints: one complete newly painted figure; one flattened drawing; coordinated body response. same face, head size and brown eyes as K0; brown curls and rainbow ponytail; rigid gold tiara with turquoise gem; one connected lavender-blue iridescent tail and rainbow fin; two arms, no legs or duplicate anatomy; preserve pink bodice shade and ruffled sleeves; preserve blue V waist trim and pointed pink hem; no accessory additions or garment redesign; paint cloth response into the same complete figure; one size, no foreshortened elbow toward viewer; upper arm25.5px, forearm24.5px, open hand20.5px, each within5% in256px cell; arm, shoulders, head, hair, torso and tail respond together; same fixed camera and figure framing as K0; no per-part layers or delays; no limb stretching; crisp five-finger hand\nRequested canvas: 1024x1024; preserve the normalized full-canvas framing of Image1.\nTransparent background, full figure with motion margin, no copied/pasted limbs, no duplicate figure, no text, no sparkle dots, no detached specks or colored matte noise.\n",
+      "prompt_sha256": "a74fc9045baf94f38b060dee25e4eadb2bfd0276de51644dbbf956f4e478c707",
+      "replacement_unit": "complete_figure_frame",
+      "review_context": [
+        {
+          "from": 0,
+          "to": 0,
+          "context_from": 0,
+          "context_to": 3,
+          "categories": [
+            "endpoint"
+          ],
+          "replacement_unit": "complete_figure_frame"
+        },
+        {
+          "from": 4,
+          "to": 33,
+          "context_from": 1,
+          "context_to": 36,
+          "categories": [
+            "topology"
+          ],
+          "replacement_unit": "complete_figure_frame"
+        },
+        {
+          "from": 40,
+          "to": 40,
+          "context_from": 37,
+          "context_to": 40,
+          "categories": [
+            "endpoint"
+          ],
+          "replacement_unit": "complete_figure_frame"
+        }
+      ],
+      "expected_canvas": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "id": "lower_key",
+      "index": 27,
+      "state": "READY_TO_REQUEST_KEY",
+      "campaign_id": "whole-sprite-engine-corrective-keys-20261007",
+      "bindings": [
+        {
+          "source_id": "K0",
+          "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+          "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+          "role": "identity",
+          "dimensions": [
+            256,
+            256
+          ],
+          "license": "Project-owned approved Roshan RGBA atlas; inherited ASSET_LICENSES.md attribution. Exact lossless cell crop; originals unchanged.",
+          "acceptance_scope": "APPROVED_SOURCE",
+          "pixel_input_allowed": true,
+          "binding_note": "Identity, head scale, pink outfit and rest-pose authority",
+          "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+          "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+          "source_cell": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "modifications": "Aseprite exact whole-cell extraction only"
+        },
+        {
+          "source_id": "K2",
+          "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K2.png",
+          "sha256": "a46c318a627a4904dbf1115b1c764d8842de6f9281fe21a4803d31b65add4bbb",
+          "role": "pose",
+          "dimensions": [
+            256,
+            256
+          ],
+          "license": "Project-owned approved Roshan RGBA atlas; inherited ASSET_LICENSES.md attribution. Exact lossless cell crop; originals unchanged.",
+          "acceptance_scope": "APPROVED_SOURCE",
+          "pixel_input_allowed": true,
+          "binding_note": "Approved full-length arm and raised-pose reference only; match head size to K0",
+          "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+          "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+          "source_cell": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "modifications": "Aseprite exact whole-cell extraction only"
+        }
+      ],
+      "prompt": "Use case: identity-preserve\nAsset type: complete RGBA storybook sprite key\nPrimary request: Draw the entire Roshan figure lowering her waving left hand from face toward chest, palm still clearly readable, arm in the picture plane. Keep the K0 head size and arm proportions. Subtle coordinated shoulder, bodice, hair and tail settle; full figure visible.\nAction: one friendly wave; phase: Lower through face then chest height with coordinated torso, hair, sleeve and fin response; intended frame 27.\nOutfit: Approved pink ruffled-sleeve bodice, pointed front hem, blue V waist trim, iridescent lavender tail and rainbow fin\nInput roles: Image 1: identity, Identity, head scale, pink outfit and rest-pose authority; Image 2: pose, Approved full-length arm and raised-pose reference only; match head size to K0\nConstraints: one complete newly painted figure; one flattened drawing; coordinated body response. same face, head size and brown eyes as K0; brown curls and rainbow ponytail; rigid gold tiara with turquoise gem; one connected lavender-blue iridescent tail and rainbow fin; two arms, no legs or duplicate anatomy; preserve pink bodice shade and ruffled sleeves; preserve blue V waist trim and pointed pink hem; no accessory additions or garment redesign; paint cloth response into the same complete figure; one size, no foreshortened elbow toward viewer; upper arm25.5px, forearm24.5px, open hand20.5px, each within5% in256px cell; arm, shoulders, head, hair, torso and tail respond together; same fixed camera and figure framing as K0; no per-part layers or delays; no limb stretching; crisp five-finger hand\nRequested canvas: 1024x1024; preserve the normalized full-canvas framing of Image1.\nTransparent background, full figure with motion margin, no copied/pasted limbs, no duplicate figure, no text, no sparkle dots, no detached specks or colored matte noise.\n",
+      "prompt_sha256": "337e213e730717729d1ea56c2d04c29aaf7b262e7b0088633d610e873452dffd",
+      "replacement_unit": "complete_figure_frame",
+      "review_context": [
+        {
+          "from": 0,
+          "to": 0,
+          "context_from": 0,
+          "context_to": 3,
+          "categories": [
+            "endpoint"
+          ],
+          "replacement_unit": "complete_figure_frame"
+        },
+        {
+          "from": 4,
+          "to": 33,
+          "context_from": 1,
+          "context_to": 36,
+          "categories": [
+            "topology"
+          ],
+          "replacement_unit": "complete_figure_frame"
+        },
+        {
+          "from": 40,
+          "to": 40,
+          "context_from": 37,
+          "context_to": 40,
+          "categories": [
+            "endpoint"
+          ],
+          "replacement_unit": "complete_figure_frame"
+        }
+      ],
+      "expected_canvas": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "dispatch": "Codex built-in imagegen; never automatically executed by this CLI",
+  "next_animation": {
+    "route": "ltx_local",
+    "recipe_reference": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/workflow.api.json",
+    "status": "Corrected keys and W3 guide annotations required before a new bounded temporal job",
+    "template": "docs/handoffs/codex_roshan_motion_language_2026-10-04/TEMPLATE.md",
+    "auto_dispatch": false
+  },
+  "generation_ready": false
+}

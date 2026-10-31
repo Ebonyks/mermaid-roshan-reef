@@ -46,6 +46,8 @@ CANDY_LADLE_EMPTY_CHROMA = CANDY_SOURCE_DIR / "candymaker_syrup_ladle_empty_chro
 CANDY_LADLE_EMPTY_ALPHA = CANDY_SOURCE_DIR / "candymaker_syrup_ladle_empty_alpha_native.png"
 CANDY_CAVITY_MASK = CANDY_SOURCE_DIR / "candymaker_syrup_cavity_mask.png"
 CANDY_GENERATION = CANDY_SOURCE_DIR / "GENERATION.json"
+CHEF_CHOCOLATE_NATIVE = ROOT / "assets_src/imagegen/job_art_chef_20261019/chocolate_strawberry_retry_native.png"
+CHEF_CHOCOLATE_SHA256 = "987131d7692f73e23735a893f01fd1a888bc6b7f7404bea613cb60f579417286"
 GENERATED_TEXT_ARTIFACTS = frozenset({
     SOURCE_DIR / "PROVENANCE.json",
     SOURCE_DIR / "REVIEW.md",
@@ -362,6 +364,24 @@ def _source(
     return _remove_edge_field(image, component_count=components, min_component_area=min_area)
 
 
+def _chef_chocolate() -> Image.Image:
+    """Hash-bound painted replacement; retain the source's complete silhouette."""
+    if _sha256_file(CHEF_CHOCOLATE_NATIVE) != CHEF_CHOCOLATE_SHA256:
+        raise ValueError("Chef chocolate ImageGen native hash mismatch")
+    image = Image.open(CHEF_CHOCOLATE_NATIVE).convert("RGBA")
+    box = image.getchannel("A").point(lambda alpha: 255 if alpha >= 16 else 0).getbbox()
+    if box is None:
+        raise ValueError("Chef chocolate source is empty")
+    crop = (max(0, box[0] - 4), max(0, box[1] - 4),
+            min(image.width, box[2] + 4), min(image.height, box[3] + 4))
+    cut = image.crop(crop)
+    factor = min(240 / cut.width, 240 / cut.height)
+    small = cut.resize((round(cut.width * factor), round(cut.height * factor)), Image.Resampling.LANCZOS)
+    result = Image.new("RGBA", (256, 256))
+    result.alpha_composite(small, ((256 - small.width) // 2, (256 - small.height) // 2))
+    return result
+
+
 def _chef_topping_only(filename: str, kind: str) -> Image.Image:
     """Isolate the visible topping from its approved serving-display source.
 
@@ -530,51 +550,29 @@ def _candymaker_syrup_assets() -> dict[str, Image.Image]:
     }
 
 
+ASTRONAUT_PATCH_SOURCE = ROOT / "assets_src" / "imagegen" / "job_art_astronaut_20261018"
+ASTRONAUT_PATCH_HASHES = ('1b472d80efa9e937b355536ad1d10be8a2d60a9a3e403239396c8db16403047e', '0fb1b3401ef027ee0d5b756b76b319e0ba0a9335c75574d70063715a925f793a', 'a1a35ce5fae957fbfc9f94a0955d5ffe502aa502d0f5cfda46258e001c9685b6')
+
+
 def _astronaut_patch(index: int) -> Image.Image:
-    scale = 4
-    size = 256 * scale
-    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    draw = ImageDraw.Draw(canvas)
-    navy = "#392883"
-    cream = "#fff2d4"
-    coral = "#f47f75"
-    teal = "#61c9c6"
-    gold = "#f6cb58"
-    outline = 22
-
-    def ellipse(box: tuple[int, int, int, int], fill: str, width: int = outline) -> None:
-        draw.ellipse(box, fill=fill, outline=navy, width=width)
-
-    if index == 0:
-        ellipse((110, 110, size - 110, size - 110), cream, 26)
-        center_x, base_y = size // 2, 700
-        for offset in (-210, -105, 0, 105, 210):
-            draw.polygon(
-                [(center_x, base_y), (center_x + offset - 78, 355), (center_x + offset, 235),
-                 (center_x + offset + 78, 355)],
-                fill=coral,
-                outline=navy,
-            )
-        ellipse((center_x - 92, base_y - 92, center_x + 92, base_y + 92), gold, 20)
-        draw.arc((250, 250, size - 250, size - 210), 18, 162, fill=navy, width=22)
-    elif index == 1:
-        points = [(size // 2, 105), (size - 125, 320), (size - 125, 704),
-                  (size // 2, size - 105), (125, 704), (125, 320)]
-        draw.polygon(points, fill=teal)
-        draw.line(points + [points[0]], fill=navy, width=28, joint="curve")
-        ellipse((318, 318, size - 318, size - 318), cream, 24)
-        for angle in range(0, 360, 60):
-            point = (size // 2 + int(math.cos(math.radians(angle)) * 330),
-                     size // 2 + int(math.sin(math.radians(angle)) * 330))
-            ellipse((point[0] - 42, point[1] - 42, point[0] + 42, point[1] + 42), gold, 14)
-    else:
-        draw.rounded_rectangle((125, 170, size - 125, size - 170), radius=170,
-                               fill=coral, outline=navy, width=28)
-        ellipse((315, 275, size - 315, size - 275), teal, 24)
-        ellipse((405, 365, size - 405, size - 365), cream, 20)
-        for point in ((225, 270), (size - 225, 270), (225, size - 270), (size - 225, size - 270)):
-            ellipse((point[0] - 48, point[1] - 48, point[0] + 48, point[1] + 48), gold, 14)
-    return canvas.resize((256, 256), Image.Resampling.LANCZOS)
+    if not 0 <= index < 3:
+        raise ValueError("Astronaut patch index must be0..2")
+    path = ASTRONAUT_PATCH_SOURCE / f"patch_{index}_native.png"
+    if _sha256_file(path) != ASTRONAUT_PATCH_HASHES[index]:
+        raise ValueError(f"Astronaut native source hash mismatch: {path}")
+    image = Image.open(path).convert("RGBA")
+    bounds = image.getchannel("A").point(lambda alpha: 255 if alpha >= 16 else 0).getbbox()
+    if bounds is None or image.getchannel("A").getextrema()[0] != 0:
+        raise ValueError(f"Astronaut source must be a transparent whole cutout: {path}")
+    bounds = (max(0, bounds[0] - 4), max(0, bounds[1] - 4),
+              min(image.width, bounds[2] + 4), min(image.height, bounds[3] + 4))
+    crop = image.crop(bounds)
+    factor = min(240 / crop.width, 240 / crop.height)
+    small = crop.resize((round(crop.width * factor), round(crop.height * factor)),
+                        Image.Resampling.LANCZOS)
+    canvas = Image.new("RGBA", (256, 256))
+    canvas.alpha_composite(small, ((256 - small.width) // 2, (256 - small.height) // 2))
+    return canvas
 
 
 def _cabinet_reveal(closed: Image.Image, lamba: Image.Image) -> Image.Image:
@@ -787,32 +785,25 @@ def build() -> tuple[dict[Path, Image.Image], dict[str, dict[str, Any]], list[st
                 )
                 artifact_qa = "one child-readable complete target prop; no frame bleed, crop, or detached part"
             piece = _fit(subject, (256, 256), (222, 222))
-            if career == "chef" and topping_kind == "chocolate":
-                # Two tiny gold/mauve curls from the source presentation plate
-                # survive the colour matte at the lower corners.  They are
-                # spatially detached from the topping after the 256px fit;
-                # clear only those reviewed corner ROIs, leaving the authored
-                # curved lower chocolate outline untouched.
-                piece_draw = ImageDraw.Draw(piece)
-                piece_draw.rectangle((0, 182, 26, 255), fill=(0, 0, 0, 0))
-                piece_draw.rectangle((231, 185, 255, 185), fill=(0, 0, 0, 0))
-                piece_draw.rectangle((226, 186, 255, 255), fill=(0, 0, 0, 0))
-                operation += (
-                    "; clear reviewed detached plate-remnant corner ROIs "
-                    "x=0..26/y=182..255 and x=226..255/y=186..255"
-                )
+            if career == "chef" and index == 2:
+                piece = _chef_chocolate()
+                source = CHEF_CHOCOLATE_NATIVE
+                operation = "2026-10-19 painted ImageGen revision: verify native SHA256; alpha16 bounds plus4px; uniform240px fit and transparent padding on256x256. Original source retained."
+                artifact_qa = "complete chocolate-dipped strawberry; broad painted food material, no serving stand or swirl ambiguity; current source/context/owner acceptance separate"
             built_pieces[career].append(piece)
             add(f"widget_target_{career}_piece_{index}.png", piece, [source],
                 operation, artifact_qa)
+    notes.append("2026-10-19 Astronaut revision replaces only the historical code-drawn patches and dependent mark with hash-bound native ImageGen coral square/lavender circle/teal star. Source/derivation in job_art_astronaut_20261018; local static4.5floor only, full/human motion/QA11/device/child/owner gates remain separate.")
     built_pieces["astronaut"] = []
-    palette_source = WIDGETS / "widget_target_astronaut.png"
+    palette_source = ASTRONAUT_PATCH_SOURCE / "patch_0_native.png"
     for index in range(3):
         piece = _astronaut_patch(index)
         built_pieces["astronaut"].append(piece)
-        add(f"widget_target_astronaut_piece_{index}.png", piece, [palette_source],
-            "project-original Pillow vector construction at 4x antialias scale using established Opera coral/teal/cream/gold/navy palette; "
-            "whole-canvas Lanczos downscale to 256x256",
-            "unique shell/rivet patch silhouette; complete outline and >=24px transparent margin")
+        add(f"widget_target_astronaut_piece_{index}.png", piece,
+            [ASTRONAUT_PATCH_SOURCE / f"patch_{index}_native.png"],
+            "Owner2026-10-19 painted ImageGen replacement; hash-bound RGBA native, strong-alpha16 bounds plus4px gutter; "
+            "uniform Lanczos fit into240x240 on transparent256square, no repaint/recolor/warp/rotation",
+            "whole coral square/lavender circle/teal star painted patch; complete outline with8px minimum export padding")
 
     # Career-specific fallback stamps replace the generic yellow ring.
     mark_source_by_career = {
@@ -882,7 +873,7 @@ def build() -> tuple[dict[Path, Image.Image], dict[str, dict[str, Any]], list[st
 
     notes.extend([
         "Source export labels were audited visually. Candy and Farmer source names are shifted; mappings above follow visible art.",
-        "Chef pieces retain only each topping's approved visible silhouette/lower outline; every serving pedestal/plate/base pixel is excluded.",
+        "Chef cherry/cream retain the historical authored silhouettes. The chocolate slot was revised2026-10-19 to a hash-bound ImageGen chocolate-dipped strawberry; historical sources remain preserved, and current context/device/owner acceptance stays separate.",
         "Magician cabinet reveal continues VANISH by placing the approved Lamba reveal inside a cabinet shell derived only from approved crops.",
         "Detective board slots are authored left-to-right; runtime hit targets must use the same horizontal order.",
         "Candymaker SYRUP uses a scoped generated replacement because the binding art ledger marks all three prior layers REPLACE and no registered empty-mold/fill set exists.",
@@ -1087,6 +1078,13 @@ def main() -> int:
                 str(CANDY_WORLD_REFERENCE.relative_to(ROOT)).replace("\\", "/"):
                     _sha256_file(CANDY_WORLD_REFERENCE),
             },
+        },
+        "astronaut_painted_replacement": {
+            "date": "2026-10-19",
+            "provider": "OpenAI builtin ImageGen; model revision unexposed, owner approved available tool",
+            "source_record": "assets_src/imagegen/job_art_astronaut_20261018/prompts.json",
+            "acceptance": "Local static AI candidate only; exact full/QA11/human motion/device/child/owner remain separate",
+            "source_sha256": {f"patch_{i}_native.png": h for i, h in enumerate(ASTRONAUT_PATCH_HASHES)},
         },
         "native_sha256": _sha256_file(NATIVE_BOARD),
         "alpha_native_sha256": _sha256_file(ALPHA_BOARD),

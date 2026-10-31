@@ -1,0 +1,65 @@
+{
+  "schema": "verification_checks/1",
+  "status": "SUPPORTING_CURRENT",
+  "author": "Claude",
+  "written": "2026-10-03",
+  "source_head": "4cb14febc2c5f0074d5ad8386ce66f19f940c84d",
+  "note": "Plain-language checks for the owner and the phone session, written from each finding's acceptance criterion. They are what a person can look at; the technical verification sweep keeps the canonical closure, reproduction and acceptance text. A yes here is evidence for the finding, not closure by itself. Rewrite a check whenever its finding's acceptance changes.",
+  "checks": {
+    "MA-VIS-002": {
+      "owner": "Visit Sky Lagoon. As Roshan moves, do the background layers look like one scene (no seams, nothing floating or cut off), and can you tell where she can go?",
+      "device": "Go to Sky Lagoon from the castle, swim from one end to the other and back, and tap two animals. Note any stutter, a seam between background layers, or the camera losing Roshan."
+    },
+    "MA-VIS-007": {
+      "owner": "In Bubble Bath and in each Day One room, before and after cleaning, look for anything shown twice, a ghost outline behind an object, or a smeared patch where an object used to be. Note the room and the object.",
+      "device": "Open Bubble Bath and each Day One room before and after cleaning. Take a phone screenshot of anything doubled or smeared.",
+      "child": "notice whether your child ever taps a picture of an object that does nothing."
+    },
+    "MA-TOUCH-001": {
+      "owner": "Does moving Roshan by holding and dragging feel reliable? Note any time she kept moving after you lifted your finger, or did one action twice.",
+      "device": "Hold a finger to move Roshan, then drag; put a second finger down while moving; switch to another app and back; pause and resume. She should stop when the finger lifts, never move on her own, and never act twice."
+    },
+    "MA-OPERA-001": {
+      "owner": "Play the Chef job from the castle kitchen (pour, mix, oven, toppings). Is every step clear, is nothing cut off at the screen edges, and does the art look right to you?",
+      "device": "Play Chef once on the family phone and, if available, the tablet. In the first step keep pouring until the bowl is full: does the game move on to mixing? If it does not, write that down; it is a possible stuck step. Note any touch that missed."
+    },
+    "MA-OPERA-009": {
+      "owner": "Play the Boxer job. Does Roshan look like herself, and does the style match the other jobs?",
+      "device": "Play all five Boxer steps on the phone. Note any gesture that was hard to do or any part cut off.",
+      "child": "watch, without helping, whether your child understands what to do in each Boxer step."
+    },
+    "MA-OPERA-010": {
+      "owner": "Play two jobs in a row, leave one halfway with the back arrow, then go back in. Do stars and rewards stay, and does nothing stay stuck on the screen?",
+      "device": "Start a job, press back halfway, start a different job, then return to the first. It should restart cleanly with earlier stars kept.",
+      "child": "notice whether your child can find the way back out of a job without help."
+    },
+    "MA-OPERA-011": {
+      "owner": "Look around the Opera House and the castle rooms: is there any way into the old Dragon, Phantom or Maestro boss fights? Does the star count stay the same after playing?",
+      "device": "Write down the star count on the start screen, play one job, and check that no old boss fight appears and the count only goes up."
+    },
+    "MA-OPERA-012": {
+      "owner": "Walk Roshan to each castle room that has a job. Does a job card ever hide Roshan, and can you start each job without reading?",
+      "device": "On the phone, check that the job cards are easy to tap and never cover Roshan.",
+      "child": "watch whether your child finds a job by exploring the rooms."
+    },
+    "MA-RELEASE-001": {
+      "owner": "Before the next release, play the newest build for ten minutes. Is anything slow, confusing or wrong-sounding?",
+      "device": "Play for ten minutes on the family phone. Note any stutter, long loading, the phone getting hot, or a sound that cuts out.",
+      "child": "notice where your child gets stuck or loses interest."
+    },
+    "MA-COMBAT-001": {
+      "owner": "Play the combat tutorial and one fight. Is the slash area big enough for a small finger, are there only a few waves, and does the tutorial make sense without reading?",
+      "device": "Play the combat tutorial and one fight on the phone. Note any slash that did not register.",
+      "child": "watch whether your child works out the tutorial alone."
+    },
+    "MA-OPERA-005": {
+      "owner": "Play the three Ballerina acts. Does mermaid Roshan look like herself, and is it clear what to do in each act?",
+      "device": "Play Ballerina on the phone and, if available, the tablet. Note anything cut off or hard to tap.",
+      "child": "watch whether your child understands each Ballerina act."
+    },
+    "MA-AUDIO-001": {
+      "owner": "Listen through a short session with sound on. Are voices clear over the music, do the family voices sound right, and is there a click when the music changes? Then try once with the music turned off.",
+      "device": "Play five minutes on the older phone's speaker. Can you understand every voice line?"
+    }
+  }
+}

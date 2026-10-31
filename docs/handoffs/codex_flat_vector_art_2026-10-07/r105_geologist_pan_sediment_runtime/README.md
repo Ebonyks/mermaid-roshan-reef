@@ -1,0 +1,11 @@
+# Painted pan sediment — runtime candidate
+
+The Geologist PAN sediment now uses the existing whole painted ochre grain instead of flat circle fills. The original20-to3instance count, all grain centres, pan movement, find order, nine46pxreversals, one-finger input, hit areas and saves are preserved. Current paintedpan and allthree coloured minerals stay unchanged. Geologist primitivecalls45to44;56otherfunctions byte-identical.
+
+The native1024x683 source and editable Aseprite master remain intact with zero visibleRGBA changes in native roundtrip. The declared nominal0.5whole-canvas export rounds341.5pxheight to342 and centers that image on512square;22square drawing gives about12.2x9.45px visiblegrain. No crop, tint, alpha threshold, repaint, new ImageGen/animation call or closedbrief reset. The source is an existing painted candidate, not inferred owner acceptance.
+
+Actual exact4.7.2 Mobile/Speedy finalimports/currentstatic/all82trusted checks pass.102configured native checks pass over four washing states at1280x720 and1600x720; all eight actual frames were directly reviewed against two exact8df same-scene prior frames. [Ten-axis review](FRAME_REVIEW.json), [machine result](LOCAL_82_RESULT.json), [function proof](FUNCTION_PRESERVATION.json), [census](CENSUS.json), [derivation](../../../../assets_src/flat_vector_geologist_pan_sediment_20261029/DERIVATION.json), [impact](../../../../design/audit_impacts/flat-vector-geologist-pan-sediment-runtime-20261029.json) and [manifest](MANIFEST.json) keep evidence separate.
+
+A copied launcher revision label stopped the first full-suite setup before any static/engine/trusted checks ran. Exact Git/source/capture hashes prove actual baseline8df and unchanged tested pixels. [Correction record](BASELINE_LABEL_CORRECTION.json) preserves the original labels; healthy102native checks were retained. The later first actual full suite passed on the correctly bound source.
+
+Configured private PAN context is not naturally earned whole-route/training or formalQA11 evidence. Exactsource CI/Dev, phone, child and owner acceptance remain pending. Cave/panel/gallery, inherited completion actor overlap and all-game inventory gaps remain open. No whole-role/accepted-removal/mission completion claim.

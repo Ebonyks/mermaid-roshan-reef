@@ -84,6 +84,17 @@ def required_pins(data: dict[str, Any]) -> dict[str, list[str]]:
 			f"exactly Godot {release}", f'engine_string = "{release} (official fixture)"',
 		],
 		"tools/plan_audit_rollback.py": [f"exact Godot {release}"],
+		"tools/audit_opera_capture.py": [
+			'load_baseline(source_root / "tools/godot_baseline.json")',
+			"wanted_engine = expected_engine(source_root)",
+			"exact_engine = strict_equal(engine, wanted_engine)",
+		],
+		"scripts/probe_opera_art.gd": [
+			'const GODOT_BASELINE_PATH := "res://tools/godot_baseline.json"',
+			'int(engine["patch"]) == int(parts[2])',
+			'String(engine["version_string"]) == "%s (official)" % release',
+		],
+		"tools/encode_cartoon.ps1": [f"exact Godot {release} baseline"],
 		"tools/visual_audit_spec.json": [f"exactly Godot {release}"],
 	}
 

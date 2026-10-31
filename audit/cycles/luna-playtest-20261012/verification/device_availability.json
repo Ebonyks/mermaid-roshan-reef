@@ -1,0 +1,15 @@
+{
+  "schema": "luna_device_availability/1",
+  "checked_utc": "2026-10-13T01:35:30.740961+00:00",
+  "command": [
+    "adb",
+    "devices",
+    "-l"
+  ],
+  "exit_code": 0,
+  "attached_devices": [],
+  "target_device_test": "PENDING",
+  "reason": "No attached Android device was listed; no APK installed or physical device input/performance/child test executed.",
+  "log": "audit/cycles/luna-playtest-20261012/verification/device_availability.log",
+  "log_sha256": "bbfcc7239a6f1be3544814ebdc6bcc9b66bf5b1f0b03baa3340808f19265a630"
+}

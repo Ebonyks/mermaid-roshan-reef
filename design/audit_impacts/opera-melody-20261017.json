@@ -1,0 +1,147 @@
+{
+  "id": "opera-melody-20261017",
+  "scope": "Owner-requested melodic-focus upgrade for the current Opera venue cue castle_opera_hall: explicitly scored eight-bar hook, answer, climax and cadence; optional authored-bar renderer with legacy arrangements preserved. No gameplay/routing/voice changes. Read-only evidence and an unapplied one-field proposal document the existing CI job timeout; no workflow configuration change is made.",
+  "baseline": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-04",
+    "DL-SND-05",
+    "DL-SND-06",
+    "DL-SND-07",
+    "DL-SND-08",
+    "DL-SND-09",
+    "DL-SND-10",
+    "DL-SND-11",
+    "DL-SND-12",
+    "DL-SND-14",
+    "DL-SND-15",
+    "DL-SND-16",
+    "DL-SND-17",
+    "DL-QA-01",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-QA-02"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "files": [
+    "tools/build_area_music.py",
+    "tools/tests/test_authored_area_music.py",
+    "assets_src/audio/music/area_music_scores.json",
+    "assets/audio/music/castle_opera_hall.ogg",
+    "assets/audio/music/area_music_manifest.json",
+    "ASSET_LICENSES.md",
+    "MUSIC_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json",
+    "audit/area_music/opera_melody_20261017/verification.json",
+    "audit/area_music/opera_melody_20261017/verification_logs.zip",
+    "tools/tests/test_audit_audio_quality.py",
+    "audit/area_music/opera_melody_20261017/ci_budget_proposal.json"
+  ],
+  "validation": [
+    {
+      "command": "python -B -m unittest tools.tests.test_authored_area_music",
+      "result": "PASS",
+      "evidence": "7 tests passed; exact log and source snapshots will be in the verification archive. Includes explicit-null rejection before synthesis."
+    },
+    {
+      "command": "PYTHONPATH=. python -B tmp/opera-music-20261017/render_full_catalog.py; python -B tools/build_area_music.py --check",
+      "result": "PASS",
+      "evidence": "Final combined-source local gate PASS at a9875690ceff436e9ce012a675db09a236aef0f5; source pin c0d3d36cc3f52680d5325455a64965443a337446239028e64fee1303df537caa; see audit/area_music/opera_melody_20261017/verification.json and its hash-bound archive. All82 probes exit0; static prefix,44-cue verifier and857-row audio checker PASS; authored/policy tests34 PASS. Initial incomplete-static evidence is retained separately in the archive."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Final combined-source local gate PASS at a9875690ceff436e9ce012a675db09a236aef0f5; source pin c0d3d36cc3f52680d5325455a64965443a337446239028e64fee1303df537caa; see audit/area_music/opera_melody_20261017/verification.json and its hash-bound archive. All82 probes exit0; static prefix,44-cue verifier and857-row audio checker PASS; authored/policy tests34 PASS. Initial incomplete-static evidence is retained separately in the archive."
+    },
+    {
+      "command": "Repository scripts/ci.sh static prefix plus all 82 trusted probes, each with its existing isolated profile and touch flags (four independent workers)",
+      "result": "PASS",
+      "evidence": "Final combined-source local gate PASS at a9875690ceff436e9ce012a675db09a236aef0f5; source pin c0d3d36cc3f52680d5325455a64965443a337446239028e64fee1303df537caa; see audit/area_music/opera_melody_20261017/verification.json and its hash-bound archive. All82 probes exit0; static prefix,44-cue verifier and857-row audio checker PASS; authored/policy tests34 PASS. Initial incomplete-static evidence is retained separately in the archive."
+    },
+    {
+      "command": "Godot4.7.2 --headless --path <isolated worktree> -s scripts/probe_audio.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "Focused isolated-profile exit0 in14.308s; log SHA-256 08761f2d63e050264e0f256ca162f5707ce350cb337d0edecf40217606f0e7fa. Area cue existence/import-looping, room mapping, Music bus, caller restoration and stale-close negatives pass; this does not establish audible ducking or listening acceptance."
+    },
+    {
+      "command": "python -B tools/audit_audio_quality.py",
+      "result": "PASS",
+      "evidence": "857-row ledger refresh; exactly castle_opera_hall row and inventory SHA change. No protected audio bytes changed. Full --check remains part of the pending static gate."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_audio_quality",
+      "result": "PASS",
+      "evidence": "Final combined-source local gate PASS at a9875690ceff436e9ce012a675db09a236aef0f5; source pin c0d3d36cc3f52680d5325455a64965443a337446239028e64fee1303df537caa; see audit/area_music/opera_melody_20261017/verification.json and its hash-bound archive. All82 probes exit0; static prefix,44-cue verifier and857-row audio checker PASS; authored/policy tests34 PASS. Initial incomplete-static evidence is retained separately in the archive."
+    },
+    {
+      "command": "tools.audit_game_2d._model_archive_evidence(verification_logs.zip)",
+      "result": "PASS",
+      "evidence": "Canonical archive scanner returns no model evidence for the exact archive SHA-256 375457cbfde503380d51d9d5d1fd20633a7a0df522445bf75910c06a09576699. No model debt is introduced by the diagnostic archive."
+    }
+  ],
+  "acceptance_gaps": "Candidate only: owner comparison and materially better human grade, two-wrap listening, speech/ducking/mono mix review, Lenovo Tab M11 and older Android performance, child comfort and comprehension remain pending. MA-AUDIO-001 stays FIXED_PENDING_VERIFICATION. No whole-game audit or release acceptance.",
+  "references_used": [
+    {
+      "path": "MUSIC_AUDIT_2026-08-09.md",
+      "purpose": "Binding shared motif, mix/loop/provenance contract and local composition source."
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-audio-001",
+      "purpose": "Preserve missing listening/device acceptance without closing the aggregate finding."
+    }
+  ],
+  "composition": {
+    "cue": "castle_opera_hall",
+    "original_sha256": "c6f509938dcb590e8d2d28672e627352d934ad11385ac15de221db234d2b8518",
+    "routing_evidence": "scripts/main.gd::_castle_room_music_track returns castle_ + opera_hall; opera_lobby is not the current room owner.",
+    "intent": "D-major 6/8 at 92 eighths/minute, eight bars; A / breathing answer / A / dominant question / higher response / descent / dominant preparation / tonic and breath. Hook retains the six-note Roshan contour.",
+    "candidate_sha256": "ee451290d2b34c4857461ca49edc6a1baa03974b4a029304c3a77f9eeb5e9241",
+    "candidate_pcm_sha256": "2412e795c99f1dc463dc50161b6affcd2f81891bf823a15db5d88834894664d5",
+    "unrelated_cues_preserved": 43,
+    "measurement": {
+      "sample_count": 1502609,
+      "duration_seconds": 31.304354,
+      "loudness": {
+        "integrated_lufs": -17.98,
+        "true_peak_dbtp": -10.19,
+        "loudness_range_lu": 3.4,
+        "threshold_lufs": -28.22
+      },
+      "decoded_seam": {
+        "boundary_jump": 0.00103763,
+        "adjacent_p999": 0.05420087,
+        "jump_ratio": 0.01914
+      },
+      "average_bitrate_bps": 98160
+    }
+  },
+  "rollback": "On a clean topic, restore only this cue's baseline score entry and its matching OGG; regenerate the complete manifest and all-audio ledger with a matching renderer. Preserve later unrelated scores, save state, protected recordings and this evidence. Remove the optional authored-bar renderer only if no later cue depends on it; re-run exact-engine/import/audio/full gates. The retained baseline is comparison evidence, not accepted improvement.",
+  "risks": "The explicit refrain may feel repetitive or its synthesized clarinet may tire on a phone speaker; a machine loudness/loop pass does not resolve musical preference, voice intelligibility or child comfort. Required human/device/owner acceptance remains open.",
+  "reconciliation": {
+    "integration_baseline": "a9875690ceff436e9ce012a675db09a236aef0f5",
+    "reason": "Direct Opera foyer change reached dev during the first candidate checks. Preserved all82 zero-exit initial probes and complete44-cue/857-audio checks, then stopped the incomplete static prefix and fast-forwarded the clean topic before reapplying the draft. No stash conflict or protected-byte changes. Full combined-source verification restarted.",
+    "initial_receipt": "verification_logs.zip:initial-1a4e8a1c/verification.json",
+    "changed_incoming_runtime": [
+      "scripts/castle_career_routes.gd",
+      "scripts/opera_house_venue_2d.gd"
+    ],
+    "changed_incoming_probes": [
+      "scripts/probe_opera.gd",
+      "scripts/probe_throne.gd"
+    ],
+    "final_source_sha256": "c0d3d36cc3f52680d5325455a64965443a337446239028e64fee1303df537caa"
+  },
+  "ci_budget_proposal": "Supporting diagnostic/proposal only; workflow unchanged. Explicit owner authorization required for proposed high-risk path. Incoming dev CI timeout is not claimed as a music failure or a green workflow.",
+  "evidence_archive_sha256": "375457cbfde503380d51d9d5d1fd20633a7a0df522445bf75910c06a09576699",
+  "publication_state": "Local machine verification complete; exact published-head CI/integration tracked separately in the PR. Human/device/child/owner acceptance remains pending."
+}

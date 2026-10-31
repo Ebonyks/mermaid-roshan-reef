@@ -1,0 +1,40 @@
+{
+  "status": "PROSPECTIVE_NOT_SUBMITTED",
+  "purpose": "Repair subtle internal size changes and temporal detail fluctuation using coherent whole-figure structural video conditioning, then temporal detail reconstruction.",
+  "limits": {"saved_latent_decoder_ablations": 1, "new_transformer_takes_max": 2, "new_imagegen_calls_max": 0, "adapter_download_gib_max": 1.3, "wall_minutes_per_transformer_take_max": 20},
+  "spent_this_brief": {"decoder_ablations": 1, "transformer_takes": 0, "imagegen_calls": 0, "adapter_download_bytes": 0},
+  "prior_cost_receipt": "assets_src/cinematics/ltx25_8gb_wave_20261004/manifest.json",
+  "stage_1": {
+    "method": "Aseprite coherent complete-figure structural guide -> Canny Union Control -> installed LTX-2.5 W4A8 two-pass redraw",
+    "adapter_repository": "Lightricks/LTX-2.3-22b-IC-LoRA-Union-Control",
+    "adapter_revision": "b4d1c4d8c9e544e9bbbd6811bb4363708b6093ff",
+    "adapter_sha256": "a1b888a87f661d27f08b394ae559e8e1050be33900bcc36a5cdf659e48f88d18",
+    "base_engine": "LTX-2.5, not a 2.3 transformer downgrade",
+    "proposed_output_dimensions": [640, 896],
+    "proposed_first_pass_dimensions": [320, 448],
+    "proposed_first_pass_control_dimensions": [160, 224],
+    "frames": 41,
+    "fps": 24,
+    "preconditions": ["Corrected complete-figure Aseprite guide and loop boundaries", "Consistent guide detail/style and pose-aware internal proportions", "Guide/root/scale/source hash preflight", "Actual half-guide legal geometry contract confirmed", "Quantized LoRA loading/hooks and short-clip memory execution verified; failures count toward limits"],
+    "prompt_direction": "Fixed camera and flat painted lighting. Roshan performs the same gentle wave with coordinated shoulder, torso, dress, hair and tail response. Preserve the approved design, world size, head-to-body proportions and frame-aligned silhouette. Crisp consistent painted contours and facial detail through the action and settle.",
+    "negative_guidance_claim": "None; CFG1 ordinary negatives are not active. A prompt cannot certify blur removal.",
+    "acceptance": ["All delivered indices and whole figure present", "Root/global registration and internal geometry separately reviewed", "No clipped hand, torn fingers, focus variation, added grain or bad seam", "Native/full-speed and final-size review"]
+  },
+  "stage_2": {
+    "method": "Refine Details temporal video-conditioned reconstruction only after geometry passes",
+    "budget_dependency": "Initial brief prioritizes Union; downloading both adapters exceeds1.3GiB. Record a later extension/new bounded brief before stage2. Short transformer preflights count toward the two-take cap.",
+    "adapter_repository": "Lightricks/LTX-2.5-22b-IC-LoRA-Refine-Details",
+    "adapter_revision": "4912c478b35dd96b6cdcc5f7c7ff9d72c2c57929",
+    "adapter_sha256": "771a84f70e143af89867fc714ebbf7bd6edcaa4974c0360cba4a2d292a99f0e6",
+    "access": "Separate displayed contact-sharing/marketing gate pending; no download attempted in this brief",
+    "hardware_execution": "UNTESTED_ON_8GB",
+    "settings_to_verify_against_card": {"steps": 8, "sampler": "Euler", "cfg": 1, "adapter_strength": 1, "guide_downscale_factor": 1},
+    "proposed_native_input_padding": "576x832 ->576x1024,96px top and bottom; no 4K upscale",
+    "geometry_dependency": "If stage1 uses640x896, reassess legal tile layout; do not silently resize/crop subject to this native-input proposal",
+    "optional_context": "49 input frames, first41 delivered;8 end-context frames outside action explicitly declared/mapped",
+    "identity_reference": "Approved same-canvas identity reference; soft conditioning, not a geometric guarantee",
+    "acceptance": ["No internal geometry change or identity redesign", "Consistent painted detail without checker/grain", "All action indices, full figure and both boundaries reviewed"]
+  },
+  "fallback": "Authored coherent whole-figure 2D cel correction with Aseprite; no isolated arm against a frozen body",
+  "delivery_accepted": false
+}

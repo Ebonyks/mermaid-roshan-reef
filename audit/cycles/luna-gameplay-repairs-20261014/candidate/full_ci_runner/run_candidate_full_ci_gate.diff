@@ -1,0 +1,86 @@
+--- a/run_candidate_gate.py
++++ b/run_candidate_full_ci_gate.py
+@@ -1,4 +1,4 @@
+-"""Durable, no-overwrite validation against the authorized implementation worktree."""
++"""CI-only derivative: one exact, source-attributed self-test diagnostic is retained but nonblocking."""
+ import argparse
+ from datetime import datetime, timezone
+ import hashlib
+@@ -11,7 +11,7 @@
+ import time
+ 
+ parser = argparse.ArgumentParser()
+-parser.add_argument('kind', choices=['probe', 'check', 'import', 'ci'])
++parser.add_argument('kind', choices=['ci'])
+ parser.add_argument('label')
+ parser.add_argument('script', nargs='?')
+ parser.add_argument('--verbose', action='store_true')
+@@ -132,6 +132,41 @@
+         result['errors'].append('Post-kill process snapshot: ' + str(error))
+     result['stopped_verified'] = bool(tree) and not result['errors']
+     return result
++
++
++KNOWN_SELFTEST_FAILURE = 'GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale'
++SELFTEST_SOURCE_PINS = {
++    'tools/tests/test_gold_star.py': '41eb2a2aa54ba10d4e46a55372a1eaae9ed70c54e1a4a57f202ea4bb98e828ca',
++    'tools/gold_star.py': 'a90c187903bec5038487209a2c7ee01ce44b9ac8512ab3629e6ee0a2c0fcb0d1',
++    'scripts/ci.sh': '769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279',
++}
++
++
++def selftest_source_attribution():
++    records = []
++    for name, reviewed_sha in SELFTEST_SOURCE_PINS.items():
++        path = root / name
++        actual_sha = hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else None
++        records.append({'path': name, 'reviewed_sha256': reviewed_sha,
++            'source_pin_sha256': expected.get(name), 'actual_sha256': actual_sha,
++            'matched': actual_sha == reviewed_sha and expected.get(name) == reviewed_sha})
++    return {'matched': all(record['matched'] for record in records), 'sources': records,
++        'test': 'FixtureTests.test_page_is_deterministic_and_check_reports_staleness',
++        'assertion': 'tools/tests/test_gold_star.py:294 expects gold_star.main --check --strict to return1',
++        'emitter': 'tools/gold_star.py:978 emits the two-game fixture FAIL summary',
++        'caller': 'scripts/ci.sh:81 invokes tools.tests.test_gold_star; nonzero unittest exits CI',
++        'baseline_log_sha256': '187a4a669afe6b67bfe19fb7ebdd3ca6538ac65cdcd4521c75be4d1bf2e00c77'}
++
++
++def classify_failure_lines(output, kind, exit_code, attributed):
++    raw = [line for line in output.splitlines() if re.search(
++        r'(^|[| :])FAIL([| :]|$)|SCRIPT ERROR|Parse Error|Compile Error', line)]
++    known_count = raw.count(KNOWN_SELFTEST_FAILURE)
++    allow = kind == 'ci' and exit_code == 0 and attributed and known_count == 1
++    ignored = [KNOWN_SELFTEST_FAILURE] if allow else []
++    blocking = [line for line in raw if not (allow and line == KNOWN_SELFTEST_FAILURE)]
++    return {'raw': raw, 'ignored': ignored, 'blocking': blocking,
++        'known_selftest_count': known_count, 'allowance_applied': allow}
+ 
+ 
+ pin_path = scratch / 'candidate-runtime-sources.json'
+@@ -213,17 +248,23 @@
+ pin_unchanged = pin_path.is_file() and pin_path.read_bytes() == pin_bytes
+ content = log.read_bytes()
+ text = content.decode('utf-8', errors='replace')
+-fail_lines = [line for line in text.splitlines() if re.search(
+-    r'(^|[| :])FAIL([| :]|$)|SCRIPT ERROR|Parse Error|Compile Error', line)]
++attribution = selftest_source_attribution()
++classification = classify_failure_lines(text, args.kind, code, attribution['matched'])
++fail_lines = classification['raw']
++blocking_fail_lines = classification['blocking']
+ info.update(exit_code=code, timeout=timed_out,
+     duration_seconds=round(time.time() - started, 3),
+     completed_utc=datetime.now(timezone.utc).isoformat(),
+     log=str(log), log_sha256=hashlib.sha256(content).hexdigest(),
+     source_mismatches=changed, after_pin_mismatches=after_pin_mismatches,
+     source_pin_unchanged=pin_unchanged, failure_lines=fail_lines,
++    ignored_failure_lines=classification['ignored'], blocking_failure_lines=blocking_fail_lines,
++    known_selftest_count=classification['known_selftest_count'],
++    selftest_allowance_applied=classification['allowance_applied'],
++    selftest_source_attribution=attribution,
+     timeout_cleanup=timeout_cleanup,
+     machine_gate_passed=(code == 0 and not timed_out and not changed
+-        and not after_pin_mismatches and pin_unchanged and not fail_lines))
++        and not after_pin_mismatches and pin_unchanged and not blocking_fail_lines))
+ with receipt.open('x', encoding='utf-8') as stream:
+     stream.write(json.dumps(info, indent=2) + '\n')
+ print(json.dumps(info, indent=2))

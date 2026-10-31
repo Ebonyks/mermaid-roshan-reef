@@ -1,0 +1,767 @@
+{
+  "schema": "opera_imp_contest_spec/1",
+  "status": "PROPOSED / CANDIDATE - owner direction recorded; implementation, probes and acceptance pending",
+  "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
+  "revision": "5 (2026-10-04): adds OD-E: the Teacher game cannot be lost and is always silly; the Chef's imp sneaks gross things into her recipe; the Geologist races Roshan for the same geode; the Nursery keeps noisy imps from waking the babies; contest-only restart confirmed; radical slowdown after two failures. Revision 4 was 1fbcc9db, 3 was 86732a47, 2 was df01b7ce, 1 was 7ec82d46",
+  "owner_decisions": [
+    {
+      "id": "OD-2026-09-30-A",
+      "date": "2026-09-30",
+      "quote": "No, I think imp comes in during the final act, there should be a contest at the end that reflects part of the skill of the job that's a challenge against the imp",
+      "meaning": "The career's costumed imp stays hidden until the final act and enters when it begins. The final act ends in one head-to-head contest against the imp that exercises a skill of that job."
+    },
+    {
+      "id": "OD-2026-09-30-B",
+      "date": "2026-09-30",
+      "quote": "If imp wins, the game restarts immediately afterwards.",
+      "meaning": "The imp can win the contest. When he does, the contest restarts at once.",
+      "interpretation_to_confirm": "Confirmed by OD-2026-10-04-E (\"Imp just restarts contest at end\"): the contest restarts; earlier activities, stars, pearls, stickers and saves are kept.",
+      "confirmed_by": "OD-2026-10-04-E"
+    },
+    {
+      "id": "OD-2026-09-30-C",
+      "date": "2026-09-30",
+      "quote": "The teacher should have an imp, but the game inverts, he teaches information that's wrong and it's your job to figure it out, which beats the imp. Similar educational type games",
+      "meaning": "The Teacher gets a visible imp. Its contest inverts: the imp teaches with deliberate mistakes, and the child beats him by finding each mistake and showing the right answer. Educational careers use the same inverted format.",
+      "interpretation_to_confirm": "Resolved by OD-2026-10-04-E: the inverted format applies to the Teacher only; the Geologist races Roshan instead.",
+      "superseded_in_part_by": "OD-2026-10-04-E"
+    },
+    {
+      "id": "OD-2026-09-30-D",
+      "date": "2026-09-30",
+      "quote": "Lean into silly humor here, questions like, which smells the worst, farts, garbage, old diapers or rotten cheese?",
+      "meaning": "The imp's lessons are deliberately silly and gross-funny. The Teacher contest gains silly questions like the owner's example, and every imp line gets sillier.",
+      "interpretation_to_confirm": "Resolved by OD-2026-10-04-E (\"should always be silly\"): every Teacher round is silly, silly questions alternating with silly versions of the lessons."
+    },
+    {
+      "id": "OD-2026-10-04-E",
+      "date": "2026-10-04",
+      "quote": "The imp teacher games can't be lost by design, and should always be silly. Imp maybe tries to mess up your recipes and put gross things in the food? Geologist should be competing for time with Roshan for the same goal. You should stop the imps from being too noisy when the babies are sleeping. Imp just restarts contest at end, after two failures, imp should radically slow down.",
+      "meaning": ["Teacher: the imp's lesson game cannot be lost, and every round is silly.", "Chef: the imp tries to mess up her recipe by putting gross things in the food; she keeps them out while she finishes.", "Geologist: the imp races Roshan against the clock for the same goal: one geode, two diggers.", "Nursery: noisy imps try to wake the sleeping babies; she shushes them.", "Every contest the imp can win simply restarts when he wins (contest only). The first restart is at the same pace; after two failures he slows down radically and stays slow for the rest of that visit."],
+      "interpretation_to_confirm": "Default: the recipe idea is the Chef's final contest (YUCKY RECIPE, replacing the topping race); the Candymaker keeps its sharing race. This default applies unless the owner says it was meant for the Teacher's silly lessons, in which case the Chef keeps the revision 1-4 topping race and the Teacher gains a silly recipe round."
+    }
+  ],
+  "shared": {
+    "restart_scope": "contest_only (confirmed by OD-2026-10-04-E)",
+    "imp_hidden_before_final_act": true,
+    "imp_entrance": {
+      "when": "the first final-act phase arms (current FINALE_START, or the Hall stage_start)",
+      "poses": [["flee", 0.8], ["hop_a", 0.25], ["hop_b", 0.35], ["idle", 0.0]],
+      "path": "runs in from the nearer screen edge to his mark (flipped to face his direction of travel, as the dormant crew code does with face = -1), crouches, jumps onto the mark, then rests",
+      "voice": "imp_op_<career>_arrive (existing), once per act",
+      "blocks_input": false,
+      "max_seconds": 3.0
+    },
+    "imp_between_final_act_phases": "present at a clear rest; reacts to her completions with stagger then hop_b; no clock, no bars, no competing",
+    "contest_intro": "imp challenge line, then Roshan's contest instruction line and the existing ghost demo; the imp waits in windup",
+    "imp_starts_on": "her first valid contest input (listening, demo and looking time never count)",
+    "idle_pause_seconds": 4.0,
+    "idle_pause_behaviour": "if she has made no contest input for this long, the imp freezes (alternating taunt and guard), the existing rehint plays, and he resumes on her next input; zero input can never produce a win or a loss",
+    "flub": "exactly one scripted flub per attempt: the imp stops for about 2 s, plays his flub poses and his existing copy line; it is her comeback moment",
+    "race_pacing": "imp_units += delta * units_total / base_seconds * mercy_rate while active (mercy_rate is 1.0, or 0.4 after two failures); ties go to Roshan",
+    "imp_win_beat": {
+      "poses": [["hop_b", 0.6], ["taunt", 0.8]],
+      "voice": "imp_op_contest_win (new, generic)",
+      "max_seconds": 2.0,
+      "then": "restart the contest: reset both sides and the pearl rows, failures += 1 (from the second failure on, the radical mercy applies), Roshan says op_contest_again (new), she stays at her station (never walk back to a room object)"
+    },
+    "player_win_beat": "imp stagger then bopped then recover with his existing bop line, Roshan cheer; then the victory flourish phase if the career has one, else the curtain call where the imp bows",
+    "score_display": "reuse the existing header's two rows (hers above, his below) as wordless contest rows: discrete contests draw one pearl per unit or point (hers in the career accent, his in imp purple); continuous contests (paint coverage, racer distance) keep the existing bar; defense contests show her units in her row and the hazards that count against her (gross things on the cake now, noises so far) as up to three purple pearls in his; the Teacher shows her row only (four pearls), because he never scores; no numbers or text",
+    "miss_pay_in_contest": 0.0,
+    "save": "contest attempts are never saved: a resume always starts the contest from zero with failures reset. Hall careers already checkpoint their phase index in opera_performance_checkpoints (save the contest phase with an empty current snapshot). The Teacher and the Geologist keep their existing checkpoints (teacher_lesson_checkpoint, opera_geology_checkpoint) for the phase index, with an empty mechanic snapshot on the contest phase. Every other contest career gets the new additive dictionary key opera_phase_checkpoints = {career: {version: 1, phase_index: n}}, default {}, registered in save_state.gd DICTIONARY_KEYS and KNOWN_KEYS, written when a final-act phase arms and erased with the career's other checkpoints when the act is won (scripts/opera_house.gd:275-286). Leaving during the contest therefore never replays earlier activities.",
+    "phase_naming": "a replaced activity keeps its internal phase name (TOP, SHARE, BANDAGE, PICNIC, TITLE IMP, LAUNCH, RACE, GEODE and the stage copy of GRAND TWIRL) because PHASE_STATIONS, HOTSPOT_PHASE_ALIASES, the hotspot catalog, voice keys and probes key on it; it gains a contest dictionary. Inserted contests (SPARKLE RACE, PAINT-OFF, HAT DUEL, SING-OFF, IMP'S LESSON, QUIET TIME) are new phases that need PHASE_STATIONS, hotspot, voice and probe entries. The contest names are design names, never child-facing text.",
+    "mastery_hall": "a rematch counts as one assist; a won contest still earns at least Bronze",
+    "cheer_tier": "race and points contests: by her winning margin, at least 0.35 of the contest ahead = 3, at least 0.15 = 2, else 1. Defense contests: by the worst moment of the attempt; Chef: never more than one gross thing on the cake at once = 3, two = 2; Nursery: no noise = 3, one = 2, two = 1. Teacher: 3 when she fixed both lessons on her first pick without the hint, else 2; silly-question picks never lower it. Any rematch caps the tier at 2. Make it audible or visible, never text-only.",
+    "story_and_tutorial_runs": "Chapter 2 story runs (reward_policy chapter2_story) and tutorial runs opt out: no imp and no contest",
+    "inverted_contests": {
+      "applies_to": ["teacher"],
+      "owner_decision": "OD-2026-09-30-C, OD-2026-09-30-D, OD-2026-10-04-E",
+      "shape": "A silly lesson game in rounds. Each round the imp presents one silly question or one lesson with one deliberate, silly mistake and says it proudly (taunt). Every round is silly.",
+      "her_point": "Every round ends with her fix and one pearl in her row. A right first pick: his mistake pops off with a soft puff, the right answer settles in, he plays stagger then recover, imp line op_lesson_fixed (lesson rounds) or his reaction line (silly questions).",
+      "hint": "the hint button stays available; a hinted round ends the same way, with her placing the right answer",
+      "truth_last": "every round ends with the correct answer on the board, placed by her; his wrong answer is never left standing",
+      "humor": "silly and gross-funny, never mean: the joke is always on the imp or on the thing, never on the child or her family; he never calls her names and never says she smells; gross pictures stay cartoony",
+      "clock": "none: there is no clock and no idle pause; zero input leaves the round waiting",
+      "flub": "none: every round is already his mistake",
+      "rematch_mercy": "not applicable: the game cannot be lost",
+      "poses": {"pointing and placing": ["charge", "slash"], "claim": ["taunt"], "she fixed it": ["stagger", "recover"], "tricked her": ["hop_b", "taunt"], "defeat": ["stagger", "bopped", "recover"], "curtain": ["bow"]},
+      "save": "see shared.save (the Teacher keeps teacher_lesson_checkpoint)",
+      "cannot_lose": "By design (OD-E): the imp never scores and never wins, so the game never restarts.",
+      "wrong_pick": "A wrong first pick earns only his silly gloat (hop_b then taunt, his tricked line); there is no imp point. The golden help then shows the right answer (existing teacher_help clip) and she places it, which still ends the round with her pearl. Mastery records the round as assisted.",
+      "rounds_to_finish": 4,
+      "score_rows": "her row only: one pearl per round, four in all; his row stays hidden because he never scores"
+    },
+    "art_reuse_guard": "Never draw the retired family bases widget_<context>.png (the pale clipboard or easel cards that the surface keeps only as retired_widget_backdrop_path, scripts/opera_gesture_surface.gd:758-764) or the static roshan_<career>.png cards, which crop her tail. Use the full-tail atlases (assets/opera/worlds/actors/animation/roshan_<career>_sheet_a.png) and the current borderless draw routes (_mover, _mark, _lit, _success and the code-drawn surfaces). Source: audit/day2_art_library_2026-09-30/REPORT.md (Planned final act contests).",
+    "imp_contact_rule": "Each of his units must show readable contact with his own job object: the object sits at his hands, not floating above him; the unit lands on his slash contact moment with a small puff; he faces it. Alternating charge and slash beside a miniature picture is not sufficient. Captures must show the hand or tool touching the object.",
+    "venue_rule": "DL-INT-02 (owner clarification 2026-09-06): Roshan performs a job at its actual location. Room careers therefore hold the contest at the room station she walks to, as today; only the three Opera Hall careers, whose stage act is already the playable venue, use the stage layout. The non-interactive curtain call stays on the proscenium for everyone.",
+    "room_layout": {
+      "her_card": "_card_position_near_station(): 416 x 292 card, 392 x 232 surface (scripts/opera_career_world_2d.gd:2822-2844)",
+      "imp_mark": "_stage_room_finale_partner(): the route rest clear of Roshan and her card (scripts/opera_career_world_2d.gd:1786-1830)",
+      "imp_station": "the same input-transparent OperaGestureSurface mirror the Hall uses, at scale 0.6 (235 x 139), placed at the imp's hands on his reach side (imp_contact_rule) and clear of her card and Roshan using the _safer_panel_rect candidate search"
+    },
+    "hall_stage_layout_source": "scripts/opera_career_world_2d.gd:4945-4976 (_performance_stage_layout) and :769-777 (performance_rival_surface)",
+    "hall_stage_layout": {
+      "roshan": {"position": [48, 264], "size": [300, 300]},
+      "activity_panel": {"position": [390, 204], "size": [500, 376]},
+      "imp": {"position": [974, 294], "size": [220, 220]},
+      "imp_station": {"position": [916, 144], "size": [392, 232], "scale": 0.7, "input": "transparent", "note": "today's position floats above his head; for the contest move it down to his hands (imp_contact_rule) and verify contact in captures"},
+      "ballerina_exception": {"roshan": {"position": [12, 372], "size": [300, 300]}, "imp": {"position": [238, 350], "size": [150, 150]}}
+    },
+    "mercy": {
+      "owner_decision": "OD-2026-10-04-E: \"Imp just restarts contest at end, after two failures, imp should radically slow down.\"",
+      "first_and_second_attempts": "normal pace: the first restart (after one failure) is just a restart",
+      "after_two_failures": {
+        "race": "mercy_rate 0.4: he takes two and a half times as long",
+        "points": "his target +3, and shuffles, song phrases and his wind-ups run at half speed",
+        "defense": "Chef: he tosses a third as often (every 12 s) with a 1.6 s windup; Nursery: one imp at a time, a 6.0 s windup, and a wave of four imps instead of six",
+        "racer": "rival speed x 0.5; he still waits while she is idle"
+      },
+      "note": "The radical setting starts with the third attempt and stays for every later attempt in that visit. Attempts are never saved, so leaving and returning starts fresh at normal pace. The Teacher game cannot be lost, so it has no mercy table. The cheer tier is capped at 2 after any rematch."
+    },
+    "defense_contests": {
+      "applies_to": ["chef", "nursery"],
+      "owner_decision": "OD-2026-10-04-E",
+      "shape": "The imp sends hazards (gross things for her food, noisy imps near the sleeping babies) while she finishes her job. She removes each hazard with one tap. She wins when her job is done; he wins only if too many hazards pile up at once.",
+      "telegraph": "every hazard is announced first: he holds it at his hands in his windup pose (the Nursery imps also pulse the existing fx_telegraph_ring.png) for about 0.8 s (Chef) or 2.5 s (Nursery) before it lands or sounds",
+      "pacing": "the first hazard of each attempt waits until her first touch on the contest surface. After that, hazard timers run only while she is active: once she has not touched the contest surface for 4.0 s, every imp holds still in his telegraph pose, the existing rehint plays, and he resumes on her next touch. Missed taps count as touches. In the Nursery, imps still tiptoe in while she is idle (so there is always one to tap), but none counts down. Zero input never decides.",
+      "loss": "Chef: three gross things on the cake at the same moment; Nursery: three noises, which pop all three sleep bubbles. Either one is his win: the 2 s win beat, then the contest restarts",
+      "mercy": "see shared.mercy (defense)",
+      "flub": "one per attempt, as in the race contests",
+      "score_rows": "her row: her units; his row: up to three purple pearls for the hazards that count against her"
+    },
+    "humor_rule": "silly and gross-funny, never mean: the joke is always on the imp or on the thing, never on the child or her family; he never calls her names and never says she smells; gross pictures stay cartoony"
+  },
+  "pose_meanings": {
+    "idle": "at rest between beats",
+    "windup": "ready: watching Roshan before and at the start of the contest; in defense contests, his telegraph with the hazard at his hands",
+    "charge": "working, part 1 (reaching for the next piece)",
+    "slash": "working, part 2 (placing or swinging the tool); in defense contests, the toss or the noise",
+    "recover": "after his flub, and when he has lost",
+    "guard": "worried when she is close to finishing; frozen while she is idle; Boxer guard; a shushed Nursery imp covering his face",
+    "stagger": "surprised when she overtakes him or finishes a unit near him",
+    "flee": "running in to his mark at the entrance, or chasing a runaway object",
+    "bopped": "the dizzy flop: his flub and his defeat",
+    "bow": "curtain call",
+    "hop_a": "entrance crouch",
+    "hop_b": "entrance jump, and his victory jump when he wins",
+    "taunt": "challenge, ahead of her, 'ta-da'"
+  },
+  "careers": {
+    "chef": {
+      "status": "specified",
+      "owner_decision": "OD-2026-10-04-E",
+      "final_act_starts_at": "FROST",
+      "phases_after": ["MIX", "STIR", "BAKE", "FROST", "YUCKY RECIPE"],
+      "contest": {
+        "name": "YUCKY RECIPE",
+        "replaces": "TOP (the phase keeps its internal name)",
+        "archetype": "defense",
+        "interpretation_to_confirm": "OD-E's recipe idea is applied here by default; if the owner meant the Teacher's silly lessons, the Chef keeps the revision 1-4 topping race instead (see OD-2026-10-04-E).",
+        "skill": "decorating and keeping food clean: put each topping on its glowing spot while flicking the imp's gross things off the cake",
+        "venue": "room: grand_cake_stage (the TOP station)",
+        "player": {"mode": "tap", "visual_context": "target_chef", "units": 7, "reuse": "TARGET_ANCHORS.target_chef (seven one-use sockets) on the borderless cake subject widget_target_chef_mover.png", "hazard_rule": "A gross thing he tosses lands on an empty socket if one is free, otherwise on top of one of her toppings, and sits there wiggling, blocking that socket. One tap flicks it off: it sails back and bonks him (stagger, his hat wobbles). Then the socket is free again, or her topping shows again."},
+        "imp": {
+          "family": "rival_chef",
+          "stands": "near the cake stand with a little basket of gross things at his feet; during each windup the gross thing sits in his free hand (the fist opposite his whisk) and it leaves his open hand on his slash contact frame",
+          "toss_every_seconds": 4.0,
+          "windup_seconds": 0.8,
+          "gross_things": ["a stinky sock", "a wiggly worm", "a fish skeleton", "an old boot"],
+          "wins_when": "three gross things sit on the cake at the same moment",
+          "flub_at_toss": 3,
+          "flub_seconds": 1.8,
+          "first_toss": "the first toss starts after her first topping",
+          "loss_note": "Reaching three at once takes several ignored tosses while she is active; most children never let it happen. Tune in W8."
+        },
+        "flub": {"poses": [["stagger", 0.4], ["bopped", 1.0], ["recover", 0.4]], "visual": "his toss goes straight up and the stinky sock lands on his own chef's hat", "voice": "op_chef_copy"},
+        "victory_flourish": null,
+        "she_wins_when": "all seven sockets hold her toppings",
+        "imp_win_reset": "the gross things and her toppings pop off with a soft puff and the clean cake waits; she stays at the cake",
+        "dependency": "The Chef's look and pour are not owner-accepted (ODR-CHEF-VERDICT-20261003, MA-OPERA-001 reopened 2026-10-03). Build this contest after the Chef repair lands, on the repaired cake: no dark bloom and no code-drawn duplicate of the painted cake; the gross things are icon art. Until then the Chef is not a pilot (see the work order).",
+        "replaces_design": "revision 1-4 TOPPING RACE (two cakes); the owner's recipe idea replaces it"
+      },
+      "voice": {
+        "entrance": "op_chef_arrive",
+        "flub": "op_chef_copy",
+        "defeat": "op_chef_bop",
+        "new_imp_challenge": {"key": "op_chef_challenge", "text": "Your cake needs my special ingredients! Socks and worms! Hee hee!"},
+        "new_roshan_contest": {"key": "op_chef_contest", "text": "The imp is putting yucky things on my cake! Tap them off and finish the toppings!"},
+        "new_lines": [
+          {"speaker": "imp", "key": "op_chef_toss", "text": "Special delivery! Yum yum!", "use": "at most once every 6 s, on a toss"}
+        ]
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_chef_mover.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_chef_piece_0.png", "assets/opera/worlds/widgets/widget_target_chef_piece_1.png", "assets/opera/worlds/widgets/widget_target_chef_piece_2.png"],
+        "flub_sprite": "assets/opera/worlds/widgets/widget_target_chef_piece_1.png",
+        "new": ["the gross things come from the shared silly icon set: the stinky sock and the wiggly worm are already among the silly-question pictures; add a fish skeleton and an old boot"]
+      }
+    },
+    "detective": {
+      "status": "specified",
+      "final_act_starts_at": "CASE BOARD",
+      "phases_after": ["SEARCH", "CASE BOARD", "SPARKLE RACE", "CROWN"],
+      "contest": {
+        "name": "SPARKLE RACE",
+        "inserted_before": "CROWN",
+        "archetype": "race",
+        "skill": "searching: sweep the magnifier and hold it on each hidden sparkle",
+        "venue": "room: the painting itself, starting from magnifier_tower (new PHASE_STATIONS entry); lens beats have no card",
+        "player": {"mode": "lens", "units": 3, "clue_spot_indices": [3, 4, 5], "clue_spot_note": "pass these indices explicitly; the default rotation (index + phase_index * 3) % 8 at scripts/opera_career_world_2d.gd:4253-4258 would pick 6, 7 and 0 for a phase at index 2, and SEARCH already uses 0, 1 and 2", "reuse": "existing lens engine, 0.45 s dwell, room-object reactions, 12 s glisten hint"},
+        "imp_station": "his own purple-tinted magnifier (assets/opera/worlds/ui/magnifier.png) travelling between his purple sparkles at clue spots 6, 7 and 1, never zooming",
+        "imp": {"family": "rival_detective", "base_seconds": 21.0, "flub_at_units": 2, "flub_seconds": 2.0},
+        "flub": {"poses": [["guard", 0.6], ["recover", 1.0], ["idle", 0.4]], "visual": "his lens detours to the moon or a lantern (DETECTIVE_ROOM_OBJECTS) and finds nothing", "voice": "op_detective_copy"},
+        "victory_flourish": "CROWN (tap the chest handle; existing crown_chest mode)",
+        "retires": "timed_retry, begin_guided_retry and the reveal path (handoff finding H1)",
+        "story_note": "The steal line at SEARCH is his voice: the detective imp is the crown thief pretending to investigate; his defeat line 'It didn't even fit on my horns' pays that off."
+      },
+      "voice": {
+        "entrance": "op_detective_arrive",
+        "flub": "op_detective_copy",
+        "defeat": "op_detective_bop",
+        "new_imp_challenge": {"key": "op_detective_challenge", "text": "Race you to the sparkles! Mine are purple!"},
+        "new_roshan_contest": {"key": "op_detective_contest", "text": "Find my gold sparkles before the imp finds his purple ones!"}
+      },
+      "art": {
+        "backdrop": "world",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_detective_sheet_a.png",
+        "her_object": "assets/opera/worlds/ui/magnifier.png",
+        "pieces": ["assets/opera/worlds/props/fx_stolen_sparkle.png"],
+        "flub_sprite": null,
+        "new": []
+      }
+    },
+    "ballerina": {
+      "status": "specified",
+      "final_act_starts_at": "stage (OperaPerformancePlan stage_start = 3)",
+      "phases_after": ["practice: PEARL MIRROR", "practice: RIBBON TRAIL", "practice: GRAND TWIRL", "stage: PEARL MIRROR", "stage: RIBBON TRAIL", "stage: TWIRL-OFF"],
+      "contest": {
+        "name": "TWIRL-OFF",
+        "replaces": "the stage copy of GRAND TWIRL (practice keeps GRAND TWIRL)",
+        "archetype": "race",
+        "skill": "turning: guide the pearl around the shell music box",
+        "venue": "hall stage (finale_stage tiles; ballerina layout exception)",
+        "player": {"mode": "ballet_twirl", "units": 3, "surface_change": "multi-turn contract: turns_required = 3, progress normalised over three orbits, same monotonic either-direction rules; today twirl_progress is capped at one orbit (scripts/opera_ballet_surface.gd:508-549)"},
+        "imp_station": "the imp twirls at his own mark beside a small copy of the music box (goal_ballerina.png)",
+        "imp": {"family": "rival_ballerina", "base_seconds": 10.5, "flub_at_units": 2, "flub_seconds": 2.0},
+        "flub": {"poses": [["hop_b", 0.3], ["stagger", 0.4], ["bopped", 1.3]], "visual": "dizzy stars (fx_dizzy_stars.png) after his second spin", "voice": "op_ballerina_copy"},
+        "victory_flourish": null,
+        "rule_note": "DL-INT-08 says Ballerina is not a race; DL-INT-14 supersedes that clause for this final contest only."
+      },
+      "voice": {
+        "entrance": "op_ballerina_arrive",
+        "flub": "op_ballerina_copy",
+        "defeat": "op_ballerina_bop",
+        "new_imp_challenge": {"key": "op_ballerina_challenge", "text": "Twirl-off! Three big spins. Ready? Spin!"},
+        "new_roshan_contest": {"key": "op_ballerina_contest", "text": "Twirl around the music box three times!"}
+      },
+      "art": {
+        "backdrop": "finale_stage",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+        "her_object": "assets/opera/worlds/props/goal_ballerina.png",
+        "pieces": [],
+        "flub_sprite": "assets/opera/worlds/props/fx_dizzy_stars.png",
+        "new": []
+      }
+    },
+    "candymaker": {
+      "status": "specified",
+      "final_act_starts_at": "SHARE",
+      "phases_after": ["SYRUP", "SORT", "WRAP", "SHARING RACE"],
+      "contest": {
+        "name": "SHARING RACE",
+        "replaces": "SHARE",
+        "archetype": "race",
+        "skill": "sharing: give one candy to each waving friend (one-to-one)",
+        "venue": "room: candy_cart (the SHARE station)",
+        "player": {"mode": "tap", "visual_context": "target_candymaker", "units": 6, "reuse": "TARGET_ANCHORS.target_candymaker and _draw_candymaker_recipients"},
+        "imp_station": "a small copy of the same waving friends at his hands, each served on his contact frame (mirror API)",
+        "imp": {"family": "rival_candymaker", "base_seconds": 11.0, "flub_at_units": 3, "flub_seconds": 1.8},
+        "flub": {"poses": [["hop_b", 0.5], ["taunt", 0.6], ["recover", 0.7]], "visual": "he eats the candy instead of giving it (candy piece at his mouth); his count does not advance", "voice": "op_candymaker_copy"},
+        "victory_flourish": null
+      },
+      "voice": {
+        "entrance": "op_candymaker_arrive",
+        "flub": "op_candymaker_copy",
+        "defeat": "op_candymaker_bop",
+        "new_imp_challenge": {"key": "op_candymaker_challenge", "text": "Candy race! First to give every friend a sweet wins!"},
+        "new_roshan_contest": {"key": "op_candymaker_contest", "text": "Give a candy to every friend before the imp does!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_candymaker_mover.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png", "assets/opera/worlds/widgets/widget_target_candymaker_piece_1.png", "assets/opera/worlds/widgets/widget_target_candymaker_piece_2.png"],
+        "flub_sprite": "assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png",
+        "new": []
+      }
+    },
+    "doctor": {
+      "status": "specified",
+      "final_act_starts_at": "CAST",
+      "phases_after": ["WASH", "FIND", "X-RAY", "CAST", "BANDAGE RACE"],
+      "contest": {
+        "name": "BANDAGE RACE",
+        "replaces": "BANDAGE",
+        "archetype": "race",
+        "skill": "bandaging: wrap each sore paw along the glowing path",
+        "venue": "room: recovery_bed (the BANDAGE station)",
+        "player": {"mode": "swipe", "visual_context": "trace_doctor (existing authored bandage corridor)", "units": 3, "surface_change": "multi-pass contract: after each completed pass the corridor re-arms on the next paw; a pass banks once"},
+        "imp_station": "a small copy of the same authored bandage trace (widget_trace_doctor_lit.png route) at his hands, his wrap advancing on his contact frames (mirror API)",
+        "imp": {"family": "rival_doctor", "base_seconds": 14.0, "flub_at_units": 2, "flub_seconds": 2.0},
+        "flub": {"poses": [["stagger", 0.4], ["guard", 1.0], ["recover", 0.6]], "visual": "he wraps his own head instead of the paw", "voice": "op_doctor_copy"},
+        "victory_flourish": "optional kindness beat: tap the imp to give him a bandage (hop_b); never required, auto-continues after 3 s, pays nothing"
+      },
+      "voice": {
+        "entrance": "op_doctor_arrive",
+        "flub": "op_doctor_copy",
+        "defeat": "op_doctor_bop",
+        "new_imp_challenge": {"key": "op_doctor_challenge", "text": "Bandage race! Wrap all three paws!"},
+        "new_roshan_contest": {"key": "op_doctor_contest", "text": "Wrap every sore paw, gentle and quick!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_trace_doctor_lit.png",
+        "pieces": [],
+        "flub_sprite": null,
+        "new": ["owner-dependent option, not a generation order: a small bandage-wrap overlay for the imp, only if the guard pose does not read as wrapped up at phone size"]
+      }
+    },
+    "farmer": {
+      "status": "specified",
+      "final_act_starts_at": "HERD",
+      "phases_after": ["PLANT", "TOSS", "HERD", "FEEDING RACE"],
+      "contest": {
+        "name": "FEEDING RACE",
+        "replaces": "PICNIC",
+        "archetype": "race",
+        "skill": "aiming: pull back and toss veggies into the hungry piggy's picnic (four landings)",
+        "venue": "room: blossom_arch (the PICNIC station)",
+        "player": {"mode": "farm_lob", "units": 4, "reuse": "FARM_LOB_GOAL = 4, cycling foods, pig munch reaction"},
+        "imp_station": "a small copy of the piggy picnic (widget_target_farmer_mover.png) just in front of him, his veggie leaving his hand on each toss and his four landing dots filling (mirror API)",
+        "imp": {"family": "rival_farmer", "base_seconds": 17.0, "flub_at_units": 2, "flub_seconds": 1.8},
+        "flub": {"poses": [["charge", 0.3], ["bopped", 1.1], ["recover", 0.4]], "visual": "his veggie bonks his own hat and he slips in mud (fx_dust_puff drawn with a brown modulate; the art itself is not recoloured)", "voice": "op_farmer_bop"},
+        "victory_flourish": "his piggies trot over to her side (optional visual)",
+        "voice_note": "The farmer lines fit best swapped: the mud line is the flub, the rock line is the defeat."
+      },
+      "voice": {
+        "entrance": "op_farmer_arrive",
+        "flub": "op_farmer_bop",
+        "defeat": "op_farmer_copy",
+        "new_imp_challenge": {"key": "op_farmer_challenge", "text": "Feeding race! My piggies eat first!"},
+        "new_roshan_contest": {"key": "op_farmer_contest", "text": "Pull back and toss four veggies to the hungry piggy!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_farmer_mover.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_farmer_piece_0.png", "assets/opera/worlds/widgets/widget_target_farmer_piece_1.png", "assets/opera/worlds/widgets/widget_target_farmer_piece_2.png"],
+        "flub_sprite": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+        "new": []
+      }
+    },
+    "boxer": {
+      "status": "specified",
+      "final_act_starts_at": "TITLE IMP",
+      "phases_after": ["GLOVE GUIDE", "JAB PRACTICE", "SOFT GUARD", "TITLE BOUT", "BELT"],
+      "contest": {
+        "name": "TITLE BOUT",
+        "replaces": "TITLE IMP (same specialist, new scoring)",
+        "archetype": "points",
+        "skill": "timing: punch in the open window and guard the counter",
+        "venue": "specialist: full-screen OperaBoxingSurface after she reaches shell_pavilion_stage",
+        "player": {"mode": "boxing_imp", "points_to_win": 6, "reuse": "existing windup, charge, recover and guard cycle (scripts/opera_boxing_surface.gd:366-420)"},
+        "imp_station": "in-surface opponent (existing)",
+        "imp": {"family": "rival_boxer", "points_to_win": 6, "scores_when": "a counter lands unblocked (receive_friendly_hit), and only if she made a contest input in the last 4 s", "flub_at_points": 3, "flub_seconds": 2.0},
+        "flub": {"poses": [["stagger", 0.8], ["recover", 1.2]], "visual": "he mixes up left and right and leaves a long open window", "voice": "op_boxer_copy"},
+        "victory_flourish": "BELT (existing)",
+        "rule_note": "DL-INT-09 and the MA-OPERA-009 owner note describe friendly no-loss boxing; DL-INT-14 supersedes the no-loss clause for the title bout only. Friendly contact stays harmless and never removes her points."
+      },
+      "voice": {
+        "entrance": "op_boxer_arrive",
+        "flub": "op_boxer_copy",
+        "defeat": "op_boxer_bop",
+        "new_imp_challenge": {"key": "op_boxer_challenge", "text": "First to six! Put 'em up!"},
+        "new_roshan_contest": {"key": "op_boxer_contest", "text": "Punch when the star shines, and guard when he winds up!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_boxer_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_track_boxer_mover.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_boxer_mark.png", "assets/opera/worlds/props/fx_telegraph_ring.png", "assets/opera/worlds/props/goal_boxer.png"],
+        "flub_sprite": null,
+        "new": []
+      }
+    },
+    "magician": {
+      "status": "specified",
+      "final_act_starts_at": "stage (OperaPerformancePlan stage_start = 3)",
+      "phases_after": ["practice: VANISH", "practice: TRACK", "practice: ROPE", "stage: VANISH", "stage: TRACK", "stage: ROPE", "stage: CABINET", "stage: HAT DUEL", "stage: PORTAL"],
+      "contest": {
+        "name": "HAT DUEL",
+        "inserted_before": "PORTAL (stage only)",
+        "archetype": "points",
+        "skill": "tracking: follow the hat that hides Lamb-a' through the imp's shuffle",
+        "venue": "hall stage",
+        "player": {"mode": "choice", "visual_context": "lanes_magician", "points_to_win": 3, "surface_change": "presses during the shuffle glide (shuffle_t > 0) are ignored; a wrong pick pays nothing and gives the imp a point (today it pays a 0.05 crumb, scripts/opera_gesture_surface.gd:395-400)"},
+        "imp_station": "the imp performs the shuffle: windup before, charge and slash while hats move, taunt when she picks wrong, stagger when she picks right",
+        "imp": {"family": "rival_magician", "points_to_win": 3, "scores_when": "she picks a wrong hat after the shuffle has stopped", "flub_when": "he leads or is level at 2", "flub_seconds": 2.0},
+        "flub": {"poses": [["taunt", 0.4], ["stagger", 0.6], ["recover", 1.0]], "visual": "his trick backfires and Lamb-a' pops up visibly on the right hat for one round", "voice": "op_magician_copy"},
+        "victory_flourish": "PORTAL (existing circle)"
+      },
+      "voice": {
+        "entrance": "op_magician_arrive",
+        "flub": "op_magician_copy",
+        "defeat": "op_magician_bop",
+        "new_imp_challenge": {"key": "op_magician_challenge", "text": "Watch my hats! Can you find Lamb-a'?"},
+        "new_roshan_contest": {"key": "op_magician_contest", "text": "Watch the hat with Lamb-a', then tap it when it stops!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_lanes_magician_lit.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_lanes_shared_pick.png", "assets/minigames/seek/lamma_animation.png"],
+        "flub_sprite": null,
+        "new": []
+      }
+    },
+    "painter": {
+      "status": "specified",
+      "final_act_starts_at": "PAINT-OFF (FINALE_START stays 2; the contest is inserted at index 2, so the imp enters and challenges at once)",
+      "phases_after": ["PAINT", "STAMPS", "PAINT-OFF", "GALLERY"],
+      "contest": {
+        "name": "PAINT-OFF",
+        "inserted_before": "GALLERY",
+        "archetype": "race",
+        "skill": "painting: brush across the canvas until the picture shows",
+        "venue": "room: gazebo_easel (new PHASE_STATIONS entry, the PAINT easel)",
+        "player": {"mode": "paint_reveal", "units": "coverage 0 to 1 (PAINT_REQUIRED_COVERAGE 0.62 of the 10 x 6 grid)", "reuse": "existing coverage brush and goal_painter.png reveal"},
+        "imp_station": "a small canvas on an easel at his brush hand, revealing goal_painter.png in a fixed stroke order as his brush touches it (mirror API)",
+        "imp": {"family": "rival_painter", "base_seconds": 16.0, "flub_at_fraction": 0.55, "flub_seconds": 2.0},
+        "flub": {"poses": [["slash", 0.3], ["stagger", 0.5], ["recover", 1.2]], "visual": "he paints himself: painter stamp marks (widget_target_painter_mark.png) splat on his sprite", "voice": "op_painter_copy"},
+        "victory_flourish": "GALLERY (hang her painting; existing choice)"
+      },
+      "voice": {
+        "entrance": "op_painter_arrive",
+        "flub": "op_painter_copy",
+        "defeat": "op_painter_bop",
+        "new_imp_challenge": {"key": "op_painter_challenge", "text": "Paint-off! First to finish their picture wins!"},
+        "new_roshan_contest": {"key": "op_painter_contest", "text": "Paint the whole picture before the imp finishes his!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_painter_sheet_a.png",
+        "her_object": "assets/opera/worlds/props/goal_painter.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_painter_mark.png"],
+        "flub_sprite": "assets/opera/worlds/widgets/widget_target_painter_mark.png",
+        "new": []
+      }
+    },
+    "astronaut": {
+      "status": "specified",
+      "final_act_starts_at": "LAUNCH",
+      "phases_after": ["PIPES", "PATCH", "VALVE", "LAUNCH RACE"],
+      "contest": {
+        "name": "LAUNCH RACE",
+        "replaces": "LAUNCH",
+        "archetype": "race",
+        "skill": "repairing: patch every leak, then hold to blast off",
+        "venue": "room: rocket_launch_dais (the LAUNCH station)",
+        "player": {"mode": "tap then hold", "visual_context": "target_astronaut then charge_astronaut", "units": 6, "reuse": "TARGET_ANCHORS.target_astronaut (five leaks) plus a 1.2 s launch hold as the sixth unit"},
+        "imp_station": "a small copy of the same rocket (widget_target_astronaut_mover.png) at his hands, each patch pressed on by his contact frame, then his rocket rising (mirror API)",
+        "imp": {"family": "rival_astronaut", "base_seconds": 12.0, "flub_at_units": 3, "flub_seconds": 1.8},
+        "flub": {"poses": [["stagger", 0.5], ["bopped", 0.9], ["recover", 0.4]], "visual": "his rocket hops sideways and bumps down (fx_dust_puff)", "voice": "op_astronaut_copy"},
+        "victory_flourish": null
+      },
+      "voice": {
+        "entrance": "op_astronaut_arrive",
+        "flub": "op_astronaut_copy",
+        "defeat": "op_astronaut_bop",
+        "new_imp_challenge": {"key": "op_astronaut_challenge", "text": "Rocket race! Patch the leaks and blast off first!"},
+        "new_roshan_contest": {"key": "op_astronaut_contest", "text": "Patch every leak, then hold to blast off!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png", "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png", "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png"],
+        "flub_sprite": "assets/opera/worlds/props/fx_dust_puff.png",
+        "new": []
+      }
+    },
+    "racer": {
+      "status": "specified",
+      "final_act_starts_at": "RACE",
+      "phases_after": ["TUNE", "TO THE LINE", "GRAND PRIX"],
+      "contest": {
+        "name": "GRAND PRIX",
+        "replaces": "RACE (same specialist, new finish rule)",
+        "archetype": "race",
+        "skill": "steering: stay on the ribbon track and grab zoom strips",
+        "venue": "specialist: the Canvas circuit after she reaches ribbon_finish_arch (DL-INT-10)",
+        "player": {"mode": "kart_race", "units": "two laps", "reuse": "existing KartDriving kernel and lap dials"},
+        "imp_station": "his kart on the same track (existing)",
+        "imp": {"family": "rival_racer", "base_rate": "existing 0.94 x nominal plus rubber band (scripts/opera_racer_surface.gd:298-306)", "mercy": "unchanged on the first restart; rival speed x 0.5 after two failures (shared.mercy)", "flub_when": "first bend of lap two", "flub_seconds": 1.5},
+        "flub": {"poses": [], "visual": "spin-out: his kart rotates once and stops for 1.5 s", "voice": "op_racer_copy"},
+        "surface_change": "detect the rival crossing two laps before her and emit rival_finished; reset both karts on restart; the rival waits while she is idle",
+        "victory_flourish": null,
+        "rule_note": "Today the race ends only when she finishes and she wins regardless of placement; DL-INT-14 makes the rival finishing first an imp win (restart)."
+      },
+      "voice": {
+        "entrance": "op_racer_arrive",
+        "flub": "op_racer_copy",
+        "defeat": "op_racer_bop",
+        "new_imp_challenge": {"key": "op_racer_challenge", "text": "Two laps! First one home wins! Go, go, go!"},
+        "new_roshan_contest": {"key": "op_racer_steer", "text": "Swipe to steer through the coral gates!", "existing": true}
+      },
+      "art": {
+        "backdrop": "world",
+        "roshan": "assets/opera/worlds/actors/roshan_racer.png (existing in-kart driver route of OperaRacerSurface; the full-tail atlas animation/roshan_racer_sheet_a.png is used out of the kart)",
+        "her_object": "assets/opera/worlds/widgets/widget_crank_racer_kart.png",
+        "pieces": [],
+        "flub_sprite": null,
+        "new": []
+      }
+    },
+    "popstar": {
+      "status": "specified",
+      "final_act_starts_at": "stage (OperaPerformancePlan stage_start = 3)",
+      "phases_after": ["practice: SOUND CHECK", "practice: DANCE", "practice: RHYTHM", "stage: SOUND CHECK", "stage: DANCE", "stage: RHYTHM", "stage: SING-OFF", "stage: ENCORE"],
+      "contest": {
+        "name": "SING-OFF",
+        "inserted_before": "ENCORE (stage only)",
+        "archetype": "points",
+        "skill": "listening: hear the imp's phrase and sing it back note for note",
+        "venue": "hall stage",
+        "player": {"mode": "echo", "points_to_win": 3, "surface_change": "a wrong note pays nothing, gives the imp a point and starts the next round (today it pays a crumb and replays, scripts/opera_gesture_surface.gd:5872-5910)"},
+        "imp_station": "the imp sings each phrase: the stars light as he sings (taunt and hop_b poses)",
+        "imp": {"family": "rival_popstar", "points_to_win": 3, "scores_when": "she sings a wrong note", "flub_when": "he leads or is level at 2", "flub_seconds": 1.5},
+        "flub": {"poses": [["taunt", 0.4], ["stagger", 0.5], ["recover", 0.6]], "visual": "his next phrase goes off-key and he sings it again as an easy two-note phrase", "voice": "op_popstar_copy"},
+        "victory_flourish": "ENCORE (existing circle)"
+      },
+      "voice": {
+        "entrance": "op_popstar_arrive",
+        "flub": "op_popstar_copy",
+        "defeat": "op_popstar_bop",
+        "new_imp_challenge": {"key": "op_popstar_challenge", "text": "Sing-off! Sing my song back to me!"},
+        "new_roshan_contest": {"key": "op_popstar_contest", "text": "Listen to the imp's song, then sing it back!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+        "her_object": null,
+        "her_object_note": "The three singing stars are code-drawn: popstar_star_note_unlit/_lit.png are ledgered P2 art that was never delivered (scripts/opera_career_world_2d.gd:2345-2347), so _draw_echo_star falls back to a 10-point polygon (scripts/opera_gesture_surface.gd:5914-5923). Mirror the same drawing for his stars in imp purple.",
+        "pieces": ["assets/opera/worlds/props/goal_popstar.png"],
+        "flub_sprite": null,
+        "new": []
+      }
+    },
+    "nursery": {
+      "status": "specified",
+      "owner_decision": "OD-2026-10-04-E",
+      "final_act_starts_at": "BEDTIME (FINALE_START 4)",
+      "phases_after": ["WASH HANDS", "CATCH BABIES", "FEED", "BURP", "BEDTIME", "QUIET TIME"],
+      "contest": {
+        "name": "QUIET TIME",
+        "inserted_after": "BEDTIME",
+        "archetype": "defense",
+        "skill": "keeping the nursery quiet: stop noisy imps before they wake the sleeping babies",
+        "venue": "room: moon_bed (new PHASE_STATIONS entry for QUIET TIME). The finished BEDTIME crib scene stays open and grows into a large panel beside the bed, placed with the _safer_panel_rect candidate search, so that three cribs read large and each imp beside a crib is at least 140 px tall with a touch area of at least 120 px. Roshan and Nurse Faron stay visible beside it.",
+        "player": {"mode": "nursery_quiet (new mode on OperaGestureSurface)", "action": "tap a noisy imp, while he tiptoes in or winds up, to shush him: he freezes and covers his face (guard), then tiptoes away (flee) and is gone", "reuse": "the dormant bop mode in scripts/opera_gesture_surface.gd (bop_targets, _bop_press, _draw_imp and its ghost-finger demo), today reachable only from LEGACY_PHASES, as the base: each target gains a pose state (arriving, windup, noise, shushed, leaving) and draws its family's pose file for that state instead of the single idle texture"},
+        "imp": {
+          "families": ["imp_mischief", "imp_captain"],
+          "family_note": "the two plain imp families, unused by any shipping phase today; they have no hop_a or hop_b. The mischief imp who enters at BEDTIME leads the wave as its first imp; after him the wave alternates captain and mischief imps.",
+          "pose_substitutions": {"hop_a": "flee", "hop_b": "taunt"},
+          "behaviour": "Imps tiptoe in from the panel's left and right edges (flee, flipped to face their way, about 1.2 s), stop beside a crib and crouch with a mischievous grin, the noisy toy at their hands (windup, with the existing fx_telegraph_ring.png pulsing) for about 2.5 s, then make their noise (slash, the existing fx_telegraph_bang.png and one gentle comic sound) unless she shushes them first. After a noise the imp giggles (taunt) and tiptoes off.",
+          "wave": 6,
+          "spawn_every_seconds": 3.0,
+          "windup_seconds": 2.5,
+          "max_at_once": 2,
+          "noisy_toys": {"a big drum": "assets/audio/sfx/combat_bonk.wav", "a trumpet": "assets/audio/fart.ogg (a rude toot)", "crashing cymbals": "assets/audio/hop_boing.ogg", "a squeaky rubber duck": "assets/audio/castle/duck_squeak.ogg"},
+          "wins_when": "three noises pop all three sleep bubbles and the babies sit up awake",
+          "flub_at_imp": 4,
+          "flub_seconds": 2.0
+        },
+        "noise_meter": "three sleepy Zzz bubbles float over the cribs; each noise pops one; nothing else on screen counts",
+        "flub": {"poses": [["windup", 0.4], ["bopped", 1.6]], "visual": "the fourth imp trips over his own toy, falls asleep on the spot snoring softly, and floats away; he counts as handled", "voice": "op_nursery_copy"},
+        "victory_flourish": null,
+        "she_wins_when": "the wave is over (six imps shushed, asleep or gone) and at least one sleep bubble is left; the babies sleep on and the last imps tiptoe off yawning",
+        "defeat_beat": "the lead mischief imp plays stagger, bopped, recover with his existing bop line (\"Sorry! Was that too loud? Was it?\"), any imps still in the panel yawn and tiptoe off, and Faron's existing faron_win.ogg may follow; then the curtain call, where the lead imp bows",
+        "imp_win_reset": "the babies yawn and lie back down, the three Zzz bubbles float back, and the imps sneak out to try again",
+        "sound_rule": "each noise is one short, gentle, comic existing sound at reduced volume (the noisy_toys list); never a startling bang; music stays soft. Codex verifies each against the all-audio rules before use.",
+        "faron": "Nurse Faron stays beside Roshan; her lines are protected family recordings, so she uses only her existing clips (for example faron_win.ogg at the end) and no new Faron line is made",
+        "replaces_design": "revision 1-4 option B QUIET TUCK-IN race; OD-E decides the Nursery"
+      },
+      "voice": {
+        "entrance": "op_nursery_arrive (existing: \"I was sent to learn the QUIET. I am bad at quiet.\")",
+        "flub": "op_nursery_copy (existing: \"I tried to be quiet. Sorry! Sorry!\")",
+        "defeat": "op_nursery_bop (existing: \"Sorry! Was that too loud? Was it?\")",
+        "new_imp_challenge": {"key": "op_nursery_challenge", "text": "Hee hee! Party time! Let's make some noise!"},
+        "new_roshan_contest": {"key": "op_nursery_contest", "text": "Shh! Tap the noisy imps before they wake the babies!"},
+        "new_lines": [
+          {"speaker": "roshan", "key": "op_nursery_shush", "text": "Shhh! Babies are sleeping!", "use": "on a shush, at most once every 4 s"},
+          {"speaker": "imp", "key": "op_nursery_imp_win", "text": "Hee hee! Wake-up party! Again, again!"}
+        ]
+      },
+      "art": {
+        "backdrop": "world",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_nursery_sheet_a.png",
+        "her_object": "assets/opera/worlds/nursery/baby_0.png",
+        "pieces": ["assets/opera/worlds/nursery/baby_1.png", "assets/opera/worlds/nursery/baby_2.png", "assets/opera/worlds/props/fx_telegraph_ring.png", "assets/opera/worlds/props/fx_telegraph_bang.png", "code-drawn cribs and Zzz bubbles"],
+        "flub_sprite": null,
+        "new": ["the noisy toys come from the shared silly icon set: the big drum is already among the silly-question pictures and the rubber duck is shared with the Teacher's silly lesson objects; add a trumpet and crashing cymbals"]
+      }
+    },
+    "geologist": {
+      "status": "specified",
+      "owner_decision": "OD-2026-10-04-E",
+      "final_act_starts_at": "GEODE (FINALE_START 3)",
+      "phases_after": ["RIVER", "FOSSIL", "PAN", "GEODE RACE"],
+      "contest": {
+        "name": "GEODE RACE",
+        "replaces": "GEODE (the phase keeps its internal name)",
+        "archetype": "race",
+        "skill": "careful opening: tap every crack along the geode's seam, then pull it open, before the imp chips it open from his side",
+        "venue": "room: crystal_gallery (full-screen geology surface)",
+        "same_goal": "One geode, two diggers. The existing geode sits in the middle of the work surface. She taps the five yellow seam spots along its middle crack (GEODE_SEAM_SPOTS) and then drags the right half open by 120 px (GEODE_PULL_DISTANCE). He works the same geode from its right side: six small purple chip marks drawn near the right half's rim, which he taps one by one; his sixth chip pops the geode open toward him. Whoever opens it first wins the crystals.",
+        "player": {"mode": "geology_geode", "units": 6, "reuse": "the five seam taps plus the 120 px opening pull, exactly as GEODE plays today"},
+        "imp_station": "none: he works the right half of the same geode. He stands at its lower right, about 190 px tall, clear of her seam spots and of the 120 px opening path, facing the geode, his tool reaching his chip marks; each chip lands on his slash contact frame with a small chip puff.",
+        "imp_marks": "six small purple crack marks inside the right half near its rim, for example centre (770, 340) plus (190 cos a, 112 sin a) for a = -60, -36, -12, 12, 36, 60 degrees; each fills solid purple as he chips it",
+        "imp": {"family": "rival_detective", "family_note": "interim: the field-guide imp already borrows the detective costume; the recommended rival_geologist family replaces it when approved", "tool": "interim rival_detective: he taps each mark with the rim of his magnifier, his held prop (a silly tool for the job); recommended rival_geologist: his small rock hammer", "units": 6, "base_seconds": 14.0, "flub_at_units": 3, "flub_seconds": 2.0},
+        "flub": {"poses": [["slash", 0.3], ["stagger", 0.5], ["bopped", 1.2]], "visual": "his tool slips off the geode and drops on his own toe; he hops about holding it", "voice": "op_geologist_flub"},
+        "victory_flourish": null,
+        "she_wins_when": "her pull opens the geode: the right half slides toward him and gently bumps him into his defeat beat, and the crystals sparkle on her side",
+        "imp_win_reset": "his sixth chip pops the geode open toward him and he hugs the crystals (taunt) with the win line; then the halves close with a soft puff, every seam spot and chip mark resets, and both start again",
+        "replaces_design": "revision 2-4 FIELD GUIDE MIX-UP (inverted); OD-E makes the Geologist a race for the same goal"
+      },
+      "voice": {
+        "entrance": "op_geologist_arrive",
+        "flub": "op_geologist_flub",
+        "defeat": "op_geologist_defeat",
+        "new_imp_challenge": {"key": "op_geologist_challenge", "text": "That geode is mine! Race you to the crystals!"},
+        "new_roshan_contest": {"key": "op_geologist_contest", "text": "Tap the cracks on your side, then pull it open before the imp does!"},
+        "new_lines": [
+          {"speaker": "imp", "key": "op_geologist_arrive", "text": "Hello! I'm the field guide! Rocks are my favourite snack!"},
+          {"speaker": "imp", "key": "op_geologist_flub", "text": "Ow! My toe! Who put a toe there?"},
+          {"speaker": "imp", "key": "op_geologist_defeat", "text": "Aww! Can I just look at the sparkly crystals?"}
+        ]
+      },
+      "art": {
+        "backdrop": "code-native grotto (OperaWorldBackdrop2D._draw_geologist)",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+        "her_object": "the existing geode drawn by OperaGeologySurface",
+        "pieces": ["assets/opera/worlds/props/goal_geologist.svg (the crystals, as drawn today when the geode opens)", "code-drawn purple chip marks on the right half"],
+        "flub_sprite": null,
+        "new": ["recommended, not required: rival_geologist 13-state family (yellow hard hat with a small lamp, khaki vest with pockets, a small rock hammer as his held prop), made by Codex through the existing costume-family process after owner approval. Any such family follows the owner's 2026-10-03 animation-workflow policy (AGENTS.md; DL-MOT-14 to DL-MOT-16; design/animation/ANIMATION_PRODUCTION_PROTOCOL.md and design/templates/ANIMATION_JOB_CARD_V1.md): caps first, the idle as the pilot, Aseprite cleanup and export where practical, recorded provenance."]
+      }
+    },
+    "teacher": {
+      "status": "specified",
+      "owner_decision": "OD-2026-09-30-C, OD-2026-09-30-D, OD-2026-10-04-E",
+      "final_act_starts_at": "MATCH",
+      "phases_after": ["PATTERN", "COUNT", "ADD", "MATCH", "IMP'S LESSON"],
+      "contest": {
+        "name": "IMP'S LESSON",
+        "inserted_after": "MATCH",
+        "archetype": "inverted",
+        "skill": "checking: find the imp's wrong answer and show the right one, in the four lessons she just did",
+        "venue": "room: lesson_desk (new PHASE_STATIONS entry), the same lesson board",
+        "player": {
+          "mode": "teacher_imp_lesson (new mode on OperaTeacherSurface)",
+          "rounds": ["silly question", "silly lesson", "silly question", "silly lesson"],
+          "round_note": "Four rounds, every one silly: the first is always the owner's smell question; the silly questions rotate, and the lessons rotate through pattern, count, add and match, both from the total of teacher_learning_progress rounds, so visits vary without a new save key.",
+          "silly_rounds": {
+            "owner_decision": "OD-2026-09-30-D",
+            "shape": "Five picture cards: four that fit the question and one that obviously does not, which the imp picks proudly. Any fitting card is right; picking his card earns only his silly gloat, then she picks a fitting card.",
+            "flow": "The imp asks the question, naming the four fitting pictures as each one wiggles; he claims his pick (purple outline, taunt). A fitting pick: he tests it with his reaction line, poses and any sound. His pick: his tricked line and gloat, then the golden sparkle marks the four fitting cards and she picks one to see his reaction. Either way the round ends with her pearl.",
+            "layout": "five cards in one row on the lesson board (a new five-card branch in choice_rect, about 150 px wide on a 165 px step), positions shuffled each round",
+            "mastery": "silly rounds do not call record_result; they are not TeacherLessonPlan lessons",
+            "questions": [{"id": "smell", "owner_example": true, "ask": "Which smells the worst? Farts, garbage, old diapers, or rotten cheese?", "fitting": ["a green fart cloud with stink lines", "an overflowing garbage can", "an old droopy diaper with stink lines", "a moldy wedge of rotten cheese with two cartoon flies"], "imp_pick": "a pretty red rose", "claim": "I know! This pretty rose! Pee-yew!", "right": "Pee-yew! That's so stinky! I'm gonna faint!", "tricked": "Hee hee! Tricked you! Roses smell nice!", "reaction": [["stagger", 0.4], ["bopped", 1.0], ["recover", 0.5]], "sfx": {"a green fart cloud with stink lines": "assets/audio/fart.ogg"}}, {"id": "loud", "ask": "Which is the loudest? A burp, a big drum, a roaring lion, or a fire truck?", "fitting": ["a frog with puffed cheeks mid-burp", "a big drum", "a roaring lion", "a red fire truck with its siren flashing"], "imp_pick": "a teeny tiny mouse", "claim": "Easy! This teeny tiny mouse! Squeak!", "right": "Ow, my ears! That's so loud!", "tricked": "Hee hee! Tricked you! Mice are super quiet!", "reaction": [["guard", 1.2], ["recover", 0.5]], "sfx": {}}, {"id": "big", "ask": "Which is the biggest? A whale, an elephant, a dinosaur, or a castle?", "fitting": ["a whale", "an elephant", "a friendly long-neck dinosaur", "a castle"], "imp_pick": "an itty bitty ant", "claim": "I know! This itty bitty ant! Look at its muscles!", "right": "Whoa! That's so big! I feel teeny!", "tricked": "Hee hee! Tricked you! Ants are tiny!", "reaction": [["hop_b", 0.5], ["stagger", 0.6], ["recover", 0.4]], "sfx": {}}, {"id": "sticky", "ask": "Which is the stickiest? Honey, bubble gum, a booger, or slime?", "fitting": ["a dripping honey pot", "a big pink bubble-gum bubble", "a green cartoon booger on a tissue", "a blob of green slime"], "imp_pick": "a fluffy feather", "claim": "This fluffy feather! It sticks to everything!", "right": "Eww! My fingers are stuck together!", "tricked": "Hee hee! Tricked you! Feathers float away!", "reaction": [["recover", 0.8], ["stagger", 0.6]], "sfx": {}}, {"id": "cold", "ask": "Which is the coldest? Ice cream, a snowman, an ice cube, or a penguin?", "fitting": ["an ice-cream cone", "a snowman", "an ice cube", "a penguin"], "imp_pick": "the bright hot sun", "claim": "Brrr! The sun! It's freezing!", "right": "Brrr! My toes are frozen!", "tricked": "Hee hee! Tricked you! The sun is hot!", "reaction": [["guard", 1.2], ["recover", 0.5]], "sfx": {}}, {"id": "slow", "ask": "Which is the slowest? A snail, a turtle, a sloth, or a slug?", "fitting": ["a snail", "a turtle", "a sleepy sloth", "a slug"], "imp_pick": "a zooming rocket", "claim": "Zoom! This rocket is soooo slow!", "right": "Sooo... slooow... Yaaawn!", "tricked": "Hee hee! Tricked you! Rockets go zoom!", "reaction": [["idle", 1.0], ["recover", 0.6]], "sfx": {}}, {"id": "squishy", "ask": "Which is the squishiest? Jelly, a marshmallow, mud, or a whoopee cushion?", "fitting": ["a wobbly jelly", "a marshmallow", "a mud puddle", "a whoopee cushion"], "imp_pick": "a hard grey rock", "claim": "This hard rock! Squishy squishy!", "right": "Squish! So squishy!", "tricked": "Hee hee! Tricked you! Rocks are hard!", "reaction": [["charge", 0.4], ["stagger", 0.6], ["recover", 0.4]], "sfx": {"a whoopee cushion": "assets/audio/fart.ogg"}}, {"id": "yucky", "ask": "Which is the yuckiest to eat? A mud pie, a wiggly worm, a stinky sock, or soap?", "fitting": ["a mud pie", "a wiggly worm", "a stinky sock with stink lines", "a bar of soap"], "imp_pick": "a pink cupcake", "claim": "Yuck! This cupcake!", "right": "Bleh! Yucky yucky yuck!", "tricked": "Hee hee! Tricked you! Cupcakes are yummy!", "reaction": [["stagger", 0.4], ["bopped", 0.9], ["recover", 0.5]], "sfx": {}}]
+          },
+          "lesson_source": "TeacherLessonPlan.make_lesson(kind, teacher_learning_progress) at her current tier for that kind, plus the imp's silly wrong answer (his_mistake): a silly object for pattern and match, and the nearest wrong card for count and add; never the correct choice",
+          "his_mistake": {
+            "rule": "OD-E: every lesson mistake is silly",
+            "pattern": "he fills the blank with a silly object (a sock, a banana, a rubber duck or a pizza slice) inside a purple outline, instead of a shape; she taps the shape card that really comes next",
+            "count": "his pointer counts the pearls silly, landing on his own nose as one more (when his card is one too many) or skipping a pearl while he sneezes (when it is one too few), then he marks the nearest wrong group card; she touches each pearl herself and hears each number (the existing can_answer gate), then taps the right group",
+            "add": "he presses the plus himself, the groups join, and he plonks a banana on his wrong total card (the nearest wrong total); she counts each pearl, then taps the right total",
+            "match": "he lifts a silly object card (a pizza slice) beside the model shape and calls them twins; she taps the shape that really matches"
+          },
+          "her_fix": "She taps the right card. For count and add she first touches each pearl, exactly as in her lessons (the existing can_answer gate), and hears each number. A wrong first pick earns only his silly gloat; then the golden help shows the right answer and she places it.",
+          "reuse": "OperaTeacherSurface board, choice cards, pearl counters, join button, golden help and teacher_help clip; TeacherLessonPlan tiers"
+        },
+        "imp_station": "none: he teaches on her board; his wrong answer carries a purple outline and his pointer mark",
+        "imp": {"family": "imp_mischief", "family_note": "interim until the recommended rival_teacher family is approved; not the doctor costume the hidden Learning Buddy borrows today", "pose_substitutions": {"hop_a": "flee", "hop_b": "taunt"}, "clock": "none", "scores_when": "never: a wrong pick earns only his silly gloat"},
+        "stand": "at the right end of the board, about 150 px tall, feet near (1205, 640), clear of every choice card (the right-most card ends at x = 1133) and of the hint button at (1115, 150)",
+        "flub": null,
+        "victory_flourish": null,
+        "mastery": "each lesson round calls TeacherLessonPlan.record_result(kind, assisted) exactly like a lesson: assisted is true when her first pick was wrong or she used the hint. Silly-question rounds do not call it.",
+        "cannot_lose": "By design (OD-E): no imp points, no imp win, no restart",
+        "rounds_to_finish": 4,
+        "score_rows": "her row only: four pearls, one per round; his row stays hidden",
+        "cheer_tier": "3 when she fixed both lessons on her first pick without the hint, else 2; silly-question picks never lower it"
+      },
+      "voice": {
+        "entrance": "op_teacher_arrive",
+        "defeat": "op_teacher_defeat",
+        "new_imp_challenge": {"key": "op_teacher_challenge", "text": "My turn to be the teacher! Can you catch my silly mistakes?"},
+        "new_roshan_contest": {"key": "op_teacher_contest", "text": "The imp is teaching it wrong! Tap the right answer to fix it!"},
+        "new_lines": [
+          {"speaker": "imp", "key": "op_teacher_arrive", "text": "Hello, class! I'm the new teacher! I know everything! I think."},
+          {"speaker": "imp", "key": "op_teacher_claim_pattern", "text": "Easy peasy, lemon squeezy! This one comes next!"},
+          {"speaker": "imp", "key": "op_teacher_claim_count", "text": "One, two, three... eleventy-twelve! It's this many!"},
+          {"speaker": "imp", "key": "op_teacher_claim_add", "text": "Two plus one makes... a banana! No wait. This many!"},
+          {"speaker": "imp", "key": "op_teacher_claim_match", "text": "Look! These two are twins! Same, same, same!"},
+          {"speaker": "imp", "key": "op_teacher_defeat", "text": "You're the real teacher! I'll go sit in the silly corner."},
+          {"speaker": "imp", "key": "op_teacher_silly_smell_ask", "text": "Which smells the worst? Farts, garbage, old diapers, or rotten cheese?"},
+          {"speaker": "imp", "key": "op_teacher_silly_smell_claim", "text": "I know! This pretty rose! Pee-yew!"},
+          {"speaker": "imp", "key": "op_teacher_silly_smell_right", "text": "Pee-yew! That's so stinky! I'm gonna faint!"},
+          {"speaker": "imp", "key": "op_teacher_silly_smell_tricked", "text": "Hee hee! Tricked you! Roses smell nice!"},
+          {"speaker": "imp", "key": "op_teacher_silly_loud_ask", "text": "Which is the loudest? A burp, a big drum, a roaring lion, or a fire truck?"},
+          {"speaker": "imp", "key": "op_teacher_silly_loud_claim", "text": "Easy! This teeny tiny mouse! Squeak!"},
+          {"speaker": "imp", "key": "op_teacher_silly_loud_right", "text": "Ow, my ears! That's so loud!"},
+          {"speaker": "imp", "key": "op_teacher_silly_loud_tricked", "text": "Hee hee! Tricked you! Mice are super quiet!"},
+          {"speaker": "imp", "key": "op_teacher_silly_big_ask", "text": "Which is the biggest? A whale, an elephant, a dinosaur, or a castle?"},
+          {"speaker": "imp", "key": "op_teacher_silly_big_claim", "text": "I know! This itty bitty ant! Look at its muscles!"},
+          {"speaker": "imp", "key": "op_teacher_silly_big_right", "text": "Whoa! That's so big! I feel teeny!"},
+          {"speaker": "imp", "key": "op_teacher_silly_big_tricked", "text": "Hee hee! Tricked you! Ants are tiny!"},
+          {"speaker": "imp", "key": "op_teacher_silly_sticky_ask", "text": "Which is the stickiest? Honey, bubble gum, a booger, or slime?"},
+          {"speaker": "imp", "key": "op_teacher_silly_sticky_claim", "text": "This fluffy feather! It sticks to everything!"},
+          {"speaker": "imp", "key": "op_teacher_silly_sticky_right", "text": "Eww! My fingers are stuck together!"},
+          {"speaker": "imp", "key": "op_teacher_silly_sticky_tricked", "text": "Hee hee! Tricked you! Feathers float away!"},
+          {"speaker": "imp", "key": "op_teacher_silly_cold_ask", "text": "Which is the coldest? Ice cream, a snowman, an ice cube, or a penguin?"},
+          {"speaker": "imp", "key": "op_teacher_silly_cold_claim", "text": "Brrr! The sun! It's freezing!"},
+          {"speaker": "imp", "key": "op_teacher_silly_cold_right", "text": "Brrr! My toes are frozen!"},
+          {"speaker": "imp", "key": "op_teacher_silly_cold_tricked", "text": "Hee hee! Tricked you! The sun is hot!"},
+          {"speaker": "imp", "key": "op_teacher_silly_slow_ask", "text": "Which is the slowest? A snail, a turtle, a sloth, or a slug?"},
+          {"speaker": "imp", "key": "op_teacher_silly_slow_claim", "text": "Zoom! This rocket is soooo slow!"},
+          {"speaker": "imp", "key": "op_teacher_silly_slow_right", "text": "Sooo... slooow... Yaaawn!"},
+          {"speaker": "imp", "key": "op_teacher_silly_slow_tricked", "text": "Hee hee! Tricked you! Rockets go zoom!"},
+          {"speaker": "imp", "key": "op_teacher_silly_squishy_ask", "text": "Which is the squishiest? Jelly, a marshmallow, mud, or a whoopee cushion?"},
+          {"speaker": "imp", "key": "op_teacher_silly_squishy_claim", "text": "This hard rock! Squishy squishy!"},
+          {"speaker": "imp", "key": "op_teacher_silly_squishy_right", "text": "Squish! So squishy!"},
+          {"speaker": "imp", "key": "op_teacher_silly_squishy_tricked", "text": "Hee hee! Tricked you! Rocks are hard!"},
+          {"speaker": "imp", "key": "op_teacher_silly_yucky_ask", "text": "Which is the yuckiest to eat? A mud pie, a wiggly worm, a stinky sock, or soap?"},
+          {"speaker": "imp", "key": "op_teacher_silly_yucky_claim", "text": "Yuck! This cupcake!"},
+          {"speaker": "imp", "key": "op_teacher_silly_yucky_right", "text": "Bleh! Yucky yucky yuck!"},
+          {"speaker": "imp", "key": "op_teacher_silly_yucky_tricked", "text": "Hee hee! Tricked you! Cupcakes are yummy!"}
+        ]
+      },
+      "art": {
+        "backdrop": "Library background tiles (assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c0.png to r1_c3.png)",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+        "her_object": "assets/opera/worlds/hotspots/teacher_lesson_board.svg",
+        "pieces": ["code-drawn shapes, pearls and cards (OperaTeacherSurface)", "assets/audio/fart.ogg (existing project-original sound, reused for the fart cloud and the whoopee cushion)"],
+        "flub_sprite": null,
+        "new": ["required: the shared silly icon set, one consistent style, made by Codex after first checking existing approved art (DL-PLAN-03): the 40 silly-question pictures (see silly_rounds.questions), the silly lesson objects not among them (a banana, a rubber duck and a pizza slice; the sock is already among them), the Chef's fish skeleton and old boot, and the Nursery's trumpet and crashing cymbals: up to 47 pictures. Check these existing candidates first: assets/props/story/fruit_banana.png and assets/flats/castle/rooms/room_bubble_bath_item_rubber_duck.png. One object per icon, transparent, at most 512 px, broad pastel fills with navy outlines to match the lesson board; cartoon-gross, never realistic. The owner approves the first five (the smell question) before the rest.", "recommended: rival_teacher 13-state family (round glasses slipping down his nose, a small mortarboard cap tilted over one horn, a cream cardigan with a coral bow tie, a wooden pointer with a star tip as his held prop), made by Codex through the existing costume-family process; the owner approves the new idle before Sheets A and B. Any such family follows the owner's 2026-10-03 animation-workflow policy (AGENTS.md; DL-MOT-14 to DL-MOT-16; design/animation/ANIMATION_PRODUCTION_PROTOCOL.md and design/templates/ANIMATION_JOB_CARD_V1.md): caps first, the idle as the pilot, Aseprite cleanup and export where practical, recorded provenance."]
+      }
+    }
+  },
+  "new_shared_voice": [
+    {"speaker": "imp", "key": "op_contest_win", "text": "I won! I won! Let's play again!"},
+    {"speaker": "roshan", "key": "op_contest_again", "text": "Again! I can do it this time!"},
+    {"speaker": "imp", "key": "op_lesson_fixed", "text": "Oops! You fixed it! My brain is full of bubbles!", "use": "inverted contests: she fixed his mistake"},
+    {"speaker": "imp", "key": "op_lesson_tricked", "text": "Hee hee! Tricked you!", "use": "inverted contests: her first pick was wrong (silly rounds use their own tricked lines)"}
+  ]
+}

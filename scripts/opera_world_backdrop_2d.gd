@@ -43,15 +43,36 @@ var world_tiles: Array[Texture2D] = []
 var stage_tiles: Array[Texture2D] = []
 var room_variant_tiles: Array[Texture2D] = []
 var sky_lagoon_tiles: Array[Texture2D] = []
+var farmer_basket_texture: Texture2D = null
+var geologist_fossil_texture: Texture2D = null
+var geologist_gallery_texture: Texture2D = null
+var geologist_tray_textures: Array[Texture2D] = []
 
 
 func setup(id: String, variant: String = "") -> void:
 	career_id = id
 	scene_variant = variant
+	geologist_fossil_texture = null
+	geologist_gallery_texture = null
+	geologist_tray_textures.clear()
+	if career_id == "geologist":
+		geologist_fossil_texture = load("res://assets/opera/worlds/props/geologist_fossil_painted.png") as Texture2D
+		geologist_gallery_texture = load("res://assets/opera/worlds/props/geologist_crystal_gallery_painted.png") as Texture2D
+		assert(geologist_fossil_texture != null and geologist_gallery_texture != null,
+			"Geologist painted foreground sources are required")
+		for colour: String in ["mint", "blue", "lavender"]:
+			var texture := load("res://assets/opera/worlds/props/geologist_station_tray_%s_painted.png" % colour) as Texture2D
+			assert(texture != null, "Geologist painted specimen trays are required")
+			geologist_tray_textures.append(texture)
+	farmer_basket_texture = null
+	if scene_variant == "sky_lagoon_farmer":
+		farmer_basket_texture = load("res://assets/castle/day_one_pool/activities/cleanup_basket.png") as Texture2D
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_meta("chapter2_scene_variant", scene_variant)
 	set_meta("chapter2_scene_specific_2d", not scene_variant.is_empty())
-	if career_id == "teacher":
+	set_meta("chapter2_cake_pixels_owned_by_prop",
+		_is_chapter2_clean_kitchen())
+	if career_id == "teacher" or scene_variant == "magic_storybook":
 		painting = null
 		world_tiles.clear()
 		stage_tiles.clear()
@@ -146,10 +167,17 @@ func _draw_sky_lagoon_farmer() -> void:
 				Vector2(float(column) * half.x, float(row) * half.y), half)
 			draw_texture_rect_region(sky_lagoon_tiles[row * 2 + column],
 				destination, source)
-	# A soft harvest basket makes the task's destination legible without
-	# replacing the approved world art or turning the scene into a card.
-	draw_circle(Vector2(1040.0, 620.0), 48.0, Color("#b87855"))
-	draw_arc(Vector2(1040.0, 618.0), 48.0, PI, TAU, 24, Color("#f0c274"), 8.0)
+	# Reuse the approved empty shell basket; preserve its source pixels and
+	# avoid introducing a pig/corn/barn destination into the strawberry job.
+	if farmer_basket_texture != null:
+		var bounds := Rect2(983, 560, 114, 120)
+		var source_size := farmer_basket_texture.get_size()
+		var factor := minf(bounds.size.x / source_size.x, bounds.size.y / source_size.y)
+		var drawn := source_size * factor
+		# Preserve the existing ground support at bottom-center (1040, 680).
+		var destination := Rect2(Vector2(bounds.get_center().x - drawn.x * 0.5,
+			bounds.end.y - drawn.y), drawn)
+		draw_texture_rect(farmer_basket_texture, destination, false)
 
 
 func _load_tile_set(kind: String) -> Array[Texture2D]:
@@ -157,7 +185,10 @@ func _load_tile_set(kind: String) -> Array[Texture2D]:
 	for row in range(2):
 		for column in range(2):
 			var path: String
-			if career_id == "ballerina" and kind == "stage":
+			if kind == "world" and ((career_id == "chef" and scene_variant.is_empty()) \
+					or scene_variant in ["chapter2_chef_cake", "strawberry_cake_workshop"]):
+				path = "res://assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c%dr%d.png" % [column, row]
+			elif career_id == "ballerina" and kind == "stage":
 				path = "res://assets/opera/worlds/stage/finale_stage_c%dr%d.png" % [column, row]
 			else:
 				path = "res://assets/opera/worlds/backdrops/%s_%s_c%dr%d.png" % [
@@ -184,6 +215,34 @@ func _draw_tile_set(textures: Array[Texture2D]) -> void:
 			draw_texture_rect_region(textures[row * 2 + column], destination, source)
 
 
+func _draw_nursery_sharp_room() -> void:
+	# Exact native1024x576 sharp region, verified against source bytes.
+	# Framing repair only: native2K-per-screen coverage remains unmet.
+	var native_rect := Rect2(512, 731, 1024, 576)
+	for row in range(2):
+		for column in range(2):
+			var tile_origin := Vector2(column * 1024, row * 1024)
+			var overlap := native_rect.intersection(Rect2(tile_origin, Vector2(1024, 1024)))
+			var source := Rect2(overlap.position - tile_origin, overlap.size)
+			var destination := Rect2((overlap.position - native_rect.position) / native_rect.size * size,
+				overlap.size / native_rect.size * size)
+			draw_texture_rect_region(world_tiles[row * 2 + column], destination, source)
+
+
+func _draw_boxer_native_room() -> void:
+	# Recover the complete existing1672x941 native frame from the same tiles;
+	# retain original outer feather. This does not meet native2K coverage.
+	var native_rect := Rect2(188, 553, 1672, 941)
+	for row in range(2):
+		for column in range(2):
+			var tile_origin := Vector2(column * 1024, row * 1024)
+			var overlap := native_rect.intersection(Rect2(tile_origin, Vector2(1024, 1024)))
+			var source := Rect2(overlap.position - tile_origin, overlap.size)
+			var destination := Rect2((overlap.position - native_rect.position) / native_rect.size * size,
+				overlap.size / native_rect.size * size)
+			draw_texture_rect_region(world_tiles[row * 2 + column], destination, source)
+
+
 func _draw_racer_circuit() -> void:
 	# Reconstruct only the unchanged native painting from the padded POT tiles.
 	# Coordinates come from the promotion manifest's 1672x941 source master.
@@ -205,7 +264,14 @@ func set_stage(on_stage: bool) -> void:
 	queue_redraw()
 
 
+func _is_chapter2_clean_kitchen() -> bool:
+	return (career_id == "chef" and scene_variant == "chapter2_chef_cake") \
+		or (career_id == "candymaker" and scene_variant == "strawberry_cake_workshop")
+
+
 func _process(delta: float) -> void:
+	if _is_chapter2_clean_kitchen() and not stage_mode:
+		return
 	elapsed += delta
 	redraw_t += delta
 	if redraw_t >= 0.08:
@@ -214,8 +280,14 @@ func _process(delta: float) -> void:
 
 
 func _draw() -> void:
-	if career_id == "teacher" and room_variant_tiles.size() == 8:
+	if (career_id == "teacher" or scene_variant == "magic_storybook") and room_variant_tiles.size() == 8:
 		_draw_stuffie_room_tiles()
+		return
+	if career_id == "nursery" and world_tiles.size() == 4:
+		_draw_nursery_sharp_room()
+		return
+	if career_id == "boxer" and not stage_mode and world_tiles.size() == 4:
+		_draw_boxer_native_room()
 		return
 	if racer_driving and career_id == "racer" and world_tiles.size() == 4:
 		_draw_racer_circuit()
@@ -233,15 +305,22 @@ func _draw() -> void:
 	var mid := Color(palette[1])
 	var accent := Color(palette[2])
 	var active_tiles: Array[Texture2D] = stage_tiles if stage_mode and stage_tiles.size() == 4 else world_tiles
+	if career_id == "chef" and scene_variant.is_empty():
+		# Reuse the existing painted empty stations: one visible bowl/cake owner.
+		# This is reuse of a resolution-debt source, not a native-detail upgrade.
+		active_tiles = world_tiles
 	if active_tiles.size() == 4:
 		_draw_tile_set(active_tiles)
-		_draw_spotlights(accent)
+		# The saved clean kitchen owns its painted light. Stage beams would add
+		# two broad alpha passes over the room and the persistent cake.
+		if career_id not in ["chef", "nursery", "boxer", "doctor", "farmer", "magician", "painter"] and (stage_mode or not _is_chapter2_clean_kitchen()):
+			_draw_spotlights(accent)
 		return
 	if painting != null:
 		draw_texture_rect(painting, Rect2(Vector2.ZERO, size), false)
 		# spotlights are stage lighting — over a painted district they fight
 		# the art's own light sources
-		if stage_mode:
+		if stage_mode and career_id not in ["nursery", "boxer", "doctor", "farmer", "magician", "painter"]:
 			_draw_spotlights(accent)
 		if stage_mode:
 			_draw_stage_frame(accent)
@@ -559,7 +638,7 @@ func _draw_popstar(mid: Color, accent: Color) -> void:
 	draw_circle(Vector2(640, 250), 72, Color(accent, 0.42))
 
 
-func _draw_geologist(mid: Color, accent: Color) -> void:
+func _draw_geologist(mid: Color, _accent: Color) -> void:
 	# A readable crystal-cave laboratory: layered walls, a fossil table,
 	# specimen trays and one glowing destination cluster. All geometry stays
 	# broad and sparse enough for the Mobile renderer and a four-year-old.
@@ -573,25 +652,31 @@ func _draw_geologist(mid: Color, accent: Color) -> void:
 		]), color, 34.0)
 	if bool(get_meta("geology_work_open", false)):
 		return
-	# Fossil inspection slab.
-	draw_rect(Rect2(250, 430, 250, 94), Color("#d8bb8b"), true)
-	draw_arc(Vector2(376, 476), 32, -0.3, TAU * 1.65, 38,
-		Color("#875f72"), 11.0)
-	# Three big specimen trays match the specialist sorting surface.
+	# Whole painted station objects share the specialist activity identities.
+	# The original visibility guard above keeps one pixel owner during work.
+	draw_texture_rect(geologist_fossil_texture,
+		_geologist_prop_destination(geologist_fossil_texture,
+			Rect2(80, 84, 740, 371), Rect2(250, 398, 250, 126)), false)
+	var tray_contents: Array[Rect2] = [
+		Rect2(66, 116, 405, 283),
+		Rect2(49, 115, 407, 285),
+		Rect2(46, 115, 406, 285),
+	]
 	for index in range(3):
 		var tray_x := 550.0 + float(index) * 145.0
-		draw_rect(Rect2(tray_x, 452, 110, 74), Color("#2f274e"), true)
-		draw_rect(Rect2(tray_x, 452, 110, 74), accent.lightened(float(index) * 0.08), false, 7.0)
-	# Finale crystal cluster.
-	var base := Vector2(1080, 520)
-	for crystal in range(5):
-		var x := base.x + (float(crystal) - 2.0) * 34.0
-		var height := 80.0 + float((crystal * 31) % 55)
-		var crystal_color := Color.from_hsv(0.46 + float(crystal) * 0.055, 0.42, 1.0)
-		draw_colored_polygon(PackedVector2Array([
-			Vector2(x - 20, base.y), Vector2(x - 14, base.y - height * 0.72),
-			Vector2(x, base.y - height), Vector2(x + 15, base.y - height * 0.70),
-			Vector2(x + 20, base.y),
-		]), crystal_color)
-	var pulse := 58.0 + (sin(elapsed * 2.1) + 1.0) * 10.0
-	draw_arc(Vector2(1080, 420), pulse, 0.0, TAU, 36, Color(accent, 0.55), 8.0)
+		draw_texture_rect(geologist_tray_textures[index],
+			_geologist_prop_destination(geologist_tray_textures[index],
+				tray_contents[index], Rect2(tray_x, 452, 110, 74)), false)
+	draw_texture_rect(geologist_gallery_texture,
+		_geologist_prop_destination(geologist_gallery_texture,
+			Rect2(95, 51, 327, 421), Rect2(992, 386, 176, 134)), false)
+
+
+func _geologist_prop_destination(texture: Texture2D, content: Rect2, bounds: Rect2) -> Rect2:
+	# Map the measured authored contour to its station without cropping,
+	# changing aspect, tinting, or manufacturing a shadow/contact patch.
+	var factor := minf(bounds.size.x / content.size.x,
+		bounds.size.y / content.size.y)
+	var origin := Vector2(bounds.get_center().x - content.get_center().x * factor,
+		bounds.end.y - content.end.y * factor)
+	return Rect2(origin, texture.get_size() * factor)

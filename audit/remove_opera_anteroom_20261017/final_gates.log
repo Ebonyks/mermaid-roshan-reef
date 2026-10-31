@@ -1,0 +1,26 @@
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "-m", "gdtoolkit.parser", "scripts/castle_career_routes.gd", "scripts/opera_house_venue_2d.gd", "scripts/probe_opera.gd", "scripts/probe_throne.gd"]
+EXIT 0
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/lint_inference.py", "scripts/castle_career_routes.gd", "scripts/opera_house_venue_2d.gd", "scripts/probe_opera.gd", "scripts/probe_throne.gd"]
+EXIT 0
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/audit_game_2d.py", "--regression-gate"]
+GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0
+GAME2D| STATUS| UNSATISFIED
+GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED
+EXIT 0
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/audit_probe_parity.py"]
+PROBE_PARITY|result: ALL OK
+EXIT 0
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/audit_document_authority.py"]
+DOCAUTH|INVENTORY=705|LEDGER=705|ACTIVE=69|RECORDS=72
+DOCAUTH|RESULT|ALL OK
+EXIT 0
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/audit_development.py", "--base", "auto"]
+AUDITDEV|BASE|d5e63a1ec6e79745da504ee3c3945e59ae35ea79
+AUDITDEV|RESULT|ALL OK
+EXIT 0
+COMMAND ["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-X", "utf8", "-B", "tools/record_owner_decision.py", "--check", "--base", "HEAD"]
+DECISIONS|COUNT|47
+DECISIONS|RESULT|ALL OK
+EXIT 0
+COMMAND ["git", "diff", "--cached", "--check"]
+EXIT 0

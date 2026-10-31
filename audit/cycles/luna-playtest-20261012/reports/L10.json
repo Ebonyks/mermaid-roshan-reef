@@ -1,0 +1,221 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L10",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l10",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Travel/contact delayed payoff and retarget",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L10/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The exact Godot 4.7.2 headless probe passed its scripted assertions for the shared temporary travel/contact executor, seahorse queued tugs, waterfall retarget/cancel, and post-contact local progress. In the focused contact section it starts an action at a synthetic actor position, requests a distant point, verifies no callback before contact, advances the action with direct _process calls, and verifies one callback and actor restoration. It directly invokes waterfall _begin_touch/_end_touch and contact-action notification/process methods. The production controller is registered by the castle room code, but this probe does not follow that displayed route.",
+    "gaps": "No complete fresh-save castle-to-pool route or ordinary routed touchscreen session was demonstrated by the focused contact assertions. The screen was headless; no Mobile render, target-device latency/frame pacing, physical finger reach, spoken cue audibility, observed-child comprehension/appeal, or owner acceptance was assessed. Tool elapsed time is probe runtime, not gameplay timing."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      "Travel speed is max(delta, 0) * 440 * unit_scale canvas units per second (scripts/day_one_contact_action_2d.gd:97-101).",
+      "Contact is reached when the hand point is within 2 * unit_scale canvas units of the requested point; local work then accrues for at least 0.42 seconds before callback (scripts/day_one_contact_action_2d.gd:91-106).",
+      "In the direct fixture test, actor starts at (80,600), target is (850,280), and the default hand offset is about (43.7,21.9) at unit scale 1; the straight-line travel estimate is about 1.83 seconds, plus 0.42 seconds of contact work, assuming no frame stalls and constant movement speed (scripts/probe_day_one_pool_cleanup.gd:674-688; scripts/day_one_contact_action_2d.gd:15,100-106)."
+    ],
+    "gameplay_duration": null,
+    "assumptions": "The approximately 2.25-second estimate is calculated from a synthetic 1280x720 test setup; it is not an observed live-route duration or a child session. Actual travel distance, parent scale, timing cadence, and visual response may differ in the live room. The runner's 20.088-second wall time is explicitly not gameplay timing."
+  },
+  "tactile": {
+    "target_size": "The shared executor receives a requested world point rather than owning a touch hitbox. This review did not measure the source activity's projected touch regions at phone size. Contact tolerance is 2 * unit_scale canvas units (scripts/day_one_contact_action_2d.gd:91-95).",
+    "press_response": "Source sets the temporary action visible and hides the room actor when a request is accepted, then starts travel on process ticks (scripts/day_one_contact_action_2d.gd:66-80,97-106). The probe confirms the callback waits for contact and local work, but directly calls request/_process and does not measure a rendered response frame or latency (scripts/probe_day_one_pool_cleanup.gd:682-688).",
+    "drag_hold_release": "No hold is required by the shared executor. The waterfall caller arms tap or drag completion on release and binds it to the action callback; the probe directly begins/ends synthetic waterfall touches and verifies released work waits for contact (scripts/games/pool_waterfall_activity.gd:296-321; scripts/probe_day_one_pool_cleanup.gd:754-763). Seahorse pull/tap gesture quality was outside the physical-device evidence available here.",
+    "ownership": "An active executor rejects a second request; waterfall keeps the same-lane action and cancels/replaces it when another lane is selected. The probe asserts both behaviors through direct method calls (scripts/day_one_contact_action_2d.gd:66-68; scripts/games/pool_waterfall_activity.gd:230-258; scripts/probe_day_one_pool_cleanup.gd:682-683,729-736). No hardware multi-touch stream was tested.",
+    "cancellation": "Executor cancellation clears the callback, hides local work, and restores the room actor; focus-out and application-paused notifications call cancel (scripts/day_one_contact_action_2d.gd:111-135). The probe verifies focus interruption and canceled waterfall work do not award progress, but it does not drive pause/back/overlay teardown through the displayed app route (scripts/probe_day_one_pool_cleanup.gd:689-692,737-741)."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: showing Roshan travel to the work point and withholding progress until her hand arrives can make cause and effect clearer than remote credit. Probe assertions support the state ordering, but I did not observe the rendered action or a child.",
+    "variety": "The focused mechanics differ by caller: seahorse taps queue individual tugs, while waterfall lane selection can retarget an unearned approach. Whether that feels varied or repetitive is untested.",
+    "world_response": "The focused probe confirms one callback after contact, one queued tug per subsequent local action, and no waterfall credit for canceled/old-lane work. It does not establish the clarity of the visual or audio response.",
+    "replay": "The shared executor cancellation path restores actor visibility and clears unearned callbacks; normal room re-entry and progress recovery are outside the focused contact segment and remain unproven here.",
+    "fun_score": null,
+    "hypothesis": "Hypothesis: seeing Roshan travel, make hand contact, and only then move the local dirt/trash state may make the delay feel purposeful; quick repeated taps may instead make the child wait through several hidden-in-queue actions. Test on the target device without coaching: observe whether the child watches the approach, recognizes contact as the payoff, retargets the waterfall intentionally, and understands each queued seahorse tug. If the contact wait is hard to read, first test a clearer arrival/contact cue using approved existing feedback before changing travel or work timing."
+  },
+  "observations": [
+    {
+      "title": "The shared action delays credit until Roshan reaches hand contact and completes local work",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/day_one_contact_action_2d.gd:66-80 accepts one request, captures actor visibility, hides the room actor, and makes the temporary action visible; :94-109 checks hand contact, accumulates work time, and calls the callback once after 0.42 seconds.",
+        "scripts/probe_day_one_pool_cleanup.gd:674-692 asserts a second request cannot steal the action, there is no callback before contact, arrival/work completes exactly once, and focus interruption cancels without credit.",
+        "audit/cycles/luna-playtest-20261012/runtime/L10/attempt_1/probe.log:DAY_ONE_POOL contact-action lines report each of those assertions OK; final line is RESULT: PASS checks_failed=0."
+      ],
+      "rules": [
+        "DL-INT-02",
+        "DL-AGE-03",
+        "DL-MOT-03",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-PLAY-004"
+      ],
+      "reproduction": "Use the retained L10 receipt command. The contact-action section constructs an actor/action pair, requests (850,280), checks the early state, then advances _process in fixed steps and checks the single callback.",
+      "child_impact": "Within this setup, the visible temporary actor is the progression owner and progress cannot be awarded remotely or before contact/work. The test does not show whether the travel and contact are visually easy to follow.",
+      "proposed_repair": "No defect established in this assertion lane. Preserve travel, contact, local work, and one-shot callback ordering; review the complete visual action at normal speed on the target device.",
+      "acceptance_test": "On the live room route, touch a distant seahorse/waterfall target once and verify Roshan travels there, her hand makes readable contact, local work plays, and only then does progress change; repeat with focus interruption and confirm no stale award."
+    },
+    {
+      "title": "Waterfall lane retarget abandons the old unearned task and cancellation awards neither lane",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/pool_waterfall_activity.gd:230-258 cancels the active approach when a different lane is selected and records the new pending lane; :296-321 binds release work to the selected lane's completion callback.",
+        "scripts/probe_day_one_pool_cleanup.gd:729-741 begins work for one lane, touches another, checks the pending lane is the new one with no early progress, then cancels and verifies neither lane progresses.",
+        "audit/cycles/luna-playtest-20261012/runtime/L10/attempt_1/probe.log:34-35 reports retarget and canceled-no-progress assertions OK."
+      ],
+      "rules": [
+        "DL-AGE-03",
+        "DL-INT-02",
+        "DL-UI-05",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-PLAY-004"
+      ],
+      "reproduction": "Run the retained probe and inspect its direct _begin_touch calls for touch IDs 4 and 5 followed by focus-out cancellation.",
+      "child_impact": "The tested state logic does not pay for a lane the child stopped choosing and does not erase progress when the approach is interrupted. Whether a child understands the retarget response remains unobserved.",
+      "proposed_repair": "No repair indicated by this probe. Keep the pending lane and callback bound together through retarget and cancellation.",
+      "acceptance_test": "With ordinary one-finger input on device, start an approach to one visible lane, touch a second lane, and verify only the second lane responds after contact; interrupt before contact and verify neither receives progress."
+    },
+    {
+      "title": "Rapid seahorse taps wait for separate contact-gated tugs",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/pool_seahorse_rescue_activity.gd:302-320 queues a tap while the contact action is active; :323-349 increments one tug, then requests a fresh local contact action for the next queued tug.",
+        "scripts/probe_day_one_pool_cleanup.gd:693-719 verifies an initial tap receives no instant credit, a later contact earns one tug, quick taps wait, each queued tug earns separately, and cancellation drops unearned queued work.",
+        "audit/cycles/luna-playtest-20261012/runtime/L10/attempt_1/probe.log:29,32-33 reports no-instant-credit, queued-tug, and focus-cancel assertions OK."
+      ],
+      "rules": [
+        "DL-AGE-02",
+        "DL-AGE-03",
+        "DL-INT-02",
+        "DL-UI-05",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-PLAY-004"
+      ],
+      "reproduction": "Run the L10 receipt command; the focused section registers repeated taps while the first contact action is active and advances action processing until queued work completes.",
+      "child_impact": "The code path tested retains rapid taps instead of dropping them, while preserving a separate Roshan action for each earned tug. The feel of waiting and the clarity of each payoff are not measured.",
+      "proposed_repair": "No defect established. Preserve bounded queuing and per-tug contact; measure how queueing feels with real quick taps before changing the cap or cadence.",
+      "acceptance_test": "On device, tap the visible seahorse quickly during Roshan's approach/tug; confirm taps are neither lost nor paid all at once, each visible tug precedes one progress step, and interruption cancels only unearned work."
+    },
+    {
+      "title": "A far request can require a noticeable travel wait before the local work beat",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/day_one_contact_action_2d.gd:15 sets the default hand offset; :97-106 moves at 440 scaled canvas units per second, requires hand proximity within 2 scaled units, then waits at least 0.42 seconds of contact before callback.",
+        "scripts/probe_day_one_pool_cleanup.gd:674-688 uses actor position (80,600) and target (850,280). At unit scale 1, straight-line travel to target minus the hand offset is approximately 803 canvas units, or 1.82 seconds at the source speed, plus 0.42 seconds local work; this is a calculation from the test fixture, not measured gameplay."
+      ],
+      "rules": [
+        "DL-AGE-06",
+        "DL-AGE-07",
+        "DL-INT-02",
+        "DL-MOT-03",
+        "DL-QA-04",
+        "DL-QA-07"
+      ],
+      "existing_findings": [
+        "MA-PLAY-004"
+      ],
+      "reproduction": "Recalculate the requested-point distance in the cited synthetic setup and divide by the source movement speed, then add the contact-work threshold. The actual game route may have a different actor scale and travel distance.",
+      "child_impact": "A child may wait roughly two seconds or more for this large synthetic route before the action callback. That may be acceptable when the visible travel itself responds immediately, but the live distance, rendered response frames, and child tolerance are not established.",
+      "proposed_repair": "Do not shorten the action from the fixture estimate alone. Measure actual common travel distances and visible response on device; tune only if the arrival-to-work beat is hard to follow or the travel wait causes disengagement.",
+      "acceptance_test": "Capture a normal near and far touch on the shipping device; record touch-to-first-visible-motion, travel duration, arrival, contact-work time, and payoff separately, then confirm the child can anticipate and tolerate the wait."
+    },
+    {
+      "title": "The passed contact probe is not visible-route or physical-touch evidence",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_day_one_pool_cleanup.gd:674-741 constructs the shared executor and standalone activity fixtures, calls _process, _register_tap, _begin_touch, _end_touch, and notification directly, and checks internal state.",
+        "scripts/arena/castle_rooms_25d.gd:1991-2015 contains the live room controller entry/sync and setup path; the focused probe section does not invoke that castle route.",
+        "audit/cycles/luna-playtest-20261012/runtime/L10/attempt_1/receipt.json records headless=true and rendered_mobile_acceptance=false; the retained log records a scripted PASS only."
+      ],
+      "rules": [
+        "DL-AGE-01",
+        "DL-AGE-06",
+        "DL-AGE-07",
+        "DL-UI-01",
+        "DL-QA-02",
+        "DL-QA-03",
+        "DL-QA-04",
+        "DL-QA-05",
+        "DL-QA-07"
+      ],
+      "existing_findings": [
+        "MA-PLAY-001",
+        "MA-PLAY-004"
+      ],
+      "reproduction": "Read the focused direct-call probe and compare it with the castle controller path; the probe does not enter through a displayed room or route input through the normal viewport event chain.",
+      "child_impact": "This evidence cannot determine whether the child discovers the task, can select and retarget the intended lane, perceives the delayed contact payoff, hears the cue, or finds the wait engaging on a phone.",
+      "proposed_repair": "No production repair is inferred from this gap. Keep route, display, device, child, and owner acceptance as separate evidence lanes.",
+      "acceptance_test": "From a fresh save on the target device, enter the Mermaid Pool through its visible route, invoke the seahorse and waterfall with ordinary touchscreen input, retarget/cancel during travel, and observe correctly ordered visible contact and progress without adult prompting."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The shared executor refuses an overlapping task and binds each callback to arrival and local hand contact before restoring the room actor.",
+      "evidence": "scripts/day_one_contact_action_2d.gd:66-109; scripts/probe_day_one_pool_cleanup.gd:682-688; audit/cycles/luna-playtest-20261012/runtime/L10/attempt_1/probe.log contact-action assertions and RESULT: PASS checks_failed=0."
+    },
+    {
+      "claim": "The waterfall keeps a lane-specific pending callback through retarget and cancellation, and the seahorse serializes queued tugs into separate contact actions.",
+      "evidence": "scripts/games/pool_waterfall_activity.gd:230-258,296-321; scripts/games/pool_seahorse_rescue_activity.gd:302-349; scripts/probe_day_one_pool_cleanup.gd:693-719,729-763; L10 retained log reports the focused checks OK."
+    }
+  ],
+  "acceptance_gaps": [
+    "The focused probe uses synthetic actors/activities and directly calls their internal methods; it does not establish the complete displayed castle-to-pool route or ordinary viewport touch dispatch for the delayed-contact focus.",
+    "No Mobile-rendered capture verifies the temporary actor substitution, hand socket, hand-to-target contact, bubbles, lane retarget response, or arrival/work/payoff legibility at supported aspect ratios.",
+    "No Lenovo Tab M11 measurement establishes projected hit geometry, touch-to-first-visible-response, frame pacing, audio audibility, or actual near/far travel and work timing.",
+    "No observed child session establishes comprehension, comfort, agency, voluntary replay, session duration, or tolerance of the approach/work wait; no owner acceptance was collected."
+  ],
+  "play_sequence": [
+    {
+      "beat": "Live entry and activity cue",
+      "code_path": "Castle room start/sync mounts the cleanup controller for an active, uncleared Mermaid Pool (scripts/arena/castle_rooms_25d.gd:1991-2015); controller builds and binds waterfall and seahorse activities (scripts/games/day_one_pool_cleanup.gd:366-401).",
+      "probe_evidence": "The L10 focused segment constructs standalone synthetic activities; it does not execute this entry route (scripts/probe_day_one_pool_cleanup.gd:674-697).",
+      "status": "Live route exists in source; entry cue and discovery are not proven by this run."
+    },
+    {
+      "beat": "First valid input requests an embodied action",
+      "code_path": "A seahorse tap registers a local rescue request; waterfall lane touch selects a lane, shows the scrubber, and requests Roshan travel (scripts/games/pool_seahorse_rescue_activity.gd:302-320; scripts/games/pool_waterfall_activity.gd:230-258).",
+      "probe_evidence": "Probe directly calls _register_tap and _begin_touch/_end_touch rather than dispatching through the visible viewport (scripts/probe_day_one_pool_cleanup.gd:698-700,729-736).",
+      "threshold": "DL-AGE-07 requires visible response within two rendered frames; this headless run measured no rendered-frame latency."
+    },
+    {
+      "beat": "Travel, contact, then payoff",
+      "code_path": "The shared actor moves at 440 * unit_scale canvas units per second; hand contact is within 2 * unit_scale, followed by at least 0.42 seconds of local work before the callback (scripts/day_one_contact_action_2d.gd:91-109).",
+      "probe_evidence": "The direct contact test verifies no award while traveling, then one callback after advancing _process (scripts/probe_day_one_pool_cleanup.gd:682-688; L10 probe.log contact-action assertions).",
+      "threshold": "Synthetic distant target estimate is about 1.83 seconds travel plus 0.42 seconds work at unit scale 1; this is not observed gameplay time."
+    },
+    {
+      "beat": "Repeat input and retarget choice",
+      "code_path": "Seahorse taps during active work are queued; each completed tug requests a separate contact action (scripts/games/pool_seahorse_rescue_activity.gd:310-349). Waterfall same-lane touches preserve active work, while a different lane cancels the old approach and selects the new pending lane (scripts/games/pool_waterfall_activity.gd:230-258).",
+      "probe_evidence": "The probe checks queued taps and independent tugs, same-lane re-tap, and retargeting to a second lane (scripts/probe_day_one_pool_cleanup.gd:704-712,729-736,742-753).",
+      "threshold": "Each queued tug waits for its own travel/contact/work cycle; no fixed total completion time is established."
+    },
+    {
+      "beat": "Release and local progress",
+      "code_path": "Waterfall release arms a tap callback for movement below 12 units or a drag callback for a longer stroke; the callback applies lane progress only after shared contact action finishes (scripts/games/pool_waterfall_activity.gd:296-333).",
+      "probe_evidence": "A released quick synthetic swipe has no immediate lane credit; after action processing the probe verifies the local lane clears (scripts/probe_day_one_pool_cleanup.gd:754-763).",
+      "threshold": "Tap/drag classification uses DRAG_START_DISTANCE=12.0 source units; contact work threshold remains 0.42 seconds."
+    },
+    {
+      "beat": "Recovery from interruption",
+      "code_path": "Focus-out/application-paused cancels the shared action and clears its callback; waterfall cancel also clears pending lane/touch ownership (scripts/day_one_contact_action_2d.gd:111-135; scripts/games/pool_waterfall_activity.gd:123-139).",
+      "probe_evidence": "L10 checks focus cancellation and zero unearned progress, then accepts a subsequent waterfall gesture (scripts/probe_day_one_pool_cleanup.gd:689-692,737-741,763-765).",
+      "threshold": "No post-cancel callback may award progress; already earned save persistence is outside this focused executor segment."
+    },
+    {
+      "beat": "Finish, leave, and replay",
+      "code_path": "Pool controller owns the stage progression and teardown lifecycle (scripts/games/day_one_pool_cleanup.gd:144-173,366-401).",
+      "probe_evidence": "The focused L10 contact calls do not traverse natural completion, displayed exit, or fresh re-entry; no claim about those routes is made here.",
+      "threshold": "No finish/exit/replay duration measured."
+    }
+  ]
+}

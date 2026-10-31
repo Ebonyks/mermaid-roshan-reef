@@ -1,0 +1,447 @@
+{
+  "schema": "reef.wave-joint-model-observation.v1",
+  "status": "DIAGNOSTIC_MODEL_OBSERVATION_NOT_HUMAN_ACCEPTANCE",
+  "reviewer": "Codex wave_method_review",
+  "reviewer_kind": "model_observation",
+  "date": "2026-10-10",
+  "coordinates": "Actual256x256 delivered-draft pixels; x right, y down; anatomical joint centers rather than outer sleeve/skin bounding boxes",
+  "method": "Complete native frame inspection plus read-only skin-color row coordinates supporting the visible wrist/elbow estimates. No images, joints, parts or landmarks were moved",
+  "K0_calibration_source": "assets_src/cinematics/claude_rig_pilot_20261007/scripts/pilot_common.py K0_ARM; these existing approved-source coordinates were visually checked against exact draft frame0",
+  "contract": {
+    "upper_arm_px": 25.5,
+    "forearm_px": 24.5,
+    "open_hand_px": 20.5,
+    "tolerance_pct": 5
+  },
+  "uncertainty": {
+    "new_cel_shoulder_radius_px": 3,
+    "new_cel_elbow_radius_px": 3,
+    "new_cel_wrist_radius_px": 2,
+    "new_cel_tip_radius_px": 1.5,
+    "meaning": "Estimated coordinate uncertainty from painted outlines, sleeve occlusion and no explicit joint marks. Nominal near-boundary results are not trustworthy acceptance; strongly shortened bent forearms remain a clear repair target",
+    "K0": "Inherited published calibration; rest hand is intentionally shorter and excluded from open-hand gate"
+  },
+  "frames": [
+    {
+      "index": 0,
+      "key": "K0",
+      "shoulder": [
+        120,
+        103
+      ],
+      "elbow": [
+        115,
+        127
+      ],
+      "wrist": [
+        104,
+        150
+      ],
+      "tip": [
+        98,
+        165
+      ],
+      "hand_open": false,
+      "rationale": "Existing K0 anatomy convention; upper/lower arm meet the published W3 tolerance. Relaxed curled hand is exempt",
+      "confidence": "EXISTING_CALIBRATION",
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0000.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "nominal_measurements": {
+        "upper_arm": {
+          "length_px": 24.515,
+          "deviation_pct": -3.862,
+          "contract_checked": true,
+          "nominal_within_5pct": true,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "forearm": {
+          "length_px": 25.495,
+          "deviation_pct": 4.062,
+          "contract_checked": true,
+          "nominal_within_5pct": true,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "hand": {
+          "length_px": 16.155,
+          "deviation_pct": -21.193,
+          "contract_checked": false,
+          "nominal_within_5pct": null,
+          "acceptance_status": "RELAXED_HAND_EXEMPT"
+        }
+      }
+    },
+    {
+      "index": 3,
+      "key": 1,
+      "shoulder": [
+        112,
+        104
+      ],
+      "elbow": [
+        103,
+        127
+      ],
+      "wrist": [
+        90,
+        142
+      ],
+      "tip": [
+        76,
+        157
+      ],
+      "hand_open": false,
+      "rationale": "Shoulder hidden under the left sleeve; elbow on the shallow outward bend; wrist at narrowing before the curled hand. Straight-ish arm makes the segment split less certain, but the new forearm appears short",
+      "confidence": "MODERATE_LOW",
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0003.png",
+      "sha256": "81f3e05140d1eda45fba922fb22de933e4f1154d3292cbd34255229f702f9248",
+      "nominal_measurements": {
+        "upper_arm": {
+          "length_px": 24.698,
+          "deviation_pct": -3.144,
+          "contract_checked": true,
+          "nominal_within_5pct": true,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "forearm": {
+          "length_px": 19.849,
+          "deviation_pct": -18.982,
+          "contract_checked": true,
+          "nominal_within_5pct": false,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "hand": {
+          "length_px": 20.518,
+          "deviation_pct": 0.089,
+          "contract_checked": false,
+          "nominal_within_5pct": null,
+          "acceptance_status": "RELAXED_HAND_EXEMPT"
+        }
+      }
+    },
+    {
+      "index": 6,
+      "key": 2,
+      "shoulder": [
+        114,
+        104
+      ],
+      "elbow": [
+        111,
+        130
+      ],
+      "wrist": [
+        101,
+        130
+      ],
+      "tip": [
+        91,
+        113
+      ],
+      "hand_open": true,
+      "rationale": "Upper arm drops from sleeve to the lower elbow bend; hand turns upright while forearm barely travels left. The wrist/palm is almost directly beside the elbow, not a24.5px forearm",
+      "confidence": "MODERATE",
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0006.png",
+      "sha256": "f0cda28db829e7f3debd476486620a596d93e5ca0830cdb1c7b4c5d637af2aa6",
+      "nominal_measurements": {
+        "upper_arm": {
+          "length_px": 26.173,
+          "deviation_pct": 2.637,
+          "contract_checked": true,
+          "nominal_within_5pct": true,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "forearm": {
+          "length_px": 10.0,
+          "deviation_pct": -59.184,
+          "contract_checked": true,
+          "nominal_within_5pct": false,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "hand": {
+          "length_px": 19.723,
+          "deviation_pct": -3.79,
+          "contract_checked": true,
+          "nominal_within_5pct": true,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        }
+      }
+    },
+    {
+      "index": 8,
+      "key": 3,
+      "shoulder": [
+        113,
+        104
+      ],
+      "elbow": [
+        110,
+        123
+      ],
+      "wrist": [
+        105,
+        116
+      ],
+      "tip": [
+        99,
+        101
+      ],
+      "hand_open": true,
+      "rationale": "Bent elbow sits just below the palm; both arm segments compress. Fingertips are drawn distinctly but the hand is closer/smaller than the open-hand contract",
+      "confidence": "MODERATE",
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0008.png",
+      "sha256": "6443f2c9a28e345a8988076b7ad001fc209e1462548f08150c2f936f1f67b26e",
+      "nominal_measurements": {
+        "upper_arm": {
+          "length_px": 19.235,
+          "deviation_pct": -24.567,
+          "contract_checked": true,
+          "nominal_within_5pct": false,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "forearm": {
+          "length_px": 8.602,
+          "deviation_pct": -64.888,
+          "contract_checked": true,
+          "nominal_within_5pct": false,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "hand": {
+          "length_px": 16.155,
+          "deviation_pct": -21.193,
+          "contract_checked": true,
+          "nominal_within_5pct": false,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        }
+      }
+    },
+    {
+      "index": 10,
+      "key": 4,
+      "shoulder": [
+        113,
+        103
+      ],
+      "elbow": [
+        104,
+        121
+      ],
+      "wrist": [
+        96,
+        98
+      ],
+      "tip": [
+        95,
+        77
+      ],
+      "hand_open": true,
+      "rationale": "Forearm returns to a readable near-vertical span; shortened upper arm remains beneath the sleeve. This is a structurally more useful hand/forearm pose than keys2/3",
+      "confidence": "MODERATE",
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0010.png",
+      "sha256": "c53a1ed2d7674a150c43696b9c2317a6dc90ba40879ec6cb138c02308477c0ca",
+      "nominal_measurements": {
+        "upper_arm": {
+          "length_px": 20.125,
+          "deviation_pct": -21.08,
+          "contract_checked": true,
+          "nominal_within_5pct": false,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "forearm": {
+          "length_px": 24.352,
+          "deviation_pct": -0.606,
+          "contract_checked": true,
+          "nominal_within_5pct": true,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "hand": {
+          "length_px": 21.024,
+          "deviation_pct": 2.555,
+          "contract_checked": true,
+          "nominal_within_5pct": true,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        }
+      }
+    },
+    {
+      "index": 12,
+      "key": 5,
+      "shoulder": [
+        114,
+        103
+      ],
+      "elbow": [
+        104,
+        112
+      ],
+      "wrist": [
+        99,
+        90
+      ],
+      "tip": [
+        97,
+        67
+      ],
+      "hand_open": true,
+      "rationale": "Elbow rises very near the sleeve/shoulder and reduces the upper-arm segment; forearm/hand provide most of the raised reach. Hand length appears larger than key3. Shoulder/elbow separation is the key issue",
+      "confidence": "MODERATE",
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0012.png",
+      "sha256": "9c3b23f13466e66fd5d2e7934a85c7e5380f944c49046f9f53c4b3675fe2edec",
+      "nominal_measurements": {
+        "upper_arm": {
+          "length_px": 13.454,
+          "deviation_pct": -47.241,
+          "contract_checked": true,
+          "nominal_within_5pct": false,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "forearm": {
+          "length_px": 22.561,
+          "deviation_pct": -7.914,
+          "contract_checked": true,
+          "nominal_within_5pct": false,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "hand": {
+          "length_px": 23.087,
+          "deviation_pct": 12.619,
+          "contract_checked": true,
+          "nominal_within_5pct": false,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        }
+      }
+    },
+    {
+      "index": 14,
+      "key": 6,
+      "shoulder": [
+        113,
+        101
+      ],
+      "elbow": [
+        93,
+        92
+      ],
+      "wrist": [
+        92,
+        68
+      ],
+      "tip": [
+        97,
+        45
+      ],
+      "hand_open": true,
+      "rationale": "Near-horizontal upper arm and near-vertical forearm are visibly complete. Forearm is plausible; upper arm is still shorter and open hand larger than calibrated K0/K2 contract",
+      "confidence": "MODERATE",
+      "path": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/draft_01/frames/0014.png",
+      "sha256": "e32890bbfa063d765287d51664318bc9e84874d8b8a6ab320e0c41d733d61a26",
+      "nominal_measurements": {
+        "upper_arm": {
+          "length_px": 21.932,
+          "deviation_pct": -13.993,
+          "contract_checked": true,
+          "nominal_within_5pct": false,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "forearm": {
+          "length_px": 24.021,
+          "deviation_pct": -1.956,
+          "contract_checked": true,
+          "nominal_within_5pct": true,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        },
+        "hand": {
+          "length_px": 23.537,
+          "deviation_pct": 14.816,
+          "contract_checked": true,
+          "nominal_within_5pct": false,
+          "acceptance_status": "PENDING_EXACT_ANNOTATION"
+        }
+      }
+    }
+  ],
+  "priority_repair_brief": [
+    "Redraw the whole pose family with the entire arm retained in the picture plane. Keys2/3 must have a real24.5px forearm between elbow and wrist, even when folded; do not place the palm directly beside the elbow",
+    "Keep the upper-arm length25.5px at every bend, especially key5's compact shoulder-to-elbow pose. Pose changes use angles, not shortening toward the viewer",
+    "Keep the open hand20.5px wrist-to-middle-tip, retaining crisp digits; key3 currently contracts and keys5/6 grow",
+    "Match K0's head-to-torso ratio and facial detail in complete redraws. Draft head changes by3.43% peak-to-peak relative toK0, with key4 about3.26% above baseline; global figure scaling alone cannot independently correct that",
+    "Preserve existing corrected matte and whole-cel authorship; do not turn these observations into a pasted-hand or separately warped-arm repair"
+  ],
+  "geometry_claim": "Root-owned geometry.json already fails figure2.52% and head3.43% peak-to-peak. These rough model joint estimates add a strong internal anatomy diagnosis; they do not replace exact human annotations or establish a delivery PASS",
+  "acceptance": {
+    "artifact_free_sample": false,
+    "human": false,
+    "owner": false,
+    "device": false,
+    "child": false,
+    "runtime": false,
+    "delivery_accepted": false
+  },
+  "nominal_defects": [
+    {
+      "frame": 8,
+      "key": 3,
+      "segment": "forearm",
+      "deviation_pct": -64.888
+    },
+    {
+      "frame": 6,
+      "key": 2,
+      "segment": "forearm",
+      "deviation_pct": -59.184
+    },
+    {
+      "frame": 12,
+      "key": 5,
+      "segment": "upper_arm",
+      "deviation_pct": -47.241
+    },
+    {
+      "frame": 8,
+      "key": 3,
+      "segment": "upper_arm",
+      "deviation_pct": -24.567
+    },
+    {
+      "frame": 8,
+      "key": 3,
+      "segment": "hand",
+      "deviation_pct": -21.193
+    },
+    {
+      "frame": 10,
+      "key": 4,
+      "segment": "upper_arm",
+      "deviation_pct": -21.08
+    },
+    {
+      "frame": 3,
+      "key": 1,
+      "segment": "forearm",
+      "deviation_pct": -18.982
+    },
+    {
+      "frame": 14,
+      "key": 6,
+      "segment": "hand",
+      "deviation_pct": 14.816
+    },
+    {
+      "frame": 14,
+      "key": 6,
+      "segment": "upper_arm",
+      "deviation_pct": -13.993
+    },
+    {
+      "frame": 12,
+      "key": 5,
+      "segment": "hand",
+      "deviation_pct": 12.619
+    },
+    {
+      "frame": 12,
+      "key": 5,
+      "segment": "forearm",
+      "deviation_pct": -7.914
+    }
+  ]
+}

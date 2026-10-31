@@ -1,0 +1,36 @@
+{
+  "schema": "reef.metadata_label_correction/1",
+  "stable_id": "FV-1E16581A6287",
+  "original_copied_label": "8f86192be96dcdfc59b9f1c87899c4df015548a8",
+  "actual_git_baseline": "8df4757e6f2e399d1c4e3d7f352f0a38bef13b55",
+  "reason": "Copied R104 helper retained prior mint baseline label. Full-suite launcher stopped at HEADassert before static/engine/probes; no current full suite had begun. Nativecapture used actualcandidatehash/resources and passed102checks.",
+  "actual_baseline_source_blob_sha256": "b8c93a9daf36bee77f533db3604b9d0045bf7a632f1a991a24ec468f55195323",
+  "source_before_lf_bytes_equal_actual_baseline_git_blob": true,
+  "candidate_runtime_source_sha256": "caafd3491ad0bb7f2e6ec92a1e10622addd15e3ace4a39d2e4c664d040e0c45e",
+  "all_actual_runtime_pin_hashes_unchanged": true,
+  "native_cases": [
+    {
+      "width": 1280,
+      "original_capture_revision_label": "8f86192b + FV-66629DC58A20 actual frozen source caafd3491ad0bb7f2e6ec92a1e10622addd15e3ace4a39d2e4c664d040e0c45e",
+      "actual_candidate_source_sha256": "caafd3491ad0bb7f2e6ec92a1e10622addd15e3ace4a39d2e4c664d040e0c45e",
+      "checks": 51,
+      "capture_result_sha256": "598fb2379d1f51b249047e704c020caa2ba6ef233bdb48d64fd0d565564d19f3"
+    },
+    {
+      "width": 1600,
+      "original_capture_revision_label": "8f86192b + FV-66629DC58A20 actual frozen source caafd3491ad0bb7f2e6ec92a1e10622addd15e3ace4a39d2e4c664d040e0c45e",
+      "actual_candidate_source_sha256": "caafd3491ad0bb7f2e6ec92a1e10622addd15e3ace4a39d2e4c664d040e0c45e",
+      "checks": 51,
+      "capture_result_sha256": "7a4b688113f3bc952de0d954985875ee6f77e885a52d78c7e350442f831d92fa"
+    }
+  ],
+  "original_label_records_preserved": [
+    "ORIGINAL_SOURCE_PIN_STALE_LABEL.json",
+    "ORIGINAL_FOCUSED_LAUNCH_STALE_LABEL.json"
+  ],
+  "runtime_or_pixel_change": false,
+  "engine_or_capture_rerun": false,
+  "current_full_suite": "Not started beforethiscorrection; launch guarded actual8df now.",
+  "normal_saves_unchanged": true,
+  "corrected_at_utc": "2026-10-29T11:34:31.144212+00:00"
+}

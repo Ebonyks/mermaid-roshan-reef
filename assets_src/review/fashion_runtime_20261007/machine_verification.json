@@ -1,0 +1,884 @@
+{
+  "schema": "reef.fashion_machine_verification/1",
+  "state": "LOCAL_FULL_CI_PASS_REMOTE_CI_PENDING",
+  "source_snapshot": {
+    "baseline": "a5fe2368ea56a6b0c1a01e48f20282435b15aa1e",
+    "files": [
+      {
+        "path": "assets/audio/fashion/FASHION_VOICE_MANIFEST.json",
+        "sha256": "4abd40239f289a0a9e0b3e03f0658ccee5774603913fbf7695a07f365298e0ff",
+        "bytes": 346170
+      },
+      {
+        "path": "assets/audio/fashion/VOICE_CATALOG.json",
+        "sha256": "3d8481acf72a7f46642fdf9f33bfbfda7a50029548507c1f91af8af1164d0fd8",
+        "bytes": 5096
+      },
+      {
+        "path": "assets/audio/fashion/roshan_fashion_blend_pick.ogg",
+        "sha256": "bea37b75076f91c42f3c525a49a391f4a86590b9ed4869e14e6123e9d824dc48",
+        "bytes": 34652
+      },
+      {
+        "path": "assets/audio/fashion/roshan_fashion_changed.ogg",
+        "sha256": "da81a55539ba736a4bd2ab0af7a91ac164289026f16df18a77bf3316db7de45d",
+        "bytes": 17284
+      },
+      {
+        "path": "assets/audio/fashion/roshan_fashion_choose.ogg",
+        "sha256": "79059e4e2dc8c42fa61b9ec95bde27884444a71c5c7289358095a9cc2dbae1b2",
+        "bytes": 29192
+      },
+      {
+        "path": "assets/audio/fashion/roshan_fashion_done.ogg",
+        "sha256": "55454bb0860e7bb01d6a158850f69724ffc440ce7e54b198cda8421829107379",
+        "bytes": 19800
+      },
+      {
+        "path": "assets/audio/fashion/roshan_fashion_finish_piece.ogg",
+        "sha256": "39c2122e37d4cec265553ee4bf1d5cd5c840df08774eda2a7b94e9cbb73f1ca2",
+        "bytes": 29234
+      },
+      {
+        "path": "assets/audio/fashion/roshan_fashion_help.ogg",
+        "sha256": "1ae89f7ae0e24c1f6b7901ed7b6dc575ad7de1f648db0cc078d58a81668f1175",
+        "bytes": 30867
+      },
+      {
+        "path": "assets/audio/fashion/roshan_fashion_locked_disguise.ogg",
+        "sha256": "79724a3ead449e004ccad31ccba536179d510aab3abcd2353eb666a7c173e746",
+        "bytes": 33966
+      },
+      {
+        "path": "assets/audio/fashion/roshan_fashion_locked_garden.ogg",
+        "sha256": "433c586c503608bbc9436b93ecf9024ccf7d4d1121d5cc8ff5899377ee1a55ac",
+        "bytes": 31566
+      },
+      {
+        "path": "assets/audio/fashion/roshan_fashion_locked_party.ogg",
+        "sha256": "747532ca15ccde107fbaeee0ea3e0bf50fa0edc59fc949a6f0d476eaae7e4d55",
+        "bytes": 28776
+      },
+      {
+        "path": "assets/audio/fashion/roshan_fashion_party_dress.ogg",
+        "sha256": "4f40043ead3185973afecfcd9ba6cc12bd3ad610bd2a53ae6c896588e0a2f3fb",
+        "bytes": 37605
+      },
+      {
+        "path": "assets/audio/fashion/roshan_fashion_role_pick.ogg",
+        "sha256": "75dd122b83992fbf5360112392cf0745ae23104e657b6ba37d879268f7b92e2d",
+        "bytes": 27932
+      },
+      {
+        "path": "assets/fashion/outfits/baby_eagle_garden.png",
+        "sha256": "66e162c19e9606dfde53237cfe24a2da8307891014d1c550e0a067aa7be39068",
+        "bytes": 140362
+      },
+      {
+        "path": "assets/fashion/outfits/baby_eagle_party.png",
+        "sha256": "e9dcf4ad973fd5240df7ebebd73c00d8475df0ffb25af0f9e704057d8defb10d",
+        "bytes": 140374
+      },
+      {
+        "path": "assets/fashion/outfits/baby_eagle_ribbon.png",
+        "sha256": "18b0c684923309df282228a35f3a881d90dfa6d3669a37d9b4f9241d9098e0aa",
+        "bytes": 140370
+      },
+      {
+        "path": "assets/fashion/outfits/daddy_garden.png",
+        "sha256": "ed3134a3242fcfda3cedfc91d1f50144c3cd58a08ff68d3d6d4369a419d823da",
+        "bytes": 793103
+      },
+      {
+        "path": "assets/fashion/outfits/daddy_party.png",
+        "sha256": "790d7bbd2ed80351083d73ac56c90669531b1cf6d7d5a659f2c5b6edd5861ee4",
+        "bytes": 793067
+      },
+      {
+        "path": "assets/fashion/outfits/daddy_ribbon.png",
+        "sha256": "08f0b74c1fd0150765248115ff91939fc7c379327fe167f12a92c03363161762",
+        "bytes": 793103
+      },
+      {
+        "path": "assets/fashion/outfits/rainbow_friend_garden.png",
+        "sha256": "c2599588072959dbf8dbd636bfce794b696f1a08285a27198322a64c1adb1c71",
+        "bytes": 295681
+      },
+      {
+        "path": "assets/fashion/outfits/rainbow_friend_party.png",
+        "sha256": "c178a181a415fa61f1f8f436e22b9941ede9d4790be78bc289472277eccc48f6",
+        "bytes": 295676
+      },
+      {
+        "path": "assets/fashion/outfits/rainbow_friend_ribbon.png",
+        "sha256": "f0e8839612042dab404784ce948bc7c5ac207e5232ca41c16e169511b54e988f",
+        "bytes": 295692
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_base_disguise.png",
+        "sha256": "7a9183be66ac44a54a1058a0b64766d395c319787720df9cd404f84d676a9d6e",
+        "bytes": 50638
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_base_garden.png",
+        "sha256": "6a1d0897e1e6d116862f758ed641776382ca64b494e28ff4d49a548ed527a46a",
+        "bytes": 50763
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_base_party.png",
+        "sha256": "0800d4e0c8f9b70d275cafc6c6d23469bff43c62714f64ba0a57fe6bbec5f3d2",
+        "bytes": 51358
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_base_ribbon.png",
+        "sha256": "f9c4f27eb1c340adf1278569f44072798e5db95741b0c10b628aa228f729461e",
+        "bytes": 50864
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_directional_disguise.png",
+        "sha256": "724686a7c34a3a1d6531e9bbd22bf90ff3d508941064782873bdf10353b5ab5c",
+        "bytes": 399082
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_directional_garden.png",
+        "sha256": "e1c0c20cab3f10eb8d2c6941a5647800a80b8a4632a5782d5c7b98daee05c5c3",
+        "bytes": 399367
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_directional_party.png",
+        "sha256": "9924bb821fe8fed348ca946e115474b3215f4e800c838998ea313c7ff23820dd",
+        "bytes": 403646
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_directional_ribbon.png",
+        "sha256": "654616ae6e1b9b95f671e824a871e2e0deef7e2177b1badb42f622697c66e6a9",
+        "bytes": 400062
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_a_disguise.png",
+        "sha256": "894e3e50f39d003db4df730d549d7cdce42d801ac0046140c77144a345fe2644",
+        "bytes": 886918
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_a_garden.png",
+        "sha256": "6f4094ad11a672f18f34ab4857570d818c9409a0b1ab290993d8d85ffb3993bc",
+        "bytes": 890367
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_a_party.png",
+        "sha256": "f880fbac37668518e0f784b7b3f70a6cb507c22b2dbc0b7aa20c051bca846012",
+        "bytes": 899094
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_a_ribbon.png",
+        "sha256": "c9b6b383758281401a31e4045d9f319a37498666d1c3c8bd28a5063c0e252605",
+        "bytes": 891369
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_b_disguise.png",
+        "sha256": "2dc07b9465264c1d7349d23eb5f7dbf52eeb371f71fb54a73ab3e7d33005bb0e",
+        "bytes": 911032
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_b_garden.png",
+        "sha256": "514079774899dd9a5e28b8af0e87b7efc5dc4085d66586f706962afb8f8bd291",
+        "bytes": 913581
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_b_party.png",
+        "sha256": "76c8ec34b7bace24214c7bc2679c867b1088e8c8eb719050a85990b94197e7f6",
+        "bytes": 923469
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_b_ribbon.png",
+        "sha256": "5446eb3198b5592e561d41313b4e9b2cc5b1c6523f6fe15eb6d45751e00095d0",
+        "bytes": 914531
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_c_disguise.png",
+        "sha256": "ca1f0213ee7856a41efd5be9e604fd886a5013c3cfcfad5fece5c5059704da4c",
+        "bytes": 858638
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_c_garden.png",
+        "sha256": "b9f171271e62d3891723fa0e1d163f5448f5e514392d8d2697089d002eb3f609",
+        "bytes": 861185
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_c_party.png",
+        "sha256": "33f3f36711e83a3af4bdc5b683c42f79c292409e727d63f1f3f6472700bc1f74",
+        "bytes": 872878
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_c_ribbon.png",
+        "sha256": "8b051a69e24a21912ddc9ae171c630d7e58398b619a247b91a28015dd68900b3",
+        "bytes": 861884
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_d_disguise.png",
+        "sha256": "c8451f99c9082606bfac52d5d6bdc2b04148570a01300471fde67b7acc881281",
+        "bytes": 418288
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_d_garden.png",
+        "sha256": "aeed10e246b3ff7405f18d147b32e897de9703b1d39467110522f22a5940ed7f",
+        "bytes": 419698
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_d_party.png",
+        "sha256": "e029273fafabd2ec3009f31ceb596598bfaa9219c4c2020d357dd5659030845e",
+        "bytes": 425044
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_gesture_d_ribbon.png",
+        "sha256": "744373644caaf0c9fd812069279ff791ea1d562e6d3445ca2b7060a2f61848db",
+        "bytes": 420160
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_play_a_disguise.png",
+        "sha256": "b2f9a5a6c317b74eef8ef2dd923b2e78a54198399296f1cade515780f9c877af",
+        "bytes": 733611
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_play_a_garden.png",
+        "sha256": "6c8c84e1d2dfa22ef2eab5831d846b8cb9d736f1d1a8ed98c7ed49cbd482ac08",
+        "bytes": 736326
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_play_a_party.png",
+        "sha256": "719f5d44afcb698169560cc3fd97d3b48edf1cdac6979bc510e9b96ffddb4b1c",
+        "bytes": 746589
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_play_a_ribbon.png",
+        "sha256": "0f273e8f922c9efe16a031dd56b4eb685260d33e4696120bf77e6d8eb7436b51",
+        "bytes": 737132
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_play_b_disguise.png",
+        "sha256": "a5397a7b67042ccb2c1b33a659892d58181f210a3611a86f9480da3e06dd33bc",
+        "bytes": 945889
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_play_b_garden.png",
+        "sha256": "b1c4b847c6fb2ea1eb5624f81136093e4ca25cc92d01457034ab46bda4c696cb",
+        "bytes": 948508
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_play_b_party.png",
+        "sha256": "ee52de0cc3bef066b94844f133cf2b549e6c16bd489152ebcce66aa62ce11632",
+        "bytes": 965337
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_play_b_ribbon.png",
+        "sha256": "a4e6462902c89e337913dd28ea7a34afbb307830711bf1ad192e355d172b0436",
+        "bytes": 949664
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_swim_back_disguise.png",
+        "sha256": "ab24834ceb1325f7d3cbbe81efc6cbe1bcda8f9b3d97a8a2dc8c1ff5e364dba2",
+        "bytes": 656258
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_swim_back_garden.png",
+        "sha256": "1d2417e3d00ae9185d4014d307c46120335796c27828ea858430a3ccd01384e1",
+        "bytes": 659228
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_swim_back_party.png",
+        "sha256": "2ccc6bccd4c7852902c3b10e756e00c3b5b0df6db60fc8311f1754c460453c78",
+        "bytes": 674244
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_swim_back_ribbon.png",
+        "sha256": "68a9d486e47c95f97d26ed90802ccca7780f40b0552abb822930bbaeff82052f",
+        "bytes": 660501
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_swim_front_disguise.png",
+        "sha256": "12286ef3db5821fb2899a2c24f2e7c557934f0a5f23ad8509aa6aa129c23e856",
+        "bytes": 683266
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_swim_front_garden.png",
+        "sha256": "24c2b18750d8828239d283dc38e714d0c24013727df15eb6ac75a97cd928dc49",
+        "bytes": 685345
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_swim_front_party.png",
+        "sha256": "57c12d9be00394828bd5ea0518c2687ee55a4424c57d46412ee0e938eb5a875d",
+        "bytes": 708994
+      },
+      {
+        "path": "assets/fashion/outfits/roshan_swim_front_ribbon.png",
+        "sha256": "66b41c1b61b0c15a45af411ed92eb44663d209a714971d288f13c316ef6e2268",
+        "bytes": 686555
+      },
+      {
+        "path": "assets/fashion/outfits/rumi_eight_pose_runtime_garden.png",
+        "sha256": "696ef375e1f210bb042fa543d7f8a4dfd388c08f6ce9dd97be9e55cfdb71a00e",
+        "bytes": 595569
+      },
+      {
+        "path": "assets/fashion/outfits/rumi_eight_pose_runtime_party.png",
+        "sha256": "aa5456d3e343e46aad38b7a3d8e62bd96b014edac16624bbc5cd0a97f9324ab2",
+        "bytes": 595575
+      },
+      {
+        "path": "assets/fashion/outfits/rumi_eight_pose_runtime_ribbon.png",
+        "sha256": "8422ea525cbd1f7279029516e9e99a013a649527a408ccd43db589c4811596f6",
+        "bytes": 595477
+      },
+      {
+        "path": "assets/fashion/outfits/rumi_pool_idle_swim_atlas_garden.png",
+        "sha256": "bf30df830fd644227aafd2d1c84eed95a6e7e34c165a84ec3b5edc7f17110d37",
+        "bytes": 303950
+      },
+      {
+        "path": "assets/fashion/outfits/rumi_pool_idle_swim_atlas_party.png",
+        "sha256": "2c53b6ea924823d01e6072f180f6f94574387eba0362999ab8b4928ad7a191b0",
+        "bytes": 304026
+      },
+      {
+        "path": "assets/fashion/outfits/rumi_pool_idle_swim_atlas_ribbon.png",
+        "sha256": "cc74fa2ef67e9955b242ac10bd020974bc968bae8642b39174a6884e488e29be",
+        "bytes": 304014
+      },
+      {
+        "path": "assets/fashion/party_dress_garment.png",
+        "sha256": "e7d3d9a9ba1e6f47ee1d1092992d264cc131af655ab86fae95480320dbd57d07",
+        "bytes": 145486
+      },
+      {
+        "path": "scripts/arena/castle_rooms_25d.gd",
+        "sha256": "9108dfc4e45a75ec54f92b168a6d8ef28d90c04722f445b2f66536a6a0c8b109",
+        "bytes": 248296
+      },
+      {
+        "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+        "sha256": "f0137cd6a80b6652c4130f8850f097c6cb4d3729f491b9dbdb42806af5e3bfb0",
+        "bytes": 15103
+      },
+      {
+        "path": "scripts/audio_director.gd",
+        "sha256": "fbf1328fa94307523eeefd18613cf8cc79ef0e4e6d3fbd2e4148dc74c942c26e",
+        "bytes": 29433
+      },
+      {
+        "path": "scripts/chapter_two_director.gd",
+        "sha256": "41be997e2e367343a85106bcf30f619be497baa59052eece81889e302b20ca71",
+        "bytes": 40023
+      },
+      {
+        "path": "scripts/chapter_two_lawn_finale_2d.gd",
+        "sha256": "e0e814ebc49d9f40cc59dc4453c7c72cdd7cbb5e2447f54168e1ae8d57abb777",
+        "bytes": 26151
+      },
+      {
+        "path": "scripts/combat_arena.gd",
+        "sha256": "7783ac57ff3f79a8ca9e6a690b5a4896f349c58bfc963e844b63f29f92386783",
+        "bytes": 45465
+      },
+      {
+        "path": "scripts/combat_tutorial.gd",
+        "sha256": "5463696830349d424ac578e4f219a25294b7ea5b932cd45a564ab84495e4814e",
+        "bytes": 12223
+      },
+      {
+        "path": "scripts/comfy_games.gd",
+        "sha256": "2cce63f238b78f7c548948b2c26d689cb4dce913b0ba07b6c14d7f2fb42c55c6",
+        "bytes": 26001
+      },
+      {
+        "path": "scripts/companion.gd",
+        "sha256": "dc8622d6ae0a8c2802357ad46cab7b5b6fe9939ccd0c5b01abe49eba7126af72",
+        "bytes": 67187
+      },
+      {
+        "path": "scripts/dungeon_puzzle_room.gd",
+        "sha256": "18e8cf88c99b95fcf1ddebc64cf944bc7fcde9f293b4000395a6211d688a4ae2",
+        "bytes": 22699
+      },
+      {
+        "path": "scripts/ember_fortress.gd",
+        "sha256": "5d2b6c92e56df5b44bc07c38fa48ae21a784b51af2f866262de262b9d5262ec6",
+        "bytes": 52768
+      },
+      {
+        "path": "scripts/fashion_designer.gd",
+        "sha256": "49695040b784ba738fdd28543e4a81cfe06882b7ac95e57cbceb91ed79e35958",
+        "bytes": 8196
+      },
+      {
+        "path": "scripts/fashion_designer_test_case.gd",
+        "sha256": "69e1c4f91522a230fe512cafdfc60a8ca043e52c0a39583e867c91a9702e2129",
+        "bytes": 7947
+      },
+      {
+        "path": "scripts/fashion_outfit_renderer.gd",
+        "sha256": "0c78f7512df94427738aa429c063963ed2f747dc75e460654cebb021479fe724",
+        "bytes": 1726
+      },
+      {
+        "path": "scripts/fashion_wardrobe.gd",
+        "sha256": "eb0ebddbae5cb4b13aa6d8ebefca7ea8af97db8fb1ef02ab9f086b27f33d7972",
+        "bytes": 8955
+      },
+      {
+        "path": "scripts/galaxy.gd",
+        "sha256": "f16fec1d4e4d00ce43abdef9b700e4d1ff37bf7f2a8be20177aa85b64aecd4ad",
+        "bytes": 74922
+      },
+      {
+        "path": "scripts/intro_overlay.gd",
+        "sha256": "815101b7727f7caf3f89bc1ab221fb2eae733ce4df62c4b47fe256392cf983d2",
+        "bytes": 7600
+      },
+      {
+        "path": "scripts/kart.gd",
+        "sha256": "d4bd2c7e56eae2e683bd28ecf53544e3e6edaee83bd0a5062aa425cf1bf6e0ff",
+        "bytes": 131966
+      },
+      {
+        "path": "scripts/main.gd",
+        "sha256": "d049f51f8273fe9d915c8423090a445fc16888b20db7f8299c1b6db39fdbc247",
+        "bytes": 379495
+      },
+      {
+        "path": "scripts/opera_career_world_2d.gd",
+        "sha256": "bef433ce6869d268bae3ee07948b37ba8b2d93bed8a9d82005a031e817db0edf",
+        "bytes": 240378
+      },
+      {
+        "path": "scripts/opera_house_venue_2d.gd",
+        "sha256": "d53f37314ef459d0ec886566ad092c415fe54a1058aef3d637440a743fb51a63",
+        "bytes": 18883
+      },
+      {
+        "path": "scripts/player.gd",
+        "sha256": "93f6e37528f24184f2d6f98da557f4d6e8317452fb7ceddf4951341e9704a528",
+        "bytes": 48982
+      },
+      {
+        "path": "scripts/probe_chapter2.gd",
+        "sha256": "e4f8833b1634706e8e8f7239b17a3e0fa5d2a7093295de165a0b483fd5ea0526",
+        "bytes": 25562
+      },
+      {
+        "path": "scripts/probe_chapter2_lawn.gd",
+        "sha256": "1e1c7686972eb030b0603d23abd2dd5d2b730480e8eb11db346df18a10ee77ca",
+        "bytes": 12708
+      },
+      {
+        "path": "scripts/probe_ui_system.gd",
+        "sha256": "8cb17729c2ff07c7b9ca66970a3a43f84149b15b39607bc81be097155ef353a4",
+        "bytes": 40007
+      },
+      {
+        "path": "scripts/rainbow_friend_follower.gd",
+        "sha256": "3b0dc1ab7edaecb1bea9cadfd8e10e7afb3c418b260721625671703c46f548e0",
+        "bytes": 3050
+      },
+      {
+        "path": "scripts/roshan_sprite_loop.gd",
+        "sha256": "9bee574db538d7bcb17fc3a58a46c12dfcb5b027f9d263e5e565e620bd60e743",
+        "bytes": 11547
+      },
+      {
+        "path": "scripts/save_state.gd",
+        "sha256": "44b0a5a1fe140f056a9866775623e24f9411d96e77baf46436509218d5633605",
+        "bytes": 47408
+      },
+      {
+        "path": "scripts/wardrobe_ui.gd",
+        "sha256": "c347d851000a66a7069c262babf26658fe85b983d6179c6e1f33ac033acf1e29",
+        "bytes": 14961
+      }
+    ],
+    "payload_sha256": "c2bd8e68b26bae5a427e4477be1fd71fa57178ac51edc9f1eae03356182e8dc7",
+    "snapshot_timing": "Frozen before full scripts/ci.sh v4; all 98 hashes rechecked after successful process exit 0."
+  },
+  "checks": [
+    {
+      "command": "scripts/ci.sh",
+      "result": "PASS",
+      "process_exit": 0,
+      "log_path": "tmp/fashion-runtime-full-ci-v4.log",
+      "log_sha256": "8e0650a0d814c88d053cfe3709879f7b9ccfc9b35c8182e4515547922e967826",
+      "trusted_probe_count": 82,
+      "trusted_probes": [
+        {
+          "name": "probe_reef_districts",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_ocean_kingdoms",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_audit",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_passive",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_living_world",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_load",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_rank",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_save_recovery",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_galaxy_state",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_collection",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_mg2d",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_fetch",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_melody",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_dolls",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_seek",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_audio",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_dance",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_l2",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_l2_living_cards",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_sky_lagoon_animals",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_l2_reenter",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_crown",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_throne",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_northern",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_human_art_audit",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_train",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_verbs",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_skins",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_touch_router",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_touch_stress",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_interaction",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_touch_adversary",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_touch_look",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_ui_system",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_voice",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_voice",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_d8_revisits",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_handoffs",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_kart_feel",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_combat",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_dust_bunny",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_dust_bunny_boss",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_dust_boss",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_hit",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_partner",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_combat_tutorial",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_imp_ai",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_mic",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_stuffie",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_dungeon",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_ember",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_opera",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_opera_2d",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_opera_diegetic_paths",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_opera_detective",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_opera_pipe",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_opera_nursery",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_opera_gesture_quality",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_kitchen_props",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_bathroom_props",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_castle_door_language",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_bathroom_integration",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_bathroom_bunny",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_bathroom_cleanup",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_bathroom_movie_handoff",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_director",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_integration",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_pool_cleanup",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_art_attack_state",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_castle_dressing",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_day_one_story_clips",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_chapter2",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_chapter2_farmer_resume",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_chapter2_lawn",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_alpha_milestone_save",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_dust_boss_balance",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_start_menu_routing",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_start_menu_new_game",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_castle_pool_life_2d",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_castle_pearl_art",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_fairy_art",
+          "process_exit": 0
+        },
+        {
+          "name": "probe_props",
+          "process_exit": 0
+        }
+      ],
+      "static_and_asset_gates": "Included complete scripts/ci.sh typography/layout, deterministic music, audio 855/855, visual-contract tests, Castle 96-frame binding, import, analyzer and 2D no-regression gates."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "log_path": "tmp/fashion-authority-precommit.log",
+      "log_sha256": "7d5b94927c43be51956fdc4350a0c408a7a0cf833670fb0248f6d730a63bf1bb"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "log_path": "tmp/fashion-coverage-precommit.log",
+      "log_sha256": "c45a1598ea950417ea76051471171e34ea38451c6ca2c54a429f9c7f6801713c"
+    },
+    {
+      "command": "python -m gdtoolkit.parser <all changed/new .gd files>",
+      "result": "PASS",
+      "log_path": "tmp/fashion-parser-precommit.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "python tools/lint_inference.py <all changed/new .gd files>",
+      "result": "PASS",
+      "log_path": "tmp/fashion-inference-precommit.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_fashion_audio",
+      "result": "PASS",
+      "log_path": "tmp/fashion-audio-tests-final.log",
+      "log_sha256": "1186af78a7815c47f8dcb5ff12a3f22b0d2dd512dd9936744dbe77a8affc3308"
+    }
+  ],
+  "acceptance": "Desktop machine evidence only; target-device/child/owner/human-voice acceptance remains pending; master audit UNSATISFIED.",
+  "verified_at_utc": "2026-10-07T09:53:41.094425+00:00",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "runtime_unchanged_through_complete_suite": true,
+  "post_suite_nonsemantic_source_changes": [
+    {
+      "path": "scripts/fashion_designer.gd",
+      "before_sha256": "49695040b784ba738fdd28543e4a81cfe06882b7ac95e57cbceb91ed79e35958",
+      "after_sha256": "fb36837cba777cc7a4e03281bf9eeb3157073163220b6e36fc0b45ce91426910",
+      "change": "Remove one empty terminal line; all non-terminal bytes identical. Parser and inference rechecked; exact-head remote full CI still required."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "repository": "Lightricks/LTX-Video",
+  "revision": "4b2d053057623ddd4d0a1d3e9cd28890e9ef487f",
+  "yaml_url": "https://raw.githubusercontent.com/Lightricks/LTX-Video/4b2d053057623ddd4d0a1d3e9cd28890e9ef487f/configs/ltxv-2b-0.9.8-distilled.yaml",
+  "yaml_sha256": "57671ca6045b7799f742157387dbcae093e422cb4d81be7c8cf571948d172dd7",
+  "pipeline_url": "https://github.com/Lightricks/LTX-Video/blob/4b2d053057623ddd4d0a1d3e9cd28890e9ef487f/ltx_video/pipelines/pipeline_ltx_video.py",
+  "pipeline_source_sha256": "596320fa28f3136c80afc886e3960ff99906c0dbe5c738c3a87d554295b57790",
+  "saved_original_config_location": "Not found in current project/installed benchmark/H paths; official2Bconfig downloaded anew and pinned.",
+  "stages": "float0.6666666 first-pass dimensions floored to32;2xlatentupscale;AdaIN;3-step refinement at doubled dimensions; whole-canvas bilinear resize to requested dimensions."
+}

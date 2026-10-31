@@ -203,6 +203,34 @@ func _probe_sink_room_graphics(host: Control) -> void:
 	await create_timer(0.35).timeout
 	_check("sink artwork stays dirty before intentional scrubbing",
 		not bool(room.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false)))
+	var cleaning: DayOneBathroomCleaning = room._cleaning_stage
+	var sink := room._dirty_room_plate.get_node("CleanSinkCutout") as DayOneFixtureScrub
+	_check("demonstration leaves the fixture dirt untouched", not sink.has_scrub_marks)
+	_send_screen_touch(cleaning, true, SINK_CENTER + Vector2(96, 0))
+	await create_timer(0.08).timeout
+	_check("holding still cannot erase dirt", not sink.has_scrub_marks)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 1
+	drag.position = SINK_CENTER + Vector2(80, -48)
+	cleaning._on_gesture_input(drag)
+	_check("second finger cannot erase the owned fixture", not sink.has_scrub_marks)
+	drag.index = 0
+	cleaning._on_gesture_input(drag)
+	_check("partial sink touch removes dirt before completion",
+		bool(room.day_one_bathroom_plate_snapshot().get("sink_scrub_marks", false))
+		and state.day_one_bathroom_cleanup_step == 0
+		and not bool(room.day_one_bathroom_plate_snapshot().get("tub_scrub_marks", false)))
+	_check("sink scrubbing reveals contact pixels and leaves untouched dirt",
+		sink.reveal_at(Vector2(590, 224)) > 0.85
+		and sink.reveal_at(Vector2(620, 268)) == 0.0
+		and not sink.is_clean)
+	cleaning.probe_focus_lost()
+	drag.position = SINK_CENTER + Vector2(-60, 60)
+	cleaning._on_gesture_input(drag)
+	_check("focus loss cancels rubbing without undoing visible feedback",
+		sink.reveal_at(Vector2(530, 270)) == 0.0
+		and sink.reveal_at(Vector2(590, 224)) > 0.85)
+	_send_screen_touch(cleaning, false, drag.position)
 	var points: Array[Vector2] = []
 	for index: int in range(49):
 		var angle: float = float(index) / 48.0 * TAU * 1.2
@@ -212,7 +240,6 @@ func _probe_sink_room_graphics(host: Control) -> void:
 		bool(room.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false))
 		and not room._sink_grime.visible
 		and room._tub_grime.visible)
-	var sink := room._dirty_room_plate.get_node("CleanSinkCutout") as Polygon2D
 	var outline: PackedVector2Array = sink.polygon.slice(0, BATHROOM_CLEANUP.CLEAN_SINK_OUTLINE.size())
 	_check("clean sink cutout follows the fixture and excludes rectangular scenery",
 		Geometry2D.is_point_in_polygon(Vector2(555, 195), outline)
@@ -228,11 +255,30 @@ func _probe_sink_room_graphics(host: Control) -> void:
 		bool(resumed.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false))
 		and bool(resumed.day_one_bathroom_plate_snapshot().get("dirty_plate_visible", false))
 		and state.day_one_bathroom_cleanup_step == 1)
-	resumed._reveal_drained_room_plate()
-	await create_timer(0.45).timeout
+	await create_timer(0.65).timeout
+	_check("resumed tub still requires its own drain tap", resumed.probe_tap_tub())
+	await create_timer(1.10).timeout
 	_check("drained replacement preserves clean sink pixels",
 		bool(resumed.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false))
 		and bool(resumed.day_one_bathroom_plate_snapshot().get("tub_drained", false)))
+	var tub := resumed._dirty_room_plate.get_node("CleanTubCutout") as DayOneFixtureScrub
+	_check("draining and the tub demonstration do not scrub dirt", not tub.has_scrub_marks and not tub.is_clean)
+	var tub_cleaning: DayOneBathroomCleaning = resumed._cleaning_stage
+	_send_screen_touch(tub_cleaning, true, TUB_CENTER + Vector2(-100, 0))
+	drag.position = TUB_CENTER + Vector2(20, 0)
+	tub_cleaning._on_gesture_input(drag)
+	_check("partial tub rubbing reveals only its local path",
+		tub.reveal_at(Vector2(216, 279)) > 0.85
+		and tub.reveal_at(Vector2(254, 345)) == 0.0
+		and state.day_one_bathroom_cleanup_step == 1
+		and bool(resumed.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false)))
+	_send_screen_touch(tub_cleaning, false, drag.position)
+	var strokes: Array[Vector2] = [TUB_CENTER + Vector2(-210, 0),
+		TUB_CENTER + Vector2(210, 0), TUB_CENTER + Vector2(-210, 0),
+		TUB_CENTER + Vector2(210, 0), TUB_CENTER + Vector2(-210, 0)]
+	_check("completed tub scrub clears all remaining fixture dirt",
+		tub_cleaning.probe_tub_strokes(strokes, 0.75) and tub.is_clean
+		and tub.material == null and not resumed._tub_grime.visible)
 	resumed.teardown()
 	await process_frame
 	state.free()

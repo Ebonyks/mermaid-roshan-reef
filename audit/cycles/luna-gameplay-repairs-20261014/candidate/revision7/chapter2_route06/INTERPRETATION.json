@@ -1,0 +1,148 @@
+{
+  "schema": "luna.chapter2-completed-run-evidence/1",
+  "label": "chapter2-route-06",
+  "revision": 7,
+  "result": "PASS_FOCUSED_MACHINE_FIXTURE",
+  "machine_gate_passed": true,
+  "exit_code": 0,
+  "duration_seconds": 165.312,
+  "failure_lines": [],
+  "unclassified_errors": [],
+  "expected_invalid_configuration_diagnostics": {
+    "ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override": 8,
+    "ERROR: OperaAct: career world rejected its configuration": 3,
+    "ERROR: OperaHouse: slot 6 failed to start its Canvas career": 1
+  },
+  "source_pin_sha256": "20e942ec488d618a94af58663b00463987409c9640df53ec918f12a9632cfd9e",
+  "source_unchanged_under_measured_inventory": true,
+  "observed_machine_scope": {
+    "authored_phases": 29,
+    "exact_eight_career_order": true,
+    "careers": "Farmer/Chef/Candy Maker/Painter/Ballet Dancer/Pop Star/Astronaut/Detective",
+    "fresh_child_checkpoints": 6,
+    "all_child_guards_pass": true,
+    "child_generations": [
+      19,
+      28,
+      54,
+      71,
+      78,
+      103
+    ],
+    "child_piece_masks": [
+      64,
+      65,
+      1101,
+      11341,
+      11343,
+      11343
+    ],
+    "actual_parent_child_geometry": "1280x720 origin zero, canvas_items/expand; headless mode exception logged",
+    "dress_lawn_finale_ordinary_freeplay_controls": "PASS"
+  },
+  "control_scope": {
+    "touch_lifetime": "Removed-on-press Control emits exactly one matching release to the captured actual Viewport/point.",
+    "nonstory_detective": "Ordinary default SEARCH/lens catalog and original once-only intro tested in a separately labelled configuration-only helper seam.",
+    "story_detective": "Initial actual played stream matches the existing authored lens recording; later full passive exposure checks retained cue identity/no clues; storybook open retains pointer/demo without legacy crown dialogue.",
+    "negative_inputs": "Full timed passive career/lawn exposures and no-input/wrong-direction/pre-endpoint release guards remain required and pass.",
+    "snapshot_comparison": "Strict bounded JSON-domain comparison with changed-value/type/key/order and unsupported-domain negative controls."
+  },
+  "input_availability": [
+    {
+      "checkpoint": "career_06",
+      "role": "primary",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_06/primary.input.json",
+      "sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704"
+    },
+    {
+      "checkpoint": "career_06",
+      "role": "backup",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_06/backup.input.json",
+      "sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1"
+    },
+    {
+      "checkpoint": "career_00",
+      "role": "primary",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_00/primary.input.json",
+      "sha256": "c06cc95ea677ac56adb911e7d8e820f821cc7551f55baa92b2f583b10597af48"
+    },
+    {
+      "checkpoint": "career_00",
+      "role": "backup",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_00/backup.input.json",
+      "sha256": "b808175cd327e4e2d492c07000fe155de3842dccab60b6e44c7a276b7c160f02"
+    },
+    {
+      "checkpoint": "career_02",
+      "role": "primary",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_02/primary.input.json",
+      "sha256": "025e6035840eb516a366cf47fd57d512bf779fa038de2924d2ec8a512f9269ed"
+    },
+    {
+      "checkpoint": "career_02",
+      "role": "backup",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_02/backup.input.json",
+      "sha256": "8821d1274214e83be180904413e5accd6b6b686390843244b0937755543f4e92"
+    },
+    {
+      "checkpoint": "career_11",
+      "role": "primary",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_11/primary.input.json",
+      "sha256": "89142d28199fce0cdb0a50d6e2e3c2a3ee20431b3975c6f698e48b5e6276f693"
+    },
+    {
+      "checkpoint": "career_11",
+      "role": "backup",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_11/backup.input.json",
+      "sha256": "6a299d724f88346082481e64b7716ac4f5e818ae2f244c8d0e219df8cd0ef6e4"
+    },
+    {
+      "checkpoint": "career_01",
+      "role": "primary",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_01/primary.input.json",
+      "sha256": "01008b3a18ea75d11352a70a3d177bd198096bda78f917b32a3cc520f5f6bdef"
+    },
+    {
+      "checkpoint": "career_01",
+      "role": "backup",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/career_01/backup.input.json",
+      "sha256": "a023fdf93cd32420a47396040d9c39d2c7b23c78cef128caa71238889180044c"
+    },
+    {
+      "checkpoint": "story_complete",
+      "role": "primary",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/story_complete/primary.input.json",
+      "sha256": "20481b847ff95ba9c28b108870046410d2ca55c7d246c0ebb224372eabd2649c"
+    },
+    {
+      "checkpoint": "story_complete",
+      "role": "backup",
+      "status": "AVAILABLE_EXACT_FROZEN_COPY",
+      "archive_path": "children/story_complete/backup.input.json",
+      "sha256": "93e2bcbc3fefb32bd0460a33b1941fc845546f92f6bd529c0ed4cd0d953d0fbb"
+    }
+  ],
+  "available_exact_input_count": 12,
+  "required_input_count": 12,
+  "source_snapshot_scope": "Exact raw applied world/probe bytes frozen while unchanged revision7 was current and matched against the completed route06 native source inventory; no reconstruction.",
+  "historical_attempts": "Route04 and route05 remain FAIL in their separate preserved subpackets. Route04 has one of twelve exact surviving checkpoint inputs; route05 retains all twelve. No old missing bytes reconstructed.",
+  "full_suite_status_at_archive": "In progress separately; initial AUDITDEV ALL OK observed by root. This packet does not assert a terminal full-suite pass.",
+  "acceptance_limits": [
+    "Isolated post-boss prerequisite/room-mount setup seam remains; no fresh-save DayOne-to-ChapterTwo or normal door-travel closure.",
+    "Headless geometry and routed input do not establish displayed Mobile art, exact camera, source contact, hand/tool/action quality or target-phone layout acceptance.",
+    "No physical-device, child or owner acceptance.",
+    "MA-PLAY-005 remains IN_PROGRESS; no strict-zero-2D or release acceptance."
+  ],
+  "archive_policy": "Native gate, child and analysis files copied byte-for-byte; all exact released-owner milestone input copies retained; source and destination hashes verified. No source, pin, existing packet or parent manifest modified."
+}

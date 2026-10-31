@@ -1,0 +1,32 @@
+extends Node
+
+func _ready() -> void:
+	var tree := get_tree()
+	while not tree.current_scene is ReefMain:
+		await tree.process_frame
+	var main := tree.current_scene as ReefMain
+	for i in range(3):
+		await tree.process_frame
+	main.day_one_active = false
+	main.chapter2_active = false
+	main.start_menu_active = false
+	if main.start_menu_layer != null:
+		main.start_menu_layer.hide()
+	main._skip_intro()
+	main.game = "level2"
+	main.g["t"] = 0.0
+	main._enter_castle_interior_now(false)
+	for i in range(30):
+		await tree.process_frame
+	main._castle_rooms_ref().show_room("opera_hall", false)
+	await tree.create_timer(8.0).timeout
+	var venue: OperaHouseVenue2D = main._castle_career_routes_ref().opera_venue
+	if main.fade_rect != null:
+		main.fade_rect.modulate.a = 0.0
+	await RenderingServer.frame_post_draw
+	tree.root.get_texture().get_image().save_png("res://tmp/opera_door_icons_v2_ai_main_foyer.png")
+	var receipt := {"debugger_active": EngineDebugger.is_active(), "venue_open": venue != null and venue.is_open(), "room_id": main.castle_room_id, "navigation": main._navigation_ref().top_id(), "renderer": RenderingServer.get_current_rendering_method(), "engine": Engine.get_version_info(), "save_profile": ProjectSettings.get_setting("application/config/custom_user_dir_name"), "screenshot_sha256": FileAccess.get_sha256("res://tmp/opera_door_icons_v2_ai_main_foyer.png")}
+	var file := FileAccess.open("res://tmp/opera_door_icons_v2_ai_display.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(receipt, "\t"))
+	file.close()
+	print("OPERA_REVIEW_AI|MAIN_FOYER_READY|", JSON.stringify(receipt))

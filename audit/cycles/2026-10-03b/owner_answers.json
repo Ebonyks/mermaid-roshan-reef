@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ODR-CHEF-VERDICT-20261003",
+    "date": "2026-10-03",
+    "subject": "Chef look and pour (owner acceptance, DL-QA-06)",
+    "question": "Does the Chef job look and pour right in the current build?",
+    "decision": "No. Owner, 2026-10-03: \"Chef pours backwards still\" and \"Chef still looks bad, lots of overdraw\". Chef's look and pour are not accepted.",
+    "source": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-001",
+    "authority": "recorded_owner",
+    "checks": [],
+    "checkable": false,
+    "applies_to": [
+      "MA-OPERA-001"
+    ],
+    "note": "The pour direction becomes checkable once Codex adds the CR0 probe assertion (stream starts at the rendered spout; spout lowest at full tilt); the look stays an owner judgement.",
+    "cycle": "2026-10-03b"
+  }
+]

@@ -1,0 +1,85 @@
+{
+	"acceptance": "Device/child/owner PENDING",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"events": [
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(103.0, 200.0)",
+			"target": "FashionCharacter_roshan"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(1097.0, 411.0)",
+			"target": "FashionOutfit_roshan_party_dress_v1"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(804.0, 632.0)",
+			"target": "FashionNextPage"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(673.0, 411.0)",
+			"target": "FashionOutfit_roshan_garden_v1"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(229.0, 200.0)",
+			"target": "FashionCharacter_rumi"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(1097.0, 411.0)",
+			"target": "FashionOutfit_rumi_party_v1"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(804.0, 632.0)",
+			"target": "FashionNextPage"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(673.0, 411.0)",
+			"target": "FashionOutfit_rumi_garden_v1"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(481.0, 200.0)",
+			"target": "FashionCharacter_daddy_mermaid"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(1097.0, 411.0)",
+			"target": "FashionOutfit_daddy_mermaid_party_v1"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(804.0, 632.0)",
+			"target": "FashionNextPage"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(673.0, 411.0)",
+			"target": "FashionOutfit_daddy_mermaid_garden_v1"
+		},
+		{
+			"input": "Viewport.push_input mouse press/release, real GUI route",
+			"point": "(609.0, 200.0)",
+			"target": "FashionCharacter_daddy_mermaid"
+		}
+	],
+	"fixture": "Explicit setup and unlocks; all clothing and character actions use GUI input; no natural route/completion/reload proof",
+	"renderer": "mobile",
+	"schema": 1,
+	"user_data_dir": "C:/Users/Peter/.codex/worktrees/fashion-designer-review/mermaid-roshan-reef/tmp/engine-review-profile/Godot/app_userdata/Mermaid Roshan Reef of Light"
+}

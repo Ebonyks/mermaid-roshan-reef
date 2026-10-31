@@ -50,7 +50,7 @@ VORBIS_MAXIMUM = "128k"
 MINIMUM_MEASURED_BITRATE = 64_000
 MINIMUM_LOOP_SECONDS = 24.0
 MAXIMUM_LOOP_SECONDS = 40.0
-GENERATOR_VERSION = 2
+GENERATOR_VERSION = 3
 SCORES_PATH = Path("assets_src/audio/music/area_music_scores.json")
 OUTPUT_DIR = Path("assets/audio/music")
 MANIFEST_NAME = "area_music_manifest.json"
@@ -373,6 +373,36 @@ def _validate_cue(cue: dict[str, Any]) -> None:
         raise ValueError(f"{slug}: progression needs at least four integer scale degrees")
     if not isinstance(melody, list) or len(melody) < 8 or not all(x is None or isinstance(x, int) for x in melody):
         raise ValueError(f"{slug}: melody needs at least eight scale-degree/rest events")
+    authored = cue.get("authored_melody")
+    if "authored_melody" in cue:
+        if not isinstance(authored, dict) or set(authored) != {"octave", "bars", "bar_gains"}:
+            raise ValueError(f"{slug}: authored_melody needs octave, bars and bar_gains")
+        if type(authored["octave"]) is not int or not -1 <= authored["octave"] <= 2:
+            raise ValueError(f"{slug}: authored melody octave out of range")
+        if not isinstance(authored["bars"], list) or len(authored["bars"]) != bars:
+            raise ValueError(f"{slug}: authored melody must cover every bar")
+        if len(progression) != bars or progression[-1] != 0:
+            raise ValueError(f"{slug}: authored harmony needs one root per bar and a tonic ending")
+        gains = authored["bar_gains"]
+        if not isinstance(gains, list) or len(gains) != bars or not all(
+            type(g) in (int, float) and math.isfinite(g) and 0.0 < g <= 1.25 for g in gains
+        ):
+            raise ValueError(f"{slug}: invalid authored bar dynamics")
+        for bar_index, events in enumerate(authored["bars"]):
+            if not isinstance(events, list) or not events:
+                raise ValueError(f"{slug}: empty authored bar {bar_index}")
+            total = 0.0
+            for event in events:
+                if not isinstance(event, list) or len(event) != 2:
+                    raise ValueError(f"{slug}: authored events are [degree-or-null, beats]")
+                degree, duration = event
+                if degree is not None and (type(degree) is not int or not -14 <= degree <= 14):
+                    raise ValueError(f"{slug}: invalid authored pitch")
+                if type(duration) not in (int, float) or not math.isfinite(duration) or duration <= 0:
+                    raise ValueError(f"{slug}: invalid authored duration")
+                total += duration
+            if not math.isclose(total, int(meter[0]), abs_tol=1e-8, rel_tol=0.0):
+                raise ValueError(f"{slug}: authored bar {bar_index} does not fill its meter")
     energy = float(cue.get("energy", -1.0))
     if not 0.0 <= energy <= 1.0:
         raise ValueError(f"{slug}: energy must be in [0, 1]")
@@ -547,6 +577,10 @@ def _add_note(
 
 def _developed_root(cue: dict[str, Any], bar: int, bars: int) -> tuple[int, bool]:
     progression = cue["progression"]
+    if "authored_melody" in cue:
+        # An authored phrase owns its harmony as well as its notes: rotating
+        # roots underneath a repeated hook changes its intended cadence.
+        return int(progression[bar]), False
     if bar == bars - 1:
         return 0, False
     if bar < bars // 2:
@@ -569,6 +603,10 @@ def _arrange_harmony(
     bass = str(cue["instruments"]["bass"])
     harmony_gain = 0.070 + energy * 0.020
     bass_gain = 0.085 + energy * 0.025
+    if "authored_melody" in cue:
+        # Keep the repeated foreground tune distinct from the busy harp bed.
+        harmony_gain *= 0.72
+        bass_gain *= 0.85
     for bar in range(bars):
         bar_beat = float(bar * beats_per_bar)
         root, inversion = _developed_root(cue, bar, bars)
@@ -750,6 +788,26 @@ def _arrange_melody(
 ) -> None:
     lead = str(cue["instruments"]["lead"])
     energy = float(cue["energy"])
+    if "authored_melody" in cue:
+        authored = cue["authored_melody"]
+        for bar, events in enumerate(authored["bars"]):
+            cursor = float(bar * beats_per_bar)
+            for index, (degree, duration) in enumerate(events):
+                if degree is not None:
+                    _add_note(
+                        track, cue, lead, int(degree), cursor, float(duration) * 0.92,
+                        (0.105 + energy * 0.035) * authored["bar_gains"][bar], 0.0,
+                        f"authored:{bar}:{index}", authored["octave"], samples_per_beat,
+                    )
+                cursor += float(duration)
+        # One quiet glint punctuates the home cadence; no second competing
+        # motif, automatic answer-note lifts, or continuous bell foreground.
+        _add_note(
+            track, cue, str(cue["instruments"]["accent"]), 7,
+            float((bars - 1) * beats_per_bar), 1.2, 0.045, 0.12,
+            "authored:home-glint", authored["octave"], samples_per_beat,
+        )
+        return
     pattern = list(cue["melody"])
     _add_motif(track, cue, catalog, 0, False, samples_per_beat, beats_per_bar)
     midpoint = bars // 2
@@ -963,7 +1021,11 @@ def _render_float(cue: dict[str, Any], catalog: dict[str, Any]) -> tuple[np.ndar
         "raw_seam": _seam_metrics(track),
         "development": {
             "midpoint_bar": bars // 2,
-            "changes": ["progression_order", "alternating_inversion", "melody_rotation", "answer_note_lifts", "motif_instrument_and_register"],
+            "changes": (
+                ["explicit_bar_harmony", "hook_return", "rising_answer", "dominant_to_tonic_cadence"]
+                if "authored_melody" in cue else
+                ["progression_order", "alternating_inversion", "melody_rotation", "answer_note_lifts", "motif_instrument_and_register"]
+            ),
         },
     }
     if float(metrics["raw_seam"]["jump_ratio"]) > 4.0:
@@ -1262,6 +1324,7 @@ def _render_one(
         "progression": cue["progression"],
         "melody": cue["melody"],
         "energy": cue["energy"],
+        **({"authored_melody": cue["authored_melody"]} if "authored_melody" in cue else {}),
         **(
             {"adaptive_markers": cue["adaptive_markers"]}
             if "adaptive_markers" in cue else {}

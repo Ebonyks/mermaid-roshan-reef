@@ -1,0 +1,277 @@
+{
+  "prompt": [
+    10,
+    "fd19952a-c0fa-43a2-91ec-28c41ce78728",
+    {
+      "1": {
+        "class_type": "FrameInterpolationModelLoader",
+        "inputs": {
+          "model_name": "rife_v4.25.safetensors"
+        }
+      },
+      "2": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "wave_repair_20261010/rife_midpoint_01/0006.png"
+        }
+      },
+      "3": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "wave_repair_20261010/rife_midpoint_01/0003.png"
+        }
+      },
+      "4": {
+        "class_type": "ImageBatch",
+        "inputs": {
+          "image1": [
+            "2",
+            0
+          ],
+          "image2": [
+            "3",
+            0
+          ]
+        }
+      },
+      "5": {
+        "class_type": "FrameInterpolate",
+        "inputs": {
+          "interp_model": [
+            "1",
+            0
+          ],
+          "images": [
+            "4",
+            0
+          ],
+          "multiplier": 2
+        }
+      },
+      "6": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "5",
+            0
+          ],
+          "filename_prefix": "wave_repair_20261010/rife_midpoint_01/pair_0006_0003"
+        }
+      },
+      "12": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "wave_repair_20261010/rife_midpoint_01/0014.png"
+        }
+      },
+      "13": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "wave_repair_20261010/rife_midpoint_01/0012.png"
+        }
+      },
+      "14": {
+        "class_type": "ImageBatch",
+        "inputs": {
+          "image1": [
+            "12",
+            0
+          ],
+          "image2": [
+            "13",
+            0
+          ]
+        }
+      },
+      "15": {
+        "class_type": "FrameInterpolate",
+        "inputs": {
+          "interp_model": [
+            "1",
+            0
+          ],
+          "images": [
+            "14",
+            0
+          ],
+          "multiplier": 2
+        }
+      },
+      "16": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "15",
+            0
+          ],
+          "filename_prefix": "wave_repair_20261010/rife_midpoint_01/pair_0014_0012"
+        }
+      },
+      "22": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "wave_repair_20261010/rife_midpoint_01/0010.png"
+        }
+      },
+      "23": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "wave_repair_20261010/rife_midpoint_01/0012.png"
+        }
+      },
+      "24": {
+        "class_type": "ImageBatch",
+        "inputs": {
+          "image1": [
+            "22",
+            0
+          ],
+          "image2": [
+            "23",
+            0
+          ]
+        }
+      },
+      "25": {
+        "class_type": "FrameInterpolate",
+        "inputs": {
+          "interp_model": [
+            "1",
+            0
+          ],
+          "images": [
+            "24",
+            0
+          ],
+          "multiplier": 2
+        }
+      },
+      "26": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "25",
+            0
+          ],
+          "filename_prefix": "wave_repair_20261010/rife_midpoint_01/pair_0010_0012"
+        }
+      }
+    },
+    {
+      "client_id": "16321391-858f-4222-8644-80e30844872d",
+      "create_time": 1791678054578
+    },
+    [
+      "16",
+      "26",
+      "6"
+    ]
+  ],
+  "outputs": {
+    "16": {
+      "images": [
+        {
+          "filename": "pair_0014_0012_00001_.png",
+          "subfolder": "wave_repair_20261010\\rife_midpoint_01",
+          "type": "output"
+        },
+        {
+          "filename": "pair_0014_0012_00002_.png",
+          "subfolder": "wave_repair_20261010\\rife_midpoint_01",
+          "type": "output"
+        },
+        {
+          "filename": "pair_0014_0012_00003_.png",
+          "subfolder": "wave_repair_20261010\\rife_midpoint_01",
+          "type": "output"
+        }
+      ]
+    },
+    "26": {
+      "images": [
+        {
+          "filename": "pair_0010_0012_00001_.png",
+          "subfolder": "wave_repair_20261010\\rife_midpoint_01",
+          "type": "output"
+        },
+        {
+          "filename": "pair_0010_0012_00002_.png",
+          "subfolder": "wave_repair_20261010\\rife_midpoint_01",
+          "type": "output"
+        },
+        {
+          "filename": "pair_0010_0012_00003_.png",
+          "subfolder": "wave_repair_20261010\\rife_midpoint_01",
+          "type": "output"
+        }
+      ]
+    },
+    "6": {
+      "images": [
+        {
+          "filename": "pair_0006_0003_00001_.png",
+          "subfolder": "wave_repair_20261010\\rife_midpoint_01",
+          "type": "output"
+        },
+        {
+          "filename": "pair_0006_0003_00002_.png",
+          "subfolder": "wave_repair_20261010\\rife_midpoint_01",
+          "type": "output"
+        },
+        {
+          "filename": "pair_0006_0003_00003_.png",
+          "subfolder": "wave_repair_20261010\\rife_midpoint_01",
+          "type": "output"
+        }
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "fd19952a-c0fa-43a2-91ec-28c41ce78728",
+          "timestamp": 1791678054580
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "fd19952a-c0fa-43a2-91ec-28c41ce78728",
+          "timestamp": 1791678054599
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "fd19952a-c0fa-43a2-91ec-28c41ce78728",
+          "timestamp": 1791678064708
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "16": {
+      "node_id": "16",
+      "display_node": "16",
+      "parent_node": null,
+      "real_node_id": "16"
+    },
+    "26": {
+      "node_id": "26",
+      "display_node": "26",
+      "parent_node": null,
+      "real_node_id": "26"
+    },
+    "6": {
+      "node_id": "6",
+      "display_node": "6",
+      "parent_node": null,
+      "real_node_id": "6"
+    }
+  }
+}

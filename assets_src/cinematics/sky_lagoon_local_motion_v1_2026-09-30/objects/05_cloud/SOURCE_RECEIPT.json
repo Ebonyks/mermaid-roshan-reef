@@ -1,0 +1,48 @@
+{
+  "id": "05_cloud",
+  "title": "Cloud: internal drift",
+  "source": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+  "source_sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb",
+  "source_dimensions": [
+    221,
+    94
+  ],
+  "source_crop": [
+    0,
+    0,
+    221,
+    94
+  ],
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\05_cloud\\input.png",
+  "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The outer cloud outline and placement stay fixed. Soft internal painted blue highlights drift very slightly to the right. Keep the same rounded cloud lobes and graphic painted style. No cloud travel, no shape growth. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+  "seed": 20261005,
+  "fit_xy": [
+    145,
+    162
+  ],
+  "fit_size": [
+    221,
+    94
+  ],
+  "status": "PENDING",
+  "lane": "MOTION_REFERENCE_ONLY",
+  "derivative": "source.png",
+  "derivative_sha256": "059ea03fbd59d86538372f10ccd1915bf977e379889900e275da419c7fa4e2ed",
+  "fixed_source_crop": [
+    126,
+    78,
+    386,
+    340
+  ],
+  "canvas": [
+    256,
+    256
+  ],
+  "source_bounds": [
+    18,
+    82,
+    239,
+    174
+  ],
+  "method": "Nondestructive source RGBA isolation and whole-cell normalization; original unchanged."
+}

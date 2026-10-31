@@ -1,0 +1,827 @@
+{
+  "prompt": [
+    5,
+    "7b7ec7fb-f703-4282-960b-1364a9757558",
+    {
+      "1": {
+        "class_type": "CheckpointLoaderSimple",
+        "inputs": {
+          "ckpt_name": "ltxv-2b-0.9.8-distilled.safetensors"
+        }
+      },
+      "2": {
+        "class_type": "CLIPLoader",
+        "inputs": {
+          "clip_name": "t5xxl_fp8_e4m3fn.safetensors",
+          "type": "ltxv",
+          "device": "cpu"
+        }
+      },
+      "4": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "ltx_registered_d8b03f19ed60c759bede.png"
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "A polished hand-painted 2D storybook animation of the SAME approved mermaid Roshan, shown as one complete moving figure. Clean, crisp navy painted outlines and distinct fingers in EVERY pose. Short-exposure, sharply defined animation frames; slow deliberate measured movement, with small hand displacement between adjacent frames. The whole figure acts together, with continuous anatomy and the same face, costume, pink bodice, purple mermaid tail, hair and painted materials.\n0.0\u20130.8s: Roshan begins at rest and raises her image-left hand to shoulder height. That shoulder lifts and turns slightly; the upper torso follows with a small natural lean, her painted dress/bodice shifts with her chest, and her hair responds softly.\n0.8\u20131.8s: The hand rises above her head into a friendly open-palm greeting. Her shoulder, ribcage and bodice move together in a coordinated small stretch; her opposite shoulder counterbalances. Her tail responds subtly below the waist. Keep the hand and fingers sharp and readable throughout the rise.\n1.8\u20132.6s: She lowers the greeting hand. Shoulder and torso relax together, with a small follow-through in the hair and bodice. Keep continuous joint attachment and crisp contours, including the moving hand.\n2.6\u20133.4s: The whole figure settles gently into the original complete rest pose. Her pelvis/root stays near its initial location; it is an anchor for registration, not a frozen body. No walking or camera movement.\nFixed full-figure view on uniform pale gray. Preserve character proportions and her mermaid tail; no legs, extra limbs or new costume details. No motion blur, exposure smearing, ghost limbs, trails, painterly streaks, dissolving fingers or temporal crossfades. Every frame is a sharp painted pose with one coherent complete figure. Sound: silence.\n"
+        }
+      },
+      "6": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "camera movement, anatomy drift, extra limbs, new objects, flicker, text, watermark"
+        }
+      },
+      "7": {
+        "class_type": "LTXVConditioning",
+        "inputs": {
+          "positive": [
+            "5",
+            0
+          ],
+          "negative": [
+            "6",
+            0
+          ],
+          "frame_rate": 24.0
+        }
+      },
+      "8": {
+        "class_type": "LTXVImgToVideo",
+        "inputs": {
+          "positive": [
+            "7",
+            0
+          ],
+          "negative": [
+            "7",
+            1
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "image": [
+            "4",
+            0
+          ],
+          "width": 896,
+          "height": 512,
+          "length": 81,
+          "batch_size": 1,
+          "strength": 1.0
+        }
+      },
+      "12": {
+        "class_type": "KSamplerSelect",
+        "inputs": {
+          "sampler_name": "euler"
+        }
+      },
+      "13": {
+        "class_type": "ManualSigmas",
+        "inputs": {
+          "sigmas": "1,0.9937,0.9875,0.9812,0.9750,0.9094,0.7250,0"
+        }
+      },
+      "9": {
+        "class_type": "SamplerCustom",
+        "inputs": {
+          "model": [
+            "1",
+            0
+          ],
+          "add_noise": true,
+          "noise_seed": 20261003,
+          "cfg": 1.0,
+          "positive": [
+            "31",
+            0
+          ],
+          "negative": [
+            "31",
+            1
+          ],
+          "sampler": [
+            "12",
+            0
+          ],
+          "sigmas": [
+            "13",
+            0
+          ],
+          "latent_image": [
+            "31",
+            2
+          ]
+        }
+      },
+      "10": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "40",
+            2
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 64,
+          "temporal_overlap": 8
+        }
+      },
+      "11": {
+        "class_type": "SaveWEBM",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/ltx_registered_wave_20261004_figure_wide_slow",
+          "codec": "vp9",
+          "fps": 24.0,
+          "crf": 18.0
+        }
+      },
+      "22": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "ltx_registered_4a4d045955cd67c9a3e3.png"
+        }
+      },
+      "23": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "8",
+            0
+          ],
+          "negative": [
+            "8",
+            1
+          ],
+          "latent": [
+            "8",
+            2
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "image": [
+            "22",
+            0
+          ],
+          "frame_idx": 14,
+          "strength": 1.0
+        }
+      },
+      "24": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "ltx_registered_d12ccaa43de00e814445.png"
+        }
+      },
+      "25": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "23",
+            0
+          ],
+          "negative": [
+            "23",
+            1
+          ],
+          "latent": [
+            "23",
+            2
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "image": [
+            "24",
+            0
+          ],
+          "frame_idx": 34,
+          "strength": 1.0
+        }
+      },
+      "26": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "ltx_registered_56e82575f9d8671a0406.png"
+        }
+      },
+      "27": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "25",
+            0
+          ],
+          "negative": [
+            "25",
+            1
+          ],
+          "latent": [
+            "25",
+            2
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "image": [
+            "26",
+            0
+          ],
+          "frame_idx": 54,
+          "strength": 1.0
+        }
+      },
+      "28": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "ltx_registered_d8b03f19ed60c759bede.png"
+        }
+      },
+      "29": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "27",
+            0
+          ],
+          "negative": [
+            "27",
+            1
+          ],
+          "latent": [
+            "27",
+            2
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "image": [
+            "28",
+            0
+          ],
+          "frame_idx": 72,
+          "strength": 1.0
+        }
+      },
+      "30": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "ltx_registered_d8b03f19ed60c759bede.png"
+        }
+      },
+      "31": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "29",
+            0
+          ],
+          "negative": [
+            "29",
+            1
+          ],
+          "latent": [
+            "29",
+            2
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "image": [
+            "30",
+            0
+          ],
+          "frame_idx": 80,
+          "strength": 1.0
+        }
+      },
+      "40": {
+        "class_type": "LTXVCropGuides",
+        "inputs": {
+          "positive": [
+            "31",
+            0
+          ],
+          "negative": [
+            "31",
+            1
+          ],
+          "latent": [
+            "9",
+            0
+          ]
+        }
+      },
+      "14": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/ltx_registered_wave_20261004_figure_wide_slow/frame"
+        }
+      }
+    },
+    {
+      "client_id": "ltx_registered_wave_20261004",
+      "create_time": 1791129384542
+    },
+    [
+      "14",
+      "11"
+    ]
+  ],
+  "outputs": {
+    "14": {
+      "images": [
+        {
+          "filename": "frame_00001_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00002_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00003_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00004_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00005_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00006_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00007_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00008_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00009_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00010_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00011_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00012_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00013_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00014_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00015_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00016_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00017_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00018_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00019_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00020_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00021_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00022_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00023_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00024_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00025_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00026_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00027_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00028_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00029_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00030_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00031_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00032_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00033_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00034_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00035_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00036_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00037_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00038_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00039_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00040_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00041_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00042_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00043_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00044_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00045_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00046_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00047_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00048_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00049_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00050_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00051_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00052_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00053_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00054_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00055_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00056_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00057_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00058_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00059_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00060_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00061_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00062_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00063_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00064_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00065_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00066_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00067_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00068_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00069_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00070_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00071_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00072_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00073_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00074_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00075_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00076_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00077_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00078_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00079_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00080_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00081_.png",
+          "subfolder": "local_reference\\ltx_registered_wave_20261004_figure_wide_slow",
+          "type": "output"
+        }
+      ]
+    },
+    "11": {
+      "images": [
+        {
+          "filename": "ltx_registered_wave_20261004_figure_wide_slow_00001_.webm",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ],
+      "animated": [
+        true
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "7b7ec7fb-f703-4282-960b-1364a9757558",
+          "timestamp": 1791129384543
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "7b7ec7fb-f703-4282-960b-1364a9757558",
+          "timestamp": 1791129384627
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "7b7ec7fb-f703-4282-960b-1364a9757558",
+          "timestamp": 1791129504436
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "14": {
+      "node_id": "14",
+      "display_node": "14",
+      "parent_node": null,
+      "real_node_id": "14"
+    },
+    "11": {
+      "node_id": "11",
+      "display_node": "11",
+      "parent_node": null,
+      "real_node_id": "11"
+    }
+  }
+}

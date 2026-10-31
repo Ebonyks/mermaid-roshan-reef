@@ -1,0 +1,43 @@
+{
+  "state": "APPLIED_FIVE_CANONICAL_TARGETS_ONLY",
+  "gate_label": "candidate-full-ci-02",
+  "source_pin_sha256": "786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388",
+  "duration_seconds": 2601.366,
+  "log_sha256": "0f910fe429949007a5fd72e22dfeb3318418f580f4d6f6cb1dd8d20e993a211a",
+  "archive_manifest_sha256": "5b26e9d413c9df4b6e4473eb78f85dc017c345ed465e3729cbcada60d8318ef7",
+  "targets": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "before_sha256": "e95d222af6c934c695c3894c69420bf73a4764c0e75ab1a383ab486a63829503",
+      "after_sha256": "a2b65b1890dccf815255135a631229393e50b78f3087ef5280ecf7dbcb165227"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "before_sha256": "6e9f1e5f2e6b6ba7b7400c2629b5a8c2353884875959a1505f5a85b0b3ec39b6",
+      "after_sha256": "1c7932b7c20e4d150776aa28014bf3b927ef2700996228661ee8b1179af34853"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "before_sha256": "6ce249ec8cbd59744e23beaaf7bb64b0d1b21f27ef16c80b63e751dc41bbafd0",
+      "after_sha256": "f5e8d9f7e0db30388114ca98c7ecd59bc43b2d38b8236396546af74111229892"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "before_sha256": "c39e24271d5a719fefae1a811d08c6e7387574cb1f75fdbbac714b3175bfb08c",
+      "after_sha256": "588dad8d5b7b54263e93b74da9b74fa22d185b49fd49db02726c25b176bad2f5"
+    },
+    {
+      "path": "design/audit_impacts/luna-gameplay-repairs-20261014.json",
+      "before_sha256": "201cbe91b3d00f2f46267bd454c167ce442c0ace9e93ed8c0966320b000145f4",
+      "after_sha256": "d324c3de41e4eed549ebc36b7097b5113aa406680badd19b4e89313dc0a1e021"
+    }
+  ],
+  "coverage_count": 626,
+  "historical_records_preserved": true,
+  "acceptance_limits": "MA005 IN_PROGRESS/V3 partial; CI007 CONFIRMED_OPEN; fresh-save/doors/visual/contact/device/child/owner/sourcecommit/published-head/integration still open",
+  "next_required_checks": [
+    "python -B tools/audit_document_authority.py",
+    "python -B tools/audit_development.py --base auto",
+    "Exact sourcecommit/published-head/integration binding remains pending"
+  ]
+}

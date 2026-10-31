@@ -1,0 +1,5 @@
+{
+  "status": "STOPPED_SOURCE_PADDING_ASSERT",
+  "diagnosis": "Goldcapregistration needs nativecanvas origin x=-1.505 on512x256, so full alpha-canvas preservation assertion correctly fails. Bodyart is complete; source border overhangs referencecanvas by2px.",
+  "repair": "Use1024x256 POT common canvas with exact original512x128 pixels at(256,64); register generatedwhole frames to same originalcap sockets. Renderer doubles destination in bothaxes around original ropebounds, so visibleoriginalgeometry/hitmap exactlyunchanged. No nativepixels clipped/painted/upscaled. Preserve failedpartialrope0underreview, assert prior five other partialderivatives byte-identical before resume."
+}

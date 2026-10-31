@@ -1,0 +1,3351 @@
+{
+  "status": "REJECTED_KEY_REQUIRES_COMPLETE_FIGURE_REDRAW",
+  "anchor_names": [
+    "crown_gem",
+    "image_left_eye",
+    "image_right_eye",
+    "neck_base",
+    "bodice_waist_tip"
+  ],
+  "canvas": [
+    576,
+    832
+  ],
+  "root_target": [
+    184.5,
+    453.0
+  ],
+  "target_method": "Pose-specific common-scale atlas-derived reference landmarks; all waist tips registered to the rest root. Mid-lowering anchors interpolate coordinates of neighboring poses only, no appearance pixel interpolation. Human anchor review remains required.",
+  "tolerances": {
+    "maximum_anchor_residual_px": 6,
+    "pair_scale_ratio_deviation": 0.03,
+    "status": "Provisional diagnostic thresholds; do not grant owner/visual acceptance"
+  },
+  "guides": [
+    {
+      "index": 0,
+      "source": "assets_src/cinematics/ltx25_8gb_wave_20261004/inputs/guide_0000.png",
+      "source_sha256": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+      "source_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.0,
+      "translation": [
+        0.0,
+        0.0
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 0.0,
+      "anchor_residuals_px": {
+        "crown_gem": 0.0,
+        "image_left_eye": 0.0,
+        "image_right_eye": 0.0,
+        "neck_base": 0.0,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        0,
+        0
+      ]
+    },
+    {
+      "index": 3,
+      "source": "assets_src/cinematics/ltx25_8gb_wave_20261004/inputs/guide_0003.png",
+      "source_sha256": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+      "source_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.0,
+      "translation": [
+        0.0,
+        0.0
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 0.0,
+      "anchor_residuals_px": {
+        "crown_gem": 0.0,
+        "image_left_eye": 0.0,
+        "image_right_eye": 0.0,
+        "neck_base": 0.0,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        0,
+        0
+      ]
+    },
+    {
+      "index": 7,
+      "source": "assets_src/cinematics/ltx25_8gb_wave_20261004/inputs/guide_0007.png",
+      "source_sha256": "f918582f38795bbc62fa29295a76486f224a0cfa54962c7ca14319a80daaa2ae",
+      "source_landmarks": {
+        "crown_gem": [
+          220.15529411764706,
+          86.58823529411765
+        ],
+        "image_left_eye": [
+          173.60805084745763,
+          199.97669491525426
+        ],
+        "image_right_eye": [
+          238.67894736842106,
+          204.41929824561402
+        ],
+        "neck_base": [
+          206.14349910793936,
+          311.0
+        ],
+        "bodice_waist_tip": [
+          191.11111111111111,
+          449.66666666666663
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          213.54418300653595,
+          89.92156862745102
+        ],
+        "image_left_eye": [
+          166.99693973634652,
+          203.31002824858763
+        ],
+        "image_right_eye": [
+          232.06783625730995,
+          207.7526315789474
+        ],
+        "neck_base": [
+          199.53238799682825,
+          314.33333333333337
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.0,
+      "translation": [
+        -6.611111111111114,
+        3.3333333333333712
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 0.0,
+      "anchor_residuals_px": {
+        "crown_gem": 0.0,
+        "image_left_eye": 0.0,
+        "image_right_eye": 0.0,
+        "neck_base": 0.0,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        -7,
+        3
+      ]
+    },
+    {
+      "index": 17,
+      "source": "assets_src/cinematics/ltx25_8gb_wave_20261004/inputs/guide_0017.png",
+      "source_sha256": "c98eb017f869fbdb8eebe235a65ce420ed45d87e70be617725aba5e66e724c2e",
+      "source_landmarks": {
+        "crown_gem": [
+          231.90864197530865,
+          89.24691358024691
+        ],
+        "image_left_eye": [
+          182.38056680161944,
+          201.69635627530363
+        ],
+        "image_right_eye": [
+          247.58727272727273,
+          206.50181818181818
+        ],
+        "neck_base": [
+          214.98391976444609,
+          311.0
+        ],
+        "bodice_waist_tip": [
+          183.6,
+          451.6
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          232.80864197530866,
+          90.64691358024689
+        ],
+        "image_left_eye": [
+          183.28056680161944,
+          203.0963562753036
+        ],
+        "image_right_eye": [
+          248.48727272727274,
+          207.90181818181816
+        ],
+        "neck_base": [
+          215.8839197644461,
+          312.4
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.0,
+      "translation": [
+        0.9000000000000057,
+        1.3999999999999773
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 0.0,
+      "anchor_residuals_px": {
+        "crown_gem": 0.0,
+        "image_left_eye": 0.0,
+        "image_right_eye": 0.0,
+        "neck_base": 0.0,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        1,
+        1
+      ]
+    },
+    {
+      "index": 22,
+      "source": "assets_src/cinematics/ltx25_8gb_wave_20261004/inputs/guide_0022.png",
+      "source_sha256": "2bcfcac93db3dde14e783f6e40943e8a488d669cf0dbd8f7e11ff184240fb04a",
+      "source_landmarks": {
+        "crown_gem": [
+          204.28668171557564,
+          90.15349887133183
+        ],
+        "image_left_eye": [
+          153.7465618860511,
+          206.83693516699412
+        ],
+        "image_right_eye": [
+          218.81395348837208,
+          212.0201550387597
+        ],
+        "neck_base": [
+          186.2802576872116,
+          318.0
+        ],
+        "bodice_waist_tip": [
+          160.66666666666669,
+          470.77777777777777
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          224.30782566055154,
+          86.67883062189914
+        ],
+        "image_left_eye": [
+          177.26099469788085,
+          200.6707722799112
+        ],
+        "image_right_eye": [
+          242.2188052825553,
+          203.78942260442258
+        ],
+        "neck_base": [
+          209.73989999021808,
+          310.4
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9590354352360502,
+      "translation": [
+        30.41497340540792,
+        1.5074289894283766
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 3.977098478247049,
+      "anchor_residuals_px": {
+        "crown_gem": 2.400711459805709,
+        "image_left_eye": 1.0009448499642413,
+        "image_right_eye": 2.219152676527714,
+        "neck_base": 3.977098478247049,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9625876827903511,
+        "crown_gem__image_left_eye": 0.9888963402564848,
+        "crown_gem__image_right_eye": 0.993497041563071,
+        "crown_gem__bodice_waist_tip": 0.997133214585156,
+        "neck_base__bodice_waist_tip": 1.025878906616193
+      },
+      "pass": false,
+      "scaled_canvas": [
+        549,
+        793
+      ],
+      "raster_uniform_scale": 0.953125,
+      "placement": [
+        31,
+        4
+      ]
+    },
+    {
+      "index": 27,
+      "source": "assets_src/cinematics/ltx25_8gb_wave_20261004/inputs/guide_0027.png",
+      "source_sha256": "556eacfcfe495cb0d2a0067f8f0dd88fdcdd1336ae755db8d2a1a34a4800c9a5",
+      "source_landmarks": {
+        "crown_gem": [
+          213.5070093457944,
+          79.31074766355141
+        ],
+        "image_left_eye": [
+          168.94142259414227,
+          194.84518828451883
+        ],
+        "image_right_eye": [
+          233.65033783783784,
+          196.27702702702703
+        ],
+        "neck_base": [
+          201.29588021599005,
+          305.0
+        ],
+        "bodice_waist_tip": [
+          182.2,
+          449.6
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          215.8070093457944,
+          82.71074766355139
+        ],
+        "image_left_eye": [
+          171.24142259414228,
+          198.2451882845188
+        ],
+        "image_right_eye": [
+          235.95033783783785,
+          199.677027027027
+        ],
+        "neck_base": [
+          203.59588021599006,
+          308.4
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.0,
+      "translation": [
+        2.3000000000000114,
+        3.3999999999999773
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 0.0,
+      "anchor_residuals_px": {
+        "crown_gem": 0.0,
+        "image_left_eye": 0.0,
+        "image_right_eye": 0.0,
+        "neck_base": 0.0,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        2,
+        3
+      ]
+    },
+    {
+      "index": 36,
+      "source": "assets_src/cinematics/ltx25_8gb_wave_20261004/inputs/guide_0036.png",
+      "source_sha256": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+      "source_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.0,
+      "translation": [
+        0.0,
+        0.0
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 0.0,
+      "anchor_residuals_px": {
+        "crown_gem": 0.0,
+        "image_left_eye": 0.0,
+        "image_right_eye": 0.0,
+        "neck_base": 0.0,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        0,
+        0
+      ]
+    },
+    {
+      "index": 40,
+      "source": "assets_src/cinematics/ltx25_8gb_wave_20261004/inputs/guide_0040.png",
+      "source_sha256": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+      "source_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.0,
+      "translation": [
+        0.0,
+        0.0
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 0.0,
+      "anchor_residuals_px": {
+        "crown_gem": 0.0,
+        "image_left_eye": 0.0,
+        "image_right_eye": 0.0,
+        "neck_base": 0.0,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        0,
+        0
+      ]
+    }
+  ],
+  "base_frames": [
+    {
+      "index": 0,
+      "source": "results/base_two_pass/refined_frames/0000.png",
+      "source_sha256": "dcea1026c8d422814a6bc8185974ff45697c5fab364290eed2239488859885d1",
+      "source_landmarks": {
+        "crown_gem": [
+          214.67245119305858,
+          81.93709327548807
+        ],
+        "image_left_eye": [
+          172.39344262295083,
+          196.29508196721312
+        ],
+        "image_right_eye": [
+          239.56164383561645,
+          197.76712328767124
+        ],
+        "neck_base": [
+          205.97754322928364,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          452.25
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.003301818066081,
+      "translation": [
+        -0.6091854331919535,
+        -0.7432472203851717
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 0.3249941390370519,
+      "anchor_residuals_px": {
+        "crown_gem": 0.2518774584363191,
+        "image_left_eye": 0.3249941390370519,
+        "image_right_eye": 0.30598525352599565,
+        "neck_base": 0.289731221189329,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.00584961655722,
+        "crown_gem__image_left_eye": 1.0044439686836104,
+        "crown_gem__image_right_eye": 1.0023941298990375,
+        "crown_gem__bodice_waist_tip": 1.000653130731055,
+        "neck_base__bodice_waist_tip": 0.998289894967882
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        0,
+        1
+      ]
+    },
+    {
+      "index": 1,
+      "source": "results/base_two_pass/refined_frames/0001.png",
+      "source_sha256": "9560ec4c57d9547770b753818ec69c7095e7a1435ae8e05a58d9ed4d6c2edd7b",
+      "source_landmarks": {
+        "crown_gem": [
+          214.6803455723542,
+          81.99568034557235
+        ],
+        "image_left_eye": [
+          172.29250457038393,
+          196.27787934186472
+        ],
+        "image_right_eye": [
+          239.63636363636363,
+          197.75471698113208
+        ],
+        "neck_base": [
+          205.96443410337378,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          452.25
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.81722689075633,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201185,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915347,
+          197.70899470899474
+        ],
+        "neck_base": [
+          205.94442879058266,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.00000000000006
+        ]
+      },
+      "uniform_scale": 1.0033319863095536,
+      "translation": [
+        -0.6147514741126372,
+        -0.756890808495541
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 0.3844909264609537,
+      "anchor_residuals_px": {
+        "crown_gem": 0.2034551004443941,
+        "image_left_eye": 0.3473167594285182,
+        "image_right_eye": 0.3844909264609537,
+        "neck_base": 0.2813328265402007,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.0085107426764617,
+        "crown_gem__image_left_eye": 1.0041999922439324,
+        "crown_gem__image_right_eye": 1.0019560052284202,
+        "crown_gem__bodice_waist_tip": 1.0005276729631016,
+        "neck_base__bodice_waist_tip": 0.9983068786553371
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        0,
+        1
+      ]
+    },
+    {
+      "index": 2,
+      "source": "results/base_two_pass/refined_frames/0002.png",
+      "source_sha256": "e46c7059a16b7c49710e1b5c739f216e36c212f0b20a17e947aa9af829739bd9",
+      "source_landmarks": {
+        "crown_gem": [
+          215.0453563714903,
+          82.30453563714903
+        ],
+        "image_left_eye": [
+          172.29281767955803,
+          196.25046040515653
+        ],
+        "image_right_eye": [
+          239.61687170474517,
+          198.2847100175747
+        ],
+        "neck_base": [
+          205.9548446921516,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          183.8,
+          452.2
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.8895463510848
+        ],
+        "image_right_eye": [
+          239.43915343915347,
+          197.70899470899474
+        ],
+        "neck_base": [
+          205.94442879058266,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.0040674584168032,
+      "translation": [
+        -0.047598857008438245,
+        -1.0393046960784318
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 1.1567509560670273,
+      "anchor_residuals_px": {
+        "crown_gem": 1.0611652138844276,
+        "image_left_eye": 0.5105743707444661,
+        "image_right_eye": 1.1567509560670273,
+        "neck_base": 0.827465073779783,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.0091710471831217,
+        "crown_gem__image_left_eye": 1.0033894491632744,
+        "crown_gem__image_right_eye": 1.0038411153874076,
+        "crown_gem__bodice_waist_tip": 1.0005345890037738,
+        "neck_base__bodice_waist_tip": 0.9993998950816132
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        1,
+        1
+      ]
+    },
+    {
+      "index": 3,
+      "source": "results/base_two_pass/refined_frames/0003.png",
+      "source_sha256": "c1187c776d2c34cc3ac84736bf3874b71418154365f9ccd926d466099dca46af",
+      "source_landmarks": {
+        "crown_gem": [
+          215.8269230769231,
+          82.48076923076923
+        ],
+        "image_left_eye": [
+          172.63187855787476,
+          196.44022770398482
+        ],
+        "image_right_eye": [
+          239.4504347826087,
+          198.62260869565216
+        ],
+        "neck_base": [
+          206.04115667024172,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.0021321399727898,
+      "translation": [
+        -0.3933798249797178,
+        -0.9658594076738041
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 1.0767025483902435,
+      "anchor_residuals_px": {
+        "crown_gem": 1.0767025483902435,
+        "image_left_eye": 0.15691261061019637,
+        "image_right_eye": 0.39283727960545206,
+        "neck_base": 0.3424235650595538,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9997399930784274,
+        "crown_gem__image_left_eye": 1.0028444983007532,
+        "crown_gem__image_right_eye": 1.001615244572005,
+        "crown_gem__bodice_waist_tip": 1.0002966026064997,
+        "neck_base__bodice_waist_tip": 1.002227809448405
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        0,
+        0
+      ]
+    },
+    {
+      "index": 4,
+      "source": "results/base_two_pass/refined_frames/0004.png",
+      "source_sha256": "f8ce81c1e3543be0d211da033e6c4de839b51a2ccedeb4e5c7447738863bd1de",
+      "source_landmarks": {
+        "crown_gem": [
+          217.26143790849673,
+          82.63180827886711
+        ],
+        "image_left_eye": [
+          173.51,
+          196.678
+        ],
+        "image_right_eye": [
+          239.43607705779334,
+          199.41506129597198
+        ],
+        "neck_base": [
+          206.47303852889667,
+          308.0
+        ],
+        "bodice_waist_tip": [
+          183.6,
+          451.8
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.49896591970122,
+          83.76453081232495
+        ],
+        "image_left_eye": [
+          171.0865130405955,
+          197.7446668254605
+        ],
+        "image_right_eye": [
+          237.59632414369258,
+          200.21990392648286
+        ],
+        "neck_base": [
+          204.34141859214404,
+          308.83333333333337
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9996533049938293,
+      "translation": [
+        0.9636532031329352,
+        1.3566368037879215
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 3.6560199973260197,
+      "anchor_residuals_px": {
+        "crown_gem": 3.6560199973260197,
+        "image_left_eye": 3.334369130835791,
+        "image_right_eye": 2.762880148950624,
+        "neck_base": 3.0522436189636757,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9910472128086097,
+        "crown_gem__image_left_eye": 1.001151036577388,
+        "crown_gem__image_right_eye": 1.000883057651202,
+        "crown_gem__bodice_waist_tip": 1.00032132682821,
+        "neck_base__bodice_waist_tip": 1.0002173696117145
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        1,
+        1
+      ]
+    },
+    {
+      "index": 5,
+      "source": "results/base_two_pass/refined_frames/0005.png",
+      "source_sha256": "cb6a67e4bacab4dca3cf56940efdd71d872ca8645b239251495be61bffb4f540",
+      "source_landmarks": {
+        "crown_gem": [
+          218.48283752860414,
+          83.62929061784897
+        ],
+        "image_left_eye": [
+          173.5071283095723,
+          197.49490835030548
+        ],
+        "image_right_eye": [
+          238.91666666666666,
+          200.78546099290782
+        ],
+        "neck_base": [
+          206.21189748811946,
+          309.0
+        ],
+        "bodice_waist_tip": [
+          185.25,
+          454.125
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.1807049486461,
+          85.8168767507003
+        ],
+        "image_left_eye": [
+          169.7233219391792,
+          199.59978729983624
+        ],
+        "image_right_eye": [
+          235.7534948482317,
+          202.73081314397103
+        ],
+        "neck_base": [
+          202.73840839370544,
+          310.6666666666667
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9880238198683269,
+      "translation": [
+        1.468587369392452,
+        4.313682802296057
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 3.34859983377754,
+      "anchor_residuals_px": {
+        "crown_gem": 3.34859983377754,
+        "image_left_eye": 3.1782930927351263,
+        "image_right_eye": 1.77082249651502,
+        "neck_base": 2.687584407344803,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.978874964069381,
+        "crown_gem__image_left_eye": 0.9901793119364856,
+        "crown_gem__image_right_eye": 0.9883332954873273,
+        "crown_gem__bodice_waist_tip": 0.9976857704064263,
+        "neck_base__bodice_waist_tip": 1.0096021317794954
+      },
+      "pass": true,
+      "scaled_canvas": [
+        567,
+        819
+      ],
+      "raster_uniform_scale": 0.984375,
+      "placement": [
+        2,
+        6
+      ]
+    },
+    {
+      "index": 6,
+      "source": "results/base_two_pass/refined_frames/0006.png",
+      "source_sha256": "4a10be107b7858d4f30524da865d461c7dc8a54e1ee3edf06eb8f2195c9b9501",
+      "source_landmarks": {
+        "crown_gem": [
+          219.75229357798165,
+          84.98165137614679
+        ],
+        "image_left_eye": [
+          174.2312373225152,
+          198.4847870182556
+        ],
+        "image_right_eye": [
+          239.0494699646643,
+          202.53180212014132
+        ],
+        "neck_base": [
+          206.64035364358975,
+          309.0
+        ],
+        "bodice_waist_tip": [
+          185.6,
+          455.1
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          213.86244397759103,
+          87.86922268907566
+        ],
+        "image_left_eye": [
+          168.36013083776285,
+          201.45490777421193
+        ],
+        "image_right_eye": [
+          233.9106655527708,
+          205.24172236145924
+        ],
+        "neck_base": [
+          201.13539819526684,
+          312.5
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9808662865170252,
+      "translation": [
+        2.4512172224401354,
+        6.607753006101802
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 4.991202115633835,
+      "anchor_residuals_px": {
+        "crown_gem": 4.63629736059119,
+        "image_left_eye": 4.991202115633835,
+        "image_right_eye": 3.0162025930720553,
+        "neck_base": 4.887186333092084,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9701795901180112,
+        "crown_gem__image_left_eye": 0.9803079601056592,
+        "crown_gem__image_right_eye": 0.9812876505159476,
+        "crown_gem__bodice_waist_tip": 0.9952755418697554,
+        "neck_base__bodice_waist_tip": 1.0233359023146669
+      },
+      "pass": true,
+      "scaled_canvas": [
+        567,
+        819
+      ],
+      "raster_uniform_scale": 0.984375,
+      "placement": [
+        2,
+        5
+      ]
+    },
+    {
+      "index": 7,
+      "source": "results/base_two_pass/refined_frames/0007.png",
+      "source_sha256": "d8de52212270e73fdbae225f8b07e4d6b8ddcbf9000ed6f0fc295940071df3fa",
+      "source_landmarks": {
+        "crown_gem": [
+          219.54352941176472,
+          87.03294117647059
+        ],
+        "image_left_eye": [
+          173.1875,
+          200.4516129032258
+        ],
+        "image_right_eye": [
+          238.61861313868613,
+          205.1824817518248
+        ],
+        "neck_base": [
+          205.90305656934305,
+          311.0
+        ],
+        "bodice_waist_tip": [
+          185.0,
+          457.25
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          213.54418300653595,
+          89.92156862745102
+        ],
+        "image_left_eye": [
+          166.99693973634652,
+          203.31002824858763
+        ],
+        "image_right_eye": [
+          232.06783625730995,
+          207.7526315789474
+        ],
+        "neck_base": [
+          199.53238799682825,
+          314.33333333333337
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9731135903438721,
+      "translation": [
+        4.4739857863836505,
+        8.043810815264465
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 6.443066600701281,
+      "anchor_residuals_px": {
+        "crown_gem": 5.368014221600852,
+        "image_left_eye": 6.011619246710443,
+        "image_right_eye": 4.609365077827921,
+        "neck_base": 6.443066600701281,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9787763406599067,
+        "crown_gem__image_left_eye": 0.9727601257055198,
+        "crown_gem__image_right_eye": 0.9763873303562254,
+        "crown_gem__bodice_waist_tip": 0.9933829661521979,
+        "neck_base__bodice_waist_tip": 1.030721901281206
+      },
+      "pass": false,
+      "scaled_canvas": [
+        558,
+        806
+      ],
+      "raster_uniform_scale": 0.96875,
+      "placement": [
+        5,
+        10
+      ]
+    },
+    {
+      "index": 8,
+      "source": "results/base_two_pass/refined_frames/0008.png",
+      "source_sha256": "077b6210f16e52b5293a97750a020cb4e20de104682c5d6649f1112fb6b52a9e",
+      "source_landmarks": {
+        "crown_gem": [
+          220.49769585253455,
+          88.34792626728111
+        ],
+        "image_left_eye": [
+          173.57236842105263,
+          202.234649122807
+        ],
+        "image_right_eye": [
+          238.90057361376674,
+          206.87571701720842
+        ],
+        "neck_base": [
+          206.23647101740968,
+          312.0
+        ],
+        "bodice_waist_tip": [
+          184.25,
+          458.125
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          215.47062890341323,
+          89.9941031227306
+        ],
+        "image_left_eye": [
+          168.62530244287382,
+          203.28866105125923
+        ],
+        "image_right_eye": [
+          233.70977990430623,
+          207.76755023923448
+        ],
+        "neck_base": [
+          201.16754117359005,
+          314.14000000000004
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9752792156934162,
+      "translation": [
+        4.804804508488047,
+        6.200209310453658
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 6.012200087227879,
+      "anchor_residuals_px": {
+        "crown_gem": 4.9809670626911355,
+        "image_left_eye": 5.462998096431898,
+        "image_right_eye": 4.094398965813981,
+        "neck_base": 6.012200087227879,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9790830703639387,
+        "crown_gem__image_left_eye": 0.97987643518726,
+        "crown_gem__image_right_eye": 0.9815847345983942,
+        "crown_gem__bodice_waist_tip": 0.9946195610838319,
+        "neck_base__bodice_waist_tip": 1.0304604647064797
+      },
+      "pass": false,
+      "scaled_canvas": [
+        558,
+        806
+      ],
+      "raster_uniform_scale": 0.96875,
+      "placement": [
+        6,
+        9
+      ]
+    },
+    {
+      "index": 9,
+      "pass": false,
+      "status": "MANUAL_ANCHORS_REQUIRED"
+    },
+    {
+      "index": 10,
+      "source": "results/base_two_pass/refined_frames/0010.png",
+      "source_sha256": "52ea9a571949d7c9bd42ba58b57a29a24bed9dcfa57bedf30f0da060cde5ee1f",
+      "source_landmarks": {
+        "crown_gem": [
+          224.8158508158508,
+          89.44055944055944
+        ],
+        "image_left_eye": [
+          177.6,
+          206.47671232876712
+        ],
+        "image_right_eye": [
+          240.8203125,
+          209.029296875
+        ],
+        "neck_base": [
+          209.21015625,
+          313.0
+        ],
+        "bodice_waist_tip": [
+          184.83333333333331,
+          457.91666666666663
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          219.32352069716774,
+          90.13917211328979
+        ],
+        "image_left_eye": [
+          171.88202785592838,
+          203.24592665660242
+        ],
+        "image_right_eye": [
+          236.99366719829877,
+          207.79738755980858
+        ],
+        "neck_base": [
+          204.43784752711358,
+          313.75333333333333
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9836320656826805,
+      "translation": [
+        2.6920065263179254,
+        2.578483256139293
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 6.015536757727232,
+      "anchor_residuals_px": {
+        "crown_gem": 4.523725773433504,
+        "image_left_eye": 6.015536757727232,
+        "image_right_eye": 2.606118406695837,
+        "neck_base": 5.215199762865347,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9535114740772386,
+        "crown_gem__image_left_eye": 1.012086553569431,
+        "crown_gem__image_right_eye": 0.9974983462281111,
+        "crown_gem__bodice_waist_tip": 1.0001217424817408,
+        "neck_base__bodice_waist_tip": 1.0275863802571366
+      },
+      "pass": false,
+      "scaled_canvas": [
+        567,
+        819
+      ],
+      "raster_uniform_scale": 0.984375,
+      "placement": [
+        3,
+        2
+      ]
+    },
+    {
+      "index": 11,
+      "source": "results/base_two_pass/refined_frames/0011.png",
+      "source_sha256": "ab20ba21c0372609935d5548ee03683cb0f24877ad0f6a06513691c1117f96a5",
+      "source_landmarks": {
+        "crown_gem": [
+          226.43764705882353,
+          89.26352941176471
+        ],
+        "image_left_eye": [
+          178.7875,
+          203.56041666666667
+        ],
+        "image_right_eye": [
+          242.9134438305709,
+          207.97053406998157
+        ],
+        "neck_base": [
+          210.85047191528545,
+          312.0
+        ],
+        "bodice_waist_tip": [
+          185.36842105263156,
+          455.8421052631579
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          221.24996659404502,
+          90.21170660856936
+        ],
+        "image_left_eye": [
+          173.5103905624557,
+          203.22455945927402
+        ],
+        "image_right_eye": [
+          238.63561084529505,
+          207.8123062200957
+        ],
+        "neck_base": [
+          206.07300070387538,
+          313.56
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9868308722903911,
+      "translation": [
+        1.5727193575390856,
+        3.160937636469555
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 4.568828223671489,
+      "anchor_residuals_px": {
+        "crown_gem": 3.9181973770715044,
+        "image_left_eye": 4.568828223671489,
+        "image_right_eye": 2.7143667376069045,
+        "neck_base": 4.365653122882016,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9715764573673209,
+        "crown_gem__image_left_eye": 0.996076382294021,
+        "crown_gem__image_right_eye": 0.9948510414538004,
+        "crown_gem__bodice_waist_tip": 0.9982705053665684,
+        "neck_base__bodice_waist_tip": 1.0216803893367017
+      },
+      "pass": true,
+      "scaled_canvas": [
+        567,
+        819
+      ],
+      "raster_uniform_scale": 0.984375,
+      "placement": [
+        2,
+        4
+      ]
+    },
+    {
+      "index": 12,
+      "source": "results/base_two_pass/refined_frames/0012.png",
+      "source_sha256": "4c7fa2dcbfa83e93ae3de590754cf11ccb2d1e13f981adb422a38b165b7d0c6a",
+      "source_landmarks": {
+        "crown_gem": [
+          228.99278846153845,
+          88.9735576923077
+        ],
+        "image_left_eye": [
+          181.1953125,
+          202.525390625
+        ],
+        "image_right_eye": [
+          245.81578947368422,
+          206.80701754385964
+        ],
+        "neck_base": [
+          213.5055509868421,
+          311.0
+        ],
+        "bodice_waist_tip": [
+          185.46666666666667,
+          454.73333333333335
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          223.1764124909223,
+          90.28424110384896
+        ],
+        "image_left_eye": [
+          175.13875326898298,
+          203.20319226194562
+        ],
+        "image_right_eye": [
+          240.27755449229136,
+          207.82722488038277
+        ],
+        "neck_base": [
+          207.70815388063716,
+          313.3666666666667
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9874267274231655,
+      "translation": [
+        1.3652562872502472,
+        3.9841528164391775
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 5.199433634972174,
+      "anchor_residuals_px": {
+        "crown_gem": 4.574752770523852,
+        "image_left_eye": 5.199433634972174,
+        "image_right_eye": 3.830090096713132,
+        "neck_base": 5.031016208925209,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9792531827443118,
+        "crown_gem__image_left_eye": 0.9913634976344695,
+        "crown_gem__image_right_eye": 0.9894869261465984,
+        "crown_gem__bodice_waist_tip": 0.9970866906314717,
+        "neck_base__bodice_waist_tip": 1.0215650260799947
+      },
+      "pass": true,
+      "scaled_canvas": [
+        567,
+        819
+      ],
+      "raster_uniform_scale": 0.984375,
+      "placement": [
+        2,
+        5
+      ]
+    },
+    {
+      "index": 13,
+      "source": "results/base_two_pass/refined_frames/0013.png",
+      "source_sha256": "1f5c7d305b05a5881fbccd5f78cc71764c43fa58c926e0bd9c279f2f6a543cbe",
+      "source_landmarks": {
+        "crown_gem": [
+          231.54342431761788,
+          88.80645161290323
+        ],
+        "image_left_eye": [
+          183.86832061068702,
+          202.0
+        ],
+        "image_right_eye": [
+          248.95950704225353,
+          205.94894366197184
+        ],
+        "neck_base": [
+          216.41391382647026,
+          310.0
+        ],
+        "bodice_waist_tip": [
+          184.0,
+          453.66666666666663
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          225.10285838779959,
+          90.35677559912855
+        ],
+        "image_left_eye": [
+          176.76711597551025,
+          203.18182506461721
+        ],
+        "image_right_eye": [
+          241.9194981392876,
+          207.84214354066984
+        ],
+        "neck_base": [
+          209.34330705739893,
+          313.1733333333333
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9876778373641721,
+      "translation": [
+        2.767277924992328,
+        4.923487782453947
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 7.7053197815363745,
+      "anchor_residuals_px": {
+        "crown_gem": 6.750988558011558,
+        "image_left_eye": 7.7053197815363745,
+        "image_right_eye": 6.757542030538007,
+        "neck_base": 7.463899396716005,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9860450665872457,
+        "crown_gem__image_left_eye": 0.9883285799417023,
+        "crown_gem__image_right_eye": 0.9855745447522519,
+        "crown_gem__bodice_waist_tip": 0.9958941218761013,
+        "neck_base__bodice_waist_tip": 1.024268964233737
+      },
+      "pass": false,
+      "scaled_canvas": [
+        567,
+        819
+      ],
+      "raster_uniform_scale": 0.984375,
+      "placement": [
+        3,
+        6
+      ]
+    },
+    {
+      "index": 14,
+      "source": "results/base_two_pass/refined_frames/0014.png",
+      "source_sha256": "9d6d2718b2fc788b34bd7612afaa22c0a4b29eb3716ef4d32b8fdfce9f7f468a",
+      "source_landmarks": {
+        "crown_gem": [
+          233.8325,
+          88.2175
+        ],
+        "image_left_eye": [
+          185.73502722323047,
+          201.1143375680581
+        ],
+        "image_right_eye": [
+          250.92146596858638,
+          205.79930191972076
+        ],
+        "neck_base": [
+          218.3282465959084,
+          310.0
+        ],
+        "bodice_waist_tip": [
+          184.0,
+          452.66666666666663
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          227.02930428467684,
+          90.42931009440812
+        ],
+        "image_left_eye": [
+          178.39547868203755,
+          203.1604578672888
+        ],
+        "image_right_eye": [
+          243.56144178628392,
+          207.85706220095693
+        ],
+        "neck_base": [
+          210.9784602341607,
+          312.98
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9891722754033606,
+      "translation": [
+        2.4923013257816535,
+        5.234683334078795
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 7.8858319296026815,
+      "anchor_residuals_px": {
+        "crown_gem": 7.072615639791426,
+        "image_left_eye": 7.8858319296026815,
+        "image_right_eye": 7.198193437208488,
+        "neck_base": 7.558838005017617,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9894688263558458,
+        "crown_gem__image_left_eye": 0.9886964647410973,
+        "crown_gem__image_right_eye": 0.9911021019695845,
+        "crown_gem__bodice_waist_tip": 0.9967153320059053,
+        "neck_base__bodice_waist_tip": 1.0185830056757859
+      },
+      "pass": false,
+      "scaled_canvas": [
+        567,
+        819
+      ],
+      "raster_uniform_scale": 0.984375,
+      "placement": [
+        3,
+        7
+      ]
+    },
+    {
+      "index": 15,
+      "source": "results/base_two_pass/refined_frames/0015.png",
+      "source_sha256": "4f699582650f442719269145fc020e77677b804d4112255a5a0fcd13ff7f3681",
+      "source_landmarks": {
+        "crown_gem": [
+          235.33660933660934,
+          88.28009828009829
+        ],
+        "image_left_eye": [
+          186.8782287822878,
+          200.59594095940957
+        ],
+        "image_right_eye": [
+          252.28231292517006,
+          205.19897959183675
+        ],
+        "neck_base": [
+          219.58027085372893,
+          309.0
+        ],
+        "bodice_waist_tip": [
+          183.30769230769232,
+          450.9230769230769
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          228.95575018155412,
+          90.5018445896877
+        ],
+        "image_left_eye": [
+          180.02384138856488,
+          203.1390906699604
+        ],
+        "image_right_eye": [
+          245.20338543328018,
+          207.87198086124403
+        ],
+        "neck_base": [
+          212.61361341092254,
+          312.78666666666663
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9934827894017767,
+      "translation": [
+        2.3869625273512156,
+        5.015683732829643
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 8.107592790497261,
+      "anchor_residuals_px": {
+        "crown_gem": 7.566646400333753,
+        "image_left_eye": 8.107592790497261,
+        "image_right_eye": 7.886059778259329,
+        "neck_base": 7.961344974051724,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9967468335283295,
+        "crown_gem__image_left_eye": 0.9895747569757917,
+        "crown_gem__image_right_eye": 0.9905576712593841,
+        "crown_gem__bodice_waist_tip": 0.9965903061506437,
+        "neck_base__bodice_waist_tip": 1.01766597960638
+      },
+      "pass": false,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        1,
+        2
+      ]
+    },
+    {
+      "index": 16,
+      "source": "results/base_two_pass/refined_frames/0016.png",
+      "source_sha256": "73eb0148b6af9645c933440090e347902d0617734478871d46c4108d239bcdc4",
+      "source_landmarks": {
+        "crown_gem": [
+          234.93601895734596,
+          88.3601895734597
+        ],
+        "image_left_eye": [
+          185.42379182156134,
+          200.59479553903344
+        ],
+        "image_right_eye": [
+          250.5456,
+          205.144
+        ],
+        "neck_base": [
+          217.98469591078066,
+          310.0
+        ],
+        "bodice_waist_tip": [
+          181.71428571428572,
+          450.57142857142856
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          230.88219607843138,
+          90.5743790849673
+        ],
+        "image_left_eye": [
+          181.65220409509215,
+          203.117723472632
+        ],
+        "image_right_eye": [
+          246.84532908027646,
+          207.88689952153106
+        ],
+        "neck_base": [
+          214.24876658768432,
+          312.5933333333333
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9960451572607751,
+      "translation": [
+        3.504365709184839,
+        4.21051057135935
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 6.830558797852085,
+      "anchor_residuals_px": {
+        "crown_gem": 6.830558797852085,
+        "image_left_eye": 6.603463563793305,
+        "image_right_eye": 6.248331226929148,
+        "neck_base": 6.390184023820976,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9947221563393551,
+        "crown_gem__image_left_eye": 0.9946735724230921,
+        "crown_gem__image_right_eye": 0.9912394724928174,
+        "crown_gem__bodice_waist_tip": 0.9980050329175457,
+        "neck_base__bodice_waist_tip": 1.007507954351691
+      },
+      "pass": false,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        3,
+        2
+      ]
+    },
+    {
+      "index": 17,
+      "source": "results/base_two_pass/refined_frames/0017.png",
+      "source_sha256": "b990d7b48ab1a9663a763a2d7eb0184f742263af05bfa7b3d99b496007149c1c",
+      "source_landmarks": {
+        "crown_gem": [
+          232.13429256594725,
+          87.88489208633094
+        ],
+        "image_left_eye": [
+          181.86452762923352,
+          200.81283422459893
+        ],
+        "image_right_eye": [
+          246.87675507020282,
+          205.81747269890798
+        ],
+        "neck_base": [
+          214.37064134971817,
+          311.0
+        ],
+        "bodice_waist_tip": [
+          178.625,
+          452.75
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          232.80864197530866,
+          90.64691358024689
+        ],
+        "image_left_eye": [
+          183.28056680161944,
+          203.0963562753036
+        ],
+        "image_right_eye": [
+          248.48727272727274,
+          207.90181818181816
+        ],
+        "neck_base": [
+          215.8839197644461,
+          312.4
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9902800718450904,
+      "translation": [
+        7.6112221666707285,
+        4.6506974721353345
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 4.793491593014538,
+      "anchor_residuals_px": {
+        "crown_gem": 4.793491593014538,
+        "image_left_eye": 4.446906890207592,
+        "image_right_eye": 3.645261561612348,
+        "neck_base": 4.020734849647869,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.987569503934973,
+        "crown_gem__image_left_eye": 0.9962264328015974,
+        "crown_gem__image_right_eye": 0.9949007186184462,
+        "crown_gem__bodice_waist_tip": 0.9989725332073037,
+        "neck_base__bodice_waist_tip": 1.004904692767079
+      },
+      "pass": true,
+      "scaled_canvas": [
+        567,
+        819
+      ],
+      "raster_uniform_scale": 0.984375,
+      "placement": [
+        9,
+        7
+      ]
+    },
+    {
+      "index": 18,
+      "source": "results/base_two_pass/refined_frames/0018.png",
+      "source_sha256": "e21aa634f9c8809fe362be73c69054400bc15a038cebc00b8110c8ce27823176",
+      "source_landmarks": {
+        "crown_gem": [
+          226.20338983050846,
+          88.0314769975787
+        ],
+        "image_left_eye": [
+          176.31046931407943,
+          201.72021660649818
+        ],
+        "image_right_eye": [
+          241.78164556962025,
+          207.11075949367088
+        ],
+        "neck_base": [
+          209.04605744184983,
+          312.0
+        ],
+        "bodice_waist_tip": [
+          174.0,
+          455.73333333333335
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          231.10847871235725,
+          89.85329698857734
+        ],
+        "image_left_eye": [
+          182.07665238087174,
+          202.61123947622514
+        ],
+        "image_right_eye": [
+          247.23357923832924,
+          207.07933906633906
+        ],
+        "neck_base": [
+          214.65511580960052,
+          312.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.00000000000006
+        ]
+      },
+      "uniform_scale": 0.9846027833945022,
+      "translation": [
+        13.179115689356621,
+        4.2836915143455485
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 4.917221024437305,
+      "anchor_residuals_px": {
+        "crown_gem": 4.917221024437305,
+        "image_left_eye": 4.706983991984251,
+        "image_right_eye": 4.159765407694865,
+        "neck_base": 4.382319200939807,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9903733600975334,
+        "crown_gem__image_left_eye": 0.9941933732243001,
+        "crown_gem__image_right_eye": 0.9992812172872747,
+        "crown_gem__bodice_waist_tip": 0.9987578771800981,
+        "neck_base__bodice_waist_tip": 1.0102489540823665
+      },
+      "pass": true,
+      "scaled_canvas": [
+        567,
+        819
+      ],
+      "raster_uniform_scale": 0.984375,
+      "placement": [
+        13,
+        4
+      ]
+    },
+    {
+      "index": 19,
+      "source": "results/base_two_pass/refined_frames/0019.png",
+      "source_sha256": "8a9e54e7f597669a93748d588c5b8b1e76e9625012b22ff16b4090344dde29dd",
+      "source_landmarks": {
+        "crown_gem": [
+          220.03981264637002,
+          89.08665105386416
+        ],
+        "image_left_eye": [
+          169.77148080438758,
+          203.13711151736746
+        ],
+        "image_right_eye": [
+          235.81648522550546,
+          208.76982892690512
+        ],
+        "neck_base": [
+          202.79398301494652,
+          313.0
+        ],
+        "bodice_waist_tip": [
+          168.8,
+          459.73333333333335
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          229.40831544940582,
+          89.0596803969078
+        ],
+        "image_left_eye": [
+          180.872737960124,
+          202.12612267714664
+        ],
+        "image_right_eye": [
+          245.97988574938577,
+          206.2568599508599
+        ],
+        "neck_base": [
+          213.42631185475489,
+          311.59999999999997
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9774736412269912,
+      "translation": [
+        19.502449360883872,
+        3.6227846732445528
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 5.431688045122068,
+      "anchor_residuals_px": {
+        "crown_gem": 5.431688045122068,
+        "image_left_eye": 4.577224305621366,
+        "image_right_eye": 4.2743082283074125,
+        "neck_base": 4.755951906810389,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9931567083156088,
+        "crown_gem__image_left_eye": 0.9901329536119082,
+        "crown_gem__image_right_eye": 0.996926486283738,
+        "crown_gem__bodice_waist_tip": 0.9973886702899712,
+        "neck_base__bodice_waist_tip": 1.0200810571495396
+      },
+      "pass": true,
+      "scaled_canvas": [
+        567,
+        819
+      ],
+      "raster_uniform_scale": 0.984375,
+      "placement": [
+        18,
+        0
+      ]
+    },
+    {
+      "index": 20,
+      "source": "results/base_two_pass/refined_frames/0020.png",
+      "source_sha256": "ffe40c1d39828a5eb759f25ebd877e0264673ef35d6ffb04443e9d0e18b53243",
+      "source_landmarks": {
+        "crown_gem": [
+          213.42342342342343,
+          90.21846846846847
+        ],
+        "image_left_eye": [
+          162.5897435897436,
+          205.5201465201465
+        ],
+        "image_right_eye": [
+          228.9078341013825,
+          211.12442396313364
+        ],
+        "neck_base": [
+          195.74878884556304,
+          316.0
+        ],
+        "bodice_waist_tip": [
+          164.0,
+          464.73333333333335
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          227.70815218645438,
+          88.26606380523825
+        ],
+        "image_left_eye": [
+          179.6688235393763,
+          201.64100587806817
+        ],
+        "image_right_eye": [
+          244.72619226044228,
+          205.4343808353808
+        ],
+        "neck_base": [
+          212.19750789990928,
+          311.2
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9701625260740658,
+      "translation": [
+        25.3933457238532,
+        2.133135382512478
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 4.941209990501936,
+      "anchor_residuals_px": {
+        "crown_gem": 4.941209990501936,
+        "image_left_eye": 3.4650744761789456,
+        "image_right_eye": 3.139526263824619,
+        "neck_base": 3.9827411511272435,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.99080501496025,
+        "crown_gem__image_left_eye": 0.9928336299532555,
+        "crown_gem__image_right_eye": 0.9988067227047034,
+        "crown_gem__bodice_waist_tip": 0.9978384688535488,
+        "neck_base__bodice_waist_tip": 1.0212252543006217
+      },
+      "pass": true,
+      "scaled_canvas": [
+        558,
+        806
+      ],
+      "raster_uniform_scale": 0.96875,
+      "placement": [
+        26,
+        3
+      ]
+    },
+    {
+      "index": 21,
+      "source": "results/base_two_pass/refined_frames/0021.png",
+      "source_sha256": "23e65f0a21f9ac08dd4a6f0e8eefb28a893b6e650f7ce8e3a1c7b9f8bf3e90aa",
+      "source_landmarks": {
+        "crown_gem": [
+          207.2087912087912,
+          90.86813186813187
+        ],
+        "image_left_eye": [
+          155.21964285714284,
+          207.00535714285712
+        ],
+        "image_right_eye": [
+          220.97932053175776,
+          212.54948301329392
+        ],
+        "neck_base": [
+          188.0994816944503,
+          318.0
+        ],
+        "bodice_waist_tip": [
+          160.5,
+          469.66666666666663
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          226.00798892350298,
+          87.47244721356869
+        ],
+        "image_left_eye": [
+          178.46490911862855,
+          201.15588907898967
+        ],
+        "image_right_eye": [
+          243.4724987714988,
+          204.61190171990168
+        ],
+        "neck_base": [
+          210.96870394506368,
+          310.79999999999995
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9613596554599815,
+      "translation": [
+        30.20177529867297,
+        1.4814151522954262
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 3.660366400991626,
+      "anchor_residuals_px": {
+        "crown_gem": 3.660366400991626,
+        "image_left_eye": 1.1684580882276612,
+        "image_right_eye": 1.4640909271591054,
+        "neck_base": 3.606788043759854,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.974555690948716,
+        "crown_gem__image_left_eye": 0.9927093505209241,
+        "crown_gem__image_right_eye": 0.9940223533962613,
+        "crown_gem__bodice_waist_tip": 0.9973984064520214,
+        "neck_base__bodice_waist_tip": 1.0246006105594587
+      },
+      "pass": true,
+      "scaled_canvas": [
+        558,
+        806
+      ],
+      "raster_uniform_scale": 0.96875,
+      "placement": [
+        29,
+        -2
+      ]
+    },
+    {
+      "index": 22,
+      "source": "results/base_two_pass/refined_frames/0022.png",
+      "source_sha256": "815c05903943fc851e3d53e8cb74eedea1c294e9b88e120685575128a21352e5",
+      "source_landmarks": {
+        "crown_gem": [
+          203.20581655480984,
+          90.44295302013423
+        ],
+        "image_left_eye": [
+          151.51179673321235,
+          206.994555353902
+        ],
+        "image_right_eye": [
+          216.46397694524495,
+          212.62680115273776
+        ],
+        "neck_base": [
+          183.98788683922865,
+          319.0
+        ],
+        "bodice_waist_tip": [
+          159.45454545454544,
+          470.5454545454545
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          224.30782566055154,
+          86.67883062189914
+        ],
+        "image_left_eye": [
+          177.26099469788085,
+          200.6707722799112
+        ],
+        "image_right_eye": [
+          242.2188052825553,
+          203.78942260442258
+        ],
+        "neck_base": [
+          209.73989999021808,
+          310.4
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.961462895984963,
+      "translation": [
+        31.19037094930681,
+        0.5880045801665119
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 3.5174133568929626,
+      "anchor_residuals_px": {
+        "crown_gem": 2.418066507835198,
+        "image_left_eye": 1.1369884609476697,
+        "image_right_eye": 3.15644346188022,
+        "neck_base": 3.5174133568929626,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9638769985077947,
+        "crown_gem__image_left_eye": 0.9940696624671456,
+        "crown_gem__image_right_eye": 0.9974042794988843,
+        "crown_gem__bodice_waist_tip": 0.998343611412161,
+        "neck_base__bodice_waist_tip": 1.0192367572232712
+      },
+      "pass": false,
+      "scaled_canvas": [
+        558,
+        806
+      ],
+      "raster_uniform_scale": 0.96875,
+      "placement": [
+        30,
+        -3
+      ]
+    },
+    {
+      "index": 23,
+      "source": "results/base_two_pass/refined_frames/0023.png",
+      "source_sha256": "77b08cb0ae86d1a8effd5adac00f3cecbeb4301c7545e14358af2099afd35653",
+      "source_landmarks": {
+        "crown_gem": [
+          201.23660714285714,
+          88.484375
+        ],
+        "image_left_eye": [
+          151.5912408759124,
+          205.62408759124088
+        ],
+        "image_right_eye": [
+          216.27299703264094,
+          210.2373887240356
+        ],
+        "neck_base": [
+          183.9321189542767,
+          317.0
+        ],
+        "bodice_waist_tip": [
+          161.21428571428572,
+          468.7857142857143
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          222.60766239760014,
+          85.88521403022959
+        ],
+        "image_left_eye": [
+          176.05708027713314,
+          200.18565548083274
+        ],
+        "image_right_eye": [
+          240.96511179361184,
+          202.96694348894346
+        ],
+        "neck_base": [
+          208.5110960353725,
+          310.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.00000000000006
+        ]
+      },
+      "uniform_scale": 0.9635799762402132,
+      "translation": [
+        29.15714240184562,
+        1.2874725668200995
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 3.887105493861598,
+      "anchor_residuals_px": {
+        "crown_gem": 0.8061183255214907,
+        "image_left_eye": 1.1271142244009213,
+        "image_right_eye": 3.5286271783832848,
+        "neck_base": 3.887105493861598,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9617775094712354,
+        "crown_gem__image_left_eye": 0.9933231215046932,
+        "crown_gem__image_right_eye": 0.9974510229066345,
+        "crown_gem__bodice_waist_tip": 0.9983393602431554,
+        "neck_base__bodice_waist_tip": 1.0198958961785989
+      },
+      "pass": false,
+      "scaled_canvas": [
+        558,
+        806
+      ],
+      "raster_uniform_scale": 0.96875,
+      "placement": [
+        28,
+        -1
+      ]
+    },
+    {
+      "index": 24,
+      "source": "results/base_two_pass/refined_frames/0024.png",
+      "source_sha256": "a97bbb07e48b8d1b8785e50a8ce1fb47a121ec0e26a85a998c0fd4ba02a29df0",
+      "source_landmarks": {
+        "crown_gem": [
+          201.6792873051225,
+          86.32516703786192
+        ],
+        "image_left_eye": [
+          153.36964980544747,
+          202.80739299610894
+        ],
+        "image_right_eye": [
+          217.60029717682022,
+          206.79346210995544
+        ],
+        "neck_base": [
+          185.48497349113384,
+          313.0
+        ],
+        "bodice_waist_tip": [
+          164.875,
+          464.8125
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          220.90749913464867,
+          85.09159743856004
+        ],
+        "image_left_eye": [
+          174.85316585638543,
+          199.70053868175427
+        ],
+        "image_right_eye": [
+          239.7114183046683,
+          202.14446437346436
+        ],
+        "neck_base": [
+          207.28229208052687,
+          309.59999999999997
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9697252382953953,
+      "translation": [
+        24.61655133604671,
+        2.259587674821603
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 4.731193457176467,
+      "anchor_residuals_px": {
+        "crown_gem": 1.1351570418192203,
+        "image_left_eye": 1.6967600136223797,
+        "image_right_eye": 4.133470135305683,
+        "neck_base": 4.731193457176467,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9615067639049568,
+        "crown_gem__image_left_eye": 0.9900343758383467,
+        "crown_gem__image_right_eye": 0.9939547463627073,
+        "crown_gem__bodice_waist_tip": 0.9974424865698739,
+        "neck_base__bodice_waist_tip": 1.023198613898882
+      },
+      "pass": false,
+      "scaled_canvas": [
+        558,
+        806
+      ],
+      "raster_uniform_scale": 0.96875,
+      "placement": [
+        25,
+        3
+      ]
+    },
+    {
+      "index": 25,
+      "source": "results/base_two_pass/refined_frames/0025.png",
+      "source_sha256": "4481c8f4337a99ba42b65689ba671b49a85e2f62ca4f2f761c8d4fcb0058cb28",
+      "source_landmarks": {
+        "crown_gem": [
+          204.2433628318584,
+          83.67699115044248
+        ],
+        "image_left_eye": [
+          157.10450819672133,
+          200.16803278688525
+        ],
+        "image_right_eye": [
+          221.50597014925373,
+          203.58805970149254
+        ],
+        "neck_base": [
+          189.3052391729875,
+          310.0
+        ],
+        "bodice_waist_tip": [
+          169.625,
+          460.75
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          219.20733587169727,
+          84.29798084689048
+        ],
+        "image_left_eye": [
+          173.64925143563772,
+          199.21542188267574
+        ],
+        "image_right_eye": [
+          238.45772481572484,
+          201.32198525798523
+        ],
+        "neck_base": [
+          206.05348812568127,
+          309.2
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9760730405685076,
+      "translation": [
+        18.933610493566903,
+        3.274346558060131
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 4.082976981815832,
+      "anchor_residuals_px": {
+        "crown_gem": 1.1249447940853943,
+        "image_left_eye": 1.4811179084226476,
+        "image_right_eye": 3.38491404858558,
+        "neck_base": 4.082976981815832,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9707970958209278,
+        "crown_gem__image_left_eye": 0.9922481572692278,
+        "crown_gem__image_right_eye": 0.9970641091180962,
+        "crown_gem__bodice_waist_tip": 0.9980197777195798,
+        "neck_base__bodice_waist_tip": 1.0205306790476916
+      },
+      "pass": true,
+      "scaled_canvas": [
+        558,
+        806
+      ],
+      "raster_uniform_scale": 0.96875,
+      "placement": [
+        20,
+        7
+      ]
+    },
+    {
+      "index": 26,
+      "source": "results/base_two_pass/refined_frames/0026.png",
+      "source_sha256": "28de6fdfffb55ae8a907a59240900c7ef64ed953dc8a2c195640627e43794312",
+      "source_landmarks": {
+        "crown_gem": [
+          207.91533180778032,
+          81.54462242562929
+        ],
+        "image_left_eye": [
+          161.85773195876288,
+          197.56494845360825
+        ],
+        "image_right_eye": [
+          226.42923076923077,
+          200.6292307692308
+        ],
+        "neck_base": [
+          194.14348136399684,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          177.0,
+          456.73333333333335
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          217.5071726087458,
+          83.50436425522093
+        ],
+        "image_left_eye": [
+          172.44533701489,
+          198.7303050835973
+        ],
+        "image_right_eye": [
+          237.20403132678135,
+          200.49950614250614
+        ],
+        "neck_base": [
+          204.82468417083567,
+          308.79999999999995
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.983583815341131,
+      "translation": [
+        10.405664684619808,
+        3.764485406527399
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 4.631111862081938,
+      "anchor_residuals_px": {
+        "crown_gem": 2.6408096621951502,
+        "image_left_eye": 2.9111821623256136,
+        "image_right_eye": 4.1301488447444745,
+        "neck_base": 4.631111862081938,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9814781106798854,
+        "crown_gem__image_left_eye": 0.9923614199466132,
+        "crown_gem__image_right_eye": 0.9991164884030623,
+        "crown_gem__bodice_waist_tip": 0.9981487312685932,
+        "neck_base__bodice_waist_tip": 1.0179372718382897
+      },
+      "pass": true,
+      "scaled_canvas": [
+        567,
+        819
+      ],
+      "raster_uniform_scale": 0.984375,
+      "placement": [
+        10,
+        3
+      ]
+    },
+    {
+      "index": 27,
+      "source": "results/base_two_pass/refined_frames/0027.png",
+      "source_sha256": "7d7774c29a5ca6d06ec7e6e431cc487ea41fb9e8f27e7512f0d06c52199bc947",
+      "source_landmarks": {
+        "crown_gem": [
+          212.1530864197531,
+          80.2962962962963
+        ],
+        "image_left_eye": [
+          166.92656587473002,
+          195.86825053995682
+        ],
+        "image_right_eye": [
+          231.38118811881188,
+          198.32673267326732
+        ],
+        "neck_base": [
+          199.15387699677095,
+          305.0
+        ],
+        "bodice_waist_tip": [
+          183.0,
+          452.73333333333335
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          215.8070093457944,
+          82.71074766355139
+        ],
+        "image_left_eye": [
+          171.24142259414228,
+          198.2451882845188
+        ],
+        "image_right_eye": [
+          235.95033783783785,
+          199.677027027027
+        ],
+        "neck_base": [
+          203.59588021599006,
+          308.4
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9936700914617824,
+      "translation": [
+        2.658373262493825,
+        3.132427258869029
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 3.754937263266522,
+      "anchor_residuals_px": {
+        "crown_gem": 2.3478435197742837,
+        "image_left_eye": 2.756005793680647,
+        "image_right_eye": 3.4162510320196118,
+        "neck_base": 3.754937263266522,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9902425072448944,
+        "crown_gem__image_left_eye": 0.9958713972448964,
+        "crown_gem__image_right_eye": 1.001190677447543,
+        "crown_gem__bodice_waist_tip": 0.9989269214305905,
+        "neck_base__bodice_waist_tip": 1.012462456277321
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        2,
+        0
+      ]
+    },
+    {
+      "index": 28,
+      "source": "results/base_two_pass/refined_frames/0028.png",
+      "source_sha256": "23a36addf4037ef85b63f597cee8cb431591344e029a64a90b586d705bce257b",
+      "source_landmarks": {
+        "crown_gem": [
+          216.1140776699029,
+          80.123786407767
+        ],
+        "image_left_eye": [
+          171.54211663066954,
+          195.3023758099352
+        ],
+        "image_right_eye": [
+          235.73166666666668,
+          197.51333333333332
+        ],
+        "neck_base": [
+          203.6368916486681,
+          304.0
+        ],
+        "bodice_waist_tip": [
+          187.57142857142856,
+          452.7857142857143
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          215.69703351745682,
+          82.59979624248452
+        ],
+        "image_left_eye": [
+          171.37567609946112,
+          197.983450291915
+        ],
+        "image_right_eye": [
+          236.3379840157618,
+          199.45835676946785
+        ],
+        "neck_base": [
+          203.85683005761143,
+          308.2444444444444
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          452.99999999999994
+        ]
+      },
+      "uniform_scale": 0.9923672123080108,
+      "translation": [
+        -1.6397356800597436,
+        3.6703029413941977
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 4.475881854721015,
+      "anchor_residuals_px": {
+        "crown_gem": 2.9307604159384053,
+        "image_left_eye": 2.8274651210237005,
+        "image_right_eye": 4.051196433967477,
+        "neck_base": 4.475881854721015,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9808912468935863,
+        "crown_gem__image_left_eye": 0.9915548393890626,
+        "crown_gem__image_right_eye": 0.9952938993697598,
+        "crown_gem__bodice_waist_tip": 0.9978180340282903,
+        "neck_base__bodice_waist_tip": 1.016873507361643
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        -3,
+        0
+      ]
+    },
+    {
+      "index": 29,
+      "source": "results/base_two_pass/refined_frames/0029.png",
+      "source_sha256": "4dc6952bce35394ff2df5fb28aae0719ff6ea990e6a52efadb677c41d8b15ec1",
+      "source_landmarks": {
+        "crown_gem": [
+          219.53937947494035,
+          82.24343675417661
+        ],
+        "image_left_eye": [
+          174.75578947368422,
+          197.26315789473682
+        ],
+        "image_right_eye": [
+          238.95765472312704,
+          199.91530944625407
+        ],
+        "neck_base": [
+          206.8567220984056,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          190.0,
+          453.88235294117646
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          215.58705768911926,
+          82.48884482141764
+        ],
+        "image_left_eye": [
+          171.50992960477996,
+          197.72171229931124
+        ],
+        "image_right_eye": [
+          236.72563019368576,
+          199.2396865119087
+        ],
+        "neck_base": [
+          204.11777989923286,
+          308.08888888888885
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 0.9969799529438653,
+      "translation": [
+        -4.9261910593344,
+        0.48839312265499757
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 3.4614719155491755,
+      "anchor_residuals_px": {
+        "crown_gem": 1.6368974175173792,
+        "image_left_eye": 2.279465464042011,
+        "image_right_eye": 3.4614719155491755,
+        "neck_base": 3.2001355229174067,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9820521132717956,
+        "crown_gem__image_left_eye": 0.9974284914212249,
+        "crown_gem__image_right_eye": 1.0021414591608915,
+        "crown_gem__bodice_waist_tip": 0.9996560020005045,
+        "neck_base__bodice_waist_tip": 1.0079801625715972
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        -6,
+        -1
+      ]
+    },
+    {
+      "index": 30,
+      "source": "results/base_two_pass/refined_frames/0030.png",
+      "source_sha256": "e4cf64f6e7d8134ed59c2e3767f71675736c2b373c3364afc3af313bf72bd6ac",
+      "source_landmarks": {
+        "crown_gem": [
+          219.99036144578315,
+          84.49638554216867
+        ],
+        "image_left_eye": [
+          175.75799999999998,
+          199.31
+        ],
+        "image_right_eye": [
+          240.10591900311528,
+          202.47507788161994
+        ],
+        "neck_base": [
+          207.93195950155763,
+          310.0
+        ],
+        "bodice_waist_tip": [
+          191.5,
+          453.83333333333337
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          215.4770818607817,
+          82.37789340035079
+        ],
+        "image_left_eye": [
+          171.64418311009882,
+          197.4599743067075
+        ],
+        "image_right_eye": [
+          237.11327637160974,
+          199.0210162543496
+        ],
+        "neck_base": [
+          204.37872974085428,
+          307.93333333333334
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.00000000000006
+        ]
+      },
+      "uniform_scale": 1.0063943809042197,
+      "translation": [
+        -8.22452394315809,
+        -3.7353165336983807
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 3.8329593997983746,
+      "anchor_residuals_px": {
+        "crown_gem": 2.5435831054538824,
+        "image_left_eye": 3.048662522899713,
+        "image_right_eye": 3.8329593997983746,
+        "neck_base": 3.3563813614418505,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 0.9900740670119088,
+        "crown_gem__image_left_eye": 1.0055133543913335,
+        "crown_gem__image_right_eye": 1.0152888127426507,
+        "crown_gem__bodice_waist_tip": 1.0023889127858694,
+        "neck_base__bodice_waist_tip": 0.9950299706355437
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        -7,
+        -1
+      ]
+    },
+    {
+      "index": 31,
+      "pass": false,
+      "status": "MANUAL_ANCHORS_REQUIRED"
+    },
+    {
+      "index": 32,
+      "pass": false,
+      "status": "MANUAL_ANCHORS_REQUIRED"
+    },
+    {
+      "index": 33,
+      "pass": false,
+      "status": "MANUAL_ANCHORS_REQUIRED"
+    },
+    {
+      "index": 34,
+      "pass": false,
+      "status": "MANUAL_ANCHORS_REQUIRED"
+    },
+    {
+      "index": 35,
+      "pass": false,
+      "status": "MANUAL_ANCHORS_REQUIRED"
+    },
+    {
+      "index": 36,
+      "pass": false,
+      "status": "MANUAL_ANCHORS_REQUIRED"
+    },
+    {
+      "index": 37,
+      "pass": false,
+      "status": "MANUAL_ANCHORS_REQUIRED"
+    },
+    {
+      "index": 38,
+      "source": "results/base_two_pass/refined_frames/0038.png",
+      "source_sha256": "ca180320b2c10fd265f65cfa66a1ac483bd09f87d2a21c1576f2f85fedd69c77",
+      "source_landmarks": {
+        "crown_gem": [
+          215.27045454545453,
+          81.8
+        ],
+        "image_left_eye": [
+          171.5513833992095,
+          196.0513833992095
+        ],
+        "image_right_eye": [
+          238.41558441558442,
+          198.63798701298703
+        ],
+        "neck_base": [
+          204.98348390739696,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          185.23529411764707,
+          450.6470588235294
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.009742715862939,
+      "translation": [
+        -2.539988956023251,
+        -2.037585072116201
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 1.7806052366392768,
+      "anchor_residuals_px": {
+        "crown_gem": 1.1528641309660286,
+        "image_left_eye": 1.7672666851627095,
+        "image_right_eye": 1.490920314514376,
+        "neck_base": 1.7806052366392768,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.0082368580918994,
+        "crown_gem__image_left_eye": 1.0142687769999745,
+        "crown_gem__image_right_eye": 1.0142320421328639,
+        "crown_gem__bodice_waist_tip": 1.0030866782097898,
+        "neck_base__bodice_waist_tip": 0.9921687607249395
+      },
+      "pass": true,
+      "scaled_canvas": [
+        585,
+        845
+      ],
+      "raster_uniform_scale": 1.015625,
+      "placement": [
+        -4,
+        -5
+      ]
+    },
+    {
+      "index": 39,
+      "source": "results/base_two_pass/refined_frames/0039.png",
+      "source_sha256": "a158fa11b8985132707dafab45d9e2bbd3d91fc90c7e816c9cf1d0c8d2baa680",
+      "source_landmarks": {
+        "crown_gem": [
+          215.312925170068,
+          81.79818594104309
+        ],
+        "image_left_eye": [
+          171.6943396226415,
+          195.76415094339623
+        ],
+        "image_right_eye": [
+          238.79559748427673,
+          198.32075471698113
+        ],
+        "neck_base": [
+          205.2449685534591,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.8,
+          451.4
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.0063252022447933,
+      "translation": [
+        -1.468897374837809,
+        -1.2551962932996616
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 1.147126267876035,
+      "anchor_residuals_px": {
+        "crown_gem": 0.7589048975551814,
+        "image_left_eye": 1.147126267876035,
+        "image_right_eye": 0.8577477969554695,
+        "neck_base": 1.1084322798773907,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.0083643271496654,
+        "crown_gem__image_left_eye": 1.0083365014926498,
+        "crown_gem__image_right_eye": 1.0087357272206914,
+        "crown_gem__bodice_waist_tip": 1.0018292171917604,
+        "neck_base__bodice_waist_tip": 0.9945527760299331
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        0,
+        2
+      ]
+    },
+    {
+      "index": 40,
+      "source": "results/base_two_pass/refined_frames/0040.png",
+      "source_sha256": "4d806c79db3b7239d0e757bacbef80af7ea3f2c6164356b35baf56bf1ef73b81",
+      "source_landmarks": {
+        "crown_gem": [
+          215.38390804597702,
+          81.94942528735632
+        ],
+        "image_left_eye": [
+          171.74387947269304,
+          195.66666666666669
+        ],
+        "image_right_eye": [
+          239.11580594679185,
+          198.16275430359937
+        ],
+        "neck_base": [
+          205.42984270974245,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          185.07142857142856,
+          451.57142857142856
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "uniform_scale": 1.0056963667192687,
+      "translation": [
+        -1.6256632978303571,
+        -1.1437450285154682
+      ],
+      "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+      "max_anchor_residual_px": 1.37644324478085,
+      "anchor_residuals_px": {
+        "crown_gem": 0.4706656831978676,
+        "image_left_eye": 1.37644324478085,
+        "image_right_eye": 0.7328297641073078,
+        "neck_base": 1.1432678792871838,
+        "bodice_waist_tip": 0.0
+      },
+      "pair_scale_ratios": {
+        "image_left_eye__image_right_eye": 1.011759237029691,
+        "crown_gem__image_left_eye": 1.0058518465611996,
+        "crown_gem__image_right_eye": 1.00595529977426,
+        "crown_gem__bodice_waist_tip": 1.0012131355401035,
+        "neck_base__bodice_waist_tip": 0.9950056675959521
+      },
+      "pass": true,
+      "scaled_canvas": [
+        576,
+        832
+      ],
+      "raster_uniform_scale": 1.0,
+      "placement": [
+        -1,
+        1
+      ]
+    }
+  ],
+  "no_limb_warp_or_pixels_blended": true,
+  "image_generation_calls": 0,
+  "model_generation_calls": 0
+}

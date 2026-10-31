@@ -1,0 +1,86 @@
+{
+  "schema": "claude_remote_verification/1",
+  "packet": "docs/handoffs/codex_rumi_book_revision_2026-10-17",
+  "revision": 2,
+  "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+  "branch": "claude/rumi-book-revision-20261017",
+  "commit": "d81ac6d6879028b9f1d8a76be1aa6ed285ca9f04",
+  "entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/d81ac6d6879028b9f1d8a76be1aa6ed285ca9f04/docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md",
+  "tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/d81ac6d6879028b9f1d8a76be1aa6ed285ca9f04/docs/handoffs/codex_rumi_book_revision_2026-10-17",
+  "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/d81ac6d6879028b9f1d8a76be1aa6ed285ca9f04/docs/handoffs/codex_rumi_book_revision_2026-10-17/MANIFEST.json",
+  "access_mode": "anonymous HTTPS GET to raw.githubusercontent.com, no credentials",
+  "checked_at_utc": "2026-10-19T04:03:02+00:00",
+  "result": "PASS",
+  "files_checked": 9,
+  "previous_revision": {
+    "revision": 1,
+    "commit": "e70e865c589af7c6fc55acb7647faee6dce2f7d8",
+    "result": "PASS",
+    "files_checked": 9,
+    "checked_at_utc": "2026-10-18T09:12:07+00:00"
+  },
+  "files": [
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/MANIFEST.json",
+      "http": 200,
+      "sha256": "19c144510c09bbbb94907fdabf1dcf98d7cea4b19da2dd3a95a00819005567a1",
+      "match": true
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md",
+      "http": 200,
+      "bytes": 13776,
+      "sha256": "b3becbd9c003e503de1cbc8d77a3ba3385355d464389852f25f989deb372bfa1",
+      "match": true
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/ANALYSIS.md",
+      "http": 200,
+      "bytes": 18925,
+      "sha256": "ed93d919140fa98b11c3179fe18b02185c3c37ce32c407642f9e3e2df444444e",
+      "match": true
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/WORLD_BIBLE.md",
+      "http": 200,
+      "bytes": 21532,
+      "sha256": "c734205c2a3df535968964e29fc38cf1a393beb5bb3ef17f4b4c982f3c896ca3",
+      "match": true
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/STORY_REVISION.md",
+      "http": 200,
+      "bytes": 40357,
+      "sha256": "16fcea4cf59b110957019c95bfff8e6f28125c19cd5134266785f290bc74395d",
+      "match": true
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/GAME_INTEGRATION.md",
+      "http": 200,
+      "bytes": 19099,
+      "sha256": "04cd9d73294306cac9226b3ae5bc8439559a85bc826b3b18f6502d125a165518",
+      "match": true
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/data/page_plan.json",
+      "http": 200,
+      "bytes": 63584,
+      "sha256": "83d7b93d2d3b361a9821a99e4952c58b924d49e2c9738e944f311c226b298e94",
+      "match": true
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/data/current_book_metrics.json",
+      "http": 200,
+      "bytes": 39732,
+      "sha256": "da355bcea3151a4f0d634b8fdf3f34b0c54e94cbabdd34c8e5b948385bf2a20b",
+      "match": true
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/tools/measure_book_pacing.py",
+      "http": 200,
+      "bytes": 8820,
+      "sha256": "c0db804824f5351f456a809dd9670677ce8ff05a94fc84611fee5da194a43eaa",
+      "match": true
+    }
+  ]
+}

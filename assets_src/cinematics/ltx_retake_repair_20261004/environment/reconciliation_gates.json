@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-04T19:43:42.402259+00:00",
+  "merge_parent": "a52f545f4c5e7cc720b0d1194b374801ece0e24e",
+  "benchmark_source_commit": "80c3dab6330878e91f845f156bb5477e47aebb4a",
+  "incoming_game_paths": [
+    "scripts/probe_overdraw.gd"
+  ],
+  "production_runtime_changes": [],
+  "full_runtime_suite_reuse": "82trusted probes passed before reconciliation; incoming change adds an overdraw sensor only, with no production runtime/game-asset changes. Supplement changed tooling and parser/analyzer gates above.",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_gold_star"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 4.023
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/gold_star.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.046
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/probe_overdraw.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.88
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/probe_overdraw.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.115
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--check-only",
+        "--script",
+        "scripts/probe_overdraw.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.51
+    }
+  ]
+}

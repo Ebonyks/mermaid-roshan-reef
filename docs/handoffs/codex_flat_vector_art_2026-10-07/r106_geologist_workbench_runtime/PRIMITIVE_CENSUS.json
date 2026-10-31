@@ -1,0 +1,14 @@
+{
+  "tool": "unchanged measure_job_art.PRIMITIVE_DRAW / TEXTURE_DRAW / PRIMITIVE_NODE expressions",
+  "source_baseline": "0e2cf1c4a1840bc33dd288fc92428fd198880fa5",
+  "selected_script": "scripts/opera_geology_surface.gd",
+  "primitive_before": 44,
+  "primitive_after": 33,
+  "texture_before": 7,
+  "texture_after": 8,
+  "primitive_node_before": 3,
+  "primitive_node_after": 4,
+  "node_note": "Existing census classifies CanvasTexture wrappers as nodes. New wrapper is an authored texture filter resource, not code-drawn art. Counts remain separate; no accepted artwork credit.",
+  "retired_private_helper_callers": 3,
+  "removed_private_helper": "_draw_rounded_rect"
+}

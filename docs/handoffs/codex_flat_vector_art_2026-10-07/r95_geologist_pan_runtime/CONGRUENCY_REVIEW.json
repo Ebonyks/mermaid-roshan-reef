@@ -1,0 +1,71 @@
+{
+  "stable_id": "FV-F2DE53A80AA7",
+  "state": "ROOT_PARTIAL_DIRECT_VIEW_NOT_FORMAL_QA11_OR_OWNER_ACCEPTANCE",
+  "source_revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "source_png_sha256": "df6ec1df1c59a20d427cb50835ae04915b07de0cbe1b470e99d43c55518ff5ab",
+  "runtime_source_sha256": "7e0ec012354fcb20c51d952b25208434906298a938cf597fd75f7ccaccc07415",
+  "views": [
+    {
+      "path": "native/source_pan_v3_1280/01_pan_start.png",
+      "sha256": "1e70f6d38a5f17cdebb2a80c55e7ad827f0d801a60aacfb4a030cc61a16c754a",
+      "direct_native_full_frame_view": true
+    },
+    {
+      "path": "native/source_pan_v3_1280/04_pan_complete.png",
+      "sha256": "963685b661245d755e08885580e08ce2d4b799da5547dc4abe414c8f66d1724a",
+      "direct_native_full_frame_view": true
+    },
+    {
+      "path": "native/source_pan_v3_1600/01_pan_start.png",
+      "sha256": "6ef36a405462d0d8ac67b575bef23b937c73a7494b7858ae7c4d2fc2fd7681d6",
+      "direct_native_full_frame_view": true
+    },
+    {
+      "path": "native/candidate_pan_v3_1280/01_pan_start.png",
+      "sha256": "de34cf8b7a9cd8fa200d15001f44b5aca6bda9fb240632846c52e746ed15c3ac",
+      "direct_native_full_frame_view": true
+    },
+    {
+      "path": "native/candidate_pan_v3_1280/04_pan_complete.png",
+      "sha256": "e1ac3aa47f1b57e0e05957c94e086eed86202f2636e2261ee2f03c07170bef4f",
+      "direct_native_full_frame_view": true
+    },
+    {
+      "path": "native/candidate_pan_v3_1600/02_pan_partial.png",
+      "sha256": "fa6677e847d9b489af611f2f8074af52430ac288e8db782c5a43b359c563d07c",
+      "direct_native_full_frame_view": true
+    },
+    {
+      "path": "native/candidate_pan_v3_1600/04_pan_complete.png",
+      "sha256": "d496346c46cdee39dfb18776a35466a5518e6c3fa59a6ecef44dc5362239057d",
+      "direct_native_full_frame_view": true
+    }
+  ],
+  "ten_axes": {
+    "contour": "Whole painted plum contour matches same-scene painted navigation and Roshan; complete visible contour plus12source-pixel margin retained.",
+    "material": "Broad bronze/gold rim and aqua painted water bands; surrounding flat cave/workspace/sediment/minerals remain open.",
+    "palette": "Warm bronze/cream and aqua agree with same-scene Roshan hat/trim and painted navigation; original purple shadows retained.",
+    "light": "Upper-left highlights and lavender underside; source pixels unchanged, no relighting or3D shader.",
+    "perspective": "One coherent gently elevated oval; deeper painted bowl than old ellipse, with all inspected grain/mineral centers over water.",
+    "scale": "Width457.6 matches old outer silhouette; uniform262px height stays in original520x320target. Actual imported texture1024square.",
+    "contact": "Grains and three minerals remain over inner water in inspected start/partial/end offsets. Actor hand contact not established.",
+    "occlusion": "Pan stays within workspace; original left-side completion actor overlap remains in source/candidate and is not repaired.",
+    "readability": "Whole bronze rim and calm aqua interior read clearly in both native aspects. Phone/child recognition remains pending.",
+    "action_state": "Original one-finger ownership,9reversal wash,3minerals and exact progression snapshots preserved. All callers/return/formalQA11 remain pending."
+  },
+  "acceptance": {
+    "candidate": "IMPLEMENTED_CURRENT_SOURCE_BOUND",
+    "integration": "PENDING",
+    "bounded_native_machine": "PASS106CHECKS4CASES16VALIDFRAMES",
+    "formal_QA11": "PENDING",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING",
+    "accepted_removed": 0
+  },
+  "next_quality_priorities": [
+    "Painted Geologist cave and workspace",
+    "Sediment/mineral material; original left completion actor overlap",
+    "Every Opera training and in-world job variant; quality-first ImageGen without failed-reuse prerequisite"
+  ]
+}

@@ -1,0 +1,518 @@
+[
+  {
+    "id": "oven_cool",
+    "prompt": "Use case: illustration-story, isolated game prop. Reference1 gives the APPROVED oven's warm terracotta, cream columns, gold trim, shell crest and broad painted storybook material. Make a polished front-facing preschool toy oven cutout from that same family, not an architectural scene. One rounded terracotta body, short cream side columns with gold collars, small shell crest centered above, large perfectly ROUND gold-rimmed DARK EMPTY viewing window centered at x50%, y44%. The door is CLOSED and COOL. A broad horizontal ivory-and-gold shell-shaped handle sits centered BELOW the window, at x50%, y74%; it must be obvious and easy to tap. Window contains no cake, no face, no flame, no numbers, no thermometer, no words. Frame symmetrical and frontal, only a little painted depth. Upper-left soft light, coherent deep-plum/warm-brown contours, broad hand-painted value bands with restrained brush texture; match the high-quality existing reference. Entire oven including feet visible and centered, object bounds about x12..88%, y6..94% of a square canvas. Real RGBA transparency outside. Keep the dark window opaque so a separate small cake cutout can be placed over its center. No surrounding shadow, floor, background, halos, labels, extra props or presentation card.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_gameplay_oven_closed.png"
+    ],
+    "native_file": "oven_cool_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": null,
+    "disposition": "PRESERVED_INTERMEDIATE_APPEARANCE_INPUT_NOT_RUNTIME_PIXELS",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/oven_cool_native.png",
+    "native_sha256": "e74b5c7a302a6a0afd009dfacfd00dbc08f5943c5015054649b217f5402de437",
+    "inputs": [
+      {
+        "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_gameplay_oven_closed.png",
+        "sha256": "1da1c30fa3224d9feebf5d6daea1537ec748b4a335011619898ccf289c223b2b",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "chocolate_strawberry",
+    "prompt": "Use case: illustration-story, isolated preschool game cake topping. Make ONE unmistakable ripe STRAWBERRY dipped halfway into glossy dark chocolate. A red strawberry with broad visible golden seed marks and a fresh green five-leaf calyx at the top; chocolate covers the LOWER HALF in a rounded smooth dip with one small cream reflection. Preserve enough red berry and leaves that it instantly reads as food at40px. A shallow diagonal tilt of about10degrees is fine. Polished painted2D storybook finish, broad rounded masses, confident dark-plum contour, soft upper-left light, warm red/cocoa highlights and restrained brush texture. No eyes or face. No spiral, swirl, stacked mound or poop-emoji silhouette. Whole strawberry visible, centered in a clean square canvas with real RGBA transparency outside and generous10percent blank gutter. No plate, background, floor shadow, sparkles, halo, words or other object.",
+    "refs": [],
+    "native_file": "chocolate_strawberry_first_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": null,
+    "disposition": "REJECTED_STYLE_GLOSSY_REALISM",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/chocolate_strawberry_first_native.png",
+    "native_sha256": "a83a3a7bfcbc29bb22b264fc8723b2c30b55a8c922a705e7c2649f0459a0fbaa",
+    "inputs": []
+  },
+  {
+    "id": "oven_warm",
+    "prompt": "Use case: precise-object-edit. Exact source oven is target, not inspiration. Preserve every exterior painted pixel, shell crest, columns, gold rim, handle, feet, frontal perspective, bounds and RGBA transparency. Change ONLY the dark circular viewing window into a cozy warm EMPTY oven interior. Inside that same circle show broad amber/honey painted bands with gentle golden light and two restrained cream glass reflections. No cake, fire, sparkles, new object or outside glow. The gold rim and all hardware stay exactly aligned with source; both states must register at the same canvas size. Warm storybook oven, never alarming or realistic scorching. No words, numeral, thermometer, scene or shadow. Preserve real RGBA transparency outside the same whole oven.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_cool_native.png"
+    ],
+    "native_file": "oven_warm_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 28829,
+    "disposition": "PRESERVED_INTERMEDIATE_APPEARANCE_INPUT_NOT_RUNTIME_PIXELS",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/oven_warm_native.png",
+    "native_sha256": "d1b32037b7f775cc98d7c4c588c7602be203fd7772a3b31ef4f737976c2ff94a",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/oven_cool_native.png",
+        "sha256": "e74b5c7a302a6a0afd009dfacfd00dbc08f5943c5015054649b217f5402de437",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "chocolate_strawberry_retry",
+    "prompt": "Use case: style-aligned-object-edit. Image1 is the recognizable dipped strawberry to keep, Image2 is the exact PAINTED STYLE authority. Repaint only that one strawberry in Image2's broad, soft, simple2D storybook cake-topping style: thick clean plum-brown contour, gently rounded mass, TWO broad value bands on red berry and chocolate, soft cream highlight, very restrained brush texture. Reduce fine realism: only about9large golden seed ticks visible,5broad simple green calyx leaves, chocolate lower half with ONE quiet broad highlight. No tiny pits, glossy3D reflections, fine leaf veins, noisy streaks or photographic texture. Preserve clear red strawberry plus green leaves plus smooth dark chocolate lower half. Keep complete subject centered with generous square-canvas transparent gutter. It must fit beside the creamy pink/lilac frosting in Image2 and read immediately as a strawberry at40px. No face, swirl, mound, plate, shadow, background, lettering, halo or extra food. Real RGBA transparency outside.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/chocolate_strawberry_first_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_gauge_chef_success.png"
+    ],
+    "native_file": "chocolate_strawberry_retry_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 69301,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/chocolate_strawberry_retry_native.png",
+    "native_sha256": "987131d7692f73e23735a893f01fd1a888bc6b7f7404bea613cb60f579417286",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/chocolate_strawberry_first_native.png",
+        "sha256": "a83a3a7bfcbc29bb22b264fc8723b2c30b55a8c922a705e7c2649f0459a0fbaa",
+        "role": "appearance reference, not approved output"
+      },
+      {
+        "path": "assets/opera/worlds/widgets/widget_gauge_chef_success.png",
+        "sha256": "9aac570dc68d96aeb29b140d7d9f3fc806be7f55b1f2c75fb6121f43612e144c",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "oven_open",
+    "prompt": "Use case: precise-object-state edit. Image1 is the exact accepted target oven; preserve its terracotta body, shell crest, cream columns, feet, gold hardware, front camera, canvas placement, painted texture and RGBA outer transparency. Make its OPEN state. Image2 only demonstrates the existing design's door folding DOWN into a short horizontal warm-gold tray. Open the circular-window door downward on its bottom edge; the same shell handle is attached to the outer door, not left floating in the opening. The body stays fixed; only that complete door changes pose. Show a dark warm amber EMPTY circular-arched cavity behind the open door, no cake/pan/food or extra fixture. Right-side gold fittings stay attached to the frame. The lowered door fits fully in the lower part of the same square canvas, with its complete front contour visible and safe transparent gutter; no cropping. Same polished softly painted storybook2D finish, strong plum/brown contours, broad value bands and upper-left light. No floor, shadows, scene, glow outside, words, arrows, new panels, numbers or extra props. This is ONE whole open-oven cutout, not a diagram or two views.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_cool_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_gameplay_oven_open.png"
+    ],
+    "native_file": "oven_open_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 43889,
+    "disposition": "PRESERVED_INTERMEDIATE_APPEARANCE_INPUT_NOT_RUNTIME_PIXELS",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/oven_open_native.png",
+    "native_sha256": "0ad15744bdb3f8cf561e3e53efc7aec649bf9788e622c9c4c80f65aee0cce75c",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/oven_cool_native.png",
+        "sha256": "e74b5c7a302a6a0afd009dfacfd00dbc08f5943c5015054649b217f5402de437",
+        "role": "appearance reference, not approved output"
+      },
+      {
+        "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_pastry_chef_gameplay_oven_open.png",
+        "sha256": "6fe7a0badb5019fd45c1f6322bb87c6e9ce4b61a2b081eddcda7a92026f00556",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "frosting_segment",
+    "prompt": "Use case: isolated painted game decoration. Match the creamy soft PIPED FROSTING finish and plum-brown contours on the reference cake, using PINK frosting. Render ONE SHORT STRAIGHT HORIZONTAL frosting ribbon as a repeatable stroke segment, with a broad rounded ridged cross section, soft salmon-pink shadow on lower edge and cream-pink broad top highlight. It runs from x10% to90% at y50%, constant thickness about18% of square canvas height, with flat clean cut left/right ends so copies can meet end-to-end. Two or three broad lengthwise piping grooves, never tiny noisy texture. Front-facing2D, no depth perspective or diagonal tilt. Complete segment, real RGBA transparency outside, generous empty space top/bottom. NO whole cake, piping bag, mound, swirled dollop, plate, bowl, shadow, background, glow, sparkles, labels or extra piece. A soft painted edible ribbon, not vector/code geometry, glossy3D or a fabric strip.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_gauge_chef_success.png"
+    ],
+    "native_file": "frosting_segment_first_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 67793,
+    "disposition": "REJECTED_ROLE_GARLAND_NOT_PIPE_RIBBON",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/frosting_segment_first_native.png",
+    "native_sha256": "035447c46c9b23a588d5df70cdcdfc93bd7e59c95fa73fa01a8090b8eff2e557",
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/widgets/widget_gauge_chef_success.png",
+        "sha256": "9aac570dc68d96aeb29b140d7d9f3fc806be7f55b1f2c75fb6121f43612e144c",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "frosting_segment_retry",
+    "prompt": "Create ONE straight short length of PINK PIPED BUTTERCREAM, like a straight line of toothpaste extruded through a star nozzle. This is a game sprite. Absolutely straight HORIZONTAL centerline. Rounded ribbed cylindrical cross-section, constant thickness, TWO flat cut ends. Four shallow grooves run straight from left to right. Soft coral-pink shadow below, broad creamy-pink highlight above, confident warm plum painted contour. Soft hand-painted2D storybook food illustration matching reference material and broad brush finish. Width about six times its thickness. NO sagging, drooping, scallops, swags, loops, hanging points, knots, bows, fabric, decorative garland or multiple pieces. No whole cake, dollop mound, piping bag, plate, scene, cast shadow, halo, label, lettering or sparkles. Entire single rope visible on true RGBA transparent background with blank gutter. A plain straight usable stroke segment, not the reference cake's ornamental trim.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_gauge_chef_success.png"
+    ],
+    "native_file": "frosting_segment_retry_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 48811,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/frosting_segment_retry_native.png",
+    "native_sha256": "403c7254cd12b3241ce6f9aadfca6743a522d5bda88243d07efebefa688b666d",
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/widgets/widget_gauge_chef_success.png",
+        "sha256": "9aac570dc68d96aeb29b140d7d9f3fc806be7f55b1f2c75fb6121f43612e144c",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "batter_stream",
+    "prompt": "Create ONE simple STRAIGHT VERTICAL narrow strip of flowing pale vanilla-gold cake batter for a painted2D storybook game. Reference is MATERIAL COLOR only: match the creamy yellow batter inside the pitcher, do not draw any pitcher. The strip is a constant-width liquid ribbon with softly rounded cross section, two broad cream highlights and warm ochre edge shadow, restrained hand-painted texture, clean plum-brown outer contour. It is about seven times taller than wide, perfectly straight with no bends. Its TOP and BOTTOM are FLAT CUT ends so identical sections can join into a continuous stream. No tapered drip tip, splashes, beads or gaps in this tile. Entire single vertical strip centered, true RGBA transparent background and generous empty gutter; no vessel, spoon, food, frame, floor, cast shadow, glow, background, words or extra objects. Broad painted value bands, not flat vector, noisy realism or glossy3D. Clear enough for a narrow12px-wide stream in gameplay.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_pour_chef_mover.png"
+    ],
+    "native_file": "batter_stream_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 26834,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/batter_stream_native.png",
+    "native_sha256": "1866f75a34cf955595c5a4db231f1b5ceef8a036e209d3f9797a0de5c1d9a685",
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/widgets/widget_pour_chef_mover.png",
+        "sha256": "8473620074731467a9a77c94abddc465a4ac47081343443bc802605c5696882b",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "pitcher_empty",
+    "prompt": "Use case: precise local object edit. This exact small painted batter pitcher is the target. Preserve its whole identity and outline: left-facing pouring spout, curved right coral handle and clear handle hole, cream fluted rim, coral band, centered cream shell crest, little gold foot, exact view and source framing. Change ONLY the visible BATTER inside the top opening: remove that yellow liquid and show the EMPTY cream ceramic interior/bottom of the SAME cup. No liquid, bubbles, foam or dripping batter remains. Do not shrink or redesign the vessel, tilt it, mirror it or change any hardware or contour. Same soft hand-painted2D storybook style and upper-left light. Keep a clean square canvas with real RGBA transparency outside and through the handle. No scene, floor, cast shadow, labels, glow, extra prop or character. The empty state will register exactly over the original full state.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_pour_chef_mover.png"
+    ],
+    "native_file": "pitcher_empty_first_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 36614,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/pitcher_empty_first_native.png",
+    "native_sha256": "b59bf43c8a7c4e1979ae416f3a234b542d8d3c51a9cea1c3913ebca5436e174d",
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/widgets/widget_pour_chef_mover.png",
+        "sha256": "8473620074731467a9a77c94abddc465a4ac47081343443bc802605c5696882b",
+        "role": "appearance reference, not approved output"
+      }
+    ],
+    "measured_followup": "Original alpha16bbox21,46,234,209; uniform registration to256canvas yields213x160 vs original213x163, IoU0.97540948 and2px bbox drift. Initial visual concern was mistaken; first empty candidate registers better than retry. No nonuniform warp."
+  },
+  {
+    "id": "thermometer_empty",
+    "prompt": "Use case: isolated painted game UI object. One slender VERTICAL storybook baking thermometer, matching the supplied terracotta/cream/gold oven MATERIALS only; do not depict an oven. Soft cream enamel frame, warm gold raised rim, confident deep-plum contour, a small round bulb at BOTTOM and one straight empty glass channel above it. Frame proportions about1wide to5tall, whole instrument centered and visible with generous RGBA transparent gutter. Inside channel is quiet pale cream EMPTY background, no mercury/fill yet. Add just TWO broad tiny gold edge notches at45percent and80percent of the channel height from bottom, marking the ready range without any text or numeral. Broad soft painted highlights, restrained brush texture, no tiny hatching, realistic glass glare or shiny3D. No words, letters, numbers, arrows, icon, gauge needle, face, flame, extra tool, background, halo, shadow or frame card. Must read as one clean friendly thermometer at26px wide.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_cool_native.png"
+    ],
+    "native_file": "thermometer_empty_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 65225,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/thermometer_empty_native.png",
+    "native_sha256": "87268b0e1e2b37d768062b45332c691ebb73263828bb7b4c6c82d846f43e058c",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/oven_cool_native.png",
+        "sha256": "e74b5c7a302a6a0afd009dfacfd00dbc08f5943c5015054649b217f5402de437",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "pitcher_empty_retry",
+    "prompt": "Precise local edit of IMAGE1, the approved pitcher. Change ONLY yellow batter INSIDE its mouth into the empty cream ceramic interior. Preserve exact source proportions, outline, rim, coral handle/hole, shell crest, gold foot, camera, source framing and transparent square canvas. The vessel's ink bounding box is SLIGHTLY TALLER THAN WIDE, not a broad squat bowl. IMAGE2 is POSITION_GUIDE_ONLY: neutral gray box maps the whole ink footprint at x88..940,y56..948 in1024square; four black coordinate crosses locate left spout(92,320), outer handle(932,464), bottom foot(512,912), mouth center(504,232). Match those positions and aspect exactly while taking ALL appearance only from IMAGE1. No guide pixel, gray background, rectangle or cross enters delivery. Do not widen or shorten the cup, redesign hardware, move the shell, tilt/mirror it or invent a new view. Empty cream cavity replaces batter alone. Preserve complete tall pitcher and clean real RGBA outer transparency including the handle hole. No liquid/bubbles, background, floor, shadow, text, halo or extra item. Same broad painted storybook finish as source.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_pour_chef_mover.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/artwork-quality-20261018/chef_pitcher_position_only.png"
+    ],
+    "native_file": "pitcher_empty_retry_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 37378,
+    "disposition": "NOT_SELECTED_WRONG_MANUAL_GUIDE_AND_LOWER_REGISTERED_IOU",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/pitcher_empty_retry_native.png",
+    "native_sha256": "afa640b8b40ba24e42b30d8a4890350ad29c012a9cdd85d7b98c113975d5b242",
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/widgets/widget_pour_chef_mover.png",
+        "sha256": "8473620074731467a9a77c94abddc465a4ac47081343443bc802605c5696882b",
+        "role": "appearance reference, not approved output"
+      },
+      {
+        "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\artwork-quality-20261018\\chef_pitcher_position_only.png",
+        "sha256": "911bf33a32bc5d2a7a25d040b4e31d186b3989ed8fdf41a139924fb115cb26d0",
+        "role": "position_only",
+        "used_as_delivery_pixels": false,
+        "appearance_authority": false,
+        "status": "REJECTED_WRONG_MANUALLY_ASSUMED_BOUNDS; recorded actual source bbox in position_guide_provenance.json"
+      }
+    ]
+  },
+  {
+    "id": "thermometer_full",
+    "prompt": "Exact source thermometer target. Preserve every exterior painted contour, frame, shell crest, gold notches, bulb, proportions, perspective, dimensions, position and RGBA transparency. Change ONLY the empty inner glass channel and bulb into the FILLED baking-heat state. The circular bottom bulb fills pale warm honey gold. The vertical liquid column above it reaches nearly the top: lower45percent pale cream-gold, middle45to80percent clear golden honey, upper20percent cozy warm amber-orange. Simple broad painted value bands INSIDE the original channel, not tinted hardware or outside glow. Keep original glass highlight subtle. No red alarm, flame, labels, words, numbers, extra tick, character, vessel, background or extra prop. Full and empty images must register exactly so a bottom-to-top source reveal works without a changing outer silhouette. Same soft high-quality painted2D storybook material. Preserve true RGBA transparency outside.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/thermometer_empty_native.png"
+    ],
+    "native_file": "thermometer_full_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 58404,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/thermometer_full_native.png",
+    "native_sha256": "274aa4b6364e4b6d9c2d9c87c529cbf5b4f7996f868d2c969cb287da3b23b10a",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/thermometer_empty_native.png",
+        "sha256": "87268b0e1e2b37d768062b45332c691ebb73263828bb7b4c6c82d846f43e058c",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "piping_bag",
+    "prompt": "Precise object isolation/local repair of the supplied game card. Extract ONLY its existing cream cloth PIPING BAG with purple ribbon tie and small gold nozzle, keeping the exact diagonal pose with nozzle toward LOWER LEFT, same material, proportions and softly painted storybook identity. Remove the surrounding card, frosting, navy zigzag, borders, text and every other object. Where the navy zigzag crosses the nozzle/bag, locally restore the missing cream cloth/gold contour, without redesigning the bag. Complete tied cloth top, whole ribbon, full bag and nozzle tip must be visible. Source appearance preserved, broad soft painted highlights with plum-brown contour, no new gloss/3D realism. One isolated whole prop on a square canvas with real RGBA transparency, generous gutter and no floor, shadow, halo, hand or extra object.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_trace_chef.png"
+    ],
+    "native_file": "piping_bag_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 24374,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/piping_bag_native.png",
+    "native_sha256": "ee42abb68489620102e9c0260d760af6e069280086a0cdee3e4a9cfb4f6c9102",
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/widgets/widget_trace_chef.png",
+        "sha256": "81143e828b8cc4301bf10d2cbe9853402c2694df7e2199d8a80c41c7a447f0db",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "oven_cake_raw",
+    "prompt": "One isolated RAW cake-in-baking-tin cutout for a preschool painted2D storybook oven. Reference supplies broad softly painted cake/metal MATERIAL STYLE only; do NOT reproduce its finished tiered cake. Render one squat ROUND TERRACOTTA baking tin seen slightly from above, with a soft cream rim and little warm-gold base. Its top ellipse holds smooth pale vanilla-gold RAW BATTER just below the rim, with two tiny contained batter bubbles, no risen sponge above rim. Front-facing symmetric object, width about twice height, broad painted value bands, restrained brush texture, confident plum-brown contour, soft upper-left light. Whole one tin visible and centered with generous transparent gutter on a clean square canvas, real RGBA transparency outside. This is the raw state of one cake, not a stack. No frosting, cherries, strawberry, decoration, shell topper, flame, steam, hands, spoon, plate, oven, scene, floor, cast shadow, letters, numbers or glow.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/opera/worlds/widgets/widget_gauge_chef_success.png"
+    ],
+    "native_file": "oven_cake_raw_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 63548,
+    "disposition": "PRESERVED_INTERMEDIATE_APPEARANCE_INPUT_NOT_RUNTIME_PIXELS",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/oven_cake_raw_native.png",
+    "native_sha256": "2a0d9424a12302e85f977405b5264b77ff2a380ad02f3898b83fbd350fbebfee",
+    "inputs": [
+      {
+        "path": "assets/opera/worlds/widgets/widget_gauge_chef_success.png",
+        "sha256": "9aac570dc68d96aeb29b140d7d9f3fc806be7f55b1f2c75fb6121f43612e144c",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "oven_cake_risen",
+    "prompt": "Exact raw cake tin in reference is target. Preserve the ENTIRE terracotta tin, cream rim, gold foot, perspective, contour, horizontal centering, size, source canvas and RGBA transparency. Change ONLY the raw batter to the BAKED/risen state: one softly domed golden-yellow bare sponge rises a little ABOVE the cream rim. Broad warm gold/cream painted value bands, a few large soft crumb marks, no fine noisy pores. One coherent round cake supported IN that same tin. The tin remains fixed and registers exactly with source; do not enlarge or stretch the cake pan. No frosting, fruit, icing, plate, decoration, steam, flame, shadow, background, halo, lettering or extra object. Same polished painted2D storybook finish. This is one baked cake, not a stack or whole finished birthday cake.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_cake_raw_native.png"
+    ],
+    "native_file": "oven_cake_risen_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 40614,
+    "disposition": "PRESERVED_INTERMEDIATE_APPEARANCE_INPUT_NOT_RUNTIME_PIXELS",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/oven_cake_risen_native.png",
+    "native_sha256": "d2f2906fb67f21eea708b19d1b3007a410ca0b14a65a6ff38e63ebb9f2347531",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/oven_cake_raw_native.png",
+        "sha256": "2a0d9424a12302e85f977405b5264b77ff2a380ad02f3898b83fbd350fbebfee",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "batter_drop",
+    "prompt": "One small isolated teardrop of pale VANILLA-GOLD cake batter, in the exact broad painted2D storybook material/color of the reference flowing batter. Reference is color/material only, do not draw a long strip. Single falling drop with rounded plump lower belly and a short fine tapered trailing tip pointing UP; soft cream broad highlight toward upper-left, warm honey shadow below, restrained plum-brown contour. Simple friendly rounded silhouette, no fine noisy texture or realistic gloss. Complete drop centered in generous square RGBA transparent gutter. No eyes, smile, face, stem, cup, food, bead chain, splash, ground, shadow, glow, lettering, backdrop or extra drop. Must remain readable as a little liquid bead at10to14px.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/batter_stream_native.png"
+    ],
+    "native_file": "batter_drop_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 74422,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/batter_drop_native.png",
+    "native_sha256": "804b9928920762fe50a708a0c773aa632dd402f28dd247bd2beac748e143644d",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/batter_stream_native.png",
+        "sha256": "1866f75a34cf955595c5a4db231f1b5ceef8a036e209d3f9797a0de5c1d9a685",
+        "role": "appearance reference, not approved output"
+      }
+    ]
+  },
+  {
+    "id": "batter_splash",
+    "prompt": "One tiny LOW landing splash of pale vanilla-gold cake batter for a painted2D storybook pouring game. Match the soft cream/gold batter material in the reference, not its strip shape. A single connected shallow puddle/impact crown with FIVE broad softly rounded small lobes, a little raised central mound, warm honey underside and broad creamy upper highlight. Low wide silhouette about2wide to1high, child-friendly soft edible liquid, no sharp spike or dramatic explosion. Confident delicate plum-brown outline, restrained broad brush texture. Whole splash isolated, centered and complete on square true RGBA transparency with generous gutter. No surrounding droplets, vessel, bowl, spoon, food, floor, shadow, glow, sparkles, word, frame or background. Must read cleanly at24to32px wide, not noisy detail or flat vector.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/batter_stream_native.png"
+    ],
+    "native_file": "batter_splash_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 39801,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/batter_splash_native.png",
+    "native_sha256": "2e5c07b20bde8d7ce408a435542b216c0d0f81475a16c827687f67786a347477",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/batter_stream_native.png",
+        "sha256": "1866f75a34cf955595c5a4db231f1b5ceef8a036e209d3f9797a0de5c1d9a685",
+        "role": "appearance source, not an accepted output"
+      }
+    ]
+  },
+  {
+    "id": "oven_cool_raw",
+    "prompt": "Precise local compositing edit. IMAGE1 is the exact whole CLOSED COOL oven; preserve ALL exterior pixels, identity, camera, position, rim, shell handle, columns, feet, canvas and RGBA transparency. IMAGE2 is the exact raw cake tin object. Add ONE small version of that same raw tin INSIDE the oven's circular dark viewing window, resting level on an interior shelf. Proper depth: pan entirely behind the circular gold rim and subtle glass reflections, complete cake/tin visible within the window without crossing the rim. Tin width about65percent of window diameter, bottom supported near the lower third; no floating or leaning. Its pale raw batter stays BELOW the cream tin rim, no risen sponge. Keep interior dark/cool and source painting style coherent; do not relight or tint exterior. Do not duplicate the pan elsewhere. No icing, fruit, steam, glow outside, letters, number, extra fixture or background. Whole square oven RGBA cutout otherwise EXACTLY unchanged. This is one static whole-object state.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_cool_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_cake_raw_native.png"
+    ],
+    "native_file": "oven_cool_raw_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 42208,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/oven_cool_raw_native.png",
+    "native_sha256": "d87b102fe64b352895b5b2b4627444cf34892689bdd28d5146afc4c229e9180e",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/oven_cool_native.png",
+        "sha256": "e74b5c7a302a6a0afd009dfacfd00dbc08f5943c5015054649b217f5402de437",
+        "role": "appearance source, not an accepted output"
+      },
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/oven_cake_raw_native.png",
+        "sha256": "2a0d9424a12302e85f977405b5264b77ff2a380ad02f3898b83fbd350fbebfee",
+        "role": "appearance source, not an accepted output"
+      }
+    ]
+  },
+  {
+    "id": "oven_warm_risen",
+    "prompt": "Precise local compositing edit. IMAGE1 is the exact CLOSED WARM oven; preserve ALL exterior pixels, identity, camera, position, gold rim, shell handle, columns, feet, canvas and RGBA transparency. IMAGE2 is the exact BAKED cake tin object. Add ONE small version of that same risen golden sponge/tin INSIDE the warm circular viewing window, resting level on the visible interior shelf. Correct physical depth: pan and sponge entirely behind gold rim and subtle glass reflections, fully inside the circular aperture. Tin width about65percent of window diameter, supported at the lower shelf, not floating or leaning. Retain the same terracotta tin, cream rim/gold foot and modest golden dome. Cozy warm interior only; exterior stays exactly fixed. No icing, fruit, extra cake, burning, smoke, flame, outside glow, letters, number or background. Whole square oven RGBA cutout otherwise unchanged. One static whole-object state.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_warm_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_cake_risen_native.png"
+    ],
+    "native_file": "oven_warm_risen_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 70708,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/oven_warm_risen_native.png",
+    "native_sha256": "a765038518ce73f38cc68e639815754f3f401c5dcf1b598c1249f1dd6ba2efdc",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/oven_warm_native.png",
+        "sha256": "d1b32037b7f775cc98d7c4c588c7602be203fd7772a3b31ef4f737976c2ff94a",
+        "role": "appearance source, not an accepted output"
+      },
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/oven_cake_risen_native.png",
+        "sha256": "d2f2906fb67f21eea708b19d1b3007a410ca0b14a65a6ff38e63ebb9f2347531",
+        "role": "appearance source, not an accepted output"
+      }
+    ]
+  },
+  {
+    "id": "oven_open_risen",
+    "prompt": "Precise local compositing edit. IMAGE1 is the exact OPEN oven target; preserve ALL terracotta body, shell crest, cream columns, gold fittings, feet, downward-open complete window door/handle, camera, source canvas, outer contour and RGBA transparency. IMAGE2 is the exact baked cake tin. Add ONE small version of that same golden risen sponge/tin INSIDE the oven, resting level on its interior floor/shelf behind the lowered door. Tin about60percent of cavity width, whole pan/sponge supported with believable contact, no floating, leaning or rim penetration. Keep the same terracotta tin, cream rim and gold base, modest bare sponge dome. Same upper-left painted light and cozy amber interior; do not relight exterior or move the fixtures. No icing, fruit, extra cake, smoke, flame, external glow, background, words or new object. One whole square RGBA open-oven state otherwise unchanged.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_open_native.png",
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets_src/imagegen/job_art_chef_20261019/oven_cake_risen_native.png"
+    ],
+    "native_file": "oven_open_risen_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 43317,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/oven_open_risen_native.png",
+    "native_sha256": "9957a618538d659a0343774854efa7f8f533a5bd36166c697637ec4918215188",
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/oven_open_native.png",
+        "sha256": "0ad15744bdb3f8cf561e3e53efc7aec649bf9788e622c9c4c80f65aee0cce75c",
+        "role": "appearance source, not an accepted output"
+      },
+      {
+        "path": "assets_src/imagegen/job_art_chef_20261019/oven_cake_risen_native.png",
+        "sha256": "d2f2906fb67f21eea708b19d1b3007a410ca0b14a65a6ff38e63ebb9f2347531",
+        "role": "appearance source, not an accepted output"
+      }
+    ]
+  },
+  {
+    "id": "stack_two",
+    "prompt": "Precise local removal/hidden-surface repair of THIS EXACT six-tier cake, not a new cake design. Remove ONLY its upper FOUR tiers (red, orange, yellow, green). Keep the original BLUE and VIOLET bottom pair, the whole pink/gold plate and purple/gold pedestal, their exact width, height, contour, placement and source camera. Reveal/paint the complete smooth BLUE sponge top ellipse where the green tier used to cover it; same blue crumb material and perspective, no hollow missing surface or flat cut. The remaining pair stays at the EXACT original lower-canvas position with its pedestal at the same bottom support point. Leave the removed upper area RGBA TRANSPARENT. Do NOT recenter, scale up, enlarge or move the remaining cake, pedestal or plate. Preserve entire original square canvas/gutters, colors and broad softly painted storybook finish. No new tier, icing, fruit, extra plate, shadow, floor, labels or background. Exactly TWO rounds: blue on violet. This is one whole partial-stack key in the original fixed scene geometry.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png"
+    ],
+    "native_file": "stack_two_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 70198,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/stack_two_native.png",
+    "native_sha256": "6fddbdcd2a6ebef309ea71303bf0e739f8f3c721cacdf56d7d289f3cf28a8f26",
+    "inputs": [
+      {
+        "path": "assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png",
+        "sha256": "b3741c02402693637dfd6367e98f41ce6380d2641ffe04b061f00bade1050a37",
+        "role": "appearance source, not an accepted output"
+      }
+    ]
+  },
+  {
+    "id": "stack_four",
+    "prompt": "Precise local removal/hidden-surface repair of THIS EXACT six-tier cake, not a redesign. Remove ONLY its TOP TWO tiers, red and orange. Keep the original YELLOW, GREEN, BLUE and VIOLET bottom four, the entire pink/gold plate and purple/gold pedestal, with exact original width, height, color, contour, camera and canvas placement. Reveal/paint the complete YELLOW sponge top ellipse where the orange tier covered it, matching the source crumb material and existing perspective; no hollow missing surface or flat cut. Remaining four tiers/pedestal stay at the exact original lower-canvas position, same bottom support point and side extents. Leave removed top area truly RGBA TRANSPARENT. Do NOT recenter, scale up, enlarge or move anything retained. Preserve original square canvas/gutters and softly painted2D storybook finish. No new tier, icing, fruit, shadow, floor, labels, background or extra object. Exactly FOUR rounds top-to-bottom yellow, green, blue, violet. This is one whole partial-stack key in fixed source geometry.",
+    "refs": [
+      "C:/Users/Peter/.codex/worktrees/art-chef-20261019/mermaid-roshan-reef/assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png"
+    ],
+    "native_file": "stack_four_native.png",
+    "provider": "builtin ImageGen",
+    "model_revision": "unexposed; owner approved available tool",
+    "seed_provider_request_id": "unexposed",
+    "observed_wall_ms_including_queue": 41763,
+    "disposition": "SELECTED_CANDIDATE_SOURCE_AND_CURRENT_CONTEXT_REVIEW_REQUIRED",
+    "native_path": "assets_src/imagegen/job_art_chef_20261019/stack_four_native.png",
+    "native_sha256": "19df71f551677986fa186297a241326535d7fac7c71b58a16eb431a04d862175",
+    "inputs": [
+      {
+        "path": "assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png",
+        "sha256": "b3741c02402693637dfd6367e98f41ce6380d2641ffe04b061f00bade1050a37",
+        "role": "appearance source, not an accepted output"
+      }
+    ]
+  }
+]

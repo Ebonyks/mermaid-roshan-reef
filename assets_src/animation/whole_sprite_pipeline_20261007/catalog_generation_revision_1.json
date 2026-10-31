@@ -1,0 +1,283 @@
+{
+  "schema": "reef.whole-sprite-pipeline.v1",
+  "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
+  "sources": {
+    "K0": {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+      "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+      "role": "identity",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Project-owned approved Roshan RGBA atlas; inherited ASSET_LICENSES.md attribution. Exact lossless cell crop; originals unchanged.",
+      "acceptance_scope": "APPROVED_SOURCE",
+      "pixel_input_allowed": true,
+      "binding_note": "Identity, head scale, pink outfit and rest-pose authority",
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+      "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+      "source_cell": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "modifications": "Aseprite exact whole-cell extraction only"
+    },
+    "K2": {
+      "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K2.png",
+      "sha256": "a46c318a627a4904dbf1115b1c764d8842de6f9281fe21a4803d31b65add4bbb",
+      "role": "pose",
+      "dimensions": [
+        256,
+        256
+      ],
+      "license": "Project-owned approved Roshan RGBA atlas; inherited ASSET_LICENSES.md attribution. Exact lossless cell crop; originals unchanged.",
+      "acceptance_scope": "APPROVED_SOURCE",
+      "pixel_input_allowed": true,
+      "binding_note": "Approved full-length arm and raised-pose reference only; match head size to K0",
+      "source_path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+      "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+      "source_cell": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "modifications": "Aseprite exact whole-cell extraction only"
+    },
+    "native_study": {
+      "path": "assets_src/cinematics/ltx25_union_trial_20261004/native_review.json",
+      "sha256": "cbf92c42eb97ff9aae457a54f5ab327cde99a6493f80ea2f55eca910dc5e13c8",
+      "role": "temporal_review",
+      "license": "Project-owned approved atlas and LTX-2.x study output with inherited study attribution; rejected reference only, not production art.",
+      "acceptance_scope": "REJECTED_REFERENCE_ONLY",
+      "pixel_input_allowed": false
+    }
+  },
+  "characters": {
+    "roshan": {
+      "sources": [
+        "K0"
+      ],
+      "identity_locks": [
+        "same face, head size and brown eyes as K0",
+        "brown curls and rainbow ponytail",
+        "rigid gold tiara with turquoise gem",
+        "one connected lavender-blue iridescent tail and rainbow fin",
+        "two arms, no legs or duplicate anatomy"
+      ],
+      "geometry": {
+        "units": "approved 256px cell; canvas = scale * cell + offset",
+        "calibration": "W2/W3 from codex_roshan_wave_whole_sprites_2026-10-07 and unchanged measure_wave.py",
+        "landmarks": {
+          "crown": [
+            145,
+            25
+          ],
+          "eyeL": [
+            130,
+            63.6
+          ],
+          "eyeR": [
+            153,
+            63.6
+          ],
+          "mouth": [
+            142,
+            75.7
+          ],
+          "neck": [
+            141,
+            93
+          ],
+          "waist": [
+            135.5,
+            143
+          ],
+          "tailmid": [
+            128,
+            190
+          ],
+          "tailbot": [
+            150,
+            228
+          ]
+        },
+        "head_box": [
+          118,
+          38,
+          172,
+          92
+        ],
+        "segments": {
+          "upper_arm": {
+            "points": [
+              "shoulder",
+              "elbow"
+            ],
+            "length_px": 25.5,
+            "tolerance_pct": 5
+          },
+          "forearm": {
+            "points": [
+              "elbow",
+              "wrist"
+            ],
+            "length_px": 24.5,
+            "tolerance_pct": 5
+          },
+          "hand": {
+            "points": [
+              "wrist",
+              "tip"
+            ],
+            "length_px": 20.5,
+            "tolerance_pct": 5,
+            "required_when": "hand_open"
+          }
+        }
+      }
+    }
+  },
+  "outfits": {
+    "pink_base": {
+      "character_id": "roshan",
+      "sources": [
+        "K0"
+      ],
+      "description": "Approved pink ruffled-sleeve bodice, pointed front hem, blue V waist trim, iridescent lavender tail and rainbow fin",
+      "locks": [
+        "preserve pink bodice shade and ruffled sleeves",
+        "preserve blue V waist trim and pointed pink hem",
+        "no accessory additions or garment redesign",
+        "paint cloth response into the same complete figure"
+      ]
+    }
+  },
+  "actions": {
+    "wave": {
+      "verb": "one friendly wave",
+      "count": 41,
+      "fps": 24,
+      "sources": [
+        "K0",
+        "K2",
+        "native_study"
+      ],
+      "phases": [
+        {
+          "name": "rest",
+          "from": 0,
+          "to": 3,
+          "description": "Approved rest pose, attentive greeting"
+        },
+        {
+          "name": "raise",
+          "from": 4,
+          "to": 16,
+          "description": "Connected whole-body response while raising the waving hand in the picture plane"
+        },
+        {
+          "name": "apex",
+          "from": 17,
+          "to": 21,
+          "description": "Open hand above shoulder; face stays the same size"
+        },
+        {
+          "name": "lower",
+          "from": 22,
+          "to": 35,
+          "description": "Lower through face then chest height with coordinated torso, hair, sleeve and fin response"
+        },
+        {
+          "name": "settle",
+          "from": 36,
+          "to": 40,
+          "description": "Return to the exact approved rest pose"
+        }
+      ],
+      "context_frames": 3,
+      "boundaries": [
+        {
+          "index": 0,
+          "source_id": "K0"
+        },
+        {
+          "index": 40,
+          "source_id": "K0"
+        }
+      ],
+      "limits": {
+        "figure_scale_pp_pct": 1.0,
+        "head_scale_pp_pct": 2.0,
+        "border_px": 1
+      },
+      "key_canvas": [
+        1024,
+        1024
+      ],
+      "motion_locks": [
+        "one size, no foreshortened elbow toward viewer",
+        "upper arm25.5px, forearm24.5px, open hand20.5px, each within5% in256px cell",
+        "arm, shoulders, head, hair, torso and tail respond together",
+        "same fixed camera and figure framing as K0",
+        "no per-part layers or delays; no limb stretching; crisp five-finger hand"
+      ],
+      "key_gaps": [
+        {
+          "id": "raise_key",
+          "index": 7,
+          "description": "Draw the entire Roshan figure beginning a friendly wave, left hand beside face and elbow away from viewer. Correct the foreshortened raising pose; keep the K0 head size and full-length arm proportions. Subtle coordinated shoulder, bodice, hair and tail response; full figure visible.",
+          "source_ids": [
+            "K0",
+            "K2"
+          ]
+        },
+        {
+          "id": "lower_key",
+          "index": 27,
+          "description": "Draw the entire Roshan figure lowering her waving left hand from face toward chest, palm still clearly readable, arm in the picture plane. Keep the K0 head size and arm proportions. Subtle coordinated shoulder, bodice, hair and tail settle; full figure visible.",
+          "source_ids": [
+            "K0",
+            "K2"
+          ]
+        }
+      ],
+      "backend": {
+        "route": "ltx_local",
+        "recipe_reference": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/workflow.api.json",
+        "status": "Corrected keys and W3 guide annotations required before a new bounded temporal job",
+        "template": "docs/handoffs/codex_roshan_motion_language_2026-10-04/TEMPLATE.md",
+        "auto_dispatch": false
+      }
+    }
+  },
+  "jobs": {
+    "pink_wave_native": {
+      "character_id": "roshan",
+      "outfit_id": "pink_base",
+      "action_id": "wave",
+      "frames_manifest": "assets_src/animation/whole_sprite_pipeline_20261007/source_frames.json",
+      "native_canvas": [
+        640,
+        896
+      ],
+      "mapping": {
+        "scale": 3.2025,
+        "offset": [
+          -216.95,
+          33.85
+        ]
+      },
+      "review": "assets_src/animation/whole_sprite_pipeline_20261007/frame_review.json",
+      "master": {
+        "path": "assets_src/cinematics/ltx25_union_trial_20261004/take_1/native_review.aseprite",
+        "sha256": "041a01f5e166be6b6eeae39297512937aaae915840f035464c8d39e3bff80807"
+      },
+      "joints": null,
+      "campaign_id": "whole-sprite-engine-corrective-keys-20261007",
+      "attempt_ledger": "assets_src/animation/whole_sprite_pipeline_20261007/attempts.json"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "positive": "Unchanged exact-engine partner probe through native capture, MSYS pipe and tee:exit0/ALL OK",
+  "positive_log_sha256": "975f35172cb1329e2eb83c9d772ba96fdaf1c79126ba32f7b9a97a6e5a72ba5c",
+  "negative": "Synthetic native process exit7 and exact marker both preserved through MSYS pipeline",
+  "negative_exit": 7,
+  "negative_output": "EXPECTED_NONZERO_CONTROL\r\n",
+  "adapter_sha256": "244ef3f1600bbdc50ef15c6160857cdd3a13e662118c59f3880a96e308815634",
+  "no_failure_retry": true
+}

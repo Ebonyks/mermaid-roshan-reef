@@ -1,0 +1,166 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+VOICE|Harper objective filler retains exact generator and ledger provenance: OK|
+VOICE|Yay and This is so much fun are exact synthetic filler cues: OK|
+VOICE|common Roshan reactions use distinct contextual cues: OK|
+VOICE|expected Roshan clips present: OK|15 / 15
+VOICE|Racer repair owns exact generated objective text: OK|
+VOICE|beans cue speaks once: OK|voice_i=2->3
+VOICE|beans cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_beans.ogg actual=res://assets/audio/voices/filler_v1/roshan_beans.ogg
+VOICE|Melody Daddy route exists for exact cue coverage: OK|
+VOICE|Melody entry makes one intended request: OK|requests=0->1 cue=roshan_op_popstar_rhythm
+VOICE|Melody entry plays one cue: OK|voice_i=3->4
+VOICE|Melody entry resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg
+VOICE|Melody exact cue path and immutable bytes are present: OK|
+VOICE|Melody entry retains the exact semantic objective copy: OK|
+VOICE|brawl entry makes one intended request: OK|requests=1->2 cue=huluu_greet
+VOICE|brawl entry plays one cue: OK|voice_i=4->5
+VOICE|brawl entry resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/huluu_greet.ogg actual=res://assets/audio/voices/filler_v1/huluu_greet.ogg
+VOICE|brawl entry caption and state stay intact: OK|
+VOICE|brawl route makes one intended request: OK|requests=2->3 cue=huluu_talk
+VOICE|brawl route plays one cue: OK|voice_i=5->6
+VOICE|brawl route resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/huluu_talk.ogg actual=res://assets/audio/voices/filler_v1/huluu_talk.ogg
+VOICE|brawl route caption and progression stay intact: OK|
+VOICE|brawl warning makes one intended request: OK|requests=3->4 cue=huluu_talk
+VOICE|brawl warning plays one cue: OK|voice_i=6->7
+VOICE|brawl warning resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/huluu_talk.ogg actual=res://assets/audio/voices/filler_v1/huluu_talk.ogg
+VOICE|brawl warning caption and one-shot state stay intact: OK|
+VOICE|fallback speech replaces prior exact speech: OK|
+VOICE|fallback speech is active before clear: OK|
+VOICE|clear stops every pooled voice: OK|
+VOICE|clear stops fallback voice: OK|
+VOICE|sequence starts one cue: OK|
+VOICE|sequence starts first exact clip: OK|
+VOICE|first rapid skip is consumed: OK|
+VOICE|first rapid skip stops prior cue: OK|
+VOICE|first rapid skip starts only next cue: OK|
+VOICE|second rapid skip is consumed: OK|
+VOICE|second rapid skip stops prior cue: OK|
+VOICE|second rapid skip starts only next cue: OK|
+VOICE|final rapid skip is consumed: OK|
+VOICE|sequence exhaustion stops final cue: OK|
+VOICE|sequence exhaustion clears dialogue state: OK|
+VOICE|voice cooldown still suppresses duplicate cue: OK|
+VOICE|chapter2_farmer_gather_strawberries cue speaks once: OK|voice_i=13->14
+VOICE|chapter2_farmer_gather_strawberries cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_gather_strawberries.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_gather_strawberries.ogg
+VOICE|one speech channel after changed objective chapter2_farmer_gather_strawberries: OK|
+VOICE|chapter2_farmer_fill_basket cue speaks once: OK|voice_i=14->15
+VOICE|chapter2_farmer_fill_basket cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_fill_basket.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_fill_basket.ogg
+VOICE|one speech channel after changed objective chapter2_farmer_fill_basket: OK|
+VOICE|chapter2_farmer_deliver_to_kitchen cue speaks once: OK|voice_i=15->16
+VOICE|chapter2_farmer_deliver_to_kitchen cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_deliver_to_kitchen.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_farmer_deliver_to_kitchen.ogg
+VOICE|one speech channel after changed objective chapter2_farmer_deliver_to_kitchen: OK|
+VOICE|chapter2_route_farmer cue speaks once: OK|voice_i=16->17
+VOICE|chapter2_route_farmer cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_farmer.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_farmer.ogg
+VOICE|one speech channel after changed objective chapter2_route_farmer: OK|
+VOICE|op_chef_pour_stage cue speaks once: OK|voice_i=17->18
+VOICE|op_chef_pour_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_chef_pour_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_chef_pour_stage.ogg
+VOICE|one speech channel after changed objective op_chef_pour_stage: OK|
+VOICE|op_chef_stir_stage cue speaks once: OK|voice_i=18->19
+VOICE|op_chef_stir_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_chef_stir_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_chef_stir_stage.ogg
+VOICE|one speech channel after changed objective op_chef_stir_stage: OK|
+VOICE|op_chef_bake_stage cue speaks once: OK|voice_i=19->20
+VOICE|op_chef_bake_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_chef_bake_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_chef_bake_stage.ogg
+VOICE|one speech channel after changed objective op_chef_bake_stage: OK|
+VOICE|chapter2_chef_stack cue speaks once: OK|voice_i=20->21
+VOICE|chapter2_chef_stack cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_chef_stack.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_chef_stack.ogg
+VOICE|one speech channel after changed objective chapter2_chef_stack: OK|
+VOICE|op_chef_pipe_stage cue speaks once: OK|voice_i=21->22
+VOICE|op_chef_pipe_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_chef_pipe_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_chef_pipe_stage.ogg
+VOICE|one speech channel after changed objective op_chef_pipe_stage: OK|
+VOICE|chapter2_route_chef cue speaks once: OK|voice_i=22->23
+VOICE|chapter2_route_chef cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_chef.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_chef.ogg
+VOICE|one speech channel after changed objective chapter2_route_chef: OK|
+VOICE|chapter2_candymaker_coat_strawberries cue speaks once: OK|voice_i=23->24
+VOICE|chapter2_candymaker_coat_strawberries cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_coat_strawberries.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_coat_strawberries.ogg
+VOICE|one speech channel after changed objective chapter2_candymaker_coat_strawberries: OK|
+VOICE|chapter2_candymaker_sort_strawberries cue speaks once: OK|voice_i=24->25
+VOICE|chapter2_candymaker_sort_strawberries cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_sort_strawberries.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_sort_strawberries.ogg
+VOICE|one speech channel after changed objective chapter2_candymaker_sort_strawberries: OK|
+VOICE|chapter2_candymaker_glaze_strawberries cue speaks once: OK|voice_i=25->26
+VOICE|chapter2_candymaker_glaze_strawberries cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_glaze_strawberries.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_glaze_strawberries.ogg
+VOICE|one speech channel after changed objective chapter2_candymaker_glaze_strawberries: OK|
+VOICE|chapter2_candymaker_place_candied_strawberries cue speaks once: OK|voice_i=26->27
+VOICE|chapter2_candymaker_place_candied_strawberries cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_place_candied_strawberries.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_candymaker_place_candied_strawberries.ogg
+VOICE|one speech channel after changed objective chapter2_candymaker_place_candied_strawberries: OK|
+VOICE|chapter2_route_candy_maker cue speaks once: OK|voice_i=27->28
+VOICE|chapter2_route_candy_maker cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_candy_maker.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_candy_maker.ogg
+VOICE|one speech channel after changed objective chapter2_route_candy_maker: OK|
+VOICE|chapter2_painter_paint_banner cue speaks once: OK|voice_i=28->29
+VOICE|chapter2_painter_paint_banner cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_painter_paint_banner.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_painter_paint_banner.ogg
+VOICE|one speech channel after changed objective chapter2_painter_paint_banner: OK|
+VOICE|op_painter_splat_stage cue speaks once: OK|voice_i=29->30
+VOICE|op_painter_splat_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_painter_splat_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_painter_splat_stage.ogg
+VOICE|one speech channel after changed objective op_painter_splat_stage: OK|
+VOICE|chapter2_painter_hang_banner cue speaks once: OK|voice_i=30->31
+VOICE|chapter2_painter_hang_banner cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_painter_hang_banner.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_painter_hang_banner.ogg
+VOICE|one speech channel after changed objective chapter2_painter_hang_banner: OK|
+VOICE|chapter2_route_painter cue speaks once: OK|voice_i=31->32
+VOICE|chapter2_route_painter cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_painter.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_painter.ogg
+VOICE|one speech channel after changed objective chapter2_route_painter: OK|
+VOICE|chapter2_ballerina_stuffies_mirror cue speaks once: OK|voice_i=32->33
+VOICE|chapter2_ballerina_stuffies_mirror cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_ballerina_stuffies_mirror.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_ballerina_stuffies_mirror.ogg
+VOICE|one speech channel after changed objective chapter2_ballerina_stuffies_mirror: OK|
+VOICE|op_ballerina_ribbon cue speaks once: OK|voice_i=33->34
+VOICE|op_ballerina_ribbon cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_ballerina_ribbon.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_ballerina_ribbon.ogg
+VOICE|one speech channel after changed objective op_ballerina_ribbon: OK|
+VOICE|op_ballerina_twirl cue speaks once: OK|voice_i=34->35
+VOICE|op_ballerina_twirl cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_ballerina_twirl.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_ballerina_twirl.ogg
+VOICE|one speech channel after changed objective op_ballerina_twirl: OK|
+VOICE|chapter2_route_ballerina cue speaks once: OK|voice_i=35->36
+VOICE|chapter2_route_ballerina cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_ballerina.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_ballerina.ogg
+VOICE|one speech channel after changed objective chapter2_route_ballerina: OK|
+VOICE|op_popstar_sound_check_stage cue speaks once: OK|voice_i=36->37
+VOICE|op_popstar_sound_check_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_popstar_sound_check_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_popstar_sound_check_stage.ogg
+VOICE|one speech channel after changed objective op_popstar_sound_check_stage: OK|
+VOICE|op_popstar_dance cue speaks once: OK|voice_i=37->38
+VOICE|op_popstar_dance cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_popstar_dance.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_popstar_dance.ogg
+VOICE|one speech channel after changed objective op_popstar_dance: OK|
+VOICE|op_popstar_rhythm_stage cue speaks once: OK|voice_i=38->39
+VOICE|op_popstar_rhythm_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm_stage.ogg
+VOICE|one speech channel after changed objective op_popstar_rhythm_stage: OK|
+VOICE|op_popstar_encore_stage cue speaks once: OK|voice_i=39->40
+VOICE|op_popstar_encore_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_popstar_encore_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_popstar_encore_stage.ogg
+VOICE|one speech channel after changed objective op_popstar_encore_stage: OK|
+VOICE|chapter2_route_popstar cue speaks once: OK|voice_i=40->41
+VOICE|chapter2_route_popstar cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_popstar.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_popstar.ogg
+VOICE|one speech channel after changed objective chapter2_route_popstar: OK|
+VOICE|op_astronaut_pipes_stage cue speaks once: OK|voice_i=41->42
+VOICE|op_astronaut_pipes_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_astronaut_pipes_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_astronaut_pipes_stage.ogg
+VOICE|one speech channel after changed objective op_astronaut_pipes_stage: OK|
+VOICE|op_astronaut_patch_stage cue speaks once: OK|voice_i=42->43
+VOICE|op_astronaut_patch_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_astronaut_patch_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_astronaut_patch_stage.ogg
+VOICE|one speech channel after changed objective op_astronaut_patch_stage: OK|
+VOICE|op_astronaut_valve cue speaks once: OK|voice_i=43->44
+VOICE|op_astronaut_valve cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_astronaut_valve.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_astronaut_valve.ogg
+VOICE|one speech channel after changed objective op_astronaut_valve: OK|
+VOICE|chapter2_astronaut_ready_park cue speaks once: OK|voice_i=44->45
+VOICE|chapter2_astronaut_ready_park cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_astronaut_ready_park.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_astronaut_ready_park.ogg
+VOICE|one speech channel after changed objective chapter2_astronaut_ready_park: OK|
+VOICE|chapter2_route_astronaut cue speaks once: OK|voice_i=45->46
+VOICE|chapter2_route_astronaut cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_astronaut.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_astronaut.ogg
+VOICE|one speech channel after changed objective chapter2_route_astronaut: OK|
+VOICE|op_detective_lens_stage cue speaks once: OK|voice_i=46->47
+VOICE|op_detective_lens_stage cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_detective_lens_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_detective_lens_stage.ogg
+VOICE|one speech channel after changed objective op_detective_lens_stage: OK|
+VOICE|op_detective_match cue speaks once: OK|voice_i=47->48
+VOICE|op_detective_match cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_detective_match.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_detective_match.ogg
+VOICE|one speech channel after changed objective op_detective_match: OK|
+VOICE|chapter2_detective_unlit_rainbow_candle_reveal cue speaks once: OK|voice_i=48->49
+VOICE|chapter2_detective_unlit_rainbow_candle_reveal cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_detective_unlit_rainbow_candle_reveal.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_detective_unlit_rainbow_candle_reveal.ogg
+VOICE|one speech channel after changed objective chapter2_detective_unlit_rainbow_candle_reveal: OK|
+VOICE|chapter2_route_detective cue speaks once: OK|voice_i=49->50
+VOICE|chapter2_route_detective cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_route_detective.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_detective.ogg
+VOICE|one speech channel after changed objective chapter2_route_detective: OK|
+VOICE|chapter2_party_ready cue speaks once: OK|voice_i=50->51
+VOICE|chapter2_party_ready cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_party_ready.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_party_ready.ogg
+VOICE|one speech channel after changed objective chapter2_party_ready: OK|
+VOICE|chapter2_ember_clue cue speaks once: OK|voice_i=51->52
+VOICE|chapter2_ember_clue cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_chapter2_ember_clue.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_ember_clue.ogg
+VOICE|one speech channel after changed objective chapter2_ember_clue: OK|
+VOICE|missing exact Day Two cue is silent without generic fallback: OK|
+VOICE|op_racer_tune_up_stage cue speaks once: FAIL|voice_i=53->53
+VOICE|op_racer_tune_up_stage cue resolves exact clip: FAIL|expected=res://assets/audio/voices/filler_v1/roshan_op_racer_tune_up_stage.ogg actual=res://assets/audio/voices/filler_v1/roshan_chapter2_route_farmer.ogg
+VOICE|new Opera objective replaces required Day Two route without overlap: FAIL|
+VOICE|generic Opera reaction cannot replace required Day Two instruction: OK|
+VOICE|result: 3 check(s) FAILED

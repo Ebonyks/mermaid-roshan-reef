@@ -1,0 +1,37 @@
+{
+  "baseline": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
+  "astronaut_green_head": "90508b85f2278ec27d4bdad24fac4ba747d28e2f",
+  "astronaut_remote_ci": {
+    "run": 39227500753,
+    "conclusion": "success"
+  },
+  "teacher_integrated_head": "e90c0daa83cf05644f0e9942e85c1198ed7901f7",
+  "teacher_remote_ci": {
+    "run": 39217603860,
+    "conclusion": "success"
+  },
+  "conflicts": [
+    {
+      "path": "ASSET_LICENSES.md",
+      "method": "Additive conflict resolution preserves both Teacher and Astronaut tails; MA-VIS010 keeps one canonical history row with both appended histories",
+      "sha256": "bf37fe98a900e281752d90229611e7ffebeea5b0fd43bd0e52ed2571bd0942e0"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "method": "Additive conflict resolution preserves both Teacher and Astronaut tails; MA-VIS010 keeps one canonical history row with both appended histories",
+      "sha256": "8a923b672777bc0aba4d87591bee4b48498ef5a2d379736c14539864dbc371e5"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "method": "Additive conflict resolution preserves both Teacher and Astronaut tails; MA-VIS010 keeps one canonical history row with both appended histories",
+      "sha256": "0b3a9e09be0fe4f6f724f17e07fd915812998dcfff23aa896c5706b266493e21"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "method": "Additive conflict resolution preserves both Teacher and Astronaut tails; MA-VIS010 keeps one canonical history row with both appended histories",
+      "sha256": "ae79da7a7a8ea0be893420349d0486972d3eddccb3f462c501b3ae3fec230d42"
+    }
+  ],
+  "production_code_conflicts": 0,
+  "status": "MERGED_TOPIC_CANDIDATE; new combined local82 and exact remoteCI required beforedev; no master promotion"
+}

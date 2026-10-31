@@ -1,0 +1,110 @@
+{
+  "archive_root": "audit/cycles/luna-gameplay-repairs-20261014/candidate/audio_ownership",
+  "created_utc": "2026-10-15T03:14:03.516211+00:00",
+  "files": [
+    {
+      "bytes": 4740,
+      "path": "DRAFT_RECEIPT.json",
+      "role": "native_preparation_receipt_unchanged",
+      "sha256": "142a9fad46b129f74abc008415896021faa74df75342f19258c605446027d653",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\DRAFT_RECEIPT.json"
+    },
+    {
+      "bytes": 7321,
+      "path": "REVIEW_RECEIPT.json",
+      "role": "native_completed_static_review_receipt_unchanged",
+      "sha256": "42bad73d8f7f98b05e3c879243f604b3935c37d0baa0d55969f8b7d9cecafffa",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\REVIEW_RECEIPT.json"
+    },
+    {
+      "bytes": 0,
+      "path": "apply_check.log",
+      "role": "native_read_only_apply_check_log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\apply_check.log"
+    },
+    {
+      "bytes": 32523,
+      "path": "before/audio_director.gd.txt",
+      "role": "exact_pre_repair_source_snapshot_nonruntime_text",
+      "sha256": "000f6f196978192c377af45c2418202890b18327ae9bf0877003055007d0b75e",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\base\\scripts\\audio_director.gd"
+    },
+    {
+      "bytes": 379686,
+      "path": "before/main.gd.txt",
+      "role": "exact_pre_repair_source_snapshot_nonruntime_text",
+      "sha256": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\base\\scripts\\main.gd"
+    },
+    {
+      "bytes": 32528,
+      "path": "draft/audio_director.gd.txt",
+      "role": "reviewed_not_applied_source_draft_nonruntime_text",
+      "sha256": "c2010e40d3e3e0ebb6928d1fab1efe9b997416c8a72a9ab8c547df5589552886",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\drafts\\scripts\\audio_director.gd"
+    },
+    {
+      "bytes": 379728,
+      "path": "draft/main.gd.txt",
+      "role": "reviewed_not_applied_source_draft_nonruntime_text",
+      "sha256": "b7141748c9664fa4023d254495fd61ae4e80d6e536c3ada3972c2ea0104696c7",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\drafts\\scripts\\main.gd"
+    },
+    {
+      "bytes": 0,
+      "path": "inference.log",
+      "role": "native_static_inference_log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\inference.log"
+    },
+    {
+      "bytes": 2261,
+      "path": "main_owned_guide_mode.patch",
+      "role": "reviewed_not_applied_mechanical_patch",
+      "sha256": "8ae049616b896640056985d700cd3e0cbdd129bc166bd0d1f38cee709b69a2f9",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\main_owned_guide_mode.patch"
+    },
+    {
+      "bytes": 28713,
+      "path": "origin_dev/audio_director.gd.txt",
+      "role": "exact_origin_dev_historical_helper_state_comparison",
+      "sha256": "982ae2bcbeabdb7a76c1c193aa391319bf255a3cd046108f6361dacc655eb666",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\origin_dev_audio_director.gd.txt"
+    },
+    {
+      "bytes": 0,
+      "path": "parser.log",
+      "role": "native_static_parser_log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\audio_state_ownership_01\\parser.log"
+    }
+  ],
+  "implementation_status": "PENDING; this archive does not apply or authorize a source/pin change. Future application receipt is separate.",
+  "manifest_self_hash": "Reported externally after write.",
+  "native_file_count": 11,
+  "owner_parent_review": "Parent reviewed exact patch8ae049616b896640056985d700cd3e0cbdd129bc166bd0d1f38cee709b69a2f9 and receipt42bad73d8f7f98b05e3c879243f604b3935c37d0baa0d55969f8b7d9cecafffa without blocking concern.",
+  "probe_access_changes": [],
+  "production_source_and_pin_writes": 0,
+  "production_source_hashes_observed_before_archive": {
+    "scripts/audio_director.gd": "000f6f196978192c377af45c2418202890b18327ae9bf0877003055007d0b75e",
+    "scripts/main.gd": "841efbfa74a61ed14775fa7c2b19e6ff7f54b0a2c4af04d1b08c345440d6f880"
+  },
+  "provisional_growth_waiver": "Parent reports a bounded one-line state-ownership waiver recorded in impact. Reason: main must own new flag. Follow-up: audio service migration at next audio-structure task/before release. No canonical impact or waiver document edited by this archive task.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CODE-01",
+    "DL-CODE-03",
+    "DL-CODE-04",
+    "DL-CODE-06",
+    "DL-SND-03"
+  ],
+  "runtime_verification": "NOT_RUN for this pending ownership patch. Existing focused/full runtime evidence predates its application.",
+  "schema": "reef.audio-ownership-scratch-review-archive.v1",
+  "scope": "Only packet-new active Guide mode state moves from helper to typed main-owned audio_active_guide_mode, retaining five existing read/write points. Historical required key, queue and other helper state remain unchanged.",
+  "source_pin_sha256_observed_during_archive": "65e7968c2c3016d4ca214d9bdf65d43203e9a1763eb089e73ce0ff0337ed9061",
+  "static_review": "PASS parser, inference and read-only apply-check; mechanical inverse matches original bytes.",
+  "status": "EXACT_BYTE_REVIEW_ARCHIVE_IMPLEMENTATION_PENDING"
+}

@@ -2,7 +2,6 @@
 # Full local gate: fresh import + every trusted probe.  Probe user data is
 # isolated so one bot cannot make the next bot pass by pre-winning content.
 set -uo pipefail
-GODOT="${GODOT:-godot}"
 cd "$(dirname "$0")/.."
 # Windows-local parity (2026-08-04): on Windows the Python default text codec
 # is cp1252, so every tool below that reads a UTF-8 source file or prints an
@@ -10,12 +9,21 @@ cd "$(dirname "$0")/.."
 # probes. Linux CI already defaults to UTF-8, so this is a no-op there.
 export PYTHONIOENCODING="utf-8"
 export PYTHONUTF8=1
+GODOT="$(python3 tools/resolve_godot.py)" \
+	|| { echo "APPROVED GODOT RUNTIME UNAVAILABLE"; exit 1; }
+# Tools started below resolve the same build instead of an older PATH entry.
+export GODOT
 # Keep the editor, templates, CI downloads, feature tag and release authority
 # on one checksum-pinned official patch before any other gate runs.
 python3 -m unittest tools.tests.test_audit_godot_baseline \
 	|| { echo "GODOT BASELINE CONTRACT TEST FAIL"; exit 1; }
 python3 tools/audit_godot_baseline.py --godot "$GODOT" \
 	|| { echo "GODOT BASELINE DRIFT"; exit 1; }
+# Persistent beta clothing: prove corruption controls before checking shipped layers.
+python3 -B -m unittest tools.tests.test_fashion_beta \
+	|| { echo "FASHION BETA CONTROL FAIL"; exit 1; }
+python3 -B tools/audit_fashion_beta.py \
+	|| { echo "FASHION BETA ASSET FAIL"; exit 1; }
 # fast static gates first (no Godot needed): syntax, then the ':=' Variant
 # inference shape that broke main.gd twice on 2026-07-11 - a parse error in
 # main.gd makes every probe idle to its 8m timeout, so catching it here
@@ -68,6 +76,19 @@ python3 tools/audit_document_authority.py --stress \
 	|| { echo "DOCUMENT AUTHORITY SELF-TEST FAIL"; exit 1; }
 python3 -m unittest tools.tests.test_audit_development \
 	|| { echo "AUDIT DEVELOPMENT CONTRACT TEST FAIL"; exit 1; }
+python3 -m unittest \
+	tools.tests.test_record_owner_decision \
+	tools.tests.test_run_advisory_sensor \
+	tools.tests.test_study_game \
+	tools.tests.test_build_study_roadmap \
+	tools.tests.test_plan_prompt \
+	tools.tests.test_resolve_godot \
+	tools.tests.test_gold_star \
+	|| { echo "SELF-IMPROVEMENT LOOP CONTRACT TEST FAIL"; exit 1; }
+# Every game file must be catalogued and assessed against the gold-star rubric;
+# stale scores are reported (the study re-assesses them), never silently kept.
+python3 tools/gold_star.py --check \
+	|| { echo "GOLD STAR CATALOGUE FAIL"; exit 1; }
 python3 tools/audit_development.py --base auto \
 	|| { echo "AUDIT DEVELOPMENT COVERAGE FAIL"; exit 1; }
 python3 tools/audit_document_authority.py \
@@ -166,7 +187,7 @@ grep -qE "$RUNTIME_ERROR_RE|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error imp
 python3 tools/audit_game_2d.py --regression-gate \
 	|| { echo "GAME-WIDE 2D MIGRATION REGRESSION (debt may only shrink)"; exit 1; }
 rc=0
-for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_human_art_audit probe_train probe_verbs probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_day_one_voice probe_day_one_d8_revisits probe_day_one_handoffs probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_partner probe_combat_tutorial probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_diegetic_paths probe_opera_detective probe_opera_pipe probe_opera_nursery probe_opera_gesture_quality probe_kitchen_props probe_bathroom_props probe_castle_door_language probe_bathroom_integration probe_day_one_bathroom_bunny probe_day_one_bathroom_cleanup probe_day_one_bathroom_movie_handoff probe_day_one_director probe_day_one_integration probe_day_one_pool_cleanup probe_day_one_art_attack_state probe_day_one_castle_dressing probe_day_one_story_clips probe_start_menu_routing probe_start_menu_new_game probe_castle_pool_life_2d probe_castle_pearl_art probe_fairy_art probe_props; do
+for p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_human_art_audit probe_train probe_verbs probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_day_one_voice probe_day_one_d8_revisits probe_day_one_handoffs probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_partner probe_combat_tutorial probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_diegetic_paths probe_opera_detective probe_opera_pipe probe_opera_nursery probe_opera_gesture_quality probe_kitchen_props probe_bathroom_props probe_castle_door_language probe_bathroom_integration probe_day_one_bathroom_bunny probe_day_one_bathroom_cleanup probe_day_one_bathroom_movie_handoff probe_day_one_director probe_day_one_integration probe_day_one_pool_cleanup probe_day_one_art_attack_state probe_day_one_castle_dressing probe_day_one_story_clips probe_chapter2 probe_chapter2_farmer_resume probe_chapter2_lawn probe_alpha_milestone_save probe_dust_boss_balance probe_start_menu_routing probe_start_menu_new_game probe_castle_pool_life_2d probe_castle_pearl_art probe_fairy_art probe_props; do
 	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }
 	echo "=== $p ==="
 	probe_home="$(mktemp -d)"

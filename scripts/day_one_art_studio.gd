@@ -39,6 +39,7 @@ const SPARKLE_COLORS: Array[Color] = [
 	Color(1.0, 0.55, 0.76), Color(0.80, 0.68, 1.0),
 ]
 
+var _contact_action: DayOneContactAction2D
 var m: ReefMain
 var _material_buttons: Dictionary = {}
 var _grime_buttons: Dictionary = {}
@@ -67,6 +68,9 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	position = Vector2.ZERO
 	size = SOURCE_CANVAS_SIZE
 	scale = Vector2.ONE * ART_TO_STAGE
+	_contact_action = DayOneContactAction2D.new()
+	add_child(_contact_action)
+	_contact_action.bind(m.castle_room_player_sprite, m.castle_room_player_shadow as Sprite2D, m.skin_id)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	z_index = 22
 	_build_targets()
@@ -82,6 +86,8 @@ func teardown() -> void:
 	m._navigation_remove("day_one_art_studio")
 	set_process(false)
 	_customizer_open = false
+	if _contact_action != null:
+		_contact_action.cancel()
 	if _world_visual_layer != null and is_instance_valid(_world_visual_layer):
 		_world_visual_layer.queue_free()
 	_world_visual_layer = null
@@ -291,6 +297,13 @@ func _build_pointer() -> void:
 
 
 func _on_material_pressed(material_id: String) -> void:
+	if _contact_action.available():
+		_contact_action.request(_material_center(material_id), Callable(self, "_finish_material").bind(material_id))
+	else:
+		_finish_material(material_id)
+
+
+func _finish_material(material_id: String) -> void:
 	if m == null or bool(m.day_one_art_collected_materials.get(material_id, false)):
 		return
 	m._ui_tap()
@@ -319,6 +332,13 @@ func _animate_storage_station(material_id: String) -> void:
 
 
 func _on_grime_pressed(grime_id: String) -> void:
+	if _contact_action.available():
+		_contact_action.request(_grime_center(grime_id), Callable(self, "_finish_grime").bind(grime_id))
+	else:
+		_finish_grime(grime_id)
+
+
+func _finish_grime(grime_id: String) -> void:
 	if m == null or bool(m.day_one_art_cleaned_grime.get(grime_id, false)):
 		return
 	m._ui_tap()

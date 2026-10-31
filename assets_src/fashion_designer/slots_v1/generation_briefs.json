@@ -1,0 +1,530 @@
+{
+  "schema": 1,
+  "records": [
+    {
+      "id": "strawberry_head",
+      "prompt": "Use case: stylized-concept. Asset type: isolated head-slot clothing item for a polished 2D children's mermaid storybook game. Generate ONE strawberry-leaf headband with a small plump red strawberry ornament, soft green folded fabric leaves, tiny pearl and gold edging. Image 1 is the existing garment STYLE/material/painted contour reference; image 2 supplies the repository strawberry's rounded silhouette and colors. No character or head, no torso, no text, no border, no scene. Front view, whole object centered with transparent empty margin, broad readable clusters, high-key painted satin shading, clean warm plum contours. Real transparent alpha background. This will be fitted onto existing sprites without changing their hair or face.",
+      "references": [
+        "assets/fashion/skin_engine_v2/garments/garden.png",
+        "assets/chapter2/birthday/sky_lagoon_strawberry_single.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-18a3b619-d570-41b2-9348-50d497771bee.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/strawberry_head.png",
+      "sha256": "f8db61cf6a5c5604eb2dd72ded5c15503332ca2983e570e838369d1281a066ad",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "sha256": "3bef406012e9a5ec90e18d3709b361f0ad0f9926f0961e05aac67e3e0c454c5f",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "strawberry_body",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated body-slot clothing item for an existing polished 2D mermaid storybook game. Subject: a soft coral-red mermaid bodice with a little leafy strawberry breast ornament, pearl neckline and gold seams. Image 1 supplies painted clothing style, material and contour only; Image 2 is the repository theme/color reference. High-key hand-painted satin with broad shaded bands, soft rounded forms, clean plum contour and restrained gold and pearl detail, matching image 1. Front view, centered full item with transparent margin. Only the sleeveless torso garment, no neck, arms, mannequin or tail. No character, no text, no border, no scene, no vector-flat fill, no watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/chapter2/birthday/sky_lagoon_strawberry_single.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-69128cc3-5fbc-43ee-8303-494169c75ee3.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/strawberry_body.png",
+      "sha256": "2fef1173f3eff0d247f7c2af2dc64131ea7d1bda46b9abd02304ea16f3e22c8e",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "sha256": "3bef406012e9a5ec90e18d3709b361f0ad0f9926f0961e05aac67e3e0c454c5f",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "strawberry_tail",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated tail-slot clothing item for an existing polished 2D mermaid storybook game. Subject: a single mermaid tail fabric sleeve: rounded coral and mint scale embroidery with strawberry-seed gold stitches, tapered into a flowing leaf-like hem. Image 1 supplies painted clothing style, material and contour only; Image 2 is the repository theme/color reference. High-key hand-painted satin with broad shaded bands, soft rounded forms, clean plum contour and restrained gold and pearl detail, matching image 1. Front view, centered full item with transparent margin. Only the soft cloth tail garment, broad readable scale bands, no actual body or fins; preserve flowing painted fabric. No character, no text, no border, no scene, no vector-flat fill, no watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/chapter2/birthday/sky_lagoon_strawberry_single.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-3c9ab0a9-a526-44b4-b8fd-e3e338e61414.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/strawberry_tail.png",
+      "sha256": "07bc3f0ddd1e98590d7c86f13efb71328dee10f0785b35d3193f6368f8f1a468",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "sha256": "3bef406012e9a5ec90e18d3709b361f0ad0f9926f0961e05aac67e3e0c454c5f",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "chef_head",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated head-slot clothing item for an existing polished 2D mermaid storybook game. Subject: a little rounded ivory chef toque with lavender satin band, gold piping and tiny seashell clasp. Image 1 supplies painted clothing style, material and contour only; Image 2 is the repository theme/color reference. High-key hand-painted satin with broad shaded bands, soft rounded forms, clean plum contour and restrained gold and pearl detail, matching image 1. Front view, centered full item with transparent margin. Compact short accessory that sits ABOVE hair; no long hanging sides or hair or face. No character, no text, no border, no scene, no vector-flat fill, no watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/opera/worlds/ui/crests/opera_crest_chef.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-8d609bfd-5f02-43de-b488-274203d689e1.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/chef_head.png",
+      "sha256": "e4d4d20b63c0554dea4af1800bb6e21047b1dbb687303c44c2a2faae556d5a61",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/opera/worlds/ui/crests/opera_crest_chef.png",
+          "sha256": "55ab3093ca9f7e9df0bfb5011980727b140648ce0f10974c6ee8392928f77288",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "chef_body",
+      "prompt": "Use case: stylized-concept. ONE isolated body-slot garment for an existing polished 2D mermaid storybook. Subject: an ivory and lavender cooking apron bodice with a large scalloped shell pocket, soft folded cloth and gold piping. Image 1 is painted clothing style/material/contour reference; image 2 theme colors. Warm high-key painted satin, broad shaded bands, rounded silhouette, plum contour, restrained gold and pearls, match reference quality. Front view, centered complete item with transparent margin. Sleeveless torso garment only. No character, mannequin, anatomy, text, scene, flat vector fill or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/opera/worlds/ui/crests/opera_crest_chef.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-0c965262-a080-46fd-91b4-d7508f596ec6.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/chef_body.png",
+      "sha256": "fa795b642882c240df8b46dc1effded07340e8f2c90148a8f59dfb714fdbb4a0",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/opera/worlds/ui/crests/opera_crest_chef.png",
+          "sha256": "55ab3093ca9f7e9df0bfb5011980727b140648ce0f10974c6ee8392928f77288",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "chef_tail",
+      "prompt": "Use case: stylized-concept. ONE isolated tail-slot garment for an existing polished 2D mermaid storybook. Subject: a single tapered ivory and lavender mermaid tail fabric sleeve with scalloped shell embroidery and lavender folded hem. Image 1 is painted clothing style/material/contour reference; image 2 theme colors. Warm high-key painted satin, broad shaded bands, rounded silhouette, plum contour, restrained gold and pearls, match reference quality. Front view, centered complete item with transparent margin. Tapered cloth tail sleeve only, broad ivory/lavender scale bands, flowing hem, no actual fins. No character, mannequin, anatomy, text, scene, flat vector fill or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/opera/worlds/ui/crests/opera_crest_chef.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-7f05a2db-882b-4991-8090-f88ed5fa8d3d.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/chef_tail.png",
+      "sha256": "4cee6168f58fc5b406bccb554631950f41c45340a16a9ec9af2e47aa7bdd94fb",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/opera/worlds/ui/crests/opera_crest_chef.png",
+          "sha256": "55ab3093ca9f7e9df0bfb5011980727b140648ce0f10974c6ee8392928f77288",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "painter_head",
+      "prompt": "Use case: stylized-concept. ONE isolated head-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a soft violet painter beret with coral satin tab, gold edge and three broad colorful paint dabs. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Compact short accessory sitting ABOVE hair, no long hanging sides. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/opera/worlds/ui/crests/opera_crest_painter.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-e3d182fb-4892-4d31-9922-84bcdbbe1442.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/painter_head.png",
+      "sha256": "7e8375c88a67ee3057c381c84003d3e4c29a7dea3ef47f1dcd3aeafc839065b4",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/opera/worlds/ui/crests/opera_crest_painter.png",
+          "sha256": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "painter_body",
+      "prompt": "Use case: stylized-concept. ONE isolated body-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a violet and coral artist apron bodice with a broad rainbow paint-swoosh pocket and a little golden seashell fastener. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Sleeveless torso garment only, no neck or arms or tail. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/opera/worlds/ui/crests/opera_crest_painter.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-75359d24-4c24-4846-a2ef-86cc0f16a428.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/painter_body.png",
+      "sha256": "dc8c4b7ce744bae8acd09891d8d237b34373cd0ec7bc4e3e5afcca3880767c4d",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/opera/worlds/ui/crests/opera_crest_painter.png",
+          "sha256": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "painter_tail",
+      "prompt": "Use case: stylized-concept. ONE isolated tail-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a single tapered mermaid tail fabric sleeve in violet satin with three broad flowing coral aqua and sunshine paint ribbons and pearl-edged hem. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Only tapered soft cloth tail sleeve, broad readable patterned scale bands, flowing hem, no actual body or fins. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/opera/worlds/ui/crests/opera_crest_painter.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-e7dd6be3-1043-4d88-8ca9-dcadbb81bf02.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/painter_tail.png",
+      "sha256": "7cac4290f6a886690d729ff22d6affc95a23a81272cecb633e5c466e3f88b58e",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/opera/worlds/ui/crests/opera_crest_painter.png",
+          "sha256": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "star_head",
+      "prompt": "Use case: stylized-concept. ONE isolated head-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a little warm golden star tiara, one big rounded star and two small lavender stars on a pearl-edged band. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Compact short accessory sitting ABOVE hair, no long hanging sides. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/opera/worlds/props/fx_dizzy_stars.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-b6313ae2-175d-475e-b384-a69365a77215.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/star_head.png",
+      "sha256": "3431fbed8737447a8768f4a7a8f13a426029b5ae3a0923e6d3c78ccf9b7fe011",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/opera/worlds/props/fx_dizzy_stars.png",
+          "sha256": "81bd48fc49666a365c84792fabc6a0313cfa78d8e431bcec1024a4b14d81c7a2",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "star_body",
+      "prompt": "Use case: stylized-concept. ONE isolated body-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a deep lavender and aqua star sailor bodice with broad rounded gold star clasp, warm pearl buttons and golden trim. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Sleeveless torso garment only, no neck or arms or tail. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/opera/worlds/props/fx_dizzy_stars.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-ca8bcb01-517c-44c5-a424-883168378ffd.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/star_body.png",
+      "sha256": "3a3ae3b9a0b053b8a61fe5b7fde15bdb32f18f9a82ebc9d94955b7a09074174f",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/opera/worlds/props/fx_dizzy_stars.png",
+          "sha256": "81bd48fc49666a365c84792fabc6a0313cfa78d8e431bcec1024a4b14d81c7a2",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "star_tail",
+      "prompt": "Use case: stylized-concept. ONE isolated tail-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a single tapered mermaid tail fabric sleeve in lavender twilight satin with sparse rounded golden stars, aqua scale bands and flowing pearl-edged hem. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Only tapered soft cloth tail sleeve, broad readable patterned scale bands, flowing hem, no actual body or fins. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/opera/worlds/props/fx_dizzy_stars.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-7c909417-64d0-4ccd-a567-64f6d20231a4.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/star_tail.png",
+      "sha256": "6aa858b415ceb83f867d2435d10afb03e16256fcf5e75efa657fdc294632f345",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/opera/worlds/props/fx_dizzy_stars.png",
+          "sha256": "81bd48fc49666a365c84792fabc6a0313cfa78d8e431bcec1024a4b14d81c7a2",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "blossom_head",
+      "prompt": "Use case: stylized-concept. ONE isolated head-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a small soft pink and lavender blossom wreath, three broad rounded flowers, mint leaves and tiny pearl centers. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Compact short accessory sitting ABOVE hair, no long hanging sides. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fairy/sprites/helpful_flower_gate.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-783df902-a1d7-4da4-a7dc-0e079cc1ecc6.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/blossom_head.png",
+      "sha256": "4725bf509467921a35d6721fb5b515784685c3715f473a57b67841ee6cb4babf",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/fairy/sprites/helpful_flower_gate.png",
+          "sha256": "f06308db600940e32db09b64184ad469f59fa99d05c5a4c2d1b377df221ea7dd",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "blossom_body",
+      "prompt": "Use case: stylized-concept. ONE isolated body-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a soft pink and mint petal bodice with three broad blossom petals at the waist and pearl-centered flower at the neckline. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Sleeveless torso garment only, no neck or arms or tail. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fairy/sprites/helpful_flower_gate.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-a0d7810b-8470-40bf-9837-47dbba9f9d22.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/blossom_body.png",
+      "sha256": "677a8e6d1c72e9763b02c9ce5181ad4c22e8dc599df150559d3f396b48a3e963",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/fairy/sprites/helpful_flower_gate.png",
+          "sha256": "f06308db600940e32db09b64184ad469f59fa99d05c5a4c2d1b377df221ea7dd",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "blossom_tail",
+      "prompt": "Use case: stylized-concept. ONE isolated tail-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a single tapered mermaid tail fabric sleeve of mint and soft pink petal scales, three broad embroidered blossoms and pearl-edged flowing hem. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Only tapered soft cloth tail sleeve, broad readable patterned scale bands, flowing hem, no actual body or fins. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fairy/sprites/helpful_flower_gate.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-5bbf4b9d-8ec0-44c1-8073-d072a1b1784c.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/blossom_tail.png",
+      "sha256": "9260102bfee3b5b44c966f523e7883049eed68f755d2ca8a86cef25045f6ff65",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/fairy/sprites/helpful_flower_gate.png",
+          "sha256": "f06308db600940e32db09b64184ad469f59fa99d05c5a4c2d1b377df221ea7dd",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "winter_head",
+      "prompt": "Use case: stylized-concept. ONE isolated head-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a small lavender and icy-aqua knit cap with rounded pearl pompom, gold seashell clasp and soft painted fluffy trim. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Compact short accessory sitting ABOVE hair, no long hanging sides. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/ribbon.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-f643ab18-0c81-457b-a1ae-53564df82abe.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/winter_head.png",
+      "sha256": "8257d33b0065147e2cee0f09a084fdc3260ac5b86876ab58939c9e42fcda9747",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/ribbon.png",
+          "sha256": "8db1ec00bdcd4efa18ec270631e15da7f2c8c1b237a0bbcdcc3cc419c49f2ab0",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "winter_body",
+      "prompt": "Use case: stylized-concept. ONE isolated body-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a lavender and icy-aqua cozy short sleeveless vest with soft ivory fluffy trim, pearl buttons and golden seashell clasp. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Sleeveless torso garment only, no neck or arms or tail. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/ribbon.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-5e1477f6-c965-4472-b9b6-5a90207b2128.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/winter_body.png",
+      "sha256": "2f143f7dcdb113ff3f0598580aec35e1c1af3d4e7e3b728365c52e4f9833400a",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/ribbon.png",
+          "sha256": "8db1ec00bdcd4efa18ec270631e15da7f2c8c1b237a0bbcdcc3cc419c49f2ab0",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "winter_tail",
+      "prompt": "Use case: stylized-concept. ONE isolated tail-slot clothing item for an existing polished 2D mermaid children's storybook game. Subject: a single tapered mermaid tail fabric sleeve of lavender and icy-aqua knit scale panels, soft ivory fluffy hem and tiny pearl snowflake embroidery. Image 1 supplies painted garment style/material/contour; image 2 theme/material/color reference only. High-key hand-painted satin with broad shaded bands, rounded forms, clean plum contour and restrained gold and pearls, matching reference quality. Front view, centered full item with transparent margin. Only tapered soft cloth tail sleeve, broad readable patterned scale bands, flowing hem, no actual body or fins. No character, mannequin, anatomy, text, scene, border, vector-flat fills or watermark. Real transparent alpha background.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/garden.png",
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets/fashion/skin_engine_v2/garments/ribbon.png"
+      ],
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "provider_revision": "Not exposed",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "acceptance": "Candidate; native and runtime pose review separate",
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-7506a767-ec45-4139-9988-30656427ffab.png",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/winter_tail.png",
+      "sha256": "9d53ef427bf5e31dbe7ec9da2a7012ed979c76799c52b47657f2e77424a14a9b",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/garden.png",
+          "sha256": "ff1669df8a01f570ba81a3dfc768109cd480c55245a5025dabe5d0d449ed1952",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        },
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/ribbon.png",
+          "sha256": "8db1ec00bdcd4efa18ec270631e15da7f2c8c1b237a0bbcdcc3cc419c49f2ab0",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    },
+    {
+      "id": "original_return",
+      "prompt": "Use case: stylized-concept. Asset type: ONE picture-button symbol for returning a mermaid clothing slot to its original appearance. Subject: a short, broad counterclockwise curved golden satin arrow curled around a little pearl-centered violet seashell clothes hanger. Large clear rounded arrowhead dominates; hanger is a smaller supporting object. Match the existing painted storybook clothes reference: warm gold contours, soft purple/lavender satin and pearl shading, polished hand-painted broad value bands, quiet detail, high-key. Center complete object on real transparent alpha background with generous margin. No characters, no words, no frame, no scene, no flat vector fills, no watermark. Intended as a single 160-pixel wardrobe picture button; keep silhouette simple and unmistakable.",
+      "references": [
+        "C:\\Users\\Peter\\.codex\\worktrees\\fashion-designer-review\\mermaid-roshan-reef\\assets\\fashion\\skin_engine_v2\\garments\\ribbon.png"
+      ],
+      "native_output_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a11494-bffa-78c2-a883-db1b29e614f1\\exec-9f7dc3a4-ddcb-4fbd-9202-b8deb5eda9db.png",
+      "mode": "built-in image_gen",
+      "attempt": 1,
+      "acceptance": "UI candidate; source-only inspection PASS, child/owner semantics pending",
+      "saved_path": "assets_src/fashion_designer/slots_v1/native/original_return.png",
+      "sha256": "60b3a15b1289282a8aa6c9eada832b90bee69de60e5b2e805297923bbef3393c",
+      "usage": "19 built-in calls total; monetary usage not exposed",
+      "bound_reference_hashes": [
+        {
+          "path": "assets/fashion/skin_engine_v2/garments/ribbon.png",
+          "sha256": "8db1ec00bdcd4efa18ec270631e15da7f2c8c1b237a0bbcdcc3cc419c49f2ab0",
+          "role": "Appearance/style or bounded theme reference; no automatic output acceptance"
+        }
+      ]
+    }
+  ]
+}

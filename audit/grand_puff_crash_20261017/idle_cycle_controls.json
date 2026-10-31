@@ -1,0 +1,65 @@
+{
+  "purpose": "Phase-window diagnosis only; unchanged baseline runtime, diagnostic probe variants",
+  "results": [
+    {
+      "name": "verbs_partial_cycle_control",
+      "runtime_baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "ee05ae9a3f105414ba76c488780605219a7c172b74454241ebf047de31933c57",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\verbs_partial_cycle_control.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "expected_assertion_failure": true,
+      "observed_assertion_failure": true,
+      "matches_expected": true
+    },
+    {
+      "name": "verbs_full_cycle_diagnostic",
+      "runtime_baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "bee139f2ae9cc6b2b7423a659f16629af73b82e77d1bda0879aa3a6e95070aaa",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\verbs_full_cycle_diagnostic.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "expected_assertion_failure": false,
+      "observed_assertion_failure": false,
+      "matches_expected": true
+    },
+    {
+      "name": "verbs_frozen_negative_control",
+      "runtime_baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "b19108aa91845e8304d598b442a91944fea2f0c48ca7d9d665be70857cc1c31f",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\verbs_frozen_negative_control.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "expected_assertion_failure": true,
+      "observed_assertion_failure": true,
+      "matches_expected": true
+    }
+  ]
+}

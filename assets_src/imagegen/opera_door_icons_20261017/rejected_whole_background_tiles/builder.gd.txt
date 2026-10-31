@@ -1,0 +1,51 @@
+extends SceneTree
+## Package the owner-directed painted icon edit without changing its source.
+
+const SOURCE := "res://assets_src/imagegen/opera_door_icons_20261017/foyer_icons_above_doors.png"
+const OUTPUT := "res://assets/flats/castle/opera_house_venue_2d/icons_above_doors/"
+const MASTER_SIZE := Vector2i(3640, 2048)
+const TILE_SIZE := Vector2i(910, 1024)
+
+
+func _initialize() -> void:
+	var source := Image.load_from_file(SOURCE)
+	if source == null or source.is_empty():
+		push_error("Missing painted foyer source")
+		quit(1)
+		return
+	var source_size := source.get_size()
+	source.resize(MASTER_SIZE.x, MASTER_SIZE.y, Image.INTERPOLATE_LANCZOS)
+	var error := DirAccess.make_dir_recursive_absolute(OUTPUT)
+	if error != OK:
+		push_error("Cannot create foyer tile directory")
+		quit(1)
+		return
+	var tiles: Array[Dictionary] = []
+	for row in range(2):
+		for column in range(4):
+			var rect := Rect2i(Vector2i(column, row) * TILE_SIZE, TILE_SIZE)
+			var tile := source.get_region(rect)
+			var path := OUTPUT + "room_opera_house_venue_background_r%d_c%d.png" % [row, column]
+			if tile.save_png(path) != OK:
+				push_error("Cannot write foyer tile: " + path)
+				quit(1)
+				return
+			tiles.append({"path": path.trim_prefix("res://"), "row": row,
+				"column": column, "size": [TILE_SIZE.x, TILE_SIZE.y],
+				"source_rect": [rect.position.x, rect.position.y, rect.size.x, rect.size.y],
+				"sha256": FileAccess.get_sha256(path)})
+	var manifest := {"role": "owner_directed_foyer_icon_placement",
+		"source": SOURCE.trim_prefix("res://"), "source_sha256": FileAccess.get_sha256(SOURCE),
+		"native_size": [source_size.x, source_size.y], "master_size": [MASTER_SIZE.x, MASTER_SIZE.y],
+		"derivation": "Godot Image Lanczos whole-canvas normalization, then non-overlapping 4x2 crops; no scene-content synthesis in packaging",
+		"resolution_limit": "Native generation dimensions are recorded without claiming that normalization creates native 2K detail.",
+		"tiles": tiles}
+	var file := FileAccess.open(OUTPUT + "manifest.json", FileAccess.WRITE)
+	if file == null:
+		push_error("Cannot write foyer manifest")
+		quit(1)
+		return
+	file.store_string(JSON.stringify(manifest, "\t") + "\n")
+	file.close()
+	print("OPERA_ICON_TILES|ALL OK|8 tiles; original source preserved")
+	quit(0)

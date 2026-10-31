@@ -1,0 +1,8 @@
+{
+  "command": "Godot4.7.2 --headless --path tmp/opera_foyer_verified_integration --script tmp/opera_icons_patch_builder.gd --log-file tmp/opera_icon_patch_build.log -- tmp/opera_icon_local_patches",
+  "builder_sha256": "e9bbbe6d814630264e966acd79a6eda03b3aa70fdb2dc9f3c06006eb13cdaf4c",
+  "builder_source_equivalence": true,
+  "reproduce_final_paths": "Godot4.7.2 --headless --path . --script res://tools/build_opera_door_icon_patches.gd",
+  "source_and_crop_hashes": "assets/flats/castle/opera_house_venue_2d/badge_repairs/manifest.json",
+  "result": "PASS"
+}

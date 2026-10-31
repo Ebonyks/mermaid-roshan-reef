@@ -1,0 +1,207 @@
+{
+  "status": "DIAGNOSTIC_REFERENCE_ONLY",
+  "human_owner_acceptance": "PENDING",
+  "device_child_acceptance": "NOT_PERFORMED",
+  "native_takes": [
+    {
+      "id": "registered",
+      "guide_strength": 1,
+      "seconds": 95.211,
+      "disposition": "REJECTED_FOR_PRODUCTION",
+      "issues": [
+        {
+          "frames": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "issue": "Early above-head rise; smeared hand edges"
+        },
+        {
+          "frames": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26
+          ],
+          "issue": "Blurred sideways arm sweep while lowering"
+        }
+      ]
+    },
+    {
+      "id": "registered_strong",
+      "guide_strength": 2,
+      "server_execution_seconds": 116.18,
+      "queue_wait_seconds": 1700.0,
+      "disposition": "REJECTED_FOR_PRODUCTION",
+      "issues": [
+        {
+          "frames": [
+            3,
+            7,
+            11,
+            17,
+            21,
+            25
+          ],
+          "issue": "Timing closer to guide; blurred/distorted hands remain"
+        }
+      ]
+    }
+  ],
+  "crisp_correction": {
+    "path": "results/crisp_authored/preview.mp4",
+    "method": "Source-bound joint cutout mapping in Aseprite, preserving fixed body. Source hand/arm drawings replace all generated moving pixels. No temporal blur/blending, global sharpening or additional generated takes.",
+    "disposition": "REJECTED_BY_OWNER_FOR_LIMB_ONLY_SCOPE",
+    "codex_frame_inspection": "Painted outlines clearer in frame-step; machine-only body/endpoint/round-trip PASS. Intermediate arm lengths, wrist/elbow/source switches and shoulder seam still need owner review.",
+    "declared_rest_hold_indices": [
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "source_mapping": "results/crisp_authored/frame_mapping.json",
+    "limitations": "Source-cutout articulation changes bone lengths between different authored poses; it is not a production-approved rig or seamless loop.",
+    "owner_review": "Body fixed with only arm redrawn is inadequate; continuity requires figure-wide shoulder, torso, dress/bodice and hair response."
+  },
+  "cost": {
+    "imagegen_calls": 0,
+    "paid_api_calls": 0,
+    "paid_api_usd": 0,
+    "downloaded_models_bytes": 0,
+    "accepted_production_seconds": 0,
+    "operator_minutes": "not measured; automated pass times are not operator labor",
+    "original_generated_calls": 2,
+    "figure_wide_generated_calls": 1,
+    "pre_sampling_aborted_submissions": 1,
+    "total_generated_takes": 4,
+    "total_submissions_including_pre_sampling_abort": 5,
+    "pre_sampling_abort_seconds": 55.014,
+    "active_server_execution_seconds": {
+      "registered": 92.056,
+      "registered_strong": 116.18,
+      "figure_wide_root": 129.872,
+      "figure_wide_slow": 119.893
+    },
+    "client_wall_seconds": {
+      "registered": 95.211,
+      "registered_strong_including_shared_queue_wait": 1820.47,
+      "figure_wide_root": 132.148,
+      "aborted_text_encoding": 55.014,
+      "figure_wide_slow": 122.843
+    },
+    "cost_per_accepted_second": "Not calculable: zero accepted production seconds."
+  },
+  "motion_blur_cause": "Visible in native decoded PNGs; no export motion-blur filter was applied. Neutral gray matte cleanup adds edge fringe.",
+  "better_control_is_not_detail_acceptance": true,
+  "figure_wide_revision": {
+    "status": "EXECUTION_PASS_QUALITY_FAIL",
+    "source_series": "inputs/figure_key_00.png through 03",
+    "prompt": "briefs/figure_wide_crisp.txt",
+    "root_anchor_px": [
+      461,
+      280
+    ],
+    "fixed_body_pixels": false,
+    "generated_mask_regions": null,
+    "additional_call_cap": 1,
+    "aggregate_call_cap": 3,
+    "output": "results/figure_wide_root/preview.mp4",
+    "pre_sampling_aborted_submission": "results/figure_wide/receipt.json",
+    "editable_master": "results/figure_wide_root/wave_full_figure.aseprite",
+    "whole_frame_round_trip": "PASS",
+    "native_server_execution_seconds": 129.872,
+    "client_wall_seconds": 132.148,
+    "disposition": "REJECTED_FOR_PRODUCTION",
+    "issues": [
+      {
+        "frames": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "issue": "Hand rises early; prompt timing remains approximate."
+      },
+      {
+        "frames": [
+          3,
+          11,
+          17
+        ],
+        "issue": "Raised fingers retain soft/smeared edge detail."
+      },
+      {
+        "frames": [
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26
+        ],
+        "issue": "Lowering sweep retains severe hand/forearm smear."
+      }
+    ],
+    "codex_inspection": "Native complete-figure shoulders/bodice/hair/tail visibly respond, no static body overlay. This meets the broader method scope but not sharpness/action quality."
+  },
+  "figure_wide_slow": {
+    "status": "EXECUTION_PASS_QUALITY_REVIEW_OPEN",
+    "path": "results/figure_wide_slow/preview.mp4",
+    "editable_master": "results/figure_wide_slow/wave_full_figure.aseprite",
+    "frames": 81,
+    "fps": 24,
+    "duration_seconds": 3.375,
+    "native_server_execution_seconds": 119.893,
+    "client_wall_seconds": 122.843,
+    "fixed_body_overlay": false,
+    "isolated_limb_render": false,
+    "temporal_retiming_or_interpolation": false,
+    "disposition": "BEST_CURRENT_FULL_FIGURE_MOTION_REFERENCE_NOT_ACCEPTED",
+    "codex_diagnostic": "Sampled lowering phase retains more recognizable arm geometry than41-frame trial; severe long sweep reduced. Hand smear remains at rising/lowering transitions. Early apex/settle still deviates from guide timing. Shoulders/bodice/hair/tail respond as complete native figure.",
+    "remaining_issues": [
+      {
+        "frames": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "issue": "Rising hand detail remains smeared"
+      },
+      {
+        "frames": [
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52
+        ],
+        "issue": "Lowering hand/forearm retains ghost/smear details; inspect all native frames."
+      }
+    ],
+    "human_owner_acceptance": "PENDING",
+    "machine_round_trip": "PASS81 complete frames"
+  }
+}

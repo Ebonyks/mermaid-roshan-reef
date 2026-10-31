@@ -1,0 +1,236 @@
+{
+  "actual_child_data": false,
+  "captures": [
+    {
+      "id": "01_pan_start",
+      "pan_texture": {},
+      "pan_visual_x": 0.0,
+      "path": "01_pan_start.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "36e84275f43f566bcfc44694ac4b327857107296505f8fc006de93c0d68f7600",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 0,
+        "mode": "geology_pan",
+        "reversals": 0,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.0
+      },
+      "world_phase": 2
+    },
+    {
+      "id": "02_pan_partial",
+      "pan_texture": {},
+      "pan_visual_x": 52.5,
+      "path": "02_pan_partial.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "d60a60d76ecf8be3068763de81579d92a44c9ad573fca8cd37508035beee30fd",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 1,
+        "mode": "geology_pan",
+        "reversals": 4,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.444444444444444
+      },
+      "world_phase": 2
+    },
+    {
+      "id": "03_pan_near_complete",
+      "pan_texture": {},
+      "pan_visual_x": 52.5,
+      "path": "03_pan_near_complete.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "90872b1dda0ef0ff4e981a8d209f07bc7ef771f63600ec4536f113eaac8087f2",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 2,
+        "mode": "geology_pan",
+        "reversals": 8,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.888888888888889
+      },
+      "world_phase": 2
+    },
+    {
+      "id": "04_pan_complete",
+      "pan_texture": {},
+      "pan_visual_x": -52.5,
+      "path": "04_pan_complete.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "055c941b6cedde65c083c88b7bce04fad2e35f249efa4de03018451963cb6414",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": true,
+        "minerals": 3,
+        "mode": "geology_pan",
+        "reversals": 9,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 1.0
+      },
+      "world_phase": 2
+    }
+  ],
+  "checks": [
+    {
+      "label": "exact approved engine hash",
+      "pass": true
+    },
+    {
+      "label": "Mobile native Windows time1",
+      "pass": true
+    },
+    {
+      "label": "private dependency bound before ready",
+      "pass": true
+    },
+    {
+      "label": "original full Geologist world",
+      "pass": true
+    },
+    {
+      "label": "own saved PAN checkpoint restored",
+      "pass": true
+    },
+    {
+      "label": "original PAN surface opened",
+      "pass": true
+    },
+    {
+      "label": "Speedy own profile",
+      "pass": true
+    },
+    {
+      "label": "original touch rect",
+      "pass": true
+    },
+    {
+      "label": "expected source or painted texture",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 01_pan_start",
+      "pass": true
+    },
+    {
+      "label": "native save 01_pan_start",
+      "pass": true
+    },
+    {
+      "label": "second finger cannot wash",
+      "pass": true
+    },
+    {
+      "label": "real washing progresses",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 02_pan_partial",
+      "pass": true
+    },
+    {
+      "label": "native save 02_pan_partial",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 03_pan_near_complete",
+      "pass": true
+    },
+    {
+      "label": "native save 03_pan_near_complete",
+      "pass": true
+    },
+    {
+      "label": "original washing completion",
+      "pass": true
+    },
+    {
+      "label": "original completion signal state",
+      "pass": true
+    },
+    {
+      "label": "native frame dimensions 04_pan_complete",
+      "pass": true
+    },
+    {
+      "label": "native save 04_pan_complete",
+      "pass": true
+    },
+    {
+      "label": "normal eleven save/archive hashes unchanged",
+      "pass": true
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "final_snapshot": {
+    "complete": true,
+    "minerals": 3,
+    "mode": "geology_pan",
+    "reversals": 9,
+    "stage": "PAN",
+    "version": 1,
+    "wash": 1.0
+  },
+  "fixture": "Own saved-PAN checkpoint; original Main/OperaAct/Geologist world and one-finger GUI events, not naturally earned route proof or QA11",
+  "generation_calls": 0,
+  "normal_after": {
+    "": "b81409bba2d108625739b2e1c10be48dc0d9571baf2d1cc4d7b1233b02cd07eb",
+    ".bak": "c9b95b66fd00f22f2e2c5b41d2803e4f5c581c58be483e2e3a593dea0dabd5d6",
+    ".bak.old": "absent",
+    ".bak.tmp": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent",
+    ".old": "absent",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent"
+  },
+  "normal_before": {
+    "": "b81409bba2d108625739b2e1c10be48dc0d9571baf2d1cc4d7b1233b02cd07eb",
+    ".bak": "c9b95b66fd00f22f2e2c5b41d2803e4f5c581c58be483e2e3a593dea0dabd5d6",
+    ".bak.old": "absent",
+    ".bak.tmp": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent",
+    ".old": "absent",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent"
+  },
+  "quality": "speedy",
+  "renderer": "mobile",
+  "source_revision": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "status": "PASS",
+  "variant": "source"
+}

@@ -1,0 +1,20 @@
+{
+  "checked_utc": "2026-10-19T16:50:29.504287+00:00",
+  "green_topic": "256e1f3600d890002a5079f11ef22d830fb6a786",
+  "exact_head_ci": {
+    "run": 39279536724,
+    "conclusion": "SUCCESS"
+  },
+  "incoming_dev": "e1dc3e21f67afeacf48a3609ac520468d6fecc28",
+  "incoming_paths": [
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/rumi-book-revision-handoff-20261017.json",
+    "docs/handoffs/codex_rumi_book_revision_2026-10-17/GAME_INTEGRATION.md",
+    "docs/handoffs/codex_rumi_book_revision_2026-10-17/MANIFEST.json",
+    "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md",
+    "docs/handoffs/codex_rumi_book_revision_2026-10-17/REMOTE_VERIFICATION.json"
+  ],
+  "production_source_drift_against_full02": [],
+  "full02_log_sha256": "c9583a511ab036d01a4d81aa0e72669d0ab3f5244ca67e3a50e282030b58e4f4",
+  "limits": "Incoming change is six Rumi handoff/authority files only. All frozen production pins remain identical to the completed82-probe full02. Document/development gates and new exact merge-head CI are required beforeDev. No new art/motion/canonical/device/owner acceptance."
+}

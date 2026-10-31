@@ -1,0 +1,884 @@
+{
+  "schema": "owner_decisions/1",
+  "imported_at": "2026-10-03",
+  "decisions": [
+    {
+      "id": "ODR-ROSHAN-IDENTITY",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Approved Roshan atlases are the primary identity authority; the book remains a likeness reference.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q2",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-IRIDESCENT",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Roshan tail is iridescent; lavender and rainbow renderings are both correct.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q1",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-Q12",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "No scene-light state protocol is approved yet; new art continues and names the light state of its exemplar.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q12",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-Q13",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Keep the older career and playground design; new art follows the base-world child.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q13",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-Q14",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Roshan wears the tiara whenever she is outside a career costume.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q14",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-Q15",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Prepare the named Roshan defect repair handoff; exact pixel/product acceptance remains separate.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q15",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-Q16",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Delete the retired third-party backpack art outright as scoped by the repair handoff D-01.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q16",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-LOOP-Q1",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Study after each batch merges into dev, at least monthly, and when asked to study the game.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q1",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q2",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Claude studies, plans and writes recipes; Codex builds; the owner answers at most five questions per cycle.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q2",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q3",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Run two manual cycles, then ask the owner before creating scheduled automation.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q3",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q4",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Publish each cycle report to the established GitHub project destination.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q4",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q5",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Use generated history and repair order, re-audit each cycle and count recurring defect classes; preserve sealed evidence.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q5",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q6",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Recipes may bind candidate strengths with explicit candidate status; accepted strengths come first.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q6",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q7",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Parent play-session notes are optional; no child-device telemetry.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q7",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q8",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Prioritize jobs and room activities in the Grow lane, within approved content scope.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q8",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-GODOT-LATEST-STABLE-20261003",
+      "date": "2026-10-03",
+      "subject": "Project engine baseline",
+      "question": "Which engine baseline should this implementation use?",
+      "decision": "Update the project across the board to the latest stable Godot. Official latest-stable verification is recorded separately in the project baseline.",
+      "source": "audit/cycles/2026-10-03/IMPLEMENTATION.md#owner-engine-direction",
+      "authority": "recorded_owner",
+      "checks": [
+        "tools/audit_godot_baseline.py",
+        "tools/resolve_godot.py"
+      ],
+      "checkable": true,
+      "cycle": "2026-10-03"
+    },
+    {
+      "id": "ODR-PRIORITY-JOB-TAKEOVER",
+      "date": "2026-09-30",
+      "subject": "Development planning priority",
+      "question": "How important is job-game takeover readiness for planning?",
+      "decision": "Job-game takeover readiness (MA-DOC-006) is critical to the owner and comes first in development planning; it does not reorder the child-facing defect repairs.",
+      "source": "audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md",
+      "authority": "recorded_owner",
+      "checks": [
+        "tools/build_study_roadmap.py",
+        "tools/tests/test_build_study_roadmap.py"
+      ],
+      "checkable": true,
+      "applies_to": [
+        "MA-DOC-006"
+      ],
+      "priority": "first",
+      "recorded_text": "audit/cycles/2026-10-03-baseline/REPAIR_ORDER_HISTORY.md",
+      "note": "Owner, 2026-09-30: the purpose is to take over development of Mermaid Roshan, and including this in the audit is critical. Recorded the same day in master audit section 13 as 'critical to the owner and comes first in development planning'; that line moved to the baseline history on 2026-10-03 without a register entry, so the roadmap lost it. Entered 2026-10-03 by Claude from those two sources; no new owner answer is claimed.",
+      "cycle": "2026-10-03-baseline"
+    },
+    {
+      "id": "ODR-CHEF-VERDICT-20261003",
+      "date": "2026-10-03",
+      "subject": "Chef look and pour (owner acceptance, DL-QA-06)",
+      "question": "Does the Chef job look and pour right in the current build?",
+      "decision": "No. Owner, 2026-10-03: \"Chef pours backwards still\" and \"Chef still looks bad, lots of overdraw\". Chef's look and pour are not accepted.",
+      "source": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-001",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-001"
+      ],
+      "note": "The pour direction becomes checkable once Codex adds the CR0 probe assertion (stream starts at the rendered spout; spout lowest at full tilt); the look stays an owner judgement.",
+      "cycle": "2026-10-03b"
+    },
+    {
+      "id": "ODR-ANIMATION-METHODS-20261003",
+      "date": "2026-10-03",
+      "subject": "Animation production methods",
+      "decision": "Allow final animation workflows with identity, motion, provenance and device checks; replace compulsory individually generated still frames for new authorized production.",
+      "source": "design/animation/WORKFLOW_OPTIONS_2026-10-03.md#owner-directed-production-split",
+      "authority": "recorded_owner",
+      "question": "Final animation workflows",
+      "checks": [],
+      "checkable": false,
+      "cycle": "animation-20261003"
+    },
+    {
+      "id": "ODR-ANIMATION-ASEPRITE-20261003",
+      "date": "2026-10-03",
+      "subject": "Animation cleanup",
+      "decision": "Use Aseprite as the bridge when possible to clean results, preserving approved polished 2D identity.",
+      "source": "design/animation/WORKFLOW_OPTIONS_2026-10-03.md#owner-directed-production-split",
+      "authority": "recorded_owner",
+      "question": "Aseprite bridge",
+      "checks": [],
+      "checkable": false,
+      "cycle": "animation-20261003"
+    },
+    {
+      "id": "ODR-ANIMATION-LOCAL-CLOUD-20261003",
+      "date": "2026-10-03",
+      "subject": "Animation production routing",
+      "decision": "Default local setup for character design/animation and objects, with APIs for cinematic scenes. This preference does not commission character redesign, a 3D medium change, paid jobs or installation of every candidate.",
+      "source": "design/animation/WORKFLOW_OPTIONS_2026-10-03.md#owner-directed-production-split",
+      "authority": "recorded_owner",
+      "question": "Local versus API",
+      "checks": [],
+      "checkable": false,
+      "cycle": "animation-20261003"
+    },
+    {
+      "date": "2026-10-04",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md#owner-answers-2026-10-04",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-ROSHAN-ORIENTATION-20261004",
+      "subject": "Roshan sprite orientation",
+      "question": "Q1: is left and right only still the standard for gameplay swimming?",
+      "decision": "Sprites need left and right orientation only, with no up or down orientation; standard swimming uses left and right views (confirms the 2026-09-16 two-view swim direction).",
+      "cycle": "roshan-motion-20261004"
+    },
+    {
+      "date": "2026-10-04",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md#owner-answers-2026-10-04",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-ROSHAN-ANIMATION-WORKFLOW-20261004",
+      "subject": "Roshan animation production workflow",
+      "question": "Q3: V1 or V2 shot card?",
+      "decision": "Production runs through LTX locally, by a script run by Codex, with frames transferred through Aseprite for in-game use. Grok handoffs and shot cards are test documents digested to examine the workflow, not final references; the owner assumes V2 is higher quality and asked for an audit.",
+      "cycle": "roshan-motion-20261004"
+    },
+    {
+      "date": "2026-10-04",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md#owner-answers-2026-10-04",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-ROSHAN-ANIMATION-SCOPE-20261004",
+      "subject": "Roshan animation scope",
+      "question": "Q4: may gameplay animation be painted limited animation?",
+      "decision": "No limited animation: make a rich, comprehensive set of Roshan animations. Develop test animations, workflow and style first, then analyse every room and game for right and wrong animations, then polish and refine the product.",
+      "cycle": "roshan-motion-20261004"
+    },
+    {
+      "date": "2026-10-04",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md#owner-answers-2026-10-04",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-ROSHAN-SKY-SWIM-20261004",
+      "subject": "Sky Lagoon travel",
+      "question": "Q5: how does Roshan travel on land in the Sky Lagoon?",
+      "decision": "In the Sky Lagoon Roshan still swims, with a different animation from the sea: slower, more modest travel.",
+      "cycle": "roshan-motion-20261004"
+    },
+    {
+      "date": "2026-10-04",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md#owner-answers-2026-10-04",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-ROSHAN-ANIMATION-TEMPLATE-20261004",
+      "subject": "Roshan animation template",
+      "question": "Goal statement, with Q6 on the uncommitted strict-rule note",
+      "decision": "Goal: a template for developing all future Roshan animations from the game and its context; the handoff analyses each scene and Roshan's interactions, decides whether an animation should be generated and hands it to the appropriate model. The uncommitted strict-rule note is a work-in-progress rule; this process describes the workflow.",
+      "cycle": "roshan-motion-20261004"
+    },
+    {
+      "date": "2026-10-05",
+      "authority": "recorded_owner",
+      "source": "assets_src/cinematics/claude_whole_frame_wave_20261005/README.md#owner-correction-2026-10-05",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-ROSHAN-WHOLE-FRAME-20261005",
+      "subject": "Roshan character animation: whole-figure frames",
+      "question": "Review of the 2D-deformation wave (revision 1), where a cut-out arm moved over a body taken from another drawing with per-part delays.",
+      "decision": "Rejected: \"No arm moves as a single figure, the whole body moves at once, drawn as a whole frame.\" No limb moves as a separate piece; every frame is one whole drawing of the figure and the whole body moves together.",
+      "cycle": "roshan-wave-20261005"
+    },
+    {
+      "date": "2026-10-07",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md#owner-corrections",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-ROSHAN-CONSTANT-SIZE-20261007",
+      "subject": "Roshan animation: one constant size",
+      "question": "Review of the whole-frame bending wave (Claude revision 2, assets_src/cinematics/claude_whole_frame_wave_20261005).",
+      "decision": "Rejected: \"This is worse than the previous results, roshan mutates in size still.\" Roshan keeps one size through an animation, including her head, arms and hands, not only her overall figure.",
+      "cycle": "roshan-wave-20261007"
+    },
+    {
+      "date": "2026-10-07",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_roshan_wave_whole_sprites_2026-10-07/README.md#owner-corrections",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-SPRITE-WHOLE-UNIT-20261007",
+      "subject": "Sprites drawn whole, as a single unit (game-wide)",
+      "question": "Review of the wave studies, whose frames were built from stacked or separately warped pieces.",
+      "decision": "\"There are also significant overdraw issues, sprites need to be drawn whole, as a single unit, in this game.\" Each sprite frame is one whole drawing; no part layers, stacked copies or cross-fades.",
+      "cycle": "roshan-wave-20261007"
+    },
+    {
+      "id": "ODR-POOL-RUMI-ONE-RISE-20261005",
+      "date": "2026-10-05",
+      "authority": "recorded_owner",
+      "subject": "Mermaid Pool: Rumi's rise",
+      "question": "QP-1: Rumi rises twice: once in the room, then again in the 17-second video. Keep both, or drop one?",
+      "decision": "\"No, only one.\" Rumi rises once. The owner-selected d1_pool_clean clip, which cannot be altered (DL-CIN-16), keeps the rise; the room's own rise and greeting are removed.",
+      "source": "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md#11-owner-answers-2026-10-05",
+      "checks": [
+        "scripts/probe_day_one_pool_cleanup.gd"
+      ],
+      "checkable": true,
+      "cycle": "pool-five-star-20261005"
+    },
+    {
+      "id": "ODR-POOL-DIRT-LOOK-20261005",
+      "date": "2026-10-05",
+      "authority": "recorded_owner",
+      "subject": "Day One dirty-room look",
+      "question": "QP-2: Should the other rooms lose their code-drawn dirt and wash the same way, as each gets its own painted dirt?",
+      "decision": "\"Only when dirty objects are specifically being cleaned, which is different from gathering dirt or freeing the seahorse.\" Which rooms and effects this changes waits for the owner's choice of reading (QP-2a); no room changed on it yet.",
+      "source": "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md#11-owner-answers-2026-10-05",
+      "checks": [],
+      "checkable": false,
+      "cycle": "pool-five-star-20261005"
+    },
+    {
+      "id": "ODR-CASTLE-UNDER-CLIPS-20261005",
+      "date": "2026-10-05",
+      "authority": "recorded_owner",
+      "subject": "Castle under Day One story clips",
+      "question": "QP-3: Should the castle keep drawing underneath while a story video plays? That is what makes the video's layering high.",
+      "decision": "\"No.\" The castle and its voice caption stop drawing while a full-screen Day One story clip plays; the castle stays the open surface for game logic.",
+      "source": "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md#11-owner-answers-2026-10-05",
+      "checks": [
+        "scripts/probe_day_one_story_clips.gd"
+      ],
+      "checkable": true,
+      "cycle": "pool-five-star-20261005"
+    },
+    {
+      "id": "ODR-ANIMATION-RETAKE-20261004",
+      "date": "2026-10-04",
+      "subject": "Whole-figure Aseprite retake priority",
+      "decision": "Prioritize a tested retake workflow on the 8 GB card with Aseprite to identify and correct frames. Regenerate coherent whole-figure motion including shoulder, torso/dress, hair and tail; registration anchors do not freeze the body.",
+      "source": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#iterative-repair-with-aseprite-and-temporal-retakes",
+      "authority": "recorded_owner",
+      "question": "Owner-directed whole-figure retake priority; already present in the decision view, now reconciled to its JSON register.",
+      "checks": [],
+      "checkable": false,
+      "cycle": "animation-20261004"
+    },
+    {
+      "id": "ODR-ANIMATION-SCALE-ANCHORS-20261004",
+      "date": "2026-10-04",
+      "subject": "Constant figure scale and Aseprite continuity filter",
+      "decision": "Roshan should retain static world size. Use Aseprite to filter continuity errors and anchor the complete figure at multiple corresponding places per redraw for scaling. Preserve pose-dependent whole-figure motion.",
+      "source": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#filter-scale-continuity-through-aseprite",
+      "authority": "recorded_owner",
+      "question": "Owner: \"Why does mermad roshan grow and shrink in this? She should be a static size\"; \"Aesprite is meant to filter out these continuity errors, anchor the figure at multiples places per redraw for scaling. continue.\"",
+      "checks": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scripts/verify_registered_guides.py",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scripts/render_scale_registered.py"
+      ],
+      "checkable": true,
+      "cycle": "animation-20261004"
+    },
+    {
+      "id": "ODR-ANIMATION-SCALE-CORRECTION-20261004",
+      "date": "2026-10-04",
+      "subject": "Persistent animation size drift and prior Grok control",
+      "decision": "The size problem remains despite improvement. Reuse the controls that fixed the same issue in earlier Grok handoffs; Aseprite must filter continuity errors at multiple figure anchors.",
+      "source": "assets_src/cinematics/ltx25_scale_filter_v2_20261004/README.md#owner-correction",
+      "authority": "recorded_owner",
+      "question": "Owner: Problem is still present, if improved. We were able to fix this same issue in the previous grok handoffs, and I am unsure why we are struggling here.",
+      "checks": [
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/verify.py"
+      ],
+      "checkable": true,
+      "cycle": "animation-scale-v2-20261004"
+    },
+    {
+      "id": "ODR-ANIMATION-FOCUS-WORKFLOW-20261004",
+      "date": "2026-10-04",
+      "subject": "Remaining internal size/focus errors and different corrective workflow",
+      "decision": "Size changes remain subtly visible and the figure shifts in and out of focus. Analyze corrective workflows; regeneration through a different workflow is permitted. Existing footage is not accepted by this direction.",
+      "source": "assets_src/cinematics/ltx25_focus_repair_20261004/README.md#owner-correction",
+      "authority": "recorded_owner",
+      "question": "Owner: Still present, if subtle. Also, the figure shifts in and out of focus. Analyze potential solutions to these problems, regeneration is not a problem if done through a different workflow to correct the erros",
+      "checks": [],
+      "checkable": false,
+      "cycle": "animation-focus-20261004"
+    },
+    {
+      "id": "ODR-ANIMATION-UNION-TRIAL-20261004",
+      "date": "2026-10-04",
+      "subject": "Actual structural-control trial",
+      "decision": "Commission a trial of the preferred structural-control workflow after the size/focus analysis. This requests generation/testing, not creative acceptance of the result.",
+      "source": "assets_src/cinematics/ltx25_union_trial_20261004/README.md#owner-commissioned-trial",
+      "authority": "recorded_owner",
+      "question": "Owner: make a trial",
+      "checks": [],
+      "checkable": false,
+      "cycle": "animation-union-20261004"
+    },
+    {
+      "id": "ODR-FASHION-PERSISTENCE-20261006",
+      "date": "2026-10-06",
+      "subject": "Fashion Designer Roshan: persistent cosmetics, unlocks and disguise games",
+      "decision": "The cosmetic feature redresses recurring characters across the game with persistent effects, includes unlockable outfits throughout play, and teaches later disguise through dress-up games. This supersedes the initial working assumption that all clothes are freely available.",
+      "source": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md#owner-direction--2026-10-06",
+      "authority": "recorded_owner",
+      "question": "Owner: This game has persistent effects. You can redress characters that appear throughout the game using this feature, we'll have unlockable outfits throughout the game too. The fashion designer job will be involving dress up games for disguise, happens later in the game",
+      "checks": [],
+      "checkable": false,
+      "cycle": "fashion-20261006"
+    },
+    {
+      "id": "ODR-FASHION-PARTY-DRESS-20261006",
+      "date": "2026-10-06",
+      "subject": "Roshan's special dress before the party and Iko Iko/Ember King scene",
+      "decision": "Roshan puts on a special dress before the party, prior to the Iko Iko/Ember King scene. This commissions a scoped pre-party clothing beat; garment pixels, implementation and acceptance are not established by the direction.",
+      "source": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md#owner-direction--2026-10-06",
+      "authority": "recorded_owner",
+      "question": "Owner: Roshan should put on a special dress before the party, so prior to the iko iko ember king scene",
+      "checks": [],
+      "checkable": false,
+      "cycle": "fashion-20261006"
+    },
+    {
+      "date": "2026-10-07",
+      "authority": "recorded_owner",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#owner-answers",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-RIG-PILOT-GUIDES-20261007",
+      "subject": "Roshan rig pilot: the rig drives the LTX guides",
+      "question": "Which deterministic-rig pilot to build, given the 2026-10-05 and 2026-10-07 whole-frame, whole-sprite and constant-size rules?",
+      "decision": "Chose \"Rig drives the guides\": track the LTX take, solve it onto a fixed-length rig, and use the rig's poses as proportion-locked guides for the next whole-frame LTX take.",
+      "cycle": "rig-pilot-20261007"
+    },
+    {
+      "date": "2026-10-07",
+      "authority": "recorded_owner",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#owner-answers",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-RIG-PILOT-IMAGE-EXCEPTION-20261007",
+      "subject": "Claude may render this pilot's guides and preview",
+      "question": "For this pilot, may Claude render the rig's guide images itself instead of writing them up for Codex?",
+      "decision": "\"Yes, render them\": a one-time exception to the 2026-09-30 written-handoff rule, covering only the rig pilot's guide images and previews.",
+      "cycle": "rig-pilot-20261007"
+    },
+    {
+      "date": "2026-10-07",
+      "authority": "recorded_owner",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#owner-answers",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-RIG-PILOT-RULES-OFF-TEST-20261007",
+      "subject": "Rig pilot: one rules-off test run, then rules back",
+      "question": "How to trial the deterministic rig against the existing Roshan animation rules?",
+      "decision": "\"Trial two test runs, one that completely ignores these rules for purposes of testing, and then if there are problems or shortfalls with the drafts that are analyzed, introduce these rules back again. The game was previously incapable of animating in this way, I suspect that it may be, but permit claude to trial using a different approach.\" Scope: the rig pilot's run 1 only; the whole-frame, whole-sprite, no-Roshan-rig and written-handoff rules remain binding for production and run 2.",
+      "cycle": "rig-pilot-20261007"
+    },
+    {
+      "date": "2026-10-07",
+      "authority": "recorded_owner",
+      "source": "assets_src/cinematics/claude_rig_pilot_20261007/README.md#owner-answers",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-RIG-PILOT-REV2-20261007",
+      "subject": "Rig pilot run 1: whole-body acting, blink, hair flow, no frame artifacts",
+      "question": "Review of rig pilot run 1 (rules-off Godot rig, revision 1).",
+      "decision": "\"This is acceptable as a rough take, but mermaid roshan is frozen otherwise. Give her a full body natural movement that accompanies the hand raise, have her blink, make her hair flow slightly in the water. It's progress\" and \"There are also a lot of frame-by-frame artifacts present currently\". Scope: the rig pilot's run 1 (revision 2).",
+      "cycle": "rig-pilot-20261007"
+    },
+    {
+      "id": "ODR-FASHION-SLOTS-20261007",
+      "date": "2026-10-07",
+      "authority": "recorded_owner",
+      "subject": "Independent head/body/tail wardrobe and more painted themed clothing",
+      "question": "Owner review of the current clothing menu.",
+      "decision": "Provide three selectable, independently changeable clothing items: head, body and tail. Clarify the question-mark menu, fix the overbaked Roshan icon on the left, and make many more themed clothing items from repository motifs in the same painted styles. This commissions implementation and review, not art/device/child acceptance.",
+      "source": "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md#owner-correction-independent-clothing-slots---2026-10-07",
+      "checks": [
+        "scripts/fashion_parts_test_case.gd",
+        "tools/audit_fashion_slots.py"
+      ],
+      "checkable": true
+    },
+    {
+      "id": "ODR-LUNA-OBJECTIVE-GUIDES-20261014",
+      "date": "2026-10-14",
+      "subject": "Two missing exact Seek and Dolls objective recordings",
+      "authority": "recorded_owner",
+      "question": "The approved recordings lack Evie's 'Tap the wiggly bush' and Faron's three-catch objective. Which source should supply these exact lines? The repository protects family voices, so I need an authorized source rather than altering the existing recordings. I'll continue the code repairs meanwhile.",
+      "decision": "Owner response: 'Just make something up'. For these two missing objectives, implement neutral synthetic Guide recordings using the existing local Kokoro workflow, preserving the family recordings and protected speaker policies. The inspected Seek target is a tree: 'Tap the wiggly tree!' Dolls: 'Move left and right. Catch three sleepy dolls!' This bounded implementation choice does not authorize family imitation, protected-original edits, unrelated new dialogue or paid services; human/device/child acceptance remains separate.",
+      "source": "audit/cycles/luna-gameplay-repairs-20261014/owner_voice_instruction.json",
+      "checks": [
+        "scripts/probe_audio.gd",
+        "tools/audit_audio_quality.py"
+      ],
+      "checkable": true,
+      "cycle": "luna-gameplay-repairs-20261014"
+    },
+    {
+      "id": "ODR-OPERA-ANTEROOM-REMOVAL-20261017",
+      "date": "2026-10-17",
+      "subject": "Remove the old Opera stage entry room",
+      "authority": "recorded_owner",
+      "question": "Which pictured room should be removed and where should Godot be left?",
+      "decision": "Remove the stage/footlights antechamber identified in the attached screenshot from the reachable game flow. Enter the existing three-floor Opera main foyer directly; Back returns to Castle Main Hall. Refresh the Godot AI playtest and leave it in the Opera main room. Preserve logical route/save ownership and existing artwork.",
+      "source": "audit/remove_opera_anteroom_20261017/owner_request.json",
+      "checks": [
+        "scripts/probe_opera.gd"
+      ],
+      "checkable": true
+    },
+    {
+      "id": "ODR-OPERA-ICONS-ABOVE-DOORS-20261017",
+      "date": "2026-10-17",
+      "subject": "Opera foyer icon placement",
+      "decision": "The icons should appear above the doors instead of over them as they do",
+      "source": "audit/opera_door_icons_20261017/owner_request.json",
+      "authority": "recorded_owner",
+      "question": "Owner correction of the refreshed main foyer",
+      "checks": [],
+      "checkable": false,
+      "cycle": "opera-icons-20261017"
+    },
+    {
+      "id": "ODR-MINIGAME-REBUILD-20261017",
+      "date": "2026-10-17",
+      "subject": "Pop Star, Ballerina and Racer quality (owner verdict, DL-QA-06)",
+      "question": "Direct owner request to analyse and redesign the weakest minigames; no question was asked.",
+      "decision": "Pop Star, Ballerina and Racer are the weakest minigames, their current versions are very weak, and they must be completely rebuilt from the ground up; several other games in the set are superior. The Pop Star's note-memory echo is a usable mechanic even though its shell is poor. The specific redesigns are proposals awaiting the owner's answers; no new design, art or build is accepted.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_request.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014",
+        "MA-OPERA-005"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "id": "ODR-POPSTAR-CORE-20261018",
+      "date": "2026-10-18",
+      "subject": "Pop Star rebuild core loop",
+      "question": "Owner question Q1 in docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md section 6 (revision 1); the owner chose the default.",
+      "decision": "Rebuild the Pop Star around the timed echo plus play-along choruses: the band plays a one-bar call and Roshan answers it on her drums in the next bar, with ribbon play-along choruses between verses.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "id": "ODR-POPSTAR-SONG-20261018",
+      "date": "2026-10-18",
+      "subject": "Pop Star rebuild song",
+      "question": "Owner question Q2 in docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md section 6 (revision 1); the owner chose the default.",
+      "decision": "Use a new concert arrangement of the existing Starlight Singalong first; use Iko Iko for the Day Two story only once its game-use rights are confirmed.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "id": "ODR-POPSTAR-BAND-20261018",
+      "date": "2026-10-18",
+      "subject": "Pop Star rebuild band",
+      "question": "Owner question Q3 in docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md section 6 (revision 1); the owner chose the default.",
+      "decision": "Daddy (ukulele) and Baby Eagle (bass) are the free-play Pop Star band.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "id": "ODR-BALLET-CONCEPT-20261018",
+      "date": "2026-10-18",
+      "subject": "Ballerina rebuild concept",
+      "question": "Owner question Q4 in docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md section 6 (revision 1); the owner chose the default.",
+      "decision": "Rebuild the Ballerina as the music-box ballet: the child dances each step at her own pace on Roshan, whose animation lands on the beat; make-your-own-dance comes later as an encore.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014",
+        "MA-OPERA-005"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "id": "ODR-RACER-VIEW-20261018",
+      "date": "2026-10-18",
+      "subject": "Racer rebuild view",
+      "question": "Owner question Q5 in docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md section 6 (revision 1); the owner chose the default.",
+      "decision": "Rebuild the Racer as the side-scrolling three-lane race (Reef Grand Prix) rather than a following camera over the existing painted circuit.",
+      "source": "audit/cycles/minigame-rebuild-20261017/owner_reply_20261018.json",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-014"
+      ],
+      "cycle": "minigame-rebuild-20261017"
+    },
+    {
+      "date": "2026-10-18",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-JOBART-ORDER-20261018",
+      "subject": "Job-art repair order",
+      "question": "Q1: Which jobs first? (default: Geologist and Teacher, then Astronaut and Chef, then Nursery and Boxer, then the rest)",
+      "decision": "The owner answered \"all the above\": every listed job package is first priority and none is deferred.",
+      "cycle": "job-art-imagegen-20261018"
+    },
+    {
+      "date": "2026-10-18",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-JOBART-DECORATION-20261018",
+      "subject": "Decorative code layers in job scenes",
+      "question": "Q2: Ambient doodles, spotlights and sparkle rings drawn over the jobs: remove them, or repaint them as painted effects? (default: remove the spotlights, backdrop stripes and ambient doodles from job scenes; replace the invitation halo and sparkles with one painted ring and sparkle family)",
+      "decision": "The owner answered \"yes\", accepting the stated default: remove the spotlights, backdrop stripes and ambient doodles from job scenes, and replace the invitation halo and sparkles with one painted ring and sparkle family.",
+      "cycle": "job-art-imagegen-20261018"
+    },
+    {
+      "date": "2026-10-18",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-JOBART-NURSERY-FRAMES-20261018",
+      "subject": "Stranded Nursery Roshan frames",
+      "question": "Q3: The stranded Nursery care and wash frames show Roshan in the older career design; use them, or regenerate them following the base-world child (ODR-ROSHAN-Q13)?",
+      "decision": "The owner answered \"use them\": the stranded Nursery care and wash frames are used as they are.",
+      "cycle": "job-art-imagegen-20261018"
+    },
+    {
+      "date": "2026-10-18",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-JOBART-SHARE-STUFFIES-20261018",
+      "subject": "Candymaker SHARE recipients",
+      "question": "Q4: Candymaker SHARE needs six friends: new painted sea friends, or the protected family friend portraits?",
+      "decision": "The owner answered \"use extra stuffies\": the SHARE recipients are stuffies, not new painted sea creatures and not the protected friend portraits.",
+      "cycle": "job-art-imagegen-20261018"
+    },
+    {
+      "date": "2026-10-18",
+      "authority": "recorded_owner",
+      "source": "docs/handoffs/codex_job_art_imagegen_2026-10-17/README.md#owner-answers-2026-10-18",
+      "checks": [],
+      "checkable": false,
+      "id": "ODR-JOBART-PROCESS-20261018",
+      "subject": "Codex job-art working process",
+      "question": "Q5: May Codex work in one branch per package, with one impact record and green CI before merging, and stop publishing per-step receipts for internal work? (external handoffs keep the full GitHub delivery rule)",
+      "decision": "The owner answered \"yes\": Codex works one branch per package with one impact record and green CI before merging, and stops publishing per-step receipts for internal work; external handoffs keep the full GitHub delivery rule.",
+      "cycle": "job-art-imagegen-20261018"
+    },
+    {
+      "id": "ODR-SKY-OBJECTS-UNACCEPTED-20261018",
+      "subject": "Earlier Sky Lagoon object animations",
+      "question": "Do the existing Sky Lagoon v3 object animations (and earlier layers/objects) already cover the alive-painting work?",
+      "decision": "The owner answered: the objects \"never passed audit due to flaws in ltx 2.5 workflows not producing quality products\". The v3 objects and their predecessors are not a runtime source; new whole-drawing frames need a different, piloted method.",
+      "source": "docs/handoffs/codex_sky_lagoon_alive_2026-10-18/README.md#owner-corrections",
+      "checks": [],
+      "checkable": false,
+      "authority": "recorded_owner",
+      "date": "2026-10-18",
+      "cycle": "sky-lagoon-alive-20261018"
+    },
+    {
+      "id": "ODR-RUMI-REVISION-HANDOFF-20261017",
+      "date": "2026-10-17",
+      "authority": "recorded_owner",
+      "subject": "Rumi under-pool book: plot, world and game-integration revision",
+      "question": "Owner direction for the commissioned under-pool book after the 2026-10-12 visual/detective edition.",
+      "decision": "Owner: the book \"needs significant plot revisions, and developments to be able to integrate smoothly into the game environment\"; \"Focus on producing rich, robust undersea world, the inspirations are clearly in the comics, but they appear narrow, and a bathhouse scene is not truly developed. Also, not nearly enough plotting to hold together such a long book.\" Analyse traditional comics for pacing and style and draft solutions as a Codex handoff. Commissions analysis and a written handoff; accepts no story, art or runtime change and commissions no playable chapter.",
+      "source": "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md#owner-request-2026-10-17",
+      "checks": [],
+      "checkable": false,
+      "cycle": "rumi-revision-20261017"
+    },
+    {
+      "id": "ODR-DEMO-FREEZE-20261031",
+      "date": "2026-10-31",
+      "subject": "November 2026 demo and feature freeze",
+      "decision": "Owner, 2026-10-31: \"We're seeking to publish a demo of this game next week for Roshan. We're going to place a cap on new development, it's okay if part 2 doesn't completely resolve at this point.\" The demo is a promotion of dev to master; until it is promoted, dev takes only the demo-readiness packages DR0-DR7, and the owner accepted the handoff defaults the same day.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#0-the-request",
+      "authority": "recorded_owner",
+      "question": "Owner request that commissioned the demo-readiness handoff",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-START-20261031",
+      "date": "2026-10-31",
+      "subject": "Demo start: New Game or Continue",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: decide from Roshan's backed-up save. Use New Game (her save is archived as .before_new_game and backed up) if it predates Day One, finished the old fight another way, or holds career stars that Chapter 2 would hide (MA-SAVE-002); otherwise Continue.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q1: Start the demo with New Game or Continue?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-GRAND-PUFF-20261031",
+      "date": "2026-10-31",
+      "subject": "Grand Puff care recast in the demo",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: demo the recast if work package DR3c is green by Tuesday 2026-11-03; otherwise demo the current encounter and land the recast after the demo. No explicit yes was given for the high-risk canon edit, so CLAUDE.md and AGENTS.md stay unchanged and the mismatch is recorded.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q2: Put the friend-with-a-cold Grand Puff (ODR-GRAND-PUFF-COLD-20261017) in the demo, and update the canon lines in CLAUDE.md and AGENTS.md?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-PART2-SCOPE-20261031",
+      "date": "2026-10-31",
+      "subject": "How much of Part 2 the demo shows",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: show the whole Part 2 party story with the DR5 fixes (no stuffie picker over the ballet, a marked next door, a repeated job prompt), ending on the Ember King cliffhanger. The Opera foyer movement repair lands after the demo.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q3: How much of Part 2, and land the Opera foyer movement repair now?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-MIC-20261031",
+      "date": "2026-10-31",
+      "subject": "Microphone for the demo",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: no code change; an adult switches Mic off in Options on the demo device during setup.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q4: Microphone?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-PLAYTEST-ELEVATOR-20261031",
+      "date": "2026-10-31",
+      "subject": "Opera playtest elevator in the demo build",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: hide it in the demo build (OperaJobPlaytestMenu.ENABLED := false with the probe_opera leg updated to expect it absent); it may be re-enabled after the demo if still wanted.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q5: Hide the playtest elevator for the demo build?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-NO-NEW-AUDIO-20261031",
+      "date": "2026-10-31",
+      "subject": "New audio for the demo",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: no new audio for the demo; a pointing hand on the Back control carries the go-back cue.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q6: Record one new synthetic line, \"Let's go back to the hall!\", for finished rooms?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-BOOK-FILE-20261031",
+      "date": "2026-10-31",
+      "subject": "Deleted protected book file",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: no change during the demo week; restoring the exact original from master needs a later explicit yes. Nothing uses the file at runtime and it remains in history.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q7: Restore the deleted protected file assets/book/baby_eagle.png?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-DATE-DEVICE-20261031",
+      "date": "2026-10-31",
+      "subject": "Demo date and device",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: demo on Saturday 2026-11-07 on the Lenovo Tab M11 named in the device protocol.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q8: Demo date and device?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    }
+  ]
+}

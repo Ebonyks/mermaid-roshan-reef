@@ -1,0 +1,23 @@
+{
+  "checked_utc": "2026-10-19T13:36:42.124379+00:00",
+  "garden_parent": "d4ea63ea0b798da889be8351a72a66691f01ce77",
+  "garden_remote_ci": {
+    "id": 39233777555,
+    "conclusion": "success"
+  },
+  "dev_parent": "58339deb6cb25d5793c3623981e66fad5be0858a",
+  "dev_remote_ci": {
+    "id": 39241651019,
+    "conclusion": "success"
+  },
+  "dev_integration": "Astronaut/Teacher fast-forwarded into dev; master untouched.",
+  "merge": "No production code conflict. Both parent license payloads and changelog sections retained; Garden runtime PNGs/rendering unchanged. New combined82local and exacthead remoteCI required beforeGarden integration.",
+  "combined_full_local": {
+    "status": "PASS",
+    "elapsed_seconds": 3479.766,
+    "expected_probes": 82,
+    "source_drift": [],
+    "log_sha256": "97375954b0a3f29e759f69ba3cf5f8474600207d6954f20b56af98fe9acd98ea"
+  },
+  "status": "COMBINED_LOCAL_PASS_EXACT_MERGE_HEAD_REMOTE_CI_PENDING"
+}

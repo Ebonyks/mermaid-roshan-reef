@@ -1,0 +1,41 @@
+Traceback (most recent call last):
+  File "H:\MermaidReefTools\LocalVideo\ltx25\scripts\server_boot.py", line 7, in <module>
+    import nodes
+  File "H:\MermaidReefTools\LocalVideo\ltx25\ComfyUI\nodes.py", line 23, in <module>
+    import comfy.diffusers_load
+  File "H:\MermaidReefTools\LocalVideo\ltx25\ComfyUI\comfy\diffusers_load.py", line 3, in <module>
+    import comfy.sd
+  File "H:\MermaidReefTools\LocalVideo\ltx25\ComfyUI\comfy\sd.py", line 39, in <module>
+    from . import clip_vision
+  File "H:\MermaidReefTools\LocalVideo\ltx25\ComfyUI\comfy\clip_vision.py", line 7, in <module>
+    import comfy.model_patcher
+  File "H:\MermaidReefTools\LocalVideo\ltx25\ComfyUI\comfy\model_patcher.py", line 33, in <module>
+    import comfy.hooks
+  File "H:\MermaidReefTools\LocalVideo\ltx25\ComfyUI\comfy\hooks.py", line 14, in <module>
+    import comfy.lora
+  File "H:\MermaidReefTools\LocalVideo\ltx25\ComfyUI\comfy\lora.py", line 22, in <module>
+    import comfy.model_base
+  File "H:\MermaidReefTools\LocalVideo\ltx25\ComfyUI\comfy\model_base.py", line 77, in <module>
+    import comfy.ldm.hidream_o1.model
+  File "H:\MermaidReefTools\LocalVideo\ltx25\ComfyUI\comfy\ldm\hidream_o1\model.py", line 20, in <module>
+    from comfy.text_encoders.qwen35 import Qwen35VisionModel
+  File "H:\MermaidReefTools\LocalVideo\ltx25\ComfyUI\comfy\text_encoders\qwen35.py", line 9, in <module>
+    from comfy import sd1_clip
+  File "H:\MermaidReefTools\LocalVideo\ltx25\ComfyUI\comfy\sd1_clip.py", line 3, in <module>
+    from transformers import CLIPTokenizer
+  File "C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\ComfyUI\0.34.0\ComfyUI_windows_portable\python_embeded\Lib\site-packages\transformers\__init__.py", line 30, in <module>
+    from . import dependency_versions_check
+  File "C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\ComfyUI\0.34.0\ComfyUI_windows_portable\python_embeded\Lib\site-packages\transformers\dependency_versions_check.py", line 56, in <module>
+    require_version_core(deps[pkg])
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\ComfyUI\0.34.0\ComfyUI_windows_portable\python_embeded\Lib\site-packages\transformers\utils\versions.py", line 116, in require_version_core
+    return require_version(requirement, hint)
+  File "C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\ComfyUI\0.34.0\ComfyUI_windows_portable\python_embeded\Lib\site-packages\transformers\utils\versions.py", line 110, in require_version
+    _compare_versions(op, got_ver, want_ver, requirement, pkg, hint)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\ComfyUI\0.34.0\ComfyUI_windows_portable\python_embeded\Lib\site-packages\transformers\utils\versions.py", line 43, in _compare_versions
+    raise ImportError(
+        f"{requirement} is required for a normal functioning of this module, but found {pkg}=={got_ver}.{hint}"
+    )
+ImportError: tokenizers>=0.22.0,<=0.23.0 is required for a normal functioning of this module, but found tokenizers==0.23.2.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main

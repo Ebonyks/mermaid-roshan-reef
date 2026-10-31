@@ -1,0 +1,123 @@
+{
+  "baseline": "f1f605e8c1b25c6f18170d52aa93c028aadad73a",
+  "test_script": "scripts/tree_book_test_checks.gd",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "focused_probe_log_sha256": "a1c1a8a0d6b0690f610f1bc0706e4d6c9dc783e7a2c0b6e9d3180e1d5c2a2b77",
+  "focused_checks": [
+    "TREE_BOOK|exact cue available tree: OK",
+    "TREE_BOOK|exact cue available leaf: OK",
+    "TREE_BOOK|exact cue available medicine: OK",
+    "TREE_BOOK|exact cue available carry: OK",
+    "TREE_BOOK|exact cue available spray: OK",
+    "TREE_BOOK|exact cue available done: OK",
+    "TREE_BOOK|exact cue available try_tree: OK",
+    "TREE_BOOK|exact cue available try_spots: OK",
+    "TREE_BOOK|four distinct choices at step 0: OK",
+    "TREE_BOOK|5-second glow, no passive win 0: OK",
+    "TREE_BOOK|10-second hand, no passive win 0: OK",
+    "TREE_BOOK|second finger cannot answer 0: OK",
+    "TREE_BOOK|canceled touch cannot answer 0: OK",
+    "TREE_BOOK|wrong answer preserves earned work 0: OK",
+    "TREE_BOOK|focus loss drops old touch 0: OK",
+    "TREE_BOOK|intentional answer advances exactly once 0: OK",
+    "TREE_BOOK|JSON round trip retains step 0: OK",
+    "TREE_BOOK|four distinct choices at step 1: OK",
+    "TREE_BOOK|5-second glow, no passive win 1: OK",
+    "TREE_BOOK|10-second hand, no passive win 1: OK",
+    "TREE_BOOK|second finger cannot answer 1: OK",
+    "TREE_BOOK|canceled touch cannot answer 1: OK",
+    "TREE_BOOK|wrong answer preserves earned work 1: OK",
+    "TREE_BOOK|focus loss drops old touch 1: OK",
+    "TREE_BOOK|intentional answer advances exactly once 1: OK",
+    "TREE_BOOK|JSON round trip retains step 1: OK",
+    "TREE_BOOK|four distinct choices at step 2: OK",
+    "TREE_BOOK|5-second glow, no passive win 2: OK",
+    "TREE_BOOK|10-second hand, no passive win 2: OK",
+    "TREE_BOOK|second finger cannot answer 2: OK",
+    "TREE_BOOK|canceled touch cannot answer 2: OK",
+    "TREE_BOOK|wrong answer preserves earned work 2: OK",
+    "TREE_BOOK|focus loss drops old touch 2: OK",
+    "TREE_BOOK|intentional answer advances exactly once 2: OK",
+    "TREE_BOOK|JSON round trip retains step 2: OK",
+    "TREE_BOOK|carry arrives without healing: OK",
+    "TREE_BOOK|treatment also requires input: OK",
+    "TREE_BOOK|nested focus loss remains suspended: OK",
+    "TREE_BOOK|pause cancels held spray: OK",
+    "TREE_BOOK|partial medicine survives resume: OK",
+    "TREE_BOOK|deliberate medicine heals same patient: OK",
+    "TREE_BOOK|completed sticker survives resume: OK",
+    "TREE_BOOK|replay starts a fresh optional practice: OK",
+    "TREE_BOOK|malformed checkpoint defaults safely: OK",
+    "TREE_BOOK|malformed checkpoint defaults safely: OK",
+    "TREE_BOOK|malformed checkpoint defaults safely: OK",
+    "TREE_BOOK|malformed checkpoint defaults safely: OK",
+    "TREE_BOOK|malformed checkpoint defaults safely: OK",
+    "TREE_BOOK|closed activity has no pending action: OK",
+    "TREE_BOOK|painted Opera House book opens level: OK",
+    "TREE_BOOK|real viewport touch reaches book without world controls: OK",
+    "TREE_BOOK|exit restores foyer and preserves stars: OK",
+    "TREE_BOOK|exit writes checkpoint to the actual save file: OK",
+    "TREE_BOOK|reentry uses saved step: OK",
+    "TREE_BOOK|venue close tears down child activity: OK",
+    "TREE_BOOK|room route teardown releases practice input and navigation: OK",
+    "OPERA2D|result: ALL OK"
+  ],
+  "capture_tool": "tools/capture_tree_book_test.gd",
+  "capture_log_sha256": "29cdbf35311e3dc259195387fcee16cda6d35cd22207e79e07f7e7f803b7e767",
+  "captures": [
+    {
+      "path": "assets_src/review/tree_book_test_20260930/foyer.png",
+      "sha256": "79255845d06b5052ecbfe52691801e1613911d265f5275c32b48032a28209730"
+    },
+    {
+      "path": "assets_src/review/tree_book_test_20260930/page_0.png",
+      "sha256": "31fcc1ad6f12ea175117242b3cf8b2c163e501d68520b20f0c78849e99c95eae"
+    },
+    {
+      "path": "assets_src/review/tree_book_test_20260930/page_1.png",
+      "sha256": "432ab84401a773aae05e8b6eae67025149502d0ff9e317ed6a5302a7c4f07c2f"
+    },
+    {
+      "path": "assets_src/review/tree_book_test_20260930/page_2.png",
+      "sha256": "8fed9ef71614f247b19ed1d1bce89038c54681230012e617d55b9a5c8a4d8bbc"
+    },
+    {
+      "path": "assets_src/review/tree_book_test_20260930/page_3.png",
+      "sha256": "9106b79b86086ed44a719b89f33e3f729dd1b1e229cb46b4a68cfd355a738823"
+    },
+    {
+      "path": "assets_src/review/tree_book_test_20260930/page_4.png",
+      "sha256": "576dbfc5315d78bb10fae53a2e5e77745665d37cb307059c3811e2a9f9c4a4de"
+    },
+    {
+      "path": "assets_src/review/tree_book_test_20260930/page_5.png",
+      "sha256": "4157b8f397767e92891eccc0ef89218064152f3a2733744de91cbd1cf8add975"
+    },
+    {
+      "path": "assets_src/review/tree_book_test_20260930/phone_1920x900.png",
+      "sha256": "999aa5157fff58773f2e9f16452f54d4d6ef9c7f36710e6e8d4f807db1a77870"
+    },
+    {
+      "path": "assets_src/review/tree_book_test_20260930/wide_1600x900.png",
+      "sha256": "289a18e1c1d98d35956bd2732a7bc0cf48989e9ea7dac8d736cc5e443a9915fe"
+    }
+  ],
+  "acceptance": "Desktop render/state/input review only; Android, child and owner pending",
+  "local_regression": {
+    "command": "GODOT=Godot4.7.2 scripts/ci.sh",
+    "raw_suite_exit": 1,
+    "trusted_probes": 77,
+    "clean_exits": 76,
+    "nonzero": {
+      "probe_load": 127
+    },
+    "retry": {
+      "command": "Godot4.7.2 --headless -s scripts/probe_load.gd -- --touch --classic-touch-test",
+      "exit": 0,
+      "log_sha256": "d1b64a9cf36f331c655da3d789f62d551d78bca1fff25754445d3daa5c3ed1c8",
+      "last_checks": "Day One Continue60/60worldframes,no rebuilds;empty-world watchdog converges once"
+    },
+    "suite_log_sha256": "70932476b3de953c6371c9c0a3fba96c025ab38839f14f77fea573d63528e5ff",
+    "status": "All77 trusted probes have passing executions; one native exit127 was not reproduced on isolated rerun. Full clean GitHub CI remains required before integration."
+  }
+}

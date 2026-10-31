@@ -12,6 +12,9 @@ class TestMain extends ReefMain:
 			return false
 		var state := _chapter_two_ref().serialize_state()
 		state["day_one_giant_dust_bunny_boss_defeated"] = true
+		state["character_outfits"] = character_outfits
+		state["outfits_unlocked"] = outfits_unlocked
+		state["chapter2_party_dress_done"] = chapter2_party_dress_done
 		file.store_string(JSON.stringify(state))
 		file.close()
 		return true
@@ -36,6 +39,10 @@ func _run() -> void:
 	host.chapter2_lawn_started = true
 	host.chapter2_party_event_phase = ChapterTwoDirector.PARTY_EVENT_CANDLE_FOUND
 	host.game = "chapter2_lawn"
+	FashionDesigner.refresh_unlocks(host)
+	_check("lawn entry carries an intentionally worn party dress",
+		FashionDesigner.equip(host, "roshan", FashionDesigner.PARTY_DRESS, true)
+		and FashionDesigner.party_dressed(host))
 	scene = ChapterTwoLawnFinale2D.new()
 	root.add_child(scene)
 	scene.setup(host, Callable())
@@ -189,6 +196,7 @@ func _reload() -> void:
 	scene.teardown()
 	scene.free()
 	host._chapter_two_ref().restore_state(state)
+	FashionDesigner.restore(host, state as Dictionary)
 	scene = ChapterTwoLawnFinale2D.new()
 	root.add_child(scene)
 	scene.setup(host, Callable())

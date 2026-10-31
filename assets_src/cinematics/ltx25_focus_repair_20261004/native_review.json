@@ -1,0 +1,19 @@
+{
+  "status": "REJECTED_REFERENCE_ONLY",
+  "inspected_native_indices": [
+    14,
+    22,
+    40
+  ],
+  "decoder2_verdict": "REJECT",
+  "findings": [
+    "Persistent soft face/contour changes and smeared fingers remain.",
+    "Two-step decode adds fine grain/checker texture in the neutral background and painted figure.",
+    "Higher edge-energy scores are partly noise; not evidence that the focus defect was repaired.",
+    "The same latent still contains internal shape drift."
+  ],
+  "next_preference": "Coherent full-figure structural video conditioning, followed by temporal detail reconstruction; homogeneous source-key detail.",
+  "new_transformer_jobs": 0,
+  "new_imagegen_calls": 0,
+  "device_child_owner_acceptance": false
+}

@@ -1,0 +1,35 @@
+{
+  "status": "EXECUTION_PASS",
+  "started_at_utc": "2026-10-04T18:07:59.487329+00:00",
+  "backend": "ltxv",
+  "diagnostic_only": true,
+  "source_window_inclusive": [
+    40,
+    64
+  ],
+  "native_frames_expected": 1,
+  "fps": 24,
+  "guide_strength": 1,
+  "seed": 20261004,
+  "workflow_sha256": "1ed2d9603317c7029f8ae6ade8ff194a8a85e01235c9846fd54caf0721b1cf92",
+  "native_outputs": [
+    {
+      "index": 0,
+      "path": "native_frames/0000.png",
+      "sha256": "964f80b183255afe1d60365121ead45ad018e8b415d597472269980ecce1c950",
+      "bytes": 430642
+    }
+  ],
+  "resources": [
+    {
+      "elapsed_seconds": 0.282,
+      "gpu_used_mib_util_percent": "2461, 40"
+    }
+  ],
+  "queue_ahead_prompt_ids": [],
+  "acceptance": "REFERENCE_ONLY",
+  "prompt_id": "510ff698-d68d-4883-b188-8c3923c8a9a1",
+  "active_start_elapsed_seconds": 0.0303122999612242,
+  "elapsed_seconds": 10.332,
+  "completed_at_utc": "2026-10-04T18:08:09.830592+00:00"
+}

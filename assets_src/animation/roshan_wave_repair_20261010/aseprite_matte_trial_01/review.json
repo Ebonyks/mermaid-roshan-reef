@@ -1,0 +1,133 @@
+{
+  "schema": "reef.aseprite-boundary-alpha-model-review.v1",
+  "reviewer_kind": "model_observation",
+  "reviewer": "Codex whole_frame_interpolation subagent",
+  "reviewed_at_utc": "2026-10-11T00:39:23.180192+00:00",
+  "preferred_variant": "variant_04",
+  "status": "PREFERRED_MATTE_CANDIDATE_NOT_FINAL_ARTWORK",
+  "scope": "Three source-only whole-cel RGBA isolation/unmatting samples, reviewed native and256px over true black/light/dark fields",
+  "generator_calls": 0,
+  "paid_calls": 0,
+  "pixel_edits": "AsepriteLua only; direct same-frame boundary color/alpha fitting with declared foreground seeds. No Python image writes.",
+  "samples": [
+    {
+      "frame_index": 14,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0014.png",
+      "source_sha256": "15db04d7153268e187ddf8195b5169dd5e830858eaf2fabefbcbb6eeeb1256ff",
+      "preserved_source_copy_sha256": "15db04d7153268e187ddf8195b5169dd5e830858eaf2fabefbcbb6eeeb1256ff",
+      "source_copy_byte_exact": true,
+      "native_rgba_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/variant_04/native_rgba/0014.png",
+      "native_rgba_sha256": "37f23ea60e5b89f62a102affa007feb862cf4d94eb2fc2326456a39dd7c8c092",
+      "sprite_rgba_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/variant_04/sprite_rgba/0014.png",
+      "sprite_rgba_sha256": "ef21cfc166996ac6187da31480fb189a165177940f021e7a092086dc45312063",
+      "native_dimensions": [
+        640,
+        896
+      ],
+      "sprite_dimensions": [
+        256,
+        256
+      ],
+      "unmodified_deep_figure_pixels": 158894,
+      "modified_pixels_beyond2px_boundary": 0,
+      "protected_closed_neutral_pixels": 709,
+      "modified_protected_closed_neutral_pixels": 0,
+      "model_observation": "Matte improved; native source line noise/focus still requires separate whole-frame review"
+    },
+    {
+      "frame_index": 26,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0026.png",
+      "source_sha256": "01ad535d0cac0eb0e34a4bca90aab6f9c582c1b6f3ed9bcc9baff59149fd50a9",
+      "preserved_source_copy_sha256": "01ad535d0cac0eb0e34a4bca90aab6f9c582c1b6f3ed9bcc9baff59149fd50a9",
+      "source_copy_byte_exact": true,
+      "native_rgba_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/variant_04/native_rgba/0026.png",
+      "native_rgba_sha256": "0c2f70339316f61152cfb74691c1d7e700430dc5444b5b8b965be4d87cd207b3",
+      "sprite_rgba_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/variant_04/sprite_rgba/0026.png",
+      "sprite_rgba_sha256": "6b35ab7f23e91fbeebb6f2acb7bb9f84d89fdb035f0c8dce4ba88c5339c5f71c",
+      "native_dimensions": [
+        640,
+        896
+      ],
+      "sprite_dimensions": [
+        256,
+        256
+      ],
+      "unmodified_deep_figure_pixels": 159904,
+      "modified_pixels_beyond2px_boundary": 0,
+      "protected_closed_neutral_pixels": 928,
+      "modified_protected_closed_neutral_pixels": 0,
+      "model_observation": "Matte improved and source26 arm/hand remains defective"
+    },
+    {
+      "frame_index": 40,
+      "source_path": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames/0040.png",
+      "source_sha256": "82f6da7023b0944dd63ff4fd95e4c5353e471304be4ad73b99330bd449fba936",
+      "preserved_source_copy_sha256": "82f6da7023b0944dd63ff4fd95e4c5353e471304be4ad73b99330bd449fba936",
+      "source_copy_byte_exact": true,
+      "native_rgba_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/variant_04/native_rgba/0040.png",
+      "native_rgba_sha256": "deddf9b720c7f3e0b43837a508e63bb13854fb5275300e682bcd2e659fb49c32",
+      "sprite_rgba_path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/variant_04/sprite_rgba/0040.png",
+      "sprite_rgba_sha256": "87e1e1ec80e29450360724bb0e92dd12bb6d1c68f19768da6743439a14e5c87e",
+      "native_dimensions": [
+        640,
+        896
+      ],
+      "sprite_dimensions": [
+        256,
+        256
+      ],
+      "unmodified_deep_figure_pixels": 159399,
+      "modified_pixels_beyond2px_boundary": 0,
+      "protected_closed_neutral_pixels": 578,
+      "modified_protected_closed_neutral_pixels": 0,
+      "model_observation": "Matte improved; native source line noise/focus still requires separate whole-frame review"
+    }
+  ],
+  "master_layer_counts": [
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/variant_04/matte_trial.aseprite",
+      "sha256": "9c84feba7814c52ff30f6d89e3b9273d10798daac102fad7c5cd6d16afaed08a",
+      "layers": 1
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/aseprite_matte_trial_01/variant_04/native_matte_trial.aseprite",
+      "sha256": "1be925836e6bd37833fbadf7fdd4da996352f4b7887f4c78bfd6451f6d90b872",
+      "layers": 1
+    }
+  ],
+  "manual_background_seeds": {
+    "14": [
+      459,
+      226
+    ],
+    "26": [
+      454,
+      218
+    ],
+    "40": [
+      457,
+      219
+    ]
+  },
+  "remaining_blocks": [
+    "Native source26 hand/forearm is visibly smeared/incompletely drawn",
+    "Native generated contour noise/focus variation remain source limitations",
+    "Complete41-frame transitions,seam,W2/W3 geometry not established by a matte trial",
+    "Human/owner/device/child/runtime/delivery acceptance absent"
+  ],
+  "acceptance": {
+    "artifact_free_wave": false,
+    "owner": false,
+    "device": false,
+    "child": false,
+    "runtime": false,
+    "delivery_accepted": false
+  },
+  "cleanup_time_evidence": {
+    "scope": "Wall time from this pilot directory creation through the explicit completion-time check; includes local Aseprite processing, measurement and model review, excludes earlier source preflight and aggregate root/other-agent work",
+    "directory_created_at_utc": "2026-10-11T00:30:24.4652562Z",
+    "completion_time_check_utc": "2026-10-11T00:39:43.1565129Z",
+    "wall_minutes": 9.311520945,
+    "evidence": "Native PowerShell Get-Item.CreationTimeUtc and Get-Date UTC; task commentary/tool records retain check"
+  }
+}

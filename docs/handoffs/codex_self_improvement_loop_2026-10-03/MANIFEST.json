@@ -1,0 +1,85 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_self_improvement_loop_2026-10-03",
+ "revision": 1,
+ "revision_note": "Initial publication.",
+ "status": "PROPOSED / CANDIDATE",
+ "prepared_by": "Claude (analysis, written specification, templates, seeds and a read-only measurement tool; no game changes; no images)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev f2140465b0d97575cf1855b1d0422a2c4be6110f",
+ "tracking_finding": "MA-DOC-009",
+ "related_findings": [
+  "MA-CI-008"
+ ],
+ "entry": "README.md",
+ "file_count": 11,
+ "total_bytes": 77978,
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 14852,
+   "sha256": "16b1b042fbb8db1078de2107718a45291e5ff40a16b04a2e7c7e815fe042ae93",
+   "role": "handoff entry: the loop, invariants, work packages LP0-LP11, build order, acceptance, owner questions"
+  },
+  {
+   "path": "LOOP_AUDIT.md",
+   "bytes": 17172,
+   "sha256": "9a8c2bd0385046ba6a5b62a3e2803bb461d8f543b42942ea684a2146768ab118",
+   "role": "the analysis: what is missing at each stage, twelve feedback loops, sensors, strengths, weaknesses, roadmap, learning"
+  },
+  {
+   "path": "CYCLE_0_STUDY_REPORT.md",
+   "bytes": 10338,
+   "sha256": "2f220a4096f7b2e96bcce4122f7bec7f5854b323672d673ef5675e84ee7a27fc",
+   "role": "the first turn of the loop, written by hand as the worked example"
+  },
+  {
+   "path": "data/loop_health_2026-10-03.json",
+   "bytes": 6207,
+   "sha256": "69e957790e196858b51661a22e50090b9801f20fa28422235253c5472fa679d9",
+   "role": "loop measurements at the baseline (tool output)"
+  },
+  {
+   "path": "data/loop_inventory.json",
+   "bytes": 5137,
+   "sha256": "86d1ba1e55c13d913f3b3cfa39b140581763364fa1c7507af65253e88fb769b0",
+   "role": "the twelve feedback loops with status, last activity, what breaks them and refinements"
+  },
+  {
+   "path": "data/prompt_intents_seed.json",
+   "bytes": 5848,
+   "sha256": "e0a2625a4c2eec27c1ab2e77f7681d18b2069adde32bfc12d903c92b50af7963",
+   "role": "first prompt intents (INT-*) and what each expands into"
+  },
+  {
+   "path": "data/strengths_seed.json",
+   "bytes": 5342,
+   "sha256": "1207672b65159539abfcef4307b053f3c79836b6f2d501ad295ef9404b7c1aff",
+   "role": "first strengths register entries (S-01 to S-15), each with evidence"
+  },
+  {
+   "path": "templates/PROMPT_RECIPE_V1.md",
+   "bytes": 2089,
+   "sha256": "25939b0584ccbf1d41476b8a7f0bc8be246702e0b6ea5cfadeba0191523cbdaf",
+   "role": "template: how a one-line owner prompt expands into a complete plan"
+  },
+  {
+   "path": "templates/STUDY_REPORT_V1.md",
+   "bytes": 2652,
+   "sha256": "476b6b9e5790843e24cbbeb7d30931b135bf0f420d702aabb8724bfde9fbbd91",
+   "role": "template: one short report per loop cycle"
+  },
+  {
+   "path": "tools/measure_loop_health.py",
+   "bytes": 8341,
+   "sha256": "7ae366c1ae08261eba5226bb2aacc27cb2a7ba339276db6be6c978056f37f55b",
+   "role": "read-only loop measurement (standard library; writes JSON only)"
+  }
+ ]
+}

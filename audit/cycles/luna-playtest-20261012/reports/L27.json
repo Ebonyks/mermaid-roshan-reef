@@ -1,0 +1,148 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L27",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l27",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Farmer lawn/resume and waiting",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L27/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "Exact Godot 4.7.2 headless probe passed the focused Farmer scene checks for saved strawberry masks 1/5 through 4/5, next-pick enablement, completion through remaining TextureButton pressed signals, duplicate-pick rejection, and Farmer berry handoff rendering. Probe log ends RESULT: PASS failures=0.",
+    "gaps": "The probe directly instantiates OperaCareerWorld2D with explicit Farmer phases, writes masks into main, then calls _arm_phase() and _open_task(); it never enters from the Family Dining Room or feeds ordinary touch input. It also does not exercise the Chapter Two lawn finale. On a normal armed story-phase path, source reports no authored Farmer room objects for GATHER STRAWBERRIES, FILL BASKET, or DELIVER TO KITCHEN; _arm_phase() consequently has no armed station to show. The route requires a normal-room probe and displayed/device evidence."
+  },
+  "verdict": "FAIL",
+  "timing": {
+    "code_constants": [
+      "The Farmer pickup completion sets phase_complete_t=1.1 seconds after the fifth pick (scripts/opera_career_world_2d.gd:1057-1062).",
+      "While waiting in a closed room, the phase prompt is repeated at idle_t >= 9 seconds; at idle_t >= 20 seconds the code attempts to walk to the armed station (scripts/opera_career_world_2d.gd:4622-4638).",
+      "Chapter Two normal-phase transition uses a 1.0-second phase_gap after phase 0; subsequent phase arming keeps the room open for discovery (scripts/opera_career_world_2d.gd:2460-2468,3615-3617)."
+    ],
+    "gameplay_duration": null,
+    "assumptions": "These are source timers, not observed child-session durations. The 20-second assist only calls the hotspot route if armed_station resolves; Farmer's missing room-object warnings leave this condition unproven and the code path has no station for the cited phases. Probe wall time (14.874 seconds) is execution time only."
+  },
+  "tactile": {
+    "target_size": "Each constructed Farmer berry TextureButton is 124×124 base-canvas units with a 96×96 custom minimum (scripts/opera_career_world_2d.gd:955-963), exceeding the DL-UI-03 nominal 110×110 target. Phone projection, spacing comfort, and visible berry bounds were not measured.",
+    "press_response": "The probe emits each button's pressed signal directly and confirms the saved mask and disabled state; it does not synthesize pointer/touch input or measure rendered-frame response. Source immediately disables and dims the earned button after record_strawberry_pick succeeds (scripts/opera_career_world_2d.gd:1035-1055).",
+    "drag_hold_release": "No drag or hold is required by the five-pick gather phase. This probe does not send press/release events, so release/cancel behavior is untested.",
+    "ownership": "The probe uses one signal emission per remaining pick and checks a duplicate next-button emission earns no additional credit (probe.log:10-26). It does not test touch IDs, simultaneous fingers, or GUI routing.",
+    "cancellation": "Partial pickup state is checked after direct mask initialization, not after an actual pause, activity exit, focus loss, save write, or app restart. Those lifecycle paths remain unverified here."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: five separated, large berry targets and only one enabled next pick could make the gathering goal concrete and support choosing a target. The actual target art, focus, pointer, speech, and response were not viewed or heard.",
+    "variety": "The reviewed Farmer gather beat is five object taps; this probe does not review the later Farmer garden/lawn activity, so variety beyond harvesting is unknown.",
+    "world_response": "In the asserted setup, each pick increments persistent mask progress, dims/disables the selected berry, and the fifth sets phase advance pending; no visible capture verifies the response in context.",
+    "replay": "The resume cases suggest the child can continue at the next uncollected berry after interruption, but interruption/re-entry was simulated by assigning saved masks, not performed through a user route. Child appeal and willingness to repeat remain hypotheses.",
+    "fun_score": null
+  },
+  "play_sequence": {
+    "status": "Proposed acceptance script; not performed as visible or child play. The probe internally covers the mask/button steps only.",
+    "beats": [
+      "From a fresh Chapter Two save after the prior story gate, use the visible Family Dining Room Farmer route and wait for the first task cue. Record whether a physical room object can open GATHER STRAWBERRIES; code has no Farmer station for that phase (scripts/opera_career_world_2d.gd:1902-1911,2497-2524).",
+      "If the room is waiting, give it exactly 9 seconds with no input; check the repeated phase prompt/demo, then continue to exactly 20 seconds and check the auto-walk assist. The source only invokes that assist when an armed station exists (scripts/opera_career_world_2d.gd:4622-4638).",
+      "After a valid visible task entry is available, make one ordinary tap on each of three different visible berries, with no hold or drag; pause/leave and reload at 3/5. The probe's mask-3 case is simulated rather than saved through these actions (probe.gd:94-120).",
+      "Re-enter and make one tap on the next berry; verify it alone is enabled before tapping and becomes disabled/dim immediately afterward (scripts/opera_career_world_2d.gd:1014-1055; probe.gd:105-119).",
+      "Tap the final fifth berry once; wait 1.1 seconds for the authored completion timer and inspect that the saved mask is 0x1F and the next phase has a visible, reachable entry (scripts/opera_career_world_2d.gd:1057-1062).",
+      "Concrete appeal test on the target phone: without adult instruction, observe whether the child chooses and taps the next berry, recovers after resuming 3/5, recognizes what changed, and voluntarily continues toward basket delivery; record any missed target, waiting, help request, or decision to stop."
+    ]
+  },
+  "observations": [
+    {
+      "title": "Saved partial berry masks expose only the next pickup and reject duplicate credit",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_chapter2_farmer_resume.gd:94-120 initializes saved counts 1-4, calls _arm_phase(), checks the next button enabled and previous button disabled, emits remaining pressed signals, then emits a duplicate and checks no double credit.",
+        "audit/cycles/luna-playtest-20261012/runtime/L27/attempt_1/probe.log:10-26 reports every 1/5 through 4/5 resume and duplicate-credit assertion OK; final line reports RESULT: PASS failures=0.",
+        "scripts/opera_career_world_2d.gd:1035-1055 updates progress from the director mask and disables/dims the picked button."
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-03", "DL-SAVE-01", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-005"],
+      "reproduction": "Run the retained L27 helper command; its partial-resume cases set counts 1-4, invoke remaining TextureButton pressed signals and check masks, enabled state, and duplicate rejection.",
+      "child_impact": "For these simulated saved states, progress remains monotonic and the remaining work is bounded to the uncollected berries. This supports recovery without replaying earned pickups but does not establish real save/restart or comprehension.",
+      "proposed_repair": "No repair indicated for the asserted mask/button behavior. Preserve per-pick persistence and exactly-once credit while proving a normal entry and interruption route.",
+      "acceptance_test": "On device, pick three berries through ordinary touch, pause and resume or restart, then verify the same three remain collected, only the next berry is actionable, and a repeated touch cannot earn a second pickup."
+    },
+    {
+      "title": "Normal Farmer story phases lack mapped room objects, leaving the waiting route without an armed station",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_career_world_2d.gd:1902-1911 maps authored phase names to stations and emits warnings when no station resolves; the L27 runtime log warns for Farmer GATHER STRAWBERRIES, FILL BASKET, and DELIVER TO KITCHEN at log lines 2-20.",
+        "scripts/opera_career_world_2d.gd:2497-2524 sets armed_station from station_for_phase, refreshes hotspots, and hides/ignores the wander layer when no station is armed.",
+        "scripts/opera_career_world_2d.gd:956-973 creates berry buttons hidden by default; :2667-2678 only reveals them after _open_task().",
+        "scripts/probe_chapter2_farmer_resume.gd:41-46 supplies phases/adapter explicitly; :94-103 directly calls _arm_phase() and _open_task(), bypassing the station-opening route.",
+        "scripts/main.gd:2742-2753 validates the career against the owned Castle room; :2781-2786 starts it through ChapterTwoDirector config. The L27 probe does not execute this caller."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-UI-01", "DL-SAVE-04", "DL-QA-02", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-PLAY-005"],
+      "reproduction": "Inspect the L27 log's Farmer no-room-object warnings and trace _arm_phase() with the resulting station index -1. The probe still passes because it directly opens the task before pickup checks.",
+      "child_impact": "The ordinary room affordance appears unable to open the hidden berry targets for the listed story phases, which can leave a child waiting at the Farmer job without an actionable object. The scripted pass does not close this route finding.",
+      "proposed_repair": "Provide an authored, visible room entry for each affected story phase or an explicitly supported visible direct-entry path, then exercise it through the normal room caller. Keep partial resume and phase order intact.",
+      "acceptance_test": "A fresh-save route probe and target-phone run enter Farmer from the Dining Room, open GATHER STRAWBERRIES and each subsequent phase through a visible one-finger action, and leave/re-enter without debug setup or adult prompting."
+    },
+    {
+      "title": "Quiet-time prompt and auto-walk thresholds cannot resolve the missing Farmer station",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_career_world_2d.gd:4622-4638 repeats the prompt at idle_t 9 seconds and, at 20 seconds while task_open is false, calls _on_hotspot_pressed(armed_station) only when the station index is valid.",
+        "scripts/opera_career_world_2d.gd:2497-2524 leaves armed_station at -1 and hides the wander layer for the Farmer phases warned in runtime/probe.log:2-20.",
+        "The L27 probe does not wait through either idle threshold; runtime/probe.log is a pass for its direct button assertions only."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-04", "DL-AGE-06", "DL-QA-02", "DL-QA-05"],
+      "existing_findings": ["MA-PLAY-005"],
+      "reproduction": "Trace the closed-room idle branch at :4622-4638 with armed_station=-1 from the Farmer phase setup; the 20-second condition has no action for the invalid station.",
+      "child_impact": "Repeating a spoken prompt cannot make a hidden task actionable, and the documented gentle auto-walk cannot assist this phase without a room hotspot. Whether this exact wait is encountered in ordinary play remains to be confirmed in a routed runtime session.",
+      "proposed_repair": "Bind the waiting assist to a valid visible Farmer target or provide a visible direct task entry, and retain the existing prompt timing if child/device review supports it.",
+      "acceptance_test": "Use ordinary entry and no input: verify the 9-second cue repeats with the intended demonstration, the 20-second assist reaches an actionable Farmer object, then complete one phase with one finger and confirm no progress occurs during waiting alone."
+    },
+    {
+      "title": "Pickup targets meet nominal canvas size, but probe signal emission cannot establish phone touch comfort",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_career_world_2d.gd:956-963 assigns each TextureButton a 124×124 size and 96×96 custom minimum.",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:714-716 states the 110×110 base-canvas target guideline or an equivalently generous projected hit region.",
+        "scripts/probe_chapter2_farmer_resume.gd:112-120 uses emit_signal('pressed') rather than touch events; receipt records headless=true and rendered_mobile_acceptance=false."
+      ],
+      "rules": ["DL-UI-03", "DL-UI-04", "DL-QA-04", "DL-QA-07"],
+      "existing_findings": [],
+      "reproduction": "Read the button geometry and probe press method. Actual projection, visible artwork bounds, neighboring-target ambiguity, and finger-sized-device hit reliability were not measured.",
+      "child_impact": "The nominal target box is generous by the canvas guideline, but a small visible berry or scaled-down projection could still be hard to acquire; no missed touch was observed because no touch was sent.",
+      "proposed_repair": "No code change is indicated by this evidence alone. Measure the projected button and visible berry at phone aspect and observe ordinary child-sized taps before judging target adequacy.",
+      "acceptance_test": "On the exact target phone, verify each berry's projected target and spacing with repeated ordinary taps, including adjacent picks, without requiring a hold or drag; record missed or neighboring activations."
+    },
+    {
+      "title": "L27 does not exercise the Farmer lawn activity or a real save/re-entry lifecycle",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_chapter2_farmer_resume.gd:25-46 directly initializes the chapter and Farmer world; :61-64 tests only partial berry pickup cases before freeing the world.",
+        "The same probe's later cases cover Chef/Candy cake visuals and completion holds (:65-70, :124-211, :214-306), not the Chapter Two lawn finale or a Farmer-visible room route.",
+        "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md:11-33 defines Farmer's story contribution as five strawberries for the party cake and the selected order; its blocking gates at :65-80 keep route, save/re-entry, device and child acceptance separate.",
+        "design/05_DOC_LEDGER.md:108 identifies this spine as the current binding domain authority."
+      ],
+      "rules": ["DL-SAVE-04", "DL-QA-02", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-PLAY-005"],
+      "reproduction": "The retained log contains only Farmer resume assertions, Chef/Candy checks, and final result holds; no lawn state or fresh visible Farmer traversal is asserted.",
+      "child_impact": "This lane cannot tell whether the broader lawn sequence is discoverable, whether interruption preserves progress in an actual save, or whether a child understands the Farmer job without adult explanation.",
+      "proposed_repair": "No production change inferred. Add the lawn and normal-route scenarios to the next focused review only after the existing route gap is resolved; preserve this probe's narrower scope.",
+      "acceptance_test": "On an exact candidate and device, exercise the visible Farmer story through lawn entry, berry progress, exit/re-entry and save recovery, then observe the child independently understand, finish, and choose whether to replay."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "Partial berry state is restored as an exact count and collection remains monotonic through the tested remaining button presses.",
+      "evidence": "scripts/probe_chapter2_farmer_resume.gd:94-120; audit/cycles/luna-playtest-20261012/runtime/L27/attempt_1/probe.log:10-26. The probe initializes saved masks directly and emits signals; it does not prove save-file persistence or ordinary input."
+    },
+    {
+      "claim": "Each berry has a nominal 124×124 canvas target, and a successful pick immediately updates progress and disables/dims that target.",
+      "evidence": "scripts/opera_career_world_2d.gd:956-963,1035-1055; focused assertions in probe.log:10-26. No rendered or phone-size visual evidence was collected."
+    }
+  ],
+  "acceptance_gaps": [
+    "The normal Family Dining Room-to-Farmer route and phase opening were not executed; the exact probe bypassed station discovery and directly called _open_task(). Farmer GATHER STRAWBERRIES, FILL BASKET, and DELIVER TO KITCHEN emitted missing-room-object warnings.",
+    "The 9-second prompt repeat and 20-second waiting assist were not run in the probe; the source assist requires a valid armed station, which the listed Farmer phases lack in the inspected setup.",
+    "The probe does not exercise the Chapter Two lawn finale, real save/restart or leave/re-entry, ordinary touch routing, interruption cancellation, or the completion aftermath of the Farmer phase.",
+    "No Mobile-rendered capture or actual Lenovo Tab M11 evidence for berry appearance, projected target geometry, response latency, frame pacing, audio audibility, or touch comfort.",
+    "No observed-child comprehension, discoverability, agency, waiting tolerance, session length or replay evidence; no owner acceptance."
+  ]
+}

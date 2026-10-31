@@ -1,0 +1,68 @@
+{
+  "schema": "reef.whole-cel-flow-proposal.v1",
+  "status": "PROPOSED_DIAGNOSTIC_ONLY",
+  "reviewer": "Codex wave_method_review",
+  "reviewer_kind": "model_observation",
+  "date": "2026-10-10",
+  "purpose": "One modest whole-figure greeting wave with a readable lowering path, using crisp existing complete cels instead of smeared LTX anatomy",
+  "native_family_sha256": "5dd046d9d11f21f5d43ef220bde99657b139dcf95c12621eacb5e95acc208195",
+  "registration_analysis_sha256": "f3c88dbe979eedd275de19af75a33c81c986134a90a6d2198325e23ab7f9eccb",
+  "count": 41,
+  "fps": 24,
+  "duration_ms": 1708,
+  "source_cells": "assets_src/animation/roshan_wave_repair_20261010/painted_family_02/cells/%04d.png",
+  "K0": {
+    "path": "assets_src/animation/whole_sprite_pipeline_20261007/references/approved_K0.png",
+    "sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+    "delivery_rule": "Frames0 and40 use this exact approved256x256 RGBA cell; do not resize or repaint those endpoint cells"
+  },
+  "frame_map": ["K0", "K0", "K0", 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 5, 5, 5, 6, 6, 6, 6, 5, 5, 5, 4, 4, 3, 3, 2, 2, 1, 1, 0, 0, "K0", "K0", "K0"],
+  "phases": [
+    {"from": 0, "to": 2, "name": "idle_entry", "purpose": "Brief exactK0 entry establishing the familiar idle figure"},
+    {"from": 3, "to": 13, "name": "raise", "purpose": "Complete authored poses raise the hand toward cheek/forehead height"},
+    {"from": 14, "to": 27, "name": "greeting_beats", "purpose": "Two modest whole-cel6-to5 greeting beats; native palms remain crisp"},
+    {"from": 28, "to": 37, "name": "lower", "purpose": "Reverse clean complete poses along the outward arc; avoid the chest fold and small curled hand in12/13"},
+    {"from": 38, "to": 40, "name": "idle_settle", "purpose": "Return to exactK0 and readable rest"}
+  ],
+  "cadence": {
+    "method": "Declared authored holds, predominantly on twos, with three/four-frame greeting extrema; no interpolated images",
+    "integer_ms_rule": "For each delivered indexi, duration=round((i+1)*1000/24)-round(i*1000/24), with the canonical distributed-rounding exporter totaling1708ms",
+    "limitations": "The native complete drawings do not contain continuous in-betweens. This proposed timing must be watched at normal speed; arithmetic and crisp single poses cannot establish smooth acting"
+  },
+  "construction_limits": {
+    "complete_cel_only": true,
+    "crossfades": false,
+    "part_warps": false,
+    "pasted_limbs": false,
+    "pixel_edits_performed_by_this_review": false,
+    "registration": "Root may apply one declared uniform scale/translation to each complete314px cel, preserving the authored aspect ratio and body lean. Do not independently scale the head or arm. Measure actual normalized exports again",
+    "matte": "The inspected low-alpha<=16 cleanup test9 is promising. Keep all raw/native sources and declare the same non-destructive cleanup on selected whole cels; no contour redraw was performed by this reviewer"
+  },
+  "selection_reason": {
+    "included_cells": [0, 1, 2, 3, 4, 5, 6],
+    "excluded_cells": [7, 8, 9, 10, 11, 12, 13, 14, 15],
+    "modest_apex": "Cell6 gives an identifiable greeting near the forehead without the least-confident overhead proportions",
+    "lowering": "Cells5,4,3,2,1,0 show crisp complete lowering poses when played in reverse. Reverse source use must be declared; it does not erase the anatomy/acting review requirement",
+    "overhead_diagnostic": "Cells7/9 have fewer tracked features and head correlation around0.922. Their estimated head/figure ratio does not support using them merely for a larger raised pose",
+    "rejected_return": "Cell12 folds the forearm inward over the chest;13 makes the hand a small curled shape and changes elbow direction abruptly"
+  },
+  "actual_geometry_evidence": {
+    "native_all16_figure_scale_peak_to_peak_pct": 3.9,
+    "native_all16_head_scale_peak_to_peak_pct": 3.69,
+    "native_all16_passes_W2": false,
+    "selected0to6_head_over_figure_ratio_peak_to_peak_pct": 1.6130467681550333,
+    "selected0to9_head_over_figure_ratio_peak_to_peak_pct": 2.8171952648873577,
+    "ratio_scope": "Computed head_scale/figure_scale from registration_analysis, relative to cell0. This predicts residual head variation after uniform whole-figure scale correction; it is neither a measured delivered-frame result nor calibration against approvedK0",
+    "W3": "PENDING: no trustworthy per-frame shoulder/elbow/wrist/fingertip annotation supplied; apparent arm/hand changes require actual measurement",
+    "endpoint_fit": "PENDING: registration_analysis compares generated cells to generated cell0, not approvedK0. ExactK0-to-redrawn-cell0 and cell1 boundaries can pulse in facial detail, hair, tail motifs and silhouette even if root/scale agree"
+  },
+  "required_visual_review": [
+    "Direct exactK0-to-cell0-to-cell1 transition and reversed return, at256px and native scale, without dissolves",
+    "Hand topology, wrist rotation and sleeve clearance on every selected complete cel",
+    "Whole-figure shoulder/head/hair/bodice/tail response through6-to5 greeting beats; reject a frozen-body or jitter impression",
+    "Travel spacing and abrupt pose changes at normal24fps; revise source selection/timing if on-twos motion snaps",
+    "All alpha/contour edges on gray and light/dark viewing backgrounds after declared cleanup",
+    "ExactK0 final frame, first frame and loop seam"
+  ],
+  "acceptance": {"artifact_free_sample": false, "human": false, "owner": false, "device": false, "child": false, "runtime": false, "delivery_accepted": false}
+}

@@ -1,0 +1,125 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_visual_design_language_2026-09-30",
+ "revision": 3,
+ "revision_note": "Records the owner's answers to Q12-Q16 (2026-09-30): no light-state protocol yet; keep the older career and playground design; tiara outside career costume; repairs and the deletion of retired art go to codex_roshan_art_repairs_2026-09-30. Revision 2 was ab825adf; revision 1 bdab5f7e.",
+ "status": "PROPOSED / CANDIDATE",
+ "prepared_by": "Claude (analysis, written specification and draft reference; no game changes; no images)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev b65c21fdddd79f272a6854f241faa1441abe6616",
+ "tracking_finding": "MA-DOC-008",
+ "entry": "README.md",
+ "file_count": 18,
+ "total_bytes": 535126,
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 20779,
+   "sha256": "307c1cfdd0620e263f9c7fce762b0cc7f931ab5bd046dc8a74cab8f7b9e44c55",
+   "role": "handoff entry: target kit, work packages, acceptance, owner questions (Q1, Q2, Q12-Q16 answered)"
+  },
+  {
+   "path": "ROSHAN_APPEARANCE_ANALYSIS.md",
+   "bytes": 18270,
+   "sha256": "e3c0403cf3991786b3728649407870f16807ae91d2252e181039b6cecb01c6ab",
+   "role": "frame-by-frame Roshan appearance analysis, lineage, variance register and owner answers"
+  },
+  {
+   "path": "VISUAL_LANGUAGE_AUDIT.md",
+   "bytes": 16775,
+   "sha256": "996c31c8ea50f2e263f390afc38fdef48e61aa1fc2f76991eed168fbcdf55049",
+   "role": "the answer and its evidence (with a dated update note)"
+  },
+  {
+   "path": "VISUAL_LANGUAGE_DRAFT.md",
+   "bytes": 17457,
+   "sha256": "16d15d12b105dabe1df368785be9d18af87b38c51d8cbcbb314f6ea958a5d8c5",
+   "role": "draft reference text for design/reference/VISUAL_LANGUAGE.md"
+  },
+  {
+   "path": "data/castle_room_shadow_profile.json",
+   "bytes": 2438,
+   "sha256": "5575e281f9457a1f9b914e112b85c0a7422abb0ad2dd3194fceea9a2fcc2c1a1",
+   "role": "measurement: shadow hue family per castle room"
+  },
+  {
+   "path": "data/contour_profile.json",
+   "bytes": 20963,
+   "sha256": "0051eaaa4e6fb7cd15d130780d1dcab29872d73389f703d261ee109e10e360c5",
+   "role": "measurement: contour colour per art family"
+  },
+  {
+   "path": "data/identity_sheets_seed.json",
+   "bytes": 8677,
+   "sha256": "1a323e40cf46eeda0dfd5cc2ef970a0969ab02c9bfcd0bce391f5f0e2b03ba34",
+   "role": "identity sheet seeds; Roshan settled by the owner"
+  },
+  {
+   "path": "data/registry_seed.json",
+   "bytes": 17238,
+   "sha256": "896c42aa10ed725ab99cdec80bf81808508d5cb46c7911b487dc47e6bbc6b81e",
+   "role": "25 hashed Roshan exemplars by role, candidate and rejection sources, nine rubrics"
+  },
+  {
+   "path": "data/roshan_atlas_frames.json",
+   "bytes": 302820,
+   "sha256": "a0e209afbc2e776a14e0b63449042b1a9f350dfd6056cfbe8e0329a55d630e03",
+   "role": "per-frame measurements of 24 Roshan atlases (368 frames)"
+  },
+  {
+   "path": "data/roshan_identity_palette.json",
+   "bytes": 1791,
+   "sha256": "a5d032d74b2567d237f2b78c197de9c591464279ea2012991efed1974ea92017",
+   "role": "measurement: palette of six runtime base-world Roshan atlases"
+  },
+  {
+   "path": "data/roshan_identity_presence.json",
+   "bytes": 4979,
+   "sha256": "e3df98ded4c57de7be36982a6e7efca783d74437bd94349ee2a9581e09f9930f",
+   "role": "measurement: Roshan identity colours across base-world and career atlases"
+  },
+  {
+   "path": "data/roshan_single_images.json",
+   "bytes": 67897,
+   "sha256": "109fbcee5322bdad372f13e32d54bee288925511fd0ce383492eb8e918c8f455",
+   "role": "measurements of 31 single Roshan images"
+  },
+  {
+   "path": "data/visual_contradictions.json",
+   "bytes": 4443,
+   "sha256": "957640a5ac6e54fa104c688af5b5adc8f888acb07b03b46752f6fa7009586596",
+   "role": "15 contradictions; Roshan items settled"
+  },
+  {
+   "path": "data/visual_tokens_seed.json",
+   "bytes": 5680,
+   "sha256": "e3cb7cf5747246375b0a28863df8eff3dd411a32ad4ee3e82b2aa539a244f126",
+   "role": "22 visual tokens with sources"
+  },
+  {
+   "path": "templates/ART_REVIEW_CARD_V1.md",
+   "bytes": 2790,
+   "sha256": "320bc6a66e3f9d4fb8f21b9e727a86268e69f5e5f6971e020eb0e6cb9291d258",
+   "role": "art review card template"
+  },
+  {
+   "path": "templates/ART_STYLE_CARD_V1.md",
+   "bytes": 4424,
+   "sha256": "6df37923df6497aae366ded04147448a2f7cf401ef9ee7ed3a328910233cb4e1",
+   "role": "still-art generation card template"
+  },
+  {
+   "path": "tools/measure_visual_profile.py",
+   "bytes": 17705,
+   "sha256": "28890c29c9c600c09cc1fa486512837c2d185ec28e2c75d35e9c7e0cf69403b5",
+   "role": "read-only measurement tool (numbers only; cells mode needs NumPy)"
+  }
+ ],
+ "hashes_are_of": "committed blobs (LF line endings)"
+}

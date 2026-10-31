@@ -1,0 +1,443 @@
+{
+  "prompt_id": "6a3f74ab-3498-449c-aac3-70dae2cc9ac2",
+  "at_utc": "2026-10-05T00:16:45.527593+00:00",
+  "reason": "No completed sampling step after approximately600s wall time; enlarged8-guide graph is impractical on current8GB profile. Stop bounded baseline, skip costly NAG variant; owner asks to prioritize2.5 assessment.",
+  "owned_server_pid": 17692,
+  "queue": {
+    "queue_running": [
+      [
+        0,
+        "6a3f74ab-3498-449c-aac3-70dae2cc9ac2",
+        {
+          "1": {
+            "class_type": "UnetLoaderGGUF",
+            "inputs": {
+              "unet_name": "ltx-2.3-22b-distilled-Q4_K_S.gguf"
+            }
+          },
+          "2": {
+            "class_type": "DualCLIPLoaderGGUF",
+            "inputs": {
+              "clip_name1": "gemma-3-12b-it-qat-Q4_K_S.gguf",
+              "clip_name2": "ltx-2.3-22b-distilled_embeddings_connectors.safetensors",
+              "type": "ltxv"
+            }
+          },
+          "3": {
+            "class_type": "CLIPTextEncode",
+            "inputs": {
+              "clip": [
+                "2",
+                0
+              ],
+              "text": "A polished outlined 2D storybook Mermaid Roshan performs one complete-figure greeting on a quiet neutral field, fixed camera. Frames0-3: brief rest and anticipation. Frames3-7: her image-left hand rises to shoulder height. Frames7-17: she raises the open hand above her head. Frames17-22-27: the open hand lowers continuously through the intermediate forehead-height pose to the low greeting. Frames27-36: the arm returns to rest. Frames36-40: a short natural settle. Her shoulder, torso and pink/lavender bodice respond together; rainbow hair and iridescent tail follow through subtly. The pelvis remains near its registered position. Every moving hand has five distinct fingers and one connected wrist, elbow and shoulder; painted contours remain crisp throughout. Preserve the approved child face, tiara, hair colours, bodice and complete mermaid tail. Clear coherent anatomy in every frame, readable gentle acting, consistent scale and lighting. Sound: silent source study.\n"
+            }
+          },
+          "4": {
+            "class_type": "ConditioningZeroOut",
+            "inputs": {
+              "conditioning": [
+                "3",
+                0
+              ]
+            }
+          },
+          "5": {
+            "class_type": "LTXVConditioning",
+            "inputs": {
+              "positive": [
+                "3",
+                0
+              ],
+              "negative": [
+                "4",
+                0
+              ],
+              "frame_rate": 24.0
+            }
+          },
+          "6": {
+            "class_type": "EmptyLTXVLatentVideo",
+            "inputs": {
+              "width": 352,
+              "height": 544,
+              "length": 41,
+              "batch_size": 1
+            }
+          },
+          "7": {
+            "class_type": "VAELoader",
+            "inputs": {
+              "vae_name": "ltx-2.3-22b-distilled_video_vae.safetensors"
+            }
+          },
+          "8": {
+            "class_type": "KSamplerSelect",
+            "inputs": {
+              "sampler_name": "euler"
+            }
+          },
+          "9": {
+            "class_type": "ManualSigmas",
+            "inputs": {
+              "sigmas": "1,0.99375,0.9875,0.98125,0.975,0.909375,0.725,0.421875,0"
+            }
+          },
+          "10": {
+            "class_type": "StudyChunkFeedForward",
+            "inputs": {
+              "model": [
+                "1",
+                0
+              ],
+              "chunk_tokens": 512
+            }
+          },
+          "30": {
+            "class_type": "LoadImage",
+            "inputs": {
+              "image": "two_pass_03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244.png"
+            }
+          },
+          "100": {
+            "class_type": "LTXVAddGuide",
+            "inputs": {
+              "positive": [
+                "5",
+                0
+              ],
+              "negative": [
+                "5",
+                1
+              ],
+              "vae": [
+                "7",
+                0
+              ],
+              "latent": [
+                "6",
+                0
+              ],
+              "image": [
+                "30",
+                0
+              ],
+              "frame_idx": 0,
+              "strength": 1.0
+            }
+          },
+          "101": {
+            "class_type": "LTXVAddGuide",
+            "inputs": {
+              "positive": [
+                "100",
+                0
+              ],
+              "negative": [
+                "100",
+                1
+              ],
+              "vae": [
+                "7",
+                0
+              ],
+              "latent": [
+                "100",
+                2
+              ],
+              "image": [
+                "30",
+                0
+              ],
+              "frame_idx": 3,
+              "strength": 1.0
+            }
+          },
+          "32": {
+            "class_type": "LoadImage",
+            "inputs": {
+              "image": "two_pass_f918582f38795bbc62fa29295a76486f224a0cfa54962c7ca14319a80daaa2ae.png"
+            }
+          },
+          "102": {
+            "class_type": "LTXVAddGuide",
+            "inputs": {
+              "positive": [
+                "101",
+                0
+              ],
+              "negative": [
+                "101",
+                1
+              ],
+              "vae": [
+                "7",
+                0
+              ],
+              "latent": [
+                "101",
+                2
+              ],
+              "image": [
+                "32",
+                0
+              ],
+              "frame_idx": 7,
+              "strength": 1.0
+            }
+          },
+          "33": {
+            "class_type": "LoadImage",
+            "inputs": {
+              "image": "two_pass_c98eb017f869fbdb8eebe235a65ce420ed45d87e70be617725aba5e66e724c2e.png"
+            }
+          },
+          "103": {
+            "class_type": "LTXVAddGuide",
+            "inputs": {
+              "positive": [
+                "102",
+                0
+              ],
+              "negative": [
+                "102",
+                1
+              ],
+              "vae": [
+                "7",
+                0
+              ],
+              "latent": [
+                "102",
+                2
+              ],
+              "image": [
+                "33",
+                0
+              ],
+              "frame_idx": 17,
+              "strength": 1.0
+            }
+          },
+          "34": {
+            "class_type": "LoadImage",
+            "inputs": {
+              "image": "two_pass_2bcfcac93db3dde14e783f6e40943e8a488d669cf0dbd8f7e11ff184240fb04a.png"
+            }
+          },
+          "104": {
+            "class_type": "LTXVAddGuide",
+            "inputs": {
+              "positive": [
+                "103",
+                0
+              ],
+              "negative": [
+                "103",
+                1
+              ],
+              "vae": [
+                "7",
+                0
+              ],
+              "latent": [
+                "103",
+                2
+              ],
+              "image": [
+                "34",
+                0
+              ],
+              "frame_idx": 22,
+              "strength": 1.0
+            }
+          },
+          "35": {
+            "class_type": "LoadImage",
+            "inputs": {
+              "image": "two_pass_556eacfcfe495cb0d2a0067f8f0dd88fdcdd1336ae755db8d2a1a34a4800c9a5.png"
+            }
+          },
+          "105": {
+            "class_type": "LTXVAddGuide",
+            "inputs": {
+              "positive": [
+                "104",
+                0
+              ],
+              "negative": [
+                "104",
+                1
+              ],
+              "vae": [
+                "7",
+                0
+              ],
+              "latent": [
+                "104",
+                2
+              ],
+              "image": [
+                "35",
+                0
+              ],
+              "frame_idx": 27,
+              "strength": 1.0
+            }
+          },
+          "106": {
+            "class_type": "LTXVAddGuide",
+            "inputs": {
+              "positive": [
+                "105",
+                0
+              ],
+              "negative": [
+                "105",
+                1
+              ],
+              "vae": [
+                "7",
+                0
+              ],
+              "latent": [
+                "105",
+                2
+              ],
+              "image": [
+                "30",
+                0
+              ],
+              "frame_idx": 36,
+              "strength": 1.0
+            }
+          },
+          "107": {
+            "class_type": "LTXVAddGuide",
+            "inputs": {
+              "positive": [
+                "106",
+                0
+              ],
+              "negative": [
+                "106",
+                1
+              ],
+              "vae": [
+                "7",
+                0
+              ],
+              "latent": [
+                "106",
+                2
+              ],
+              "image": [
+                "30",
+                0
+              ],
+              "frame_idx": 40,
+              "strength": 1.0
+            }
+          },
+          "20": {
+            "class_type": "SamplerCustom",
+            "inputs": {
+              "model": [
+                "10",
+                0
+              ],
+              "add_noise": true,
+              "noise_seed": 20261004,
+              "cfg": 1.0,
+              "positive": [
+                "107",
+                0
+              ],
+              "negative": [
+                "107",
+                1
+              ],
+              "sampler": [
+                "8",
+                0
+              ],
+              "sigmas": [
+                "9",
+                0
+              ],
+              "latent_image": [
+                "107",
+                2
+              ]
+            }
+          },
+          "21": {
+            "class_type": "LTXVCropGuides",
+            "inputs": {
+              "positive": [
+                "107",
+                0
+              ],
+              "negative": [
+                "107",
+                1
+              ],
+              "latent": [
+                "20",
+                0
+              ]
+            }
+          },
+          "22": {
+            "class_type": "SaveLatent",
+            "inputs": {
+              "samples": [
+                "21",
+                2
+              ],
+              "filename_prefix": "two_pass/ltx23_chunked/native_latent"
+            }
+          },
+          "23": {
+            "class_type": "VAEDecodeTiled",
+            "inputs": {
+              "samples": [
+                "21",
+                2
+              ],
+              "vae": [
+                "7",
+                0
+              ],
+              "tile_size": 256,
+              "overlap": 64,
+              "temporal_size": 64,
+              "temporal_overlap": 8
+            }
+          },
+          "24": {
+            "class_type": "SaveImage",
+            "inputs": {
+              "images": [
+                "23",
+                0
+              ],
+              "filename_prefix": "two_pass/ltx23_chunked/native/frame"
+            }
+          }
+        },
+        {
+          "client_id": "ab3b5c5e-e9e6-4d97-8a21-b11cc63983e1",
+          "create_time": 1791158769782
+        },
+        [
+          "24",
+          "22"
+        ]
+      ]
+    ],
+    "queue_pending": []
+  },
+  "interrupt_sent": true,
+  "no_footage_fabricated": true
+}

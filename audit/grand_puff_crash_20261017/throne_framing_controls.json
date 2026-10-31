@@ -1,0 +1,50 @@
+{
+  "purpose": "Declared genuine floor navigation reproduces partial camera view; retain all original five-card and gameplay assertions",
+  "results": [
+    {
+      "name": "throne_partial_framing_counterexample",
+      "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "1ce01524f3d9564fd9b1e958e5ce71a01bc4308f26b9ce613be3437451fb4eb1",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\throne_partial_framing_counterexample.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "assertion_failure": false,
+      "script_error": false,
+      "diagnostic_lines": [
+        "THRONE_FRAMING|foot=(2375.437, 765.0) button=true total=5 visible=5 span=(1443.219, 3307.219)"
+      ]
+    },
+    {
+      "name": "throne_full_framing_diagnostic",
+      "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+      "source_sha256": "0f9f622df24975f2ae73fae1acc3370ec95c074076fe566e347eecd5d35a2acd",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\puff-baseline-check-20261017\\mermaid-roshan-reef\\tmp\\puff-baseline\\throne_full_framing_diagnostic.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "assertion_failure": false,
+      "script_error": false,
+      "diagnostic_lines": [
+        "THRONE_FRAMING|foot=(2215.0, 731.5) button=true total=5 visible=5 span=(1282.934, 3146.934)",
+        "THRONE_FRAMING|additional_floor_taps=0 foot=(2215.0, 731.5) visible=5"
+      ]
+    }
+  ]
+}

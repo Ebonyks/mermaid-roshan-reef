@@ -1,0 +1,34 @@
+{
+  "state": "PAINTED_FOSSIL_SOURCE_LOCAL82_STATIC_NATIVE114_PASS_EXACT_CI_PENDING",
+  "stable_id": "FV-4CD5292EEE1D",
+  "baseline": "44da99ba5c68153fa247e0794425b5f6d7d3cc79",
+  "new_generation_calls": 1,
+  "new_runtime_images": 4,
+  "new_bounded_implementation_artifacts": 1,
+  "implementation_unit": "One coherent fossil whole/three-fragment implementation; not four role removals.",
+  "new_frame_events": {
+    "bounded": 16,
+    "excluded": 0,
+    "retained_total": 16
+  },
+  "native_checks": 114,
+  "candidate_frames_reviewed": 16,
+  "baseline_frames_reused": 6,
+  "primitive_calls": {
+    "before": 33,
+    "after": 31,
+    "retired": "Two reachable optional whole/piece fallback arcs in this surface; global SVG preserved for other callers. Texture wrappers are separately counted, not artwork removals.",
+    "new_filter_wrapper_helper": 1,
+    "whole_and_piece_loads": 4,
+    "accepted_removed": 0
+  },
+  "functions_byte_identical": 53,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "checked_at_utc": "2026-10-29T18:13:36.599848+00:00"
+}

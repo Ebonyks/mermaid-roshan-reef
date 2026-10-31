@@ -1,0 +1,22 @@
+{
+  "schema": "reef.metadata-only-final-gates.v1",
+  "result": "FAIL",
+  "completed_utc": "2026-10-15T05:27:53.898135+00:00",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 1,
+      "log": "authority.log"
+    }
+  ],
+  "not_run": [
+    "coverage.log",
+    "diff.log",
+    "poststamp_coverage.log"
+  ],
+  "cause": "DOC080 rejects external commit URL as master navigation target. Use plain commit identity with local durable SOURCE_BINDING proof link; do not alter checker. No runtime changes."
+}

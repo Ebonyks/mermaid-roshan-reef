@@ -1,7 +1,7 @@
 extends SceneTree
 ## Advisory pacing playtest for the SHIPPING 2D opera career path.
 ##
-## This probe drives all thirteen OperaCareerWorld2D acts with three simulated
+## This probe visits the live OperaCareerWorld2D roster with three simulated
 ## children and
 ## reports per-career durations against the rebuild target band (~2 minutes,
 ## OPERA_2D_REBUILD_2026-08-01.md). Advisory only: it never prints gate
@@ -9,6 +9,13 @@ extends SceneTree
 
 const DT := 0.1
 const TIME_CAP := 300.0
+## Specialized surfaces need their own child-input policy. Never turn an
+## unsupported verb into a generic tap and publish a manufactured duration.
+const SUPPORTED_MODES: Array[String] = [
+	"lens", "catch", "hold", "swipe", "circle", "tap", "oven", "choice",
+	"timing", "bop", "talk", "pourt", "echo", "clue_board", "crown_chest",
+	"garden_plant", "teacher_pattern", "teacher_count", "teacher_add", "teacher_match",
+]
 ## Sim seconds exclude the act-entry narration, curtain-call celebration and
 ## return transition (~15-20s of real play), and simulated children never
 ## fumble, explore or re-listen. A 70-150s sim median therefore corresponds
@@ -26,28 +33,53 @@ const PERSONAS := [
 ]
 
 var main: ReefMain
+var fixture_save_data: Dictionary = {}
 
 
 func _init() -> void:
 	var scene := load("res://scenes/main.tscn") as PackedScene
 	main = scene.instantiate() as ReefMain
+	main._save_state = SaveState.new(main,
+		"user://opera_balance_probe_%d.json" % OS.get_process_id())
 	get_root().add_child(main)
 	await process_frame
 	await process_frame
 	main.day_one_active = false
 	main._skip_intro()
 	main.game = "opera"
+	main.process_mode = Node.PROCESS_MODE_DISABLED
+	fixture_save_data = main.save_data.duplicate(true)
+	var measured := 0
+	var capped := 0
+	var unmeasured := 0
+	print("BALANCE|ROSTER|acts=%d|personas=%d|cap=%.1f" % [
+		OperaHouse.LIVE_ACT_INDICES.size(), PERSONAS.size(), TIME_CAP])
 	for live_index: int in OperaHouse.LIVE_ACT_INDICES:
 		var source: Dictionary = OperaHouse.ACTS[live_index]
 		var career := String(source.get("costume", ""))
 		var times: Array[float] = []
+		var incomplete := 0
 		for persona: Dictionary in PERSONAS:
 			var outcome := await _play(source, persona)
-			times.append(float(outcome.get("time", TIME_CAP)))
-			print("BALANCE|canvas|act=%s|persona=%s|time=%.1f|clumsy=%d" % [
-				career, String(persona.get("name", "?")), float(outcome.get("time", TIME_CAP)),
-				int(outcome.get("clumsy", 0)),
+			var status := String(outcome.get("status", "NOT_MEASURED"))
+			if status == "PASS":
+				times.append(float(outcome["time"]))
+				measured += 1
+			else:
+				incomplete += 1
+				if status == "CAPPED":
+					capped += 1
+				else:
+					unmeasured += 1
+			print("BALANCE|canvas|act=%s|persona=%s|time=%s|elapsed=%.1f|clumsy=%d|status=%s|reason=%s" % [
+				career, String(persona.get("name", "?")),
+				"%.1f" % float(outcome["time"]) if status == "PASS" else "not_measured",
+				float(outcome.get("elapsed", 0.0)), int(outcome.get("clumsy", 0)),
+				status, String(outcome.get("reason", "")),
 			])
+		if times.is_empty():
+			print("BALANCE|canvas|%s|summary verdict=not_measured|completed=0|incomplete=%d" % [career, incomplete])
+			continue
 		times.sort()
 		var median := times[times.size() / 2]
 		var verdict := "ok"
@@ -55,16 +87,24 @@ func _init() -> void:
 			verdict = "longer"
 		elif median < BAND_LO:
 			verdict = "brisk"
-		if times[times.size() - 1] >= TIME_CAP:
-			verdict = "capped"
+		if incomplete > 0:
+			verdict = "partial"
 		print("BALANCE|canvas|%s|summary med=%.1f lo=%.1f hi=%.1f verdict=%s" % [
 			career, median, times[0], times[times.size() - 1], verdict,
 		])
-	print("BALANCE|canvas|done")
+	var result := "PASS" if capped == 0 and unmeasured == 0 else (
+		"CAPPED" if capped > 0 else "NOT_MEASURED")
+	print("BALANCE|RESULT|%s|measured=%d|capped=%d|not_measured=%d|expected=%d" % [
+		result, measured, capped, unmeasured,
+		OperaHouse.LIVE_ACT_INDICES.size() * PERSONAS.size()])
 	quit()
 
 
 func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
+	# Performance/lesson checkpoints written by one persona must not make the
+	# next persona resume at the curtain call and report a false zero duration.
+	main.save_data = fixture_save_data.duplicate(true)
+	main.opera_stars = 0
 	var config := source.duplicate(true)
 	var act := OperaAct.new()
 	get_root().add_child(act)
@@ -74,7 +114,7 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 	var world := act.career_world_2d
 	if world == null:
 		act.queue_free()
-		return {"time": TIME_CAP, "clumsy": 0}
+		return {"status": "NOT_MEASURED", "reason": "world_unavailable", "clumsy": 0}
 	world.process_mode = Node.PROCESS_MODE_DISABLED
 
 	var time := 0.0
@@ -85,10 +125,15 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 	var stroke_t := 0.0
 	var last_phase := -1
 	var rt := float(persona.get("rt", 1.3))
+	var unsupported := ""
 	while act.state == "play" and time < TIME_CAP:
 		time += DT
 		act._process(DT)
 		world._process(DT)
+		for hotspot: OperaWorldHotspot2D in world.station_nodes:
+			hotspot._process(DT)
+		if world.task_open and world.surface != null:
+			world.surface._process(DT)
 		if world.phase_index != last_phase:
 			last_phase = world.phase_index
 			listen_left = float(persona.get("listen", 2.0))
@@ -96,15 +141,49 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 			stroke_t = 0.0
 		if world.reveal_t > 0.0:
 			continue
+		if world.phase_advance_pending:
+			continue
 		if listen_left > 0.0:
 			listen_left -= DT
 			continue
 		if world.phase_gap > 0.0 and not bool(persona.get("skips_gap", false)):
 			continue
+		if not world.task_open:
+			if not world.interaction_requested and not world.hotspot_opening:
+				world._on_hotspot_pressed(world.armed_station)
+			continue
 		if world.phase_index >= world.phases.size():
 			continue
 		var phase := world.phases[world.phase_index] as Dictionary
 		var mode := String(phase.get("mode", "tap"))
+		if mode not in SUPPORTED_MODES:
+			unsupported = "unsupported_mode:%s/%s" % [String(source.get("costume", "")), mode]
+			break
+		if mode == "talk":
+			continue
+		if mode == "pourt":
+			if not world.surface.pour_hold:
+				world.surface._press(world.surface._pour_pitcher_rect().get_center())
+			continue
+		if mode.begins_with("teacher_"):
+			action_wait -= DT
+			if action_wait <= 0.0:
+				action_wait = rt
+				var teacher := world.surface as OperaTeacherSurface
+				var answer_at := Vector2.INF
+				if teacher.lesson_kind() == "add" and not teacher.joined:
+					answer_at = OperaTeacherSurface.JOIN_CENTER
+				elif teacher.join_t <= 0.0:
+					for index in range(teacher.counted.size()):
+						if not teacher.counted[index]:
+							answer_at = teacher.counter_position(index)
+							break
+					if not answer_at.is_finite() and teacher.can_answer():
+						answer_at = teacher.choice_rect(teacher.answer_index()).get_center()
+				if answer_at.is_finite():
+					teacher._press(answer_at)
+					teacher._release(answer_at)
+			continue
 		if mode == "lens":
 			# sweep the magnifier toward the next sparkle at a child's drag
 			# speed — hunting time is real time
@@ -138,6 +217,7 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 			_:
 				action_wait -= DT
 				if action_wait <= 0.0:
+					action_wait = rt
 					# timing needs a green-window pass (~1.4s sweep); choice
 					# needs a re-scan after the target hops to a new lane
 					match mode:
@@ -156,6 +236,29 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 						err_acc -= 1.0
 						clumsy += 1
 					match mode:
+						"echo":
+							if world.surface.echo_listening:
+								var verse: Array = OperaGestureSurface.ECHO_VERSES[world.surface.echo_verse]
+								var star := int(verse[world.surface.echo_input_i])
+								var at := world.surface._echo_star_center(star)
+								world.surface._press(at)
+								world.surface._release(at)
+						"clue_board":
+							var home := world.surface._clue_token_rect().get_center()
+							var target := world.surface._clue_target_rect(world.surface.clue_index).get_center()
+							world.surface._press(home)
+							world.surface._drag(target)
+							world.surface._release(target)
+						"crown_chest":
+							var at := world.surface._crown_handle_rect().get_center()
+							world.surface._press(at)
+							world.surface._release(at)
+						"garden_plant":
+							var home := world.surface._garden_seed_rect().get_center()
+							var target := world.surface._garden_hole_point(world.surface.garden_planted)
+							world.surface._press(home)
+							world.surface._drag(target)
+							world.surface._release(target)
 						"tap":
 							# free placement: every tap is a placed mark; the
 							# persona's "miss" is just a mark near the edge
@@ -192,8 +295,15 @@ func _play(source: Dictionary, persona: Dictionary) -> Dictionary:
 							world._combat_strike(aim, aim)
 						_:
 							world._on_gesture("tap", 1.0, 1.0)
-	var done_time := time if act.state != "play" else TIME_CAP
+	var completed := time > 0.0 and (act.state == "won" or act.state == "done")
+	var status := "PASS" if completed else ("NOT_MEASURED" if unsupported != "" else "CAPPED")
+	var reason := "completed" if completed else (unsupported if unsupported != "" else "time_cap")
+	if status == "CAPPED" and world.phase_index < world.phases.size():
+		reason += ":phase=%d,mode=%s,progress=%.6f,goal=%.6f" % [
+			world.phase_index, String(world.phases[world.phase_index].get("mode", "")),
+			world.phase_progress, float(world.phases[world.phase_index].get("goal", 0.0))]
 	act.cancel()
 	await process_frame
 	await process_frame
-	return {"time": done_time, "clumsy": clumsy}
+	return {"status": status, "time": time if completed else null,
+		"elapsed": time, "clumsy": clumsy, "reason": reason}

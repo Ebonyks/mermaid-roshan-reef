@@ -1,11 +1,13 @@
 extends SceneTree
 ## Trusted contract for the Day One story clips (owner decision 2026-09-23,
 ## DL-CIN-16): manifest integrity, fail-open lookup, real OGV playback, the
-## single Back skip route, the story hook map, the transformation-then-epilogue
-## queue ahead of the Day Two card, save persistence, and Grand Puff staying
-## whole for the transformation clip instead of imploding.
+## Back and double-tap skip routes, the story hook map, the transformation-then-epilogue
+## queue ahead of the Day Two card, save persistence, Grand Puff staying
+## whole for the transformation clip instead of imploding, and the castle's
+## picture hidden under a playing clip (owner answer QP-3, 2026-10-05).
 
 const CLIPS := preload("res://scripts/day_one_story_clips.gd")
+const SKIP_CASES := preload("res://tools/tests/fixtures/story_movie_skip_cases.gd")
 const PROVENANCE_PATH := \
 	"res://assets_src/cinematics/day_one_story_clips_2026-09-23/CLIP_MANIFEST.json"
 const PROBE_SAVE := "user://probe_day_one_story_clips.json"
@@ -59,7 +61,7 @@ func _init() -> void:
 			hooks_ok = false
 			print("DAY_ONE_STORY_CLIPS|missing hook: ", hook)
 	_check("every story moment is wired to its clip", hooks_ok)
-	_check("the global Back control is the one skip route",
+	_check("the global Back control remains a skip route",
 		main_source.contains(
 			'_navigation_push("day_one_story_clip", preview, Callable(preview, "skip"))')
 		and FileAccess.get_file_as_string("res://scripts/day_one_story_clips.gd").contains(
@@ -89,6 +91,7 @@ func _run_behavioral_checks() -> void:
 	if _behavior_started:
 		return
 	_behavior_started = true
+	await SKIP_CASES.new().run(self, Callable(self, "_check"))
 	CLIPS.headless_override = true
 	# --- the standalone player ---
 	var missing: DayOneStoryClips = CLIPS.new() as DayOneStoryClips
@@ -201,6 +204,8 @@ func _run_behavioral_checks() -> void:
 		and card_center.x < roshan.global_position.x
 		and String(friend_card.get_meta("source_asset_path", "")) \
 			== "res://assets/sprites/dust_bunnies/rainbow_friend.png")
+	await _probe_castle_hidden_under_clip(friend_main)
+	await _probe_boss_entry_lifecycle(friend_main)
 	friend_main.queue_free()
 	await _frames(3)
 	_clean_save()
@@ -208,8 +213,122 @@ func _run_behavioral_checks() -> void:
 		"PASS" if failures == 0 else "FAIL", " failures=", failures)
 	quit(1 if failures > 0 else 0)
 
+func _castle_picture_visible(main: ReefMain) -> bool:
+	for child: Node in main.castle_room_layer.get_children():
+		if child is CanvasItem and (child as CanvasItem).visible:
+			return true
+	return false
+
+
+func _castle_caption_visible(main: ReefMain) -> bool:
+	if main.castle_voice_caption_layer == null:
+		return false
+	for child: Node in main.castle_voice_caption_layer.get_children():
+		if child is CanvasItem and (child as CanvasItem).visible:
+			return true
+	return false
+
+
+func _probe_castle_hidden_under_clip(main: ReefMain) -> void:
+	CLIPS.headless_override = true
+	var castle_open: bool = main.castle_room_layer != null \
+		and is_instance_valid(main.castle_room_layer) and main.castle_room_layer.visible \
+		and _castle_picture_visible(main)
+	_check("the castle is the visible surface before a clip", castle_open)
+	var caption_before: bool = _castle_caption_visible(main)
+	_check("the castle's voice caption layer draws before a clip", caption_before)
+	_check("a clip over the open castle starts",
+		main._day_one_play_story_clip("d1_rainbow_route"))
+	_check("the castle stops drawing under the clip (owner QP-3)",
+		not _castle_picture_visible(main) and not _castle_caption_visible(main))
+	_check("the castle stays the open surface for game logic under the clip",
+		main.castle_room_layer.visible and main._castle_rooms_ref().is_open())
+	main._day_one_story_clip.skip()
+	await _frames(3)
+	_check("the castle draws again when the clip ends",
+		main._day_one_story_clip == null and _castle_picture_visible(main)
+		and _castle_caption_visible(main) == caption_before)
+	_check("a second clip over the castle starts", main._day_one_play_story_clip("d1_castle"))
+	_check("the castle is hidden again under the second clip",
+		not _castle_picture_visible(main))
+	main._day_one_cancel_story_clips()
+	await _frames(1)
+	_check("a cancelled clip restores the castle picture",
+		_castle_picture_visible(main) and main._day_one_story_clip_covered.is_empty()
+		and not paused)
+	CLIPS.headless_override = false
+
+
 func _rainbow_card(main: ReefMain) -> TextureRect:
 	if main._rainbow_friend == null:
 		return null
 	var card: TextureRect = main._rainbow_friend.card
 	return card if card != null and is_instance_valid(card) else null
+
+
+func _probe_boss_entry_lifecycle(main: ReefMain) -> void:
+	# Previous room work is a fixture. Exercise the real arrival player and
+	# propagate notifications through the tree, as the application does; a direct
+	# main.notification() does not lock the ancestor child lists.
+	var director: DayOneDirector = main._day_one_ref()
+	for notification_id: int in [Node.NOTIFICATION_APPLICATION_FOCUS_OUT,
+			Node.NOTIFICATION_APPLICATION_PAUSED, Node.NOTIFICATION_WM_CLOSE_REQUEST]:
+		CLIPS.headless_override = false
+		main._clear_game()
+		director.restore_state({
+			"day_one_active": true,
+			"day_one_arrival_plane_media_seen": true,
+			"day_one_completed_rooms": ["bathroom", "pool", "stuffie", "art"],
+			"day_one_cleaned_rooms": ["bathroom", "pool", "stuffie", "art"],
+			"day_one_boss_door_glow": true,
+		})
+		main.day_one_event_seen.erase(DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS)
+		main.day_one_story_clips_seen.erase("d1_puff_arrival")
+		main._enter_level2_now(true, false, false)
+		main._enter_castle_interior_now(false)
+		await _frames(4)
+		CLIPS.headless_override = true
+		_check("arrival starts from completed room checkpoint %d" % notification_id,
+			director.trigger_giant_dust_bunny_boss()
+			and main._day_one_story_boss_start_pending
+			and main._day_one_story_clip != null and paused)
+		get_root().propagate_notification(notification_id)
+		# Duplicate notifications must not queue a second recovery or launch.
+		get_root().propagate_notification(notification_id)
+		_check("interruption cancels arrival and preserves rooms immediately %d" % notification_id,
+			not main._day_one_story_boss_start_pending and not paused
+			and not director.giant_dust_bunny_boss_triggered
+			and director.is_room_completed("art"))
+		await _frames(8)
+		_check("interrupted arrival returns mounted castle layers %d" % notification_id,
+			main.game == "level2" and main._castle_rooms_ref().is_open()
+			and main.castle_room_layer.is_inside_tree()
+			and main.castle_room_stage.is_inside_tree()
+			and main.day_one_boss_door_ready())
+		var recovered_layer: CanvasLayer = main.castle_room_layer
+		await _frames(4)
+		_check("duplicate interruption cannot rebuild or start the fight %d" % notification_id,
+			main.castle_room_layer == recovered_layer and main.game == "level2"
+			and not director.giant_dust_bunny_boss_defeated)
+		_check("retry starts the real encounter without losing completed rooms %d" % notification_id,
+			director.trigger_giant_dust_bunny_boss() and main.game == "dustboss"
+			and main.g.get("db_kit") is DustBunnyBossSprite
+			and director.is_room_completed("art"))
+		CLIPS.headless_override = false
+		main._clear_game()
+		await _frames(4)
+	# A route change between notification and deferred recovery owns its layer.
+	main._castle_rooms_ref().close()
+	main._enter_level2_now(true, false, false)
+	var current_layer: CanvasLayer = main._sky_lagoon_promenade.root()
+	var stale_context: Dictionary = main.g.duplicate()
+	main._day_one_flow_ref()._recover_interrupted_boss_entry.call_deferred(stale_context)
+	await _frames(4)
+	_check("stale recovery cannot replace a newer Canvas route",
+		main._sky_lagoon_promenade.root() == current_layer
+		and not main._castle_rooms_ref().is_open())
+	var detached := DayOneCastleDressing.new()
+	detached.call("teardown")
+	await _frames(2)
+	_check("detached dressing teardown retires safely after its callback",
+		not is_instance_valid(detached))

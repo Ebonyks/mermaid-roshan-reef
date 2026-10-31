@@ -1,0 +1,59 @@
+{
+  "scope": "One existing consumer ui.critter_book/tab/insect at stable FVG-19B880B613E4: use one intact existing painted butterfly as native Button.icon with numeric count, preserving original category/input/save/layout behavior. No new pixels, source texture/import edits, gen/export/API calls, or trusted-probe changes. R89 context is already published/anonymous byte-verified. Other category/specimen/habitat/world callers stay open.",
+  "baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "origin_dev_at_start": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "rules": [
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-11",
+    "DL-TYPE-07",
+    "DL-TYPE-11",
+    "DL-TYPE-12",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05"
+  ],
+  "authority": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "684e67841fb2910d5e3706eaaa24d82694573fcde55375a057c12b195e11f5e3"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "64502e191bb614695d84b81bc443397bb36880e9fc057c77b340b93e87ff0296"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "sha256": "6c73d8ffc89ffa99b8dbf2972365a190003914a60fc6807df166c0056cbff6b8"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "2bbaf814b8f15b25a08d9ea328037e0dc8e28ef4fa578e5c796beda59a8f5dca"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "efaad010b7bbbefc7b5a9837fbefb482564acae1fc6d889f06a8f0d303e75634"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "sha256": "e2e97157a029efb6abfd123f9cf438f6dd5e777c6bcfac7ea4912aad64fcbd13"
+    },
+    {
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "sha256": "0d9ea1cee95eec6e790c5a1456a75e62c1132ee43e60f7b4dc3702b80059cda3"
+    }
+  ],
+  "owner_whole_unit": "ODR-SPRITE-WHOLE-UNIT-20261007; whole butterfly unchanged; no fish part stacking or cap reset",
+  "checked_at_utc": "2026-10-17T14:31:51.037345+00:00"
+}

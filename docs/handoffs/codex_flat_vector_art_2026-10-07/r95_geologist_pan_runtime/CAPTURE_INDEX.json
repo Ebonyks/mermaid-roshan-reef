@@ -1,0 +1,545 @@
+{
+  "cases": [
+    {
+      "case": "source_pan_v3_1280",
+      "checks": 26,
+      "frames": 4
+    },
+    {
+      "case": "source_pan_v3_1600",
+      "checks": 26,
+      "frames": 4
+    },
+    {
+      "case": "candidate_pan_v3_1280",
+      "checks": 27,
+      "frames": 4
+    },
+    {
+      "case": "candidate_pan_v3_1600",
+      "checks": 27,
+      "frames": 4
+    }
+  ],
+  "checks": 106,
+  "valid_context_frame_events": 16,
+  "excluded_setup_events": 20,
+  "retained_frame_events": 36,
+  "captures": [
+    {
+      "castle_layer_visible": false,
+      "id": "01_pan_start",
+      "main_game": "opera",
+      "pan_texture": {},
+      "pan_visual_x": 0.0,
+      "path": "native/source_pan_v3_1280/01_pan_start.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "1e70f6d38a5f17cdebb2a80c55e7ad827f0d801a60aacfb4a030cc61a16c754a",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 0,
+        "mode": "geology_pan",
+        "reversals": 0,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.0
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "source_pan_v3_1280"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "02_pan_partial",
+      "main_game": "opera",
+      "pan_texture": {},
+      "pan_visual_x": 52.5,
+      "path": "native/source_pan_v3_1280/02_pan_partial.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "a901b0b940a5d9376d47479c7abf3f152b52072e0f6aa73f361eda370fd0fe04",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 1,
+        "mode": "geology_pan",
+        "reversals": 4,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.444444444444444
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "source_pan_v3_1280"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "03_pan_near_complete",
+      "main_game": "opera",
+      "pan_texture": {},
+      "pan_visual_x": 52.5,
+      "path": "native/source_pan_v3_1280/03_pan_near_complete.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "08d3f6635015c370dd6b9ef3ae10aed2427b456d079b9d045d86b1cc2ae09f1a",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 2,
+        "mode": "geology_pan",
+        "reversals": 8,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.888888888888889
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "source_pan_v3_1280"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "04_pan_complete",
+      "main_game": "opera",
+      "pan_texture": {},
+      "pan_visual_x": -52.5,
+      "path": "native/source_pan_v3_1280/04_pan_complete.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "963685b661245d755e08885580e08ce2d4b799da5547dc4abe414c8f66d1724a",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": true,
+        "minerals": 3,
+        "mode": "geology_pan",
+        "reversals": 9,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 1.0
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "source_pan_v3_1280"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "01_pan_start",
+      "main_game": "opera",
+      "pan_texture": {},
+      "pan_visual_x": 0.0,
+      "path": "native/source_pan_v3_1600/01_pan_start.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "6ef36a405462d0d8ac67b575bef23b937c73a7494b7858ae7c4d2fc2fd7681d6",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 0,
+        "mode": "geology_pan",
+        "reversals": 0,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.0
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "source_pan_v3_1600"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "02_pan_partial",
+      "main_game": "opera",
+      "pan_texture": {},
+      "pan_visual_x": 52.5,
+      "path": "native/source_pan_v3_1600/02_pan_partial.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "ce9c341a08aaf6d6b83a3601f87057643640fbf1fef9aa50efe6b29ae72206b8",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 1,
+        "mode": "geology_pan",
+        "reversals": 4,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.444444444444444
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "source_pan_v3_1600"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "03_pan_near_complete",
+      "main_game": "opera",
+      "pan_texture": {},
+      "pan_visual_x": 52.5,
+      "path": "native/source_pan_v3_1600/03_pan_near_complete.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "01f13367e93d1612a52261680f3a7600152f05e51a96ab0703f8064551b8c952",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 2,
+        "mode": "geology_pan",
+        "reversals": 8,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.888888888888889
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "source_pan_v3_1600"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "04_pan_complete",
+      "main_game": "opera",
+      "pan_texture": {},
+      "pan_visual_x": -52.5,
+      "path": "native/source_pan_v3_1600/04_pan_complete.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "5998df57815eb4a2bd9438b4c4f0f99435da83f4274a922745f1f2bdb187e9d6",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": true,
+        "minerals": 3,
+        "mode": "geology_pan",
+        "reversals": 9,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 1.0
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "source_pan_v3_1600"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "01_pan_start",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "native/candidate_pan_v3_1280/01_pan_start.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "de34cf8b7a9cd8fa200d15001f44b5aca6bda9fb240632846c52e746ed15c3ac",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 0,
+        "mode": "geology_pan",
+        "reversals": 0,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.0
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "candidate_pan_v3_1280"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "02_pan_partial",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 52.5,
+      "path": "native/candidate_pan_v3_1280/02_pan_partial.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "f91b52f6fb5075ad27bede68df1f47fa38f63b850ec219fddcaafefe2d6614a6",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 1,
+        "mode": "geology_pan",
+        "reversals": 4,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.444444444444444
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "candidate_pan_v3_1280"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "03_pan_near_complete",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 52.5,
+      "path": "native/candidate_pan_v3_1280/03_pan_near_complete.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "e0927817b2f9463cd15ad57644b131e0c893d953edf5964a1fb9812075a17bc5",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 2,
+        "mode": "geology_pan",
+        "reversals": 8,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.888888888888889
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "candidate_pan_v3_1280"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "04_pan_complete",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": -52.5,
+      "path": "native/candidate_pan_v3_1280/04_pan_complete.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "e1ac3aa47f1b57e0e05957c94e086eed86202f2636e2261ee2f03c07170bef4f",
+      "size": [
+        1280,
+        720
+      ],
+      "snapshot": {
+        "complete": true,
+        "minerals": 3,
+        "mode": "geology_pan",
+        "reversals": 9,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 1.0
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "candidate_pan_v3_1280"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "01_pan_start",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 0.0,
+      "path": "native/candidate_pan_v3_1600/01_pan_start.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "574ccab3f2ae89a55d7f102ac79785461f0af9c8e8b2236c7443a416a62a0afd",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 0,
+        "mode": "geology_pan",
+        "reversals": 0,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.0
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "candidate_pan_v3_1600"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "02_pan_partial",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 52.5,
+      "path": "native/candidate_pan_v3_1600/02_pan_partial.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "fa6677e847d9b489af611f2f8074af52430ac288e8db782c5a43b359c563d07c",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 1,
+        "mode": "geology_pan",
+        "reversals": 4,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.444444444444444
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "candidate_pan_v3_1600"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "03_pan_near_complete",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": 52.5,
+      "path": "native/candidate_pan_v3_1600/03_pan_near_complete.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "85c540c1d7e057b33963061d00478e3a2d6f4afa73356369841e0aa8f2a6b9ee",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": false,
+        "minerals": 2,
+        "mode": "geology_pan",
+        "reversals": 8,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 0.888888888888889
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "candidate_pan_v3_1600"
+    },
+    {
+      "castle_layer_visible": false,
+      "id": "04_pan_complete",
+      "main_game": "opera",
+      "pan_texture": {
+        "path": "",
+        "size": "(1024.0, 1024.0)"
+      },
+      "pan_visual_x": -52.5,
+      "path": "native/candidate_pan_v3_1600/04_pan_complete.png",
+      "root_canvas_size": "(1280.0, 720.0)",
+      "sha256": "d496346c46cdee39dfb18776a35466a5518e6c3fa59a6ecef44dc5362239057d",
+      "size": [
+        1600,
+        720
+      ],
+      "snapshot": {
+        "complete": true,
+        "minerals": 3,
+        "mode": "geology_pan",
+        "reversals": 9,
+        "stage": "PAN",
+        "version": 1,
+        "wash": 1.0
+      },
+      "start_menu_active": false,
+      "world_phase": 2,
+      "world_visible": true,
+      "case": "candidate_pan_v3_1600"
+    }
+  ],
+  "unchanged_nonvisual_functions": [
+    "configure",
+    "stage_name",
+    "progress",
+    "river_path_point",
+    "fossil_piece_home",
+    "fossil_piece_target",
+    "geode_seam_spot",
+    "geode_half_center",
+    "progress_snapshot",
+    "restore_progress",
+    "cancel_input",
+    "restart_demo",
+    "_optional_texture",
+    "_input_blocked",
+    "_press",
+    "_drag",
+    "_release",
+    "_gui_input",
+    "_notification",
+    "_process",
+    "_river_stroke",
+    "river_path_cell_center",
+    "_river_connected",
+    "_fossil_brush",
+    "_piece_at",
+    "_pan_drag",
+    "_geode_drag",
+    "_seam_at",
+    "_geode_right_rect",
+    "_note_material_change",
+    "_complete_mode",
+    "_emit_checkpoint",
+    "_wet_path_count",
+    "_cleared_count",
+    "_snapped_count",
+    "_seam_count",
+    "_true_indices",
+    "_restore_true_indices",
+    "_restore_bools",
+    "_is_number",
+    "_draw",
+    "_draw_river",
+    "_river_flow_indices",
+    "_draw_fossil",
+    "_draw_fossil_whole",
+    "_draw_fossil_piece",
+    "_draw_brush",
+    "_draw_geode",
+    "_draw_work_surface",
+    "_draw_rounded_rect",
+    "_draw_ellipse",
+    "_draw_mineral",
+    "_geode_half_points",
+    "_draw_crystal_gallery",
+    "_demo_finger_pose"
+  ],
+  "source_candidate_progression_snapshots_equal": true,
+  "unique_screens_or_artworks_claimed": false
+}

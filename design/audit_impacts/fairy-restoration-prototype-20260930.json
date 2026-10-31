@@ -1,0 +1,263 @@
+{
+  "id": "CHG-FAIRY-RESTORATION-PROTOTYPE-20260930",
+  "scope": "Owner commission 2026-09-30: isolated true-2D playable prototype for the faerie/butterfly half of castle magic restoration after the Ember King takes the candle. Reuse existing art; connect arborist tree care, fruit harvest, chef preparation, butterfly feeding and gentle flower shooter. No production route/save/reward replacement or second-world ending. Required audio-ledger maintenance changes only picture_garden.ogg runtime reference count 0 to 1 and inventory hash against incoming dev; no audio bytes, grades or human acceptance change. Preserve literal native review-packet bytes and LF hashes for the new source files and generator-owned canonical audio CSV across Git checkouts. Preserve subsequent incoming Day One/Two alpha fixes and their separately owned evidence without modifying them. Required integration repair lets an exact Opera/Chapter Two activity instruction replace an obsolete required Chapter Two route/phase cue; generic reactions and Day One FIFO priority remain unchanged. No voice bytes are modified. Preserve incoming ce033173 explicit phase-owned Opera voice handoff and Job Platform proposal; verify direct activity-priority and phase-owned queue clearing together. No Job Platform implementation or new permanent career.",
+  "baseline": "285355eb9e09a29aa4ac53d36874e31419d4674e",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-01",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-04",
+    "DL-PLAN-05",
+    "DL-PLAN-06",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-06",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-LAY-01",
+    "DL-LAY-07",
+    "DL-LAY-09",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-CODE-10",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-ASSET-04",
+    "DL-SND-01",
+    "DL-SND-02",
+    "DL-SND-03",
+    "DL-SND-04",
+    "DL-SND-05",
+    "DL-SND-08",
+    "DL-SND-09",
+    "DL-SND-10",
+    "DL-SND-11",
+    "DL-SND-12",
+    "DL-SND-13",
+    "DL-SND-14",
+    "DL-SND-15",
+    "DL-SND-16",
+    "DL-QA-16"
+  ],
+  "findings": [
+    "MA-2D-002",
+    "MA-PLAY-004",
+    "MA-ACCESS-001",
+    "MA-DOC-006"
+  ],
+  "finding_scope": "Prototype constraints: no new spatial debt; embodied approach/contact/action. Integration repair scope added after incoming dev CI 36776251500 at b52fc32a fails the unchanged Racer exact-objective voice assertion: a required Chapter Two route cue can suppress the exact newly entered Opera objective. Reproduce and repair that voice transition, preserving Day One FIFO priority and all audio bytes. Related MA-ACCESS-001 retains external listening/child/owner blockers; no existing finding closure or production conversion is claimed. Incoming 83d7e1ed documentation adds MA-DOC-006 and an interim job-game recipe: this is its delegated standalone prototype path, with no permanent career registration, save-bit allocation or takeover-playbook closure.",
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "assets/prototypes/fairy_restoration/voices/arborist.ogg",
+    "assets/prototypes/fairy_restoration/voices/chef.ogg",
+    "assets/prototypes/fairy_restoration/voices/complete.ogg",
+    "assets/prototypes/fairy_restoration/voices/enter.ogg",
+    "assets/prototypes/fairy_restoration/voices/harvest.ogg",
+    "assets/prototypes/fairy_restoration/voices/picnic.ogg",
+    "assets/prototypes/fairy_restoration/voices/returned.ogg",
+    "assets/prototypes/fairy_restoration/voices/shooter.ogg",
+    "assets/prototypes/fairy_restoration/voices/water.ogg",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/.gdignore",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/ART_REUSE_MANIFEST.json",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/VOICE_CUES.json",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/01_castle_entry.png",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/02_sick_tree.png",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/02b_arborist_contact.png",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/03_water_roots.png",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/04_healthy_fruit_tree.png",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/05_chef_whole_apples.png",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/05b_chef_contact.png",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/06_prepared_snacks.png",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/07_flower_flight.png",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/08_fountain_restored.png",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/09_castle_faerie_magic.png",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/CAPTURE_MANIFEST.json",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/ALPHA_RECONCILIATION_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/FOCUSED_PROBE_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/HEADLESS_RECHECK_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_INITIAL_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_REMAINING_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/LOCAL_GATE_RECEIPT.json",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/VERIFICATION.json",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/VOICE_TRANSITION_BASELINE.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/VOICE_TRANSITION_CHECKS.txt",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json",
+    "design/05_DOC_LEDGER.md",
+    "design/10_CHAPTER_REFERENCE_LIBRARY.md",
+    "design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md",
+    "scenes/fairy_restoration_prototype.tscn",
+    "scripts/fairy_restoration_prototype.gd",
+    "scripts/probe_fairy_restoration.gd",
+    "scripts/audio_director.gd",
+    "scripts/probe_voice.gd",
+    "tools/build_fairy_restoration_voices.py",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_FINAL_DIRECT_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/REMOTE_VERIFICATION.json",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_FINAL_WRAPPER_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/DIRECT_NATIVE_RECHECK_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_FULL_TRUSTED_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/NATIVE_WINDOWS_PROBE_RUNNER.ps1",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/NATIVE_RUNNER_FILTER_RECHECK.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_INITIAL_ATTEMPT_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_FIXED_CLOCK_CONTINUATION_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_ISOLATED_ENGINE_CONTINUATION_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/ISOLATED_ENGINE_VERIFICATION.json",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/COMBINED_VOICE_RECONCILIATION_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/COMBINED_CI_VERIFICATION.json"
+  ],
+  "validation": [
+    {
+      "command": "Reproduce and repair exact Opera objective replacement of a stale required Chapter Two route cue",
+      "result": "PASS",
+      "evidence": "Incoming dev b52fc32a2ad676fd9b235c0f3d6f1aba829cea77 run https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36776251500 fails OPERA|Racer exact objective voice replaces its caption fallback. Required evidence: direct failing baseline, unchanged probe_opera passing after repair, voice/Day One FIFO sibling checks, parser/inference/native analyzer and full combined-head branch CI. No generic substitution or probe relaxation. VOICE_TRANSITION_BASELINE.txt preserves the three direct failures at ba1608de. VOICE_TRANSITION_CHECKS.txt and LOCAL_GATE_RECEIPT.json bind final AudioDirector/probe LF hashes: voice, Day One FIFO, Chapter Two and unchanged Opera probes exit 0; Racer exact instruction plays with one speech channel and empty caption, while talk/win/pearl cannot displace required guidance. Parser/inference/4.7.2 analyzer, 52 authority/development tests and 6/6 stress controls pass; canonical 844-file audio check ALL OK. Incoming 83d7e1ed adds only preserved job-game audit documentation. Full new combined-head branch CI remains required before integration."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile scripts/probe_fairy_restoration.gd -- --capture, isolated APPDATA/LOCALAPPDATA",
+      "result": "PASS",
+      "evidence": "assets_src/prototypes/fairy_restoration_2026-09-30/review/VERIFICATION.json and FOCUSED_PROBE_LOG.txt; 11 measured 1280x720 Mobile captures, source/probe/PNG hashes, 0 failures. Live touch, passive/wrong/repeat input, second finger, approach/contact, held lane gliding, Back/focus loss, round-trip/backup/unknown-field recovery and byte-identical production-save canary."
+    },
+    {
+      "command": "gdtoolkit parser, lint_inference.py and exact Godot 4.7.2 --check-only over both new scripts",
+      "result": "PASS",
+      "evidence": "Final source checks exit 0; official engine ed1daf0bf; local transcripts tmp/fairy_restoration_review."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "52 tests OK; 6/6 document stress controls."
+    },
+    {
+      "command": "Unchanged-art hash verification and prototype OGG decode/loudness measurement",
+      "result": "PASS",
+      "evidence": "ART_REUSE_MANIFEST.json: 32 unchanged art/music files, native 3640x2048 master, nine additive synthetic cues, local model/voice/pipeline hashes. No original art or protected-recording changes."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Completion recheck: AUDITDEV baseline 285355eb9e09a29aa4ac53d36874e31419d4674e ALL OK; document authority ALL OK. Final changed-file coverage is checked again before publication."
+    },
+    {
+      "command": "Exact official Godot 4.7.2 scripts/ci.sh through Git Bash",
+      "result": "FAIL",
+      "evidence": "First attempt: tmp/fairy_restoration_review/full-ci.log stops at AUDIO_QUALITY|check 821/821|STALE. The only reproduced row difference is picture_garden.ogg runtime_reference_count 0 to 1. Canonical CSV and summary inventory hash updated; no audio bytes, grades or human decisions changed. Full suite rerun is required."
+    },
+    {
+      "command": "python -B tools/audit_audio_quality.py --out-dir tmp/fairy_restoration_review/audio-recheck",
+      "result": "PASS",
+      "evidence": "821-file independent reproduction exits 0. CSV bytes exactly equal corrected canonical ledger (SHA-256 d3c2754ee61d2c2baa02aa048b0915fec75f069cf21b754d53989eb917974a45); summary JSON values exactly equal corrected canonical summary."
+    },
+    {
+      "command": "Exact official Godot 4.7.2 scripts/ci.sh through Git Bash, corrected-ledger rerun",
+      "result": "FAIL",
+      "evidence": "tmp/fairy_restoration_review/full-ci-final.log exits 1 after all pre-import gates and import pass. The 2D inventory rejects 29 spatial files in the untracked, locally ignored addons/godot_ai installation. That installation is untouched and is outside the candidate Git payload. No audit relaxation or ceiling increase; a clean same-repository worktree rerun is required before commit/publication."
+    },
+    {
+      "command": "Exact official Godot 4.7.2 scripts/ci.sh in clean same-repository H-drive worktree",
+      "result": "FAIL",
+      "evidence": "Initial clean run passes every earlier gate through the 821-file audio check, then one visual self-test fails because its C-drive temporary fixture and H-drive checkout cause os.path.relpath to raise a cross-drive ValueError. The same unchanged test passes with TEMP/TMP on H. Preserved FULL_CI_INITIAL_LOG.txt and LOCAL_GATE_RECEIPT.json name the exact failure and environment fix."
+    },
+    {
+      "command": "Exact unchanged scripts/ci.sh remaining gates from line 110, TEMP/TMP on H; then final isolated prototype presentation recheck",
+      "result": "PASS",
+      "evidence": "Preserved review/LOCAL_GATE_RECEIPT.json and both FULL_CI logs: original setup plus exact normalized source suffix, all 95 visual tests, all remaining asset gates, official 4.7.2 import, exact shrinking inventory NO_REGRESSION, and all 77 trusted production probes exit 0. Final apple-half gap/flight-label correction separately passes parser, inference, native analyzer and the complete live-input probe with eleven fresh Mobile captures. Runtime source/probe/capture hashes bind VERIFICATION.json. Whole-game satisfaction and human acceptance remain open."
+    },
+    {
+      "command": "Published pre-repair candidate ba1608de full GitHub Probe suite",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36778607136 succeeds at ba1608de7e40438899b1352e45e18f945368a799: native analyzer, trusted production probes, required visual captures and area-music provenance. Incoming b52fc32a independently fails the Racer voice assertion; the new deterministic direct baseline reveals the timing-dependent suppression even though ba1608de passes the prior suite. Voice-transition repair is separately source-bound in the local receipt. Integration requires the green GitHub check attached to the new combined code revision; no pre-repair run grants that gate."
+    },
+    {
+      "command": "Reconcile origin/dev 5d9668a9a49f59f3224c2951bbbffb9e3b3a1145 and recheck current authorities",
+      "result": "PASS",
+      "evidence": "Preserved incoming Rumi alpha repairs, Day Two art-library evidence and story-clip double-tap skip. Resolved only shared license/ledger additions by retaining both contributions and the current visual-repair ledger row; no unmerged paths. Prototype diff against the incoming parent remains a bounded 43-file task including this record and one added headless log. Rechecked planning/task index, design rules, canonical findings, ledger, impact contract and chapter guide. New DL-INT-14 is scoped to competitive Opera careers and does not apply to these cooperative faerie garden jobs. Authority/coverage, parser/inference/native analyzer and isolated incoming story-clip probe pass. Final faerie probe waits 0.25 seconds after scene teardown for the dummy audio thread: both uncapped headless and Mobile capture runs exit 0 with all assertions and no warnings/errors. HEADLESS_RECHECK_LOG.txt, LOCAL_GATE_RECEIPT.json and eleven refreshed source-bound captures preserve evidence. Runtime source unchanged by this final probe-only correction. Original task baseline remains 285355eb9e09a29aa4ac53d36874e31419d4674e. Exact combined-source CI remains required before integration."
+    },
+    {
+      "command": "Git blob byte/hash comparison for the native packet and new code",
+      "result": "PASS",
+      "evidence": "Pre-publication Git index comparison: all 23 packet/code files are byte-identical to their native/source originals; git diff --cached --check is clean. Raw native transcript spaces are preserved by the scoped packet attribute, and portable source hashes use LF."
+    },
+    {
+      "command": "Reconcile origin/dev b52fc32a2ad676fd9b235c0f3d6f1aba829cea77; exact import, parser/inference, authority/coverage, 844-row audio reproduction and live faerie probe",
+      "result": "PASS",
+      "evidence": "ALPHA_RECONCILIATION_LOG.txt and LOCAL_GATE_RECEIPT.json preserve actual import/audio/probe transcripts. Both tasks' license entries and all incoming alpha runtime, voice, finding-history and existing CI changes are retained. Independent audio output has 844 rows: every value equals incoming dev except picture_garden.ogg runtime_reference_count 0 to 1. Canonical CSV is byte-identical to that reproduced LF output, SHA-256 9a2b99994bb71dc65f0fc8c772707dfe00f88be16474ac84e0c037f19016913e; summary values equal reproduction; scoped CSV eol=lf prevents merge-generated CRLF from breaking its hash. Audio-audit 25 tests pass. DOCAUTH 588/588 and AUDITDEV incoming-parent coverage ALL OK. Exact 4.7.2 import and final live faerie probe exit 0 with no script errors or probe warnings; all 41 art/music/voice hashes remain unchanged. No prototype runtime change or production/protected-asset edit against this incoming parent. Earlier 821-row checks retain their earlier candidate scope; combined-head CI remains required."
+    },
+    {
+      "command": "Original scripts/ci.sh using official Godot 4.7.2 console launcher through Git Bash",
+      "result": "FAIL",
+      "evidence": "Final source 33a2c8e3cd86bb4a0dd9d372f6463095c666668d: all static/art/audio/import/2D gates pass, but native processes return abnormal exits [{'probe': 'probe_passive', 'exit': 127}, {'probe': 'probe_l2', 'exit': 127}, {'probe': 'probe_combat', 'exit': 127}]. FULL_CI_FINAL_WRAPPER_LOG.txt SHA-256 1891eee7dc6995ef2a5d3730037476a96a75a20de5ac0c5279b583d6e7db3c8f preserves the failed full run. No script or assertion failure accompanies the engine banners. The unchanged passive and Sky Lagoon probes pass with godot.exe directly; DIRECT_NATIVE_RECHECK_LOG.txt SHA-256 8f92f728209d748ae61b7ab3359b3700a85729ffab07e863041d1a597f687206 records those exact rechecks. This failed attempt never grants a pass."
+    },
+    {
+      "command": "Original scripts/ci.sh with official Godot 4.7.2 directly through Git Bash",
+      "result": "FAIL",
+      "evidence": "Final source 33a2c8e3cd86bb4a0dd9d372f6463095c666668d: original entry point unchanged; all static/art/authority/audio/import/2D stages pass, but the full attempt remains FAILED with abnormal native process exits [{'probe': 'probe_passive', 'exit': 127}, {'probe': 'probe_verbs', 'exit': 127}, {'probe': 'probe_kart_feel', 'exit': 127}]. FULL_CI_FINAL_DIRECT_LOG.txt SHA-256 da9b84c615c0a0d0661c68ce78262398d2eefe246a74b3dd91969a185d180537 and LOCAL_GATE_RECEIPT.json preserve actual output and source binding. Bypassing the console launcher alone did not resolve the local Bash/native process problem."
+    },
+    {
+      "command": "Native Windows uncapped combat tutorial",
+      "result": "FAIL",
+      "evidence": "WINDOWS_NATIVE_INITIAL_ATTEMPT_LOG.txt SHA-256 a01d32373a2651786013fe6f07bd7aa60933b77e8404d12c6d585206ca3ceab0 preserves the complete initial attempt. Despite native exit 0, two charge/wave assertions FAIL; original failure guards correctly block the run. The test waits 20 frames at time_scale 6 and assumes that exceeds the production 1.75-second charge threshold. No probe or gameplay is patched."
+    },
+    {
+      "command": "Native Windows continuation after the fixed-clock tutorial",
+      "result": "FAIL",
+      "evidence": "WINDOWS_NATIVE_FIXED_CLOCK_CONTINUATION_LOG.txt SHA-256 65ad8daac56d908ede13842d1bec70efcd1ad8a6db5dd31ab09d51a147ca7670 preserves the passing unchanged tutorial and following probes, then an Opera process abort with observed native exit -1. No failed process grants a pass."
+    },
+    {
+      "command": "Uniquely named identical official Windows engine continuation",
+      "result": "FAIL",
+      "evidence": "WINDOWS_NATIVE_ISOLATED_ENGINE_CONTINUATION_LOG.txt SHA-256 f0d012f702c977a27d3523c2e3f5213d082e5da34663c0c250111229dbc13175 records Opera through balance passing, then start-menu native Windows access violation exit -1073741819 (0xC0000005). Identical official engine-byte verification is archived. This full attempt remains FAILED; process-name isolation did not fully resolve native Windows instability."
+    },
+    {
+      "command": "All original static/art/audio/import/inventory stages plus permitted source-bound probe-by-probe obligations",
+      "result": "PASS",
+      "evidence": "Final source 33a2c8e3cd86bb4a0dd9d372f6463095c666668d: all original pre-probe stages and all 82 ordered probe obligations have complete passing executions, with original scripts, touch modes, profiles and guards. Tutorial alone uses official --fixed-fps 60 so its existing 20-frame/time_scale 6 hold represents two simulated seconds; no gameplay/probe/assertion changes. Composite successful evidence consists of literal passing native prefixes plus the final six successful original Bash blocks; every raw failed attempt and composition byte offsets/hashes remain archived. WINDOWS_NATIVE_FULL_TRUSTED_LOG.txt SHA-256 bb1074e45d94649941b86c19683ea2c847034f2131167c87eda6b8838e4709d9 and receipts bind exact source. This does not claim a green uninterrupted local run or resolved Windows startup stability; full exact-source CI is green. Human/device acceptance remains open."
+    },
+    {
+      "command": "Final combined-code GitHub Probe suite and public GitHub byte verification",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36785254581 succeeds on exact code 33a2c8e3cd86bb4a0dd9d372f6463095c666668d; both probes and area-music-provenance jobs succeed. REMOTE_VERIFICATION.json records public unauthenticated raw access and SHA-256/bytes for all 38 prototype-packet/runtime and scoped voice-repair files. Full gates are machine evidence, not child/device/listening/owner acceptance."
+    },
+    {
+      "command": "Documentation-only reconcile with origin/dev 29bbd80aeb539b45b1f34bb93324883addf8b0c8; exact validated runtime/CI identity and incoming-parent authority/coverage",
+      "result": "PASS",
+      "evidence": "Incoming Opera imp-contest revisions 2–4 preserved. No scripts/assets/scenes/shaders/tools/.github/project.godot/export_presets.cfg/.gitattributes diff from green 33a2c8e3cd86bb4a0dd9d372f6463095c666668d. DL-INT-14 learning-career supplement remains scoped to competitive Opera and does not apply to cooperative faerie restoration. Mandatory document and impact gates rechecked before commit; original task baseline preserved."
+    },
+    {
+      "command": "Reconcile origin/dev ce0331738970205a5aead4d3e0258eb7873a1642; exact combined voice, Day One FIFO, Chapter Two and Opera probes",
+      "result": "PASS",
+      "evidence": "COMBINED_VOICE_RECONCILIATION_LOG.txt SHA-256 0fdeb33bf4ca0d9808dca0e14991ed290c4cfe16e4f7d47507b9b689aab324bd; four unchanged native-supervised probes exit zero, including incoming forced-overlap queue regression. Source hashes and incoming/runtime delta are bound in LOCAL_GATE_RECEIPT.json. Current document/impact gates rechecked. Prototype art/runtime unchanged. Full CI for the new combined code remains required before integration; prior full CI keeps exact 33a2c8e3 scope."
+    },
+    {
+      "command": "Full exact combined-source GitHub Probe suite, public remote byte verification and evidence-only finalization",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36801630810 succeeds on exact combined source 2219c84df3cddcd41d3a59330401fb8a7391fa53; probes and area-music-provenance jobs succeed, including original analyzer, trusted gameplay, boot, balance and visual capture stages. assets_src/prototypes/fairy_restoration_2026-09-30/review/COMBINED_CI_VERIFICATION.json SHA-256 9aa6ce402418248f32bd4f1ed825855c002a12ca2c0eca0d2cf6ed9064256373 preserves the run result and fresh anonymous public byte/SHA-256 checks of all 50 published prototype/voice-repair files. Finalization changes only the brief, this impact and the new receipt; runtime/assets/tools/workflows/import configuration remain identical to the exact green source. Mandatory authority/development/parser/inference gates rechecked before commit. Original baseline, earlier evidence and failed Windows attempts are preserved. Device/child/listening/owner acceptance remains open."
+    }
+  ],
+  "acceptance_gaps": "Isolated prototype only. Final sick-tree/cut-fruit/hand-tool artwork, contextual art approval, synthetic-voice listening/intelligibility, production route/save/reward integration, device/child/owner acceptance and game-wide strict-zero 2D acceptance remain open. Exact new spoken cues are additive assets outside protected voices. No protected original changes, cinematics or paid commission. Local official Windows engine occasionally aborts or access-violates during headless startup; failed attempts remain archived, and complete full-source CI is the integration gate."
+}

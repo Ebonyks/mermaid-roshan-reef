@@ -1,0 +1,27 @@
+{
+  "schema": "chapter2_tap_intro_retention_repair/1",
+  "based_on": "chapter2-route-04 sourcepinv5 98a00104",
+  "artifacts": {
+    "scripts/opera_career_world_2d.gd": {
+      "source_raw_sha256": "3982cd0391024ff5f65416f99513217f1c7fe92d96beacbce35e6a79a0261dc1",
+      "draft": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\opera_career_world_2d.gd.story_detective_intro_repair_01.txt",
+      "draft_sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
+      "patch": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\story_detective_intro_repair_01.patch",
+      "patch_sha256": "0ba9e99bb8bdcccd71bce60cad39248c1635308cf9d4ee1a701f91ba23766f2a"
+    },
+    "scripts/probe_chapter2.gd": {
+      "source_raw_sha256": "f47ba18ee569381fae3b79bae09b337eedfb3cd5db500eefc91b25325f433380",
+      "draft": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\probe_chapter2.gd.tap_lifecycle_retention_repair_01.txt",
+      "draft_sha256": "fc42c6dd3d27d70d6c0e6017d43e9d57ad548d346000927ef2d70262b38f5cc6",
+      "patch": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\tap_lifecycle_retention_repair_01.patch",
+      "patch_sha256": "6221b72b63f2dd1c200a6d557bb13e59985f7d173e18a56c7a8408b2b025cb78"
+    }
+  },
+  "combined_patch": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\tap_intro_retention_repair_01.patch",
+  "combined_patch_sha256": "1c09193f2dd3bd7a8920354b3cbc8772b14e718fffd8cde8864e91c1f5bca541",
+  "tap_fix": "Capture exact Viewport/canvas point while target is valid; send index71 press/release to sameViewport with unchanged await pattern; missing input owner records explicit failedcheck.",
+  "lifetime_regression": "Actual removed-on-press Button plus independent _input observer require targetgone, boolcompleted and exactlyone matching press/release. Oldhelper error returnsnil and assertion fails, so probe cannot print falsePASS for this defect.",
+  "story_intro": "Story Detective uses authored phase prompt/op_detective_lens_stage and magicbook invitation; legacy crown sequence/defer/trail retained only on freeplay. No recordings/art edited.",
+  "retention": "Released-owner source primary/existingbackup copied beforechild to unique guarded paths; sourcebefore/after andcopySHA equality; failure aborts with nochild. Expected/receipt bind paths/hashes; childstillloads originalsource and independentlychecks original+retainedbytes.",
+  "scope": "No goals, passive exposure, reward/save production logic, ordering, art, music or projectsettings changes. Rawroute04 remainsFAIL. Runtime ofdraft NOT_RUN; rootreview/apply next."
+}

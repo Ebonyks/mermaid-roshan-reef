@@ -1,0 +1,33 @@
+extends "res://scripts/probe_dust_boss.gd"
+
+func _init() -> void:
+	call_deferred("_run_crash")
+
+func _run_crash() -> void:
+	Engine.max_fps = 60
+	main = load("res://scenes/main.tscn").instantiate() as ReefMain
+	get_root().add_child(main)
+	await _frames(4)
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+	main._skip_intro()
+	await _frames(4)
+	_prepare_terminal_boundary()
+	main._enter_level2_now(true, false, false)
+	main._enter_castle_interior_now(false)
+	await _frames(6)
+	DayOneStoryClips.headless_override = true
+	main.day_one_story_clips_seen.erase("d1_puff_arrival")
+	main._day_one_ref().trigger_giant_dust_bunny_boss()
+	_ck("actual arrival movie is pending before interruption", main._day_one_story_boss_start_pending and paused)
+	get_root().propagate_notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	await _frames(8)
+	_ck("interrupted arrival rebuilds a mounted castle", main.castle_room_layer != null and main.castle_room_layer.is_inside_tree() and main.castle_room_stage != null and main.castle_room_stage.is_inside_tree())
+	_ck("interrupted arrival leaves a retryable boss door", main.day_one_boss_door_ready() and not main._day_one_story_boss_start_pending and not paused)
+	var orphan := DayOneCastleDressing.new()
+	orphan.call("teardown")
+	await _frames(2)
+	_ck("detached dressing safely retires after its callback", not is_instance_valid(orphan))
+	DayOneStoryClips.headless_override = false
+	print("PUFF_CRASH|RESULT|", "PASS" if bad == 0 else "FAIL")
+	quit(1 if bad > 0 else 0)

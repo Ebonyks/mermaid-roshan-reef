@@ -1,0 +1,1789 @@
+--- a/scripts/chapter_two_career_scene_adapter.gd
++++ b/scripts/chapter_two_career_scene_adapter.gd
+@@ -25,15 +25,15 @@
+ 		{"name": "STACK", "milestone": "stack", "mode": "tap", "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png", "goal": 3.0, "vo": "chapter2_chef_stack", "voice": "Tap each cake tier to stack the rainbow cake!"},
+ 		{"name": "FROST", "milestone": "frost", "mode": "swipe", "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png", "goal": 6.0, "vo": "op_chef_pipe_stage", "voice": "Trace the frosting ribbon across the cake!"},
+ 	]},
+-	"detective": {"finale_start": 2, "scene_id": "magic_storybook", "story_object": "magic_storybook", "backdrop": "magic_storybook", "prop": "res://assets/opera/worlds/props/goal_detective.png", "mechanic": "unlit_rainbow_candle", "legacy_mechanic": "crown_chest", "phases": [
++	"detective": {"finale_start": 2, "scene_id": "magic_storybook", "story_object": "magic_storybook", "backdrop": "magic_storybook", "prop": "res://assets/flats/castle/rooms/room_library_item_magic_book.png", "mechanic": "unlit_rainbow_candle", "legacy_mechanic": "crown_chest", "phases": [
+ 		{"name": "LENS", "milestone": "storybook_lens", "mode": "lens", "goal": 3.0, "vo": "op_detective_lens_stage", "voice": "Sweep the lens across the magic storybook clues!"},
+ 		{"name": "STORYBOOK BOARD", "milestone": "storybook_board", "mode": "tap", "widget_context": "storybook_board", "goal": 3.0, "vo": "op_detective_match", "voice": "Tap each glowing storybook clue on the board!"},
+ 		{"name": "UNLIT RAINBOW CANDLE", "milestone": "unlit_rainbow_candle_reveal", "reveal": "unlit_rainbow_candle", "mode": "tap", "widget_context": "unlit_rainbow_candle", "mechanic": "unlit_rainbow_candle", "goal": 1.0, "vo": "chapter2_detective_unlit_rainbow_candle_reveal", "voice": "Tap the unlit rainbow candle to reveal the final clue!"},
+ 	]},
+ 	"ballerina": {"finale_start": 2, "scene_id": "stuffie_room", "backdrop": "stuffie_room", "prop": "res://assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png", "phases": [
+ 		{"name": "STUFFIES MIRROR", "milestone": "stuffies_mirror", "mode": "ballet_pose", "subject": "stuffies", "vo": "chapter2_ballerina_stuffies_mirror", "goal": 3.0, "voice": "Tap the matching pose as the stuffies mirror Roshan!"},
+-		{"name": "STUFFIES TWIRL", "milestone": "stuffies_twirling", "mode": "ballet_ribbon", "subject": "stuffies", "vo": "op_ballerina_ribbon", "goal": 6.0, "voice": "Guide the ribbon while the stuffies twirl along!"},
+-		{"name": "STUFFIES BOW", "milestone": "stuffies_bow", "mode": "ballet_twirl", "subject": "stuffies", "vo": "op_ballerina_twirl", "goal": 2.0, "voice": "Take one grand twirl, then bow with the stuffies!"},
++		{"name": "STUFFIES TWIRL", "milestone": "stuffies_twirling", "mode": "ballet_ribbon", "subject": "stuffies", "vo": "op_ballerina_ribbon", "goal": 1.0, "voice": "Guide the ribbon while the stuffies twirl along!"},
++		{"name": "STUFFIES BOW", "milestone": "stuffies_bow", "mode": "ballet_twirl", "subject": "stuffies", "vo": "op_ballerina_twirl", "goal": 1.0, "voice": "Take one grand twirl, then bow with the stuffies!"},
+ 	]},
+ 	"candymaker": {"finale_start": 3, "scene_id": "strawberry_cake_workshop", "backdrop": "strawberry_cake_workshop", "strawberry_asset": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png", "cake_asset": "res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png", "phases": [
+ 		{"name": "COAT STRAWBERRIES", "milestone": "coat_strawberries", "mode": "pourt", "widget_context": "pour_candymaker", "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png", "ingredient_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png", "goal": 5.0, "vo": "chapter2_candymaker_coat_strawberries", "voice": "Tip the shiny coat over the strawberries!"},
+@@ -49,8 +49,8 @@
+ 	]},
+ 	"farmer": {"finale_start": 2, "scene_id": "chapter2_farmer_strawberries", "backdrop": "sky_lagoon_farmer", "strawberry_asset": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png", "delivery": "kitchen", "prop": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png", "phases": [
+ 		{"name": "GATHER STRAWBERRIES", "milestone": "gather_strawberries", "mode": "tap", "widget": "", "widget_context": "", "piece_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png", "goal": 5.0, "vo": "chapter2_farmer_gather_strawberries", "voice": "Gather exactly five ripe Sky Lagoon strawberries!"},
+-		{"name": "FILL BASKET", "milestone": "fill_basket", "mode": "tap", "widget": "", "widget_context": "", "piece_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png", "goal": 5.0, "vo": "chapter2_farmer_fill_basket", "voice": "Load all five strawberries into the basket!"},
+-		{"name": "DELIVER TO KITCHEN", "milestone": "deliver_to_kitchen", "mode": "swipe", "widget_context": "push_farmer", "goal": 6.0, "vo": "chapter2_farmer_deliver_to_kitchen", "voice": "Swipe the full basket all the way to the kitchen!"},
++		{"name": "FILL BASKET", "milestone": "fill_basket", "mode": "tap", "widget": "", "widget_context": "chapter2_basket_fill", "piece_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png", "goal": 5.0, "vo": "chapter2_farmer_fill_basket", "voice": "Load all five strawberries into the basket!"},
++		{"name": "DELIVER TO KITCHEN", "milestone": "deliver_to_kitchen", "mode": "swipe", "widget_context": "chapter2_basket_delivery", "goal": 6.0, "vo": "chapter2_farmer_deliver_to_kitchen", "voice": "Swipe the full basket all the way to the kitchen!"},
+ 	]},
+ 	"boxer": {"finale_start": 3, "scene_id": "chapter2_friendly_bout", "phases": []},
+ 	"magician": {"finale_start": 3, "scene_id": "chapter2_illusion_duel", "phases": []},
+@@ -63,7 +63,7 @@
+ 		{"name": "BUILD ROCKET", "milestone": "build_rocket", "mode": "pipe", "goal": 3.0, "vo": "op_astronaut_pipes_stage", "voice": "Connect the rocket parts from the tank to the nose!"},
+ 		{"name": "PATCH", "milestone": "patch", "mode": "tap", "goal": 5.0, "vo": "op_astronaut_patch_stage", "voice": "Tap every sparkling leak to patch the rocket!"},
+ 		{"name": "VALVE", "milestone": "valve", "mode": "circle", "goal": 1.8, "vo": "op_astronaut_valve", "voice": "Turn the launch valve, but keep the rocket parked!"},
+-		{"name": "READY PARK", "milestone": "ready_park", "mode": "swipe", "widget_context": "push_racer", "rocket_state": "parked_ready_unlaunched", "goal": 5.0, "vo": "chapter2_astronaut_ready_park", "voice": "Park the repaired rocket and leave it ready for later!"},
++		{"name": "READY PARK", "milestone": "ready_park", "mode": "swipe", "widget_context": "chapter2_rocket_park", "rocket_state": "parked_ready_unlaunched", "goal": 5.0, "vo": "chapter2_astronaut_ready_park", "voice": "Park the repaired rocket and leave it ready for later!"},
+ 	]},
+ 	"racer": {"finale_start": 2, "scene_id": "chapter2_grand_prix", "phases": []},
+ 	"popstar": {"finale_start": 2, "scene_id": "chapter2_popstar_rumi", "backdrop": "chapter2_popstar_rumi", "phases": [
+@@ -75,9 +75,152 @@
+ 	"nursery": {"finale_start": 4, "scene_id": "chapter2_moonbeam_nursery", "phases": []},
+ }
+ 
++## Story phases name their own physical source object and invitation. The
++## freeplay catalog remains independent; missing bindings never choose a spare
++## station or a crown/candy-bag/Farmer barn replacement.
++const PHASE_BINDINGS := {
++	"chef": {
++		"MIX": {"station_id": "mixing_bowl", "invitation": {
++			"path": "res://assets/chapter2/birthday/chef_empty_shell_bowl_v1.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++		"STIR": {"station_id": "mixing_bowl", "invitation": {
++			"path": "res://assets/chapter2/birthday/chef_empty_shell_bowl_v1.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++		"BAKE": {"station_id": "hearth_oven", "invitation": {
++			"path": "res://assets/flats/castle/rooms/room_kitchen_item_oven.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++		"STACK": {"station_id": "cake_tower", "invitation": {
++			"path": "res://assets/chapter2/birthday/chapter2_chef_baked_tiers_unstacked.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++		"FROST": {"station_id": "grand_cake_stage", "invitation": {
++			"path": "res://assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++	},
++	"detective": {
++		"LENS": {"station_id": "magic_storybook", "invitation": {
++			"path": "res://assets/flats/castle/rooms/room_library_item_magic_book.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
++		}},
++		"STORYBOOK BOARD": {"station_id": "magic_storybook", "invitation": {
++			"path": "res://assets/flats/castle/rooms/room_library_item_magic_book.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
++		}},
++		"UNLIT RAINBOW CANDLE": {"station_id": "unlit_rainbow_candle", "invitation": {
++			"path": "res://assets/chapter2/birthday/rainbow_candle_unlit.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++	},
++	"ballerina": {
++		"STUFFIES MIRROR": {"station_id": "trifold_mirror", "invitation": {
++			"path": "res://assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++		"STUFFIES TWIRL": {"station_id": "wave_tuffets", "invitation": {
++			"path": "res://assets/opera/worlds/widgets/widget_crank_ballerina_mover.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++		"STUFFIES BOW": {"station_id": "rose_finale_stage", "invitation": {
++			"path": "res://assets/opera/worlds/props/goal_ballerina.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++	},
++	"candymaker": {
++		"COAT STRAWBERRIES": {"station_id": "mixing_bowl", "invitation": {
++			"path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
++		}},
++		"SORT STRAWBERRIES": {"station_id": "cake_tower", "invitation": {
++			"path": "res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
++		}},
++		"GLAZE STRAWBERRIES": {"station_id": "mixing_bowl", "invitation": {
++			"path": "res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
++		}},
++		"PLACE ON CAKE": {"station_id": "grand_cake_stage", "invitation": {
++			"path": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++	},
++	"farmer": {
++		"GATHER STRAWBERRIES": {"station_id": "strawberry_grove", "invitation": {
++			"path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
++		}},
++		"FILL BASKET": {"station_id": "strawberry_basket", "invitation": {
++			"path": "res://assets/castle/day_one_pool/activities/cleanup_basket.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++		"DELIVER TO KITCHEN": {"station_id": "kitchen_delivery", "invitation": {
++			"path": "res://assets/castle/day_one_pool/activities/cleanup_basket.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++	},
++	"painter": {
++		"PAINT": {"station_id": "gazebo_easel", "invitation": {
++			"path": "res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
++		}},
++		"STAMP": {"station_id": "rainbow_brush", "invitation": {
++			"path": "res://assets/opera/worlds/widgets/widget_target_painter_mark.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "effect",
++		}},
++		"HANG": {"station_id": "arch_easel", "invitation": {
++			"path": "res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
++		}},
++	},
++	"astronaut": {
++		"BUILD ROCKET": {"station_id": "coolant_tank_pad", "invitation": {
++			"path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++		"PATCH": {"station_id": "pipe_arch_planter", "invitation": {
++			"path": "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
++		}},
++		"VALVE": {"station_id": "periscope_elbow", "invitation": {
++			"path": "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "overlay",
++		}},
++		"READY PARK": {"station_id": "rocket_launch_dais", "invitation": {
++			"path": "res://assets/opera/worlds/props/goal_astronaut.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++	},
++	"popstar": {
++		"SOUND CHECK": {"station_id": "mic_gazebo", "invitation": {
++			"path": "res://assets/opera/worlds/props/goal_popstar.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++		"STAGE RUMI": {"station_id": "rumi_stage", "invitation": {
++			"path": "res://assets/opera/worlds/widgets/widget_track_popstar_mover.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++		"RHYTHM": {"station_id": "shell_stage", "invitation": {
++			"path": "res://assets/opera/worlds/widgets/widget_crank_popstar_mover.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++		"ENCORE": {"station_id": "shell_stage", "invitation": {
++			"path": "res://assets/opera/worlds/props/goal_popstar.png",
++			"motion": "breathe", "size": Vector2(144, 144), "presentation": "painted",
++		}},
++	},
++}
++
+ static func phase_set(career: String) -> Dictionary:
+ 	var fallback := {"finale_start": 0, "scene_id": "chapter2_%s" % career, "phases": []}
+-	return (PHASE_SETS.get(career, fallback) as Dictionary).duplicate(true)
++	var result := (PHASE_SETS.get(career, fallback) as Dictionary).duplicate(true)
++	var bindings: Dictionary = PHASE_BINDINGS.get(career, {}) as Dictionary
++	for phase: Dictionary in result.get("phases", []) as Array:
++		var binding: Dictionary = bindings.get(String(phase.get("name", "")), {}) as Dictionary
++		phase.merge(binding.duplicate(true), true)
++	return result
+ 
+ static func phase_set_for(career: String) -> Dictionary:
+ 	return phase_set(career)
+@@ -153,4 +296,5 @@
+ 		"persistent_prop": bool(resolved.get("persistent_prop", false)),
+ 		"rocket_state": String(resolved.get("rocket_state", "")),
+ 		"finale_start": int(resolved.get("finale_start", 0)),
+-		"phase_count": (resolved.get("phases", []) as Array).size()}
++		"phase_count": (resolved.get("phases", []) as Array).size(),
++		"phases": (resolved.get("phases", []) as Array).duplicate(true)}
+--- a/scripts/opera_career_world_2d.gd
++++ b/scripts/opera_career_world_2d.gd
+@@ -470,7 +470,8 @@
+ var phases: Array = []
+ var phase_index := 0
+ var phase_progress := 0.0
+-var active := true
++var active := false
++var setup_complete := false
+ var guided := false
+ var reveal_t := 0.0
+ var elapsed := 0.0
+@@ -649,10 +650,18 @@
+ 
+ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
+ 		on_win: Callable, phase_overrides: Array = [],
+-		scene_adapter_config: Dictionary = {}, context: Dictionary = {}) -> void:
++		scene_adapter_config: Dictionary = {}, context: Dictionary = {}) -> bool:
++	# A rejected configuration never becomes a processing activity or owns
++	# lifecycle callbacks. The caller restores any acquired route state.
++	active = false
++	setup_complete = false
++	set_process(false)
+ 	m = main
+ 	config = act_config
+ 	competition = director
++	if competition == null:
++		push_error("OperaCareerWorld2D: missing career competition")
++		return false
+ 	competition.pause()
+ 	win_callback = on_win
+ 	career_id = String(config.get("costume", "chef"))
+@@ -663,18 +672,22 @@
+ 	if run_context.is_empty() and config.get("run_context", {}) is Dictionary:
+ 		run_context = (config.get("run_context", {}) as Dictionary).duplicate(false)
+ 	var override_config: Dictionary = {}
+-	if config.get("phase_overrides", []) is Array:
+-		override_config["phase_overrides"] = config.get("phase_overrides", [])
++	if config.has("phase_overrides"):
++		# Absence selects the authored catalog; an explicit empty or malformed
++		# override stays present so validation can reject it.
++		override_config["phase_overrides"] = config.get("phase_overrides")
+ 	if config.get("finale_start", null) != null:
+ 		override_config["finale_start"] = int(config.get("finale_start", 0))
+ 	var requested_adapter: Dictionary = scene_adapter_config.duplicate(true)
+-	if requested_adapter.is_empty() and config.get("scene_adapter", {}) is Dictionary:
+-		requested_adapter = (config.get("scene_adapter", {}) as Dictionary).duplicate(true)
++	if requested_adapter.is_empty() and config.has("scene_adapter"):
++		var configured_adapter: Variant = config.get("scene_adapter")
++		if configured_adapter is Dictionary:
++			requested_adapter = (configured_adapter as Dictionary).duplicate(true)
++		else:
++			override_config["scene_adapter"] = configured_adapter
+ 	scene_adapter = requested_adapter
+-	var adapter_phases: Variant = scene_adapter.get(
+-		"phase_overrides", scene_adapter.get("phases", null))
+-	if phase_overrides.is_empty() and adapter_phases is Array:
+-		phase_overrides = (adapter_phases as Array).duplicate(true)
++	if not scene_adapter.is_empty():
++		override_config["scene_adapter"] = scene_adapter
+ 	if config.get("finale_start", null) == null and scene_adapter.has("finale_start"):
+ 		override_config["finale_start"] = int(scene_adapter.get("finale_start", 0))
+ 	var callbacks: Variant = run_context.get("callbacks", {})
+@@ -689,20 +702,20 @@
+ 		if direct_callback is Callable \
+ 				and (direct_callback as Callable).is_valid():
+ 			adapter_callbacks[event] = direct_callback
+-	var supplied_phases := phase_overrides
+-	if supplied_phases.is_empty() and config.get("phase_overrides", []) is Array:
+-		supplied_phases = config.get("phase_overrides", []) as Array
+-	if not supplied_phases.is_empty():
+-		override_config["phase_overrides"] = supplied_phases
++	# The existing empty positional argument remains an optional placeholder
++	# for callers that supply a scene adapter. Explicit config keys are never
++	# manufactured from that default.
++	if not phase_overrides.is_empty():
++		override_config["phase_overrides"] = phase_overrides.duplicate(true)
+ 	var chapter_marker := String(run_context.get("chapter", "")).to_lower()
+ 	var chapter_requested := chapter_marker in ["2", "chapter2", "chapter_2"]
+-	using_chapter_two_phases = not supplied_phases.is_empty() \
+-			or not scene_adapter.is_empty() \
++	using_chapter_two_phases = override_config.has("phase_overrides") \
++			or override_config.has("scene_adapter") \
+ 			or chapter_requested
+ 	if using_chapter_two_phases:
+ 		if not ChapterTwoAdapter.validate_config_overrides(career_id, override_config):
+ 			push_error("OperaCareerWorld2D: rejected invalid Chapter 2 phase override")
+-			return
++			return false
+ 		var chapter_set := ChapterTwoAdapter.resolve(career_id, override_config)
+ 		var chapter_phases: Array = chapter_set.get("phases", []) as Array
+ 		phases = chapter_phases.duplicate(true) if not chapter_phases.is_empty() \
+@@ -718,6 +731,9 @@
+ 			config["chapter2_scene"] = backdrop_variant
+ 	else:
+ 		phases = (PHASES.get(career_id, []) as Array).duplicate(true)
++	if phases.is_empty():
++		push_error("OperaCareerWorld2D: career has no playable phases")
++		return false
+ 	if bool(config.get("chapter2_tutorial", false)) and not phases.is_empty():
+ 		# The opening Opera lessons teach one physical verb and grant a skill.
+ 		# The complete Ballerina number therefore first occurs later with the
+@@ -779,8 +795,12 @@
+ 			performance_rival_surface.visible = false
+ 	# The room is part of every activity. Setup arms the first physical object;
+ 	# it never bypasses discovery by opening a minigame synchronously.
++	setup_complete = true
++	active = true
++	set_process(true)
+ 	_adapter_hook("scene_ready", scene_snapshot())
+ 	_arm_phase()
++	return true
+ 
+ 
+ func _adapter_hook(event: String, payload: Dictionary = {}) -> void:
+@@ -888,7 +908,7 @@
+ 		chapter2_cake_scene.setup()
+ 		chapter2_cake_scene.position = Vector2(790.0, 200.0)
+ 		chapter2_cake_scene.z_index = 4
+-		if career_id == "chef":
++		if career_id in ["chef", "candymaker"]:
+ 			chapter2_cake_scene.z_index = 0
+ 			chapter2_cake_scene.set_kitchen_display_layout(true)
+ 		chapter2_cake_scene.set_meta("scene_specific_art", true)
+@@ -1560,9 +1580,52 @@
+ 			var connection := StagePaths.point_along(stage_points,
+ 				StagePaths.nearest_t(stage_points, approach))
+ 			station["spur"] = PackedVector2Array([connection, approach])
++	elif _is_chapter2_story_scene() and career_id == "farmer":
++		# The approved Sky Lagoon meadow and its existing basket are a different
++		# place from the freeplay barn. These are explicit story floor contacts.
++		stage_points = PackedVector2Array([Vector2(86, 590), Vector2(300, 590),
++			Vector2(520, 605), Vector2(760, 610), Vector2(1040, 620)])
++		station_list = [
++			_story_station("strawberry_grove", Vector2(610, 270), Vector2(610, 607)),
++			_story_station("strawberry_basket", Vector2(1040, 620), Vector2(940, 616)),
++			_story_station("kitchen_delivery", Vector2(1040, 620), Vector2(940, 616)),
++		]
++	elif _is_chapter2_story_scene() and career_id == "detective":
++		# Reuse the existing Library/Teacher floor lane with the story-owned book
++		# and separately revealed candle; no treasure chest or crown destination.
++		stage_points = StagePaths.path_points("teacher")
++		station_list = [
++			_story_station("magic_storybook", Vector2(620, 300), Vector2(620, 518.4)),
++			_story_station("unlit_rainbow_candle", Vector2(838, 238), Vector2(838, 518.4)),
++		]
++	elif _is_chapter2_story_scene() and career_id == "candymaker":
++		# The same carried cake stays on the clean kitchen supports.
++		stage_points = StagePaths.path_points("chef")
++		station_list = StagePaths.stations("chef")
+ 	else:
+ 		stage_points = StagePaths.path_points(career_id)
+ 		station_list = StagePaths.stations(career_id)
++		if _is_chapter2_story_scene() and career_id == "popstar":
++			var stage_socket := _station_index_for_id("record_dais")
++			if stage_socket >= 0:
++				var rumi_socket: Dictionary = station_list[stage_socket].duplicate(true)
++				rumi_socket["id"] = "rumi_stage"
++				rumi_socket["object_pos"] = Vector2(1040, 390)
++				station_list.append(rumi_socket)
++
++
++func _story_station(id: String, object: Vector2, approach: Vector2) -> Dictionary:
++	var connection := StagePaths.point_along(stage_points, StagePaths.nearest_t(stage_points, approach))
++	return {"id": id, "object_pos": object, "pos": approach,
++		"approach_pos": approach, "arrival_radius": 4.0,
++		"visual_size": Vector2(144, 144), "hotspot_size": Vector2(172, 172),
++		"spur": PackedVector2Array([connection, approach]),
++		"landmark": id, "authored_object": true, "authored_spur": true}
++
++
++func _uses_story_stage_paths() -> bool:
++	return _is_chapter2_stuffie_scene() or (_is_chapter2_story_scene()
++		and career_id in ["farmer", "candymaker", "detective", "popstar"])
+ 
+ 
+ func navigation_snapshot() -> Dictionary:
+@@ -1901,7 +1964,8 @@
+ 		preferred["STACK"] = "cake_tower"
+ 	for index in range(phases.size()):
+ 		var phase := phases[index] as Dictionary
+-		var station_id := String(preferred.get(String(phase.get("name", "")), ""))
++		var station_id := String(phase.get("station_id",
++			preferred.get(String(phase.get("name", "")), "")))
+ 		if not station_id.is_empty():
+ 			var resolved := _station_index_for_id(station_id)
+ 			if resolved >= 0:
+@@ -1952,6 +2016,10 @@
+ 	if aliases.has(phase_name):
+ 		invitation_name = String(aliases[phase_name])
+ 	var spec: Dictionary = HotspotCatalog.spec(career_id, invitation_name)
++	if using_chapter_two_phases and phase_index >= 0 and phase_index < phases.size():
++		var invitation: Variant = (phases[phase_index] as Dictionary).get("invitation", null)
++		if invitation is Dictionary:
++			spec = (invitation as Dictionary).duplicate(true)
+ 	for index in range(station_nodes.size()):
+ 		var hotspot := station_nodes[index] as OperaWorldHotspot2D
+ 		var is_current := index == armed_station and not task_open \
+@@ -2004,7 +2072,7 @@
+ 		hotspot.set_focused(index == station_index)
+ 	var station_id := String(station_list[station_index].get("id", ""))
+ 	var route: PackedVector2Array
+-	if _is_chapter2_stuffie_scene():
++	if _uses_story_stage_paths():
+ 		var approach: Vector2 = station_list[station_index].get(
+ 			"approach_pos", station_list[station_index].get(
+ 				"pos", wander_feet)) as Vector2
+@@ -2576,6 +2644,22 @@
+ 	teacher_restoring = career_id == "teacher"
+ 	geology_restoring = career_id == "geologist"
+ 	surface.configure(mode_name, accent, choice_target, context)
++	if _is_chapter2_story_scene():
++		# Metadata alone does not replace the shared surface's loaded art. Bind
++		# existing story identities explicitly, preserving all freeplay branches.
++		if career_id == "farmer" and context in ["chapter2_basket_fill", "chapter2_basket_delivery"]:
++			surface.widget_mover = load("res://assets/castle/day_one_pool/activities/cleanup_basket.png") as Texture2D
++			surface.widget_stamp = chapter2_single_strawberry_texture
++			surface.widget_overlay = load("res://assets/flats/castle/rooms/room_kitchen_item_oven.png") as Texture2D
++			if context == "chapter2_basket_fill":
++				surface.target_piece_textures = [chapter2_single_strawberry_texture]
++		elif career_id == "painter":
++			var banner := load("res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png") as Texture2D
++			surface.paint_reveal_texture = banner
++			surface.widget_mover = banner
++			surface.widget_overlay = null
++		elif career_id == "astronaut" and context == "chapter2_rocket_park":
++			surface.widget_mover = load("res://assets/opera/worlds/props/goal_astronaut.png") as Texture2D
+ 	if surface is TeacherSurface:
+ 		var kind := mode_name.trim_prefix("teacher_")
+ 		(surface as TeacherSurface).set_lesson(TeacherLessons.make_lesson(kind, _teacher_learning_progress()))
+@@ -3372,6 +3456,12 @@
+ 	var phase := phases[phase_index] as Dictionary
+ 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
+ 	phase_progress = minf(goal, phase_progress + amount)
++	if using_chapter_two_phases and kind in ["ballet_ribbon", "ballet_twirl"] \
++			and is_equal_approx(goal, 1.0) and String(phase.get("mode", "")) == kind and surface is OperaBalletSurface \
++			and (surface as OperaBalletSurface)._mode_complete():
++		# The authored specialist endpoint is authoritative. Its normalized
++		# ribbon sum can be 0.99999994 and input is already correctly blocked.
++		phase_progress = goal
+ 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
+ 	_performance_record_progress(progress, kind, quality)
+ 	phase_fill.value = progress * 100.0
+@@ -4693,6 +4783,15 @@
+ 
+ 
+ func close() -> void:
++	if not setup_complete:
++		# Startup failed before this activity existed. Do not save checkpoints,
++		# clear the caller's dialogue, or announce a scene_closed event.
++		active = false
++		set_process(false)
++		win_callback = Callable()
++		adapter_callbacks.clear()
++		queue_free()
++		return
+ 	_performance_checkpoint(true)
+ 	teacher_voice_queue.clear()
+ 	if career_id == "teacher":
+@@ -4798,7 +4897,7 @@
+ 	# Empty-room input only changes travel. Hotspot buttons sit above this
+ 	# layer and are the sole source of activity intent.
+ 	var route: PackedVector2Array = _chapter2_stuffie_route_to(point, false) \
+-		if _is_chapter2_stuffie_scene() \
++		if _uses_story_stage_paths() \
+ 		else StagePaths.player_route_to_point(career_id, wander_feet, point)
+ 	_begin_wander_route(route)
+ 
+--- a/scripts/opera_act.gd
++++ b/scripts/opera_act.gd
+@@ -75,7 +75,15 @@
+ 		m.player.visible = false
+ 	career_world_2d = CareerWorld2D.new() as OperaCareerWorld2D
+ 	add_child(career_world_2d)
+-	career_world_2d.setup(m, config, competition, Callable(self, "_win"))
++	if not career_world_2d.setup(m, config, competition, Callable(self, "_win")):
++		state = "invalid"
++		failure_reason = "career world rejected its configuration"
++		finish_cb = Callable()
++		set_process(false)
++		_cleanup_world()
++		_restore_act_music()
++		push_error("OperaAct: %s" % failure_reason)
++		return false
+ 	use_career_world_2d = true
+ 	return true
+ 
+--- a/scripts/opera_house.gd
++++ b/scripts/opera_house.gd
+@@ -237,7 +237,6 @@
+ 		push_error("OperaHouse: invalid Canvas career mapping at slot %d" % index)
+ 		return false
+ 	m = main
+-	m._navigation_push("opera_act", self, Callable(self, "_leave_early"))
+ 	finish_cb = done_cb
+ 	act_index = index
+ 	plot_context = String(next_config.get("chapter2_context", ""))
+@@ -261,6 +260,7 @@
+ 		finish_cb = Callable()
+ 		push_error("OperaHouse: slot %d failed to start its Canvas career" % index)
+ 		return false
++	m._navigation_push("opera_act", self, Callable(self, "_leave_early"))
+ 	return true
+ 
+ 
+--- a/scripts/opera_gesture_surface.gd
++++ b/scripts/opera_gesture_surface.gd
+@@ -285,6 +285,8 @@
+ ## Placement targets are authored anchors, not arbitrary screen stamps, for
+ ## the five phases whose spoken fiction names distinct recipients/locations.
+ const TARGET_ANCHORS := {
++	"chapter2_basket_fill": [Vector2(0.30, 0.42), Vector2(0.50, 0.38), Vector2(0.70, 0.42),
++		Vector2(0.40, 0.62), Vector2(0.60, 0.62)],
+ 	"target_chef": [Vector2(0.31, 0.40), Vector2(0.50, 0.34), Vector2(0.69, 0.40),
+ 		Vector2(0.36, 0.58), Vector2(0.50, 0.54), Vector2(0.64, 0.58), Vector2(0.50, 0.70)],
+ 	"target_candymaker": [Vector2(0.22, 0.34), Vector2(0.50, 0.31), Vector2(0.78, 0.34),
+@@ -746,6 +748,10 @@
+ 
+ func _load_widget_set() -> void:
+ 	widget_template = visual_context.get_slice("_", 0) if not visual_context.is_empty() else ""
++	if visual_context == "chapter2_basket_fill":
++		widget_template = "target"
++	elif visual_context in ["chapter2_basket_delivery", "chapter2_rocket_park"]:
++		widget_template = "push"
+ 	widget_backdrop = null
+ 	retired_widget_backdrop_path = ""
+ 	widget_mover = null
+@@ -1521,14 +1527,15 @@
+ 
+ 
+ func _uses_long_push_context() -> bool:
+-	return mode == "swipe" and visual_context in ["push_farmer", "push_racer"]
++	return mode == "swipe" and visual_context in ["push_farmer", "push_racer",
++		"chapter2_basket_delivery", "chapter2_rocket_park"]
+ 
+ 
+ func _long_push_goal_units() -> float:
+ 	# Current shipping contracts are HERD 6 and TO THE LINE 5. Mapping the
+ 	# complete pictured lane to that contract lets one continuous sweep move the
+ 	# object all the way to its visible destination instead of requiring repeats.
+-	return 6.0 if visual_context == "push_farmer" else 5.0
++	return 6.0 if visual_context in ["push_farmer", "chapter2_basket_delivery"] else 5.0
+ 
+ 
+ func _long_push_actor_count() -> int:
+@@ -1600,6 +1607,9 @@
+ 
+ 
+ func _draw_long_push() -> void:
++	if visual_context == "chapter2_basket_delivery":
++		_draw_chapter2_basket_delivery()
++		return
+ 	last_contextual_draw_route = "push:%s" % visual_context
+ 	var farmer := visual_context == "push_farmer"
+ 	var start := _long_push_start()
+@@ -1658,7 +1668,10 @@
+ 	if farmer:
+ 		_draw_farmer_pig_group(widget_fill)
+ 	elif widget_mover != null:
+-		draw_texture_rect(widget_mover, _long_push_mover_rect(widget_fill), false)
++		var mover_rect := _long_push_mover_rect(widget_fill)
++		if visual_context == "chapter2_rocket_park":
++			mover_rect = _contain_rect(widget_mover, mover_rect)
++		draw_texture_rect(widget_mover, mover_rect, false)
+ 	else:
+ 		var fallback_rect := _long_push_mover_rect(widget_fill)
+ 		draw_circle(fallback_rect.get_center(), fallback_rect.size.x * 0.34,
+@@ -1671,6 +1684,27 @@
+ 			draw_circle(finish + Vector2.from_angle(sparkle_angle) * 48.0,
+ 				4.0 + float(sparkle_index % 2) * 2.0,
+ 				Color(1.0, 0.92, 0.55, 0.84))
++
++
++func _draw_chapter2_basket_delivery() -> void:
++	last_contextual_draw_route = "push:chapter2_basket_delivery"
++	var start := _long_push_start()
++	var finish := _long_push_end()
++	var basket_bounds := _long_push_mover_rect(widget_fill)
++	var basket := _contain_rect(widget_mover, basket_bounds) if widget_mover != null else basket_bounds
++	draw_line(start, finish, Color(accent, 0.35), 6.0, true)
++	if widget_overlay != null:
++		draw_texture_rect(widget_overlay, _contain_rect(widget_overlay,
++			Rect2(finish - Vector2(38, 82), Vector2(76, 92))), false)
++	if widget_mover != null:
++		draw_texture_rect(widget_mover, basket, false)
++	for index in range(5):
++		if widget_stamp != null:
++			var at := basket.position + basket.size * Vector2(0.24 + 0.13 * float(index), 0.34)
++			draw_texture_rect(widget_stamp, _contain_rect(widget_stamp,
++				Rect2(at - Vector2(8, 12), Vector2(16, 24))), false)
++	if completion_accepted:
++		draw_arc(finish, 42, 0, TAU, 32, Color("#ffe9a5"), 5, true)
+ 
+ 
+ func _uses_authored_trace_context() -> bool:
+@@ -3012,7 +3046,11 @@
+ 	var pose := _target_subject_pose()
+ 	var centre: Vector2 = pose.get("centre", size * 0.5)
+ 	var extent := float(pose.get("extent", minf(size.x, size.y) * 0.88))
+-	_draw_widget_sprite(widget_mover, centre, extent)
++	if visual_context == "chapter2_basket_fill":
++		var bounds := Rect2(centre - Vector2.ONE * extent * 0.5, Vector2.ONE * extent)
++		draw_texture_rect(widget_mover, _contain_rect(widget_mover, bounds), false)
++	else:
++		_draw_widget_sprite(widget_mover, centre, extent)
+ 	last_target_subject_route = visual_context
+ 
+ 
+--- a/scripts/opera_world_backdrop_2d.gd
++++ b/scripts/opera_world_backdrop_2d.gd
+@@ -43,17 +43,21 @@
+ var stage_tiles: Array[Texture2D] = []
+ var room_variant_tiles: Array[Texture2D] = []
+ var sky_lagoon_tiles: Array[Texture2D] = []
++var farmer_basket_texture: Texture2D = null
+ 
+ 
+ func setup(id: String, variant: String = "") -> void:
+ 	career_id = id
+ 	scene_variant = variant
++	farmer_basket_texture = null
++	if scene_variant == "sky_lagoon_farmer":
++		farmer_basket_texture = load("res://assets/castle/day_one_pool/activities/cleanup_basket.png") as Texture2D
+ 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+ 	set_meta("chapter2_scene_variant", scene_variant)
+ 	set_meta("chapter2_scene_specific_2d", not scene_variant.is_empty())
+ 	set_meta("chapter2_cake_pixels_owned_by_prop",
+-		career_id == "chef" and scene_variant == "chapter2_chef_cake")
+-	if career_id == "teacher":
++		_is_chapter2_clean_kitchen())
++	if career_id == "teacher" or scene_variant == "magic_storybook":
+ 		painting = null
+ 		world_tiles.clear()
+ 		stage_tiles.clear()
+@@ -148,10 +152,17 @@
+ 				Vector2(float(column) * half.x, float(row) * half.y), half)
+ 			draw_texture_rect_region(sky_lagoon_tiles[row * 2 + column],
+ 				destination, source)
+-	# A soft harvest basket makes the task's destination legible without
+-	# replacing the approved world art or turning the scene into a card.
+-	draw_circle(Vector2(1040.0, 620.0), 48.0, Color("#b87855"))
+-	draw_arc(Vector2(1040.0, 618.0), 48.0, PI, TAU, 24, Color("#f0c274"), 8.0)
++	# Reuse the approved empty shell basket; preserve its source pixels and
++	# avoid introducing a pig/corn/barn destination into the strawberry job.
++	if farmer_basket_texture != null:
++		var bounds := Rect2(983, 560, 114, 120)
++		var source_size := farmer_basket_texture.get_size()
++		var factor := minf(bounds.size.x / source_size.x, bounds.size.y / source_size.y)
++		var drawn := source_size * factor
++		# Preserve the existing ground support at bottom-center (1040, 680).
++		var destination := Rect2(Vector2(bounds.get_center().x - drawn.x * 0.5,
++			bounds.end.y - drawn.y), drawn)
++		draw_texture_rect(farmer_basket_texture, destination, false)
+ 
+ 
+ func _load_tile_set(kind: String) -> Array[Texture2D]:
+@@ -159,7 +170,7 @@
+ 	for row in range(2):
+ 		for column in range(2):
+ 			var path: String
+-			if career_id == "chef" and scene_variant == "chapter2_chef_cake" and kind == "world":
++			if kind == "world" and scene_variant in ["chapter2_chef_cake", "strawberry_cake_workshop"]:
+ 				path = "res://assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c%dr%d.png" % [column, row]
+ 			elif career_id == "ballerina" and kind == "stage":
+ 				path = "res://assets/opera/worlds/stage/finale_stage_c%dr%d.png" % [column, row]
+@@ -209,8 +220,13 @@
+ 	queue_redraw()
+ 
+ 
++func _is_chapter2_clean_kitchen() -> bool:
++	return (career_id == "chef" and scene_variant == "chapter2_chef_cake") \
++		or (career_id == "candymaker" and scene_variant == "strawberry_cake_workshop")
++
++
+ func _process(delta: float) -> void:
+-	if career_id == "chef" and scene_variant == "chapter2_chef_cake" and not stage_mode:
++	if _is_chapter2_clean_kitchen() and not stage_mode:
+ 		return
+ 	elapsed += delta
+ 	redraw_t += delta
+@@ -220,7 +236,7 @@
+ 
+ 
+ func _draw() -> void:
+-	if career_id == "teacher" and room_variant_tiles.size() == 8:
++	if (career_id == "teacher" or scene_variant == "magic_storybook") and room_variant_tiles.size() == 8:
+ 		_draw_stuffie_room_tiles()
+ 		return
+ 	if racer_driving and career_id == "racer" and world_tiles.size() == 4:
+@@ -241,9 +257,9 @@
+ 	var active_tiles: Array[Texture2D] = stage_tiles if stage_mode and stage_tiles.size() == 4 else world_tiles
+ 	if active_tiles.size() == 4:
+ 		_draw_tile_set(active_tiles)
+-		# The saved Chef room owns its painted light. Stage beams would add
++		# The saved clean kitchen owns its painted light. Stage beams would add
+ 		# two broad alpha passes over the room and the persistent cake.
+-		if stage_mode or not (career_id == "chef" and scene_variant == "chapter2_chef_cake"):
++		if stage_mode or not _is_chapter2_clean_kitchen():
+ 			_draw_spotlights(accent)
+ 		return
+ 	if painting != null:
+--- a/scripts/probe_chapter2.gd
++++ b/scripts/probe_chapter2.gd
+@@ -2,10 +2,11 @@
+ 
+ ## Chapter 2's director-first progression probe.
+ ##
+-## This deliberately exercises the eight-career causal chain without starting
+-## a rendered Opera game. The individual Opera mechanics have their own
+-## probes; this one owns ordering, rejection, save healing, and the candle
+-## handoff to the Ember King.
++## The director assertions exercise ordering, rejection, save healing and the
++## candle handoff. A separate configuration fixture instantiates the real main
++## scene and starts unforced Opera houses. That fixture proves configuration
++## and failed-start cleanup only; viewport entry, physical work, fresh-save
++## travel, device and child acceptance require the production-route lane.
+ 
+ const DAY_ONE_SCRIPT: GDScript = preload("res://scripts/day_one_director.gd")
+ const CHAPTER_TWO_SCRIPT: GDScript = preload(
+@@ -21,9 +22,36 @@
+ var main: ReefMain
+ var day_one: DayOneDirector
+ var chapter_two: ChapterTwoDirector
++var startup_scene_ready_count := 0
++var startup_scene_closed_count := 0
++var startup_completion_count := 0
++const FIXTURE_SAVE_PREFIX := "probe_chapter2_isolated_"
++const MAIN_SCENE_PATH := "res://scenes/main.tscn"
++var fixture_save_path := ""
++var fixture_loaded_snapshot: Dictionary = {}
++var fixture_loaded_generation := -1
++var fixture_loaded_id := 0
++var fixture_expected_path := ""
++var fixture_boot_count := 0
++
+ 
+ 
+ func _init() -> void:
++	var args := OS.get_cmdline_user_args()
++	if args.has("--chapter2-resume"):
++		fixture_save_path = _fixture_arg(args, "--chapter2-resume")
++		fixture_expected_path = _fixture_arg(args, "--expectation")
++		if not _fixture_owns_path(fixture_save_path) \
++				or not fixture_expected_path.begins_with(fixture_save_path + ".milestone_") \
++				or not fixture_expected_path.ends_with(".expected.json") \
++				or fixture_expected_path.get_base_dir() != fixture_save_path.get_base_dir():
++			_check("resume child refuses an unsafe fixture path", false)
++			quit(1)
++			return
++		node_added.connect(_fixture_inject_save_before_ready)
++		await _fixture_child_resume()
++		return
++	node_added.connect(_fixture_inject_save_before_ready)
+ 	main = ReefMain.new()
+ 	day_one = DAY_ONE_SCRIPT.new(main) as DayOneDirector
+ 	chapter_two = CHAPTER_TWO_SCRIPT.new(main) as ChapterTwoDirector
+@@ -36,9 +64,16 @@
+ 	_audit_eight_career_sequence()
+ 	_audit_save_healing()
+ 	_audit_ember_protection_contract()
++	# The pure director fixture never enters the tree, and is released before
++	# any production main/audio/input/save owner is constructed.
++	main.free()
++	main = null
++	day_one = null
++	chapter_two = null
++	await _audit_startup_configurations()
++	await _audit_production_story_route()
+ 
+ 	_print_result()
+-	main.free()
+ 	quit(1 if checks_failed > 0 else 0)
+ 
+ 
+@@ -539,6 +574,1012 @@
+ 			ChapterTwoDirector.ACT_FARMER) == 2)
+ 
+ 
++func _audit_startup_configurations() -> void:
++	# This is a configuration fixture. Its post-boss/story prerequisite data is
++	# deliberate and cannot establish ordinary fresh-save progression.
++	_fixture_seed_save()
++	var host := await _fixture_boot_scene()
++	await _fixture_consume_menu(host)
++	host.day_one_active = false
++	host.chapter2_active = false
++	var reward_before := [host.opera_stars, host.opera_progress,
++		host.pearl_count, host.chapter2_party_piece_mask]
++	for act_index: int in STORY_ORDER:
++		var career := String((OperaHouse.ACTS[act_index] as Dictionary).get("costume", ""))
++		var expected := ChapterTwoCareerSceneAdapter.phase_set(career)
++		var house := OperaHouse.new()
++		host.add_child(house)
++		var started := house.start(host, act_index, Callable(), {
++			"reward_policy": "chapter2_story",
++			"run_context": {"chapter": "chapter2"},
++		})
++		var world: OperaCareerWorld2D = house.act.career_world_2d \
++			if house.act != null else null
++		if world != null and (world.root == null or world.surface == null):
++			world.set_process(false)
++			house.act.set_process(false)
++		_check("config: %s absent phase override resolves the authored story catalog" % career,
++			started and world != null
++			and world.phases == expected.get("phases", [])
++			and not world.phases.is_empty()
++			and world.root != null and world.surface != null
++			and world.wander_layer != null and world.active
++			and world.using_chapter_two_phases and not world.two_act_enabled
++			and String(world.config.get("chapter2_scene", ""))
++				== String(expected.get("backdrop", career)))
++		_check("config: %s starts without completing work or earning rewards" % career,
++			world != null and not world.task_open and world.phase_index == 0
++			and [host.opera_stars, host.opera_progress,
++				host.pearl_count, host.chapter2_party_piece_mask] == reward_before)
++		if started:
++			house._leave_early()
++		else:
++			house.queue_free()
++		await process_frame
++		await process_frame
++		_check("config: %s cancellation releases the world and navigation" % career,
++			_fixture_world_count(root) == 0
++			and host.navigation_routes.is_empty()
++			and [host.opera_stars, host.opera_progress,
++				host.pearl_count, host.chapter2_party_piece_mask] == reward_before)
++
++	# Freeplay is a sibling configuration, not a fallback for a broken story.
++	var free_house := OperaHouse.new()
++	host.add_child(free_house)
++	var free_started := free_house.start(host, 6, Callable())
++	var free_world: OperaCareerWorld2D = free_house.act.career_world_2d \
++		if free_house.act != null else null
++	_check("config: ordinary Farmer freeplay retains its authored phase set",
++		free_started and free_world != null
++		and not free_world.using_chapter_two_phases
++		and free_world.phases == OPERA_WORLD_SCRIPT.PHASES["farmer"])
++	if free_started:
++		free_house._leave_early()
++	else:
++		free_house.queue_free()
++	await process_frame
++	await process_frame
++
++	var invalid_cases: Array[Dictionary] = [
++		{"phase_overrides": []},
++		{"phase_overrides": "not an array"},
++		{"phase_overrides": [{"name": "BAD", "mode": "unknown", "goal": 1.0}]},
++		{"scene_adapter": {"phases": []}},
++		{"scene_adapter": "not an adapter"},
++	]
++	for invalid_index: int in range(invalid_cases.size()):
++		startup_scene_ready_count = 0
++		startup_scene_closed_count = 0
++		startup_completion_count = 0
++		var competition := OperaCompetition.new()
++		competition.configure("farmer")
++		var world := OperaCareerWorld2D.new()
++		host.add_child(world)
++		var config := {"costume": "farmer"}
++		config.merge(invalid_cases[invalid_index], true)
++		var saved_before := host.save_data.duplicate(true)
++		# call() preserves this regression's ability to run against the void
++		# baseline setup while requiring the repaired function to return false.
++		var started: Variant = world.call("setup", host, config, competition,
++			Callable(self, "_startup_completed"), [], {}, {
++				"chapter": "chapter2", "callbacks": {
++					"scene_ready": Callable(self, "_startup_scene_ready"),
++					"scene_closed": Callable(self, "_startup_scene_closed"),
++				},
++			})
++		var failed_processing := world.is_processing()
++		world.set_process(false)
++		_check("config: explicit invalid phase/adapter %d fails closed" % invalid_index,
++			started == false and not world.active and not failed_processing
++			and world.root == null and world.surface == null
++			and startup_scene_ready_count == 0 and startup_completion_count == 0)
++		world.close()
++		_check("config: unbuilt world %d closes without callbacks or save mutation" % invalid_index,
++			startup_scene_closed_count == 0 and startup_completion_count == 0
++			and host.save_data == saved_before)
++		await process_frame
++
++	for visible: bool in [false, true]:
++		if host.player != null:
++			host.player.visible = visible
++		if host.touch_ui != null:
++			host.touch_ui.visible = not visible
++		var player_before := host.player.visible if host.player != null else false
++		var touch_before := host.touch_ui.visible if host.touch_ui != null else false
++		var music_before := host.cur_track
++		var invalid_act := OperaAct.new()
++		host.add_child(invalid_act)
++		var invalid_config: Dictionary = (OperaHouse.ACTS[6] as Dictionary).duplicate(true)
++		invalid_config["phase_overrides"] = []
++		var act_started := invalid_act.start(host, invalid_config,
++			Callable(self, "_startup_completed"))
++		_check("config: Act propagates world rejection and restores acquired visibility/music",
++			not act_started and invalid_act.state == "invalid"
++			and invalid_act.career_world_2d == null and not invalid_act.is_processing()
++			and (host.player == null or host.player.visible == player_before)
++			and (host.touch_ui == null or host.touch_ui.visible == touch_before)
++			and host.cur_track == music_before and startup_completion_count == 0)
++		if invalid_act.career_world_2d != null:
++			invalid_act.career_world_2d.set_process(false)
++		invalid_act.set_process(false)
++		invalid_act.queue_free()
++		await process_frame
++
++	# The top-level config is valid, but the world rejects the negative nested
++	# finale threshold. This exercises downstream House failure propagation.
++	var failing_house := OperaHouse.new()
++	host.add_child(failing_house)
++	var house_started := failing_house.start(host, 6, Callable(), {
++		"reward_policy": "chapter2_story", "scene_adapter": {"finale_start": -1},
++	})
++	_check("config: failed House startup acquires no navigation or completion",
++		not house_started and failing_house.state == "idle"
++		and failing_house.act == null and host.navigation_routes.is_empty()
++		and [host.opera_stars, host.opera_progress,
++			host.pearl_count, host.chapter2_party_piece_mask] == reward_before)
++	if failing_house.act != null and failing_house.act.career_world_2d != null:
++		failing_house.act.career_world_2d.set_process(false)
++		failing_house.act.set_process(false)
++	failing_house.queue_free()
++	await process_frame
++	await process_frame
++	_check("config: failed startups retain no career world",
++		_fixture_world_count(root) == 0)
++	await _fixture_release_scene(host)
++
++
++func _startup_scene_ready(_snapshot: Dictionary) -> void:
++	startup_scene_ready_count += 1
++
++
++func _startup_scene_closed(_snapshot: Dictionary) -> void:
++	startup_scene_closed_count += 1
++
++
++func _startup_completed() -> void:
++	startup_completion_count += 1
++
++
++func _audit_production_story_route() -> void:
++	# Initial post-boss state and room mounting are explicit fixture seams.
++	# Every career entry, station selection and required work below uses raw
++	# viewport touch/drag input. No completion callback or probe gesture is used.
++	# This is not a fresh-save Day One/door-travel or physical-device claim.
++	var old_scale := Engine.time_scale
++	Engine.time_scale = 8.0
++	_fixture_seed_save()
++	var host := await _fixture_boot_scene()
++	await _fixture_consume_menu(host)
++	host.day_one_active = false
++	host.day_one_giant_dust_bunny_boss_defeated = true
++	host._skip_intro()
++	host._chapter_two_ref().restore_state({
++		"day_one_giant_dust_bunny_boss_defeated": true,
++		"chapter2_active": true,
++		"chapter2_unlocked_opera_mask": ChapterTwoDirector.FIRST_WAVE_UNLOCK_MASK,
++	})
++	host.game = "level2"
++	host.g["t"] = 0.0
++	host._enter_castle_interior_now(false)
++	await process_frame
++	var rooms := host._castle_rooms_ref()
++	var routes := host._castle_career_routes_ref()
++	var freeplay_before := [host.opera_stars, host.opera_progress, host.pearl_count]
++	var completed_mask := 0
++	var phases_seen := 0
++
++	# An available picture for a later job remains a harmless locked route.
++	rooms.show_room("kitchen", false)
++	await process_frame
++	routes.sync()
++	var later := routes.button_for_act(ChapterTwoDirector.ACT_CHEF)
++	if later != null:
++		await _route_tap(later, later.size * 0.5)
++	_check("viewport: wrong-career picture cannot launch or award story progress",
++		later != null and later.disabled and host.opera_game == null
++		and host.chapter2_party_piece_mask == 0)
++
++	for act_index: int in STORY_ORDER:
++		var entry := ChapterTwoPartyPlan.entry_for_act(act_index)
++		var room_id := String(entry.get("room", ""))
++		var house := await _route_enter_career(host, room_id, act_index)
++		if house == null or house.act == null or house.act.career_world_2d == null:
++			_check("viewport: routed story career %d has a complete world" % act_index, false)
++			break
++		var world := house.act.career_world_2d
++		_check("viewport: career %d has every authored phase mapped without spare-station fallback" % act_index,
++			world.station_for_phase.size() == world.phases.size())
++		var passive_start := world.elapsed
++		var passive_exposed := await _route_wait(func() -> bool:
++			return not is_instance_valid(world) or world.elapsed - passive_start >= 21.0, 5.0)
++		_check("viewport: career %d passive hints/auto-approach cannot advance or reward" % act_index,
++			passive_exposed and is_instance_valid(world) and world.active \
++			and world.elapsed - passive_start >= 21.0 and world.phase_index == 0 \
++			and is_zero_approx(world.phase_progress) \
++			and host.chapter2_party_piece_mask == completed_mask \
++			and [host.opera_stars, host.opera_progress, host.pearl_count] == freeplay_before)
++		# Leave through the shipping global Back surface and re-enter the same
++		# visible career target. This also cancels any passive approach intent.
++		if host.global_navigation_button != null:
++			await _route_tap(host.global_navigation_button, host.global_navigation_button.size * 0.5)
++		await _route_wait(func() -> bool: return host.opera_game == null, 5.0)
++		_check("viewport: cancellation preserves career %d progress and exact source room" % act_index,
++			host.opera_game == null and host.castle_room_id == room_id
++			and host.castle_room_layer.visible and host.chapter2_party_piece_mask == completed_mask)
++		house = await _route_enter_career(host, room_id, act_index)
++		if house == null or house.act == null:
++			break
++		world = house.act.career_world_2d
++		var expected_count := world.phases.size()
++		for phase_index: int in range(expected_count):
++			var armed := await _route_wait(func() -> bool:
++				return is_instance_valid(world) and world.phase_index == phase_index \
++					and not world.task_open and not world.phase_advance_pending, 8.0)
++			_check("viewport: career %d phase %d arms through its object" % [act_index, phase_index], armed)
++			if not armed:
++				break
++			var phase: Dictionary = world.phases[phase_index]
++			var station_index := int(world.station_for_phase.get(phase_index, -1))
++			if station_index < 0 or station_index >= world.station_nodes.size():
++				_check("viewport: required phase has a reachable explicit station", false)
++				break
++			var hotspot := world.station_nodes[station_index] as OperaWorldHotspot2D
++			var station: Dictionary = world.station_list[station_index]
++			var entry_feet: Vector2 = station.get("approach_pos", Vector2.INF) as Vector2
++			_check("viewport: required phase binds its exact visible semantic source",
++				String(phase.get("station_id", "")) == String(station.get("id", ""))
++				and hotspot.source_path == String((phase.get("invitation", {}) as Dictionary).get("path", "")) \
++				and ResourceLoader.exists(hotspot.source_path))
++			var activation_before := hotspot.activation_count
++			if phase_index % 2 == 0:
++				# A real object Button and repeated tap share one approach intent.
++				await _route_tap(hotspot.touch_button, hotspot.touch_button.size * 0.5)
++				if is_instance_valid(hotspot) and not world.task_open:
++					await _route_tap(hotspot.touch_button, hotspot.touch_button.size * 0.5)
++			else:
++				# Floor drag release over the object uses the production handoff.
++				_route_touch(world.wander_layer, world.wander_feet, true)
++				_route_drag(hotspot.touch_button, hotspot.touch_button.size * 0.5)
++				_route_touch(hotspot.touch_button, hotspot.touch_button.size * 0.5, false)
++			if world.wander_feet.distance_to(entry_feet) > 4.0:
++				_check("viewport: far contact never opens before arrival", not world.task_open)
++			var opened := await _route_wait(func() -> bool:
++				return is_instance_valid(world) and world.task_open and world.reveal_t <= 0.0, 8.0)
++			_check("viewport: physical approach opens phase once at its declared floor contact",
++				opened and world.task_entry_feet.distance_to(entry_feet) <= 4.0
++				and hotspot.activation_count == activation_before + 1)
++			if not opened:
++				break
++			if String(phase.get("mode", "")) in ["ballet_ribbon", "ballet_twirl"]:
++				var idle_start := world.elapsed
++				var idle_full := await _route_wait(func() -> bool:
++					return world.elapsed - idle_start >= 1.0, 3.0)
++				_check("viewport: an open Ballet action needs input before endpoint banking",
++					idle_full and world.elapsed - idle_start >= 1.0 and is_zero_approx(world.phase_progress)
++					and not world.phase_advance_pending and world.phase_index == phase_index)
++			var progressed := await _route_drive_phase(host, world, phase_index)
++			_check("viewport: career %d phase %s completes through its actual input surface" % [
++				act_index, String(phase.get("name", ""))], progressed)
++			if not progressed:
++				break
++			phases_seen += 1
++			await _route_wait(func() -> bool:
++				return not is_instance_valid(world) or world.phase_index != phase_index, 8.0)
++		completed_mask |= 1 << act_index
++		var returned := await _route_wait(func() -> bool: return host.opera_game == null, 8.0)
++		_check("viewport: career %d result returns exactly to its launching room" % act_index,
++			returned and host.game == "level2" and host.castle_room_id == room_id
++			and host.castle_room_layer.visible and host.opera_return_room.is_empty() \
++			and host.chapter2_party_piece_mask == completed_mask \
++			and [host.opera_stars, host.opera_progress, host.pearl_count] == freeplay_before)
++		if not returned:
++			break
++		# Freeze one earned milestone at a time. No completion is injected: the
++		# disk state originates in the raw-input phase path above.
++		if act_index in [6, 0, 2, 11, 1]:
++			host = await _fixture_checkpoint_restart(host, "career_%02d" % act_index)
++			if host == null:
++				Engine.time_scale = old_scale
++				return
++			rooms = host._castle_rooms_ref()
++			routes = host._castle_career_routes_ref()
++	_check("viewport: all 29 authored story phases complete in the eight-career order",
++		phases_seen == 29 and host.chapter2_party_piece_mask == 0x2C4F
++		and host.chapter2_strawberry_mask == 0x1F and host.chapter2_cake_piece_mask == 0x7F \
++		and host.chapter2_rainbow_candle_found and not host.chapter2_candle_lit)
++	_check("viewport: completed jobs expose the canonical next party/dress gate",
++		host._chapter_two_ref().party_is_ready()
++		and host.chapter2_active_objective == ChapterTwoDirector.OBJECTIVE_MAIN_HALL_PARTY)
++	if phases_seen == 29 and host.chapter2_party_piece_mask == 0x2C4F:
++		await _route_lawn_and_freeplay(host, freeplay_before)
++		host = await _fixture_checkpoint_restart(host, "story_complete")
++		if host == null:
++			Engine.time_scale = old_scale
++			return
++	print("CHAPTER2|viewport evidence scope: post-boss prerequisite and room-mount fixture; ",
++		"fresh-save Day One, door travel, exact camera return, rendered contact, ",
++		"device, child and owner acceptance remain NOT_MEASURED here")
++	if host.opera_game != null:
++		(host.opera_game as OperaHouse)._leave_early()
++	await _fixture_release_scene(host)
++	Engine.time_scale = old_scale
++
++
++func _route_enter_career(host: ReefMain, room_id: String, act_index: int) -> OperaHouse:
++	var rooms := host._castle_rooms_ref()
++	rooms.show_room(room_id, false)
++	await process_frame
++	await process_frame
++	var routes := host._castle_career_routes_ref()
++	routes.sync()
++	if act_index in [ChapterTwoDirector.ACT_BALLERINA, ChapterTwoDirector.ACT_DETECTIVE]:
++		var object_id := "stuffie_nook" if act_index == ChapterTwoDirector.ACT_BALLERINA else "magic_book"
++		var record: Dictionary = host.castle_room_item_sprites.get(object_id, {}) as Dictionary
++		var target := record.get("hotspot") as Control
++		if target == null or not target.is_visible_in_tree():
++			return null
++		await _route_tap(target, target.size * 0.5)
++	else:
++		if room_id == "opera_hall":
++			var record: Dictionary = host.castle_room_item_sprites.get("stage_star", {}) as Dictionary
++			var target := record.get("hotspot") as Control
++			if target == null:
++				return null
++			await _route_tap(target, target.size * 0.5)
++			await _route_wait(func() -> bool:
++				var button := routes.button_for_act(act_index)
++				return button != null and button.is_visible_in_tree(), 8.0)
++		var target := routes.button_for_act(act_index)
++		if target == null or target.disabled or not target.is_visible_in_tree():
++			return null
++		await _route_tap(target, target.size * 0.5)
++	var ready := await _route_wait(func() -> bool:
++		return host.opera_game != null and host.living_stage_id == "opera.act.%02d" % act_index \
++			and host.living_layer != null and host.living_layer.layer == 11 \
++			and (host.fade_rect == null or (host.fade_rect.modulate.a <= 0.02 \
++				and host.fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE)), 8.0)
++	return host.opera_game as OperaHouse if ready else null
++
++
++func _route_drive_phase(host: ReefMain, world: OperaCareerWorld2D, index: int) -> bool:
++	var phase: Dictionary = world.phases[index]
++	var mode := String(phase.get("mode", ""))
++	var surface := world.surface
++	var context := surface.visual_context
++	if context in ["chapter2_basket_fill", "chapter2_basket_delivery", "chapter2_rocket_park"]:
++		await process_frame
++		await process_frame
++		var expected_template := "target" if context == "chapter2_basket_fill" else "push"
++		_check("viewport: story identity context reaches its real target/push draw dispatch",
++			surface.widget_template == expected_template
++			and surface.widget_mover != null and surface.widget_mover.resource_path == (
++				"res://assets/opera/worlds/props/goal_astronaut.png" if context == "chapter2_rocket_park"
++				else "res://assets/castle/day_one_pool/activities/cleanup_basket.png"))
++		var draw_route := surface.last_target_subject_route if context == "chapter2_basket_fill" \
++			else surface.last_contextual_draw_route
++		var expected_route := context if context == "chapter2_basket_fill" else "push:%s" % context
++		if draw_route.is_empty() and DisplayServer.get_name() == "headless":
++			print("CHAPTER2|draw command route NOT_MEASURED in headless: ", context)
++		else:
++			_check("viewport: actual story draw route uses the source-specific identity", draw_route == expected_route)
++	var deadline := Time.get_ticks_msec() + 15000
++	var sample := 0
++	while _route_phase_live(world, index) and Time.get_ticks_msec() < deadline:
++		if world._is_chapter2_strawberry_pick_phase():
++			for button: TextureButton in world.chapter2_strawberry_pickups:
++				if not button.disabled:
++					await _route_tap(button, button.size * 0.5)
++			break
++		if world._is_chapter2_candle_reveal_phase():
++			await _route_tap(world.chapter2_detective_candle_button,
++				world.chapter2_detective_candle_button.size * 0.5)
++			break
++		match mode:
++			"tap":
++				var at := surface.size * Vector2(0.25 + float(sample % 3) * 0.25, 0.50)
++				if surface._uses_anchored_targets():
++					at = surface._target_anchor_point(maxi(0, surface._target_next_unplaced()))
++					if surface is OperaChefSurface:
++						at -= Vector2(0, 17)
++				await _route_tap(surface, at)
++			"choice":
++				await _route_tap(surface, Vector2(surface.size.x * (float(surface.target_choice) + 0.5)
++					/ float(surface.choice_count), surface.size.y * 0.60))
++			"hold", "pourt":
++				var at := surface._pour_pitcher_rect().get_center() if mode == "pourt" else surface.size * 0.5
++				_route_touch(surface, at, true)
++				await _route_wait(func() -> bool: return not _route_phase_live(world, index), 12.0)
++				_route_touch(surface, at, false)
++			"oven":
++				if surface.oven_t >= 0.55:
++					await _route_tap(surface, surface._oven_handle_rect().get_center())
++				else:
++					await process_frame
++			"circle":
++				var pivot := surface._circle_pivot()
++				var radius := maxf(44.0, surface._circle_min_radius() + 12.0)
++				_route_touch(surface, pivot + Vector2(radius, 0), true)
++				for step in range(1, 181):
++					if not _route_phase_live(world, index):
++						break
++					_route_drag(surface, pivot + Vector2.from_angle(float(step) * TAU / 40.0) * radius)
++					await process_frame
++				_route_touch(surface, pivot + Vector2(radius, 0), false)
++			"swipe":
++				if surface._uses_long_push_context():
++					var start := surface._long_push_position(surface.long_push_journey)
++					var finish := surface._long_push_end()
++					_route_touch(surface, start, true)
++					for step in range(1, 65):
++						_route_drag(surface, start.lerp(finish, float(step) / 64.0))
++						await process_frame
++					_route_touch(surface, finish, false)
++				else:
++					_route_touch(surface, surface._trace_demo_point(0), true)
++					for step in range(1, 65):
++						_route_drag(surface, surface._trace_demo_point(float(step) / 64.0))
++						await process_frame
++					_route_touch(surface, surface._trace_demo_point(1), false)
++			"candy_sort":
++				var finish := surface._candy_bin_rect(surface.candy_type).get_center()
++				_route_touch(surface, surface.candy_position, true)
++				_route_drag(surface, finish)
++				_route_touch(surface, finish, false)
++				await process_frame
++			"paint_reveal":
++				var canvas := surface._paint_canvas_rect()
++				_route_touch(surface, canvas.position + Vector2(2, 2), true)
++				for row in range(OperaGestureSurface.PAINT_GRID_ROWS):
++					for column in range(OperaGestureSurface.PAINT_GRID_COLS):
++						var x := column if row % 2 == 0 else OperaGestureSurface.PAINT_GRID_COLS - 1 - column
++						_route_drag(surface, canvas.position + canvas.size * Vector2(
++							(float(x) + 0.5) / float(OperaGestureSurface.PAINT_GRID_COLS),
++							(float(row) + 0.5) / float(OperaGestureSurface.PAINT_GRID_ROWS)))
++						await process_frame
++				_route_touch(surface, canvas.get_center(), false)
++			"ballet_pose":
++				var ballet := surface as OperaBalletSurface
++				if ballet.demo_active:
++					await process_frame
++				else:
++					var choices := ballet.pose_option_frames()
++					var option := choices.find(ballet.pose_target_frame())
++					await _route_tap(ballet, ballet.pose_option_rects()[option].get_center())
++			"ballet_ribbon", "ballet_twirl":
++				var ballet := surface as OperaBalletSurface
++				var goal := float(phase.get("goal", 1.0))
++				var first := ballet.ribbon_point(ballet.ribbon_progress) if mode == "ballet_ribbon" \
++					else ballet.twirl_handle_position()
++				var angle := (first - ballet.twirl_center()).angle()
++				_route_touch(ballet, first, true)
++				for step in range(1, 101):
++					if not _route_phase_live(world, index):
++						break
++					var amount := float(step) / 100.0
++					var at := ballet.ribbon_point(amount) if mode == "ballet_ribbon" \
++						else ballet.twirl_center() + Vector2.from_angle(angle + amount * TAU) * ballet.twirl_radius()
++					_route_drag(ballet, at)
++					await process_frame
++					if step == 50:
++						_route_touch(ballet, at, false)
++						_check("viewport: pre-endpoint Ballet release cannot bank or complete the phase",
++							world.phase_progress < goal and not world.phase_advance_pending)
++						_route_touch(ballet, at, true)
++				_route_touch(ballet, first, false)
++			"echo":
++				if surface.echo_listening:
++					var verse: Array = OperaGestureSurface.ECHO_VERSES[clampi(surface.echo_verse, 0, 2)]
++					await _route_tap(surface, surface._echo_star_center(int(verse[surface.echo_input_i])))
++				else:
++					await process_frame
++			"pipe":
++				if surface.pipe_pause > 0.0:
++					await process_frame
++				else:
++					var plans: Array = [
++						[[5, "H"], [6, "H"]],
++						[[0, "SE"], [1, "H"], [2, "SW"], [6, "NE"]],
++						[[5, "NW"], [1, "SE"], [2, "H"], [3, "NW"]],
++					]
++					for placement: Array in plans[clampi(surface.pipe_round, 0, 2)]:
++						var cell := int(placement[0])
++						var tile := String(placement[1])
++						if String(surface.pipe_grid[cell]) != "":
++							continue
++						var slot := surface.pipe_tray.find(tile)
++						if slot < 0:
++							continue
++						_route_touch(surface, surface._pipe_tray_rect(slot).get_center(), true)
++						_route_drag(surface, surface._pipe_cell_rect(cell).get_center())
++						_route_touch(surface, surface._pipe_cell_rect(cell).get_center(), false)
++						await process_frame
++					await process_frame
++			"lens":
++				var clue := world._next_unfound_lens_clue()
++				if clue >= 0:
++					var before := world.lens_find_count
++					await _route_tap(world.lens_layer, world.lens_clues[clue])
++					await _route_wait(func() -> bool:
++						return world.lens_find_count > before or not _route_phase_live(world, index), 4.0)
++				else:
++					await process_frame
++			_:
++				print("CHAPTER2|viewport unsupported mode: ", mode)
++				return false
++		sample += 1
++	return is_instance_valid(world) and (world.phase_advance_pending or world.phase_index > index)
++
++
++func _route_phase_live(world: OperaCareerWorld2D, index: int) -> bool:
++	return is_instance_valid(world) and world.active and world.task_open \
++		and world.phase_index == index and not world.phase_advance_pending
++
++
++func _route_point(control: Control, at: Vector2) -> Vector2:
++	# CanvasItem maps local coordinates into this Viewport. push_input(true)
++	# consumes that same coordinate space, including scaled/aspect viewports.
++	return control.get_global_transform_with_canvas() * at
++
++
++func _route_touch(control: Control, at: Vector2, pressed: bool) -> void:
++	var event := InputEventScreenTouch.new()
++	event.index = 71
++	event.position = _route_point(control, at)
++	event.pressed = pressed
++	control.get_viewport().push_input(event, true)
++
++
++func _route_drag(control: Control, at: Vector2) -> void:
++	var event := InputEventScreenDrag.new()
++	event.index = 71
++	event.position = _route_point(control, at)
++	control.get_viewport().push_input(event, true)
++
++
++func _route_tap(control: Control, at: Vector2) -> void:
++	_route_touch(control, at, true)
++	await process_frame
++	_route_touch(control, at, false)
++	await process_frame
++
++
++func _route_wait(predicate: Callable, seconds: float) -> bool:
++	var deadline := Time.get_ticks_msec() + int(seconds * 1000.0)
++	while Time.get_ticks_msec() < deadline:
++		if bool(predicate.call()):
++			return true
++		await process_frame
++	return bool(predicate.call())
++
++
++func _fixture_arg(args: PackedStringArray, key: String) -> String:
++	var index := args.find(key)
++	return String(args[index + 1]) if index >= 0 and index + 1 < args.size() else ""
++
++
++func _fixture_owns_path(path: String) -> bool:
++	var base := ProjectSettings.globalize_path("user://").simplify_path().trim_suffix("/")
++	var candidate := path.simplify_path()
++	return not path.is_empty() and candidate.get_base_dir() == base \
++		and candidate.get_file().begins_with(FIXTURE_SAVE_PREFIX) and candidate.ends_with(".json")
++
++
++func _fixture_seed_save() -> void:
++	fixture_save_path = ProjectSettings.globalize_path("user://" + FIXTURE_SAVE_PREFIX \
++		+ "%d_%d.json" % [OS.get_process_id(), Time.get_ticks_usec()])
++	_check("fixture save is a new owned disposable path", _fixture_owns_path(fixture_save_path)
++		and not FileAccess.file_exists(fixture_save_path))
++	if not _fixture_owns_path(fixture_save_path) or FileAccess.file_exists(fixture_save_path):
++		return
++	var file := FileAccess.open(fixture_save_path, FileAccess.WRITE)
++	_check("fixture save can be seeded before production ready", file != null)
++	if file == null:
++		return
++	# The post-boss prerequisite is a declared fixture seam, never measured work.
++	file.store_string(JSON.stringify({"schema_version": 1, "save_generation": 7,
++		"day_one_active": false, "day_one_giant_dust_bunny_boss_defeated": true,
++		"chapter2_active": true, "chapter2_unlocked_opera_mask": 0x0449,
++		"music": true, "quality": "speedy"}))
++	file.close()
++
++
++func _fixture_inject_save_before_ready(node: Node) -> void:
++	if not node is ReefMain or node.get_parent() != root:
++		return
++	var candidate := node as ReefMain
++	if candidate.scene_file_path != MAIN_SCENE_PATH:
++		return
++	_check("fixture save dependency is injected before ready",
++		not candidate.is_node_ready() and _fixture_owns_path(fixture_save_path))
++	if not _fixture_owns_path(fixture_save_path):
++		candidate.set_process(false)
++		return
++	candidate._save_state = SaveState.new(candidate, fixture_save_path)
++	candidate.ready.connect(_fixture_record_loaded.bind(candidate), CONNECT_ONE_SHOT)
++	fixture_boot_count += 1
++
++
++func _fixture_record_loaded(candidate: ReefMain) -> void:
++	# ready is emitted after production _ready/load, before the first process.
++	fixture_loaded_id = candidate.get_instance_id()
++	fixture_loaded_generation = candidate.save_generation
++	fixture_loaded_snapshot = _fixture_snapshot(candidate)
++
++
++func _fixture_boot_scene() -> ReefMain:
++	_check("there is no prior production scene owner", current_scene == null
++		and _fixture_owner_count() == 0)
++	var packed := load(MAIN_SCENE_PATH) as PackedScene
++	var host := packed.instantiate() as ReefMain
++	root.add_child(host)
++	current_scene = host
++	await process_frame
++	await process_frame
++	_check("fixture owns the one ready production current_scene",
++		current_scene == host and host.is_node_ready()
++		and fixture_loaded_id == host.get_instance_id()
++		and host._save_state != null and host._save_state.save_path == fixture_save_path
++		and _fixture_owner_count() == 1)
++	return host
++
++
++func _fixture_owner_count() -> int:
++	var count := 0
++	for child: Node in root.get_children():
++		if child is ReefMain:
++			count += 1
++	return count
++
++
++func _fixture_world_count(node: Node) -> int:
++	var count := 1 if node is OperaCareerWorld2D else 0
++	for child: Node in node.get_children():
++		count += _fixture_world_count(child)
++	return count
++
++
++func _fixture_consume_menu(host: ReefMain) -> void:
++	if DisplayServer.get_name() == "headless":
++		# Headless production boot omits StartMenu. This setup seam constructs
++		# the shipping menu; Continue itself is always actual viewport input.
++		if host.intro_active:
++			host._skip_intro()
++		if not host.start_menu_active:
++			host._build_start_menu()
++		print("CHAPTER2|headless bootstrap seam: shipping StartMenu constructed")
++	await process_frame
++	var button := host.start_menu_layer.find_child("StartMenuContinueButton", true, false) as Button \
++		if host.start_menu_layer != null else null
++	_check("bootstrap consumes the actual visible enabled Continue control",
++		button != null and button.is_visible_in_tree() and not button.disabled)
++	if button != null and not button.disabled:
++		await _route_tap(button, button.size * 0.5)
++	var consumed := await _route_wait(func() -> bool:
++		return not host.start_menu_active and not host.intro_active \
++			and (host.fade_rect == null or host.fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE), 8.0)
++	_check("menu is released before any career touches", consumed
++		and (host.start_menu_layer == null or not is_instance_valid(host.start_menu_layer)))
++
++
++func _fixture_snapshot(host: ReefMain) -> Dictionary:
++	var snapshot := host._chapter_two_ref().serialize_state().duplicate(true)
++	snapshot["day_one_giant_dust_bunny_boss_defeated"] = host.day_one_giant_dust_bunny_boss_defeated
++	snapshot["opera_stars"] = host.opera_stars
++	snapshot["opera_progress"] = host.opera_progress
++	snapshot["pearls"] = host.pearl_count
++	snapshot["chapter2_party_dress_done"] = host.chapter2_party_dress_done
++	snapshot["roshan_body"] = FashionParts.selected(host, "roshan", "body")
++	snapshot["skin_id"] = host.skin_id
++	snapshot["character_outfits"] = host.character_outfits.duplicate(true)
++	snapshot["character_clothing_parts"] = host.character_clothing_parts.duplicate(true)
++	snapshot["party_dressed"] = FashionDesigner.party_dressed(host)
++	return snapshot
++
++
++func _fixture_release_scene(host: ReefMain) -> bool:
++	if host != null and is_instance_valid(host):
++		host.notification(MainLoop.NOTIFICATION_APPLICATION_PAUSED)
++		var released: WeakRef = weakref(host)
++		if current_scene == host:
++			current_scene = null
++		host.queue_free()
++		var gone := await _route_wait(func() -> bool: return released.get_ref() == null, 8.0)
++		_check("previous production owner is fully released before save read/reboot", gone
++			and _fixture_owner_count() == 0)
++		return gone
++	return true
++
++
++func _fixture_checkpoint_restart(host: ReefMain, label: String) -> ReefMain:
++	var earned := _fixture_snapshot(host)
++	if not await _fixture_release_scene(host):
++		return host
++	var committed: Variant = JSON.parse_string(FileAccess.get_file_as_string(fixture_save_path))
++	_check("milestone %s has a committed primary" % label, committed is Dictionary)
++	if not committed is Dictionary:
++		return await _fixture_boot_scene()
++	var stem := fixture_save_path + ".milestone_" + label
++	var expected_path := stem + ".expected.json"
++	var receipt_path := expected_path + ".receipt.json"
++	var log_path := expected_path + ".log"
++	var started_path := expected_path + ".started.json"
++	var primary_hash := FileAccess.get_sha256(fixture_save_path)
++	var backup_hash := FileAccess.get_sha256(fixture_save_path + ".bak")
++	var generation := int((committed as Dictionary).get("save_generation", -1))
++	var script_hash := FileAccess.get_sha256(get_script().resource_path)
++	_check("milestone evidence paths are unused", not FileAccess.file_exists(expected_path)
++		and not FileAccess.file_exists(receipt_path) and not FileAccess.file_exists(log_path)
++		and not FileAccess.file_exists(started_path))
++	if FileAccess.file_exists(expected_path) or FileAccess.file_exists(receipt_path) \
++			or FileAccess.file_exists(log_path) or FileAccess.file_exists(started_path):
++		return await _fixture_boot_scene()
++	var expected := {"snapshot": earned, "generation": generation,
++		"primary_sha256": primary_hash, "backup_sha256": backup_hash,
++		"parent_process_id": OS.get_process_id(), "label": label, "script_sha256": script_hash}
++	var file := FileAccess.open(expected_path, FileAccess.WRITE)
++	_check("milestone expectation receipt opens", file != null)
++	if file == null:
++		return await _fixture_boot_scene()
++	file.store_string(JSON.stringify(expected))
++	file.close()
++	var args := PackedStringArray(["--headless", "--path", ProjectSettings.globalize_path("res://"),
++		"--log-file", log_path, "--script", get_script().resource_path, "--",
++		"--chapter2-resume", fixture_save_path, "--expectation", expected_path])
++	for flag: String in ["--touch", "--classic-touch-test"]:
++		if OS.get_cmdline_user_args().has(flag):
++			args.append(flag)
++	var child_pid := OS.create_process(OS.get_executable_path(), args)
++	_check("milestone %s starts a separate process" % label,
++		child_pid > 0 and child_pid != OS.get_process_id())
++	if child_pid > 0:
++		var journal := FileAccess.open(started_path, FileAccess.WRITE)
++		_check("child PID evidence opens before waiting", journal != null)
++		if journal != null:
++			journal.store_string(JSON.stringify({"child_pid": child_pid, "parent_pid": OS.get_process_id(),
++				"started_utc": Time.get_datetime_string_from_system(true), "expectation": expected_path,
++				"script_sha256": FileAccess.get_sha256(get_script().resource_path)}))
++			journal.close()
++		var deadline := Time.get_ticks_msec() + 30000
++		while OS.is_process_running(child_pid) and Time.get_ticks_msec() < deadline:
++			await create_timer(0.05, true, false, true).timeout
++		if OS.is_process_running(child_pid):
++			OS.kill(child_pid)
++			_check("milestone child exits within its wall deadline", false)
++			var stopped := await _route_wait(func() -> bool: return not OS.is_process_running(child_pid), 8.0)
++			_check("timed-out child has stopped before ending the parent route", stopped)
++			# A timeout ends this route even after successful kill. Never reboot
++			# a writer while a timed-out child may still own this save.
++			return null
++		else:
++			var child_exit := OS.get_process_exit_code(child_pid)
++			var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(receipt_path)) \
++				if FileAccess.file_exists(receipt_path) else null
++			var valid := parsed is Dictionary
++			if valid:
++				var receipt := parsed as Dictionary
++				valid = bool(receipt.get("finished", false)) and int(receipt.get("failures", -1)) == 0 \
++					and int(receipt.get("process_id", -1)) == child_pid \
++					and int(receipt.get("parent_process_id", -1)) == OS.get_process_id() \
++					and int(receipt.get("loaded_generation", -1)) == generation \
++					and String(receipt.get("preboot_primary_sha256", "")) == primary_hash \
++					and String(receipt.get("preboot_backup_sha256", "")) == backup_hash \
++					and String(receipt.get("script_sha256", "")) == script_hash \
++					and (receipt.get("loaded_snapshot", {}) as Dictionary) == earned
++			var child_log := FileAccess.get_file_as_string(log_path) if FileAccess.file_exists(log_path) else ""
++			_check("milestone %s fresh process proves exact bytes, loaded state and Continue" % label,
++				child_exit == 0 and valid and not child_log.is_empty()
++				and not child_log.contains("FAIL") and not child_log.contains("SCRIPT ERROR:") \
++				and not child_log.contains("ERROR:"))
++			print("CHAPTER2|milestone=", label, " child_pid=", child_pid, " exit=", child_exit,
++				" receipt=", receipt_path, " log=", log_path, " primary_sha256=", primary_hash)
++	var resumed := await _fixture_boot_scene()
++	_check("parent resumes the same earned milestone after child exit", fixture_loaded_snapshot == earned)
++	await _fixture_consume_menu(resumed)
++	if label == "story_complete":
++		_check("parent Continue restores the earned party dress and completed story",
++			FashionDesigner.party_dressed(resumed) and resumed.chapter2_story_complete)
++	resumed._enter_castle_interior_now(false)
++	await process_frame
++	return resumed
++
++
++func _fixture_child_resume() -> void:
++	var expected: Variant = JSON.parse_string(FileAccess.get_file_as_string(fixture_expected_path))
++	_check("child expectation is a valid owned receipt", expected is Dictionary)
++	if not expected is Dictionary:
++		quit(1)
++		return
++	var record := expected as Dictionary
++	_check("child executes the exact expected probe bytes",
++		FileAccess.get_sha256(get_script().resource_path) == String(record.get("script_sha256", "")))
++	var parent_pid := int(record.get("parent_process_id", -1))
++	var receipt_path := fixture_expected_path + ".receipt.json"
++	_check("child has a distinct parent and unused receipt", parent_pid > 0
++		and parent_pid != OS.get_process_id() and not FileAccess.file_exists(receipt_path))
++	if parent_pid <= 0 or parent_pid == OS.get_process_id() or FileAccess.file_exists(receipt_path):
++		quit(1)
++		return
++	var primary_hash := FileAccess.get_sha256(fixture_save_path)
++	var backup_hash := FileAccess.get_sha256(fixture_save_path + ".bak")
++	_check("child sees exact committed primary and backup before boot",
++		primary_hash == String(record.get("primary_sha256", ""))
++		and backup_hash == String(record.get("backup_sha256", "")))
++	var host := await _fixture_boot_scene()
++	var loaded := fixture_loaded_snapshot.duplicate(true)
++	var generation := fixture_loaded_generation
++	_check("child ready callback captures the exact saved milestone and generation",
++		loaded == (record.get("snapshot", {}) as Dictionary)
++		and generation == int(record.get("generation", -1)))
++	await _fixture_consume_menu(host)
++	_check("real Continue preserves earned chapter and freeplay state",
++		_fixture_snapshot(host) == loaded and not host.start_menu_active and fixture_boot_count == 1)
++	if String(record.get("label", "")) == "story_complete":
++		_check("child Continue restores the earned party dress and completed story",
++			FashionDesigner.party_dressed(host) and host.chapter2_story_complete)
++	await _fixture_release_scene(host)
++	var file := FileAccess.open(receipt_path, FileAccess.WRITE)
++	if file == null:
++		_check("child receipt opens", false)
++		quit(1)
++		return
++	file.store_string(JSON.stringify({"finished": true, "failures": checks_failed,
++		"process_id": OS.get_process_id(), "parent_process_id": parent_pid,
++		"loaded_snapshot": loaded, "loaded_generation": generation,
++		"preboot_primary_sha256": primary_hash, "preboot_backup_sha256": backup_hash,
++		"script_sha256": FileAccess.get_sha256(get_script().resource_path)}))
++	file.close()
++	print("CHAPTER2_RESUME_CHILD|RESULT: ", "PASS" if checks_failed == 0 else "FAIL")
++	quit(1 if checks_failed > 0 else 0)
++
++
++func _route_lawn_and_freeplay(host: ReefMain, freeplay_before: Array) -> void:
++	var rooms := host._castle_rooms_ref()
++	rooms.show_room("main_hall", false)
++	await process_frame
++	var party := host.castle_room_layer.find_child("ChapterTwoPartyTableTouch", true, false) as Control
++	_check("completed story exposes the actual Main Hall party table", party != null
++		and party.is_visible_in_tree() and not FashionDesigner.party_dressed(host))
++	if party == null:
++		return
++	await _route_tap(party, party.size * 0.5)
++	var wardrobe_open := await _route_wait(func() -> bool:
++		return host.wardrobe_layer != null and is_instance_valid(host.wardrobe_layer), 8.0)
++	_check("party table first opens its authored dress prerequisite", wardrobe_open
++		and not host.chapter2_party_started and host.chapter2_lawn_view == null)
++	if not wardrobe_open:
++		return
++	var dress := host.wardrobe_layer.find_child("FashionOutfit_" + FashionDesigner.PARTY_DRESS, true, false) as Control
++	_check("party dress has an actual visible source card", dress != null and dress.is_visible_in_tree())
++	if dress == null:
++		return
++	await _route_tap(dress, dress.size * 0.5)
++	await process_frame
++	_check("intentional dress-card touch records the dress milestone", FashionDesigner.party_dressed(host))
++	# The authored party-only picker closes as soon as the correct dress is
++	# worn. If an ordinary wardrobe remains open, use its shipping Finish.
++	if host.wardrobe_layer != null and is_instance_valid(host.wardrobe_layer):
++		var finish := host.wardrobe_layer.find_child("FashionFinish", true, false) as Control
++		if finish != null:
++			await _route_tap(finish, finish.size * 0.5)
++	var dressed := await _route_wait(func() -> bool:
++		return host.wardrobe_layer == null or not is_instance_valid(host.wardrobe_layer), 8.0)
++	_check("party dress selection closes its wardrobe from the source Main Hall",
++		dressed and host.castle_room_id == "main_hall")
++	if not dressed:
++		return
++	# FashionWardrobe._pick schedules the real lawn launch after wearing the
++	# party dress. Observe that production continuation without another tap.
++	var lawn_open := await _route_wait(func() -> bool:
++		return host.game == "chapter2_lawn" and is_instance_valid(host.chapter2_lawn_view), 8.0)
++	_check("actual party dress selection continues into the production lawn", lawn_open)
++	if not lawn_open:
++		return
++	var lawn := host.chapter2_lawn_view as ChapterTwoLawnFinale2D
++	var passive_start := float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)["elapsed"])
++	var passive := await _route_wait(func() -> bool:
++		return float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)["elapsed"]) - passive_start >= 21.0, 5.0)
++	_check("full passive lawn exposure cannot ignite or award protection", passive
++		and float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)["elapsed"]) - passive_start >= 21.0
++		and not host.chapter2_party_started and host.chapter2_protection_rounds == 0)
++	await _route_tap(lawn, ChapterTwoLawnFinale2D.ROCKET_RECT.get_center())
++	_check("rocket touch requests travel before ignition", not host.chapter2_candle_lit
++		and host.chapter2_lawn_beat == 0)
++	var lit := await _route_wait(func() -> bool:
++		return host.chapter2_candle_lit and host.chapter2_lawn_beat == 1 \
++			and String((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)["mode"]) == "story", 15.0)
++	_check("actual complete rocket approach lights the candle once", lit and host.chapter2_party_started)
++	if not lit:
++		return
++	for expected_beat: int in [2, 3, 4]:
++		var threshold := 2.4 if expected_beat == 2 else 0.5
++		var ready := await _route_wait(func() -> bool:
++			return float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)["beat_elapsed"]) >= threshold, 5.0)
++		if ready:
++			await _route_tap(lawn, ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())
++		_check("visible Continue reaches lawn beat %d" % expected_beat,
++			ready and host.chapter2_lawn_beat == expected_beat)
++	if host.chapter2_lawn_beat != 4:
++		return
++	passive_start = float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)["elapsed"])
++	passive = await _route_wait(func() -> bool:
++		return float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)["elapsed"]) - passive_start >= 21.0, 5.0)
++	_check("full passive encounter cannot protect or steal the candle", passive
++		and float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)["elapsed"]) - passive_start >= 21.0
++		and host.chapter2_protection_rounds == 0 and not host.chapter2_candle_taken)
++	for round_index: int in range(3):
++		var deadline := Time.get_ticks_msec() + 15000
++		while host.chapter2_lawn_beat == 4 and Time.get_ticks_msec() < deadline \
++				and lawn.battle.engine().state != BossEncounter2D.State.OPENING:
++			var engine := lawn.battle.engine()
++			if engine.state == BossEncounter2D.State.TELL:
++				# Read only the shipping visible safe-floor marker geometry.
++				var safe: Vector2 = engine.patterns.readout().get("safe_point", Vector2.ZERO) as Vector2
++				await _route_tap(lawn, ChapterTwoLawnFinale2D.ORIGIN + safe * ChapterTwoLawnFinale2D.PROJECTION)
++			await process_frame
++		var opening := lawn.battle.engine().state == BossEncounter2D.State.OPENING
++		_check("actual floor movement reaches visible opening %d" % round_index, opening)
++		if not opening:
++			return
++		await _route_tap(lawn, Vector2(500, 650))
++		_check("off-target opening touch cannot award protection", host.chapter2_protection_rounds == round_index)
++		await _route_tap(lawn, ChapterTwoLawnFinale2D.KING_RECT.get_center())
++		_check("one fresh visible King touch protects one round", host.chapter2_protection_rounds == round_index + 1)
++		var settled := await _route_wait(func() -> bool:
++			return host.chapter2_lawn_beat == 5 \
++				or String((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)["mode"]) == "tell", 5.0)
++		_check("protection settles before the next round", settled)
++	_check("three protection rounds keep the candle until authored theft", host.chapter2_lawn_beat == 5
++		and host.chapter2_protection_rounds == 3 and not host.chapter2_candle_taken)
++	for expected_beat: int in [6, 7, 8]:
++		var ready := await _route_wait(func() -> bool:
++			return float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)["beat_elapsed"]) >= 0.5, 5.0)
++		if ready:
++			await _route_tap(lawn, ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())
++		_check("authored post-protection Continue reaches beat %d" % expected_beat,
++			ready and host.chapter2_lawn_beat == expected_beat and host.chapter2_candle_taken)
++		if expected_beat == 6:
++			for id: String in ["Cake", "Banner", "StuffieCat", "StuffieBunny", "MusicBox", "Rumi", "PartyMicrophone", "Rocket"]:
++				_check("theft preserves earned object " + id, (lawn.art[id] as Control).visible)
++	var exit_ready := await _route_wait(func() -> bool:
++		return float((host.g[ChapterTwoLawnFinale2D.KEY] as Dictionary)["beat_elapsed"]) >= 0.5, 5.0)
++	if exit_ready:
++		await _route_tap(lawn, ChapterTwoLawnFinale2D.CONTINUE_RECT.get_center())
++	var returned := await _route_wait(func() -> bool:
++		return host.game == "level2" and not is_instance_valid(host.chapter2_lawn_view), 8.0)
++	_check("final Continue returns to Main Hall with earned state intact", returned
++		and host.castle_room_id == "main_hall" and host.chapter2_story_complete
++		and host.chapter2_party_piece_mask == 0x2C4F
++		and [host.opera_stars, host.opera_progress, host.pearl_count] == freeplay_before)
++	if not returned:
++		return
++	rooms.show_room("kitchen", false)
++	await process_frame
++	var routes := host._castle_career_routes_ref()
++	routes.sync()
++	var card := routes.button_for_act(ChapterTwoDirector.ACT_CHEF)
++	_check("story completion exposes an enabled visible freeplay career card",
++		host.chapter2_show_freeplay_career_routes() and card != null and not card.disabled
++		and card.is_visible_in_tree())
++	if card == null or card.disabled:
++		return
++	await _route_tap(card, card.size * 0.5)
++	var opened := await _route_wait(func() -> bool:
++		return host.opera_game != null and host.living_stage_id == "opera.act.00" \
++			and host.living_layer != null and host.living_layer.layer == 11 \
++			and (host.fade_rect == null or (host.fade_rect.modulate.a <= 0.02 \
++				and host.fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE)), 8.0)
++	var house := host.opera_game as OperaHouse
++	_check("freeplay card launches its ordinary sibling configuration", opened and house != null
++		and house.act != null and house.act.career_world_2d != null
++		and not house.act.career_world_2d.using_chapter_two_phases)
++	if opened and host.global_navigation_button != null:
++		await _route_tap(host.global_navigation_button, host.global_navigation_button.size * 0.5)
++	var canceled := await _route_wait(func() -> bool: return host.opera_game == null, 8.0)
++	_check("freeplay cancellation preserves story and reward state", canceled
++		and host.castle_room_id == "kitchen" and host.chapter2_story_complete
++		and [host.opera_stars, host.opera_progress, host.pearl_count] == freeplay_before)
++
++
+ func _check(label: String, ok: bool) -> void:
+ 	if not ok:
+ 		checks_failed += 1

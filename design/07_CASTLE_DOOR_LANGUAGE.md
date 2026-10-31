@@ -1,6 +1,7 @@
 # Pearl Castle door language — Act One
 
-Status: owner-corrected implementation language, 2026-08-26.
+Status: owner-corrected sequencing and frame-registered runtime treatment,
+2026-10-15; restoration candidate from the unmerged 2026-08-29 correction.
 
 ## The four promises
 
@@ -11,13 +12,13 @@ I go there?” Colour, motion, and touch behavior carry the same meaning.
 |---|---|---|---|
 | Blocked | You cannot go here yet | Dark lavender veil with drifting pearl-grey fog | Stays in the hall; fog flutters and Daddy speaks kindly |
 | Open | You may visit; nothing important is waiting | Authored door with no added effect | Enters normally |
-| Bonus | One optional reward is waiting here | Restrained ruby-red edge that breathes once every 4.4 seconds; no particles | Enters normally |
-| Plot | This is the recommended next story destination | Restrained gold edge, narrow rainbow sheen, small gold star | Enters the current story beat |
+| Bonus | One optional reward is waiting here | Restrained ruby-red frame glow that breathes once every 4.4 seconds | Enters normally |
+| Plot | This is the recommended next story destination | Brighter gold frame glow with one alpha-masked rainbow sheen crossing every 4.6 seconds | Enters the current story beat |
 
 Blocked is visible but never glows. Open is deliberately quiet. Bonus and Plot
-are highlights, and the Castle may own **at most one highlighted door at a
-time**. A sequencer must choose one destination before assigning either state;
-individual rooms may not light themselves independently.
+remain visible highlights, and the Castle may own **at most one highlighted
+door at a time**. A sequencer must choose one destination before assigning
+either state; individual rooms may not light themselves independently.
 
 ## Authoritative Act One order
 
@@ -54,13 +55,32 @@ authored resting mist remains Blocked.
 
 - `CastleDoorLanguage` is the single state resolver used by physical doors,
   elevator cards, and direct child-facing room routes.
-- `CastleDoorCue` is an input-transparent procedural Canvas control. It adds no
-  art asset, touch target, save key, or spatial rendering debt.
-- Cue outlines follow each painted doorway's arch instead of boxing it inside
-  a rectangular debug-style frame.
+- `CastleDoorCue` is an input-transparent Canvas control. It adds no touch
+  target, save key, or spatial rendering debt.
+- Physical hall doors use three exact crops of the approved Main Hall painting:
+  small, Opera, and Royal. The shader derives its emission mask from the same
+  painted gold/pearl pixels, so no generic arch is stretched between families.
+- The red Bonus cue is deliberately quieter than Plot. Plot keeps a gold base;
+  its rainbow is a narrow moving sheen multiplied by the frame mask, never a
+  diagonal rectangle or a free-standing gate.
+- Physical blocked fog is family-shaped and confined to the doorway opening.
+  Elevator cards retain their compact card-local treatment.
+- Visual cues keep the complete projected doorway rect while the viewport
+  clips it. Touch hitboxes alone use the viewport intersection, so camera pans
+  cannot resize or recenter the art.
+- Physical glow visuals render above the painted background but below door
+  signs, Roshan, props, and touch controls.
 - The Day One dirt dressing no longer draws independent door glows. It owns
   grime and dust-bunny dressing only.
 - A blocked touch always produces a local fog flutter, spoken feedback, and no
   progress mutation.
 - Saved partial Baby Eagle rescue remains safe: each cleared pin is restored,
   but owning another companion never skips this required plot rescue.
+
+## Restoration evidence
+
+The original painted-frame correction `10ddff27` never entered dev ancestry.
+The 2026-10-15 restoration keeps later attention feedback and input/state behavior.
+[Impact and exact validation](audit_impacts/restore-doorframes-20261015.json)
+tracks current verification and remaining device/child/owner acceptance. The wider
+Door Guidance v2 handoff remains a separate proposal.

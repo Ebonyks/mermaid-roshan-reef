@@ -1,0 +1,78 @@
+{
+  "checked_utc": "2026-10-04T07:34:23.646401+00:00",
+  "previous_work_head": "fee1e3c8104cb9e97c3b18e02fae92a23b845755",
+  "integration_parent": "ecb68651c67e66501eeab2c719b152d8982023c2",
+  "merge_result": "CLEAN; documentation/animation-policy only",
+  "upstream_changed_files": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "audit/cycles/animation-20261003/local_validation_receipt.json",
+    "audit/cycles/animation-20261003/owner_answers.json",
+    "design/05_DOC_LEDGER.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md",
+    "design/GROK_MASTER_HANDOFF_FORMULA_2026-08-30.md",
+    "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "design/animation/WORKFLOW_OPTIONS_2026-10-03.md",
+    "design/audit_impacts/animation-workflow-policy-20261003.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/prompt_intents.json",
+    "design/reference/recipes/character_animation.md",
+    "design/reference/recipes/story_clip.md",
+    "design/templates/ANIMATION_JOB_CARD_V1.md",
+    "design/templates/IMAGINE_SHOT_CARD_V1.md",
+    "docs/CINEMATIC_DIRECTION_AND_INTENT_PROTOCOL.md",
+    "docs/TEMPORAL_ANIMATION_INTEGRITY_AND_QUALITY_GATE_PROTOCOL.md"
+  ],
+  "runtime_source": [
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "sha256_canonical_lf": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256_canonical_lf": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256_canonical_lf": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "sha256_canonical_lf": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "sha256_canonical_lf": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "sha256_canonical_lf": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "sha256_canonical_lf": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/probe_chapter2_farmer_resume.gd",
+      "sha256_canonical_lf": "906fbc9c29a8a463159ca2eb2e34cf4ce2f9798ffee6fa4da778727a3d4259ff",
+      "unchanged": true
+    }
+  ],
+  "trusted_roster_ci_sha256_canonical_lf": "89a21cea76cf0683c9871cc5a83d4fc9fc0cfd32d32c321b03df561d9374444c",
+  "native82_evidence": "audit/chef_overdraw_20261003/native_full_isolated/MANIFEST.json",
+  "verification_scope": "All eight tested runtime sources and trusted test roster are byte-identical after CRLF normalization. Reuse the exact unchanged-source local all82 PASS; rerun authority and development gates for combined documentation. Remote CI will run on the new committed head.",
+  "authority_review": "Current AGENTS animation policy, design-language and ledger changes reviewed; static local backdrop repairs remain within protected-source/reuse authority. Upstream owner policy is imported, not authored or extended by this task.",
+  "acceptance_gaps_unchanged": true
+}

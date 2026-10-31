@@ -1,0 +1,50 @@
+{
+  "schema": "luna_probe_receipt/1",
+  "session_id": "L12",
+  "attempt": 1,
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Craft cleanup and attack customization",
+  "probe": "probe_day_one_art_attack_state",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-playtest-20261012\\mermaid-roshan-reef",
+    "-s",
+    "scripts/probe_day_one_art_attack_state.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "started_utc": "2026-10-13T01:07:30.882566+00:00",
+  "status": "PASS",
+  "evidence_kind": "SCRIPTED_PROBE",
+  "engine": {
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643"
+  },
+  "source_hashes": {
+    "project.godot": "8d942b12dfa87ed9fb39cf7f6cfbb1d3f64cc4461097c527f266a28e9428697f",
+    "scenes/main.tscn": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+    "scripts/ci.sh": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279",
+    "scripts/probe_day_one_art_attack_state.gd": "df61e16de2ee8cfb5f9913e4c1dcbf78d9339f22b3efc4957a07708b59daf4f2",
+    "scripts/day_one_art_studio.gd": "a807cdcd8003ff368ebb6c8f85e19597eb9d60e2ed5e759bc1de0300f6a0ab1c"
+  },
+  "helper_sha256": "2ff23721f7e50a2abe878afde1f797fa3c27c66285b33aa1a549157005e3c953",
+  "save_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-luna-L12-mi74zg6u",
+  "profile_isolated": true,
+  "headless": true,
+  "rendered_mobile_acceptance": false,
+  "log": "audit/cycles/luna-playtest-20261012/runtime/L12/attempt_1/probe.log",
+  "wall_clock_is_gameplay_timing": false,
+  "finished_utc": "2026-10-13T01:07:40.177031+00:00",
+  "wall_elapsed_seconds": 9.29,
+  "exit_code": 0,
+  "timed_out": false,
+  "failure_lines": [],
+  "terminal_lines": [
+    "DAY_ONE_ART_ATTACK_STATE|RESULT: PASS failures=0"
+  ],
+  "log_sha256": "f60c2a724f4c1d99e78da2e83ed099fad0afd2bd2bbd4ba7e730c3ee1f1b6114",
+  "log_bytes": 3531
+}

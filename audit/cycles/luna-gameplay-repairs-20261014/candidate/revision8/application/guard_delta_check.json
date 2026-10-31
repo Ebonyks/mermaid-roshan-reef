@@ -1,0 +1,8 @@
+{
+  "schema": "luna.exact-scratch-delta/1",
+  "from_draft_sha256": "7189dbad6679960f2afb5d7489008056a87950e2d69c5fecfb0686d632e8191a",
+  "to_draft_sha256": "391476ed0a7603a2c972ebe4c9e6e5d4c3ffa5732ad411249bae0a00b361df2a",
+  "only_change": "Add and not world.backdrop_node.stage_mode to the clean_tiles predicate.",
+  "exact_check": true,
+  "diff": "--- draft02\n+++ draft03\n@@ -236,6 +236,7 @@\n \t\tand cake.kitchen_display_layout\n \t\tand cake.get_index() < world.player_actor.get_index())\n \tvar clean_tiles := world.backdrop_node.scene_variant == \"strawberry_cake_workshop\" \\\n+\t\tand not world.backdrop_node.stage_mode \\\n \t\tand world.backdrop_node.world_tiles.size() == 4 \\\n \t\tand bool(world.backdrop_node.get_meta(\"chapter2_cake_pixels_owned_by_prop\", false))\n \tif clean_tiles:\n"
+}

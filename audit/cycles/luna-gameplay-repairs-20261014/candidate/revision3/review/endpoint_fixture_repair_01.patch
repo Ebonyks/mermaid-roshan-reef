@@ -1,0 +1,62 @@
+--- a/scripts/opera_career_world_2d.gd
++++ b/scripts/opera_career_world_2d.gd
+@@ -3608,6 +3608,15 @@
+ 	elif mode == "swipe" and _kind == "swipe" and surface._uses_authored_trace_context() \
+ 			and surface.trace_journey >= 1.0:
+ 		phase_progress = goal
++	elif mode == "swipe" and _kind == "swipe" and using_chapter_two_phases \
++			and amount > 0.0 and quality >= 0.9 and surface.held and surface.long_push_engaged \
++			and surface.visual_context in ["chapter2_basket_delivery", "chapter2_rocket_park"] \
++			and String(phase.get("widget_context", "")) == surface.visual_context \
++			and surface._uses_long_push_context() and surface.long_push_journey >= 1.0 \
++			and is_equal_approx(goal, surface._long_push_goal_units()):
++		# Read the owning surface's completed endpoint before set_fill feeds the
++		# accumulated world fraction back. Six real units can sum to5.999999999999998.
++		phase_progress = goal
+ 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
+ 	_performance_record_progress(progress, _kind, quality)
+ 	phase_fill.value = progress * 100.0
+--- a/scripts/probe_chapter2.gd
++++ b/scripts/probe_chapter2.gd
+@@ -962,6 +962,31 @@
+ 			print("CHAPTER2|draw command route NOT_MEASURED in headless: ", context)
+ 		else:
+ 			_check("viewport: actual story draw route uses the source-specific identity", draw_route == expected_route)
++	if context in ["chapter2_basket_delivery", "chapter2_rocket_park"]:
++		var idle_start := world.elapsed
++		var idle_full := await _route_wait(func() -> bool:
++			return world.elapsed - idle_start >= 1.0, 3.0)
++		_check("viewport: open story push cannot bank an endpoint without input",
++			idle_full and world.elapsed - idle_start >= 1.0 and is_zero_approx(world.phase_progress)
++			and not world.phase_advance_pending and is_zero_approx(surface.long_push_journey))
++		var start := surface._long_push_start()
++		var finish := surface._long_push_end()
++		_route_touch(surface, start, true)
++		_route_drag(surface, start - (finish - start) * 0.10)
++		_route_touch(surface, start - (finish - start) * 0.10, false)
++		await process_frame
++		_check("viewport: wrong-direction push and release cannot bank or advance",
++			is_zero_approx(world.phase_progress) and is_zero_approx(surface.long_push_journey)
++			and not world.phase_advance_pending)
++		_route_touch(surface, start, true)
++		for step in range(1, 33):
++			_route_drag(surface, start.lerp(finish, float(step) / 64.0))
++			await process_frame
++		_route_touch(surface, start.lerp(finish, 0.5), false)
++		_check("viewport: pre-endpoint push release preserves partial work without completion",
++			world.phase_progress > 0.0 and world.phase_progress < float(phase.get("goal", 1.0))
++			and surface.long_push_journey > 0.0 and surface.long_push_journey < 1.0
++			and not world.phase_advance_pending)
+ 	var deadline := Time.get_ticks_msec() + 15000
+ 	var sample := 0
+ 	while _route_phase_live(world, index) and Time.get_ticks_msec() < deadline:
+@@ -1178,6 +1203,9 @@
+ 	# The post-boss prerequisite is a declared fixture seam, never measured work.
+ 	file.store_string(JSON.stringify({"schema_version": 1, "save_generation": 7,
+ 		"day_one_active": false, "day_one_giant_dust_bunny_boss_defeated": true,
++		"day_one_completed_rooms": DayOneDirector.ROOM_ORDER,
++		"day_one_cleaned_rooms": DayOneDirector.ROOM_ORDER,
++		"day_one_giant_dust_bunny_boss_triggered": true,
+ 		"chapter2_active": true, "chapter2_unlocked_opera_mask": 0x0449,
+ 		"music": true, "quality": "speedy"}))
+ 	file.close()

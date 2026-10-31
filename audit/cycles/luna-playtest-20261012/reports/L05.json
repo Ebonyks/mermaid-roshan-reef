@@ -1,0 +1,149 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L05",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l05",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Bathroom swimming bunny pacing",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L05/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged focused probe passes its assertions under Godot 4.7.2-stable: a post-sink tub tap starts one bounded bunny reaction; the brush is blocked during it; repeated taps and passive wait do not drain or finish the tub; the saved drained state skips the reaction; the existing tub stroke seam remains causal; and the cleanup wrapper exposes the same tap route. The receipt records exit 0, no failure lines, isolated profile, and headless scripted evidence.",
+    "gaps": "The probe sets day_one_bathroom_cleanup_step = 1, directly instantiates the cleaning owner and swimmer, supplies presentation fixtures, and calls probe seams. It does not play from fresh-save bathroom entry or feed ordinary routed input through a visible room. It verifies code/state assertions, not the rendered pace or sound. No Mobile capture, physical device, child, or owner session occurred."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "source_constants": [
+      {
+        "value": "The bunny comic reaction is 0.68 seconds; after it finishes, the drain callback waits 0.20 seconds before rebuilding the tub brush presentation.",
+        "evidence": "scripts/games/day_one_dust_bunny_swimmer.gd:9,146-155; scripts/games/day_one_bathroom_cleaning.gd:837-855",
+        "scope": "Source-defined reaction and post-drain transition; not observed gameplay duration."
+      },
+      {
+        "value": "The swimmer bobs at 0.72 and 1.38 radians/second with travel amplitudes supplied by its caller; its paddle oscillation uses 2.6 radians/second. Bathroom setup supplies 13 px horizontal and 3 px vertical travel.",
+        "evidence": "scripts/games/day_one_dust_bunny_swimmer.gd:219-232; scripts/games/day_one_bathroom_cleanup.gd:524-536",
+        "scope": "Code motion parameters only; rendered motion and perceived pace are unreviewed."
+      },
+      {
+        "value": "The probe waits 1.05 seconds after its repeated-tap check before asserting the drained brush stage; this is test synchronization, not a child wait-time measurement.",
+        "evidence": "scripts/probe_day_one_bathroom_bunny.gd:141-144; runtime/L05/attempt_1/probe.log:11-15"
+      }
+    ],
+    "estimated_activity_duration": null,
+    "assumptions": "No child session duration is inferred. Runner wall time (16.732 seconds) is probe execution time, not gameplay timing."
+  },
+  "tactile": {
+    "target_size": "The one-finger gesture surface is set to StorybookUI.CANVAS_SIZE (1280x720 base canvas); tub tap acceptance uses distance from TUB_CENTER within TUB_HALF_WIDTH + 72 px. The probe calls the tap seam at the fixed tub center, so it does not measure visible hit target size, projected phone geometry, or comfort.",
+    "press_response": "A valid tub tap synchronously begins the one-shot response, hides the tap pointer/guide and parked brush, then calls the swimmer's comic animation. The probe sees state change after 0.12 seconds of test time; it does not measure rendered-frame latency or routed touch response.",
+    "drag_hold_release": "After the bunny reaction and drain transition, the brush stage is enabled and back-and-forth strokes remain required; the focused probe uses scripted points and motion-time values. The bunny itself is not draggable or hold-controlled. Physical drag, hold, and release were not observed.",
+    "ownership": "This probe does not establish native touch ownership for the tub tap; it calls probe_tap_tub directly. The surrounding gesture owner has single-finger behavior, but that is outside this focused proof.",
+    "cancellation": "No pause/focus-loss or interruption during the bunny reaction is exercised here. The probe verifies saved drained state skips a second comic reaction on Continue."
+  },
+  "play_appeal": {
+    "hypothesis": "A visibly bounded swimmer with a short comic protest can make draining feel like a response to the little character, and the subsequent brush task restores the child's agency. The very small coded bob/paddle amplitudes may read as calm pacing; only rendered phone-size review and child observation can establish whether the bunny is noticeable and the pause feels lively rather than stalled.",
+    "variety": "The beat separates the tub tap, one comic reaction, and intentional brushing into distinct actions in code; the probe does not establish how clearly those phases read in play.",
+    "world_response": "The swimmer reacts once and disappears during the drain reveal, according to the code path; no rendered room response was reviewed.",
+    "replay": "Saved drained state skips the one-shot reaction and resumes with the brush stage in the probe. Child-facing re-entry and replay feel are not assessed.",
+    "fun_score": null
+  },
+  "observations": [
+    {
+      "title": "The drain beat is one bounded comic interruption, then returns control to brushing",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/games/day_one_bathroom_cleaning.gd:805-834 (one-shot guard, immediate prompt dismissal, and reaction start)",
+        "scripts/games/day_one_dust_bunny_swimmer.gd:138-155 (single comic animation with 0.68-second duration)",
+        "scripts/games/day_one_bathroom_cleaning.gd:837-855 (drain state, completion cue, 0.20-second transition, brush stage restore)",
+        "runtime/L05/attempt_1/probe.log:5-15 (one reaction, repeat/passive no-progress, bounded drain and brush enabled assertions all OK)"
+      ],
+      "rules": ["DL-AGE-03", "DL-AGE-05", "DL-INT-02", "DL-MOT-03", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Run the retained L05 helper once; the receipt is PASS with zero failure lines. The probe issues one tub tap, checks the reaction, repeats the tap, waits, then checks the drained brush state.",
+      "child_impact": "The scripted flow gives the bunny a single reaction without awarding the tub-cleaning step; the child must still brush intentionally. Whether the 0.68-second beat is emotionally legible or feels too quick is not established by the headless run.",
+      "proposed_repair": "No code change is indicated by this probe. Review the exact drain-to-brush transition at normal speed on Mobile and on the target phone before tuning timing.",
+      "acceptance_test": "On the target phone, make the tub tap through normal input and verify the bunny's reaction is readable, finite, and followed promptly by a clear brush cue, while repeated taps cannot skip the intentional brush action."
+    },
+    {
+      "title": "Swimmer motion is deliberately small and its full cutout is bounded to the water basin",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/games/day_one_dust_bunny_swimmer.gd:65-98 (complete visible footprint accounted for when deriving safe center bounds)",
+        "scripts/games/day_one_dust_bunny_swimmer.gd:219-232 (sinusoidal bob/paddle motion is clamped to safe center bounds)",
+        "scripts/games/day_one_bathroom_cleanup.gd:524-536 (bathroom caller supplies 13x3 px travel and 210x100 px basin)",
+        "runtime/L05/attempt_1/probe.log:4 (restrained true-2D casual-swimmer assertion OK)"
+      ],
+      "rules": ["DL-MED-01", "DL-INT-04", "DL-MOT-03", "DL-QA-02"],
+      "existing_findings": ["MA-VIS-009"],
+      "reproduction": "Inspect the bathroom caller's setup arguments and the swimmer's clamped motion. The existing probe asserts a true-2D casual swimmer state; it does not capture its movement at normal rendered speed.",
+      "child_impact": "Small movement may keep attention on the bathroom task and prevent the cutout from leaving the tub. It may also be hard to notice on a phone; this is a hypothesis, not a confirmed visibility defect. MA-VIS-009's pool-specific lifecycle and acceptance scope is not closed by this bathroom probe.",
+      "proposed_repair": "No motion change indicated. Check the existing approved art in the actual dirty-bathroom composite at phone size and normal speed; preserve the bounded motion unless visual/device evidence identifies a problem.",
+      "acceptance_test": "Capture the live tub scene on the supported Mobile canvas at phone aspect, inspect normal-speed bob/paddle and water contact, then verify on the target device that the swimmer is noticeable without competing with the brush cue and remains inside the tub."
+    },
+    {
+      "title": "Continue preserves the drain milestone and does not replay the comic beat",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_day_one_bathroom_bunny.gd:145-163 (serialize after drain, restore a fresh main, and assert no replay with brush cue present)",
+        "runtime/L05/attempt_1/probe.log:12 (saved drain state skips comic reaction on Continue assertion OK)",
+        "scripts/games/day_one_bathroom_cleaning.gd:150-164 (stage initializes from saved cleanup/drain state)"
+      ],
+      "rules": ["DL-AGE-06", "DL-SAVE-01", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "The probe serializes state after the drain has completed, restores it into a new ReefMain/cleaning owner, and asserts the reaction seam rejects another tap while the back-and-forth prompt is visible.",
+      "child_impact": "The tested saved milestone avoids replaying the bunny's already-seen interruption and returns to the intended next action. The test uses a saved patch rather than a full application restart or visible route.",
+      "proposed_repair": "No change indicated by this assertion. Keep the saved drain state idempotent and validate it through actual Continue/re-entry separately.",
+      "acceptance_test": "On a device, drain the tub, save/leave during the following brush stage, Continue through the visible route, and confirm the bunny reaction does not replay and the brush task remains actionable."
+    },
+    {
+      "title": "Probe accepts a comic caption as evidence of the No response, not audible playback",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/games/day_one_bathroom_cleaning.gd:821-826 (the drain reaction calls show_msg with the text NO! and marks the voice-sent flag)",
+        "scripts/games/day_one_bathroom_cleaning.gd:998-1005 (the later drain-complete cue is routed through say_day_one_context)",
+        "scripts/probe_day_one_bathroom_bunny.gd:120-123,344-352 (probe accepts either HUD text/key or a snapshot string containing No; no playback assertion)",
+        "runtime/L05/attempt_1/probe.log:8 (caption-compatible reaction assertion OK)"
+      ],
+      "rules": ["DL-QA-02", "DL-QA-07"],
+      "existing_findings": [],
+      "reproduction": "Inspect the No reaction call and the probe's _voice_or_caption_mentions_no helper. A passing assertion can be satisfied by a HUD caption, so it does not prove that a recording played.",
+      "child_impact": "A child who misses the visual may not hear the comic reaction; no absence of audio playback was demonstrated by this test, so this is an evidence gap rather than a confirmed runtime audio defect.",
+      "proposed_repair": "Do not alter protected voice recordings based on this result. Confirm the intended audible behavior and exact authorized cue through audio routing/device listening before reporting audio acceptance.",
+      "acceptance_test": "Using approved recordings and normal audio settings on the target phone, verify whether the comic No is intentionally visual-only or audible; if audible is intended, bind and listen to the exact authorized cue and ensure it is not truncated by the drain-complete instruction."
+    },
+    {
+      "title": "L05 does not prove the live bathroom entry or ordinary routed tub tap",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_day_one_bathroom_bunny.gd:42-90 (directly constructs owners and sets day_one_bathroom_cleanup_step = 1 before the focused state)",
+        "scripts/probe_day_one_bathroom_bunny.gd:94-107 (direct calls to the tub-tap seam)",
+        "scripts/games/day_one_bathroom_cleanup.gd:307-328 (the shared cleaning owner is mounted after supply hunt completion)",
+        "runtime/L05/attempt_1/receipt.json (SCRIPTED_PROBE, headless=true, rendered_mobile_acceptance=false; exit_code 0)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-UI-01", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-PLAY-004"],
+      "reproduction": "Read the probe initialization and tap calls: the test writes the post-sink state and invokes probe_tap_tub directly. It never traverses the supply hunt, visible bathroom route, or native touch path.",
+      "child_impact": "This run cannot establish that the child discovers the tub tap after completing the bathroom supplies, sees/hears its cue, or can progress without coaching. The open route and embodied bathroom-action findings remain outside this assertion set.",
+      "proposed_repair": "No gameplay defect is reproduced by this route gap alone. Perform a routed fresh-save session, and separately verify that each bathroom cleaning step shows Roshan's required local work/contact under MA-PLAY-004.",
+      "acceptance_test": "From fresh save on the target phone, reach the bathroom through visible gameplay, collect supplies, complete the sink, tap the tub through ordinary input, watch the bunny/drain/brush transition, then verify Roshan's local brushing action, leave/re-enter, and child comprehension without adult instruction."
+    }
+  ],
+  "strengths": [
+    {
+      "strength": "The focused state machine distinguishes a one-time comic drain reaction from intentional tub brushing; the retained probe passes the repeated-tap, passive-wait, and saved-drain assertions.",
+      "evidence": "scripts/games/day_one_bathroom_cleaning.gd:805-855; runtime/L05/attempt_1/probe.log:5-15; runtime/L05/attempt_1/receipt.json"
+    },
+    {
+      "strength": "Bathroom swimmer setup uses true-2D art and bounds the full cutout inside the assigned basin in source.",
+      "evidence": "scripts/games/day_one_dust_bunny_swimmer.gd:65-98,219-232; scripts/games/day_one_bathroom_cleanup.gd:524-536"
+    }
+  ],
+  "acceptance_gaps": [
+    "The PASS is limited to one exact-Godot 4.7.2 headless internal scripted probe, with direct post-sink state setup and synthetic seams; it does not establish the fresh visible route or ordinary routed input (DL-QA-02, DL-QA-03).",
+    "No displayed Mobile composition, phone-size target geometry, rendered response timing, frame pacing, or actual-device touch/audio session is present (DL-QA-03, DL-QA-04, DL-QA-07).",
+    "The probe's comic-No check accepts captions/state strings and does not establish audio playback; no child comprehension, play appeal, or owner acceptance was observed (DL-QA-05, DL-QA-06).",
+    "MA-PLAY-001 fresh-route proof and the bathroom portion of MA-PLAY-004's local Roshan travel/contact/action proof remain separate open acceptance requirements."
+  ]
+}
+

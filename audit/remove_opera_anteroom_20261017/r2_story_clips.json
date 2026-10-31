@@ -1,0 +1,31 @@
+{
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera_foyer_verified_integration",
+    "-s",
+    "scripts/probe_day_one_story_clips.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 23.419039487838745,
+  "reported_failures": [],
+  "source_sha256": {
+    "scripts/castle_career_routes.gd": "412459b56638be07ef9d953a5de7f27e074429703a4c860f97a8d54b9d27a3c8",
+    "scripts/opera_house_venue_2d.gd": "1025986072f5d64d356ac779a797d3b8006a36b10d9ffa96616ecc6d76077305",
+    "scripts/probe_opera.gd": "f918cd813e8fdf4710d0a0d695730d855bfbf090f5b606cb0c1c916d4c44ca10",
+    "scripts/probe_throne.gd": "ffbb85dae31091c1aca4b5d1e4be44a7d14b9b867dfad74e67b266b01c0a1002",
+    "scripts/probe_verbs.gd": "99d4f4c35d45fb1704e072cdddadfbee8a4d7f131ec7d176b8a7f71018ee55d5",
+    "scripts/probe_dust_boss.gd": "d1e86eebf6167ca50ba611ef1a8ea0a801fc9f5dfb653f74f67540f0a78f0be3",
+    "scripts/probe_day_one_story_clips.gd": "8e1d3559af371156ea6a358d25a2968fe812f7c11b22f336750461eb112ba72f",
+    "scripts/day_one_flow.gd": "2fbe1025e2e0b13b57edd48bd6f79599ff2d783f1e166ba34115bfa6cc4b0578",
+    "scripts/arena/day_one_castle_dressing.gd": "cd21c1552bed9486c01da62cc6117fab00c82b7c31eae2f1e2062e56ca48aefe"
+  },
+  "source_drift": [],
+  "log_sha256": "e4c0f72382cbb9205fdd8c9fd87f274ec16b909bb9135b7938f220f4553872e3",
+  "status": "PASS",
+  "classification_note": "Original runner expected ALL OK; the unchanged native story probe actually prints DAY_ONE_STORY_CLIPS RESULT: PASS failures=0. Native exit0, zero failed assertions and exact log/source hashes are independently checked. Original classifier receipt is preserved; no native failure is relabeled."
+}

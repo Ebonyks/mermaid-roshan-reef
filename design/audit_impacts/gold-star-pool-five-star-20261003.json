@@ -1,0 +1,176 @@
+{
+  "id": "gold-star-pool-five-star-20261003",
+  "scope": "Owner-requested proposed five-star implementation of the gold-star reference game, the Day One Mermaid Pool, with the primary coding by Claude and the art and voice generation handed to Codex. Truthful skimmer pickup lines (the leaf line only for the leaf, object-neutral lines otherwise, exact per-object takes preferred when READY); the approved ghost hand points at the next piece, demonstrates the waterfall stroke and taps the seahorse trash; idle re-prompts replay the activity's exact lines twice at most; waterfall progress is the authored dirt wiped from the top, and a touch on another lane retargets the unearned approach; seahorse taps during work queue with full contact per tug and a deliberate pull counts twice; approved soap bubbles and clean rings replace every code-drawn arc, dot, wash and glyph; Roshan keeps her approved colours under the dingy room tint; the probe completes all three activities with real input and adds zero-input, queue, retarget, second-finger and teardown legs. The Pool is re-assessed from 3/5 (17/24) to 4/5 (22/24) on the gold-star scorecard; only device, child and owner acceptance remain. Codex handoff packet GS0-GS4 published with the audit. Packet revision 2 brings the GS2-A action handoff under the owner's 2026-10-03 animation workflow decision merged from dev (DL-MOT-12, DL-MOT-14 to DL-MOT-16): one job card per action, an editable Aseprite master with per-frame hand sockets and lossless export, a clip contract and a scoop pilot. Packet revision 3 follows a red Probe Suite run: the scorecard prose named engine 3D classes, which the true-2D gate counts as new runtime debt in design/ JSON; the prose now uses plain words and tools/gold_star.py --check refuses class names before the gate is reached.",
+  "baseline": "639847f70982b431ae2e521539f8dc46419edb4b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-07",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-READ-06",
+    "DL-SND-01",
+    "DL-SND-13",
+    "DL-MED-02",
+    "DL-MED-05",
+    "DL-MOT-04",
+    "DL-MOT-12",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-SAVE-03",
+    "DL-QA-02",
+    "DL-QA-07",
+    "DL-CODE-10",
+    "DL-ASSET-01"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-PLAY-005",
+    "MA-OPERA-013"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/GOLD_STAR.md",
+    "design/reference/games.json",
+    "design/reference/gold_star.json",
+    "design/reference/prompt_intents.json",
+    "design/reference/recipes/gold_star.md",
+    "docs/handoffs/codex_gold_star_2026-10-03/.gdignore",
+    "docs/handoffs/codex_gold_star_2026-10-03/AUDIT.md",
+    "docs/handoffs/codex_gold_star_2026-10-03/MANIFEST.json",
+    "docs/handoffs/codex_gold_star_2026-10-03/POOL_FIVE_STAR.md",
+    "docs/handoffs/codex_gold_star_2026-10-03/README.md",
+    "scripts/day_one_contact_action_2d.gd",
+    "scripts/games/day_one_pool_cleanup.gd",
+    "scripts/games/pool_seahorse_rescue_activity.gd",
+    "scripts/games/pool_skimmer_activity.gd",
+    "scripts/games/pool_waterfall_activity.gd",
+    "scripts/probe_day_one_pool_cleanup.gd",
+    "tools/gold_star.py",
+    "tools/tests/test_gold_star.py"
+  ],
+  "validation": [
+    {
+      "command": "python -m gdtoolkit.parser and python tools/lint_inference.py on the six changed scripts",
+      "result": "PASS",
+      "evidence": "Local run on this change: no parse or inference findings."
+    },
+    {
+      "command": "Exact Godot 4.7.2-stable, isolated APPDATA: probe_day_one_pool_cleanup",
+      "result": "PASS",
+      "evidence": "DAY_ONE_POOL|RESULT: PASS checks_failed=0 with 132 checks, including real-touch completion of all three activities, thirty quiet seconds re-prompting twice with no progress, queued taps each paid after contact, pulls worth two tugs, lane retarget and same-lane re-tap, Roshan's colours under the tint, and approved-art checks."
+    },
+    {
+      "command": "Mutation tests (scratch script, source restored afterwards): re-drop queued seahorse taps; restore index-keyed skimmer lines",
+      "result": "PASS",
+      "evidence": "Both mutations were caught: 3 and 4 failing checks respectively; the source was restored byte for byte."
+    },
+    {
+      "command": "Exact Godot 4.7.2-stable, isolated APPDATA: probe_day_one_art_attack_state, probe_day_one_director, probe_day_one_integration, probe_day_one_voice, probe_day_one_handoffs, probe_day_one_d8_revisits, probe_passive, probe_castle_pool_life_2d, probe_alpha_milestone_save",
+      "result": "PASS",
+      "evidence": "Each printed PASS or ALL OK with zero failure lines on this change."
+    },
+    {
+      "command": "python -B tools/gold_star.py --check --strict; python -B tools/plan_prompt.py --check; python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Local run before commit: gold star OK (60 games, 18 patterns, 0 stale), prompts ALL OK, DOCAUTH ALL OK, AUDITDEV ALL OK."
+    },
+    {
+      "command": "Anonymous remote verification of packet revision 1: HTTPS GET without credentials from raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/7bf4620540d380a2f1a57655210019126066ae94/ for MANIFEST.json and every listed file and reference",
+      "result": "PASS",
+      "evidence": "Checked 2026-10-04T06:47:54Z: manifest SHA-256 cf64f5810d5f5a90fe72d809523cfcce231e37d775457c0144434a796fe17994; 20 of 20 items matched their manifest bytes and SHA-256 (4 packet files, 16 references); the commit's tree page answered 200 anonymously."
+    },
+    {
+      "command": "Anonymous remote verification of packet revision 2: HTTPS GET without credentials from raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/128723cbf053173d13e24cdebaa22569bacd837b/ for MANIFEST.json and every listed file and reference",
+      "result": "PASS",
+      "evidence": "Checked 2026-10-04T06:53:39Z: manifest SHA-256 39fed8bd8f1500d1f5e3ecd0813f401625ac8acc78773d235edc710c27904d04; 22 of 22 items matched their manifest bytes and SHA-256 (4 packet files, 18 references, including README.md 00546597614e and POOL_FIVE_STAR.md 03a0f25fe240); the commit's tree page and the branch entry page answered 200 anonymously."
+    },
+    {
+      "command": "Probe Suite (graphics fork) run 37184172269 on df99a3717aca39f06ed703a2d3ff677feefe13cf",
+      "result": "FAIL",
+      "evidence": "The static gates passed; the import step's python3 tools/audit_game_2d.py --regression-gate reported G2D101 manifest drift for design/reference/games.json (eight engine 3D class names in three C2 notes) and design/reference/gold_star.json (one engine 3D vector type name in the C2 definition). design/ JSON is live project data to that gate. No probe ran."
+    },
+    {
+      "command": "Repair: reword the four notes; python -B tools/gold_star.py --render; then python -B tools/gold_star.py --check --strict, python -B tools/audit_game_2d.py --regression-gate and exact Godot 4.7.2-stable --check-only on the six changed scripts",
+      "result": "PASS",
+      "evidence": "GOLDSTAR|RESULT|OK|60 games, 0 errors, 0 stale; GAME2D| RESULT| NO_REGRESSION; all six scripts compile. Before the rewording, the new gold_star.py guard reported the same four mentions as errors, and its fixture test covers both the error and the plain-words pass."
+    },
+    {
+      "command": "Anonymous remote verification of packet revision 3: HTTPS GET without credentials from raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/0cc01cbbfa9c06251549b06ccc5fe81eabb61297/ for MANIFEST.json and every listed file and reference",
+      "result": "PASS",
+      "evidence": "Checked 2026-10-04T07:15:03Z: manifest SHA-256 d5d3f586c845400dbf7bca87bc1d3227ef30349b5b418c07e50b50aac061f8b5; 22 of 22 items matched their manifest bytes and SHA-256, including games.json 83a6bd161df7, gold_star.json 57838ee1e9e1 and tools/gold_star.py 04b37121448e; the commit's tree page answered 200 anonymously."
+    },
+    {
+      "command": "Probe Suite (graphics fork) run 37185244064 on a46e46a44ef79438e6677b38902cec022040bbad",
+      "result": "FAIL",
+      "evidence": "The same gate reported G2D101 for this impact record: its first repair evidence quoted the engine class names it described. The evidence now uses plain words, and python -B tools/audit_game_2d.py --regression-gate was run locally on the final tree before the next push. No probe ran."
+    },
+    {
+      "command": "Probe Suite (graphics fork) on the pushed branch head",
+      "result": "PENDING",
+      "evidence": "Runs 37183788471 (7bf46205) and the runs on 128723cb and 0cc01cbb were superseded by the workflow's cancel-in-progress concurrency; runs 37184172269 (df99a371) and 37185244064 (a46e46a4) failed as recorded above. The branch is merged into dev only after a green run on its exact head, which carries this record."
+    },
+    {
+      "command": "Phone session, observed child session and owner verdict for the Mermaid Pool (POOL_FIVE_STAR.md section 4)",
+      "result": "PENDING",
+      "evidence": "Not performed. C12 stays 0 until they are recorded in the game's acceptance lanes."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "Approved guide and effect art already in the repository (ghost hand, soap bubbles, clean ring) replaced every code-drawn shape and glyph in the Pool without generating anything; inventory approved effects before asking for new art.",
+      "write_back": "design/reference/prompt_intents.json",
+      "recurrence_key": "reuse-approved-effects"
+    },
+    {
+      "lesson": "Completing activities through probe helpers hid dropped taps and wrong-object lines; driving every step with real input exposed them, and mutation tests proved the new checks bite.",
+      "write_back": "scripts/probe_day_one_pool_cleanup.gd",
+      "recurrence_key": "probe-bypasses-real-route"
+    },
+    {
+      "lesson": "A room-wide tint on a shared parent also recolours the character; give her cutouts the exact inverse and fade both together.",
+      "write_back": "design/reference/gold_star.json",
+      "recurrence_key": "tint-recolours-identity"
+    },
+    {
+      "lesson": "tools/audit_game_2d.py scans every JSON under design/ as live project data, impact records included, so engine class names written in prose count as new 3D debt and fail the import step after the static gates pass; it happened twice here, the second time in this record's own evidence. Run the 2D regression gate locally after the last JSON edit, not before it.",
+      "write_back": "tools/gold_star.py",
+      "recurrence_key": "engine-class-names-in-data-prose"
+    }
+  ],
+  "strengths_observed": [
+    {
+      "id": "S-02",
+      "evidence": "The waterfall's progress is now the authored dirt itself, wiped away where the child strokes (pool_waterfall_activity.gd _apply_lane_crop)."
+    },
+    {
+      "id": "S-11",
+      "evidence": "Editing the Pool code failed tools/gold_star.py --check until Claude re-assessed and rebound: the Pool's score went stale, the GS-06 and GS-08 pattern anchors went stale, and GS-04's removed _draw_lane_hint anchor was reported as an error."
+    }
+  ],
+  "references_used": [
+    {
+      "path": "design/reference/gold_star.json",
+      "purpose": "The rubric criteria and patterns the implementation was measured against"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "purpose": "Existing use of the approved ghost-hand pointer"
+    },
+    {
+      "path": "scripts/day_one_contextual_voice_catalog.gd",
+      "purpose": "Exact READY pool lines reused for truthful pickups and idle re-prompts"
+    }
+  ],
+  "acceptance_gaps": "Machine verification only. The Pool's gold star needs a recorded phone session, observed child session and owner acceptance; its voices remain synthetic placeholders awaiting owner listening; Roshan's work uses one approved directional cutout until Codex delivers the GS2-A action strips. MA-PLAY-005 and MA-OPERA-013 remain open for Codex (GS0, GS1). The remote workflow does not yet run the gold-star check (GS3 needs owner authority)."
+}

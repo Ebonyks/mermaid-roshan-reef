@@ -198,6 +198,8 @@ func _init() -> void:
 	main.g["phase"] = "hall"
 	main.g["t"] = 0.0
 	main.opera_stars = 0
+	var tree_book_checks := preload("res://scripts/tree_book_test_checks.gd").new()
+	_check("Tree Book optional practice input and lifecycle", await tree_book_checks.run(main, main))
 	# Build the shipping room-route overlay on an isolated 1280x720 Castle
 	# stage. probe_opera.gd separately drives these same controls through the
 	# complete Castle and ReefMain lifecycle.
@@ -255,7 +257,7 @@ func _init() -> void:
 			var costume := String(card.get_meta("career_costume", ""))
 			var crest_path := crest.texture.resource_path \
 				if crest != null and crest.texture != null else ""
-			var crest_is_exact := crest_path.ends_with("/actors/roshan_teacher.png") \
+			var crest_is_exact := crest_path.ends_with("/ui/crests/opera_crest_teacher.png") \
 				if costume == "teacher" else crest_path.contains("/ui/crests/")
 			room_art_ok = room_art_ok and card.text.is_empty() \
 				and card.visible and not card.disabled and not card.clip_contents \

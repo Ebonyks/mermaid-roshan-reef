@@ -1,0 +1,145 @@
+{
+ "schema": "loop_inventory/1",
+ "measured_at_head": "f2140465b0d97575cf1855b1d0422a2c4be6110f",
+ "loops": [
+  {
+   "id": "L1",
+   "name": "Findings lifecycle",
+   "where": "master audit sections 2, 9, 10; finding register",
+   "status": "BROKEN_AT_CLOSURE",
+   "last_activity": "2026-09-30",
+   "breaks": "Closure needs device, child and owner evidence that is blocked; re-audit runs only when no active item remains; 38 of 59 open findings have no entry for 30 days",
+   "refinement": [
+    "LP2 stale-finding sensor",
+    "LP8 monthly verification sweep",
+    "LP9 re-audit each cycle"
+   ]
+  },
+  {
+   "id": "L2",
+   "name": "Change record (impact record)",
+   "where": "DL-AUTH-05 to DL-AUTH-07; design/AUDIT_DEVELOPMENT_CONTRACT.md; tools/audit_development.py",
+   "status": "CLOSED_GATE_OPEN_LEARNING",
+   "last_activity": "every change",
+   "breaks": "No lesson, strength or correction fields; 36 PENDING and 36 FAIL validation entries never collected; rule citations boilerplate",
+   "refinement": [
+    "LP4 lesson fields and collector"
+   ]
+  },
+  {
+   "id": "L3",
+   "name": "Chapter brief to guide improvement",
+   "where": "DL-PLAN-06; design/09_CHAPTER_DEVELOPMENT_GUIDE.md; design/templates/CHAPTER_BRIEF_V1.md",
+   "status": "OPEN_NEVER_COMPLETED",
+   "last_activity": "2026-09-30 (faerie prototype, partial)",
+   "breaks": "The write-back to the guide has never run",
+   "refinement": [
+    "LP7 recipes carry a required learn step",
+    "LP2 reads the learning logs"
+   ]
+  },
+  {
+   "id": "L4",
+   "name": "Reference-library promotion",
+   "where": "design/10_CHAPTER_REFERENCE_LIBRARY.md; master audit planning table",
+   "status": "NEVER_FIRED",
+   "last_activity": "none (0 promoted)",
+   "breaks": "Promotion waits for device, child and owner review that is blocked",
+   "refinement": [
+    "LP3 two-tier strengths register"
+   ]
+  },
+  {
+   "id": "L5",
+   "name": "Satisfaction gate and rule earning",
+   "where": "master audit section 12; design 06 sections 16 and 18",
+   "status": "TERMINAL_RULE_EARNING_NEVER_FIRED",
+   "last_activity": "1 of 23 boxes ticked",
+   "breaks": "Nothing counts recurring defect classes (15 counted by hand on 2026-09-30)",
+   "refinement": [
+    "LP9 counted rule earning"
+   ]
+  },
+  {
+   "id": "L6",
+   "name": "Repair order",
+   "where": "master audit section 13",
+   "status": "BROKEN",
+   "last_activity": "mostly 2026-08-13",
+   "breaks": "Hand-maintained; not derived from findings",
+   "refinement": [
+    "LP6 generated roadmap"
+   ]
+  },
+  {
+   "id": "L7",
+   "name": "Change log and rollback (CHG)",
+   "where": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+   "status": "DORMANT",
+   "last_activity": "2026-09-30 (CHG-032 only since August)",
+   "breaks": "Impact records replaced it in practice; zero rollback attempts recorded",
+   "refinement": [
+    "LP9 say in its maintenance rule that it covers behaviour-changing groups only"
+   ]
+  },
+  {
+   "id": "L8",
+   "name": "Scorecards",
+   "where": "master audit section 1",
+   "status": "BROKEN",
+   "last_activity": "2026-08-12/13",
+   "breaks": "Nothing refreshes or reads them; they still rate the retired Reef; no rows for Day One, Grand Puff, Day Two, Teacher, Geologist",
+   "refinement": [
+    "LP9 regenerate from each cycle report"
+   ]
+  },
+  {
+   "id": "L9",
+   "name": "Owner-decision capture",
+   "where": "DL-AUTH-01; dated blocks in CLAUDE.md and AGENTS.md; handoffs",
+   "status": "CLOSED_ONCE_BROKEN_ELSEWHERE",
+   "last_activity": "2026-09-16 (the closed case)",
+   "breaks": "No register; 98 dated mentions across 49 files",
+   "refinement": [
+    "LP5 decision register intake",
+    "owner corrections become checks where possible"
+   ]
+  },
+  {
+   "id": "L10",
+   "name": "Animation study and profile",
+   "where": "DL-MOT-10 to DL-MOT-13; audit/animation/README.md",
+   "status": "CLOSED_FOR_ROSHAN_NO_HOME_FOR_OBJECT_MOTION",
+   "last_activity": "2026-09-13 (last Roshan entry)",
+   "breaks": "The index covers characters only; the Sky Lagoon object-motion studies of 2026-09-30 and 2026-10-01, and the owner rejection of them, live only in their own packets and impact records; machine checks passed work the owner rejected",
+   "refinement": [
+    "LP2 lists motion studies and owner verdicts",
+    "LP5 owner verdicts become review criteria"
+   ]
+  },
+  {
+   "id": "L11",
+   "name": "Document authority gate",
+   "where": "master audit section 11.3; tools/audit_document_authority.py",
+   "status": "CLOSED_STRUCTURE_ONLY",
+   "last_activity": "every push",
+   "breaks": "Wrong counts and decisions pass",
+   "refinement": [
+    "refinement handoff WP-2 live status",
+    "LP2"
+   ]
+  },
+  {
+   "id": "L12",
+   "name": "Owner question to audit and handoff",
+   "where": "master audit section 14; docs/handoffs/",
+   "status": "PRODUCES_PROPOSALS_ONLY",
+   "last_activity": "2026-10-03",
+   "breaks": "Handoffs queue unbuilt (0 of 5 built); 19 remote branches with commits since 2026-09-25 are not merged into dev (7 feature branches, 12 rescue snapshots)",
+   "refinement": [
+    "README section 4 build order",
+    "LP2 lists handoff status and unmerged branches"
+   ]
+  }
+ ]
+}

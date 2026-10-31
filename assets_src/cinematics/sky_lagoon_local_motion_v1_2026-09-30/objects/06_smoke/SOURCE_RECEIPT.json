@@ -1,0 +1,48 @@
+{
+  "id": "06_smoke",
+  "title": "Smoke: curl",
+  "source": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+  "source_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+  "source_dimensions": [
+    46,
+    256
+  ],
+  "source_crop": [
+    0,
+    1,
+    46,
+    255
+  ],
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\06_smoke\\input.png",
+  "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The narrow bottom emission point stays fixed. The lavender smoke ribbon slowly curls upward and to the right in a gentle breeze. Keep one continuous translucent stylized wisp. No fire, no extra puffs, no opaque smoke. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+  "seed": 20261006,
+  "fit_xy": [
+    235,
+    24
+  ],
+  "fit_size": [
+    42,
+    232
+  ],
+  "status": "PENDING",
+  "lane": "MOTION_REFERENCE_ONLY",
+  "derivative": "source.png",
+  "derivative_sha256": "014f7620cb8f57e876c960a55377239567e42c537f45ef8b17302b8a7ee09a03",
+  "fixed_source_crop": [
+    120,
+    4,
+    392,
+    276
+  ],
+  "canvas": [
+    256,
+    256
+  ],
+  "source_bounds": [
+    107,
+    18,
+    149,
+    238
+  ],
+  "method": "Nondestructive source RGBA isolation and whole-cell normalization; original unchanged."
+}

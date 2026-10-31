@@ -1,0 +1,214 @@
+{
+  "schema": "reef.whole-frame-quality-summary.v1",
+  "recorded_at_utc": "2026-10-11T00:45:25.494603+00:00",
+  "status": "REJECTED_PROPORTIONS_AND_IDENTITY_REDRAWN",
+  "scope": "Strict metadata interpretation of existing nine native key candidates; never a drawing, human review, full-wave or acceptance gate substitute",
+  "native": {
+    "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/native.png",
+    "sha256": "2d7c88cce86375c9c495675aed0e47e38161bd1e0811c73d27fcfbf01a2ab35a",
+    "bytes": 1434156,
+    "role": "Rejected generated nine-key repair sheet"
+  },
+  "native_frames": [
+    {
+      "index": 0,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0000.png",
+      "sha256": "cf09c656e9f7e5e71ba49c2ee02b35e251979f978ee5adb2c9b87cc1125a88ee",
+      "bytes": 146819,
+      "role": "Complete generated native cel"
+    },
+    {
+      "index": 1,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0001.png",
+      "sha256": "f41f050e726fa188746d0c7f8ad07a3c6e56fcaba9fc219534c904d5881363a8",
+      "bytes": 149930,
+      "role": "Complete generated native cel"
+    },
+    {
+      "index": 2,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0002.png",
+      "sha256": "2c0eef61fedcc478681953cc2f3b4b0f0ac5c125ffd6bb0d95074c51c395de79",
+      "bytes": 148390,
+      "role": "Complete generated native cel"
+    },
+    {
+      "index": 3,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0003.png",
+      "sha256": "5c19e62152db5aca38c6dd89adec8a04a884400fcda74acd5dc36ee6a69330d8",
+      "bytes": 147520,
+      "role": "Complete generated native cel"
+    },
+    {
+      "index": 4,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0004.png",
+      "sha256": "c0485dab0ca2db7e1efdc251e92c715602798ed31561f3a4163524544e2d3296",
+      "bytes": 150872,
+      "role": "Complete generated native cel"
+    },
+    {
+      "index": 5,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0005.png",
+      "sha256": "9ad96698bbcc0b62dbaa9f070afc8fadaed48626e6d6115dc3f267683b003c38",
+      "bytes": 152780,
+      "role": "Complete generated native cel"
+    },
+    {
+      "index": 6,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0006.png",
+      "sha256": "4f1b9e17f8d8de37a28f5eea056f131557bd0ef0affe82c18c2114f07489ade1",
+      "bytes": 151889,
+      "role": "Complete generated native cel"
+    },
+    {
+      "index": 7,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0007.png",
+      "sha256": "44a451cdc0d7c76e90c771a9a7de007d6fe88b6eddf7290c2e238c7ac17605fe",
+      "bytes": 153483,
+      "role": "Complete generated native cel"
+    },
+    {
+      "index": 8,
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/cells/0008.png",
+      "sha256": "2db16c6e66c174165371afb40812bf64ddd3da812e9eafaf7a603f2463cf39ad",
+      "bytes": 150102,
+      "role": "Complete generated native cel"
+    }
+  ],
+  "raw_reports": [
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/geometry_native.json",
+      "sha256": "dcd2266f119b659023a6c460ca3e8267f39502de4220065d45e18991f560329c",
+      "bytes": 707,
+      "role": "Historical official numbers-only raw report; includes NaN, deliberately unchanged"
+    },
+    {
+      "path": "assets_src/animation/roshan_wave_repair_20261010/whole_key_repair_01/registration_analysis.json",
+      "sha256": "a2a33d8b49284db473bee7b9c37fb40826c12b9eb5d381927aef971ab70207a1",
+      "bytes": 4463,
+      "role": "Alternate all-finite diagnostic search; deliberately unchanged"
+    }
+  ],
+  "raw_report_policy": "Preserve original report bytes including invalid NaN as historical raw evidence. This separate summary is strict JSON; missing/nonfinite measurements become null and block complete coverage. A finite subset or alternate estimate cannot certify official W2 or missing W3.",
+  "geometry": {
+    "official_series": {
+      "figure_scale_pct": {
+        "expected_frame_count": 9,
+        "observed_count": 9,
+        "missing_or_nonfinite_indices": [],
+        "per_frame_pct": [
+          0.0,
+          -0.02,
+          0.62,
+          -0.41,
+          -0.17,
+          -0.1,
+          0.14,
+          0.43,
+          0.7
+        ],
+        "limit_peak_to_peak_pct": 1.0,
+        "complete_finite_coverage": true,
+        "finite_subset_peak_to_peak_pct": 1.11,
+        "status": "FAIL"
+      },
+      "head_scale_pct": {
+        "expected_frame_count": 9,
+        "observed_count": 9,
+        "missing_or_nonfinite_indices": [
+          2
+        ],
+        "per_frame_pct": [
+          -0.15,
+          0.17,
+          null,
+          0.13,
+          0.43,
+          0.64,
+          0.45,
+          0.79,
+          -16.76
+        ],
+        "limit_peak_to_peak_pct": 2.0,
+        "complete_finite_coverage": false,
+        "finite_subset_peak_to_peak_pct": 17.55,
+        "status": "FAIL"
+      }
+    },
+    "official_declared_all_pass": false,
+    "one_master_layer": {
+      "value": 1,
+      "pass": true
+    },
+    "W3_joints": {
+      "status": "PENDING",
+      "expected_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "reason": "No exact-native-frame-hash-bound shoulder/elbow/wrist/tip annotations and hand_open flags are provided for these nine generated cels; relaxed hand exceptions cannot be guessed."
+    },
+    "complete_geometry_coverage": false,
+    "geometry_ready": false
+  },
+  "alternate_diagnostics": {
+    "all_nine_figure_head_ECC_fits_finite": true,
+    "observed_frame_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "head_peak_to_peak_pct": 0.965136,
+    "figure_peak_to_peak_pct": 1.112365,
+    "status": "DIAGNOSTIC_ONLY_NOT_ACCEPTANCE"
+  },
+  "model_observation": {
+    "status": "FAIL",
+    "reviewer_kind": "model_observation",
+    "evidence_scope": "Root-reported family rejection, bound to exact native sheet and nine cel hashes",
+    "issues": [
+      "Generated whole-key repair redrew proportions and identity instead of preserving the native complete figures",
+      "Official figure-scale1.11% exceeds1% maximum; raw head fit coverage fails",
+      "No complete verified W3 arm/hand annotations or complete41-frame transition/seam review"
+    ]
+  },
+  "reusable_guard_authority": {
+    "path": "tools/sprite_pipeline.py",
+    "geometry_function": "geometry",
+    "joint_and_review_function": "inspect",
+    "policy": "Use the existing catalog-based inspect engine for exact native frame hashes, complete finite geometry tracks, every required joint/condition flag, declared derivation and separate actual human/full-speed review; no generation performed by these checks"
+  },
+  "acceptance": {
+    "candidate_ready": false,
+    "artifact_free_sample": false,
+    "human": false,
+    "owner": false,
+    "device": false,
+    "child": false,
+    "runtime": false,
+    "delivery_accepted": false
+  }
+}

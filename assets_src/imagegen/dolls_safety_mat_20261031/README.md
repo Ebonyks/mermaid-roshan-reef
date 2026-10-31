@@ -1,0 +1,3 @@
+# Dolls whole painted safety mat — R117 candidate
+
+Two built-in ImageGen static takes; take1 is a preserved support-geometry reject. No model selector/version returned. Take2 preserves one continuous lavender quilt, seven gold tufts, painted padding and sewn channels. Native RGBA and editable Aseprite sources are preserved separately from the1024×256 lossless padded export. [Derivation](DERIVATION.json), [requests/results](GENERATION_RESULTS.json), [runtime packet](../../../docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/README.md). Formal QA11/device/child/owner acceptance open. No protected originals or animation budget touched.

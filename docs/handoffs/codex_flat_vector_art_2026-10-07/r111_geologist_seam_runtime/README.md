@@ -1,0 +1,7 @@
+# Painted geode seam cue candidate
+
+Stable item `FV-4502C5860C45`, baseline `51b2e1ef7b32d155786277871fc3f5e941145ea6`. Two whole painted mineral seam nodules, cream closed and mint-cleft completed, replace only five circle/arc markers. Common64logical-square canvas, same five centres/56px hitradius/120px pull. Whole states swap on existing tapbits.56otherfunctions/input/save/lifecycle remain byte-identical; shell/cavity/verticalseam/inheritedpointer and otherart remain debt.
+
+One built-in ImageGen static two-state take, native1774x887/Aseprite and2whole512exports, no tint/deformation/objectpartcompositing. Model/version/requestID/seed/usage notexposed, animationcalls0. [Plan](PLAN.json), [manifest](MANIFEST.json), [derivation](DERIVATION.json), [ten-axisreview](FRAME_REVIEW.json), [machine](LOCAL_82_RESULT.json), [source binding](DELIVERY_SOURCE_BINDING.json), [prompt](../../../../assets_src/imagegen/geologist_geode_seams_20261030/PROMPT.txt), [impact](../../../../design/audit_impacts/flat-vector-geologist-seam-runtime-20261030.json).
+
+Exact4.7.2 Mobile/Speedy currentstatic/import/all82trusted and108nativechecks PASS; normal saves unchanged. All16current states at1280/1600 directlyinspected against8immutable same-scene sourceframes, noexcluded currentruns. Wrongfinger/cancel/JSON seam restore pass. Ordinary100-to120pull completes; original119 terminalgap remains unchanged. Tinycontour/childrecognition/shellintegration, sourceCI/Dev/formalQA11/device/child/owner/natural/training/allroutes/global acceptance remain open; acceptedremoved0.

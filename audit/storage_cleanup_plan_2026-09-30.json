@@ -1,0 +1,156 @@
+{
+  "schema": "repository_storage_cleanup_plan/1",
+  "date": "2026-09-30",
+  "scope": "Owner-requested storage cleanup analysis accompanying the main.gd removal. This is a review plan, not a bulk-delete command or permission to discard originals/unique work.",
+  "measurement": {
+    "source_commit": "33a2c8e3cd86bb4a0dd9d372f6463095c666668d",
+    "method": "Earlier 2026-09-30 read-only recursive inventory, excluding secrets/aws and symlinks. Logical bytes, not allocated disk. Subsequent concurrent changes can alter totals.",
+    "repository_logical_GiB": 1146.694,
+    "largest_groups": [
+      {
+        "path": ".worktrees",
+        "GiB": 930.708,
+        "files": 2531829
+      },
+      {
+        "path": "tmp",
+        "GiB": 159.301,
+        "files": 376485
+      },
+      {
+        "path": ".git",
+        "GiB": 18.608,
+        "files": 22152
+      },
+      {
+        "path": "export",
+        "GiB": 11.437,
+        "files": 8084
+      },
+      {
+        "path": "build",
+        "GiB": 9.837,
+        "files": 24098
+      }
+    ],
+    "current_checkout_without_registered_worktrees_GiB": 45.417,
+    "worktree_snapshot": {
+      "registered": 317,
+      "inside_repo": 257,
+      "in_dot_worktrees": 231,
+      "in_tmp": 22,
+      "in_build": 1,
+      "inside_repo_heads_in_dev_history": 194,
+      "inside_repo_heads_in_origin_history": 227,
+      "inside_repo_heads_not_preserved_by_origin": 30,
+      "scope_limit": "These are committed-head ancestry checks only; no complete dirty/untracked/ignored-file or active-chat review. Do not bulk-delete worktrees."
+    }
+  },
+  "diagnosis": "The main.gd removal saves tens of kilobytes. The documented Markdown consolidation changes roughly 3 MB. Hundreds of repeated checkout trees and temporary renders dominate the measured disk footprint; moving Markdown within Git or deleting tracked media does not shrink Git history.",
+  "recommended_order": [
+    {
+      "priority": 1,
+      "target": "Inactive registered Git worktrees under .worktrees, tmp and build",
+      "estimate": "The earlier .worktrees logical total was 930.708 GiB; this is an upper inventory, not guaranteed savings.",
+      "action": "Inspect each checkout for active chat use, dirty/staged/untracked and ignored unique artwork. Verify its exact head and all required work are durably preserved on origin. Retire only individually cleared trees using git worktree remove or the managing chat archive tool. Preserve unique ignored files first. Never run recursive deletion over the whole .worktrees directory.",
+      "blockers": "Thirty inside-repo heads were not found in origin ancestry at the earlier snapshot; dirty/ignored-file and active-use checks remain incomplete."
+    },
+    {
+      "priority": 2,
+      "target": "Rebuildable Godot import/shader caches and expendable APK outputs",
+      "inventory": [
+        {
+          "path": ".godot/imported",
+          "MiB": 4701.2,
+          "classification": "REBUILDABLE_CACHE",
+          "condition": "Close Godot before clearing; reimport with exact 4.7.2. Preserve source .import/.uid files and custom review subdirectories."
+        },
+        {
+          "path": ".godot/shader_cache",
+          "MiB": 9.52,
+          "classification": "REBUILDABLE_CACHE",
+          "condition": "Close Godot before clearing; shaders regenerate."
+        },
+        {
+          "paths": [
+            "build/roshan-reef-local.apk",
+            "build/roshan-reef.apk",
+            "build/roshan-reef-local.apk.idsig",
+            "build/roshan-reef.apk.idsig"
+          ],
+          "MiB": 1145.11,
+          "classification": "GENERATED_BUILD_PRODUCTS",
+          "condition": "Retain any explicitly required exact-build acceptance artifact in a verified durable archive; build sources remain."
+        }
+      ],
+      "action": "Close editors/probes and check process use before deleting only .godot/imported and .godot/shader_cache. Preserve .godot custom review directories, source .import/.uid files and any named exact-build acceptance artifact. Reimport with official 4.7.2. Cache deletion is temporary relief and does not reduce source growth."
+    },
+    {
+      "priority": 3,
+      "target": "Temporary cinematic renders, exports and art exploration",
+      "estimate": "Earlier non-worktree current checkout: tmp 17.737 GiB, export 11.437 GiB.",
+      "action": "Separate reproducible render products from native masters, selected-cut sources, unique owner art, first-frame approvals, hash/provenance records and unpublished exchanges. Verify a durable byte/hash-preserved archive before removing any irreplaceable or acceptance-bound file. The selected Day One cut and its endpoint sources must remain available."
+    },
+    {
+      "priority": 4,
+      "target": "Retired model/art workbench and exact duplicate tracked media",
+      "action": "Use the existing archive/provenance rules and per-path dependency checks. Keep protected book/family voice/friend originals and complete published visual handoff packets. Historical Git objects remain after a normal file deletion; no history rewrite is authorized."
+    },
+    {
+      "priority": 5,
+      "target": "Reference/document clutter",
+      "estimate": "The proposed reference plan classifies 354 documents: 76 keep, 72 evidence, 85 absorb then archive, 119 archive now, two deletion candidates (3 KB). About 204 documents/3.1 MB leave the active tree, not the repository history.",
+      "action": "Follow W0-W7 rather than treating filename age as deletion authority. Extract durable knowledge into the fourteen references first; keep sealed evidence verbatim, retain filename/anchor redirects and preserve hash-recorded files until their packet is republished. No document archive has been implemented by this cleanup."
+    }
+  ],
+  "documents_to_use": [
+    {
+      "path": "docs/handoffs/codex_reference_consolidation_2026-09-30/README.md",
+      "role": "W0-W7 procedure, preservation constraints and scope/acceptance. PROPOSED/CANDIDATE in ledger."
+    },
+    {
+      "path": "docs/handoffs/codex_reference_consolidation_2026-09-30/REFERENCE_PLAN.md",
+      "role": "Fourteen reference outlines; per-domain keep/evidence/absorb/archive classifications; root cleanup. PROPOSED/CANDIDATE."
+    },
+    {
+      "path": "docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md",
+      "role": "Stale facts and contradictions, 354-document size/class summary, hash-bound material and rules at risk. Analysis, not new authority."
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "role": "Authoritative classification of current vs historical sources; do not delete binding/current documents based on an old proposal."
+    },
+    {
+      "path": "design/08_TARGET_ARCHITECTURE.md",
+      "role": "Mechanical code decomposition and coordinator target; controls code complexity rather than HDD consumption."
+    },
+    {
+      "path": "BACKUP.md",
+      "role": "Restore-verified Git bundles and preservation of irreplaceable originals/saves. Historical Git history is not a backup for ignored local work."
+    },
+    {
+      "path": "WORKFLOW_BRANCHING_2026-07-18.md",
+      "role": "Topic/dev/release separation; retain unmerged work and do not remove another agent's active checkout."
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "role": "Exact changed-file coverage, authority/navigation updates and separate evidence/acceptance claims for any subsequent retirement."
+    }
+  ],
+  "prevent_recurrence": [
+    "Use sparse worktrees for task code/documents instead of full asset/evidence copies; share immutable existing media only where no writer can mutate the shared bytes.",
+    "Archive or remove a task-owned checkout after verified delivery and preservation, instead of leaving a new checkout for every task indefinitely.",
+    "Keep generated renders and cache products in ignored task build directories with an explicit retention/disposition record; never use ignored local files as the only handoff or original-art record.",
+    "The structure ratchet named in DL-CODE-12 remains absent (tools/audit_structure.py and tools/structure_budget.json); implementing it would prevent code growth but would not control worktree/cache disk growth."
+  ],
+  "implemented_in_this_change": {
+    "main_gd_before_lines": 9817,
+    "main_gd_after_lines": 9153,
+    "main_gd_net_lines_removed": 664,
+    "functions_removed": 23,
+    "bulk_storage_deletions": false,
+    "document_moves_or_deletions": false,
+    "protected_assets_modified": false
+  },
+  "required_next_review": "A concrete per-worktree preservation/active-use inventory is the next useful HDD cleanup. The earlier global size scan is insufficient authority to erase 317 worktrees."
+}

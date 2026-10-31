@@ -1,0 +1,176 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L30",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l30",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Astronaut pipes turning and feedback",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L30/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The single L30 helper run used Godot 4.7.2-stable, an isolated save profile, and unchanged probe_opera_pipe.gd. All 17 focused probe assertions passed; it directly configured OperaGestureSurface and called its private press/release/tick helpers.",
+    "route_gaps": "This probe does not enter the Astronaut through a fresh-save Chapter Two room, drive the surface through _gui_input with routed screen-touch events, or render the Mobile canvas. MA-PLAY-005 remains CONFIRMED_OPEN and blocks normal fresh-save reachability of all Opera careers. The focused probe exercises only one finger; despite MA-OPERA-013's older failure report, current _gui_input contains a held-touch guard, so this run does not establish whether the finding is fixed end to end.",
+    "ordinary_entry": "The free-play Astronaut PIPES phase is defined in scripts/opera_career_world_2d.gd:205-207, while the Chapter Two build phase is at :326. These phase definitions do not prove ordinary reachability; MA-PLAY-005 documents the current story-route blocker."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "source_constants": [
+      {
+        "value": "A complete pipe path advances fuel every 0.35 seconds; an incomplete path advances every 1.2 seconds. A blocked flow waits, starts hinting after 8.0 seconds, and returns an eligible wrong pipe after 16.0 seconds of accumulated wait.",
+        "evidence": "scripts/opera_gesture_surface.gd:5517-5545,5636-5639"
+      },
+      {
+        "value": "Solved boards pause for 1.0 second before the next board is set up. The pipe phase goal is 3.0 boards.",
+        "evidence": "scripts/opera_gesture_surface.gd:5518-5522,5546-5552; scripts/opera_career_world_2d.gd:205-207,326"
+      },
+      {
+        "value": "The probe advances simulated surface time in 0.1-second increments and asks for 9.0 seconds of round-one flow, then 1.5 seconds for the inter-board pause; its later recovery legs request 4.0 and 14.0 simulated seconds.",
+        "evidence": "scripts/probe_opera_pipe.gd:38-44,67-69,81-89"
+      }
+    ],
+    "estimated_activity_duration": null,
+    "assumptions": "No child session duration is estimated. The helper's 0.856-second wall time is probe execution only, not gameplay timing. Source timers measure accumulated game delta; voice duration, travel, touch latency and voluntary replay were not measured."
+  },
+  "tactile": {
+    "target_size": "The probe constructs an 852x560 surface and computes cell and tray centers for scripted taps/drags (probe_opera_pipe.gd:19-26,48-52). PIPE_CELL and PIPE_TRAY_SIDE define the actionable geometry, but no rendered or projected dimensions on the Lenovo Tab M11 were measured (opera_gesture_surface.gd:5416-5437).",
+    "press_response": "A tray press removes and carries a tile immediately; a tap on an empty cell places the remembered selection, while a drag release on an empty cell places the carried tile (opera_gesture_surface.gd:5562-5573,5603-5610,5613-5633). Placement queues redraw and emits the pipe gesture signal; visible feedback timing was not measured on a rendered device.",
+    "drag_hold_release": "One-finger tap-tap and tray-to-cell drag are both supported in source. Releasing a carried tile outside the grid returns it selected to the tray; releasing over an occupied cell restores it to its source cell when applicable (opera_gesture_surface.gd:5613-5633). The probe checks tray-tap/cell-tap, drag, and lift/release paths, not a real finger hold or interrupt.",
+    "ownership": "Current _gui_input ignores a new screen press while held and accepts drag/release only for the active touch index (opera_gesture_surface.gd:1249-1267). L30 did not send InputEventScreenTouch through this handler, so this code-level ownership observation needs a routed two-finger acceptance test.",
+    "cancellation": "Source returns a carried tile to tray on a release outside the board and allows placed wrong tiles to be lifted, including after fuel reaches them (opera_gesture_surface.gd:5584-5601,5613-5633). No application focus-loss or pause cancellation was exercised by L30."
+  },
+  "play_appeal": {
+    "hypothesis": "The fuel visibly traveling through a pipe the child assembled could make the route feel causal, and the sleeping imp and changing exit direction may add variety across boards. Repairing an already-fueled mistake and seeing the route continue may support experimentation. These are source-grounded appeal hypotheses, not observed child reactions.",
+    "agency_test": "Offer the child an incorrect pipe choice, let them lift or wait for the hint, then observe whether they independently repair the route and attend to the fuel reaching the rocket. After the third board, offer no prompt and record whether they request another turn or leave."
+  },
+  "play_sequence": [
+    {
+      "beat": "Enter the Astronaut pipe board",
+      "input": "From a verified ordinary Astronaut PIPES entry, wait for the spoken instruction, then touch one tray tile once and release.",
+      "wait": "Wait for the phase instruction to finish; no fixed entry animation duration was established here.",
+      "expected": "PIPES asks the child to connect fuel tank to rocket across three boards (opera_career_world_2d.gd:205-207,326).",
+      "grounding": "scripts/opera_career_world_2d.gd:205-207,326; scripts/opera_gesture_surface.gd:5562-5574"
+    },
+    {
+      "beat": "Place a straight pipe",
+      "input": "Tap the tray tile, lift, then tap the next open cell along the visible route; alternatively drag a tile from tray to an open cell and lift.",
+      "wait": "After each placement, watch for fuel movement. In an incomplete route the next flow step is scheduled every 1.2 seconds of game time.",
+      "expected": "The pipe appears in the chosen cell, the tray count drops by one, and fuel advances only through connected matching mouths.",
+      "grounding": "scripts/opera_gesture_surface.gd:5466-5496,5524-5555,5603-5620"
+    },
+    {
+      "beat": "Follow round-one fuel to the rocket",
+      "input": "Place the two horizontal pieces in cells 5 and 6 as the probe does, using one-finger tap-tap for the first and drag for the second.",
+      "wait": "Allow about 9 seconds of simulated game time for the probe's round-one path, then wait 1.5 seconds across the board transition; these are probe timing legs, not a measured child pace.",
+      "expected": "Fuel reaches the rocket, the board completes, and round two appears after the one-second internal pause.",
+      "grounding": "scripts/probe_opera_pipe.gd:57-69; scripts/opera_gesture_surface.gd:5517-5555"
+    },
+    {
+      "beat": "Try and repair a wrong route",
+      "input": "Place the southwest elbow in cell 0, let fuel reach it, then tap that fueled pipe and release it back over the tray.",
+      "wait": "Wait about 4 seconds of simulated game time for fuel to reach the bad turn. If left blocked, the cell hint begins at 8 seconds and an eligible wrong pipe returns after 16 seconds.",
+      "expected": "The pipe lifts, fuel drains back to the last connected segment, and the tile returns to the tray without losing the round.",
+      "grounding": "scripts/probe_opera_pipe.gd:71-82,101-106; scripts/opera_gesture_surface.gd:5530-5545,5584-5601"
+    },
+    {
+      "beat": "Complete the second route around the sleeping imp",
+      "input": "Place SE at cell 0, H at 1, SW at 2, and NE at 6, as in the focused probe; let the child observe the fuel and imp response.",
+      "wait": "The probe allocates 14 seconds of simulated flow time. Once the route is complete, flow steps use 0.35 seconds rather than 1.2 seconds.",
+      "expected": "Fuel follows the connected turns around the imp and round two completes; the hint must point to a useful cell rather than the imp.",
+      "grounding": "scripts/probe_opera_pipe.gd:83-89,92-99; scripts/opera_gesture_surface.gd:5524-5555,5636-5663"
+    },
+    {
+      "beat": "Test the final board and ownership",
+      "input": "Use the third board's changed exit direction to connect the remaining pieces. During a routed acceptance session, keep one tile held and briefly touch a second tray spot with another finger, then release the first finger.",
+      "wait": "Wait for the 1-second inter-board pause and let fuel advance at the incomplete or complete-path interval as appropriate; do not use a fixed total session duration.",
+      "expected": "The third route reaches the rocket; a second finger does not steal the carried tile, and each tile remains recoverable.",
+      "grounding": "scripts/opera_gesture_surface.gd:1249-1267,5416-5437,5517-5555; audit/findings/ACTIVE_FINDINGS_2026-08-13.md:674-690"
+    },
+    {
+      "beat": "Check appeal without prompting",
+      "input": "After the third board response settles, pause and let the child decide whether to show the route, ask to play again, or leave.",
+      "wait": "Allow the child to finish or leave at their pace; do not treat probe wall time as session duration.",
+      "expected": "Record whether the child initiates repair, tracks the fuel's causal path, and asks to replay without an adult cue; this is a proposed test, not evidence collected in L30.",
+      "grounding": "scripts/opera_career_world_2d.gd:205-207; design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:318-349,550-584"
+    }
+  ],
+  "observations": [
+    {
+      "title": "The focused pipe regression passes its tested conservation and recovery paths",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_opera_pipe.gd:48-69,71-89,92-106 (tap-tap, drag, tile census, fueled lift, hint and auto-return assertions)",
+        "audit/cycles/luna-playtest-20261012/runtime/L30/attempt_1/probe.log:3 (PIPE|result: ALL OK)",
+        "audit/cycles/luna-playtest-20261012/runtime/L30/attempt_1/receipt.json (attempt 1 PASS, Godot 4.7.2-stable, isolated profile, headless=true, rendered_mobile_acceptance=false)"
+      ],
+      "rules": ["DL-AGE-03", "DL-AGE-05", "DL-INT-02", "DL-INT-05", "DL-QA-02"],
+      "existing_findings": ["MA-OPERA-013", "MA-OPERA-003"],
+      "reproduction": "The one authorized helper invocation ran the unchanged focused probe once. It directly configured an 852x560 surface and invoked its private handlers; all printed probe assertions passed. This confirms only those asserted paths, not routed touch or whole phase completion.",
+      "child_impact": "Recoverable placement and conservation reduce the chance that an exploratory mistake permanently blocks the puzzle. A headless pass says nothing about whether a preschooler notices or understands those responses.",
+      "proposed_repair": "No repair indicated for the probe-covered one-finger paths. Preserve this as narrow internal evidence and extend routed coverage only where authorized work addresses the remaining gaps.",
+      "acceptance_test": "On the target device, route actual one-finger tap-tap and drag placement, lift a fueled wrong pipe, wait through hint and auto-return, and complete all three boards; inspect Mobile visuals and separately observe uncoached child comprehension and recovery."
+    },
+    {
+      "title": "The pipe puzzle supports two one-finger placement grammars and explicit recovery",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_gesture_surface.gd:5562-5574 (tray pick removes tile into carried state)",
+        "scripts/opera_gesture_surface.gd:5603-5633 (remembered-tile tap placement, drag placement and return destinations)",
+        "scripts/probe_opera_pipe.gd:57-66 (both placement forms asserted)"
+      ],
+      "rules": ["DL-AGE-02", "DL-INT-01", "DL-INT-05"],
+      "existing_findings": [],
+      "reproduction": "Read the source handler branches and the probe's round-one sequence. Taps and drags are both directly tested, but L30 did not measure target projection or use routed phone input.",
+      "child_impact": "A child can choose either a tap-lift-tap rhythm or a continuous drag and can recover a tile by releasing it away from an open board cell.",
+      "proposed_repair": "No source change indicated; verify that tray and cell targets remain legible and large enough at the phone's rendered aspect ratio.",
+      "acceptance_test": "On the Lenovo Tab M11 and intended Android phone, try both placement rhythms, drops on occupied and outside cells, then verify the selected/carried tile remains visible and can be recovered at each release point."
+    },
+    {
+      "title": "The pipe surface rejects a second touch while another finger owns the gesture",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_gesture_surface.gd:1249-1267 (screen press while held is ignored; drag and release are filtered by active touch index)",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:674-690 (MA-OPERA-013 records the prior second-finger tile-loss claim and requires routed proof)"
+      ],
+      "rules": ["DL-UI-04", "DL-AGE-03", "DL-AGE-06"],
+      "existing_findings": ["MA-OPERA-013"],
+      "reproduction": "Code inspection shows _gui_input returns before assigning a new touch index whenever held is true. The L30 probe bypasses _gui_input and contains no second-touch event, so I cannot claim the finding is fixed or reproduced from this run; current code conflicts with the finding's cited old implementation and needs an exact-head routed check.",
+      "child_impact": "If the guard operates on normal routed input, an accidental second finger should not replace a carried pipe; this matters because losing the first board's only tiles could block completion.",
+      "proposed_repair": "Do not change source based on the stale finding text alone. Verify real two-finger events against current code and update the finding lifecycle only with that evidence.",
+      "acceptance_test": "A trusted routed-input probe should press a tray tile with touch index A, press another tray tile with index B while A remains held, then release A. Assert the first tile remains carried, the second remains in its tray slot, and all three boards stay completable."
+    },
+    {
+      "title": "Normal fresh-save access to the Astronaut career remains blocked outside this probe",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/opera_career_world_2d.gd:205-207,326 (free-play and story PIPES phase definitions)",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:973-996 (MA-PLAY-005 CONFIRMED_OPEN P0 and fresh-save route failure)",
+        "audit/cycles/luna-playtest-20261012/runtime/L30/attempt_1/receipt.json (fixture probe, headless; rendered_mobile_acceptance=false)"
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-SAVE-04", "DL-QA-02", "DL-QA-03", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-005", "MA-OPERA-013"],
+      "reproduction": "The focused probe calls configure(\"pipe\") on a new OperaGestureSurface and directly performs scripted placements. It never follows the fresh-save Chapter Two Director/Opera House route. MA-PLAY-005 records the route failure for Chapter Two careers; this L30 review did not independently execute that failure.",
+      "child_impact": "Passing the isolated puzzle does not make it reachable to a child on the ordinary route. It also leaves session start, phase instruction, leaving, re-entry and replay unknown.",
+      "proposed_repair": "Retain the existing route finding and do not claim it repaired here. Test the Astronaut through the normal fresh-save route after the authorized route repair.",
+      "acceptance_test": "From fresh save on the exact candidate, reach the Astronaut via ordinary Chapter Two rooms with actual touch, hear the spoken goal, complete all three boards, pause/leave/re-enter, and confirm saved route integrity; separately inspect Mobile render and conduct child/owner review."
+    }
+  ],
+  "strengths": [
+    {
+      "strength": "Pipe placement preserves the loose-tile count during the tested tap and drag paths, and a wrong fueled pipe can be lifted to restore the route.",
+      "evidence": "scripts/probe_opera_pipe.gd:57-66,71-82; audit/cycles/luna-playtest-20261012/runtime/L30/attempt_1/probe.log:3"
+    },
+    {
+      "strength": "A blocked route waits patiently, hints after eight seconds, and can return an eligible wrong pipe after sixteen seconds; correct connected paths advance fuel faster.",
+      "evidence": "scripts/opera_gesture_surface.gd:5517-5555,5636-5663; scripts/probe_opera_pipe.gd:92-106"
+    }
+  ],
+  "acceptance_gaps": [
+    "The probe is an INTERNAL_PROBE: it directly configures a surface and calls private handlers; ordinary fresh-save Astronaut reachability remains blocked by MA-PLAY-005.",
+    "No routed InputEventScreenTouch or second-finger test was run. Current _gui_input appears to reject a second press while held, but MA-OPERA-013 remains an open lifecycle record until exact-head routed evidence establishes the behavior.",
+    "The probe's round-three assertions verify a hint avoids the imp and a blocked pipe auto-returns; they do not establish successful completion of all three boards in an end-to-end play session.",
+    "No Mobile-rendered capture, actual phone target-size projection, real touch latency/frame pacing, pause/focus-loss recovery, or voice audibility was measured.",
+    "No child evidence establishes non-reader comprehension, causal understanding of fuel flow, comfort, session length, or voluntary replay; owner acceptance is also pending under DL-QA-05/06."
+  ]
+}

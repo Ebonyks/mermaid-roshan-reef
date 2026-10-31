@@ -1,0 +1,115 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L22",
+  "reviewer": {"agent_id": "/root/luna_playtest_coordinator/luna_l22", "model": "gpt-6-luna"},
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Pop Star rhythm and encouragement",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L22/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The single assigned Godot 4.7.2-stable headless run executed scripts/probe_opera_2d.gd with --touch --classic-touch-test and ended OPERA2D|result: ALL OK (runtime/L22/attempt_1/probe.log). Source review confirms OperaPerformancePlan enables the Pop Star two-act plan and its RHYTHM echo/ENCORE circle stage definitions.",
+    "route_gaps": "The assigned probe's broad opera assertions are not a focused Pop Star child playthrough; any setup/direct state or input helpers do not prove the fresh-save visible route, live touch target alignment, voiced encouragement, or stage pacing. No rendered Mobile capture, real Lenovo Tab M11 touch/latency/frame pacing, child comprehension/replay, or owner acceptance was observed. The 27.798-second helper wall time is not gameplay duration."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {"value": "Echo shows the next note after a 0.55-second interval; after a completed verse it waits 0.7 seconds before replaying the next verse, and a wrong note waits 0.9 seconds before replay (scripts/opera_gesture_surface.gd:5880-5892,5917-5929).", "scope": "Source intervals only; no child-visible cadence or rendered timing was observed."},
+      {"value": "Echo verses grow through [0,2], [0,1,2], and [2,1,0] (scripts/opera_gesture_surface.gd:114).", "scope": "Three coded rounds; not a measure of total play time."}
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No gameplay time was observed. Isolated probe wall time does not measure a play session."
+  },
+  "tactile": {
+    "target_size": "Echo stars are centered at 22%, 50%, and 78% of surface width and 52% of height; drawing uses 54-pixel radius (64 while lit), with nearest-star acceptance only within 92 pixels (scripts/opera_gesture_surface.gd:5865,5894-5905,5950-5958). Actual screen projection, target separation and hit alignment on Lenovo Tab M11 are unknown.",
+    "press_response": "During listening, a correct tap lights the selected star and advances input; a wrong star asks the stars to replay (scripts/opera_gesture_surface.gd:5906-5929). The assigned probe did not establish visible response latency or voice playback.",
+    "drag_hold_release": "Echo is discrete press/tap input; no drag or hold is required in _echo_press (scripts/opera_gesture_surface.gd:5894-5931). Release behavior and ordinary GUI event routing were not established by the assigned headless run.",
+    "ownership": "The mechanic is tap-based and this review found no focused assertion establishing multi-touch ownership for echo. One-finger live input is the expected route, but no physical touch was tried.",
+    "cancellation": "No focused echo cancellation, pause, focus-loss, or re-entry behavior was verified in this invocation."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: listening to a short star phrase and choosing its notes gives a preschooler a clear listen-then-answer role, with no punishment on a wrong answer. Whether the cue is understandable without coaching remains unobserved.",
+    "variety": "The three verses change from two notes to three, then reverse order; the following encore changes the verb to drawing a circle (scripts/opera_gesture_surface.gd:114; scripts/opera_career_world_2d.gd:343-347). This is source variety, not observed child interest.",
+    "world_response": "Correct notes produce a star glow and the assembled-song row grows after each verse; a wrong note restarts the phrase instead of ending play (scripts/opera_gesture_surface.gd:5907-5929,5950-5965). The probe log does not establish how readable or encouraging this looks or sounds on device.",
+    "replay": "The source repeats a missed verse and then offers the encore phase. Hypothesis: the replay may feel supportive if the child notices the glowing cue; observed replay choice is absent.",
+    "fun_score": null,
+    "concrete_test_or_proposal": "In a short consented child observation, play one verse without coaching, then allow a wrong tap and one retry. Record whether the child waits for the stars, taps the lit sequence, notices the replay after a miss, and independently chooses to continue to the encore. If the wait feels inert, test a more apparent visual countdown/glow cadence while keeping wrong answers harmless and requiring the child's taps for progress."
+  },
+  "play_sequence": [
+    {"beat": 1, "input": "From the visible Opera Hall route, choose Pop Star and enter the lesson; do not assume the probe's direct setup proves this route.", "wait": "Allow the welcome cue and arrival to finish before touching the lesson surface.", "basis": "Opera Hall lists Pop Star among its three venue careers (scripts/opera_house.gd:120-123); venue route remains unobserved here."},
+    {"beat": 2, "input": "Complete the Pop Star practice phases using the visible prompt: hold the microphone, tap the glowing dance arrow, then tap the noisy band when cued.", "wait": "Wait for each current phase cue and its response before the next input; no duration estimate is asserted.", "basis": "Practice phase definitions and instructions are scripts/opera_career_world_2d.gd:229-235."},
+    {"beat": 3, "input": "At RHYTHM, keep hands still while the first two-star phrase plays.", "wait": "Wait through the shown phrase and for the listening cue; notes are scheduled 0.55 seconds apart (scripts/opera_gesture_surface.gd:5877-5892). This is code timing, not measured play cadence.", "basis": "Echo SHOW mode lights notes before listening; scripts/opera_gesture_surface.gd:5880-5892."},
+    {"beat": 4, "input": "Tap the two lit stars in order, then wait and tap the three-star phrase in order.", "wait": "After each completed phrase, wait for the next phrase to begin; code uses 0.7 seconds (scripts/opera_gesture_surface.gd:5917-5923).", "basis": "Verse arrays [0,2] and [0,1,2], with correct taps advancing one note at a time (scripts/opera_gesture_surface.gd:114,5907-5925)."},
+    {"beat": 5, "input": "Wait for the final reversed phrase, then tap its notes in the displayed/sung order.", "wait": "Wait for the listening cue before each answer; no real-time measurement was made.", "basis": "The final source verse is [2,1,0] and the probe's focused echo checkpoint leg restores the first note before accepting the second (scripts/opera_gesture_surface.gd:114; scripts/probe_opera_performance.gd:303-343)."},
+    {"beat": 6, "input": "If a note is missed, wait for the stars to replay and try the phrase again; do not coach the child during the observation.", "wait": "Code replays a missed verse after 0.9 seconds (scripts/opera_gesture_surface.gd:5923-5929); this is not observed child pacing.", "basis": "Wrong-note path restarts the verse without a fail state (scripts/opera_gesture_surface.gd:5923-5929)."},
+    {"beat": 7, "input": "After RHYTHM completes, follow the ENCORE cue by drawing one big circle, then let the child choose whether to replay or leave.", "wait": "Wait for the phase result and choice; no total duration or reward timing is claimed.", "basis": "Stage RHYTHM and ENCORE have echo/circle modes and short verbal cues (scripts/opera_career_world_2d.gd:343-347)."}
+  ],
+  "observations": [
+    {
+      "title": "Pop Star stage adds a three-round echo song after its practice lessons",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/opera_performance_plan.gd:8,16-34 enables popstar, duplicates each source phase into practice and stage, and sets stage_start to the practice count.", "scripts/opera_career_world_2d.gd:343-347 defines stage RHYTHM as echo with three goal units and ENCORE as circle.", "scripts/probe_opera_2d.gd:335-428 checks approved venue careers and performance phase structure; runtime/L22/attempt_1/probe.log ends OPERA2D|result: ALL OK."],
+      "rules": ["DL-AGE-06", "DL-INT-07", "DL-QA-02"],
+      "existing_findings": ["MA-OPERA-012"],
+      "reproduction": "Inspect the Pop Star source phase list, then follow OperaPerformancePlan.build: the first three source phases are copied to practice and source phases are copied again as stage phases. The assigned probe passes its broad Opera assertions but does not simulate a child choosing this route.",
+      "child_impact": "A familiar tap/hold/dance lesson transitions to a listen-and-repeat song, adding a changed activity before the encore. Whether this feels like a rewarding performance or an overly long repeat is unknown.",
+      "proposed_repair": "No repair is justified from these assertions. Observe a child-paced session first and retain the short repeated phrases if the child understands and opts in.",
+      "acceptance_test": "On the target phone from a fresh save, verify that visible Pop Star practice leads to exactly the intended stage phases and the child can independently reach and complete the echo and encore without reading."
+    },
+    {
+      "title": "Echo phrases grow and change order, and wrong taps trigger a gentle replay",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/opera_gesture_surface.gd:114 defines verses [0,2], [0,1,2], [2,1,0].", "scripts/opera_gesture_surface.gd:5907-5929 advances correct input and restarts after a wrong note without a failure state.", "scripts/opera_gesture_surface.gd:5950-5965 draws the current lit star and cumulative song row."],
+      "rules": ["DL-AGE-03", "DL-AGE-05", "DL-INT-02", "DL-MOT-04"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Trace _echo_press for one correct note and one wrong note. The wrong note resets echo_show_i and schedules replay; no focused child-facing run occurred in L22.",
+      "child_impact": "This can teach that mistakes are safe and the song changes, but the child must notice when to listen and when to answer. Comprehension and encouragement are untested.",
+      "proposed_repair": "Keep the harmless replay. Only adjust cue timing or visual contrast if device/child observation identifies a specific missed cue.",
+      "acceptance_test": "Observe an uncoached non-reader through a correct phrase and one intentional wrong note; verify they wait for the replay and can retry without confusing the song with their turn."
+    },
+    {
+      "title": "Echo uses discrete taps with an explicit nearest-star cutoff",
+      "classification": "CONFIRMED_CODE",
+      "evidence": ["scripts/opera_gesture_surface.gd:5865 sets star centers; 5894-5905 selects the nearest of three only within 92 pixels.", "scripts/opera_gesture_surface.gd:5950-5958 draws 54-pixel stars, enlarged to 64 when lit."],
+      "rules": ["DL-AGE-02", "DL-UI-01", "DL-UI-03", "DL-INT-01"],
+      "existing_findings": ["MA-TOUCH-001", "MA-OPERA-004"],
+      "reproduction": "Compare the star center/radius drawing to the 92-pixel nearest-input radius. This establishes base-canvas code geometry only; there is no rendered capture or touch test in this review.",
+      "child_impact": "Forgiving taps may help a one-finger player; the 92-pixel cutoff can still reject a tap that appears close depending on canvas scaling and device alignment.",
+      "proposed_repair": "No code change without observed evidence. Capture the stage at required aspect ratios and measure visible star-to-hit alignment on device.",
+      "acceptance_test": "At target device and approved aspect ratios, tap star centers and edges plus the intervening gaps; confirm each intended star responds within two rendered frames and visually separate stars do not select ambiguously."
+    },
+    {
+      "title": "Echo note feedback and turn transitions are code-supported but not verified as timely rendered cues",
+      "classification": "COVERAGE_GAP",
+      "evidence": ["scripts/opera_gesture_surface.gd:5877-5892 queues redraw as glow changes and transitions from SHOW to listening.", "scripts/opera_gesture_surface.gd:5907-5929 queues redraw after correct and wrong taps.", "audit/cycles/luna-playtest-20261012/runtime/L22/attempt_1/receipt.json records headless=true and rendered_mobile_acceptance=false; probe log: last line OPERA2D|result: ALL OK."],
+      "rules": ["DL-AGE-07", "DL-MOT-04", "DL-QA-03", "DL-QA-04"],
+      "existing_findings": ["MA-OPERA-004", "MA-PERF-001"],
+      "reproduction": "The internal headless invocation passed, but its receipt explicitly marks rendered_mobile_acceptance false; no frame-by-frame visual latency assertion is present in this assigned evidence.",
+      "child_impact": "A child may not distinguish when the stars are singing from when it is their turn, or may not see a timely response to a tap.",
+      "proposed_repair": "Collect rendered timing and device evidence before proposing a repair; if cues are missed, adjust the show/listen distinction while preserving the harmless replay.",
+      "acceptance_test": "Capture show-to-listen, correct-note, wrong-note replay, and verse-change transitions on the target phone; verify visually immediate, unambiguous feedback and stable frame pacing."
+    },
+    {
+      "title": "Pop Star encouragement voice is specified in source but was not heard or approved",
+      "classification": "COVERAGE_GAP",
+      "evidence": ["scripts/opera_career_world_2d.gd:234,346 map practice and stage RHYTHM to op_popstar_rhythm and op_popstar_rhythm_stage with spoken instructions.", "The L22 invocation is headless and its receipt reports no rendered acceptance; no audio approval evidence is present."],
+      "rules": ["DL-AGE-01", "DL-AGE-07", "DL-QA-05", "DL-QA-06"],
+      "existing_findings": ["MA-ACCESS-001", "MA-CHILD-001"],
+      "reproduction": "Read the phase voice IDs and text in source. L22 does not play or authorize any recorded voice asset.",
+      "child_impact": "The written instruction promises to scaffold a non-reader, but whether the recording is audible, well-timed and encouraging in the performance remains unknown.",
+      "proposed_repair": "No recording change is supported or authorized by this evidence. Review the existing recorded cues in context with owner/child gates before any voice decision.",
+      "acceptance_test": "On device, verify each existing Pop Star cue plays at the correct phase, can be heard over music, matches the visible action, and is understood by a non-reading child; record owner approval separately."
+    }
+  ],
+  "strengths": [
+    {"claim": "The echo source provides three distinct short sequences, visibly lights notes, tracks listening input, and safely replays a missed verse.", "evidence": "scripts/opera_gesture_surface.gd:114,5877-5929,5950-5965."},
+    {"claim": "The single assigned headless probe completed successfully at the exact approved Godot version.", "evidence": "runtime/L22/attempt_1/receipt.json records 4.7.2.stable.official, exit_code 0 and no failures; probe.log ends OPERA2D|result: ALL OK."}
+  ],
+  "acceptance_gaps": [
+    "The assigned probe is broad Opera coverage, not a dedicated Pop Star child playthrough; source review confirms mechanics but not a naturally reached route or an independently chosen next action.",
+    "No rendered Mobile capture establishes target size/alignment, cue clarity, response within two rendered frames, or show/listen distinction.",
+    "No physical Lenovo Tab M11 interaction, audio audibility, latency/frame pacing, or second-aspect evidence was collected.",
+    "No consented child observation establishes non-reader comprehension, encouragement, comfort with retry, session length, or replay choice; owner acceptance remains pending.",
+    "L22 did not authorize or listen to any recording; existing voice paths are noted as code only and protected voice assets were untouched."
+  ],
+  "voice_status": "Source maps Pop Star practice and stage to existing voice event IDs (scripts/opera_career_world_2d.gd:229-235,343-347). This headless session did not play or approve any recording; no voice asset was changed."
+}

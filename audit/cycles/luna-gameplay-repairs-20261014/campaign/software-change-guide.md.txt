@@ -1,0 +1,86 @@
+# Mermaid Roshan Software Change Guide
+
+Restore Chapter Two career startup and required interactions first. Investigate the two combat assertion failures before choosing a gameplay repair. Then address objective cue gaps and strengthen reload, teardown, and ordinary-route verification.
+
+This guide describes build `056d890ef38f2496ab52669c955ada654f902511`, tested with Godot `4.7.2.stable.official.ed1daf0bf`. The campaign used 202 Luna test workers: 200 primary episodes across 82 distinct probe sources, plus two independent reproductions. Primary outcomes were 196 PASS, two FAIL, and two NOT_MEASURED. These are scripted diagnostic results; they do not establish complete autonomous playthroughs or phone, child, visual, audible-voice, or owner acceptance.
+
+The [coordinated findings](C:/Users/Peter/.codex/visualizations/2026/10/14/01a13860-5096-76d3-8130-30e48e47bc62/luna-findings.json) and [verified evidence receipt](C:/Users/Peter/.codex/visualizations/2026/10/14/01a13860-5096-76d3-8130-30e48e47bc62/luna-evidence-receipt.json) retain the exact sources, logs, reviews, and hashes. This is task guidance; no code repair or canonical finding status change has been made.
+
+## Recommended change order
+
+| Order | Work | Evidence status | Completion criterion |
+| --- | --- | --- | --- |
+| 1 | Restore Chapter Two startup | Existing P0 `MA-PLAY-005`; independently reproduced | All eight careers build valid story phases through the production entry path |
+| 2 | Bind required Chapter Two interactions | 18 of 29 phase bindings missing in the explicit-phase diagnostic | Every required phase opens through its intended reachable object or explicit story interaction |
+| 3 | Localize Grand Puff and tutorial failures | Scripted assertions failed; gameplay cause unresolved | Explain the failed condition and verify a bounded repair without weakening the behavior contract |
+| 4 | Supply exact objective cues | Two source metadata gaps | Authorized spoken objective and matching pointer work in context |
+| 5 | Strengthen reload and teardown evidence | Harness gap and shutdown diagnostic | Exercise actual scene reload and attribute the leaked instances |
+| 6 | Verify ordinary play and persistence | Coverage remains incomplete | Real input, restart, visual, device, child, and owner evidence at the exact repaired build |
+
+The ordering of investigation and coverage work is a recommendation, not a new canonical severity assignment. Combat diagnosis and harness work can run alongside the Chapter Two repair.
+
+## 1 Restore Chapter Two career entry
+
+**Problem:** the guarded production-entry reproduction showed `OperaHouse.start` returning `true` for all eight story careers while each world had zero phases and no built wander layer. The world reported `rejected invalid Chapter 2 phase override`. Root and the independent Luna worker produced identical logs. Story prerequisites were injected, so this does not prove discovery and travel from a fresh save.
+
+**Repair targets:** [main.gd](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/main.gd:2783), [opera_house.gd](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/opera_house.gd:187), [opera_act.gd](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/opera_act.gd:78), [opera_career_world_2d.gd](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/opera_career_world_2d.gd:666), and [chapter_two_career_scene_adapter.gd](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/chapter_two_career_scene_adapter.gd:119).
+
+1. Preserve the difference between an absent phase override and an explicitly invalid one. Let the Chapter Two adapter resolve its authored phases when no override is supplied; do not manufacture an empty override from a default value.
+2. Pass the resolved phase data consistently through the production configuration. A `phase_count` alone cannot build the activity.
+3. Propagate setup failure through world, act, and house startup. Use the existing main return path to restore the source room and visibility safely, preserving progress.
+4. Add a failing regression that enters through the visible career target with viewport touch events routed through the production input path. Keep the diagnostic fixture as a separate configuration test. Physical Android touch remains a separate phone acceptance check.
+
+**Verify:** all eight entries create their correct authored phases and usable stage; invalid configuration returns safely; free-play Opera remains unchanged. Include no-input, wrong-career, cancel, re-entry, and save/resume cases. A fixture PASS alone cannot close `MA-PLAY-005`.
+
+## 2 Bind every required Chapter Two interaction
+
+**Problem:** supplying phases explicitly exposed 18 missing bindings among 29 phases. Unmapped counts were Farmer 3/3, Candy Maker 4/4, Ballerina 3/3, Detective 3/3, Painter 2/3, Pop Star 1/4, Astronaut 2/4, and Chef 0/5 unmapped (all five Chef phases were mapped). This is the campaign measurement; the canonical finding's historical count is 19. Missing station bindings require route investigation and do not independently prove that every phase lacks an alternate activation path.
+
+**Change:** extend story-specific bindings in [station assignment](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/opera_career_world_2d.gd:1890) and [phase arming](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/opera_career_world_2d.gd:2497). Bind each required phase to its authored landmark, or define its intentional story-owned interaction. Avoid sequential fallback onto unrelated objects and time-driven skipping of required work. Reuse existing approved artwork.
+
+Preserve the [eight-career production spine](C:/Users/Peter/Documents/mermaid-roshan-reef/design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md): sequence `[6, 0, 3, 10, 2, 13, 11, 1]`, career-result save mask `chapter2_party_piece_mask` with required value `0x2C4F`, cake dependencies, late candle discovery, and additive milestone saves. Do not award free-play stars for story progress.
+
+**Verify:** approach precedes action, visible contact precedes reward, repeat taps act once, cancellation earns nothing, and return restores the exact room and camera. Complete all eight jobs in order through real objects, then verify the lawn finale and free-play cards. Include a fresh-process resume at meaningful milestones.
+
+## 3 Diagnose the combat failures before changing gameplay
+
+**Grand Puff:** episode 125 and the independent unchanged repeat failed the same recovery floor-press movement assertion, with identical logs. Earlier episode 043 passed. A derivative with diagnostic output passed; the output may have changed scheduling.
+
+Start at [probe_dust_boss.gd](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/probe_dust_boss.gd:335) and [dust_boss.gd](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/games/dust_boss.gd:611). Buffer before/after position, target, travelling state, recovery state, frame count, and elapsed time; emit them after the critical window. Split the travelling-and-distance observation so the failed condition is identifiable. Compare unchanged solo and concurrent runs, then exercise the gesture through ordinary encounter entry. Decide from that evidence whether gameplay, the harness, or both need repair.
+
+**Tutorial:** episode 189 failed the charge-to-wave check and the following overlay/wave-size check, yet later passed completion and diploma persistence. Earlier runs and an unchanged root repeat passed. [The probe](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/probe_combat_tutorial.gd:175) waits 20 process frames under six-times accelerated time; [HitEngine](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/hit_engine.gd:50) charges using elapsed delta and a 1.75-second threshold. Scheduling is a hypothesis, not an established cause.
+
+Capture charge duration, enemy state, and lesson transition at the original assertion boundaries. If the harness timing is at fault, make it measure the game-defined duration with a bounded deadline while preserving the required charge, transition, and no-input conditions. Passing repeats must not erase the preserved failures.
+
+## 4 Resolve the exact objective voice gaps
+
+[Seek](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/games/seek.gd:233) retains `objective_recording_gap=evie_tap_wiggly_bush`; [Dolls](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/games/dolls.gd:251) retains `objective_recording_gap=faron_catch_three`. These are two exact-cue metadata gaps. The campaign did not measure how the fallback sounds or whether the child understands it.
+
+Inventory existing authorized recordings first. Bind a suitable exact objective when available, with the matching visual pointer; otherwise record the specific missing recording and arrange it through the existing owner-authorized voice process. Preserve protected family recordings. Verify queue priority, repeat prompting, audible playback on the device, and comprehension without reading or adult explanation. A generic acknowledgement does not establish objective acceptance.
+
+## 5 Exercise real reload and attribute teardown leaks
+
+**Start New:** episodes 078, 160, and 196 passed scripted hold/save checks but logged a null `current_scene` during reload. The fixture manually reconstructs `ReefMain`; actual production reload remains unmeasured. Extend [probe_start_menu_new_game.gd](C:/Users/Peter/Documents/mermaid-roshan-reef/scripts/probe_start_menu_new_game.gd) to launch a real current scene, exercise the intended hold, complete deferred reload, and inspect saved state from a new process using disposable saves. Test short presses, interrupted holds, repeated requests, save archival, and Continue. Establish production behavior before proposing a game fix.
+
+**Kart:** episodes 039 and 121 each reported nine leaked ObjectDB instances at shutdown after all assertions passed. Attribute their types and ownership; repeat enter/leave and teardown, then check retained-object growth. A shutdown warning does not establish growing device memory use. Repair the responsible lifecycle only once identified.
+
+## Verification required for each repair
+
+Follow [master audit section 9](C:/Users/Peter/Documents/mermaid-roshan-reef/audit/MASTER_AUDIT_2026-08-09.md:1951) and the [development contract](C:/Users/Peter/Documents/mermaid-roshan-reef/design/AUDIT_DEVELOPMENT_CONTRACT.md). Freeze the failing baseline and applicable rules before editing. Add an audit-impact record covering changed files; update affected canonical facts, history, index, and ledger when their facts or authority change.
+
+- Fetch before implementation and create `codex/<topic>` from `origin/dev`. Handle unrelated dirty work through the repository's rescue workflow before starting development. Keep local `dev` and `master` pull-only during development. After the work branch has passed required gates and exact-head CI, reconcile current `origin/dev`, merge the finished branch into `dev`, rerun required gates, and push the integration. Release promotion uses the owner-authorized promotion workflow; never push directly to `master`.
+- Use exactly Godot 4.7.2-stable through the approved resolver. Run changed-script parser and inference lint, Godot analyzer/import as applicable, the full trusted suite, document authority, development coverage, and all affected existing gates. Preserve red results; do not push or integrate red or unprobed work.
+- Test correct, wrong, passive, repeat, cancel/focus loss, teardown, re-entry, and save/load. Cover callers, callees, sibling modes, and shared helpers. Chapter Two requires its director, Farmer resume, lawn, milestone save, Opera, Opera 2D, and passive checks alongside the new real-route regression.
+- Apply the [stage protocol](C:/Users/Peter/Documents/mermaid-roshan-reef/audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md): far tap, far drag, near action once, cancellation, safe OOB recovery, door arrival, exact return, and zero input. Fixed-board internals and their approach/return seams are separate checks.
+- Preserve every existing `reef_save.json` key; add new keys with defaults and preserve the recoverable backup path. Keep existing progress, use isolated test saves, keep new gameplay on the true 2D Canvas and Mobile renderer, and preserve protected art and voices. No child-facing failure, lost progress, or reading-dependent objective may be introduced.
+- Carry forward the campaign runner's launch journal and no-overwrite guard. Archive each attempt separately. Episode 109's overwritten first-attempt log and unknown outcome remain explicit. Episodes 025 and 107 remain NOT_MEASURED; obtain rendered evidence separately. Prior Royal Hall mist failures also remain historical evidence despite later passing runs.
+- Report implementation, exact-build machine verification, and outstanding visual/device/child/owner acceptance separately. `DL-QA-02` keeps injected state diagnostic; `DL-QA-07` keeps skips distinct from passes. Use `FIXED_PENDING_VERIFICATION` until the finding's required acceptance evidence is complete.
+
+The Chapter Two repair is ready for acceptance only when ordinary fresh-save progression after Grand Puff completes all eight jobs through real touches, saves and resumes correctly, reaches the finale, and exposes the free-play cards, with the required phone and human evidence. Global master-audit satisfaction remains separate.
+
+## Evidence to start from
+
+- [Chapter Two reproduction](C:/Users/Peter/.codex/visualizations/2026/10/14/01a13860-5096-76d3-8130-30e48e47bc62/luna-evidence/root_reproductions/chapter2-entry-v2.log) and [independent review](C:/Users/Peter/.codex/visualizations/2026/10/14/01a13860-5096-76d3-8130-30e48e47bc62/luna-evidence/reviews/201.json).
+- [Grand Puff failed run](C:/Users/Peter/.codex/visualizations/2026/10/14/01a13860-5096-76d3-8130-30e48e47bc62/luna-evidence/episodes/125.log) and [independent repeat](C:/Users/Peter/.codex/visualizations/2026/10/14/01a13860-5096-76d3-8130-30e48e47bc62/luna-evidence/root_reproductions/episodes/125.log).
+- [Tutorial failed run](C:/Users/Peter/.codex/visualizations/2026/10/14/01a13860-5096-76d3-8130-30e48e47bc62/luna-evidence/episodes/189.log) and [unchanged passing repeat](C:/Users/Peter/.codex/visualizations/2026/10/14/01a13860-5096-76d3-8130-30e48e47bc62/luna-evidence/root_reproductions/episodes/189.log).
+- [Canonical MA PLAY 005](C:/Users/Peter/Documents/mermaid-roshan-reef/audit/findings/ACTIVE_FINDINGS_2026-08-13.md:971) and [final coordination record](C:/Users/Peter/.codex/visualizations/2026/10/14/01a13860-5096-76d3-8130-30e48e47bc62/luna-evidence/coordination.json).

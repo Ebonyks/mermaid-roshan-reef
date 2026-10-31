@@ -1,0 +1,46 @@
+{
+  "status": "PASS_SYNTAX_INFERENCE_AND_NO_TYPOGRAPHY_REGRESSION_ONLY",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/collection_system.gd",
+        "scripts/navigation_controller.gd",
+        "scripts/pause_menu.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/collection_system.gd",
+        "scripts/navigation_controller.gd",
+        "scripts/pause_menu.gd",
+        "scripts/storybook_ui.gd"
+      ],
+      "exit_code": 0,
+      "output": "",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_typography.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output": "TYPOGRAPHY_AUDIT status=OPEN\r\nFONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING\r\nGLYPHS observed=133 unclassified=0 critical=124 critical_unresolved=124\r\nLABEL3D current=36 baseline=45 files=11 delta=-9\r\nLABEL3D_FILE  7 scripts/arena/sky_lagoon.gd\r\nLABEL3D_FILE  2 scripts/collection_system.gd\r\nLABEL3D_FILE  1 scripts/combat_arena.gd\r\nLABEL3D_FILE 11 scripts/companion.gd\r\nLABEL3D_FILE  1 scripts/dungeon_puzzle_room.gd\r\nLABEL3D_FILE  2 scripts/galaxy.gd\r\nLABEL3D_FILE  4 scripts/games/shop.gd\r\nLABEL3D_FILE  4 scripts/kart.gd\r\nLABEL3D_FILE  2 scripts/main.gd\r\nLABEL3D_FILE  1 scripts/reef_districts.gd\r\nLABEL3D_FILE  1 scripts/stuffie_battle.gd\r\nOPEN font authority, coverage, and/or device evidence remains unresolved\r\n",
+      "sha256": "e7c6e9e507cf30adaec92316b9bb2adb58121037f1a189be4c8c5bd3931840be"
+    }
+  ],
+  "typography_acceptance": "Font/fallback/device authority remains OPEN; no critical glyph acceptance."
+}

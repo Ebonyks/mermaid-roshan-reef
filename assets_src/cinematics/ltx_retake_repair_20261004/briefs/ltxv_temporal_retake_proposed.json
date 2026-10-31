@@ -1,0 +1,22 @@
+{
+  "status": "DRAFT_UNEXECUTED",
+  "method": "Existing LTX-Video 2B complete-canvas temporal-mask retake, source encoding and corrected image guide",
+  "reason": "Smaller installed model already executes quickly on this card; four actual trial requests consume the existing cap, so this graph is not submitted",
+  "has_generated_output": false,
+  "negative_conditioning": "CFG=1: ConditioningZeroOut reuses positive tensor instead of computing unused negative CLIP text; downstream behavior must be tested",
+  "resolution": [
+    896,
+    512
+  ],
+  "source_frames": 25,
+  "temporal_latent_mask": [
+    0,
+    1,
+    1,
+    0,
+    0,
+    0
+  ],
+  "first_four_entries": "Four source temporal blocks, then two appended guide tokens",
+  "required_checks": "One bounded next trial, encoded-source vs sampled first/last latent comparison, full-figure motion, hand/dress/shoulder continuity, exact source splice and seam review; no quality guarantee"
+}

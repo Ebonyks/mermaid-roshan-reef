@@ -1,0 +1,251 @@
+{
+  "backend": "built-in image_gen.imagegen",
+  "model_selector": "NOT_EXPOSED",
+  "model_revision": "NOT_EXPOSED",
+  "request_id": "NOT_EXPOSED",
+  "seed": "NOT_EXPOSED",
+  "usage": "NOT_EXPOSED",
+  "exposed_result_fields": [
+    "image_url",
+    "output_hint"
+  ],
+  "returned_original_path": "C:/Users/Peter/.codex/generated_images/01a119cc-74b1-7d23-b956-126129405418/exec-ab7efc2d-0f2a-462b-8a3e-933e8e5a01fb.png",
+  "native_sha256": "9a13f207d65d2e32716a159bd3d5387265da06f70d14a4d055b0bff9999a19b0",
+  "native_dimensions": [
+    2172,
+    724
+  ],
+  "takes": 1,
+  "rejects": 0,
+  "animation_calls": 0,
+  "native_visible_RGBA_changed_pixels": 0,
+  "prompt": "PROMPT.txt",
+  "references": "GENERATION_REQUEST.json",
+  "method": "Aseprite native roundtrip preserves every nontransparent RGBA pixel. Complete724square crops x4/730/1448 retain each whole object including alpha>8 edges. Only clear gutters/isolated alpha<=1 noise between objects omitted. Actual Aseprite uniform432/724 resize then exact40px transparentpadding on512square. No paint/recolor/deformation/part splitting.",
+  "technical_recovery": "Initialunsupported --canvas-size option returned0 but no file; no runtime export was made. Resumed from healthy preserved native/crop masters, actual scale+Lua transparentpad exports; no regeneration. Bounds/existence/C2 asserted, no engine candidate launched before exports.",
+  "aseprite_version": "Aseprite 1.3.18.4-x64",
+  "commands": [
+    [
+      "C:\\Program Files\\Aseprite\\Aseprite.exe",
+      "-b",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_station_props_20261030\\mint_whole_crop.aseprite",
+      "--scale",
+      "0.5966850828729282",
+      "--save-as",
+      "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-station-props-20261030\\mint_scaled432.aseprite"
+    ],
+    [
+      "C:\\Program Files\\Aseprite\\Aseprite.exe",
+      "-b",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_station_props_20261030\\blue_whole_crop.aseprite",
+      "--scale",
+      "0.5966850828729282",
+      "--save-as",
+      "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-station-props-20261030\\blue_scaled432.aseprite"
+    ],
+    [
+      "C:\\Program Files\\Aseprite\\Aseprite.exe",
+      "-b",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_station_props_20261030\\lavender_whole_crop.aseprite",
+      "--scale",
+      "0.5966850828729282",
+      "--save-as",
+      "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-station-props-20261030\\lavender_scaled432.aseprite"
+    ],
+    [
+      "C:\\Program Files\\Aseprite\\Aseprite.exe",
+      "-b",
+      "--script",
+      "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-geologist-station-props-20261030\\pad_exports.lua"
+    ]
+  ],
+  "exports": [
+    {
+      "role": "mint",
+      "path": "assets/opera/worlds/props/geologist_station_tray_mint_painted.png",
+      "sha256": "bdc6c12570c08fa030474e2eda15e69ad301d35cb2f6024718c5e93d6cdef71a",
+      "dimensions": [
+        512,
+        512
+      ],
+      "whole_source_crop": [
+        4,
+        0,
+        724,
+        724
+      ],
+      "uniform_scale": 0.5966850828729282,
+      "padding": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "editable_master": "assets_src/imagegen/geologist_station_props_20261030/mint_runtime512.aseprite",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 69.1,
+        "faint_haze_pct_of_canvas": 0.6,
+        "semi_pct_of_visible": 1.4,
+        "near_opaque_pct_of_visible": 96.7,
+        "opaque_255_pct": 0.1,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          66,
+          116,
+          471,
+          399
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    },
+    {
+      "role": "blue",
+      "path": "assets/opera/worlds/props/geologist_station_tray_blue_painted.png",
+      "sha256": "c5fdc521b2d3ab733a43285d7b69faf2d854ddd7590ffabae94f9f31e26ac557",
+      "dimensions": [
+        512,
+        512
+      ],
+      "whole_source_crop": [
+        730,
+        0,
+        724,
+        724
+      ],
+      "uniform_scale": 0.5966850828729282,
+      "padding": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "editable_master": "assets_src/imagegen/geologist_station_props_20261030/blue_runtime512.aseprite",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 68.8,
+        "faint_haze_pct_of_canvas": 0.7,
+        "semi_pct_of_visible": 1.1,
+        "near_opaque_pct_of_visible": 96.8,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          49,
+          115,
+          456,
+          400
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    },
+    {
+      "role": "lavender",
+      "path": "assets/opera/worlds/props/geologist_station_tray_lavender_painted.png",
+      "sha256": "06fd46d4fd1e5a6fc294331a5b2b7d16ad126de70541e8f478d386d7d0f2e2ab",
+      "dimensions": [
+        512,
+        512
+      ],
+      "whole_source_crop": [
+        1448,
+        0,
+        724,
+        724
+      ],
+      "uniform_scale": 0.5966850828729282,
+      "padding": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "editable_master": "assets_src/imagegen/geologist_station_props_20261030/lavender_runtime512.aseprite",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 68.7,
+        "faint_haze_pct_of_canvas": 0.7,
+        "semi_pct_of_visible": 1.2,
+        "near_opaque_pct_of_visible": 96.7,
+        "opaque_255_pct": 0.1,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          46,
+          115,
+          452,
+          400
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    }
+  ],
+  "existing_whole_reuse": [
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_painted.png",
+      "sha256": "f7b5272f5d73cbd3de012eeffb4603104cc3053a534022a0dafda9e331408acf",
+      "acceptance_scope": "Existing provisional runtime source, not owner-approved anew",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 55.2,
+        "faint_haze_pct_of_canvas": 0.4,
+        "semi_pct_of_visible": 0.8,
+        "near_opaque_pct_of_visible": 98.3,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          80,
+          84,
+          820,
+          455
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+      "sha256": "6eae2e93fdafdfb3a059d3968de1ec39d92174035d7f6a211d1d9b828024c900",
+      "acceptance_scope": "Existing provisional runtime source, not owner-approved anew",
+      "cutout": {
+        "mode": "RGBA",
+        "transparent_pct": 63.3,
+        "faint_haze_pct_of_canvas": 0.4,
+        "semi_pct_of_visible": 0.7,
+        "near_opaque_pct_of_visible": 98.2,
+        "opaque_255_pct": 0.1,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          95,
+          51,
+          422,
+          472
+        ],
+        "verdict": "CUTOUT_OK"
+      }
+    }
+  ],
+  "at_utc": "2026-10-30T23:00:53.692261+00:00"
+}

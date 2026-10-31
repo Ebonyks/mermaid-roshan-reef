@@ -1,0 +1,179 @@
+--- a/tmp/luna_repair_20261014/run_candidate_gate.py
++++ b/tmp/luna_repair_20261014/run_candidate_gate.py
+@@ -51,16 +51,116 @@
+     raise SystemExit('Refusing to overwrite a prior attempt')
+ 
+ def sources():
+-    # Include committed, modified and unignored new files only in code/asset areas.
++    # Include committed, modified and unignored new files in all runtime areas.
+     names = subprocess.check_output(['git', 'ls-files', '-z', '--cached', '--others',
+         '--exclude-standard', '--', 'scripts', 'scenes', 'shaders', 'resources',
+-        'tools', 'project.godot', 'assets/audio/objective_guides',
++        'tools', 'project.godot', 'default_bus_layout.tres', 'assets',
+         'assets_src/audio/objective_guides_20261014'], cwd=root).decode('utf-8').split('\0')
+     return {name: hashlib.sha256((root / name).read_bytes()).hexdigest()
+         for name in sorted(set(names)) if name and (root / name).is_file()}
+ 
++
++def process_snapshot():
++    # Process IDs, parent IDs and creation times only; never command lines.
++    command = [
++        'powershell.exe', '-NoProfile', '-NonInteractive', '-Command',
++        "$ErrorActionPreference = 'Stop'; "
++        "@(Get-CimInstance Win32_Process | Where-Object { $null -ne $_.CreationDate } | ForEach-Object { "
++        "[pscustomobject]@{pid=[int]$_.ProcessId; parent_pid=[int]$_.ParentProcessId; "
++        "created_utc=$_.CreationDate.ToUniversalTime().ToString('o')} "
++        "}) | ConvertTo-Json -Compress",
++    ]
++    result = subprocess.run(command, capture_output=True, text=True,
++        encoding='utf-8', errors='replace', timeout=15,
++        creationflags=subprocess.CREATE_NO_WINDOW, check=True)
++    values = json.loads(result.stdout)
++    if isinstance(values, dict):
++        values = [values]
++    return {value['pid']: value for value in values}
++
++
++def owned_tree(snapshot, child_pid):
++    owned = {child_pid}
++    while True:
++        descendants = {pid for pid, value in snapshot.items()
++            if value['parent_pid'] in owned}
++        expanded = owned | descendants
++        if expanded == owned:
++            return {pid: snapshot[pid] for pid in sorted(owned) if pid in snapshot}
++        owned = expanded
++
++
++def stop_owned_tree(process):
++    result = {'method': 'taskkill /PID <owned-child> /T /F',
++        'owned_child_pid': process.pid, 'stopped_verified': False, 'errors': []}
++    tree = {}
++    try:
++        tree = owned_tree(process_snapshot(), process.pid)
++        result['observed_owned_processes'] = list(tree.values())
++        if process.pid not in tree:
++            result['errors'].append('Owned child absent from pre-kill process snapshot')
++    except Exception as error:
++        result['errors'].append('Pre-kill process snapshot: ' + str(error))
++    try:
++        if process.poll() is not None:
++            # Do not target a recycled PID after the owned Popen has exited.
++            result['errors'].append('Owned child exited before taskkill; tree cleanup unconfirmed')
++        else:
++            killed = subprocess.run(['taskkill.exe', '/PID', str(process.pid), '/T', '/F'],
++                capture_output=True, text=True, encoding='utf-8', errors='replace',
++                timeout=30, creationflags=subprocess.CREATE_NO_WINDOW)
++            result.update(taskkill_exit_code=killed.returncode,
++                taskkill_stdout=killed.stdout, taskkill_stderr=killed.stderr)
++            if killed.returncode != 0:
++                result['errors'].append('taskkill did not report success')
++    except Exception as error:
++        result['errors'].append('taskkill: ' + str(error))
++    try:
++        result['owned_child_exit_code'] = process.wait(timeout=15)
++    except subprocess.TimeoutExpired:
++        result['errors'].append('Owned child still running after tree kill deadline')
++    except Exception as error:
++        result['errors'].append('Owned child stopped verification: ' + str(error))
++    try:
++        remaining = process_snapshot()
++        survivors = [pid for pid, value in tree.items()
++            if remaining.get(pid, {}).get('created_utc') == value['created_utc']]
++        result['surviving_owned_pids'] = survivors
++        if survivors:
++            result['errors'].append('Observed owned processes survived tree kill')
++    except Exception as error:
++        result['errors'].append('Post-kill process snapshot: ' + str(error))
++    result['stopped_verified'] = bool(tree) and not result['errors']
++    return result
++
++
++pin_path = scratch / 'candidate-runtime-sources.json'
++if not pin_path.is_file():
++    raise SystemExit('Root-frozen candidate-runtime-sources.json is required before any gate')
++pin_bytes = pin_path.read_bytes()
++pin = json.loads(pin_bytes)
++expected = pin.get('sources')
++if pin.get('schema') != 'luna_candidate_runtime_sources/1' or not isinstance(expected, dict) \
++        or not expected or any(not isinstance(name, str) or not isinstance(digest, str)
++        or not re.fullmatch(r'[0-9a-f]{64}', digest) for name, digest in expected.items()):
++    raise SystemExit('Invalid root-frozen candidate source pin')
+ before = sources()
+-manifest_path.write_text(json.dumps(before, indent=2) + '\n', encoding='utf-8')
++with manifest_path.open('x', encoding='utf-8') as stream:
++    stream.write(json.dumps(before, indent=2) + '\n')
++pin_mismatches = sorted(name for name in expected.keys() | before.keys()
++    if expected.get(name) != before.get(name))
++source_pin_sha = hashlib.sha256(pin_bytes).hexdigest()
++if pin_mismatches:
++    failure = {'schema': 'luna_candidate_gate/2', 'kind': args.kind, 'label': args.label,
++        'state': 'REJECTED_BEFORE_LAUNCH', 'child_launched': False,
++        'completed_utc': datetime.now(timezone.utc).isoformat(),
++        'source_pin': str(pin_path), 'source_pin_sha256': source_pin_sha,
++        'source_manifest': str(manifest_path), 'pin_mismatches': pin_mismatches,
++        'machine_gate_passed': False}
++    with receipt.open('x', encoding='utf-8') as stream:
++        stream.write(json.dumps(failure, indent=2) + '\n')
++    print(json.dumps(failure, indent=2))
++    raise SystemExit(1)
+ profile = Path(tempfile.mkdtemp(prefix='reef_candidate_gate_'))
+ env = os.environ.copy()
+ env.update(GODOT=str(engine), PYTHONUTF8='1', PYTHONIOENCODING='utf-8',
+@@ -81,27 +181,36 @@
+         command.extend(['-s', str(script), '--', '--touch', '--classic-touch-test'])
+ 
+ started = time.time()
+-info = {'schema': 'luna_candidate_gate/1', 'kind': args.kind, 'label': args.label,
++info = {'schema': 'luna_candidate_gate/2', 'kind': args.kind, 'label': args.label,
+     'command': command, 'cwd': str(root), 'branch': branch,
+     'head': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip(),
+     'started_utc': datetime.now(timezone.utc).isoformat(), 'runner_pid': os.getpid(),
+     'engine_sha256': engine_sha, 'profile': str(profile),
+     'source_manifest': str(manifest_path),
+     'source_manifest_sha256': hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
++    'source_pin': str(pin_path), 'source_pin_sha256': source_pin_sha,
++    'source_lock_scope': 'Exact root-frozen source inventory checked before and after; '
++        'root coordinates no mutation during parallel read-only gates. '
++        'Not an exclusive lock and cannot detect arbitrary A-to-B-to-A mutations.',
+     'scope': 'Machine validation; no physical-device/child/owner acceptance'}
+ timed_out = False
++timeout_cleanup = None
+ with log.open('xb') as stream:
+     process = subprocess.Popen(command, cwd=root, env=env, stdout=stream, stderr=subprocess.STDOUT)
+     info['child_pid'] = process.pid
+-    journal.write_text(json.dumps(info, indent=2) + '\n', encoding='utf-8')
++    with journal.open('x', encoding='utf-8') as journal_stream:
++        journal_stream.write(json.dumps(info, indent=2) + '\n')
+     try:
+         code = process.wait(timeout=None if args.kind == 'ci' else args.timeout)
+     except subprocess.TimeoutExpired:
+         timed_out = True
+-        process.kill()
+-        code = process.wait()
++        timeout_cleanup = stop_owned_tree(process)
++        code = process.poll()
+ after = sources()
+ changed = sorted(name for name in before.keys() | after.keys() if before.get(name) != after.get(name))
++after_pin_mismatches = sorted(name for name in expected.keys() | after.keys()
++    if expected.get(name) != after.get(name))
++pin_unchanged = pin_path.is_file() and pin_path.read_bytes() == pin_bytes
+ content = log.read_bytes()
+ text = content.decode('utf-8', errors='replace')
+ fail_lines = [line for line in text.splitlines() if re.search(
+@@ -110,8 +219,12 @@
+     duration_seconds=round(time.time() - started, 3),
+     completed_utc=datetime.now(timezone.utc).isoformat(),
+     log=str(log), log_sha256=hashlib.sha256(content).hexdigest(),
+-    source_mismatches=changed, failure_lines=fail_lines,
+-    machine_gate_passed=(code == 0 and not timed_out and not changed and not fail_lines))
+-receipt.write_text(json.dumps(info, indent=2) + '\n', encoding='utf-8')
++    source_mismatches=changed, after_pin_mismatches=after_pin_mismatches,
++    source_pin_unchanged=pin_unchanged, failure_lines=fail_lines,
++    timeout_cleanup=timeout_cleanup,
++    machine_gate_passed=(code == 0 and not timed_out and not changed
++        and not after_pin_mismatches and pin_unchanged and not fail_lines))
++with receipt.open('x', encoding='utf-8') as stream:
++    stream.write(json.dumps(info, indent=2) + '\n')
+ print(json.dumps(info, indent=2))
+ raise SystemExit(0 if info['machine_gate_passed'] else 1)

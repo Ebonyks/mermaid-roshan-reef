@@ -1,0 +1,45 @@
+{
+  "schema": "reef.local-whole-cel-matte-receipt.v1",
+  "status": "REJECTED_DIAGNOSTIC_KNOWN_SOURCE_CLIPPING_AND_MASK_ARTIFACTS",
+  "started_at_utc": "2026-10-11T00:43:50.447855+00:00",
+  "completed_at_utc": "2026-10-11T00:53:58.209243+00:00",
+  "elapsed_local_processing_and_review_minutes": 10.1294,
+  "timing_limit": "Folder creation to verification completion; concurrent parent/agent work can overlap, so root must account campaign aggregate time.",
+  "generator_calls": 0,
+  "api_calls": 0,
+  "gpu_calls": 0,
+  "paid_calls": 0,
+  "aseprite_version": "1.3.18.4-x64",
+  "pixel_writer": "Aseprite Lua",
+  "workflow": "recover_full_edges.lua; black_review.lua; verify_full_matte.py",
+  "source_frame_count": 41,
+  "native_size": [
+    640,
+    896
+  ],
+  "uniform_scale": 0.3125,
+  "final_size": [
+    256,
+    256
+  ],
+  "whole_cel_translation": [
+    55,
+    -10
+  ],
+  "manual_component_review": "All 41 hair-loop seed crops; all left-curl/ambiguous shoulder crops; black/light complete-cel contacts and native upper-body black contact.",
+  "known_rejections": [
+    "Source frame28 fingertip clipping at native x=0",
+    "Visible source paint-mask rectangles and old-arm remnants",
+    "Source native focus/line noise"
+  ],
+  "all_originals_preserved": true,
+  "exact_endpoint_export_png_sha256": "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+  "acceptance": {
+    "artifact_free_wave": false,
+    "owner": false,
+    "device": false,
+    "child": false,
+    "runtime": false,
+    "delivery_accepted": false
+  }
+}

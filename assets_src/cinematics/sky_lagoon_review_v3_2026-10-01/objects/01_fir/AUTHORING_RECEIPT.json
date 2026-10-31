@@ -1,0 +1,100 @@
+{
+  "id": "01_fir",
+  "status": "REFERENCE_SAMPLE",
+  "frame_canvas": [
+    512,
+    512
+  ],
+  "unique_generated_pose_drawings": 6,
+  "authored_light_states": 0,
+  "method": "Fresh generated pose drawings; Aseprite alpha cleanup and anchor registration. No deformation of the old source supplies motion.",
+  "input": "padded_native.png",
+  "input_sha256": "508886ffae0f99642b48fcc7c068aebc788e3b639206789ea9b20d25ffff2ca8",
+  "state_rgba_sha256": [
+    "131b17d06de7ddd679ca42e1387753e1777be2cdc55fb2aa911561f29a75608d",
+    "1685b91524ce2638b1c6d31053f8a8076bd012902ea373f85f9978b856bc282f",
+    "ed56fa625c13e743482c1f9b36898d66d119d171572838aca748d983c54a5bbf",
+    "db5e78e02f002797ec4159195510ef361bc6d4440838a26fc30a927df3267702",
+    "fc37c18218a01a5d63693917343ca1bb54c417e62bc30914f46a2db0aaba08ea",
+    "becb62132be506dcf67fde43dc9efa6cd4766083da0422eb7d4e0b3b42f90ca5"
+  ],
+  "pose_native_bounds": [
+    [
+      145,
+      60,
+      407,
+      451
+    ],
+    [
+      101,
+      61,
+      363,
+      452
+    ],
+    [
+      122,
+      41,
+      401,
+      433
+    ],
+    [
+      110,
+      39,
+      392,
+      435
+    ],
+    [
+      133,
+      16,
+      423,
+      412
+    ],
+    [
+      106,
+      17,
+      396,
+      414
+    ]
+  ],
+  "border_cap_repairs": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "fixed_bottom_y": 395,
+  "fixed_base_rect": null,
+  "edge_cleanup": {
+    "alpha_cutoff": 192,
+    "opaque_contours": true,
+    "method": "Largest connected subject mask; Aseprite rejects stray semi-transparent border noise, nearest-neighbor native pose registration."
+  },
+  "loop_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "duration_units_12fps": [
+    2,
+    2,
+    4,
+    2,
+    2,
+    4
+  ],
+  "limits": "Six-key acting examples remain coarse. AI detail/topology continuity and manual contacts require owner/production review. Not human hand drawing, accepted runtime art or full-frame cinematic delivery.",
+  "playback_duration_units_12fps": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "reference_phase_units_12fps": 0
+}

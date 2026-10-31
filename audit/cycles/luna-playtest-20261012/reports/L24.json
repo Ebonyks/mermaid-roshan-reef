@@ -1,0 +1,185 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L24",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l24",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Candy Maker tactile phase variety",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L24/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The assigned probe starts the Candy Maker Canvas career world, tests scripted room-hotspot travel/opening and passive safety, checks its four room stations and single-finger phase flow, and drives the older SYRUP path through its actual brim into SORT. These are scripted engine assertions, not a fresh-save visible GUI/device traversal. The current Chapter Two adapter separately defines COAT, SORT, GLAZE, and PLACE ON CAKE; this probe does not sequence those four story phases end to end.",
+    "route_gaps": [
+      "fresh-save visible Castle-room entry, exit, and re-entry observed by a player",
+      "Chapter Two four-phase story progression played from entry through its persistent cake result",
+      "Mobile-rendered capture on the required aspect ratios and actual phone touch/latency",
+      "child comprehension, enjoyment, spontaneous replay, and owner acceptance"
+    ]
+  },
+  "verdict": "PASS",
+  "timing": {
+    "source_constants": {
+      "scripts/opera_gesture_surface.gd:125": "Candymaker pour fill duration constant is 3.0 seconds at full tilt-flow; this is not total phase duration.",
+      "scripts/chapter_two_career_scene_adapter.gd:39-42": "Story-phase goals are five coat units, six sort units, two glaze units, and five cake placements.",
+      "scripts/opera_career_world_2d.gd:287-291": "Current Chapter Two phase sequence uses pourt, candy_sort, circle, and tap, in that order."
+    },
+    "estimates": [
+      "The four Chapter Two phases require distinct player actions and their stated goal units; total play time depends on child pace, cue duration, and route travel and cannot be derived from this internal probe.",
+      "The runner's 28.191-second wall time is tool execution, not gameplay or child-session duration."
+    ]
+  },
+  "tactile": {
+    "target_size": "For the older pour path, the Candy Maker ladle hit rectangle grows 18 logical pixels around the art and is clipped to the surface (scripts/opera_gesture_surface.gd:6040-6042); the probe also checks the fitted Pixel 10 grab remains inside the test stage (scripts/probe_opera_2d.gd:719-739). The four Chapter Two phase targets' actual phone-scale finger usability was not measured; no 110x110 on-device target claim is made.",
+    "press_response": "The probe presses the authored ladle center, processes at 30 Hz until just below brim, releases, presses again to brim, and checks that world progress/completion follows actual fill (scripts/probe_opera_2d.gd:746-779; L24 log lines 368-375). It verifies phase-widget input-causality broadly (log line 383), but does not provide human-perceived latency.",
+    "drag_hold_release": "The current Chapter Two modes imply a held pour, candy drag-and-release, circular glazing, and discrete cake-placement taps (scripts/chapter_two_career_scene_adapter.gd:39-42). Candy sorting code only accepts a matching bin on release; a wrong bin restores the same piece and replays its hint (scripts/opera_gesture_surface.gd:4568-4600). The assigned probe's specific Candy Maker manual action is the hold-pour; the full story-mode sort/glaze/place sequence was not manually played by this reviewer.",
+    "ownership": "Scripted one-finger-phase and route ownership checks pass (L24 log lines 407-422 and 433), but the receipt's classic touch-test mode and internal calls do not establish physical multi-touch arbitration, finger occlusion, or target-phone sampling feel.",
+    "cancellation": "Candy sort source preserves the same piece after a wrong drop and provides another demonstration (scripts/opera_gesture_surface.gd:4591-4600). The assigned probe does not exercise interruption/release recovery across all four current Chapter Two Candy Maker actions; real pause/focus-loss behavior remains unobserved."
+  },
+  "play_appeal": {
+    "hypothesis": "Coating, matching, circling, and placing the same five strawberries on the actual cake offer a clear hand-action change while keeping one ingredient and the cake's result in view. The proposed appeal depends on whether the child notices that each action changes those same berries and chooses to continue to decorate the cake; a four-step task could also feel repetitive if the visual changes are too subtle.",
+    "fun_score": null,
+    "appeal_test": "On the intended phone, give a child the normal spoken/pictorial invitation without naming the gestures. Observe whether they independently switch from pouring to dragging, circling, and tapping, notice the strawberries becoming cake decorations, and ask to continue or replay. Record confusion, adult prompts, and voluntary replay without converting these observations into a numeric fun score."
+  },
+  "observations": [
+    {
+      "title": "Chapter Two changes the hand action across four connected berry tasks",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/chapter_two_career_scene_adapter.gd:38-42 defines the Candy Maker workshop's four ordered phases, each reusing the same strawberry and cake story assets with distinct modes and spoken cues.",
+        "scripts/opera_career_world_2d.gd:2059-2093 maps the four milestones to distinct visible actions: coating, sorting, glazing, and placing the berries on cake."
+      ],
+      "rules": ["DL-AGE-01", "DL-INT-02", "DL-AGE-06", "DL-MOT-03"],
+      "existing_findings": [],
+      "reproduction": "Resolve the candymaker Chapter Two adapter and inspect its phases in order; match each milestone to _chapter2_candy_visible_action and the corresponding _draw_chapter2_candy_* function.",
+      "child_impact": "Keeping the same five berries and cake visible while the task changes may help a non-reader understand why each new gesture matters and see cumulative authorship.",
+      "proposed_repair": "No code repair is indicated by this source review. Observe whether each phase visibly advances the same cake story and whether the changed gesture is independently discoverable.",
+      "acceptance_test": "In a fresh normal Chapter Two run on the target phone, the child independently performs coat, matching sort, circular glaze, and cake placement in order; each accepted action visibly changes the berries or cake and the child can resume after lifting."
+    },
+    {
+      "title": "Older Syrup path pays only when the ladle truly fills the mold",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_opera_2d.gd:746-779 presses the actual surface grab point, runs 1/30-second steps, releases just before brim, verifies no completion, then holds to completion and verifies exact goal progress.",
+        "audit/cycles/luna-playtest-20261012/runtime/L24/attempt_1/probe.log:368-375 records the Syrup threshold, fill, completion picture, empty-ladle settle, and clean SORT handoff assertions passing.",
+        "audit/cycles/luna-playtest-20261012/runtime/L24/attempt_1/receipt.json records Godot 4.7.2 stable, isolated profile, exit code 0, no failure lines, and rendered_mobile_acceptance=false."
+      ],
+      "rules": ["DL-INT-02", "DL-MOT-03", "DL-MOT-04", "DL-QA-01"],
+      "existing_findings": [],
+      "reproduction": "In the focused probe, hold the ladle until fill exceeds 0.94 but remains below 1.0, release, verify no completion, then hold at the grab point to brim and process the settle.",
+      "child_impact": "Progress stays tied to the visible pour and the success state rights an empty ladle, making cause and payoff legible in this scripted geometry.",
+      "proposed_repair": "None indicated by the bounded probe. Confirm stream visibility and fill response at native phone size before extending the conclusion to device usability.",
+      "acceptance_test": "At target-phone scale, a child can begin and stop the pour, sees the mold remain unfinished before brim, and sees the ladle settle upright once the completed fill advances to the next activity."
+    },
+    {
+      "title": "Sort recovery keeps a wrong drop from consuming a berry",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/opera_gesture_surface.gd:4568-4600 checks the released bin against the candy's type; correct drops advance, while incorrect drops reset the same piece without advancing and restart its demonstration.",
+        "scripts/opera_gesture_surface.gd:4686-4714 draws three distinct bins, candy silhouettes, a moving piece, and six progress marks."
+      ],
+      "rules": ["DL-AGE-03", "DL-INT-02", "DL-UI-01", "DL-MOT-04"],
+      "existing_findings": [],
+      "reproduction": "Start the candy sort, drag the current piece to a visibly wrong bin, release, and check that the same candy returns to its starting position with no increment; then drag it to its matching bin and release.",
+      "child_impact": "A mistake is recoverable and preserves the objective, which avoids a punitive loss while giving a retry cue.",
+      "proposed_repair": "No source repair indicated. Check that the color/silhouette distinction and replay hint are understandable without reading on the actual device.",
+      "acceptance_test": "A child can make a wrong drop, understand the returned candy and demonstrated match, then complete the same piece without losing earlier correct placements."
+    },
+    {
+      "title": "The assigned probe does not prove the full four-phase story playthrough",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_opera_2d.gd:703-718 directly changes the Candy Maker world to its SYRUP phase for the focused mechanic checks; :792-814 advances to SORT and restores the fresh SYRUP setup.",
+        "audit/cycles/luna-playtest-20261012/runtime/L24/attempt_1/probe.log:352-436 passes career route, widget, one-finger, and legacy Syrup assertions, but does not log completion of the Chapter Two COAT/SORT/GLAZE/PLACE adapter sequence.",
+        "scripts/chapter_two_career_scene_adapter.gd:38-42 is the separate four-phase Chapter Two story contract."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-SAVE-04", "DL-QA-05", "DL-QA-07", "DL-QA-12"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001", "MA-OPERA-004", "MA-OPERA-012"],
+      "reproduction": "Compare the probe's direct phase assignment and reset with the adapter's four phases; the current invocation is headless and the receipt says rendered_mobile_acceptance=false.",
+      "child_impact": "The code's variety may not translate into an understandable progression, visible state change, comfortable touch geometry, or appealing repeat play for the child.",
+      "proposed_repair": "Do not change code on this evidence. Gather a visible normal-route and target-device play observation of the four story steps; fix only an observed action, cue, or transition problem.",
+      "acceptance_test": "A fresh-save session uses the live Castle route to enter, perform all four story phases with ordinary one-finger input, see the actual cake result, exit and re-enter; target-phone rendering/touch and child comprehension/replay are recorded separately."
+    },
+    {
+      "title": "Stage landmark travel is scripted and keeps action closed until arrival",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/opera_career_world_2d.gd:1991-2019 accepts the armed Candy Maker hotspot, computes an authored route, and starts walking without opening the task.",
+        "scripts/probe_opera_2d.gd:1578-1620 simulates the hotspot callback, checks route points and arrival, and ensures progress does not change during approach; L24 log lines 391-422 record the four landmark and arrival contracts passing."
+      ],
+      "rules": ["DL-INT-02", "DL-UI-01", "DL-AGE-01", "DL-QA-12"],
+      "existing_findings": ["MA-PLAY-001", "MA-OPERA-012"],
+      "reproduction": "For each Candy Maker station, trigger the probe's hotspot callback and process the authored route; verify the task stays closed until arrival/opening completes.",
+      "child_impact": "The room object can explain the task and Roshan travels to it, preserving an embodied link between the place and the action.",
+      "proposed_repair": "No repair indicated by this scripted evidence; confirm that the visible invitation and voice cue are discoverable and not obstructed on the real phone.",
+      "acceptance_test": "From a fresh Castle save, the child can recognize each Candy Maker landmark, tap it, watch Roshan arrive before acting, and return safely from the activity without adult/debug routing."
+    },
+    {
+      "title": "Physical touch and child appeal remain unobserved",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L24/attempt_1/receipt.json records a headless scripted probe and rendered_mobile_acceptance=false.",
+        "scripts/probe_opera_2d.gd:748-779 uses internal _press/_release calls, while :1578-1620 emulates hotspot interaction through callbacks.",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:397-417 (MA-PLAY-001), :559-580 (MA-OPERA-004), :651-672 (MA-OPERA-012), and :720-740 (MA-CHILD-001) retain external route, visual, and child-evidence limits."
+      ],
+      "rules": ["DL-UI-03", "DL-QA-04", "DL-QA-05", "DL-QA-07", "DL-QA-12"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001", "MA-OPERA-004", "MA-OPERA-012"],
+      "reproduction": "Inspect the receipt and probe calls; neither physical phone input, Mobile rendered frames, frame pacing, nor a child participant is present.",
+      "child_impact": "Correct scripted coordinates do not establish that small hands can see, understand, reach, and enjoy the phases in the intended room/device context.",
+      "proposed_repair": "No product change on this coverage gap alone. Run the bounded target-device/child observation and retain any concrete friction for triage.",
+      "acceptance_test": "A consented child independently discovers and performs the four phases on the intended device, with visible feedback, comfortable one-finger reach, voluntary continuation or replay, and no adult prompting; keep owner and visual approval distinct."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The Chapter Two story phases change gesture while preserving one ingredient-to-cake throughline.",
+      "evidence": ["scripts/chapter_two_career_scene_adapter.gd:38-42; scripts/opera_career_world_2d.gd:2083-2093"]
+    },
+    {
+      "claim": "Wrong candy drops do not consume the current piece, and passive belt motion loops without advancing the queue.",
+      "evidence": ["scripts/opera_gesture_surface.gd:4536-4544 and :4591-4600; runtime L24 receipt/log confirms the assigned probe completed without failures."]
+    },
+    {
+      "claim": "The active room station is a pointer to the activity, while travel/opening remain separate from scoring.",
+      "evidence": ["scripts/opera_career_world_2d.gd:1991-2028; L24 runtime log lines 391-422."]
+    }
+  ],
+  "play_sequence": [
+    {
+      "beat": "Find the Candy Maker workshop from its normal Castle-room invitation and approach COAT STRAWBERRIES.",
+      "input": "Tap the visible Candy Maker trigger once; wait for Roshan's walk and object-opening flourish, then wait for the spoken cue to finish before touching the activity.",
+      "appeal_test": "Does the child connect the strawberry/candy setting with the invitation and wait for Roshan to arrive?"
+    },
+    {
+      "beat": "Coat the five berries with syrup and see their color/state change.",
+      "input": "Wait for the cue; press and hold the ladle, keep the stream over the berries, and lift once the visual brim/completion response occurs. Wait about one second for the ladle to settle and the next station invitation.",
+      "appeal_test": "Does the child notice the berries becoming coated and understand why the task changed?"
+    },
+    {
+      "beat": "Sort the same berries into matching color/shape lanes.",
+      "input": "Tap the taffy-press invitation; wait through travel, opening, and cue. Press the moving berry, drag it into a matching lane, and release; repeat for each prompted piece. If a wrong drop happens, wait for the returned piece and demonstration before retrying.",
+      "appeal_test": "Does the child use color or silhouette matching intentionally and treat a returned piece as a retry rather than a failure?"
+    },
+    {
+      "beat": "Glaze the sorted berries with a circular motion.",
+      "input": "Tap the cottage invitation and wait for arrival/opening/cue. Draw comfortable circles over the candy; lift between attempts if desired and wait for the next hint before resuming. Wait one second after the accepted completion.",
+      "appeal_test": "Does the circular gesture feel distinct from sorting, and does the berry/cake visual make the glaze payoff clear?"
+    },
+    {
+      "beat": "Place each finished strawberry on the actual cake.",
+      "input": "Tap the cart invitation; wait for travel/opening/cue. Tap the indicated candy and cake placement anchors one at a time, lifting between taps; after the fifth placement wait for the completed cake reveal to finish.",
+      "appeal_test": "Does the child see that each tap decorates the same cake and show interest in the finished result?"
+    },
+    {
+      "beat": "Offer the normal exit/return and observe whether the child wants another activity or another Candy Maker run.",
+      "input": "Wait two seconds after the cake result, then make no suggestion; let the child tap a visible exit/return or replay choice if present and wait for the room to settle.",
+      "appeal_test": "Does the child independently choose what to do next or request the Candy Maker again?"
+    }
+  ],
+  "acceptance_gaps": [
+    "The single assigned internal probe passes, but its Candy Maker syrup leg is the older SYRUP mechanic and it does not play Chapter Two's four COAT/SORT/GLAZE/PLACE story phases to completion.",
+    "No fresh-save live-route observation, Mobile capture, physical phone input, touch latency, frame pacing, or child comprehension/replay session was collected; MA-PLAY-001, MA-CHILD-001, MA-OPERA-004, and MA-OPERA-012 remain open at their existing scopes.",
+    "The scripted probe checks voice keys/phase data but does not establish recording approval, intelligibility, audibility, or cue timing on device."
+  ]
+}

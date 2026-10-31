@@ -7,6 +7,9 @@ extends RefCounted
 
 const CanvasLogic = preload("res://scripts/living_world_canvas.gd")
 const CatalogLogic = preload("res://scripts/living_world_catalog.gd")
+# A focused activity that supplies its own authored motion and guidance joins
+# this group while it is mounted; the code-drawn ambient layer pauses above it.
+const QUIET_GROUP := &"living_world_quiet"
 const HELD_KEYCODES := [
 	KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT,
 	KEY_W, KEY_A, KEY_S, KEY_D,
@@ -277,6 +280,8 @@ func _held_input_active() -> bool:
 
 func _suspended() -> bool:
 	if m.get_tree() == null or m.get_tree().paused:
+		return true
+	if m.get_tree().has_group(QUIET_GROUP):
 		return true
 	if m.fade_rect != null and m.fade_rect.modulate.a > 0.02:
 		return true

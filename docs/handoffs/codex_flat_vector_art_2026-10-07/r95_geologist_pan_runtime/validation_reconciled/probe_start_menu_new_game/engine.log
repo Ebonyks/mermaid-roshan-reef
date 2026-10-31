@@ -1,0 +1,45 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+START_MENU_NEW_GAME|parent uses a unique disposable save: OK
+START_MENU_NEW_GAME|isolated save is injected before production _ready: OK
+START_MENU_NEW_GAME|real production main is registered as current_scene: OK
+START_MENU_NEW_GAME|loaded state was captured from this actual main ready signal: OK
+START_MENU_NEW_GAME|production main uses only the disposable save: OK
+START_MENU_NEW_GAME|seeded save counts as an adventure to keep: OK
+START_MENU_NEW_GAME|start menu, confirm sheet and START NEW exist: OK
+START_MENU_NEW_GAME|START NEW names the hold gesture for a grown-up: OK
+START_MENU_NEW_GAME|START NEW carries a hold progress bar: OK
+START_MENU_NEW_GAME|NEW GAME opens the confirm sheet: OK
+START_MENU_NEW_GAME|hold caption is visible on the confirm sheet: OK
+START_MENU_NEW_GAME|START NEW starts disarmed: OK
+START_MENU_NEW_GAME|a tap on the disarmed START NEW changes nothing: OK
+START_MENU_NEW_GAME|START NEW arms after its delay: OK
+START_MENU_NEW_GAME|the pointer press reached START NEW: OK
+START_MENU_NEW_GAME|the bar fills while START NEW is held: OK
+START_MENU_NEW_GAME|a lifted partial hold never starts a new game: OK
+START_MENU_NEW_GAME|a lifted press empties the bar: OK
+START_MENU_NEW_GAME|a lifted press pulses the hold caption: OK
+START_MENU_NEW_GAME|KEEP GAME cancels confirmation without touching the old adventure: OK
+START_MENU_NEW_GAME|a complete hold shows progressing fill before resetting: OK
+START_MENU_NEW_GAME|isolated save is injected before production _ready: OK
+START_MENU_NEW_GAME|the production deferred reload replaces the actual current scene: OK
+START_MENU_NEW_GAME|the old scene is released before shutdown: OK
+START_MENU_NEW_GAME|one hold causes one production reload: OK
+START_MENU_NEW_GAME|actual reload consumes the one-shot marker: OK
+START_MENU_NEW_GAME|actual reload starts Day One and dismisses the menu: OK
+START_MENU_NEW_GAME|actual reload reads a fresh generation from isolated storage: OK
+START_MENU_NEW_GAME|the prior adventure remains recoverable in its archive: OK
+START_MENU_NEW_GAME|fresh Day One has no completed rooms: OK
+START_MENU_NEW_GAME|a completed hold cannot reload or archive a second time: OK
+START_MENU_NEW_GAME|restart has a committed fresh primary: OK
+START_MENU_NEW_GAME|committed restart generation remains newer than the old adventure: OK
+START_MENU_NEW_GAME|child evidence paths have never been written: OK
+START_MENU_NEW_GAME|a separate verifier process starts: OK
+START_MENU_NEW_GAME|fresh-process verifier exits successfully: OK
+START_MENU_NEW_GAME|fresh process verifies saved reset and real Continue: OK
+START_MENU_NEW_GAME|fresh process has no script or runtime errors: OK
+START_MENU_NEW_GAME|fresh process emits no failed assertions: OK
+START_MENU_NEW_GAME|fresh_process_receipt={"archive_sha256":"631040dad9fa4b3548c3664b48ae54de3d59b58ba60c3d5a90431c4a5612815a","classic_touch_flags":true,"failures":0.0,"finished":true,"generation":9.0,"loaded_generation":9.0,"loaded_main_id":123346093549.0,"parent_process_id":101712.0,"preboot_primary_sha256":"0279e3f2e40cdc5b341104b66ca58fc9b3919ee8af8f666669c7f39c88541328","process_id":158120.0,"save_path":"C:/Users/Peter/AppData/Local/Temp/reef-flat-vector-geologist-pan-20261017/reconciled_validation/probe_start_menu_new_game/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light/probe_start_menu_new_game_save_101712_7989785.json","touch_flags":true}
+START_MENU_NEW_GAME|fresh_process_exit=0 child_pid=158120 parent_pid=101712
+START_MENU_NEW_GAME|fresh_process_log=C:/Users/Peter/AppData/Local/Temp/reef-flat-vector-geologist-pan-20261017/reconciled_validation/probe_start_menu_new_game/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light/probe_start_menu_new_game_save_101712_7989785.json.fresh-process.log
+START_MENU_NEW_GAME|RESULT: PASS failures=0

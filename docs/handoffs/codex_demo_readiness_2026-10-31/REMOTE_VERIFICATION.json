@@ -1,0 +1,66 @@
+{
+ "schema": "codex_handoff_remote_verification/1",
+ "handoff": "codex_demo_readiness_2026-10-31",
+ "revision": "2 (2026-10-31): owner answers recorded as ODR-DEMO-*-20261031; revision 1 was dcf6f6e29fa9ea2c6899e0edb324a1bc8762b121",
+ "verified_commit": "15e476acbcdd14d6e9eca66fee4bb8e479edac1b",
+ "branch": "claude/demo-readiness-20261031",
+ "entry_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/claude/demo-readiness-20261031/docs/handoffs/codex_demo_readiness_2026-10-31",
+ "immutable_tree_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/15e476acbcdd14d6e9eca66fee4bb8e479edac1b/docs/handoffs/codex_demo_readiness_2026-10-31",
+ "manifest_link": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/15e476acbcdd14d6e9eca66fee4bb8e479edac1b/docs/handoffs/codex_demo_readiness_2026-10-31/MANIFEST.json",
+ "manifest_sha256": "1d9d40432d812f76db3238caae3ab4a761b1010b109895a21806e54ab39e16e8",
+ "manifest_bytes": 2513,
+ "access_mode": "anonymous HTTPS GET to raw.githubusercontent.com with no token or cookie (the recipient's public access path)",
+ "checked_at_utc": "2026-10-31T18:38:58Z",
+ "files": [
+  {
+   "path": ".gdignore",
+   "http": 200,
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "matches_manifest": true
+  },
+  {
+   "path": "README.md",
+   "http": 200,
+   "bytes": 19284,
+   "sha256": "a7d501c0e5ced730058ca1c1ad858e3da523c7a1f123b4059bda5ddef4097ce2",
+   "matches_manifest": true
+  },
+  {
+   "path": "AUDIT.md",
+   "http": 200,
+   "bytes": 31173,
+   "sha256": "47c3e359d4f900438ddf14bb3d7a30e7ed7257f713575a43554ef2a191ee86fa",
+   "matches_manifest": true
+  },
+  {
+   "path": "DEMO_RUNBOOK.md",
+   "http": 200,
+   "bytes": 9067,
+   "sha256": "a8a06f2c4b302953e12c1ab8e8d2f174d82cef104644de93e3e13fd121f67b5f",
+   "matches_manifest": true
+  }
+ ],
+ "related_files": [
+  {
+   "path": "design/audit_impacts/demo-readiness-handoff-20261031.json",
+   "http": 200,
+   "sha256": "cdfe8c3c5c835dd91ba1705ee5cf800893f01f88366cdf067cc2e0fc5da48be1",
+   "matches_commit_blob": true
+  },
+  {
+   "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+   "http": 200,
+   "sha256": "0b664659ee4333d331fc29e416f244d01653429baa46a71e17ca8a331816d3c2",
+   "matches_commit_blob": true
+  },
+  {
+   "path": "audit/MASTER_AUDIT_2026-08-09.md",
+   "http": 200,
+   "sha256": "2701287dc562e4808505be37086e57c99cad39a1a65fb2a33539ec6b6713252a",
+   "matches_commit_blob": true
+  }
+ ],
+ "result": "PASS: every manifest file matches its SHA-256 and byte count; related records match the commit blobs",
+ "status_note": "Publication is not acceptance. The handoff is PROPOSED / CANDIDATE; owner questions Q1-Q8 are open with stated defaults; no game change, device, child or owner acceptance is claimed."
+}

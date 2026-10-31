@@ -1,0 +1,36 @@
+{
+  "schema": "reef.immutable-evidence-archive-manifest.v1",
+  "files": [
+    {
+      "path": "authority.log",
+      "sha256": "976c2ae3796c96d199c45adf94ed162eefb36163935873e43ac4680308222184",
+      "bytes": 280,
+      "role": "native_gate_log"
+    },
+    {
+      "path": "coverage.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "not_run_reserved_empty_output"
+    },
+    {
+      "path": "diff.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "not_run_reserved_empty_output"
+    },
+    {
+      "path": "poststamp_coverage.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "not_run_reserved_empty_output"
+    },
+    {
+      "path": "RECEIPT.json",
+      "sha256": "d8e017929ec84553463c62fefd107f8c116fbfb7c804dc0cb45fa52002ef4808",
+      "bytes": 612,
+      "role": "derived_process_receipt"
+    }
+  ],
+  "scope": "Failed metadata gate01; native authority failure preserved, other commands NOT_RUN. No runtime changes."
+}

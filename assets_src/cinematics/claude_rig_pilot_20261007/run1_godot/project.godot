@@ -1,0 +1,19 @@
+; Standalone Godot 4.7.2 test project for the Roshan rig pilot (rules-off run 1, 2026-10-07).
+; It lives under a .gdignore'd study folder, so the game project never imports it.
+config_version=5
+
+[application]
+
+config/name="Roshan rig pilot - run 1 (rules off)"
+run/main_scene="res://rig_wave.tscn"
+config/features=PackedStringArray("4.7", "Mobile")
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=512
+
+[rendering]
+
+renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.933, 0.933, 0.933, 1)

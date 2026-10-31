@@ -60,6 +60,43 @@ class DevelopmentAuditTests(unittest.TestCase):
 		value["validation"][0]["result"] = "ACCEPTED"
 		self.assertTrue(self.errors(value))
 
+	def test_optional_loop_evidence_and_legacy_records(self):
+		self.assertEqual([], self.errors(record()))
+		value = record()
+		value.update({
+			"lessons": [{"lesson": "Check the approach seam", "write_back": "scripts/probe.gd"}],
+			"strengths_observed": [{"id": "S-001", "evidence": "probe log"}],
+			"references_used": [{"path": "design/guide.md#entry", "purpose": "Current recipe"}],
+			"owner_corrections": [{"decision_id": "ODR-001", "evidence": "Owner note", "write_back": "sensor"}],
+		})
+		self.assertEqual([], self.errors(value))
+		for field in ("lessons", "strengths_observed", "references_used", "owner_corrections"):
+			value[field] = []
+		self.assertEqual([], self.errors(value))
+
+	def test_optional_loop_evidence_rejects_missing_targets_and_wrong_shapes(self):
+		shapes = {
+			"lessons": {"lesson": "Lesson", "write_back": "sensor"},
+			"strengths_observed": {"id": "S-001", "evidence": "log"},
+			"references_used": {"path": "design/guide.md", "purpose": "Recipe"},
+			"owner_corrections": {"decision_id": "ODR-001", "evidence": "note", "write_back": "rule"},
+		}
+		for field, item in shapes.items():
+			for invalid in (None, "text", {}, ["text"], [{}]):
+				with self.subTest(field=field, invalid=invalid):
+					value = record()
+					value[field] = invalid
+					self.assertTrue(self.errors(value))
+			for key in item:
+				for invalid in (None, 1, " "):
+					with self.subTest(field=field, key=key, invalid=invalid):
+						value = record()
+						value[field] = [dict(item, **{key: invalid})]
+						self.assertTrue(self.errors(value))
+				value = record()
+				value[field] = [{name: text for name, text in item.items() if name != key}]
+				self.assertTrue(self.errors(value))
+
 	def navigation_fixture(self, root: Path):
 		for name in ("AGENTS.md", "CLAUDE.md"):
 			(root / name).write_text("# Rules\n\n" + development.CONTRACT + development.HANDOFF_CONTRACT, encoding="utf-8")

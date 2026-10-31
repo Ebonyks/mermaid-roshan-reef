@@ -9,6 +9,7 @@ extends Control
 
 const DAY_ONE_BATHROOM_CLEANING := preload(
 	"res://scripts/games/day_one_bathroom_cleaning.gd")
+const FIXTURE_SCRUB := preload("res://scripts/games/day_one_fixture_scrub.gd")
 const DAY_ONE_DUST_BUNNY_SWIMMER := preload(
 	"res://scripts/games/day_one_dust_bunny_swimmer.gd")
 const DIRTY_ROOM_TEXTURE: Texture2D = preload(
@@ -82,7 +83,7 @@ const BASKET_CONTENT_OFFSETS: Array[Vector2] = [Vector2(-34.0, -26.0),
 const SINK_GRIME_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png"
 const TUB_GRIME_TEXTURE := "res://assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png"
 const SINK_GRIME_POSITION := Vector2(642.0, 280.0)
-const TUB_GRIME_POSITION := Vector2(270.0, 292.0)
+const TUB_GRIME_POSITION := Vector2(270.0, 329.0)
 # These are localized fixture marks, not full fixture cards. The approved
 # source cards are 1024px square and are intentionally mounted small enough to
 # sit inside the painted basin/rim on a 1280x720 phone canvas.
@@ -314,6 +315,7 @@ func begin_cleaning_handoff() -> bool:
 			as DayOneBathroomCleaning
 		_cleaning_stage.cleanup_step_completed.connect(
 			_on_cleaning_step_completed)
+		_cleaning_stage.fixture_scrubbed.connect(_on_fixture_scrubbed)
 		_cleaning_stage.tub_drain_visual_started.connect(
 			_on_tub_drain_visual_started)
 		_cleaning_stage.finale_started.connect(_on_cleaning_finale_started)
@@ -486,7 +488,8 @@ func _add_clean_sink_cutout(plate: Sprite2D) -> void:
 
 func _add_fixture_cutout(plate: Sprite2D, node_name: String,
 		fixture_outline: Array[Vector2], center: Vector2, clean: bool) -> void:
-	var sink := Polygon2D.new()
+	var sink: Polygon2D = FIXTURE_SCRUB.new() \
+		if node_name in ["CleanSinkCutout", "CleanTubCutout"] else Polygon2D.new()
 	sink.name = node_name
 	# A narrow transparent edge follows the contour instead of leaving a hard
 	# cut through the painted shadows around the pedestal.
@@ -514,6 +517,8 @@ func _add_fixture_cutout(plate: Sprite2D, node_name: String,
 	sink.antialiased = true
 	sink.visible = clean
 	plate.add_child(sink)
+	if sink is DayOneFixtureScrub:
+		(sink as DayOneFixtureScrub).setup_scrub(clean)
 
 
 func _build_bath_bunny() -> void:
@@ -613,10 +618,12 @@ func day_one_bathroom_plate_snapshot() -> Dictionary:
 	return {
 		"dirty_plate_visible": visible,
 		"toilet_clean_pixels": visible and (_dirty_room_plate.get_node("CleanToiletCutout") as Polygon2D).visible,
-		"tub_clean_pixels": visible and (_dirty_room_plate.get_node("CleanTubCutout") as Polygon2D).visible,
+		"tub_clean_pixels": visible and (_dirty_room_plate.get_node("CleanTubCutout") as DayOneFixtureScrub).is_clean,
+		"sink_scrub_marks": visible and (_dirty_room_plate.get_node("CleanSinkCutout") as DayOneFixtureScrub).has_scrub_marks,
+		"tub_scrub_marks": visible and (_dirty_room_plate.get_node("CleanTubCutout") as DayOneFixtureScrub).has_scrub_marks,
 		"sink_clean_pixels": visible
 			and _dirty_room_plate.get_node_or_null("CleanSinkCutout") is Polygon2D
-			and (_dirty_room_plate.get_node("CleanSinkCutout") as Polygon2D).visible
+			and (_dirty_room_plate.get_node("CleanSinkCutout") as DayOneFixtureScrub).is_clean
 			and (_dirty_room_plate.get_node("CleanSinkCutout") as Polygon2D).texture
 				== CLEAN_ROOM_TEXTURE,
 		"true_2d": visible and _dirty_room_plate is Sprite2D,
@@ -882,18 +889,31 @@ func _dirty_overlays_visible() -> bool:
 		and _tub_grime != null and _tub_grime.visible
 
 
+func _on_fixture_scrubbed(fixture: String, from: Vector2, to: Vector2) -> void:
+	# During the drain crossfade both plates can be live. Apply the same stroke
+	# to each so early tub rubbing survives the drained plate taking ownership.
+	for plate: Sprite2D in [_dirty_room_plate, _drained_room_plate]:
+		if not is_instance_valid(plate):
+			continue
+		var cutout := plate.get_node_or_null("Clean%sCutout" % fixture) as DayOneFixtureScrub
+		if cutout != null:
+			cutout.scrub_segment(plate.to_local(get_global_transform() * from) - cutout.position,
+				plate.to_local(get_global_transform() * to) - cutout.position)
+			cutout.mask_grime(_sink_grime if fixture == "Sink" else _tub_grime)
+
+
 func _on_cleaning_step_completed(step: int, cleanup_id: String) -> void:
-	# Removing grime alone leaves the dirty sink baked into the plate. Replace
-	# the fixture itself before notifying callers, without covering the room.
-	if step >= 1 and _dirty_room_plate != null and is_instance_valid(_dirty_room_plate):
-		var sink := _dirty_room_plate.get_node_or_null("CleanSinkCutout") as Polygon2D
-		if sink != null:
-			sink.visible = true
-	if _dirty_room_plate != null and is_instance_valid(_dirty_room_plate):
-		for fixture: String in ["Tub", "Toilet"]:
-			var cutout := _dirty_room_plate.get_node_or_null("Clean%sCutout" % fixture) as Polygon2D
-			if cutout != null:
-				cutout.visible = m.day_one_bathroom_cleanup_step >= 2 if fixture == "Tub" else m.day_one_bathroom_toilet_cleaned
+	# Finish only the earned fixture; unvisited dirt stays painted on the room.
+	for plate: Sprite2D in [_dirty_room_plate, _drained_room_plate]:
+		if not is_instance_valid(plate):
+			continue
+		for fixture: String in ["Sink", "Tub"]:
+			var cutout := plate.get_node_or_null("Clean%sCutout" % fixture) as DayOneFixtureScrub
+			if cutout != null and step >= (1 if fixture == "Sink" else 2):
+				cutout.finish_scrub()
+		var toilet := plate.get_node_or_null("CleanToiletCutout") as Polygon2D
+		if toilet != null:
+			toilet.visible = m.day_one_bathroom_toilet_cleaned
 	cleanup_step_completed.emit(step, cleanup_id)
 
 

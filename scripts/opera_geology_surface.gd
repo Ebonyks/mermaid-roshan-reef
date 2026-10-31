@@ -37,20 +37,63 @@ const GEODE_SEAM_SPOTS: Array[Vector2] = [
 	Vector2(766.0, 216.0), Vector2(735.0, 278.0), Vector2(778.0, 340.0),
 	Vector2(744.0, 401.0), Vector2(770.0, 466.0),
 ]
-## Approved vectors remain runtime authority until the new raster candidates
-## pass alpha/native-resolution review. Never load rejected checkerboard art.
-const FOSSIL_PATH := "res://assets/opera/worlds/hotspots/geologist_fossil.svg"
-const GEODE_PATH := ""
-const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg"
+## Unreplaced rock illustrations remain measured art-replacement debt.
+## Never load the rejected checkerboard source studies.
+const FOSSIL_PATH := "res://assets/opera/worlds/props/geologist_fossil_painted.png"
+const FOSSIL_SOIL_PATH := "res://assets/opera/worlds/props/geologist_fossil_soil_painted.png"
+const FOSSIL_PIECE_PATHS: Array[String] = [
+	"res://assets/opera/worlds/props/geologist_fossil_piece_0_painted.png",
+	"res://assets/opera/worlds/props/geologist_fossil_piece_1_painted.png",
+	"res://assets/opera/worlds/props/geologist_fossil_piece_2_painted.png",
+]
+## Each 512 canvas contains a 250x450 source third, at one uniform scale.
+const FOSSIL_PIECE_CANVAS_SIZE := Vector2(266.24, 266.24)
+const GEODE_PATH := "res://assets/opera/worlds/props/geologist_geode_shell_painted.png"
+const GEODE_LEFT_PATH := "res://assets/opera/worlds/props/geologist_geode_shell_left_painted.png"
+const GEODE_RIGHT_PATH := "res://assets/opera/worlds/props/geologist_geode_shell_right_painted.png"
+## Whole512 source; exact half256x512 crops occupy x128..384 in padded512 exports.
+const GEODE_SHELL_ART_REGION := Rect2(45.0, 137.0, 423.0, 259.0)
+const GEODE_SEAM_CLOSED_PATH := "res://assets/opera/worlds/props/geologist_geode_seam_closed_painted.png"
+const GEODE_SEAM_DONE_PATH := "res://assets/opera/worlds/props/geologist_geode_seam_done_painted.png"
+const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock_painted.png"
 const BRUSH_PATH := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
-const PAN_PATH := ""
-const CRYSTALS_PATH := "res://assets/opera/worlds/props/goal_geologist.svg"
+const PAN_PATH := "res://assets/opera/worlds/props/geologist_washing_pan_painted.png"
+## Whole painted cutout region in its preserved 1254-square source; import is 1024.
+const PAN_ART_REGION := Rect2(58.0, 315.0, 1138.0, 652.0)
+const PAN_ART_SOURCE_SIZE := Vector2(1254.0, 1254.0)
+const WORK_SLAB_PATH := "res://assets/opera/worlds/props/geologist_work_slab_painted.png"
+const WORK_SLAB_ART_REGION := Rect2(57.0, 234.0, 1147.0, 782.0)
+const WORK_SLAB_SOURCE_SIZE := Vector2(1254.0, 1254.0)
+const PAN_GRAIN_PATH := "res://assets/opera/worlds/props/geologist_pan_grain_painted.png"
+const MINERAL_MINT_PATH := "res://assets/opera/worlds/props/geologist_mineral_mint_painted.png"
+const MINERAL_BLUE_PATH := "res://assets/opera/worlds/props/geologist_mineral_blue_painted.png"
+const MINERAL_LAVENDER_PATH := "res://assets/opera/worlds/props/geologist_mineral_lavender_painted.png"
+const CRYSTALS_PATH := "res://assets/opera/worlds/props/geologist_crystal_gallery_painted.png"
+
+const RIVER_SOURCE_PATH := "res://assets/opera/worlds/props/geologist_river_source_painted.png"
+const RIVER_SINK_DRY_PATH := "res://assets/opera/worlds/props/geologist_river_sink_dry_painted.png"
+const RIVER_SINK_FULL_PATH := "res://assets/opera/worlds/props/geologist_river_sink_full_painted.png"
+
+var river_source_texture: Texture2D = null
+var river_sink_dry_texture: Texture2D = null
+var river_sink_full_texture: Texture2D = null
 
 var fossil_texture: Texture2D = null
+var fossil_soil_texture: Texture2D = null
+var fossil_piece_textures: Array[Texture2D] = []
 var geode_texture: Texture2D = null
+var geode_left_texture: Texture2D = null
+var geode_right_texture: Texture2D = null
+var geode_seam_closed_texture: Texture2D = null
+var geode_seam_done_texture: Texture2D = null
 var rock_texture: Texture2D = null
 var brush_texture: Texture2D = null
 var pan_texture: Texture2D = null
+var work_slab_texture: Texture2D = null
+var pan_grain_texture: Texture2D = null
+var mineral_mint_texture: Texture2D = null
+var mineral_blue_texture: Texture2D = null
+var mineral_lavender_texture: Texture2D = null
 var crystals_texture: Texture2D = null
 
 var touch_owner := -1
@@ -245,12 +288,46 @@ func restart_demo() -> void:
 
 
 func _load_textures() -> void:
-	fossil_texture = _optional_texture(FOSSIL_PATH)
-	geode_texture = _optional_texture(GEODE_PATH)
+	var slab_source: Texture2D = _optional_texture(WORK_SLAB_PATH)
+	assert(slab_source != null, "Geologist painted work slab artwork is required")
+	if slab_source != null:
+		var painted_slab := CanvasTexture.new()
+		painted_slab.diffuse_texture = slab_source
+		painted_slab.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		work_slab_texture = painted_slab
+	river_source_texture = _required_mineral_texture(RIVER_SOURCE_PATH)
+	river_sink_dry_texture = _required_mineral_texture(RIVER_SINK_DRY_PATH)
+	river_sink_full_texture = _required_mineral_texture(RIVER_SINK_FULL_PATH)
+	fossil_texture = _required_fossil_texture(FOSSIL_PATH)
+	fossil_soil_texture = _required_fossil_texture(FOSSIL_SOIL_PATH)
+	fossil_piece_textures.clear()
+	for path: String in FOSSIL_PIECE_PATHS:
+		fossil_piece_textures.append(_required_fossil_texture(path))
+	geode_texture = _required_mineral_texture(GEODE_PATH)
+	geode_left_texture = _required_mineral_texture(GEODE_LEFT_PATH)
+	geode_right_texture = _required_mineral_texture(GEODE_RIGHT_PATH)
+	geode_seam_closed_texture = _required_mineral_texture(GEODE_SEAM_CLOSED_PATH)
+	geode_seam_done_texture = _required_mineral_texture(GEODE_SEAM_DONE_PATH)
 	rock_texture = _optional_texture(ROCK_PATH)
 	brush_texture = _optional_texture(BRUSH_PATH)
-	pan_texture = _optional_texture(PAN_PATH)
-	crystals_texture = _optional_texture(CRYSTALS_PATH)
+	var painted_source: Texture2D = _optional_texture(PAN_PATH)
+	assert(painted_source != null, "Geologist washing pan artwork is required")
+	if painted_source != null:
+		var painted_pan := CanvasTexture.new()
+		painted_pan.diffuse_texture = painted_source
+		painted_pan.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		pan_texture = painted_pan
+	var grain_source: Texture2D = _optional_texture(PAN_GRAIN_PATH)
+	assert(grain_source != null, "Geologist painted pan sediment artwork is required")
+	if grain_source != null:
+		var painted_grain := CanvasTexture.new()
+		painted_grain.diffuse_texture = grain_source
+		painted_grain.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		pan_grain_texture = painted_grain
+	mineral_mint_texture = _required_mineral_texture(MINERAL_MINT_PATH)
+	mineral_blue_texture = _required_mineral_texture(MINERAL_BLUE_PATH)
+	mineral_lavender_texture = _required_mineral_texture(MINERAL_LAVENDER_PATH)
+	crystals_texture = _required_mineral_texture(CRYSTALS_PATH)
 
 
 func _optional_texture(path: String) -> Texture2D:
@@ -649,13 +726,18 @@ func _draw_river() -> void:
 		draw_circle(center, 21.0, color)
 		if flowing.has(index):
 			draw_arc(center, 13.0, PI, TAU, 14, Color("#b6f1ed"), 3.0, true)
-	draw_circle(river_path_point(0), 43.0, Color("#514466"))
-	draw_circle(river_path_point(0), 35.0, Color("#8bf1f3"))
+	# Complete authored pool states; original logical endpoints and connectivity
+	# stay authoritative. No procedural pool body or layered water-fill fallback.
+	var source_size := Vector2(106.5, 106.5)
+	if river_source_texture != null:
+		draw_texture_rect(river_source_texture,
+			Rect2(river_path_point(0) - source_size * 0.5, source_size), false)
 	var finish := river_path_point(RIVER_PATH.size() - 1)
-	draw_circle(finish, 47.0, Color("#514466"))
-	draw_circle(finish, 39.0, Color("#77dbe0") if _river_connected() else Color("#a58a95"))
-	draw_arc(finish, 26.0, 0.0, TAU, 28, Color("#ead6bd"), 4.0, true)
-
+	var sink_texture: Texture2D = river_sink_full_texture 		if _river_connected() else river_sink_dry_texture
+	var sink_size := Vector2(118.5, 118.5)
+	if sink_texture != null:
+		draw_texture_rect(sink_texture,
+			Rect2(finish - sink_size * 0.5, sink_size), false)
 
 func _river_flow_indices() -> Dictionary:
 	var start := RIVER_PATH[0]
@@ -682,15 +764,24 @@ func _draw_fossil() -> void:
 		_draw_fossil_whole(FOSSIL_RECT.grow(-24.0), Color(1, 1, 1, 0.62))
 		var cell_size := Vector2(FOSSIL_RECT.size.x / float(FOSSIL_GRID_COLS),
 			FOSSIL_RECT.size.y / float(FOSSIL_GRID_ROWS))
-		for row in range(FOSSIL_GRID_ROWS):
-			for column in range(FOSSIL_GRID_COLS):
-				var index := row * FOSSIL_GRID_COLS + column
-				if not fossil_cleared[index]:
-					draw_rect(Rect2(FOSSIL_RECT.position \
-						+ Vector2(column, row) * cell_size,
-						cell_size + Vector2.ONE), Color("#c99159"), true)
+		if fossil_soil_texture != null:
+			var source_cell: Vector2 = fossil_soil_texture.get_size() 				/ Vector2(FOSSIL_GRID_COLS, FOSSIL_GRID_ROWS)
+			# One whole painted material; these are the existing saved eraser
+			# masks, with exact source/destination registration and no new art.
+			for row in range(FOSSIL_GRID_ROWS):
+				for column in range(FOSSIL_GRID_COLS):
+					var index := row * FOSSIL_GRID_COLS + column
+					if not fossil_cleared[index]:
+						var cell := Vector2(column, row)
+						draw_texture_rect_region(fossil_soil_texture,
+							Rect2(FOSSIL_RECT.position + cell * cell_size, cell_size),
+							Rect2(cell * source_cell, source_cell))
 		if held:
 			_draw_brush(pointer_pos)
+		return
+	if _snapped_count() == 3:
+		# One complete source avoids independently filtered fragment seams.
+		_draw_fossil_whole(FOSSIL_TARGET_RECT, Color.WHITE)
 		return
 	_draw_fossil_whole(FOSSIL_TARGET_RECT, Color(1, 1, 1, 0.22))
 	for index in range(3):
@@ -702,25 +793,34 @@ func _draw_fossil() -> void:
 			Rect2(center - FOSSIL_PIECE_SIZE * 0.5, FOSSIL_PIECE_SIZE))
 
 
+func _required_fossil_texture(path: String) -> Texture2D:
+	var source: Texture2D = _optional_texture(path)
+	assert(source != null, "Geologist painted fossil artwork is required: " + path)
+	if source == null:
+		return null
+	var painted := CanvasTexture.new()
+	painted.diffuse_texture = source
+	painted.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	return painted
+
+
 func _draw_fossil_whole(rect: Rect2, tint: Color) -> void:
-	if fossil_texture != null:
-		draw_texture_rect(fossil_texture, rect, false, tint)
-	else:
-		draw_arc(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.38,
-			0.0, TAU * 1.8, 54, Color("#f5ddaa", tint.a), 30.0, true)
+	if fossil_texture == null:
+		return
+	var painted_size: Vector2 = fossil_texture.get_size()
+	painted_size *= minf(rect.size.x / painted_size.x, rect.size.y / painted_size.y)
+	draw_texture_rect(fossil_texture,
+		Rect2(rect.get_center() - painted_size * 0.5, painted_size), false, tint)
 
 
 func _draw_fossil_piece(index: int, rect: Rect2) -> void:
-	if fossil_texture != null:
-		var source_size := fossil_texture.get_size()
-		var third := source_size.x / 3.0
-		draw_texture_rect_region(fossil_texture, rect,
-			Rect2(Vector2(third * float(index), 0.0),
-				Vector2(third, source_size.y)))
-	else:
-		draw_arc(rect.get_center(), rect.size.x * 0.34,
-			float(index) * 1.8, float(index + 1) * 1.8,
-			18, Color("#f8dca1"), 24.0, true)
+	var painted: Texture2D = fossil_piece_textures[index]
+	if painted == null:
+		return
+	# Whole padded cutouts register exactly with the unchanged 130x234 targets.
+	draw_texture_rect(painted,
+		Rect2(rect.get_center() - FOSSIL_PIECE_CANVAS_SIZE * 0.5,
+			FOSSIL_PIECE_CANVAS_SIZE), false)
 
 
 func _draw_brush(at: Vector2) -> void:
@@ -764,22 +864,16 @@ func _draw_pan() -> void:
 		PAN_RECT.size)
 	var center := rect.get_center() + Vector2(0.0, 22.0)
 	if pan_texture != null:
-		draw_texture_rect(pan_texture, rect, false)
-	else:
-		_draw_ellipse(center + Vector2(0.0, 13.0),
-			Vector2(rect.size.x * 0.44, rect.size.y * 0.30), Color("#392958"),
-			Color("#392958"), 0.0)
-		_draw_ellipse(center, Vector2(rect.size.x * 0.44, rect.size.y * 0.28),
-			Color("#c99159"), Color("#392958"), 12.0)
-		_draw_ellipse(center, Vector2(rect.size.x * 0.36, rect.size.y * 0.20),
-			Color("#65d8e5"), Color("#75506a"), 7.0)
-		_draw_ellipse(center - Vector2(0.0, 7.0),
-			Vector2(rect.size.x * 0.30, rect.size.y * 0.13),
-			Color(0.56, 0.93, 0.93, 0.54), Color(0.32, 0.74, 0.78, 0.68), 4.0)
-		for wave in range(3):
-			var wave_center := center + Vector2(-92.0 + float(wave) * 86.0, -8.0)
-			draw_arc(wave_center, 26.0 + float(wave) * 3.0, 0.2, 2.7,
-				18, Color(0.94, 1.0, 0.93, 0.48), 4.0, true)
+		# Preserve one coherent whole pan. The region discards transparent canvas,
+		# and the uniform fit leaves the original touch and sediment geometry intact.
+		var import_scale: Vector2 = pan_texture.get_size() / PAN_ART_SOURCE_SIZE
+		var source_rect := Rect2(PAN_ART_REGION.position * import_scale,
+			PAN_ART_REGION.size * import_scale)
+		var painted_width: float = rect.size.x * 0.88
+		var painted_size := Vector2(painted_width,
+			painted_width * PAN_ART_REGION.size.y / PAN_ART_REGION.size.x)
+		draw_texture_rect_region(pan_texture,
+			Rect2(center - painted_size * 0.5, painted_size), source_rect)
 	var grain_count := maxi(3, 20 - floori(pan_wash * 17.0))
 	for index in range(grain_count):
 		var angle := float(index) * 2.399
@@ -787,97 +881,71 @@ func _draw_pan() -> void:
 		var grain_pos := center + Vector2(cos(angle) * radius * 1.35,
 			sin(angle) * radius * 0.48)
 		grain_pos.x += pan_visual_x * 0.12 + sin(float(index) + pan_visual_x * 0.02) * 6.0
-		draw_circle(grain_pos, 6.0, Color("#d5a761"))
+		if pan_grain_texture != null:
+			# Whole painted cutout; its visible body stays about12x9 screen pixels.
+			draw_texture_rect(pan_grain_texture,
+				Rect2(grain_pos - Vector2(11.0, 11.0), Vector2(22.0, 22.0)), false)
+	var minerals: Array[Texture2D] = [
+		mineral_mint_texture, mineral_blue_texture, mineral_lavender_texture,
+	]
 	for index in range(pan_minerals):
 		var mineral_center := center + Vector2(-82.0 + float(index) * 82.0, 34.0)
-		_draw_mineral(mineral_center, 23.0,
-			Color.from_hsv(0.47 + float(index) * 0.12, 0.40, 1.0))
+		_draw_painted_mineral(mineral_center, 28.0, minerals[index])
 
 
 func _draw_geode() -> void:
 	var center := GEODE_RECT.get_center()
-	var seam_x := center.x
 	var opened := geode_pull > 0.0
 	if opened:
 		_draw_ellipse(center + Vector2(geode_pull * 0.5, 0.0),
 			Vector2(36.0 + geode_pull * 0.32, 122.0), Color("#291f48"),
 			Color("#392958"), 8.0)
-		if crystals_texture != null:
-			draw_texture_rect(crystals_texture,
-				Rect2(center + Vector2(geode_pull * 0.5 - 78.0, -84.0),
-					Vector2(156.0, 168.0)), false)
-		else:
-			_draw_crystal_gallery(center + Vector2(geode_pull * 0.5, 18.0))
-	var left_half := _geode_half_points(seam_x, center.y, -1.0, 0.0)
-	var right_half := _geode_half_points(seam_x + geode_pull, center.y, 1.0, 0.0)
-	draw_colored_polygon(left_half, Color("#65506e"))
-	draw_colored_polygon(right_half, Color("#755c7d"))
-	var left_outline := left_half.duplicate()
-	left_outline.append(left_half[0])
-	draw_polyline(left_outline, Color("#392958"), 12.0, true)
-	var right_outline := right_half.duplicate()
-	right_outline.append(right_half[0])
-	draw_polyline(right_outline, Color("#392958"), 12.0, true)
-	if not opened:
-		draw_line(Vector2(seam_x, center.y - 130.0),
-			Vector2(seam_x, center.y + 130.0), Color("#392958"), 9.0, true)
+		_draw_crystal_gallery(center + Vector2(geode_pull * 0.5, 0.0))
+	var shell_scale: float = minf(440.0 / GEODE_SHELL_ART_REGION.size.x,
+		280.0 / GEODE_SHELL_ART_REGION.size.y)
+	var shell_origin: Vector2 = center - GEODE_SHELL_ART_REGION.get_center() * shell_scale
+	if opened:
+		# Exact matching halves from the same whole source. Crop transparent padding
+		# in the draw only, retaining every painted pixel and the original translation.
+		var half_size: Vector2 = Vector2(256.0, 512.0) * shell_scale
+		var half_source := Rect2(128.0, 0.0, 256.0, 512.0)
+		if geode_left_texture != null:
+			draw_texture_rect_region(geode_left_texture,
+				Rect2(shell_origin, half_size), half_source)
+		if geode_right_texture != null:
+			draw_texture_rect_region(geode_right_texture,
+				Rect2(shell_origin + Vector2(256.0 * shell_scale + geode_pull, 0.0),
+					half_size), half_source)
+	elif geode_texture != null:
+		# The complete closed image avoids a sampling seam between touching halves.
+		draw_texture_rect(geode_texture,
+			Rect2(shell_origin, Vector2(512.0, 512.0) * shell_scale), false)
 	for index in range(GEODE_SEAM_SPOTS.size()):
 		var done := geode_seams[index]
 		if opened:
 			continue
 		var spot := GEODE_SEAM_SPOTS[index] + Vector2(geode_pull * 0.5, 0.0) \
 			if opened and index >= 2 else GEODE_SEAM_SPOTS[index]
-		draw_circle(spot, 22.0,
-			Color("#ffe69a") if not done else Color("#8ce6dd"))
-		if not done:
-			draw_arc(spot, 32.0, 0.0, TAU, 24,
-				Color(1.0, 0.89, 0.42, 0.56), 5.0, true)
+		var painted: Texture2D = geode_seam_done_texture if done else geode_seam_closed_texture
+		if painted != null:
+			# Whole authored state, same centre and common registered canvas.
+			draw_texture_rect(painted, Rect2(spot - Vector2(32.0, 32.0),
+				Vector2(64.0, 64.0)), false)
 
 
 func _draw_work_surface() -> void:
-	var surface := Rect2(330.0, 130.0, 860.0, 560.0)
-	_draw_rounded_rect(Rect2(surface.position + Vector2(0.0, 14.0),
-		surface.size), 34.0,
-		Color(0.12, 0.09, 0.22, 0.56), Color(0.12, 0.09, 0.22, 0.0), 0.0)
-	_draw_rounded_rect(surface, 34.0, Color("#d4aa78"), Color("#392958"), 10.0)
-	_draw_rounded_rect(Rect2(surface.position + Vector2(18.0, 18.0),
-		surface.size - Vector2(36.0, 36.0)), 24.0,
-		Color(0.93, 0.78, 0.56, 0.18), Color(0.93, 0.78, 0.56, 0.0), 0.0)
-
-
-func _draw_rounded_rect(rect: Rect2, radius: float, fill: Color,
-		outline: Color, outline_width: float) -> void:
-	var r := minf(radius, minf(rect.size.x, rect.size.y) * 0.5)
-	draw_rect(Rect2(rect.position + Vector2(r, 0.0),
-		Vector2(rect.size.x - r * 2.0, rect.size.y)), fill, true)
-	draw_rect(Rect2(rect.position + Vector2(0.0, r),
-		Vector2(rect.size.x, rect.size.y - r * 2.0)), fill, true)
-	for corner in [
-		rect.position + Vector2(r, r),
-		rect.position + Vector2(rect.size.x - r, r),
-		rect.position + Vector2(rect.size.x - r, rect.size.y - r),
-		rect.position + Vector2(r, rect.size.y - r),
-	]:
-		draw_circle(corner, r, fill)
-	if outline_width <= 0.0 or outline.a <= 0.0:
+	if work_slab_texture == null:
 		return
-	draw_line(rect.position + Vector2(r, 0.0),
-		rect.position + Vector2(rect.size.x - r, 0.0), outline, outline_width, true)
-	draw_line(rect.position + Vector2(rect.size.x, r),
-		rect.position + Vector2(rect.size.x, rect.size.y - r), outline,
-		outline_width, true)
-	draw_line(rect.position + Vector2(rect.size.x - r, rect.size.y),
-		rect.position + Vector2(r, rect.size.y), outline, outline_width, true)
-	draw_line(rect.position + Vector2(0.0, rect.size.y - r),
-		rect.position + Vector2(0.0, r), outline, outline_width, true)
-	draw_arc(rect.position + Vector2(r, r), r, PI, PI * 1.5, 12,
-		outline, outline_width, true)
-	draw_arc(rect.position + Vector2(rect.size.x - r, r), r, PI * 1.5, TAU, 12,
-		outline, outline_width, true)
-	draw_arc(rect.position + Vector2(rect.size.x - r, rect.size.y - r), r, 0.0,
-		PI * 0.5, 12, outline, outline_width, true)
-	draw_arc(rect.position + Vector2(r, rect.size.y - r), r, PI * 0.5, PI, 12,
-		outline, outline_width, true)
+	var surface := Rect2(330.0, 130.0, 860.0, 560.0)
+	# Fit the complete authored slab uniformly. Transparent canvas stays intact;
+	# all interaction geometry and activity coordinates retain their old frame.
+	var scale: float = minf(surface.size.x / WORK_SLAB_ART_REGION.size.x,
+		surface.size.y / WORK_SLAB_ART_REGION.size.y)
+	var painted_size: Vector2 = WORK_SLAB_SOURCE_SIZE * scale
+	var painted_position: Vector2 = surface.get_center() \
+		- WORK_SLAB_ART_REGION.get_center() * scale
+	draw_texture_rect(work_slab_texture,
+		Rect2(painted_position, painted_size), false)
 
 
 func _draw_ellipse(center: Vector2, radii: Vector2, fill: Color,
@@ -893,21 +961,24 @@ func _draw_ellipse(center: Vector2, radii: Vector2, fill: Color,
 		draw_polyline(closed, outline, outline_width, true)
 
 
-func _draw_mineral(center: Vector2, radius: float, color: Color) -> void:
-	var points := PackedVector2Array([
-		center + Vector2(-radius * 0.82, radius * 0.15),
-		center + Vector2(-radius * 0.34, -radius * 0.78),
-		center + Vector2(radius * 0.42, -radius * 0.60),
-		center + Vector2(radius * 0.84, radius * 0.12),
-		center + Vector2(radius * 0.18, radius * 0.80),
-	])
-	draw_colored_polygon(points, color)
-	var closed := points.duplicate()
-	closed.append(points[0])
-	draw_polyline(closed, Color("#392958"), 6.0, true)
-	draw_line(center + Vector2(-radius * 0.28, -radius * 0.55),
-		center + Vector2(radius * 0.18, radius * 0.50),
-		Color(1.0, 0.96, 0.70, 0.64), 4.0, true)
+func _required_mineral_texture(path: String) -> Texture2D:
+	var source: Texture2D = _optional_texture(path)
+	assert(source != null, "Geologist painted mineral artwork is required: " + path)
+	if source == null:
+		return null
+	var painted := CanvasTexture.new()
+	painted.diffuse_texture = source
+	painted.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	return painted
+
+
+func _draw_painted_mineral(center: Vector2, radius: float, texture: Texture2D) -> void:
+	if texture == null:
+		return
+	# Preserve each complete authored specimen at one uniform scale and centre.
+	var painted_size: Vector2 = texture.get_size()
+	painted_size *= radius * 2.0 / maxf(painted_size.x, painted_size.y)
+	draw_texture_rect(texture, Rect2(center - painted_size * 0.5, painted_size), false)
 
 
 func _geode_half_points(seam_x: float, center_y: float, side: float,
@@ -925,20 +996,13 @@ func _geode_half_points(seam_x: float, center_y: float, side: float,
 
 
 func _draw_crystal_gallery(center: Vector2) -> void:
-	var colours := [Color("#72e0d3"), Color("#d797e8"), Color("#8ce6dd")]
-	for index in range(3):
-		var x := center.x + float(index - 1) * 34.0
-		var height := 62.0 + float(index % 2) * 25.0
-		var points := PackedVector2Array([
-			Vector2(x - 17.0, center.y + 48.0), Vector2(x - 13.0, center.y - height * 0.42),
-			Vector2(x, center.y - height), Vector2(x + 16.0, center.y - height * 0.38),
-			Vector2(x + 20.0, center.y + 48.0),
-		])
-		draw_colored_polygon(points, colours[index])
-		var closed := points.duplicate()
-		closed.append(points[0])
-		draw_polyline(closed, Color("#392958"), 6.0, true)
-
+	if crystals_texture == null:
+		return
+	# One complete authored cluster at a uniform scale, in the original gallery slot.
+	var painted_size: Vector2 = crystals_texture.get_size()
+	painted_size *= minf(156.0 / painted_size.x, 168.0 / painted_size.y)
+	draw_texture_rect(crystals_texture,
+		Rect2(center - painted_size * 0.5, painted_size), false)
 
 func _demo_finger_pose() -> Dictionary:
 	var cycle := fmod(demo_t, 2.4)

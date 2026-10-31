@@ -1,0 +1,432 @@
+"""Prepared evidence verifier; execute only after root approves the exact source commit.
+
+All exports and the private checkout/index stay in ignored original scratch.
+No staging, common-index writes, source writes, deletion, or full project checkout.
+Raw tested SHA-256 values are retained separately from Git-filtered blob identities.
+"""
+import argparse
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+from pathlib import Path, PurePosixPath
+import re
+import subprocess
+import tempfile
+
+
+ORIGINAL = Path(r"C:\Users\Peter\Documents\mermaid-roshan-reef")
+ROOT = Path(r"C:\Users\Peter\.codex\worktrees\luna-gameplay-repairs-20261014\mermaid-roshan-reef")
+SCRATCH = ORIGINAL / "tmp/luna_repair_20261014"
+PIN = SCRATCH / "candidate-runtime-sources.v8.json"
+ACTIVE_PIN = SCRATCH / "candidate-runtime-sources.json"
+PIN_SHA = "786bc13b36002f919b689a13870e475bd86a8fa32cc1f39eacd661fea03a2388"
+CYCLE = "audit/cycles/luna-gameplay-repairs-20261014"
+GUIDES = "assets_src/audio/objective_guides_20261014"
+RUNTIME_MANIFEST = "assets/audio/objective_guides/OBJECTIVE_GUIDE_MANIFEST.json"
+RUNTIME_MANIFEST_SHA = "02e1de9358b7e1d32e7b4f293c09dc51b9c6ca9c6a9f586354891245503a8bfa"
+ATTR_NAMES = ("text", "eol", "filter", "working-tree-encoding", "ident")
+EXPECTED_RUNTIME_COUNT = 5682
+EXPECTED_GUIDE_COUNT = 29
+COMMANDS = []
+
+
+def require(condition, message):
+	if not condition:
+		raise ValueError(message)
+
+
+def sha(data):
+	return hashlib.sha256(data).hexdigest()
+
+
+def json_bytes(value):
+	return (json.dumps(value, indent=2, sort_keys=True) + "\n").encode("utf-8")
+
+
+def base_environment():
+	env = os.environ.copy()
+	for key in ("GIT_INDEX_FILE", "GIT_WORK_TREE", "GIT_DIR", "GIT_COMMON_DIR"):
+		env.pop(key, None)
+	env.update(GIT_OPTIONAL_LOCKS="0", GIT_TERMINAL_PROMPT="0")
+	return env
+
+
+def git(args, *, data=None, env=None, accepted=(0,)):
+	command = ["git", *args]
+	result = subprocess.run(command, cwd=ROOT, env=env or base_environment(),
+		input=data, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=False)
+	COMMANDS.append({
+		"argv": command,
+		"stdin_sha256": sha(data) if data is not None else None,
+		"stdin_bytes": len(data) if data is not None else 0,
+		"exit_code": result.returncode,
+		"stdout_sha256": sha(result.stdout),
+		"stdout_bytes": len(result.stdout),
+		"stderr": result.stderr.decode("utf-8", errors="replace"),
+		"private_index": env.get("GIT_INDEX_FILE") if env else None,
+	})
+	require(result.returncode in accepted,
+		"Git command failed: " + " ".join(args[:4]) + "; " +
+		result.stderr.decode("utf-8", errors="replace")[:1200])
+	return result.stdout
+
+
+def safe_relative(name):
+	require(isinstance(name, str) and not any(c in name for c in "\r\n\0")
+		and not name.startswith('"') and "\\" not in name, "Unsafe repository path")
+	path = PurePosixPath(name)
+	require(not path.is_absolute() and ".." not in path.parts, "Path escapes repository")
+	resolved = (ROOT / name).resolve()
+	require(resolved.is_relative_to(ROOT.resolve()), "Resolved path escapes repository")
+	return name
+
+
+def file_hashes(path):
+	"""Hash raw bytes and exact CRLF-to-LF bytes without buffering a large asset."""
+	raw_hash, lf_hash = hashlib.sha256(), hashlib.sha256()
+	size, crlf, carry = 0, 0, b""
+	with path.open("rb") as stream:
+		while True:
+			block = stream.read(1024 * 1024)
+			if not block:
+				break
+			raw_hash.update(block)
+			size += len(block)
+			joined = carry + block
+			carry = b"\r" if joined.endswith(b"\r") else b""
+			body = joined[:-1] if carry else joined
+			crlf += body.count(b"\r\n")
+			lf_hash.update(body.replace(b"\r\n", b"\n"))
+	lf_hash.update(carry)
+	return {"sha256": raw_hash.hexdigest(), "lf_sha256": lf_hash.hexdigest(),
+		"bytes": size, "crlf_count": crlf}
+
+
+def file_identity(path):
+	if not path.is_file():
+		return {"path": str(path), "exists": False}
+	data = path.read_bytes()
+	return {"path": str(path), "exists": True, "sha256": sha(data), "bytes": len(data)}
+
+
+def guard_snapshot():
+	git_dir = Path(git(["rev-parse", "--absolute-git-dir"]).decode().strip()).resolve()
+	common = Path(git(["rev-parse", "--path-format=absolute", "--git-common-dir"]).decode().strip()).resolve()
+	index = Path(git(["rev-parse", "--path-format=absolute", "--git-path", "index"]).decode().strip()).resolve()
+	index_paths = {index, common / "index"}
+	shared = git(["rev-parse", "--shared-index-path"]).decode().strip()
+	if shared:
+		shared_path = Path(shared)
+		index_paths.add((ROOT / shared_path).resolve() if not shared_path.is_absolute() else shared_path.resolve())
+	indices = []
+	for path in sorted(index_paths, key=str):
+		require(not Path(str(path) + ".lock").exists(), "Existing index lock: " + str(path))
+		indices.append(file_identity(path))
+	status = git(["status", "--porcelain=v1", "-z", "--untracked-files=all"])
+	return {
+		"git_dir": str(git_dir), "common_git_dir": str(common),
+		"head": git(["rev-parse", "HEAD"]).decode().strip(),
+		"branch": git(["symbolic-ref", "--short", "-q", "HEAD"], accepted=(0, 1)).decode().strip(),
+		"core_autocrlf": git(["config", "--get", "core.autocrlf"], accepted=(0, 1)).decode().strip(),
+		"core_eol": git(["config", "--get", "core.eol"], accepted=(0, 1)).decode().strip(),
+		"status_sha256": sha(status), "status_bytes": len(status),
+		"indices": indices, "active_pin": file_identity(ACTIVE_PIN),
+		"immutable_v8_pin": file_identity(PIN),
+		"working_gitattributes": file_identity(ROOT / ".gitattributes"),
+	}
+
+
+def literal_paths():
+	names = []
+	for scope in (CYCLE, GUIDES):
+		base = ROOT / scope
+		require(base.is_dir(), "Literal scope absent: " + scope)
+		for path in base.rglob("*"):
+			if path.is_file():
+				require(not path.is_symlink(), "Literal symlink not supported")
+				names.append(safe_relative(path.relative_to(ROOT).as_posix()))
+	require((ROOT / RUNTIME_MANIFEST).is_file(), "Runtime Guide manifest absent")
+	names.append(RUNTIME_MANIFEST)
+	guide_count = sum(name.startswith(GUIDES + "/") for name in names)
+	require(guide_count == EXPECTED_GUIDE_COUNT, "Expected exactly29 Guide source files")
+	return sorted(set(names))
+
+
+def parse_tree(data):
+	result = {}
+	for record in data.split(b"\0"):
+		if not record:
+			continue
+		info, name = record.split(b"\t", 1)
+		mode, kind, oid = info.decode("ascii").split()
+		result[name.decode("utf-8")] = {"mode": mode, "kind": kind, "oid": oid}
+	return result
+
+
+def parse_index(data):
+	result = {}
+	for record in data.split(b"\0"):
+		if not record:
+			continue
+		info, name = record.split(b"\t", 1)
+		mode, oid, stage = info.decode("ascii").split()
+		path = name.decode("utf-8")
+		require(stage == "0", "Unmerged index entry: " + path)
+		result[path] = {"mode": mode, "oid": oid}
+	return result
+
+
+def attributes(paths, *, source=None, cached=False, env=None, worktree=None):
+	args = []
+	if worktree is not None:
+		args.extend(["--work-tree=" + str(worktree)])
+	args.extend(["check-attr", "-z", "--stdin"])
+	if cached:
+		args.append("--cached")
+	if source is not None:
+		args.append("--source=" + source)
+	args.extend(ATTR_NAMES)
+	values = git(args, data=("\0".join(paths) + "\0").encode("utf-8"), env=env).split(b"\0")
+	require(values[-1] == b"" and (len(values) - 1) % 3 == 0, "Malformed attribute result")
+	result = {}
+	for offset in range(0, len(values) - 1, 3):
+		name, attr, value = (part.decode("utf-8") for part in values[offset:offset + 3])
+		result.setdefault(name, {})[attr] = value
+	require(set(result) == set(paths), "Incomplete attribute inventory")
+	return result
+
+
+def blob_hashes(oids):
+	"""One binary-safe process; stream each unique blob and discard payload pixels/audio."""
+	command = ["git", "cat-file", "--batch"]
+	process = subprocess.Popen(command, cwd=ROOT, env=base_environment(),
+		stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	result = {}
+	try:
+		for oid in sorted(set(oids)):
+			process.stdin.write((oid + "\n").encode("ascii"))
+			process.stdin.flush()
+			header = process.stdout.readline().decode("ascii").strip().split()
+			require(len(header) == 3 and header[0] == oid and header[1] == "blob",
+				"Unexpected cat-file object header")
+			remaining = int(header[2])
+			digest = hashlib.sha256()
+			size = remaining
+			while remaining:
+				block = process.stdout.read(min(1024 * 1024, remaining))
+				require(bool(block), "Truncated Git blob")
+				digest.update(block)
+				remaining -= len(block)
+			require(process.stdout.read(1) == b"\n", "Missing cat-file record terminator")
+			result[oid] = {"sha256": digest.hexdigest(), "bytes": size}
+		process.stdin.close()
+		code = process.wait(timeout=60)
+		stderr = process.stderr.read()
+		require(code == 0, "cat-file --batch failed")
+		COMMANDS.append({"argv": command, "unique_blob_count": len(result),
+			"exit_code": code, "stderr": stderr.decode("utf-8", errors="replace"),
+			"payload_handling": "SHA256 streaming only; no blob payload exports"})
+	finally:
+		if process.poll() is None:
+			process.kill()
+			process.wait(timeout=15)
+	return result
+
+
+def save_export(workspace, name, value):
+	path = workspace / name
+	with path.open("xb") as stream:
+		stream.write(json_bytes(value))
+	return file_identity(path)
+
+
+def verify(commit, output):
+	require(re.fullmatch(r"[0-9a-f]{40}", commit) is not None, "--commit requires exact40 lowercase hex")
+	require(output.suffix.lower() == ".json", "--output must be an absent JSON receipt path")
+	require(output.is_absolute(), "--output must be absolute")
+	output = output.resolve()
+	require(output.is_relative_to(SCRATCH.resolve()), "Outputs must stay in original ignored scratch")
+	require(not output.exists(), "Refusing existing output")
+	git(["-C", str(ORIGINAL), "check-ignore", "-q", "--", output.relative_to(ORIGINAL).as_posix()])
+	git(["-C", str(ORIGINAL), "check-ignore", "-q", "--",
+		"tmp/luna_repair_20261014/post_commit_verifications/private.index"])
+	preparation_path = Path(__file__).resolve().parent / "PREPARATION_RECEIPT.json"
+	preparation = json.loads(preparation_path.read_bytes())
+	require(preparation["script"]["sha256"] == sha(Path(__file__).read_bytes()),
+		"Verifier changed after preparation review")
+	require(ROOT.resolve() == Path(git(["rev-parse", "--show-toplevel"]).decode().strip()).resolve(),
+		"Wrong managed worktree")
+	require(git(["cat-file", "-t", commit]).strip() == b"commit", "--commit is not a commit object")
+	require(git(["rev-parse", "--verify", commit + "^{commit}"]).decode().strip() == commit,
+		"Commit must be exact, not a tag/ref/abbreviation")
+	start = guard_snapshot()
+	require(start["active_pin"].get("sha256") == PIN_SHA and
+		start["immutable_v8_pin"].get("sha256") == PIN_SHA, "Frozen v8 pin mismatch")
+	git(["merge-base", "--is-ancestor", commit, start["head"]])
+	pin = json.loads(PIN.read_bytes())
+	expected = pin.get("sources")
+	require(pin.get("schema") == "luna_candidate_runtime_sources/1" and isinstance(expected, dict)
+		and len(expected) == EXPECTED_RUNTIME_COUNT, "Wrong frozen v8 runtime inventory")
+	for name, digest in expected.items():
+		safe_relative(name)
+		require(re.fullmatch(r"[0-9a-f]{64}", digest) is not None, "Malformed raw tested hash")
+	literals = literal_paths()
+	require(all(name in expected for name in literals if name.startswith(GUIDES + "/")
+		or name == RUNTIME_MANIFEST), "Guide source/runtime metadata absent from v8 pin")
+	union = sorted(set(expected) | set(literals) | {".gitattributes"})
+	for name in union:
+		safe_relative(name)
+		require((ROOT / name).is_file() and not (ROOT / name).is_symlink(), "Missing/nonregular file: " + name)
+	working = {name: file_hashes(ROOT / name) for name in union}
+	for name, tested in expected.items():
+		require(working[name]["sha256"] == tested, "Raw tested source changed: " + name)
+	require(working[RUNTIME_MANIFEST]["sha256"] == RUNTIME_MANIFEST_SHA, "Runtime manifest frozen hash mismatch")
+	tree = parse_tree(git(["ls-tree", "-r", "-z", "--full-tree", commit]))
+	index = parse_index(git(["ls-files", "--stage", "-z"]))
+	for name in union:
+		require(name in tree and tree[name]["kind"] == "blob" and tree[name]["mode"] in ("100644", "100755"),
+			"Source commit lacks regular blob: " + name)
+		require(name in index and index[name]["oid"] == tree[name]["oid"]
+			and index[name]["mode"] == tree[name]["mode"], "Stage0 differs from source commit: " + name)
+	attr_working = attributes(union)
+	attr_index = attributes(union, cached=True)
+	attr_commit = attributes(union, source=commit)
+	require(attr_working == attr_index == attr_commit, "Working/staged/committed attribute rules differ")
+	for name, attrs in attr_working.items():
+		for attr in ("filter", "working-tree-encoding", "ident"):
+			require(attrs[attr] in ("unspecified", "unset"), "Unexpected transforming attribute: " + name + " " + attr)
+	for name in literals:
+		require(attr_working[name]["text"] == "unset", "Literal path lacks committed -text: " + name)
+	# Uses actual working attributes; no --no-filters, no -w and no index update.
+	filtered = git(["hash-object", "--stdin-paths"],
+		data=("\n".join(union) + "\n").encode("utf-8")).decode("ascii").splitlines()
+	require(len(filtered) == len(union), "Incomplete hash-object --stdin-paths result")
+	filtered_oids = dict(zip(union, filtered))
+	for name in union:
+		require(filtered_oids[name] == tree[name]["oid"], "Filtered working bytes differ from source commit: " + name)
+	blobs = blob_hashes(tree[name]["oid"] for name in union)
+	runtime_rows = []
+	for name in sorted(expected):
+		blob = blobs[tree[name]["oid"]]
+		raw = working[name]
+		if blob["sha256"] == raw["sha256"]:
+			mapping = "RAW_IDENTICAL_TO_COMMITTED_BLOB"
+		else:
+			require(raw["crlf_count"] > 0 and blob["sha256"] == raw["lf_sha256"],
+				"Unexplained Git transform beyond exact CRLF-to-LF: " + name)
+			mapping = "CRLF_TO_GIT_LF"
+		runtime_rows.append({
+			"path": name, "tested_raw_sha256": expected[name],
+			"working_raw_sha256_before": raw["sha256"],
+			"working_crlf_count": raw["crlf_count"], "exact_crlf_to_lf_sha256": raw["lf_sha256"],
+			"working_filtered_git_oid": filtered_oids[name], "source_commit": commit,
+			"source_commit_git_oid": tree[name]["oid"], "stage0_git_oid": index[name]["oid"],
+			"committed_blob_sha256": blob["sha256"], "committed_blob_bytes": blob["bytes"],
+			"mapping": mapping, "literal_byte_protected": name in set(literals),
+		})
+	# Owned private index, no shared index/stat update and no full project checkout.
+	export_root = SCRATCH / "post_commit_verifications"
+	require(export_root.resolve().is_relative_to(SCRATCH.resolve()), "Private export root escapes scratch")
+	export_root.mkdir(parents=True, exist_ok=True)
+	workspace = Path(tempfile.mkdtemp(prefix="v8_" + commit[:12] + "_", dir=export_root))
+	partial = workspace / "partial_checkout"
+	partial.mkdir()
+	private_index = workspace / "private.index"
+	private_env = base_environment()
+	private_env["GIT_INDEX_FILE"] = str(private_index)
+	private_prefix = ["--git-dir=" + start["git_dir"], "--work-tree=" + str(partial),
+		"-c", "core.autocrlf=true", "-c", "core.splitIndex=false",
+		"-c", "core.sparseCheckout=false"]
+	git([*private_prefix, "read-tree", "--no-sparse-checkout", commit], env=private_env)
+	git([*private_prefix, "checkout-index", "--", ".gitattributes"], env=private_env)
+	# Attribute resolution comes from the exported committed .gitattributes.
+	private_attrs = attributes(literals, env=private_env, worktree=partial)
+	require(private_attrs == {name: attr_commit[name] for name in literals},
+		"Private checkout attribute rules differ from committed rules")
+	git([*private_prefix, "checkout-index", "-z", "--stdin"],
+		data=("\0".join(literals) + "\0").encode("utf-8"), env=private_env)
+	actual_exports = sorted(path.relative_to(partial).as_posix()
+		for path in partial.rglob("*") if path.is_file())
+	require(actual_exports == sorted(literals + [".gitattributes"]),
+		"Partial checkout exported files outside selected literal scopes")
+	literal_rows = []
+	for name in literals:
+		blob = blobs[tree[name]["oid"]]
+		checkout = file_hashes(partial / name)
+		require(blob["sha256"] == working[name]["sha256"] == checkout["sha256"],
+			"Literal raw/stage/commit/autocrlf checkout bytes differ: " + name)
+		literal_rows.append({"path": name, "raw_sha256": working[name]["sha256"],
+			"source_commit_git_oid": tree[name]["oid"], "stage0_git_oid": index[name]["oid"],
+			"committed_blob_sha256": blob["sha256"], "partial_checkout_sha256": checkout["sha256"],
+			"bytes": blob["bytes"], "attribute_text": "unset", "checkout_core_autocrlf": "true"})
+	require(literal_paths() == literals, "Literal path set changed during verification")
+	after_working = {name: file_hashes(ROOT / name) for name in union}
+	for row in runtime_rows:
+		after = after_working[row["path"]]
+		require(after["sha256"] == row["tested_raw_sha256"], "Raw runtime changed during verification")
+		row["working_raw_sha256_after"] = after["sha256"]
+	for name in union:
+		require(after_working[name]["sha256"] == working[name]["sha256"],
+			"Working literal/attribute/runtime file changed during verification: " + name)
+	finish = guard_snapshot()
+	require(start == finish, "HEAD/branch/status/source-pin/worktree or common index changed")
+	exports = [
+		save_export(workspace, "runtime_blob_mapping.json", runtime_rows),
+		save_export(workspace, "literal_blob_mapping.json", literal_rows),
+		save_export(workspace, "attributes.json", attr_working),
+		save_export(workspace, "git_commands.json", COMMANDS),
+	]
+	require(guard_snapshot() == start, "Final read-only guard changed")
+	mapping_counts = {}
+	for row in runtime_rows:
+		mapping_counts[row["mapping"]] = mapping_counts.get(row["mapping"], 0) + 1
+	receipt = {
+		"schema": "reef.post-commit-v8-byte-verification.v1",
+		"completed_utc": datetime.now(timezone.utc).isoformat(), "result": "PASS",
+		"source_commit": commit, "metadata_head_at_verification": start["head"],
+		"source_commit_policy": "Requested source commit is immutable; later metadata HEAD must never replace this identifier.",
+		"verifier": file_identity(Path(__file__).resolve()),
+		"preparation_receipt": file_identity(preparation_path),
+		"pin_sha256": PIN_SHA, "raw_tested_source_count": EXPECTED_RUNTIME_COUNT,
+		"runtime_mapping_counts": mapping_counts,
+		"raw_tested_identity": "Original raw5682SHA values retained; Git LF blobs are separate measured columns, never substituted for tested raw SHA.",
+		"literal_file_count": len(literals), "guide_source_file_count": EXPECTED_GUIDE_COUNT,
+		"runtime_manifest_sha256": RUNTIME_MANIFEST_SHA,
+		"committed_gitattributes": {"source_commit_git_oid": tree[".gitattributes"]["oid"],
+			"stage0_git_oid": index[".gitattributes"]["oid"],
+			"working_raw_sha256": working[".gitattributes"]["sha256"],
+			"committed_blob_sha256": blobs[tree[".gitattributes"]["oid"]]["sha256"],
+			"working_filtered_git_oid": filtered_oids[".gitattributes"]},
+		"guard_before": start, "guard_after": finish,
+		"guard_limit": "Exact before/after snapshots, not an exclusive lock; arbitrary A-to-B-to-A changes cannot be ruled out.",
+		"private_checkout": {"root": str(partial), "private_index": file_identity(private_index),
+			"selected_files": len(actual_exports), "scope": [CYCLE, GUIDES, RUNTIME_MANIFEST, ".gitattributes"],
+			"core_autocrlf": "true", "attributes_exported_first": True,
+			"original_or_common_index_modified": False, "deletion_performed": False},
+		"exports": exports,
+		"excluded_future_metadata": {"this_receipt": str(output), "owned_exports": str(workspace),
+			"reason": "Outside project literal scopes; receipt and later metadata commit cannot verify themselves."},
+		"limits": ["Byte/blob/partial-checkout verification only; no runtime gates executed",
+			"Recorded local CI and visual/2D UNSATISFIED/human gaps keep their separate scopes",
+			"No new physical-device/listening/child/owner, remote CI, integration or release acceptance"],
+	}
+	output.parent.mkdir(parents=True, exist_ok=True)
+	with output.open("xb") as stream:
+		stream.write(json_bytes(receipt))
+	print(json.dumps({"result": "PASS", "source_commit": commit,
+		"metadata_head_at_verification": start["head"], "receipt": file_identity(output),
+		"runtime_count": EXPECTED_RUNTIME_COUNT, "literal_count": len(literals),
+		"runtime_mapping_counts": mapping_counts, "owned_workspace": str(workspace)}, indent=2))
+
+
+def main():
+	parser = argparse.ArgumentParser(description=__doc__)
+	parser.add_argument("--commit", required=True)
+	parser.add_argument("--output", type=Path, required=True)
+	args = parser.parse_args()
+	verify(args.commit, args.output)
+
+
+if __name__ == "__main__":
+	main()

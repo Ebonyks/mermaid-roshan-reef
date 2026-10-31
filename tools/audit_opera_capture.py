@@ -21,6 +21,11 @@ from typing import Any
 
 from PIL import Image, UnidentifiedImageError
 
+try:
+    from tools.audit_godot_baseline import load_baseline, validate_metadata
+except ModuleNotFoundError:  # Direct execution from tools/.
+    from audit_godot_baseline import load_baseline, validate_metadata
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = "reef.opera.route_capture.v1"
@@ -68,6 +73,8 @@ CAREERS: tuple[tuple[int, str, str, str], ...] = (
 SOURCE_FIXED_FILES: tuple[str, ...] = (
     "project.godot",
     "tools/audit_opera_capture.py",
+    "tools/audit_godot_baseline.py",
+    "tools/godot_baseline.json",
 )
 SOURCE_TREE_RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("assets", (
@@ -128,6 +135,22 @@ def strict_equal(actual: Any, expected: Any) -> bool:
             for actual_value, expected_value in zip(actual, expected)
         )
     return actual == expected
+
+
+def expected_engine(source_root: Path) -> dict[str, Any]:
+    """Resolve capture pins from the same validated production authority."""
+    baseline = load_baseline(source_root / "tools/godot_baseline.json")
+    if not isinstance(baseline, dict):
+        raise ValueError("Godot baseline must be an object")
+    errors = validate_metadata(baseline)
+    if errors:
+        raise ValueError("; ".join(errors))
+    major, minor, patch = (int(part) for part in baseline["version"].split("."))
+    return {
+        "major": major, "minor": minor, "patch": patch,
+        "status": baseline["status"], "build": "official",
+        "version_string": f"{baseline['release']} (official)",
+    }
 
 
 def _mask_non_newlines(value: str) -> str:
@@ -471,6 +494,7 @@ def _validate_aspect(
     source_signature: dict[str, Any],
     aspect: str,
     dimensions: tuple[int, int],
+    wanted_engine: dict[str, Any],
 ) -> tuple[list[str], str]:
     errors: list[str] = []
     aspect_dir = capture_root / aspect
@@ -512,22 +536,9 @@ def _validate_aspect(
     if not strict_equal(manifest.get("rendering_method"), "mobile"):
         _add(errors, "renderer", f"{aspect}: {manifest.get('rendering_method')!r}")
     engine = manifest.get("engine")
-    version_string = engine.get("version_string") \
-        if type(engine) is dict else None
-    wanted_engine = {
-        "major": 4,
-        "minor": 7,
-        "patch": 1,
-        "status": "stable",
-        "build": "official",
-        "version_string": version_string,
-    }
-    exact_version_string = version_string == "4.7.1-stable (official)"
-    exact_engine = exact_version_string \
-        and strict_equal(engine, wanted_engine) \
-        and set(engine) == ENGINE_KEYS
+    exact_engine = strict_equal(engine, wanted_engine)
     if not exact_engine:
-        _add(errors, "engine", f"{aspect}: exact official Godot 4.7.1 required")
+        _add(errors, "engine", f"{aspect}: exact official Godot {wanted_engine['version_string']} required")
     if not strict_equal(manifest.get("source_signature"), source_signature):
         _add(errors, "source_signature", f"{aspect}: source closure drift")
     if not strict_equal(manifest.get("expected_state_ids"), expected_ids):
@@ -644,10 +655,15 @@ def validate_capture_root(
     if source_signature["missing"]:
         _add(errors, "source_missing", str(source_signature["missing"]))
     errors.extend(probe_contract_errors(source_root))
+    try:
+        wanted_engine = expected_engine(source_root)
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        _add(errors, "engine_baseline", str(exc))
+        return errors
     nonces: list[str] = []
     for aspect, dimensions in ASPECTS.items():
         aspect_errors, nonce = _validate_aspect(
-            capture_root, source_signature, aspect, dimensions,
+            capture_root, source_signature, aspect, dimensions, wanted_engine,
         )
         errors.extend(aspect_errors)
         if nonce:

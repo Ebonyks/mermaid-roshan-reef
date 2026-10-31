@@ -1,0 +1,32 @@
+{
+  "baseline": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "runtime_pin_sha256": "40dadce4138790acdeac3947ee9ccef5a9c9612d893cbe55316b0a9fb91402c3",
+  "known_runtime_paths": 4425,
+  "known_sidecars": 1913,
+  "sets_may_overlap": true,
+  "runtime_pin_unchanged": true,
+  "sidecar_pin_unchanged": true,
+  "actual_runtime_changes": [
+    "scripts/collection_system.gd",
+    "scripts/navigation_controller.gd",
+    "scripts/pause_menu.gd",
+    "scripts/storybook_ui.gd"
+  ],
+  "actual_runtime_raw_hashes": {
+    "scripts/collection_system.gd": "1f32d4f684766404da25d9b1432d412f00477fd2f14c68ac546eff0db159da6a",
+    "scripts/navigation_controller.gd": "1b10fccd7d9b67bd4088948b98a83b64b7ef163461b2d4d7e0df7a881ab9c5ad",
+    "scripts/pause_menu.gd": "036f4cf18d0ccf8866b7989bbcf5dcac9d9095632892be915afa83b622c5b10d",
+    "scripts/storybook_ui.gd": "9ec09a6bdc926fee8a841bb0db97b39d40b9db0916d62a543c7aa5785c7f056c"
+  },
+  "ci_script_unchanged": true,
+  "frozen_root_representations": {
+    "per_piece.json": "absent",
+    "scene_coverage.json": "absent",
+    "tally.json": "absent",
+    "source_scopes.json": "absent",
+    "glyph_inventory.json": "absent"
+  },
+  "review_folder_gdignore_empty": true,
+  "checked_at_utc": "2026-10-17T12:51:09.248810+00:00",
+  "limits": "Known-source raw byte and preservation proof; no whole-game denominator, strict-zero2D, formalQA11/device/child/owner acceptance."
+}

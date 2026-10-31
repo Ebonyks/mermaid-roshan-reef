@@ -1,0 +1,21 @@
+{
+  "scope": "NOT_RUN; observation-only derivative of exact failed route01 probe; no threshold/assertion/completion/input-sequence change",
+  "source_probe_sha256": "6c77970f187381426dfe77e26f5cb0850d0e706ba9785cf3cb9fa796dcff800c",
+  "source_probe_lf_normalized_sha256": "29f9a22ae22921eaf37eb688b4614dc19db7a5b81f274455e9da45f186818755",
+  "line_endings": "Applied source has CRLF; derivative and diff use LF. Exact original bytes verified against failed-run source manifest.",
+  "script_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\probe_chapter2_push_observe_01.gd",
+  "script_sha256": "d8037e7de2af17efd650b432f616371ccfd081f163fe6d29f55a2a020487c5eb",
+  "instrumentation_diff_sha256": "4543caafb59d2ff1b30fc4f8ea47ef0df98810f1825f24bda7a4aa74416f6561",
+  "launch_arguments": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef",
+    "-s",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\chapter2\\diagnostics\\probe_chapter2_push_observe_01.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "requirements": "Root scratch-only pinned diagnostic runner must supply isolated profile and exact source-pin checks; do not run directly with owner profile."
+}

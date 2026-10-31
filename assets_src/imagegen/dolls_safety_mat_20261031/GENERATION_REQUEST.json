@@ -1,0 +1,25 @@
+{
+  "backend": "Built-in image_gen",
+  "model_selector_exposed": false,
+  "returned_version": null,
+  "take": 1,
+  "static_cap": 2,
+  "animation_calls": 0,
+  "prompt_sha256": "0d47a46ac850c31bafc6018331011978309f9d87eff6495c890e1faafe57b00d",
+  "references": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/excluded_source_exit_boundary/02_passive_safe_landing.png",
+      "sha256": "9d88b3307c4d400def83a1fc5132ec24dc1b552d2d6f22400f4406792ecd8516",
+      "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+      "role": "Exact current live Main/Faron/Dolls mat scene context. Captured before a later teardown assertion failure; valid visual context only, event retained excluded, no acceptance credit."
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/quilt_tucked.png",
+      "sha256": "afc84661d83415aa377658bfa289aff91a5396006622e9f06089ce40fadbda05",
+      "source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460",
+      "role": "Neighbor nursery painted fabric/padding/light reference; existing candidate scope, not newowner acceptance"
+    }
+  ],
+  "transparent_background": true,
+  "requested_at_utc": "2026-10-31T09:22:28.180113+00:00"
+}

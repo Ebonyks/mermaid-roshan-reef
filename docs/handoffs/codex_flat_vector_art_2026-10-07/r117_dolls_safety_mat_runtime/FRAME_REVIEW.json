@@ -1,0 +1,82 @@
+{
+  "stable_ids": [
+    "FV-D5FFAA03A9ED",
+    "FV-2F6CBEE137C3"
+  ],
+  "reviewer": "Codex direct static inspection; qualified provisional agent judgment, never formal human/owner scores",
+  "same_scene_baseline": "baseline/ original Main Faron Dolls at exact086e9285, same5states x2aspects",
+  "all10_source_frames_inspected": true,
+  "all10_candidate_frames_inspected": true,
+  "axes": [
+    {
+      "axis": "contour",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Thick flat lavender border becomes thin painted padded rim and small rounded corners. Whole endcaps fit panel."
+    },
+    {
+      "axis": "palette",
+      "candidate_score_out_of5": 4.8,
+      "observation": "Lavender quilt, plum shadows and seven gold tufts keep nursery identity and harmonize with existing fabric/room."
+    },
+    {
+      "axis": "light",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Broad cream upper-left cloth highlights and soft mauve seam shadows replace transparent flat fill without relighting scene."
+    },
+    {
+      "axis": "perspective",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Shallow front band reads as padding while preserving broad frontal safety mat; no camera changes."
+    },
+    {
+      "axis": "scale",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Whole visible cloth retains952.32px width/bottom608. Top461.04 is10.16px above former471.2. Roshan visible tail stays clear."
+    },
+    {
+      "axis": "contact",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Centre/extreme legal feet lie on opaque front cloth: alpha252..253 at unchanged foot y603.748 and x0.08/0.5/0.92. Native both-aspect views support geometry; procedural cradle remains debt."
+    },
+    {
+      "axis": "occlusion",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Mat draws before cradle and babies. Extreme landings and caught baby readable; opaque cloth stays in panel and clear of Roshan."
+    },
+    {
+      "axis": "phone_readability",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Large quilt cells/seven tufts readable at native720high scale; baby peach/lilac swaddles remain distinct. Device/child review missing."
+    },
+    {
+      "axis": "identity_topology",
+      "candidate_score_out_of5": 4.7,
+      "observation": "One continuous padded mat with seven tufts/sewn channels. No actor, background, source baby, save key or action changed."
+    },
+    {
+      "axis": "painted_material_coherence",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Soft opaque gouache variation and sewn depressions match room cushions; whole authored artwork replaces StyleBox, lines and circles."
+    }
+  ],
+  "applicable_object_review_floor": 4.6,
+  "applicable_axes_at_or_above_floor": true,
+  "render_only_top_extension_pixels": 10.1558201701094,
+  "new_frames": {
+    "bounded": 20,
+    "excluded": 10,
+    "retained": 30
+  },
+  "excluded_scope": "Two five-frame source runs failed wrong delayed empty-game assertion. ZeroPNG diagnostic proves synchronous empty game then original level2 auto-return. Corrected source62/candidate72 pass; game unchanged.",
+  "original_functions_unchanged": 16,
+  "candidate_status": "USABLE_WHOLE_PAINTED_MAT_NATIVE_PASS_FULLGATES_PENDING",
+  "remaining": "Cradle/focus/pips/room resolution or approval/other Dolls and Opera routes remain debt.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "whole_role_closed": false,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "reviewed_at_utc": "2026-10-31T09:44:48.813103+00:00"
+}

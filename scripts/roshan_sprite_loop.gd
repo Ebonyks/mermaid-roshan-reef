@@ -26,6 +26,7 @@ const SPEED_START_THRESHOLD := 0.15
 const IDLE_BREATH_PIXELS := 1.8
 const SMOOTHNESS_MULTIPLIER := 3
 
+var wardrobe_owner: ReefMain = null
 var _sprite: Sprite3D = null
 var _sprite_2d: Sprite2D = null
 var _texture_rect: TextureRect = null
@@ -195,6 +196,8 @@ func _enter_swim() -> void:
 	_set_state_meta()
 
 func _apply_sheet(texture: Texture2D, rows: int) -> void:
+	var target: Node = _sprite_2d if _sprite_2d != null else (_texture_rect if _texture_rect != null else _sprite)
+	texture = FashionOutfitRenderer.texture(wardrobe_owner if wardrobe_owner != null else FashionDesigner.main_for(target), texture)
 	if _sprite != null and is_instance_valid(_sprite):
 		_sprite.texture = texture
 		_sprite.hframes = ATLAS_COLUMNS

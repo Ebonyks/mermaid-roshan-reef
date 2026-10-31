@@ -1,0 +1,84 @@
+{
+  "source": "assets_src\\cinematics\\ltx25_8gb_wave_20261004\\scale_continuity\\key22_redraw_attempt01_canvas.png",
+  "source_sha256": "be5574367593bfcbb224f881d899731461638772b05aaf8bcb5e42585054b28f",
+  "landmarks": {
+    "crown_gem": [
+      214.95143487858718,
+      92.5540838852097
+    ],
+    "image_left_eye": [
+      165.88702928870293,
+      201.51255230125523
+    ],
+    "image_right_eye": [
+      230.24247491638795,
+      206.38795986622074
+    ],
+    "neck_base": [
+      198.06475210254544,
+      313.0
+    ],
+    "bodice_waist_tip": [
+      178.16666666666669,
+      452.66666666666663
+    ]
+  },
+  "target": {
+    "crown_gem": [
+      224.30782566055154,
+      86.67883062189914
+    ],
+    "image_left_eye": [
+      177.26099469788085,
+      200.6707722799112
+    ],
+    "image_right_eye": [
+      242.2188052825553,
+      203.78942260442258
+    ],
+    "neck_base": [
+      209.73989999021808,
+      310.4
+    ],
+    "bodice_waist_tip": [
+      184.5,
+      453.0
+    ]
+  },
+  "uniform_scale": 1.0148168283233674,
+  "translation": [
+    3.6934684203866937,
+    -6.373750954377613
+  ],
+  "fit_constraint": "Waist fixed at root; remaining four landmarks jointly estimate a single scale. No rotation or limb warp.",
+  "max_anchor_residual_px": 5.810199507642919,
+  "anchor_residuals_px": {
+    "crown_gem": 2.6272585114304476,
+    "image_left_eye": 5.810199507642919,
+    "image_right_eye": 4.923910998305178,
+    "neck_base": 5.120394482128367,
+    "bodice_waist_tip": 0.0
+  },
+  "pair_scale_ratios": {
+    "image_left_eye__image_right_eye": 1.0071271974220057,
+    "crown_gem__image_left_eye": 0.9833558316548755,
+    "crown_gem__image_right_eye": 0.9838423144526829,
+    "crown_gem__bodice_waist_tip": 0.9969392447279024,
+    "neck_base__bodice_waist_tip": 0.9886118264094148
+  },
+  "pass": true,
+  "scaled_canvas": [
+    585,
+    845
+  ],
+  "raster_uniform_scale": 1.015625,
+  "placement": [
+    4,
+    -7
+  ],
+  "raster_corrected_placement": [
+    4,
+    -6
+  ],
+  "raster_rounding_correction": "Whole-canvas +1 pixel y translation after native Aseprite export moved thresholded waist landmark; no shape edits or relaxed limits."
+}

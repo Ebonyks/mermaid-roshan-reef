@@ -1,0 +1,43 @@
+{
+  "threshold": 0.98,
+  "original_alpha16_bbox": [
+    75,
+    23,
+    180,
+    234
+  ],
+  "records": [
+    {
+      "state": "bottle_half",
+      "iou": 0.9864480127548115,
+      "uniform_scale": 0.19993708293612966,
+      "native_crop": [
+        373,
+        114,
+        905,
+        1163
+      ],
+      "placement": [
+        75,
+        23
+      ],
+      "sampling": "Uniform alpha-mask sampling only, no delivered pixels produced"
+    },
+    {
+      "state": "bottle_empty",
+      "iou": 0.9874376183101016,
+      "uniform_scale": 0.20008620689655174,
+      "native_crop": [
+        378,
+        116,
+        905,
+        1160
+      ],
+      "placement": [
+        75,
+        24
+      ],
+      "sampling": "Uniform alpha-mask sampling only, no delivered pixels produced"
+    }
+  ]
+}

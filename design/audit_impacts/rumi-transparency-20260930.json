@@ -1,0 +1,83 @@
+{
+  "id": "rumi-transparency-20260930",
+  "scope": "Recover Rumi complete tails and cut contours using native Aseprite; investigate and repair reproduced Eagle, kitchen and craft-room alpha defects.",
+  "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-ASSET-01",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-QA-03"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/characters/rumi/rumi_eight_pose_runtime.png",
+    "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+    "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+    "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
+    "assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png",
+    "assets_src/characters/rumi_2026-08-22/PROVENANCE.json",
+    "assets_src/repairs/rumi_transparency_2026-09-30/.gdignore",
+    "assets_src/repairs/rumi_transparency_2026-09-30/REPAIR.json",
+    "assets_src/repairs/rumi_transparency_2026-09-30/board.aseprite",
+    "assets_src/repairs/rumi_transparency_2026-09-30/board_before.png",
+    "assets_src/repairs/rumi_transparency_2026-09-30/ownership.json",
+    "assets_src/repairs/rumi_transparency_2026-09-30/rumi.aseprite",
+    "assets_src/repairs/rumi_transparency_2026-09-30/rumi_before.png",
+    "assets_src/repairs/rumi_transparency_2026-09-30/rumi_pool.aseprite",
+    "assets_src/repairs/rumi_transparency_2026-09-30/rumi_pool_before.png",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/rumi_transparency_2026-09-30/.gdignore",
+    "audit/rumi_transparency_2026-09-30/REVIEW.json",
+    "audit/rumi_transparency_2026-09-30/board_before_after.png",
+    "audit/rumi_transparency_2026-09-30/craft_room.png",
+    "audit/rumi_transparency_2026-09-30/extended_fixture_overlap.png",
+    "audit/rumi_transparency_2026-09-30/full-ci.log",
+    "audit/rumi_transparency_2026-09-30/index.html",
+    "audit/rumi_transparency_2026-09-30/kitchen.png",
+    "audit/rumi_transparency_2026-09-30/pool_capture_fixture.gd.txt",
+    "audit/rumi_transparency_2026-09-30/pool_seen_clips.log",
+    "audit/rumi_transparency_2026-09-30/pool_unseen_clips_failure.log",
+    "audit/rumi_transparency_2026-09-30/rebuild.log",
+    "audit/rumi_transparency_2026-09-30/room_capture_fixture.gd.txt",
+    "audit/rumi_transparency_2026-09-30/rumi_pool.png",
+    "audit/rumi_transparency_2026-09-30/rumi_pose0_before_after.png",
+    "design/05_DOC_LEDGER.md",
+    "design/VISUAL_REPAIR_PLAN_2026-09-26.md",
+    "tools/aseprite/rebuild_visual_polish.ps1",
+    "tools/aseprite/repair_rumi_transparency.lua",
+    "tools/audit_rumi_transparency.py",
+    "tools/audit_visual_pixel_repairs.py"
+  ],
+  "validation": [
+    {
+      "command": "python tools/audit_visual_pixel_repairs.py; python tools/audit_castle_interactions_v2.py; exact six-output Aseprite rebuild",
+      "result": "PASS",
+      "evidence": "audit/rumi_transparency_2026-09-30/REVIEW.json"
+    },
+    {
+      "command": "Godot 4.7.2 Mobile room capture and seen-story-clip pool fixture",
+      "result": "PASS",
+      "evidence": "audit/rumi_transparency_2026-09-30/pool_seen_clips.log; normal room captures; extended diagnostic staging limitation remains explicit"
+    },
+    {
+      "command": "Unmodified pool visual probe with unseen story clips",
+      "result": "FAIL",
+      "evidence": "audit/rumi_transparency_2026-09-30/pool_unseen_clips_failure.log; first story clip obscures probe gameplay"
+    },
+    {
+      "command": "GODOT=4.7.2 scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "audit/rumi_transparency_2026-09-30/full-ci.log; exit 0, 77 probe processes exit 0 including one display-only headless SKIP"
+    }
+  ],
+  "acceptance_gaps": "Target-phone and owner/child visual acceptance remain open. Unseen-clip visual fixture and extended reveal staging are not accepted."
+}

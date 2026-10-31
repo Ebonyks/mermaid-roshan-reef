@@ -1,0 +1,38 @@
+{
+  "schema": "luna_pipe_diagnostic/1",
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "command": [
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\luna-playtest-20261012\\mermaid-roshan-reef",
+    "-s",
+    "audit/cycles/luna-playtest-20261012/review_tools/pipe_touch_diagnostic.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "started_utc": "2026-10-13T01:47:37.657455+00:00",
+  "finished_utc": "2026-10-13T01:47:47.451803+00:00",
+  "engine": {
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643"
+  },
+  "fixture_sha256": "9b09dcabed57429f76c81dda149e28cece031a38b8b02870c28c431bc627787a",
+  "helper_sha256": "b3cd14702c9823b15f4e0b73e6580ca6d81a3ea02e6bf916f7f00f13bc0c70ec",
+  "source_hashes": {
+    "scripts/opera_gesture_surface.gd": "34f3f264f17edef42990712f6c3f7e0106cf9afecd3969f8348848e0eda56017",
+    "scripts/probe_opera_pipe.gd": "46b9839080731fb33d8262953ebe40f87bd1d32537c97fec9861311a318ae977"
+  },
+  "exit_code": 0,
+  "status": "PASS",
+  "profile_isolated": true,
+  "save_profile": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-luna-pipe-touch-hwwqktkp",
+  "headless": true,
+  "evidence_kind": "ROUTED_VIEWPORT_INPUT_DIAGNOSTIC",
+  "scope": "Standalone first pipe round with synthetic touch IDs7/9; no Castle route, physical device, rendered latency or child acceptance. No production code altered.",
+  "wall_clock_is_gameplay_timing": false,
+  "wall_elapsed_seconds": 9.796,
+  "log": "audit/cycles/luna-playtest-20261012/verification/pipe_touch_local/probe.log",
+  "log_sha256": "46efe8b16368d7bac75d61a327f5c1a6431dd2356c3370c59447c8608f42faf1"
+}

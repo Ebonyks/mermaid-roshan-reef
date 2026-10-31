@@ -1,0 +1,98 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L45",
+  "reviewer": {"agent_id": "/root/luna_playtest_coordinator/luna_l45", "model": "gpt-6-luna"},
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Wardrobe direct choices and back lifecycle",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L45/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The existing probe instantiates the normal main scene and wardrobe, programmatically emits look-button pressed signals, checks preview/selection/skin/twirl and feedback, closes and reopens the overlay, and tests feedback-node/tween cleanup. The session helper reports PASS under Godot 4.7.2-stable; the retained log ends with UI_SYSTEM|RESULT|ALL OK.",
+    "route_gaps": "The test enters wardrobe through main._open_wardrobe() and uses synthetic button signals; it does not prove a fresh-save child can find/reach the bedroom wardrobe, perform physical taps, or invoke the global Back route. The probe checks that there is no wardrobe-specific Back button and calls _close_wardrobe() directly. Headless run does not establish Mobile rendering, phone latency, child comprehension/appeal, or owner acceptance."
+  },
+  "verdict": "PASS",
+  "timing": {
+    "source": "scripts/wardrobe_ui.gd:161-214,216-232,316-328; scripts/main.gd:8122-8148; scripts/probe_ui_system.gd:606-676",
+    "gameplay_estimate": "Assumption: the game target is 30 fps, so the 0.6-second controller grace is about 18 frames; the 0.68-second sparkle fade is about 20 frames and the 2.2-second locked-look toast hold is about 66 frames. These source-window estimates are not observed child timing. Probe frame waits are explicit test synchronization, not a measured play session; helper wall time is not gameplay duration.",
+    "probe_windows": "The wardrobe leg opens and waits 1 process frame before checking UI; synthetic look picks run sequentially, then cleanup waits 2 frames. Re-entry waits 1 frame. The global controller path has a 0.6-second overlay grace before A/B acts."
+  },
+  "tactile": {
+    "target_size": "Each wardrobe look button is 480x110 logical stage pixels; the finish button is 330x132. Probe checks the finish target's minimum thumb size, but phone-projected size and actual touch geometry were not measured.",
+    "press_response": "A synthetic pressed signal immediately changes selected skin, preview and player twirl in the probe; real press-to-feedback latency was not captured. A successful pick also plays a chime and starts a bounded preview burst.",
+    "drag_hold_release": "Wardrobe is button-based; no drag gesture or hold-to-select is implemented or tested. The global controller B closes after overlay grace; pointer global Back behavior was not exercised by this probe.",
+    "ownership": "Overlay creation pushes the wardrobe route and disables world controls; close removes the route and restores controls. Physical one-finger ownership and overlap behavior remain unmeasured.",
+    "cancellation": "Close queues the CanvasLayer for freeing, immediately clears wardrobe_layer/state, kills a live feedback tween, and re-entry starts with an empty feedback layer. Focus loss and real touch cancellation were not exercised."
+  },
+  "play_appeal": {
+    "hypothesis": "Pictured, mutually exclusive looks with a large preview can make choosing feel like a clear make-believe transformation. A visible try-on response and easy return may invite experimenting, but readable labels and three stacked choices may still matter to a non-reader.",
+    "agency_variety_world_response_replay": "Code and probe confirm distinct selectable looks, live preview updates, a twirl, bounded sparkle feedback, and lifecycle cleanup. They do not show whether a child recognizes the pictured choice, discovers wardrobe entry/Back, or wants to revisit the looks.",
+    "fun_score": null,
+    "concrete_appeal_test": "On the Lenovo Tab M11 with a fresh-save build and no adult pointing, observe whether the child reaches the bedroom wardrobe, taps a pictured look, notices Roshan's changed appearance, tries a second look, and exits with the visible global Back control. Repeat after leaving and returning; capture the screen and touch trace and record prompts, missed taps, comprehension and spontaneous replay separately."
+  },
+  "play_sequence": [
+    {"beat": "Probe waits 2 frames after scene startup, then opens the wardrobe and waits 1 frame for the overlay.", "input": "No child input; direct call to main._open_wardrobe().", "appeal_test": "This confirms overlay construction in a normal scene, not discoverability from a fresh-save bedroom route."},
+    {"beat": "Check the wardrobe frame, three pictured previews, lack of a local Back button, and thumb-sized finish control.", "input": "No touch; inspect nodes and target dimensions.", "appeal_test": "Large choices and a clear finish afford one-finger selection, though phone-space rendering and non-reader comprehension remain unknown."},
+    {"beat": "Emit one look button's pressed signal and inspect selected state, preview texture, skin id, twirl, and one 14-element feedback burst.", "input": "Synthetic pressed event for classic or huluu, whichever differs from the saved current skin.", "appeal_test": "A child should be able to see a meaningful, immediate transformation from a pictured choice; the probe verifies state, not perception."},
+    {"beat": "Immediately emit the other tested look button and check that the new selection replaces the prior feedback tween/burst.", "input": "Second synthetic button press with no intervening wait specified by the test.", "appeal_test": "Quick experimentation should keep the latest choice clear without accumulating visual effects."},
+    {"beat": "Call close, wait 2 process frames, and verify the overlay, feedback nodes, and tween are gone.", "input": "Direct main._close_wardrobe() call; no global Back gesture/key.", "appeal_test": "Leaving should return control cleanly and should not leave stale animation or overlay state."},
+    {"beat": "Restore the original test skin, reopen wardrobe, wait 1 frame, and confirm the new feedback layer starts empty with no prior tween.", "input": "Synthetic state restore and direct open call.", "appeal_test": "On re-entry, the child should see a fresh, stable choice surface."},
+    {"beat": "Probe opens the sticker book after wardrobe cleanup and checks its shared global-Back grammar; that is adjacent UI coverage, not proof of wardrobe Back activation.", "input": "Direct sticker-book open; wardrobe focus ends before that transition.", "appeal_test": "Do not infer the wardrobe's actual Back route from this neighboring overlay assertion."}
+  ],
+  "observations": [
+    {
+      "title": "Direct look choices update preview and character state with bounded feedback",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/wardrobe_ui.gd:89-118", "scripts/wardrobe_ui.gd:216-232", "scripts/probe_ui_system.gd:616-653", "audit/cycles/luna-playtest-20261012/runtime/L45/attempt_1/probe.log:169-177"],
+      "rules": ["DL-AGE-01", "DL-UI-01", "DL-UI-03", "DL-INT-02", "DL-MOT-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Open wardrobe, emit a valid WardrobeLook_* button's pressed signal, then inspect skin_id, preview texture, selected metadata, player verb and preview burst. Repeat immediately with the other tested look.",
+      "child_impact": "The appearance change and twirl provide a concrete response to a choice; if the preview is unclear at phone size, choosing may feel like an unexplained button press.",
+      "proposed_repair": "No repair indicated by this probe. Retain the bounded preview feedback and gather device/child evidence before claiming the interaction is understood.",
+      "acceptance_test": "On the target device, verify the preview and Roshan's in-world appearance match the tapped picture and remain visually legible while a child switches looks; retain a displayed capture and observed child response."
+    },
+    {
+      "title": "Large wardrobe choice and finish controls pass the probe's authored target checks",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/wardrobe_ui.gd:92-118", "scripts/probe_ui_system.gd:609-615", "audit/cycles/luna-playtest-20261012/runtime/L45/attempt_1/probe.log:169-173"],
+      "rules": ["DL-AGE-02", "DL-UI-03", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Inspect each wardrobe look button's 480x110 logical size and the 330x132 finish button; the focused probe checks the finish target through its shared target helper.",
+      "child_impact": "The authored dimensions support broad one-finger targets, while actual projected target size and missed-tap rate remain unknown.",
+      "proposed_repair": "No code change from the headless size evidence; measure the rendered controls on the target phone.",
+      "acceptance_test": "Capture the wardrobe at the target resolution/device and confirm each tappable card and finish control remains within the intended thumb-size rule and responds to deliberate taps."
+    },
+    {
+      "title": "Close and reopen clear temporary wardrobe feedback state",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": ["scripts/wardrobe_ui.gd:316-328", "scripts/probe_ui_system.gd:654-675", "audit/cycles/luna-playtest-20261012/runtime/L45/attempt_1/probe.log:177-178"],
+      "rules": ["DL-UI-05", "DL-SAVE-03", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Pick two looks to start/replace feedback, call _close_wardrobe(), wait 2 frames, reopen, and inspect feedback children/tween state.",
+      "child_impact": "A clean lifecycle prevents stale sparkles or hidden callbacks from confusing the next choice session.",
+      "proposed_repair": "No repair indicated by the focused probe.",
+      "acceptance_test": "Repeat open, rapid choice, Back close and reopen on a device; verify the previous overlay/tween is gone and the current player look remains correctly applied."
+    },
+    {
+      "title": "Actual wardrobe Back activation and fresh-save entry are not proven",
+      "classification": "COVERAGE_GAP",
+      "evidence": ["scripts/probe_ui_system.gd:606-610", "scripts/probe_ui_system.gd:654-676", "scripts/main.gd:8122-8148", "scripts/wardrobe_ui.gd:42-54", "audit/cycles/luna-playtest-20261012/runtime/L45/attempt_1/probe.log:169-178"],
+      "rules": ["DL-AGE-01", "DL-UI-01", "DL-UI-05", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-CHILD-001"],
+      "reproduction": "The probe opens via main._open_wardrobe(), checks that a local WardrobeBackButton is absent, then directly calls _close_wardrobe(); it does not send the global Back input or route from a fresh save.",
+      "child_impact": "A child who cannot find the overlay or discover how to leave could need adult help; this review supplies no observed evidence that this occurs.",
+      "proposed_repair": "No defect is confirmed. Add a routed-input leg only if separate testing or route inspection shows the shared Back path is unclear or fails; first capture the normal bedroom entry and global Back interaction on device.",
+      "acceptance_test": "From a fresh save, reach the bedroom wardrobe with no adult pointing, make one look choice, activate the visible global Back control, verify return to the same room and retained appearance, then reopen and leave again; record input trace, screen capture, device behavior and child comprehension."
+    }
+  ],
+  "strengths": [
+    {"claim": "Valid look picks refresh the preview and player skin, invoke a twirl, and keep try-on feedback within the wardrobe overlay.", "evidence": ["scripts/wardrobe_ui.gd:216-232", "scripts/probe_ui_system.gd:629-653", "audit/cycles/luna-playtest-20261012/runtime/L45/attempt_1/probe.log:169-177"]},
+    {"claim": "The 480x110 look cards and 330x132 finish control are large logical touch targets, and the probe confirms the finish target contract.", "evidence": ["scripts/wardrobe_ui.gd:92-118", "scripts/probe_ui_system.gd:609-615", "audit/cycles/luna-playtest-20261012/runtime/L45/attempt_1/probe.log:170"]},
+    {"claim": "Closing cancels feedback animation and a reopened wardrobe starts with a clean feedback layer.", "evidence": ["scripts/wardrobe_ui.gd:316-328", "scripts/probe_ui_system.gd:654-675", "audit/cycles/luna-playtest-20261012/runtime/L45/attempt_1/probe.log:177-178"]}
+  ],
+  "acceptance_gaps": [
+    "The helper ran the internal scripted UI probe only; no fresh-save player route or actual global Back input was exercised for wardrobe.",
+    "No Mobile-rendered capture, physical Lenovo Tab M11 touch trace, target-device latency/frame pacing, or focus-loss/cancellation evidence was produced.",
+    "No child comprehension, tactile comfort, play appeal, or replay observation was conducted; owner acceptance remains separate."
+  ]
+}
+

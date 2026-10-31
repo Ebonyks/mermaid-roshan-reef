@@ -45,8 +45,8 @@ const CAREER_CREST_FILES := {
 	"racer": "opera_crest_racer.png",
 	"popstar": "opera_crest_singer.png",
 	"nursery": "goal_nursery.png",
-	"geologist": "opera_crest_geologist.svg",
-	"teacher": "res://assets/opera/worlds/actors/roshan_teacher.png",
+	"geologist": "opera_crest_geologist.png",
+	"teacher": "res://assets/opera/worlds/ui/crests/opera_crest_teacher.png",
 }
 
 var m: ReefMain
@@ -139,6 +139,7 @@ func sync() -> void:
 
 
 func clear() -> void:
+	close_opera_venue()
 	_stop_animator()
 	buttons.clear()
 	opera_venue = null
@@ -191,6 +192,7 @@ func _attach(stage: Control) -> void:
 
 
 func _rebuild_room() -> void:
+	close_opera_venue()
 	_stop_animator()
 	buttons.clear()
 	opera_venue = null
@@ -219,6 +221,9 @@ func _rebuild_room() -> void:
 		root.add_child(opera_venue)
 		buttons = opera_venue.career_buttons()
 		_refresh_completion()
+		# The painted three-floor venue is the room itself. Never stop at the
+		# retired stage/footlights antechamber on entry or career return.
+		opera_venue.open(m.opera_stars)
 		return
 	var width := float(indices.size()) * CARD_SIZE.x \
 		+ float(indices.size() - 1) * CARD_GAP
@@ -272,6 +277,8 @@ func _rebuild_room() -> void:
 		crest.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		crest.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		crest.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		if costume == "geologist":
+			crest.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		var crest_file := String(CAREER_CREST_FILES.get(costume, ""))
 		var crest_path := crest_file if crest_file.begins_with("res://") \
 			else CREST_ROOT + crest_file

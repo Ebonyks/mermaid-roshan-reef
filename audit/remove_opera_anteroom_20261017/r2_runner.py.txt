@@ -1,0 +1,74 @@
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
+import subprocess,json,hashlib,os,time,re,sys,shutil
+root=Path(__file__).resolve().parents[1]
+work=root/'tmp/opera_foyer_verified_integration'
+out=work/'audit/remove_opera_anteroom_20261017'
+impact_path=work/'design/audit_impacts/remove-opera-anteroom-20261017.json'
+assert subprocess.check_output(['git','rev-parse','MERGE_HEAD'],cwd=work,text=True).strip()=='1a4e8a1ceae29b401d63900a57a531b2f4442ba8'
+godot=json.loads((out/'integration_import.json').read_text())['command'][0]
+sources=['scripts/castle_career_routes.gd','scripts/opera_house_venue_2d.gd','scripts/probe_opera.gd','scripts/probe_throne.gd','scripts/probe_verbs.gd','scripts/probe_dust_boss.gd','scripts/probe_day_one_story_clips.gd','scripts/day_one_flow.gd','scripts/arena/day_one_castle_dressing.gd']
+frozen={p:hashlib.sha256((work/p).read_bytes()).hexdigest() for p in sources}
+failure_re=re.compile(r'FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error|ERROR:.*(?:Failed loading resource|Cannot open file|No loader found|Resource file not found)')
+command=[godot,'--headless','--path',str(work),'--import']
+started=time.time()
+with (out/'r2_import.log').open('w',encoding='utf-8') as stream:
+    code=subprocess.run(command,cwd=work,stdout=stream,stderr=subprocess.STDOUT,timeout=720).returncode
+text=(out/'r2_import.log').read_text(errors='replace')
+errors=[s for s in text.splitlines() if re.search(r'SCRIPT ERROR|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource|ERROR:.*(?:Failed loading resource|Cannot open file|No loader found|Resource file not found)',s)]
+import_data={'command':command,'exit_code':code,'status':'PASS' if code==0 and not errors else 'FAIL','reported_errors':errors,'elapsed_seconds':time.time()-started,'source_sha256':frozen,'log_sha256':hashlib.sha256((out/'r2_import.log').read_bytes()).hexdigest()}
+(out/'r2_import.json').write_text(json.dumps(import_data,indent=2)+'\n')
+assert import_data['status']=='PASS',import_data
+cases=[('opera','probe_opera','normal'),('throne','probe_throne','normal'),('throne_120','probe_throne','120'),('verbs','probe_verbs','normal'),('story_clips','probe_day_one_story_clips','normal'),('dust_boss','probe_dust_boss','normal')]
+def run(case):
+    label,name,fps=case
+    profile=work/'tmp'/('r2_'+label+'_'+str(int(time.time())))
+    for folder in ['appdata','localappdata','data','config']:(profile/folder).mkdir(parents=True,exist_ok=True)
+    env=dict(os.environ,PYTHONUTF8='1',PYTHONIOENCODING='utf-8',APPDATA=str(profile/'appdata'),LOCALAPPDATA=str(profile/'localappdata'),XDG_DATA_HOME=str(profile/'data'),XDG_CONFIG_HOME=str(profile/'config'))
+    command=[godot,'--headless']+(['--fixed-fps',fps] if fps!='normal' else [])+['--path',str(work),'-s','scripts/'+name+'.gd','--','--touch','--classic-touch-test']
+    path=out/('r2_'+label+'.log');started=time.time()
+    with path.open('w',encoding='utf-8') as stream:
+        try:code=subprocess.run(command,cwd=work,env=env,stdout=stream,stderr=subprocess.STDOUT,timeout=720).returncode
+        except subprocess.TimeoutExpired:code=124
+    raw=path.read_bytes();text=raw.decode('utf-8',errors='replace')
+    errors=[s for s in text.splitlines() if failure_re.search(s)]
+    marker='Roshan sprite animation probe complete' if name=='probe_verbs' else 'ALL OK'
+    drift=[p for p,h in frozen.items() if hashlib.sha256((work/p).read_bytes()).hexdigest()!=h]
+    data={'command':command,'exit_code':code,'elapsed_seconds':time.time()-started,'reported_failures':errors,'source_sha256':frozen,'source_drift':drift,'log_sha256':hashlib.sha256(raw).hexdigest(),'status':'PASS' if code==0 and not errors and not drift and marker in text else 'FAIL'}
+    (out/('r2_'+label+'.json')).write_text(json.dumps(data,indent=2)+'\n')
+    print(json.dumps({'probe':label,'status':data['status'],'seconds':data['elapsed_seconds']}),flush=True)
+    return label,data
+with ThreadPoolExecutor(max_workers=3) as pool:results=dict(pool.map(run,cases))
+assert all(x['status']=='PASS' for x in results.values()),results
+d=json.loads(impact_path.read_text())
+names=['r2_import.json','r2_import.log','r2_gates.log','r2_verification.json','r2_verify.py.txt']+[f'r2_{label}.{ext}' for label,name,fps in cases for ext in ['json','log']]
+for name in names:
+    rel='audit/remove_opera_anteroom_20261017/'+name
+    if rel not in d['files']:d['files'].append(rel)
+shutil.copy2(__file__,out/'r2_verify.py.txt')
+d['validation'].append({'command':'Second dev reconciliation: exact import, Opera/throne normal+120fps/full-cycle verbs/story-interruption/dust-boss affected probes, required static gates','result':'PENDING','evidence':'r2_*.json/.log bind merged sources. Upstream1a4e8a1c has exact green CI39073105968. Our two Opera production files are unchanged; final merged head still requires its own full exact-head CI before dev push.'})
+row=d['validation'][-1]
+impact_path.write_text(json.dumps(d,indent=2)+'\n')
+subprocess.run(['git','add','design/audit_impacts/remove-opera-anteroom-20261017.json'],cwd=work,check=True)
+subprocess.run(['git','add','-f',str(out.relative_to(work))],cwd=work,check=True,stderr=subprocess.PIPE)
+commands=[
+ [sys.executable,'-X','utf8','-B','-m','gdtoolkit.parser',*sources],
+ [sys.executable,'-X','utf8','-B','tools/lint_inference.py',*sources],
+ [sys.executable,'-X','utf8','-B','tools/audit_document_authority.py'],
+ [sys.executable,'-X','utf8','-B','tools/audit_development.py','--base','auto'],
+ [sys.executable,'-X','utf8','-B','tools/record_owner_decision.py','--check','--base','origin/dev'],
+ ['git','diff','--cached','--check']]
+exits=[]
+with (out/'r2_gates.log').open('w',encoding='utf-8') as stream:
+    for command in commands:
+        stream.write('COMMAND '+json.dumps(command)+'\n');stream.flush()
+        result=subprocess.run(command,cwd=work,stdout=stream,stderr=subprocess.STDOUT);exits.append(result.returncode)
+        stream.write('EXIT '+str(result.returncode)+'\n');stream.flush()
+        if result.returncode:break
+data={'status':'PASS' if len(exits)==len(commands) and not any(exits) else 'FAIL','previous_candidate':'6d71903d9fc2f18f243bc07c465dc26fc3b3252e','upstream':'1a4e8a1ceae29b401d63900a57a531b2f4442ba8','source_sha256':frozen,'source_git_lf_sha256':{p:hashlib.sha256((work/p).read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in sources},'affected_probes':{label:'r2_'+label+'.json' for label in results},'gate_exits':exits,'scope':'Reconcile green CHG-097 dependency without changing the Opera runtime behavior. Preserve upstream five-mist framing, full authored-cycle motion and live/saved first-attack assertions; keep natural room-voice readiness. No thresholds weakened, no finding closure; new full exact-head CI required.'}
+(out/'r2_verification.json').write_text(json.dumps(data,indent=2)+'\n')
+row['result']=data['status'];impact_path.write_text(json.dumps(d,indent=2)+'\n')
+subprocess.run(['git','add','design/audit_impacts/remove-opera-anteroom-20261017.json'],cwd=work,check=True)
+subprocess.run(['git','add','-f',str(out.relative_to(work))],cwd=work,check=True,stderr=subprocess.PIPE)
+print(json.dumps(data),flush=True)
+sys.exit(0 if data['status']=='PASS' else 1)

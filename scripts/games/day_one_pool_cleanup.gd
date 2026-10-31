@@ -22,15 +22,6 @@ const WATERFALL_FALLBACK_CENTER := Vector2(461.875, 216.25)
 const WATERFALL_FALLBACK_SIZE := Vector2(162.5, 220.0)
 const SEAHORSE_FALLBACK_CENTER := Vector2(921.875, 245.625)
 const SEAHORSE_FALLBACK_SIZE := Vector2(208.75, 241.25)
-const RUMI_POOL_ATLAS := \
-	"res://assets/characters/rumi/rumi_pool_idle_swim_atlas.png"
-const RUMI_POSE_ATLAS := \
-	"res://assets/characters/rumi/rumi_eight_pose_runtime.png"
-const RUMI_POOL_CELL_SIZE := Vector2(256.0, 256.0)
-const RUMI_POSE_CELL_SIZE := Vector2(256.0, 384.0)
-const RUMI_SWIM_SCALE := 1.02
-const RUMI_UPRIGHT_START_SCALE := 0.83
-const RUMI_UPRIGHT_SCALE := 0.96
 const DINGY_ROOM_TINT := Color(0.78, 0.86, 0.76, 1.0)
 const SWIMMER_WATER_BOUNDS := Rect2(300.0, 285.0, 680.0, 235.0)
 const SWIMMER_START := Vector2(820.0, 455.0)
@@ -50,6 +41,45 @@ const WATERFALL_CUE_IDS: Array[String] = [
 	"day1_pool_waterfall_lane_left", "day1_pool_waterfall_lane_center",
 	"day1_pool_waterfall_lane_right",
 ]
+# The floating pieces in atlas order (floating_trash_atlas.png, 3 x 2 cells).
+const SKIMMER_ITEM_NAMES: Array[String] = [
+	"wrapper", "cup", "lid", "leaf", "ribbon", "sponge",
+]
+const SKIMMER_LEAF_INDEX := 3
+# Object-neutral pickup lines chosen by how many pieces are out, as indexes into
+# the two tables above. The leaf line plays only for the leaf, so no spoken line
+# can name the wrong object (DL-SND-01, DL-MOT-04).
+const SKIMMER_COUNT_LINE: Dictionary = {1: 3, 3: 2, 5: 4}
+# Exact per-object takes may be added to the catalogue later; they win when READY.
+const SKIMMER_ITEM_CUE_PREFIX := "day1_pool_skimmer_item_"
+const IDLE_REPROMPT_SECONDS := 8.0
+const MAX_IDLE_REPROMPTS := 2
+# A quiet child hears the activity's other exact line, then its hint again.
+const IDLE_REPROMPT_LINES: Dictionary = {
+	"pool_surface": [
+		["day1_pool_skimmer_clean", "Scoop every floaty bit with the net!"],
+		["day1_pool_skimmer_hint", "Sweep the skimmer through every piece of trash!"],
+	],
+	"waterfall": [
+		["day1_pool_waterfall_clean", "The rainbow waterfall is stuck! Pull the trash down!"],
+		["day1_pool_waterfall_hint", "Pull the trash down from the clogged rainbow waterfall!"],
+	],
+	"seahorse": [
+		["day1_pool_seahorse_clean", "Oh no, seahorse! I'll tug the trash out!"],
+		["day1_pool_seahorse_hint", "Tap fast to pull the trash off the seahorse!"],
+	],
+}
+# Rumi rises once, in the room-completion story clip `d1_pool_clean` (owner
+# answer QP-1, 2026-10-05): the room's finale reveals the clean pool and leaves
+# her rise to the clip, so no in-room Rumi is staged before it.
+const RUMI_RISE_CLIP_ID := "d1_pool_clean"
+# The clean-pool reveal is the earned reward beat: the light returns, the
+# waterfall and fountain play their authored sequences and the completion line
+# plays out before the room completes, because completion starts the story
+# clip, which pauses the tree (freezing a line mid-word) and covers the room.
+# Both bounds count from the start of the finale.
+const REVEAL_BEAT_MIN_SECONDS := 2.4
+const REVEAL_BEAT_MAX_SECONDS := 5.6
 
 var m: ReefMain
 var skimmer_activity: PoolSkimmerActivity = null
@@ -61,7 +91,6 @@ var _finale_started: bool = false
 var _announcements_enabled: bool = true
 var _lighting_target: CanvasItem = null
 var _lighting_target_rest_modulate := Color.WHITE
-var _rumi: AnimatedSprite2D = null
 var _swimming_bunny: DayOneDustBunnySwimmer = null
 var _clean_waterfall: Sprite2D = null
 var _healthy_seahorse: Sprite2D = null
@@ -70,6 +99,15 @@ var _interaction_layer_visibility: Array[Dictionary] = []
 var _announced_skimmer_mask: int = 0
 var _announced_waterfall_mask: int = 0
 var _announced_seahorse_milestone: int = 0
+var _last_skimmer_line: String = ""
+var _idle_seconds: float = 0.0
+var _idle_reprompts: int = 0
+var _reprompt_log: Array[String] = []
+var _tint_ratio: float = 0.0
+var _counter_tinted: Array[Sprite2D] = []
+var _reveal_beat_active: bool = false
+var _reveal_beat_seconds: float = 0.0
+var _reveal_emitted: bool = false
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
@@ -86,6 +124,9 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	# interleave with Roshan and the foreground instead of becoming screen UI.
 	if m.castle_room_world_root != null and get_parent() != m.castle_room_world_root:
 		reparent(m.castle_room_world_root)
+	# The cleanup supplies the room's motion and guidance while it is mounted, so
+	# the living-world layer's code-drawn ambient motifs pause above it (OD3).
+	add_to_group(LivingWorldDirector.QUIET_GROUP)
 	_capture_interaction_layers()
 	_capture_room_lighting()
 	_capture_clean_waterfall()
@@ -103,6 +144,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 func teardown() -> void:
 	_stop_activities()
 	_restore_interaction_layers()
+	_clear_identity_counter_tint()
 	if _lighting_target != null and is_instance_valid(_lighting_target):
 		_lighting_target.modulate = _lighting_target_rest_modulate
 	if _clean_waterfall != null and is_instance_valid(_clean_waterfall):
@@ -165,16 +207,8 @@ func audit_snapshot() -> Dictionary:
 			if waterfall_activity != null else {},
 		"seahorse": seahorse_activity.audit_snapshot()
 			if seahorse_activity != null else {},
-		"rumi_present": _rumi != null and is_instance_valid(_rumi),
-		"rumi_approved_identity": _rumi != null and is_instance_valid(_rumi)
-			and bool(_rumi.get_meta("approved_private_canon", false)),
-		"rumi_authored_animation": _rumi != null and is_instance_valid(_rumi)
-			and _rumi.sprite_frames != null
-			and _rumi.sprite_frames.get_frame_count(&"idle") == 2
-			and _rumi.sprite_frames.get_frame_count(&"wave") == 2
-			and _rumi.sprite_frames.get_frame_count(&"swim") == 4,
-		"rumi_animation": String(_rumi.animation)
-			if _rumi != null and is_instance_valid(_rumi) else "",
+		"in_room_rumi_rise": false,
+		"rumi_rise_owner": RUMI_RISE_CLIP_ID,
 		"dust_bunny_count": 2,
 		"land_bunny_owner": "day_one_castle_dressing",
 		"swimming_bunny": _swimming_bunny.audit_snapshot()
@@ -182,7 +216,80 @@ func audit_snapshot() -> Dictionary:
 			else {},
 		"canvas_only": true,
 		"no_fail": true,
+		"last_skimmer_line": _last_skimmer_line,
+		"idle_reprompts": _reprompt_log.duplicate(),
+		"idle_seconds": _idle_seconds,
+		"tint_ratio": _tint_ratio,
+		"identity_color_preserved": identity_color_preserved(),
+		"reveal_beat_holding": _reveal_beat_active,
+		"reveal_completed": _reveal_emitted,
+		"one_room_basket": skimmer_activity != null and seahorse_activity != null
+			and not bool(skimmer_activity.audit_snapshot().get("basket_visible", true))
+			and seahorse_activity.room_basket() != null,
+		"living_world_quiet": is_in_group(LivingWorldDirector.QUIET_GROUP),
 	}
+
+
+## The truthful line for one pickup: an exact per-object take when its recording
+## is READY, the leaf line only for the leaf, then object-neutral lines by count.
+## An empty result means the pickup is answered by sound and sight only.
+static func skimmer_pickup_line(item_index: int, collected_count: int) -> Dictionary:
+	if item_index >= 0 and item_index < SKIMMER_ITEM_NAMES.size():
+		var item_cue: String = SKIMMER_ITEM_CUE_PREFIX + SKIMMER_ITEM_NAMES[item_index]
+		var row: Dictionary = DayOneContextualVoiceCatalog.row(item_cue)
+		if String(row.get("status", "")) == "READY":
+			return {"cue_id": item_cue, "caption": String(row.get("caption", ""))}
+	if item_index == SKIMMER_LEAF_INDEX:
+		return {"cue_id": SKIMMER_CUE_IDS[0], "caption": SKIMMER_PICKUP_CAPTIONS[0]}
+	if SKIMMER_COUNT_LINE.has(collected_count):
+		var line_index: int = int(SKIMMER_COUNT_LINE[collected_count])
+		return {"cue_id": SKIMMER_CUE_IDS[line_index],
+			"caption": SKIMMER_PICKUP_CAPTIONS[line_index]}
+	return {}
+
+
+## True when every Roshan cutout inside the dingy room shows her own colours.
+func identity_color_preserved() -> bool:
+	var factor: Color = _tint_factor(_tint_ratio)
+	for sprite: Sprite2D in _identity_sprites():
+		if not _is_tinted(sprite):
+			continue
+		var shown := Color(factor.r * sprite.self_modulate.r,
+			factor.g * sprite.self_modulate.g, factor.b * sprite.self_modulate.b)
+		if absf(shown.r - 1.0) > 0.01 or absf(shown.g - 1.0) > 0.01 \
+				or absf(shown.b - 1.0) > 0.01:
+			return false
+	return true
+
+
+func _process(delta: float) -> void:
+	if _reveal_beat_active:
+		_advance_reveal_beat(maxf(delta, 0.0))
+		return
+	# A quiet child hears the current activity's exact line again (twice at
+	# most); the guide hands keep pointing in the meantime. Never during a
+	# completion, the finale, or before the controller is live.
+	if m == null or _busy or _finale_started or _phase >= ACTIVITY_IDS.size():
+		return
+	_idle_seconds += maxf(delta, 0.0)
+	if _idle_seconds < IDLE_REPROMPT_SECONDS or _idle_reprompts >= MAX_IDLE_REPROMPTS:
+		return
+	_idle_seconds = 0.0
+	var lines: Array = IDLE_REPROMPT_LINES.get(ACTIVITY_IDS[_phase], []) as Array
+	if lines.is_empty():
+		return
+	var line: Array = lines[_idle_reprompts % lines.size()] as Array
+	_idle_reprompts += 1
+	_reprompt_log.append(String(line[0]))
+	# A fresh session id lets the exact take play again for this quiet moment.
+	_say_context(String(line[0]), String(line[1]),
+		"%s_idle_%d" % [_context_visit_id(), _reprompt_log.size()])
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch or event is InputEventScreenDrag \
+			or event is InputEventMouseButton:
+		_idle_seconds = 0.0
 
 
 func probe_complete_current_activity() -> bool:
@@ -279,6 +386,7 @@ func _build_activities() -> void:
 	waterfall_activity.progress_changed.connect(_on_waterfall_progress)
 	waterfall_activity.completed.connect(_on_waterfall_completed)
 	add_child(waterfall_activity)
+	waterfall_activity.bind_room_actor(m.castle_room_player_sprite, m.castle_room_player_shadow as Sprite2D, m.skin_id)
 
 	seahorse_activity = POOL_SEAHORSE_ACTIVITY.new() as PoolSeahorseRescueActivity
 	seahorse_activity.name = "HelpTheSeahorse"
@@ -290,6 +398,13 @@ func _build_activities() -> void:
 	seahorse_activity.progress_changed.connect(_on_seahorse_progress)
 	seahorse_activity.completed.connect(_on_seahorse_completed)
 	add_child(seahorse_activity)
+	seahorse_activity.bind_room_actor(m.castle_room_player_sprite, m.castle_room_player_shadow as Sprite2D, m.skin_id)
+	# The rescue's basket stays in the room through all three activities at the
+	# skimmer's landing point; show one basket, never two identical ones (OD1).
+	var room_basket: Sprite2D = seahorse_activity.room_basket()
+	if room_basket != null \
+			and room_basket.position.is_equal_approx(PoolSkimmerActivity.BASKET_POSITION):
+		skimmer_activity.set_basket_visible(false)
 
 
 func _build_swimming_dust_bunny() -> void:
@@ -333,12 +448,16 @@ func _stop_activities() -> void:
 func _on_skimmer_progress(mask: int) -> void:
 	if m == null:
 		return
+	_idle_seconds = 0.0
 	var newly_collected: int = mask & ~_announced_skimmer_mask
+	var collected_count: int = _count_bits(mask, 0x3F)
 	for index: int in range(SKIMMER_PICKUP_CAPTIONS.size()):
 		if (newly_collected & (1 << index)) != 0:
-			_say_context(SKIMMER_CUE_IDS[index],
-				SKIMMER_PICKUP_CAPTIONS[index],
-				"day_one")
+			var line: Dictionary = skimmer_pickup_line(index, collected_count)
+			_last_skimmer_line = String(line.get("cue_id", ""))
+			if not line.is_empty():
+				_say_context(String(line["cue_id"]), String(line["caption"]),
+					"day_one")
 	_announced_skimmer_mask = mask
 	m.day_one_record_pool_activity_progress(
 		mask, m.day_one_pool_waterfall_mask, m.day_one_pool_seahorse_tugs)
@@ -359,6 +478,7 @@ func _on_skimmer_completed() -> void:
 func _on_waterfall_progress(mask: int) -> void:
 	if m == null:
 		return
+	_idle_seconds = 0.0
 	var newly_cleared: int = mask & ~_announced_waterfall_mask
 	for lane: int in range(WATERFALL_LANE_CAPTIONS.size()):
 		if (newly_cleared & (1 << lane)) != 0:
@@ -385,6 +505,7 @@ func _on_waterfall_completed() -> void:
 func _on_seahorse_progress(taps: int) -> void:
 	if m == null:
 		return
+	_idle_seconds = 0.0
 	if taps >= 1 and _announced_seahorse_milestone < 1:
 		_announced_seahorse_milestone = 1
 		_say_context("day1_pool_seahorse_early", "A little tug! Keep going!",
@@ -419,6 +540,8 @@ func _commit_activity(legacy_step: int, activity_id: String) -> void:
 		_busy = false
 		return
 	_phase += 1
+	_idle_seconds = 0.0
+	_idle_reprompts = 0
 	m.day_one_record_pool_cleanup_step(legacy_step)
 	cleanup_step_completed.emit(legacy_step, activity_id)
 	# Completion is a save boundary, not another debounce event. The child can
@@ -508,8 +631,55 @@ func _update_dingy_lighting() -> void:
 			+ _count_bits(m.day_one_pool_waterfall_mask, 0x07) \
 			+ clampi(m.day_one_pool_seahorse_tugs, 0, 8)
 	var remaining_ratio: float = 1.0 - float(completed_actions) / 17.0
-	_lighting_target.modulate = _lighting_target_rest_modulate * Color.WHITE.lerp(
-		DINGY_ROOM_TINT, clampf(remaining_ratio, 0.0, 1.0))
+	_set_tint_ratio(clampf(remaining_ratio, 0.0, 1.0))
+
+
+func _tint_factor(ratio: float) -> Color:
+	return Color.WHITE.lerp(DINGY_ROOM_TINT, clampf(ratio, 0.0, 1.0))
+
+
+func _set_tint_ratio(ratio: float) -> void:
+	# The room reads dingy, but Roshan keeps her approved colours: each of her
+	# cutouts inside the tinted tree carries the exact inverse (DL-MED-05).
+	_tint_ratio = clampf(ratio, 0.0, 1.0)
+	if _lighting_target == null or not is_instance_valid(_lighting_target):
+		return
+	var factor: Color = _tint_factor(_tint_ratio)
+	_lighting_target.modulate = _lighting_target_rest_modulate * factor
+	var counter := Color(1.0 / maxf(factor.r, 0.01), 1.0 / maxf(factor.g, 0.01),
+		1.0 / maxf(factor.b, 0.01), 1.0)
+	for sprite: Sprite2D in _identity_sprites():
+		if not _is_tinted(sprite):
+			continue
+		sprite.self_modulate = Color(counter.r, counter.g, counter.b, sprite.self_modulate.a)
+		if not _counter_tinted.has(sprite):
+			_counter_tinted.append(sprite)
+
+
+func _identity_sprites() -> Array[Sprite2D]:
+	var sprites: Array[Sprite2D] = []
+	if m != null and m.castle_room_player_sprite != null \
+			and is_instance_valid(m.castle_room_player_sprite):
+		sprites.append(m.castle_room_player_sprite)
+	for activity: Variant in [skimmer_activity, waterfall_activity, seahorse_activity]:
+		if activity == null or not is_instance_valid(activity):
+			continue
+		var sprite: Sprite2D = (activity as Object).call("identity_sprite") as Sprite2D
+		if sprite != null and is_instance_valid(sprite):
+			sprites.append(sprite)
+	return sprites
+
+
+func _is_tinted(sprite: Sprite2D) -> bool:
+	return _lighting_target != null and is_instance_valid(_lighting_target) \
+		and (sprite == _lighting_target or _lighting_target.is_ancestor_of(sprite))
+
+
+func _clear_identity_counter_tint() -> void:
+	for sprite: Sprite2D in _counter_tinted:
+		if sprite != null and is_instance_valid(sprite):
+			sprite.self_modulate = Color(1.0, 1.0, 1.0, sprite.self_modulate.a)
+	_counter_tinted.clear()
 
 
 func _count_bits(value: int, mask: int) -> int:
@@ -531,130 +701,40 @@ func _begin_finale() -> void:
 	if _swimming_bunny != null and is_instance_valid(_swimming_bunny):
 		_swimming_bunny.fade_out(0.32)
 	if _lighting_target != null and is_instance_valid(_lighting_target):
-		var light_tween: Tween = _lighting_target.create_tween()
-		light_tween.tween_property(
-			_lighting_target, "modulate", _lighting_target_rest_modulate, 0.85)
+		# Fade the room and Roshan's counter-tint together, so she never flashes.
+		var light_tween: Tween = create_tween()
+		light_tween.tween_method(_set_tint_ratio, _tint_ratio, 0.0, 0.85)
 	finale_started.emit()
 	var rooms: CastleRooms25D = m._castle_rooms_ref() if m != null else null
 	if rooms != null:
 		rooms._activate_room_item("seahorse_fountain")
-	_spawn_rumi_rise()
+	# Hold the room completion until the clean-pool reveal and its line have
+	# played (bounded), so the story clip, which owns Rumi's one rise, follows
+	# the reward beat instead of cutting into it.
+	_reveal_beat_seconds = 0.0
+	_reveal_beat_active = true
 
 
-func _spawn_rumi_rise() -> void:
-	var pool_atlas: Texture2D = load(RUMI_POOL_ATLAS) as Texture2D
-	var pose_atlas: Texture2D = load(RUMI_POSE_ATLAS) as Texture2D
-	if pool_atlas == null or pose_atlas == null:
-		push_error("Missing approved Rumi animation atlases: %s / %s" % [
-			RUMI_POOL_ATLAS, RUMI_POSE_ATLAS])
-		_finish_rumi_reveal()
+func _advance_reveal_beat(delta: float) -> void:
+	_reveal_beat_seconds += delta
+	if _reveal_beat_seconds < REVEAL_BEAT_MIN_SECONDS:
 		return
-	_rumi = AnimatedSprite2D.new()
-	_rumi.name = "RumiVioletReveal"
-	_rumi.sprite_frames = _build_rumi_sprite_frames(pool_atlas, pose_atlas)
-	_rumi.animation_finished.connect(_on_rumi_animation_finished)
-	_rumi.position = Vector2(640.0, 610.0)
-	_rumi.scale = Vector2.ONE * RUMI_SWIM_SCALE * 0.72
-	_rumi.modulate.a = 0.0
-	_rumi.z_index = 18
-	_rumi.set_meta("approved_private_canon", true)
-	_rumi.set_meta("source_working_name", "Violet Tide")
-	add_child(_rumi)
-	_rumi.play(&"swim")
-	_spawn_reveal_ripple()
-	var rise_tween: Tween = _rumi.create_tween().set_parallel(true)
-	rise_tween.tween_property(
-		_rumi, "position", Vector2(650.0, 350.0), 1.15
-	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	rise_tween.tween_property(
-		_rumi, "scale", Vector2.ONE * RUMI_SWIM_SCALE, 1.0
-	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	rise_tween.tween_property(_rumi, "modulate:a", 1.0, 0.52)
-	rise_tween.chain().tween_callback(_finish_rumi_reveal)
-
-
-func _build_rumi_sprite_frames(
-		pool_atlas: Texture2D, pose_atlas: Texture2D) -> SpriteFrames:
-	var frames := SpriteFrames.new()
-	frames.remove_animation(&"default")
-	frames.add_animation(&"idle")
-	frames.set_animation_speed(&"idle", 1.5)
-	frames.set_animation_loop(&"idle", true)
-	for column: int in range(2):
-		frames.add_frame(&"idle", _rumi_atlas_frame(
-			pose_atlas, column, 0, RUMI_POSE_CELL_SIZE))
-	frames.add_animation(&"wave")
-	frames.set_animation_speed(&"wave", 2.0)
-	frames.set_animation_loop(&"wave", false)
-	for column: int in range(2, 4):
-		frames.add_frame(&"wave", _rumi_atlas_frame(
-			pose_atlas, column, 0, RUMI_POSE_CELL_SIZE))
-	frames.add_animation(&"swim")
-	frames.set_animation_speed(&"swim", 5.0)
-	frames.set_animation_loop(&"swim", true)
-	for column: int in range(4):
-		frames.add_frame(&"swim", _rumi_atlas_frame(
-			pool_atlas, column, 1, RUMI_POOL_CELL_SIZE))
-	return frames
-
-
-func _rumi_atlas_frame(atlas: Texture2D, column: int, row: int,
-		cell_size: Vector2) -> AtlasTexture:
-	var frame := AtlasTexture.new()
-	frame.atlas = atlas
-	frame.region = Rect2(
-		Vector2(float(column) * cell_size.x, float(row) * cell_size.y),
-		cell_size)
-	return frame
-
-
-func _on_rumi_animation_finished() -> void:
-	if _rumi != null and is_instance_valid(_rumi) \
-			and _rumi.animation == &"wave":
-		_rumi.play(&"idle")
-
-
-func _spawn_reveal_ripple() -> void:
-	var ripple := Label.new()
-	ripple.name = "RumiRiseRipple"
-	ripple.text = "○"
-	ripple.position = Vector2(490.0, 470.0)
-	ripple.size = Vector2(300.0, 110.0)
-	ripple.pivot_offset = ripple.size * 0.5
-	ripple.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	ripple.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	ripple.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	ripple.z_index = 17
-	ripple.scale = Vector2(0.45, 0.20)
-	StorybookUI.style_label(ripple, 92, Color(0.54, 0.96, 1.0), 5)
-	add_child(ripple)
-	var ripple_tween: Tween = ripple.create_tween().set_parallel(true)
-	ripple_tween.tween_property(ripple, "scale", Vector2(2.1, 0.56), 1.0)
-	ripple_tween.tween_property(ripple, "modulate:a", 0.0, 1.0)
-	ripple_tween.chain().tween_callback(ripple.queue_free)
-
-
-func _finish_rumi_reveal() -> void:
-	_busy = false
-	if _rumi != null and is_instance_valid(_rumi):
-		_rumi.scale = Vector2.ONE * RUMI_UPRIGHT_START_SCALE
-		_rumi.play(&"wave")
-		var settle_tween: Tween = _rumi.create_tween()
-		settle_tween.tween_property(
-			_rumi, "scale", Vector2.ONE * RUMI_UPRIGHT_SCALE, 0.35
-		).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		var idle_tween: Tween = _rumi.create_tween().set_loops()
-		idle_tween.tween_property(
-			_rumi, "position:y", _rumi.position.y - 7.0, 1.15
-		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		idle_tween.tween_property(
-			_rumi, "position:y", _rumi.position.y + 7.0, 1.15
-		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	if m != null:
-		_say_context("day1_pool_rumi_reply",
-			"We saved the pool and the seahorse! Hi, Rumi!",
-			"day_one")
+	if _reveal_beat_seconds < REVEAL_BEAT_MAX_SECONDS and _voice_lane_busy():
+		return
+	_reveal_beat_active = false
+	if _reveal_emitted:
+		return
+	_reveal_emitted = true
 	reveal_completed.emit()
+
+
+func _voice_lane_busy() -> bool:
+	if m == null:
+		return false
+	for player: AudioStreamPlayer in m.voice_pool:
+		if player != null and is_instance_valid(player) and player.playing:
+			return true
+	return false
 
 
 func _announce_progress_from_save() -> void:

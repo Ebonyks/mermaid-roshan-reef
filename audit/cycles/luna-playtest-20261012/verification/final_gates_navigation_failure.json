@@ -1,0 +1,138 @@
+{
+  "schema": "luna_final_gates/1",
+  "status": "FAIL",
+  "checked_utc": "2026-10-13T02:45:48.958907+00:00",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 1
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 1
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/cycles/luna-playtest-20261012/review_tools/chapter2_farmer_diagnostic.gd",
+        "audit/cycles/luna-playtest-20261012/review_tools/pipe_touch_diagnostic.gd",
+        "audit/cycles/luna-playtest-20261012/review_tools/pool_burst_diagnostic.gd",
+        "audit/cycles/luna-playtest-20261012/review_tools/pool_diagnostic.gd"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/cycles/luna-playtest-20261012/review_tools/chapter2_farmer_diagnostic.gd",
+        "audit/cycles/luna-playtest-20261012/review_tools/pipe_touch_diagnostic.gd",
+        "audit/cycles/luna-playtest-20261012/review_tools/pool_burst_diagnostic.gd",
+        "audit/cycles/luna-playtest-20261012/review_tools/pool_diagnostic.gd"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "--",
+        "scripts",
+        "scenes",
+        "assets",
+        "project.godot"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "helper_ast": [
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/build_summary.py",
+      "sha256": "59ee47bd40a8f78f237b0410bb142c135573bde40d8f449ac5630d3048bdb26c"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/capture_pool.py",
+      "sha256": "bdb3e6bc23ef1ed50ff919e3c39e2f94385737dbf53cd7c4111a1351ea40c70d"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/final_gates.py",
+      "sha256": "2fd579af2e0479fe40ba2af3067d27f1110bcb7379b2e3187fb075ddf7ae0968"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/publication.py",
+      "sha256": "4616d8f63dfa59552a98358e1c97cf9ae311a1d49e716f2ee99c4ecf5226a2d8"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/review_citations.py",
+      "sha256": "b959e3030318d0156a9c7d1f0dd92100893fbc091ab37662aee1ed000226406d"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/run_farmer_diagnostic.py",
+      "sha256": "2f23f7c7a5490263c93f2fbc814d7d85fa65ed6167b576825cfda6b7efaf0ee4"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/run_full_ci.py",
+      "sha256": "1a8ad904c6fec215d0548cf4ab7a2bf1b13012cc522923495d410a4d7c6c7c1c"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/run_full_ci_clean.py",
+      "sha256": "be70f3ff82c02a096471a6cfaaa39121dc617fd49f77dd79b78b9b4c1e8c89ee"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/run_pacing.py",
+      "sha256": "38bf890d68ae1e147a0e0c2f1b27de6bcbe8a19d14845c371b92bb5bd865c8d7"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/run_pipe_diagnostic.py",
+      "sha256": "b3cd14702c9823b15f4e0b73e6580ca6d81a3ea02e6bf916f7f00f13bc0c70ec"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/run_session.py",
+      "sha256": "2ff23721f7e50a2abe878afde1f797fa3c27c66285b33aa1a549157005e3c953"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/verify_controls.py",
+      "sha256": "f1d1ca6a5e54b54ba8572ba0eeeccfc2702681376795710f9f5d40d5a765fba7"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/review_tools/verify_sessions.py",
+      "sha256": "598cbc420de2532b386b078e2aa44f0d585f32177f2be7171521d45d7cdc602d"
+    }
+  ],
+  "log_sha256": "6d8619fa6b08738cf5f04a8be3b841925cf6877f15fe67649066309ea309418f",
+  "scope": "Final documentation/impact and diagnostic source checks. The unchanged game CI has separate retained 82/82 receipts; no gameplay, device, child or owner acceptance."
+}

@@ -1,0 +1,550 @@
+{
+  "validated_revision": "2219c84df3cddcd41d3a59330401fb8a7391fa53",
+  "ci_run": {
+    "conclusion": "success",
+    "headSha": "2219c84df3cddcd41d3a59330401fb8a7391fa53",
+    "jobs": [
+      {
+        "completedAt": "2026-10-01T02:17:59Z",
+        "conclusion": "success",
+        "databaseId": 110177031278,
+        "name": "probes",
+        "startedAt": "2026-10-01T01:33:07Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-01T01:33:08Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-01T01:33:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T01:36:36Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 2,
+            "startedAt": "2026-10-01T01:33:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T01:36:38Z",
+            "conclusion": "success",
+            "name": "Download Godot (checksum-verified)",
+            "number": 3,
+            "startedAt": "2026-10-01T01:36:36Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T01:39:16Z",
+            "conclusion": "success",
+            "name": "Static gates (parse + Variant-inference lint)",
+            "number": 4,
+            "startedAt": "2026-10-01T01:36:38Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T01:41:02Z",
+            "conclusion": "success",
+            "name": "Import (deadlock-guarded)",
+            "number": 5,
+            "startedAt": "2026-10-01T01:39:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T01:50:50Z",
+            "conclusion": "success",
+            "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+            "number": 6,
+            "startedAt": "2026-10-01T01:41:02Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:06:17Z",
+            "conclusion": "success",
+            "name": "Run trusted probes",
+            "number": 7,
+            "startedAt": "2026-10-01T01:50:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:06:30Z",
+            "conclusion": "success",
+            "name": "Boot gate (real viewport — the area the phone opens in)",
+            "number": 8,
+            "startedAt": "2026-10-01T02:06:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:11:37Z",
+            "conclusion": "success",
+            "name": "Dust boss balance playtest (advisory)",
+            "number": 9,
+            "startedAt": "2026-10-01T02:06:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:11:45Z",
+            "conclusion": "success",
+            "name": "Opera balance playtest (advisory)",
+            "number": 10,
+            "startedAt": "2026-10-01T02:11:37Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:11:48Z",
+            "conclusion": "success",
+            "name": "Publish opera art manifest (advisory)",
+            "number": 11,
+            "startedAt": "2026-10-01T02:11:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:11:49Z",
+            "conclusion": "success",
+            "name": "Upload opera art manifest",
+            "number": 12,
+            "startedAt": "2026-10-01T02:11:48Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:13:36Z",
+            "conclusion": "success",
+            "name": "Capture first-world visual review",
+            "number": 13,
+            "startedAt": "2026-10-01T02:11:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:13:39Z",
+            "conclusion": "success",
+            "name": "Upload first-world visual review",
+            "number": 14,
+            "startedAt": "2026-10-01T02:13:36Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:13:45Z",
+            "conclusion": "success",
+            "name": "Capture Sky Lagoon visual review",
+            "number": 15,
+            "startedAt": "2026-10-01T02:13:39Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:13:45Z",
+            "conclusion": "success",
+            "name": "Upload Sky Lagoon visual review",
+            "number": 16,
+            "startedAt": "2026-10-01T02:13:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:14:52Z",
+            "conclusion": "success",
+            "name": "Capture northern-world visual review",
+            "number": 17,
+            "startedAt": "2026-10-01T02:13:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:14:54Z",
+            "conclusion": "success",
+            "name": "Upload northern-world visual review",
+            "number": 18,
+            "startedAt": "2026-10-01T02:14:52Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:17:46Z",
+            "conclusion": "success",
+            "name": "Capture dust-boss arena review",
+            "number": 19,
+            "startedAt": "2026-10-01T02:14:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:17:48Z",
+            "conclusion": "success",
+            "name": "Upload dust-boss arena review",
+            "number": 20,
+            "startedAt": "2026-10-01T02:17:46Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:17:57Z",
+            "conclusion": "success",
+            "name": "Capture pearl-castle visual review",
+            "number": 21,
+            "startedAt": "2026-10-01T02:17:48Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:17:57Z",
+            "conclusion": "success",
+            "name": "Upload pearl-castle visual review",
+            "number": 22,
+            "startedAt": "2026-10-01T02:17:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:17:58Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 44,
+            "startedAt": "2026-10-01T02:17:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T02:17:58Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 45,
+            "startedAt": "2026-10-01T02:17:58Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36801630810/job/110177031278"
+      },
+      {
+        "completedAt": "2026-10-01T01:39:19Z",
+        "conclusion": "success",
+        "databaseId": 110177031428,
+        "name": "area-music-provenance",
+        "startedAt": "2026-10-01T01:33:08Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-01T01:33:10Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-01T01:33:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T01:36:57Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 2,
+            "startedAt": "2026-10-01T01:33:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T01:37:49Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+            "number": 3,
+            "startedAt": "2026-10-01T01:36:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T01:39:05Z",
+            "conclusion": "success",
+            "name": "Verify deterministic area-music delivery",
+            "number": 4,
+            "startedAt": "2026-10-01T01:37:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T01:39:05Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+            "number": 7,
+            "startedAt": "2026-10-01T01:39:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T01:39:09Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 8,
+            "startedAt": "2026-10-01T01:39:05Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-01T01:39:14Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 9,
+            "startedAt": "2026-10-01T01:39:09Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36801630810/job/110177031428"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36801630810"
+  },
+  "public_remote_verification": {
+    "revision": "2219c84df3cddcd41d3a59330401fb8a7391fa53",
+    "access_mode": "unauthenticated HTTPS raw GitHub",
+    "files_verified": 50,
+    "check_time_utc": "2026-10-01T02:19:16.747753+00:00",
+    "files": [
+      {
+        "path": "assets/prototypes/fairy_restoration/voices/arborist.ogg",
+        "bytes": 31177,
+        "sha256": "48418984496e235aca498a79dbbda001aac54be5a6911482275fbd868c5f8cfa"
+      },
+      {
+        "path": "assets/prototypes/fairy_restoration/voices/chef.ogg",
+        "bytes": 36648,
+        "sha256": "a7d2294e3359e71375f4bf4dfde323011c08a44e12fe0d35266dc537a0f5f9f6"
+      },
+      {
+        "path": "assets/prototypes/fairy_restoration/voices/complete.ogg",
+        "bytes": 46385,
+        "sha256": "0c295d28d0e75e3d171853accb731932bc444c0382c81594c8469985157416e8"
+      },
+      {
+        "path": "assets/prototypes/fairy_restoration/voices/enter.ogg",
+        "bytes": 31006,
+        "sha256": "2f249c1fd8c5501117b4edea5244de63198cdc4b5f147ec9d6af805c72f50f88"
+      },
+      {
+        "path": "assets/prototypes/fairy_restoration/voices/harvest.ogg",
+        "bytes": 33558,
+        "sha256": "d33ab8a4d066beb0eaea1c5599bf465344400ba14072a0f50c18a0d49bd3f000"
+      },
+      {
+        "path": "assets/prototypes/fairy_restoration/voices/picnic.ogg",
+        "bytes": 24013,
+        "sha256": "407ef50fde67700143db3285726b11cf23d21e6b7976910044b52391e1f82d96"
+      },
+      {
+        "path": "assets/prototypes/fairy_restoration/voices/returned.ogg",
+        "bytes": 39558,
+        "sha256": "5a0784ca75c43a1bce2a059a910a7d2c1ad3f6186e19b540e55a5f206fc1e428"
+      },
+      {
+        "path": "assets/prototypes/fairy_restoration/voices/shooter.ogg",
+        "bytes": 39907,
+        "sha256": "31edfffba0af8840aedbfee806ac8c7319e351c659eeeff0b8dc649c243ddd65"
+      },
+      {
+        "path": "assets/prototypes/fairy_restoration/voices/water.ogg",
+        "bytes": 31045,
+        "sha256": "d8197ec9fc9b5217cceecc2c10a8735d674f684266ef57df48ccb79cdb834a78"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/.gdignore",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/ART_REUSE_MANIFEST.json",
+        "bytes": 22936,
+        "sha256": "9b7a75a914ce0f319915778e8cae5450e3957ecb50ff9de17ac975bebca30d67"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/VOICE_CUES.json",
+        "bytes": 644,
+        "sha256": "4b17fd63a243a412c1b76858b10e46873fcae396c9b9c1ba3cdd9ca8230ab1e8"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/01_castle_entry.png",
+        "bytes": 1333043,
+        "sha256": "73656f8a704a8e0e27cc5d515055fff4f66b1ca8631fa53e7c4cc12b23723d42"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/02_sick_tree.png",
+        "bytes": 1398649,
+        "sha256": "b3182dab0bdf76d4169b5ae00c9e322a0af44fc8e64e56462892dec26c58f1c1"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/02b_arborist_contact.png",
+        "bytes": 1382705,
+        "sha256": "265f92c887df30aa6cdc5673f3f8dad6e494d724f11d8e7c1e29d73ea1911efa"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/03_water_roots.png",
+        "bytes": 1379257,
+        "sha256": "79b5f152fcaa991a71e77eed1b71b8db93304ae36bf8678d4c5e764f644fc414"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/04_healthy_fruit_tree.png",
+        "bytes": 1401375,
+        "sha256": "1a256ac5e5759c11551c6e599f807c481f06a93b0da6acc180a1b56ce43c7bd0"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/05_chef_whole_apples.png",
+        "bytes": 1368541,
+        "sha256": "2290a34dcf433103f4ba8c429d8465c620048a37d638dfc258065c10bd93e51b"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/05b_chef_contact.png",
+        "bytes": 1374614,
+        "sha256": "eabeb8ccdf85a5fa7f5304d47cf06b67fe360a4d5bd3b1b38e6e16a39f109f8a"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/06_prepared_snacks.png",
+        "bytes": 1363563,
+        "sha256": "53f8c403d75f8bb08b3bd5c73d2eb1bfc1c218e5105307b01080f0626b5935ed"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/07_flower_flight.png",
+        "bytes": 1267251,
+        "sha256": "bf9b515c8beab0357710fcbf4d1cecf415e08fa1f89c76c0d434ccc338a11081"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/08_fountain_restored.png",
+        "bytes": 1280466,
+        "sha256": "7ff949f59d51fe7df536c9282e5f44c1af3954cc166ec7d910aae6f53c16a2a8"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/09_castle_faerie_magic.png",
+        "bytes": 1315724,
+        "sha256": "09104c46b990eeebdeef5ec20b586df9f7c5a5e8e233ff4c481c692abf8ea296"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/CAPTURE_MANIFEST.json",
+        "bytes": 8896,
+        "sha256": "866d51faf85359d559f3888a0982a30f1c1fc90c959cb864a5c40328be39aea4"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/ALPHA_RECONCILIATION_LOG.txt",
+        "bytes": 16120,
+        "sha256": "b107fe5c3d845156f448cfd3553afe8b2cf7326a4a8891d263ef1d9ca929c429"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/FOCUSED_PROBE_LOG.txt",
+        "bytes": 4619,
+        "sha256": "cd7481efbf6d9f8833039cb6bc484ef7cce780af90bd077f5f99b4ce3b86d8da"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/HEADLESS_RECHECK_LOG.txt",
+        "bytes": 28153,
+        "sha256": "fff4abd4d225dd89ff997b0da3da29e91df7cb3a25a918284eb86f1754cfd9e3"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_INITIAL_LOG.txt",
+        "bytes": 23284,
+        "sha256": "6777dbbd65a866db80a2c2803319d70084c03b58221989661f01e38491d7a066"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_REMAINING_LOG.txt",
+        "bytes": 769757,
+        "sha256": "11004c6c1cb7f6a6562cf699dac4bc80adf9457213b6c86dc3dbc4d9cc950e79"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/LOCAL_GATE_RECEIPT.json",
+        "bytes": 24413,
+        "sha256": "e0f2fdf4a188664b0acba70556e6e2cf41073900cf18873bf2c20c6b35fbcae3"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/VERIFICATION.json",
+        "bytes": 1693,
+        "sha256": "9a6723a00849d405445533457dc0dc6a41b21989c1369f094f8c61f5a4920a80"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/VOICE_TRANSITION_BASELINE.txt",
+        "bytes": 18068,
+        "sha256": "82f0c2de7ee8fb3fd160f96ab0194d7ccca02b6933e1abc3a42c65129e32c63c"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/VOICE_TRANSITION_CHECKS.txt",
+        "bytes": 41634,
+        "sha256": "3e0f656598d175f867eeb5ca2e2b4fc3bd631a38cf698f6fcb8dffd618f73399"
+      },
+      {
+        "path": "scenes/fairy_restoration_prototype.tscn",
+        "bytes": 317,
+        "sha256": "8daee0e0a0bc6e78eb4d74d65ada04e732de21259cf6610c0009e830276057ff"
+      },
+      {
+        "path": "scripts/fairy_restoration_prototype.gd",
+        "bytes": 21759,
+        "sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe"
+      },
+      {
+        "path": "scripts/probe_fairy_restoration.gd",
+        "bytes": 10293,
+        "sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a"
+      },
+      {
+        "path": "scripts/audio_director.gd",
+        "bytes": 28471,
+        "sha256": "e2d2e2eceb63980797db2cf4e072563654d53d3816aea4c6abd67ec393aed5e4"
+      },
+      {
+        "path": "scripts/probe_voice.gd",
+        "bytes": 16923,
+        "sha256": "0534d422920b0448f95ef6378883752215d4ddc48599ea752e374df2c2d48413"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_FINAL_DIRECT_LOG.txt",
+        "bytes": 427378,
+        "sha256": "da9b84c615c0a0d0661c68ce78262398d2eefe246a74b3dd91969a185d180537"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/REMOTE_VERIFICATION.json",
+        "bytes": 8122,
+        "sha256": "1dfb8610331b43d33c3e142cf245496922bbb49e2f786a43a00b079d9a31cb27"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_FINAL_WRAPPER_LOG.txt",
+        "bytes": 844827,
+        "sha256": "1891eee7dc6995ef2a5d3730037476a96a75a20de5ac0c5279b583d6e7db3c8f"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/DIRECT_NATIVE_RECHECK_LOG.txt",
+        "bytes": 7029,
+        "sha256": "8f92f728209d748ae61b7ab3359b3700a85729ffab07e863041d1a597f687206"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_FULL_TRUSTED_LOG.txt",
+        "bytes": 380962,
+        "sha256": "bb1074e45d94649941b86c19683ea2c847034f2131167c87eda6b8838e4709d9"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/NATIVE_WINDOWS_PROBE_RUNNER.ps1",
+        "bytes": 3690,
+        "sha256": "df49bb06fb413c59373a9519e33d4d3b46fa7c23c66036a00187be02edc82809"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/NATIVE_RUNNER_FILTER_RECHECK.txt",
+        "bytes": 214,
+        "sha256": "2676804a3cd89710a3012f34e3781d2a5c1ea2487aaa98cfc7b157171d2fa09b"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_INITIAL_ATTEMPT_LOG.txt",
+        "bytes": 163271,
+        "sha256": "a01d32373a2651786013fe6f07bd7aa60933b77e8404d12c6d585206ca3ceab0"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_FIXED_CLOCK_CONTINUATION_LOG.txt",
+        "bytes": 20728,
+        "sha256": "65ad8daac56d908ede13842d1bec70efcd1ad8a6db5dd31ab09d51a147ca7670"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_ISOLATED_ENGINE_CONTINUATION_LOG.txt",
+        "bytes": 193548,
+        "sha256": "f0d012f702c977a27d3523c2e3f5213d082e5da34663c0c250111229dbc13175"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/ISOLATED_ENGINE_VERIFICATION.json",
+        "bytes": 470,
+        "sha256": "57a4f6762ccd2fd7787faee13183daba5f33e84dd9e588682075aa75b6059976"
+      },
+      {
+        "path": "assets_src/prototypes/fairy_restoration_2026-09-30/review/COMBINED_VOICE_RECONCILIATION_LOG.txt",
+        "bytes": 41583,
+        "sha256": "0fdeb33bf4ca0d9808dca0e14991ed290c4cfe16e4f7d47507b9b689aab324bd"
+      }
+    ]
+  },
+  "finalization": {
+    "scope": "Evidence-only finalization; all runtime, asset, tool, workflow and import configuration bytes retain the exact green source.",
+    "expected_metadata_paths": [
+      "design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md",
+      "design/audit_impacts/fairy-restoration-prototype-20260930.json",
+      "assets_src/prototypes/fairy_restoration_2026-09-30/review/COMBINED_CI_VERIFICATION.json"
+    ],
+    "source_identity_command": "git diff --exit-code 2219c84df3cddcd41d3a59330401fb8a7391fa53 -- scripts assets scenes shaders tools .github project.godot export_presets.cfg .gitattributes audit/audio_quality_ledger_2026-08-24.csv",
+    "runtime_ci_delta": [],
+    "acceptance": "Machine verification only; no visual/device/child/listening/owner acceptance or production chapter integration is inferred."
+  }
+}

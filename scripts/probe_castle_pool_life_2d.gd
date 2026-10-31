@@ -36,6 +36,21 @@ func _init() -> void:
 		and not finale_source.contains("_burst(\"✦\"")
 		and main_source.contains("Back to the hall, then follow the glowing door!")
 		and main_source.contains("_show_day_one_room_handoff"))
+	var pool_finale_start: int = rooms_source.find(
+		"func _on_day_one_pool_finale_started()")
+	var pool_finale_end: int = rooms_source.find("\nfunc ", pool_finale_start + 1)
+	var pool_finale_source: String = rooms_source.substr(pool_finale_start,
+		pool_finale_end - pool_finale_start) \
+		if pool_finale_start >= 0 and pool_finale_end > pool_finale_start else ""
+	_check("pool finale reveals the clean pool without a duplicate generic star burst",
+		pool_finale_source.contains("_activate_room_item(\"waterfall\")")
+		and not pool_finale_source.contains("_burst("))
+	var swimmer_source: String = FileAccess.get_file_as_string(
+		"res://scripts/games/day_one_dust_bunny_swimmer.gd")
+	_check("shared swimmer grounds itself with approved ripple art, no code arcs",
+		not swimmer_source.contains("func _draw(")
+		and not swimmer_source.contains("draw_arc(")
+		and swimmer_source.contains("fx_water_ripple_ring_atlas.png"))
 	_check("next-room cue creates no picture preview or extra button",
 		not main_source.contains('card.name = "DayOneRouteCard"')
 		and not main_source.contains('picture.name = "ApprovedRoomPreview"')

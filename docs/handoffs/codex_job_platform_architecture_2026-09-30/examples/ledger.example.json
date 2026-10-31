@@ -1,0 +1,30 @@
+{
+ "schema": "job_ledger/1",
+ "_note": "Example of content/jobs/_ledger.json built from scripts/opera_house.gd ACTS at dev 7f068cb8. Append-only: entries are never removed, reordered, re-pointed or reused. Package JP0 fills allocation commits from Git history.",
+ "star_namespace": {
+  "save_key": "opera_stars",
+  "highest_allocated_bit": 17,
+  "derived_ceiling": 262143,
+  "next_free_bit": 18
+ },
+ "entries": [
+  {"star_bit": 0, "id": "chef", "status": "LIVE"},
+  {"star_bit": 1, "id": "detective", "status": "LIVE"},
+  {"star_bit": 2, "id": "ballerina", "status": "LIVE"},
+  {"star_bit": 3, "id": "candymaker", "status": "LIVE", "aliases": ["candy_maker", "candy"]},
+  {"star_bit": 4, "id": null, "status": "TOMBSTONE", "reason": "owner-cut Opera boss slot (commit 3d1236fe); raw bit preserved forever (DL-SAVE-06)"},
+  {"star_bit": 5, "id": "doctor", "status": "LIVE"},
+  {"star_bit": 6, "id": "farmer", "status": "LIVE"},
+  {"star_bit": 7, "id": "boxer", "status": "LIVE"},
+  {"star_bit": 8, "id": "magician", "status": "LIVE"},
+  {"star_bit": 9, "id": null, "status": "TOMBSTONE", "reason": "owner-cut Opera boss slot (commit 3d1236fe); raw bit preserved forever (DL-SAVE-06)"},
+  {"star_bit": 10, "id": "painter", "status": "LIVE"},
+  {"star_bit": 11, "id": "astronaut", "status": "LIVE"},
+  {"star_bit": 12, "id": "racer", "status": "LIVE"},
+  {"star_bit": 13, "id": "popstar", "status": "LIVE"},
+  {"star_bit": 14, "id": null, "status": "TOMBSTONE", "reason": "owner-cut Opera boss slot (commit 3d1236fe); raw bit preserved forever (DL-SAVE-06)"},
+  {"star_bit": 15, "id": "nursery", "status": "LIVE"},
+  {"star_bit": 16, "id": "geologist", "status": "LIVE"},
+  {"star_bit": 17, "id": "teacher", "status": "LIVE"}
+ ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "pipe_guide_hand",
+  "output": "assets/opera/worlds/widgets/widget_pipe_guide_hand.png",
+  "output_sha256": "5b18d1aed74aa7804560abe702d14a3d4fc01cbc974a65583eacb9452610a383",
+  "native": "assets_src/imagegen/job_art_astronaut_20261018/guide_hand_reused_native.png",
+  "native_sha256": "f255bc49dc91ca9d888249e74123f01674de0e2382aa09ffc650906c0d59e120",
+  "provider": "builtin ImageGen; model unexposed",
+  "prompt": "Use case: precise-object-edit. Input1 is the exact gesture/hand silhouette target: a friendly tutorial hand with the INDEX FINGER pointing straight DOWN, thumb to viewer left, three curled fingers to viewer right, short wrist at top, exactly five fingers total. Preserve this same readable pose and no sleeve. Upgrade its flat gradient appearance into a polished painted2D storybook hand: broad soft peach/ivory hand-painted color planes, restrained lavender underside shadows, confident deep-plum contour, soft upper-left light and clean antialiased edges. Input2 is material/contour/style reference ONLY, do not include the pearl. Rounded friendly anatomy, no fingernail detail or wrinkles needed, very clear at48px. Whole single hand centered in SQUARE transparent canvas with8% margin; straight-down fingertip near lower center. Remove the old exterior yellow halo completely. No glow, extra outline, text, icon, scenery, cast shadow or background. True native RGBA alpha.",
+  "tip_uv": [
+    0.4365234375,
+    0.986328125
+  ],
+  "changes": "Exact unchanged reuse of this campaign native ImageGen hand/technical512PNG; source and prompt retained."
+}

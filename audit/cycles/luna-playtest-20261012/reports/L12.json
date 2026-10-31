@@ -1,0 +1,151 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L12",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l12",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Craft cleanup and attack customization",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L12/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The exact Godot 4.7.2.stable.official.ed1daf0bf run passed probe_day_one_art_attack_state with RESULT: PASS failures=0. The probe checked saved cleanup state/gating, sent synthetic touch events to the studio Canvas controls, checked gap separation and pointer alignment, blocked confirmation before a picker choice, and asserted that a selected splash color/effect appears in Grand Puff's HitEngine feedback object.",
+    "route_gaps": "This is not a fresh child-visible castle run. The probe constructs ReefMain and DayOneDirector directly, seeds bathroom/pool/stuffie completion, marks art-room state directly, mounts the studio with a synthetic world root, and never opens the physical castle route. Its art taps use Input.parse_input_event in the isolated test scene; the color choice calls customizer._on_color_pressed directly. It does not exercise Roshan's live travel/contact path, a real device, Mobile-rendered pixels, audible voice/effects, observed child comprehension or owner acceptance."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "The cleanup contact helper moves at up to 440 logical units per second and requires 0.42 seconds in contact before invoking its callback.",
+        "evidence": "scripts/day_one_contact_action_2d.gd:97-109",
+        "scope": "Source timing only. The L12 probe has no live room actor and does not measure this movement/contact sequence."
+      },
+      {
+        "value": "The attack customizer card scales from 0.92 to 1.0 over 0.18 seconds when opened.",
+        "evidence": "scripts/attack_customizer.gd:119-122",
+        "scope": "Code-defined transition only; no rendered animation timing or child session duration was measured."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No gameplay duration is inferred. The runner's 9.29-second wall time is isolated probe execution time, not play time."
+  },
+  "tactile": {
+    "target_size": "The four supply hit areas are 128×128 studio units at 1.25 scale (160×160 before any device projection); the three grime hit areas are 150×110 at 1.25 scale (187.5×137.5). The probe verifies adjacent supply rectangles do not overlap and blank gaps do not collect a neighbor. Attack color choices are 104×104, effect choices 150×110, and the star confirm control 116×116 (attack_customizer.gd:206-215, 238-265); no phone-projected physical sizes were measured.",
+    "press_response": "Synthetic touch press/release pairs reached the studio material and grime controls, each changing only its own saved state. The probe did not measure rendered-frame latency or see Roshan travel, contact, scrubbing, cleanup feedback, or hear voice/sound. The color selection itself was invoked directly as a method, while the dim-area confirm taps were synthetic touch events.",
+    "drag_hold_release": "The cleanup targets and attack choice/confirm path are tap interactions; no drag or hold is required in source. The probe sent paired synthetic press/release events for art target taps and picker dim taps but did not test a physical finger, canceled press, or drag threshold.",
+    "ownership": "The probe verified distinct neighboring supply hit rectangles and that taps in their gaps collect neither item. The customizer uses a full-screen dimmer with STOP mouse filtering and a higher CanvasLayer, but second-finger competition and actual routed ownership were not tested.",
+    "cancellation": "The studio teardown calls DayOneContactAction2D.cancel(); that helper also cancels on focus-out/application pause. Neither teardown during live travel nor pause/focus cancellation was exercised by L12. The customizer's Back/close lifecycle was also not exercised."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: finding four art supplies, clearing three grime marks, then choosing a color/effect gives the child two clear forms of agency—restoring the room and choosing how Roshan's later magic looks. Test whether a child can independently make a color/effect choice and connect it to the next Grand Puff hit without reading or coaching.",
+    "variety": "The cleanup phase repeats a tap-to-collect verb for four items, then a tap-to-scrub verb for three spots; the paint desk then changes the verb to choosing a color/effect and confirming. The probe establishes the gate/order but cannot tell whether the seven similar taps feel varied or tiring.",
+    "world_response": "Code hides a collected supply or cleaned grime card, plays authored fixture motion for material stations, and requests local Roshan contact work; completion unlocks a glowing desk. The probe verifies state changes and that a chosen pink/splash profile reaches Grand Puff's feedback object, but not the visual or audible quality of those responses.",
+    "replay": "Not measured. The probe checks JSON-safe serialized art fields and save normalization for malformed/partial values, but it does not exit/re-enter the live room or reload a process with partially completed cleanup/customization.",
+    "fun_score": null,
+    "play_appeal_test": "On the approved phone, offer the live cleanup route from a fresh save and observe whether the child finds the supplies, switches to grime only after collecting all four, and notices the desk unlock. Then let the child choose one color and one effect and observe the next eligible Grand Puff hit. If the seven taps become repetitive, test whether clearer response from each disappearing item and each changed counter keeps the child oriented before changing the action count."
+  },
+  "observations": [
+    {
+      "title": "The art desk stays gated until all four supplies and all three grime spots are recorded",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_day_one_art_attack_state.gd:29-41 asserts a single pickup plus scrub cannot unlock the desk, then that all seven cleanup actions unlock it and customization remains desk-gated.",
+        "scripts/day_one_art_studio.gd:100-134 hides grime targets until all materials are collected and exposes the desk only after the saved unlock flag.",
+        "audit/cycles/luna-playtest-20261012/runtime/L12/attempt_1/probe.log:5-8 records the gate, seven-action unlock, and customization gate assertions as OK."
+      ],
+      "rules": ["DL-AGE-05", "DL-INT-02", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Run the retained L12 receipt command; see probe_day_one_art_attack_state.gd:23-41 and runtime log lines 3-8 for the partial-action negative and seven-action positive assertions.",
+      "child_impact": "The authored progression prevents one accidental tap from skipping the craft activity and gives supplies-before-cleaning-before-customizing order. Whether the sequence is discoverable or too repetitive remains unknown because the physical castle route and a child were not tested.",
+      "proposed_repair": "No code repair is indicated by this result. Keep the sequence and evaluate its pacing and discoverability on the target device before tuning the action count.",
+      "acceptance_test": "From a fresh profile through visible castle doors, verify a child can find the four supplies, see cleaning become available only afterward, clean the three marks, and reach the paint desk without adult explanation or lost progress."
+    },
+    {
+      "title": "Synthetic taps reach separate visible cleanup targets and leave the neighboring gaps inert",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/day_one_art_studio.gd:7-20 defines 128×128 supply and 150×110 grime targets; setup applies a 1.25 scale at :59-75.",
+        "scripts/probe_day_one_art_attack_state.gd:107-160 sends synthetic touch taps, checks supply-neighbor rectangles and blank gaps, pointer alignment, one-item collection, grime clearing, and no logo hijack.",
+        "audit/cycles/luna-playtest-20261012/runtime/L12/attempt_1/probe.log:11-36 records separated targets, inert gaps, pointer alignment, individual state changes, and all-seven completion as OK."
+      ],
+      "rules": ["DL-AGE-02", "DL-UI-01", "DL-UI-03", "DL-INT-01", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Inspect the loop at probe_day_one_art_attack_state.gd:109-160 and the matching assertions in the L12 probe log. These are isolated input events in the probe-created Canvas scene, not a physical phone trace.",
+      "child_impact": "Large, separated targets and a pointer over each selected item may reduce wrong-neighbor taps. The target projection, actual finger occlusion and response timing on the Lenovo Tab M11 remain unmeasured.",
+      "proposed_repair": "No size or alignment change is justified from the headless test. Capture the same controls on the approved device and adjust only if projected targets or visual pointing fail.",
+      "acceptance_test": "On the target phone, tap every visible supply and grime patch with one finger, include the blank spaces between adjacent supplies, and verify the intended item responds promptly with no neighboring action."
+    },
+    {
+      "title": "The live cleanup action is designed to include Roshan's travel and contact, but L12 bypasses that behavior",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/day_one_art_studio.gd:299-312 and :334-359 route material/grime presses through DayOneContactAction2D when available, then save progress in the finish callback.",
+        "scripts/day_one_contact_action_2d.gd:66-109 moves the temporary avatar to the target and requires 0.42 seconds of contact before invoking the work callback.",
+        "scripts/probe_day_one_art_attack_state.gd:81-107 supplies only a synthetic world root and does not attach a castle room actor; probe lines :137-160 consequently establish handler/state results, not travel/contact.",
+        "audit/cycles/luna-playtest-20261012/runtime/L12/attempt_1/receipt.json records headless=true, rendered_mobile_acceptance=false, and SCRIPTED_PROBE."
+      ],
+      "rules": ["DL-INT-02", "DL-AGE-07", "DL-QA-02", "DL-QA-03", "DL-QA-04", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Compare the actual action branch in day_one_art_studio.gd:299-359 with the probe-created scene at probe_day_one_art_attack_state.gd:81-107. The test reaches cleanup through synthetic controls but never demonstrates a live room actor/contact sequence.",
+      "child_impact": "A child-visible tap may be intended to make Roshan move to the object and work there; this session does not establish whether that movement, contact, bubbles, and changed item are legible or whether interrupted travel safely avoids progress.",
+      "proposed_repair": "No defect is established. Preserve the local-contact design and add a routed live-room/device acceptance leg before claiming this action is validated.",
+      "acceptance_test": "In the actual Craft Room on the approved phone, tap one supply and one grime patch; verify Roshan reaches each location, performs visible work before the state changes, and that pause/focus loss or exit during travel does not trigger the callback."
+    },
+    {
+      "title": "The picker blocks an outside confirmation before a choice and uses the selected profile in Grand Puff feedback",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/attack_customizer.gd:296-309 consumes an outside tap and closes only after _choice_made; :288-294 mark color/effect choices.",
+        "scripts/probe_day_one_art_attack_state.gd:185-220 verifies a synthetic outside tap before choice leaves the picker open, calls the color handler directly, then verifies a later outside tap closes it once.",
+        "scripts/probe_day_one_art_attack_state.gd:221-243 checks Grand Puff's HitEngine receives the pink tint and splash atlas, then tears the feedback layer down.",
+        "audit/cycles/luna-playtest-20261012/runtime/L12/attempt_1/probe.log:33-38 records guidance/picture choices, pre-choice blocking, visible selected state, post-choice confirmation, saved splash feedback and teardown as OK."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-02", "DL-INT-02", "DL-UI-03", "DL-UI-05", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Run the receipt command and inspect the customizer block at probe_day_one_art_attack_state.gd:161-243 alongside attack_customizer.gd:288-309. Note that the color choice itself is a direct method call in the probe, and the Grand Puff tap is a controller call.",
+      "child_impact": "A chosen profile is not silently confirmed by the tested pre-choice outside tap, and the chosen visual effect/color reaches the boss feedback controller. The report cannot establish whether the swatches and confirm star are understandable, whether the outside-tap confirmation surprises the child, or whether the effect reads clearly on screen.",
+      "proposed_repair": "No change indicated by the passing state checks. On-device child observation should establish whether outside-tap confirmation is predictable after the first choice and whether the chosen magic is visibly distinct.",
+      "acceptance_test": "On the actual picker, try an outside tap before selection, choose a color, choose each effect in separate runs, then confirm with the star and with the outside boundary. Verify visible selected state, no unintended closure before choice, one completion callback, and the chosen effect on the next valid Grand Puff hit."
+    },
+    {
+      "title": "The synthetic room setup does not establish fresh-save entry, full save reload, Mobile presentation, or child appeal",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_day_one_art_attack_state.gd:42-56 directly sets prior bathroom/pool/stuffie progress and calls complete_art_studio to place the director at the art room.",
+        "scripts/probe_day_one_art_attack_state.gd:57-80 checks serialized fields and normalization, while :81-107 constructs the studio without opening the castle scene.",
+        "audit/cycles/luna-playtest-20261012/runtime/L12/attempt_1/receipt.json records headless=true, rendered_mobile_acceptance=false, profile_isolated=true and wall_clock_is_gameplay_timing=false."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-SAVE-04", "DL-QA-03", "DL-QA-04", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Read the direct setup/serialization path in probe_day_one_art_attack_state.gd:42-107 and the L12 receipt flags. No process reload, displayed Mobile capture, target-device interaction, child observation, or owner review is in this run.",
+      "child_impact": "The state machine can pass while the preceding rooms, studio entry, pointer, voices, clean/dirty visual changes, picker, or return route remain hard to find or unclear to the intended child.",
+      "proposed_repair": "No defect is established by missing coverage. Treat normal route, save/reload, device and child evidence as separate acceptance work.",
+      "acceptance_test": "From a genuinely fresh save, reach the Art Room through visible routes, complete the live cleanup/customization, pause and resume, exit/re-enter and restart from save. Verify the saved choice and cleanup state plus clear touch/visual/audio behavior on the exact phone, then observe the intended child without coaching."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The cleanup unlock is gated on all seven intended actions, and each synthetic tap updates only the selected supply or grime state.",
+      "evidence": "scripts/probe_day_one_art_attack_state.gd:29-41, 127-160; audit/cycles/luna-playtest-20261012/runtime/L12/attempt_1/probe.log:5-8, 11-36."
+    },
+    {
+      "claim": "Supply target rectangles are separated with inert gaps, and the pointer center aligns above each visible supply in the probe scene.",
+      "evidence": "scripts/probe_day_one_art_attack_state.gd:109-142; audit/cycles/luna-playtest-20261012/runtime/L12/attempt_1/probe.log:11-26."
+    },
+    {
+      "claim": "The probe guards confirmation before a picker choice and verifies chosen splash/color values reach and are torn down with Grand Puff's feedback instance.",
+      "evidence": "scripts/probe_day_one_art_attack_state.gd:185-243; audit/cycles/luna-playtest-20261012/runtime/L12/attempt_1/probe.log:33-38."
+    },
+    {
+      "claim": "All L12 scripted assertions pass on the exact approved Godot build in an isolated profile.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L12/attempt_1/receipt.json and probe.log:1-39. This is headless internal-probe evidence only."
+    }
+  ],
+  "acceptance_gaps": [
+    "The art probe seeds prior Day One progression and skips the physical castle entry and normal fresh-save route.",
+    "Synthetic cleanup taps do not include a live actor, travel/contact/work cycle; color selection and boss response are controller calls rather than child-routed play.",
+    "The run is headless and provides no Mobile composition, phone-projected hit geometry, latency, frame pacing, voice audibility, or effect visibility evidence.",
+    "No pause/focus loss during live cleanup, full save-process restart, observed child comprehension/comfort/play appeal, or owner acceptance was collected."
+  ]
+}

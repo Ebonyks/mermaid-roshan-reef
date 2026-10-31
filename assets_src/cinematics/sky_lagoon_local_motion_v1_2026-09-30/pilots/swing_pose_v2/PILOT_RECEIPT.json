@@ -1,0 +1,90 @@
+{
+  "status": "PASS_RASTER_INTEGRITY_ONLY",
+  "fresh_generated_key_drawings": 8,
+  "human_hand_drawn": false,
+  "construction": "Eight newly generated seat perspectives, local rope-removal inpaint, uniform 5/16 sampling, per-pose horizontal registration, explicitly raster-painted suspension against identical source frame. No warp/interpolation of the original seat. Not Chinese video API output or accepted cinematic pixels. Empty-field alpha remnants outside the core seat bounds are discarded; top fixture pixels are copied identically. These cleanup/registration operations do not create the new seat perspectives.",
+  "fixed_top_hooks_and_frame": true,
+  "exact_aseprite_export": true,
+  "state_rgba_sha256": [
+    "1e6294e624d416272bf1a1f72fb3906f073ce262e8964caae7b762c2cf849f87",
+    "6dfc83de4d106a81a44404ca9a40a85cd9d008ccbfeb0cd32f64385ea135d2fb",
+    "e02bbc3ad865a9ff7a138efb33c4f4b6e469c6c81c485a12442b8d26f1ebb06b",
+    "d3832a4e3c4b5567fc805710220fe30885964c990a2a8e2b962b2a9d374828cf",
+    "eb2462f7dd4352947ee037d07ca7353f671f08ab89ee6666351f157daa89b3a9",
+    "94e6d41b83e46113792d0a60cbf84ffef188ae76025c3b98b0991bc635832a9b",
+    "a4a0cc8763897fd9559e8f85bb5914f45662bf5f052d28ad983ebc9bdfcb87cc",
+    "299d13928ba938862ad270f2d3e004080292793a75ffd548c69db5a75159e05f"
+  ],
+  "native_sheet_hashes": {
+    "generated_pose_sheet_native.png": "3553be3047d6187e10913b3ddee67bb83c86ade0356bc381989cb8a0f71048be",
+    "alpha_edit_attempt_native.png": "bccea07b5de9b1fda026f3cdec773469fab075f52568e4046392974a2168064d",
+    "seat_isolation_native.png": "e71d924cc1f09aa8dbbf3f931d07dac6c5ee3cdc56edeb2ba7e81777811bb893"
+  },
+  "native_generation_method": "Built-in image_gen; originals preserved in this folder and original generated_images paths",
+  "prompt_sha256": "4649b5d766452897a27f95e45964e73d83010a26bf848da41cc67c05ccad4450",
+  "approved_identity_source": "objects/07_swing/original_source.png",
+  "approved_identity_sha256": "cf75805c32df02bb6e8d92d536e65a41cec1c8587a21db383b84c1c2f36e31fd",
+  "fixed_frame_source_sha256": "abd7c90d1b5e70d1e7f2d5598b999568c93d7625fe4265cbca34b4ef9e199aeb",
+  "pose_cell_alpha_bounds": [
+    [
+      40,
+      221,
+      377,
+      488
+    ],
+    [
+      46,
+      228,
+      373,
+      458
+    ],
+    [
+      40,
+      253,
+      369,
+      442
+    ],
+    [
+      39,
+      227,
+      362,
+      458
+    ],
+    [
+      38,
+      206,
+      376,
+      471
+    ],
+    [
+      17,
+      200,
+      384,
+      460
+    ],
+    [
+      0,
+      149,
+      384,
+      433
+    ],
+    [
+      0,
+      193,
+      365,
+      452
+    ]
+  ],
+  "known_visual_gaps": [
+    "Generated pose cells 6-8 touch their cell boundaries; clipping/neighbor contamination requires review or regeneration.",
+    "Socket coordinates are draft authored points; production contact/topology and constant physical rope-length perspective are unverified.",
+    "Seat part identity and painted detail vary between generated poses.",
+    "Eight keys lack freshly drawn in-between frames; timing is a rough flipbook."
+  ],
+  "creative_status": "UNACCEPTED_POSE_DIRECTION_PILOT",
+  "owner_review": "PENDING",
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "measured_seat_horizontal_bbox_center_span_px": 2.5,
+  "measured_seat_top_height_span_px": 33.0
+}

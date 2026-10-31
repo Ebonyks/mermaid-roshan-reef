@@ -1,0 +1,40 @@
+{
+  "state": "PAINTED_GEOLOGIST_CREST_SOURCE_LOCAL82_STATIC_NATIVE70_PASS_EXACT_CI_PENDING",
+  "stable_id": "FV-8C7C289334A2",
+  "baseline": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+  "new_generation_calls": 1,
+  "rejected_takes": 0,
+  "new_runtime_images": 1,
+  "new_bounded_implementation_artifacts": 1,
+  "implementation_unit": "One complete painted route-card crest implementation; no role acceptance/removal.",
+  "new_frame_events": {
+    "bounded": 12,
+    "excluded": 0,
+    "retained_total": 12
+  },
+  "native_checks": 70,
+  "baseline_checks": 34,
+  "candidate_frames_reviewed": 10,
+  "baseline_frames_reviewed": 2,
+  "retired_source": {
+    "baseline": "803dbac68705d46bcb4a5da4d060a0ae8cf09d6d",
+    "old_path": "assets/opera/worlds/ui/crests/opera_crest_geologist.svg",
+    "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+    "exact_runtime_callers": [
+      "scripts/castle_career_routes.gd:48:\t\"geologist\": \"opera_crest_geologist.svg\","
+    ],
+    "retired_svg_path_elements": 5,
+    "source_preserved": "assets_src/imagegen/geologist_crest_20261030/retired_source/opera_crest_geologist.svg",
+    "separate_goal_svg_unchanged": true,
+    "accepted_removal": 0
+  },
+  "functions_byte_identical": 23,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "checked_at_utc": "2026-10-30T14:42:29.583516+00:00"
+}

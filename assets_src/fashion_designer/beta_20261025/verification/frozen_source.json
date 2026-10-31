@@ -1,0 +1,972 @@
+{
+  "schema": 1,
+  "baseline": "9c78f6aa9981cad8caae576c4f1c541c32f247e4",
+  "scope": "Final beta runtime/source inputs. These 193 inputs remained unchanged throughout full_ci_02; evidence and authority metadata are excluded and rechecked before commit.",
+  "files": [
+    {
+      "path": "assets/fashion/beta_20261025/catalog.tres",
+      "sha256": "bddd8ac38e45f75841f59f4d7f45cbde0b7693dd7b0b3ff359cacc87741e635c",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/astronaut_body.png",
+      "sha256": "0a5143eb9c25d1f2e93c6efb384a4b4cef7998996dfb5b592fb07f3895a0c496",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/astronaut_head.png",
+      "sha256": "373bb950af6fc3c660cb0b4db7f9d338ef1fbb6d9c352b61841378a4d4fdd3d4",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/astronaut_tail.png",
+      "sha256": "f702466a6a06163858f74c9d676d857d82bd812bdb05405a9ed1ec467058ab31",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/ballet_body.png",
+      "sha256": "d6e4babe63614eaccbb5e49344f57f636b93e2448cb807aab2347ed95f314f8e",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/ballet_head.png",
+      "sha256": "4516a2631d47c928a20cbefc2059922471cf59958450716cf3ca023186395f4b",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/ballet_tail.png",
+      "sha256": "485bbf4b526e1ad47c50abeb70e3cb3e57b2139f47cc9e751e2e4a3d914d3a5f",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/candy_body.png",
+      "sha256": "acb6b4154481f0fbb7302571c264f6959446cffcd1721e4d47a17f5e9c3408ed",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/candy_head.png",
+      "sha256": "e81b4c5af7a5339e5661baffae4ea363ace5e5676d031cbd9fdc088989a8021e",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/candy_tail.png",
+      "sha256": "fcae311dd2c86e9ec5cc048b70179db2ada7f9e8941a4b420c9c527879275918",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/magician_body.png",
+      "sha256": "deb7caf0b35579021e9469696bd056132e63682d06b902905ed0c8d0d43343b1",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/magician_head.png",
+      "sha256": "161f7c9177d5a145091b3da42786a29982662bb472322e9eaced09d9b23d9ea7",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/magician_tail.png",
+      "sha256": "fde532c6d5411fe382eb0121afc892585629ab500e130ac70e3fdbe4028dfaf4",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_astronaut_v1.png",
+      "sha256": "7d2ce9d51511af01ae87cab6e05a2dc2255b4fe4840ad8364d33cbbcc4b84ddc",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_ballet_v1.png",
+      "sha256": "3a376b0058be6c6d710350bf1ba32c43b7d50bc26a2532adde072a62aad33284",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_candy_v1.png",
+      "sha256": "2873595c9cd0b90bafe3e706f9724cca624b1979e7d02fb7599eafbb1f2ca32b",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_magician_v1.png",
+      "sha256": "4d53a0bddffa4a47589df8fac75c9b72d9e272dbd2af6da85f04191b6802a058",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_astronaut_v1.png",
+      "sha256": "236716a59ccdb7d23128571251a8af13216d0bc71b30affe526fd0bd4b468a6a",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_ballet_v1.png",
+      "sha256": "bbcf85f66ca7b49ba1c7c9f4150f82e20d2a008258d8f7fda9af45925a2ae9a2",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_candy_v1.png",
+      "sha256": "7bd8334a3d17830b8cd56fc7f156ae5e4d9dbe9528ebf50fa343845f3face2c1",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_magician_v1.png",
+      "sha256": "b7b90eed7cca82fc3ef1c1c700b048a3e6ce583c6f001f99464a60c8cd8d63da",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_astronaut_v1.png",
+      "sha256": "a5f62cba09262250905cf701b12e03848f95f439dc0b591e6a0484fcad32db16",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_ballet_v1.png",
+      "sha256": "8faffaa1a2d31959f148a70d0782b5364f6260d0cd525a772bccb5821c9f8999",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_candy_v1.png",
+      "sha256": "101ddc0b59c9bf98accef93b2329bfa8774d9087978b3ccb94a04fc242256093",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_magician_v1.png",
+      "sha256": "845eb98ffa266afb612dfaf5d85497000bcd12c6883317bf45ebf815ede9bda0",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_astronaut_v1.png",
+      "sha256": "27944703de987521c5e3dfae04e14010ceb119e24fc9581d60dd50ceb8c9bc72",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_ballet_v1.png",
+      "sha256": "428a2696f4c0e1b50c40a7191400e8aee62122f31c471f80c5d1f013c1983cdb",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_candy_v1.png",
+      "sha256": "4c341bf1eb27e8c8b2bf58857a83f4ca4733e1183c8343ba913874899fd63f31",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_magician_v1.png",
+      "sha256": "79c35c20febab6467d137f9fed01ce88ea04a31ffdd818d5e394b096e6b5b6cb",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_astronaut_v1.png",
+      "sha256": "06cf65c3406d5ad7324794c5e6b698ddebb76e1461987aa25b8150b63e3fad55",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_ballet_v1.png",
+      "sha256": "211fdc2b5d03728c76a5aca46ef68f50bd82f83e5689fd507b7fdff6c2a04056",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_candy_v1.png",
+      "sha256": "76ae8e5ed8f114e2b25372b629182e80f919fc3c30f1d6dd6b56c0e6a06caf48",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_magician_v1.png",
+      "sha256": "702ad933d9d49d6f04a3ac69af810a6e6484f5c69c4ffca2aed30be3148c5ead",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_astronaut_v1.png",
+      "sha256": "bf521dd6aa3166c56e36d56b3ccdb2f843799a9aa5108e02c7b2a266c7ae9030",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_ballet_v1.png",
+      "sha256": "bece38f882625f34f167f6aee024ce94790648e905710e4421bbd5998731e961",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_candy_v1.png",
+      "sha256": "2760226659705494a2525e7714ee5ec6ef23f358dd0680d28339214dda5b5223",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_magician_v1.png",
+      "sha256": "027601c9d9f1e3eefc8176e8e17fc7a55ce9fe0bcc9c2a43838bfea277990c0f",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_astronaut_v1.png",
+      "sha256": "8e96587a87c3cc14bcfa7814a63330012d6067c6dbefc9aa6d51ac5da2ba0eb1",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_ballet_v1.png",
+      "sha256": "3215abf70edfeddc394041a4d5b17b12d835ba4b434feb4b68235d9116387ac7",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_candy_v1.png",
+      "sha256": "b45e56071d65e9160f38722891fb077ad3fda592dca7a42b2cf5ba9ccfa04035",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_magician_v1.png",
+      "sha256": "42503e1563c3a3a5e6fcf487b5524387f0537e1a1c825f170efb4fd27bf0cd8f",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_astronaut_v1.png",
+      "sha256": "35d85be27d56b8b937e375d5e80b009c73e962e4342b5159dd71e5382bfd05ae",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_ballet_v1.png",
+      "sha256": "47bd11ad704a3f2c11299be3f0a9df4b27a80204ef30331b335be8d461568957",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_candy_v1.png",
+      "sha256": "f0bd09b197ce4187d5cd1d243c7d7585b77a5a07078ede4c8a976d1b04a6a520",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_magician_v1.png",
+      "sha256": "64ede7a05e4eb670bf445d9ad80ed1da32c99006b56b6b3af015bed755a545d1",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_astronaut_v1.png",
+      "sha256": "74e09c09a3c77fe17a268ebf9ba1b33f25ca978af9bc8a7fd990fa8c60f5637e",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_ballet_v1.png",
+      "sha256": "423daec1020e3e69742a9d7ca537cefe9dc5684bfae082ab3f405c212453fb9b",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_candy_v1.png",
+      "sha256": "b6a65da7a64aa16727267f2adaa64e7769e0ef2f9664b1c72c33ab58f90e1920",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_magician_v1.png",
+      "sha256": "77f23e74c9298db98b5e5896eada18ac264e93a65386bbb12b390aec3b1637b3",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_astronaut_v1.png",
+      "sha256": "078ec94ce5ff90e6761baf77e244c193ec908465efda5c80116512fd11811057",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_ballet_v1.png",
+      "sha256": "ce3a1f8480f97a1b75512911134f9764ca0b40453c4cb1e6dd7cd24b8e4cef38",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_candy_v1.png",
+      "sha256": "f7a213bd2763dbd7ddf223867fa83156c1aab3f6e7761c7ed97ef9ee51146573",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_magician_v1.png",
+      "sha256": "d6497cd50e48e02e2c16146822c2fba47938f26978e7f03b13609c06e233f564",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_astronaut_v1.png",
+      "sha256": "4cce33cbd9e749c0b43eb86197d1293d22acfe02221944a46a57ca787622e6d9",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_ballet_v1.png",
+      "sha256": "fe59a3dd711bcad35734ac0e8e41a2d93f58c76721869f17fac17eadafa95047",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_candy_v1.png",
+      "sha256": "72ffc210a64b9213c5d76dd9c7887ef833b9d453917dfc427561b207b60650ff",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_magician_v1.png",
+      "sha256": "aa8bc96309c795fd672369bee9d34a9bf8e43c61ade28aa6611b597692e3929f",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_astronaut_v1.png",
+      "sha256": "5eb63a78d1c613013f76da66e00d45171f274885cf0ba897377e291399aea08d",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_ballet_v1.png",
+      "sha256": "219f6d5fdd183ae5b6907079ed9f08554576580591a87592985f7a1b55ac66be",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_candy_v1.png",
+      "sha256": "b93c8647c62588e76c0359fdb2bc9ba8571f015155f2025c94a37dbe3baf83b1",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_magician_v1.png",
+      "sha256": "26f05f301a92d0e79b1b06720a56f26dd9b027c3de43a215b79b750b7bf89ebb",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_astronaut_v1.png",
+      "sha256": "9938972ae30667f4520cf7515d0057dba3534ca640c229819ecb6110b69e63e4",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_ballet_v1.png",
+      "sha256": "ab62613e84ddb3eca64193607617b1d5b1cbe7b323f010c81ddf7fb5692a4988",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_candy_v1.png",
+      "sha256": "ec89f34e391cbb7efba61c0add54edbf6bf6fabbac7f751eef20d4ff6a73075f",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_magician_v1.png",
+      "sha256": "dca61d63bfd4aadef2f818a152ac095cb3ddabbd752c2587662a128df2139076",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_astronaut_v1.png",
+      "sha256": "b06811f5123d68686206b281aefd9bb9bb1ee42c664a490ec57c5c1a8dab48ee",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_ballet_v1.png",
+      "sha256": "2632a2ca92ad165b1933f7ecbe45de244852cdfffc5cb16669d8bdea5fae2341",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_candy_v1.png",
+      "sha256": "26f3be50036b42b3589b0e1e6fa6179ef194bafc423544b9355904d4e55f5287",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_magician_v1.png",
+      "sha256": "8e7b1509a56a258c6d2578261956633c55eaa1990231d4c3dc81a6ae9a6b1732",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_astronaut_v1.png",
+      "sha256": "284a83c9881d9b28b8b6b0cf20114164823f7be6721ed535deb82012e0068e88",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_ballet_v1.png",
+      "sha256": "0a53f3d062c5c1ce895d9cd17966221d015fb99b9fdb8bab863f25a64f4bc67a",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_candy_v1.png",
+      "sha256": "f4886cb5d5fe818a43420ede4e58b4d07b9a276570bc0bd63c6efe402029b420",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_magician_v1.png",
+      "sha256": "6ce35a9a293a719afd7e8e73f5b9f805128cbd3b7605664cb2bb88ba48028e08",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_astronaut_v1.png",
+      "sha256": "53b3a347d2d71facc4ec9d08f737f6a4e6fcdfb86ea97a492b9b8fa27126493a",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_ballet_v1.png",
+      "sha256": "edda8ec9219b2b102ee9130d3327650649ed2b2257198aeb023a8edd16c394f4",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_candy_v1.png",
+      "sha256": "316a3e7ea27ddc447da4d564ac9f67ddacb24ba42cc2af84185bc3ed88c8b4e4",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_magician_v1.png",
+      "sha256": "921e50af59c30c3eb6c98a438ddb898bc8c5c5b7633f687f2a70f07d8ca6ea14",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_astronaut_v1.png",
+      "sha256": "c2277647ddd17402bfd32b95b5cd417836c813eee17e7a1b436d82bcab98fe83",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_ballet_v1.png",
+      "sha256": "ea33b4c0873f940e833468bf5d0b66d43232572d6ff33e941a26a36771e02337",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_candy_v1.png",
+      "sha256": "598f2462408047cc3008214d9bff635520e8913faca903cad233c640c87a6294",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_magician_v1.png",
+      "sha256": "eb6ce09bda7ffa43ade409b73fe0cc2b2d3dcbe2bc82993f2ebf977bfc6b3eda",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_astronaut_v1.png",
+      "sha256": "212899ccbc211030ea0180c8e073a93398cba785840fffe0fe3ed047ef6af7f4",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_ballet_v1.png",
+      "sha256": "81f3dd6b8f7bf3e468bf0b18a8079ff3c37489874fbd507894577690d63ced51",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_candy_v1.png",
+      "sha256": "d5322e9288c3f895ad8492a8415d7b27abeef9154db7092ab6bfab78af5199d3",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_magician_v1.png",
+      "sha256": "cf615861305dd750580819732ef029727a53be7331b0a99246eaa9f6ef40ea2f",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_astronaut_v1.png",
+      "sha256": "fe0eda7791c9ff20df314d6e87682b285bf70aada91b19383ee3e1a459b8ecd8",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_ballet_v1.png",
+      "sha256": "56eb86f96a534d8f02e70207c0bc400eb7834447bb3d4d6834ba259a0151938d",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_candy_v1.png",
+      "sha256": "a02bfcd97dfd69bf64203c7ec5c1ef80c5a35e34b1d114016b45ad0170488a05",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_magician_v1.png",
+      "sha256": "4f0c0609b0c7698c813c2e5082209f2edea03549401d7dd90d1db8eaf34ad7fc",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_astronaut_v1.png",
+      "sha256": "caae91b0b3ede57007b4996f7603c64dab5f7dd2ae6efdf95bfdeb4924d485fa",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_ballet_v1.png",
+      "sha256": "d20ab91bb21c31ba39ed8fc34fa36418dda65bd62a41cb7d3957a8442d0a561e",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_candy_v1.png",
+      "sha256": "053e784ad4d1ec2e07d1994e3890c1f32dd9e292f4dd3b597878ca8986c628f5",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_magician_v1.png",
+      "sha256": "f7f37280b7e4956d946eb9b13a89a9e8e01895e1d0cbada2adb0943174cbff19",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_astronaut_v1.png",
+      "sha256": "4d3e6f19a2be3955ab944f47c2337a91eb15d304b022f2690480b46840d4e4c1",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_ballet_v1.png",
+      "sha256": "35a307668b79cbf1c6936203d25cfc81e24421170e419c8dde105972c78df1c2",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_candy_v1.png",
+      "sha256": "89d5d56411ef09fa31c1c1d9575139e3a58b945878d767dc4533b6e83dd85885",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_magician_v1.png",
+      "sha256": "bb8abc3add2f6fd5d8809f6212c2d64e0d2ccde74ae006f3f6946e6acc2f54d7",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_astronaut_v1.png",
+      "sha256": "fdad01205b37870516ead9ca10d7c90986220d4e70180528e416c1920f983cd7",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_ballet_v1.png",
+      "sha256": "6ba375889c44f03537bb60b306ec071461eaf87f81a626078f73265561e34bed",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_candy_v1.png",
+      "sha256": "1c5288be487f8a0c379442310d298b5157ff620b2e14eda6932e2dc57cfefc3d",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_magician_v1.png",
+      "sha256": "c87efb0aaa766a479884cd6b96d604b5ce31547de2d17490bc08dada11077771",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_astronaut_v1.png",
+      "sha256": "5d7b75777fbb3856f42a5b1f120f655f579785430456bfeaf92efce5390a3f9f",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_ballet_v1.png",
+      "sha256": "5e322e621df34cd1b8be5eb01f34d401e57229de533654f2cef1de00e6d03b57",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_candy_v1.png",
+      "sha256": "a3de948423cbad8fd7d3c8fabd9cc12296aafd04a54601625385a463aa3e3cc9",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_magician_v1.png",
+      "sha256": "f3ef73fec6c75248d25cfecd67f5f512b8b0625279d8eff3289363be0f48089e",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_astronaut_v1.png",
+      "sha256": "0d64af3fe4111aa316cb47fe42b6f71e92ef1d3cc3668a8330b68a2d22515819",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_ballet_v1.png",
+      "sha256": "c786c1eec580b4bb363f25fdd137e15e67a867bf8c5b96da27a1a29ebea62d5a",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_candy_v1.png",
+      "sha256": "9b34cf3540b8089b57b58d7216d7eb6fe8b5e1988b5eb1a990ad6364e1149a4e",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_magician_v1.png",
+      "sha256": "05917e8226e43a29e8493df37dc23bd5130cd4c98117e5376b45ed12f8994654",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_astronaut_v1.png",
+      "sha256": "38ce86f077bfcc02326ed3f0fe83ef5ce3d5c5df9158520baf1c0773a2cbb8fc",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_ballet_v1.png",
+      "sha256": "d3c50f7b29ebd55e7acfabc8ddbc9a785d0ae02e884e9c50ab5967481c3923c0",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_candy_v1.png",
+      "sha256": "433ec645b68d22289a7f4ebbbc57cb0d7e54757fa75d48085ace8e7758989fff",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_magician_v1.png",
+      "sha256": "f5378718a857eec11985b31fdd79a1ea77e91eec028046c705f26a37afcbf957",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_astronaut_v1.png",
+      "sha256": "7021f4bedf3999f92cab30c722d11871bfcf65f2420f17974f9e3439fb0d5a1b",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_ballet_v1.png",
+      "sha256": "89948135b49d19071668815f41bf2eeecb2291732960fec655765dd571bb83e6",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_candy_v1.png",
+      "sha256": "0d4128aeaac61ce4196d0045afd952181873031c2cadade7787eb9f9b4abf078",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_magician_v1.png",
+      "sha256": "234ef187a277210d95ef3727728cb82d426e777e53d08b1456afdbac982888b7",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_astronaut_v1.png",
+      "sha256": "8d337eaf3b43bbbd79b81dbc4fde776dff9a9d7e25521e6e6860608914f86300",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_ballet_v1.png",
+      "sha256": "87e8b71ff2163043ec56846a00fbf971a98004b758247ce0ed10dfe096655a1d",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_candy_v1.png",
+      "sha256": "6b2dbaf847b8cc1ef891ea08544bb04ad67e381c130bcf27640d9589e4ed4ca2",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_magician_v1.png",
+      "sha256": "9edbfa51a17c4f89a2d5d21d5c1f83df8f1c10332526165d6af3d5250ca6f302",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_astronaut_v1.png",
+      "sha256": "32b994eee6a3bc2cb7e1feda7a4d14ed24bf5cdd512b75890fef8d4d1515eca7",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_ballet_v1.png",
+      "sha256": "f7db586635e7d63787d8ff3ba8fe399313d7fcda585737a24e230adf119c306d",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_candy_v1.png",
+      "sha256": "7f5e21d424f35983b047e81c618f2af1b1844ba6b76d61d587db2069927ec1e4",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_magician_v1.png",
+      "sha256": "3b3e1ce7c34624549eba994244449d6b0baec4647abac8e095d1860653f70646",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_astronaut_v1.png",
+      "sha256": "b1ce87ef35eda4611cec4832bad77514f4efbdb4855478d14f46ec8c2d3e802d",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_ballet_v1.png",
+      "sha256": "0422d76bf3a2dd53134baef3b9665da5837cfe640788747be735851fdbb39ef0",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_candy_v1.png",
+      "sha256": "4e8c468ea9f1ff118ee13330edb63175786b9f02aa1d447dfc0ce34c6d8b538b",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_magician_v1.png",
+      "sha256": "4fde139aa550d4c08e469a62cb8af330ea7861394abb95f8229620bac8a09eea",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_astronaut_v1.png",
+      "sha256": "fd94105b67b67379eeb141f7bfcb45b5ce34d131c63d8ea81c140b90b29bf7e1",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_ballet_v1.png",
+      "sha256": "cf70b60ca1cc4f2ea322eef08aaa4a6b702da405dfe3e1b63ff8a731b34b0e3f",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_candy_v1.png",
+      "sha256": "56c5a2e856f332b86690e2d1423958fe6f361d4d0c5253fad74065fa46aa8faf",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_magician_v1.png",
+      "sha256": "11e87c281d9e99174873ab233ec96ecca59cdb3f475c545957bbb89b8fdc26eb",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_astronaut_v1.png",
+      "sha256": "d7850b351b9aae9094b34cd3e4a6af6c62705706287cbdf24a92faef9e81c485",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_ballet_v1.png",
+      "sha256": "ab7cb897683ca48315fe2944b91bb73a9cca09398d8fe75faed2074cff758c8a",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_candy_v1.png",
+      "sha256": "63d8c28c3682b8a8c882380fd40fa1776cb9b87ccc80559a3dcb5ba575560c72",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_magician_v1.png",
+      "sha256": "ad1e89aaee7dba13941783c1aa02f4e15763abaa22fe15ab9317cc52ba8f112c",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_astronaut_v1.png",
+      "sha256": "8b405bc386ade539461d770560aa83c80afaa5c145c2bc34067aa88ba9a40203",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_ballet_v1.png",
+      "sha256": "a5f3d480393666d3d18088173468c5712797b721ce3ff79cab69d3b0974a5448",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_candy_v1.png",
+      "sha256": "ab3b0ce239d9279cd5339d855f0fc86788859fbea60683cdfd2c534ef4001ba1",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_magician_v1.png",
+      "sha256": "2c280a1dc4cb5ea481ed0aa2711129736de610a57e2be1f3e08f2741aa657032",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_astronaut_v1.png",
+      "sha256": "0a4842b340522e891c9e9657c20181be9331a03555f918fd0b7522e5cf93db30",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_ballet_v1.png",
+      "sha256": "4a3d58991a7dad51e16e856b223cf39f5fe554d969faee41c4d8235ae1f8a3ec",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_candy_v1.png",
+      "sha256": "bff8e45c57fa0b5aff156cd276caaab55d018a7f469df31f0ef1f7891997c884",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_magician_v1.png",
+      "sha256": "15945a6d65ef0eb1c5a2ed15a0f6a6c3edabaa01a38933267aa9c6ece7184684",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_astronaut_v1.png",
+      "sha256": "82ddd94bb5fc6d58d597d18fb9888ea5e0ffed6a20f99ffba32a1ed1b06ed613",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_ballet_v1.png",
+      "sha256": "1cfbe3f712e89b93ed18b2351bd7ebbfcb99c1a6c01dbbbe96aa759b2b21949e",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_candy_v1.png",
+      "sha256": "a87430a2b0c307763833a18aab3082f50fe840d71885e87ddbb61fccf82f2bee",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_magician_v1.png",
+      "sha256": "a943586df89a3b5bc628737327fd5ee5fcad07254d996f1aee2045a30954622f",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_astronaut_v1.png",
+      "sha256": "a7fc40fcbbb94c856673067def6f74158ca02c4a60ed48ea723d3bd5d4059ce8",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_ballet_v1.png",
+      "sha256": "1a171b5bece79bcb0bd5d3a48825e529819ae68c4bf02889c5c89524d1cec6b7",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_candy_v1.png",
+      "sha256": "8ba5f9d0d2b9886cca225dc5a68ee48e629bfc98531ab9dc3f8579cd0fbaa7b9",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_magician_v1.png",
+      "sha256": "d72e8d40403c61806446385be483509ff10a0a562ce17bda299d4ff85de9d37a",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_astronaut_v1.png",
+      "sha256": "4174f5616cf3617b26ec919bafef049e0496ea2b006321357979f6c1805dbff1",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_ballet_v1.png",
+      "sha256": "90583cd0a7f60e2dd597f84450b343315b4a0471ba69882558835b1d55a50ce5",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_candy_v1.png",
+      "sha256": "bf37c8fc05ed88e2afb34d98c488147854fd10466ea4f305224b8f2d8002ef29",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_magician_v1.png",
+      "sha256": "71754184eba9be749f024ea8013c87f194e29a17d5f800527704d8f1e01a760c",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_astronaut_v1.png",
+      "sha256": "9ddd4fa4017ba9c07e6ff4116cfc888cc2ea3585096f8c454c464770984044ff",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_ballet_v1.png",
+      "sha256": "516f6daf127cb5c65fadfc431271e50aed8897ef1c6e8f2cf41e82a976dd50c0",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_candy_v1.png",
+      "sha256": "db94af18df91e000c44b09cdea30595b4c542980e32a879f753f1e4089c76efb",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_magician_v1.png",
+      "sha256": "06a84c23c6e144ac2a8e709dc5f86e8535320650432b07de8e12e89455ec96fa",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_astronaut_v1.png",
+      "sha256": "da434caeac3ef61d1d1ce667a00f729019e014fb556e05b1e7edb2b18cf90697",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_ballet_v1.png",
+      "sha256": "aa2ec7c5600c5b7d6b5762d22595d1a7af8db4d30f2d30c476d7c81ea09eb4fa",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_candy_v1.png",
+      "sha256": "b90e832b81e21da45d8115b67bbebe7ff2b6e981d01a5ceaa111db4775bc180b",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_magician_v1.png",
+      "sha256": "c96d97f4a49b45bb11aee2985614719b22ffb42f3f3c30eb1aadf13c611978b9",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_astronaut_v1.png",
+      "sha256": "0914315fa4164e6828a48fb35b6805138bd8a2c5f1311da2e18800818cd5ccfc",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_ballet_v1.png",
+      "sha256": "99f930e14547fb47b839ed24de58fef7933119577a4407064748ee18e4ed9e27",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_candy_v1.png",
+      "sha256": "e196c45a79e3102f6f92388c19fc77c9a994335f20bbef1a51de6b2a9242c438",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_magician_v1.png",
+      "sha256": "6d33865c1479b013821879dc829096cddeee5bc2131281a3b780737739febe98",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/derivations.json",
+      "sha256": "4ffdded733fc0e226f3aef75cbc76e6652b005e332a89b0ad62c3ad2215197ea",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/generation_manifest.json",
+      "sha256": "66388d5bc2565d15392eb4fce2cd753e81d22bfc901308e06f97155620bad5d9",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/astronaut_body.png",
+      "sha256": "a20e9132f192b2ee6f42492468241653c4339d3579f1c57ea25327f4b29c42d4",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/astronaut_head.png",
+      "sha256": "f5c66dd5665fc54bf0b7dbdd17feed4c4667a8c838369cb02fc898f552d98706",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/astronaut_tail.png",
+      "sha256": "f8223ecb2135f6683857f026f5c36f0dfb00713fa9458f3785a9d1c9cf2ad0da",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/ballet_body.png",
+      "sha256": "8fb71bbcb8ad1e0da00128df75e1bf2825c7f72682c0678e02d397ab6981cc9c",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/ballet_head.png",
+      "sha256": "02c3208e30bf1952c6348ec966fd9f968dc300f888894cf4c47a11b06d7a95c1",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/ballet_tail.png",
+      "sha256": "ab7a071ddf2fbb4580fc6b67401e512d8d3398370affda27a224edd37d12c1f2",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/candy_body.png",
+      "sha256": "d93000a7624f9bee759b53e9a743537d9d9997e664d930f0973c99bd38d5fd52",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/candy_head.png",
+      "sha256": "e8a169562799b73b85728c5738924179fb056bb818f2bb79572b9702240abea2",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/candy_tail.png",
+      "sha256": "c494a2e04c756b3c4513aae5070c7317efb3637f6e18a3f2db5d9afb6ba42c2a",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/magician_body.png",
+      "sha256": "5d01759d95f7b2a89b8749cc7e4eadbad8a7da2ba0f7f32713221275ddbae70a",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/magician_head.png",
+      "sha256": "c55e9659bb5a14f195145b6652917ee04905b57c7cdad0b1f788cb48f8465d7d",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "assets_src/fashion_designer/beta_20261025/native/magician_tail.png",
+      "sha256": "46803069cbbca5297cda3584d95fdedc2ce0a362197c58a33058edc1ce2c253d",
+      "hash_mode": "raw binary"
+    },
+    {
+      "path": "scripts/ci.sh",
+      "sha256": "99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "scripts/fashion_beta_test_case.gd",
+      "sha256": "c6ecf758ee2e88982ab3c8ca21ace2875dee0b8eb05cdd9c22b014893fa28305",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "scripts/fashion_dressing_input.gd",
+      "sha256": "f293f4aeca779dfeaa177135482927d1d50bc0db1547f916bc7ec8813a3e2932",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "sha256": "dc25eef0acb1a6d53f18bca6a297bf75fe8055723b4d10e04cac39efe99b2301",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "scripts/fashion_parts_test_case.gd",
+      "sha256": "0288c5ef74ffe9889ad6e1ac9ceebb1033ca54ea6fc3d006eaadff00da24a8bf",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "sha256": "bdbe2efe6b428e8437ad41140a155c360089fd6b0e5ae20655f337ab5f6c8643",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "tools/audit_fashion_beta.py",
+      "sha256": "b4233af35082ee53b4c02307a2b3afd79868a7982bdf1e8fb3c1ae032c9ef6f3",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "tools/build_fashion_beta.gd",
+      "sha256": "2b89affec551627a65e241249ceccd5585a4fe5c9a5fe0a6859e53fc5f3e6e86",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "tools/capture_fashion_beta_review.gd",
+      "sha256": "21628f35159f2d5504ccf14bc2d512adac0f0f031cbd6edc0a6efde522264119",
+      "hash_mode": "UTF-8 LF"
+    },
+    {
+      "path": "tools/tests/test_fashion_beta.py",
+      "sha256": "083ae6213ecf38f409e39d0f09e16e13038adefcbf2f7e46684ff112f47bd338",
+      "hash_mode": "UTF-8 LF"
+    }
+  ]
+}

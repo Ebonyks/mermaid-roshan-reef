@@ -1,0 +1,66 @@
+{
+  "analysis_limits": "Machine regression result separate from native visual/2D UNSATISFIED, observed31 stale assessments and freshsave/door/Mobile/contact/device/listening/child/owner/publishedhead/release gaps",
+  "archiver_executed": false,
+  "created_utc": "2026-10-15T04:18:12.997325+00:00",
+  "execution_command_after_root_authorization_only": [
+    "python",
+    "-B",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\full_local_ci_archive_preparation_02\\archive_full_local_ci_01.py",
+    "--archive-terminal"
+  ],
+  "planned_archive": "11 exact native/provenance copies plus derived ANALYSIS.json and immutable MANIFEST.json; no caches/models/audio originals",
+  "planned_output": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef\\audit\\cycles\\luna-gameplay-repairs-20261014\\candidate\\full_local_ci",
+  "preflight": [
+    "requires all4 native terminal gate artifacts",
+    "requires matching complete runner stdout JSON",
+    "validates frozen runner/launcher/CI roster/v7 pin hashes",
+    "recomputes exact native known-negative-selftest classification without widening",
+    "rejects incomplete PASS without exact82 ordered probe exits",
+    "destination must not exist; creates no archive before complete preflight"
+  ],
+  "prior_preparation": {
+    "reason": "Static review found CRLF anchors in raw CI/log decoding; corrected only analysis-string normalization before regex. Native archived bytes remain exact. Neither version executed.",
+    "receipt": {
+      "bytes": 3071,
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\full_local_ci_archive_preparation_01\\PREPARATION_RECEIPT.json",
+      "sha256": "b32263375fc5d8f20081923025fbd4963b7feee923b61df72a06b08c89039122"
+    },
+    "script": {
+      "bytes": 15041,
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\full_local_ci_archive_preparation_01\\archive_full_local_ci_01.py",
+      "sha256": "6ce12c77ee15ffd3d4afa284cfccf4057293b54dd71c7d221d7c593c112073cf"
+    }
+  },
+  "reviewed_inputs": {
+    "ci": {
+      "bytes": 15163,
+      "path": "C:\\Users\\Peter\\.codex\\worktrees\\luna-gameplay-repairs-20261014\\mermaid-roshan-reef\\scripts\\ci.sh",
+      "sha256": "769ed4c4259ebe740f1e247c129bfc34914fa70fe72e28f65e5b5d5c9a577279"
+    },
+    "launcher": {
+      "bytes": 763,
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-full-ci-01.launcher.json",
+      "sha256": "15120a0382fd7a5c58535495cae2f1d4566d5451033bfe2745b70c95e8a202db"
+    },
+    "pin_v7": {
+      "bytes": 719751,
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate-runtime-sources.v7.json",
+      "sha256": "20e942ec488d618a94af58663b00463987409c9640df53ec918f12a9632cfd9e"
+    },
+    "runner": {
+      "bytes": 13972,
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\run_candidate_full_ci_gate.py",
+      "sha256": "5db4c749192286a433382617a71a3eb257c8464871c144dc5a774c71e9cd8d50"
+    }
+  },
+  "schema": "reef.full-local-ci-archiver-preparation.v1",
+  "script": {
+    "bytes": 15113,
+    "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\voice_lifecycle\\full_local_ci_archive_preparation_02\\archive_full_local_ci_01.py",
+    "sha256": "1ed454fc245841c02696e6559a7aca87d458bc97e4bae68b847de848ffff69c6"
+  },
+  "static_validation": "AST parse/compile in memory PASS; exact frozen CRLF CI roster extracts82; JSON newline AST constant correct; no subprocess/os imports; no archiver execution or cache",
+  "status": "PREPARED_STATIC_ONLY_NOT_EXECUTED_NO_TERMINAL_RESULT_CLAIMED",
+  "terminal_receipt_created_or_fabricated": false,
+  "writes": "Only scratch archiver and this preparation receipt; no worktree/runtime/canonical/impact/pin writes"
+}

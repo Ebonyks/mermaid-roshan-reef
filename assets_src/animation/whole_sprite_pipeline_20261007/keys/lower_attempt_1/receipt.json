@@ -1,0 +1,64 @@
+{
+  "attempt_id": "whole-sprite-engine-corrective-keys-20261007-2",
+  "key_id": "lower_key",
+  "job_id": "pink_wave_native",
+  "index": 27,
+  "campaign_id": "whole-sprite-engine-corrective-keys-20261007",
+  "disposition": "REJECTED",
+  "cleanup_minutes": 0,
+  "prompt_sha256": "337e213e730717729d1ea56c2d04c29aaf7b262e7b0088633d610e873452dffd",
+  "binding_hashes": [
+    "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+    "a46c318a627a4904dbf1115b1c764d8842de6f9281fe21a4803d31b65add4bbb"
+  ],
+  "provider": "Codex built-in imagegen",
+  "request_id": "exec-187e5edd-2f9d-4c71-866f-7556e1aa38aa",
+  "provider_revision": "Hidden hosted model revision; not exposed by tool",
+  "elapsed_seconds": 35,
+  "usage": {
+    "calls": 1,
+    "tokens_or_billing": "Not exposed"
+  },
+  "reason": "Whole figure retained with clearer hand and no large floating flecks visible at first review. Native1254 canvas, scale/proportions, exact lowering pose, normalized matte and transition acceptance remain pending.",
+  "expected_canvas": [
+    1024,
+    1024
+  ],
+  "geometry_review": "PENDING_UNMEASURABLE",
+  "owner_acceptance": "PENDING",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "native_path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/lower_attempt_1/native.png",
+  "native_sha256": "1f2dd7ea34ab20daf89d57d009ee853fbcc6ff810aa37bdc9d89cc63a57ec0ab",
+  "canvas_check": {
+    "status": "FAIL",
+    "evidence": [
+      1254,
+      1254
+    ]
+  },
+  "alpha_islands": {
+    "status": "PASS",
+    "evidence": {
+      "detached": [],
+      "minimum_area": 96,
+      "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+    }
+  },
+  "time_cap_exceeded": false,
+  "normalized_review": "key_inspection.json: border fails; similarity/ECC cannot establish source proportion continuity. Rejected as a guide until framing, matte and calibrated annotations are corrected. No third call in this campaign.",
+  "request_id_kind": "Codex tool execution/output identifier; provider API request ID not exposed",
+  "provider_request_id": null,
+  "settings": {
+    "transparent_background": true,
+    "model_revision": "Not exposed",
+    "seed": "Not exposed",
+    "size": "Prompt requested1024x1024; actual native1254x1254"
+  }
+}

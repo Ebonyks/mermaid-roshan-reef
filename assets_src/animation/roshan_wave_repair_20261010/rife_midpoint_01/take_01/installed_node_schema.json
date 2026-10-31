@@ -1,0 +1,272 @@
+{
+  "FrameInterpolationModelLoader": {
+    "input": {
+      "required": {
+        "model_name": [
+          "COMBO",
+          {
+            "tooltip": "Select a frame interpolation model to load. Models must be placed in the 'frame_interpolation' folder.",
+            "multiselect": false,
+            "options": [
+              "rife_v4.25.safetensors"
+            ]
+          }
+        ]
+      }
+    },
+    "input_order": {
+      "required": [
+        "model_name"
+      ]
+    },
+    "is_input_list": false,
+    "output": [
+      "INTERP_MODEL"
+    ],
+    "output_is_list": [
+      false
+    ],
+    "output_name": [
+      "INTERP_MODEL"
+    ],
+    "output_tooltips": [
+      null
+    ],
+    "output_matchtypes": null,
+    "name": "FrameInterpolationModelLoader",
+    "display_name": "Load Frame Interpolation Model",
+    "description": "",
+    "python_module": "comfy_extras.nodes_frame_interpolation",
+    "category": "model/loaders",
+    "output_node": false,
+    "deprecated": false,
+    "experimental": false,
+    "dev_only": false,
+    "api_node": false,
+    "price_badge": null,
+    "search_aliases": null,
+    "essentials_category": null,
+    "has_intermediate_output": false
+  },
+  "LoadImage": {
+    "input": {
+      "required": {
+        "image": [
+          [
+            "guide_0000.png",
+            "guide_0003.png",
+            "guide_0007.png",
+            "guide_0017.png",
+            "guide_0022.png",
+            "guide_0027.png",
+            "guide_0036.png",
+            "guide_0040.png",
+            "v43_roshan_base_69827625_reference.png"
+          ],
+          {
+            "image_upload": true
+          }
+        ]
+      }
+    },
+    "input_order": {
+      "required": [
+        "image"
+      ]
+    },
+    "is_input_list": false,
+    "output": [
+      "IMAGE",
+      "MASK"
+    ],
+    "output_is_list": [
+      false,
+      false
+    ],
+    "output_name": [
+      "IMAGE",
+      "MASK"
+    ],
+    "name": "LoadImage",
+    "display_name": "Load Image",
+    "description": "",
+    "python_module": "nodes",
+    "category": "image",
+    "output_node": false,
+    "has_intermediate_output": false,
+    "search_aliases": [
+      "load image",
+      "open image",
+      "import image",
+      "image input",
+      "upload image",
+      "read image",
+      "image loader"
+    ],
+    "essentials_category": "Basics"
+  },
+  "ImageBatch": {
+    "input": {
+      "required": {
+        "image1": [
+          "IMAGE"
+        ],
+        "image2": [
+          "IMAGE"
+        ]
+      }
+    },
+    "input_order": {
+      "required": [
+        "image1",
+        "image2"
+      ]
+    },
+    "is_input_list": false,
+    "output": [
+      "IMAGE"
+    ],
+    "output_is_list": [
+      false
+    ],
+    "output_name": [
+      "IMAGE"
+    ],
+    "name": "ImageBatch",
+    "display_name": "Batch Images (DEPRECATED)",
+    "description": "",
+    "python_module": "nodes",
+    "category": "image/batch",
+    "output_node": false,
+    "has_intermediate_output": false,
+    "deprecated": true,
+    "search_aliases": [
+      "combine images",
+      "merge images",
+      "stack images"
+    ]
+  },
+  "FrameInterpolate": {
+    "input": {
+      "required": {
+        "interp_model": [
+          "INTERP_MODEL",
+          {}
+        ],
+        "images": [
+          "IMAGE",
+          {}
+        ],
+        "multiplier": [
+          "INT",
+          {
+            "default": 2,
+            "min": 2,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "input_order": {
+      "required": [
+        "interp_model",
+        "images",
+        "multiplier"
+      ]
+    },
+    "is_input_list": false,
+    "output": [
+      "IMAGE"
+    ],
+    "output_is_list": [
+      false
+    ],
+    "output_name": [
+      "IMAGE"
+    ],
+    "output_tooltips": [
+      null
+    ],
+    "output_matchtypes": null,
+    "name": "FrameInterpolate",
+    "display_name": "Run Frame Interpolation Model",
+    "description": "",
+    "python_module": "comfy_extras.nodes_frame_interpolation",
+    "category": "video",
+    "output_node": false,
+    "deprecated": false,
+    "experimental": false,
+    "dev_only": false,
+    "api_node": false,
+    "price_badge": null,
+    "search_aliases": [
+      "rife",
+      "film",
+      "frame interpolation",
+      "slow motion",
+      "interpolate frames",
+      "vfi"
+    ],
+    "essentials_category": null,
+    "has_intermediate_output": false
+  },
+  "SaveImage": {
+    "input": {
+      "required": {
+        "images": [
+          "IMAGE",
+          {
+            "tooltip": "The images to save."
+          }
+        ],
+        "filename_prefix": [
+          "STRING",
+          {
+            "default": "ComfyUI",
+            "tooltip": "The prefix for the file to save. This may include formatting information such as %date:yyyy-MM-dd% or %Empty Latent Image.width% to include values from nodes."
+          }
+        ]
+      },
+      "hidden": {
+        "prompt": "PROMPT",
+        "extra_pnginfo": "EXTRA_PNGINFO"
+      }
+    },
+    "input_order": {
+      "required": [
+        "images",
+        "filename_prefix"
+      ],
+      "hidden": [
+        "prompt",
+        "extra_pnginfo"
+      ]
+    },
+    "is_input_list": false,
+    "output": [
+      "IMAGE"
+    ],
+    "output_is_list": [
+      false
+    ],
+    "output_name": [
+      "images"
+    ],
+    "name": "SaveImage",
+    "display_name": "Save Image",
+    "description": "Saves the input images to your ComfyUI output directory.",
+    "python_module": "nodes",
+    "category": "image",
+    "output_node": true,
+    "has_intermediate_output": false,
+    "search_aliases": [
+      "save",
+      "save image",
+      "export image",
+      "output image",
+      "write image",
+      "download"
+    ],
+    "essentials_category": "Basics"
+  }
+}

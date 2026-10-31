@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "character": "Arborist Roshan",
+  "purpose": "Optional live game treatment, not cinematic delivery",
+  "poses": [
+    "carry",
+    "aim",
+    "spray",
+    "finish"
+  ],
+  "states": {
+    "carry": "1.1s intentional medicine choice initiates approach; static carry pose while swimming to canopy",
+    "aim": "Wait indefinitely for fresh intentional hold; no reward",
+    "spray": "Only during owned hold on specimen; measured dose advances for1s; cancel on focus/pause/leave",
+    "finish": "Healthy same-tree payoff after dose; holds until exit or replay"
+  },
+  "appearance_review": "Desktop visual review; no clipped silhouette or neighbor contamination after packed candidate; owner acceptance pending",
+  "atlas": "PROVENANCE.json"
+}

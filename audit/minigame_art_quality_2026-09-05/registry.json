@@ -1,7 +1,7 @@
 {
   "schema": "minigame-art-quality-v1",
   "candidate_revision": "8b7f116870eec8abf0368a25bf47eac404a23b25",
-  "revision_note": "Published art base 9df000999a94572b64537c98f558841f6f3e3260, reconciled with dev a6ffa14d0160ad6830464b73df33e1db20641fa1 (including navigation, family-evening expansion and the audit development contract) plus eleven task-pose holds. This is not an exact candidate commit. Source hashes bind accompanying contents using explicitly declared normalization. Historical screenshots retain their original authority; configured-phase diagnostics do not grant complete animation or current-candidate quality acceptance. Current candidate also reuses the approved painted Farmer carrot in Snowman and family dinner; source hashes bind those edits and quality remains open. The earlier room-preview expansion repair is historical: a6 removes the card in favor of the shared Back/next-room arrow. Dinner targets remain grouped on the painted table; independent scene gates remain open. Pool sample windows now preserve the complete wrapper and exclude its pixels from the can; normal focused machine checks and bounded still review pass, complete art acceptance remains open. Current follow-up enlarges sparse Teacher pearl groups within exact card widths and moves Racer lap dials beyond the back button. Independent desktop still review accepts only the changed pearl sizing and lap/back-button separation. Full Teacher/Racer scene quality, animation, higher-tier and device acceptance remain open. Current pool source preserves a6 travel/scoop plus corrected atlas sampling. Racer run05 mounting was rejected; run06 closes the floating gap and is retained as a bounded improvement. Seat/contact4.3 and vehicle ownership3.5 remain below target; no whole-career acceptance. Hall follow-up: published 8b7 passed local Full08 and remote CI34032123568. This candidate reconciles upstream6bf stage pathfinding/lawn plus three-Hall-only lens removal and Magician phase holds. Rejected orbit/duplicate-portal mappings remain preserved; neutral replacements retain open action/contact findings. The revision identifies base context, not an exact current commit or art acceptance.",
+  "revision_note": "Published art base 9df000999a94572b64537c98f558841f6f3e3260, reconciled with dev a6ffa14d0160ad6830464b73df33e1db20641fa1 (including navigation, family-evening expansion and the audit development contract) plus eleven task-pose holds. This is not an exact candidate commit. Source hashes bind accompanying contents using explicitly declared normalization. Historical screenshots retain their original authority; configured-phase diagnostics do not grant complete animation or current-candidate quality acceptance. Current candidate also reuses the approved painted Farmer carrot in Snowman and family dinner; source hashes bind those edits and quality remains open. The earlier room-preview expansion repair is historical: a6 removes the card in favor of the shared Back/next-room arrow. Dinner targets remain grouped on the painted table; independent scene gates remain open. Pool sample windows now preserve the complete wrapper and exclude its pixels from the can; normal focused machine checks and bounded still review pass, complete art acceptance remains open. Current follow-up enlarges sparse Teacher pearl groups within exact card widths and moves Racer lap dials beyond the back button. Independent desktop still review accepts only the changed pearl sizing and lap/back-button separation. Full Teacher/Racer scene quality, animation, higher-tier and device acceptance remain open. Current pool source preserves a6 travel/scoop plus corrected atlas sampling. Racer run05 mounting was rejected; run06 closes the floating gap and is retained as a bounded improvement. Seat/contact4.3 and vehicle ownership3.5 remain below target; no whole-career acceptance. Hall follow-up: published 8b7 passed local Full08 and remote CI34032123568. This candidate reconciles upstream6bf stage pathfinding/lawn plus three-Hall-only lens removal and Magician phase holds. Rejected orbit/duplicate-portal mappings remain preserved; neutral replacements retain open action/contact findings. The revision identifies base context, not an exact current commit or art acceptance. 2026-10-18 Garden object candidate at e31864fb plus source pins in assets_src/imagegen/artwork_quality_20261018/review/art_review.json updates seven live prop paths; source/context AI4.5 review is separate from this registry current-head acceptance. Original observations remain historical. Global coverage is still incomplete. 2026-10-18 source inventory refresh preserves prior hashes per changed record without treating old observations as new visual reviews. Adds the newly live Garden pot. Reviews stay fail-closed and global coverage remains incomplete.",
   "scope": {
     "games": [
       "opera",
@@ -160,7 +160,8 @@
           "picture-k_flower2",
           "picture-flower3",
           "picture-garden-seed",
-          "picture-garden-butterfly-payoff"
+          "picture-garden-butterfly-payoff",
+          "picture-garden-pot"
         ]
       },
       {
@@ -330,7 +331,7 @@
       ],
       "source": {
         "path": "scripts/opera_gesture_surface.gd",
-        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -345,7 +346,18 @@
           "summary": "Preliminary family review reported generic shared overlay language; weak functions: OperaGestureSurface._draw_pour_scene and _draw. No eight-dimension state review exists. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/opera_gesture_surface.gd",
+            "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "opera-detective",
@@ -361,7 +373,7 @@
       ],
       "source": {
         "path": "scripts/opera_career_world_2d.gd",
-        "sha256": "a3e0dc8d711d6521be9c277c3179b1d263d9a379db9e126f6ae579e4adcb9d14",
+        "sha256": "db2759e66e025c566d20a30021548199e00758c525cd88dfc1ab5c01fad65a30",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -376,7 +388,18 @@
           "summary": "Crown truth/causality and lens-layer presentation require state-bound review; weak functions include _draw_lens_layer and _draw_chapter2_detective_activity."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/opera_career_world_2d.gd",
+            "sha256": "a3e0dc8d711d6521be9c277c3179b1d263d9a379db9e126f6ae579e4adcb9d14",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "opera-ballerina",
@@ -424,7 +447,7 @@
       ],
       "source": {
         "path": "scripts/opera_gesture_surface.gd",
-        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -439,7 +462,18 @@
           "summary": "Pour stream and candy activity were reported weak; full authored-state/contact review is absent. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/opera_gesture_surface.gd",
+            "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "opera-doctor",
@@ -455,7 +489,7 @@
       ],
       "source": {
         "path": "scripts/opera_gesture_surface.gd",
-        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -470,7 +504,18 @@
           "summary": "Shared gesture drawing was reported below threshold; no full state evidence. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/opera_gesture_surface.gd",
+            "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "opera-farmer",
@@ -487,7 +532,7 @@
       ],
       "source": {
         "path": "scripts/opera_gesture_surface.gd",
-        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -502,7 +547,18 @@
           "summary": "Pig group, long push, and generic surface drawing were reported materially inconsistent. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/opera_gesture_surface.gd",
+            "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "opera-boxer",
@@ -550,7 +606,7 @@
       ],
       "source": {
         "path": "scripts/opera_gesture_surface.gd",
-        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -565,7 +621,18 @@
           "summary": "Generic gesture and task-card hierarchy need state-bound review. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/opera_gesture_surface.gd",
+            "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "opera-painter",
@@ -582,7 +649,7 @@
       ],
       "source": {
         "path": "scripts/opera_gesture_surface.gd",
-        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -597,7 +664,18 @@
           "summary": "Trace patches and shared drawing were reported below the painted-material quality bar. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/opera_gesture_surface.gd",
+            "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "opera-astronaut",
@@ -614,7 +692,7 @@
       ],
       "source": {
         "path": "scripts/opera_gesture_surface.gd",
-        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -629,7 +707,18 @@
           "summary": "Pipe tiles and pipes were the lowest reported non-new Opera drawing family; no full dimensions assigned. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/opera_gesture_surface.gd",
+            "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "opera-racer",
@@ -702,7 +791,7 @@
       ],
       "source": {
         "path": "scripts/opera_gesture_surface.gd",
-        "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+        "sha256": "82fc3444887a8547719f263fe2368f162f1c0e935b1877d4dc37afb74faf6459",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -717,7 +806,18 @@
           "summary": "Echo-star, echo, and task-card hierarchy were reported below threshold. Shipping hold/circle/swipe fallback is unreachable; review actual painted widget layers/specialist compositions, not dead fallback code."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/opera_gesture_surface.gd",
+            "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "opera-nursery",
@@ -889,7 +989,7 @@
       ],
       "source": {
         "path": "scripts/games/picture_games.gd",
-        "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+        "sha256": "c94ae104261243ba1fbc078fdfe4d2a7aa04932aba03f1a625b8dde15bbdc716",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -904,7 +1004,18 @@
           "summary": "Inspected carrot is crude; watering can has a hard rectangular crop/background pixels; flower/sprout family is stylistically flat. Exact raster hashes remain in source inventory and must be expanded into asset records."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/games/picture_games.gd",
+            "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "nonopera-dolls",
@@ -919,7 +1030,7 @@
       ],
       "source": {
         "path": "scripts/games/dolls.gd",
-        "sha256": "a3cf7ffd6f6a7bcf1072fa1a753e465f742190f46d9809830589a2242c77c7e0",
+        "sha256": "42fe387b2d80eec41bd421301ca49cc01e9f60a33d5d8eaa6de6a1a8bc9caf50",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -934,7 +1045,18 @@
           "summary": "Runtime art ownership is indirect and uncaptured."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/games/dolls.gd",
+            "sha256": "a3cf7ffd6f6a7bcf1072fa1a753e465f742190f46d9809830589a2242c77c7e0",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "nonopera-seek",
@@ -950,7 +1072,7 @@
       ],
       "source": {
         "path": "scripts/games/seek.gd",
-        "sha256": "d559447c82c29a33ddb319ef191cf9542d55304f62cae649e39cb2f9d9079741",
+        "sha256": "9aec0b1fe979315ffd46b94b52b53a27c418809cd3a7cc3af1284294cd092d4c",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -965,7 +1087,18 @@
           "summary": "Authored actor art exists, but runtime framing, scale, identity, and device evidence are incomplete."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/games/seek.gd",
+            "sha256": "d559447c82c29a33ddb319ef191cf9542d55304f62cae649e39cb2f9d9079741",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "nonopera-melody",
@@ -1041,7 +1174,7 @@
       ],
       "source": {
         "path": "scripts/games/day_one_pool_cleanup.gd",
-        "sha256": "b38462f71d7d0b215ad8a97df219f296551e40011d721024970c45a41a7da117",
+        "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -1056,7 +1189,18 @@
           "summary": "Inspected asset family appears cohesive, but runtime composites and dirty-to-clean transitions lack authoritative capture."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/games/day_one_pool_cleanup.gd",
+            "sha256": "b38462f71d7d0b215ad8a97df219f296551e40011d721024970c45a41a7da117",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "nonopera-pool-subactivities",
@@ -1072,7 +1216,7 @@
       ],
       "source": {
         "path": "scripts/games/day_one_pool_cleanup.gd",
-        "sha256": "b38462f71d7d0b215ad8a97df219f296551e40011d721024970c45a41a7da117",
+        "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -1087,7 +1231,18 @@
           "summary": "Mostly strong shared art is not a full runtime review; procedural arcs and ripples need state-local comparison with painted assets."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/games/day_one_pool_cleanup.gd",
+            "sha256": "b38462f71d7d0b215ad8a97df219f296551e40011d721024970c45a41a7da117",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "nonopera-bathroom",
@@ -1103,7 +1258,7 @@
       ],
       "source": {
         "path": "scripts/games/day_one_bathroom_cleanup.gd",
-        "sha256": "bbf5c1a52ccd466e8609af7956af46537df4aa97655ab136bc113afdb8fdb0fe",
+        "sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -1118,7 +1273,18 @@
           "summary": "Plate/overlay scale, tool contact, and reveal continuity need runtime evidence."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/games/day_one_bathroom_cleanup.gd",
+            "sha256": "bbf5c1a52ccd466e8609af7956af46537df4aa97655ab136bc113afdb8fdb0fe",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "nonopera-dust-swimmer",
@@ -1133,7 +1299,7 @@
       ],
       "source": {
         "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
-        "sha256": "1f508b69f4e40ad7ccdca9234b5510b889841e1fe6a12f3b217d0c682dca6340",
+        "sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -1148,7 +1314,18 @@
           "summary": "Single-cutout bob/paddle may be feedback motion rather than authored animation; identity/contact need review."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+            "sha256": "1f508b69f4e40ad7ccdca9234b5510b889841e1fe6a12f3b217d0c682dca6340",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "nonopera-dust-boss",
@@ -1164,7 +1341,7 @@
       ],
       "source": {
         "path": "scripts/games/dust_boss.gd",
-        "sha256": "81158d4246e1e947fec83e39b952d4f57860ef5d86b2481a09a2d60bc91118d6",
+        "sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -1179,7 +1356,18 @@
           "summary": "The Grand Puff rebuild is integrated in the current dev base, but this registry has no current Mobile state packet or eight-dimension review for it. Its live Node3D/Sprite3D carriers remain measured medium debt; refresh exact runtime states before grading."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/games/dust_boss.gd",
+            "sha256": "81158d4246e1e947fec83e39b952d4f57860ef5d86b2481a09a2d60bc91118d6",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "nonopera-fairy",
@@ -1287,7 +1475,7 @@
       ],
       "source": {
         "path": "scripts/games/shop.gd",
-        "sha256": "feef16a7fc5a47abc51ff39dd4c07a31a2329d2496d5063467bcb5c1b28bfcb0",
+        "sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -1302,7 +1490,18 @@
           "summary": "Procedural shell conflicts with authored world and surface remains 3D debt."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/games/shop.gd",
+            "sha256": "feef16a7fc5a47abc51ff39dd4c07a31a2329d2496d5063467bcb5c1b28bfcb0",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "nonopera-brawl",
@@ -1427,7 +1626,7 @@
       ],
       "source": {
         "path": "scripts/comfy_games.gd",
-        "sha256": "91d826818b00dc782598efe43941949157d1fb9dda2336c065710227e7f627ee",
+        "sha256": "bcd36dcb3f25c0bbb3586c8d20fc7a5524792b56d7b0577644a0d2645931a0be",
         "hash_normalization": "utf8_lf"
       },
       "reviews": {
@@ -1448,7 +1647,18 @@
           "summary": "Dev 6d7c5e adds dinner/movie/bedtime without current rendered evidence. Source review: same movie texture across three narrative scenes, a tap labelled stirring, tucked characters removed, and non-target-room handoffs without a destination picture in this layer. Capture states individually; no score inferred from code."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "scripts/comfy_games.gd",
+            "sha256": "91d826818b00dc782598efe43941949157d1fb9dda2336c065710227e7f627ee",
+            "hash_normalization": "utf8_lf"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "picture-carrot",
@@ -1513,8 +1723,8 @@
         "payoff"
       ],
       "source": {
-        "path": "assets/mg/wateringcan.png",
-        "sha256": "dfcd93a98e83b7b0419602db828e6895fd4884bf0df800e9ecf4ed96c436f6e9"
+        "path": "assets/mg/painted_quality_20261018/wateringcan.png",
+        "sha256": "1f41c5e5fad2918f72842bf123d4173afde2d6fff385214853eacc5e08ec74fb"
       },
       "reviews": {
         "prior": null,
@@ -1530,10 +1740,21 @@
           "rule_id": "DL-VIS-05",
           "blocking": true,
           "resolved": false,
-          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination. 2026-10-18: named source finish/background defect replaced by painted candidate; local AI source/context review meets4.5 per dimension. Full canonical current-head/runtime/device/child/owner acceptance remains open; original sources and prior observations retained."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [
+        {
+          "method": "built-in ImageGen; unexposed revision; technical RGBA crop/registration/downsample only",
+          "source_hashes": [
+            "dfcd93a98e83b7b0419602db828e6895fd4884bf0df800e9ecf4ed96c436f6e9",
+            "e9d280c28a93c2812795a42df5e232b9c23aa509cedffaa19592b9cbe64d2db7"
+          ],
+          "output_sha256": "1f41c5e5fad2918f72842bf123d4173afde2d6fff385214853eacc5e08ec74fb",
+          "evidence": "assets_src/imagegen/artwork_quality_20261018/review/art_review.json",
+          "scope": "Local source/context art candidate; canonical current-head and external acceptance remain open."
+        }
+      ]
     },
     {
       "id": "picture-k_sprout",
@@ -1546,8 +1767,8 @@
         "payoff"
       ],
       "source": {
-        "path": "assets/mg/k_sprout.png",
-        "sha256": "d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926"
+        "path": "assets/mg/painted_quality_20261018/k_sprout.png",
+        "sha256": "f93c89e7ef5e5f18cf2ae334b985f66f3afb99c1fe26bbd6721531fb7599ac4e"
       },
       "reviews": {
         "prior": null,
@@ -1563,10 +1784,21 @@
           "rule_id": "DL-VIS-05",
           "blocking": true,
           "resolved": false,
-          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination. 2026-10-18: named source finish/background defect replaced by painted candidate; local AI source/context review meets4.5 per dimension. Full canonical current-head/runtime/device/child/owner acceptance remains open; original sources and prior observations retained."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [
+        {
+          "method": "built-in ImageGen; unexposed revision; technical RGBA crop/registration/downsample only",
+          "source_hashes": [
+            "d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926",
+            "2e75be1623b9d94db41d9a552659ddc39311bff721cb107cb90e85bcbfb44e89"
+          ],
+          "output_sha256": "f93c89e7ef5e5f18cf2ae334b985f66f3afb99c1fe26bbd6721531fb7599ac4e",
+          "evidence": "assets_src/imagegen/artwork_quality_20261018/review/art_review.json",
+          "scope": "Local source/context art candidate; canonical current-head and external acceptance remain open."
+        }
+      ]
     },
     {
       "id": "picture-k_flower1",
@@ -1579,8 +1811,8 @@
         "payoff"
       ],
       "source": {
-        "path": "assets/mg/k_flower1.png",
-        "sha256": "c4edbd641f0cc13e96378b7468f56711b7dd79bb9f90013bfbe66588472fb35e"
+        "path": "assets/mg/painted_quality_20261018/k_flower1.png",
+        "sha256": "cf15cc96a451918a030ef3215d7a23d900ce95e161b372fcf3f40905c076e4dd"
       },
       "reviews": {
         "prior": null,
@@ -1596,10 +1828,21 @@
           "rule_id": "DL-VIS-05",
           "blocking": true,
           "resolved": false,
-          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination. 2026-10-18: named source finish/background defect replaced by painted candidate; local AI source/context review meets4.5 per dimension. Full canonical current-head/runtime/device/child/owner acceptance remains open; original sources and prior observations retained."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [
+        {
+          "method": "built-in ImageGen; unexposed revision; technical RGBA crop/registration/downsample only",
+          "source_hashes": [
+            "c4edbd641f0cc13e96378b7468f56711b7dd79bb9f90013bfbe66588472fb35e",
+            "9e488e67cf971e3dd9faa729433c15c563f6f41acea5eccd7d8df789f5fdaf9f"
+          ],
+          "output_sha256": "cf15cc96a451918a030ef3215d7a23d900ce95e161b372fcf3f40905c076e4dd",
+          "evidence": "assets_src/imagegen/artwork_quality_20261018/review/art_review.json",
+          "scope": "Local source/context art candidate; canonical current-head and external acceptance remain open."
+        }
+      ]
     },
     {
       "id": "picture-flower",
@@ -1612,8 +1855,8 @@
         "payoff"
       ],
       "source": {
-        "path": "assets/mg/flower.png",
-        "sha256": "2753083d4e30f5f6e8b49949e0eb50497b5b03d37691df7e3b6b6deddb79880d"
+        "path": "assets/mg/painted_quality_20261018/flower.png",
+        "sha256": "6aeb216477914115306c16a51a97c394c2ed77ddd78a6099c524c7a47e7239b8"
       },
       "reviews": {
         "prior": null,
@@ -1629,10 +1872,21 @@
           "rule_id": "DL-VIS-05",
           "blocking": true,
           "resolved": false,
-          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination. 2026-10-18: named source finish/background defect replaced by painted candidate; local AI source/context review meets4.5 per dimension. Full canonical current-head/runtime/device/child/owner acceptance remains open; original sources and prior observations retained."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [
+        {
+          "method": "built-in ImageGen; unexposed revision; technical RGBA crop/registration/downsample only",
+          "source_hashes": [
+            "2753083d4e30f5f6e8b49949e0eb50497b5b03d37691df7e3b6b6deddb79880d",
+            "b693287dcb08d4d6c3b65567607b169be0b068065673e6a5b3dfab8accf2d570"
+          ],
+          "output_sha256": "6aeb216477914115306c16a51a97c394c2ed77ddd78a6099c524c7a47e7239b8",
+          "evidence": "assets_src/imagegen/artwork_quality_20261018/review/art_review.json",
+          "scope": "Local source/context art candidate; canonical current-head and external acceptance remain open."
+        }
+      ]
     },
     {
       "id": "picture-flower2",
@@ -1645,8 +1899,8 @@
         "payoff"
       ],
       "source": {
-        "path": "assets/mg/flower2.png",
-        "sha256": "1ab22c71a550c94c71fcab769c6f1b47f1d73c1ff792775fdc1f9c365ac77a09"
+        "path": "assets/mg/painted_quality_20261018/flower2.png",
+        "sha256": "358dadd51e1b2297eabf49f03ddddd96677e99d952a4d7bd473ea1daa2715818"
       },
       "reviews": {
         "prior": null,
@@ -1662,10 +1916,21 @@
           "rule_id": "DL-VIS-05",
           "blocking": true,
           "resolved": false,
-          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination. 2026-10-18: named source finish/background defect replaced by painted candidate; local AI source/context review meets4.5 per dimension. Full canonical current-head/runtime/device/child/owner acceptance remains open; original sources and prior observations retained."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [
+        {
+          "method": "built-in ImageGen; unexposed revision; technical RGBA crop/registration/downsample only",
+          "source_hashes": [
+            "1ab22c71a550c94c71fcab769c6f1b47f1d73c1ff792775fdc1f9c365ac77a09",
+            "f92740e8f47e079781db567deb30769f9bc50aeb1db35e6db63e1d58d760e623"
+          ],
+          "output_sha256": "358dadd51e1b2297eabf49f03ddddd96677e99d952a4d7bd473ea1daa2715818",
+          "evidence": "assets_src/imagegen/artwork_quality_20261018/review/art_review.json",
+          "scope": "Local source/context art candidate; canonical current-head and external acceptance remain open."
+        }
+      ]
     },
     {
       "id": "picture-k_flower2",
@@ -1678,8 +1943,8 @@
         "payoff"
       ],
       "source": {
-        "path": "assets/mg/k_flower2.png",
-        "sha256": "522130ad5c354b1a80aa9734feb025d23c4551af6796cd89f9664d2c0750553d"
+        "path": "assets/mg/painted_quality_20261018/k_flower2.png",
+        "sha256": "34242c43a7e1ff4eda7e0581e6e2f57c2ecb0c8067c5923cdbade3170ef01aa5"
       },
       "reviews": {
         "prior": null,
@@ -1695,10 +1960,21 @@
           "rule_id": "DL-VIS-05",
           "blocking": true,
           "resolved": false,
-          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination. 2026-10-18: named source finish/background defect replaced by painted candidate; local AI source/context review meets4.5 per dimension. Full canonical current-head/runtime/device/child/owner acceptance remains open; original sources and prior observations retained."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [
+        {
+          "method": "built-in ImageGen; unexposed revision; technical RGBA crop/registration/downsample only",
+          "source_hashes": [
+            "522130ad5c354b1a80aa9734feb025d23c4551af6796cd89f9664d2c0750553d",
+            "e0728524782f612bc71fe166bcc89b1dd560101576fd6bacdc5b2224570037fc"
+          ],
+          "output_sha256": "34242c43a7e1ff4eda7e0581e6e2f57c2ecb0c8067c5923cdbade3170ef01aa5",
+          "evidence": "assets_src/imagegen/artwork_quality_20261018/review/art_review.json",
+          "scope": "Local source/context art candidate; canonical current-head and external acceptance remain open."
+        }
+      ]
     },
     {
       "id": "picture-flower3",
@@ -1711,8 +1987,8 @@
         "payoff"
       ],
       "source": {
-        "path": "assets/mg/flower3.png",
-        "sha256": "46e05838998044aa1fb36738719fe769521d4b727d891c6062f5ec4cbbe56352"
+        "path": "assets/mg/painted_quality_20261018/flower3.png",
+        "sha256": "9e970a124c89cb5260d7e8aaa1d069cc30f8abe097f349d54d7ed9ede87b909d"
       },
       "reviews": {
         "prior": null,
@@ -1728,10 +2004,21 @@
           "rule_id": "DL-VIS-05",
           "blocking": true,
           "resolved": false,
-          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination."
+          "summary": "Inspected weak material/contour finish; watering can additionally contains source-background contamination. 2026-10-18: named source finish/background defect replaced by painted candidate; local AI source/context review meets4.5 per dimension. Full canonical current-head/runtime/device/child/owner acceptance remains open; original sources and prior observations retained."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [
+        {
+          "method": "built-in ImageGen; unexposed revision; technical RGBA crop/registration/downsample only",
+          "source_hashes": [
+            "46e05838998044aa1fb36738719fe769521d4b727d891c6062f5ec4cbbe56352",
+            "0e8598512d90c2553b2183e569a541d750026c20cf035d1da55919d0fbe3cd33"
+          ],
+          "output_sha256": "9e970a124c89cb5260d7e8aaa1d069cc30f8abe097f349d54d7ed9ede87b909d",
+          "evidence": "assets_src/imagegen/artwork_quality_20261018/review/art_review.json",
+          "scope": "Local source/context art candidate; canonical current-head and external acceptance remain open."
+        }
+      ]
     },
     {
       "id": "actor-work-row-chef",
@@ -2307,7 +2594,7 @@
       ],
       "source": {
         "path": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
-        "sha256": "e554c4f253bcaa9e5893d9e4fffe03feef96528211f2458dc5d8fc81299f56df"
+        "sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33"
       },
       "reviews": {
         "prior": null,
@@ -2327,7 +2614,17 @@
           "summary": "Original nominal cell0 clips the wrapper at x341 and cell1 samples its edge. Candidate source windows x12/x352 preserve original pixels; source-alpha and live Sprite texture checks pass. Bounded still review and complete scene/motion/device acceptance remain separate; see pool_atlas_followup.json."
         }
       ],
-      "replacement_history": []
+      "replacement_history": [],
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+            "sha256": "e554c4f253bcaa9e5893d9e4fffe03feef96528211f2458dc5d8fc81299f56df"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "pool-skimmer-tool",
@@ -2479,7 +2776,7 @@
       ],
       "source": {
         "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
-        "sha256": "54cac0e3088a96d92aae35d14642491f75f06ffe1878b004a6ebfd1de44438df"
+        "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d"
       },
       "reviews": {
         "prior": null,
@@ -2503,7 +2800,17 @@
       ],
       "replacement_history": [],
       "source_review_followup": "audit/minigame_art_quality_2026-09-05/seek_current_atlas_followup.json",
-      "source_review_limit": "Source-region review only. Corrected Roshan border pixels have alpha<=1/255; no opaque-fragment defect or current Roshan score is established."
+      "source_review_limit": "Source-region review only. Corrected Roshan border pixels have alpha<=1/255; no opaque-fragment defect or current Roshan score is established.",
+      "source_inventory_refresh_history": [
+        {
+          "date": "2026-10-18",
+          "previous_source": {
+            "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+            "sha256": "54cac0e3088a96d92aae35d14642491f75f06ffe1878b004a6ebfd1de44438df"
+          },
+          "reason": "Mechanical source inventory refresh at e31864fb plus explicit Garden source pins; previous judgments remain historical. No new art/state acceptance."
+        }
+      ]
     },
     {
       "id": "slide-roshan-pose-0",
@@ -3400,6 +3707,34 @@
           "blocking": true,
           "resolved": false,
           "summary": "Quality unassessed: exact live source and caller are traced, but source-pixel review and current runtime state/contact/payoff evidence are incomplete. This evidence gap is not an observed visual defect or a below-4.5 score."
+        }
+      ],
+      "replacement_history": []
+    },
+    {
+      "id": "picture-garden-pot",
+      "game": "picture_games",
+      "surface": "snowman-garden-xmas",
+      "role": "static garden prop",
+      "states": [
+        "idle",
+        "contact",
+        "payoff"
+      ],
+      "source": {
+        "path": "assets/mg/painted_quality_20261018/pot.png",
+        "sha256": "aa5d66904669175431d8d68e9c803f231668768cc66bc406243943acd7549f5e"
+      },
+      "reviews": {
+        "prior": null,
+        "candidate": null
+      },
+      "defects": [
+        {
+          "rule_id": "DL-QA-11",
+          "blocking": true,
+          "resolved": false,
+          "summary": "Painted pot candidate has local source/context AI review at4.5 minimum. Canonical current-head state coverage and external acceptance remain open; no confirmed source-art defect is asserted for this new candidate."
         }
       ],
       "replacement_history": []

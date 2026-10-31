@@ -1,0 +1,115 @@
+{
+  "revision": "R110",
+  "stable_id": "FV-4120D0DEF44C",
+  "baseline": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+  "scope": "Replace only river source/sink concentric circles/arcs with three whole painted states: always-full source/openright port, dry receiver/openleft port, same receiver filled. Preserve original poolcentres, anyconnectedpath causality, all9x5excavation cells/46pxbrush, touch/save/lifecycle and other artwork. Dry/wet receiving wholeimages registered on identical512 canvases, no layered waterfill or code-drawn parts.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010",
+    "MA-OPERA-004"
+  ],
+  "context": [
+    {
+      "path": "assets/opera/worlds/props/geologist_work_slab_painted.png",
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "sha256": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4",
+      "role": "appearance_style_reference"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/0/01_initial.png",
+      "revision": "44da99ba5c68153fa247e0794425b5f6d7d3cc79",
+      "sha256": "3d9b142fc58062a5d212b664dba7c08a4c47d991d68362a320cd88247573e0a2",
+      "role": "scene_context_only_never_generation_pixels"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r106_geologist_workbench_runtime/candidate/1280/0/03_complete.png",
+      "revision": "44da99ba5c68153fa247e0794425b5f6d7d3cc79",
+      "sha256": "535ce2f7b8d275dfd7ba6cd92bb2ab2886bf14839da0cdc622cbdcff6338a8eb",
+      "role": "scene_context_only_never_generation_pixels"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "revision": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+      "sha256": "e1b81f8dea43a8a4179f337a9a4e701b6087dae7b00771ac80f2bdff7ff0b78d",
+      "role": "source_binding"
+    }
+  ],
+  "historical_reference": {
+    "revision": "cfcadc966bc2f3d9962243589d8a820c19ac2b0d",
+    "path": "assets/opera/worlds/geology/painted_river_v1_20261002/nodes.png",
+    "sha256": "3812eb737c75c4a208fc5eb859b37c1612a0ff949f41e7a834314a06eb09e117",
+    "source_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/whole_canvas_1024.png",
+    "original_scope": "ImageGen reversible candidate; owner acceptance null. ARTWORK_ITEMS records fullsource4.4/selectedregion4.6 provisional, redfringe/unusedclosedport defects retained; no prior rejects relabeled approved.",
+    "role": "painted earth/aqua/cream stone material identity reference only",
+    "known_limitation": "Round complete rims have no explicit channel ports; newwhole states need truthful right/left openings matching existing waterchannel. Historicalfringe/reject scope retained."
+  },
+  "quality_choice": "Painted cream/lavender stone and turquoise water match existing workbench; ImageGen named missing whole-port views and dry/full receiver states. Reuse is optional, no failed-reuse prerequisite or call-minimization objective. No generation of approved actors/bench/minerals.",
+  "generation": {
+    "backend": "built-in image_gen.imagegen",
+    "model_version": "NOT_EXPOSED",
+    "static_take_cap": 2,
+    "calls_used": 1,
+    "animation_calls": 0,
+    "monetary_usage": "NOT_EXPOSED",
+    "state": "TAKE01_THREE_PORT_STATES_WHOLE512_EXPORT_COMPLETE",
+    "cap_scope": "Entire R110 static three-state pool brief, not perframe or perstate reset.",
+    "native_sha256": "fa6634689a29b522ce66e5cbe159a26a6e27460cf2a5fd88bd525cfae3b5d41f"
+  },
+  "required_evidence": [
+    "Aseprite complete native and whole512perstate exports, C2, dry/full registration",
+    "required authored resources and remove selected5circles/arcs, other source/primitives unchanged",
+    "actualMain/Opera river native1280/1600 passive/disconnected/partial/wrongfinger/restore/release/connectedcompletion states, same-scene tenaxes",
+    "actualchangedcandidate exact4.7.2 Mobile/Speedy import/currentstatic/all82, no source drift/savechanges",
+    "sourcefullmanifest anonymousimmutable, exactsourceCIgreen, normalDev",
+    "canonical registry/coverage/tally verifieddelta once and allrequiredanonymousimmutable"
+  ],
+  "acceptance_gaps": "FormalQA11/device/child/owner and natural/training/allroutes open. River excavation/channel remain separate flat-art debt; geode119gap and otherexistingart remain. No role/accepted-removal or globalcompletion claim.",
+  "destination": {
+    "repo": "Ebonyks/mermaid-roshan-reef",
+    "runtime_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "canonical_branch": "codex/flat-vector-r6-20261012",
+    "access": "Anonymous immutable manifests and everyrequiredfile"
+  },
+  "coordination": "Coordinator and Geologist chats read-only notLoaded/completed; bothowned worktrees clean, freshfetch source==originDev. Noothereditor touched/messaged or pausedgoal resumed.",
+  "started_at_utc": "2026-10-30T04:30:21.324348+00:00",
+  "fixture_press_recovery": {
+    "state": "FIXTURE_PRESS_ONLY_ASSUMPTION_CORRECTED_REAL_DRAG_REQUIRED",
+    "baseline": "0f4fad1901967b8cc536c6d894dd255f4a9bb786",
+    "original_failing_checks": [
+      {
+        "label": "isolated receiver excavation stays dry",
+        "pass": false
+      }
+    ],
+    "cause": "Original river _press acquires ownership only; _river_stroke runs on real _drag. Fixture pressed/released at receiver but incorrectly asserted excavation. Actual release-only frame correctly stayed unexcavated/dry.",
+    "repair": "Add actual8px owned ScreenDrag at receiver before release; retain original isolation/connected-state assertions and then test real painted dry receiver after actual excavation. No runtime, art, thresholds or assertions relaxed.",
+    "excluded_native_events": 6,
+    "healthy_import_reused": true,
+    "engine_suite_repeated": false,
+    "new_generation_calls": 0
+  },
+  "runtime": "98nativechecks/12directlyinspected currentframes,6oldsourceframes reused;6original press-only fixturefailureframes retainedexcluded. Currentfullsuite pending; same healthycandidateimport reused after correctingfixture actualdrag.",
+  "current_machine": "PASS frozen currentstatic/import/all82trusted and98nativechecks/12directlyviewedframes;6excluded press-onlyfixtureframes retained, no runtime/art assertion weakening."
+}

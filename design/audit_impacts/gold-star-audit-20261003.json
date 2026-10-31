@@ -1,0 +1,132 @@
+{
+  "id": "gold-star-audit-20261003",
+  "scope": "Owner-requested game-wide audit of which games are strongest and weakest at the current state, the choice of a strong game as the reference model, and a gold-star tool for development. Claude catalogued 60 child-facing games with hash-bound scores on a twelve-criterion rubric drawn from the design-language rules, added tools/gold_star.py (rank, compare against the reference, check that every new game file is catalogued, render, rebind) with tests, wired it into the study loop (study summary, report lines, a Raise lane in the roadmap, the INT-GOLD-STAR recipe), recorded a P0 blocker (MA-PLAY-005, Chapter 2 story careers cannot start) and a P1 soft-lock (MA-OPERA-013), and chose the Mermaid Pool (Day One) as the candidate reference. No game file changes in this commit.",
+  "baseline": "87f992680c0b6a690bf45b1950275579c45e15ab",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-QA-10",
+    "DL-AGE-03",
+    "DL-AGE-06",
+    "DL-UI-04",
+    "DL-PLAN-05"
+  ],
+  "findings": [
+    "MA-PLAY-005",
+    "MA-OPERA-013",
+    "MA-DOC-009"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/ROADMAP.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/GOLD_STAR.md",
+    "design/reference/games.json",
+    "design/reference/gold_star.json",
+    "design/reference/prompt_intents.json",
+    "design/reference/recipes/add_job.md",
+    "design/reference/recipes/art.md",
+    "design/reference/recipes/character_animation.md",
+    "design/reference/recipes/companion.md",
+    "design/reference/recipes/event.md",
+    "design/reference/recipes/gold_star.md",
+    "design/reference/recipes/new_chapter.md",
+    "design/reference/recipes/polish.md",
+    "design/reference/recipes/publish_handoff.md",
+    "design/reference/recipes/release.md",
+    "design/reference/recipes/repair.md",
+    "design/reference/recipes/retire.md",
+    "design/reference/recipes/room_activity.md",
+    "design/reference/recipes/story_clip.md",
+    "design/reference/recipes/study.md",
+    "design/reference/recipes/voice_lines.md",
+    "docs/handoffs/codex_gold_star_2026-10-03/AUDIT.md",
+    "scripts/ci.sh",
+    "tools/build_study_roadmap.py",
+    "tools/gold_star.py",
+    "tools/plan_prompt.py",
+    "tools/study_game.py",
+    "tools/tests/test_build_study_roadmap.py",
+    "tools/tests/test_gold_star.py",
+    "tools/tests/test_plan_prompt.py",
+    "tools/tests/test_study_game.py"
+  ],
+  "validation": [
+    {
+      "command": "Read-only family audits by six agents at 87f99268 (Opera careers in two parts, Day One and Chapter 2, picture games and minigames, worlds, action games and systems), then Claude's verification of the decisive claims in code",
+      "result": "PASS",
+      "evidence": "Claude checked in code: the Chapter 2 phase-override rejection and unmapped story stations (opera_career_world_2d.gd setup and _assign_stations; chapter_two_career_scene_adapter.gd validate_phase_overrides; recount 19 of 29 story steps unmapped, agent said 18), the Astronaut tray overwrite (opera_gesture_surface.gd _gui_input and _pipe_press, PIPE_ROUNDS), the Teacher help line cleared by _show_phase_prompt, the Opera playtest elevator (OperaJobPlaytestMenu.ENABLED), Galaxy idle pearl payouts, the Sky Lagoon castle key with no recording, and DayOneContactAction2D sharing. Agent citations without a file were not copied into the catalogue."
+    },
+    {
+      "command": "Scratch runtime check (not committed): OperaHouse.start(main, 6, cb, ChapterTwoDirector.opera_config_overrides(\"\", 6)) and the free-play launch of the same career, exact Godot 4.7.2-stable, isolated APPDATA",
+      "result": "PASS",
+      "evidence": "Reproduced MA-PLAY-005: story act 6 logged 'OperaCareerWorld2D: rejected invalid Chapter 2 phase override' and reported no phases, stations=0, armed_station=-1, with two script errors per frame; free-play act 6 reported stations=5, mapped=[0, 1, 2, 3], armed_station=3."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_gold_star tools.tests.test_plan_prompt tools.tests.test_build_study_roadmap tools.tests.test_study_game tools.tests.test_record_owner_decision tools.tests.test_run_advisory_sensor",
+      "result": "PASS",
+      "evidence": "Local run on this change: all tests OK, including the live-catalogue test (no game can claim 5 without recorded acceptance) and the Raise-lane and report tests."
+    },
+    {
+      "command": "python -B tools/gold_star.py --check --strict; python -B tools/plan_prompt.py --check",
+      "result": "PASS",
+      "evidence": "GOLDSTAR|RESULT|OK|60 games, 0 errors, 0 stale; PROMPTS: ALL OK (16 recipes rendered from the catalogue)."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Local run before commit on this change."
+    },
+    {
+      "command": "Probe Suite (graphics fork) on the pushed branch head",
+      "result": "PENDING",
+      "evidence": "Not yet run; this commit changes no game file. The remote workflow does not yet run tools.tests.test_gold_star or tools/gold_star.py --check (adding them is a workflow change that needs the owner's explicit authority); scripts/ci.sh runs both locally."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "Trusted probes that call internal functions stay green while the child's real route is broken: no probe launched a Chapter 2 story career through the real route (MA-PLAY-005), and most minigame probes start games that no longer have a route.",
+      "write_back": "design/reference/gold_star.json",
+      "recurrence_key": "probe-bypasses-real-route"
+    },
+    {
+      "lesson": "Agent reports cite lines without files and miscount; scores must bind to verified functions, and counts must be recomputed by script before they are recorded (19, not 18, unmapped story steps).",
+      "write_back": "tools/gold_star.py",
+      "recurrence_key": "unverified-agent-evidence"
+    }
+  ],
+  "strengths_observed": [
+    {
+      "id": "S-11",
+      "evidence": "The gold-star scores and reference patterns are bound to hashes of the exact functions they judged and go stale when that code changes (tools/gold_star.py anchor_hash, --check)."
+    },
+    {
+      "id": "S-02",
+      "evidence": "The Mermaid Pool awards progress only after Roshan's hand has worked at the real fixture (DayOneContactAction2D), which made it the reference model."
+    }
+  ],
+  "references_used": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "purpose": "The 1-5 rating scale and the sealed August scorecards used as context, not copied"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "purpose": "The rules behind each rubric criterion"
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "purpose": "The owner's Chef verdict (C12 not accepted) and the job-game priority that shaped the choice of reference"
+    }
+  ],
+  "acceptance_gaps": "No game has recorded device, child or owner acceptance, so C12 is 0 everywhere and no game can rate 5. The scorecard is evidence for development choices, not acceptance. MA-PLAY-005 and MA-OPERA-013 are open and specified for repair; nothing is closed. Remote CI does not yet run the gold-star tests or check."
+}

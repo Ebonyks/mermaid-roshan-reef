@@ -1,0 +1,63 @@
+{
+  "id": "201",
+  "probe": "chapter2_entry_diagnostic_v2",
+  "agent_name": "/root/luna_wave_coordinator/episode_201",
+  "model": "gpt-6-luna",
+  "source_commit": "056d890ef38f2496ab52669c955ada654f902511",
+  "machine_verdict": "REPRODUCED_DIAGNOSTIC_ERRORS_EXIT_0",
+  "interaction_class": "DIRECT_STATE_DIAGNOSTIC",
+  "exercised_path": "Loaded and instantiated scenes/main.tscn, waited one frame, then explicitly set day_one_active=false, called _skip_intro(), set Chapter Two active with OBJECTIVE_PARTY_PREP, unlocked opera mask 0x3BDEF, zeroed party_piece_mask and eight job_phase_masks. Called production OperaHouse.start for act indexes 6,0,3,10,2,13,11,1 in both implicit-phase and explicit ChapterTwoCareerSceneAdapter.phase_set(career) modes. No touch gestures were injected; ordinary Castle discovery/travel was not tested.",
+  "measured_findings": [
+    {
+      "severity": "high",
+      "observed": "All eight implicit-phase entries logged “rejected invalid Chapter 2 phase override”; each still returned production_start_returned=true with a world present but phase_count=0 and wander_built=false.",
+      "evidence_lines": [
+        "root_reproductions/chapter2-entry-luna201.log:3,10",
+        "root_reproductions/chapter2-entry-luna201.log:11,18",
+        "root_reproductions/chapter2-entry-luna201.log:19,26",
+        "root_reproductions/chapter2-entry-luna201.log:27,34",
+        "root_reproductions/chapter2-entry-luna201.log:35,42",
+        "root_reproductions/chapter2-entry-luna201.log:43,50",
+        "root_reproductions/chapter2-entry-luna201.log:51,58",
+        "root_reproductions/chapter2-entry-luna201.log:59,66",
+        "scripts/opera_career_world_2d.gd:697-705"
+      ],
+      "expected": "A Chapter Two story entry for a configured career should initialize its phase set from the Chapter Two context without a diagnostic-only explicit phase override, or fail closed without presenting a successful empty world.",
+      "confidence": 0.99,
+      "related_MA": [],
+      "signature": "chapter2_story_entry_rejects_implicit_phase_configuration"
+    },
+    {
+      "severity": "high",
+      "observed": "With explicit adapter phases, farmer (3/3), candymaker (4/4), ballerina (3/3), detective (3/3) had no mapped stations; painter had 2/3 unmapped, popstar 1/4, astronaut 2/4. Chef mapped all 5/5. Corresponding no-authored-room warnings appeared in the labeled log.",
+      "evidence_lines": [
+        "root_reproductions/chapter2-entry-luna201.log:67-94",
+        "root_reproductions/chapter2-entry-luna201.log:95",
+        "root_reproductions/chapter2-entry-luna201.log:96-132",
+        "root_reproductions/chapter2-entry-luna201.log:133-151",
+        "root_reproductions/chapter2-entry-luna201.log:152-179",
+        "root_reproductions/chapter2-entry-luna201.log:180-189",
+        "root_reproductions/chapter2-entry-luna201.log:190-208",
+        "root_reproductions/chapter2-entry-luna201.log:209-236",
+        "scripts/opera_career_world_2d.gd:1890-1911"
+      ],
+      "expected": "Every phase that uses room navigation should resolve to its intended authored landmark; phases intentionally using a non-station interaction need an explicit supported route so they do not remain unarmed. The source comment states there is no sequential fallback and unmapped phases remain unarmed.",
+      "confidence": 0.97,
+      "related_MA": [],
+      "signature": "chapter2_story_phases_are_unmapped_to_authored_room_stations"
+    }
+  ],
+  "coverage_gaps": [
+    "Diagnostic uses an explicit story-state fixture and direct production start calls; it is not a user-controlled or ordinary gameplay playthrough.",
+    "Ordinary Castle discovery and travel are explicitly untested.",
+    "Only the eight named careers/act indexes were exercised.",
+    "The review was limited to the guarded diagnostic, runner/source setup, directly implicated production source, and root comparison receipt/log; no MA mapping was established, so related_MA is empty."
+  ],
+  "recommendations": [
+    "Investigate Chapter Two phase resolution when chapter2 context is present without phase_overrides; validate the production route separately from this fixture.",
+    "For each unmapped phase, verify the intended authored room landmark or an explicit non-station interaction route, then rerun focused probes.",
+    "Preserve the fixture and Castle travel coverage limitation; do not count this as a real playthrough.",
+    "Attribution comparison: root and this reproduction use the same source commit, engine, script SHA-256, exit code, and log SHA-256; outputs match exactly."
+  ],
+  "result_path": "tmp/luna_playtest_20261013/root_reproductions/chapter2-entry-luna201.json"
+}

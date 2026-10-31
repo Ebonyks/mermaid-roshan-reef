@@ -1,0 +1,220 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L38",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l38",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Voice guidance without readable captions",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L38/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "One authorized helper invocation ran unchanged probe_voice.gd once with Godot 4.7.2-stable, an isolated profile, and headless rendering. The probe passed exact-path/one-channel assertions for selected Roshan, Huluu, Opera and Chapter Two cues, three rapid dialogue skips, fallback clearing and one missing-cue negative fixture (probe.log:3-168).",
+    "route_gaps": "This does not establish ordinary player access to these cues: the probe skips the intro and directly calls _beans_go, _start_game_now, brawl internals, chapter_two_prompt and show_msg, including synthetic state setup. It does not prove fresh-save route reachability (MA-PLAY-005 remains open for Chapter Two/Opera routes), normal routed touch, Mobile display, or audible playback. The matrix labels the source live, but this invocation itself did not traverse a visible route.",
+    "ordinary_entry": "scripts/main.gd:7873-7892 starts a game from a supplied friend record; probe_voice.gd:104-161 uses that direct entry and direct Chapter Two prompt calls. Main exposes audio forwarding at scripts/main.gd:3141-3168, but L38 does not validate the ordinary route that reaches those callers."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "source_constants": [
+      {
+        "value": "Ordinary HUD messages set a 5.0-second message timer; Opera exact-voice messages clear the text and timer, while a missing exact clip leaves the adult reading caption visible for 5.0 seconds.",
+        "evidence": "scripts/audio_director.gd:102-110,488-535"
+      },
+      {
+        "value": "Dialogue advances after the requested hold, with a minimum 0.8-second hold and default 3.2 seconds; any touch can skip the current line. The probe supplies 9.0-second holds and explicitly skips three lines.",
+        "evidence": "scripts/audio_director.gd:395-403,428-457; scripts/probe_voice.gd:140-165"
+      },
+      {
+        "value": "The helper finished in 8.618 seconds of wall time. This is probe execution only and is not gameplay or voice duration.",
+        "evidence": "audit/cycles/luna-playtest-20261012/runtime/L38/attempt_1/receipt.json"
+      }
+    ],
+    "estimated_activity_duration": null,
+    "assumptions": "No child session length or recorded clip duration was inferred. Source timers are game-time settings; actual voice start latency, audibility, and duration were not measured on a device."
+  },
+  "tactile": {
+    "target_size": "No rendered touch targets or phone projection were measured. The probe sets touch_ui.action_just directly for a simulated Brawl route event and calls skip_dialogue directly; it does not send routed screen-touch events (scripts/probe_voice.gd:99-106,140-165).",
+    "press_response": "The probe verifies one dialogue skip advances the queue and stops the prior player before starting the next. It does not time a visible response to a routed touch or verify the displayed caption/character pointer during play (probe.log:32-42).",
+    "drag_hold_release": "Not part of the voice focus and not exercised by this probe.",
+    "ownership": "No touch index or second-finger ownership was tested. Dialogue skip accepts a touch through the caller, but L38 invokes skip_dialogue directly (scripts/audio_director.gd:443-447; scripts/probe_voice.gd:147,153,159).",
+    "cancellation": "clear_dialogue stops the pooled and fallback player and empties queue state in the probe; pause/focus-loss cancellation and real route teardown were not tested (scripts/audio_director.gd:405-417,459-464; probe.log:28-42)."
+  },
+  "play_appeal": {
+    "hypothesis": "An exact spoken instruction paired with an actionable event may let a non-reader act without stopping to decode a caption; serial playback and touch-skippable dialogue can also keep guidance from feeling like a barrier. These are design hypotheses. L38 did not hear the clips or observe a child, so it cannot establish warmth, comprehension, confidence, or enjoyment.",
+    "agency_test": "On the target phone, give a child the voice-only exact objective at ordinary volume with captions hidden, then wait without pointing or repeating it. Record whether they begin the intended action, whether the matching character/object response makes the result clear, and whether after the activity they independently ask to hear/play another cue or choose to leave. Repeat once with audio disabled and only the adult reading caption to distinguish the support path; do not interpret either as child evidence until actually observed."
+  },
+  "play_sequence": [
+    {
+      "beat": "Reach an ordinary voice-guided activity",
+      "input": "Use the game's visible ordinary route to enter a voice-guided activity; do not call _start_game_now or prompt helpers for this acceptance pass.",
+      "wait": "Wait for the entry cue to finish; no measured clip duration or start latency is available from L38.",
+      "expected": "The activity opens and the instruction is spoken. Chapter Two/Opera fresh-save route access remains a separate open gap (MA-PLAY-005).",
+      "grounding": "scripts/main.gd:7870-7892; audit/findings/ACTIVE_FINDINGS_2026-08-13.md:973-996"
+    },
+    {
+      "beat": "Hear an exact activity objective",
+      "input": "For a routed Brawl entry, listen without reading the visible message; then tap one actual imp once when it is in the play area.",
+      "wait": "Wait for Huluu's entry line to finish before the tap; the source and probe give no fixed entry-line duration.",
+      "expected": "The probe's direct Brawl entry requests huluu_greet and confirms its exact clip; its scripted state transition requests huluu_talk and preserves the message and segment state (probe_voice.gd:104-134, log:16-27).",
+      "grounding": "scripts/probe_voice.gd:104-134; scripts/audio_director.gd:251-333"
+    },
+    {
+      "beat": "Check speech stays one-at-a-time",
+      "input": "After the first instruction, allow the next distinct objective to occur naturally; do not tap skip during this check.",
+      "wait": "Wait for the current voice to finish. No clip duration is asserted by the probe.",
+      "expected": "A new semantic line replaces or queues according to its required-cue ownership, with no overlapping spoken lines; the probe checks one active channel after changed Chapter Two cues (probe.log:44-160).",
+      "grounding": "scripts/audio_director.gd:265-283,307-325; scripts/probe_voice.gd:248-260"
+    },
+    {
+      "beat": "Test the adult caption fallback separately",
+      "input": "In an authorized test fixture, request an Opera message whose exact recording is absent, then inspect the supplied caption while audio is enabled.",
+      "wait": "Observe the caption for its 5.0-second message timer; do not read it to the child during the voice-only comprehension trial.",
+      "expected": "The adult caption remains visible and the generic pitched acknowledgement does not masquerade as the missing objective; a visible pointer remains caller-owned and needs separate route inspection.",
+      "grounding": "scripts/audio_director.gd:488-535; DL-AGE-01 and DL-SND-02"
+    },
+    {
+      "beat": "Offer a touch-skip choice",
+      "input": "In the scripted dialogue sequence with 9.0-second holds, tap once to advance First to Second, tap once to advance Second to Third, then tap once to exhaust the queue.",
+      "wait": "No fixed wait is needed before each tap; the probe checks immediate skip consumption. If testing auto-advance instead, each configured hold is 9.0 seconds in this fixture, not a measured child-paced duration.",
+      "expected": "Each tap stops the prior exact clip, starts only the next, and the final tap clears dialogue state (probe.log:32-42).",
+      "grounding": "scripts/probe_voice.gd:140-165; scripts/audio_director.gd:395-457"
+    },
+    {
+      "beat": "Check no stale voice survives leaving",
+      "input": "Leave the activity or invoke its normal teardown after a line starts; listen through the transition without touching again.",
+      "wait": "Wait until the transition completes; L38 provides no measured route/transition duration.",
+      "expected": "Dialogue teardown should stop exact and fallback players and clear queued lines; L38 proves the direct clear helper only, not ordinary teardown delivery.",
+      "grounding": "scripts/audio_director.gd:405-417,459-464; scripts/probe_voice.gd:111-139"
+    },
+    {
+      "beat": "Run the appeal check without prompting",
+      "input": "After the child hears and acts on one exact objective, remain quiet and let them choose to repeat, continue, or leave.",
+      "wait": "Allow the child to decide at their own pace; no session duration is inferred.",
+      "expected": "Record independent action, attention to the matching world response, and any voluntary request to replay. This is a proposed child study, not evidence collected in L38.",
+      "grounding": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:318-347,844-855; DL-QA-05"
+    }
+  ],
+  "observations": [
+    {
+      "title": "The focused probe confirms exact cue selection and one-channel playback for its tested set",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_voice.gd:104-134,210-260 (direct Melody/Brawl entries, exact cue paths, and one active channel for Chapter Two/Opera cues)",
+        "audit/cycles/luna-playtest-20261012/runtime/L38/attempt_1/probe.log:10-27,44-160 (all focused assertions shown OK)",
+        "audit/cycles/luna-playtest-20261012/runtime/L38/attempt_1/receipt.json (attempt 1 PASS; isolated profile; headless=true; rendered_mobile_acceptance=false)"
+      ],
+      "rules": [
+        "DL-SND-01",
+        "DL-SND-03",
+        "DL-SND-13",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-ACCESS-001"
+      ],
+      "reproduction": "The one authorized helper run executed the unchanged probe once. It checked exact resolved paths for selected Brawl, Melody, Farmer, Chef, Painter, Ballerina, Pop Star, Astronaut, Detective, party and Ember cues, plus a single active speech channel after each required prompt. It configured or invoked these paths directly; this is not ordinary-route or audible playback evidence.",
+      "child_impact": "Exact semantic keys reduce the chance that a generic cheer is mistaken for an instruction in the tested cases. The probe cannot establish that the words are intelligible, understood, or paired with a visible actionable pointer for a child.",
+      "proposed_repair": "No repair is indicated by the assertions that passed. Preserve their narrow scope and complete separate route, mix, target-device, child and owner reviews.",
+      "acceptance_test": "From a fresh save on the target phone, enter each scoped activity through its ordinary route, capture the spoken semantic cue and synchronized pointer, verify one audible speaker and the required start latency at normal volume, and separately observe uncoached child comprehension."
+    },
+    {
+      "title": "Opera exact recordings hide the supplied caption, while a missing exact recording restores an adult reading aid",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/audio_director.gd:488-535 (Opera checks exact semantic key; hides/clears HUD text when present; shows supplied text for five seconds when absent; only exact audio is played)",
+        "scripts/probe_voice.gd:210-260 (probe asserts exact Racer cue clears HUD and generic talk/win/pearl cannot replace an active required prompt)"
+      ],
+      "rules": [
+        "DL-AGE-01",
+        "DL-SND-01",
+        "DL-SND-02"
+      ],
+      "existing_findings": [
+        "MA-ACCESS-001",
+        "MA-CHILD-001"
+      ],
+      "reproduction": "Read show_msg's Opera branch: has_exact requires a non-talk exact file; that case clears hud_msg text and timer before _say. Otherwise a nonempty adult text is retained and shown. The probe verifies the exact-file branch for the Racer phase; it does not visually render either branch.",
+      "child_impact": "The intended child-facing path depends on hearing and understanding the exact voice when captions are hidden. The fallback is explicitly adult-readable and cannot be credited as a child route if the clip is missing or inaudible.",
+      "proposed_repair": "No code change indicated from this review. Keep missing exact cues visible for the adult and verify synchronized diegetic pointers and actual intelligibility for every child-facing route.",
+      "acceptance_test": "On a rendered target-device route, compare an exact-voice objective and a deliberately missing-key fixture: verify that the exact line is audible with no caption, the missing line is not replaced by a generic sound, the adult caption appears, and the child can act from voice plus pointer without reading."
+    },
+    {
+      "title": "Missing exact Chapter Two cues are not replaced with generic speech",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/audio_director.gd:241-249,265-283 (Chapter Two prompts route only to exact existing key; required missing keys return without generic fallback)",
+        "scripts/main.gd:6949-6952 (caller puts the catalog caption in the HUD before requesting the exact cue)",
+        "scripts/probe_voice.gd:210-260 and audit/cycles/luna-playtest-20261012/runtime/L38/attempt_1/probe.log:161 (missing exact negative fixture does not advance voice_i or start fallback speech)"
+      ],
+      "rules": [
+        "DL-AGE-01",
+        "DL-SND-01",
+        "DL-SND-13"
+      ],
+      "existing_findings": [
+        "MA-ACCESS-001"
+      ],
+      "reproduction": "The probe calls chapter_two_prompt with a deliberately nonexistent key and confirms there is no new voice player or generic fallback. Source shows the normal Chapter Two caller sets its caption before the exact prompt. This does not verify that the caption or pointer is visible in a rendered route.",
+      "child_impact": "A missing objective recording does not falsely claim success through a pitched generic cheer. The child still needs an audible exact line or independently sufficient diegetic cue; the caption is adult support only.",
+      "proposed_repair": "No substitution should be added. Resolve missing objective keys through authorized exact recordings or an owner-approved independent diegetic cue, preserving the caption and pointer pending resolution.",
+      "acceptance_test": "In a normal route with captions unread, verify each required key resolves to the intended recording and pointer. For a missing-key negative fixture, verify silence from generic voice, retained adult text/pointer, and no route dead-end."
+    },
+    {
+      "title": "Dialogue skip and teardown are orderly in the direct lifecycle probe",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/audio_director.gd:395-417,428-464 (queue start, advance, skip, speech stop and clear behavior)",
+        "scripts/probe_voice.gd:140-205 and audit/cycles/luna-playtest-20261012/runtime/L38/attempt_1/probe.log:28-43 (prior clip stopped, one next clip active, final clear, cooldown and fallback teardown all pass)"
+      ],
+      "rules": [
+        "DL-SND-03",
+        "DL-AGE-06",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-ACCESS-001"
+      ],
+      "reproduction": "The probe directly starts a three-line sequence with 9.0-second holds, directly invokes skip_dialogue three times, and directly calls clear_dialogue around fallback cases. Each lifecycle assertion passed; routed touch and ordinary scene exit were not exercised.",
+      "child_impact": "If the caller routes taps correctly, a child can move past a line without waiting and stale lines should not leak across teardown. Actual touch ownership and transition behavior remain unverified.",
+      "proposed_repair": "No repair indicated by these direct helper checks. Preserve queue teardown and confirm the normal touch/leave paths use them.",
+      "acceptance_test": "Send actual single-finger touch events through the normal dialogue surface, skip two lines rapidly, then leave/pause/re-enter. Verify exactly one voice at a time, no speech after teardown, and that a skip tap is consumed without activating an underlying control."
+    },
+    {
+      "title": "Three or more simultaneous required prompts can exceed the two-entry queue",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/audio_director.gd:265-283 (when a required line is active, at most two distinct following required prompts are appended; further prompts have no enqueue path)",
+        "scripts/probe_voice.gd:210-260 (L38 tests sequential objective replacement and an empty queue after each, not queue saturation)"
+      ],
+      "rules": [
+        "DL-SND-01",
+        "DL-SND-03",
+        "DL-SND-13"
+      ],
+      "existing_findings": [
+        "MA-ACCESS-001"
+      ],
+      "reproduction": "Source inspection confirms the required queue appends only while its size is below two, then returns without storing an additional distinct required event. L38 did not produce this burst, so this is a code-path risk rather than a runtime reproduction.",
+      "child_impact": "If a caller emits at least three distinct required instructions before the active speech ends, the last instruction can be lost; a non-reader could miss the action needed to continue. The ordinary occurrence rate is unknown.",
+      "proposed_repair": "Trace all same-frame required prompt callers before changing queue policy. If multi-prompt bursts are valid, ensure every still-relevant objective is delivered or superseded deliberately rather than silently discarded.",
+      "acceptance_test": "A focused test should start one active required line, enqueue three distinct required lines before it finishes, and verify intentional coalescing or delivery of all still-relevant instructions in correct order without stale prompts or overlap."
+    }
+  ],
+  "strengths": [
+    {
+      "strength": "The tested Chapter Two and Opera objectives resolve to distinct exact semantic recordings, and changed prompts leave only one active voice channel.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L38/attempt_1/probe.log:44-160"
+    },
+    {
+      "strength": "The voice pipeline has an adult caption fallback for missing Opera recordings, suppresses generic reactions during an active required Chapter Two prompt, and stops speech when direct teardown is called.",
+      "evidence": "scripts/audio_director.gd:488-535,277-283,405-417; audit/cycles/luna-playtest-20261012/runtime/L38/attempt_1/probe.log:28-42,161-167"
+    }
+  ],
+  "acceptance_gaps": [
+    "L38 used one INTERNAL_PROBE invocation with direct state setup and helper calls; it does not establish an ordinary fresh-save voice-guidance route or visible pointer/caption synchronization.",
+    "Headless execution does not establish audibility, identity/pronunciation/intelligibility, speech-versus-music/ambience mix, mono fold-down, or the DL-SND-13 150 ms P95 objective start on a phone.",
+    "No Mobile-rendered visual review, Lenovo Tab M11/older Android phone playback, pause/focus-loss session, or routed touch-skip ownership test occurred.",
+    "No child observation establishes comprehension without reading, appeal, comfort, session length, or voluntary replay; owner acceptance and protected recording approval remain separate where applicable under DL-QA-05/06."
+  ]
+}

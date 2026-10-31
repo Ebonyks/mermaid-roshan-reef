@@ -1,0 +1,69 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_job_platform_architecture_2026-09-30",
+ "status": "PROPOSED / CANDIDATE",
+ "prepared_by": "Claude (specification only; no game changes)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev 7f068cb80766edd52a110cc1cb3958158f829822",
+ "entry": "README.md",
+ "file_count": 9,
+ "total_bytes": 98442,
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "ARCHITECTURE.md",
+   "bytes": 32486,
+   "sha256": "acba4e1b50c4b8dc2868b08dc6f27bbd6cc63a1135e39c6bbccf182095dbc75b",
+   "role": "architecture design"
+  },
+  {
+   "path": "README.md",
+   "bytes": 15460,
+   "sha256": "67a9785433a7f8d978d5b6ca6e443d6155b11b2a78980951d796804650bc1db0",
+   "role": "handoff entry: work packages, acceptance, owner questions"
+  },
+  {
+   "path": "data/derivation_check.json",
+   "bytes": 2895,
+   "sha256": "32d135bcf391541dc73c07cd901aa8905643d51f42f2f9d6e5c745864a799ec4",
+   "role": "extractor output at dev 7f068cb8"
+  },
+  {
+   "path": "data/extracted_catalog.json",
+   "bytes": 24113,
+   "sha256": "1c7a05cc714f6982b42ffc7296dcf373f2d90fe6be0ac85951506d64f7f1d3ad",
+   "role": "extractor output at dev 7f068cb8"
+  },
+  {
+   "path": "examples/ledger.example.json",
+   "bytes": 1728,
+   "sha256": "972c1c386a8240dbb93469d3d90f16205e990dde577d7e5c84de12fbac851f12",
+   "role": "example built from current code"
+  },
+  {
+   "path": "examples/teacher.job.json",
+   "bytes": 3594,
+   "sha256": "d7d68a07745e3844e5d10881b11fb1fba8c9b4e27c4ea62f5935e68caa3a6bd4",
+   "role": "example built from current code"
+  },
+  {
+   "path": "schema/job_record.schema.json",
+   "bytes": 5702,
+   "sha256": "3f865a0065b67a1174fe6e6d44fd7098724e9097fcde85a48221db4e5b1f14ed",
+   "role": "proposed record contract"
+  },
+  {
+   "path": "tools/extract_job_catalog.py",
+   "bytes": 12464,
+   "sha256": "7164711709109b1a78636a4cdeaf96bea14753b54659e299902bed11b5b58c50",
+   "role": "read-only prototype extractor"
+  }
+ ],
+ "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
+ "revision": "1 (2026-09-30)"
+}

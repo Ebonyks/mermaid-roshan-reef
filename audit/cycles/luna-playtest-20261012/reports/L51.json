@@ -1,0 +1,215 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L51",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l51",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Zero-input wait never wins",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L51/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe_passive ran once on Godot 4.7.2.stable.official.ed1daf0bf with an isolated save profile and exited 0. It checked the idle critter book; directly launched each of five friend activities and observed zero-input 60-sim-second intervals; checked selected shop, slide, fairy, Toy Castle, companion-care and ambient-water agency assertions; checked Day One required snapshot keys and mutation detection for 26 Chapter Two fields. Retained log ends PASSIVE|result: ALL OK.",
+    "route_gaps": "This is a mixed-route internal probe, not an ordinary fresh-save child route. The five friend activities are launched with main._start_game(f), and some terminal states/inputs are set directly in the special agency checks. The test does not prove how a child reaches or understands those activities, see their Mobile-rendered response, or handles untested game modes. MA-CI-005 remains CONFIRMED_OPEN: central passive coverage and serialized reward-surface coverage still need reconciliation across all modes. MA-PLAY-005 remains a separate Chapter Two reachability blocker. No physical touch, target-device, child, or owner evidence was produced."
+  },
+  "verdict": "PASS",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "Harness boot waits two process frames, calls _skip_intro when present, and waits one more frame before taking the player reference.",
+        "evidence": "scripts/probe_passive.gd:31-43",
+        "scope": "Probe setup only; not a user-facing startup or intro duration."
+      },
+      {
+        "value": "The critter negative leg waits exactly 120 process frames. Each of five directly started friend activities waits 10 frames for start, then waits until g.t reaches 60.0 simulated seconds, and inserts a 20-frame gap after cleanup.",
+        "evidence": "scripts/probe_passive.gd:55-71, 88-89, 115-132",
+        "scope": "Simulated probe interval and harness frame counts; time_scale is set to 6.0 at lines 31-33. These do not establish real play duration or child session length."
+      },
+      {
+        "value": "Special checks include slide two-frame checkpoints, fairy three frames idle plus two held frames and one release frame, and companion-care 181 calls to _tick_care(1.0).",
+        "evidence": "scripts/probe_passive.gd:380-439, 240-267",
+        "scope": "Direct test timing; companion clock is advanced by method calls, not 181 seconds of rendered gameplay."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "The helper's 79.696-second wall time in the receipt is tool execution time, not gameplay duration."
+  },
+  "tactile": {
+    "target_size": "Not measured; the test is headless and creates no measured child-facing touch target.",
+    "press_response": "No rendered touch acknowledgment was measured. A few special cases toggle action_down/action_just programmatically; this does not establish response latency.",
+    "drag_hold_release": "No physical drag is exercised. The fairy check sets action_down for two process frames and then releases it for one frame, verifying a fresh-verb gate only.",
+    "ownership": "No real finger identity, competing-finger ownership, or routed touch sequence is tested by this passive probe.",
+    "cancellation": "Slide's direct leave path and neutral completion are checked; pause, focus loss, and child-directed interruption across ordinary routes are not established."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: idle boundaries that keep progress unchanged while leaving a clear, available next action can protect agency without punishing a child who pauses. This probe verifies selected state assertions, not whether the action is apparent.",
+    "variety": "The harness samples five different friend activities plus shop, slide, fairy, Toy Castle and care gates, but it does not compare the felt variety of their actions or presentation.",
+    "world_response": "The log confirms idle unrewarded states and selected gates. Headless execution does not show whether characters, world objects, sound, and progress cues make waiting versus acting legible.",
+    "replay": "Whether the child voluntarily resumes or replays after a pause is unknown.",
+    "appeal_test": "On the Lenovo Tab M11 with an isolated test save and the exact candidate build, start one reachable activity through its ordinary visible route. Without explaining the controls, invite the child to watch quietly for 60 seconds, then ask only 'What can Roshan do now?' Record whether any reward appears while idle, whether the child identifies and performs a deliberate action, acknowledgment latency, and any adult prompting. Repeat with one contrasting reachable activity, then let the child pause/leave and choose whether to return or replay; record that choice and any confusion. Verify save/progress before and after in the adult test profile. This is a proposed test, not observed evidence.",
+    "fun_score": null
+  },
+  "play_sequence": [
+    {
+      "beat": 1,
+      "action": "The probe seeds the random generator, sets Engine.time_scale to 6.0, instantiates the main scene, waits for boot, skips intro if available, and checks the Chapter Two snapshot mutation contract plus Day One required-key contract.",
+      "input": "No player input; fixture startup and field mutations are performed by the harness.",
+      "wait": "2 process frames, then _skip_intro if available, then 1 process frame. Snapshot contract calls are synchronous.",
+      "evidence": "scripts/probe_passive.gd:31-54; runtime/L51/attempt_1/probe.log: PASS boot, Chapter Two snapshot mutation, Day One snapshot"
+    },
+    {
+      "beat": 2,
+      "action": "With action_down false and an empty critter collection, the probe waits and checks that no critter was caught.",
+      "input": "No input for 120 process frames.",
+      "wait": "Exactly 120 process frames.",
+      "evidence": "scripts/probe_passive.gd:55-63; runtime/L51/attempt_1/probe.log: Critter Book OK not collected"
+    },
+    {
+      "beat": 3,
+      "action": "For each of the five friend records, the probe directly starts its activity, clears movement/action state for most arena activities, snapshots progress/save state, waits until the activity clock reaches 60.0, and checks no win, progress, save write, or premature exit. Melody and slide also have surface/state assertions.",
+      "input": "No input during each idle leg; direct main._start_game calls are setup, not proof of child-visible entry.",
+      "wait": "10 process frames after each start; then until g.t >= 60.0 simulated seconds; 20 process frames after cleanup before the next case.",
+      "evidence": "scripts/probe_passive.gd:64-132; runtime/L51/attempt_1/probe.log: five friend games each OK active and unrewarded at 60s"
+    },
+    {
+      "beat": 4,
+      "action": "The shop agency leg checks idle and held states without a purchase, then verifies that a fresh press purchases once.",
+      "input": "Programmatic idle/held/fresh-press state changes; not a physical tap.",
+      "wait": "Use only the method's coded frame waits; no user-facing duration is inferred.",
+      "evidence": "scripts/probe_passive.gd:317-372; runtime/L51/attempt_1/probe.log: Pearl Shop agency OK idle/held safe; fresh press buys once"
+    },
+    {
+      "beat": 5,
+      "action": "Special slide and fairy checks hold the state at passive decision points, verify neutral leaving or a fresh-verb requirement, and exercise a separately marked deliberate completion path.",
+      "input": "Slide: cleared stick/action, then direct leave; a second case sets steered true. Fairy: action_down false, then true while waiting for release, then false.",
+      "wait": "Slide waits 2 frames for passive state, 2 after leaving, and 2 after its steered finish. Fairy waits 3 idle frames, 2 held frames, and 1 release frame.",
+      "evidence": "scripts/probe_passive.gd:380-439; runtime/L51/attempt_1/probe.log: Penguin Slide and Fairy agency OK"
+    },
+    {
+      "beat": 6,
+      "action": "The remaining assertions verify Toy Castle requires Roshan's tap after Huluu stuns, companion care remains optional and unchanged across its reminder boundary, and ambient channels create no water-effect cards.",
+      "input": "Harness-controlled state and direct care-clock advancement; zero player input for the passive checks.",
+      "wait": "Companion care calls _tick_care(1.0) 181 times; no rendered 181-second wait. Other checks use their helper's coded frame waits.",
+      "evidence": "scripts/probe_passive.gd:295-314, 240-279, 145-149; runtime/L51/attempt_1/probe.log: Toy Castle agency, Stuffie patient care, Water FX OK"
+    }
+  ],
+  "observations": [
+    {
+      "title": "Five directly launched friend games remain active and unrewarded through the 60-second idle assertion",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_passive.gd:64-132",
+        "audit/cycles/luna-playtest-20261012/runtime/L51/attempt_1/probe.log: Evie and Lamb-a' [seek], Harper and Fiona [slide], Faron [dolls], Daddy Mermaid [melody], Wacky and Chuck [fetch] each report active and unrewarded at 60s; result ALL OK"
+      ],
+      "rules": [
+        "DL-AGE-04",
+        "DL-QA-02"
+      ],
+      "existing_findings": [],
+      "reproduction": "Run the retained L51 receipt command once in an isolated profile; the five PASSIVE rows show all five activities pass the no-win/no-progress/save-change assertions.",
+      "child_impact": "This run supports the no-passive-win invariant for these five tested activity states; it does not prove child access or comprehension.",
+      "proposed_repair": "None indicated by this focused run.",
+      "acceptance_test": "Keep the zero-input leg fail-closed: assert no win, serialized progress change, save mutation, or premature activity exit at the 60.0-second simulated boundary for each covered activity."
+    },
+    {
+      "title": "Coverage is strong for selected serialized fields, but the live finding still identifies unclosed cross-mode idle coverage",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_passive.gd:7-10, 162-207",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:1249-1278 (MA-CI-005 remains CONFIRMED_OPEN)",
+        "audit/cycles/luna-playtest-20261012/runtime/L51/attempt_1/probe.log: Chapter Two snapshot mutation OK all 26 fields; Day One snapshot contract OK"
+      ],
+      "rules": [
+        "DL-AGE-04",
+        "DL-QA-02"
+      ],
+      "existing_findings": [
+        "MA-CI-005"
+      ],
+      "reproduction": "Inspect _progress_snapshot and the probe's named idle modes, then compare them with MA-CI-005's remaining Opera/combat/castle/Family Evening acceptance gap. The current PASS does not close that finding.",
+      "child_impact": "An untested reward-bearing activity could accidentally award progress during waiting without this central probe detecting it.",
+      "proposed_repair": "Continue the MA-CI-005 inventory: for every reward-bearing mode, include its serialized surfaces in the passive snapshot or add a dedicated idle/no-award leg and mutation check.",
+      "acceptance_test": "At the exact head, enumerate serialized reward fields and reward-bearing modes; deliberately mutate each newly covered field under idle input and require the probe to fail, while all mode-specific idle checks remain green."
+    },
+    {
+      "title": "Friend activity entry is direct fixture setup, so the probe does not demonstrate a child's route",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_passive.gd:64-83",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:973-1007 (MA-PLAY-005 remains CONFIRMED_OPEN for Chapter Two career reachability)"
+      ],
+      "rules": [
+        "DL-AGE-06",
+        "DL-QA-02",
+        "DL-QA-05"
+      ],
+      "existing_findings": [
+        "MA-PLAY-005"
+      ],
+      "reproduction": "Observe the probe calling main._start_game(f) for each friend activity and directly parking player state; no visible selection, navigation, or child instruction occurs.",
+      "child_impact": "A correct idle invariant inside a mode cannot assure the child can discover that mode or reach it from the normal save route.",
+      "proposed_repair": "No repair is proposed to this negative test for its stated scope; evaluate live reachability in the dedicated route review and retain the separate MA-PLAY-005 blocker.",
+      "acceptance_test": "On a fresh save, use the ordinary visible route to reach the relevant career with no spoken control coaching, then separately run its idle and intentional-action checks; report route and no-award claims independently."
+    },
+    {
+      "title": "Selected special gates distinguish idle or held input from a fresh deliberate action",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/probe_passive.gd:380-439",
+        "audit/cycles/luna-playtest-20261012/runtime/L51/attempt_1/probe.log: Pearl Shop, Penguin Slide, Fairy, and Toy Castle agency rows report OK"
+      ],
+      "rules": [
+        "DL-AGE-04",
+        "DL-AGE-05",
+        "DL-UI-01"
+      ],
+      "existing_findings": [],
+      "reproduction": "The probe supplies no input at passive terminal gates, holds action_down across the fairy release gate, and checks a distinct steered/fresh-press path for progress; retained output reports those assertions OK.",
+      "child_impact": "In these tested states, idle/held input does not silently award the selected reward, while the probe recognizes distinct intentional paths. The visible cue and physical touch feel remain unknown.",
+      "proposed_repair": "None indicated by the selected assertions.",
+      "acceptance_test": "On the exact build, retain passive, held-through-gate, release, and fresh intentional-action cases; verify rewards occur only on the required new action and remain absent on idle/held controls."
+    },
+    {
+      "title": "Headless PASS does not measure visible response, phone pacing, or non-reader appeal",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "audit/cycles/luna-playtest-20261012/runtime/L51/attempt_1/receipt.json: headless=true; rendered_mobile_acceptance=false; wall_clock_is_gameplay_timing=false",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:1249-1264 (DL-QA-02, DL-QA-04, DL-QA-05)",
+        "scripts/probe_passive.gd:55-63, 88-132"
+      ],
+      "rules": [
+        "DL-QA-04",
+        "DL-QA-05",
+        "DL-UI-03",
+        "DL-AGE-07"
+      ],
+      "existing_findings": [],
+      "reproduction": "The helper receipt explicitly marks the run headless and says it is not rendered Mobile acceptance; the tested intervals are process/simulation assertions without target geometry or child observation.",
+      "child_impact": "The probe cannot tell whether a child notices the available action, sees an acknowledgment, or finds the idle-versus-play boundary inviting and understandable.",
+      "proposed_repair": "No code repair is inferred. Capture and observe a bounded ordinary route on the target device after a candidate is available, keeping the machine no-award assertion as its own lane.",
+      "acceptance_test": "On the exact candidate APK and Lenovo Tab M11, record input-to-visible response and frame pacing, then observe a child through a quiet wait, a deliberate action, and a voluntary return/replay without coaching; keep missing evidence explicitly pending."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The focused probe completed on the exact approved Godot patch with isolated profile and no assertion failures.",
+      "evidence": "audit/cycles/luna-playtest-20261012/runtime/L51/attempt_1/receipt.json: engine 4.7.2.stable.official.ed1daf0bf, profile_isolated true, headless true, status PASS, exit_code 0; probe.log ends ALL OK."
+    },
+    {
+      "claim": "The passive invariant observes both serialized progress and save fingerprint/generation around each friend idle interval, with special surface checks for Melody and Slide.",
+      "evidence": "scripts/probe_passive.gd:84-114; log has five active and unrewarded rows."
+    },
+    {
+      "claim": "The probe guards against future snapshot blind spots by requiring Day One keys and mutating each serialized Chapter Two field.",
+      "evidence": "scripts/probe_passive.gd:15-29, 191-237; runtime/L51/attempt_1/probe.log: both snapshot checks OK."
+    }
+  ],
+  "acceptance_gaps": [
+    "The probe's direct launch and direct terminal-state setup do not establish ordinary child-visible route, input discoverability, or understanding; MA-PLAY-005 remains separate and open.",
+    "MA-CI-005 remains CONFIRMED_OPEN for reconciliation of passive reward coverage across remaining modes.",
+    "No Mobile-rendered capture or physical target-device touch/frame/audio evidence was produced; DL-QA-04 remains unproven by this run.",
+    "No child comprehension, comfort, session, or voluntary replay observation was produced; DL-QA-05 remains unproven by this run.",
+    "No owner acceptance was requested or established."
+  ]
+}

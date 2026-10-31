@@ -1,0 +1,32 @@
+{
+  "scope": "Unchanged-production baseline; probe/harness improvement only, no production reset repair justified",
+  "status": "PASS",
+  "source_commit": "056d890ef38f2496ab52669c955ada654f902511",
+  "script_sha256": "92a271fde35876d4595a33ceca3471eb728bed799cb85b51d01c7bf31c65fef3",
+  "log_sha256": "059cb39e88d7ddfc56d16a83870507ffe9ec28f927119a63913f95cd19ee8472",
+  "prior_attempts_preserved": [
+    "01 analyzer WeakRef typing",
+    "02 concurrent parent writer invalid generation equality",
+    "03 capture before ready observed constructor default"
+  ],
+  "child_archive": [
+    {
+      "archive": "tmp\\luna_repair_20261014\\voice_lifecycle\\start_new_baseline04_child.log",
+      "sha256": "1ce8ee957dc659fde4bdfe721fa3911e611180097e56b1d6a7b02eb94dddb35e",
+      "bytes": 1048
+    },
+    {
+      "archive": "tmp\\luna_repair_20261014\\voice_lifecycle\\start_new_baseline04_child.json",
+      "sha256": "3175644aed6e2708160137723a475fbbab09d99b2b7b9b983c2eadf380b5b4ed",
+      "bytes": 550
+    }
+  ],
+  "production_files_changed": 0,
+  "owner_save_access": false,
+  "remaining_acceptance": [
+    "actual display lifecycle",
+    "physical Android touch",
+    "target-device/child/owner acceptance",
+    "focus loss hold cancellation not measured by this bounded reset baseline"
+  ]
+}

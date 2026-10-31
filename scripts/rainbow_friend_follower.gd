@@ -35,7 +35,7 @@ func tick() -> void:
 			card.visible = false
 		return
 	if card == null or not is_instance_valid(card) or card.get_parent() != layer:
-		var texture: Texture2D = load(TEXTURE_PATH) as Texture2D
+		var texture: Texture2D = load(FashionOutfitRenderer.path(m, TEXTURE_PATH)) as Texture2D
 		if texture == null:
 			return
 		card = TextureRect.new()
@@ -48,6 +48,11 @@ func tick() -> void:
 		card.set_meta("source_asset_path", TEXTURE_PATH)
 		card.set_meta("castle_canvas_only", true)
 		layer.add_child(card)
+	var saved_outfit: Variant = m.character_outfits.get("rainbow_dust_bunny", "")
+	var outfit_id: String = saved_outfit if saved_outfit is String else ""
+	if String(card.get_meta("fashion_outfit", "")) != outfit_id:
+		card.texture = load(FashionOutfitRenderer.path(m, TEXTURE_PATH)) as Texture2D
+		card.set_meta("fashion_outfit", outfit_id)
 	var foot: Vector2 = player.get_meta("current_stage_foot",
 		player.get_meta("stage_foot", Vector2.ZERO)) as Vector2
 	var depth_z: float = float(player.get_meta("depth_z", CastleRooms25D.PLAYER_FRONT_Z))

@@ -1,0 +1,219 @@
+extends SceneTree
+var m: ReefMain
+var profile: String
+var out_dir: String
+var checks: Array[Dictionary] = []
+var captures: Array[Dictionary] = []
+var surface: OperaGeologySurface
+var normal_before: Dictionary
+var normal_base: String
+var phase: int
+var world: OperaCareerWorld2D
+
+func _init() -> void:
+	call_deferred("_run")
+
+func _check(label: String, ok: bool) -> void:
+	checks.append({"label": label, "pass": ok})
+	if not ok:
+		push_error(label)
+
+func _hashes() -> Dictionary:
+	var result: Dictionary = {}
+	for suffix: String in ["", ".bak", ".tmp", ".tmp0", ".tmp1", ".old", ".bak.tmp", ".bak.old", ".before_new_game", ".before_new_game.bak", ".before_new_game.tmp"]:
+		var path: String = normal_base + suffix
+		result[suffix] = FileAccess.get_sha256(path) if FileAccess.file_exists(path) else "absent"
+	return result
+
+func _frames(n: int) -> void:
+	for i: int in range(n):
+		await process_frame
+
+func _bind(node: Node) -> void:
+	if node is ReefMain:
+		m = node as ReefMain
+		_check("private dependency bound before ready", not m.is_node_ready())
+		m._save_state = SaveState.new(m, profile)
+
+func _capture(label: String) -> void:
+	await RenderingServer.frame_post_draw
+	var im: Image = root.get_texture().get_image()
+	var path: String = out_dir.path_join(label + ".png")
+	_check("native frame dimensions " + label, im.get_size() == root.size)
+	_check("native save " + label, im.save_png(path) == OK)
+	captures.append({"id": label, "path": label + ".png", "sha256": FileAccess.get_sha256(path), "size": [im.get_width(), im.get_height()], "snapshot": surface.progress_snapshot(), "pan_visual_x": surface.pan_visual_x, "pan_texture": {"path": surface.pan_texture.resource_path, "size": str(surface.pan_texture.get_size())} if surface.pan_texture != null else {}, "world_phase": world.phase_index, "start_menu_active": m.start_menu_active, "main_game": m.game, "castle_layer_visible": m.castle_room_layer.visible, "world_visible": world.visible, "root_canvas_size": str(surface.size)})
+
+func _touch(pressed: bool, at: Vector2, finger: int = 0) -> void:
+	var event := InputEventScreenTouch.new()
+	event.index = finger
+	event.position = at
+	event.pressed = pressed
+	surface._gui_input(event)
+
+func _drag(at: Vector2, finger: int = 0) -> void:
+	var event := InputEventScreenDrag.new()
+	event.index = finger
+	event.position = at
+	surface._gui_input(event)
+
+func _run() -> void:
+	out_dir = OS.get_environment("R95_OUT")
+	normal_base = OS.get_environment("R95_NORMAL_BASE")
+	var width: int = int(OS.get_environment("R95_WIDTH"))
+	phase = 1
+	if out_dir.is_empty() or DirAccess.dir_exists_absolute(out_dir) or width not in [1280, 1600] or normal_base.is_empty():
+		quit(2)
+		return
+	var engine: Dictionary = Engine.get_version_info()
+	_check("exact approved engine hash", str(engine.get("hash")) == "ed1daf0bf001b61586d9930840f2f1394092c079")
+	_check("Mobile native Windows time1", RenderingServer.get_current_rendering_method() == "mobile" and DisplayServer.get_name() == "Windows" and Engine.time_scale == 1.0)
+	normal_before = _hashes()
+	DirAccess.make_dir_recursive_absolute(out_dir)
+	profile = out_dir.path_join("private_profile/reef_save.json")
+	DirAccess.make_dir_recursive_absolute(profile.get_base_dir())
+	var seed: Dictionary = {"schema_version": 1, "save_generation": 7, "won": {}, "found": {}, "pearls": 23, "plays": 3, "skin": "classic", "quality": "speedy", "music": false, "mic": false, "day_one_active": false, "opera_done": false, "custom_fish": [], "custom_friends": [], "opera_geology_checkpoint": {"version": 1, "phase_index": phase}, "flat_vector_private_unknown": {"token": "R95_SYNTHETIC", "keep": [3,7]}}
+	var file: FileAccess = FileAccess.open(profile, FileAccess.WRITE)
+	file.store_string(JSON.stringify(seed))
+	file.close()
+	root.mode = Window.MODE_WINDOWED
+	root.size = Vector2i(width, 720)
+	DisplayServer.window_set_position(Vector2i(-2400, 0))
+	DisplayServer.window_set_size(root.size)
+	node_added.connect(_bind)
+	var packed: PackedScene = load("res://scenes/main.tscn") as PackedScene
+	root.add_child(packed.instantiate())
+	current_scene = m
+	await _frames(12)
+	var continue_button: Button = m.find_child("StartMenuContinueButton", true, false) as Button
+	_check("original Continue available", continue_button != null and not continue_button.disabled)
+	continue_button.pressed.emit()
+	await _frames(45)
+	_check("start menu retired before world", not m.start_menu_active)
+	if m.start_menu_active:
+		quit(1)
+		return
+	m.day_one_active = false
+	m._skip_intro()
+	m.game = "level2"
+	m.g["phase"] = "hall"
+	m.g["t"] = 0.0
+	m.opera_stars = 0
+	# Declared synthetic saved-checkpoint fixture; no naturally earned route claim.
+	m.save_data["opera_geology_checkpoint"] = {"version": 1, "phase_index": phase}
+	m._castle_rooms_ref().open("library")
+	await _frames(8)
+	m._start_opera_from_room(16, "library")
+	for wait_frame: int in range(180):
+		if m.opera_game != null and m.game == "opera":
+			break
+		await process_frame
+	_check("original Main owner-room launcher reached Opera", m.opera_game != null and m.game == "opera")
+	if m.opera_game == null:
+		quit(1)
+		return
+	var house: OperaHouse = m.opera_game as OperaHouse
+	var act: OperaAct = house.act
+	world = act.career_world_2d
+	await _frames(8)
+	_check("castle room suspended beneath original Opera", not m.castle_room_layer.visible)
+	_check("original full Geologist world", world != null and world.career_id == "geologist")
+	_check("own saved activity checkpoint restored", world.phase_index == phase)
+	if world.phase_index != phase:
+		quit(1)
+		return
+	world._open_task()
+	await _frames(16)
+	surface = world.surface as OperaGeologySurface
+	_check("original activity surface opened", surface != null and surface.mode == ["geology_river", "geology_fossil", "geology_pan", "geology_geode"][phase] and world.task_open)
+	_check("Speedy own profile", m.quality == "speedy" and m._save_state.save_path == profile)
+	_check("original touch rect", surface.PAN_RECT == Rect2(520, 220, 520, 320))
+	_check("required painted whole Canvas texture", surface.fossil_texture is CanvasTexture)
+	var all_art: Array[Texture2D] = [surface.fossil_texture]
+	all_art.append_array(surface.fossil_piece_textures)
+	_check("exact three required matching fragments", surface.fossil_piece_textures.size() == 3)
+	for texture_index: int in range(all_art.size()):
+		var canvas: CanvasTexture = all_art[texture_index] as CanvasTexture
+		_check("required CanvasTexture " + str(texture_index), canvas != null)
+		if canvas == null:
+			quit(1)
+			return
+		var art: Image = canvas.diffuse_texture.get_image()
+		_check("actual import dimensions " + str(texture_index), art.get_size() == (Vector2i(900,540) if texture_index == 0 else Vector2i(512,512)))
+		_check("actual mipmaps " + str(texture_index), art.has_mipmaps())
+		_check("transparent corner " + str(texture_index), art.get_pixel(0,0).a == 0.0)
+		_check("linear mipmap filter " + str(texture_index), canvas.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS)
+	_check("fixed shared hit geometry", surface.WORK_RECT == Rect2(330,130,860,490))
+	_check("fixed fossil hit and target geometry", surface.FOSSIL_RECT == Rect2(500,165,560,300) and surface.FOSSIL_TARGET_RECT == Rect2(610,205,390,234) and surface.FOSSIL_PIECE_SIZE == Vector2(130,234))
+	await _capture("01_initial")
+	match surface.mode:
+		"geology_river":
+			_touch(true,surface.river_path_point(0))
+			var before_wrong_finger: Dictionary = surface.progress_snapshot().duplicate(true)
+			_drag(surface.river_path_point(1),1)
+			_check("river wrong finger ignored", surface.progress_snapshot() == before_wrong_finger)
+			for path_index: int in range(1,surface.RIVER_PATH.size()):
+				_drag(surface.river_path_point(path_index))
+				if path_index == 5:
+					await _capture("02_partial_channel")
+			_touch(false,surface.pointer_pos)
+		"geology_fossil":
+			var cell_size := Vector2(surface.FOSSIL_RECT.size.x / surface.FOSSIL_GRID_COLS, surface.FOSSIL_RECT.size.y / surface.FOSSIL_GRID_ROWS)
+			var first: Vector2 = surface.FOSSIL_RECT.position + cell_size * 0.5
+			_touch(true, first)
+			for row: int in range(surface.FOSSIL_GRID_ROWS):
+				var column: int = surface.FOSSIL_GRID_COLS - 1 if row % 2 == 0 else 0
+				_drag(surface.FOSSIL_RECT.position + (Vector2(column,row) + Vector2(0.5,0.5)) * cell_size)
+				if row == 1:
+					await _capture("02_partial_brushing")
+			_touch(false,surface.pointer_pos)
+			_check("real brushing exposes assembly", surface.fossil_stage == 1)
+			await _capture("03_assembly_loose_pieces")
+			_touch(true,surface.fossil_piece_home(1))
+			var before_wrong: Dictionary = surface.progress_snapshot().duplicate(true)
+			_drag(surface.fossil_piece_target(1),1)
+			_check("wrong finger cannot move held fossil piece", surface.progress_snapshot() == before_wrong)
+			_drag(Vector2(700,550))
+			await _capture("04_held_wrong_drop")
+			_touch(false,Vector2(700,550))
+			_check("wrong drop returns piece without progress", surface._snapped_count() == 0 and surface.fossil_drag_piece == -1)
+			await _capture("05_wrong_drop_return")
+			for piece: int in range(3):
+				_touch(true,surface.fossil_piece_home(piece))
+				_drag(surface.fossil_piece_target(piece))
+				_touch(false,surface.fossil_piece_target(piece))
+				if piece < 2:
+					await _capture("06_one_snapped" if piece == 0 else "07_two_snapped")
+		"geology_pan":
+			var center: Vector2 = surface.PAN_RECT.get_center()
+			_touch(true,center)
+			for swing: int in range(surface.PAN_REQUIRED_REVERSALS + 1):
+				_drag(center + Vector2(150.0 if swing % 2 == 0 else -150.0,0))
+				if swing == 4:
+					await _capture("02_partial_wash")
+			_touch(false,surface.pointer_pos)
+		"geology_geode":
+			for seam: int in range(surface.GEODE_SEAM_SPOTS.size()):
+				var at: Vector2 = surface.geode_seam_spot(seam)
+				_touch(true,at)
+				_touch(false,at)
+				if seam == 1:
+					await _capture("02_partial_seams")
+			var half: Vector2 = surface.geode_half_center()
+			_touch(true,half)
+			_drag(half + Vector2(surface.GEODE_PULL_DISTANCE + 16.0,0))
+			_touch(false,surface.pointer_pos)
+	_check("original input completes selected activity", surface.progress() == 1.0 and surface._completion_emitted)
+	await _capture("08_complete")
+	var final_snapshot: Dictionary = surface.progress_snapshot()
+	house.queue_free()
+	m.queue_free()
+	await _frames(3)
+	_check("normal eleven save/archive hashes unchanged", normal_before == _hashes())
+	var ok: bool = true
+	for row: Dictionary in checks:
+		ok = ok and bool(row["pass"])
+	file = FileAccess.open(out_dir.path_join("RESULT.json"), FileAccess.WRITE)
+	file.store_string(JSON.stringify({"status": "PASS" if ok else "FAIL", "source_revision": OS.get_environment("R95_REV"), "fixture": "Own saved-phase checkpoint, original Main/Opera/Geologist and real one-finger GUI events; not naturally earned/training/QA11 or device evidence", "phase": phase, "engine": engine, "renderer": RenderingServer.get_current_rendering_method(), "quality": "speedy", "checks": checks, "captures": captures, "normal_before": normal_before, "normal_after": _hashes(), "final_snapshot": final_snapshot}, "  "))
+	file.close()
+	print("R107|RESULT|", "PASS" if ok else "FAIL", "|CHECKS|", checks.size())
+	quit(0 if ok else 1)

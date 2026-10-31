@@ -1,0 +1,54 @@
+{
+ "schema": "design_reference_tokens_seed/1",
+ "status": "SEED for Codex WP-6. Values are copied from the cited rules at dev 55032e88; the rule text stays authoritative until the owner-approved tokens file replaces the copies with pointers.",
+ "measured_at_head": "55032e88936b22723fd9af5282c61ba6696b3d43",
+ "legend": {
+  "strength": "MUST or SHOULD as written in the cited rule; GAP means no rule fixes the value yet",
+  "code_anchors": "places where runtime code currently hard-codes the value (verified by grep at the head above unless marked sweep)",
+  "variants": "other values found in current documents or code; each variant is a consistency question for the owner or a drift to repair"
+ },
+ "tokens": [
+  {"id": "TOK-CANVAS-BASE", "value": "1280x720 landscape, canvas_items/expand", "strength": "MUST", "rules": ["DL-PERF-01"], "code_anchors": ["project.godot"], "variants": []},
+  {"id": "TOK-RENDERER", "value": "mobile on every platform", "strength": "MUST", "rules": ["DL-PERF-01"], "code_anchors": ["project.godot"], "variants": []},
+  {"id": "TOK-FRAME-P95-MS", "value": 33.3, "strength": "MUST", "rules": ["DL-PERF-02"], "code_anchors": [], "variants": []},
+  {"id": "TOK-FRAME-P99-MS", "value": 50, "strength": "MUST", "rules": ["DL-PERF-02"], "code_anchors": [], "variants": []},
+  {"id": "TOK-HITCH-MAX-MS", "value": 100, "strength": "MUST", "rules": ["DL-PERF-02"], "code_anchors": [], "variants": []},
+  {"id": "TOK-SOAK-MINUTES", "value": 30, "strength": "MUST", "rules": ["DL-PERF-02"], "code_anchors": [], "variants": []},
+  {"id": "TOK-TEXTURE-MAX-SIDE-PX", "value": "1024 longest side, or power-of-two; never NPOT with VRAM compression", "strength": "MUST", "rules": ["DL-PERF-04"], "code_anchors": [], "variants": []},
+  {"id": "TOK-TOUCH-MIN-PX", "value": "110x110 base-canvas px or an equivalently generous projected hit region", "strength": "SHOULD", "rules": ["DL-UI-03"],
+   "code_anchors": ["scripts/storybook_ui.gd:23 MIN_TOUCH := Vector2(110.0, 110.0)", "scripts/castle_career_routes.gd:260 112x112", "scripts/castle_logo_studio.gd:293 112x112"],
+   "variants": [
+    "112x112: CODEX_DOOR_HIGHLIGHT_REWRITE_HANDOFF_2026-09-30.md:305 and design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md:229",
+    ">=128x128: CODEX_DAY_ONE_REBUILD_HANDOFF_2026-09-23.md:387 (it measures 54-104 px targets today)",
+    ">=160x160: design/ARBORIST_TREE_BOOK_HANDOFF_2026-09-29.md:44"
+   ]},
+  {"id": "TOK-RESPONSE-MAX-FRAMES", "value": "visible response within 2 rendered frames of a valid touch at the 30 fps target", "strength": "MUST", "rules": ["DL-AGE-07"], "code_anchors": [], "variants": []},
+  {"id": "TOK-TEXT-CHILD-MIN-PX", "value": 28, "strength": "MUST", "rules": ["DL-TYPE-05"], "code_anchors": ["scripts/storybook_ui.gd (typography roles; Codex to cite exact lines)"], "variants": []},
+  {"id": "TOK-TEXT-ADULT-CAPTION-MIN-PX", "value": 22, "strength": "MAY (bounded exception)", "rules": ["DL-TYPE-05"], "code_anchors": [], "variants": []},
+  {"id": "TOK-VOICE-OBJECTIVE-P95-MS", "value": 150, "strength": "MUST", "rules": ["DL-SND-13", "DL-SND-16"], "code_anchors": [], "variants": []},
+  {"id": "TOK-SFX-TOUCH-P95-MS", "value": 100, "strength": "MUST", "rules": ["DL-SND-16"], "code_anchors": [], "variants": []},
+  {"id": "TOK-MUSIC-START-P95-MS", "value": 250, "strength": "MUST", "rules": ["DL-SND-16"], "code_anchors": [], "variants": []},
+  {"id": "TOK-MIX-MUSIC-UNDER-SPEECH-DB", "value": -14, "strength": "MUST", "rules": ["DL-SND-14"], "code_anchors": ["scripts/audio_director.gd (Codex to cite exact duck constants)"], "variants": []},
+  {"id": "TOK-MIX-AMBIENCE-UNDER-SPEECH-DB", "value": -16, "strength": "MUST", "rules": ["DL-SND-14"], "code_anchors": [], "variants": []},
+  {"id": "TOK-MIX-DUCK-MS", "value": 250, "strength": "MUST", "rules": ["DL-SND-14"], "code_anchors": [], "variants": []},
+  {"id": "TOK-MUSIC-OFF-DB", "value": -60, "strength": "MUST", "rules": ["DL-SND-14"], "code_anchors": [], "variants": []},
+  {"id": "TOK-MUSIC-FORMAT", "value": "Ogg Vorbis, 48 kHz stereo, integer-bar loop 24-40 s, managed 96 kbps within 80-128 kbps, -18.5 to -17.5 LUFS-I, <= -3.0 dBTP", "strength": "MUST", "rules": ["DL-SND-07"], "code_anchors": ["tools/build_area_music.py"], "variants": []},
+  {"id": "TOK-VOICE-FORMAT", "value": "48 kHz mono Ogg Vorbis >= 64 kbps, -16 LUFS-I +/-1 LU, <= -1.5 dBTP", "strength": "MUST (new files)", "rules": ["DL-SND-12"], "code_anchors": [], "variants": []},
+  {"id": "TOK-OUTLINE-MAJOR-PX", "value": "2-4 screen px at 1280x720; deep-indigo, plum or warm-brown", "strength": "MUST (visual promise)", "rules": ["DL-VIS-02"], "code_anchors": [], "variants": []},
+  {"id": "TOK-OUTLINE-INTERIOR-PX", "value": "1-2 screen px", "strength": "MUST (visual promise)", "rules": ["DL-VIS-02"], "code_anchors": [], "variants": []},
+  {"id": "TOK-SHADOW-HUES", "value": "aqua, blue-grey or lavender; never neutral black", "strength": "MUST (visual promise)", "rules": ["DL-VIS-03"], "code_anchors": [], "variants": []},
+  {"id": "TOK-BACKGROUND-NATIVE-PX", "value": ">= 2048x2048 native coverage per playable screen; 1024x1024 non-overlapping Sprite2D cards", "strength": "MUST", "rules": ["DL-LAY-07"], "code_anchors": [],
+   "variants": ["four-floor Opera venue background is 1672x941 and needs an owner-recorded exception (docs/handoffs/codex_visual_polish_2026-09-25/README.md:144)"]},
+  {"id": "TOK-OBJECT-ANIM-STATES", "value": "4-12 coherent authored states where the contract applies", "strength": "MUST", "rules": ["DL-INT-03"], "code_anchors": [], "variants": []},
+  {"id": "TOK-ASSIST-DELAYS-S", "value": "5 and 10 s (Ballerina only)", "strength": "MUST for Ballerina; GAP game-wide", "rules": ["DL-INT-08"], "code_anchors": [],
+   "variants": [
+    "sweep: 5/12 s in CODEX_DAY_ONE_PLAYER_EXPERIENCE_HANDOFF_2026-09-02.md",
+    "sweep: 0/5/12/25 s in CODEX_DAY_ONE_REBUILD_HANDOFF_2026-09-23.md",
+    "sweep: 8/20 s in CODEX_DOOR_HIGHLIGHT_REWRITE_HANDOFF_2026-09-30.md (M7)",
+    "sweep: 9 s re-hint plus 20 s auto-approach, Ballet 7 s in audit/OPERA_MECHANICS_REAUDIT_2026-09-05.md",
+    "sweep: 5/10 s Tree Book; 15 s back-arrow pulse"
+   ]},
+  {"id": "TOK-COLOUR-MEANINGS", "value": "GAP: no rule assigns meanings to gold, rainbow, red and ruby cues", "strength": "GAP", "rules": ["DL-READ-03", "DL-READ-06"], "code_anchors": ["scripts/interaction_affordance.gd", "scripts/castle_door_language.gd"],
+   "variants": ["sweep: props use bright red for plot progress and gold for local animation; doors use gold/rainbow for plot and ruby for bonus (design/07_CASTLE_DOOR_LANGUAGE.md); the back arrow pulses red; boss counters use gold; the Sky Lagoon castle door is a red plot door while hall plot doors are gold"]}
+ ]
+}

@@ -1,0 +1,901 @@
+{
+  "_id": "69a9c1cb3895bc90ac640bd1",
+  "id": "unsloth/LTX-2.3-GGUF",
+  "private": false,
+  "pipeline_tag": "image-to-video",
+  "library_name": "ggml",
+  "tags": [
+    "ggml",
+    "gguf",
+    "image-to-video",
+    "unsloth",
+    "text-to-video",
+    "video-to-video",
+    "image-text-to-video",
+    "audio-to-video",
+    "text-to-audio",
+    "video-to-audio",
+    "audio-to-audio",
+    "text-to-audio-video",
+    "image-to-audio-video",
+    "image-text-to-audio-video",
+    "ltx-2",
+    "ltx-2-3",
+    "ltx-video",
+    "ltxv",
+    "lightricks",
+    "en",
+    "de",
+    "es",
+    "fr",
+    "ja",
+    "ko",
+    "zh",
+    "it",
+    "pt",
+    "arxiv:2601.03233",
+    "base_model:Lightricks/LTX-2.3",
+    "base_model:quantized:Lightricks/LTX-2.3",
+    "license:other",
+    "region:us"
+  ],
+  "downloads": 381614,
+  "likes": 579,
+  "modelId": "unsloth/LTX-2.3-GGUF",
+  "author": "unsloth",
+  "sha": "96e8ed4925ead3db9ff4d0084f165ef6a74f28d0",
+  "lastModified": "2026-04-20T01:59:13.000Z",
+  "gated": false,
+  "disabled": false,
+  "widgetData": [
+    {
+      "text": "florist",
+      "output": {
+        "url": "https://huggingface.co/unsloth/LTX-2.3-GGUF/resolve/main/unsloth_flowers.mp4"
+      }
+    }
+  ],
+  "model-index": null,
+  "config": {},
+  "cardData": {
+    "base_model": "Lightricks/LTX-2.3",
+    "language": [
+      "en",
+      "de",
+      "es",
+      "fr",
+      "ja",
+      "ko",
+      "zh",
+      "it",
+      "pt"
+    ],
+    "library_name": "ggml",
+    "license": "other",
+    "license_name": "ltx-2-community-license-agreement",
+    "license_link": "https://github.com/Lightricks/LTX-2/blob/main/LICENSE",
+    "pipeline_tag": "image-to-video",
+    "arxiv": 2601.03233,
+    "tags": [
+      "image-to-video",
+      "gguf",
+      "unsloth",
+      "text-to-video",
+      "video-to-video",
+      "image-text-to-video",
+      "audio-to-video",
+      "text-to-audio",
+      "video-to-audio",
+      "audio-to-audio",
+      "text-to-audio-video",
+      "image-to-audio-video",
+      "image-text-to-audio-video",
+      "ltx-2",
+      "ltx-2-3",
+      "ltx-video",
+      "ltxv",
+      "lightricks"
+    ],
+    "pinned": true,
+    "demo": "https://app.ltx.studio/ltx-2-playground/i2v",
+    "widget": [
+      {
+        "text": "florist",
+        "output": {
+          "url": "https://huggingface.co/unsloth/LTX-2.3-GGUF/resolve/main/unsloth_flowers.mp4"
+        }
+      }
+    ]
+  },
+  "gguf": {
+    "total": 21005004544,
+    "architecture": "ltxv",
+    "totalFileSize": 42035412000
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes",
+      "blobId": "a25a77d7903f468bd1fe53266bd9f5c92d4be9df",
+      "size": 6458
+    },
+    {
+      "rfilename": "LICENSE",
+      "blobId": "42025e9a12c1da3c5dd5a88bb889c0aa012f3268",
+      "size": 21399
+    },
+    {
+      "rfilename": "README.md",
+      "blobId": "6657932fe53717b027e5b07de66a7039b0ae98ea",
+      "size": 9306
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-BF16.gguf",
+      "blobId": "8af6edc17771d3dd194658edd4876054bfd405da",
+      "size": 42035412000,
+      "lfs": {
+        "sha256": "74acbe938ed037683e9b4141df25d6c4443394f34ae90f54032ad98953b54598",
+        "size": 42035412000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-F16.gguf",
+      "blobId": "bf67c7a67d0e4abef163f7005afc560f0561ab83",
+      "size": 42035412000,
+      "lfs": {
+        "sha256": "b0a2484f218dbb6034331d21760efaf32fab223c36fdd06eec344db1490e1195",
+        "size": 42035412000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q2_K.gguf",
+      "blobId": "de7f63d75b2e4ae73a2381ef4c1146cdef45d0b8",
+      "size": 7935826976,
+      "lfs": {
+        "sha256": "3066a3e36232423670a4613c5ea00843eb6ed9985ea150bba628863cef685b80",
+        "size": 7935826976,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q3_K_M.gguf",
+      "blobId": "8b33b1f4f8a57c6ab764c711a5996fdcbb81b02a",
+      "size": 10629508128,
+      "lfs": {
+        "sha256": "f58cbbe86bffecc5779170142fcacf13b1eadf31940ea6945a03f07f2791940d",
+        "size": 10629508128,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q3_K_S.gguf",
+      "blobId": "3533ddb1db60ad9684da443b72432cafdb118ef9",
+      "size": 9741626400,
+      "lfs": {
+        "sha256": "4449208e0613d4a65cf5aa11ae7ae04fa417ad54489a273a283cf15fd088a146",
+        "size": 9741626400,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q4_0.gguf",
+      "blobId": "738fad61fa54b559fd438cf783b56961f0c0c932",
+      "size": 12716211232,
+      "lfs": {
+        "sha256": "1e6aa3f8506fa6f0445542fcd9ebfedd5de46bf1e9069462f9d0df928952a25a",
+        "size": 12716211232,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q4_1.gguf",
+      "blobId": "7877288ef2cdbe3953a42af5552bfd34791dec17",
+      "size": 13758266400,
+      "lfs": {
+        "sha256": "baf0cf7aa33293fc92a7c64d0a7f30f7e4c140490b87c0387fab25e06e9a4c7e",
+        "size": 13758266400,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q4_K_M.gguf",
+      "blobId": "d181c44c8be9d07b4f609a9d96bcf783635fc89c",
+      "size": 14194441248,
+      "lfs": {
+        "sha256": "5d09efdc0b8ec2054c44a05366cd7c6634ffa333b379b1f8baf018a78974b73d",
+        "size": 14194441248,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q4_K_S.gguf",
+      "blobId": "2d29f1660b3906d8fc88c65851b939011e8e5d98",
+      "size": 12961578016,
+      "lfs": {
+        "sha256": "f9e2b72221a9b9bc0a3ade678ddda102b14af7a4f83476b7319e3ec38423cd80",
+        "size": 12961578016,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q5_0.gguf",
+      "blobId": "28333e5e94159a4c446357d16a6ac08a40e4c1f3",
+      "size": 15286860832,
+      "lfs": {
+        "sha256": "893fade800170825bba5961d7c27739732c4ba80c9a8f4c2ef488c7669b377a1",
+        "size": 15286860832,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q5_1.gguf",
+      "blobId": "da1bd563c979b94f56f8269fa6c601a308b0d0c4",
+      "size": 16328916000,
+      "lfs": {
+        "sha256": "6d6ad9f6ed143d84f1c4d962779a5b8d7241f8ac64f9cb0bab53cafc241977b0",
+        "size": 16328916000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q5_K_M.gguf",
+      "blobId": "3d3cb913b06eef40c39e2876d70edbb219f6c424",
+      "size": 15930424352,
+      "lfs": {
+        "sha256": "5be111c2880b06569b182ab7b1917b613535e8b62f386f7782e988cd7db1b693",
+        "size": 15930424352,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q5_K_S.gguf",
+      "blobId": "d3ee278d5d3d450948a2b4538549f85c65266e41",
+      "size": 15043591200,
+      "lfs": {
+        "sha256": "3df4bdbe324a295b2a5514d90fd12281486bcf734e0f937667e9c82c980630cd",
+        "size": 15043591200,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q6_K.gguf",
+      "blobId": "cda7672a1485b185a67fe6299e2bd340d78b0b9b",
+      "size": 17774906400,
+      "lfs": {
+        "sha256": "ece6e49954f60ca894ab59270c08c706f970dcee3df0aba10ad2893eeabee48a",
+        "size": 17774906400,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-Q8_0.gguf",
+      "blobId": "5c0dd6af0d8c4072ad884ae3e9a9f89eef0ce620",
+      "size": 22755540000,
+      "lfs": {
+        "sha256": "813fd61eecf3df2ef5ac5a942d226ee7e44b6cec68ed803549aefaa410cd397e",
+        "size": 22755540000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-UD-Q2_K.gguf",
+      "blobId": "0c3016b59e6afd95ec4ced746fcee0df23658d89",
+      "size": 10897503776,
+      "lfs": {
+        "sha256": "e8e61887211da830c597568420e49f9fe26c12db1acec9e1239fa235b245b407",
+        "size": 10897503776,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-UD-Q3_K_M.gguf",
+      "blobId": "af1a6eb85971d4c66f3fb6c6e607a588290e5402",
+      "size": 13408718880,
+      "lfs": {
+        "sha256": "53e9c48d0acc911612faf1de435bdf425cdcb119454a80491be4ec2b39c46859",
+        "size": 13408718880,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-UD-Q4_K_M.gguf",
+      "blobId": "eddd4d80e9e5b058c0cf627b4ae89639db2dca13",
+      "size": 16388660768,
+      "lfs": {
+        "sha256": "906beb54de87aa7e25a7d18e16df1b22361b0fa6546e0a88839f55ea82111592",
+        "size": 16388660768,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled-1.1/ltx-2.3-22b-distilled-1.1-UD-Q5_K_M.gguf",
+      "blobId": "3bd320340c2e2e0ebf9234095533d9ddbe81f32e",
+      "size": 18208192032,
+      "lfs": {
+        "sha256": "d62cef1062b85476d3ff745d6d8522bc2a15a045456751a5529c6f2746adb0c8",
+        "size": 18208192032,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-BF16.gguf",
+      "blobId": "5529bcc6a764051fcf3f327022b38ae05be3f81f",
+      "size": 42035412000,
+      "lfs": {
+        "sha256": "af36517527ebc2abdb1aa54ce7ae7d2cb061ef32af7c90fe4a6dceb5c75f6501",
+        "size": 42035412000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-F16.gguf",
+      "blobId": "6c62e0e11723c93c5af89843d6c345d2370ca4f2",
+      "size": 42035412000,
+      "lfs": {
+        "sha256": "62024e322f79a539e07288b2b4f9f5b280daa12c28e98e5a74bb92d15d713d62",
+        "size": 42035412000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q2_K.gguf",
+      "blobId": "e029216701f972881cdfa8d90ad526b9921d632c",
+      "size": 8275987488,
+      "lfs": {
+        "sha256": "b6362019297d00c05060f81811abde6fe96e6e53f2b5d36803c353a31f8d4397",
+        "size": 8275987488,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q3_K_M.gguf",
+      "blobId": "1c92e7c499f7f002fca123b2f016a934e7abb4b7",
+      "size": 10770199584,
+      "lfs": {
+        "sha256": "388614a12f3d38c8bb08e42e92e5c73cb8cc1a1e5368b4cf02687ffa42c75269",
+        "size": 10770199584,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q3_K_S.gguf",
+      "blobId": "bb409fdaed6593c89a36687b88f66db9417676fc",
+      "size": 9946936352,
+      "lfs": {
+        "sha256": "1afe1a733d52c736193fdc84d55748165c85e7848c1030d0b7e87db5d4a62f57",
+        "size": 9946936352,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q4_0.gguf",
+      "blobId": "d1d57ce718fd03f2fd8b3c39bf9717824f735d8f",
+      "size": 12716211232,
+      "lfs": {
+        "sha256": "e2e8aa26046bff2c9985f54ba712cea2d8651c11bd5a42d77050e2bcf48809ad",
+        "size": 12716211232,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q4_1.gguf",
+      "blobId": "c2a4de187a0cd53b7ce0497bd2585ee8f86640b8",
+      "size": 13758266400,
+      "lfs": {
+        "sha256": "648879d77a0c9e291b1315352b45b7cdaf904f3842180915cc8e11d5d8dc9cf5",
+        "size": 13758266400,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q4_K_M.gguf",
+      "blobId": "c2ebe92133ed06bc7df30329f8f631620ed1645b",
+      "size": 14326856736,
+      "lfs": {
+        "sha256": "4e4459bee04199bf93187ba385729f6b7d8e874d754b72d26e751fe2066f4358",
+        "size": 14326856736,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q4_K_S.gguf",
+      "blobId": "3769918565ba5f728841a064cf403cdeccbdea69",
+      "size": 13121256480,
+      "lfs": {
+        "sha256": "7e324537df351b90e4ccdd94f92286262713f4e982707477ed70abf2ce726620",
+        "size": 13121256480,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q5_0.gguf",
+      "blobId": "17b34acf214fce06f2999f739008b524fec42bb2",
+      "size": 15286860832,
+      "lfs": {
+        "sha256": "4ee6ad804677f3572584fc297516df7095c5dd3b04c1bf80610d7dafddac6af7",
+        "size": 15286860832,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q5_1.gguf",
+      "blobId": "a033be1b0712143fea408eb25f3a5ac709474454",
+      "size": 16328916000,
+      "lfs": {
+        "sha256": "ac5e5561185e9daca1f2b9a341e1e215bb95e8ff3147ec703e473c396629b934",
+        "size": 16328916000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q5_K_M.gguf",
+      "blobId": "48d6299c4d774bd8dbcc6983fd926c632fbd7a26",
+      "size": 16071115808,
+      "lfs": {
+        "sha256": "3b68bda1f50db01db040386bb4292af56025f0a7b343aba4f52dae98dfb46e22",
+        "size": 16071115808,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q5_K_S.gguf",
+      "blobId": "5a941a0f0b345ec22d4645a946ac2d7c853004af",
+      "size": 15248901152,
+      "lfs": {
+        "sha256": "83ec9a84c1f86abf3bf60ece932d675a919c2bb4839e4706b1dd2f28bf333172",
+        "size": 15248901152,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q6_K.gguf",
+      "blobId": "30b03b4c67cec36c4de363b3d12be775f451d159",
+      "size": 17774906400,
+      "lfs": {
+        "sha256": "f32d8ba8295831815445c42289b9f4deeeede7aab05173b7c51d877b1c2af3d7",
+        "size": 17774906400,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-Q8_0.gguf",
+      "blobId": "99a2e684fe099b399113f1fde3dbd2801f00ecbc",
+      "size": 22755540000,
+      "lfs": {
+        "sha256": "ed3be27373771404ed59239e8c2686fb6f8d3cd6a1db7f257d811c8d1a381ef8",
+        "size": 22755540000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-UD-Q2_K.gguf",
+      "blobId": "09f15bc81ac5be2d30d3abe0a34788928d88e994",
+      "size": 9306640928,
+      "lfs": {
+        "sha256": "a93999b48942a16689877626e78ac26372337736e0a786406b2b2aea2e5a18d9",
+        "size": 9306640928,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-UD-Q3_K_M.gguf",
+      "blobId": "22dc97f7cb00dc2cf0f76003b7a8e9fda227d32f",
+      "size": 13169238048,
+      "lfs": {
+        "sha256": "789a9f3737aed51775224d6d567c725d2512d7aa32839b3bbdaba8230af07d77",
+        "size": 13169238048,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-UD-Q3_K_S.gguf",
+      "blobId": "0908400c28da3291516541ed3a9b7af8649935db",
+      "size": 11203002400,
+      "lfs": {
+        "sha256": "ad234e7f48caa138520d13e0a61d34fdded9dc35fffcc1d4ab2c6356c3e6135a",
+        "size": 11203002400,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-UD-Q4_K_M.gguf",
+      "blobId": "a48f74e2679e7f361d04a4c54188c17842e785ba",
+      "size": 16305131552,
+      "lfs": {
+        "sha256": "451ef931569f084c69743d1917096b149eb489517ec0e1de76eaadeb4dbbc9bf",
+        "size": 16305131552,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-UD-Q4_K_S.gguf",
+      "blobId": "85055f0333eb059b8b88a6371823521f5440b862",
+      "size": 14090590240,
+      "lfs": {
+        "sha256": "1d85fee19311b6896b8ed62c0d4cc2ce2ceecdc82f6a66e29ea7152aa5de9574",
+        "size": 14090590240,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-UD-Q5_K_M.gguf",
+      "blobId": "d82c8b2cbe1bd932eb416e08849c0d08e2d4f83a",
+      "size": 18029814816,
+      "lfs": {
+        "sha256": "97f841ead342c2365210bcc4ba5b4aa4ec19164f594b231939e30bf7c4a59369",
+        "size": 18029814816,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "distilled/ltx-2.3-22b-distilled-UD-Q5_K_S.gguf",
+      "blobId": "28eccf22bfd55190a2ab0cf8ea1fe10d24209a4e",
+      "size": 16200058400,
+      "lfs": {
+        "sha256": "31bff1672fc848bb5b05360708cb82dcdf2c73194ee9e9ed5ad7e49cbeb02f98",
+        "size": 16200058400,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-BF16.gguf",
+      "blobId": "13b413685a186171c5117c016a3387be06d78095",
+      "size": 42035412000,
+      "lfs": {
+        "sha256": "42065145779fe928ed96c83b7abc0dadc6cac8508b3acf5cae1c5057cfd0d48f",
+        "size": 42035412000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-F16.gguf",
+      "blobId": "c57eaa52df21c580ca5f4851231fc3cbcd39c353",
+      "size": 42035412000,
+      "lfs": {
+        "sha256": "e01c7dc7ba1bb3fd034e5a4fe8e0f5b72199315212491ad026a0a0a04e07be30",
+        "size": 42035412000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q2_K.gguf",
+      "blobId": "7c14656de37f4c884000648e08edadef9e954485",
+      "size": 8275987488,
+      "lfs": {
+        "sha256": "67c2b4981eef1c29d10139327f469e746ae224c540f44391e8a787e4890caa28",
+        "size": 8275987488,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q3_K_M.gguf",
+      "blobId": "ba6e471d45979b9a86d4bd74cb8951535af98157",
+      "size": 10770199584,
+      "lfs": {
+        "sha256": "9a8d25231b4c672f02486991c48c33c83ef7c3c34d99453422523bdec45ee515",
+        "size": 10770199584,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q3_K_S.gguf",
+      "blobId": "5630e69e305e0f39fae67a959240f32d8c41063f",
+      "size": 9946936352,
+      "lfs": {
+        "sha256": "8d47db128c9695e5716ae39c218bd3fef0a01b14a14a940de9a5123e1b518c5b",
+        "size": 9946936352,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q4_0.gguf",
+      "blobId": "fb004af90127c2ce9494f23136855e8e0ed78aa4",
+      "size": 12716211232,
+      "lfs": {
+        "sha256": "792af9088793e75572197ce281934127279d31efe157a9d13d7bb0e6c6ddcb0a",
+        "size": 12716211232,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q4_1.gguf",
+      "blobId": "d1f985234ad02f90ce2398661307bccf68869a78",
+      "size": 13758266400,
+      "lfs": {
+        "sha256": "b39dab14c3b4fecf532e7ec55061c8a4756db4cad9a4aa88c2e21e8927ec1938",
+        "size": 13758266400,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q4_K_M.gguf",
+      "blobId": "88c359bb9df47eb422f4205dab620609c5fa4096",
+      "size": 14326856736,
+      "lfs": {
+        "sha256": "e053e3d7827f3a69ecd00e55395d3a8f8616ab10d3a394e8d2b65ae204d490e0",
+        "size": 14326856736,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q4_K_S.gguf",
+      "blobId": "57dadbae97ef08d7a0aa677c6a111c05b176283c",
+      "size": 13121256480,
+      "lfs": {
+        "sha256": "3f7cb55f419bde9871eadf307e39518a3819b536652939da765965d537301a44",
+        "size": 13121256480,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q5_0.gguf",
+      "blobId": "2b0a4cbe53309c0c7a6866d18a162dec90e8c7b0",
+      "size": 15286860832,
+      "lfs": {
+        "sha256": "1ff0ab385a9a452cb00a035dfe37de91a37bac8c5c1b078cbe581b0623c4fd2b",
+        "size": 15286860832,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q5_1.gguf",
+      "blobId": "8b287d290b33bb4c7e43664aa4165fe47b4de5f9",
+      "size": 16328916000,
+      "lfs": {
+        "sha256": "7c99d04a35e98e3c22de2207ce241fff853f02f88defc05daddce86322771da0",
+        "size": 16328916000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q5_K_M.gguf",
+      "blobId": "0aab23172677754c7a6b516d1a1a0711bf4c5344",
+      "size": 16071115808,
+      "lfs": {
+        "sha256": "532ff9b844e00461fe67fe5bdb23773a54418ac55f3d2fdaf5c51c13812ffc72",
+        "size": 16071115808,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q5_K_S.gguf",
+      "blobId": "eee2851317ebd44575d86a7adf26ce2f13e6a607",
+      "size": 15248901152,
+      "lfs": {
+        "sha256": "0904cf86b5d663d68c50c536b78e9eb8a87ee85e599de67c701eb6a5d9061e02",
+        "size": 15248901152,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q6_K.gguf",
+      "blobId": "daa4f23a556e4c00896d7738291f64dc77a6dfae",
+      "size": 17774906400,
+      "lfs": {
+        "sha256": "22593c668cbe32230fa70c3519b48276d22f1be840877029e5efa67efdbbb93e",
+        "size": 17774906400,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-Q8_0.gguf",
+      "blobId": "7be84a5abc9cb60d2be5a5c73d6d1ba226caed62",
+      "size": 22755540000,
+      "lfs": {
+        "sha256": "c4e78967e6c6824864e81e8a9ac182dcd5d06cccfea937347484f4258ab6145c",
+        "size": 22755540000,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-UD-Q2_K.gguf",
+      "blobId": "571dfc0fe06b3b090e8ca25dab180940ed93f99f",
+      "size": 9503183392,
+      "lfs": {
+        "sha256": "890f5d653b228ec79ed8b62c5b8e7c8df0415ee95136e75f63b02b763038c277",
+        "size": 9503183392,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-UD-Q3_K_M.gguf",
+      "blobId": "41084fe273f9e9540b5682c43050f7040de3f69a",
+      "size": 13505288736,
+      "lfs": {
+        "sha256": "b7f0be5ede207fb4352e71f55a95a0ac8caed0422e8eb92bdc7da86bcbe0b7d4",
+        "size": 13505288736,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-UD-Q3_K_S.gguf",
+      "blobId": "4e32f748ff4985e5f055321fb792763f082640c6",
+      "size": 11391554592,
+      "lfs": {
+        "sha256": "821295b91bcac1efc2d30c773eec69423e0537f6070fdde5859fd08b13c7355d",
+        "size": 11391554592,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-UD-Q4_K_M.gguf",
+      "blobId": "19197cea935de3385f33a23c894c686075eaa689",
+      "size": 16506438688,
+      "lfs": {
+        "sha256": "a6983fcf16cda13ec6dc22711dae47fa7cf160204d5a3b42b0c09d1f13fc853b",
+        "size": 16506438688,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-UD-Q4_K_S.gguf",
+      "blobId": "0c68fe4fa0efe46272ac437484bff2c02dbc4b77",
+      "size": 14217202720,
+      "lfs": {
+        "sha256": "727b8f39f6ead0cc1ce3d5bdaee0bce1b7724fab51a55e39d21f43a162937267",
+        "size": 14217202720,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-UD-Q5_K_M.gguf",
+      "blobId": "12da0fd20384b6830593b94673f4df2d32a4f0c3",
+      "size": 18274719776,
+      "lfs": {
+        "sha256": "191b06ba97d29b1ad26a13403f35664d7dd0996e4c653d25d49f358e211569fb",
+        "size": 18274719776,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx-2.3-22b-dev-UD-Q5_K_S.gguf",
+      "blobId": "c2198d5d00a49be6da94fe1fe71f4949be97f9c6",
+      "size": 16324632608,
+      "lfs": {
+        "sha256": "f683f579042c1ecabc4721a6a3b532aaa714c575c22e9718e06c35aaaa065b2c",
+        "size": 16324632608,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "ltx2.3-open.png",
+      "blobId": "08708bd0f371ceda49e50c6ae1512e0fac777256",
+      "size": 2259601,
+      "lfs": {
+        "sha256": "ab52a78cb26a9f91051effd0f5161889669391e9588ad810a4e1bd816a6f621b",
+        "size": 2259601,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "text_encoders/ltx-2.3-22b-dev_embeddings_connectors.safetensors",
+      "blobId": "658138c37dec6d7e256822ea6241e0a5a857d1b8",
+      "size": 2312144712,
+      "lfs": {
+        "sha256": "a5c5148788d8d9d5d1e650e4cbf3502a46a2f7f975ce70c59082732c8905a8ae",
+        "size": 2312144712,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "text_encoders/ltx-2.3-22b-distilled_embeddings_connectors.safetensors",
+      "blobId": "ed778dbf2b9148d4d90ca19666b97f4dd4839bb6",
+      "size": 2312144712,
+      "lfs": {
+        "sha256": "c61cbb396e2a8175d8b2da51f0fdac885a4ccd22c9f64dafa5aa2c455dc8a507",
+        "size": 2312144712,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "unsloth_flowers.mp4",
+      "blobId": "6d62a1c4047b25f51a438a55bac3652cf9635953",
+      "size": 2606374,
+      "lfs": {
+        "sha256": "e5b4c7638cf3c23cabd4d71a4497f6c3acd04103969ebf2ed0fb79af3a20053f",
+        "size": 2606374,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "vae/ltx-2.3-22b-dev_audio_vae.safetensors",
+      "blobId": "d2db0bd2d49c3e64bf926b73e0ab7f4319ee8af7",
+      "size": 364853140,
+      "lfs": {
+        "sha256": "d7711812d9387ce940c2cd5d65a4f5a1e57bf6087cf618d89b56dd3c722c4dea",
+        "size": 364853140,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "vae/ltx-2.3-22b-dev_video_vae.safetensors",
+      "blobId": "c8fd9b56a7a2e999e5cd34c5f1c372a375baaffd",
+      "size": 1452256522,
+      "lfs": {
+        "sha256": "8732bb70cf4343541815f45c9f90f5ff0519d679bd63483afc27bf79a08d3f4e",
+        "size": 1452256522,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "vae/ltx-2.3-22b-distilled_audio_vae.safetensors",
+      "blobId": "3a31f69a3f80275219f98d24021510623ddf5951",
+      "size": 364853140,
+      "lfs": {
+        "sha256": "3cd6a6eb8cb28f5ecc12f1f3126952b2a3d2b0b42ad3270e63cefafafe0d9b57",
+        "size": 364853140,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "vae/ltx-2.3-22b-distilled_video_vae.safetensors",
+      "blobId": "35273ade74d2baf4e24534746342620ee3f73dad",
+      "size": 1452256522,
+      "lfs": {
+        "sha256": "e68d6d8f8a42942ac9b862cc315beb3bc30805a8876c7ad63ba5bf7a2b8e168a",
+        "size": 1452256522,
+        "pointerSize": 135
+      }
+    }
+  ],
+  "spaces": [
+    "tardellirs/model-pulse",
+    "techfreakworm/LTX2.3-Studio",
+    "Artex85/LTX2.3-Studio",
+    "JYTeam2025/ltx2.3",
+    "jgillix/xenoslit-video-lab",
+    "zeekhan51/LTX2.3-Studio",
+    "drizzymedia/Synapse-Vid2.3-Studio",
+    "M1GKORE/LTX2.3-Studio",
+    "nada2121/LTX2.3-Studio",
+    "Crypre/LTX2.3-Studio",
+    "kingkladze/LTX2.3-Studio",
+    "MinatoSagara-IA/Bidou.4-Studio",
+    "Semsem18/LTX2.3-Studio",
+    "gnosticdev/LTX2.3-Studio",
+    "wangsheng/LTX2.3-Studio",
+    "Ddelia/LTX2.3-Studio",
+    "momo12345678910111213141516171819202122232/LTX2.3-Studio",
+    "jujutechnology/LTX2.3-Studio",
+    "raubatz/LTX2.3-Studio",
+    "dasdasdasd12/LTX2.3-Studio",
+    "zontos/LTX2.3-Studio",
+    "Robinson1234/LTX2.3-Studio",
+    "Jamer12451/LTX2.3-Studio",
+    "MJVIBES10/LTX2.3-Studio",
+    "Uzu117500/SUPIR",
+    "Lipetomasz/LTX2.3-StudioMojegowno",
+    "akmtanvir/LTX2.3-Studio",
+    "cuspe42/LTX2.3-Studio",
+    "Desident/LTX2.3-Studio",
+    "Wong93532/LTX2.3-Studio2.00000",
+    "moroder/LTX2.3-Studio",
+    "Boblazar869/LTX2.3-Studio",
+    "TowersJim/LTX2.3-Studio",
+    "hrktxz/LTX2.3-Studio",
+    "kader27/deep-live-cam",
+    "icreativekid/LTX2.3-Studio",
+    "lpoolskin/LTX2.3-Studio",
+    "system1-developer/LTX2.3-Studio",
+    "kashafnaseer2007/ltx-video-generator",
+    "Eodk358sk/LTX2.3-Studio",
+    "Dmang69/LTX2.3-Studio",
+    "Dani-x2g/LTX2.3-Studio_Project",
+    "czxcvcxvcx/LTX2.3-Studio",
+    "craigmcm/LTX2.3-Studio",
+    "HammerHeadDown/LTX2.3-Studio",
+    "vchumakovvvvv/LTX2.3-Studio",
+    "ufrik/std",
+    "RuneWard/LTX2.3-Studio",
+    "Richharvey1978/LTX2.3-Studio",
+    "ruban77/presenter-studio",
+    "Ripkore/LTX2.3-Studio",
+    "SunnySo246/LTX2.3-Studio",
+    "regentstew/LTX2.3-Studio",
+    "rlneumiller/neu-hf-space-experiment",
+    "Raminy/LTX2.3-Studio"
+  ],
+  "createdAt": "2026-03-05T17:47:55.000Z",
+  "usedStorage": 2952254591445
+}

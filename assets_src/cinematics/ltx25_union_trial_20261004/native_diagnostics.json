@@ -1,0 +1,2776 @@
+{
+  "status": "DIAGNOSTIC_ONLY_NOT_ACCEPTANCE",
+  "lanes": [
+    {
+      "take": "take_1",
+      "automatic_geometry_frames": 41,
+      "manual_correspondence_frames": [],
+      "summary": {
+        "eye_distance": {
+          "min": 66.85750371489178,
+          "max": 67.44012526674948,
+          "peak_to_peak_relative_first": 0.00863909355970537
+        },
+        "gem_waist_distance": {
+          "min": 371.2777857261192,
+          "max": 372.8401110863117,
+          "peak_to_peak_relative_first": 0.004207968858511236
+        },
+        "neck_waist_distance": {
+          "min": 146.29962293639517,
+          "max": 149.60213544048761,
+          "peak_to_peak_relative_first": 0.022570981295258984
+        },
+        "root_max_distance_from_first_px": 1.7094017094017318,
+        "root_max_distance_from_declared_guide_px": 1.2575217480209409,
+        "face_laplacian_min": 88.4250717163086,
+        "face_laplacian_max": 436.1805114746094,
+        "face_laplacian_max_min_ratio": 4.932769665983351,
+        "first_face_laplacian": 88.4250717163086,
+        "last_face_laplacian": 426.9835510253906,
+        "empty_background_laplacian_median": 0.7775580883026123
+      },
+      "frames": [
+        {
+          "index": 0,
+          "focus": {
+            "face_laplacian_variance": 88.4250717163086,
+            "face_gradient_energy": 894.66552734375,
+            "empty_background_laplacian_variance": 0.6860184073448181
+          },
+          "geometry": {
+            "left_eye": [
+              203.9847619047619,
+              228.17523809523811
+            ],
+            "right_eye": [
+              271.4003294892916,
+              229.99505766062603
+            ],
+            "gem": [
+              246.63113006396588,
+              113.75266524520256
+            ],
+            "waist": [
+              217.0,
+              483.8461538461538
+            ],
+            "neck": [
+              237.69254569702676,
+              339.0
+            ],
+            "eye_distance": 67.44012526674948,
+            "gem_waist_distance": 371.2777857261192,
+            "neck_waist_distance": 146.31674453543312
+          }
+        },
+        {
+          "index": 1,
+          "focus": {
+            "face_laplacian_variance": 129.3288116455078,
+            "face_gradient_energy": 1129.2279052734375,
+            "empty_background_laplacian_variance": 0.9321379661560059
+          },
+          "geometry": {
+            "left_eye": [
+              204.08957952468006,
+              228.17733089579525
+            ],
+            "right_eye": [
+              271.3554502369668,
+              230.2306477093207
+            ],
+            "gem": [
+              246.76939203354297,
+              113.83647798742138
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              237.72251488082344,
+              338.0
+            ],
+            "eye_distance": 67.29720256161309,
+            "gem_waist_distance": 372.0618696598329,
+            "neck_waist_distance": 148.14549056653638
+          }
+        },
+        {
+          "index": 2,
+          "focus": {
+            "face_laplacian_variance": 170.50498962402344,
+            "face_gradient_energy": 1317.8514404296875,
+            "empty_background_laplacian_variance": 0.9701144695281982
+          },
+          "geometry": {
+            "left_eye": [
+              204.25479930191972,
+              228.33158813263526
+            ],
+            "right_eye": [
+              271.4009360374415,
+              230.42121684867396
+            ],
+            "gem": [
+              246.83958333333334,
+              113.76875
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              237.82786766968061,
+              340.0
+            ],
+            "eye_distance": 67.17864412651005,
+            "gem_waist_distance": 372.249119525953,
+            "neck_waist_distance": 146.29962293639517
+          }
+        },
+        {
+          "index": 3,
+          "focus": {
+            "face_laplacian_variance": 186.35157775878906,
+            "face_gradient_energy": 1386.8568115234375,
+            "empty_background_laplacian_variance": 0.9779390096664429
+          },
+          "geometry": {
+            "left_eye": [
+              204.28453947368422,
+              229.34046052631578
+            ],
+            "right_eye": [
+              271.4930448222566,
+              230.54714064914992
+            ],
+            "gem": [
+              246.94444444444446,
+              113.81687242798354
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              237.88879214797038,
+              340.0
+            ],
+            "eye_distance": 67.21933701032705,
+            "gem_waist_distance": 372.2095247466321,
+            "neck_waist_distance": 146.30823944299019
+          }
+        },
+        {
+          "index": 4,
+          "focus": {
+            "face_laplacian_variance": 214.1372833251953,
+            "face_gradient_energy": 1494.2696533203125,
+            "empty_background_laplacian_variance": 0.810939610004425
+          },
+          "geometry": {
+            "left_eye": [
+              204.4976,
+              229.5888
+            ],
+            "right_eye": [
+              271.66666666666663,
+              230.6088280060883
+            ],
+            "gem": [
+              247.07644628099172,
+              113.80578512396694
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              238.08213333333333,
+              338.0
+            ],
+            "eye_distance": 67.17681128190225,
+            "gem_waist_distance": 372.2311599622353,
+            "neck_waist_distance": 148.31548983050365
+          }
+        },
+        {
+          "index": 5,
+          "focus": {
+            "face_laplacian_variance": 259.6134033203125,
+            "face_gradient_energy": 1642.622314453125,
+            "empty_background_laplacian_variance": 0.7576205730438232
+          },
+          "geometry": {
+            "left_eye": [
+              204.87675507020282,
+              229.7597503900156
+            ],
+            "right_eye": [
+              271.75189107413007,
+              230.6323751891074
+            ],
+            "gem": [
+              247.40956340956342,
+              113.8045738045738
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              238.31432307216647,
+              338.0
+            ],
+            "eye_distance": 66.88082901387929,
+            "gem_waist_distance": 372.25928222255465,
+            "neck_waist_distance": 148.34841134714878
+          }
+        },
+        {
+          "index": 6,
+          "focus": {
+            "face_laplacian_variance": 289.6767883300781,
+            "face_gradient_energy": 1735.4154052734375,
+            "empty_background_laplacian_variance": 0.868785560131073
+          },
+          "geometry": {
+            "left_eye": [
+              205.28637770897834,
+              229.90247678018576
+            ],
+            "right_eye": [
+              272.27354260089686,
+              230.81913303437966
+            ],
+            "gem": [
+              247.98360655737704,
+              113.82581967213115
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              238.7799601549376,
+              338.0
+            ],
+            "eye_distance": 66.99343638704791,
+            "gem_waist_distance": 372.28518500914697,
+            "neck_waist_distance": 148.41550536648091
+          }
+        },
+        {
+          "index": 7,
+          "focus": {
+            "face_laplacian_variance": 310.1407775878906,
+            "face_gradient_energy": 1787.3258056640625,
+            "empty_background_laplacian_variance": 0.8441251516342163
+          },
+          "geometry": {
+            "left_eye": [
+              205.38317757009347,
+              229.76947040498442
+            ],
+            "right_eye": [
+              272.44213649851633,
+              230.94955489614244
+            ],
+            "gem": [
+              248.33471074380165,
+              114.04958677685951
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              238.9126570343049,
+              338.0
+            ],
+            "eye_distance": 67.06934152032639,
+            "gem_waist_distance": 372.0914318847582,
+            "neck_waist_distance": 148.43488766070868
+          }
+        },
+        {
+          "index": 8,
+          "focus": {
+            "face_laplacian_variance": 320.07049560546875,
+            "face_gradient_energy": 1818.50048828125,
+            "empty_background_laplacian_variance": 0.7647101283073425
+          },
+          "geometry": {
+            "left_eye": [
+              205.4757433489828,
+              229.70422535211267
+            ],
+            "right_eye": [
+              272.68374816983896,
+              231.03221083455344
+            ],
+            "gem": [
+              248.7151767151767,
+              113.92723492723493
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              239.07974575941086,
+              338.0
+            ],
+            "eye_distance": 67.22112359550232,
+            "gem_waist_distance": 372.24540604433963,
+            "neck_waist_distance": 148.4594584831248
+          }
+        },
+        {
+          "index": 9,
+          "focus": {
+            "face_laplacian_variance": 329.3226318359375,
+            "face_gradient_energy": 1843.4007568359375,
+            "empty_background_laplacian_variance": 0.7032568454742432
+          },
+          "geometry": {
+            "left_eye": [
+              205.61705426356588,
+              229.70697674418605
+            ],
+            "right_eye": [
+              272.86094674556216,
+              231.00591715976333
+            ],
+            "gem": [
+              249.02685950413223,
+              114.05785123966942
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              239.239000504564,
+              338.0
+            ],
+            "eye_distance": 67.25643703269968,
+            "gem_waist_distance": 372.1418143791818,
+            "neck_waist_distance": 148.48304852349096
+          }
+        },
+        {
+          "index": 10,
+          "focus": {
+            "face_laplacian_variance": 343.1491394042969,
+            "face_gradient_energy": 1881.667236328125,
+            "empty_background_laplacian_variance": 0.7848852872848511
+          },
+          "geometry": {
+            "left_eye": [
+              205.84292379471228,
+              229.79937791601867
+            ],
+            "right_eye": [
+              273.0669642857143,
+              231.07440476190476
+            ],
+            "gem": [
+              249.3590814196242,
+              114.13569937369519
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              239.45494404021326,
+              338.0
+            ],
+            "eye_distance": 67.23613101148524,
+            "gem_waist_distance": 372.092847809388,
+            "neck_waist_distance": 148.51530253161772
+          }
+        },
+        {
+          "index": 11,
+          "focus": {
+            "face_laplacian_variance": 351.5771484375,
+            "face_gradient_energy": 1900.55078125,
+            "empty_background_laplacian_variance": 0.6514059901237488
+          },
+          "geometry": {
+            "left_eye": [
+              205.97819314641745,
+              229.64953271028037
+            ],
+            "right_eye": [
+              273.1626865671642,
+              230.97164179104476
+            ],
+            "gem": [
+              249.482254697286,
+              114.07724425887265
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              239.5704398567908,
+              338.0
+            ],
+            "eye_distance": 67.19750091055323,
+            "gem_waist_distance": 372.1617589376348,
+            "neck_waist_distance": 148.53267933667766
+          }
+        },
+        {
+          "index": 12,
+          "focus": {
+            "face_laplacian_variance": 358.8117370605469,
+            "face_gradient_energy": 1920.3818359375,
+            "empty_background_laplacian_variance": 0.8272539973258972
+          },
+          "geometry": {
+            "left_eye": [
+              206.08333333333331,
+              229.70833333333331
+            ],
+            "right_eye": [
+              273.40564635958395,
+              231.00594353640417
+            ],
+            "gem": [
+              249.80375782881003,
+              114.22129436325679
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              239.74448984645863,
+              338.0
+            ],
+            "eye_distance": 67.33481731944916,
+            "gem_waist_distance": 372.04631855332696,
+            "neck_waist_distance": 148.5590316248586
+          }
+        },
+        {
+          "index": 13,
+          "focus": {
+            "face_laplacian_variance": 364.36492919921875,
+            "face_gradient_energy": 1933.58447265625,
+            "empty_background_laplacian_variance": 0.8022578954696655
+          },
+          "geometry": {
+            "left_eye": [
+              206.26194144838212,
+              229.71340523882895
+            ],
+            "right_eye": [
+              273.5369822485207,
+              231.05769230769232
+            ],
+            "gem": [
+              250.1161825726141,
+              114.11410788381743
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              239.8994618484514,
+              338.0
+            ],
+            "eye_distance": 67.28847020391997,
+            "gem_waist_distance": 372.18062109186354,
+            "neck_waist_distance": 148.5826630349408
+          }
+        },
+        {
+          "index": 14,
+          "focus": {
+            "face_laplacian_variance": 371.3723449707031,
+            "face_gradient_energy": 1951.96435546875,
+            "empty_background_laplacian_variance": 0.6550636291503906
+          },
+          "geometry": {
+            "left_eye": [
+              206.44600938967136,
+              229.65884194053208
+            ],
+            "right_eye": [
+              273.6215022091311,
+              231.12223858615613
+            ],
+            "gem": [
+              250.27672955974845,
+              114.18029350104823
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              240.0337557994012,
+              338.0
+            ],
+            "eye_distance": 67.19143074291328,
+            "gem_waist_distance": 372.1289456649366,
+            "neck_waist_distance": 148.60326895187137
+          }
+        },
+        {
+          "index": 15,
+          "focus": {
+            "face_laplacian_variance": 378.60577392578125,
+            "face_gradient_energy": 1969.7659912109375,
+            "empty_background_laplacian_variance": 0.6553886532783508
+          },
+          "geometry": {
+            "left_eye": [
+              206.60189573459715,
+              229.6398104265403
+            ],
+            "right_eye": [
+              273.76720351390924,
+              231.2269399707174
+            ],
+            "gem": [
+              250.45188284518827,
+              114.2489539748954
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              240.18454962425318,
+              338.0
+            ],
+            "eye_distance": 67.1840572552724,
+            "gem_waist_distance": 372.0761855326535,
+            "neck_waist_distance": 148.6265478090201
+          }
+        },
+        {
+          "index": 16,
+          "focus": {
+            "face_laplacian_variance": 382.9047546386719,
+            "face_gradient_energy": 1979.341064453125,
+            "empty_background_laplacian_variance": 0.6908934116363525
+          },
+          "geometry": {
+            "left_eye": [
+              206.6745283018868,
+              229.72327044025155
+            ],
+            "right_eye": [
+              273.9025110782866,
+              231.31462333825704
+            ],
+            "gem": [
+              250.55414012738854,
+              114.30148619957538
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              240.28851969008667,
+              338.0
+            ],
+            "eye_distance": 67.24681458797804,
+            "gem_waist_distance": 372.0330269269719,
+            "neck_waist_distance": 148.64268520520753
+          }
+        },
+        {
+          "index": 17,
+          "focus": {
+            "face_laplacian_variance": 386.1837463378906,
+            "face_gradient_energy": 1987.23046875,
+            "empty_background_laplacian_variance": 0.831319272518158
+          },
+          "geometry": {
+            "left_eye": [
+              206.66771653543307,
+              229.69606299212597
+            ],
+            "right_eye": [
+              273.876304023845,
+              231.30402384500746
+            ],
+            "gem": [
+              250.55696202531647,
+              114.33122362869199
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              240.27201027963903,
+              338.0
+            ],
+            "eye_distance": 67.22781991327639,
+            "gem_waist_distance": 372.00366277730114,
+            "neck_waist_distance": 148.64011800739164
+          }
+        },
+        {
+          "index": 18,
+          "focus": {
+            "face_laplacian_variance": 385.46307373046875,
+            "face_gradient_energy": 1983.7794189453125,
+            "empty_background_laplacian_variance": 0.6775522828102112
+          },
+          "geometry": {
+            "left_eye": [
+              206.64069952305246,
+              229.5993640699523
+            ],
+            "right_eye": [
+              273.88872403560833,
+              231.38278931750742
+            ],
+            "gem": [
+              250.52229299363057,
+              114.29511677282377
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              240.26471177933038,
+              338.0
+            ],
+            "eye_distance": 67.2716686760105,
+            "gem_waist_distance": 372.0365139868762,
+            "neck_waist_distance": 148.63898366782664
+          }
+        },
+        {
+          "index": 19,
+          "focus": {
+            "face_laplacian_variance": 387.13458251953125,
+            "face_gradient_energy": 1986.764404296875,
+            "empty_background_laplacian_variance": 0.7761144042015076
+          },
+          "geometry": {
+            "left_eye": [
+              206.49763033175356,
+              229.5781990521327
+            ],
+            "right_eye": [
+              273.76183431952666,
+              231.2869822485207
+            ],
+            "gem": [
+              250.46088794926004,
+              114.30866807610994
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              240.12973232564008,
+              338.0
+            ],
+            "eye_distance": 67.28590549380314,
+            "gem_waist_distance": 372.01751670424306,
+            "neck_waist_distance": 148.61806808808984
+          }
+        },
+        {
+          "index": 20,
+          "focus": {
+            "face_laplacian_variance": 392.4601135253906,
+            "face_gradient_energy": 1993.842529296875,
+            "empty_background_laplacian_variance": 0.6862833499908447
+          },
+          "geometry": {
+            "left_eye": [
+              206.57413249211356,
+              229.51892744479494
+            ],
+            "right_eye": [
+              273.63313609467457,
+              231.31065088757396
+            ],
+            "gem": [
+              250.33545647558387,
+              114.22929936305732
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              240.10363429339407,
+              337.0
+            ],
+            "eye_distance": 67.08293551316679,
+            "gem_waist_distance": 372.08536468454344,
+            "neck_waist_distance": 149.60213544048761
+          }
+        },
+        {
+          "index": 21,
+          "focus": {
+            "face_laplacian_variance": 397.394287109375,
+            "face_gradient_energy": 1999.495361328125,
+            "empty_background_laplacian_variance": 0.7639081478118896
+          },
+          "geometry": {
+            "left_eye": [
+              206.43015873015872,
+              229.61111111111111
+            ],
+            "right_eye": [
+              273.5059347181009,
+              231.27151335311572
+            ],
+            "gem": [
+              250.17735042735043,
+              114.28632478632478
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              239.9680467241298,
+              338.0
+            ],
+            "eye_distance": 67.096323744225,
+            "gem_waist_distance": 372.04209908856944,
+            "neck_waist_distance": 148.63150429747418
+          }
+        },
+        {
+          "index": 22,
+          "focus": {
+            "face_laplacian_variance": 396.17767333984375,
+            "face_gradient_energy": 1995.8084716796875,
+            "empty_background_laplacian_variance": 0.743967592716217
+          },
+          "geometry": {
+            "left_eye": [
+              206.378763866878,
+              229.65610142630743
+            ],
+            "right_eye": [
+              273.3848439821694,
+              231.27934621099553
+            ],
+            "gem": [
+              250.06223175965664,
+              114.33690987124464
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              239.8818039245237,
+              338.0
+            ],
+            "eye_distance": 67.02573905633469,
+            "gem_waist_distance": 371.98146598962165,
+            "neck_waist_distance": 148.6182016115409
+          }
+        },
+        {
+          "index": 23,
+          "focus": {
+            "face_laplacian_variance": 396.5330810546875,
+            "face_gradient_energy": 1985.2191162109375,
+            "empty_background_laplacian_variance": 0.6418907046318054
+          },
+          "geometry": {
+            "left_eye": [
+              206.2085308056872,
+              229.64928909952607
+            ],
+            "right_eye": [
+              273.3922155688623,
+              231.11526946107784
+            ],
+            "gem": [
+              249.86393088552916,
+              114.42116630669545
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              239.80037318727472,
+              338.0
+            ],
+            "eye_distance": 67.19967705858521,
+            "gem_waist_distance": 371.87996631555285,
+            "neck_waist_distance": 148.6056860180231
+          }
+        },
+        {
+          "index": 24,
+          "focus": {
+            "face_laplacian_variance": 399.22674560546875,
+            "face_gradient_energy": 1986.7471923828125,
+            "empty_background_laplacian_variance": 0.6515622735023499
+          },
+          "geometry": {
+            "left_eye": [
+              206.07232704402514,
+              229.64465408805032
+            ],
+            "right_eye": [
+              273.2318181818182,
+              231.10151515151514
+            ],
+            "gem": [
+              249.69114470842334,
+              114.36285097192226
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              239.65207261292164,
+              338.0
+            ],
+            "eye_distance": 67.17529079985842,
+            "gem_waist_distance": 371.9228262031609,
+            "neck_waist_distance": 148.5830047248653
+          }
+        },
+        {
+          "index": 25,
+          "focus": {
+            "face_laplacian_variance": 407.221923828125,
+            "face_gradient_energy": 2001.596435546875,
+            "empty_background_laplacian_variance": 0.7610896825790405
+          },
+          "geometry": {
+            "left_eye": [
+              205.79239302694137,
+              229.6402535657686
+            ],
+            "right_eye": [
+              272.9610194902549,
+              231.2248875562219
+            ],
+            "gem": [
+              249.2452025586354,
+              114.25159914712154
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              239.37670625859812,
+              338.0
+            ],
+            "eye_distance": 67.18731610841321,
+            "gem_waist_distance": 371.9947271946492,
+            "neck_waist_distance": 148.5412733296435
+          }
+        },
+        {
+          "index": 26,
+          "focus": {
+            "face_laplacian_variance": 412.90753173828125,
+            "face_gradient_energy": 2005.351318359375,
+            "empty_background_laplacian_variance": 0.7152283191680908
+          },
+          "geometry": {
+            "left_eye": [
+              205.6809523809524,
+              229.66190476190476
+            ],
+            "right_eye": [
+              272.8632986627043,
+              231.27340267459138
+            ],
+            "gem": [
+              249.0779220779221,
+              114.29220779220779
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              239.27212552182834,
+              338.0
+            ],
+            "eye_distance": 67.20167094234951,
+            "gem_waist_distance": 371.93980698627564,
+            "neck_waist_distance": 148.52555495492467
+          }
+        },
+        {
+          "index": 27,
+          "focus": {
+            "face_laplacian_variance": 409.24652099609375,
+            "face_gradient_energy": 1993.2579345703125,
+            "empty_background_laplacian_variance": 0.8012033104896545
+          },
+          "geometry": {
+            "left_eye": [
+              205.71019108280254,
+              229.6592356687898
+            ],
+            "right_eye": [
+              272.75409836065575,
+              231.26080476900148
+            ],
+            "gem": [
+              248.95217391304348,
+              114.25869565217391
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              239.23214472172913,
+              338.0
+            ],
+            "eye_distance": 67.0630339804585,
+            "gem_waist_distance": 371.9623711996204,
+            "neck_waist_distance": 148.51956490084456
+          }
+        },
+        {
+          "index": 28,
+          "focus": {
+            "face_laplacian_variance": 410.0137023925781,
+            "face_gradient_energy": 1984.1590576171875,
+            "empty_background_laplacian_variance": 0.6651268005371094
+          },
+          "geometry": {
+            "left_eye": [
+              205.5849358974359,
+              229.60576923076923
+            ],
+            "right_eye": [
+              272.6800595238095,
+              231.1904761904762
+            ],
+            "gem": [
+              248.79738562091504,
+              114.33333333333334
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              239.13249771062272,
+              338.0
+            ],
+            "eye_distance": 67.1138354632374,
+            "gem_waist_distance": 371.8747422139485,
+            "neck_waist_distance": 148.5046812538884
+          }
+        },
+        {
+          "index": 29,
+          "focus": {
+            "face_laplacian_variance": 415.94293212890625,
+            "face_gradient_energy": 1998.3199462890625,
+            "empty_background_laplacian_variance": 0.8815454840660095
+          },
+          "geometry": {
+            "left_eye": [
+              205.44019138755982,
+              229.5677830940989
+            ],
+            "right_eye": [
+              272.5088495575221,
+              231.2109144542773
+            ],
+            "gem": [
+              248.54704595185996,
+              114.31509846827134
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              238.97452047254097,
+              338.0
+            ],
+            "eye_distance": 67.08878288794672,
+            "gem_waist_distance": 371.87158954098146,
+            "neck_waist_distance": 148.48121918076507
+          }
+        },
+        {
+          "index": 30,
+          "focus": {
+            "face_laplacian_variance": 415.9853210449219,
+            "face_gradient_energy": 1992.907958984375,
+            "empty_background_laplacian_variance": 0.873232364654541
+          },
+          "geometry": {
+            "left_eye": [
+              205.36876006441224,
+              229.58454106280192
+            ],
+            "right_eye": [
+              272.20623145400594,
+              231.22106824925817
+            ],
+            "gem": [
+              248.27489177489178,
+              114.27705627705627
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              238.7874957592091,
+              338.0
+            ],
+            "eye_distance": 66.85750371489178,
+            "gem_waist_distance": 371.8865081294379,
+            "neck_waist_distance": 148.45365563321715
+          }
+        },
+        {
+          "index": 31,
+          "focus": {
+            "face_laplacian_variance": 422.8950500488281,
+            "face_gradient_energy": 2005.959716796875,
+            "empty_background_laplacian_variance": 0.8509840369224548
+          },
+          "geometry": {
+            "left_eye": [
+              205.0385852090032,
+              229.5755627009646
+            ],
+            "right_eye": [
+              272.24739195230995,
+              231.19225037257826
+            ],
+            "gem": [
+              248.06753812636165,
+              114.26143790849673
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              238.6429885806566,
+              338.0
+            ],
+            "eye_distance": 67.22824839966235,
+            "gem_waist_distance": 371.8846912845794,
+            "neck_waist_distance": 148.4325161617585
+          }
+        },
+        {
+          "index": 32,
+          "focus": {
+            "face_laplacian_variance": 423.73101806640625,
+            "face_gradient_energy": 1993.7095947265625,
+            "empty_background_laplacian_variance": 0.8136980533599854
+          },
+          "geometry": {
+            "left_eye": [
+              204.759410801964,
+              229.28314238952538
+            ],
+            "right_eye": [
+              272.02985074626866,
+              231.16119402985075
+            ],
+            "gem": [
+              247.86681222707423,
+              114.27729257641921
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              238.39463077411634,
+              338.0
+            ],
+            "eye_distance": 67.2966504981045,
+            "gem_waist_distance": 371.85217632791836,
+            "neck_waist_distance": 148.39650644597074
+          }
+        },
+        {
+          "index": 33,
+          "focus": {
+            "face_laplacian_variance": 431.9388122558594,
+            "face_gradient_energy": 2013.45556640625,
+            "empty_background_laplacian_variance": 0.7538140416145325
+          },
+          "geometry": {
+            "left_eye": [
+              204.75160256410257,
+              229.56730769230768
+            ],
+            "right_eye": [
+              271.7233727810651,
+              231.06508875739644
+            ],
+            "gem": [
+              247.529284164859,
+              113.96746203904556
+            ],
+            "waist": [
+              217.0,
+              485.55555555555554
+            ],
+            "neck": [
+              238.23748767258382,
+              338.0
+            ],
+            "eye_distance": 66.98851658390839,
+            "gem_waist_distance": 372.8401110863117,
+            "neck_waist_distance": 149.07606400073684
+          }
+        },
+        {
+          "index": 34,
+          "focus": {
+            "face_laplacian_variance": 431.8388366699219,
+            "face_gradient_energy": 2014.3614501953125,
+            "empty_background_laplacian_variance": 0.7093379497528076
+          },
+          "geometry": {
+            "left_eye": [
+              204.6426282051282,
+              229.6105769230769
+            ],
+            "right_eye": [
+              271.7311669128508,
+              230.99556868537667
+            ],
+            "gem": [
+              247.36247334754796,
+              113.99360341151386
+            ],
+            "waist": [
+              217.0,
+              485.55555555555554
+            ],
+            "neck": [
+              238.18689755898953,
+              338.0
+            ],
+            "eye_distance": 67.10283323466479,
+            "gem_waist_distance": 372.80043464147366,
+            "neck_waist_distance": 149.06886530554848
+          }
+        },
+        {
+          "index": 35,
+          "focus": {
+            "face_laplacian_variance": 436.1805114746094,
+            "face_gradient_energy": 2025.4390869140625,
+            "empty_background_laplacian_variance": 0.7775580883026123
+          },
+          "geometry": {
+            "left_eye": [
+              204.64583333333334,
+              229.62339743589743
+            ],
+            "right_eye": [
+              271.7165932452276,
+              230.97063142437594
+            ],
+            "gem": [
+              247.28817204301075,
+              113.99139784946237
+            ],
+            "waist": [
+              217.0,
+              485.55555555555554
+            ],
+            "neck": [
+              238.1812132892805,
+              338.0
+            ],
+            "eye_distance": 67.08428932752196,
+            "gem_waist_distance": 372.7965888491276,
+            "neck_waist_distance": 149.06805751640633
+          }
+        },
+        {
+          "index": 36,
+          "focus": {
+            "face_laplacian_variance": 435.51849365234375,
+            "face_gradient_energy": 2018.5615234375,
+            "empty_background_laplacian_variance": 0.8459948897361755
+          },
+          "geometry": {
+            "left_eye": [
+              204.58266452648473,
+              229.61637239165327
+            ],
+            "right_eye": [
+              271.7117647058824,
+              230.98970588235295
+            ],
+            "gem": [
+              247.25,
+              114.0280172413793
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              238.14721461618353,
+              338.0
+            ],
+            "eye_distance": 67.14314660315141,
+            "gem_waist_distance": 372.04993338937345,
+            "neck_waist_distance": 148.36103796290723
+          }
+        },
+        {
+          "index": 37,
+          "focus": {
+            "face_laplacian_variance": 433.7801208496094,
+            "face_gradient_energy": 2015.7076416015625,
+            "empty_background_laplacian_variance": 0.8885650038719177
+          },
+          "geometry": {
+            "left_eye": [
+              204.55448717948718,
+              229.55769230769232
+            ],
+            "right_eye": [
+              271.68970588235294,
+              230.99558823529412
+            ],
+            "gem": [
+              247.25,
+              114.0280172413793
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              238.12209653092006,
+              338.0
+            ],
+            "eye_distance": 67.15061529859746,
+            "gem_waist_distance": 372.04993338937345,
+            "neck_waist_distance": 148.35745974257506
+          }
+        },
+        {
+          "index": 38,
+          "focus": {
+            "face_laplacian_variance": 432.0948181152344,
+            "face_gradient_energy": 2017.1690673828125,
+            "empty_background_laplacian_variance": 0.8474446535110474
+          },
+          "geometry": {
+            "left_eye": [
+              204.43790849673204,
+              229.34640522875816
+            ],
+            "right_eye": [
+              271.7290132547864,
+              230.99263622974962
+            ],
+            "gem": [
+              247.2462203023758,
+              114.03887688984881
+            ],
+            "waist": [
+              217.0,
+              484.8461538461538
+            ],
+            "neck": [
+              238.08346087575924,
+              338.0
+            ],
+            "eye_distance": 67.3112387054946,
+            "gem_waist_distance": 372.0388023934194,
+            "neck_waist_distance": 148.3519639974744
+          }
+        },
+        {
+          "index": 39,
+          "focus": {
+            "face_laplacian_variance": 432.598876953125,
+            "face_gradient_energy": 2022.75244140625,
+            "empty_background_laplacian_variance": 0.9706827998161316
+          },
+          "geometry": {
+            "left_eye": [
+              204.61191626409018,
+              229.58615136876006
+            ],
+            "right_eye": [
+              271.68869309838476,
+              230.97356828193833
+            ],
+            "gem": [
+              247.3060344827586,
+              113.97629310344828
+            ],
+            "waist": [
+              217.0,
+              485.55555555555554
+            ],
+            "neck": [
+              238.15030468123746,
+              338.0
+            ],
+            "eye_distance": 67.09112397455219,
+            "gem_waist_distance": 372.8130952776769,
+            "neck_waist_distance": 149.06366882449194
+          }
+        },
+        {
+          "index": 40,
+          "focus": {
+            "face_laplacian_variance": 426.9835510253906,
+            "face_gradient_energy": 2017.5997314453125,
+            "empty_background_laplacian_variance": 0.8868389129638672
+          },
+          "geometry": {
+            "left_eye": [
+              204.6816,
+              229.608
+            ],
+            "right_eye": [
+              271.79111111111115,
+              230.92444444444445
+            ],
+            "gem": [
+              247.35117773019272,
+              113.9764453961456
+            ],
+            "waist": [
+              217.0,
+              485.55555555555554
+            ],
+            "neck": [
+              238.23635555555558,
+              338.0
+            ],
+            "eye_distance": 67.12242179441725,
+            "gem_waist_distance": 372.8166159071624,
+            "neck_waist_distance": 149.07590272270906
+          }
+        }
+      ]
+    },
+    {
+      "take": "take_2",
+      "automatic_geometry_frames": 41,
+      "manual_correspondence_frames": [],
+      "summary": {
+        "eye_distance": {
+          "min": 66.71586342989359,
+          "max": 67.73695897874964,
+          "peak_to_peak_relative_first": 0.015074422652726259
+        },
+        "gem_waist_distance": {
+          "min": 372.5184041061271,
+          "max": 379.69315476510434,
+          "peak_to_peak_relative_first": 0.01889618121616092
+        },
+        "neck_waist_distance": {
+          "min": 149.1771160370883,
+          "max": 149.49931643888297,
+          "peak_to_peak_relative_first": 0.0021598513924519715
+        },
+        "root_max_distance_from_first_px": 0.2504433937861469,
+        "root_max_distance_from_declared_guide_px": 1.0198039027185548,
+        "face_laplacian_min": 100.39710235595703,
+        "face_laplacian_max": 540.9296875,
+        "face_laplacian_max_min_ratio": 5.387901391637167,
+        "first_face_laplacian": 100.39710235595703,
+        "last_face_laplacian": 527.6434936523438,
+        "empty_background_laplacian_median": 1.107372760772705
+      },
+      "frames": [
+        {
+          "index": 0,
+          "focus": {
+            "face_laplacian_variance": 100.39710235595703,
+            "face_gradient_energy": 947.9813232421875,
+            "empty_background_laplacian_variance": 0.6899145841598511
+          },
+          "geometry": {
+            "left_eye": [
+              203.97251585623678,
+              228.2262156448203
+            ],
+            "right_eye": [
+              271.6900584795321,
+              229.84795321637426
+            ],
+            "gem": [
+              247.56716417910448,
+              106.2776119402985
+            ],
+            "waist": [
+              217.3846153846154,
+              484.7692307692308
+            ],
+            "neck": [
+              237.83128716788445,
+              337.0
+            ],
+            "eye_distance": 67.73695897874964,
+            "gem_waist_distance": 379.69315476510434,
+            "neck_waist_distance": 149.1771160370883
+          }
+        },
+        {
+          "index": 1,
+          "focus": {
+            "face_laplacian_variance": 149.18701171875,
+            "face_gradient_energy": 1175.3619384765625,
+            "empty_background_laplacian_variance": 0.7904014587402344
+          },
+          "geometry": {
+            "left_eye": [
+              204.28486055776892,
+              228.28087649402391
+            ],
+            "right_eye": [
+              271.5719489981785,
+              230.03096539162112
+            ],
+            "gem": [
+              247.72846715328467,
+              106.35036496350365
+            ],
+            "waist": [
+              217.3846153846154,
+              484.7692307692308
+            ],
+            "neck": [
+              237.9284047779737,
+              337.0
+            ],
+            "eye_distance": 67.30984387098961,
+            "gem_waist_distance": 379.63349080113034,
+            "neck_waist_distance": 149.19045828996184
+          }
+        },
+        {
+          "index": 2,
+          "focus": {
+            "face_laplacian_variance": 205.07608032226562,
+            "face_gradient_energy": 1380.413330078125,
+            "empty_background_laplacian_variance": 1.1202805042266846
+          },
+          "geometry": {
+            "left_eye": [
+              204.35064935064935,
+              228.26716141001856
+            ],
+            "right_eye": [
+              271.46059544658493,
+              230.21891418563922
+            ],
+            "gem": [
+              247.8325991189427,
+              106.51101321585904
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              237.90562239861714,
+              337.0
+            ],
+            "eye_distance": 67.13832142596746,
+            "gem_waist_distance": 379.56314008638435,
+            "neck_waist_distance": 149.28093893493656
+          }
+        },
+        {
+          "index": 3,
+          "focus": {
+            "face_laplacian_variance": 215.3177490234375,
+            "face_gradient_energy": 1418.96240234375,
+            "empty_background_laplacian_variance": 1.202244520187378
+          },
+          "geometry": {
+            "left_eye": [
+              204.36988847583643,
+              228.26765799256506
+            ],
+            "right_eye": [
+              271.49475524475525,
+              230.21853146853147
+            ],
+            "gem": [
+              247.84040995607614,
+              106.53733528550512
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              237.93232186029584,
+              337.0
+            ],
+            "eye_distance": 67.15321024392156,
+            "gem_waist_distance": 379.53753525361236,
+            "neck_waist_distance": 149.28465051727574
+          }
+        },
+        {
+          "index": 4,
+          "focus": {
+            "face_laplacian_variance": 245.92514038085938,
+            "face_gradient_energy": 1517.6641845703125,
+            "empty_background_laplacian_variance": 0.8583314418792725
+          },
+          "geometry": {
+            "left_eye": [
+              204.33151183970855,
+              228.20947176684882
+            ],
+            "right_eye": [
+              271.6575809199319,
+              230.40034071550255
+            ],
+            "gem": [
+              248.03681885125184,
+              106.44035346097202
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              237.9945463798202,
+              337.0
+            ],
+            "eye_distance": 67.36170636604434,
+            "gem_waist_distance": 379.6501198637829,
+            "neck_waist_distance": 149.29331873124815
+          }
+        },
+        {
+          "index": 5,
+          "focus": {
+            "face_laplacian_variance": 293.3343505859375,
+            "face_gradient_energy": 1642.826904296875,
+            "empty_background_laplacian_variance": 0.8456501960754395
+          },
+          "geometry": {
+            "left_eye": [
+              204.63286713286715,
+              228.3269230769231
+            ],
+            "right_eye": [
+              271.7633333333333,
+              230.445
+            ],
+            "gem": [
+              248.29246676514032,
+              106.54948301329395
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              238.19810023310023,
+              337.0
+            ],
+            "eye_distance": 67.16387229861007,
+            "gem_waist_distance": 379.5622305297566,
+            "neck_waist_distance": 149.32185252769858
+          }
+        },
+        {
+          "index": 6,
+          "focus": {
+            "face_laplacian_variance": 339.45404052734375,
+            "face_gradient_energy": 1752.411865234375,
+            "empty_background_laplacian_variance": 0.8843909502029419
+          },
+          "geometry": {
+            "left_eye": [
+              205.15650741350908,
+              229.4349258649094
+            ],
+            "right_eye": [
+              272.1435562805873,
+              230.67536704730833
+            ],
+            "gem": [
+              248.7920353982301,
+              106.9070796460177
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              238.65003184704818,
+              337.0
+            ],
+            "eye_distance": 66.99853289623077,
+            "gem_waist_distance": 379.24717160914554,
+            "neck_waist_distance": 149.3861754779139
+          }
+        },
+        {
+          "index": 7,
+          "focus": {
+            "face_laplacian_variance": 368.7768859863281,
+            "face_gradient_energy": 1808.965576171875,
+            "empty_background_laplacian_variance": 1.0596028566360474
+          },
+          "geometry": {
+            "left_eye": [
+              205.3251633986928,
+              229.41339869281046
+            ],
+            "right_eye": [
+              272.28155339805824,
+              230.78155339805824
+            ],
+            "gem": [
+              249.15214180206794,
+              106.98818316100443
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              238.80335839837554,
+              337.0
+            ],
+            "eye_distance": 66.97036664857535,
+            "gem_waist_distance": 379.1965560608208,
+            "neck_waist_distance": 149.4083025589189
+          }
+        },
+        {
+          "index": 8,
+          "focus": {
+            "face_laplacian_variance": 386.8523254394531,
+            "face_gradient_energy": 1849.2840576171875,
+            "empty_background_laplacian_variance": 0.8164914846420288
+          },
+          "geometry": {
+            "left_eye": [
+              205.47495961227787,
+              229.3198707592892
+            ],
+            "right_eye": [
+              272.4936102236422,
+              230.86102236421726
+            ],
+            "gem": [
+              249.5805022156573,
+              107.01033973412112
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              238.98428491796003,
+              337.0
+            ],
+            "eye_distance": 67.03636832375017,
+            "gem_waist_distance": 379.21085325616326,
+            "neck_waist_distance": 149.43461081892517
+          }
+        },
+        {
+          "index": 9,
+          "focus": {
+            "face_laplacian_variance": 400.72698974609375,
+            "face_gradient_energy": 1872.3594970703125,
+            "empty_background_laplacian_variance": 0.9454733729362488
+          },
+          "geometry": {
+            "left_eye": [
+              205.51685393258427,
+              229.30176565008026
+            ],
+            "right_eye": [
+              272.6876971608833,
+              231.01104100946372
+            ],
+            "gem": [
+              249.8813056379822,
+              107.1839762611276
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              239.10227554673378,
+              337.0
+            ],
+            "eye_distance": 67.1925874055682,
+            "gem_waist_distance": 379.06369451593997,
+            "neck_waist_distance": 149.4518831643942
+          }
+        },
+        {
+          "index": 10,
+          "focus": {
+            "face_laplacian_variance": 423.4642333984375,
+            "face_gradient_energy": 1917.7601318359375,
+            "empty_background_laplacian_variance": 1.0178520679473877
+          },
+          "geometry": {
+            "left_eye": [
+              205.65640194489464,
+              229.38573743922205
+            ],
+            "right_eye": [
+              272.8516746411483,
+              231.0494417862839
+            ],
+            "gem": [
+              250.20771513353117,
+              107.15578635014836
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              239.2540382930215,
+              337.0
+            ],
+            "eye_distance": 67.21586557412114,
+            "gem_waist_distance": 379.1200870160082,
+            "neck_waist_distance": 149.47423333071544
+          }
+        },
+        {
+          "index": 11,
+          "focus": {
+            "face_laplacian_variance": 438.0468444824219,
+            "face_gradient_energy": 1941.795654296875,
+            "empty_background_laplacian_variance": 1.007941484451294
+          },
+          "geometry": {
+            "left_eye": [
+              205.78719999999998,
+              229.3856
+            ],
+            "right_eye": [
+              273.05910543130994,
+              231.05271565495207
+            ],
+            "gem": [
+              250.2765321375187,
+              107.30642750373693
+            ],
+            "waist": [
+              217.16666666666669,
+              484.83333333333337
+            ],
+            "neck": [
+              239.42315271565496,
+              337.0
+            ],
+            "eye_distance": 67.29255928381752,
+            "gem_waist_distance": 378.97602538520414,
+            "neck_waist_distance": 149.49931643888297
+          }
+        },
+        {
+          "index": 12,
+          "focus": {
+            "face_laplacian_variance": 451.3497009277344,
+            "face_gradient_energy": 1966.488525390625,
+            "empty_background_laplacian_variance": 1.173926830291748
+          },
+          "geometry": {
+            "left_eye": [
+              205.90675241157555,
+              229.2636655948553
+            ],
+            "right_eye": [
+              273.3001579778831,
+              231.12480252764612
+            ],
+            "gem": [
+              250.53753753753753,
+              107.38588588588588
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.60345519472932,
+              337.0
+            ],
+            "eye_distance": 67.4190992561263,
+            "gem_waist_distance": 378.804791185823,
+            "neck_waist_distance": 149.4055170231826
+          }
+        },
+        {
+          "index": 13,
+          "focus": {
+            "face_laplacian_variance": 457.56488037109375,
+            "face_gradient_energy": 1976.7415771484375,
+            "empty_background_laplacian_variance": 1.135323405265808
+          },
+          "geometry": {
+            "left_eye": [
+              206.05128205128204,
+              229.4775641025641
+            ],
+            "right_eye": [
+              273.2936507936508,
+              231.08253968253968
+            ],
+            "gem": [
+              250.76470588235293,
+              107.52488687782805
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.6724664224664,
+              337.0
+            ],
+            "eye_distance": 67.26152020804322,
+            "gem_waist_distance": 378.6863511161988,
+            "neck_waist_distance": 149.41584729008628
+          }
+        },
+        {
+          "index": 14,
+          "focus": {
+            "face_laplacian_variance": 467.15155029296875,
+            "face_gradient_energy": 1992.4754638671875,
+            "empty_background_laplacian_variance": 1.137858510017395
+          },
+          "geometry": {
+            "left_eye": [
+              206.45072697899838,
+              229.36995153473345
+            ],
+            "right_eye": [
+              273.3640699523053,
+              231.04133545310015
+            ],
+            "gem": [
+              251.00605143721634,
+              107.6338880484115
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.9073984656518,
+              337.0
+            ],
+            "eye_distance": 66.93421391236303,
+            "gem_waist_distance": 378.5992048694055,
+            "neck_waist_distance": 149.45124772797928
+          }
+        },
+        {
+          "index": 15,
+          "focus": {
+            "face_laplacian_variance": 473.6404724121094,
+            "face_gradient_energy": 2008.574462890625,
+            "empty_background_laplacian_variance": 1.0284972190856934
+          },
+          "geometry": {
+            "left_eye": [
+              206.4951768488746,
+              229.35530546623795
+            ],
+            "right_eye": [
+              273.480376766091,
+              231.11459968602827
+            ],
+            "gem": [
+              251.20212765957447,
+              107.6018237082067
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.98777680748282,
+              337.0
+            ],
+            "eye_distance": 67.00829891962069,
+            "gem_waist_distance": 378.6486610413976,
+            "neck_waist_distance": 149.463442295447
+          }
+        },
+        {
+          "index": 16,
+          "focus": {
+            "face_laplacian_variance": 478.728271484375,
+            "face_gradient_energy": 2015.0,
+            "empty_background_laplacian_variance": 1.2989697456359863
+          },
+          "geometry": {
+            "left_eye": [
+              206.41693290734824,
+              229.18690095846645
+            ],
+            "right_eye": [
+              273.6263736263736,
+              231.13343799058083
+            ],
+            "gem": [
+              251.34901365705616,
+              107.70561456752655
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              240.02165326686094,
+              337.0
+            ],
+            "eye_distance": 67.23762286236462,
+            "gem_waist_distance": 378.55848163166456,
+            "neck_waist_distance": 149.4685944983915
+          }
+        },
+        {
+          "index": 17,
+          "focus": {
+            "face_laplacian_variance": 480.66021728515625,
+            "face_gradient_energy": 2021.3441162109375,
+            "empty_background_laplacian_variance": 1.2498726844787598
+          },
+          "geometry": {
+            "left_eye": [
+              206.52464228934815,
+              229.22734499205086
+            ],
+            "right_eye": [
+              273.624213836478,
+              231.11949685534591
+            ],
+            "gem": [
+              251.37329286798177,
+              107.701062215478
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              240.07442806291306,
+              337.0
+            ],
+            "eye_distance": 67.12624479651882,
+            "gem_waist_distance": 378.56520176424084,
+            "neck_waist_distance": 149.47663585444778
+          }
+        },
+        {
+          "index": 18,
+          "focus": {
+            "face_laplacian_variance": 480.91534423828125,
+            "face_gradient_energy": 2018.200927734375,
+            "empty_background_laplacian_variance": 1.1569210290908813
+          },
+          "geometry": {
+            "left_eye": [
+              206.45072697899838,
+              229.20678513731826
+            ],
+            "right_eye": [
+              273.5632911392405,
+              231.13291139240505
+            ],
+            "gem": [
+              251.24316109422494,
+              107.76595744680851
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              240.00700905911944,
+              337.0
+            ],
+            "eye_distance": 67.14019832047825,
+            "gem_waist_distance": 378.4888685179504,
+            "neck_waist_distance": 149.46636636976595
+          }
+        },
+        {
+          "index": 19,
+          "focus": {
+            "face_laplacian_variance": 481.9042663574219,
+            "face_gradient_energy": 2017.7646484375,
+            "empty_background_laplacian_variance": 1.3439035415649414
+          },
+          "geometry": {
+            "left_eye": [
+              206.34405144694534,
+              229.21543408360128
+            ],
+            "right_eye": [
+              273.4377952755906,
+              231.06929133858267
+            ],
+            "gem": [
+              251.15114503816795,
+              107.66564885496183
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.89092336126794,
+              337.0
+            ],
+            "eye_distance": 67.11935076910174,
+            "gem_waist_distance": 378.5805269523431,
+            "neck_waist_distance": 149.44875342985534
+          }
+        },
+        {
+          "index": 20,
+          "focus": {
+            "face_laplacian_variance": 488.87506103515625,
+            "face_gradient_energy": 2027.77392578125,
+            "empty_background_laplacian_variance": 1.3216267824172974
+          },
+          "geometry": {
+            "left_eye": [
+              206.3682487725041,
+              229.13911620294598
+            ],
+            "right_eye": [
+              273.39055118110235,
+              231.04724409448818
+            ],
+            "gem": [
+              250.93261868300152,
+              107.6676875957121
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.87939997680323,
+              337.0
+            ],
+            "eye_distance": 67.04945914919878,
+            "gem_waist_distance": 378.55900336583744,
+            "neck_waist_distance": 149.44700986700013
+          }
+        },
+        {
+          "index": 21,
+          "focus": {
+            "face_laplacian_variance": 492.4029235839844,
+            "face_gradient_energy": 2027.78125,
+            "empty_background_laplacian_variance": 1.1687599420547485
+          },
+          "geometry": {
+            "left_eye": [
+              206.3252427184466,
+              229.26699029126212
+            ],
+            "right_eye": [
+              273.4025157232704,
+              231.07232704402514
+            ],
+            "gem": [
+              250.75500770416025,
+              107.75500770416025
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.8638792208585,
+              337.0
+            ],
+            "eye_distance": 67.10156327951343,
+            "gem_waist_distance": 378.4562744882754,
+            "neck_waist_distance": 149.44466284809764
+          }
+        },
+        {
+          "index": 22,
+          "focus": {
+            "face_laplacian_variance": 491.8521423339844,
+            "face_gradient_energy": 2026.614501953125,
+            "empty_background_laplacian_variance": 1.0646716356277466
+          },
+          "geometry": {
+            "left_eye": [
+              206.3219512195122,
+              229.22276422764227
+            ],
+            "right_eye": [
+              273.35905511811023,
+              231.0771653543307
+            ],
+            "gem": [
+              250.69953775038522,
+              107.70878274268105
+            ],
+            "waist": [
+              217.2,
+              484.6
+            ],
+            "neck": [
+              239.8405031688112,
+              337.0
+            ],
+            "eye_distance": 67.06274750299225,
+            "gem_waist_distance": 378.3770720791538,
+            "neck_waist_distance": 149.32632850149687
+          }
+        },
+        {
+          "index": 23,
+          "focus": {
+            "face_laplacian_variance": 493.7016906738281,
+            "face_gradient_energy": 2015.3765869140625,
+            "empty_background_laplacian_variance": 1.16576087474823
+          },
+          "geometry": {
+            "left_eye": [
+              206.19614147909968,
+              229.34726688102893
+            ],
+            "right_eye": [
+              273.32713178294574,
+              231.14883720930231
+            ],
+            "gem": [
+              250.58487654320987,
+              107.67438271604938
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.76163663102272,
+              337.0
+            ],
+            "eye_distance": 67.15516000146816,
+            "gem_waist_distance": 378.5215729054748,
+            "neck_waist_distance": 149.42924128685004
+          }
+        },
+        {
+          "index": 24,
+          "focus": {
+            "face_laplacian_variance": 499.1203918457031,
+            "face_gradient_energy": 2018.4302978515625,
+            "empty_background_laplacian_variance": 1.0937073230743408
+          },
+          "geometry": {
+            "left_eye": [
+              206.08346709470305,
+              229.5072231139647
+            ],
+            "right_eye": [
+              273.2244582043344,
+              231.1594427244582
+            ],
+            "gem": [
+              250.38828967642527,
+              107.70107858243452
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.6539626495187,
+              337.0
+            ],
+            "eye_distance": 67.16131711651353,
+            "gem_waist_distance": 378.47772925847886,
+            "neck_waist_distance": 149.4130744092677
+          }
+        },
+        {
+          "index": 25,
+          "focus": {
+            "face_laplacian_variance": 507.2109375,
+            "face_gradient_energy": 2022.9146728515625,
+            "empty_background_laplacian_variance": 1.1858731508255005
+          },
+          "geometry": {
+            "left_eye": [
+              205.74317817014446,
+              229.42375601926165
+            ],
+            "right_eye": [
+              272.68529411764706,
+              231.8941176470588
+            ],
+            "gem": [
+              250.0384024577573,
+              107.51459293394777
+            ],
+            "waist": [
+              217.2,
+              484.6
+            ],
+            "neck": [
+              239.21423614389576,
+              337.0
+            ],
+            "eye_distance": 66.98768225652366,
+            "gem_waist_distance": 378.5125690094689,
+            "neck_waist_distance": 149.23265927068113
+          }
+        },
+        {
+          "index": 26,
+          "focus": {
+            "face_laplacian_variance": 513.423095703125,
+            "face_gradient_energy": 2025.3388671875,
+            "empty_background_laplacian_variance": 1.313179850578308
+          },
+          "geometry": {
+            "left_eye": [
+              205.7296,
+              229.44799999999998
+            ],
+            "right_eye": [
+              272.6,
+              231.9970802919708
+            ],
+            "gem": [
+              249.91006097560975,
+              107.4390243902439
+            ],
+            "waist": [
+              217.2,
+              484.6
+            ],
+            "neck": [
+              239.1648,
+              337.0
+            ],
+            "eye_distance": 66.91896746435135,
+            "gem_waist_distance": 378.57674203776855,
+            "neck_waist_distance": 149.22537464868367
+          }
+        },
+        {
+          "index": 27,
+          "focus": {
+            "face_laplacian_variance": 509.87750244140625,
+            "face_gradient_energy": 2014.77978515625,
+            "empty_background_laplacian_variance": 1.1713424921035767
+          },
+          "geometry": {
+            "left_eye": [
+              205.78025477707007,
+              229.46337579617835
+            ],
+            "right_eye": [
+              272.5687134502924,
+              231.93567251461988
+            ],
+            "gem": [
+              249.88145896656533,
+              107.40881458966565
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.17448411368122,
+              337.0
+            ],
+            "eye_distance": 66.83420129700622,
+            "gem_waist_distance": 378.72489782693435,
+            "neck_waist_distance": 149.34200366995984
+          }
+        },
+        {
+          "index": 28,
+          "focus": {
+            "face_laplacian_variance": 512.18017578125,
+            "face_gradient_energy": 2004.772705078125,
+            "empty_background_laplacian_variance": 1.0510245561599731
+          },
+          "geometry": {
+            "left_eye": [
+              205.70382165605096,
+              229.54936305732485
+            ],
+            "right_eye": [
+              272.5204081632653,
+              231.89212827988337
+            ],
+            "gem": [
+              249.66257668711657,
+              107.5536809815951
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.11211490965815,
+              337.0
+            ],
+            "eye_distance": 66.85764564628407,
+            "gem_waist_distance": 378.5617791793328,
+            "neck_waist_distance": 149.33286965632902
+          }
+        },
+        {
+          "index": 29,
+          "focus": {
+            "face_laplacian_variance": 517.6141357421875,
+            "face_gradient_energy": 2011.9210205078125,
+            "empty_background_laplacian_variance": 1.1749886274337769
+          },
+          "geometry": {
+            "left_eye": [
+              205.67398119122257,
+              229.6128526645768
+            ],
+            "right_eye": [
+              272.3473837209302,
+              231.99273255813955
+            ],
+            "gem": [
+              249.4754601226994,
+              107.44478527607362
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              239.01068245607638,
+              337.0
+            ],
+            "eye_distance": 66.71586342989359,
+            "gem_waist_distance": 378.65431641587145,
+            "neck_waist_distance": 149.31806924478803
+          }
+        },
+        {
+          "index": 30,
+          "focus": {
+            "face_laplacian_variance": 519.7487182617188,
+            "face_gradient_energy": 2009.023193359375,
+            "empty_background_laplacian_variance": 0.9003911018371582
+          },
+          "geometry": {
+            "left_eye": [
+              205.60031595576618,
+              229.60979462875196
+            ],
+            "right_eye": [
+              272.3225331369661,
+              231.99410898379972
+            ],
+            "gem": [
+              248.5331950207469,
+              113.52282157676348
+            ],
+            "waist": [
+              217.27272727272725,
+              484.72727272727275
+            ],
+            "neck": [
+              238.96142454636615,
+              337.0
+            ],
+            "eye_distance": 66.76480525335859,
+            "gem_waist_distance": 372.5184041061271,
+            "neck_waist_distance": 149.31090615512844
+          }
+        },
+        {
+          "index": 31,
+          "focus": {
+            "face_laplacian_variance": 525.1276245117188,
+            "face_gradient_energy": 2015.637451171875,
+            "empty_background_laplacian_variance": 1.0531833171844482
+          },
+          "geometry": {
+            "left_eye": [
+              205.31655844155844,
+              229.35064935064935
+            ],
+            "right_eye": [
+              272.4762633996937,
+              231.12557427258804
+            ],
+            "gem": [
+              248.41528925619835,
+              113.55785123966942
+            ],
+            "waist": [
+              217.5,
+              484.8
+            ],
+            "neck": [
+              238.89641092062607,
+              337.0
+            ],
+            "eye_distance": 67.18315509517471,
+            "gem_waist_distance": 372.52716427930704,
+            "neck_waist_distance": 149.34070577134787
+          }
+        },
+        {
+          "index": 32,
+          "focus": {
+            "face_laplacian_variance": 528.162109375,
+            "face_gradient_energy": 2007.9569091796875,
+            "empty_background_laplacian_variance": 1.1985046863555908
+          },
+          "geometry": {
+            "left_eye": [
+              205.1143790849673,
+              229.29575163398692
+            ],
+            "right_eye": [
+              272.2099853157122,
+              231.856093979442
+            ],
+            "gem": [
+              248.08624229979466,
+              113.45379876796714
+            ],
+            "waist": [
+              217.5,
+              484.8
+            ],
+            "neck": [
+              238.66218220033974,
+              337.0
+            ],
+            "eye_distance": 67.1444392961703,
+            "gem_waist_distance": 372.6037028633548,
+            "neck_waist_distance": 149.3073271995731
+          }
+        },
+        {
+          "index": 33,
+          "focus": {
+            "face_laplacian_variance": 531.9512329101562,
+            "face_gradient_energy": 2013.0511474609375,
+            "empty_background_laplacian_variance": 1.1189237833023071
+          },
+          "geometry": {
+            "left_eye": [
+              205.1360655737705,
+              229.2754098360656
+            ],
+            "right_eye": [
+              272.099560761347,
+              231.7584187408492
+            ],
+            "gem": [
+              248.62310030395136,
+              107.29787234042553
+            ],
+            "waist": [
+              217.5,
+              484.8
+            ],
+            "neck": [
+              238.61781316755875,
+              337.0
+            ],
+            "eye_distance": 67.00951440622305,
+            "gem_waist_distance": 378.78292432478463,
+            "neck_waist_distance": 149.3010449828799
+          }
+        },
+        {
+          "index": 34,
+          "focus": {
+            "face_laplacian_variance": 535.8036499023438,
+            "face_gradient_energy": 2012.87451171875,
+            "empty_background_laplacian_variance": 1.3035930395126343
+          },
+          "geometry": {
+            "left_eye": [
+              204.92382495948135,
+              229.37277147487845
+            ],
+            "right_eye": [
+              271.9462989840348,
+              231.70537010159651
+            ],
+            "gem": [
+              247.76701030927836,
+              113.36288659793814
+            ],
+            "waist": [
+              217.5,
+              484.8
+            ],
+            "neck": [
+              238.4350619717581,
+              337.0
+            ],
+            "eye_distance": 67.06305272447197,
+            "gem_waist_distance": 372.668245394638,
+            "neck_waist_distance": 149.27530545861012
+          }
+        },
+        {
+          "index": 35,
+          "focus": {
+            "face_laplacian_variance": 540.034423828125,
+            "face_gradient_energy": 2024.72900390625,
+            "empty_background_laplacian_variance": 1.0972541570663452
+          },
+          "geometry": {
+            "left_eye": [
+              204.829307568438,
+              229.36070853462158
+            ],
+            "right_eye": [
+              271.86541244573084,
+              231.67293777134586
+            ],
+            "gem": [
+              248.43009118541033,
+              107.209726443769
+            ],
+            "waist": [
+              217.5,
+              484.8
+            ],
+            "neck": [
+              238.3473600070844,
+              337.0
+            ],
+            "eye_distance": 67.0759700724676,
+            "gem_waist_distance": 378.8549659500416,
+            "neck_waist_distance": 149.26303098646022
+          }
+        },
+        {
+          "index": 36,
+          "focus": {
+            "face_laplacian_variance": 540.9296875,
+            "face_gradient_energy": 2020.7882080078125,
+            "empty_background_laplacian_variance": 1.107372760772705
+          },
+          "geometry": {
+            "left_eye": [
+              204.75160256410257,
+              229.39102564102564
+            ],
+            "right_eye": [
+              271.8191027496382,
+              231.70767004341533
+            ],
+            "gem": [
+              247.64449064449065,
+              113.32848232848232
+            ],
+            "waist": [
+              217.5,
+              484.8
+            ],
+            "neck": [
+              238.28535265687037,
+              337.0
+            ],
+            "eye_distance": 67.10749900289792,
+            "gem_waist_distance": 372.6926062553381,
+            "neck_waist_distance": 149.25438313520468
+          }
+        },
+        {
+          "index": 37,
+          "focus": {
+            "face_laplacian_variance": 535.0497436523438,
+            "face_gradient_energy": 2017.4259033203125,
+            "empty_background_laplacian_variance": 0.9618785381317139
+          },
+          "geometry": {
+            "left_eye": [
+              204.77455716586152,
+              229.34299516908214
+            ],
+            "right_eye": [
+              271.7936046511628,
+              231.67877906976744
+            ],
+            "gem": [
+              248.39817629179333,
+              107.13677811550153
+            ],
+            "waist": [
+              217.5,
+              484.8
+            ],
+            "neck": [
+              238.28408090851215,
+              337.0
+            ],
+            "eye_distance": 67.05973913062718,
+            "gem_waist_distance": 378.92506708099785,
+            "neck_waist_distance": 149.25420603524574
+          }
+        },
+        {
+          "index": 38,
+          "focus": {
+            "face_laplacian_variance": 534.8695678710938,
+            "face_gradient_energy": 2020.5367431640625,
+            "empty_background_laplacian_variance": 1.118026852607727
+          },
+          "geometry": {
+            "left_eye": [
+              204.8497576736672,
+              229.40549273021003
+            ],
+            "right_eye": [
+              271.7507246376812,
+              231.6985507246377
+            ],
+            "gem": [
+              248.32724505327246,
+              107.2130898021309
+            ],
+            "waist": [
+              217.5,
+              484.8
+            ],
+            "neck": [
+              238.3002411556742,
+              337.0
+            ],
+            "eye_distance": 66.94025317912906,
+            "gem_waist_distance": 378.8432311528717,
+            "neck_waist_distance": 149.2564572543989
+          }
+        },
+        {
+          "index": 39,
+          "focus": {
+            "face_laplacian_variance": 532.0487060546875,
+            "face_gradient_energy": 2019.9234619140625,
+            "empty_background_laplacian_variance": 0.9487298130989075
+          },
+          "geometry": {
+            "left_eye": [
+              204.8148148148148,
+              229.36553945249597
+            ],
+            "right_eye": [
+              271.72648335745293,
+              231.68885672937773
+            ],
+            "gem": [
+              247.649377593361,
+              113.29875518672199
+            ],
+            "waist": [
+              217.5,
+              484.8
+            ],
+            "neck": [
+              238.2706490861339,
+              337.0
+            ],
+            "eye_distance": 66.95199168306291,
+            "gem_waist_distance": 372.72263127838403,
+            "neck_waist_distance": 149.25233620771007
+          }
+        },
+        {
+          "index": 40,
+          "focus": {
+            "face_laplacian_variance": 527.6434936523438,
+            "face_gradient_energy": 2020.5556640625,
+            "empty_background_laplacian_variance": 1.0709764957427979
+          },
+          "geometry": {
+            "left_eye": [
+              204.8774193548387,
+              229.38225806451612
+            ],
+            "right_eye": [
+              271.899416909621,
+              231.68221574344022
+            ],
+            "gem": [
+              248.41818181818184,
+              107.19393939393939
+            ],
+            "waist": [
+              217.5,
+              484.8
+            ],
+            "neck": [
+              238.38841813222984,
+              337.0
+            ],
+            "eye_distance": 67.0614491459742,
+            "gem_waist_distance": 378.8697282356695,
+            "neck_waist_distance": 149.26877105431956
+          }
+        }
+      ]
+    }
+  ],
+  "limits": "Painted edge/color changes, pose and detector correspondence confound metrics. Root/proportion comparisons are native, unregistered output; no guide-plan PASS inferred. Quiet-face edge energy can reward noise. Python reads numeric ROIs only; no visual crops/resize/images saved."
+}

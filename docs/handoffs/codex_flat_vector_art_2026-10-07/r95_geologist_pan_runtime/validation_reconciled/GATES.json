@@ -1,0 +1,62 @@
+[
+  {
+    "gate": "parser",
+    "command": [
+      "python",
+      "-m",
+      "gdtoolkit.parser",
+      "scripts/opera_geology_surface.gd"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2.282,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "gate": "inference",
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "scripts/opera_geology_surface.gd"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 0.357,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "gate": "authority",
+    "command": [
+      "python",
+      "-B",
+      "tools/audit_document_authority.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 26.081,
+    "log_sha256": "cf4de786ba89fc96a266f25e2574bf3bd4d0b3076c0afe4275e3855422e1946a"
+  },
+  {
+    "gate": "development",
+    "command": [
+      "python",
+      "-B",
+      "tools/audit_development.py",
+      "--base",
+      "auto"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 4.169,
+    "log_sha256": "3dbffdc8a84862d86efd57c6144bc9169a17fdd3e6fa0b83c696ea61ee79dee6"
+  },
+  {
+    "gate": "game2d",
+    "command": [
+      "python",
+      "-B",
+      "tools/audit_game_2d.py",
+      "--regression-gate"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 258.006,
+    "log_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac"
+  }
+]

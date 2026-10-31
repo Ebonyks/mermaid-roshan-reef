@@ -1,0 +1,7 @@
+# Painted geode crystal gallery candidate
+
+Stable item `FV-F7DB96881260`, baseline `97cfaa0bd90e47c33dfcae790417d3a1b2d5299a`. One complete painted aqua/lilac cluster replaces this surface's flat SVG and polygon gallery fallback. The complete cluster fits uniformly in its original156x168slot and follows unchanged reveal offsets.55other functions and all tap/pull/save/one-finger behavior are byte-identical. Original shell/cavity/seam targets and other SVG consumers remain separate debt.
+
+One built-in ImageGen static take, native1122x1402/Aseprite and uniform512wholeexport. Model/version, requestID, seed and usage not exposed; animationcalls0. [Plan](PLAN.json), [manifest](MANIFEST.json), [derivation](DERIVATION.json), [ten-axis review](FRAME_REVIEW.json), [machine](LOCAL_82_RESULT.json), [source binding](DELIVERY_SOURCE_BINDING.json), [preexisting119gap](PREEXISTING_TERMINAL_GAP.json), [impact](../../../../design/audit_impacts/flat-vector-geologist-gallery-runtime-20261029.json).
+
+Exact4.7.2 Mobile/Speedy currentstatic/import/all82trusted and88configured valid-path native checks pass, normal saves unchanged. All16current frames at1280/1600 inspected against6immutable same-scene sourceframes. Eight excluded nativeframes retain the preexisting119-terminal failure; that unchangedmechanism is not accepted. ExactsourceCI/Dev pending. Shell/cavity/seam/backdrop and formalQA11/device/child/owner/natural/training/allroutes/global gaps remain open; accepted artwork removals0.

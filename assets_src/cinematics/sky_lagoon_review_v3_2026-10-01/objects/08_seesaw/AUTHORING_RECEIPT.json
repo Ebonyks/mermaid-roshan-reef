@@ -1,0 +1,105 @@
+{
+  "id": "08_seesaw",
+  "status": "REFERENCE_SAMPLE",
+  "frame_canvas": [
+    512,
+    512
+  ],
+  "unique_generated_pose_drawings": 6,
+  "authored_light_states": 0,
+  "method": "Fresh generated pose drawings; Aseprite alpha cleanup and anchor registration. No deformation of the old source supplies motion.",
+  "input": "generated_native.png",
+  "input_sha256": "5652050d731f33e5063a9decdedcea27062d65875adffdda28b3350e620df0db",
+  "state_rgba_sha256": [
+    "f5641eac1aa2fc8c200b2b026f3b72b383e7d94e9469ec9e09699c9bb0b5a582",
+    "86a7a2922f20b7cd3d14137b9607aaec0dfa67ac024f2f9442ed5baa2834eb80",
+    "445bdf0603f4441f54594f6e931dec5a7c7b85f6912c35b894fef323162b5c02",
+    "629f8708cfc5a4cd5d1d9e6964f60ec45dc75a64993872314da382029ab1fafd",
+    "06fa6bf908716afa03531822cfc4b5fc2b8ed772f5eaf351910c0b41a4fc9fd8",
+    "a924ce239bc8c2f93b1f0ce27448730c0781b2adf48273caea1eac1627e36296"
+  ],
+  "pose_native_bounds": [
+    [
+      38,
+      177,
+      474,
+      391
+    ],
+    [
+      43,
+      165,
+      473,
+      392
+    ],
+    [
+      55,
+      92,
+      477,
+      376
+    ],
+    [
+      36,
+      174,
+      476,
+      384
+    ],
+    [
+      42,
+      114,
+      475,
+      369
+    ],
+    [
+      39,
+      90,
+      462,
+      379
+    ]
+  ],
+  "border_cap_repairs": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "fixed_bottom_y": null,
+  "fixed_base_rect": [
+    182,
+    355,
+    331,
+    398
+  ],
+  "edge_cleanup": {
+    "alpha_cutoff": 192,
+    "opaque_contours": true,
+    "method": "Largest connected subject mask; Aseprite rejects stray semi-transparent border noise, nearest-neighbor native pose registration."
+  },
+  "loop_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "duration_units_12fps": [
+    2,
+    2,
+    4,
+    2,
+    2,
+    4
+  ],
+  "limits": "Six-key acting examples remain coarse. AI detail/topology continuity and manual contacts require owner/production review. Not human hand drawing, accepted runtime art or full-frame cinematic delivery.",
+  "playback_duration_units_12fps": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "reference_phase_units_12fps": 11
+}

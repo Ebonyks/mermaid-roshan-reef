@@ -1,0 +1,524 @@
+{
+  "status": "SOURCE_GEOMETRY_PASS",
+  "tolerances": {
+    "max_native_anchor_error_px": 6,
+    "root_error_px": 1,
+    "pair_ratio_deviation": 0.03
+  },
+  "rows": [
+    {
+      "index": 0,
+      "path": "scale_continuity/registered_guides/guide_0000.png",
+      "sha256": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+      "landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "native_residuals_px": {
+        "crown_gem": 0.0,
+        "image_left_eye": 0.0,
+        "image_right_eye": 0.0,
+        "neck_base": 0.0,
+        "bodice_waist_tip": 0.0
+      },
+      "native_pair_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true
+    },
+    {
+      "index": 3,
+      "path": "scale_continuity/registered_guides/guide_0003.png",
+      "sha256": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+      "landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "native_residuals_px": {
+        "crown_gem": 0.0,
+        "image_left_eye": 0.0,
+        "image_right_eye": 0.0,
+        "neck_base": 0.0,
+        "bodice_waist_tip": 0.0
+      },
+      "native_pair_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true
+    },
+    {
+      "index": 7,
+      "path": "scale_continuity/registered_guides/guide_0007.png",
+      "sha256": "38ed515d21b9b45fbb1606dcfaef2b31b9ca71663dbdf592a53126f6f2355b8c",
+      "landmarks": {
+        "crown_gem": [
+          213.15529411764706,
+          89.58823529411765
+        ],
+        "image_left_eye": [
+          166.60805084745763,
+          202.97669491525426
+        ],
+        "image_right_eye": [
+          231.67894736842106,
+          207.41929824561402
+        ],
+        "neck_base": [
+          199.14349910793936,
+          314.0
+        ],
+        "bodice_waist_tip": [
+          184.11111111111111,
+          452.66666666666663
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          213.54418300653595,
+          89.92156862745102
+        ],
+        "image_left_eye": [
+          166.99693973634652,
+          203.31002824858763
+        ],
+        "image_right_eye": [
+          232.06783625730995,
+          207.7526315789474
+        ],
+        "neck_base": [
+          199.53238799682825,
+          314.33333333333337
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "native_residuals_px": {
+        "crown_gem": 0.5121969142940715,
+        "image_left_eye": 0.5121969142940715,
+        "image_right_eye": 0.5121969142940715,
+        "neck_base": 0.5121969142940715,
+        "bodice_waist_tip": 0.5121969142940715
+      },
+      "native_pair_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true
+    },
+    {
+      "index": 17,
+      "path": "scale_continuity/registered_guides/guide_0017.png",
+      "sha256": "c93a6859d176f79e72a542e5720ee74876788cff30656201e61ac133cbde1461",
+      "landmarks": {
+        "crown_gem": [
+          232.90864197530865,
+          90.24691358024691
+        ],
+        "image_left_eye": [
+          183.38056680161944,
+          202.69635627530363
+        ],
+        "image_right_eye": [
+          248.58727272727273,
+          207.50181818181818
+        ],
+        "neck_base": [
+          215.98391976444609,
+          312.0
+        ],
+        "bodice_waist_tip": [
+          184.6,
+          452.6
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          232.80864197530866,
+          90.64691358024689
+        ],
+        "image_left_eye": [
+          183.28056680161944,
+          203.0963562753036
+        ],
+        "image_right_eye": [
+          248.48727272727274,
+          207.90181818181816
+        ],
+        "neck_base": [
+          215.8839197644461,
+          312.4
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "native_residuals_px": {
+        "crown_gem": 0.41231056256174264,
+        "image_left_eye": 0.41231056256174264,
+        "image_right_eye": 0.41231056256174264,
+        "neck_base": 0.41231056256174264,
+        "bodice_waist_tip": 0.41231056256174264
+      },
+      "native_pair_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true
+    },
+    {
+      "index": 22,
+      "path": "scale_continuity/registered_guides/guide_0022.png",
+      "sha256": "21aabb27cf3cef2b8eded16bca51ed686eea02fdcd6ceddcaba5d523cf2601cf",
+      "landmarks": {
+        "crown_gem": [
+          222.34937238493723,
+          87.92677824267783
+        ],
+        "image_left_eye": [
+          172.44989775051124,
+          198.5480572597137
+        ],
+        "image_right_eye": [
+          237.9090909090909,
+          203.44967532467533
+        ],
+        "neck_base": [
+          205.17949432980106,
+          312.0
+        ],
+        "bodice_waist_tip": [
+          185.25,
+          452.625
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          224.30782566055154,
+          86.67883062189914
+        ],
+        "image_left_eye": [
+          177.26099469788085,
+          200.6707722799112
+        ],
+        "image_right_eye": [
+          242.2188052825553,
+          203.78942260442258
+        ],
+        "neck_base": [
+          209.73989999021808,
+          310.4
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "native_residuals_px": {
+        "crown_gem": 2.322264519164783,
+        "image_left_eye": 5.258571373858236,
+        "image_right_eye": 4.323085263436441,
+        "neck_base": 4.832939042400975,
+        "bodice_waist_tip": 0.8385254915624212
+      },
+      "native_pair_ratios": {
+        "image_left_eye__image_right_eye": 1.009377187123231,
+        "crown_gem__image_left_eye": 0.9840737357512982,
+        "crown_gem__image_right_eye": 0.9839094787158074,
+        "crown_gem__bodice_waist_tip": 0.9948506830582771,
+        "neck_base__bodice_waist_tip": 0.9807598752807261
+      },
+      "pass": true
+    },
+    {
+      "index": 27,
+      "path": "scale_continuity/registered_guides/guide_0027.png",
+      "sha256": "6b3372fa17af620b7078c28bd77039138c6fa2c8b02a581a88363347ba6ddd6d",
+      "landmarks": {
+        "crown_gem": [
+          215.5070093457944,
+          82.31074766355141
+        ],
+        "image_left_eye": [
+          170.94142259414227,
+          197.84518828451883
+        ],
+        "image_right_eye": [
+          235.65033783783784,
+          199.27702702702703
+        ],
+        "neck_base": [
+          203.29588021599005,
+          308.0
+        ],
+        "bodice_waist_tip": [
+          184.2,
+          452.6
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          215.8070093457944,
+          82.71074766355139
+        ],
+        "image_left_eye": [
+          171.24142259414228,
+          198.2451882845188
+        ],
+        "image_right_eye": [
+          235.95033783783785,
+          199.677027027027
+        ],
+        "neck_base": [
+          203.59588021599006,
+          308.4
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "native_residuals_px": {
+        "crown_gem": 0.4999999999999886,
+        "image_left_eye": 0.4999999999999886,
+        "image_right_eye": 0.4999999999999886,
+        "neck_base": 0.4999999999999886,
+        "bodice_waist_tip": 0.4999999999999886
+      },
+      "native_pair_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true
+    },
+    {
+      "index": 36,
+      "path": "scale_continuity/registered_guides/guide_0036.png",
+      "sha256": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+      "landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "native_residuals_px": {
+        "crown_gem": 0.0,
+        "image_left_eye": 0.0,
+        "image_right_eye": 0.0,
+        "neck_base": 0.0,
+        "bodice_waist_tip": 0.0
+      },
+      "native_pair_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true
+    },
+    {
+      "index": 40,
+      "path": "scale_continuity/registered_guides/guide_0040.png",
+      "sha256": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+      "landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "target_landmarks": {
+        "crown_gem": [
+          214.8172268907563,
+          81.71218487394958
+        ],
+        "image_left_eye": [
+          172.44970414201183,
+          195.88954635108482
+        ],
+        "image_right_eye": [
+          239.43915343915344,
+          197.7089947089947
+        ],
+        "neck_base": [
+          205.94442879058263,
+          307.0
+        ],
+        "bodice_waist_tip": [
+          184.5,
+          453.0
+        ]
+      },
+      "native_residuals_px": {
+        "crown_gem": 0.0,
+        "image_left_eye": 0.0,
+        "image_right_eye": 0.0,
+        "neck_base": 0.0,
+        "bodice_waist_tip": 0.0
+      },
+      "native_pair_ratios": {
+        "image_left_eye__image_right_eye": 1.0,
+        "crown_gem__image_left_eye": 1.0,
+        "crown_gem__image_right_eye": 1.0,
+        "crown_gem__bodice_waist_tip": 1.0,
+        "neck_base__bodice_waist_tip": 1.0
+      },
+      "pass": true
+    }
+  ],
+  "accepted": false,
+  "human_identity_review": "Pending owner; assistant inspection sees complete figure, matching costume/tiara/tail, no isolated limb replacement."
+}

@@ -1,0 +1,5 @@
+{
+  "status": "FAIL_DIAGNOSTIC_CODE",
+  "cause": "RGB native PNG compared to RGBA reopened export without normalizing channel count. Actual RGBA pixels must still match exactly.",
+  "repair": "Compare both as RGBA; no image changed."
+}

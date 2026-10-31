@@ -1,0 +1,57 @@
+{
+  "status": "ATTRIBUTED_BY_VERBOSE_TYPE_AND_SOURCE_OWNERSHIP",
+  "runtime_receipt": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\diagnostics\\kart-verbose-baseline-01.json",
+  "runtime_log_sha256": "863640fc081a0c63310e7be25cb8947878467b4855b5ad1ea1f80a3ecd94a5cf",
+  "probe_copy_sha256": "4b784becd5542d7e74e7932803c01c0dbddc3f8ab8a7af4ada821350d3cbbb98",
+  "leaked_instances": [
+    {
+      "type": "Node3D",
+      "id": "364015258610"
+    },
+    {
+      "type": "Node3D",
+      "id": "364065590259"
+    },
+    {
+      "type": "Node3D",
+      "id": "323850603671"
+    },
+    {
+      "type": "Node3D",
+      "id": "309237648549"
+    },
+    {
+      "type": "Node3D",
+      "id": "324219702450"
+    },
+    {
+      "type": "Node3D",
+      "id": "363696491704"
+    },
+    {
+      "type": "Node3D",
+      "id": "308868549837"
+    },
+    {
+      "type": "Node3D",
+      "id": "309187316975"
+    },
+    {
+      "type": "Node3D",
+      "id": "324169370922"
+    }
+  ],
+  "source_commit": "056d890ef38f2496ab52669c955ada654f902511",
+  "source_mismatches": [],
+  "mechanism": "_build_pickups allocates unattached holder before _gen2_card(spiralshell); missing asset returns null and continue skips free/add_child",
+  "missing_asset": "assets/props/gen2/spiralshell.png",
+  "missing_asset_confirmed": true,
+  "default_shell_rows": 3,
+  "default_pickup_races_in_probe": 3,
+  "expected_orphan_total": 9,
+  "proposed_patch": "holder.free() before null-asset continue",
+  "production_patch_applied": false,
+  "candidate_sha256": "2be58780a3caab0e72f8006f21ab1564d49bd82851fbb75cb35f27e289e16d28",
+  "audio_teardown_hypothesis": "DISPROVED_FOR_OBSERVED_OBJECT_TYPES",
+  "limits": "Exact per-allocation runtime stack/ID tagging was not injected. Follow-up focused orphan-count regression and patched verbose run are still required; no device-memory acceptance."
+}

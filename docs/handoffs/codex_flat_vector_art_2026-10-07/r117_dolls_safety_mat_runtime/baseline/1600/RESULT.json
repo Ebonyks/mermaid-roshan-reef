@@ -1,0 +1,271 @@
+{
+	"captures": [
+		{
+			"caught": 0,
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "Configured centre faller at0.44; original live Main/Faron game and authored tiles",
+			"game": "dolls",
+			"id": "01_falling_mat",
+			"input_live_t": 0.0,
+			"missed": 0,
+			"normal_time_scale": 1.0,
+			"panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+			"path": "01_falling_mat.png",
+			"safe_landings": [],
+			"safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+			"sha256": "665f876a5cea2147590ded674bd1d509d612ccf5b1e884609219372e14dd201d",
+			"source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:bfad8fa618543967375755bbbbb66c4cfc0b27fb1050e64323df2cc7ed9782cf"
+		},
+		{
+			"caught": 0,
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "Original engine-driven passive miss from configured0.905 faller; no reward",
+			"game": "dolls",
+			"id": "02_passive_safe_landing",
+			"input_live_t": 0.0,
+			"missed": 1,
+			"normal_time_scale": 1.0,
+			"panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+			"path": "02_passive_safe_landing.png",
+			"safe_landings": [
+				{
+					"texture": 1,
+					"time": 1.102084,
+					"x": 0.5
+				}
+			],
+			"safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+			"sha256": "ab1d798bdf88bba231bc5a372c8e79ae08a3da26e58092823ce422ef796fe241",
+			"source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:bfad8fa618543967375755bbbbb66c4cfc0b27fb1050e64323df2cc7ed9782cf"
+		},
+		{
+			"caught": 0,
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "Configured legal x0.08 extreme safe landing; frozen physics for contact inspection",
+			"game": "dolls",
+			"id": "03_left_safe_edge",
+			"input_live_t": 0.0,
+			"missed": 1,
+			"normal_time_scale": 1.0,
+			"panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+			"path": "03_left_safe_edge.png",
+			"safe_landings": [
+				{
+					"texture": 1,
+					"time": 1.25,
+					"x": 0.08
+				}
+			],
+			"safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+			"sha256": "4ec356dec31f91d9f4c90a987a60a026cfd7fd3a35cbdc4a4d4743760032ecf6",
+			"source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:bfad8fa618543967375755bbbbb66c4cfc0b27fb1050e64323df2cc7ed9782cf"
+		},
+		{
+			"caught": 0,
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "Configured legal x0.92 extreme safe landing; frozen physics for contact inspection",
+			"game": "dolls",
+			"id": "04_right_safe_edge",
+			"input_live_t": 0.0,
+			"missed": 1,
+			"normal_time_scale": 1.0,
+			"panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+			"path": "04_right_safe_edge.png",
+			"safe_landings": [
+				{
+					"texture": 2,
+					"time": 1.25,
+					"x": 0.92
+				}
+			],
+			"safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+			"sha256": "cfec22c6d09bb50bea1220f40b43b33a62ec2f45768cb481fe684aa9cc388deb",
+			"source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:bfad8fa618543967375755bbbbb66c4cfc0b27fb1050e64323df2cc7ed9782cf"
+		},
+		{
+			"caught": 1,
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "Actual native engine catch after owned single touch; private session below goal",
+			"game": "dolls",
+			"id": "05_owned_catch_mat_remains",
+			"input_live_t": 1.85282466666667,
+			"missed": 1,
+			"normal_time_scale": 1.0,
+			"panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+			"path": "05_owned_catch_mat_remains.png",
+			"safe_landings": [],
+			"safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+			"sha256": "5f9653ff9ee198d7552cf4aced49ff6c0099be46427a29feeff42030f7f1f5e8",
+			"source_revision": "086e9285e56b2e6b31bdbaf1c4209b57c9722460; exactactualDolls:bfad8fa618543967375755bbbbb66c4cfc0b27fb1050e64323df2cc7ed9782cf"
+		}
+	],
+	"checks": [
+		{
+			"label": "exact approved engine",
+			"pass": true
+		},
+		{
+			"label": "native Mobile Windows normal time",
+			"pass": true
+		},
+		{
+			"label": "private save bound before ready",
+			"pass": true
+		},
+		{
+			"label": "original Continue available",
+			"pass": true
+		},
+		{
+			"label": "original start menu retired",
+			"pass": true
+		},
+		{
+			"label": "original Castle room owner retired before Faron",
+			"pass": true
+		},
+		{
+			"label": "original Faron caller found",
+			"pass": true
+		},
+		{
+			"label": "original Faron Dolls surface reached",
+			"pass": true
+		},
+		{
+			"label": "private Speedy and Canvas panel",
+			"pass": true
+		},
+		{
+			"label": "original threegoal and nofail",
+			"pass": true
+		},
+		{
+			"label": "original exact safe mat envelope",
+			"pass": true
+		},
+		{
+			"label": "same selected skin behind parent",
+			"pass": true
+		},
+		{
+			"label": "native dimensions 01_falling_mat",
+			"pass": true
+		},
+		{
+			"label": "native PNG 01_falling_mat",
+			"pass": true
+		},
+		{
+			"label": "real passive miss never scores or wins",
+			"pass": true
+		},
+		{
+			"label": "real safe landing bounded by original mat",
+			"pass": true
+		},
+		{
+			"label": "native dimensions 02_passive_safe_landing",
+			"pass": true
+		},
+		{
+			"label": "native PNG 02_passive_safe_landing",
+			"pass": true
+		},
+		{
+			"label": "leftmost valid landing geometry contained",
+			"pass": true
+		},
+		{
+			"label": "native dimensions 03_left_safe_edge",
+			"pass": true
+		},
+		{
+			"label": "native PNG 03_left_safe_edge",
+			"pass": true
+		},
+		{
+			"label": "rightmost valid landing geometry contained",
+			"pass": true
+		},
+		{
+			"label": "native dimensions 04_right_safe_edge",
+			"pass": true
+		},
+		{
+			"label": "native PNG 04_right_safe_edge",
+			"pass": true
+		},
+		{
+			"label": "real onefinger input catches exactlyone",
+			"pass": true
+		},
+		{
+			"label": "native dimensions 05_owned_catch_mat_remains",
+			"pass": true
+		},
+		{
+			"label": "native PNG 05_owned_catch_mat_remains",
+			"pass": true
+		},
+		{
+			"label": "no medal or whole goal awarded",
+			"pass": true
+		},
+		{
+			"label": "original synchronous neutral teardown restores control ownership",
+			"pass": true
+		},
+		{
+			"label": "original automatic courtyard return keeps Dolls retired",
+			"pass": true
+		},
+		{
+			"label": "normal11 save hashes unchanged",
+			"pass": true
+		}
+	],
+	"normal_after": {
+		"": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+		".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+		".before_new_game.bak": "absent",
+		".before_new_game.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"normal_before": {
+		"": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+		".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+		".bak.old": "absent",
+		".bak.tmp": "absent",
+		".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+		".before_new_game.bak": "absent",
+		".before_new_game.tmp": "absent",
+		".old": "absent",
+		".tmp": "absent",
+		".tmp0": "absent",
+		".tmp1": "absent"
+	},
+	"scope": "OriginalMain/Faron/Dolls with configured deterministic faller/edge positions and real engine-driven miss/owned catch. No natural allroutes, formalQA11/device/child/owner claim.",
+	"status": "PASS"
+}

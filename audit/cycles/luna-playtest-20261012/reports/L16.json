@@ -1,0 +1,180 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L16",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l16",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Grand Puff reaction window and mercy",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L16/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The unchanged probe starts the live DustBossGame controller directly and runs eight scripted personas plus four negative controls on exact Godot 4.7.2. All 12 report OK and the terminal line is ALL OK. Attentive, learning, slow, slow-counter, patient-dodger, patient-counter, patient-both and moving-masher each reach three rounds; the two patient-both failures include two hits and two counter misses. Idle, stationary-masher, held-action and movement-only earn zero rounds during their bounded runs.",
+    "route_gaps": "This is not proof of the visible Day One path: the probe skips the intro, obtains the DustBossGame from main, clears save state, and invokes _start_game_now directly (scripts/probe_dust_boss_balance.gd:26-55). Main's story caller starts it after the boss door is reached (scripts/main.gd:6742-6758). The probe assigns stick_vec/action_down rather than routing real touch through visible Controls. It provides no rendered Mobile capture, target-device input/audio or child observation. The matrix marks the encounter live, but this run does not establish fresh-save route discoverability."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [
+      {
+        "value": "The warning profile defines 2.2–2.7 second attack tells, and the initial damage-recovery wait is 1.05 seconds (scripts/encounter_profile_2d.gd:21-24; scripts/games/dust_boss.gd:30,486-491).",
+        "scope": "Source timing only; a real rendered frame, voice, or phone was not measured."
+      },
+      {
+        "value": "A successful first counter grants a 4.6-second landed hold while the optional dash cue is offered; later landed holds are 1.8 seconds (scripts/games/dust_boss.gd:551-569).",
+        "scope": "Code-defined hold; not observed by a child."
+      },
+      {
+        "value": "Probe-reported simulated elapsed values range from 30.32 seconds (moving_masher) to 100.43 seconds (patient_both); the intended learning persona reports 34.93 seconds (runtime/L16/attempt_1/probe.log:4-11).",
+        "scope": "These are scripted encounter-loop measurements under Engine.time_scale=3 (probe_dust_boss_balance.gd:26-28), not real play-session or child attention durations. The probe does not assert the advisory 45–120 second band."
+      }
+    ],
+    "gameplay_duration": null,
+    "assumptions": "No gameplay duration is inferred from the helper's 242.138-second wall time. Probe persona seconds are simulated controller-loop elapsed values only."
+  },
+  "tactile": {
+    "target_size": "No projected touch target was measured. Source grants a generous boss-card hit region with a minimum half-height of 64 screen units and a separate 56-unit top region (scripts/games/dust_boss.gd:676-688); those code thresholds do not prove physical target size or thumb reach on the Lenovo Tab M11.",
+    "press_response": "Not measured from touch. The controller reacts to a tap in the live frame loop, but this headless probe sets action_down directly and records no rendered-frame latency (scripts/games/dust_boss.gd:235-275; probe_dust_boss_balance.gd:91-101).",
+    "drag_hold_release": "Movement is represented by a continuous stick vector in the probe. The live source supports a world-move gesture and cancels it on release/teardown, but no finger drag, hold, release, or cancellation was exercised here (scripts/games/dust_boss.gd:640-655; probe_dust_boss_balance.gd:79-101).",
+    "ownership": "Not tested with physical fingers or competing Controls. Persona inputs are assigned to shared touch_ui fields, so this run cannot establish one-finger ownership (probe_dust_boss_balance.gd:79-101).",
+    "cancellation": "Not tested for real focus loss, pause, back, or scene teardown during a finger hold."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: stepping out of a painted attack shape and choosing when to tap the gold star can feel like a readable two-part victory because movement and the counter each cause progress. The probe supports that cause-and-effect path in scripted controls; child agency is unobserved.",
+    "variety": "Source uses circular warnings in the early phases and adds a lane warning in the final phase (scripts/encounter_profile_2d.gd:21-24). This could make the repeated dodge-and-counter loop feel newly demanding near the end; no player reported whether that change feels varied or stressful.",
+    "world_response": "A successful counter changes the boss into a vulnerable laugh, plays Roshan's point verb, adds a sparkle response, and gives a landed breather (scripts/games/dust_boss.gd:498-507,657-675,551-569). The probe verifies completion, not that these signals are visually/audio synchronized or noticeable on device.",
+    "replay": "Not tested. Each persona begins from cleared encounter save fields; no repeat visit, retained mastery, re-entry, or child-requested replay was observed (probe_dust_boss_balance.gd:45-55).",
+    "fun_score": null,
+    "play_appeal_test": "On the approved phone, observe an intended child entering via the ordinary Day One route with no reading or adult coaching. Record whether the child independently tries moving, recognizes the attack boundary, leaves it, then waits for and taps the gold opening; note whether the 4.6-second first landed beat supports noticing Roshan's result and the next prompt. Afterward, offer a return visit without suggesting it and record which moment the child chooses to repeat. Do not assign a numeric fun score."
+  },
+  "play_sequence": [
+    {
+      "beat": "Reach Grand Puff through the normal Day One story route and let the automatic introduction finish.",
+      "input": "Tap the visible active route/door when it is presented; then make no input during the splash.",
+      "wait": "Wait until the splash closes and the movement cue is presented.",
+      "evidence_limit": "Route suggested by main.gd:6742-6758 and dust_boss.gd:278-319; not traversed by this probe."
+    },
+    {
+      "beat": "Test whether the opening lesson accepts the child's chosen direction and makes movement the needed first action.",
+      "input": "Touch one clear floor point away from Roshan and hold/drag briefly in that direction, then release.",
+      "wait": "Wait for Roshan to move and for the first danger tell; no movement should mean the probe's documented lesson is not completed (dust_boss.gd:528-537).",
+      "evidence_limit": "The internal probe automates stick movement; this proposed real touch check is not executed."
+    },
+    {
+      "beat": "Check the reaction window and boundary clarity on the first warning.",
+      "input": "Move one finger to a visible floor point outside the glowing danger shape; keep it there until the bunny lands.",
+      "wait": "Wait through the tell and strike; if the child stays inside, record whether the first warning pauses for discovery as source specifies (dust_boss.gd:398-410).",
+      "evidence_limit": "Probe personas use analytic safe points (probe_dust_boss_balance.gd:82-90), so actual painted-boundary readability is untested."
+    },
+    {
+      "beat": "Check whether the counter is a distinct, intentional second action.",
+      "input": "After a successful dodge, wait for the visible gold star, then tap once.",
+      "wait": "Wait for the star's vulnerable animation and counter response; do not tap during the dim state (dust_boss.gd:498-526,690-714).",
+      "evidence_limit": "The probe tests programmed counter delays and completion, not visual cue timing or touch-edge feel."
+    },
+    {
+      "beat": "Observe recovery after a bump or missed opening, then check whether mercy preserves a path to completion.",
+      "input": "If the first attempt misses, follow the next visible tell and make one fresh movement/counter attempt; avoid rapid repeated taps.",
+      "wait": "Wait through recovery and any broadened tell/counter window; note whether earned rounds remain and the next required action is clear (boss_encounter_2d.gd:58-108; dust_boss.gd:486-526).",
+      "evidence_limit": "Scripted patient personas finish despite two simulated hits or misses; no human error-recovery or comprehension evidence exists."
+    }
+  ],
+  "observations": [
+    {
+      "title": "Patient settings preserve a completion route after slow reactions and missed counters",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "runtime/L16/attempt_1/probe.log:5-10: slow_counter finishes with two opening misses; patient_dodger and patient_both finish with two hits; patient_counter and patient_both finish with two misses; each reaches three rounds and reports OK.",
+        "scripts/boss_encounter_2d.gd:58-90: a hit enters recovery without subtracting completed rounds; misses widen the counter window and repeated damage/misses lengthen the tell; the patient threshold is two.",
+        "scripts/games/dust_boss.gd:486-526: damage recovery restarts the attack flow, missed counters are saved, and the cycle continues rather than ending the encounter."
+      ],
+      "rules": ["DL-AGE-03", "DL-AGE-04", "DL-AGE-06"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "Run the one retained exact-engine probe. Its patient_dodger and patient_both rows each finish three rounds despite two hits; patient_both also records two missed counter openings.",
+      "child_impact": "The simulated route demonstrates mercy that leaves the child able to keep trying and does not award a win for simply waiting. It does not establish whether the real warning or star is understandable to a child.",
+      "proposed_repair": "No runtime change is indicated by this evidence. Keep human/device play focused on whether mercy becomes visible and actionable after a mistake.",
+      "acceptance_test": "On the target device, observe a child miss one dodge or counter, then determine without coaching whether the child can recognize the next opportunity and finish the encounter."
+    },
+    {
+      "title": "Probe pass proves its narrow completion and passive assertions, not its documented pacing band",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/probe_dust_boss_balance.gd:5-20,45-55,110: persona parameters, run setup, and the only verdict condition is three completed rounds for active personas or zero hits for negative personas.",
+        "runtime/L16/attempt_1/probe.log:4-15: scripted elapsed values span 30.32–100.43 seconds, and the four passive/negative rows report zero hits; every row ends OK.",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md:1530-1544 (`MA-CI-008`): the existing advisory finding records that the boss probe's described 45–120 second fun band is not checked and remains in progress."
+      ],
+      "rules": ["DL-QA-02", "DL-QA-07"],
+      "existing_findings": ["MA-CI-008"],
+      "reproduction": "Inspect the final `ok` expression at probe_dust_boss_balance.gd:110 and compare it with the logged elapsed column. A persona outside the advertised band would still pass if it completed three rounds.",
+      "child_impact": "A future timing regression could make the encounter much shorter or longer without turning this assertion red. Attentive (31.64), learning (34.93), slow (40.12), and moving_masher (30.32) are below the 45-second lower bound; these are simulator timings, not a child session or acceptance score.",
+      "proposed_repair": "For the existing advisory probe maintenance, assert or explicitly report the documented timing band for appropriate non-masher personas, while keeping no-input and mash checks separate. Do not treat the band as a fun score or child acceptance.",
+      "acceptance_test": "Run the exact 4.7.2 probe and verify each named timing persona emits an explicit in-band/out-of-band result; inject one short and one long result to confirm the advisory is reported rather than silently passing."
+    },
+    {
+      "title": "Probe negatives reject passive and wrong repeated input, while a targeted movement-and-tap persona completes",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "runtime/L16/attempt_1/probe.log:4-15: idle, stationary_masher, held_action and movement_only all report zero rounds; moving_masher and other active personas reach three.",
+        "scripts/probe_dust_boss_balance.gd:79-110: movement-only keeps action input off; idle/mash/held controls are deliberately separated; the verifier expects no hits for negative controls.",
+        "scripts/games/dust_boss.gd:235-275,528-537,510-526: the loop separates movement, dodge, and a tap during the vulnerability opening; the initial movement lesson requires actual position change."
+      ],
+      "rules": ["DL-AGE-02", "DL-AGE-04", "DL-AGE-05"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "The retained probe's idle, stationary_masher, held_action and movement_only rows finish with zero hits, while timed personas perform movement and a fresh tap in the vulnerability window and complete.",
+      "child_impact": "This is useful evidence that progress requires the encounter's intended verbs rather than an unattended or stationary button hold. It does not show whether one finger can comfortably switch between moving and tapping on the actual screen.",
+      "proposed_repair": "No code change indicated. Validate the transition between world movement and the counter tap with a child's single finger on device.",
+      "acceptance_test": "On the approved phone, confirm passive demonstration, stationary rapid taps, and held action cannot win, while a child can move out and then tap the gold cue with one finger and without adult narration."
+    },
+    {
+      "title": "The probe bypasses the visible route and bypasses touch routing",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_dust_boss_balance.gd:26-55: it instantiates main, skips the intro, obtains DustBossGame and invokes _start_game_now directly after writing encounter save fields.",
+        "scripts/probe_dust_boss_balance.gd:79-101: it assigns stick_vec and action_down directly rather than dispatching pointer/touch events to the live interface.",
+        "scripts/main.gd:6742-6758: the ordinary Day One caller starts the encounter after its story gate; this route is not part of the assigned probe.",
+        "audit/cycles/luna-playtest-20261012/runtime/L16/attempt_1/receipt.json: exact Godot 4.7.2, isolated profile, headless=true, rendered_mobile_acceptance=false."
+      ],
+      "rules": ["DL-AGE-01", "DL-UI-01", "DL-UI-03", "DL-UI-04", "DL-UI-05", "DL-QA-03", "DL-QA-04", "DL-QA-05"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001", "MA-TOUCH-001"],
+      "reproduction": "Read probe setup and input writes at the cited lines; no event injection or normal castle/story traversal exists in this probe.",
+      "child_impact": "This run cannot tell whether a child finds the fight, sees a large enough target, understands the voice/pointer, or can move and tap without control conflicts.",
+      "proposed_repair": "No repair is justified by this coverage gap alone. Carry the five proposed sequence beats into a physical device and child observation.",
+      "acceptance_test": "Use a fresh save and ordinary Day One route on Lenovo Tab M11; record entry, visible target geometry, one-finger travel/drag/release, counter taps, pause/focus cancellation, audio intelligibility and uncoached child recovery."
+    },
+    {
+      "title": "The episode has a deliberate cause-and-response loop with a distinct recovery beat",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/games/dust_boss.gd:382-395: enemy-origin tell is started and paired with the leave-shape cue.",
+        "scripts/games/dust_boss.gd:498-507,657-675: a dodge opens the counter, voices the gold-star instruction, and an accepted counter triggers Roshan's point, the lesson response and boss vulnerability.",
+        "scripts/games/dust_boss.gd:550-569: the flinch/landed beat holds before the next attack, with a longer optional dash teaching beat after the first hit."
+      ],
+      "rules": ["DL-AGE-01", "DL-MOT-03", "DL-MOT-04", "DL-MOT-05"],
+      "existing_findings": ["MA-PLAY-001", "MA-CHILD-001"],
+      "reproduction": "Trace _begin_attack_tell -> strike/impact -> _begin_counter_opening -> _accept_counter -> _tick_struck; this is code evidence, not a rendered review.",
+      "child_impact": "The intended loop has two distinguishable actions and a pause to notice success, which may support agency and anticipation. Whether the cues are readable, warm, and not tiring remains a human question.",
+      "proposed_repair": "Keep the cue and response together in the live visual/device observation; if timing or audio misses the visual action, file a separate reproduced issue.",
+      "acceptance_test": "Capture the actual Mobile route and verify attack tell, gold opening, Roshan response and next-attack hold are visible and audible in order at native phone aspect; confirm through uncoached child play."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "All 12 scripted rows pass their narrow stated outcomes; the exact approved Godot run is isolated and clean.",
+      "evidence": "runtime/L16/attempt_1/receipt.json reports PASS, exit_code 0, no failure lines, exact 4.7.2.stable.official.ed1daf0bf and isolated profile; probe.log:4-15 ends DUSTBAL|result: ALL OK."
+    },
+    {
+      "claim": "The intentional lesson loop waits for actual movement, then requires leaving the hazard and tapping during the real vulnerability animation; waiting or static hammering earns no round in these controls.",
+      "evidence": "scripts/games/dust_boss.gd:528-537,398-410,510-526; runtime/L16/attempt_1/probe.log:12-15."
+    },
+    {
+      "claim": "Misses and bumps preserve a route to finish and feed bounded assistance instead of deducting progress.",
+      "evidence": "scripts/boss_encounter_2d.gd:58-90; runtime/L16/attempt_1/probe.log:8-10."
+    }
+  ],
+  "acceptance_gaps": [
+    "Only one headless INTERNAL_PROBE invocation was run; it is not a child-facing playthrough or visual Mobile capture.",
+    "The probe's final assertion checks rounds/no-award, not its documented 45–120 second advisory band; MA-CI-008 remains in progress.",
+    "Visible fresh-save route, voice and pointer synchronization, actual target dimensions, one-finger drag/tap ownership, focus/pause cancellation, phone latency/frame pacing/audio, child comprehension/play appeal, and owner acceptance remain unobserved."
+  ]
+}
+

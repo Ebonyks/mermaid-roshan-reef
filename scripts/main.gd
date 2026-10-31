@@ -25,14 +25,6 @@ const FAIRY_CONSERVATORY_DOOR := preload(
 	"res://scripts/arena/fairy_conservatory_door_2d.gd")
 const DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE := \
 	"res://assets/flats/castle/rooms/room_mermaid_pool.png"
-const DAY_ONE_ROUTE_PREVIEW_TEXTURES: Dictionary = {
-	"mermaid_pool": DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE,
-	"playroom": "res://assets/flats/castle/rooms/room_playroom.png",
-	"craft_room": "res://assets/flats/castle/rooms/room_craft_room.png",
-	# Royal Hall is an event-only portal, so its card uses the approved main-hall
-	# image as the physical doorway preview.
-	"__royal_hall": "res://assets/flats/castle/rooms/room_main_hall.png",
-}
 const NavigationControllerLogic = preload("res://scripts/navigation_controller.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
@@ -113,7 +105,6 @@ var collection_category := "fish"
 var voice: AudioStreamPlayer
 var model_cache := {}
 var _toon_mats := {}   # source material -> shared pastel override (see _toonify)
-var _nature_mats: Dictionary = {}   # pastel rgba32 -> shared flat material (see _dress_nature)
 var cluster_centers: Array[Vector3] = []
 var pulse_lights: Array = []        # dicts {light, base, phase}
 var _reef_districts: ReefDistricts = null
@@ -177,8 +168,6 @@ var portal_cool := 0.0
 var portal_armed := false
 var ocean_routes_enabled := false
 var ocean_return_gate_armed := false
-var draining := false
-var drain_t := 0.0
 var level2_done_once := false
 var l2_stars: Array = []
 var l2_door: MeshInstance3D = null
@@ -307,7 +296,6 @@ var castle_room_door_hotspots: Array[Dictionary] = []
 var castle_room_item_sprites: Dictionary = {}
 var castle_room_fixture_manifest: Dictionary = {}
 var castle_room_fixture_rigs: Dictionary = {}
-var castle_room_fixture_physics: Array[Node2D] = []
 var castle_room_light_states: Dictionary = {}
 var castle_room_prop_sfx: AudioStreamPlayer = null
 var castle_room_player_sprite: Sprite2D = null
@@ -359,6 +347,7 @@ var day_one_event_history: Array[Dictionary] = []
 var day_two_transition_active: bool = false
 var day_two_transition_layer: CanvasLayer = null
 var _day_one_director: DayOneDirector = null
+var _day_one_flow: DayOneFlow = null   # Day One flow logic (scripts/day_one_flow.gd); state stays here
 var comfy_games_state: Dictionary = {}
 var _comfy_games: ComfyGames = null
 var chapter2_active: bool = false
@@ -401,6 +390,8 @@ var _day_one_story_clip: DayOneStoryClips = null
 var _day_one_story_clip_queue: Array[String] = []
 var day_one_story_clips_seen: Dictionary = {}   # persisted: a story clip plays once per save
 var _day_one_story_clip_layer: CanvasLayer = null
+# The castle's own picture, hidden while a full-screen story clip covers it.
+var _day_one_story_clip_covered: Array[CanvasItem] = []
 var _day_one_story_boss_start_pending: bool = false
 var _day_one_story_boss_transition_pending: bool = false
 var _day_one_room_handoff_target := ""
@@ -451,7 +442,6 @@ var companion_pick_mode := "adopt"         # adopt / swap at chest / studio repa
 var companion_cool := 0.0                 # cheer cooldown
 var companion_cheer_t := -1.0
 var companion_greeted := false            # one-time hello per session
-var companion_den_said := false           # one-time den intro per session
 var companion_action_prev := false
 var companion_p2 := false                 # true while a pad holds R1 — P2 steers the stuffie
 var stuffie_game: StuffieBattle = null
@@ -611,7 +601,6 @@ var kart_legA := Vector3.ZERO   # rainbow leg in world 2 -> forward race
 var kart_legB := Vector3.ZERO   # rainbow leg in world 2 -> reversed race
 var kart_from := ""             # which world launched the race ("" reef / "level2")
 var mg := {}
-var _nat_cache := {}
 
 # ---- 3.0: platform / persistence / flow ----
 const SAVE_PATH := "user://reef_save.json"
@@ -696,7 +685,6 @@ var pause_layer: CanvasLayer
 var pause_panel: Control
 var pause_dim: ColorRect = null      # full-screen cool dim under the pause panel
 var pause_gear_btn: Button = null    # compatibility alias for global_navigation_button
-var pause_grid: GridContainer = null # secondary icon tiles (probe-checked sizes)
 var pause_resume_btn: Button = null
 var pause_leave_btn: Button = null
 var fps_lbl: Label = null
@@ -714,7 +702,6 @@ var finale_done := false
 var finale_t := -1.0
 var anim_cull: Array = []
 var cull_timer := 0.0
-var wreck_pos := Vector3.ZERO   # stays ZERO: the 3D wreck was deleted 2026-07-28 (redesigned); guards below and companion.gd no-op on ZERO
 var shop_cool := 0.0
 var treasure_cool := 0.0
 # Cosmetics are full alternative skins (mutually exclusive), chosen at the bedroom wardrobe.
@@ -726,6 +713,14 @@ const SKINS := [
 	{"id": "huluu", "label": "Princess Huluu", "preview": "res://assets/characters/friends/huluu.png", "sprite": "res://assets/characters/friends/huluu.png"}]
 const FAIRY_SKIN_PATH := "res://assets/characters/skins/fairy_mermaid.png"
 var skin_id := "classic"
+var character_outfits: Dictionary = {}
+var character_clothing_parts: Dictionary = {}
+var fashion_composed_textures: Dictionary = {} # Transient, one current mix per source family.
+var outfits_unlocked: Dictionary = {}
+var fashion_disguise_progress: Dictionary = {}
+var fashion_dressing_progress: Dictionary = {}
+var fashion_rewards_claimed: Dictionary = {}
+var chapter2_party_dress_done: bool = false
 var wardrobe_layer: CanvasLayer = null
 var wd: Dictionary = {}              # live references to dress-up UI controls
 var treasure_fr := {"fname": "Secret Cave", "game": "treasure", "won": true, "cool": 0.0}
@@ -791,6 +786,7 @@ var beans_sfx: AudioStreamPlayer   # banjo toot-loop: a SOUND EFFECT, not music 
 var hop_sfx: AudioStreamPlayer     # soft cartoon boing per on-land hop touchdown
 var voice_pool: Array = []
 var voice_i := 0
+var audio_active_guide_mode: String = ""
 var said_cool := {}
 var intro_active := false
 var intro_layer: CanvasLayer
@@ -798,7 +794,6 @@ var intro_idx := 0
 var intro_art: TextureRect
 var intro_art2: TextureRect
 var intro_text: Label
-const BTN_COLS := [Color(0.35, 0.95, 0.4), Color(1.0, 0.35, 0.35), Color(0.4, 0.55, 1.0), Color(1.0, 0.9, 0.35)]  # A B X Y
 
 const FRIEND_DEFS := [
 	{"tex": "pearl_friend",  "fname": "Evie and Lamb-a'",      "msg": "You found us! Swim close again to play hide and seek!", "game": "seek"},
@@ -1536,36 +1531,7 @@ func _toon_water_mat(deep: Color, shallow: Color, alpha: float, wobble_h: float,
 	return m
 
 var water_node: MeshInstance3D
-var rock_pbr: StandardMaterial3D
-var wood_overlay: StandardMaterial3D
 
-func _texture_mats() -> void:
-	rock_pbr = StandardMaterial3D.new()
-	rock_pbr.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
-	rock_pbr.albedo_color = Color(0.62, 0.68, 0.76)
-	rock_pbr.normal_enabled = true
-	rock_pbr.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
-	rock_pbr.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
-	rock_pbr.uv1_triplanar = true
-	rock_pbr.uv1_world_triplanar = true   # static rocks: same texel size no matter the node scale
-	rock_pbr.uv1_scale = Vector3(0.3, 0.3, 0.3)
-	wood_overlay = StandardMaterial3D.new()
-	wood_overlay.albedo_texture = load("res://assets/terrain/up_shipwood_col.png")
-	wood_overlay.albedo_color = Color(1.2, 1.16, 1.2)      # lift so MUL keeps base colors
-	wood_overlay.normal_enabled = false
-	wood_overlay.uv1_triplanar = true
-	wood_overlay.uv1_scale = Vector3(0.9, 0.9, 0.9)
-	wood_overlay.blend_mode = BaseMaterial3D.BLEND_MODE_MUL
-	wood_overlay.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-
-func _apply_mat(node: Node, mat: Material, overlay: bool) -> void:
-	if node is MeshInstance3D:
-		if overlay:
-			(node as MeshInstance3D).material_overlay = mat
-		else:
-			(node as MeshInstance3D).material_override = mat
-	for c in node.get_children():
-		_apply_mat(c, mat, overlay)
 
 func _halo(pos: Vector3, col: Color, size: float) -> MeshInstance3D:
 	var gt := GradientTexture2D.new()
@@ -1691,20 +1657,6 @@ func _cyl_solid(center: Vector3, r: float, half_h: float, pad: float = 1.6) -> v
 		"pad": pad,   # CameraKit: the pad ring is body-clearance AIR, not mesh
 	})
 
-func _iwall(center: Vector3, size: Vector3, col: Color, tex: String = "") -> MeshInstance3D:
-	# an interior wall: visible box + solid collider + registered for camera cutaway fade.
-	# tex (e.g. "castle") swaps the flat plaster for a real PBR stone material.
-	var node := _l2_box(center, size, col)
-	if tex == "castle":
-		node.material_override = _castle_mat("wall", 0.065, col)
-	elif tex != "":
-		node.material_override = _up_mat(tex, 0.045, col)
-	_wall_solid(center, size)
-	var base_a: float = 1.0
-	if node.material_override is StandardMaterial3D:
-		base_a = (node.material_override as StandardMaterial3D).albedo_color.a
-	fade_walls.append({"node": node, "c": center, "h": size * 0.5, "base_a": base_a, "a": base_a})
-	return node
 
 func _rainbow_mat() -> ShaderMaterial:
 	var sh := Shader.new()
@@ -1854,39 +1806,8 @@ func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node
 			if not play_anim:
 				flora_nodes.append(card)
 			return card
-	var ps := _aq(model)
-	if ps == null:
-		return null
-	var inst: Node3D = ps.instantiate()
-	inst.position = pos
-	inst.scale = Vector3.ONE * scl
-	inst.rotation.y = randf() * TAU
-	_paint_aq(inst, _aq_mat(model))
-	_toonify(inst)
-	if model.begins_with("Rock"):
-		# painted reef stone (fallback path) - bigger strokes, richer tint so
-		# the cliff sheet reads instead of washing white (owner 2026-07-11)
-		_toon_tile(inst, "cliff", 0.055, Color(0.82, 0.8, 0.95))
-	add_child(inst)
-	if not play_anim:
-		flora_nodes.append(inst)
-	if play_anim:
-		var ap := _find_anim(inst)
-		if ap != null:
-			var clips := ap.get_animation_list()
-			# prefer a swim/idle loop
-			var pick := clips[0]
-			for c in clips:
-				if "Swim" in c or "Idle" in c:
-					pick = c
-					break
-			var anim := ap.get_animation(pick)
-			if anim != null:
-				anim.loop_mode = Animation.LOOP_LINEAR
-			ap.play(pick)
-			ap.speed_scale = 0.6 + randf() * 0.5
-			anim_cull.append({"ap": ap, "node": inst})
-	return inst
+	_aq(model)   # Preserve the retired-pack null-cache side effect.
+	return null
 
 func _find_anim(n: Node) -> AnimationPlayer:
 	if n is AnimationPlayer:
@@ -2060,16 +1981,6 @@ func _aquatic_patrol_height(x: float, z: float, desired_y: float, clearance: flo
 	var floor: float = minf(seabed_y(x, z) + clearance, ceiling)
 	return clampf(desired_y, floor, ceiling)
 
-
-func _cutout_tex(name: String) -> Texture2D:
-	# STORYBOOK: in-world character cutouts use the die-cut STICKER bake
-	# (white vinyl rim + soft navy drop shadow, assets/characters/stickers/,
-	# generated from the sacred originals which stay untouched). UI portraits
-	# and wardrobe previews keep the clean originals.
-	var p := "res://assets/characters/stickers/" + name + ".png"
-	if ResourceLoader.exists(p):
-		return load(p)
-	return load("res://assets/characters/friends/" + name + ".png")
 
 func _build_friends() -> void:
 	# Data-only friend roster. The 3D reef pillars, beacons and sparks retired
@@ -2984,16 +2895,6 @@ func _cel_replace(root: Node, outline: ShaderMaterial, shader_path: String = "re
 				cm.next_pass = outline
 				mi.set_surface_override_material(si, cm)
 
-func _cel_outline(root: Node, outline: ShaderMaterial) -> void:
-	# additive ink outline only — never changes a material's type (cast-safe)
-	for mi in _all_meshes(root):
-		var mesh: Mesh = mi.mesh
-		if mesh == null:
-			continue
-		for si in range(mesh.get_surface_count()):
-			var m: Material = mi.get_active_material(si)
-			if m is BaseMaterial3D and m.next_pass == null:
-				m.next_pass = outline
 
 func _all_meshes(root: Node) -> Array[MeshInstance3D]:
 	var out: Array[MeshInstance3D] = []
@@ -3216,7 +3117,7 @@ func _flash_speaker_icon(who: String) -> void:
 	var key := _speaker_key(who)
 	var path := String(SPEAKER_PORTRAIT.get(key, SPEAKER_PORTRAIT["roshan"]))
 	if ResourceLoader.exists(path):
-		speech_portrait.texture = load(path)
+		speech_portrait.texture = load(FashionOutfitRenderer.path(self, path))
 	speech_layer.visible = true
 	speech_t = 4.0
 
@@ -3278,7 +3179,8 @@ func _sync_castle_voice_caption() -> void:
 	# Raise only the captions whose original floor panel covered cleanup targets.
 	# Free-play rooms retain their established caption band and upper picture cues.
 	var floor_objective_room: bool = castle_room_id == "main_hall" \
-		or (day_one_is_active() and castle_room_id in ["bubble_bath", "mermaid_pool", "playroom"])
+		or (day_one_is_active() and (castle_room_id in ["bubble_bath", "playroom"] \
+			or (castle_room_id == "mermaid_pool" and day_one_pool_cleanup_step == 0)))
 	castle_voice_caption.position.y = 112.0 if floor_objective_room else 590.0
 	castle_voice_caption.text = hud_msg.text if hud_msg != null else ""
 	castle_voice_caption.visible = castle_visible and has_message
@@ -3445,20 +3347,7 @@ func _prepare_start_menu_launch(start_day_one: bool) -> void:
 		_day_one_clear_castle_dressing()
 
 func day_one_castle_room_for_current() -> String:
-	if not day_one_is_active():
-		return "main_hall"
-	var logical_room: String = _day_one_ref().current_room_id
-	# A killed/reloaded adoption picker must return to its owning picture room,
-	# not strand the child in the next (art) room with no confirmed companion.
-	if logical_room == "art" and companion_id == "" \
-			and bool(stuffie_wins.get("rescued_eagle", false)) \
-			and _day_one_ref().is_room_completed("stuffie"):
-		return "playroom"
-	for castle_room_value: Variant in DAY_ONE_CASTLE_ROOM_IDS.keys():
-		var castle_room: String = String(castle_room_value)
-		if String(DAY_ONE_CASTLE_ROOM_IDS[castle_room]) == logical_room:
-			return castle_room
-	return "main_hall"
+	return _day_one_flow_ref().day_one_castle_room_for_current()
 
 func _queue_save() -> void:
 	# debounce for the per-frame hot sites (pearl pickup, friend discovery):
@@ -3822,13 +3711,13 @@ func _notification(what: int) -> void:
 				chapter2_lawn_view.set_input_context(&"focus", true)
 			_lose_melody_input_context(MELODY_CONTEXT_FOCUS)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_FOCUS)
-			_day_one_abort_boss_for_lifecycle()
+			_day_one_suspend_boss_for_lifecycle()
 		NOTIFICATION_APPLICATION_PAUSED:
 			if is_instance_valid(chapter2_lawn_view):
 				chapter2_lawn_view.set_input_context(&"application", true)
 			_lose_melody_input_context(MELODY_CONTEXT_APPLICATION)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_APPLICATION)
-			_day_one_abort_boss_for_lifecycle()
+			_day_one_suspend_boss_for_lifecycle()
 		NOTIFICATION_APPLICATION_RESUMED:
 			if is_instance_valid(chapter2_lawn_view):
 				chapter2_lawn_view.set_input_context(&"application", false)
@@ -3842,8 +3731,9 @@ func _notification(what: int) -> void:
 		NOTIFICATION_WM_CLOSE_REQUEST:
 			_lose_melody_input_context(MELODY_CONTEXT_CLOSE)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_CLOSE)
-			_day_one_abort_boss_for_lifecycle()
-	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_WM_CLOSE_REQUEST:
+			_day_one_suspend_boss_for_lifecycle()
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,
+			NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_CLOSE_REQUEST]:
 		# flush BOTH a failed write awaiting retry and a debounced pending
 		# write — going to the background must never drop queued progress
 		if save_dirty or save_pending:
@@ -5023,20 +4913,10 @@ func _near_ground(obj_pos: Vector3, ppos: Vector3, r: float, htol: float = 12.0)
 	return Vector2(obj_pos.x - ppos.x, obj_pos.z - ppos.z).length() < r and absf(obj_pos.y - ppos.y) < htol
 
 func _skin_def(id: String) -> Dictionary:
-	for s in SKINS:
-		if String(s["id"]) == id:
-			return s
-	return SKINS[0]
+	return _wardrobe_ref()._skin_def(id)
 
 func _apply_skin() -> void:
-	# swap Roshan's whole appearance to the chosen skin (classic = 2.5D atlas)
-	if player == null:
-		return
-	var s := _skin_def(skin_id)
-	skin_id = String(s["id"])   # normalise any stale/removed skin id back to a valid one
-	player.set_skin(skin_id, String(s["sprite"]))
-	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
-		_castle_rooms_25d.refresh_player_skin()
+	_wardrobe_ref()._apply_skin()
 
 func _enter_level2(from_castle: bool = false, from_north: bool = false,
 	at_ocean_gate_hub: bool = false) -> void:
@@ -5109,48 +4989,6 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 		_collection_ref().tick(0.0, player.position)
 		_navigation_set_root("sky_lagoon")
 		return
-	_build_pearl_castle(LEVEL2_POS)
-	if is_night:
-		_build_lagoon_night(LEVEL2_POS)
-	# (Phase 3 fix: a stale _play_music("finale") here overrode the "level2"
-	# track selected at the top of this function — the lagoon music never played)
-	if from_north:
-		# Return at the cave mouth, facing the snowy village. The star is disarmed
-		# until Roshan swims away, preventing a bounce loop.
-		var north_gate: Vector3 = g.get("northern_portal_pos",
-			LEVEL2_POS + Vector3(-128.0, 52.0, -165.0))
-		player.position = g.get("alpine_cave_entrance", north_gate + Vector3(20.0, 0.0, 0.0))
-		player.position.y = lagoon_walk_h(player.position.x, player.position.z) + 2.0
-		player.yaw = PI * 0.5
-		player.vel = Vector3.ZERO
-		g["northern_portal_armed"] = false
-		show_msg("Roshan", "Back through the magic cave star!", "pearl2")
-	elif from_castle:
-		# castle is already won: open the door, hide the collected stars, spawn at the entrance facing the courtyard
-		for sd in l2_stars:
-			sd["got"] = true
-			var sn: Node3D = sd["node"]
-			if is_instance_valid(sn):
-				sn.visible = false
-		l2_open = true
-		if g.has("door_solid"):
-			arena_solids.erase(g["door_solid"])   # the door is open — no invisible barrier
-		if l2_door != null and is_instance_valid(l2_door):
-			l2_door.position.y = float(g.get("door_closed_y", l2_door.position.y)) + 30.0
-		if g.has("arch") and is_instance_valid(g["arch"]):
-			(g["arch"] as Node3D).visible = true
-		player.position = LEVEL2_POS + Vector3(0, 8, -58)
-		player.yaw = 0.0
-		player.vel = Vector3.ZERO
-		show_msg("Roshan", "Out in the castle courtyard! Wheee!")
-	else:
-		player.position = LEVEL2_POS + Vector3(0, 8, 175)
-		player.vel = Vector3.ZERO
-		if at_ocean_gate_hub:
-			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean. The blue ice gate leads to Norway!", "intro")
-		else:
-			show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
-	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 
 func _enter_northern_kingdom() -> void:
 	_fade_cut(_enter_northern_kingdom_now)
@@ -5410,7 +5248,6 @@ func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 		return story_plant
 	return null
 
-var _kit_cache := {}
 
 func _toon_tile(node: Node, key: String, uvs: float, tint: Color = Color(1, 1, 1)) -> void:
 	# NANO-BANANA TILE WRAP (owner 2026-07-11): dress an EXISTING model in a
@@ -5497,67 +5334,13 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 			return kg
 	return null
 
-var _gen2_cache := {}
-var _gen2_mesh_cache := {}
 const GEN2_CEL := true   # banded cel light + navy ink outline on GEN2 props. Flip false to revert.
 var _gen2_outline: ShaderMaterial = null
 
 
-# A RIGGED family creature: same Meshy mesh as _gen2_creature but skinned to a
-# 20-bone quadruped (tools/build_chuck_rig.py + animate_kitty.py) with real
-# idle/walk/run/happy clips — legs actually cycle and paws plant, instead of a
-# static mesh sliding. Recolour still rides the sway shader (sway_amount 0 so it
-# never fights the skeleton; paint_body/fin map HER colours by luma). The
-# returned wrap carries meta "ap" = the AnimationPlayer for the behaviour FSM.
 func _gen2_creature_rigged(gname: String, target: float, body: Color, accent: Color, third: Color = Color(1, 1, 1)) -> Node3D:
-	var ps: PackedScene = _gen2_cache.get(gname, null)
-	if ps == null:
-		var path := ""
-		if not ResourceLoader.exists(path):
-			return null
-		ps = load(path)
-		_gen2_cache[gname] = ps
-	if ps == null:
-		return null
-	var wrap := Node3D.new()
-	var inst: Node3D = ps.instantiate()
-	_fit_prop(inst, target)          # fit footprint + seat base at y=0 (materials re-swapped below)
-	inst.rotation.y = -PI * 0.5      # face local -X (mover/FSM convention; memory gen2-creature-facing)
-	var swaysh: Shader = load("res://assets/shaders/creature_sway.gdshader")
-	for mi in _all_meshes(inst):
-		var mesh: Mesh = mi.mesh
-		if mesh == null:
-			continue
-		for si in range(mesh.get_surface_count()):
-			var src: Material = mi.get_active_material(si)
-			var alb: Texture2D = null
-			if src is StandardMaterial3D:
-				alb = (src as StandardMaterial3D).albedo_texture
-			var sm := ShaderMaterial.new()
-			sm.shader = swaysh
-			if alb != null:
-				sm.set_shader_parameter("albedo_tex", alb)
-			sm.set_shader_parameter("sway_amount", 0.0)   # the skeleton animates; no vertex sway
-			sm.set_shader_parameter("paint_mix", 1.0)
-			sm.set_shader_parameter("paint_body", body)
-			sm.set_shader_parameter("paint_fin", accent)
-			sm.set_shader_parameter("paint_third", third)
-			# zone mask (baked from geometry) paints the BOOK-ART pattern:
-			# body / accent / third-colour regions; black = fixed features
-			var mpath := "res://assets/props/gen2/" + gname.replace("_rigged", "_mask") + ".png"
-			if ResourceLoader.exists(mpath):
-				sm.set_shader_parameter("zone_mask", load(mpath))
-				sm.set_shader_parameter("use_zones", 1)
-			mi.set_surface_override_material(si, sm)
-	var ap: AnimationPlayer = inst.find_child("AnimationPlayer", true, false)
-	if ap != null:
-		for an in ap.get_animation_list():
-			ap.get_animation(an).loop_mode = Animation.LOOP_LINEAR
-		ap.play("idle")
-		wrap.set_meta("ap", ap)
-	wrap.add_child(inst)
-	wrap.set_meta("gen2", true)
-	return wrap
+	# Retired model resources have no runtime fallback.
+	return null
 
 func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 	# a family-style Meshy animal: loaded/fit like a prop, then every surface
@@ -5652,24 +5435,11 @@ func _attach_penguin_beak(wrap: Node3D) -> void:
 	beak.rotation = Vector3(-0.32, 0, 0)
 
 func _gen2_seagrass(pos: Vector3, size: float) -> Node3D:
-	# Converted 2D cards replace the crossed cards that dominated nearby cameras.
-	var variant: int = randi() % 2
-	var family: String = "kelp" if randf() > 0.82 else "seagrass"
-	var path := ""
-	if not ResourceLoader.exists(path):
-		return null
-	var packed: PackedScene = load(path)
-	if packed == null:
-		return null
-	var wrap := Node3D.new()
-	var inst: Node3D = packed.instantiate()
-	_fit_prop(inst, size * (0.62 if family == "kelp" else 0.46))
-	wrap.add_child(inst)
-	wrap.position = pos
-	wrap.rotation.y = randf() * TAU
-	add_child(wrap)
-	flora_nodes.append(wrap)
-	return wrap
+	# Preserve both random draws before the retired model path returns null.
+	randi()
+	randf()
+	return null
+
 func _gen2_outline_mat() -> ShaderMaterial:
 	if _gen2_outline == null:
 		_gen2_outline = ShaderMaterial.new()
@@ -5678,43 +5448,6 @@ func _gen2_outline_mat() -> ShaderMaterial:
 		_gen2_outline.set_shader_parameter("line_color", Color(0.16, 0.12, 0.3))
 	return _gen2_outline
 
-func _art35_static_mesh(path: String) -> Mesh:
-	var cached: Mesh = _gen2_mesh_cache.get(path, null)
-	if cached != null:
-		return cached
-	if not ResourceLoader.exists(path):
-		return null
-	var packed: PackedScene = load(path)
-	if packed == null:
-		return null
-	var inst: Node3D = packed.instantiate()
-	var meshes := _all_meshes(inst)
-	if meshes.is_empty():
-		inst.free()
-		return null
-	var result: Mesh = (meshes[0] as MeshInstance3D).mesh
-	_gen2_mesh_cache[path] = result
-	inst.free()
-	return result
-
-func _art35_prop(path: String, pos: Vector3, scl: float = 1.0, yaw: float = 0.0) -> Node3D:
-	# Authored multi-part props must stay as scene trees; taking only the first
-	# mesh would drop their outlines, petals, legs, books, or snow layers.
-	if not ResourceLoader.exists(path):
-		return null
-	var packed: PackedScene = load(path) as PackedScene
-	if packed == null:
-		return null
-	var prop: Node3D = packed.instantiate() as Node3D
-	if prop == null:
-		return null
-	prop.position = pos
-	prop.scale = Vector3.ONE * scl
-	prop.rotation.y = yaw
-	_cel_replace(prop, _gen2_outline_mat())
-	add_child(prop)
-	game_nodes.append(prop)
-	return prop
 
 func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, sink: float = 0.0) -> Node3D:
 	# GEN2 pipeline prop: art generated in the family storybook style and
@@ -5738,36 +5471,7 @@ func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, si
 		shell.rotation.y = yrot
 		add_child(shell)
 		return shell
-	var ps: PackedScene = _gen2_cache.get(name, null)
-	if ps == null:
-		var path := ""
-		if not ResourceLoader.exists(path):
-			return null
-		ps = load(path)
-		_gen2_cache[name] = ps
-	if ps == null:
-		return null
-	var wrap := Node3D.new()
-	var inst: Node3D = ps.instantiate()
-	var h: float = _fit_prop(inst, target)
-	if GEN2_CEL:
-		# WW toon-bake 2/2: flat posterized albedo (shrink pass) + banded cel
-		# light + inverted-hull navy outline. GEN2 props only — bounded, one
-		# const to revert, per CEL_SHADING.md's incremental wiring plan.
-		# Corals get the two-layer FLOW variant: green growth sways with the
-		# ocean, rocky bodies stay rigid (greenness-gated in the shader).
-		if name.begins_with("coral"):
-			_cel_replace(inst, _gen2_outline_mat(), "res://assets/shaders/coral_flow.gdshader")
-		else:
-			_cel_replace(inst, _gen2_outline_mat())
-	wrap.add_child(inst)
-	# sink settles the prop into the ground by a fraction of its height —
-	# Meshy meshes have smooth rounded bases that only kiss the terrain at one
-	# tangent point and read as floating on any slope (playtest 2026-07-10)
-	wrap.position = pos - Vector3(0.0, h * sink, 0.0)
-	wrap.rotation.y = yrot
-	add_child(wrap)
-	return wrap
+	return null
 
 func _pastel(c: Color) -> Color:
 	# the book palette: colours drift toward airy pastel (lifted, softened)
@@ -5777,35 +5481,6 @@ func _pastel(c: Color) -> Color:
 	var v: float = clampf(c.v * 0.9 + 0.16, 0.0, 1.0)
 	return Color.from_hsv(h, s, v, c.a)
 
-func _dress_nature(node: Node) -> void:
-	# STORYBOOK FORK: flat pastel toon materials — no realistic texture detail
-	if node is MeshInstance3D:
-		var mi := node as MeshInstance3D
-		var mesh := mi.mesh
-		if mesh != null:
-			for si in range(mesh.get_surface_count()):
-				var bm: Material = mesh.surface_get_material(si)
-				var col := Color(0.5, 0.6, 0.4)
-				if bm is StandardMaterial3D:
-					col = (bm as StandardMaterial3D).albedo_color
-				# perf (Mali-G52): identical pastel colors share ONE material.
-				# A fresh StandardMaterial3D per surface per instance made
-				# every nature prop its own draw-state (hundreds of unique
-				# RIDs in the lagoon, defeating batching, re-allocated on
-				# every arena entry). All other params are constants, so the
-				# final pastel color is the whole visual identity of the mat.
-				var pc: Color = _pastel(col)
-				var key: int = pc.to_rgba32()
-				var nm: StandardMaterial3D = _nature_mats.get(key)
-				if nm == null:
-					nm = StandardMaterial3D.new()
-					nm.albedo_color = pc
-					nm.roughness = 1.0
-					nm.metallic_specular = 0.1
-					_nature_mats[key] = nm
-				mi.set_surface_override_material(si, nm)
-	for c in node.get_children():
-		_dress_nature(c)
 
 func _toonify(node: Node) -> void:
 	# restyle any imported CC0 prop for the storybook look: strip realistic
@@ -6138,44 +5813,6 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 				else "The secret shell door opens into the Main Hall!",
 				entry_voice)
 
-func _panel_glass(pos: Vector3, rot_deg: Vector3, w: float, h: float) -> void:
-	# a stained-glass grid of glowing coloured panels (no mermaid)
-	var cols := [Color(0.9, 0.3, 0.4), Color(0.3, 0.6, 1.0), Color(1.0, 0.85, 0.3), Color(0.4, 0.85, 0.5), Color(0.7, 0.4, 0.9), Color(1.0, 0.55, 0.3)]
-	var root := Node3D.new()
-	root.position = pos
-	root.rotation_degrees = rot_deg
-	add_child(root)
-	game_nodes.append(root)
-	var nx := 3
-	var ny := 4
-	for ix in range(nx):
-		for iy in range(ny):
-			var q := MeshInstance3D.new()
-			var qm := QuadMesh.new()
-			qm.size = Vector2(w / float(nx) * 0.9, h / float(ny) * 0.9)
-			q.mesh = qm
-			var mm := StandardMaterial3D.new()
-			var cc: Color = cols[(ix + iy * nx) % cols.size()]
-			mm.albedo_color = Color(cc.r, cc.g, cc.b, 0.72)
-			mm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-			mm.cull_mode = BaseMaterial3D.CULL_DISABLED
-			mm.emission_enabled = true
-			mm.emission = cc
-			mm.emission_energy_multiplier = 0.85
-			mm.roughness = 0.4
-			q.material_override = mm
-			q.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			q.position = Vector3((float(ix) - float(nx - 1) * 0.5) * w / float(nx), (float(iy) - float(ny - 1) * 0.5) * h / float(ny), 0)
-			root.add_child(q)
-	var bl := OmniLight3D.new()
-	bl.light_color = Color(1.0, 0.95, 0.95)
-	bl.light_energy = 2.0
-	bl.omni_range = h * 2.0
-	bl.position = pos
-	bl.translate_object_local(Vector3(0, 0, -3.0))
-	add_child(bl)
-	game_nodes.append(bl)
-	_register_castle_light(bl, false)
 
 func _glass_window(pos: Vector3, rot_deg: Vector3, height: float) -> void:
 	var pane := MeshInstance3D.new()
@@ -6265,6 +5902,12 @@ func _day_one_ref() -> DayOneDirector:
 		_day_one_director = DayOneDirector.new(self)
 		_day_one_director.hook_event.connect(_on_day_one_hook_event)
 	return _day_one_director
+
+
+func _day_one_flow_ref() -> DayOneFlow:
+	if _day_one_flow == null:
+		_day_one_flow = DayOneFlow.new(self)
+	return _day_one_flow
 
 
 func _comfy_games_ref() -> ComfyGames:
@@ -6381,6 +6024,9 @@ func _start_chapter2_lawn() -> bool:
 	if not chapter2_party_is_ready() or not _chapter_two_live_castle_room("main_hall") \
 			or is_instance_valid(chapter2_lawn_view):
 		return false
+	if not chapter2_party_started and not FashionDesigner.party_dressed(self):
+		_wardrobe_ref().open_party_dress()
+		return true
 	chapter2_lawn_started = true
 	if chapter2_story_complete:
 		chapter2_lawn_beat = 8
@@ -6426,7 +6072,7 @@ func _end_chapter2_lawn(_result: Variant = "back") -> void:
 func chapter2_record_party_contribution(act_index: int) -> bool:
 	var changed := _chapter_two_ref().record_party_contribution(act_index)
 	if changed:
-		_queue_save()
+		_write_save()
 	return changed
 
 
@@ -6437,7 +6083,7 @@ func chapter2_on_opera_phase_completed(act_index: int, phase_index: int,
 	var changed := _chapter_two_ref().record_opera_phase_event(
 		act_index, phase_index, phase_name, true)
 	if changed:
-		_queue_save()
+		_write_save()
 	return changed
 
 
@@ -6446,21 +6092,21 @@ func chapter2_on_opera_phase_snapshot(snapshot: Dictionary) -> bool:
 	var changed := _chapter_two_ref().record_opera_phase_snapshot(
 		act_index, snapshot, true)
 	if changed:
-		_queue_save()
+		_write_save()
 	return changed
 
 
 func chapter2_record_strawberry_pick(pick_index: int) -> bool:
 	var changed := _chapter_two_ref().record_strawberry_pick(pick_index)
 	if changed:
-		_queue_save()
+		_write_save()
 	return changed
 
 
 func chapter2_record_cake_piece(piece_index: int) -> bool:
 	var changed := _chapter_two_ref().record_cake_piece(piece_index)
 	if changed:
-		_queue_save()
+		_write_save()
 	return changed
 
 
@@ -6484,10 +6130,11 @@ func chapter2_on_opera_completed(act_index: int,
 		plot_context: String = "") -> void:
 	if not chapter2_is_active():
 		return
-	if plot_context != "" or _chapter_two_ref().tutorial_phase_is_active():
-		_chapter_two_ref().record_opera_completion(act_index, plot_context)
-	else:
-		_chapter_two_ref().record_party_contribution(act_index)
+	var changed: bool = _chapter_two_ref().record_opera_completion(act_index, plot_context) \
+		if plot_context != "" or _chapter_two_ref().tutorial_phase_is_active() \
+		else _chapter_two_ref().record_party_contribution(act_index)
+	if changed:
+		_write_save()
 
 
 ## The attack customizer is intentionally loaded lazily. This keeps the main
@@ -6538,23 +6185,11 @@ func set_attack_profile(next_color: Color, next_effect: String) -> bool:
 
 
 func _open_day_one_art_studio() -> bool:
-	if castle_room_stage == null or castle_room_id != "craft_room" \
-			or not day_one_is_active() \
-			or _day_one_ref().is_room_completed("art"):
-		return false
-	if _day_one_art_studio != null and is_instance_valid(_day_one_art_studio):
-		_day_one_art_studio.refresh_from_state()
-		return true
-	_day_one_art_studio = DayOneArtStudioLogic.new() as DayOneArtStudio
-	castle_room_stage.add_child(_day_one_art_studio)
-	_day_one_art_studio.setup(self)
-	return true
+	return _day_one_flow_ref()._open_day_one_art_studio()
 
 
 func _close_day_one_art_studio() -> void:
-	if _day_one_art_studio != null and is_instance_valid(_day_one_art_studio):
-		_day_one_art_studio.teardown()
-	_day_one_art_studio = null
+	_day_one_flow_ref()._close_day_one_art_studio()
 
 
 func day_one_is_active() -> bool:
@@ -6567,26 +6202,11 @@ func day_one_opera_enabled() -> bool:
 	return not day_one_is_active() or _day_one_ref().can_start_opera()
 
 func day_one_boss_door_ready() -> bool:
-	var director: DayOneDirector = _day_one_ref()
-	return day_one_is_active() and director.boss_door_glow \
-		and not director.giant_dust_bunny_boss_triggered
+	return _day_one_flow_ref().day_one_boss_door_ready()
 
 
 func day_one_complete_boss_and_begin_day_two() -> bool:
-	var director: DayOneDirector = _day_one_ref()
-	# The real DustBoss win crosses one atomic story boundary. Record and emit
-	# the boss defeat first; its synchronous hook starts Chapter 2. Only then
-	# emit/present the newer Day Two bridge. Repeated win/end callbacks stop at
-	# the idempotent defeat gate and cannot duplicate either event or transition.
-	if not director.complete_giant_dust_bunny_boss():
-		return false
-	director.complete_day_one_after_boss()
-	# Persist the unlock before presentation. The normal end-game save follows
-	# in the same frame, but this first write protects both the boss boundary
-	# and Chapter 2 activation if the platform backgrounds during transition.
-	_write_save()
-	call_deferred("_show_day_two_transition")
-	return true
+	return _day_one_flow_ref().day_one_complete_boss_and_begin_day_two()
 
 
 func _show_day_two_transition() -> void:
@@ -6625,27 +6245,13 @@ func _on_day_two_transition_finished() -> void:
 	_update_hud()
 
 func day_one_castle_room_is_clean(castle_room: String) -> bool:
-	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
-		castle_room, ""))
-	return logical_room != "" \
-		and _day_one_ref().is_dust_bunny_cleaned(logical_room)
+	return _day_one_flow_ref().day_one_castle_room_is_clean(castle_room)
 
 func day_one_can_enter_castle_room(castle_room: String) -> bool:
-	if not day_one_is_active() or castle_room == "main_hall":
-		return true
-	if DAY_ONE_OPTIONAL_CASTLE_ROOM_IDS.has(castle_room):
-		return true
-	var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(
-		castle_room, ""))
-	return logical_room != "" and _day_one_ref().can_enter_room(logical_room)
+	return _day_one_flow_ref().day_one_can_enter_castle_room(castle_room)
 
 func day_one_try_enter_castle_room(castle_room: String) -> bool:
-	if day_one_can_enter_castle_room(castle_room):
-		return true
-	show_msg("Roshan",
-		"That door is napping. Let's clean the next room!",
-		"castle_door_resting")
-	return false
+	return _day_one_flow_ref().day_one_try_enter_castle_room(castle_room)
 
 func day_one_activate_castle_room(castle_room: String) -> bool:
 	if not day_one_is_active():
@@ -6711,50 +6317,22 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 	return true
 
 func day_one_record_bathroom_cleanup_step(step: int) -> void:
-	if not day_one_is_active():
-		return
-	day_one_bathroom_cleanup_step = clampi(maxi(
-		day_one_bathroom_cleanup_step, step), 0, 3)
-	_queue_save()
+	_day_one_flow_ref().day_one_record_bathroom_cleanup_step(step)
 
 func day_one_record_bathroom_supply_step(step: int) -> void:
-	if not day_one_is_active():
-		return
-	day_one_bathroom_supply_hunt_step = clampi(maxi(
-		day_one_bathroom_supply_hunt_step, step), 0, 2)
-	if day_one_bathroom_supply_hunt_step >= 2:
-		day_one_bathroom_tools_authorized = true
-	_queue_save()
+	_day_one_flow_ref().day_one_record_bathroom_supply_step(step)
 
 
 func day_one_record_bathroom_toilet_cleaned() -> void:
-	if not day_one_is_active() or day_one_bathroom_cleanup_step < 2:
-		return
-	day_one_bathroom_toilet_cleaned = true
-	_queue_save()
+	_day_one_flow_ref().day_one_record_bathroom_toilet_cleaned()
 
 
 func day_one_record_bathroom_tub_drained() -> void:
-	if not day_one_is_active() or day_one_bathroom_tub_drained:
-		return
-	day_one_bathroom_tub_drained = true
-	_queue_save()
+	_day_one_flow_ref().day_one_record_bathroom_tub_drained()
 
 
-## The basket is the single authorization point for the two cleaning tools.
-## The old hunt-step key is advanced for save compatibility; new callers can
-## use this idempotent seam without reviving a cabinet hunt.
 func day_one_authorize_bathroom_tools() -> bool:
-	if not day_one_is_active() \
-			or _day_one_ref().current_room_id != "bathroom" \
-			or _day_one_ref().is_room_completed("bathroom"):
-		return false
-	if day_one_bathroom_tools_authorized:
-		return true
-	day_one_bathroom_tools_authorized = true
-	day_one_bathroom_supply_hunt_step = 2
-	_write_save()
-	return true
+	return _day_one_flow_ref().day_one_authorize_bathroom_tools()
 
 func day_one_complete_bathroom_scene() -> bool:
 	if not day_one_is_active():
@@ -6782,73 +6360,28 @@ func day_one_complete_bathroom_scene() -> bool:
 
 
 func day_one_record_art_cleanup(kind: String, item_id: String) -> bool:
-	if not day_one_is_active() or _day_one_ref().current_room_id != "art":
-		return false
-	var changed: bool = _day_one_ref().record_art_cleanup(kind, item_id)
-	if changed:
-		_queue_save()
-	return changed
+	return _day_one_flow_ref().day_one_record_art_cleanup(kind, item_id)
 
 
 func day_one_complete_art_customization() -> bool:
-	if not day_one_is_active() or _day_one_ref().current_room_id != "art":
-		return false
-	var changed: bool = _day_one_ref().complete_art_customization()
-	if changed:
-		_write_save()
-	return changed
+	return _day_one_flow_ref().day_one_complete_art_customization()
 
 
 func day_one_complete_art_scene() -> bool:
-	if not day_one_is_active():
-		return false
-	var director: DayOneDirector = _day_one_ref()
-	if not director.complete_art_studio():
-		return false
-	_close_day_one_art_studio()
-	_castle_rooms_ref().apply_day_one_cleanup("craft_room")
-	_day_one_sync_castle_dressing()
-	_write_save()
-	_show_day_one_room_handoff("__royal_hall", "day_one_all_rooms_clean")
-	return true
+	return _day_one_flow_ref().day_one_complete_art_scene()
 
 
 func day_one_record_pool_cleanup_step(step: int) -> void:
-	if not day_one_is_active():
-		return
-	day_one_pool_cleanup_step = clampi(maxi(
-		day_one_pool_cleanup_step, step), 0, 4)
-	_queue_save()
+	_day_one_flow_ref().day_one_record_pool_cleanup_step(step)
 
 
 func day_one_record_pool_activity_progress(
 		skimmer_mask: int, waterfall_mask: int, seahorse_tugs: int) -> void:
-	if not day_one_is_active():
-		return
-	day_one_pool_skimmer_mask |= skimmer_mask & 0x3F
-	day_one_pool_waterfall_mask |= waterfall_mask & 0x07
-	day_one_pool_seahorse_tugs = clampi(maxi(
-		day_one_pool_seahorse_tugs, seahorse_tugs), 0, 8)
-	_queue_save()
+	_day_one_flow_ref().day_one_record_pool_activity_progress(skimmer_mask,
+		waterfall_mask, seahorse_tugs)
 
 func day_one_complete_pool_scene() -> bool:
-	if not day_one_is_active():
-		return false
-	var director: DayOneDirector = _day_one_ref()
-	if director.is_room_completed("pool"):
-		return false
-	day_one_pool_cleanup_step = 4
-	day_one_pool_rumi_met = true
-	day_one_pool_skimmer_mask = 0x3F
-	day_one_pool_waterfall_mask = 0x07
-	day_one_pool_seahorse_tugs = 8
-	if not director.complete_activity("pool", "pool_activity"):
-		return false
-	_castle_rooms_ref().apply_day_one_cleanup("mermaid_pool")
-	_day_one_sync_castle_dressing()
-	_write_save()
-	_show_day_one_room_handoff("playroom", "day_one_new_door")
-	return true
+	return _day_one_flow_ref().day_one_complete_pool_scene()
 
 func day_one_complete_stuffie_rescue() -> bool:
 	if not day_one_is_active() \
@@ -6868,48 +6401,13 @@ func _day_one_begin_arrival() -> void:
 		_day_one_ref().trigger_arrival_plane_media()
 
 func _day_one_discover_dirty_castle() -> void:
-	if not day_one_is_active():
-		return
-	_day_one_ref().discover_dirty_castle()
-	_day_one_attach_castle_dressing()
-	_day_one_arm_boss_door()
+	_day_one_flow_ref()._day_one_discover_dirty_castle()
 
 func _day_one_attach_castle_dressing() -> void:
-	if not day_one_is_active() or castle_room_stage == null:
-		return
-	if day_one_castle_dressing == null \
-			or not is_instance_valid(day_one_castle_dressing):
-		day_one_castle_dressing = DayOneCastleDressing.create_dressing(
-			castle_room_stage)
-		day_one_castle_dressing.name = "DayOneDirtyCastleDressing"
-		day_one_castle_dressing.z_index = 20
-	_day_one_sync_castle_dressing()
+	_day_one_flow_ref()._day_one_attach_castle_dressing()
 
 func _day_one_sync_castle_dressing() -> void:
-	if day_one_is_active() and castle_room_stage != null:
-		var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(castle_room_id, ""))
-		if logical_room != "":
-			_day_one_play_story_clip_for_room(logical_room, _day_one_ref())
-	_sync_day_one_art_studio()
-	if day_one_castle_dressing == null \
-			or not is_instance_valid(day_one_castle_dressing):
-		return
-	var director: DayOneDirector = _day_one_ref()
-	var room_dirty: Dictionary = {}
-	var door_unlocked: Dictionary = {}
-	for castle_room_value: Variant in DAY_ONE_CASTLE_ROOM_IDS.keys():
-		var castle_room: String = String(castle_room_value)
-		var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS[castle_room])
-		room_dirty[castle_room] = not director.is_dust_bunny_cleaned(logical_room)
-		door_unlocked[castle_room] = director.can_enter_room(logical_room)
-	day_one_castle_dressing.update_dressing(0.0, {
-		"room_dirty": room_dirty,
-		"door_unlocked": door_unlocked,
-		"boss_back_door_active": director.boss_door_glow,
-		"visible_room_id": castle_room_id,
-	})
-	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
-		_castle_rooms_25d.refresh_door_states()
+	_day_one_flow_ref()._day_one_sync_castle_dressing()
 
 
 func _sync_day_one_bathroom_cleanup() -> void:
@@ -6967,10 +6465,7 @@ func _sync_day_one_bathroom_cleanup() -> void:
 
 
 func _clear_day_one_bathroom_cleanup() -> void:
-	if _day_one_bathroom_cleanup != null \
-			and is_instance_valid(_day_one_bathroom_cleanup):
-		_day_one_bathroom_cleanup.teardown()
-	_day_one_bathroom_cleanup = null
+	_day_one_flow_ref()._clear_day_one_bathroom_cleanup()
 
 
 func _on_day_one_bathroom_cleanup_step(step: int, cleanup_id: String) -> void:
@@ -6997,45 +6492,15 @@ func _on_day_one_bathroom_finale_started() -> void:
 
 
 func _on_day_one_bathroom_cleanup_completed() -> void:
-	if not day_one_complete_bathroom_scene():
-		return
-	_clear_day_one_bathroom_cleanup()
-	_day_one_sync_castle_dressing()
-
-
-func _sync_day_one_art_studio() -> void:
-	var should_show: bool = day_one_is_active() \
-		and castle_room_stage != null \
-		and castle_room_id == "craft_room" \
-		and not _day_one_ref().is_room_completed("art")
-	if should_show:
-		_open_day_one_art_studio()
-	else:
-		_close_day_one_art_studio()
+	_day_one_flow_ref()._on_day_one_bathroom_cleanup_completed()
 
 
 func _day_one_clear_castle_dressing() -> void:
-	_day_one_cancel_story_clips()
-	_clear_day_one_bathroom_cleanup()
-	_clear_day_one_bathroom_movie_handoff()
-	_day_one_bathroom_movie_handoff_pending = false
-	_day_one_bathroom_entry_movie_checked = false
-	_clear_day_one_pool_route()
-	_restore_day_one_bathroom_controls()
-	_close_day_one_art_studio()
-	if day_one_castle_dressing != null \
-			and is_instance_valid(day_one_castle_dressing):
-		day_one_castle_dressing.teardown()
-	day_one_castle_dressing = null
+	_day_one_flow_ref()._day_one_clear_castle_dressing()
 
 
 func _clear_day_one_bathroom_movie_handoff() -> void:
-	if _day_one_bathroom_movie_handoff != null \
-			and is_instance_valid(_day_one_bathroom_movie_handoff):
-		_day_one_bathroom_movie_handoff.stop()
-		_day_one_bathroom_movie_handoff.queue_free()
-	_day_one_bathroom_movie_handoff = null
-	_day_one_bathroom_movie_handoff_pending = false
+	_day_one_flow_ref()._clear_day_one_bathroom_movie_handoff()
 
 
 func _start_day_one_bathroom_movie_handoff() -> void:
@@ -7108,18 +6573,7 @@ func _day_one_bathroom_entry_movie_blocks_cleanup() -> bool:
 
 
 func _show_day_one_pool_route() -> void:
-	if not day_one_is_active() or castle_room_stage == null \
-			or not _day_one_ref().can_enter_room("pool"):
-		return
-	if _day_one_bathroom_movie_handoff_pending \
-			or _day_one_bathroom_movie_is_playing():
-		return
-	# Back returns to the hall, where the next unlocked painted door glows.
-	_restore_day_one_bathroom_controls()
-	if _day_one_room_handoff_target == "mermaid_pool" \
-			and _day_one_room_handoff_source == castle_room_id:
-		return
-	_show_day_one_room_handoff("mermaid_pool", "day_one_pool_ready")
+	_day_one_flow_ref()._show_day_one_pool_route()
 
 
 func _show_day_one_room_handoff(target_room: String,
@@ -7214,26 +6668,11 @@ func _sync_day_one_pool_route() -> void:
 
 
 func _day_one_bathroom_movie_is_playing() -> bool:
-	if _day_one_bathroom_movie_handoff == null \
-			or not is_instance_valid(_day_one_bathroom_movie_handoff):
-		return false
-	return bool(_day_one_bathroom_movie_handoff.audit_snapshot().get(
-		"player_active", false))
+	return _day_one_flow_ref()._day_one_bathroom_movie_is_playing()
 
 
 func _day_one_bathroom_navigation_controls() -> Array[Control]:
-	var controls: Array[Control] = []
-	var candidates: Array[Node] = [
-		castle_room_action_button,
-		castle_room_back_button,
-		castle_room_menu_panel,
-	]
-	for candidate: Node in candidates:
-		var control: Control = candidate as Control
-		if control != null and is_instance_valid(control) \
-				and not controls.has(control):
-			controls.append(control)
-	return controls
+	return _day_one_flow_ref()._day_one_bathroom_navigation_controls()
 
 
 func _suspend_day_one_bathroom_controls() -> void:
@@ -7261,22 +6700,7 @@ func _suspend_day_one_bathroom_controls() -> void:
 
 
 func _restore_day_one_bathroom_controls() -> void:
-	if not _day_one_bathroom_controls_suspended:
-		return
-	for state: Dictionary in _day_one_bathroom_control_state:
-		var control: Control = state.get("control") as Control
-		if control == null or not is_instance_valid(control):
-			continue
-		control.visible = bool(state.get("visible", true))
-		control.mouse_filter = int(state.get("mouse_filter",
-			Control.MOUSE_FILTER_STOP))
-		var button: BaseButton = control as BaseButton
-		if button != null:
-			button.disabled = bool(state.get("disabled", false))
-	_day_one_bathroom_control_state.clear()
-	_day_one_bathroom_controls_suspended = false
-	castle_room_menu_open = _day_one_bathroom_menu_was_open
-	_set_world_controls_enabled(true, "day_one_bathroom_lifecycle")
+	_day_one_flow_ref()._restore_day_one_bathroom_controls()
 
 
 func _clear_day_one_pool_route() -> void:
@@ -7284,15 +6708,7 @@ func _clear_day_one_pool_route() -> void:
 	_day_one_room_handoff_source = ""
 
 func _day_one_arm_boss_door() -> void:
-	var director: DayOneDirector = _day_one_ref()
-	if not day_one_is_active() or not director.boss_door_glow \
-			or director.giant_dust_bunny_boss_triggered:
-		return
-	_castle_rooms_ref().arm_royal_hall_event(
-		"day_one_giant_dust_bunny", _day_one_trigger_boss)
-
-func _day_one_trigger_boss() -> void:
-	_day_one_ref().trigger_giant_dust_bunny_boss()
+	_day_one_flow_ref()._day_one_arm_boss_door()
 
 func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 	g["day_one_last_event"] = event_name
@@ -7381,6 +6797,7 @@ func _day_one_play_story_clip(movie_id: String) -> bool:
 		return false
 	_navigation_push("day_one_story_clip", preview, Callable(preview, "skip"))
 	_day_one_story_clip = preview
+	_day_one_cover_castle_for_story_clip()
 	day_one_story_clips_seen[movie_id] = true
 	_queue_save()
 	if movie_id == "d1_bath_arrival":
@@ -7391,47 +6808,40 @@ func _day_one_play_story_clip(movie_id: String) -> bool:
 			_day_one_story_clip = null
 			# Defer to consume the skip tap before enabling the next game action.
 			call_deferred("_day_one_drain_story_clips")
+		if _day_one_story_clip == null or not is_instance_valid(_day_one_story_clip):
+			_day_one_uncover_castle_after_story_clip()
 		)
 	return true
 
 
+func _day_one_cover_castle_for_story_clip() -> void:
+	# A story clip covers the whole screen, so the castle and its voice caption
+	# stop drawing under it (owner answer QP-3, 2026-10-05). Only the layers'
+	# children hide: the castle layer's own visibility tells game logic that the
+	# castle is the surface.
+	for layer: CanvasLayer in [castle_room_layer, castle_voice_caption_layer]:
+		if layer == null or not is_instance_valid(layer):
+			continue
+		for child: Node in layer.get_children():
+			var item: CanvasItem = child as CanvasItem
+			if item != null and item.visible and not _day_one_story_clip_covered.has(item):
+				item.visible = false
+				_day_one_story_clip_covered.append(item)
+
+
+func _day_one_uncover_castle_after_story_clip() -> void:
+	for item: CanvasItem in _day_one_story_clip_covered:
+		if item != null and is_instance_valid(item):
+			item.visible = true
+	_day_one_story_clip_covered.clear()
+
+
 func _day_one_drain_story_clips() -> void:
-	if not is_inside_tree() or is_queued_for_deletion() \
-			or (_day_one_story_clip != null and is_instance_valid(_day_one_story_clip)):
-		return
-	if touch_ui != null:
-		touch_ui.consume_action()
-	while not _day_one_story_clip_queue.is_empty():
-		var next_id: String = _day_one_story_clip_queue.pop_front()
-		if _day_one_play_story_clip(next_id):
-			return
-	if _day_one_story_boss_start_pending:
-		_day_one_story_boss_start_pending = false
-		if day_one_is_active() and _day_one_ref().giant_dust_bunny_boss_triggered:
-			_start_game(dust_boss_fr)
-	if _day_one_story_boss_transition_pending:
-		_day_one_story_boss_transition_pending = false
-		_show_day_two_transition()
-	if castle_room_id == "bubble_bath" and castle_room_stage != null:
-		_sync_day_one_bathroom_cleanup()
+	_day_one_flow_ref()._day_one_drain_story_clips()
 
 
 func _day_one_cancel_story_clips() -> void:
-	_day_one_story_clip_queue.clear()
-	if _day_one_story_boss_start_pending and day_one_is_active():
-		# A room teardown during C11 must leave the boss door re-triggerable,
-		# never a triggered checkpoint with no active encounter behind it.
-		_day_one_ref().giant_dust_bunny_boss_triggered = false
-		day_one_event_seen.erase(DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS)
-		_queue_save()
-	_day_one_story_boss_start_pending = false
-	_day_one_story_boss_transition_pending = false
-	var previous: DayOneStoryClips = _day_one_story_clip
-	_day_one_story_clip = null
-	if previous != null and is_instance_valid(previous):
-		# Release its pause synchronously before another scene acquires it. The
-		# detached callback cannot advance an abandoned room or boss route.
-		previous.skip()
+	_day_one_flow_ref()._day_one_cancel_story_clips()
 
 
 func _day_one_play_story_clip_for_room(room_id: String,
@@ -7447,34 +6857,12 @@ func _day_one_play_story_clip_for_room(room_id: String,
 		_day_one_play_story_clip(movie_id)
 
 
-func _day_one_abort_boss_for_lifecycle() -> void:
-	# Focus loss, application pause and close are all interruption boundaries for
-	# the active fight. End it through the same neutral teardown as Pause Leave;
-	# the post-clear seam re-arms the door and writes the safe state.
-	if _day_one_story_boss_start_pending:
-		_day_one_cancel_story_clips()
-		_day_one_ref().giant_dust_bunny_boss_triggered = false
-		_return_day_one_boss_to_castle()
-		return
-	if game != "dustboss" or not day_one_is_active() \
-			or _day_one_ref().giant_dust_bunny_boss_defeated:
-		return
-	_leave_arena_now()
-	_clear_game()
-	_write_save()
+func _day_one_suspend_boss_for_lifecycle() -> void:
+	_day_one_flow_ref()._day_one_suspend_boss_for_lifecycle()
 
 
 func _return_day_one_boss_to_castle() -> void:
-	if not day_one_is_active() \
-			or _day_one_ref().giant_dust_bunny_boss_defeated:
-		return
-	# _enter_level2 establishes the Canvas world before the hall seam opens it.
-	# Keep this post-clear: rebuilding while the arena still owns g leaves stale
-	# DustBoss nodes and can make the first returned tap hit the old encounter.
-	_enter_level2(true)
-	_enter_castle_interior(true)
-	_day_one_arm_boss_door()
-	_write_save()
+	_day_one_flow_ref()._return_day_one_boss_to_castle()
 
 
 func _on_chapter_two_hook_event(event_name: String,
@@ -7495,22 +6883,19 @@ func _on_chapter_two_hook_event(event_name: String,
 					_set_objective("chapter2_library_detective",
 						load("res://assets/ui/castle_room_buttons_v2/room_library.png") \
 							as Texture2D, "")
-					show_msg("",
-						"Detective sparkle points to the Royal Library storybook!", "hint")
+					_chapter_two_say("chapter2_route_detective")
 				ChapterTwoDirector.OBJECTIVE_STUFFIE_BALLET:
 					_set_objective("chapter2_stuffie_ballet",
 						load("res://assets/ui/castle_room_buttons_v2/room_playroom.png") \
 							as Texture2D, "")
-					show_msg("",
-						"The Stuffie Room is ready for a birthday dance!",
-						"hint")
+					_chapter_two_say("chapter2_route_ballerina")
 				ChapterTwoDirector.OBJECTIVE_PARTY_PREP:
 					_chapter_two_guide_next_party_piece()
 				ChapterTwoDirector.OBJECTIVE_MAIN_HALL_PARTY:
 					_set_objective("chapter2_main_hall_party",
 						load("res://assets/ui/castle_room_buttons_v2/room_main_hall.png") \
 							as Texture2D, "")
-					show_msg("", "Everything is ready! Come to the Main Hall!", "hint")
+					_chapter_two_say("chapter2_party_ready")
 				ChapterTwoDirector.OBJECTIVE_EMBER_KING_CRASH:
 					_set_objective("chapter2_main_hall_party",
 						load("res://assets/ui/castle_room_buttons_v2/room_main_hall.png") \
@@ -7547,7 +6932,7 @@ func _on_chapter_two_hook_event(event_name: String,
 			_set_objective("chapter2_main_hall_party",
 				load("res://assets/ui/castle_room_buttons_v2/room_main_hall.png") \
 					as Texture2D, "")
-			show_msg("", "Every party piece is ready! Meet in the Main Hall!", "hint")
+			_chapter_two_say("chapter2_party_ready")
 		ChapterTwoDirector.EVENT_PARTY_STARTED:
 			show_msg("",
 				"The little rocket lights the rainbow candle beside the gigantic cake!",
@@ -7558,42 +6943,29 @@ func _on_chapter_two_hook_event(event_name: String,
 			_set_objective("chapter3_north_fire_mountain",
 				load("res://assets/opera/worlds/props/goal_astronaut.png") \
 					as Texture2D, "")
-			show_msg("",
-				"The Ember King took the glowing rainbow candle for his own birthday party! His little son's silhouette points to the bright north-star clue!",
-				"hint")
-	_queue_save()
+			_chapter_two_say("chapter2_ember_clue")
+	_write_save()
 
 
-func _chapter_two_guide_next_party_piece(completed_career: String = "") -> void:
-	var entry := ChapterTwoPartyPlan.next_incomplete_entry(
-		chapter2_party_piece_mask)
+func _chapter_two_say(cue_id: String) -> void:
+	var cue: Dictionary = ChapterTwoVoiceCatalog.row(cue_id)
+	show_msg("", String(cue.get("caption", "")), "")
+	_audio_ref().chapter_two_prompt(cue_id)
+
+
+func _chapter_two_guide_next_party_piece(_completed_career: String = "") -> void:
+	var entry: Dictionary = ChapterTwoPartyPlan.next_incomplete_entry(chapter2_party_piece_mask)
 	if entry.is_empty():
 		return
-	var career_name := String(entry.get("career", "party")).replace("_", " ")
-	var room_id := String(entry.get("room", "main_hall"))
-	var room_name := room_id.replace("_", " ")
-	var location_name := String(entry.get("location_label", room_name))
-	var route_label := String(entry.get("route_label", ""))
-	var icon_path := "res://assets/ui/castle_room_buttons_v2/room_%s.png" % room_id
-	var icon: Texture2D = load(icon_path) as Texture2D \
-		if ResourceLoader.exists(icon_path) else null
-	_set_objective("chapter2_party_prep_%s" % career_name.replace(" ", "_"),
-		icon, "")
-	var celebration := "%s is ready! " % completed_career.capitalize() \
-		if completed_career != "" else ""
-	var route_hint := " Enter through the %s!" % route_label \
-		if not route_label.is_empty() else ""
-	show_msg("", "%sNext party sparkle: %s in the %s!%s" % [
-		celebration, career_name.capitalize(), location_name, route_hint], "hint")
+	var career_name: String = String(entry["career"])
+	var icon_path := "res://assets/ui/castle_room_buttons_v2/room_%s.png" % entry["room"]
+	_set_objective("chapter2_party_prep_" + career_name, load(icon_path) as Texture2D, "")
+	_chapter_two_say("chapter2_route_" + career_name)
 
 
 func _chapter_two_announce_start() -> void:
-	if not chapter2_is_active():
-		return
-	show_msg("",
-		"The castle is clean! The Opera House is open. Farmer Roshan can gather strawberries first!",
-		"home")
-	_chapter_two_guide_next_party_piece()
+	if chapter2_is_active():
+		_chapter_two_guide_next_party_piece()
 
 func _rainbow_friend_ref() -> RainbowFriendFollower:
 	if _rainbow_friend == null:
@@ -7696,202 +7068,6 @@ func _tick_wall_fade(delta: float) -> void:
 			mat.transparency = BaseMaterial3D.TRANSPARENCY_DISABLED
 			mat.albedo_color.a = base_a
 
-func _find_skel(n: Node) -> Skeleton3D:
-	if n is Skeleton3D:
-		return n
-	for c in n.get_children():
-		var r := _find_skel(c)
-		if r != null:
-			return r
-	return null
-
-func _ring_bell(bd: Dictionary) -> void:
-	(bd["player"] as AudioStreamPlayer).play()
-	var bn: Node3D = bd["node"]
-	var base_y: float = float(bd.get("base_y", 5.0))
-	if bd.get("tw") != null and (bd["tw"] as Tween).is_valid():
-		(bd["tw"] as Tween).kill()
-	bn.position.y = base_y
-	var bbtw: Tween = bn.create_tween()
-	bbtw.tween_property(bn, "position:y", base_y - 1.6, 0.06)
-	bbtw.tween_property(bn, "position:y", base_y, 0.16)
-	bd["tw"] = bbtw
-	# art pass 3.5 made the bars GLB props — the root Node3D has no
-	# material_override, so the burst color comes from the bell dict
-	_sparkle_burst(bn.position + Vector3(0, 4, 0), Color(bd.get("color", Color(1.0, 0.9, 0.55))))
-
-func _tick_bellgame(bg2: Dictionary, delta: float, ppos: Vector3) -> void:
-	if bg2.is_empty():
-		return
-	bg2["cool"] = maxf(0.0, float(bg2["cool"]) - delta)
-	var st := String(bg2["state"])
-	if st == "idle":
-		if not touch_uses_explicit_interactions() and float(bg2["cool"]) <= 0.0 and g.has("song_star") and (g["song_star"] as Vector3).distance_to(ppos) < 5.0:
-			_start_bellgame(bg2)
-	elif st == "play":
-		bg2["t"] = float(bg2["t"]) - delta
-		if float(bg2["t"]) <= 0.0:
-			var seq: Array = bg2["seq"]
-			var i: int = int(bg2["i"])
-			if i < seq.size():
-				_ring_bell((g["bells"] as Array)[int(seq[i])])
-				bg2["i"] = i + 1
-				bg2["t"] = 0.75
-			else:
-				bg2["state"] = "echo"
-				bg2["i"] = 0
-				show_msg("Music Room", "Your turn! Ring the bells in the same order!")
-				_populate_touch_interactables()
-
-func _start_bellgame(bg2: Dictionary) -> void:
-	if bg2.is_empty() or String(bg2.get("state", "")) != "idle" or float(bg2.get("cool", 0.0)) > 0.0:
-		return
-	bg2["round"] = 0
-	bg2["oops"] = 0
-	show_msg("Music Room", "The bells want to sing you a song! Listen... then copy it!")
-	_bellgame_new_round(bg2)
-
-func _bellgame_new_round(bg2: Dictionary) -> void:
-	bg2["round"] = int(bg2["round"]) + 1
-	var seq: Array = []
-	var prev := -1
-	for i in range(int(bg2["round"]) + 1):
-		# no note twice in a row — the echo is edge-triggered (leave + re-enter
-		# the same bell would stump a little player)
-		var pick := randi() % 7
-		while pick == prev:
-			pick = randi() % 7
-		seq.append(pick)
-		prev = pick
-	bg2["seq"] = seq
-	bg2["state"] = "play"
-	bg2["i"] = 0
-	bg2["t"] = 1.1
-	_populate_touch_interactables()
-
-func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
-	var seq: Array = bg2["seq"]
-	var i: int = int(bg2["i"])
-	if i >= seq.size():
-		return
-	if bell_idx == int(seq[i]):
-		bg2["i"] = i + 1
-		if int(bg2["i"]) >= seq.size():
-			if int(bg2["round"]) >= 3:
-				bg2["state"] = "idle"
-				bg2["cool"] = 30.0
-				pearl_count += 2
-				_write_save()
-				_update_hud()
-				_reward()
-				award_sticker("bells")
-				_medal_ref().award_stats("bells", {"oops": int(bg2.get("oops", 0))})
-				show_msg("Music Room", "You played the WHOLE bell song! +2 rainbow pearls!", "win")
-				_populate_touch_interactables()
-			else:
-				if chime != null:
-					chime.pitch_scale = 1.4
-					chime.play()
-				show_msg("Music Room", "Beautiful! Now a longer one — listen!")
-				_bellgame_new_round(bg2)
-	else:
-		if chime != null:
-			chime.pitch_scale = 0.5
-			chime.play()
-		show_msg("Music Room", "Almost! Listen to the song one more time...", "oops")
-		bg2["oops"] = int(bg2.get("oops", 0)) + 1
-		bg2["state"] = "play"
-		bg2["i"] = 0
-		bg2["t"] = 1.2
-		_populate_touch_interactables()
-
-func _begin_sleep() -> void:
-	# tuck-in cutscene: Roshan snuggles onto the bed, Zzz's float up, the screen
-	# fades, day flips to night (or night to day), and she wakes refreshed
-	if sleep_t >= 0.0:
-		return
-	_set_world_controls_enabled(false, "sleep")
-	award_sticker("sleepy")
-	_play_music("home")   # A Place I Call Home — the tuck-in lullaby
-	sleep_t = 0.0
-	sleep_flip_done = false
-	var bp: Vector3 = g["bed_pos"]
-	player.position = bp + Vector3(0, 1.0, 0.4)
-	player.vel = Vector3.ZERO
-	player.rotation_degrees = Vector3(-64, 180, 0)   # reclined on the pillow
-	if chime != null:
-		chime.pitch_scale = 0.9
-		chime.play()
-	hud_game.text = ""
-	show_msg("Roshan", "Time for a cosy little sleep... zZz")
-
-func _sleep_z() -> void:
-	var z := Label3D.new()
-	z.text = "z"
-	z.font_size = 90 + randi() % 60
-	z.outline_size = 14
-	z.modulate = Color(0.75, 0.85, 1.0)
-	z.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	var bp: Vector3 = g["bed_pos"]
-	z.position = bp + Vector3(randf() * 2.0 - 1.0, 2.5, randf() * 2.0 - 1.0)
-	add_child(z)
-	var tw := z.create_tween()
-	tw.tween_property(z, "position:y", z.position.y + 5.0, 1.6)
-	tw.parallel().tween_property(z, "modulate:a", 0.0, 1.6)
-	tw.tween_callback(z.queue_free)
-
-func _tick_sleep(delta: float) -> void:
-	sleep_t += delta
-	# slow breathing bob while she drifts off
-	if player != null and g.has("bed_pos"):
-		player.position.y = float((g["bed_pos"] as Vector3).y) + 1.0 + sin(sleep_t * 1.5) * 0.12
-	if fmod(sleep_t, 0.8) < delta and sleep_t < 3.2:
-		_sleep_z()
-		if chime != null and sleep_t > 0.5:
-			chime.pitch_scale = 0.85 - sleep_t * 0.06   # descending lullaby notes
-			chime.play()
-	if sleep_t >= 2.4 and sleep_layer == null:
-		# dream-fade to deep sleepy indigo
-		sleep_layer = CanvasLayer.new()
-		sleep_layer.layer = 24
-		add_child(sleep_layer)
-		sleep_overlay = ColorRect.new()
-		sleep_overlay.color = Color(0.03, 0.02, 0.10, 0.0)
-		sleep_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
-		sleep_layer.add_child(sleep_overlay)
-		var tw := sleep_overlay.create_tween()
-		tw.tween_property(sleep_overlay, "color:a", 1.0, 0.9)
-	if sleep_t >= 3.6 and not sleep_flip_done:
-		sleep_flip_done = true
-		_set_night(not is_night)   # the whole ocean changes while she dreams
-	if sleep_t >= 4.6 and sleep_overlay != null and sleep_overlay.color.a >= 0.99:
-		var tw2 := sleep_overlay.create_tween()
-		tw2.tween_property(sleep_overlay, "color:a", 0.0, 1.0)
-		sleep_overlay.color.a = 0.98   # nudge below the gate so this runs once
-	if sleep_t >= 6.0:
-		_end_sleep()
-
-func _end_sleep() -> void:
-	sleep_t = -1.0
-	sleep_cool = 18.0
-	_play_music("hall")   # lullaby over — back to the castle theme
-	if sleep_layer != null and is_instance_valid(sleep_layer):
-		sleep_layer.queue_free()
-	sleep_layer = null
-	sleep_overlay = null
-	if player != null:
-		player.rotation_degrees = Vector3.ZERO
-		if g.has("bed_pos"):
-			player.position = (g["bed_pos"] as Vector3) + Vector3(-5.0, 1.0, 3.0)
-		player.vel = Vector3.ZERO
-	_sparkle_burst(player.position + Vector3(0, 2, 0), Color(0.8, 0.9, 1.0))
-	if is_night:
-		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!",
-			"ocean_nap_night")
-	else:
-		show_msg("Roshan", "Good morning! The sun is shining over the ocean again!",
-			"ocean_nap_morning")
-	_set_world_controls_enabled(true, "sleep")
 
 func _l2_start_slide() -> void:
 	# the rainbow slide is the 3D play place (same world as Harper's game), returning to the courtyard when done
@@ -7951,86 +7127,6 @@ func _return_to_courtyard() -> void:
 	game_nodes.clear()
 	_enter_level2(true)
 
-func _play_hug_cutscene() -> void:
-	if hug_layer != null:
-		return
-	_set_world_controls_enabled(false, "hug")
-	award_sticker("hug")
-	var cl := CanvasLayer.new()
-	cl.layer = 20
-	add_child(cl)
-	hug_layer = cl
-	var root := Control.new()
-	root.set_anchors_preset(Control.PRESET_FULL_RECT)
-	cl.add_child(root)
-	var vp: Vector2 = get_viewport().get_visible_rect().size
-	var bg := ColorRect.new()
-	bg.color = Color(0.06, 0.03, 0.14, 0.0)
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
-	root.add_child(bg)
-	var tb := create_tween()
-	tb.tween_property(bg, "color", Color(0.06, 0.03, 0.14, 0.5), 0.4)
-	# Daddy slides in from the left
-	var daddy := TextureRect.new()
-	daddy.texture = _cutout_tex("daddy")
-	daddy.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	daddy.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	daddy.size = Vector2(vp.y * 0.62, vp.y * 0.9)
-	daddy.position = Vector2(-daddy.size.x, vp.y * 0.1)
-	root.add_child(daddy)
-	# Roshan slides in from the right
-	var rosh := TextureRect.new()
-	rosh.texture = load(skin_sprite_path())
-	rosh.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	rosh.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	rosh.size = Vector2(vp.y * 0.5, vp.y * 0.7)
-	rosh.position = Vector2(vp.x, vp.y * 0.28)
-	root.add_child(rosh)
-	var lbl := Label.new()
-	lbl.text = "\u2764  I love you, Roshan!  \u2764"
-	lbl.add_theme_font_size_override("font_size", int(vp.y * 0.07))
-	lbl.add_theme_color_override("font_color", Color(1, 1, 1))
-	lbl.add_theme_color_override("font_outline_color", Color(0.6, 0.1, 0.3))
-	lbl.add_theme_constant_override("outline_size", 12)
-	lbl.position = Vector2(vp.x * 0.22, vp.y * 0.06)
-	lbl.modulate.a = 0.0
-	root.add_child(lbl)
-	var dp := AudioStreamPlayer.new()
-	dp.stream = load("res://assets/audio/voices/" + ["daddy1", "daddy2", "daddy3"][randi() % 3] + ".ogg")
-	dp.bus = "Voice"
-	dp.volume_db = 1.5   # was +4: headroom — the hot daddy clip clipped on small phone speakers
-	root.add_child(dp)
-	dp.play()
-	var tw := create_tween().set_parallel(true)
-	tw.tween_property(daddy, "position:x", vp.x * 0.5 - daddy.size.x * 0.64, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tw.tween_property(rosh, "position:x", vp.x * 0.5 - rosh.size.x * 0.36, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tw.tween_property(lbl, "modulate:a", 1.0, 0.5).set_delay(0.5)
-	for hi in range(16):
-		var h := Label.new()
-		h.text = "\u2764"
-		h.add_theme_font_size_override("font_size", int(vp.y * 0.05 * (0.6 + randf())))
-		h.add_theme_color_override("font_color", Color.from_hsv(0.94 + randf() * 0.12, 0.55, 1.0))
-		h.position = Vector2(vp.x * 0.5 + randf() * vp.x * 0.34 - vp.x * 0.17, vp.y * 0.62)
-		root.add_child(h)
-		var ht := create_tween().set_parallel(true)
-		ht.tween_property(h, "position:y", vp.y * 0.08, 1.7 + randf()).set_delay(0.5 + randf() * 0.6)
-		ht.tween_property(h, "modulate:a", 0.0, 1.6).set_delay(0.9)
-	get_tree().create_timer(2.7).timeout.connect(func():
-		if not is_instance_valid(root):
-			return
-		var fo := root.create_tween()
-		fo.tween_property(root, "modulate:a", 0.0, 0.45)
-		fo.finished.connect(_end_hug_cutscene))
-
-func _end_hug_cutscene() -> void:
-	if hug_layer != null and is_instance_valid(hug_layer):
-		hug_layer.queue_free()
-	hug_layer = null
-	_set_world_controls_enabled(true, "hug")
-
-
-func _mg_noop_ref(_n: Node) -> void:
-	pass
 
 func _layer_fx(nd: Object, role: String, col: Color, rb: bool, kind: String) -> void:
 	# kill any prior fx tween on this layer
@@ -8059,9 +7155,8 @@ func _layer_fx(nd: Object, role: String, col: Color, rb: bool, kind: String) -> 
 	else:
 		nd.set("modulate", Color(col.r, col.g, col.b, base_a))
 
-# each craft-studio creature -> its family Meshy mesh + footprint target. All
-# three of HER creations are real 3D friends now, recolored in her chosen
-# colors by the sway shader (paint_body/paint_fin). Billboards are fallback.
+# Retired model names remain compatibility lookup keys.
+# The authored layered-card fallback below owns the current craft visuals.
 const CRAFT_GEN2 := {"fish": ["clownfish", 1.7], "cat": ["craft_kitty", 3.2], "bird": ["craft_birdie", 2.6]}
 # creatures with a real skeleton + gait clips take priority over the static sway
 # mesh (kitty -> Chuck's quadruped cage; birdie -> its own standing-bird rig,
@@ -8277,23 +7372,7 @@ func _exit_level2_now(_target_kingdom: String = "") -> void:
 	_enter_level2_now(true)
 
 func _day_one_reorient_after_exit_now() -> void:
-	if not day_one_is_active():
-		return
-	var resume_room: String = day_one_castle_room_for_current()
-	if game == "":
-		# No world owns the castle, so resuming the room alone would leave the
-		# watchdog firing every frame. Rebuild the Canvas world once instead.
-		_enter_level2_now(true)
-		_enter_castle_interior_now()
-		if _castle_rooms_ref().is_open():
-			_castle_rooms_ref().show_room(resume_room, false)
-		return
-	if _castle_rooms_ref().is_open():
-		_castle_rooms_ref().resume(resume_room)
-	else:
-		_enter_castle_interior_now()
-		if _castle_rooms_ref().is_open():
-			_castle_rooms_ref().show_room(resume_room, false)
+	_day_one_flow_ref()._day_one_reorient_after_exit_now()
 
 func _finish_level2() -> void:
 	_do_finish_level2()
@@ -8482,22 +7561,6 @@ func _clear_game() -> void:
 			living_layer.visible = slide_canvas_living_was_visible
 		_set_world_controls_enabled(true, "slide_canvas")
 
-func _fail_line() -> String:
-	# in-character failure lines, by game (the on-screen text; the matching
-	# character voice plays via show_msg's "fail" event — drop <speaker>_fail.ogg
-	# into assets/audio/voices to use a real recorded clip)
-	match game:
-		"fetch":      return "Aww... now Chuck is all wet!"
-		"dolls":      return "Oh no, the babies!"
-		"brawl":      return "The imps are extra giggly today! Huluu says come back soon!"
-		"dustboss":   return "The great dust bunny puffed away — he'll bounce back for another game!"
-		"seek":       return "Where did Lamb-a' go?"
-		"melody":     return "Oh no, the colors!"
-		"treasure":   return "Aww, the treasure slipped back into the dark!"
-		"shop":       return "Come back when you've found more pearls!"
-		"fairyshoot": return "Oh no, the shadow bugs got away!"
-		"slide":      return "He's too speedy without magic beans! Toot toot!" if String(g.get("mode", "fish")) == "chase" else "So close! Catch more fish next time!"
-		_:            return "So close! Swim back and try again!"
 
 var pose_t := -1.0        # >=0: trophy curtain-call — player holds a happy pose
 var night_star_t := 4.0   # countdown to the next shooting star over the night lagoon
@@ -8658,7 +7721,7 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	# friends state. A generic result win here would stop that required sentence
 	# in the same frame; the Day Two bridge supplies the next exact cue.
 	if not completed_day_one_boss:
-		show_msg(fr["fname"], txt, "win" if win else vo)
+		show_msg(fr["fname"], txt, "win")
 	_update_hud()
 	_clear_game()
 	_write_save()
@@ -8936,14 +7999,7 @@ func _tick_game(delta: float) -> void:
 		_tick_fairyshoot(delta, fr, ppos)
 
 func skin_sprite_path() -> String:
-	# the flat art matching the wardrobe skin — used by the kart driver and
-	# the 2D minigame mermaid so the chosen look follows Roshan into every
-	# game, not just the ocean (the Dolls Canvas catcher uses this path too)
-	if skin_id == "huluu":
-		return "res://assets/characters/friends/huluu.png"
-	if skin_id == "fairy":
-		return "res://assets/characters/skins/fairy_mermaid.png"
-	return "res://assets/characters/roshan_25d/roshan_base.png"   # classic
+	return _wardrobe_ref().skin_sprite_path()
 
 var _pad_prev_a := false
 var _pad_prev_b := false
@@ -9262,8 +8318,6 @@ func _process(delta: float) -> void:
 		_tick_level2(delta, ppos)
 	elif game == "north":
 		_tick_northern(delta, ppos)
-	elif game == "kart":
-		pass   # the KartGame node ticks itself
 	elif game == "galaxy":
 		pass   # the GalaxyLevel node ticks itself
 	elif game == "chapter2_lawn":
@@ -9698,14 +8752,6 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.86, 0.80, 0.98)
 		arena_env.ambient_light_energy = 0.60
 		arena_env.glow_bloom = 0.07
-	elif kind == "seek":         # sunny meadow
-		grade_profile = "bright_pastel"
-		arena_env.background_color = Color(0.30, 0.58, 0.78)
-		arena_env.ambient_light_color = Color(0.76, 0.86, 0.78)
-		arena_env.ambient_light_energy = 0.52
-		arena_env.glow_intensity = 0.54
-		arena_env.glow_bloom = 0.04
-		_arena_floor(Color(0.56, 0.70, 0.50), GTA + "up_grass_col.jpg", GTA + "up_grass_nrm.jpg", 0.06)
 	elif kind == "race":         # sunset sky
 		grade_profile = "warm_pastel"
 		arena_env.background_color = Color(0.82, 0.42, 0.30)
@@ -9742,13 +8788,6 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_energy = 0.58
 		arena_env.glow_intensity = 0.52
 		arena_env.glow_bloom = 0.08
-	elif kind == "melody":      # Daddy Mermaid's enclosed underwater rainbow theater
-		arena_env.background_color = Color(0.035, 0.09, 0.16)
-		arena_env.ambient_light_color = Color(0.48, 0.78, 0.88)
-		arena_env.ambient_light_energy = 0.68
-		arena_env.glow_intensity = 0.72
-		arena_env.glow_bloom = 0.12
-		_arena_floor(Color(0.22, 0.42, 0.50), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	else:
 		arena_env.background_color = Color(0.06, 0.03, 0.12)
 		arena_env.ambient_light_color = Color(0.8, 0.6, 1.0)

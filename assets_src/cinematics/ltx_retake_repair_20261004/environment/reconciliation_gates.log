@@ -1,0 +1,28 @@
+COMMAND ['python', '-B', '-m', 'unittest', 'tools.tests.test_gold_star']
+GOLDSTAR|RENDER|design/reference/GOLD_STAR.md
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale
+
+................................
+----------------------------------------------------------------------
+Ran 32 tests in 3.614s
+
+OK
+
+COMMAND ['python', '-B', 'tools/gold_star.py', '--check']
+GOLDSTAR|RESULT|OK|60 games, 0 errors, 0 stale
+
+
+COMMAND ['python', '-B', '-m', 'gdtoolkit.parser', 'scripts/probe_overdraw.gd']
+
+
+COMMAND ['python', '-B', 'tools/lint_inference.py', 'scripts/probe_overdraw.gd']
+
+
+COMMAND ['C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe', '--headless', '--check-only', '--script', 'scripts/probe_overdraw.gd']
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+

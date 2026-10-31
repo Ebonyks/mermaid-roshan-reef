@@ -1,0 +1,114 @@
+{
+  "baseline": "4cb14febc2c5f0074d5ad8386ce66f19f940c84d",
+  "method": "built-in imagegen precise-object-edit",
+  "attempt": 2,
+  "provider_output_filename": "exec-909910cc-7a9b-479a-ba51-a3f69bd8b51f.png",
+  "source": {
+    "path": "assets_src/imagegen/chef_overdraw_v1_20261003/world_chef_clean_native.png",
+    "sha256": "8611985b5adfc49c7662b32cb92ec2789bf16691512c4e948ca78956e9dd546c"
+  },
+  "prompt": {
+    "path": "assets_src/imagegen/chef_overdraw_v1_20261003/PROMPT_A2.txt",
+    "sha256": "0362fab267fc0fa52a90b519cb3b5d5b7f79a54d08d2f3e436007d6f368cb0f1",
+    "encoding": "UTF-8, no trailing newline; exact logical built-in prompt"
+  },
+  "review": {
+    "reviewer": "Codex context/source review",
+    "observation": "Only mixing bowl and whisk removed from A1; matching empty round work plinth and stools remain. Empty rack and corner cake stage retained. Room identity, camera, architecture and lighting retained.",
+    "selection": "Selected for bounded runtime verification",
+    "owner_acceptance": "PENDING"
+  },
+  "normalization": "Existing native_master promotion: untouched native canvas centered at (188,553), blurred whole-canvas edge continuation and 24px perimeter feather; y448..1600 active crop; four nonoverlapping 1024 POT cards. No subject isolation, warp or translation in this preparation.",
+  "native_resolution_gap": "1672x941 generator output; padding is not native detail and does not satisfy DL-LAY-07. No resolution-satisfaction claim.",
+  "outputs": [
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/world_chef_stations_native.png",
+      "sha256": "af59eb6488ab8bbc0e9a4e27b526b5e310a9f9cf6bdbeedc234daf0d3398b910",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/world_chef_stations_master.png",
+      "sha256": "e8f9da0fa0188fa7cc08f32b6a3ca770492cf14de6c6a2eba6fc35123664a72e",
+      "dimensions": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c0r0.png",
+      "sha256": "6840274d4ac7e7a0acb67035e815a7877694c69120aa1f776e75cdad90258191",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c0r1.png",
+      "sha256": "0d3786dc187ae4798e0c2024b106154992c5bca90065de9f108c1d778cb9e96f",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c1r0.png",
+      "sha256": "4e0179192a157f329caaa5b16dd5175e3db6df9cd4ec2ef1782a4229cc9047be",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c1r1.png",
+      "sha256": "ea8e1ad494ff3b0e76b1e4c497c20f459f806204df2b189775fedf4c10000986",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "runtime_import": {
+    "compression_mode": 2,
+    "POT_dimensions": [
+      1024,
+      1024
+    ],
+    "mipmaps": false,
+    "settings": [
+      {
+        "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c0r0.png.import",
+        "sha256": "648013ef1a80fa637c8dfd1ff093c72f0b79519545b14842ab0a7981832fb446"
+      },
+      {
+        "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c0r1.png.import",
+        "sha256": "adeab9e9e7e8769939f7a839beccb97f4444ffb9326f09ad30532387831ba249"
+      },
+      {
+        "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c1r0.png.import",
+        "sha256": "3b1369d904022e5360cf34c2f48ee54b032165a2b66c79c19081a4a90756e577"
+      },
+      {
+        "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c1r1.png.import",
+        "sha256": "779868d4c98ebae018a4c792bec9ba7335e1ad9e05070c70578779a5c6e6447b"
+      }
+    ]
+  },
+  "runtime_reuse": {
+    "bowl_contact": [
+      400,
+      365
+    ],
+    "cake_contact": [
+      1068,
+      337
+    ],
+    "bowl_alpha_foot_y": 909,
+    "bowl_scale": 0.2,
+    "baked_tray_source_regions": "Unchanged Chapter Two baked PNG; three disjoint native rows on actual rack shelves.",
+    "partial_stack_caps": "Blue/yellow tops sampled from the same approved baked PNG and mapped to local native ellipse caps; lower stacked body/plate rows reused. Temporary geometry only, no regenerated cake or new flattened art.",
+    "batter_reveal": "Complete native bowl shell once, bounded native cavity polygon reveal. Bounded cavity overlap is permitted for visible gameplay liquid; no full object overlay."
+  }
+}

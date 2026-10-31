@@ -1,0 +1,39 @@
+{
+  "schema": "reef.aseprite-whole-cel-paint-profile.v1",
+  "purpose": "41-frame full-motion model review draft after the three-cel direct paint style trial",
+  "frame_count": 41,
+  "fps": 24,
+  "duration_ms": 1708,
+  "master_name": "wave_native_rgb.aseprite",
+  "source_dir": "assets_src/animation/roshan_wave_repair_20261010/native640_01/take_01/native_frames",
+  "paint_range": [5, 33],
+  "shoulder_native": [213, 345],
+  "lengths_native": {"upper": 81.664, "fore": 78.461, "open_hand": 65.651},
+  "paint_half_widths_native": {"upper": 12, "fore": 8.5, "wrist": 7},
+  "visible_tip_fringe_compensation": 2.4,
+  "interpolation": "Monotone cubic Hermite; harmonic interior tangents; bounded to each neighboring angle pair",
+  "angle_keys": [
+    {"frame": 4, "upper": 115, "fore": 115, "hand": 115},
+    {"frame": 8, "upper": 125, "fore": 155, "hand": 175},
+    {"frame": 14, "upper": 194, "fore": 255, "hand": 270},
+    {"frame": 18, "upper": 194, "fore": 258, "hand": 282},
+    {"frame": 22, "upper": 194, "fore": 252, "hand": 258},
+    {"frame": 24, "upper": 194, "fore": 255, "hand": 270},
+    {"frame": 26, "upper": 174.25, "fore": 220, "hand": 225},
+    {"frame": 32, "upper": 124.875, "fore": 132.5, "hand": 145},
+    {"frame": 34, "upper": 115, "fore": 115, "hand": 115}
+  ],
+  "palette": {"base": [255,223,192], "shadow": [248,188,141], "highlight": [255,240,217], "outline": [88,82,64], "crease": [168,111,72]},
+  "fixture_domain": {
+    "boundary": [[130,238],[470,238],[480,190],[590,190]],
+    "fixture_color_seed": "B>G+8, B>R-70, R>80; x176..242, y318..590",
+    "fixture_color_dilation_native_px": 5,
+    "hair_color_seed": "B<130, R-G>25, G-B>20; x150..242, y130..340",
+    "hair_color_dilation_native_px": 4,
+    "face_guard": {"x_min":205, "y_range":[130,313]},
+    "role": "appearance-preservation and local paint domain mask; contains no copied appearance pixels"
+  },
+  "topology": "One connected closed contour: complete arm/palm, four unequal fingers and opposed thumb; no copied parts or detached sprites",
+  "native_unpainted_geometry": "PENDING_NATIVE_LANDMARKS; source-only frames0..4 and34..40 require independent annotation",
+  "review_notes": ["Fingers remain open in painted frames5..33; entry/exit finger opening still requires complete transition review", "Native source RGB endpoints are retained here; root replaces export0/40 with exact approved K0 after the whole-figure mapping", "No RIFE, limb warping, crossfades or part-image compositing", "Configuration does not grant visual, owner, device or runtime acceptance"]
+}

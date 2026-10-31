@@ -1,0 +1,83 @@
+{
+  "attempt_id": "whole-sprite-engine-corrective-keys-20261007-1",
+  "key_id": "raise_key",
+  "job_id": "pink_wave_native",
+  "index": 7,
+  "campaign_id": "whole-sprite-engine-corrective-keys-20261007",
+  "disposition": "REJECTED",
+  "cleanup_minutes": 0,
+  "prompt_sha256": "dcd853e7943b0bbc6cc544e4ecc85d0c03670e254316da2b934e9c888d91afa1",
+  "binding_hashes": [
+    "432f8283ee8d9cd7f53a36b1f12bb1b82a865e048a03c3bd7cbd3a103ff2e789",
+    "a46c318a627a4904dbf1115b1c764d8842de6f9281fe21a4803d31b65add4bbb"
+  ],
+  "provider": "Codex built-in imagegen",
+  "request_id": "exec-0aef2fe3-da5f-4d50-9982-e0ac0b3a4c61",
+  "provider_revision": "Hidden hosted model revision; not exposed by tool",
+  "elapsed_seconds": 35,
+  "usage": {
+    "calls": 1,
+    "tokens_or_billing": "Not exposed"
+  },
+  "reason": "Complete figure and crisper palm produced, but native 1254x1254 differs from planned 1024 canvas; visible detached colored/matte flecks and changed framing. No exact proportion, transition or owner acceptance.",
+  "expected_canvas": [
+    1024,
+    1024
+  ],
+  "geometry_review": "PENDING_UNMEASURABLE",
+  "owner_acceptance": "PENDING",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "native_path": "assets_src/animation/whole_sprite_pipeline_20261007/keys/raise_attempt_1/native.png",
+  "native_sha256": "6280c70173971c67e00e791cfb51eee63a958f1e1bcbb5f860a8f8c790462817",
+  "time_cap_exceeded": false,
+  "alpha_islands": {
+    "status": "FAIL",
+    "evidence": {
+      "detached": [
+        {
+          "box": [
+            795,
+            31,
+            14,
+            16
+          ],
+          "area": 170
+        },
+        {
+          "box": [
+            511,
+            1189,
+            13,
+            14
+          ],
+          "area": 127
+        }
+      ],
+      "minimum_area": 96,
+      "scope": "Disconnected alpha islands are diagnostic; no pixels are deleted"
+    }
+  },
+  "canvas_check": {
+    "status": "FAIL",
+    "evidence": [
+      1254,
+      1254
+    ]
+  },
+  "normalized_review": "key_inspection.json: border fails; similarity/ECC cannot establish source proportion continuity. Rejected as a guide until framing, matte and calibrated annotations are corrected. No third call in this campaign.",
+  "request_id_kind": "Codex tool execution/output identifier; provider API request ID not exposed",
+  "provider_request_id": null,
+  "settings": {
+    "transparent_background": true,
+    "model_revision": "Not exposed",
+    "seed": "Not exposed",
+    "size": "Prompt requested1024x1024; actual native1254x1254"
+  }
+}

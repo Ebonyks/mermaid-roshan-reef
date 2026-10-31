@@ -201,9 +201,11 @@ dependent shot.
 5. **Technical:** duration, resolution, frame rate, audio policy, native hashes,
    prompt/settings, and lossless frames.
 
-Any knockout is a fresh complete regeneration, regardless of attractiveness or
-numeric score. Keep the rejected candidate and record one targeted correction.
-Do not stack many repairs in one retry. A score never overrides a knockout.
+Any knockout rejects the take, regardless of attractiveness or numeric score.
+Keep it and diagnose one targeted correction under the declared workflow: a
+bounded Aseprite/2D repair or a fresh temporal take, with all affected transitions
+reviewed. Stop after the job's attempt/time/cost cap rather than automatically
+regenerating the whole sequence. A score never overrides a knockout.
 
 ## Stage 9 — publish and report three claims
 
@@ -238,7 +240,7 @@ Report independently:
   provenance, references, and board resolve.
 - `GENERATION_READY`: every shot card passes the structural audit and every
   bound image has been opened and human accepted.
-- `DELIVERY_ACCEPTED`: the returned full-frame cinematic evidence passes
+- `DELIVERY_ACCEPTED`: the returned declared-workflow cinematic evidence passes
   identity, topology, continuity, method, device, child, and owner gates.
 
 Run:
@@ -247,9 +249,12 @@ Run:
 python tools/audit_imagine_handoff.py assets_src/cinematics/<handoff_id> --require-ready
 ```
 
-Grok image-to-video output remains motion/editorial reference. It does not
-become final cinematic delivery without the independent full-frame evidence
-required by `tools/audit_cinematic.py`.
+Owner revision 2026-10-03 permits Grok/video output as final candidates under
+the [animation protocol](animation/ANIMATION_PRODUCTION_PROTOCOL.md). Use the
+production-profile `tools/audit_cinematic.py --manifest` scene gate plus exact
+derivation, human and device/child/owner evidence. Method eligibility/readiness
+does not accept footage; historical references/rejects keep their scope.
+Aseprite is preferred for suitable sprite/repair-window cleanup.
 
 ## Stop conditions
 

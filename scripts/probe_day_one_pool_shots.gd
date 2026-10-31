@@ -136,15 +136,19 @@ func _run() -> void:
 	var reveal_deadline: int = Time.get_ticks_msec() + 8000
 	while Time.get_ticks_msec() < reveal_deadline:
 		await process_frame
-		if is_instance_valid(cleanup._rumi) and cleanup._rumi.modulate.a >= 0.8:
+		if bool(cleanup.audit_snapshot().get("finale_started", false)) \
+				and float(cleanup.audit_snapshot().get("tint_ratio", 1.0)) <= 0.05:
 			break
-	_check("Rumi is visible during her reveal",
-		is_instance_valid(cleanup._rumi) and cleanup._rumi.modulate.a >= 0.8)
+	_check("the clean-pool light has returned",
+		float(cleanup.audit_snapshot().get("tint_ratio", 1.0)) <= 0.05)
 	await _capture("07_rainbow_reveal_active")
 	await create_timer(0.3).timeout
+	# Rumi rises once, in the room-completion clip (owner QP-1), so the room's
+	# reveal frame shows the clean pool without her.
 	_check("reveal capture precedes next-room overlay",
-		is_instance_valid(cleanup._rumi) and cleanup._rumi.animation == &"swim")
-	await _capture("08_rumi_reveal")
+		bool(cleanup.audit_snapshot().get("reveal_beat_holding", false))
+		and not bool(cleanup.audit_snapshot().get("in_room_rumi_rise", true)))
+	await _capture("08_clean_pool_reveal")
 	main.queue_free()
 	await _frames(4)
 	print("DAY_ONE_POOL_SHOTS|RESULT: %s failures=%d output=%s" % [

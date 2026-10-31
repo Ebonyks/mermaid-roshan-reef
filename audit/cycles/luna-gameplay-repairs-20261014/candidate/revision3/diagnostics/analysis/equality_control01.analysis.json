@@ -1,0 +1,41 @@
+{
+  "schema": "chapter2_standalone_equality_control/1",
+  "scope": "Scratch data-only SceneTree; no Main instantiation, resource load, save or progress API in script",
+  "script": "tmp\\luna_repair_20261014\\chapter2\\diagnostics\\equality_control01.gd",
+  "script_sha256": "9652891bf4e1f6ee6db525aea9a2b55fffc21370cb8a64c371b1da4622522e8d",
+  "attempts": [
+    {
+      "label": "equality-control01-check-02",
+      "receipt": "tmp\\luna_repair_20261014\\candidate_diagnostics\\equality-control01-check-02.json",
+      "receipt_sha256": "89135c3ab72a6145662814c3ef55f05512229bc6de52f91f5f0ba3e37ccfc8a7",
+      "log": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_diagnostics\\equality-control01-check-02.log",
+      "log_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "exit_code": 0,
+      "source_pin_sha256": "ca8a5145fb6505bca6ee7a853ebee84085f0886c9af9d1c99bf019bd76bb684d"
+    },
+    {
+      "label": "equality-control01-probe-01",
+      "receipt": "tmp\\luna_repair_20261014\\candidate_diagnostics\\equality-control01-probe-01.json",
+      "receipt_sha256": "aab7f650c35ea5d348f313f396a023fef3301ce7d6d9e861f97f1e35c505a6da",
+      "log": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\luna_repair_20261014\\candidate_diagnostics\\equality-control01-probe-01.log",
+      "log_sha256": "152604346a3eab8f4eec7ef25e9f72fcf25d2e7588ab43fa2e78139a2c2c43be",
+      "exit_code": 0,
+      "source_pin_sha256": "ca8a5145fb6505bca6ee7a853ebee84085f0886c9af9d1c99bf019bd76bb684d"
+    }
+  ],
+  "preserved_prelaunch_rejection": "chapter2/diagnostics/equality-control01-check-01.prelaunch-rejection.json",
+  "ok_assertions": 24,
+  "findings": [
+    "Native Dictionary equality is false with typed Array[int] versus JSON untyped Array[float].",
+    "Typed array versus untyped integer array equals; typed versus float array differs; scalar19==19.0 is true.",
+    "JSON roundtrip and sorted full-precision canonical comparison agree for same small JSON values and ignore dictionary insertion order.",
+    "Both reject changed integer, fractional numeric, numeric string, renamed/missing/extra key, boolean, reversed array and changed array number.",
+    "Full-precision canonical output preserves the observed adjacent double values1.0 and1.0000000000000002."
+  ],
+  "limits": [
+    "JSON normalization intentionally removes int/float storage-type identity.",
+    "Distinct int64 values9007199254740992 and9007199254740993 collapse through JSON roundtrip/canonicalization; enforce a suitable exact-numeric domain before using this comparator for snapshot acceptance.",
+    "This isolated data control establishes comparison semantics; actual child save/hash/load/Continue correctness stays in its own route evidence.",
+    "Runner source inventory and script hashes unchanged; script contains no project/cache writes."
+  ]
+}

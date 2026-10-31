@@ -1,0 +1,1215 @@
+{
+ "measured_at_head": "7f068cb80766edd52a110cc1cb3958158f829822",
+ "source": "scripts/*.gd registries, parsed read-only",
+ "jobs": [
+  {
+   "id": "chef",
+   "slot": 0,
+   "status": "LIVE",
+   "title": "The Castle Bake-Off",
+   "career_label": "Pastry Chef",
+   "kind": "order",
+   "home": {
+    "room": "kitchen",
+    "room_order": 0
+   },
+   "crest": "opera_crest_chef.png",
+   "music": {
+    "cue": "opera_chef",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "MIX",
+     "mode": "pourt",
+     "vo": "op_chef_pour_stage"
+    },
+    {
+     "name": "STIR",
+     "mode": "circle",
+     "vo": "op_chef_stir_stage"
+    },
+    {
+     "name": "BAKE",
+     "mode": "oven",
+     "vo": "op_chef_bake_stage"
+    },
+    {
+     "name": "FROST",
+     "mode": "swipe",
+     "vo": "op_chef_pipe_stage"
+    },
+    {
+     "name": "TOP",
+     "mode": "tap",
+     "vo": "op_chef_top_stage"
+    }
+   ],
+   "finale_start": 3,
+   "stations": {
+    "MIX": "mixing_bowl",
+    "STIR": "mixing_bowl",
+    "BAKE": "hearth_oven",
+    "FROST": "grand_cake_stage",
+    "TOP": "grand_cake_stage"
+   },
+   "goal_prop": "goal_chef",
+   "competition": {
+    "par_time": 38.0,
+    "rival_cap": 0.82,
+    "accent": [
+     1.0,
+     0.58,
+     0.52
+    ]
+   },
+   "mastery": {
+    "min_actions": 20,
+    "gold_seconds": 38.0,
+    "silver_seconds": 64.0,
+    "silver_misses": 2,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 3
+   },
+   "overlay_color": [
+    "#ff9385"
+   ],
+   "chapter2": {
+    "career": "chef",
+    "room": "kitchen",
+    "piece": "birthday_cake"
+   },
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "id": "detective",
+   "slot": 1,
+   "status": "LIVE",
+   "title": "The Two-Detective Mystery",
+   "career_label": "Detective",
+   "kind": "sleuth",
+   "home": {
+    "room": "library",
+    "room_order": 0
+   },
+   "crest": "opera_crest_detective.png",
+   "music": {
+    "cue": "opera_detective",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "SEARCH",
+     "mode": "lens",
+     "vo": "op_detective_lens_stage"
+    },
+    {
+     "name": "CASE BOARD",
+     "mode": "clue_board",
+     "vo": "op_detective_match"
+    },
+    {
+     "name": "CROWN",
+     "mode": "crown_chest",
+     "vo": "op_detective_name"
+    }
+   ],
+   "finale_start": 1,
+   "stations": {
+    "SEARCH": "magnifier_tower",
+    "CASE BOARD": "evidence_shelves",
+    "CROWN": "treasure_dais"
+   },
+   "goal_prop": "goal_detective",
+   "competition": {
+    "par_time": 40.0,
+    "rival_cap": 1.0,
+    "timed_retry": true,
+    "accent": [
+     0.58,
+     0.78,
+     1.0
+    ]
+   },
+   "mastery": {
+    "min_actions": 12,
+    "gold_seconds": 42.0,
+    "silver_seconds": 72.0,
+    "silver_misses": 2,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 2
+   },
+   "overlay_color": [
+    "#84b9f0"
+   ],
+   "chapter2": {
+    "career": "detective",
+    "room": "library",
+    "piece": "rainbow_candle"
+   },
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_detective_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "id": "ballerina",
+   "slot": 2,
+   "status": "LIVE",
+   "title": "The Mermaid Pearl Ballet Party",
+   "career_label": "Ballerina",
+   "kind": "echo",
+   "home": {
+    "room": "opera_hall",
+    "room_order": 0
+   },
+   "crest": "opera_crest_ballerina.png",
+   "music": {
+    "cue": "opera_ballerina",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "PEARL MIRROR",
+     "mode": "ballet_pose",
+     "vo": "op_ballerina_watch"
+    },
+    {
+     "name": "RIBBON TRAIL",
+     "mode": "ballet_ribbon",
+     "vo": "op_ballerina_ribbon_stage"
+    },
+    {
+     "name": "GRAND TWIRL",
+     "mode": "ballet_twirl",
+     "vo": "op_ballerina_twirl_stage"
+    }
+   ],
+   "finale_start": 2,
+   "stations": {
+    "PEARL MIRROR": "trifold_mirror",
+    "RIBBON TRAIL": "wave_tuffets",
+    "GRAND TWIRL": "rose_finale_stage"
+   },
+   "goal_prop": "goal_ballerina",
+   "competition": {
+    "par_time": 54.0,
+    "rival_cap": 0.84,
+    "accent": [
+     1.0,
+     0.58,
+     0.82
+    ]
+   },
+   "mastery": {
+    "min_actions": 12,
+    "gold_seconds": 54.0,
+    "silver_seconds": 86.0,
+    "silver_misses": 2,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": true,
+    "practice": 3
+   },
+   "overlay_color": [
+    "#ef8fbe"
+   ],
+   "chapter2": {
+    "career": "ballerina",
+    "room": "playroom",
+    "piece": "stuffie_dance"
+   },
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "id": "candymaker",
+   "slot": 3,
+   "status": "LIVE",
+   "title": "The Candy Workshop Cup",
+   "career_label": "Candy Maker",
+   "kind": "press",
+   "home": {
+    "room": "kitchen",
+    "room_order": 1
+   },
+   "crest": "opera_crest_candy.png",
+   "music": {
+    "cue": "opera_candymaker",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "SYRUP",
+     "mode": "pourt",
+     "vo": "op_candymaker_syrup_stage"
+    },
+    {
+     "name": "SORT",
+     "mode": "candy_sort",
+     "vo": "op_candymaker_sort_stage"
+    },
+    {
+     "name": "WRAP",
+     "mode": "circle",
+     "vo": "op_candymaker_wrap_stage"
+    },
+    {
+     "name": "SHARE",
+     "mode": "tap",
+     "vo": "op_candymaker_share_stage"
+    }
+   ],
+   "finale_start": 3,
+   "stations": {
+    "SYRUP": "gumball_vat",
+    "SORT": "taffy_press",
+    "WRAP": "candy_bag_cottage",
+    "SHARE": "candy_cart"
+   },
+   "goal_prop": "goal_candymaker",
+   "competition": {
+    "par_time": 38.0,
+    "rival_cap": 0.83,
+    "accent": [
+     1.0,
+     0.62,
+     0.72
+    ]
+   },
+   "mastery": {
+    "min_actions": 16,
+    "gold_seconds": 40.0,
+    "silver_seconds": 66.0,
+    "silver_misses": 2,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 2
+   },
+   "overlay_color": [
+    "#f29ab3"
+   ],
+   "chapter2": {
+    "career": "candy_maker",
+    "room": "kitchen",
+    "piece": "candied_strawberries"
+   },
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "slot": 4,
+   "status": "TOMBSTONE"
+  },
+  {
+   "id": "doctor",
+   "slot": 5,
+   "status": "LIVE",
+   "title": "The Stuffie Surgeon Relay",
+   "career_label": "Stuffie Surgeon",
+   "kind": "doctor",
+   "home": {
+    "room": "playroom",
+    "room_order": 0
+   },
+   "crest": "opera_crest_doctor.png",
+   "music": {
+    "cue": "opera_doctor",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "WASH",
+     "mode": "hold",
+     "vo": "op_doctor_wash_stage"
+    },
+    {
+     "name": "FIND",
+     "mode": "choice",
+     "vo": "op_doctor_find_stage"
+    },
+    {
+     "name": "X-RAY",
+     "mode": "xray_scan",
+     "vo": "op_doctor_x_ray_stage"
+    },
+    {
+     "name": "CAST",
+     "mode": "circle",
+     "vo": "op_doctor_cast_stage"
+    },
+    {
+     "name": "BANDAGE",
+     "mode": "swipe",
+     "vo": "op_doctor_bandage_stage"
+    }
+   ],
+   "finale_start": 3,
+   "stations": {
+    "WASH": "stethoscope_clinic",
+    "FIND": "starfish_triage",
+    "X-RAY": "exam_booth",
+    "CAST": "exam_booth",
+    "BANDAGE": "recovery_bed"
+   },
+   "goal_prop": "goal_doctor",
+   "competition": {
+    "par_time": 40.0,
+    "rival_cap": 0.8,
+    "accent": [
+     0.48,
+     0.86,
+     0.92
+    ]
+   },
+   "mastery": {
+    "min_actions": 20,
+    "gold_seconds": 42.0,
+    "silver_seconds": 70.0,
+    "silver_misses": 2,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 3
+   },
+   "overlay_color": [
+    "#6fd4df"
+   ],
+   "chapter2": null,
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "id": "farmer",
+   "slot": 6,
+   "status": "LIVE",
+   "title": "The Piggy Picnic Challenge",
+   "career_label": "Farmer",
+   "kind": "scroll",
+   "home": {
+    "room": "dining_room",
+    "room_order": 0
+   },
+   "crest": "opera_crest_farmer.png",
+   "music": {
+    "cue": "opera_farmer",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "PLANT",
+     "mode": "garden_plant",
+     "vo": "op_farmer_plant_stage"
+    },
+    {
+     "name": "TOSS",
+     "mode": "farm_lob",
+     "vo": "op_farmer_feed_stage"
+    },
+    {
+     "name": "HERD",
+     "mode": "swipe",
+     "vo": "op_farmer_herd_stage"
+    },
+    {
+     "name": "PICNIC",
+     "mode": "tap",
+     "vo": "op_farmer_picnic_stage"
+    }
+   ],
+   "finale_start": 2,
+   "stations": {
+    "PLANT": "seed_beds",
+    "TOSS": "hay_bales",
+    "HERD": "barn_doors",
+    "PICNIC": "blossom_arch"
+   },
+   "goal_prop": "goal_farmer",
+   "competition": {
+    "par_time": 38.0,
+    "rival_cap": 0.82,
+    "accent": [
+     0.58,
+     0.84,
+     0.46
+    ]
+   },
+   "mastery": {
+    "min_actions": 16,
+    "gold_seconds": 40.0,
+    "silver_seconds": 68.0,
+    "silver_misses": 3,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 2
+   },
+   "overlay_color": [
+    "#8ed174"
+   ],
+   "chapter2": {
+    "career": "farmer",
+    "room": "dining_room",
+    "piece": "strawberries"
+   },
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "id": "boxer",
+   "slot": 7,
+   "status": "LIVE",
+   "title": "The Friendly Championship Bout",
+   "career_label": "Boxer",
+   "kind": "box",
+   "home": {
+    "room": "playroom",
+    "room_order": 1
+   },
+   "crest": "opera_crest_boxer.png",
+   "music": {
+    "cue": "opera_boxer",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "GLOVE GUIDE",
+     "mode": "boxing_guide",
+     "vo": "op_boxer_work"
+    },
+    {
+     "name": "JAB PRACTICE",
+     "mode": "boxing_jab",
+     "vo": "op_boxer_jab_stage"
+    },
+    {
+     "name": "SOFT GUARD",
+     "mode": "boxing_guard",
+     "vo": "op_boxer_duck_stage"
+    },
+    {
+     "name": "TITLE IMP",
+     "mode": "boxing_imp",
+     "vo": "op_boxer_bell_chase_stage"
+    },
+    {
+     "name": "BELT",
+     "mode": "boxing_belt",
+     "vo": "op_boxer_belt_stage"
+    }
+   ],
+   "finale_start": 3,
+   "stations": {
+    "GLOVE GUIDE": "glove_wall_shelf",
+    "JAB PRACTICE": "purple_sparring_mat",
+    "SOFT GUARD": "teal_heavy_bag",
+    "TITLE IMP": "shell_pavilion_stage",
+    "BELT": "shell_pavilion_stage"
+   },
+   "goal_prop": "goal_boxer",
+   "competition": {
+    "par_time": 34.0,
+    "rival_cap": 0.86,
+    "accent": [
+     1.0,
+     0.48,
+     0.42
+    ]
+   },
+   "mastery": {
+    "min_actions": 20,
+    "gold_seconds": 36.0,
+    "silver_seconds": 60.0,
+    "silver_misses": 2,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 3
+   },
+   "overlay_color": [
+    "#f47468"
+   ],
+   "chapter2": null,
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_boxer_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "id": "magician",
+   "slot": 8,
+   "status": "LIVE",
+   "title": "The Grand Illusion Duel",
+   "career_label": "Magician",
+   "kind": "shuffle",
+   "home": {
+    "room": "opera_hall",
+    "room_order": 2
+   },
+   "crest": "opera_crest_magician.png",
+   "music": {
+    "cue": "opera_magician",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "VANISH",
+     "mode": "hold",
+     "vo": "op_magician_vanish_stage"
+    },
+    {
+     "name": "TRACK",
+     "mode": "choice",
+     "vo": "op_magician_track"
+    },
+    {
+     "name": "ROPE",
+     "mode": "swipe",
+     "vo": "op_magician_rope_stage"
+    },
+    {
+     "name": "CABINET",
+     "mode": "magic_cabinet",
+     "vo": "op_magician_cabinet_stage"
+    },
+    {
+     "name": "PORTAL",
+     "mode": "circle",
+     "vo": "op_magician_portal_stage"
+    }
+   ],
+   "finale_start": 3,
+   "stations": {
+    "VANISH": "violet_shell_stage",
+    "TRACK": "pearl_tide_pool",
+    "ROPE": "teal_shell_stage",
+    "CABINET": "rose_shell_stage",
+    "PORTAL": "rose_shell_stage"
+   },
+   "goal_prop": "goal_magician",
+   "competition": {
+    "par_time": 38.0,
+    "rival_cap": 0.85,
+    "accent": [
+     0.82,
+     0.58,
+     1.0
+    ]
+   },
+   "mastery": {
+    "min_actions": 20,
+    "gold_seconds": 40.0,
+    "silver_seconds": 68.0,
+    "silver_misses": 2,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": true,
+    "practice": 3
+   },
+   "overlay_color": [
+    "#bd91ec"
+   ],
+   "chapter2": null,
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "slot": 9,
+   "status": "TOMBSTONE"
+  },
+  {
+   "id": "painter",
+   "slot": 10,
+   "status": "LIVE",
+   "title": "The Sunrise Paint-Off",
+   "career_label": "Painter",
+   "kind": "paint",
+   "home": {
+    "room": "craft_room",
+    "room_order": 0
+   },
+   "crest": "opera_crest_painter.png",
+   "music": {
+    "cue": "opera_painter",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "PAINT",
+     "mode": "paint_reveal",
+     "vo": "op_painter_sketch_stage"
+    },
+    {
+     "name": "STAMPS",
+     "mode": "tap",
+     "vo": "op_painter_splat_stage"
+    },
+    {
+     "name": "GALLERY",
+     "mode": "choice",
+     "vo": "op_painter_reveal_stage"
+    }
+   ],
+   "finale_start": 2,
+   "stations": {
+    "PAINT": "gazebo_easel",
+    "STAMPS": "rainbow_brush",
+    "GALLERY": "arch_easel"
+   },
+   "goal_prop": "goal_painter",
+   "competition": {
+    "par_time": 38.0,
+    "rival_cap": 0.84,
+    "accent": [
+     1.0,
+     0.62,
+     0.34
+    ]
+   },
+   "mastery": {
+    "min_actions": 12,
+    "gold_seconds": 40.0,
+    "silver_seconds": 68.0,
+    "silver_misses": 2,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 2
+   },
+   "overlay_color": [
+    "#f4a15e"
+   ],
+   "chapter2": {
+    "career": "painter",
+    "room": "craft_room",
+    "piece": "party_banner"
+   },
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_painter_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "id": "astronaut",
+   "slot": 11,
+   "status": "LIVE",
+   "title": "The Rocket Repair Race",
+   "career_label": "Astronaut Engineer",
+   "kind": "fix",
+   "home": {
+    "room": "mermaid_pool",
+    "room_order": 0
+   },
+   "crest": "opera_crest_engineer.png",
+   "music": {
+    "cue": "opera_astronaut",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "PIPES",
+     "mode": "pipe",
+     "vo": "op_astronaut_pipes_stage"
+    },
+    {
+     "name": "PATCH",
+     "mode": "tap",
+     "vo": "op_astronaut_patch_stage"
+    },
+    {
+     "name": "VALVE",
+     "mode": "circle",
+     "vo": "op_astronaut_valve"
+    },
+    {
+     "name": "LAUNCH",
+     "mode": "hold",
+     "vo": "op_astronaut_launch_stage"
+    }
+   ],
+   "finale_start": 3,
+   "stations": {
+    "PIPES": "coolant_tank_pad",
+    "PATCH": "pipe_arch_planter",
+    "VALVE": "periscope_elbow",
+    "LAUNCH": "rocket_launch_dais"
+   },
+   "goal_prop": "goal_astronaut",
+   "competition": {
+    "par_time": 40.0,
+    "rival_cap": 0.82,
+    "accent": [
+     0.5,
+     0.82,
+     1.0
+    ]
+   },
+   "mastery": {
+    "min_actions": 16,
+    "gold_seconds": 42.0,
+    "silver_seconds": 70.0,
+    "silver_misses": 2,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 2
+   },
+   "overlay_color": [
+    "#76bde9"
+   ],
+   "chapter2": {
+    "career": "astronaut",
+    "room": "mermaid_pool",
+    "piece": "candle_lighting_rocket"
+   },
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "id": "racer",
+   "slot": 12,
+   "status": "LIVE",
+   "title": "The Opera Grand Prix",
+   "career_label": "Racecar Driver",
+   "kind": "race",
+   "home": {
+    "room": "movie_lounge",
+    "room_order": 0
+   },
+   "crest": "opera_crest_racer.png",
+   "music": {
+    "cue": "opera_racer",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "TUNE",
+     "mode": "circle",
+     "vo": "op_racer_tune_up_stage"
+    },
+    {
+     "name": "TO THE LINE",
+     "mode": "swipe",
+     "vo": "op_racer_to_the_line_stage"
+    },
+    {
+     "name": "RACE",
+     "mode": "kart_race",
+     "vo": "op_racer_steer"
+    }
+   ],
+   "finale_start": 2,
+   "stations": {
+    "TUNE": "pearl_dome_pavilion",
+    "TO THE LINE": "pearl_start_arch",
+    "RACE": "ribbon_finish_arch"
+   },
+   "goal_prop": "goal_racer",
+   "competition": {
+    "par_time": 70.0,
+    "rival_cap": 0.94,
+    "accent": [
+     1.0,
+     0.42,
+     0.4
+    ]
+   },
+   "mastery": {
+    "min_actions": 12,
+    "gold_seconds": 46.0,
+    "silver_seconds": 64.0,
+    "silver_misses": 3,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 2
+   },
+   "overlay_color": [
+    "#ef665f"
+   ],
+   "chapter2": null,
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "id": "popstar",
+   "slot": 13,
+   "status": "LIVE",
+   "title": "The Starlight Sound-Off",
+   "career_label": "Pop Star",
+   "kind": "dance",
+   "home": {
+    "room": "opera_hall",
+    "room_order": 1
+   },
+   "crest": "opera_crest_singer.png",
+   "music": {
+    "cue": "opera_popstar",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "SOUND CHECK",
+     "mode": "hold",
+     "vo": "op_popstar_sound_check_stage"
+    },
+    {
+     "name": "DANCE",
+     "mode": "choice",
+     "vo": "op_popstar_dance"
+    },
+    {
+     "name": "RHYTHM",
+     "mode": "echo",
+     "vo": "op_popstar_rhythm_stage"
+    },
+    {
+     "name": "ENCORE",
+     "mode": "circle",
+     "vo": "op_popstar_encore_stage"
+    }
+   ],
+   "finale_start": 2,
+   "stations": {
+    "SOUND CHECK": "mic_gazebo",
+    "DANCE": "record_dais",
+    "RHYTHM": "shell_stage",
+    "ENCORE": "shell_stage"
+   },
+   "goal_prop": "goal_popstar",
+   "competition": {
+    "par_time": 36.0,
+    "rival_cap": 0.84,
+    "accent": [
+     1.0,
+     0.52,
+     0.9
+    ]
+   },
+   "mastery": {
+    "min_actions": 16,
+    "gold_seconds": 40.0,
+    "silver_seconds": 66.0,
+    "silver_misses": 2,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": true,
+    "practice": 3
+   },
+   "overlay_color": [
+    "#ef82ce"
+   ],
+   "chapter2": {
+    "career": "popstar",
+    "room": "opera_hall",
+    "piece": "party_song"
+   },
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "slot": 14,
+   "status": "TOMBSTONE"
+  },
+  {
+   "id": "nursery",
+   "slot": 15,
+   "status": "LIVE",
+   "title": "The Moonbeam Nursery",
+   "career_label": "Nursery Nurse",
+   "kind": "nursery",
+   "home": {
+    "room": "bubble_bath",
+    "room_order": 0
+   },
+   "crest": "goal_nursery.png",
+   "music": {
+    "cue": "opera_nursery",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "WASH HANDS",
+     "mode": "hold",
+     "vo": "op_nursery_wash_stage"
+    },
+    {
+     "name": "CATCH BABIES",
+     "mode": "catch",
+     "vo": "op_nursery_catch"
+    },
+    {
+     "name": "FEED",
+     "mode": "hold",
+     "vo": "op_nursery_feed"
+    },
+    {
+     "name": "BURP",
+     "mode": "tap",
+     "vo": "op_nursery_burp_stage"
+    },
+    {
+     "name": "BEDTIME",
+     "mode": "swipe",
+     "vo": "op_nursery_bedtime"
+    }
+   ],
+   "finale_start": 4,
+   "stations": {
+    "WASH HANDS": "wash_basin",
+    "CATCH BABIES": "cuddle_cushions",
+    "FEED": "bottle_nook",
+    "BURP": "cuddle_cushions",
+    "BEDTIME": "moon_bed"
+   },
+   "goal_prop": "goal_nursery",
+   "competition": {
+    "par_time": 44.0,
+    "rival_cap": 0.82,
+    "cooperative": true,
+    "accent": [
+     0.64,
+     0.88,
+     0.82
+    ]
+   },
+   "mastery": {
+    "min_actions": 20,
+    "gold_seconds": 48.0,
+    "silver_seconds": 78.0,
+    "silver_misses": 3,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 4
+   },
+   "overlay_color": [
+    "#91d8c4"
+   ],
+   "chapter2": null,
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_nursery_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": true
+   }
+  },
+  {
+   "id": "geologist",
+   "slot": 16,
+   "status": "LIVE",
+   "title": "The Crystal Cave Discovery",
+   "career_label": "Geologist",
+   "kind": "geology",
+   "home": {
+    "room": "library",
+    "room_order": 1
+   },
+   "crest": "opera_crest_geologist.svg",
+   "music": {
+    "cue": "opera_geologist",
+    "in_build_tool": false,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "RIVER",
+     "mode": "geology_river",
+     "vo": "grotto_discovered"
+    },
+    {
+     "name": "FOSSIL",
+     "mode": "geology_fossil",
+     "vo": "bathroom_tub_brush"
+    },
+    {
+     "name": "PAN",
+     "mode": "geology_pan",
+     "vo": "grotto_discovered"
+    },
+    {
+     "name": "GEODE",
+     "mode": "geology_geode",
+     "vo": "grotto_discovered"
+    }
+   ],
+   "finale_start": 3,
+   "stations": {
+    "RIVER": "layer_wall",
+    "FOSSIL": "fossil_table",
+    "PAN": "specimen_trays",
+    "GEODE": "crystal_gallery"
+   },
+   "goal_prop": "goal_geologist.svg",
+   "competition": {
+    "par_time": 120.0,
+    "rival_cap": 0.82,
+    "cooperative": true,
+    "accent": [
+     0.48,
+     0.88,
+     0.82
+    ]
+   },
+   "mastery": {
+    "min_actions": 16,
+    "gold_seconds": 58.0,
+    "silver_seconds": 92.0,
+    "silver_misses": 2,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 4
+   },
+   "overlay_color": [
+    "#71ceb9"
+   ],
+   "chapter2": null,
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": false
+   }
+  },
+  {
+   "id": "teacher",
+   "slot": 17,
+   "status": "LIVE",
+   "title": "The Castle Learning Circle",
+   "career_label": "Teacher",
+   "kind": "teacher",
+   "home": {
+    "room": "library",
+    "room_order": 2
+   },
+   "crest": "res://assets/opera/worlds/actors/roshan_teacher.png",
+   "music": {
+    "cue": "opera_teacher",
+    "in_build_tool": true,
+    "ogg_exists": true
+   },
+   "phases": [
+    {
+     "name": "PATTERN",
+     "mode": "teacher_pattern",
+     "vo": "teacher_pattern"
+    },
+    {
+     "name": "COUNT",
+     "mode": "teacher_count",
+     "vo": "teacher_count"
+    },
+    {
+     "name": "ADD",
+     "mode": "teacher_add",
+     "vo": "teacher_add"
+    },
+    {
+     "name": "MATCH",
+     "mode": "teacher_match",
+     "vo": "teacher_match"
+    }
+   ],
+   "finale_start": 3,
+   "stations": {
+    "PATTERN": "lesson_desk",
+    "COUNT": "lesson_desk",
+    "ADD": "lesson_desk",
+    "MATCH": "lesson_desk"
+   },
+   "goal_prop": "../hotspots/teacher_lesson_board.svg",
+   "competition": {
+    "par_time": 40.0,
+    "rival_cap": 0.82,
+    "cooperative": true,
+    "accent": [
+     0.68,
+     0.62,
+     0.94
+    ]
+   },
+   "mastery": {
+    "min_actions": 16,
+    "gold_seconds": 60.0,
+    "silver_seconds": 90.0,
+    "silver_misses": 1,
+    "silver_assists": 1
+   },
+   "performance": {
+    "two_act": false,
+    "practice": 4
+   },
+   "overlay_color": [
+    "#a79de6"
+   ],
+   "chapter2": null,
+   "art": {
+    "costume_sheet": "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
+    "costume_sheet_exists": true,
+    "in_atlas_gate": false
+   }
+  }
+ ]
+}

@@ -1,0 +1,115 @@
+{
+  "schema": "luna_playthrough_report/1",
+  "session_id": "L06",
+  "reviewer": {
+    "agent_id": "/root/luna_playtest_coordinator/luna_l06",
+    "model": "gpt-6-luna"
+  },
+  "baseline": "e2b3c73789707aa49a91b4f42e2a9dd4b68225df",
+  "focus": "Bathroom completion and clip boundary",
+  "runtime_receipt": "audit/cycles/luna-playtest-20261012/runtime/L06/attempt_1/receipt.json",
+  "evidence_kind": "INTERNAL_PROBE",
+  "route_status": {
+    "proven_scope": "The exact Godot 4.7.2 headless internal probe passed all 11 contract assertions. Source tracing confirms bathroom completion writes the save before invoking the optional cleanup handoff, and the pool route helper waits while playback or a pending save remains active.",
+    "route_gaps": "The probe instantiates ReefMain and DayOneBathroomMovieHandoff directly, assigns bathroom progress fields and calls complete_tutorial('bathroom') directly (scripts/probe_day_one_bathroom_movie_handoff.gd:79-90). It does not enter the bathroom through the castle, perform the cleanup gestures, or exercise a routed completion touch. The two expected OGV resources are absent, so this run exercises fallback, not an actual clip boundary or rendered transition."
+  },
+  "verdict": "INCOMPLETE",
+  "timing": {
+    "code_constants": [],
+    "gameplay_duration": null,
+    "assumptions": "No duration constants or clip lengths were established for this review. The 13.389-second helper wall time is probe execution time, not gameplay duration."
+  },
+  "tactile": {
+    "target_size": "No child-facing target is presented by the handoff itself. When a clip exists, the VideoStreamPlayer is a full-rect modal overlay with mouse_filter STOP (scripts/day_one_bathroom_movie_handoff.gd:185-195); physical hit geometry was not measured.",
+    "press_response": "No routed press or rendered-frame response was measured. The probe executes direct method calls in headless mode.",
+    "drag_hold_release": "The completion seam is automatic after bathroom completion; no drag, hold, or release is required by this handoff. Its preceding cleanup gesture was outside this session's direct route evidence.",
+    "ownership": "Code configures the active video overlay to stop mouse input; no real touch ownership trace was captured.",
+    "cancellation": "The clip player's finished signal connects to stop(), and teardown clears the player and visibility (scripts/day_one_bathroom_movie_handoff.gd:111-119,185-195). Focus loss, pause, back, and physical touch cancellation during playback were not exercised."
+  },
+  "play_appeal": {
+    "agency": "Hypothesis: a short optional clean-room clip could make the bathroom-to-pool transition feel celebratory while leaving the child's cleaning action as the completion cause; no clip is currently present, so that effect was not experienced.",
+    "variety": "Not assessed; this review covers only the bathroom completion seam.",
+    "world_response": "Code preserves the clean room under a full-frame overlay and calls the pool-route helper after completion (scripts/main.gd:6353-6357; assets_src/cinematics/day_one_bathroom_finale/CONTRACT.md). The visual match and response were not inspected on screen.",
+    "replay": "Code uses phase-specific markers for a present movie and does not persist a missing-media fallback (scripts/day_one_bathroom_movie_handoff.gd:19-20,141-168). The probe checks the absent-entry marker and saved-entry replay behavior, but not real clip playback across Continue.",
+    "fun_score": null
+  },
+  "observations": [
+    {
+      "title": "Completion is saved before the optional cleanup seam, and the pool handoff waits for playback or a pending save",
+      "classification": "CONFIRMED_CODE",
+      "evidence": [
+        "scripts/main.gd:6349-6358 completes the bathroom, updates the cleaned room, calls _write_save(), then starts the cleanup movie handoff and requests the pool route.",
+        "scripts/day_one_flow.gd:326-338 returns without showing the pool handoff while movie playback or a pending movie save is active; otherwise it restores bathroom controls and shows the route.",
+        "audit/cycles/luna-playtest-20261012/runtime/L06/attempt_1/probe.log:2,10-11 reports the completion-order and pool-wait assertions OK; the probe validates source order and wiring rather than traversing gameplay."
+      ],
+      "rules": ["DL-AGE-06", "DL-SAVE-02", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "Inspect the completion caller and pool-route gate, then run the retained L06 receipt command; its ordered-completion and wait assertions pass.",
+      "child_impact": "The code is designed to preserve earned bathroom progress and avoid exposing the pool transition during a modal clip/save. Whether the scene feels continuous to a child is unobserved.",
+      "proposed_repair": "No code change inferred from this bounded evidence. Retain completion-before-clip ordering and verify the visible route in a fresh, routed session.",
+      "acceptance_test": "Complete bathroom cleanup through visible one-finger input on the exact build, capture the committed clean room and clip/route boundary, then verify the pool route appears once playback and save work finish and remains correct after save/re-entry."
+    },
+    {
+      "title": "Both configured bathroom movie resources are absent, so this build takes the clean-room fallback",
+      "classification": "CONFIRMED_RUNTIME",
+      "evidence": [
+        "scripts/day_one_bathroom_movie_handoff.gd:15-20 names the default entry and cleaned-room OGV paths and their separate save keys.",
+        "scripts/day_one_bathroom_movie_handoff.gd:145-152 returns a fallback when no stream loads and deliberately does not persist a missing-media marker.",
+        "scripts/probe_day_one_bathroom_movie_handoff.gd:33-40 asserts both resources are absent; :64-70 and :91-98 exercise entry and cleanup fallback. The retained runtime log reports those checks OK at audit/cycles/luna-playtest-20261012/runtime/L06/attempt_1/probe.log:4,7-9."
+      ],
+      "rules": ["DL-AGE-06", "DL-SAVE-01", "DL-SAVE-04", "DL-QA-02"],
+      "existing_findings": [],
+      "reproduction": "Run L06 once using the retained receipt. The probe verifies ResourceLoader.exists is false for both default resources, then verifies each seam returns fallback without playback and without setting its once-only save key.",
+      "child_impact": "At this baseline the bathroom completion is intended to continue directly into the clean playable room; no optional story clip plays. A child does not wait for a missing clip, but the promised cinematic payoff is not part of this runtime.",
+      "proposed_repair": "No repair is proposed by this review; the source documents these clips as optional future media. If an authorized clip is later installed, preserve the existing fail-open and save-before-play safeguards and audit that specific media separately.",
+      "acceptance_test": "For the current fallback, verify a real visible bathroom completion reaches the clean room and next route without a replay or soft-lock. If a clip is later included, test the exact installed stream, clean-scene seam, input blocking, completion and Continue behavior on the shipping build."
+    },
+    {
+      "title": "Probe completion state is injected rather than reached through the child-facing route",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/probe_day_one_bathroom_movie_handoff.gd:79-90 constructs ReefMain, assigns supply, tool and cleanup fields, calls complete_tutorial('bathroom'), and starts the cleanup handoff directly.",
+        "scripts/main.gd:6349-6358 is the production completion caller, but the probe does not invoke it through a routed touch or play the cleanup activity.",
+        "audit/cycles/luna-playtest-20261012/runtime/L06/attempt_1/receipt.json records headless=true and rendered_mobile_acceptance=false; probe.log:11 reports RESULT: PASS checks_failed=0."
+      ],
+      "rules": ["DL-AGE-01", "DL-AGE-06", "DL-SAVE-04", "DL-QA-02", "DL-QA-05", "DL-QA-07"],
+      "existing_findings": ["MA-PLAY-001"],
+      "reproduction": "Read the setup and calls at probe_day_one_bathroom_movie_handoff.gd:79-90. They bypass room entry, cleanup interaction, and the main completion caller; the PASS therefore confirms seam contract assertions, not a child route.",
+      "child_impact": "A broken visible completion trigger, unclear clean-room transition, or missing route cue could still strand or confuse a child while these internal contract checks pass.",
+      "proposed_repair": "Add no synthetic state setup to the current probe result. Collect a distinct routed-input or device trace from bathroom entry through actual cleanup completion and pool handoff.",
+      "acceptance_test": "From a fresh profile, enter the bathroom by the visible castle route, perform the required cleanup actions with one finger, observe the exact completion and clip/fallback boundary, and enter the pool without debug calls; preserve the route and save evidence."
+    },
+    {
+      "title": "Save-before-play and once-only safeguards have code evidence but no present-stream fault or playback exercise",
+      "classification": "COVERAGE_GAP",
+      "evidence": [
+        "scripts/day_one_bathroom_movie_handoff.gd:153-168 retries a dirty save, writes the phase marker before _play(), rolls the marker back if saving fails, and only then commits the in-memory done flag.",
+        "scripts/day_one_bathroom_movie_handoff.gd:185-197 creates the full-screen player, stops on the finished signal, and increments playback_count.",
+        "scripts/probe_day_one_bathroom_movie_handoff.gd:41-48 checks source-string ordering, while :33-40 confirms the actual OGV files are absent; no valid stream or injected failing save writer is exercised."
+      ],
+      "rules": ["DL-SAVE-01", "DL-SAVE-02", "DL-SAVE-03", "DL-SAVE-04", "DL-UI-05", "DL-QA-02", "DL-QA-07"],
+      "existing_findings": [],
+      "reproduction": "Inspect the transaction/playback path and run the retained probe. Its playback-order check is source inspection; the runtime legs use absent streams and do not simulate save-writer failure, pause, focus loss, or a played-to-end stream.",
+      "child_impact": "The code intends to prevent replay after a saved clip and prevent playback before the marker commits. A real stream decode or save failure could still reveal a seam or recovery behavior that this probe does not cover.",
+      "proposed_repair": "No defect established. Keep this as an acceptance gap until a valid approved OGV and deterministic save-writer success/failure cases can be exercised without changing protected media or current story authority.",
+      "acceptance_test": "With an authorized fixture stream, prove save succeeds before the first frame, save failure rolls back the marker and blocks playback, playback end returns to the same clean room, and Continue does not replay a completed clip."
+    }
+  ],
+  "strengths": [
+    {
+      "claim": "The implementation fails open when either optional movie is absent and leaves the corresponding save marker unset, allowing the room route to continue without consuming a future playback marker.",
+      "evidence": "scripts/day_one_bathroom_movie_handoff.gd:145-152; probe_day_one_bathroom_movie_handoff.gd:64-70,91-98; runtime log:7-9."
+    },
+    {
+      "claim": "For a present stream, code orders the phase save marker before playback, while the main completion caller commits bathroom completion before invoking that seam.",
+      "evidence": "scripts/main.gd:6349-6358; scripts/day_one_bathroom_movie_handoff.gd:157-168. This is source evidence; the current runtime run has no stream to exercise it."
+    }
+  ],
+  "acceptance_gaps": [
+    "No routed-input traversal from bathroom entry through actual cleanup, completion and pool handoff; the probe directly injects completion state.",
+    "The default entry and cleanup OGV media are absent at this baseline, so real playback, clean-scene match, decode, stop and replay behavior are not runtime-tested.",
+    "No rendered Mobile capture or aspect-ratio evidence for the clip boundary.",
+    "No Lenovo Tab M11 touch geometry, response latency, frame pacing, thermal, memory or audio evidence.",
+    "No observed-child comprehension, comfort, agency, session pacing or fun evidence; no owner acceptance."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "roshan-art-repairs-handoff-20260930",
+  "scope": "Owner answers (2026-09-30) to the visual language handoff's Q12-Q16: no light-state protocol yet; keep the older career and playground design (new art follows the base-world child); tiara outside career costume; prepare the repair handoff; delete the retired backpack art from the earlier Mermaid Roshan Wisconsin book outright. Adds docs/handoffs/codex_roshan_art_repairs_2026-09-30/ (README with the deletion D-01 and repairs R-01 to R-11 inside each image's own design; data/repair_targets.json with 18 targets, frame rectangles, SHA-256, consumers and pins; data/deletion_inventory.json with live and historical references; .gdignore; MANIFEST). Records the defects as finding MA-ROSHAN-005 (P2) with its section-5 row and domain link, a change-history row, MA-DOC-008 history, ledger rows, and revision 3 of the visual language handoff (README, analysis, draft, identity seed, MANIFEST). Specification only: no image, game script, scene, asset, save key, rule text, workflow or other lifecycle changes; the deletion itself is for Codex.",
+  "baseline": "a31b79b68481738c3903606ce7200c8bce6cf2b6",
+  "rules": [
+    "DL-VIS-06",
+    "DL-MED-02",
+    "DL-MED-05",
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-MOT-08",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07"
+  ],
+  "findings": [
+    "MA-ROSHAN-005",
+    "MA-DOC-008"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/roshan-art-repairs-handoff-20260930.json",
+    "docs/handoffs/codex_roshan_art_repairs_2026-09-30/.gdignore",
+    "docs/handoffs/codex_roshan_art_repairs_2026-09-30/MANIFEST.json",
+    "docs/handoffs/codex_roshan_art_repairs_2026-09-30/README.md",
+    "docs/handoffs/codex_roshan_art_repairs_2026-09-30/data/deletion_inventory.json",
+    "docs/handoffs/codex_roshan_art_repairs_2026-09-30/data/repair_targets.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/MANIFEST.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/README.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/ROSHAN_APPEARANCE_ANALYSIS.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/VISUAL_LANGUAGE_DRAFT.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/identity_sheets_seed.json"
+  ],
+  "validation": [
+    {
+      "command": "Read-only reference inventory (git grep) of assets/characters/roshan_sprite.png, assets/sprites/sky_lagoon/sky_lagoon_roshan.png and sky_lagoon_roshan_runtime_audited.png, and runtime-consumer tracing of the repair targets in scripts/",
+      "result": "PASS",
+      "evidence": "35 files mention the three images; live references: tools/audit_sky_lagoon_kit.py:30, tools/build_sky_lagoon_preview.py:117, tools/tests/test_audit_visual_design.py:120, ASSET_LICENSES.md:47/426/558, art_library/ART_INVENTORY.csv rows 479/1970/1971, audit/congruency_sky_lagoon.json:308; backups/ is excluded by .gdignore. Consumers: OperaRoshanActor draws atlas frames on stage and castle route cards (cards are fallbacks); melody.gd draws roshan_popstar.png; opera_racer_surface.gd draws roshan_racer.png; atlas rows idle/travel/work/cheer."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Staged candidate: DOCAUTH|INVENTORY=601|LEDGER=601|ACTIVE=60|RECORDS=62, RESULT ALL OK; --stress 6/6; unittest tools.tests.test_audit_document_authority and test_audit_development: 52 tests OK; tools/audit_game_2d.py --regression-gate NO_REGRESSION; tools/audit_imagine_handoff.py --all ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Staged candidate: AUDITDEV|BASE|b65c21fdddd79f272a6854f241faa1441abe6616, RESULT ALL OK (covers visual language revisions 1-3 and the repair handoff together)."
+    },
+    {
+      "command": "Anonymous fetch of both handoff manifests and every listed file from raw.githubusercontent.com at the pushed commit",
+      "result": "PASS",
+      "evidence": "Published at commit dd4f5dfac7ff53331306bd36367c34b8f2f74a31 on branch claude/visual-design-language-20260930 (https://github.com/Ebonyks/mermaid-roshan-reef/tree/dd4f5dfac7ff53331306bd36367c34b8f2f74a31/docs/handoffs/codex_roshan_art_repairs_2026-09-30). Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-10-01T05:06:32Z: repair handoff MANIFEST.json HTTP 200, 1,394 bytes, SHA-256 2830411c5642a976f75c02b71ad0bd242b2a175eeb1d3602889ca6523961e188, revision 1, 4 of 4 files match; visual language MANIFEST.json HTTP 200, 4,759 bytes, SHA-256 623dd61987fa8ea03acbbe751ebbf0798428704581c467563bbe2286eca60dd5, revision 3, 18 of 18 files match. Both manifests and the master audit, finding register, ledger and this record at the same commit are byte-identical to the committed blobs."
+    },
+    {
+      "command": "GitHub Probe Suite at the branch head",
+      "result": "PENDING",
+      "evidence": "Required green before merging into dev."
+    }
+  ],
+  "acceptance_gaps": "Specification only. MA-ROSHAN-005 stays CONFIRMED_OPEN until Codex makes the repairs and the owner accepts the before-and-after boards; the deletion D-01 is Codex's to execute with its reference updates. No image changed; no visual, device, child or owner acceptance is claimed; the game-wide audit remains IN_PROGRESS / UNSATISFIED."
+}

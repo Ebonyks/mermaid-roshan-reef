@@ -1,0 +1,445 @@
+{
+  "prompt": [
+    9,
+    "afe36278-e81e-4255-b625-3cb8d868631b",
+    {
+      "1": {
+        "class_type": "UnetLoaderGGUF",
+        "inputs": {
+          "unet_name": "ltx-2.3-22b-distilled-Q4_K_S.gguf"
+        }
+      },
+      "2": {
+        "class_type": "DualCLIPLoaderGGUF",
+        "inputs": {
+          "clip_name1": "gemma-3-12b-it-qat-Q4_K_S.gguf",
+          "clip_name2": "ltx-2.3-22b-distilled_embeddings_connectors.safetensors",
+          "type": "ltxv"
+        }
+      },
+      "4": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "retake_trial_original_0040.png"
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "Roshan, the same cheerful painted storybook mermaid, gently lowers her raised waving arm from above her head through the relaxed halfway pose to her side. One second, static camera, constant scale and pale-gray background. Her shoulder relaxes, torso and pink bodice subtly respond, rainbow ponytail and iridescent purple tail follow through naturally as one coherent figure. Her waist remains near the same position; it is a registration landmark, not a frozen body. Preserve her exact face, crown, pink bodice, rainbow hair, purple tail and rainbow fins. Crisp clean navy/purple contours and readable open fingers in every frame, short exposure, no motion blur, no smeared or doubled silhouettes, no tears, no disconnected hands, no extra limbs. End with both arms resting and the whole figure settled. Sound: none.\n"
+        }
+      },
+      "6": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "camera movement, anatomy drift, extra limbs, new objects, flicker, text, watermark"
+        }
+      },
+      "7": {
+        "class_type": "LTXVConditioning",
+        "inputs": {
+          "positive": [
+            "5",
+            0
+          ],
+          "negative": [
+            "6",
+            0
+          ],
+          "frame_rate": 24.0
+        }
+      },
+      "12": {
+        "class_type": "KSamplerSelect",
+        "inputs": {
+          "sampler_name": "euler"
+        }
+      },
+      "13": {
+        "class_type": "ManualSigmas",
+        "inputs": {
+          "sigmas": "1,0.99375,0.9875,0.98125,0.975,0.909375,0.725,0.421875,0"
+        }
+      },
+      "9": {
+        "class_type": "SamplerCustom",
+        "inputs": {
+          "model": [
+            "1",
+            0
+          ],
+          "add_noise": true,
+          "noise_seed": 20261004,
+          "cfg": 1.0,
+          "positive": [
+            "23",
+            0
+          ],
+          "negative": [
+            "23",
+            1
+          ],
+          "sampler": [
+            "12",
+            0
+          ],
+          "sigmas": [
+            "13",
+            0
+          ],
+          "latent_image": [
+            "69",
+            0
+          ]
+        }
+      },
+      "10": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "40",
+            2
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 64,
+          "temporal_overlap": 8
+        }
+      },
+      "3": {
+        "class_type": "VAELoader",
+        "inputs": {
+          "vae_name": "ltx-2.3-22b-distilled_video_vae.safetensors"
+        }
+      },
+      "50": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "retake_trial_source_window.apng"
+        }
+      },
+      "51": {
+        "class_type": "VAEEncode",
+        "inputs": {
+          "pixels": [
+            "50",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ]
+        }
+      },
+      "20": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "retake_trial_corrected_0048.png"
+        }
+      },
+      "21": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "7",
+            0
+          ],
+          "negative": [
+            "7",
+            1
+          ],
+          "latent": [
+            "51",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "image": [
+            "20",
+            0
+          ],
+          "frame_idx": 8,
+          "strength": 1.0
+        }
+      },
+      "22": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "retake_trial_original_0064.png"
+        }
+      },
+      "23": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "21",
+            0
+          ],
+          "negative": [
+            "21",
+            1
+          ],
+          "latent": [
+            "21",
+            2
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "image": [
+            "22",
+            0
+          ],
+          "frame_idx": 24,
+          "strength": 1.0
+        }
+      },
+      "60": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "retake_trial_mask_black.png"
+        }
+      },
+      "61": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "retake_trial_mask_white.png"
+        }
+      },
+      "62": {
+        "class_type": "ImageBatch",
+        "inputs": {
+          "image1": [
+            "60",
+            0
+          ],
+          "image2": [
+            "61",
+            0
+          ]
+        }
+      },
+      "63": {
+        "class_type": "ImageBatch",
+        "inputs": {
+          "image1": [
+            "62",
+            0
+          ],
+          "image2": [
+            "61",
+            0
+          ]
+        }
+      },
+      "64": {
+        "class_type": "ImageBatch",
+        "inputs": {
+          "image1": [
+            "63",
+            0
+          ],
+          "image2": [
+            "60",
+            0
+          ]
+        }
+      },
+      "65": {
+        "class_type": "ImageBatch",
+        "inputs": {
+          "image1": [
+            "64",
+            0
+          ],
+          "image2": [
+            "60",
+            0
+          ]
+        }
+      },
+      "66": {
+        "class_type": "ImageBatch",
+        "inputs": {
+          "image1": [
+            "65",
+            0
+          ],
+          "image2": [
+            "60",
+            0
+          ]
+        }
+      },
+      "68": {
+        "class_type": "ImageToMask",
+        "inputs": {
+          "image": [
+            "66",
+            0
+          ],
+          "channel": "red"
+        }
+      },
+      "69": {
+        "class_type": "SetLatentNoiseMask",
+        "inputs": {
+          "samples": [
+            "23",
+            2
+          ],
+          "mask": [
+            "68",
+            0
+          ]
+        }
+      },
+      "40": {
+        "class_type": "LTXVCropGuides",
+        "inputs": {
+          "positive": [
+            "23",
+            0
+          ],
+          "negative": [
+            "23",
+            1
+          ],
+          "latent": [
+            "9",
+            0
+          ]
+        }
+      },
+      "14": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/ltx_retake_repair_20261004_ltx23_retake_standard/frame"
+        }
+      },
+      "80": {
+        "class_type": "SaveLatent",
+        "inputs": {
+          "samples": [
+            "51",
+            0
+          ],
+          "filename_prefix": "local_reference/ltx_retake_repair_20261004_ltx23_retake_standard/encoded_source"
+        }
+      },
+      "81": {
+        "class_type": "SaveLatent",
+        "inputs": {
+          "samples": [
+            "40",
+            2
+          ],
+          "filename_prefix": "local_reference/ltx_retake_repair_20261004_ltx23_retake_standard/retake_latent"
+        }
+      }
+    },
+    {
+      "client_id": "ltx_retake_repair_20261004",
+      "create_time": 1791137810028
+    },
+    [
+      "14",
+      "80",
+      "81"
+    ]
+  ],
+  "outputs": {
+    "80": {
+      "latents": [
+        {
+          "filename": "encoded_source_00001_.latent",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltx23_retake_standard",
+          "type": "output"
+        }
+      ]
+    }
+  },
+  "status": {
+    "status_str": "error",
+    "completed": false,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "afe36278-e81e-4255-b625-3cb8d868631b",
+          "timestamp": 1791137810032
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "afe36278-e81e-4255-b625-3cb8d868631b",
+          "timestamp": 1791137810308
+        }
+      ],
+      [
+        "execution_interrupted",
+        {
+          "prompt_id": "afe36278-e81e-4255-b625-3cb8d868631b",
+          "node_id": "9",
+          "node_type": "SamplerCustom",
+          "executed": [
+            "64",
+            "23",
+            "7",
+            "51",
+            "12",
+            "22",
+            "80",
+            "1",
+            "63",
+            "13",
+            "62",
+            "2",
+            "5",
+            "6",
+            "21",
+            "3",
+            "66",
+            "20",
+            "69",
+            "65",
+            "61",
+            "60",
+            "50",
+            "68"
+          ],
+          "timestamp": 1791138472335
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "80": {
+      "node_id": "80",
+      "display_node": "80",
+      "parent_node": null,
+      "real_node_id": "80"
+    }
+  }
+}

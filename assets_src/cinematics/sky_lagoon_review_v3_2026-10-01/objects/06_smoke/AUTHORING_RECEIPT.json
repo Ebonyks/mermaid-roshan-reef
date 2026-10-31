@@ -1,0 +1,100 @@
+{
+  "id": "06_smoke",
+  "status": "REFERENCE_SAMPLE",
+  "frame_canvas": [
+    512,
+    512
+  ],
+  "unique_generated_pose_drawings": 6,
+  "authored_light_states": 0,
+  "method": "Fresh generated pose drawings; Aseprite alpha cleanup and anchor registration. No deformation of the old source supplies motion.",
+  "input": "generated_native.png",
+  "input_sha256": "007d5bff2543af3e85645404fed4a37c52cf66b7d4fb1a498f29bbea5729b7c4",
+  "state_rgba_sha256": [
+    "503e0ceee54caf5b59ce85bddf1626ebf6a7afcf3bf25a8bd8bfac5faa223207",
+    "0c3b413a655285e9eb3eec10b2d1e9870c20fe491a33c9f3cd925bde9c041197",
+    "3bbb5f9ff21780ea72a0d18ce92af7ddda7c9af9d3a286776412a7ad1574f29b",
+    "00c5ed62390575d8d5fda61280112dfdb9987b9b308107f0648bd23f9ca96f11",
+    "a1fd9b060a40171a5351e093a7cc06e8a1f72b8d76722ad3cbffee515af6528c",
+    "6529789d0462002484d52dd3fa22e66312f6d2f5894f153bbe4f28c6410f2525"
+  ],
+  "pose_native_bounds": [
+    [
+      241,
+      124,
+      335,
+      448
+    ],
+    [
+      229,
+      108,
+      315,
+      448
+    ],
+    [
+      205,
+      81,
+      304,
+      448
+    ],
+    [
+      202,
+      66,
+      303,
+      448
+    ],
+    [
+      239,
+      93,
+      335,
+      448
+    ],
+    [
+      242,
+      85,
+      335,
+      448
+    ]
+  ],
+  "border_cap_repairs": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "fixed_bottom_y": null,
+  "fixed_base_rect": null,
+  "edge_cleanup": {
+    "alpha_cutoff": 64,
+    "opaque_contours": false,
+    "method": "Largest connected subject mask; Aseprite rejects stray semi-transparent border noise, nearest-neighbor native pose registration."
+  },
+  "loop_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "duration_units_12fps": [
+    2,
+    2,
+    4,
+    2,
+    2,
+    4
+  ],
+  "limits": "Six-key acting examples remain coarse. AI detail/topology continuity and manual contacts require owner/production review. Not human hand drawing, accepted runtime art or full-frame cinematic delivery.",
+  "playback_duration_units_12fps": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "reference_phase_units_12fps": 5
+}
