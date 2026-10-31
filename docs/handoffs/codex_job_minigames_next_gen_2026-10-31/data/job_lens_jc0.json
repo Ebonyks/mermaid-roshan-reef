@@ -1,0 +1,761 @@
+{
+ "schema": "job_lens_cycle/1",
+ "cycle": "JC0",
+ "date": "2026-10-31",
+ "baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+ "status": "SUPPORTING_CURRENT static judgement by Claude; advisory beside the gold star; not acceptance",
+ "definitions": "docs/handoffs/codex_job_minigames_next_gen_2026-10-31/SELF_IMPROVEMENT_AUDIT.md section 2",
+ "lens": {
+  "JL1": "The job's own skill and feel",
+  "JL2": "Roshan does the job",
+  "JL3": "The world is the control",
+  "JL4": "Growth, not repetition",
+  "JL5": "A job payoff",
+  "JL6": "Story truth"
+ },
+ "scale": {
+  "0": "missing",
+  "1": "partial",
+  "2": "met"
+ },
+ "calibration": [
+  {
+   "verdict": "2026-10-17 Pop Star, Ballerina and Racer are the weakest (ODR-MINIGAME-REBUILD-20261017)",
+   "criterion": "JL1",
+   "scores": {
+    "Pop Star": 1,
+    "Ballerina": 0,
+    "Racecar Driver": 0
+   },
+   "holds": true,
+   "note": "They are the three lowest lens totals"
+  },
+  {
+   "verdict": "2026-10-17 the Pop Star echo is a usable mechanic",
+   "criterion": "JL1 of the RHYTHM phase at least 1",
+   "scores": {
+    "Pop Star": 1
+   },
+   "holds": true,
+   "note": ""
+  },
+  {
+   "verdict": "2026-10-03 Chef pours backwards and shows overdraw (ODR-CHEF-VERDICT-20261003)",
+   "criterion": "gold-star C6 or C7 below 2",
+   "scores": {
+    "Pastry Chef C7": 1
+   },
+   "holds": true,
+   "note": "Agreement is a fit to the verdicts the lens was built from; the next verdict is the first test"
+  }
+ ],
+ "careers": [
+  {
+   "career": "Pop Star",
+   "save_bit": 13,
+   "part2_order": 6,
+   "gold_star_points_20261003": 13,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 1,
+     "evidence": "The untimed echo is the one usable mechanic (owner 2026-10-17); no beat"
+    },
+    "JL2": {
+     "score": 0,
+     "evidence": "Roshan never sings or plays (rebuild diagnosis section 2)"
+    },
+    "JL3": {
+     "score": 0,
+     "evidence": "Panel stars, a lane strip and a held microphone"
+    },
+    "JL4": {
+     "score": 0,
+     "evidence": "Practice copies replay three chores (scripts/opera_performance_plan.gd:8-34)"
+    },
+    "JL5": {
+     "score": 0,
+     "evidence": "A cheer and a digit medal overlay; no finale song"
+    },
+    "JL6": {
+     "score": 1,
+     "evidence": "Story STAGE RUMI plays the free-play dance-arrow line"
+    }
+   },
+   "lens_total": 2,
+   "owner_verdict": "Rejected 2026-10-17; the note-memory echo is a usable mechanic",
+   "weakness_ids": [
+    "JW-POP-1",
+    "JW-POP-2",
+    "JW-POP-3",
+    "JW-POP-4",
+    "JW-POP-5"
+   ],
+   "next_change": "BeatKit, then Roshan's Rainbow Band",
+   "package": "NG4"
+  },
+  {
+   "career": "Racecar Driver",
+   "save_bit": 12,
+   "part2_order": null,
+   "gold_star_points_20261003": 15,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 0,
+     "evidence": "Holding the bar drives both laps (scripts/opera_racer_surface.gd:13, :244-251)"
+    },
+    "JL2": {
+     "score": 0,
+     "evidence": "Roshan is a cropped bust in a 150 px kart (rebuild diagnosis section 4)"
+    },
+    "JL3": {
+     "score": 0,
+     "evidence": "A 770x126 steering bar and a turbo button (scripts/opera_racer_surface.gd:14-16)"
+    },
+    "JL4": {
+     "score": 0,
+     "evidence": "TUNE and TO THE LINE chores, then two identical laps"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "Trophy curtain; generic win recording"
+    },
+    "JL6": {
+     "score": 1,
+     "evidence": "'Swipe to steer through the coral gates!' with no gates (scripts/opera_career_world_2d.gd:334)"
+    }
+   },
+   "lens_total": 2,
+   "owner_verdict": "Rejected 2026-10-17 (ODR-MINIGAME-REBUILD-20261017); direction contested (ODR-RACER-VIEW-20261018 against the branch-only 2026-10-22 direction)",
+   "weakness_ids": [
+    "JW-RACE-1",
+    "JW-RACE-2",
+    "JW-RACE-3",
+    "JW-RACE-4",
+    "JW-RACE-5",
+    "JW-RACE-6"
+   ],
+   "next_change": "R1 after Q2",
+   "package": "NG3"
+  },
+  {
+   "career": "Ballerina",
+   "save_bit": 2,
+   "part2_order": 5,
+   "gold_star_points_20261003": 14,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 0,
+     "evidence": "The demonstration taps the answer first; fixed ribbon; no beat"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Still pose keys"
+    },
+    "JL3": {
+     "score": 1,
+     "evidence": "Portraits, ribbon and ring props drawn as code shells"
+    },
+    "JL4": {
+     "score": 0,
+     "evidence": "Every act runs twice (scripts/opera_performance_plan.gd:8-34)"
+    },
+    "JL5": {
+     "score": 0,
+     "evidence": "Digit medal overlay; no finale"
+    },
+    "JL6": {
+     "score": 1,
+     "evidence": "PEARL MIRROR's recording says watch, not tap (scripts/opera_career_world_2d.gd:283)"
+    }
+   },
+   "lens_total": 3,
+   "owner_verdict": "Rejected 2026-10-17",
+   "weakness_ids": [
+    "JW-BAL-1",
+    "JW-BAL-2",
+    "JW-BAL-3",
+    "JW-BAL-4",
+    "JW-BAL-5",
+    "JW-BAL-6"
+   ],
+   "next_change": "DR5 picker fix; then Lamma's Music-Box Ballet",
+   "package": "NG5"
+  },
+  {
+   "career": "Candy Maker",
+   "save_bit": 3,
+   "part2_order": 3,
+   "gold_star_points_20261003": 10,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 1,
+     "evidence": "The syrup pour is the job; sort, wrap and share are chores"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Pose keys beside the station"
+    },
+    "JL3": {
+     "score": 0,
+     "evidence": "Story steps take touches on an alpha-0 surface (scripts/opera_career_world_2d.gd:2762-2774)"
+    },
+    "JL4": {
+     "score": 1,
+     "evidence": "Steps differ; nothing grows across visits"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "Share at the curtain; generic win recording"
+    },
+    "JL6": {
+     "score": 0,
+     "evidence": "Story SORT asks for matching colours of identical berries; the owner's 2026-09-29 ruling keeps it out of the Kitchen"
+    }
+   },
+   "lens_total": 4,
+   "owner_verdict": "2026-09-29 placement ruling (design/ARBORIST_TREE_BOOK_HANDOFF_2026-09-29.md:8)",
+   "weakness_ids": [
+    "JW-CANDY-1",
+    "JW-CANDY-2",
+    "JW-CANDY-3",
+    "JW-CANDY-4",
+    "JW-CANDY-5",
+    "JW-CANDY-6"
+   ],
+   "next_change": "Bind story touches to the drawn berries",
+   "package": "NG7b"
+  },
+  {
+   "career": "Painter",
+   "save_bit": 10,
+   "part2_order": 4,
+   "gold_star_points_20261003": 11,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 0,
+     "evidence": "She uncovers a fixed sunrise; stamps are any five taps; nothing she makes is kept"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Pose keys beside the easel"
+    },
+    "JL3": {
+     "score": 1,
+     "evidence": "Canvas in the world; gallery is a lane pick"
+    },
+    "JL4": {
+     "score": 1,
+     "evidence": "Steps differ; nothing grows across visits"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "Hangs the picture; generic win recording"
+    },
+    "JL6": {
+     "score": 1,
+     "evidence": "Story STAMP plays the free-play 'any five stamps' line"
+    }
+   },
+   "lens_total": 5,
+   "owner_verdict": "None recorded",
+   "weakness_ids": [
+    "JW-PAINT-1",
+    "JW-PAINT-2",
+    "JW-PAINT-3",
+    "JW-PAINT-4"
+   ],
+   "next_change": "Keep her marks on the banner",
+   "package": "NG7c"
+  },
+  {
+   "career": "Astronaut Engineer",
+   "save_bit": 11,
+   "part2_order": 7,
+   "gold_star_points_20261003": 10,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 1,
+     "evidence": "The pipe puzzle is engineering; valve and launch are chores"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Pose keys"
+    },
+    "JL3": {
+     "score": 1,
+     "evidence": "Tray tiles; second-finger tile loss unproven on every round (MA-OPERA-013)"
+    },
+    "JL4": {
+     "score": 1,
+     "evidence": "Three pipe boards within a visit; nothing grows across visits"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "Launch at the curtain; generic win recording"
+    },
+    "JL6": {
+     "score": 1,
+     "evidence": "'Hold through the countdown and launch!' with no countdown (scripts/opera_career_world_2d.gd:329)"
+    }
+   },
+   "lens_total": 6,
+   "owner_verdict": "None recorded",
+   "weakness_ids": [
+    "JW-ASTRO-1",
+    "JW-ASTRO-2",
+    "JW-ASTRO-3",
+    "JW-ASTRO-4",
+    "JW-ASTRO-5",
+    "JW-ASTRO-6"
+   ],
+   "next_change": "Two-finger proof; a real countdown or a true line",
+   "package": "NG7d"
+  },
+  {
+   "career": "Detective",
+   "save_bit": 1,
+   "part2_order": 8,
+   "gold_star_points_20261003": 9,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 1,
+     "evidence": "Searching with the lens is detective work; a timed rival takes it away"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Pose keys"
+    },
+    "JL3": {
+     "score": 1,
+     "evidence": "Magnifier in the world; story board and candle targets do not match what is drawn"
+    },
+    "JL4": {
+     "score": 1,
+     "evidence": "Steps differ; nothing grows across visits"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "Crown at the curtain; generic win recording"
+    },
+    "JL6": {
+     "score": 1,
+     "evidence": "The 'missing' crown is still painted (MA-OPERA-002)"
+    }
+   },
+   "lens_total": 6,
+   "owner_verdict": "None recorded",
+   "weakness_ids": [
+    "JW-DET-1",
+    "JW-DET-2",
+    "JW-DET-3",
+    "JW-DET-4",
+    "JW-DET-5",
+    "JW-DET-6",
+    "JW-DET-7"
+   ],
+   "next_change": "No reset; fit the candle box; draw the board",
+   "package": "NG7e"
+  },
+  {
+   "career": "Farmer",
+   "save_bit": 6,
+   "part2_order": 1,
+   "gold_star_points_20261003": 11,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 1,
+     "evidence": "Planting and the lob are farm skills; herd and picnic are chores"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Pose keys"
+    },
+    "JL3": {
+     "score": 1,
+     "evidence": "Story berries are world buttons; picked berries stay as ghosts"
+    },
+    "JL4": {
+     "score": 1,
+     "evidence": "Steps differ; nothing grows across visits"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "Picnic at the curtain; generic win recording"
+    },
+    "JL6": {
+     "score": 1,
+     "evidence": "The voice promises a glowing door that never glows (demo audit D3)"
+    }
+   },
+   "lens_total": 6,
+   "owner_verdict": "None recorded",
+   "weakness_ids": [
+    "JW-FARM-1",
+    "JW-FARM-2",
+    "JW-FARM-3",
+    "JW-FARM-4",
+    "JW-FARM-5",
+    "JW-FARM-6"
+   ],
+   "next_change": "DR5 door; crop seam; ghost berries",
+   "package": "NG7a"
+  },
+  {
+   "career": "Magician",
+   "save_bit": 8,
+   "part2_order": null,
+   "gold_star_points_20261003": 15,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 1,
+     "evidence": "Tracking the hat is the trick; vanish, rope and portal are hold, swipe and circle chores"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Pose keys"
+    },
+    "JL3": {
+     "score": 1,
+     "evidence": "Hats in the world; hold and circle widgets"
+    },
+    "JL4": {
+     "score": 0,
+     "evidence": "Practice copies (scripts/opera_performance_plan.gd:9-14)"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "The portal opens; digit medal overlay"
+    },
+    "JL6": {
+     "score": 2,
+     "evidence": "Lines match the scene on the shipping keys"
+    }
+   },
+   "lens_total": 6,
+   "owner_verdict": "None recorded",
+   "weakness_ids": [
+    "JW-MAG-1",
+    "JW-MAG-2",
+    "JW-MAG-3",
+    "JW-MAG-4",
+    "JW-MAG-5",
+    "JW-MAG-6"
+   ],
+   "next_change": "Ignore glide taps; drop the practice copies",
+   "package": "NG8b"
+  },
+  {
+   "career": "Arborist Tree Book",
+   "save_bit": null,
+   "part2_order": null,
+   "gold_star_points_20261003": null,
+   "gold_star_stale": false,
+   "lens": {
+    "JL1": {
+     "score": 1,
+     "evidence": "Diagnosis choices are tree-doctor reasoning; the spray is a hold"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Spraying lacks hand contact (MA-PLAY-004)"
+    },
+    "JL3": {
+     "score": 1,
+     "evidence": "Book panels; navy boxes give the answer away"
+    },
+    "JL4": {
+     "score": 1,
+     "evidence": "Three decisions; nothing grows across visits"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "No star"
+    },
+    "JL6": {
+     "score": 2,
+     "evidence": "Follows the owner's 2026-09-29 corrections"
+    }
+   },
+   "lens_total": 7,
+   "owner_verdict": "Follows the owner's 2026-09-29 corrections",
+   "weakness_ids": [
+    "JW-ARB-1",
+    "JW-ARB-2",
+    "JW-ARB-3"
+   ],
+   "next_change": "Land the spray fix; alpha on the tree choices",
+   "package": "NG2, NG8g"
+  },
+  {
+   "career": "Boxer",
+   "save_bit": 7,
+   "part2_order": null,
+   "gold_star_points_20261003": 16,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 2,
+     "evidence": "Punch when the target opens"
+    },
+    "JL2": {
+     "score": 0,
+     "evidence": "Roshan is hidden during play"
+    },
+    "JL3": {
+     "score": 2,
+     "evidence": "Gloves and pads are the controls"
+    },
+    "JL4": {
+     "score": 1,
+     "evidence": "Five escalating steps; nothing grows across visits"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "The belt; generic win recording"
+    },
+    "JL6": {
+     "score": 1,
+     "evidence": "GLOVE GUIDE plays 'Bounce and duck! I'm getting good at this!' (scripts/opera_career_world_2d.gd:307)"
+    }
+   },
+   "lens_total": 7,
+   "owner_verdict": "None recorded",
+   "weakness_ids": [
+    "JW-BOX-1",
+    "JW-BOX-2",
+    "JW-BOX-3",
+    "JW-BOX-4"
+   ],
+   "next_change": "A true first line",
+   "package": "NG8a"
+  },
+  {
+   "career": "Geologist",
+   "save_bit": 16,
+   "part2_order": null,
+   "gold_star_points_20261003": 11,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 2,
+     "evidence": "Dig, brush, wash and crack: the material changes under her finger"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Pose keys"
+    },
+    "JL3": {
+     "score": 2,
+     "evidence": "The materials are the controls"
+    },
+    "JL4": {
+     "score": 1,
+     "evidence": "Four different digs; nothing grows across visits"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "The geode opens; generic win recording"
+    },
+    "JL6": {
+     "score": 0,
+     "evidence": "RIVER, PAN and GEODE play 'A secret grotto!'; the win caption thanks the nursery team"
+    }
+   },
+   "lens_total": 7,
+   "owner_verdict": "None recorded",
+   "weakness_ids": [
+    "JW-GEO-1",
+    "JW-GEO-2",
+    "JW-GEO-3",
+    "JW-GEO-4",
+    "JW-GEO-5"
+   ],
+   "next_change": "True lines; a true win caption",
+   "package": "NG8e"
+  },
+  {
+   "career": "Pastry Chef",
+   "save_bit": 0,
+   "part2_order": 2,
+   "gold_star_points_20261003": 10,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 1,
+     "evidence": "Real cooking steps; the owner says the pour runs backwards; three steps are shared chores"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Walks to each station; pose keys"
+    },
+    "JL3": {
+     "score": 1,
+     "evidence": "World objects; 5 px story pointers (scripts/opera_career_world_2d.gd:1990-1991)"
+    },
+    "JL4": {
+     "score": 1,
+     "evidence": "Steps differ; nothing grows across visits"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "The finished cake; generic win recording"
+    },
+    "JL6": {
+     "score": 2,
+     "evidence": "Bakes the cake as recorded"
+    }
+   },
+   "lens_total": 7,
+   "owner_verdict": "Not accepted 2026-10-03 (ODR-CHEF-VERDICT-20261003)",
+   "weakness_ids": [
+    "JW-CHEF-1",
+    "JW-CHEF-2",
+    "JW-CHEF-3",
+    "JW-CHEF-4",
+    "JW-CHEF-5"
+   ],
+   "next_change": "The owner's look at the painted Chef, then repairs",
+   "package": "NG6"
+  },
+  {
+   "career": "Stuffie Doctor",
+   "save_bit": 5,
+   "part2_order": null,
+   "gold_star_points_20261003": 11,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 1,
+     "evidence": "The X-ray and finding the ouch are doctor work; wash, cast and bandage are chores"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Acts on a panel beside the patient"
+    },
+    "JL3": {
+     "score": 1,
+     "evidence": "Painted tools on a panel"
+    },
+    "JL4": {
+     "score": 1,
+     "evidence": "Steps differ; nothing grows across visits"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "Bandaged plushy; generic win recording"
+    },
+    "JL6": {
+     "score": 2,
+     "evidence": "Lines match the scene; the setting is an open owner decision (MA-OPERA-007)"
+    }
+   },
+   "lens_total": 7,
+   "owner_verdict": "None recorded",
+   "weakness_ids": [
+    "JW-DOC-1",
+    "JW-DOC-2",
+    "JW-DOC-3",
+    "JW-DOC-4",
+    "JW-DOC-5"
+   ],
+   "next_change": "Care pays; act on the patient",
+   "package": "NG8c"
+  },
+  {
+   "career": "Teacher",
+   "save_bit": 17,
+   "part2_order": null,
+   "gold_star_points_20261003": 15,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 1,
+     "evidence": "A real learning skill, but she is the pupil, not the teacher"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Pose keys"
+    },
+    "JL3": {
+     "score": 2,
+     "evidence": "Painted board pieces are the controls"
+    },
+    "JL4": {
+     "score": 2,
+     "evidence": "Adaptive tiers: three clean wins move her up (scripts/teacher_lesson_plan.gd:6-58)"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "Win line; generic win recording"
+    },
+    "JL6": {
+     "score": 1,
+     "evidence": "The win thanks a learning buddy who never appears (scripts/opera_house.gd:149)"
+    }
+   },
+   "lens_total": 8,
+   "owner_verdict": "None recorded",
+   "weakness_ids": [
+    "JW-TEACH-1",
+    "JW-TEACH-2",
+    "JW-TEACH-3",
+    "JW-TEACH-4",
+    "JW-TEACH-5"
+   ],
+   "next_change": "Larger pearl targets",
+   "package": "NG8f"
+  },
+  {
+   "career": "Nursery Nurse",
+   "save_bit": 15,
+   "part2_order": null,
+   "gold_star_points_20261003": 14,
+   "gold_star_stale": true,
+   "lens": {
+    "JL1": {
+     "score": 2,
+     "evidence": "Catching, feeding, burping and tucking babies"
+    },
+    "JL2": {
+     "score": 1,
+     "evidence": "Care frames for some steps (verify each); Faron frozen"
+    },
+    "JL3": {
+     "score": 2,
+     "evidence": "Cradle, bottle and blankets are the controls"
+    },
+    "JL4": {
+     "score": 1,
+     "evidence": "Steps differ; nothing grows across visits"
+    },
+    "JL5": {
+     "score": 1,
+     "evidence": "Babies asleep; generic win recording"
+    },
+    "JL6": {
+     "score": 2,
+     "evidence": "Lines match the scene"
+    }
+   },
+   "lens_total": 9,
+   "owner_verdict": "None recorded",
+   "weakness_ids": [
+    "JW-NURSE-1",
+    "JW-NURSE-2",
+    "JW-NURSE-3",
+    "JW-NURSE-4"
+   ],
+   "next_change": "Faron reactions; the pat on the baby",
+   "package": "NG8d"
+  }
+ ]
+}

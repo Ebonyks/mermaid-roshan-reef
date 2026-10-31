@@ -1,0 +1,90 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_job_minigames_next_gen_2026-10-31",
+ "status": "PROPOSED / CANDIDATE (owner questions Q1-Q8 open with defaults; implementation waits for the demo build's promotion under ODR-DEMO-FREEZE-20261031)",
+ "prepared_by": "Claude (written analysis and specification only; no game changes and no images)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev a0bb2cf4691631a534e210a5fb60fd227213322f",
+ "generation": "2; generation 1 is docs/handoffs/codex_minigame_rebuilds_2026-10-17",
+ "entry": "README.md",
+ "owner_request": "2026-10-31: use the record-first correction as a guide for a next-generation iterative design handoff; identify the weaknesses of each job game; compare every racing version to choose the best version or combination for the final game; hand off updates for these games; and add a self-improvement audit to analyze and keep developing the existing job minigames",
+ "findings_opened": [
+  "MA-OPERA-015",
+  "MA-ACCESS-004"
+ ],
+ "findings_updated": [
+  "MA-OPERA-014",
+  "MA-DOC-009"
+ ],
+ "impact_record": "design/audit_impacts/job-minigames-next-gen-handoff-20261031.json",
+ "file_count": 7,
+ "total_bytes": 135385,
+ "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
+ "revision": "1 (2026-10-31): first publication",
+ "images_in_packet": 0,
+ "claims": {
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false
+ },
+ "owner_decisions_cited": [
+  "ODR-MINIGAME-REBUILD-20261017",
+  "ODR-POPSTAR-CORE-20261018",
+  "ODR-POPSTAR-SONG-20261018",
+  "ODR-POPSTAR-BAND-20261018",
+  "ODR-BALLET-CONCEPT-20261018",
+  "ODR-RACER-VIEW-20261018",
+  "ODR-CHEF-VERDICT-20261003",
+  "ODR-JOBART-SHARE-STUFFIES-20261018",
+  "ODR-JOBART-NURSERY-FRAMES-20261018",
+  "ODR-JOBART-PROCESS-20261018",
+  "ODR-DEMO-FREEZE-20261031",
+  "ODR-DEMO-PART2-SCOPE-20261031",
+  "ODR-DEMO-NO-NEW-AUDIO-20261031",
+  "ODR-LOOP-Q3"
+ ],
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 15144,
+   "sha256": "29aa6187d74671b727459f0b04149e4d089378076399b65a515a590733e8b08b",
+   "role": "handoff entry point: request, verdict for every game, racing decision, findings, files, work order NG0-NG12, owner questions Q1-Q8, relationships, three claims"
+  },
+  {
+   "path": "WEAKNESS_REGISTER.md",
+   "bytes": 42971,
+   "sha256": "a48aed6365a59e97f6fd9c4b53dc54c2e8247b7939cf5701ae02b4bb10f2d268",
+   "role": "every career's weaknesses (JW-*) with code anchors, severities, plans elsewhere and next changes; shared weaknesses (JX-*); stale records; JC0 lens scores"
+  },
+  {
+   "path": "RACER_VERSIONS.md",
+   "bytes": 25245,
+   "sha256": "8eb30af104cbdb3b1f35bc80216d267c4c73133c7a392b5f654d9ac0595acbf9",
+   "role": "all ten racing builds, the owner's dated words on racing, comparison, recommended combination R1 with acceptance legs, alternative R2, retirements"
+  },
+  {
+   "path": "WORK_PACKAGES.md",
+   "bytes": 17305,
+   "sha256": "cbbeeebd4f05c5a95a3d4e453e27913b34a2ab84906ca147fec20edcda897380",
+   "role": "Codex packages NG0-NG12 with steps, proofs and dependencies, sequenced after the demo build's promotion"
+  },
+  {
+   "path": "SELF_IMPROVEMENT_AUDIT.md",
+   "bytes": 16082,
+   "sha256": "f29174250c480e9ea07f3a161e5a2740018099f0370216560153eb3500c0d4a4",
+   "role": "job-specific self-improvement cycle: job lens JL1-JL6 with owner-verdict calibration, cycle steps, lessons, tooling needs, JC0 baseline, cycle notes template"
+  },
+  {
+   "path": "data/job_lens_jc0.json",
+   "bytes": 18638,
+   "sha256": "7349f8343ea8498d30811f91ad56787a8fedddde1d96b0834b63f5e0e5b745ba",
+   "role": "JC0 job-lens scores, evidence and gold-star snapshot per career, as data for the next cycle"
+  }
+ ]
+}

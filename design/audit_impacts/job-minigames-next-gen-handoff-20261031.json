@@ -1,0 +1,183 @@
+{
+  "id": "job-minigames-next-gen-handoff-20261031",
+  "scope": "Owner request 2026-10-31: 'Use this as a guide for next generation iterative deisgn handoff. Identify the weaknesses of each individual game, giving the racing game particular focus of going through all of the comprehensive versions of this to determine which version (or combination of versions) is best for the final game. Create a hand off to update these games, as well as a self-improvement audit to analyze and continue to develop the existing job minigames'. Read as: apply the record-first method of the 2026-09-30 Day Two job-canon correction (search every branch and record, quote the owner beside each claim, keep decisions apart from proposals) to a generation-2 Codex handoff after the 2026-10-17 rebuild handoff. The packet registers the weaknesses of all 15 live careers and the Arborist Tree Book practice with code anchors and severities (WEAKNESS_REGISTER.md); inventories all ten racing builds in four families with the owner's dated words, finds that the owner's 2026-10-03 priority to convert the existing racing engine and his 2026-10-22 direction to integrate it on castle-room tracks exist only on branches and conflict with ODR-RACER-VIEW-20261018, and recommends a combination R1 (the castle-room Canvas engine with the side-scroller specification's lanes and pit stop and the imp contest, head to head), with R2 as the alternative (RACER_VERSIONS.md); packages the updates NG0-NG12 for Codex, sequenced after the demo build's promotion under ODR-DEMO-FREEZE-20261031 (WORK_PACKAGES.md); and adds a job-specific self-improvement cycle on top of the 2026-10-03 loop and the gold star, with a six-part job lens calibrated against recorded owner verdicts, cycle steps, lessons, tooling needs and a static JC0 baseline (SELF_IMPROVEMENT_AUDIT.md, data/job_lens_jc0.json). Two verified defects become findings: MA-OPERA-015 (two Part 2 story steps hide their touch targets) and MA-ACCESS-004 (eight phases play a recording that is the wrong instruction while the caption is hidden). MA-OPERA-014 and MA-DOC-009 gain history lines; the master audit gains index rows, a task route, a task-index paragraph and a change-history entry; the ledger gains five rows and two stale rows are corrected (the Pop Star specification's pending-answers note; the Racer specification's contested direction). Documentation only: no runtime, save, art, voice or binding-rule change, and no merge into dev before promotion.",
+  "baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-03",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-INT-07",
+    "DL-INT-08",
+    "DL-INT-10",
+    "DL-INT-12",
+    "DL-INT-14",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-07",
+    "DL-MOT-07",
+    "DL-MED-01",
+    "DL-SND-01",
+    "DL-SND-13",
+    "DL-READ-06",
+    "DL-SAVE-01",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-OPERA-015",
+    "MA-ACCESS-004",
+    "MA-OPERA-014",
+    "MA-DOC-009",
+    "MA-OPERA-001",
+    "MA-OPERA-002",
+    "MA-OPERA-005",
+    "MA-OPERA-006",
+    "MA-OPERA-010",
+    "MA-OPERA-013",
+    "MA-PLAY-004",
+    "MA-PLAY-005",
+    "MA-VIS-008",
+    "MA-VIS-010",
+    "MA-DOC-006",
+    "MA-CI-008",
+    "MA-ACCESS-001",
+    "MA-ACCESS-002",
+    "MA-AUDIO-001",
+    "MA-CHILD-001",
+    "MA-PERF-001"
+  ],
+  "finding_scope": "Opened: MA-OPERA-015 (P1 CONFIRMED_OPEN, V1 static; P0 if an untrained finger cannot finish story SORT) and MA-ACCESS-004 (P1 CONFIRMED_OPEN, V1 static). History only: MA-OPERA-014 (the racing conflict and recommendation; lifecycle unchanged) and MA-DOC-009 (the job cycle and JC0 baseline; nothing closed). The other findings are cited as evidence or as the home of a package's repair; their records are unchanged.",
+  "files": [
+    "docs/handoffs/codex_job_minigames_next_gen_2026-10-31/.gdignore",
+    "docs/handoffs/codex_job_minigames_next_gen_2026-10-31/README.md",
+    "docs/handoffs/codex_job_minigames_next_gen_2026-10-31/WEAKNESS_REGISTER.md",
+    "docs/handoffs/codex_job_minigames_next_gen_2026-10-31/RACER_VERSIONS.md",
+    "docs/handoffs/codex_job_minigames_next_gen_2026-10-31/WORK_PACKAGES.md",
+    "docs/handoffs/codex_job_minigames_next_gen_2026-10-31/SELF_IMPROVEMENT_AUDIT.md",
+    "docs/handoffs/codex_job_minigames_next_gen_2026-10-31/data/job_lens_jc0.json",
+    "docs/handoffs/codex_job_minigames_next_gen_2026-10-31/MANIFEST.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH RESULT ALL OK on the candidate working tree before the commit: INVENTORY=765, LEDGER=765, ACTIVE=75, RECORDS=78 (the five new Markdown files and the two new findings included). A first run failed only DOC072/DOC080 for the impact record and manifest, which did not exist yet."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV RESULT ALL OK against the dev merge-base a0bb2cf4691631a534e210a5fb60fd227213322f on the candidate working tree before the commit."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base 511b069098020748b389e453f24fec66b87151d8",
+      "result": "PASS",
+      "evidence": "AUDITDEV RESULT ALL OK against the previous push 511b0690 (the dev merge) on the candidate working tree before the commit."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Cannot run in this session: the sandbox clone is shallow and partial, and the gate refuses with G2D403 (full Git history required). Its debt line on the same tree reports production_3d_files=52, probe_3d_files=61, scene_3d_files=1 and configuration_3d_files=1, the values the master audit records for MA-2D-002; this change adds no 3D node, model or engine class name (only Markdown and two JSON files outside the runtime). Remote CI runs the gate on push."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check",
+      "result": "PASS",
+      "evidence": "DECISIONS COUNT 69, RESULT ALL OK; this change records no owner decision."
+    },
+    {
+      "command": "python -B tools/gold_star.py --check",
+      "result": "PASS",
+      "evidence": "GOLDSTAR RESULT OK with the catalogue unchanged: 60 games, 0 errors, 33 stale (all 15 careers among the stale, as the audit reports); no score is changed by this packet."
+    },
+    {
+      "command": "Source checks by Claude (scripted reads, no game run)",
+      "result": "PASS",
+      "evidence": "Phase census of PHASES (61 phases, 36 modes, 15 careers); every free-play and Chapter 2 phase's recording key compared with its text in assets/audio/voices/filler_v1/FILLER_MANIFEST.json (eight wrong or untrue instructions recorded in MA-ACCESS-004; the Geologist FOSSIL line fits and is excluded); the Opera caption rule (scripts/audio_director.gd:561-594); the alpha-0 story surface and the candle touch-box geometry (MA-OPERA-015); the Detective timed retry and story finale clamp; the save clamp and checkpoint phase cap; the win-line code and the generic win recording's text; branch records read from commits 96d6ef9e, fcee911c and 66420ae7 (the owner's 2026-10-03 and 2026-10-22 words, the castle-room racer's roster and hold rule, the contest mercy formula); remote CI conclusions for those branches read through the GitHub API (runs 39913994741, 37186624403, 37186622267, 36815277212 and 36815346523 succeeded)."
+    },
+    {
+      "command": "Anonymous remote verification of the published packet",
+      "result": "PENDING",
+      "evidence": "Recorded in REMOTE_VERIFICATION.json in the commit after the published one."
+    },
+    {
+      "command": "Probe Suite on the pushed head",
+      "result": "PENDING",
+      "evidence": "Remote CI runs on push; no game file changes."
+    }
+  ],
+  "acceptance_gaps": "The owner's answers to Q1-Q8 (above all Q2, the Racer direction, and Q1, the two demo-route checks). Nothing is implemented: R1 or R2, the Pop Star and Ballerina rebuilds, the Chef look, the Part 2 and free-play repairs, the shared shell, the records and scores, the job-cycle tooling, and every runtime, art, voice, device, child and owner gate. MA-OPERA-015 and MA-ACCESS-004 are static findings with no runtime, listening, device or child evidence. The job lens is calibrated only against the verdicts it was derived from; the owner's next verdicts are its first test. JC1 has not run. The packet stays on its work branch until the demo build is promoted.",
+  "lessons": [
+    {
+      "lesson": "Before specifying, search every branch for the owner's words on the topic; generation 1 missed the 2026-10-03 racing priority and the Day Two draft missed the job canon.",
+      "write_back": "design/reference/recipes/publish_handoff.md and the proposed job-audit recipe (NG11)"
+    },
+    {
+      "lesson": "An owner question lists every recorded option, built branches included; the 2026-10-18 Racer question left out the existing engine.",
+      "write_back": "design/reference/recipes/publish_handoff.md"
+    },
+    {
+      "lesson": "Record an owner direction in the shared register when it is given; two racing directions exist only on branches, one only in a generated view.",
+      "write_back": "audit/cycles/README.md decision intake with tools/record_owner_decision.py"
+    },
+    {
+      "lesson": "Check each spoken line against its recording's text, not the phase's own text; Boxer and Geologist phases carry a correct caption and a wrong recording.",
+      "write_back": "The voice-truth check proposed in NG11"
+    },
+    {
+      "lesson": "Judge the job's fantasy apart from generic quality; the gold star ranked the owner-rejected careers mid-table.",
+      "write_back": "docs/handoffs/codex_job_minigames_next_gen_2026-10-31/SELF_IMPROVEMENT_AUDIT.md section 2 and README Q7"
+    },
+    {
+      "lesson": "Count from the code, not from a rule's text; DL-INT-07 states 13 careers, 53 phases and 27 modes where the code has 15, 61 and 36.",
+      "write_back": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md DL-INT-07 through NG10"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "docs/handoffs/codex_minigame_rebuilds_2026-10-17/README.md",
+      "purpose": "Generation 1: owner answers, MR0-MR8, the Reef Grand Prix and the diagnosis"
+    },
+    {
+      "path": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md",
+      "purpose": "Feature freeze, DR5 and DR6, parked branches"
+    },
+    {
+      "path": "docs/handoffs/codex_job_art_imagegen_2026-10-17/AUDIT.md",
+      "purpose": "Job-art state per career"
+    },
+    {
+      "path": "docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md",
+      "purpose": "The owner's contest words OD-A, OD-B and OD-E and rule C13"
+    },
+    {
+      "path": "design/reference/GOLD_STAR.md",
+      "purpose": "Rubric, ratings and reference patterns"
+    },
+    {
+      "path": "docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md",
+      "purpose": "The loop the job cycle extends"
+    },
+    {
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "purpose": "Recorded owner decisions on careers and racing"
+    },
+    {
+      "path": "assets/audio/voices/filler_v1/FILLER_MANIFEST.json",
+      "purpose": "Recording texts for the voice-truth comparison"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "purpose": "Phase tables, story input, candle geometry, rival start"
+    }
+  ],
+  "source_recheck": "Read for this audit: on dev a0bb2cf4, every career's PHASES row, the Chapter 2 adapter's phases, scripts/opera_racer_surface.gd, scripts/kart_driving.gd, scripts/opera_competition.gd, scripts/audio_director.gd's Opera caption rule, scripts/opera_act.gd's curtain call, scripts/save_state.gd's star clamp and checkpoint validators, scripts/chapter_two_party_plan.gd, scripts/opera_house.gd's act table, the recording manifest, games.json, GOLD_STAR.md and the October handoffs; on origin/master ff68f955 the one-circle Racer; on branches 96d6ef9e (design/RACER_CASTLE_INTEGRATION_2026-10-22.json, its DL-INT-10 addendum, its OWNER_DECISIONS.md row, scripts/racer_game_2d.gd), fcee911c (design/audit_impacts/job-game-racer-refinement-20261003.json and the port and rally documents) and 66420ae7 (scripts/opera_imp_contest.gd). Three delegated read-only sweeps covered all 644 remote refs for racing builds, every career's records and the October tooling; their key claims were rechecked in source before use, and two were corrected (the hold rule is in code, not a written statement; the Geologist FOSSIL line fits its step)."
+}
