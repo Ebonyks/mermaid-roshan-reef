@@ -1,0 +1,21 @@
+[
+  {
+    "probe": "probe_dust_boss",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef",
+      "-s",
+      "scripts/probe_dust_boss.gd"
+    ],
+    "exit": 1,
+    "seconds": 60.4,
+    "failures": [
+      "DUSTBOSS|cold introduction keeps a sniffly identity and exact spoken context: FAIL",
+      "DUSTBOSS|completed checkpoint welcomes a healthy friend instead of asking for another clean: FAIL",
+      "DUSTBOSS|result: 2 check(s) FAILED"
+    ],
+    "log": "audit/grand_puff_care_20261017/probe_dust_boss.log"
+  }
+]

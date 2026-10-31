@@ -108,16 +108,20 @@ var final_round_active: bool = false
 var combat_speed_scale: float = 1.0
 var counter_window_seconds: float = 0.0
 var counter_reaction: bool = false
+## The production Grand Puff encounter uses sympathetic Canvas care acting.
+## Standalone legacy animation clients retain their original API and fixtures.
+var care_mode: bool = false
 
 
 func _ready() -> void:
 	name = "DustBunnyBoss"
+	# Retain legacy interaction groups as API compatibility, not story motive.
 	add_to_group(&"enemy")
 	add_to_group(&"boss_enemy")
 	add_to_group(&"dust_bunny_boss")
 	sprite = AnimatedSprite3D.new()
 	sprite.name = "AnimatedDustBunnyBoss"
-	sprite.sprite_frames = make_sprite_frames()
+	sprite.sprite_frames = GrandPuffCare2D.make_frames() if care_mode else make_sprite_frames()
 	sprite.position.y = DISPLAY_HEIGHT * 0.5
 	sprite.pixel_size = DISPLAY_HEIGHT / float(FRAME_SIZE.y)
 	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
@@ -131,6 +135,8 @@ func _ready() -> void:
 	sprite.frame_changed.connect(_on_frame_changed)
 	sprite.animation_finished.connect(_on_animation_finished)
 	add_child(sprite)
+	if care_mode:
+		sprite.visible = false
 	tap_sfx_player = AudioStreamPlayer3D.new()
 	tap_sfx_player.name = "BossTapSfx"
 	tap_sfx_player.bus = &"SFX"
@@ -196,12 +202,21 @@ func play_jump(direction_x: float = 1.0) -> float:
 	var jump_animation: StringName = (
 		&"angry_jump_final" if final_round_active else &"jump"
 	)
+	if care_mode:
+		jump_animation = &"care_sneeze_final" if final_round_active else &"care_sneeze"
 	return _play_action(jump_animation)
 
 
 func play_vulnerable_laugh() -> float:
 	_reset_tap_progress()
 	return _play_action(&"laugh_vulnerable")
+
+
+func play_sneeze_warning() -> void:
+	if care_mode:
+		_play_action(&"care_breath")
+	else:
+		play_idle()
 
 
 func register_vulnerable_tap() -> bool:
@@ -278,6 +293,8 @@ func _expire_tap_window() -> void:
 
 func play_angry() -> float:
 	_reset_tap_progress()
+	if care_mode:
+		return _play_action(&"care_relief")
 	var angry_animation: StringName = (
 		&"angry_jump_final" if final_round_active else &"angry"
 	)
@@ -292,13 +309,19 @@ func hold_for_transformation() -> void:
 	_reset_tap_progress()
 	defeated = true
 	_set_vulnerable(false)
-	sprite.visible = true
+	sprite.visible = not care_mode
+	if care_mode:
+		sprite.animation = &"care_relief"
+		sprite.frame = 0
 	sprite.pause()
 	implosion_finished.emit()
 
 
 func play_implode() -> float:
 	if sprite == null or defeated:
+		return 0.0
+	if care_mode:
+		hold_for_transformation()
 		return 0.0
 	_reset_tap_progress()
 	defeated = true

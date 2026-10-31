@@ -1104,11 +1104,15 @@ repair. They play only between scenes and never replace a child action. Each
 clip records source path and SHA-256, frame range, encoding and output SHA-256
 in a runtime manifest and `ASSET_LICENSES.md`. Status is
 `OWNER_DIRECTED_RUNTIME_CLIP`, never `DELIVERY_ACCEPTED`; other chapters, new
-footage and replacement shots follow the current workflow gates. Canon: Grand
-Puff is a friend trapped under dirt that made him grumpy and scary; Roshan
-faces him alone, the family joins only in the transformation clip after he is
-beaten, and the rainbow dust bunny then follows Roshan like Baby Eagle. The
-complete terms are in `AGENTS.md`.
+footage and replacement shots follow the current workflow gates. Canon,
+clarified by the owner on 2026-10-17: Grand Puff is a friend sick with a cold,
+never bad or evil. Roshan cleans his dusty coat; happy and healthy, the rainbow
+dust bunny jumps out of his old shell, then follows Roshan like Baby Eagle.
+Roshan helps alone in gameplay; the family joins only in the transformation
+clip after cleaning is complete. Preserve the original battle patterns, shapes
+and timing. This [scoped care correction](GRAND_PUFF_CARE_2026-10-17.md)
+supersedes prior grumpy/scary/beaten intent, while the selected clip source,
+straight-cut and acceptance restrictions above and in `AGENTS.md` remain.
 
 ---
 

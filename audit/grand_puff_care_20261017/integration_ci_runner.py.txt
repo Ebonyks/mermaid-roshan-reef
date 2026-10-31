@@ -1,0 +1,25 @@
+from pathlib import Path
+import subprocess,os,json,time,hashlib,re,sys
+root=Path(__file__).resolve().parents[2];out=root/'audit/grand_puff_care_20261017'
+pin_path='audit/grand_puff_care_20261017/source_pin_integration.json'
+pin=json.loads((root/pin_path).read_text(encoding='utf-8'))
+def drift():
+    return [v['path'] for v in pin['source_files'] if hashlib.sha256((root/v['path']).read_bytes()).hexdigest()!=v['sha256']]
+assert not drift()
+engine=subprocess.check_output([sys.executable,'-B','tools/resolve_godot.py'],cwd=root,text=True).strip()
+assert '4.7.2' in engine
+env=dict(os.environ,GODOT=engine,PYTHONUTF8='1',PYTHONIOENCODING='utf-8')
+command=[r'C:\Program Files\Git\bin\bash.exe','scripts/ci.sh']
+log=root/'tmp/puff-crash/care-integration-ci.log';start=time.time()
+with log.open('w',encoding='utf-8') as stream:
+    child=subprocess.Popen(command,cwd=root,env=env,stdout=stream,stderr=subprocess.STDOUT,creationflags=0x08000000)
+    receipt={'status':'RUNNING','command':command,'pid':child.pid,'source_pin':pin_path,'started_epoch':start,'engine':engine,'log':'tmp/puff-crash/care-integration-ci.log'}
+    (out/'integration_ci_result.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+    print('INTEGRATION_CI|STARTED|',child.pid,'|',engine,flush=True)
+    code=child.wait()
+text=log.read_text(encoding='utf-8',errors='replace')
+receipt.update(status='PASS' if code==0 else 'FAIL_PRESERVED',exit=code,seconds=round(time.time()-start,2),source_drift=drift(),
+ probes=re.findall(r'^=== (probe_\w+) ===$',text,re.M),failure_lines=[line for line in text.splitlines() if re.search(r'FAIL|FAILED|SCRIPT ERROR|Parse Error|Compile Error|TIMEOUT|STUCK|DID NOT|MISSING',line)])
+(out/'integration_ci_result.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+(out/'integration_ci.log').write_text(text,encoding='utf-8')
+print(json.dumps({k:v for k,v in receipt.items() if k!='probes'}),flush=True)

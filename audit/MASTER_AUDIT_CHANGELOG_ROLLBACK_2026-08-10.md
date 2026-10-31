@@ -2055,6 +2055,42 @@ R95 replaces the flat pan renderer with a complete existing painted pan, byte-id
 CHG-104 source publication update: same painted pan reconciled to `1a4e8a1ceae29b401d63900a57a531b2f4442ba8`; actual import/static gates and all82 trusted probes PASS via documented probe-by-probe route, exact original failure preserved. Normal save/source guards unchanged. Runtime source manifest publishes actual candidate; remoteCI/Dev integration and formal/device/child/owner acceptance pending. No new generation/frame/removal count.
 
 
+### Grand Puff cold and care CHG-098
+
+- Date: 2026-10-17. Manual owner commission, not an automatic planner emitter.
+  Baseline `1a4e8a1ceae29b401d63900a57a531b2f4442ba8`; the original care source
+  and evidence are bound in [the impact](../design/audit_impacts/grand-puff-care-20261017.json)
+  and `audit/grand_puff_care_20261017/source_pin_final_v2.json`. The later dev
+  reconciliation has its own `source_pin_integration.json` and full-suite
+  receipt, preserving the original results separately.
+- Benefit: Grand Puff is a sick friend who welcomes cleaning. Warm Canvas
+  acting, soap contact and five neutral Guide cues replace hostile story
+  meaning. Original circles/lane, timing, windows, three saved rounds and
+  rewards remain. The unchanged selected emergence movie also supports a
+  completed helping replay; missing media safely preserves progress.
+- Bounded repair: actual displayed review found the arena-return fade frozen
+  opaque over the movie's paused tree. The negative handoff assertion fails
+  before the pause-mode correction. Post-repair 1280×720 and 1560×720 Mobile
+  captures show the selected movie and rainbow friend, then reach Day Two.
+- Source and risk: one cold-pose ImageGen call plus local Aseprite registration;
+  two additional emergence studies rejected at the action cap and never used
+  at runtime. Selected movie, protected book/family originals and rainbow
+  follower remain unchanged. Original prototype cleanup minutes were not
+  instrumented; final visual/motion/time-accounting acceptance remains open.
+  Legacy spatial kit compatibility remains measured debt, not final 2D.
+- Verification: explicit original-profile/cadence, actual touch, passive/held/
+  drag negatives, saved checkpoints, focus-loss entry recovery, first and
+  replay clip ownership, exact Guide priority/teardown and siblings are kept.
+  The console-launcher balance run passes all eight playing styles and four
+  negative controls. Incomplete direct-GUI headless runs and the original-
+  controller comparison remain diagnostic failures; no native exception was
+  observed and cause is unproven. Complete-suite and published-head statuses
+  remain separate in the impact. No device/child/owner or global closure.
+- Rollback: reverse only this scoped implementation on a clean topic and rerun
+  the exact-engine gates, preserving every save key, protected source and
+  immutable evidence. Never accept the known black fade or entry crash as a
+  runtime fallback. Technical rollback does not revoke the owner's care canon
+  or authorize retired 3D resources, family imitation or replacement footage.
 
 ### Direct Opera foyer entry and source recovery CHG-101
 

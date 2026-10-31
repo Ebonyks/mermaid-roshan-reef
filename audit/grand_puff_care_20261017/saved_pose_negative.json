@@ -1,0 +1,13 @@
+{
+  "status": "FAIL_VISUAL_STATE_COHERENCE",
+  "source_pin": "audit/grand_puff_care_20261017/source_pin_final.json",
+  "evidence": [
+    "audit/grand_puff_care_20261017/display1280_final/healthy_resume_splash.png",
+    "audit/grand_puff_care_20261017/display1560_final/healthy_resume_splash.png",
+    "audit/grand_puff_care_20261017/display1280_final/captures.json"
+  ],
+  "reproduction": "Earn three actual cleaning taps, interrupt before the reward, restore the saved final round, and inspect the first splash frame. The foreground portrait and exact voice are healthy but the underlying world actor still presents idle/sniffly until the ending handoff.",
+  "observed": "rounds=3; view_animation=idle; splash_animation=care_relief; active_guide=guide_puff_healthy",
+  "repair": "Set the valid care kit to a paused whole grateful pose when restoring three completed rounds. Do not emit completion early or change combat state, clocks, save keys or rewards. Extend the existing completed-checkpoint assertion to include the underlying kit pose.",
+  "scope": "Actual visual inconsistency in the new candidate, not a new canonical whole-game finding or a claim that any progress was lost."
+}
