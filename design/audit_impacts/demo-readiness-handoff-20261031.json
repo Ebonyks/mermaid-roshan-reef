@@ -1,0 +1,114 @@
+{
+  "id": "demo-readiness-handoff-20261031",
+  "scope": "Owner request 2026-10-31: \"We're seeking to publish a demo of this game next week for Roshan. We're going to place a cap on new development, it's okay if part 2 doesn't completely resolve at this point. With that said, identify priorities to work through before a demo, identify areas of needed improvement and work to develop plan to implement these changes. Provide analysis of high priority fixes in handoff for codex\". Claude delivers a written Codex handoff (no game change, no images, no probe run): a demo definition, a feature freeze, ranked priorities and work packages DR0-DR7 with acceptance criteria, a one-week schedule, owner questions Q1-Q8 with defaults, a code-anchored audit of the Day One route, Part 2 reachability and the release pipeline, a release and demo-day runbook, and post-demo improvement areas. Two confirmed child-facing defects are opened as canonical findings (MA-VIS-011 story clips under the black cover; MA-SAVE-002 upgraded career stars shown as un-earned) and four existing findings gain dated history. Benefit: the family's first device and child session gets a rehearsed, promoted build without a black climax, a grown-up menu or a lost save.",
+  "baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-06",
+    "DL-SND-01",
+    "DL-CIN-16",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-05",
+    "DL-SAVE-06",
+    "DL-PERF-02",
+    "DL-PERF-07",
+    "DL-QA-02",
+    "DL-QA-03"
+  ],
+  "findings": [
+    "MA-VIS-011",
+    "MA-SAVE-002",
+    "MA-TOUCH-004",
+    "MA-PLAY-005",
+    "MA-ACCESS-001",
+    "MA-CI-006",
+    "MA-PERF-001",
+    "MA-CHILD-001",
+    "MA-RELEASE-001",
+    "MA-SAVE-001",
+    "MA-OPERA-014"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/.gdignore",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/README.md",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/DEMO_RUNBOOK.md",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/MANIFEST.json"
+  ],
+  "validation": [
+    {
+      "command": "Named review: read-only code review of the Day One route, Part 2 reachability and the release pipeline at dev 218ae766, by three parallel reviewers, with every blocker and opened finding re-read by Claude",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md sections A-E. Re-read by Claude: the black-cover chain (main.gd _fade_cut, day_one_story_clips.gd pause, castle discovery hook, dust_boss.gd win path), the playtest elevator and its probe leg, the Ballerina picker path, the unmarked Part 2 doors, the career-card mask and Chapter 2 gating, the missing castle voice take, the room handoff caption, the bathroom reprompt session ids, the pause-menu FPS text, promote.yml waits, android.yml versionCode and concurrency, backup failure log, and the protected book file deletion. Static reading only; no runtime capture, device or child session."
+    },
+    {
+      "command": "git and gh queries for release state (git rev-list, git merge-base --is-ancestor, git cherry -v origin/dev <branch>, gh run list, gh release view)",
+      "result": "PASS",
+      "evidence": "master ff68f9550c28f7d979896d5c84d1214264c29165 promoted 2026-08-31 (run 33356532501); dev 218ae766 Probe Suite run 41215786419 success; 548 commits ahead; android-dev 817,288,640 bytes; android-test 604,039,545 bytes; six stranded branch tips recorded with full SHAs in AUDIT.md section B; backup run 40352927192 failed."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Local run on the staged revision-1 candidate over baseline 218ae766: DOCAUTH INVENTORY=750 LEDGER=750 ACTIVE=73 RECORDS=76, RESULT ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Local run on the staged revision-1 candidate: AUDITDEV BASE 218ae766f8e60afb3f6338b8fafce28ec9fab7f2, RESULT ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "Local run after the last JSON edit: NO_REGRESSION against the exact shrinking baseline (production 3D files 52, probe 61, model files 0); strict status stays UNSATISFIED."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Local run on the staged revision-1 candidate: 54 tests OK, DOCAUTH STRESS 6/6."
+    },
+    {
+      "command": "Remote Probe Suite on the pushed branch head",
+      "result": "PENDING",
+      "evidence": "Documentation-only change; the exact-head run is required before any merge into dev."
+    },
+    {
+      "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed commit, SHA-256 compared with MANIFEST.json",
+      "result": "PENDING",
+      "evidence": "Recorded in docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json in a follow-up receipt commit."
+    }
+  ],
+  "acceptance_gaps": "Written analysis only. No game change is made, so no finding is closed and every runtime, displayed-Mobile, device, child and owner acceptance lane stays open. MA-VIS-011 and MA-SAVE-002 are V1 static findings awaiting runtime reproduction in work packages DR1 and DR3/Q1. Owner answers to Q1-Q8 are pending with stated defaults. The handoff grants no release authority; promotion still needs the owner's release instruction, a green exact-head Probe Suite and the runbook's save and device rehearsal. Game-wide master-audit satisfaction remains UNSATISFIED.",
+  "lessons": [
+    {
+      "lesson": "State-only probes passed while three owner-directed story clips play under the black transition cover; a check that the cover has cleared while a clip is active would have caught it.",
+      "write_back": "scripts/probe_day_one_story_clips.gd (sensor leg specified in work package DR1)"
+    },
+    {
+      "lesson": "Six owner-requested repairs and one owner decision stayed off dev for two to three weeks, one of them on an unpushed local branch; finished work needs a weekly land-or-close pass before it can reach the child.",
+      "write_back": "docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md section F item 1 (proposed process rule for owner review)"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "audit/cycles/2026-10-03b/DEVICE_SESSION.md",
+      "purpose": "Format for the adult device rehearsal in the runbook"
+    },
+    {
+      "path": "audit/LENOVO_TAB_M11_EMULATION_PROTOCOL_2026-08-30.md",
+      "purpose": "Target device profile"
+    },
+    {
+      "path": "audit/cycles/luna-playtest-20261012/REPAIR_GUIDE.md",
+      "purpose": "Prior repair briefs for MA-PLAY-005 and MA-TOUCH-004"
+    }
+  ]
+}

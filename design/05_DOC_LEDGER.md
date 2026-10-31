@@ -1156,3 +1156,13 @@ Owner-requested analysis and Codex handoff for the commissioned under-pool book,
 
 | `assets_src/imagegen/dolls_cradle_sling_20261031/README.md` | 🟣 | `PROPOSED / CANDIDATE` R118 whole cradle native/reject/Aseprite/export provenance. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R118 originalFaron Dolls painted sling, native100checks16views; originalbehavior and separate acceptance lanes. |
+
+## Demo readiness handoff (2026-10-31)
+
+Owner-requested demo priorities, analysis and Codex work order for the November 2026 demo build, prepared by Claude at dev `218ae766` (written material only; no game change, no images).
+
+| Doc | | Note |
+|---|---|---|
+| `docs/handoffs/codex_demo_readiness_2026-10-31/README.md` | 🟣 | `PROPOSED / CANDIDATE` owner-requested Codex work order prepared by Claude (written specification; no game change, no images) at dev `218ae766`: demo definition, feature freeze, priorities and packages DR0-DR7, schedule and owner questions Q1-Q8 with defaults. Grants no release authority or acceptance. |
+| `docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md` | 🔵 | `SUPPORTING_CURRENT` code-anchored demo-readiness review at dev `218ae766`: release state, six finished repairs stranded off dev, Day One and Part 2 findings (opens `MA-VIS-011` and `MA-SAVE-002`), release, save and performance risks, and post-demo improvement areas. Static reading only; no runtime, device or child evidence. |
+| `docs/handoffs/codex_demo_readiness_2026-10-31/DEMO_RUNBOOK.md` | 🟣 | `PROPOSED / CANDIDATE` release-candidate, save-rehearsal, install-over, device-rehearsal, promotion, rollback and demo-day procedure for Codex and the owner under `DL-SAVE-05`; adds no approval checkpoint and grants no release authority. |
