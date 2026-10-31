@@ -30,7 +30,11 @@ class DollsNurserySurface extends OperaNurseryCatch:
 	const SAFE_MAT_PATH := "res://assets/dolls/safety_mat_painted.png"
 	const SAFE_MAT_CONTENT := Rect2(101.0, 64.0, 823.0, 127.0)
 
+	const PAINTED_CRADLE_PATH := "res://assets/dolls/cradle_sling_painted.png"
+	const PAINTED_CRADLE_CONTENT := Rect2(60.0, 144.0, 393.0, 232.0)
+
 	var safe_mat_texture: Texture2D = null
+	var painted_cradle_texture: Texture2D = null
 
 	func _ready() -> void:
 		mouse_filter = Control.MOUSE_FILTER_STOP
@@ -49,6 +53,8 @@ class DollsNurserySurface extends OperaNurseryCatch:
 		set_meta("placeholder_widgets_loaded", false)
 		safe_mat_texture = load(SAFE_MAT_PATH) as Texture2D
 		assert(safe_mat_texture != null, "Dolls painted safety mat is required")
+		painted_cradle_texture = load(PAINTED_CRADLE_PATH) as Texture2D
+		assert(painted_cradle_texture != null, "Dolls painted cradle sling is required")
 
 	func focus_rect_at(at_elapsed: float) -> Rect2:
 		var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)
@@ -74,6 +80,17 @@ class DollsNurserySurface extends OperaNurseryCatch:
 		var outer_radius := minf(CATCH_RADIUS, size.x * 0.15) + 11.0
 		return Rect2(catch_point + Vector2(-outer_radius, -11.0),
 			Vector2(outer_radius * 2.0, outer_radius + 11.0))
+
+	func painted_cradle_destination() -> Rect2:
+		# The whole illustration keeps its aspect and original catch width. Its
+		# padded base sits beneath the unchanged settled-baby feet; bowl_rect stays
+		# the functional/source geometry authority.
+		var bowl := bowl_rect()
+		var scale_factor := bowl.size.x / PAINTED_CRADLE_CONTENT.size.x
+		return Rect2(
+			Vector2(bowl.get_center().x - PAINTED_CRADLE_CONTENT.get_center().x * scale_factor,
+				bowl.end.y + 18.0 - PAINTED_CRADLE_CONTENT.end.y * scale_factor),
+			painted_cradle_texture.get_size() * scale_factor)
 
 	func safe_mat_rect() -> Rect2:
 		return Rect2(
@@ -140,16 +157,10 @@ class DollsNurserySurface extends OperaNurseryCatch:
 			draw_arc(focus_center, focus_radius - 9.0, 0.04, PI - 0.04, 36,
 				Color(0.62, 0.95, 0.84, focus_alpha), 3.0, true)
 
-		# Three layered lower semicircles read as one rounded open sling. There is
-		# no concave fill or limb-like line work, and babies draw afterward so the
-		# target can never paint over them.
-		var catch_radius := minf(CATCH_RADIUS, size.x * 0.15)
-		draw_arc(catch_point, catch_radius, 0.0, PI, 40,
-			Color(0.20, 0.14, 0.34, 0.98), 22.0, true)
-		draw_arc(catch_point, catch_radius, 0.0, PI, 40,
-			Color(0.96, 0.79, 0.43, 0.98), 14.0, true)
-		draw_arc(catch_point, catch_radius, 0.02, PI - 0.02, 40,
-			Color(0.69, 0.94, 0.85, 0.98), 7.0, true)
+		# One whole painted sling replaces the stacked semicircle artwork. Babies
+		# draw afterward on its broad padded seat; catch/input/settled geometry and
+		# the separate focus cue retain their original behavior.
+		draw_texture_rect(painted_cradle_texture, painted_cradle_destination(), false)
 
 		for landing: Dictionary in safe_landings:
 			var landing_point := safe_landing_point(landing)

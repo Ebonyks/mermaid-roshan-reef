@@ -14666,3 +14666,17 @@ R91 scoped reuse: unchanged `assets/mg/butterfly.png` (SHA-256 `310539d933f10274
 | `assets_src/imagegen/dolls_safety_mat_20261031/whole_crop.aseprite` | OpenAI built-in ImageGen owner-authorized R117 static candidate; model/version unexposed | Project-generated artwork | Native take or Aseprite whole technical derivative; `assets_src/imagegen/dolls_safety_mat_20261031/DERIVATION.json`; take1 rejected, no owner acceptance. |
 
 | `assets/dolls/safety_mat_painted.png` | R117 native ImageGen take2 via Aseprite1.3.18.4 | Project-generated artwork | Whole uniform padded1024×256 lossless cutout; `assets_src/imagegen/dolls_safety_mat_20261031/DERIVATION.json`; runtime candidate, formal/external pending. |
+
+| `assets_src/imagegen/dolls_cradle_sling_20261031/cradle_sling_export.png` | Built-in OpenAI ImageGen, owner-authorized R118 static item; model/version unexposed | Project-generated artwork | Native or whole uniform Aseprite derivative; `assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json`; take1 remains a geometryreject, no owner acceptance. |
+
+| `assets_src/imagegen/dolls_cradle_sling_20261031/cradle_sling_master.aseprite` | Built-in OpenAI ImageGen, owner-authorized R118 static item; model/version unexposed | Project-generated artwork | Native or whole uniform Aseprite derivative; `assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json`; take1 remains a geometryreject, no owner acceptance. |
+
+| `assets_src/imagegen/dolls_cradle_sling_20261031/native_take2.aseprite` | Built-in OpenAI ImageGen, owner-authorized R118 static item; model/version unexposed | Project-generated artwork | Native or whole uniform Aseprite derivative; `assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json`; take1 remains a geometryreject, no owner acceptance. |
+
+| `assets_src/imagegen/dolls_cradle_sling_20261031/native_take2.png` | Built-in OpenAI ImageGen, owner-authorized R118 static item; model/version unexposed | Project-generated artwork | Native or whole uniform Aseprite derivative; `assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json`; take1 remains a geometryreject, no owner acceptance. |
+
+| `assets_src/imagegen/dolls_cradle_sling_20261031/rejected/sling_wide_haze_take1.png` | Built-in OpenAI ImageGen, owner-authorized R118 static item; model/version unexposed | Project-generated artwork | Native or whole uniform Aseprite derivative; `assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json`; take1 remains a geometryreject, no owner acceptance. |
+
+| `assets_src/imagegen/dolls_cradle_sling_20261031/scaled_whole.aseprite` | Built-in OpenAI ImageGen, owner-authorized R118 static item; model/version unexposed | Project-generated artwork | Native or whole uniform Aseprite derivative; `assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json`; take1 remains a geometryreject, no owner acceptance. |
+
+| `assets/dolls/cradle_sling_painted.png` | R118 ImageGen take2 via Aseprite1.3.18.4 | Project-generated artwork | Whole uniform512RGBA lossless padded cutout; `assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json`; formal/external acceptance pending. |

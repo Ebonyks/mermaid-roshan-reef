@@ -1,0 +1,3 @@
+# Whole painted Dolls cradle sling — R118 candidate
+
+Two built-in ImageGen static takes, no exposed model selector/version. Take1 remains rejected for wide2.739aspect; actual cutout passes, and an initial preview-haze hypothesis was disproved by alpha0outsidecloth. Take2 is one coherent cream/mint/lavender whole cradle. OriginalRGBA and three editable Aseprite masters retained. Whole uniform400square plus56px transparent padding makes512RGBA, CUTOUT_OK. [Derivation](DERIVATION.json), [results](GENERATION_RESULTS.json), [actualruntime](../../../docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/README.md). No protectedoriginals or animation budget touched; formal/external acceptance open.

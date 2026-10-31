@@ -1,0 +1,31 @@
+{
+  "backend": "Built-in image_gen",
+  "model_selector_exposed": false,
+  "returned_version": null,
+  "seed_exposed": false,
+  "reported_cost": null,
+  "usage_accounting": "2staticcalls/2samples, monetaryusageunreported",
+  "static_take_cap": 2,
+  "static_takes_used": 2,
+  "rejected_takes": 1,
+  "animation_calls": 0,
+  "funded_animation_caps_touched": false,
+  "results": [
+    {
+      "take": 1,
+      "request_id": "exec-8ac42dd5-0764-4b67-88ea-01c47b44a519",
+      "path": "rejected/sling_wide_haze_take1.png",
+      "sha256": "1641ed647e39049aaf23b31dd893256cd0e5d515cccbfcf93328cf1142ff0575",
+      "status": "REJECTED_OVERWIDE_GEOMETRY_C2_PASSES",
+      "note": "Previewhaze hypothesis disproved by actualalpha0outsidecloth; rejection is aspect2.739 only"
+    },
+    {
+      "take": 2,
+      "request_id": "exec-4e41abf1-385a-4e5d-860c-aba54772972a",
+      "path": "native_take2.png",
+      "sha256": "991c03be60b6d293c6cbba7533d7a02ce5bfe240fe737607e18e47b40cfe2c22",
+      "status": "WHOLE_RUNTIME_CANDIDATE",
+      "not_owner_approved": true
+    }
+  ]
+}
