@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "phase": "SEALED_PAYLOAD_PRECOMMIT",
+  "checked_at_utc": "2026-10-31T18:31:32.867421+00:00",
+  "manifest_sha256": "15cea1df0e24307ff4d5318157bc6e4b7c3850bec7cf4f5be996cee549200a1e",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "seconds": 53.734,
+      "stdout": "DOCAUTH|INVENTORY=627|LEDGER=627|ACTIVE=56|RECORDS=58\nDOCAUTH|RESULT|ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "seconds": 42.75,
+      "stdout": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 1.453,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "canonical_staged_manifest_check": {
+    "status": "PASS",
+    "files": 93,
+    "manifest_sha256": "15cea1df0e24307ff4d5318157bc6e4b7c3850bec7cf4f5be996cee549200a1e"
+  }
+}

@@ -8712,13 +8712,13 @@
       "art": [
         "v23_castle_repair"
       ],
-      "text": "Inside, dust covered the floor.\n“Let’s clean it together!”\nsaid Roshan.",
+      "text": "Inside, dust covered the floor.\n“It’s SO messy!” said Roshan.\n“Where do we start?”",
       "layout": "full",
       "border_assets": [],
       "background_theme": "dirty castle interior",
       "caption": {
         "x": 218,
-        "y": 104,
+        "y": 110,
         "width": 260,
         "size": 20,
         "align": "left",
@@ -8993,10 +8993,10 @@
         "v34_closed_door"
       ],
       "layout": "wide_cut",
-      "text": "Sniff, sniff!\nSomeone was sniffling behind a big shell door.\n“Hello?” said Roshan.",
+      "text": "Sniff, sniff!\nSomeone was sniffling\nbehind a big shell door.\n“Hello?” said Roshan. But\nthe door was stuck.\n“We’ll come back!” she\npromised.",
       "caption": {
         "x": 42,
-        "y": 270,
+        "y": 300,
         "width": 220,
         "size": 20,
         "align": "left",
@@ -9097,7 +9097,7 @@
         "sponge",
         "v30_yellow_sponge"
       ],
-      "text": "Daddy gave her a brush and some sponges.\n“One little job at a time,” said Daddy.",
+      "text": "Daddy gave her a duster and two sponges.\n“One little job at a time,” said Daddy.",
       "layout": "tools",
       "border_assets": [],
       "background_theme": "Eager bunny peeks from supply basket; bath accessories remain ready without duplicating main brush/sponge.",
@@ -9193,14 +9193,14 @@
       "art": [
         "v22_scene_05"
       ],
-      "text": "A dust bunny splashed in the dirty bath.\nIt loved to play. Splash, splash!",
+      "text": "A dust bunny splashed in the dirty bath.\nSplash, splash! Gunk went everywhere!\nThe little bunny just wanted to play.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
         "x": 24,
-        "y": 60,
-        "width": 360,
+        "y": 82,
+        "width": 456,
         "size": 20,
         "align": "center",
         "color": "white",
@@ -9435,7 +9435,7 @@
       "art": [
         "approved_sink_action"
       ],
-      "text": "Round and round went the sponge.\nRoshan wiped the sink clean.",
+      "text": "Roshan started with one little job: the sink.\nRound and round went her sponge!",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Little bunny enjoys clean reflection, with folded towel and soap dish grounding the sink-clean moment.",
@@ -9740,20 +9740,21 @@
       "art": [
         "v36_bath_candidate"
       ],
-      "text": "Out went the dirty bath water.\nRoshan scrubbed the tub. Scrub, scrub!",
+      "text": "The dust bunny hopped out, and Roshan pulled the\nplug. Out went the dirty water! She scrubbed the\ntub. Scrub, scrub!",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "One gentle bunny nudges duck; bath plug and rolled towel show emptied bath and cleaning context.",
       "caption": {
-        "x": 32,
-        "y": 316,
-        "width": 440,
+        "x": 24,
+        "y": 320,
+        "width": 456,
         "size": 20,
-        "align": "center",
+        "align": "left",
         "color": "navy",
         "shadow": false,
         "halo": false,
-        "outline": 0
+        "outline": 0,
+        "leading": 22
       },
       "foreground_zone": [
         137,
@@ -9883,14 +9884,14 @@
       "art": [
         "v22_scene_08"
       ],
-      "text": "Clean water filled the bath.\nThe dust bunny was ready to play!",
+      "text": "Soon the bath was sparkling clean.\nNow the dust bunny had a good place to play!\nFar away, someone went sniff, sniff.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
-        "x": 30,
-        "y": 58,
-        "width": 444,
+        "x": 24,
+        "y": 82,
+        "width": 456,
         "size": 20,
         "align": "center",
         "color": "navy",
@@ -10052,7 +10053,7 @@
       "art": [
         "v26_rumi_trapped"
       ],
-      "text": "Rumi was stuck under the gunk.\nShe needed help!",
+      "text": "Rumi was stuck under the gunk.\n“Can you help me?” she called.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -10065,7 +10066,11 @@
         "color": "navy",
         "shadow": false,
         "halo": true,
-        "outline": 1
+        "outline": 1,
+        "line_baselines": [
+          57,
+          32
+        ]
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -10403,14 +10408,14 @@
       "art": [
         "v22_scene_12_fit"
       ],
-      "text": "Whoosh! The waterfall turned rainbow!\nThe swimming pool was magic!\nIt made the water rainbow-colored.",
+      "text": "Whoosh! The waterfall turned rainbow!\nThe pool was magic.\nIts rainbow had been hiding under the gunk!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
         "x": 24,
         "y": 84,
-        "width": 338,
+        "width": 456,
         "size": 20,
         "align": "center",
         "color": "white",
@@ -10521,13 +10526,13 @@
       "art": [
         "v29_fountain14"
       ],
-      "text": "A cup was stuck in the fountain.\nRoshan pulled it free. Whoosh!",
+      "text": "A cup was stuck in the seahorse fountain.\nRoshan pulled and pulled...\nOut came the cup, and out came the water!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
         "x": 30,
-        "y": 58,
+        "y": 84,
         "width": 444,
         "size": 20,
         "align": "center",
@@ -10806,7 +10811,7 @@
       "art": [
         "v26_rumi_free"
       ],
-      "text": "The gunk was gone. Up came Rumi!\nShe had lived in Pearl Castle for hundreds of years.\nNow she was free!",
+      "text": "The gunk washed away. Up came Rumi!\nShe had lived in Pearl Castle for hundreds of years.\nNow she was free!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -10846,14 +10851,14 @@
       "art": [
         "v29_hug16"
       ],
-      "text": "“You helped me!”\nsaid Rumi.\nShe gave Roshan\na great big hug.",
+      "text": "“You helped me!” said\nRumi.\nShe gave Roshan a\ngreat big hug.\n“If you ever need help,\njust call!”",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Tiny working seahorse recalls freed fountain; one warm bunny and shell cup support Rumi's hug.",
       "caption": {
         "x": 40,
-        "y": 267,
-        "width": 158,
+        "y": 290,
+        "width": 205,
         "size": 20,
         "align": "left",
         "color": "navy",
@@ -11094,20 +11099,21 @@
       "art": [
         "v22_scene_16"
       ],
-      "text": "Chirp, chirp!\n“Someone in the playroom\nneeds help!” said Roshan.",
+      "text": "Chirp, chirp! A worried little chirp\ncame from the playroom.\n“Someone needs help!” said\nRoshan.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
         "x": 164,
-        "y": 88,
+        "y": 98,
         "width": 310,
         "size": 20,
         "align": "center",
         "color": "white",
         "shadow": false,
         "halo": false,
-        "outline": 1
+        "outline": 1,
+        "leading": 22
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -11344,7 +11350,7 @@
       "art": [
         "v29_rescue18"
       ],
-      "text": "Two dust bunnies sat on Baby Eagle.\nThey wanted to play, but he was stuck.\n“I’ll help!” said Roshan.",
+      "text": "Two dust bunnies sat on Baby Eagle.\nThey just wanted to play, but he was stuck!\n“I’ll help!” said Roshan.",
       "layout": "floor_caption",
       "border_assets": [],
       "background_theme": "stuffie rescue",
@@ -12019,7 +12025,7 @@
       "art": [
         "eagle_original_isolated"
       ],
-      "text": "Baby Eagle was free!\n“Let’s play gently,” said Roshan.",
+      "text": "Baby Eagle was free!\n“Chirp, chirp!” he said happily.\n“Let’s all play gently,” said Roshan.",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Two small sheepish bunnies remain secondary speakers; displaced toys explain their rough play.",
@@ -12092,7 +12098,7 @@
           ]
         },
         {
-          "text": "We were just\nplaying!",
+          "text": "We’ll be gentle!",
           "box": [
             310,
             70,
@@ -12115,7 +12121,7 @@
       "art": [
         "v22_art_sorting"
       ],
-      "text": "In the art room, Roshan put\nthe paints in their places.\nThen she scrubbed the table. Scrub, scrub!",
+      "text": "In the art room, Roshan put the paints in their\nplaces. She scrubbed the table. Scrub, scrub! “One\nlittle job at a time,” she sang.",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Sorting with existing sponge resting on tabletop; retained tidy V34 stationery.",
@@ -12262,7 +12268,7 @@
       "art": [
         "v27_door"
       ],
-      "text": "Only the big shell door was still shut.\nBehind it, someone sneezed... AH-CHOO!",
+      "text": "Sparkles flew from every clean room to the big shell\ndoor. Click! Roshan kept her promise. Behind the\ndoor, someone sneezed... AH-CHOO!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "The same final shell door is shadowed violet with a narrow uncertain seam glow. Correct completed room doors and converging route paths remain, but there is no rainbow welcome; Roshan looks cautiously curious.",
@@ -12529,13 +12535,13 @@
       "art": [
         "v26_puff_unwell"
       ],
-      "text": "Grand Puff!\nHe was covered in dust.\nHe did not feel well.",
+      "text": "It was Grand Puff, the\nbiggest dust bunny of\nall!\nEvery sneeze puffed out\nmore dust.\nHe did not feel well.",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Two little puffs look gently unwell beside a pop-up tissue box and their existing water flask; Grand Puff remains foreground only.",
       "caption": {
         "x": 45,
-        "y": 257,
+        "y": 280,
         "width": 215,
         "size": 20,
         "align": "left",
@@ -12712,7 +12718,7 @@
       "art": [
         "v37_sponge_pose"
       ],
-      "text": "“Hold on, we’ll make you feel\nclean and better!” said Roshan.",
+      "text": "Roshan wasn’t mad. “I’ll help!” she said.\nBut Grand Puff was too big to wash alone.\n“Can you help me?” she called.",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Same tiny sofa and two gently unwell little puffs; aqua pop-up tissue box replaces cloth, cheering marks removed.",
@@ -12992,20 +12998,21 @@
       "art": [
         "v27_scrub"
       ],
-      "text": "Daddy, Rumi, and Baby Eagle helped Roshan.\nTogether, they washed Grand Puff. Scrub, scrub!",
+      "text": "“We’ll help!” said Daddy and Rumi.\n“Chirp, chirp!” said Baby Eagle.\nTogether, they washed Grand Puff. Scrub, scrub!",
       "layout": "extension",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
-        "x": 32,
-        "y": 316,
+        "x": 24,
+        "y": 320,
         "width": 440,
         "size": 20,
         "align": "center",
         "color": "white",
         "shadow": false,
         "halo": false,
-        "outline": 1
+        "outline": 1,
+        "leading": 22
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -13139,7 +13146,7 @@
       "art": [
         "R09_suds"
       ],
-      "text": "Soft bubbles covered Grand Puff.\nLittle colors began to shine beneath them.",
+      "text": "Soft bubbles covered Grand Puff.\nThen rainbow colors peeked through the bubbles!",
       "layout": "extension",
       "border_assets": [],
       "background_theme": "full scene",
@@ -13566,7 +13573,7 @@
       "art": [
         "R11_land"
       ],
-      "text": "Down came Grand Puff, soft and small.\nHe felt like himself again.",
+      "text": "Down came Grand Puff, soft and small.\n“I feel all better!” he said.",
       "layout": "extension",
       "border_assets": [],
       "background_theme": "full scene",
@@ -13783,20 +13790,21 @@
       "art": [
         "v22_scene_22_fit"
       ],
-      "text": "The art room was tidy.\nOne little job at a time,\nPearl Castle was clean again.",
+      "text": "The art room was tidy.\nPearl Castle was clean again!\nIt was a big job, but friends can do big jobs\ntogether!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "Quiet result of the already completed cleaning: remove only the source Roshan/held brush footprint and fill their local wall/floor/table gap; no new room or action.",
       "caption": {
         "x": 30,
-        "y": 84,
+        "y": 96,
         "width": 444,
         "size": 20,
         "align": "center",
         "color": "navy",
         "shadow": false,
         "halo": false,
-        "outline": 0
+        "outline": 0,
+        "leading": 22
       },
       "border_placements": [],
       "focal_exclusions": [
@@ -14010,7 +14018,7 @@
         "v34_inviting_cutout",
         "approved_rainbow_puff_cutout"
       ],
-      "text": "“We helped your rainbow shine!” said Roshan.\n“Thank you!” said Grand Puff.\nRoshan smiled. “Come and rest with us!”",
+      "text": "“Sorry about all the dust,” said Grand Puff.\n“That’s okay,” said Roshan. “You just needed help.\nEveryone needs help sometimes!”",
       "layout": "placements",
       "border_assets": [],
       "background_theme": "Combined rainbow reflection, grateful Puff and invitation to rest. Existing attentive Roshan contour, grateful Puff face and sleepy toy banks unite the former30/31 beats; no second static exchange page.",
@@ -14327,20 +14335,21 @@
       "art": [
         "bubble_nap"
       ],
-      "text": "There was room for everyone.\nThey curled up and fell asleep.",
+      "text": "“Come and rest with us!” said Roshan. There was\nroom for everyone, even the dust bunnies. They\ncurled up together and fell asleep.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "Full-art resting epilogue: all five friends asleep in one bubble pile, after the unchanged canonical landing.",
       "caption": {
-        "x": 40,
-        "y": 316,
-        "width": 424,
+        "x": 24,
+        "y": 320,
+        "width": 456,
         "size": 20,
         "align": "center",
         "color": "white",
         "shadow": false,
         "halo": false,
-        "outline": 1
+        "outline": 1,
+        "leading": 22
       },
       "border_placements": [],
       "focal_exclusions": [
@@ -15773,9 +15782,9 @@
       }
     ]
   },
-  "revision": "V44 doorway repair and comprehensive consistency audit",
+  "revision": "V45 story and language: page11 concise editorial adaptation; artwork unchanged",
   "review_href": "../README.md",
   "physical_review_scale": 2,
   "format_note": "14x10in review single pages, arrival28x10in doublewidth spread. Full32storycaptions and castle-entrance illustration preserved. Final bound-page occupancy and printPart2 held.",
-  "download_pdf_href": "Mermaid_Roshan_and_the_Dust_Bunnies_V44.pdf"
+  "download_pdf_href": "Mermaid_Roshan_and_the_Dust_Bunnies_V45.pdf"
 }

@@ -1,13 +1,13 @@
-# V44 cover and story comprehension
+# V45 story comprehension
 
-Status: SUPPORTING_CURRENT. V44 repairs the paired cover door and title clearance. The fresh34-entry review retains two open scenery/prop continuity findings, [documented here](revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md). All story words remain unchanged. The selected title is Mermaid Roshan and the Dust Bunnies. The cover foregrounds two gentle lavender bunnies and retains the worried doorway Puff, matching the castle-care and friendship story. Lamma is a hidden sighting behind the blue bucket. The story text and all33 body/rear renders remain V42-exact; the prior scoped arrival analysis follows. Owner,child and qualifiedSLP acceptance remain separate.
+Status: `SUPPORTING_CURRENT`; editorial evidence separate from child, owner and qualifiedSLP acceptance.
 
-## Preserved V42 arrival analysis
+The proposed through-line is now explicit: everyone needs help sometimes, and friends can do big jobs together. Roshan's question on4 and Daddy's small-job advice on6 lead to her choice on8, the refrain on22, her request on25 and the helpers' answer on26. Pages30–32 state the two parts of the moral and show everyone resting together.
 
-Status: SUPPORTING_CURRENT; editorial evidence separate from child and qualifiedSLP acceptance.
+The stuck door and promise on5 connect to23. The bath bunny needs somewhere to play; the two playroom bunnies must become gentle; Grand Puff is unwell and receives help before apologizing. The page21 chirp demonstrates relief, not independently proven forgiveness. Care and belonging are not conditional on illness, appearance or a forced apology.
 
-The cropped wide arrival gives more page area to the actual setting and less to empty sky/foreground. Left water/posts/stone landing,plane,next playground,and the continuous route to the four-tower castle/right lagoon remain visible together in original geography. Original words/manual breaks remain. The next castle-entrance illustration and dialogue are retained, so flight->arrival->entrance remains explicit in this review.
+The waterfall clears and turns rainbow, two bunnies trap Baby Eagle, and concealment, rainbow jump, dust fall and landing retain their exact visual order. V45 invents no art. New statements about Grand Puff, his sneezes, Rumi's offer and sparkle-door magic remain draft facts for owner reading; they do not change game rules.
 
-All33other proofs retain the existing care story,visible door dust,waterfall/rainbow,Eagle under two bunnies,tissue boxes,apology and finale. No source or character redesign. Actual physical page placement is pending: converting this wide review entry to two bound pages adds one interior unit and changes later recto/verso/reveal parity. That mapping,printed gutter,owner acceptance,child reading,SLP andphysical print remain open.
+Child-reading questions: Why does Roshan promise to return? What changes after the bunnies say sorry? When does Roshan ask for help? Is Grand Puff welcome before he changes color? These are future observations, not measured comprehension results.
 
-[Source/crop and sequence](revisions/v42_doublewide_arrival/REVISION_REVIEW.html) · [Independent review](revisions/v42_doublewide_arrival/peer_review/README.md).
+[Full critique and cadence trip points](revisions/v45_story_language/EDITORIAL_CRITIQUE.md). All32captions/dialogue were silently reviewed; actual oral read-aloud, child/SLP/owner review, inherited geography/fountain continuity, print, arrival imposition/parity/gutter and V41 printPart2 remain outstanding.

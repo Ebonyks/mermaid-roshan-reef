@@ -1,9 +1,9 @@
-# V44 door repair and comprehensive book review
+# V45 story and language review
 
-Status: SUPPORTING_CURRENT. [Full audit](revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md) · [Before/after](revisions/v44_door_and_consistency/REVISION_REVIEW.html) · [Exact checks](revisions/v44_door_and_consistency/complete/verification.json) · [Independent critique](revisions/v44_door_and_consistency/peer_review/README.md).
+Status: `SUPPORTING_CURRENT`. [Read and changed-page report](revisions/v45_story_language/README.md) · [Editorial critique](revisions/v45_story_language/EDITORIAL_CRITIQUE.md) · [Machine checks](revisions/v45_story_language/complete/verification.json) · [Visual inspection](revisions/v45_story_language/visual_review.json).
 
-The missing cover door half/hardware is repaired locally. Paired leaves, four hinges and two handles frame original Puff; natural edge occlusion is declared. Both title lines shift together20logicalpt left. Dust-bunny cover hierarchy and hidden Lamma remain.
+The new text gives Roshan a relatable starting problem, links small jobs to a larger cooperative task, motivates friends returning, and pairs empathy with a promise of gentle play. Exact proposed words are retained on24changed pages and in page21 dialogue; page11 deliberately keeps a concise introduction and the proposed request for help. The longer proposal is preserved separately. The critique identifies density, apology/illness, forgiveness and magic-rule concerns, and explains the one editorial adaptation.
 
-Fresh primary and second-AI audits individually reviewed all34 entries. No additional definite character anatomy/costume contradiction was confirmed. Two inherited visual continuity findings remain open: story1 island/ocean versus story2 Sky Lagoon geography, and seahorse forehead/horn across11,15,16. Scoped repair satisfaction does not pass whole-book consistency. Proposed bounded repairs are documented.
+All34 art pages and nine unchanged complete entries are compared with V44. The original cover doorway repair, title, source art, patches, doublewide arrival and type sizes stay. Caption boxes/styles change only to fit and improve readability; no opaque text strips or new art are added.
 
-All33 body/rear entries retain exact renders/text/boxes/vectors/native images/alpha. Physical arrival imposition/parity/gutter, V41 printP1–P8, owner/child/SLP and print remain held.
+This is a primary AI editorial and visual review, not an independent second-AI, owner, child, qualifiedSLP or print acceptance. Actual oral reading remains outstanding. The inherited geography and fountain forehead findings BK44-O01/O02 remain open. Physical arrival mapping/parity/gutter and V41 printP1–P8 stay held.
