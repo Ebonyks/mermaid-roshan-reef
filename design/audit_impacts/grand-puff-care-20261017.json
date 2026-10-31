@@ -6,7 +6,7 @@
     "candidate_baseline": "cb329015aed3c1df2256e510cb3671fb3c5c354a",
     "source_tip": "e0abe9c9643e44a85c262683c75b6ac1fb04b5e3",
     "source_probe_run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41235070536",
-    "resolution": "Integration conflicts were additive authority, audio-ledger and owner-register changes. Current and source facts were retained; the audio quality ledger was regenerated from the combined tree with 862 exact inventory entries, and the combined owner-decision register was regenerated. The final combined integration candidate still requires successful exact-head Probe Suite evidence before entering dev."
+    "resolution": "Integration conflicts were additive authority, audio-ledger and owner-register changes. Current and source facts were retained; the audio quality ledger was regenerated from the combined tree with 862 exact inventory entries, and the combined owner-decision register was regenerated. The first full combined-tree suite then caught one stale derived row: roshan_day1_boss_hit_second.ogg retained the same bytes and SHA-256 while deterministic regeneration restored its omitted -16.5 LUFS, 0.0 dBTP and -3.3 dBFS fields and updated the inventory hash. No source audio changed; MA-AUDIO-001 listening/device/child/owner acceptance remains open. The repaired combined integration candidate still requires successful local and exact-head Probe Suite evidence before entering dev."
   },
   "rules": [
     "DL-AUTH-05",
@@ -48,9 +48,10 @@
   "findings": [
     "MA-PLAY-001",
     "MA-ACCESS-001",
+    "MA-AUDIO-001",
     "MA-CI-007"
   ],
-  "finding_scope": "Related route/save and exact non-reader speech acceptance remain open. This is an owner-commissioned emotional/mechanical rework, not a fabricated defect or closure of the separate combat-tutorial finding MA-COMBAT-001. Related MA-CI-007 retains incomplete direct-GUI headless runs, native-observer controls and original-controller comparison as test-fidelity evidence; console balance PASS does not establish their unproven cause or close the shared-harness finding.",
+  "finding_scope": "Related route/save and exact non-reader speech acceptance remain open. This is an owner-commissioned emotional/mechanical rework, not a fabricated defect or closure of the separate combat-tutorial finding MA-COMBAT-001. MA-AUDIO-001 remains FIXED_PENDING_VERIFICATION: deterministic ledger consistency does not supply the open listening, voice-identity, mono, transition, child or device evidence. Related MA-CI-007 retains incomplete direct-GUI headless runs, native-observer controls and original-controller comparison as test-fidelity evidence; console balance PASS does not establish their unproven cause or close the shared-harness finding.",
   "files": [
     ".gitattributes",
     "ASSET_LICENSES.md",
