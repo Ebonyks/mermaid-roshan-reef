@@ -14680,3 +14680,13 @@ R91 scoped reuse: unchanged `assets/mg/butterfly.png` (SHA-256 `310539d933f10274
 | `assets_src/imagegen/dolls_cradle_sling_20261031/scaled_whole.aseprite` | Built-in OpenAI ImageGen, owner-authorized R118 static item; model/version unexposed | Project-generated artwork | Native or whole uniform Aseprite derivative; `assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json`; take1 remains a geometryreject, no owner acceptance. |
 
 | `assets/dolls/cradle_sling_painted.png` | R118 ImageGen take2 via Aseprite1.3.18.4 | Project-generated artwork | Whole uniform512RGBA lossless padded cutout; `assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json`; formal/external acceptance pending. |
+## Arborist spraying comprehension review (2026-10-15)
+
+| File | Source | Licence | Derivation | Modifications |
+|---|---|---|---|---|
+| `assets_src/review/arborist_spray_20261015/01_approach.png` | Project Godot Mobile gameplay capture; existing Tree Book art | Project review evidence; source artwork licences retained | `tools/capture_arborist_spray.gd` | Unedited runtime screenshot; no new authored art or protected-source modification |
+| `assets_src/review/arborist_spray_20261015/02_ready.png` | Project Godot Mobile gameplay capture; existing Tree Book art | Project review evidence; source artwork licences retained | `tools/capture_arborist_spray.gd` | Unedited runtime screenshot; no new authored art or protected-source modification |
+| `assets_src/review/arborist_spray_20261015/03_spraying.png` | Project Godot Mobile gameplay capture; existing Tree Book art | Project review evidence; source artwork licences retained | `tools/capture_arborist_spray.gd` | Unedited runtime screenshot; no new authored art or protected-source modification |
+| `assets_src/review/arborist_spray_20261015/04_released.png` | Project Godot Mobile gameplay capture; existing Tree Book art | Project review evidence; source artwork licences retained | `tools/capture_arborist_spray.gd` | Unedited runtime screenshot; no new authored art or protected-source modification |
+| `assets_src/review/arborist_spray_20261015/05_healthy.png` | Project Godot Mobile gameplay capture; existing Tree Book art | Project review evidence; source artwork licences retained | `tools/capture_arborist_spray.gd` | Unedited runtime screenshot; no new authored art or protected-source modification |
+| `assets_src/review/arborist_spray_20261015/06_wide_touch.png` | Project Godot Mobile gameplay capture; existing Tree Book art | Project review evidence; source artwork licences retained | `tools/capture_arborist_spray.gd` | Unedited runtime screenshot; no new authored art or protected-source modification |
