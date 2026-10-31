@@ -637,6 +637,16 @@ pending) rebuild the Racer as a true-Canvas side-scrolling three-lane race in th
 replacing TUNE, TO THE LINE and the circle/steering grammar. The ban on an
 external kart scene or a probe-only bypass stays. This rule describes the
 shipping race until the rebuild lands and is then rewritten.
+Owner direction 2026-10-22 instead commissions integration of the already developed
+full Canvas racer using the generated Castle-room tracks. The existing exact
+`op_racer_steer` recording teaches the current gesture. The legacy
+`op_racer_lap_two` recording says “Draw big racing circles” and is retained for
+its historical circle game, not inserted into this driving implementation.
+A new second-lap spoken cue remains an audio gap. The contained career
+caller, single input/simulation path, implicit playfield steering and existing
+reward/save ownership remain binding; the October18 side-scroll handoff is a
+separate unimplemented candidate. Current scoped evidence is recorded in
+[the integration impact](audit_impacts/racer-castle-integration-20261022.json).
 
 `DL-INT-11` — Candymaker SYRUP uses one complete phone-legible mold and one
 generous pitcher grab region. The painted left spout, transformed stream origin,

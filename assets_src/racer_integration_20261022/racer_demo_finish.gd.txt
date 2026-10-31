@@ -1,0 +1,51 @@
+extends Node
+var events: Array[Dictionary] = []
+func mark(event: String, detail: Dictionary = {}) -> void:
+ events.append({"event":event,"milliseconds":Time.get_ticks_msec(),"detail":detail})
+ var f := FileAccess.open("res://DEMO_FINISH_EVENTS.json", FileAccess.WRITE)
+ f.store_string(JSON.stringify(events,"  "))
+ set_meta("status",event)
+func _ready() -> void:
+ call_deferred("run")
+func touch(point: Vector2, pressed: bool) -> void:
+ var e := InputEventScreenTouch.new()
+ e.index=91;e.position=point;e.pressed=pressed
+ Input.parse_input_event(e)
+func capture(label: String) -> void:
+ await RenderingServer.frame_post_draw
+ get_viewport().get_texture().get_image().save_png("res://captures/"+label+".png")
+ mark("capture",{"label":label})
+func run() -> void:
+ var found := get_tree().root.find_children("*","OperaCareerWorld2D",true,false)
+ if found.is_empty():
+  mark("failed_no_world");return
+ var w: OperaCareerWorld2D=found[0]
+ var s: OperaRacerSurface=w.surface
+ var anchor:=Vector2(640,550)
+ var last:=anchor
+ touch(anchor,true)
+ mark("resume_actual_input",{"distance":s.kart["s"]})
+ for frame in range(3600):
+  if s.race_finished:break
+  var bend: float=s.road_curvature(float(s.kart["s"])+10.0)
+  var target: float=-signf(bend)*4.4 if absf(bend)>0.003 else 0.0
+  var steer: float=clampf((target-float(s.kart["lat"]))*0.28-float(s.kart.get("latv",0.0))*0.08,-0.55,0.55)
+  var point:=anchor+Vector2(steer*OperaRacerSurface.STEERING_RANGE,0)
+  var e:=InputEventScreenDrag.new()
+  e.index=91;e.position=point;e.relative=point-last
+  Input.parse_input_event(e);last=point
+  await get_tree().create_timer(1.0/60.0).timeout
+ touch(last,false)
+ if not s.race_finished:
+  mark("failed_unfinished");return
+ mark("two_laps_finished",{"distance":s.kart["s"],"pearls":s.race_pearls,"held":s.held,"standing_actor_visible":w.player_actor.visible,"phase":w.phase_index,"manual_race_state_written":false})
+ await capture("finish-crossing")
+ await get_tree().create_timer(0.45).timeout
+ mark("seated_coast",{"distance":s.kart["s"],"standing_actor_visible":w.player_actor.visible,"stop_t":s._stop_t})
+ await capture("finish-coast")
+ await get_tree().create_timer(0.55).timeout
+ mark("seated_settle",{"distance":s.kart["s"],"standing_actor_visible":w.player_actor.visible,"stop_t":s._stop_t})
+ await capture("finish-seated-settle")
+ await get_tree().create_timer(3.0).timeout
+ await capture("finish-curtain")
+ mark("complete")

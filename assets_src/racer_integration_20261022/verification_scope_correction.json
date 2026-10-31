@@ -1,0 +1,10 @@
+{
+  "status": "CORRECTED",
+  "source_commit": "022e1be5f0b8977d491fb329e5265c83f493b0d8",
+  "reason": "Local ci.sh runs probe_human_art_audit under headless and it explicitly reports HEADLESS SKIP; that zero exit was incorrectly included in the assertive count. The protected remote workflow correctly excludes it from headless trusted probes and runs a separate display diagnostic.",
+  "assertive_trusted_headless_probes_pass": 81,
+  "extra_focused_racer_probe": "PASS",
+  "display_only_headless_diagnostic": "SKIPPED; no evidence of visual acceptance",
+  "unchanged_evidence": "All seven runtime/test source hashes, actual native2lap demo and packaged resources remain unchanged. Final artwork NOT_ACCEPTED, physical-device/child/owner/frame-step gates remain open.",
+  "prior_remote_run": "39910633307 superseded by this documentation correction; no runtime code changed."
+}
