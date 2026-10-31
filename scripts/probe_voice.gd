@@ -102,6 +102,7 @@ func _init() -> void:
 	await _check_neutral_objective_guides(main, brawl_audio)
 	await _check_melody_message_cue(main, brawl_audio)
 	await _check_brawl_message_cues(main, brawl_audio)
+	_check_quiet_roshan_reactions(main, brawl_audio)
 	_check_dialogue_speech_lifecycle(main)
 
 	_probe_chapter_two_playback(main)
@@ -210,12 +211,57 @@ func _check_brawl_message_cues(main: ReefMain, audio: CountingAudioDirector) -> 
 	await process_frame
 
 
+func _check_quiet_roshan_reactions(main: ReefMain, audio: CountingAudioDirector) -> void:
+	main.clear_dialogue()
+	main.game = ""
+	var before: int = main.voice_i
+	for event: String in ["talk", "roshan_talk", "day_one_rumi_hi",
+			"roshan_day_one_rumi_hi", "missing_chatter_fixture"]:
+		_check("quiet Roshan resolver: " + event,
+			audio._voice_path("roshan", event).is_empty())
+		for _repeat: int in range(3):
+			audio._say("roshan", event)
+	_check("repeated generic/missing cues play neither speech nor fallback yay",
+		main.voice_i == before and not audio._has_active_speech())
+	audio.show_msg("Roshan", "A quiet interaction", "talk", 0.0)
+	_check("quiet interaction preserves its caption",
+		main.hud_msg.text == "A quiet interaction" and main.hud_msg.visible
+		and main.voice_i == before and not audio._has_active_speech())
+	audio._say("roshan", "bathroom_basket_hint")
+	var required_voice_i: int = main.voice_i
+	for event: String in ["talk", "roshan_talk", "day_one_rumi_hi",
+			"missing_chatter_fixture"]:
+		audio._say("roshan", event)
+	_check("quiet reactions cannot stop or queue over exact guidance",
+		required_voice_i == before + 1 and main.voice_i == required_voice_i
+		and audio._active_required_key == "roshan_bathroom_basket_hint"
+		and _playing_pool_count(main) == 1 and audio._required_voice_queue.is_empty())
+	main.clear_dialogue()
+	before = main.voice_i
+	audio._say("huluu", "talk")
+	_check("other speakers retain their existing talk recording", main.voice_i == before + 1)
+	main.clear_dialogue()
+	main.say_sequence([
+		{"who": "Roshan", "text": "Quiet beat", "vo": "talk", "hold": 9.0},
+		{"who": "Roshan", "text": "Story beat", "vo": "intro1", "hold": 9.0},
+	])
+	_check("silent dialogue beat keeps timing and caption",
+		main.dialogue_active and main.dialogue_t == 9.0
+		and main.hud_msg.text == "Quiet beat" and not audio._has_active_speech())
+	_check("silent dialogue beat remains touch-skippable", main.skip_dialogue())
+	_check("exact story speech follows a skipped silent beat",
+		_stream_path(_last_pool_player(main))
+		== "res://assets/audio/voices/filler_v1/roshan_intro1.ogg"
+		and _playing_pool_count(main) == 1)
+	main.clear_dialogue()
+
+
 func _check_dialogue_speech_lifecycle(main: ReefMain) -> void:
 	# Clearing dialogue is also the location-teardown contract. A new fallback
 	# cue first replaces the exact line, then neither may leak into the next scene.
 	main.clear_dialogue()
-	main.said_cool.erase("roshan_talk")
-	main._say("roshan", "talk")
+	main.said_cool.erase("roshan_intro2")
+	main._say("roshan", "intro2")
 	main._say("missing_speaker", "missing_event")
 	_check("fallback speech replaces prior exact speech", _playing_pool_count(main) == 0)
 	_check("fallback speech is active before clear", main.voice != null and main.voice.playing)
@@ -226,17 +272,17 @@ func _check_dialogue_speech_lifecycle(main: ReefMain) -> void:
 	# Rapid skips must stop the previous player before starting the next one.
 	# Three different exact clips avoid cooldown interaction and let the probe
 	# verify both the selected path and the one-cue-at-a-time invariant.
-	for cue_key: String in ["roshan_talk", "roshan_intro1", "roshan_intro4"]:
+	for cue_key: String in ["roshan_intro2", "roshan_intro1", "roshan_intro4"]:
 		main.said_cool.erase(cue_key)
 	var before: int = main.voice_i
 	main.say_sequence([
-		{"who": "Roshan", "text": "First", "vo": "talk", "hold": 9.0},
+		{"who": "Roshan", "text": "First", "vo": "intro2", "hold": 9.0},
 		{"who": "Roshan", "text": "Second", "vo": "intro1", "hold": 9.0},
 		{"who": "Roshan", "text": "Third", "vo": "intro4", "hold": 9.0},
 	])
 	var first: AudioStreamPlayer = _last_pool_player(main)
 	_check("sequence starts one cue", main.voice_i == before + 1 and _playing_pool_count(main) == 1)
-	_check("sequence starts first exact clip", _stream_path(first) == "res://assets/audio/voices/filler_v1/roshan_talk.ogg")
+	_check("sequence starts first exact clip", _stream_path(first) == "res://assets/audio/voices/filler_v1/roshan_intro2.ogg")
 
 	_check("first rapid skip is consumed", main.skip_dialogue())
 	var second: AudioStreamPlayer = _last_pool_player(main)
@@ -259,10 +305,10 @@ func _check_dialogue_speech_lifecycle(main: ReefMain) -> void:
 		not main.dialogue_active and main.dialogue_queue.is_empty())
 
 	# The stop-before-advance change must not alter key-based cooldowns.
-	main.said_cool.erase("roshan_talk")
+	main.said_cool.erase("roshan_intro2")
 	before = main.voice_i
-	main._say("roshan", "talk", 10.0)
-	main._say("roshan", "talk", 10.0)
+	main._say("roshan", "intro2", 10.0)
+	main._say("roshan", "intro2", 10.0)
 	_check("voice cooldown still suppresses duplicate cue", main.voice_i == before + 1)
 	main.clear_dialogue()
 

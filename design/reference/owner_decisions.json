@@ -771,6 +771,20 @@
       "checks": [],
       "checkable": false,
       "cycle": "rumi-revision-20261017"
+    },
+    {
+      "id": "ODR-ROSHAN-LESS-CHATTER-20261031",
+      "date": "2026-10-31",
+      "authority": "recorded_owner",
+      "subject": "Roshan speech frequency",
+      "question": "Owner-initiated correction to repeated Roshan speech",
+      "decision": "Let's limit roshan's speech. Her saying 'this is so much fun' all of the time is extremely grating",
+      "source": "design/audit_impacts/roshan-less-chatter-20261031.json",
+      "checks": [
+        "scripts/probe_voice.gd",
+        "scripts/probe_day_one_voice.gd"
+      ],
+      "checkable": true
     }
   ]
 }

@@ -1,0 +1,121 @@
+{
+  "id": "roshan-less-chatter-20261031",
+  "scope": "Owner requests less Roshan speech, specifically the repeated This is so much fun stock response. Silence generic talk and its obsolete greeting alias; missing Roshan cues must not produce generic speech or yay. Preserve exact story/objective cues, captions, dialogue timing, other speakers and audio originals. Scope review: refresh only derived audio-ledger source-reference counts and its summary inventory hash to reflect the updated regression fixtures; audio hashes, measurements, grades and human-review states remain unchanged.",
+  "baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-SND-01",
+    "DL-SND-02",
+    "DL-SND-03",
+    "DL-SND-05",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SND-10",
+    "DL-SND-11",
+    "DL-SND-13"
+  ],
+  "findings": [
+    "MA-ACCESS-001"
+  ],
+  "files": [
+    "scripts/audio_director.gd",
+    "scripts/probe_voice.gd",
+    "scripts/probe_day_one_voice.gd",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B -m gdtoolkit.parser scripts/audio_director.gd scripts/probe_voice.gd scripts/probe_day_one_voice.gd",
+      "result": "PASS",
+      "evidence": "Changed-script parser exited 0 before runtime checks."
+    },
+    {
+      "command": "python -B tools/lint_inference.py scripts/audio_director.gd scripts/probe_voice.gd scripts/probe_day_one_voice.gd",
+      "result": "PASS",
+      "evidence": "Changed-script inference lint exited 0."
+    },
+    {
+      "command": "Exact Godot 4.7.2-stable focused probes before refreshing imported data",
+      "result": "FAIL",
+      "evidence": "Initial voice, Day One and audio runs exited 0 but emitted script-class cache errors after branch synchronization; correctly rejected. Initial logs and hashes preserved in tmp/roshan-less-chatter-focused.json. Refreshed import and clean rerun are separate evidence."
+    },
+    {
+      "command": "Resolved Godot --headless --path . --import",
+      "result": "PASS",
+      "evidence": "Exact official 4.7.2.stable.official.ed1daf0bf; exit 0 and zero SCRIPT ERROR markers. tmp/roshan-less-chatter-import.log SHA-256 bb24d502678608c4339535f4ea3012bd8f5d9152fde99bc13b3ba2413fc2084f"
+    },
+    {
+      "command": "Exact Godot 4.7.2-stable --headless --path . -s scripts/{probe_voice,probe_day_one_voice,probe_day_one_d8_revisits,probe_audio}.gd (each with isolated save directories)",
+      "result": "PASS",
+      "evidence": "{\"engine\": \"4.7.2.stable.official.ed1daf0bf\", \"results\": [{\"probe\": \"probe_voice\", \"command\": [\"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\godot-4.7.2\\\\editor\\\\Godot_v4.7.2-stable_win64_console.exe\", \"--headless\", \"--path\", \"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\", \"-s\", \"scripts/probe_voice.gd\"], \"exit_code\": 0, \"failure_marker\": false, \"duration_seconds\": 52.48, \"log\": \"tmp/roshan-less-chatter-clean-probe_voice.log\", \"log_sha256\": \"3238753d67ea37cde8a93ca120333ce20bd07b9a8d2c792f55a569ceb7931453\"}, {\"probe\": \"probe_day_one_voice\", \"command\": [\"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\godot-4.7.2\\\\editor\\\\Godot_v4.7.2-stable_win64_console.exe\", \"--headless\", \"--path\", \"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\", \"-s\", \"scripts/probe_day_one_voice.gd\"], \"exit_code\": 0, \"failure_marker\": false, \"duration_seconds\": 66.25, \"log\": \"tmp/roshan-less-chatter-clean-probe_day_one_voice.log\", \"log_sha256\": \"50a7a84c1ce20b02a158485dab22961bc3b440dc9b823a60f9ef124cdca2dbea\"}, {\"probe\": \"probe_day_one_d8_revisits\", \"command\": [\"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\godot-4.7.2\\\\editor\\\\Godot_v4.7.2-stable_win64_console.exe\", \"--headless\", \"--path\", \"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\", \"-s\", \"scripts/probe_day_one_d8_revisits.gd\"], \"exit_code\": 0, \"failure_marker\": false, \"duration_seconds\": 2.04, \"log\": \"tmp/roshan-less-chatter-clean-probe_day_one_d8_revisits.log\", \"log_sha256\": \"8a62f8e03b7bbc051aa7e60d1919e69a59951770d17b526d811fe1d4aa1dc631\"}, {\"probe\": \"probe_audio\", \"command\": [\"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\godot-4.7.2\\\\editor\\\\Godot_v4.7.2-stable_win64_console.exe\", \"--headless\", \"--path\", \"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\", \"-s\", \"scripts/probe_audio.gd\"], \"exit_code\": 0, \"failure_marker\": false, \"duration_seconds\": 25.24, \"log\": \"tmp/roshan-less-chatter-clean-probe_audio.log\", \"log_sha256\": \"08761f2d63e050264e0f256ca162f5707ce350cb337d0edecf40217606f0e7fa\"}]}"
+    },
+    {
+      "command": "Original-versus-fixed silence negative control using tmp/roshan_chatter_negative_20261031.gd",
+      "result": "PASS",
+      "evidence": "Original AudioDirector at baseline 218ae766f8e60afb3f6338b8fafce28ec9fab7f2 fails all four stock/prefixed/alias/missing-cue silence assertions (exit 4); candidate passes all four (exit 0). [{\"mode\": \"baseline\", \"exit_code\": 4, \"log_sha256\": \"95918fe71476498d060cebf9e345adae4718f9fdb828b4028dfab7bb3088e581\", \"log\": \"tmp/roshan-less-chatter-negative-baseline.log\"}, {\"mode\": \"candidate\", \"exit_code\": 0, \"log_sha256\": \"f04758e32bcb2b0bd61d259f34bb7232d8407d088e0d26031757f9102db2367f\", \"log\": \"tmp/roshan-less-chatter-negative-candidate.log\"}]"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Exit 0; DOCAUTH inventory/ledger 747/747, active/records 71/74, ALL OK. Final recheck remains required before commit."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Exit 0; base 218ae766f8e60afb3f6338b8fafce28ec9fab7f2; AUDITDEV ALL OK. Final recheck remains required before commit."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check --base 218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "result": "PASS",
+      "evidence": "Exit 0, 61 decisions, ALL OK; earlier owner decisions retained unchanged."
+    },
+    {
+      "command": "git diff --quiet 218ae766f8e60afb3f6338b8fafce28ec9fab7f2 -- assets/book assets/audio/voices assets/characters/friends",
+      "result": "PASS",
+      "evidence": "Exit 0; protected artwork and recording content unchanged. Import metadata was refreshed only after normalized import diff was proven empty; no import files staged."
+    },
+    {
+      "command": "bash --noprofile --norc scripts/ci.sh via tmp/roshan_less_chatter_ci_20261031.sh",
+      "result": "PENDING",
+      "evidence": "Full suite running with direct log tmp/roshan-less-chatter-full-ci-02.log. Initial wrapper was stopped after its log ceased updating; no pass inferred. Exact-head remote CI/integration remain pending."
+    },
+    {
+      "command": "Refresh audio-ledger runtime_reference_count using tools.audit_audio_quality.source_text; preserve all other fields; update summary inventory_sha256",
+      "result": "PASS",
+      "evidence": "Field-only refresh: [{\"path\": \"assets/audio/voices/filler_v1/roshan_intro1.ogg\", \"before\": \"1\", \"after\": \"2\"}, {\"path\": \"assets/audio/voices/filler_v1/roshan_intro2.ogg\", \"before\": \"0\", \"after\": \"1\"}, {\"path\": \"assets/audio/voices/filler_v1/roshan_talk.ogg\", \"before\": \"4\", \"after\": \"2\"}, {\"path\": \"assets/audio/voices/roshan_intro1.ogg\", \"before\": \"1\", \"after\": \"2\"}, {\"path\": \"assets/audio/voices/roshan_intro2.ogg\", \"before\": \"0\", \"after\": \"1\"}, {\"path\": \"assets/audio/voices/roshan_talk.ogg\", \"before\": \"4\", \"after\": \"2\"}]. Every other CSV field and summary value is unchanged. Full audio audit remains a separate pending gate."
+    },
+    {
+      "command": "Reconcile current integration authority metadata; preserve tested runtime source; recheck canonical findings, document/coverage and owner-decision contracts",
+      "result": "PENDING",
+      "evidence": "Before the reconciliation edits: append bounded MA-ACCESS-001 history and master Audio task-index evidence without claiming exact-cue coverage or closing the finding. Preserve incoming owner decisions and regenerate their view."
+    }
+  ],
+  "acceptance_gaps": "Target-device listening, child comprehension and owner acceptance of speech pacing remain outstanding. No artwork or save-schema changes; no visual acceptance claim. Game-wide master audit remains UNSATISFIED.",
+  "owner_request": {
+    "date": "2026-10-31",
+    "source": "Direct owner message in this chat",
+    "text": "Let's limit roshan's speech. Her saying 'this is so much fun' all of the time is extremely grating"
+  },
+  "source_pins": {
+    "scripts/audio_director.gd": "187ed975ee3f4f32a135c7967ba9c0c0579770b9db112c32a7718e57438235a9",
+    "scripts/probe_voice.gd": "c1e2d99cc358424ad26bf9c69129fffaf844fcc607cc7187f532c9f1d772cfab",
+    "scripts/probe_day_one_voice.gd": "53ea6053ace9ea6963a6c4420d699580bf76a8f5c99403438d803d2319974bfa"
+  },
+  "initial_findings_assessment": "Owner-directed speech-frequency change; no existing finding specifically covers repeated generic chatter. MA-ACCESS-001/002/003 concern exact/protected objective gaps and MA-AUDIO-001 concerns music/mix acceptance; their facts and lifecycle are unchanged. Generic talk was never exact objective guidance. Existing missing recordings remain missing.",
+  "finding_relationship": "The newer demo-readiness history names missing Roshan castle/finished-room semantic takes. Silencing missing Roshan fallbacks changes the former generic/pitched response but does not supply those exact takes or close the voice-coverage finding. Its BLOCKED_EXTERNAL lifecycle and human/device gaps remain unchanged.",
+  "integration_context": {
+    "observed_dev": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+    "observed_changes": "Four commits affecting canonical audit, owner records and the demo-readiness handoff only; no runtime files listed in GitHub comparison. Local Git content-equivalence verification and metadata reconciliation remain pending.",
+    "scope_authority": "This direct owner request remains limited to speech suppression. No new audio, story/canon change, other development or release authority is inferred."
+  }
+}
