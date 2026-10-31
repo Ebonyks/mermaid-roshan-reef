@@ -45,7 +45,7 @@ unclassified until this ledger gains one new scoped row for it.
 | Doc | | Note |
 |---|---|---|
 | `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V44 paired-door repair and34-entry consistency audit with two open findings; exact V43/V42 body; owner/child/SLP/physical print and arrival imposition/gutter held. |
-| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; Static-book source/identity/layout rules and scoped owner exceptions through V44 bounded door repair and consistency-audit direction; manuscript/character standards preserved; arrival imposition/gutter and print held. Second-AI compliance review is supporting evidence, not new creative authority; no game/cinematic authority. |
+| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; Static-book source/identity/layout rules and scoped owner exceptions through V44 bounded door repair and consistency-audit direction, plus the V45 owner moral decision (2026-10-31: empathy for dust bunnies who cause problems but just need help; friendship makes big jobs possible; text-only). Manuscript/character standards preserved; arrival imposition/gutter and print held. Second-AI compliance review is supporting evidence, not new creative authority; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |
@@ -872,6 +872,8 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/peer_review/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Sealed V43 iterative critique; V44 reopens missed door structure, no inherited feature acceptance. |
 
 | `books/chapter_one/landscape/revisions/v44_door_and_consistency/README.md` | 🔵 | `SUPPORTING_CURRENT`; Current V44 cover doorway repair and full34-entry audit; two inherited continuity findings remain open. |
+| `books/chapter_one/handoffs/2026-10-31_v45_story_language/README.md` | 🔵 | `SUPPORTING_CURRENT`; owner-approved V45 text-only work order for Codex (2026-10-31): new captions on 25 pages and the page-21 bubbles so the book states one moral (dust bunnies who cause problems just need help; friends make big jobs possible), with exact words in MANUSCRIPT.json. Written by Claude without images; V45 not started; no art, print, child or SLP acceptance. |
+| `books/chapter_one/handoffs/2026-10-31_v45_story_language/CRITIQUE.md` | 🔵 | `SUPPORTING_CURRENT`; Claude's story and language critique of V44 (eight ranked problems, the moral's threads, Roshan's arc, resolutions, relatability and the page-by-page V45 text); editorial evidence for the V45 work order, not owner, child, SLP or print acceptance. |
 
 | `books/chapter_one/landscape/revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; Current primary character/scenery/layout audit with page-specific evidence, proposed bounded repairs and explicit acceptance holds. |
 
