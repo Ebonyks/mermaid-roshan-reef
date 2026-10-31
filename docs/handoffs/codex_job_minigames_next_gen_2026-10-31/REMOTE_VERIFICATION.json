@@ -1,0 +1,94 @@
+{
+ "schema": "codex_handoff_remote_verification/1",
+ "handoff": "codex_job_minigames_next_gen_2026-10-31",
+ "revision": "1 (2026-10-31): first publication",
+ "verified_commit": "362a24f369b2d830e0a5d3961c2ac1ca038dfbc7",
+ "branch": "ccr-ba906acd-1aepcb",
+ "entry_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/ccr-ba906acd-1aepcb/docs/handoffs/codex_job_minigames_next_gen_2026-10-31",
+ "immutable_tree_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/362a24f369b2d830e0a5d3961c2ac1ca038dfbc7/docs/handoffs/codex_job_minigames_next_gen_2026-10-31",
+ "manifest_link": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/362a24f369b2d830e0a5d3961c2ac1ca038dfbc7/docs/handoffs/codex_job_minigames_next_gen_2026-10-31/MANIFEST.json",
+ "manifest_sha256": "c25336767be6d3c38580e73d8d5b05ff65b1dd329d8995ce1c058c6e014692e8",
+ "manifest_bytes": 3925,
+ "manifest_http": 200,
+ "access_mode": "anonymous HTTPS GET to raw.githubusercontent.com with no token or cookie (the recipient's public access path)",
+ "checked_at_utc": "2026-10-31T22:38:52Z",
+ "files": [
+  {
+   "path": ".gdignore",
+   "http": 200,
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "matches_manifest": true
+  },
+  {
+   "path": "README.md",
+   "http": 200,
+   "bytes": 15144,
+   "sha256": "29aa6187d74671b727459f0b04149e4d089378076399b65a515a590733e8b08b",
+   "matches_manifest": true
+  },
+  {
+   "path": "WEAKNESS_REGISTER.md",
+   "http": 200,
+   "bytes": 42971,
+   "sha256": "a48aed6365a59e97f6fd9c4b53dc54c2e8247b7939cf5701ae02b4bb10f2d268",
+   "matches_manifest": true
+  },
+  {
+   "path": "RACER_VERSIONS.md",
+   "http": 200,
+   "bytes": 25245,
+   "sha256": "8eb30af104cbdb3b1f35bc80216d267c4c73133c7a392b5f654d9ac0595acbf9",
+   "matches_manifest": true
+  },
+  {
+   "path": "WORK_PACKAGES.md",
+   "http": 200,
+   "bytes": 17305,
+   "sha256": "cbbeeebd4f05c5a95a3d4e453e27913b34a2ab84906ca147fec20edcda897380",
+   "matches_manifest": true
+  },
+  {
+   "path": "SELF_IMPROVEMENT_AUDIT.md",
+   "http": 200,
+   "bytes": 16082,
+   "sha256": "f29174250c480e9ea07f3a161e5a2740018099f0370216560153eb3500c0d4a4",
+   "matches_manifest": true
+  },
+  {
+   "path": "data/job_lens_jc0.json",
+   "http": 200,
+   "bytes": 18638,
+   "sha256": "7349f8343ea8498d30811f91ad56787a8fedddde1d96b0834b63f5e0e5b745ba",
+   "matches_manifest": true
+  }
+ ],
+ "related_files": [
+  {
+   "path": "design/audit_impacts/job-minigames-next-gen-handoff-20261031.json",
+   "http": 200,
+   "sha256": "858029c99925a956780d9b9b35fec59817c69b2490687e8401f13665d3286bd8",
+   "matches_commit_blob": true
+  },
+  {
+   "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+   "http": 200,
+   "sha256": "9ce12fc61c27244cefbaeb24170c63aea85d0fce603716de28ad030cf53edc03",
+   "matches_commit_blob": true
+  },
+  {
+   "path": "audit/MASTER_AUDIT_2026-08-09.md",
+   "http": 200,
+   "sha256": "bc3c064daaa50f5118a41945b850adc1c46195051e83f45d20749696366e36ad",
+   "matches_commit_blob": true
+  },
+  {
+   "path": "design/05_DOC_LEDGER.md",
+   "http": 200,
+   "sha256": "022b9e8b5b601e2f66210be071ba51397275d69eb180bc3e91277f7740d9277f",
+   "matches_commit_blob": true
+  }
+ ],
+ "result": "PASS: every manifest file matches its SHA-256 and byte count; related records match the commit blobs",
+ "status_note": "Publication is not acceptance. The handoff is PROPOSED / CANDIDATE; owner questions Q1-Q8 are open with stated defaults; implementation waits for the demo build's promotion; no game change, device, child or owner acceptance is claimed."
+}
