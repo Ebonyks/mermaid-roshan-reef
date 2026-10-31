@@ -894,6 +894,20 @@
       ],
       "checkable": true,
       "cycle": "grand-puff-care-20261017"
+    },
+    {
+      "id": "ODR-OPERA-FOYER-MOVEMENT-WAVES-20261017",
+      "date": "2026-10-17",
+      "subject": "Playable Opera foyer and four-door waves",
+      "authority": "recorded_owner",
+      "question": "How should movement, games and the next floor work in the pictured foyer?",
+      "decision": "Roshan can’t move freely in this room! Fix this. The games also don’t seem to work at the moment either. When all 4 stages are completed on the bottom, have the next four open Scoped implementation: direct foyer entry to the existing birthday eight, retaining canonical story order, results and contexts. This supersedes the room-only entry restriction only for these pictured career doors; other careers retain their room homes. Exact visual/device/child/owner acceptance remains separate.",
+      "source": "audit/opera_foyer_movement_20261017/owner_request.json",
+      "checks": [
+        "scripts/probe_opera.gd",
+        "scripts/probe_chapter2.gd"
+      ],
+      "checkable": true
     }
   ]
 }

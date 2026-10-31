@@ -224,7 +224,11 @@ func _init() -> void:
 		if route_room == "opera_hall":
 			route_ui.open_opera_venue()
 			await process_frame
-		var expected_indices := CastleCareerRoutes.act_indices_for_room(route_room)
+		var home_indices: Array[int] = CastleCareerRoutes.act_indices_for_room(route_room)
+		var expected_indices: Array[int] = home_indices.duplicate()
+		if route_room == "opera_hall":
+			# Owner-requested foyer doors supplement the unchanged canonical homes.
+			expected_indices = [6, 0, 3, 10, 2, 13, 11, 1, 8]
 		var actual_indices: Array[int] = []
 		var room_art_ok := route_ui.root != null and route_ui.root.visible \
 			and route_ui.root.size.is_equal_approx(StorybookUI.CANVAS_SIZE) \
@@ -232,10 +236,17 @@ func _init() -> void:
 		for card: Button in route_ui.buttons:
 			var act_index := int(card.get_meta("act_index", -1))
 			actual_indices.append(act_index)
-			all_card_indices.append(act_index)
+			if act_index in home_indices:
+				all_card_indices.append(act_index)
 			if route_room == "opera_hall":
 				var portal_focus := card.get_theme_stylebox("focus") \
 					as StyleBoxFlat
+				var portal_picture := card.get_node_or_null("CareerPicture") as TextureRect
+				var portal_costume := String((OperaHouse.ACTS[act_index] as Dictionary).get("costume", ""))
+				var portal_crest_file := String(CastleCareerRoutes.CAREER_CREST_FILES.get(portal_costume, ""))
+				var portal_texture_path: String = portal_picture.texture.resource_path \
+					if portal_picture != null and portal_picture.texture != null else ""
+				var portal_bounds := Rect2(Vector2.ZERO, card.size)
 				room_art_ok = room_art_ok and card.text.is_empty() \
 					and card.visible and not card.clip_contents \
 					and card.size.x >= StorybookUI.MIN_TOUCH.x \
@@ -246,7 +257,13 @@ func _init() -> void:
 					and not bool(card.get_meta("opaque_card", true)) \
 					and bool(card.get_meta("painted_door_hit_region", false)) \
 					and not bool(card.get_meta("floating_decoration", true)) \
-					and card.get_child_count() == 0 \
+					and card.get_child_count() == 1 \
+					and portal_picture != null and portal_picture.texture != null \
+					and portal_picture.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+					and portal_bounds.encloses(Rect2(portal_picture.position, portal_picture.size)) \
+					and not portal_crest_file.is_empty() \
+					and portal_texture_path == CastleCareerRoutes.CREST_ROOT + portal_crest_file \
+					and card.disabled == (act_index not in [6, 0, 3, 10]) \
 					and portal_focus != null \
 					and portal_focus.border_width_left == 0 \
 					and is_zero_approx(portal_focus.bg_color.a)
@@ -292,9 +309,9 @@ func _init() -> void:
 			await _capture_viewport(lobby_shot_out.path_join(
 				"castle_career_routes_%s.png" % route_room))
 	all_card_indices.sort()
-	_check("nine room route sets cover all fifteen live sparse slots once",
+	_check("canonical room homes cover all fifteen sparse slots once alongside the foyer exception",
 		all_card_indices == OperaHouse.LIVE_ACT_INDICES and all_route_art_ok)
-	_check("Opera Hall has only Ballerina, Pop Star and Magician",
+	_check("Opera Hall retains Ballerina, Pop Star and Magician as canonical residents",
 		CastleCareerRoutes.act_indices_for_room("opera_hall") == [2, 13, 8])
 	_check("the removed all-career lobby cannot load or appear",
 		not ResourceLoader.exists("res://scripts/opera_lobby_2d.gd")

@@ -113,3 +113,8 @@ docs/handoffs/codex_flat_vector_art_2026-10-07/r112_geologist_shell_runtime/**/*
 docs/handoffs/codex_flat_vector_art_2026-10-07/r113_geologist_crest_runtime/**/*.log -text -diff
 
 docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/**/*.log -text -diff
+# Preserve literal Opera repair machine/capture evidence across Windows/Linux.
+audit/opera_foyer_movement_20261017/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+audit/remove_opera_anteroom_20261017/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
+audit/opera_foyer_movement_20261017/**/*.log -diff
+audit/remove_opera_anteroom_20261017/**/*.log -diff
