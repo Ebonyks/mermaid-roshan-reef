@@ -1146,3 +1146,7 @@ Owner-requested analysis and Codex handoff for the commissioned under-pool book,
 
 | `assets_src/imagegen/geologist_station_props_20261030/README.md` | 🟣 | `PROPOSED / CANDIDATE` R115 whole in-world foreground station artwork; cave/river/formal/external acceptance remain open. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R115 in-world fossil/tray/crystal candidate, original route/visibility/runtime and independent acceptance evidence. |
+
+| `assets_src/imagegen/geologist_layered_rock_20261031/README.md` | 🟣 | `PROPOSED / CANDIDATE` R116 preserved whole painted rock source, native/editor/export provenance and retired SVG; owner/runtime acceptance separate. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r116_geologist_layered_rock_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R116 PAN overlay candidate; RIVER/surface loaded-only, separate machine/Dev/formal/external evidence. |

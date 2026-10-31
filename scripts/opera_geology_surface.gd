@@ -55,7 +55,7 @@ const GEODE_RIGHT_PATH := "res://assets/opera/worlds/props/geologist_geode_shell
 const GEODE_SHELL_ART_REGION := Rect2(45.0, 137.0, 423.0, 259.0)
 const GEODE_SEAM_CLOSED_PATH := "res://assets/opera/worlds/props/geologist_geode_seam_closed_painted.png"
 const GEODE_SEAM_DONE_PATH := "res://assets/opera/worlds/props/geologist_geode_seam_done_painted.png"
-const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg"
+const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock_painted.png"
 const BRUSH_PATH := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
 const PAN_PATH := "res://assets/opera/worlds/props/geologist_washing_pan_painted.png"
 ## Whole painted cutout region in its preserved 1254-square source; import is 1024.
