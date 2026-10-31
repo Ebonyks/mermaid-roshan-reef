@@ -1119,6 +1119,14 @@ Owner-requested analysis and Codex handoff for the commissioned under-pool book,
 | `docs/handoffs/codex_rumi_book_revision_2026-10-17/STORY_REVISION.md` | 🟣 | `PROPOSED / CANDIDATE` revised 32-page story generated from the packet's page plan: five chapters, fifteen planned page-turn pulls, two action set pieces, the complete manuscript and measured targets. Pending the owner's read-aloud approval (Q3). |
 | `docs/handoffs/codex_rumi_book_revision_2026-10-17/GAME_INTEGRATION.md` | 🟣 | `PROPOSED / CANDIDATE` integration options and the recommended hybrid (a book-led chapter with the book as its reward), reuse of existing systems verified at dev `7a65b9f0`, an activity map, navigation and save, asset shortlist, voice cues and draft brief values. The chapter is not commissioned (Q6). Revision 2 builds the call-and-answer activities on the owner-approved Pop Star rebuild (`MA-OPERA-014`) and takes the quiet hold from the shared hold gesture. |
 
+## Chapter-guide review and Codex handoff (2026-10-31)
+
+Owner-requested review of the master audit as a development guide for future chapters; opens `MA-DOC-010`.
+
+| Doc | | Note |
+|---|---|---|
+| `docs/handoffs/codex_chapter_guide_2026-10-31/README.md` | 🟣 | `PROPOSED / CANDIDATE` owner-requested Codex handoff prepared by Claude (written specification and a read-only measurement; no game change, no images) at dev `218ae766`: what the chapter path lacks (G1–G12), work packages CG0–CG8, acceptance AC-1 to AC-9 and owner questions Q1–Q5 for `MA-DOC-010`. Grants no chapter commission, rule change or acceptance. |
+
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r101_geologist_pan_current_dev/README.md` | 🟣 | `SUPPORTING_EVIDENCE / CANDIDATE`; owner-resumed preserved pan reconciliation with Dev4d098375. Old exact-source CI green; current combined static/import/82trusted and54configured native checks pass,8actual frames reviewed. New exact CI/Dev and formal/device/child/owner pending. No new art or accepted-removal credit. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r102_geologist_mint_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` first mint-only Geologist washing specimen: existing painted source, declared512-square technical derivative, actual Mobile/Speedy66checks/8reviewed frames and current static/all82PASS. Exact sourceCI/Dev/formalQA11/device/child/owner and other colours/shared callers remain open. |

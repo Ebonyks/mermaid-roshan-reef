@@ -1,0 +1,234 @@
+{
+  "schema": "chapter_map_seed/1",
+  "status": "SEED for MA-DOC-010 work package CG3. Written by Claude from the cited sources at dev 218ae766; not an authority. Re-verify every entry at the implementation head. Names follow the default of owner question Q1 and owner marks follow the default of Q2 until the owner answers.",
+  "measured_at_head": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "chapters": [
+    {
+      "id": "CH-1",
+      "proposed_name": "Chapter 1: Day One",
+      "in_story_name": "Day One",
+      "aliases": ["Day One"],
+      "status": "BUILT; acceptance open",
+      "premise": "Roshan arrives at the dusty Pearl Castle and cleans it room by room: Bubble Bathroom (tutorial), Sparkle Pool, Stuffie Room and Art Room. The boss door then glows and she faces Grand Puff alone.",
+      "entry_condition": "A new game: start menu, then the opening story clip.",
+      "end_state": "Grand Puff is beaten (day_one_giant_dust_bunny_boss_defeated). The transformation clip shows the family joining; the Rainbow Friend then follows Roshan. The Day Two transition bridges into the birthday.",
+      "ending_obligation": "Chapter 2 starts from the cleaned castle; Grand Puff is a friend, not a defeated enemy; the Rainbow Friend is present afterwards.",
+      "code": {
+        "director": "scripts/day_one_director.gd (DayOneDirector, extends RefCounted)",
+        "save": "26 day_one_* keys returned by DayOneDirector.serialize_state() and merged into the one save document by scripts/save_state.gd",
+        "rooms": "DayOneDirector.ROOM_ORDER: bathroom, pool, stuffie, art",
+        "story_clips": "assets/cinematics/day_one_story/story_clips.json under DL-CIN-16",
+        "transition": "scripts/day_two_transition_2d.gd (DayTwoTransition2D)"
+      },
+      "trusted_probes": ["probe_day_one_director", "probe_day_one_integration", "probe_day_one_story_clips"],
+      "findings": ["MA-PLAY-001", "MA-PLAY-006"],
+      "sources": [
+        "AGENTS.md#day-one-story-clips-between-scenes-owner-decision-2026-09-23",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md (DL-CIN-16)",
+        "scripts/day_one_director.gd",
+        "scripts/rainbow_friend_follower.gd"
+      ]
+    },
+    {
+      "id": "CH-2",
+      "proposed_name": "Chapter 2: Day Two, Roshan's birthday party",
+      "in_story_name": "Day Two",
+      "aliases": ["Day Two", "Chapter 2", "Chapter Two", "the birthday chapter"],
+      "status": "BUILT; MA-PLAY-005 (P0) IN_PROGRESS",
+      "premise": "Eight ordered party jobs build one birthday: Farmer, Pastry Chef, Candy Maker, Painter, Ballerina, Pop Star, Astronaut Engineer, Detective. Roshan puts on her special dress before the party. On the Sky Lagoon lawn she protects her friends; the rocket she built lights the rainbow candle (provisional in the lawn-finale draft); the Ember King cheats and carries the lit candle away for his own birthday, leaving the cake and preparations intact. His son, the Prince, is kind and conflicted about his father.",
+      "entry_condition": "Day One complete (Grand Puff beaten), reached through the Day Two transition.",
+      "end_state": "chapter2_story_complete and chapter2_candle_taken are saved; the lawn finale plays; the free-play career cards appear.",
+      "ending_obligation": "The candle is gone and the Ember King has it. Chapter 3's reveal requires both saved facts.",
+      "code": {
+        "director": "scripts/chapter_two_director.gd (ChapterTwoDirector, extends RefCounted)",
+        "save": "26 chapter2_* keys returned by ChapterTwoDirector.serialize_state(), 5 of them read from ReefMain fields; scripts/save_state.gd names 27 chapter2_* keys",
+        "plan": "scripts/chapter_two_party_plan.gd; career order [6, 0, 3, 10, 2, 13, 11, 1]",
+        "voice": "scripts/chapter_two_voice_catalog.gd",
+        "activity_handoff": "OperaHouse.start with ChapterTwoDirector.opera_config_overrides (see MA-PLAY-005 reproduction)"
+      },
+      "trusted_probes": ["probe_chapter2", "probe_chapter2_farmer_resume", "probe_chapter2_lawn", "probe_alpha_milestone_save"],
+      "findings": ["MA-PLAY-005"],
+      "sources": [
+        "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+        "design/CHAPTER2_CAKE_VISUAL_PROGRESSION_2026-08-31.md",
+        "design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md",
+        "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md"
+      ]
+    },
+    {
+      "id": "CH-3",
+      "proposed_name": "Chapter 3: The Fairy Conservatory",
+      "in_story_name": null,
+      "aliases": ["Chapter 3", "Fairy Conservatory"],
+      "status": "ROUTE BUILT (scoped); faerie restoration PROTOTYPE (isolated candidate); ENDING NOT COMMISSIONED",
+      "premise": "After the Ember King takes the candle, a wing-chime in the Main Hall wakes the moonflower relief. Roshan travels Castle, Rainbow Skyway, Butterfly House, Butterfly World, Fairy Pond and back. The 2026-09-30 prototype develops the faerie half of restoring the castle's magic: tree care, fruit harvest, fruit preparation, butterfly picnic, a gentle flower shooter, bringing faerie magic home.",
+      "entry_condition": "chapter2_story_complete and chapter2_candle_taken. Legacy access: opera_done, or older saves with galaxy, bwdone or fairyskin.",
+      "end_state": "Not built. The second world and the full castle-restoration ending are outside the prototype's commission.",
+      "ending_obligation": "Unknown until the owner sets the ending.",
+      "code": {
+        "director": "none",
+        "route": "scripts/arena/fairy_conservatory_door_2d.gd, scripts/arena/fairy_conservatory_handoff_2d.gd",
+        "prototype": "scripts/fairy_restoration_prototype.gd",
+        "save": "chapter3_fairy_door_revealed, chapter3_fairy_door_opened, chapter3_fairy_mission_started, read and written as ReefMain fields by scripts/save_state.gd"
+      },
+      "trusted_probes": [],
+      "untrusted_probes": ["probe_fairy_conservatory_route", "probe_fairy_conservatory_handoff", "probe_fairy_restoration"],
+      "findings": [],
+      "sources": [
+        "design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md",
+        "design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md"
+      ]
+    },
+    {
+      "id": "PROPOSED-LANTERN-NIGHT",
+      "proposed_name": "(proposed) Lantern Night beneath the Pool",
+      "in_story_name": null,
+      "aliases": [],
+      "status": "PROPOSED; not commissioned (Rumi book handoff Q6)",
+      "premise": "A book-led chapter in Pearl Hollow, reached from the Mermaid Pool room. The recommended hybrid makes each book chapter a playable segment and unlocks that book chapter, narrated, in the castle library as the reward.",
+      "entry_condition": "Not set.",
+      "end_state": "Not set.",
+      "ending_obligation": "Not set. The book's candle question (Q1) touches thread TH-CANDLE.",
+      "code": {},
+      "trusted_probes": [],
+      "findings": [],
+      "sources": [
+        "docs/handoffs/codex_rumi_book_revision_2026-10-17/GAME_INTEGRATION.md",
+        "docs/handoffs/codex_rumi_book_revision_2026-10-17/WORLD_BIBLE.md",
+        "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md#5-owner-questions"
+      ]
+    },
+    {
+      "id": "PLANNING-NORTHERN",
+      "proposed_name": "(planning) Northern / Ice World",
+      "in_story_name": null,
+      "aliases": ["Northern", "Ice World"],
+      "status": "PLANNING (owner direction 2026-09-05); runtime not commissioned",
+      "premise": "A cozy Northern restaurant Roshan helps run as a chef, with pictured customer orders, built around the existing Northern art family.",
+      "entry_condition": "Not set; owner-reserved.",
+      "end_state": "Not set; owner-reserved.",
+      "ending_obligation": "The Northern branch says not to invent a mandatory continuation of the Ember story.",
+      "code": {
+        "region": "scripts/arena/northern_kingdom.gd (contains spatial migration debt)"
+      },
+      "trusted_probes": ["probe_northern"],
+      "findings": [],
+      "sources": ["design/chapters/NORTHERN_ICE_WORLD.md"]
+    }
+  ],
+  "carried_state": [
+    {
+      "id": "CS-COMPANIONS",
+      "what": "Baby Eagle and the stuffed-friend companions follow Roshan.",
+      "code": "scripts/companion.gd; STUFFIE_COMPANIONS.md",
+      "chapter_must_decide": "Whether companions are present, where they stand and whether any activity uses them."
+    },
+    {
+      "id": "CS-RAINBOW-FRIEND",
+      "what": "The Rainbow Friend (the rainbow dust bunny freed from Grand Puff's dusty shell) follows Roshan through the castle after Day One.",
+      "code": "scripts/rainbow_friend_follower.gd",
+      "chapter_must_decide": "Presence and staging in the chapter's places."
+    },
+    {
+      "id": "CS-OUTFITS",
+      "what": "Recurring characters keep earned outfits across the game (ODR-FASHION-PERSISTENCE-20261006).",
+      "code": "character_outfits in scripts/save_state.gd; scripts/fashion_designer.gd",
+      "chapter_must_decide": "Which outfits the chapter shows, unlocks or requires; never strip an earned look."
+    },
+    {
+      "id": "CS-MEDALS",
+      "what": "Bronze, silver and gold rankings.",
+      "code": "scripts/medal_system.gd; MEDALS.md",
+      "chapter_must_decide": "Whether chapter activities award medals; the quiet-medal answer (ODR-MEDALS-QUIET-20261018) is on an unmerged branch."
+    },
+    {
+      "id": "CS-CAREER-MASKS",
+      "what": "The global career mask and chapter story masks are separate.",
+      "code": "OPERA_ACTIVE_STAR_MASK in scripts/save_state.gd; chapter2_* masks in scripts/chapter_two_director.gd",
+      "chapter_must_decide": "Its own story progression keys; it never redefines the global mask or reuses a retired identity (design 10 section 1)."
+    },
+    {
+      "id": "CS-FREE-PLAY-CARDS",
+      "what": "After Chapter 2, career cards are available in free play.",
+      "code": "See the MA-PLAY-005 acceptance criterion.",
+      "chapter_must_decide": "Whether the chapter's activities join free play after the story, and how story and free-play progress stay separate."
+    }
+  ],
+  "open_threads": [
+    {
+      "id": "TH-CANDLE",
+      "thread": "The Ember King carried the lit rainbow candle away for his own birthday. Who gets it back, and how, is unresolved.",
+      "default_mark": "OWNER_RESERVED",
+      "why": "The Chapter 2 spine says major extensions of this conflict need owner direction; the Rumi book's Q1 also asks about the candle.",
+      "sources": [
+        "design/10_CHAPTER_REFERENCE_LIBRARY.md#1-current-continuity-sources",
+        "docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md#5-owner-questions"
+      ]
+    },
+    {
+      "id": "TH-CASTLE-MAGIC",
+      "thread": "Restoring the castle's magic has a faerie half (the prototype) and an unbuilt second world and full ending.",
+      "default_mark": "OWNER_RESERVED (ending and second world); DELEGATED (activities inside an approved premise)",
+      "why": "The prototype commission excludes the second world and the full ending.",
+      "sources": ["design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md#1-commission-and-boundaries"]
+    },
+    {
+      "id": "TH-DISGUISE",
+      "thread": "Fashion is to teach later disguise through dress-up games; the disguise mission has no chapter home.",
+      "default_mark": "OWNER_RESERVED (mission premise); DELEGATED (dress-up mechanics inside an approved chapter)",
+      "why": "A new mission premise is a plot decision.",
+      "sources": ["design/reference/owner_decisions.json (ODR-FASHION-PERSISTENCE-20261006)"]
+    },
+    {
+      "id": "TH-RAINBOW-FRIEND",
+      "thread": "The Rainbow Friend's role after Day One beyond following Roshan.",
+      "default_mark": "DELEGATED (presence and staging as a follower); OWNER_RESERVED (voice, personality or a story role)",
+      "why": "Following Roshan is owner canon; anything more changes a character.",
+      "sources": ["AGENTS.md#day-one-story-clips-between-scenes-owner-decision-2026-09-23"]
+    },
+    {
+      "id": "TH-EMBER-FAMILY",
+      "thread": "The Ember King's son, the Prince, is kind and conflicted about his father; he and the scout appear in Chapter 2 (chapter2_ember_son_seen, chapter2_ember_scout_seen). No later role is set.",
+      "default_mark": "OWNER_RESERVED",
+      "why": "Giving an antagonist's family a new role is a major character change under DL-PLAN-01.",
+      "sources": ["design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md", "scripts/chapter_two_director.gd", "docs/handoffs/codex_master_audit_refinement_2026-09-30/seed/canon_seed.json (CHR-EMBER-PRINCE)"]
+    },
+    {
+      "id": "TH-NORTHERN-STORY",
+      "thread": "The Northern chapter's main story role, entry and ending.",
+      "default_mark": "OWNER_RESERVED",
+      "why": "The Northern branch reserves them.",
+      "sources": ["design/chapters/NORTHERN_ICE_WORLD.md#2-planning-promise-and-open-scope"]
+    },
+    {
+      "id": "TH-LANTERN-NIGHT",
+      "thread": "Whether the Rumi book becomes a playable chapter, and its names and characters.",
+      "default_mark": "OWNER_RESERVED",
+      "why": "Rumi book handoff Q3 (names) and Q6 (commission) are open.",
+      "sources": ["docs/handoffs/codex_rumi_book_revision_2026-10-17/README.md#5-owner-questions"]
+    }
+  ],
+  "blocked_sources": [
+    {
+      "id": "BS-IKO-IKO",
+      "what": "Iko Iko is used for the Day Two story only once its game-use rights are confirmed.",
+      "source": "design/reference/owner_decisions.json (ODR-POPSTAR-SONG-20261018)"
+    },
+    {
+      "id": "BS-NORTHERN-CONCEPT",
+      "what": "The owner-confirmed July 29 Northern forest concept exists only on the rescue branch; no licence row was found for it.",
+      "source": "assets_src/concepts/northern_forest_concept_2026-07-29.png at f07027af253badd8d37f0b3b6aeedb8cbab7336f, SHA-256 db0cc66cc90551774ffe28809c095658324634ccf8f27c5742b7735da489208d"
+    },
+    {
+      "id": "BS-LEARNING-DECISIONS",
+      "what": "The owner's learning-session answers (book question card, quiet medals, one new guide voice) are recorded only on an unmerged branch.",
+      "source": "origin/claude/angry-roentgen-6a8f7b at 7b851b3d0be0dd83652751ca5c3085fc4b36b6b8"
+    }
+  ],
+  "name_aliases": {
+    "note": "Occurrences across tracked design/**/*.md, AGENTS.md and the master audit at 218ae766; see data/measurements_218ae766.json name_usage. Code identifiers and save keys keep their names (save compatibility); aliases are documentation only.",
+    "CH-1": {"documents": ["Day One"], "code": ["day_one_*", "DayOneDirector"]},
+    "CH-2": {"documents": ["Day Two", "Chapter 2", "Chapter Two"], "code": ["chapter2_*", "ChapterTwo*", "day_two_*", "DayTwoTransition2D"]},
+    "CH-3": {"documents": ["Chapter 3"], "code": ["chapter3_*", "fairy_conservatory_*", "FairyRestorationPrototype"]}
+  }
+}

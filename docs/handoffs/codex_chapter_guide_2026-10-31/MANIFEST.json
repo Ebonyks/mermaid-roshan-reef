@@ -1,0 +1,47 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_chapter_guide_2026-10-31",
+ "status": "PROPOSED / CANDIDATE; owner questions Q1-Q5 open with defaults",
+ "prepared_by": "Claude (written analysis, specification and a read-only measurement tool; no game changes and no images)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev 218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+ "entry": "README.md",
+ "owner_request": "2026-10-31: analyse the master audit as a development guide for future chapters; write the gaps up as a finding and a Codex handoff",
+ "finding": "MA-DOC-010",
+ "file_count": 5,
+ "total_bytes": 82255,
+ "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
+ "revision": "1 (2026-10-31)",
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 28719,
+   "sha256": "b504e38936a19b596337edfd445766045bd7a4f15fac742df157c85e6fa265d7",
+   "role": "handoff entry point: gaps G1-G12, work packages CG0-CG8, acceptance AC-1 to AC-9, owner questions Q1-Q5"
+  },
+  {
+   "path": "data/measurements_218ae766.json",
+   "bytes": 20064,
+   "sha256": "8e00786fbfea4bcf4979d6c414d0b18d05ff84c327f1c3a6e01f3ff1860371a9",
+   "role": "every number in the README, produced by the measurement tool at dev 218ae766"
+  },
+  {
+   "path": "data/chapter_map_seed.json",
+   "bytes": 14719,
+   "sha256": "dc4d6b753aac0cc3d27e3502043dea523f45b3d492805136241a8750a77f7bda",
+   "role": "starting chapter map: chapters, carried state, open threads, blocked sources and name aliases with sources"
+  },
+  {
+   "path": "tools/measure_chapter_guide.py",
+   "bytes": 18753,
+   "sha256": "789a0b543b87b24e3c67617e8b6522ba7503ffb980153524b90e27f822f32c50",
+   "role": "read-only measurement tool; rerun at the implementation head"
+  }
+ ]
+}
