@@ -82,7 +82,7 @@
     {
       "command": "Remote Probe Suite on the pushed branch head",
       "result": "PENDING",
-      "evidence": "Documentation-only change. Revision 1 head dcf6f6e29fa9ea2c6899e0edb324a1bc8762b121 started run 41224999921; the receipt head supersedes it. The exact-head run must pass before any merge into dev."
+      "evidence": "Documentation and decision-register change only. Run 41226051117 on fab6e359 was superseded by the revision-2 push; the exact run on the final receipt head must pass before any merge into dev."
     },
     {
       "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed commit, SHA-256 compared with MANIFEST.json",
@@ -96,8 +96,8 @@
     },
     {
       "command": "Anonymous raw.githubusercontent.com fetch of every revision-2 packet file at the pushed commit, SHA-256 compared with MANIFEST.json",
-      "result": "PENDING",
-      "evidence": "Recorded in REMOTE_VERIFICATION.json in the revision-2 receipt commit."
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json: revision 2 commit 15e476acbcdd14d6e9eca66fee4bb8e479edac1b, manifest SHA-256 1d9d40432d812f76db3238caae3ab4a761b1010b109895a21806e54ab39e16e8, 4/4 packet files and 3/3 related records match, anonymous HTTPS with no token, checked 2026-10-31T18:38:58Z; the cycle answers file and all nine ODR-DEMO decisions are publicly readable at that commit. Revision 1 receipt: dcf6f6e29fa9ea2c6899e0edb324a1bc8762b121, manifest ccd56a39edab4d23e2b54ac55045789c29199142213478d1e7f7016b52b704e6."
     }
   ],
   "acceptance_gaps": "Written analysis only. No game change is made, so no finding is closed and every runtime, displayed-Mobile, device, child and owner acceptance lane stays open. MA-VIS-011 and MA-SAVE-002 are V1 static findings awaiting runtime reproduction in work packages DR1 and DR3/Q1. Owner answers to Q1-Q8 are recorded (defaults accepted 2026-10-31); Q1 still depends on reading the child's backed-up save. The handoff grants no release authority; promotion still needs the owner's release instruction, a green exact-head Probe Suite and the runbook's save and device rehearsal. Game-wide master-audit satisfaction remains UNSATISFIED.",
