@@ -1960,6 +1960,15 @@ external acceptance gate before committing or integrating the recovery.
 
 ## 8. Maintenance rule
 
+### Studio dirty furniture CHG-036
+
+- Date: 2026-10-15. Owner reports identical tables before/after cleaning and transparency glitches; keeps the floor-supply phase.
+- Baseline: `5120b6d59885dd057937aaf284e73681d8eac9f5`. Candidate source and evidence are enumerated in `design/audit_impacts/studio-dirty-furniture-20261015.json`; no release or external acceptance claim.
+- Change: complete matched dirty/clean Canvas furniture cards, one shader draw per fixture, surface-bounded brush sweep, travel/pickup/storage before progress, focus/pause/exit cancellation, Back-versus-confirm separation, and removal of orphan frame-smoothing ghosts during saved-outfit refresh.
+- Dependencies: existing floor supplies, Roshan atlas and brush, additive cleanup/profile save keys, exact Godot 4.7.2 Mobile. New native art, rejected take, deterministic matte/registration builder and hashes are preserved under `assets_src/castle/studio_furniture_20261015/`.
+- Risks/evidence: local stress covers rapid taps, no actor/passive negatives, interrupted work, all eight grime save subsets, re-entry, exact touch targets and two aspects. The initial harness was obscured by a story clip; a later pixel review caught dirty-color multiplication in the clean shader. Those diagnostic failures are retained, never counted as visual acceptance. Full regression and external acceptance results remain explicit in the impact.
+- Rollback class: `manual_reconstruction`. Reconstruct the furniture/controller/picker/smoothing ownership coherently on a clean topic branch, preserve saves/originals/evidence, and rerun all gates. Do not reinstate remote awards, invisible Roshan or dirty/clean states that look identical as an accepted fallback.
+
 Any later commit that materially changes one of these behaviors must append a
 dated entry under the existing ID with its exact commit, path delta, new risks,
 new evidence, and changed rollback dependency. It must not rewrite the original
