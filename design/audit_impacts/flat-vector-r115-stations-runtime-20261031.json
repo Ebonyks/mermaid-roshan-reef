@@ -1,0 +1,75 @@
+{
+  "id": "flat-vector-r115-stations-runtime-20261031",
+  "scope": "Verified whole Geologist foregroundset source/Dev delta. One implementation/3newwholetrayPNGs+2existingwholeimages/1generation/32bounded0excluded32retained events, appliedonce. Cavebackground/river/actors/formal/external remain OPEN; canonical branch changes no runtime.",
+  "baseline": "64d25323a62a77a58964293f3cf035210467a149",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-ASSET-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-OPERA-004"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/BASELINE_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/CANONICAL_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/CANONICAL_PUBLICATION_RUNNER.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/CURRENT_ART_CENSUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/DERIVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/DEV_INTEGRATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/DEV_WORKFLOW_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/FOCUSED_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/FRAME_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/FUNCTION_PRESERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/IMPORT_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/LOCAL_82_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/PAYLOAD_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/POSTCOMMIT_EOL_CLEANUP.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/PRODUCTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/REFERENCE_BINDING.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/REUSED_FOSSIL_DERIVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/REUSED_GALLERY_DERIVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/REUSED_PROVENANCE_BINDING.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_CI_GREEN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_CI_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_PUBLICATION_FINAL.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/STATIC_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Actualcandidate local82/static/native288+168 and32reviewedframes, fullsource anonymous158requiredfiles, exactsourceCIgreen/normalDev",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_REMOTE_VERIFICATION.json; LOCAL_82_RESULT.json; FRAME_REVIEW.json; SOURCE_CI_GREEN.json; DEV_INTEGRATION.json"
+    },
+    {
+      "command": "Currentcanonical authority/development andeverymanifestfile anonymousimmutable",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/CANONICAL_GATES.json; publication/receipt verification separately recorded, not inferred."
+    }
+  ],
+  "acceptance_gaps": "Cavebackground/strata/beams/floor, actorstaging/contact, floating/off-target invitations, riverexcavation/connectedchannel, remaining art and natural/training/allroutes/performance/formalQA11/device/child/owner/global acceptance remain OPEN. Existing whole sources keep provisional scope. No backgroundresolution, actorcontact or acceptedremoval credit. ExactnewDevAPK unverified; source010keepsimmutable scope, canonical defined006/OPERA004 used."
+}

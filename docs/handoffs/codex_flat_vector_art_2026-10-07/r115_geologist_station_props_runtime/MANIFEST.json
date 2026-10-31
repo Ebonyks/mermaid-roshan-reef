@@ -1,0 +1,834 @@
+{
+  "schema": "reef.runtime_trial_delivery/1",
+  "revision": "FV-AUDIT-20261031-R115-DEV",
+  "baseline": "64d25323a62a77a58964293f3cf035210467a149",
+  "files": [
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297659,
+      "sha256": "2189a218676cdad989ed0c93f5c7a938fb32ec56d9f4ae60864bb966cf8f7dc3",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 291159,
+      "sha256": "891d8b8dc9b7107ae52a2711ae964aea99318c471e7be23ee4c6f02a98987289",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 328711,
+      "sha256": "56d208964b6c7ae8cc6ffb24cecd3bfe9a80c290a30f3e1c27caa930669901d5",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 272840,
+      "sha256": "b7013a1a050e9e5f91686150f58d6a9ab3b62f362bc56dd24c28d15451c029e0",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 165858,
+      "sha256": "6036cb8521fc56934e64e4fafec6e4a0170ed5096786b88d77b034524b117cb7",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/BASELINE_RESULT.json",
+      "bytes": 17482,
+      "sha256": "682eca754bc34c807b91042e84ba1acb7257621483942663fc06b62235908292",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/CANONICAL_GATES.json",
+      "bytes": 731,
+      "sha256": "b7f724d4c9db716d9ca567a69b3bcadfaa5860eaf5d471dbe1687600c2cb5bcb",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/CANONICAL_PUBLICATION_RUNNER.py",
+      "bytes": 26878,
+      "sha256": "47e94fdc10d3becf00cb59d2c37e813ec7e5c75adcf4080f1dce752ea4d8237d",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/CURRENT_ART_CENSUS.json",
+      "bytes": 289243,
+      "sha256": "9da95dcf4173230b71c36d42d2373f1c62923926f5f30a9ae20cc420c7f24e2e",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/DERIVATION.json",
+      "bytes": 7626,
+      "sha256": "a65d5765c4ba078c04253b9d7c3b5b5e2d5c401771617c3517e349856853d686",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/DEV_INTEGRATION.json",
+      "bytes": 5279,
+      "sha256": "7d2329f9e799666ae878a1a24d5bbd454741d4baa9e610a81e88ca403e7c903b",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/DEV_WORKFLOW_HANDLES.json",
+      "bytes": 289,
+      "sha256": "3ed8d79417fbf2fa7c117d10010d2a14c0639f1af464ce872c04bd41a3440e4e",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/FOCUSED_RESULT.json",
+      "bytes": 17722,
+      "sha256": "0b3ffdf32510abcaa6f119a8d504393c3cbb9bdab65f34299545662d264722c7",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/FRAME_REVIEW.json",
+      "bytes": 4070,
+      "sha256": "657bcd0c1469c37cf0ac2f9949a2101e23646cf48584ae86f3a89790ac53718e",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/FUNCTION_PRESERVATION.json",
+      "bytes": 3224,
+      "sha256": "9e536c9768d4e8dac1213db6a34e08f95e9db920aabe648a5d3af79edf9b2962",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/IMPORT_RESULT.json",
+      "bytes": 7810,
+      "sha256": "632cbf3024bb8b0afc79c80ddd586805282f704f47e069b5fa187a858be41575",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/LOCAL_82_RESULT.json",
+      "bytes": 92679,
+      "sha256": "4087fde0cf33f757e87c7ddffc97109cc790a6e1d56481cc2fbd92c0969cc491",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/PLAN.json",
+      "bytes": 3077,
+      "sha256": "175d7e22368ee47eb95407064781579313f4295f546b1d04b0740444852fad28",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/POSTCOMMIT_EOL_CLEANUP.json",
+      "bytes": 190,
+      "sha256": "e8f35506b161d2a14210cddc758de3483feaa712696d96302c295657aef3397b",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/PRODUCTION.json",
+      "bytes": 7828,
+      "sha256": "c2104a11dbbf4fcbd7970154ef1d012e8854477907b64a5cc55d98badd15b29a",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md",
+      "bytes": 2250,
+      "sha256": "d2ac753946325c180fb04951598675c7509ab6233715bfb2d3ffd12781df3bf9",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/REFERENCE_BINDING.json",
+      "bytes": 2724,
+      "sha256": "7a6d530d8206595effbd3c02f0c7b97b9209e6316e27ac9228a3b6fd706f99ea",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/REUSED_FOSSIL_DERIVATION.json",
+      "bytes": 5319,
+      "sha256": "95123da038b309e1711dde21feccc5f42c3b72babdaa0351f131c0b25fc5798c",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/REUSED_GALLERY_DERIVATION.json",
+      "bytes": 4002,
+      "sha256": "8b9091a0717bedffbaac59347cc2e0f873980566a62da528323783497e865caf",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/REUSED_PROVENANCE_BINDING.json",
+      "bytes": 1193,
+      "sha256": "7eea6106a07b01fa9b3598960efafad92186501ffe6638e88aec6e8eccc26597",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_CI_GREEN.json",
+      "bytes": 9916,
+      "sha256": "7aef2c5f0252a906ef70a9cc810f5ec7670fc35d8b2523070c09e46949b55ea8",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_CI_HANDLES.json",
+      "bytes": 284,
+      "sha256": "8f650a8c4ea528bd3101298ca3d15c1a87701b65f37704bf6c59fdba4620074e",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_PIN.json",
+      "bytes": 650319,
+      "sha256": "b67ef0a09e900f55e6f7caace437ecf90aa424af37a3ed71d6b4b3c54247e2c7",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_PUBLICATION_FINAL.json",
+      "bytes": 717,
+      "sha256": "e3133ada2dbcc585790e8798b5c5d6263eb0c909b607986eef91e554e963e32c",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_REMOTE_VERIFICATION.json",
+      "bytes": 71002,
+      "sha256": "84052a380a7bba2337d14a39bf2010d4240c8d798789f56f4e2f121efaf4c473",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/STATIC_RESULT.json",
+      "bytes": 353,
+      "sha256": "ed9c40311a87d35221664ada5165c0a6f6f0810d27f8396d4db0a50f1e03ffaa",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/STATUS.json",
+      "bytes": 991,
+      "sha256": "ff9dd2a45dbe48f31a9f033515861fae32d7ff3ac3684ce1013f952288a53855",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 87509,
+      "sha256": "9caeddfa78bcd14a57a5449fba6ce85b582ef92fa7f1256165c13ecdbe6701f9",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 1849682,
+      "sha256": "ca34c5a87b4cbb19298e4076534325680c75e1ae45b292a5ab3d67d73bf13774",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1235075,
+      "sha256": "f7722d1d79c796bf375d88a1ca95a67531874a9071a9c4b10d03deefaa7fff7a",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 539935,
+      "sha256": "303e0f69281fceb6367e403ebeab1ed157074f1ccf926d8133e047f4eb828975",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": null,
+      "path": "design/audit_impacts/flat-vector-r115-stations-runtime-20261031.json",
+      "bytes": 6019,
+      "sha256": "218d59984569420e066e52509efb18e2037fd0ccc74014d6df9bae74e17b442a",
+      "role": "Verified current canonical production/Dev/evidence/count delta"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+      "bytes": 233939,
+      "sha256": "6eae2e93fdafdfb3a059d3968de1ec39d92174035d7f6a211d1d9b828024c900",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets/opera/worlds/props/geologist_crystal_gallery_painted.png.import",
+      "bytes": 1030,
+      "sha256": "277220d636dd1d2745e11833d278fb0d7a673f7d794bd929dcf0cb3528aa9c80",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets/opera/worlds/props/geologist_fossil_painted.png",
+      "bytes": 451193,
+      "sha256": "f7b5272f5d73cbd3de012eeffb4603104cc3053a534022a0dafda9e331408acf",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets/opera/worlds/props/geologist_fossil_painted.png.import",
+      "bytes": 1004,
+      "sha256": "8f8184dc45b1be4fc7db7286310013745c128eec91047af5ed68cb7728d8df32",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets/opera/worlds/props/geologist_station_tray_blue_painted.png",
+      "bytes": 172692,
+      "sha256": "c5fdc521b2d3ab733a43285d7b69faf2d854ddd7590ffabae94f9f31e26ac557",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets/opera/worlds/props/geologist_station_tray_blue_painted.png.import",
+      "bytes": 1037,
+      "sha256": "0aa533b6d0648db9d17042fc5853a8344fb675402639cd70f12b631b9959ca2f",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets/opera/worlds/props/geologist_station_tray_lavender_painted.png",
+      "bytes": 171057,
+      "sha256": "06fd46d4fd1e5a6fc294331a5b2b7d16ad126de70541e8f478d386d7d0f2e2ab",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets/opera/worlds/props/geologist_station_tray_lavender_painted.png.import",
+      "bytes": 1048,
+      "sha256": "89bfa53e2384b612f85bc4716e80820d53010f4f8c001c61a0e0691f1085be02",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets/opera/worlds/props/geologist_station_tray_mint_painted.png",
+      "bytes": 171385,
+      "sha256": "bdc6c12570c08fa030474e2eda15e69ad301d35cb2f6024718c5e93d6cdef71a",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets/opera/worlds/props/geologist_station_tray_mint_painted.png.import",
+      "bytes": 1037,
+      "sha256": "ca09a971d8a6cd012258d72945a7043061060fcde0970995195ed81da9716572",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/DERIVATION.json",
+      "bytes": 7626,
+      "sha256": "a65d5765c4ba078c04253b9d7c3b5b5e2d5c401771617c3517e349856853d686",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/GENERATION_REQUEST.json",
+      "bytes": 2241,
+      "sha256": "76bba2d945f4b3cb020be32b1ca1d9e90ca21e37ad8cc913ceb187efa15eb1b1",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/PLAN.json",
+      "bytes": 3077,
+      "sha256": "175d7e22368ee47eb95407064781579313f4295f546b1d04b0740444852fad28",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/PROMPT.txt",
+      "bytes": 2308,
+      "sha256": "c6e3b718048289f9d5ff71103d2f5512ff54581b972a8c6d7452925449ba223b",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/README.md",
+      "bytes": 290,
+      "sha256": "84409fb21ec11f64d3c3f0b5b791803e7aaf9cd80ce4ae4c5da06de4e39076b0",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/REFERENCE_BINDING.json",
+      "bytes": 2724,
+      "sha256": "7a6d530d8206595effbd3c02f0c7b97b9209e6316e27ac9228a3b6fd706f99ea",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/blue_runtime512.aseprite",
+      "bytes": 244696,
+      "sha256": "187c4f4e6169e6aab21c2c3a015e429506b2c90a66fe7b788a39430655f8b02f",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/blue_whole_crop.aseprite",
+      "bytes": 637616,
+      "sha256": "8934a08f548b2ae37715f070ee91b9951d05bb2996712f9d9909f2f4b8d1779c",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/export_whole_trays.lua",
+      "bytes": 1219,
+      "sha256": "4b7a14dfe10ef0e01b419723e48422f684b087ac9bab578ee86187f055ce3dcd",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/lavender_runtime512.aseprite",
+      "bytes": 244309,
+      "sha256": "45e95fd54bdd4d1499afe0f47322d47b8da7075774050c6860187568108519de",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/lavender_whole_crop.aseprite",
+      "bytes": 635489,
+      "sha256": "491328247d93e282d96bc1d24465acbc52dfdd7315a734abbc56ffd5f5321ece",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/mint_runtime512.aseprite",
+      "bytes": 246186,
+      "sha256": "7de2220363883558ffe5096fa5e9e43dc8c95ba34f57496e30b0354fbef0c3cf",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/mint_whole_crop.aseprite",
+      "bytes": 640498,
+      "sha256": "0562f740037d2e1994276182375f361a3d937a8df5f17065cfc90a0a893688c7",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/native_roundtrip.png",
+      "bytes": 1246245,
+      "sha256": "e71eec0ec50a5b8bb4c39fb40a06190675ea6b820c24351c2c880f4b72c7e7d7",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/pad_exports.lua",
+      "bytes": 2187,
+      "sha256": "eb3646fcee1607e31321a3f766937852d7a9d2d17b0d4411e3f311c330e0f557",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/station_trays_native.aseprite",
+      "bytes": 1968811,
+      "sha256": "2d69c914977f7772b5650dfce952a7fa33346e724c0b7ed7824864e9d8a6d6ab",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "assets_src/imagegen/geologist_station_props_20261030/take01_native.png",
+      "bytes": 1297925,
+      "sha256": "9a13f207d65d2e32716a159bd3d5387265da06f70d14a4d055b0bff9999a19b0",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/0/01_station_overview.png",
+      "bytes": 126254,
+      "sha256": "8bde45da4f6f64a592c799c03fc8b3b4e1697c4fec994c81cd9a0eb65f7f22bb",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/0/02_task_foreground_hidden.png",
+      "bytes": 591727,
+      "sha256": "558ec721e87c104993b3be79d49f5d58827485f28f0e8ab12af12cbd3cadd972",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/0/RESULT.json",
+      "bytes": 4035,
+      "sha256": "2c8d293df944df9eca50f7832302406a801803ed0d3f8438c616418b035dfa09",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/1/01_station_overview.png",
+      "bytes": 126903,
+      "sha256": "efc0948c8cffd159b7b82541737cd07fd68d18d98ffe6bf3974e01ee69959d16",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/1/02_task_foreground_hidden.png",
+      "bytes": 649105,
+      "sha256": "53b991e1cf9b66c0ee3d685b46f9d42c3b5d67abbc1083c9d092caa7180e3926",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/1/RESULT.json",
+      "bytes": 4129,
+      "sha256": "2cb7235aa8fcc87e4c3118c1454c3c41a20957ddcf1b68d79d083c62285e44fc",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/2/01_station_overview.png",
+      "bytes": 129636,
+      "sha256": "61f3bf918e33c4708cee5935315a5fb54b0e5dc109c45c7c4e252db9549e3b01",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/2/02_task_foreground_hidden.png",
+      "bytes": 638191,
+      "sha256": "11a4b471e81643716cf658b650ac2cb11c61187b2a325fc9c52a9a12811ee391",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/2/RESULT.json",
+      "bytes": 4072,
+      "sha256": "07bd1fe4407f2ef00965042ac995b581ad8f33f467ba8cc4720959f1f7650d47",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/3/01_station_overview.png",
+      "bytes": 126771,
+      "sha256": "a9b14590b0ccbc54bf5f960555b202ca3f33a4b7718b8a4417173200386805a9",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/3/02_task_foreground_hidden.png",
+      "bytes": 670799,
+      "sha256": "320f60111d24b892a49b24f7ea7104abe3ab426339dd7bfcbfa8cd4cfe9eea59",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1280/3/RESULT.json",
+      "bytes": 4123,
+      "sha256": "96965861b0791447a10b151f1980b6a45f259580cffe82156a5f3716a3953cc8",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/0/01_station_overview.png",
+      "bytes": 129494,
+      "sha256": "bbcfa23592a0ee8a45b5d5326adc41978b06dc41e186c2b4846666a03029c59e",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/0/02_task_foreground_hidden.png",
+      "bytes": 599508,
+      "sha256": "b7b0eeb985286ba4bf34a9de89b75a1ca34eb5a3efd12c53450b7376b824bbd7",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/0/RESULT.json",
+      "bytes": 4039,
+      "sha256": "de0e9203fb15ce2c1f6e8eb0f5a7d083f37dd419698fedf170511f501f7f1c36",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/1/01_station_overview.png",
+      "bytes": 130355,
+      "sha256": "f07923b10ffa800df17f68e0380a419bc90a44d9512f47d6a6542499acea70e9",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/1/02_task_foreground_hidden.png",
+      "bytes": 657576,
+      "sha256": "23111e050d119ff836ff83237f22d1a3796dac123015c5ae848c47fab91eda16",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/1/RESULT.json",
+      "bytes": 4133,
+      "sha256": "1af6c6263533eb2f39725027c9034b98b278f1705ebda340d9e204b95b87927a",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/2/01_station_overview.png",
+      "bytes": 132272,
+      "sha256": "59d413d37aa8762cabe019653348e995f1719cb3f46562682126104af57c3e79",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/2/02_task_foreground_hidden.png",
+      "bytes": 646649,
+      "sha256": "6ffa30fc46724cfd3390562eaa7ae829bd8ad9f79e057c80d5e9c3956c043c24",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/2/RESULT.json",
+      "bytes": 4076,
+      "sha256": "da9b77490bce4ccfc4719b1903fe7be719b0d77b9e351b69d8b636196ff26d29",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/3/01_station_overview.png",
+      "bytes": 129893,
+      "sha256": "2ae97f80325338098143164c5db79ff69f972769c2ebb093c0de5d079eec4053",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/3/02_task_foreground_hidden.png",
+      "bytes": 679431,
+      "sha256": "f4ea93159e5a87b34ce4b958438cd97a6f8e5235d3966dbd3814d77a2a08122f",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/baseline/1600/3/RESULT.json",
+      "bytes": 4127,
+      "sha256": "a3eb1db90961595759ebba45fcabe0c6a51b43ba133052cce882f133e3120ef7",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/0/01_station_overview.png",
+      "bytes": 227179,
+      "sha256": "96d3dfcb1bcbd008e1c8a6ff448ac624a7e0b8e2d350f5e67aa749702345750f",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/0/02_task_foreground_hidden.png",
+      "bytes": 591724,
+      "sha256": "32143c9b2f30a59334a3c9f6d2c0ca1de0f49daa618d9bcb311b6baa4d0a9d38",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/0/RESULT.json",
+      "bytes": 5130,
+      "sha256": "0921c9f666753f877617acee8d11fc323294873a6307aab8a63520cd08cf4f0c",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/1/01_station_overview.png",
+      "bytes": 227852,
+      "sha256": "0aa402387f6ead5aae4164185d4c318c42906a1b8088edda9d85c95018b4e059",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/1/02_task_foreground_hidden.png",
+      "bytes": 649137,
+      "sha256": "a79a49d7a8ddcb5441bf4fef7490493f5527dc6576f256703f87939c0cdf4949",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/1/RESULT.json",
+      "bytes": 5224,
+      "sha256": "1239b25d9b8feb699c6d51e787ce14a3d4caa0f5e95446cc85321388101cd978",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/2/01_station_overview.png",
+      "bytes": 231187,
+      "sha256": "7698e9f35ea3bcb0b6cf577e64a10b39c2374172755304d7f398135be26d77a3",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/2/02_task_foreground_hidden.png",
+      "bytes": 638123,
+      "sha256": "23db43f2824ae2e646b078521b5da09a9c1f55f7661b65439539fffa312a0807",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/2/RESULT.json",
+      "bytes": 5167,
+      "sha256": "6a2f37540857f20f25c50a083f21e0429fb9f7a369893d90b54101eea455d7a6",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/3/01_station_overview.png",
+      "bytes": 227795,
+      "sha256": "94ec7db5426eaa707da729098d9ff493f89e6e3178309c3ae4b3211344738435",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/3/02_task_foreground_hidden.png",
+      "bytes": 670799,
+      "sha256": "320f60111d24b892a49b24f7ea7104abe3ab426339dd7bfcbfa8cd4cfe9eea59",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280/3/RESULT.json",
+      "bytes": 5218,
+      "sha256": "edb67ed780ad1f974360c08f8751c8ed015b712016c9d76e1deb5c20d538ac52",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/0/01_station_overview.png",
+      "bytes": 231087,
+      "sha256": "4428c2cd4f20e56b5c2fe5fb65fc334bb2ec22370e0290af0bd6a29bd042dc8c",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/0/02_task_foreground_hidden.png",
+      "bytes": 599562,
+      "sha256": "d14865ec02428d24ef806fbcf209defa7cd3303ba28281b2753f520f0d6830c5",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/0/RESULT.json",
+      "bytes": 5134,
+      "sha256": "56af893166a625e9e59ec92e0bcbcb89fdab05fbeb3162683fed677b5f43e117",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/1/01_station_overview.png",
+      "bytes": 231977,
+      "sha256": "9deb79351e5569555b831ad701aba97964ed22109598e8e0eabfce91ad55a027",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/1/02_task_foreground_hidden.png",
+      "bytes": 657593,
+      "sha256": "c944caf298df67f6035140580d59982561c351efa68c758c89d131bdc15557c6",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/1/RESULT.json",
+      "bytes": 5228,
+      "sha256": "32741e0cd2583230bf0db87db74c90ff56a62e3336c289efed9a30146bafe2ec",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/2/01_station_overview.png",
+      "bytes": 234892,
+      "sha256": "2fa7a979dd31422da4738d8c092a0ffbe3d86b8e3b931b895d845733520d2d54",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/2/02_task_foreground_hidden.png",
+      "bytes": 646642,
+      "sha256": "131aa82b30b50b8ef25a7821aa96a294d29f111dacc13484511e29c709b0059b",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/2/RESULT.json",
+      "bytes": 5171,
+      "sha256": "3691c7adfb4a7d02f03fea73254b460903913f3b1e67a81f8d5a229fe19f3c85",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/3/01_station_overview.png",
+      "bytes": 231616,
+      "sha256": "c7b1c00f3b74f3972d16b2854c0858e002c414a06016f916a1f10cc89a19b4d1",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/3/02_task_foreground_hidden.png",
+      "bytes": 679479,
+      "sha256": "8f5014b01a1baa9285f7d8d1e63a6d29749c12c80e03e25b86279c3f203bd557",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600/3/RESULT.json",
+      "bytes": 5222,
+      "sha256": "3b48e4b82f2d6668106072c33041a9ef85dd587bac755dbe6530f93c232a02d7",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "bytes": 29509,
+      "sha256": "711709c81cd708d124dd46b6dc39a393b0e436b317f15b296f9d58c483012ae5",
+      "role": "Actual foreground source/candidate/machine/reference/review/provenance payload"
+    },
+    {
+      "revision": "6d2e7c515738bb40a923210bb05c01aafc526e0e",
+      "path": "assets_src/imagegen/geologist_crystal_gallery_20261029/DERIVATION.json",
+      "bytes": 4002,
+      "sha256": "8b9091a0717bedffbaac59347cc2e0f873980566a62da528323783497e865caf",
+      "role": "Bounded immutable priorwholeart provenance, no newapproval or recursivearchive dependency"
+    },
+    {
+      "revision": "6d2e7c515738bb40a923210bb05c01aafc526e0e",
+      "path": "assets_src/imagegen/geologist_crystal_gallery_20261029/gallery_native.aseprite",
+      "bytes": 2185574,
+      "sha256": "2bfb5a8df54eb3c5c8a647d6782e552036d1355383f945cd93ea0975efdbe540",
+      "role": "Bounded immutable priorwholeart provenance, no newapproval or recursivearchive dependency"
+    }
+  ],
+  "required_files": 116,
+  "required_bytes": 30131035,
+  "actual_runtime_source": "0bd538456b4b7abc9220ca09de072e8577a32014",
+  "scope": "Whole Geologist foreground set partialDev delta with actualsource/CI/native32frames/currentregistry and bounded immutable provenance. Cavebackground/actors/river/formal/external/global acceptance remain OPEN; no recursivearchive.",
+  "new_generation_calls": 1,
+  "new_bounded_source_artifacts": 1,
+  "new_frame_events": {
+    "bounded": 32,
+    "excluded": 0,
+    "retained": 32
+  },
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "new_runtime_PNG": 3,
+  "technical_exports": 3
+}

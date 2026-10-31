@@ -5367,10 +5367,52 @@
       "source_scope_ids": [
         "FVF-49B330C0E118"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        {
+          "path": "scripts/opera_world_backdrop_2d.gd",
+          "function": "_draw_geologist",
+          "scope": "Actual room overview foreground; original geology_work_open return hides set during all four tasks",
+          "ambiguous": false,
+          "visible": true
+        }
+      ],
       "screen_coverage": {
-        "measured_current_bounds": null,
-        "coverage_state": "COVERAGE_GAP",
+        "measured_current_bounds": {
+          "fossil_envelope": [
+            250,
+            398,
+            250,
+            126
+          ],
+          "tray_envelopes": [
+            [
+              550,
+              452,
+              110,
+              74
+            ],
+            [
+              695,
+              452,
+              110,
+              74
+            ],
+            [
+              840,
+              452,
+              110,
+              74
+            ]
+          ],
+          "gallery_envelope": [
+            992,
+            386,
+            176,
+            134
+          ],
+          "note": "Uniform whole-image mapping to measured authoredcontour/contact, no crops/deformation. Sourcefixture checks actualtraypositions and hidingguard."
+        },
+        "coverage_state": "PARTIAL_CURRENT_FOUR_PHASE_TWO_ASPECT_ROOM_FOREGROUND",
         "geometry_expressions": [
           "Vector2(0, y + 24), Vector2(220, y - 12),",
           "Vector2(470, y + 18), Vector2(760, y - 18),",
@@ -5385,7 +5427,7 @@
           "Vector2(x + 20, base.y),",
           "draw_arc(Vector2(1080, 420), pulse, 0.0, TAU, 36, Color(accent, 0.55), 8.0)"
         ],
-        "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        "note": "1280/1600 phase0..3 source/candidate overview/tasktransition. No native2048background, actorcontact or fullrole acceptance credit."
       },
       "evidence_level": "SOURCE_INSPECTION",
       "observed_weakness": "Flat fallback implementation is present in _draw_geologist; normal-path visibility is unproven.",
@@ -5397,22 +5439,25 @@
         "assets_src/geologist_rebuild_2026-09-05/geology_props_alpha_retry.png"
       ],
       "reuse_inspection": "Candidates retained, not approved for runtime; prior checkerboard rejection and current angle/whole-unit state gaps require native inspection.",
-      "named_gap": null,
-      "status": "NEEDS_CONTEXT_REVIEW",
-      "integration_sha": null,
+      "named_gap": "All foreground fossil/tray/vertex-crystal drawings retired in actualgreen Dev; cavewall/strata/background and separateactor/invitation/river debt remain.",
+      "status": "PAINTED_FOREGROUND_PARTIAL_DEV_CAVE_BACKGROUND_AND_EXTERNAL_ACCEPTANCE_OPEN",
+      "integration_sha": "0bd538456b4b7abc9220ca09de072e8577a32014",
       "acceptance_evidence": {
-        "current_mobile_runtime": null,
-        "wide_phone_runtime": null,
+        "current_mobile_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/0bd538456b4b7abc9220ca09de072e8577a32014/docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280",
+        "wide_phone_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/0bd538456b4b7abc9220ca09de072e8577a32014/docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600",
         "device": null,
         "child": null,
         "owner": null,
-        "machine": null,
-        "old_fallback_retired": null
+        "machine": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/LOCAL_82_RESULT.json",
+        "old_fallback_retired": {
+          "source_revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+          "scope": "Foreground fossil rectangle/spiral, three traybody/rims, fivevertexcrystals and decorativeclusterpulse retired. Backgroundstrata still draws.",
+          "role_closed": false
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Current actual four-phase roomoverview/task-open context, both aspects",
+        "FormalQA11/device/child/owner/natural/training/allroutes and originalroom/actor/river globalgaps"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -5427,7 +5472,18 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261031-R115-DEV",
+          "source": "0bd538456b4b7abc9220ca09de072e8577a32014",
+          "review": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/FRAME_REVIEW.json",
+          "candidate": "Usable wholepainted station set",
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null
+        }
+      ],
       "proposed_update": "Prove which guard can render Geology cave fallback on its current route. Retain accepted painted inputs; retire this flat recovery path after exact resource/export/lifecycle proof, or record its specific missing authored state.",
       "route_refs": [
         "opera.act.16"
@@ -5444,6 +5500,261 @@
         "status": "PARTIAL_WEAKNESS_CONTEXT_REVIEW",
         "device_child_owner_acceptance": false,
         "replacement_acceptance": false
+      },
+      "r115_prior_status": "NEEDS_CONTEXT_REVIEW",
+      "r115_prior_runtime_consumers": [],
+      "r115_station_props_runtime": {
+        "stable_id": "FV-14664183159D",
+        "state": "WHOLE_PAINTED_GEOLOGIST_FOREGROUND_STATIONS_PARTIAL_DEV_EXACT_CI_GREEN",
+        "scope": "Complete in-world foreground fossil display, three whole specimen trays and crystal gallery within cave role. Cavewall/strata/roombackground remain separate OPEN debt.",
+        "source_revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+        "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+        "source_baseline": "6d2e7c515738bb40a923210bb05c01aafc526e0e",
+        "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/MANIFEST.json",
+        "source_delivery_required_files": 158,
+        "source_delivery_required_bytes": 50011201,
+        "source_delivery_all_anonymous_exact": true,
+        "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_REMOTE_VERIFICATION.json",
+        "source_CI_run": 41147612052,
+        "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41147612052",
+        "source_CI_conclusion": "success",
+        "integrated_dev_revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+        "runtime_exports": [
+          {
+            "role": "mint",
+            "path": "assets/opera/worlds/props/geologist_station_tray_mint_painted.png",
+            "sha256": "bdc6c12570c08fa030474e2eda15e69ad301d35cb2f6024718c5e93d6cdef71a",
+            "dimensions": [
+              512,
+              512
+            ],
+            "whole_source_crop": [
+              4,
+              0,
+              724,
+              724
+            ],
+            "uniform_scale": 0.5966850828729282,
+            "padding": [
+              40,
+              40,
+              40,
+              40
+            ],
+            "editable_master": "assets_src/imagegen/geologist_station_props_20261030/mint_runtime512.aseprite",
+            "cutout": {
+              "mode": "RGBA",
+              "transparent_pct": 69.1,
+              "faint_haze_pct_of_canvas": 0.6,
+              "semi_pct_of_visible": 1.4,
+              "near_opaque_pct_of_visible": 96.7,
+              "opaque_255_pct": 0.1,
+              "corner_alpha": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "content_bbox": [
+                66,
+                116,
+                471,
+                399
+              ],
+              "verdict": "CUTOUT_OK"
+            }
+          },
+          {
+            "role": "blue",
+            "path": "assets/opera/worlds/props/geologist_station_tray_blue_painted.png",
+            "sha256": "c5fdc521b2d3ab733a43285d7b69faf2d854ddd7590ffabae94f9f31e26ac557",
+            "dimensions": [
+              512,
+              512
+            ],
+            "whole_source_crop": [
+              730,
+              0,
+              724,
+              724
+            ],
+            "uniform_scale": 0.5966850828729282,
+            "padding": [
+              40,
+              40,
+              40,
+              40
+            ],
+            "editable_master": "assets_src/imagegen/geologist_station_props_20261030/blue_runtime512.aseprite",
+            "cutout": {
+              "mode": "RGBA",
+              "transparent_pct": 68.8,
+              "faint_haze_pct_of_canvas": 0.7,
+              "semi_pct_of_visible": 1.1,
+              "near_opaque_pct_of_visible": 96.8,
+              "opaque_255_pct": 0.0,
+              "corner_alpha": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "content_bbox": [
+                49,
+                115,
+                456,
+                400
+              ],
+              "verdict": "CUTOUT_OK"
+            }
+          },
+          {
+            "role": "lavender",
+            "path": "assets/opera/worlds/props/geologist_station_tray_lavender_painted.png",
+            "sha256": "06fd46d4fd1e5a6fc294331a5b2b7d16ad126de70541e8f478d386d7d0f2e2ab",
+            "dimensions": [
+              512,
+              512
+            ],
+            "whole_source_crop": [
+              1448,
+              0,
+              724,
+              724
+            ],
+            "uniform_scale": 0.5966850828729282,
+            "padding": [
+              40,
+              40,
+              40,
+              40
+            ],
+            "editable_master": "assets_src/imagegen/geologist_station_props_20261030/lavender_runtime512.aseprite",
+            "cutout": {
+              "mode": "RGBA",
+              "transparent_pct": 68.7,
+              "faint_haze_pct_of_canvas": 0.7,
+              "semi_pct_of_visible": 1.2,
+              "near_opaque_pct_of_visible": 96.7,
+              "opaque_255_pct": 0.1,
+              "corner_alpha": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "content_bbox": [
+                46,
+                115,
+                452,
+                400
+              ],
+              "verdict": "CUTOUT_OK"
+            }
+          }
+        ],
+        "existing_whole_reuse": [
+          {
+            "path": "assets/opera/worlds/props/geologist_fossil_painted.png",
+            "sha256": "f7b5272f5d73cbd3de012eeffb4603104cc3053a534022a0dafda9e331408acf",
+            "acceptance_scope": "Existing provisional runtime source, not owner-approved anew",
+            "cutout": {
+              "mode": "RGBA",
+              "transparent_pct": 55.2,
+              "faint_haze_pct_of_canvas": 0.4,
+              "semi_pct_of_visible": 0.8,
+              "near_opaque_pct_of_visible": 98.3,
+              "opaque_255_pct": 0.0,
+              "corner_alpha": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "content_bbox": [
+                80,
+                84,
+                820,
+                455
+              ],
+              "verdict": "CUTOUT_OK"
+            }
+          },
+          {
+            "path": "assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+            "sha256": "6eae2e93fdafdfb3a059d3968de1ec39d92174035d7f6a211d1d9b828024c900",
+            "acceptance_scope": "Existing provisional runtime source, not owner-approved anew",
+            "cutout": {
+              "mode": "RGBA",
+              "transparent_pct": 63.3,
+              "faint_haze_pct_of_canvas": 0.4,
+              "semi_pct_of_visible": 0.7,
+              "near_opaque_pct_of_visible": 98.2,
+              "opaque_255_pct": 0.1,
+              "corner_alpha": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "content_bbox": [
+                95,
+                51,
+                422,
+                472
+              ],
+              "verdict": "CUTOUT_OK"
+            }
+          }
+        ],
+        "actual_native_checks": 288,
+        "baseline_native_checks": 168,
+        "candidate_frames_reviewed": 16,
+        "baseline_frames_reviewed": 16,
+        "new_frame_events": {
+          "bounded": 32,
+          "excluded": 0,
+          "retained": 32
+        },
+        "current_static_all82": "PASS",
+        "unchanged_other_backdrop_functions": 28,
+        "unchanged_controller_and_surface_hashes": {
+          "controller": "3c47e585d9535e29308bc65a1bf8d02d265e3421eb289c890eb22d5003d1541f",
+          "surface": "6678cff8f010f296771ed45084517a0f2873c2052b05add1b490fa7e6fb524f3"
+        },
+        "local_foreground_primitive_sites": {
+          "before": 7,
+          "after": 1,
+          "remaining": "Original wallstrata call; no acceptance or global counts inferred"
+        },
+        "new_bounded_source_artifacts": 1,
+        "partial_Dev_artifact_credit": 1,
+        "implementation_unit": "One coherent foreground station implementation with three new whole painted tray PNGs and two unchanged whole reused sourceimages. Several objects/exports do not multiply piece/family/implementation or acceptance credits.",
+        "new_generation_calls": 1,
+        "generated_outputs": 1,
+        "rejected_takes": 0,
+        "technical_exports": 3,
+        "new_runtime_images": 3,
+        "backend": "built-in image_gen.imagegen",
+        "model_selector": "NOT_EXPOSED",
+        "model_version": "NOT_EXPOSED",
+        "animation_calls": 0,
+        "new_roles": 0,
+        "new_families": 0,
+        "candidate": "USABLE_PAINTED_WHOLE_FOREGROUND_SET",
+        "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+        "runtime": "CONFIGURED_ORIGINAL_MAIN_LIBRARY_GE0TO3_OVERVIEW_TASK_GUARD_TWO_ASPECT_PASS",
+        "Dev_integrated": true,
+        "exact_new_Dev_APK_verified": false,
+        "whole_role_closed": false,
+        "formal_QA11": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "natural_training_allroutes": null,
+        "accepted_removed": 0,
+        "mission_complete": false,
+        "remaining": "Cavebackground/strata/beams/floor, actorstaging/contact, floating/off-target invitations, riverexcavation/connectedchannel, remaining art and natural/training/allroutes/performance/formalQA11/device/child/owner/global acceptance remain OPEN. Existing whole sources keep provisional scope. No backgroundresolution, actorcontact or acceptedremoval credit."
       }
     },
     {
@@ -24371,7 +24682,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261030-R114-DEV",
+  "revision": "FV-AUDIT-20261031-R115-DEV",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -36402,7 +36713,7 @@
     "original_source_CI_green": "39079175770 at ce05d4d3",
     "current_source_CI": "SOURCE_CI_HANDLES.json"
   },
-  "new_generation_calls": 0,
+  "new_generation_calls": 1,
   "r99_new_native_frame_events": 8,
   "r100_parent_receipt_revision": "54522f81b6cc77419d36367f0bcce76fc5f6faa8",
   "r100_pan_ci_recovery": {
@@ -37894,5 +38205,258 @@
     "accepted_removed": 0,
     "mission_complete": false,
     "remaining": "Originalflatbackdrop crystals/cave/river/UI/actor debt and119pullgap unchanged. Catalogpaintedsource loaded-not-drawn; no backdrop credit. Originalcurtain-call showcase suspension/bounce retained. FormalQA11/device/child/owner/natural/training/allroutes/performance/global acceptance remain open. Originalfloatfixture4frames pluscatalog-ineligiblepriorcandidate8frames excluded, failed52green/1red suite preserved; actualwholegoalalias fixes path withoutvalidator/probe/threshold/function relaxation."
+  },
+  "r115_station_props_runtime": {
+    "stable_id": "FV-14664183159D",
+    "state": "WHOLE_PAINTED_GEOLOGIST_FOREGROUND_STATIONS_PARTIAL_DEV_EXACT_CI_GREEN",
+    "scope": "Complete in-world foreground fossil display, three whole specimen trays and crystal gallery within cave role. Cavewall/strata/roombackground remain separate OPEN debt.",
+    "source_revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "source_baseline": "6d2e7c515738bb40a923210bb05c01aafc526e0e",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/MANIFEST.json",
+    "source_delivery_required_files": 158,
+    "source_delivery_required_bytes": 50011201,
+    "source_delivery_all_anonymous_exact": true,
+    "source_delivery_receipt": "docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "source_CI_run": 41147612052,
+    "source_CI_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41147612052",
+    "source_CI_conclusion": "success",
+    "integrated_dev_revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
+    "runtime_exports": [
+      {
+        "role": "mint",
+        "path": "assets/opera/worlds/props/geologist_station_tray_mint_painted.png",
+        "sha256": "bdc6c12570c08fa030474e2eda15e69ad301d35cb2f6024718c5e93d6cdef71a",
+        "dimensions": [
+          512,
+          512
+        ],
+        "whole_source_crop": [
+          4,
+          0,
+          724,
+          724
+        ],
+        "uniform_scale": 0.5966850828729282,
+        "padding": [
+          40,
+          40,
+          40,
+          40
+        ],
+        "editable_master": "assets_src/imagegen/geologist_station_props_20261030/mint_runtime512.aseprite",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 69.1,
+          "faint_haze_pct_of_canvas": 0.6,
+          "semi_pct_of_visible": 1.4,
+          "near_opaque_pct_of_visible": 96.7,
+          "opaque_255_pct": 0.1,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            66,
+            116,
+            471,
+            399
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      },
+      {
+        "role": "blue",
+        "path": "assets/opera/worlds/props/geologist_station_tray_blue_painted.png",
+        "sha256": "c5fdc521b2d3ab733a43285d7b69faf2d854ddd7590ffabae94f9f31e26ac557",
+        "dimensions": [
+          512,
+          512
+        ],
+        "whole_source_crop": [
+          730,
+          0,
+          724,
+          724
+        ],
+        "uniform_scale": 0.5966850828729282,
+        "padding": [
+          40,
+          40,
+          40,
+          40
+        ],
+        "editable_master": "assets_src/imagegen/geologist_station_props_20261030/blue_runtime512.aseprite",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 68.8,
+          "faint_haze_pct_of_canvas": 0.7,
+          "semi_pct_of_visible": 1.1,
+          "near_opaque_pct_of_visible": 96.8,
+          "opaque_255_pct": 0.0,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            49,
+            115,
+            456,
+            400
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      },
+      {
+        "role": "lavender",
+        "path": "assets/opera/worlds/props/geologist_station_tray_lavender_painted.png",
+        "sha256": "06fd46d4fd1e5a6fc294331a5b2b7d16ad126de70541e8f478d386d7d0f2e2ab",
+        "dimensions": [
+          512,
+          512
+        ],
+        "whole_source_crop": [
+          1448,
+          0,
+          724,
+          724
+        ],
+        "uniform_scale": 0.5966850828729282,
+        "padding": [
+          40,
+          40,
+          40,
+          40
+        ],
+        "editable_master": "assets_src/imagegen/geologist_station_props_20261030/lavender_runtime512.aseprite",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 68.7,
+          "faint_haze_pct_of_canvas": 0.7,
+          "semi_pct_of_visible": 1.2,
+          "near_opaque_pct_of_visible": 96.7,
+          "opaque_255_pct": 0.1,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            46,
+            115,
+            452,
+            400
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      }
+    ],
+    "existing_whole_reuse": [
+      {
+        "path": "assets/opera/worlds/props/geologist_fossil_painted.png",
+        "sha256": "f7b5272f5d73cbd3de012eeffb4603104cc3053a534022a0dafda9e331408acf",
+        "acceptance_scope": "Existing provisional runtime source, not owner-approved anew",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 55.2,
+          "faint_haze_pct_of_canvas": 0.4,
+          "semi_pct_of_visible": 0.8,
+          "near_opaque_pct_of_visible": 98.3,
+          "opaque_255_pct": 0.0,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            80,
+            84,
+            820,
+            455
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      },
+      {
+        "path": "assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+        "sha256": "6eae2e93fdafdfb3a059d3968de1ec39d92174035d7f6a211d1d9b828024c900",
+        "acceptance_scope": "Existing provisional runtime source, not owner-approved anew",
+        "cutout": {
+          "mode": "RGBA",
+          "transparent_pct": 63.3,
+          "faint_haze_pct_of_canvas": 0.4,
+          "semi_pct_of_visible": 0.7,
+          "near_opaque_pct_of_visible": 98.2,
+          "opaque_255_pct": 0.1,
+          "corner_alpha": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "content_bbox": [
+            95,
+            51,
+            422,
+            472
+          ],
+          "verdict": "CUTOUT_OK"
+        }
+      }
+    ],
+    "actual_native_checks": 288,
+    "baseline_native_checks": 168,
+    "candidate_frames_reviewed": 16,
+    "baseline_frames_reviewed": 16,
+    "new_frame_events": {
+      "bounded": 32,
+      "excluded": 0,
+      "retained": 32
+    },
+    "current_static_all82": "PASS",
+    "unchanged_other_backdrop_functions": 28,
+    "unchanged_controller_and_surface_hashes": {
+      "controller": "3c47e585d9535e29308bc65a1bf8d02d265e3421eb289c890eb22d5003d1541f",
+      "surface": "6678cff8f010f296771ed45084517a0f2873c2052b05add1b490fa7e6fb524f3"
+    },
+    "local_foreground_primitive_sites": {
+      "before": 7,
+      "after": 1,
+      "remaining": "Original wallstrata call; no acceptance or global counts inferred"
+    },
+    "new_bounded_source_artifacts": 1,
+    "partial_Dev_artifact_credit": 1,
+    "implementation_unit": "One coherent foreground station implementation with three new whole painted tray PNGs and two unchanged whole reused sourceimages. Several objects/exports do not multiply piece/family/implementation or acceptance credits.",
+    "new_generation_calls": 1,
+    "generated_outputs": 1,
+    "rejected_takes": 0,
+    "technical_exports": 3,
+    "new_runtime_images": 3,
+    "backend": "built-in image_gen.imagegen",
+    "model_selector": "NOT_EXPOSED",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "new_roles": 0,
+    "new_families": 0,
+    "candidate": "USABLE_PAINTED_WHOLE_FOREGROUND_SET",
+    "integration": "EXACT_GREEN_SOURCE_IN_DEV",
+    "runtime": "CONFIGURED_ORIGINAL_MAIN_LIBRARY_GE0TO3_OVERVIEW_TASK_GUARD_TWO_ASPECT_PASS",
+    "Dev_integrated": true,
+    "exact_new_Dev_APK_verified": false,
+    "whole_role_closed": false,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "natural_training_allroutes": null,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "remaining": "Cavebackground/strata/beams/floor, actorstaging/contact, floating/off-target invitations, riverexcavation/connectedchannel, remaining art and natural/training/allroutes/performance/formalQA11/device/child/owner/global acceptance remain OPEN. Existing whole sources keep provisional scope. No backgroundresolution, actorcontact or acceptedremoval credit."
   }
 }

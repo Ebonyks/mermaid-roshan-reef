@@ -1,0 +1,28 @@
+{
+  "state": "PASS",
+  "gates": [
+    {
+      "gate": "authority",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "log_sha256": "6493d1efdd58cedf93797ce5e2dbfc09aaba16685233f9d9a45e134313d02b13"
+    },
+    {
+      "gate": "development",
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "log_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    }
+  ],
+  "engine_rerun": false
+}

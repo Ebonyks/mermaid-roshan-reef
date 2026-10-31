@@ -431,6 +431,8 @@ R113partialproduction2026-10-30: [painted Geologist Library crest](../../docs/ha
 
 R114partialproduction2026-10-30: [painted finalcrystalgoal](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r114_geologist_goal_runtime/README.md), source6d2e7c515738bb40a923210bb05c01aafc526e0e exactCIgreen/integratedDev/currentstatic/all82/native76/8candidate and66/8sourceframes pass;17source16partialDev artifacts,16bounded12excluded28newretained events.0generation/PNG/exports, whole nativealias preserves all194functions and unchangedcatalogguard. No backdrop/canonicalwhole-role/removal credit; formal/external/otherart/global gaps remain, lifecycle unchanged.
 
+R115 partialproduction2026-10-31: [whole Geologist foreground station set](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md), source0bd538456b4b7abc9220ca09de072e8577a32014 exactCIgreen/normalDev/local82/static/native288candidate+168source checks pass;32newreviewednativeframes.18source17partialDev artifacts. One generatedsheet/3wholetrayexports+2existingwholeprops;28otherbackdropfunctions andcontroller/input/save exact. Cavebackground/actors/river/formal/external/global acceptance and lifecycle remain OPEN; acceptedremoved0.
+
 ## MA-VIS-007
 
 | Field | Value |
