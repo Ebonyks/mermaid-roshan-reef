@@ -771,6 +771,114 @@
       "checks": [],
       "checkable": false,
       "cycle": "rumi-revision-20261017"
+    },
+    {
+      "id": "ODR-DEMO-FREEZE-20261031",
+      "date": "2026-10-31",
+      "subject": "November 2026 demo and feature freeze",
+      "decision": "Owner, 2026-10-31: \"We're seeking to publish a demo of this game next week for Roshan. We're going to place a cap on new development, it's okay if part 2 doesn't completely resolve at this point.\" The demo is a promotion of dev to master; until it is promoted, dev takes only the demo-readiness packages DR0-DR7, and the owner accepted the handoff defaults the same day.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#0-the-request",
+      "authority": "recorded_owner",
+      "question": "Owner request that commissioned the demo-readiness handoff",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-START-20261031",
+      "date": "2026-10-31",
+      "subject": "Demo start: New Game or Continue",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: decide from Roshan's backed-up save. Use New Game (her save is archived as .before_new_game and backed up) if it predates Day One, finished the old fight another way, or holds career stars that Chapter 2 would hide (MA-SAVE-002); otherwise Continue.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q1: Start the demo with New Game or Continue?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-GRAND-PUFF-20261031",
+      "date": "2026-10-31",
+      "subject": "Grand Puff care recast in the demo",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: demo the recast if work package DR3c is green by Tuesday 2026-11-03; otherwise demo the current encounter and land the recast after the demo. No explicit yes was given for the high-risk canon edit, so CLAUDE.md and AGENTS.md stay unchanged and the mismatch is recorded.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q2: Put the friend-with-a-cold Grand Puff (ODR-GRAND-PUFF-COLD-20261017) in the demo, and update the canon lines in CLAUDE.md and AGENTS.md?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-PART2-SCOPE-20261031",
+      "date": "2026-10-31",
+      "subject": "How much of Part 2 the demo shows",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: show the whole Part 2 party story with the DR5 fixes (no stuffie picker over the ballet, a marked next door, a repeated job prompt), ending on the Ember King cliffhanger. The Opera foyer movement repair lands after the demo.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q3: How much of Part 2, and land the Opera foyer movement repair now?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-MIC-20261031",
+      "date": "2026-10-31",
+      "subject": "Microphone for the demo",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: no code change; an adult switches Mic off in Options on the demo device during setup.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q4: Microphone?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-PLAYTEST-ELEVATOR-20261031",
+      "date": "2026-10-31",
+      "subject": "Opera playtest elevator in the demo build",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: hide it in the demo build (OperaJobPlaytestMenu.ENABLED := false with the probe_opera leg updated to expect it absent); it may be re-enabled after the demo if still wanted.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q5: Hide the playtest elevator for the demo build?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-NO-NEW-AUDIO-20261031",
+      "date": "2026-10-31",
+      "subject": "New audio for the demo",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: no new audio for the demo; a pointing hand on the Back control carries the go-back cue.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q6: Record one new synthetic line, \"Let's go back to the hall!\", for finished rooms?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-BOOK-FILE-20261031",
+      "date": "2026-10-31",
+      "subject": "Deleted protected book file",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: no change during the demo week; restoring the exact original from master needs a later explicit yes. Nothing uses the file at runtime and it remains in history.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q7: Restore the deleted protected file assets/book/baby_eagle.png?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-DEMO-DATE-DEVICE-20261031",
+      "date": "2026-10-31",
+      "subject": "Demo date and device",
+      "decision": "Owner reply 2026-10-31, \"Use the defaults\", accepting the stated default: demo on Saturday 2026-11-07 on the Lenovo Tab M11 named in the device protocol.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#7-owner-answers-2026-10-31",
+      "authority": "recorded_owner",
+      "question": "Q8: Demo date and device?",
+      "checks": [],
+      "checkable": false,
+      "cycle": "demo-readiness-20261031"
     }
   ]
 }

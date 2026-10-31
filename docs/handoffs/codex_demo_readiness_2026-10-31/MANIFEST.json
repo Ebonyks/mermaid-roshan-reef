@@ -1,7 +1,7 @@
 {
  "schema": "codex_handoff_manifest/1",
  "handoff": "codex_demo_readiness_2026-10-31",
- "status": "PROPOSED / CANDIDATE (owner questions Q1-Q8 open with stated defaults)",
+ "status": "PROPOSED / CANDIDATE (owner accepted the defaults for Q1-Q8 on 2026-10-31)",
  "prepared_by": "Claude (written analysis and specification only; no game changes and no images)",
  "recipient": "Codex",
  "evidence_baseline": "dev 218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
@@ -19,9 +19,20 @@
  ],
  "impact_record": "design/audit_impacts/demo-readiness-handoff-20261031.json",
  "file_count": 4,
- "total_bytes": 58383,
+ "total_bytes": 59524,
  "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
- "revision": "1 (2026-10-31)",
+ "revision": "2 (2026-10-31): owner answers recorded as ODR-DEMO-*-20261031; revision 1 was dcf6f6e29fa9ea2c6899e0edb324a1bc8762b121",
+ "owner_decisions": [
+  "ODR-DEMO-FREEZE-20261031",
+  "ODR-DEMO-START-20261031",
+  "ODR-DEMO-GRAND-PUFF-20261031",
+  "ODR-DEMO-PART2-SCOPE-20261031",
+  "ODR-DEMO-MIC-20261031",
+  "ODR-DEMO-PLAYTEST-ELEVATOR-20261031",
+  "ODR-DEMO-NO-NEW-AUDIO-20261031",
+  "ODR-DEMO-BOOK-FILE-20261031",
+  "ODR-DEMO-DATE-DEVICE-20261031"
+ ],
  "files": [
   {
    "path": ".gdignore",
@@ -31,14 +42,14 @@
   },
   {
    "path": "README.md",
-   "bytes": 18348,
-   "sha256": "da61a19c529cdea85990d93d0de3949464a88dfcd20f5f4cf42d5c6679f92fef",
-   "role": "handoff entry point: request, status, demo definition, freeze, priorities, work packages DR0-DR7, schedule, owner questions Q1-Q8, gates"
+   "bytes": 19284,
+   "sha256": "a7d501c0e5ced730058ca1c1ad858e3da523c7a1f123b4059bda5ddef4097ce2",
+   "role": "handoff entry point: request, status, demo definition, freeze, priorities, work packages DR0-DR7, schedule, owner answers Q1-Q8, gates"
   },
   {
    "path": "AUDIT.md",
-   "bytes": 30968,
-   "sha256": "a9a3352c7cf1117d8e494b5d48560b0026187b2e482644af0fb4ac7378e8e23b",
+   "bytes": 31173,
+   "sha256": "47c3e359d4f900438ddf14bb3d7a30e7ed7257f713575a43554ef2a191ee86fa",
    "role": "analysis of each high-priority fix with code references: release state, stranded repairs, Day One, Part 2, release/save/performance, post-demo areas"
   },
   {

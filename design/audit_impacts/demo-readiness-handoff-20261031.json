@@ -1,6 +1,6 @@
 {
   "id": "demo-readiness-handoff-20261031",
-  "scope": "Owner request 2026-10-31: \"We're seeking to publish a demo of this game next week for Roshan. We're going to place a cap on new development, it's okay if part 2 doesn't completely resolve at this point. With that said, identify priorities to work through before a demo, identify areas of needed improvement and work to develop plan to implement these changes. Provide analysis of high priority fixes in handoff for codex\". Claude delivers a written Codex handoff (no game change, no images, no probe run): a demo definition, a feature freeze, ranked priorities and work packages DR0-DR7 with acceptance criteria, a one-week schedule, owner questions Q1-Q8 with defaults, a code-anchored audit of the Day One route, Part 2 reachability and the release pipeline, a release and demo-day runbook, and post-demo improvement areas. Two confirmed child-facing defects are opened as canonical findings (MA-VIS-011 story clips under the black cover; MA-SAVE-002 upgraded career stars shown as un-earned) and four existing findings gain dated history. Benefit: the family's first device and child session gets a rehearsed, promoted build without a black climax, a grown-up menu or a lost save.",
+  "scope": "Owner request 2026-10-31: \"We're seeking to publish a demo of this game next week for Roshan. We're going to place a cap on new development, it's okay if part 2 doesn't completely resolve at this point. With that said, identify priorities to work through before a demo, identify areas of needed improvement and work to develop plan to implement these changes. Provide analysis of high priority fixes in handoff for codex\". Claude delivers a written Codex handoff (no game change, no images, no probe run): a demo definition, a feature freeze, ranked priorities and work packages DR0-DR7 with acceptance criteria, a one-week schedule, owner questions Q1-Q8 with defaults, a code-anchored audit of the Day One route, Part 2 reachability and the release pipeline, a release and demo-day runbook, and post-demo improvement areas. Two confirmed child-facing defects are opened as canonical findings (MA-VIS-011 story clips under the black cover; MA-SAVE-002 upgraded career stars shown as un-earned) and four existing findings gain dated history. Benefit: the family's first device and child session gets a rehearsed, promoted build without a black climax, a grown-up menu or a lost save. Revision 2 (same day): the owner answered \"Use the defaults\" to the eight questions; the answers and the freeze are recorded as nine ODR-DEMO-*-20261031 decisions through tools/record_owner_decision.py (cycle demo-readiness-20261031), and the README, audit, master-audit index and ledger note the answers. The Q2 canon edit and the Q7 protected-file restore needed an explicit yes that was not given, so CLAUDE.md, AGENTS.md and assets/book/ are untouched.",
   "baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
   "rules": [
     "DL-AUTH-05",
@@ -43,7 +43,10 @@
     "docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md",
     "docs/handoffs/codex_demo_readiness_2026-10-31/DEMO_RUNBOOK.md",
     "docs/handoffs/codex_demo_readiness_2026-10-31/MANIFEST.json",
-    "docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json"
+    "docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/cycles/demo-readiness-20261031/owner_answers.json"
   ],
   "validation": [
     {
@@ -69,7 +72,7 @@
     {
       "command": "python -B tools/audit_game_2d.py --regression-gate",
       "result": "PASS",
-      "evidence": "Local run after the last JSON edit: NO_REGRESSION against the exact shrinking baseline (production 3D files 52, probe 61, model files 0); strict status stays UNSATISFIED."
+      "evidence": "NO_REGRESSION on revision 1, on its receipt head fab6e359 (14 min 52 s without an import cache) and on the staged revision 2 after the owner-decision JSON edits (production 3D files 52, probe 61, model files 0); strict status stays UNSATISFIED."
     },
     {
       "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
@@ -85,9 +88,19 @@
       "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed commit, SHA-256 compared with MANIFEST.json",
       "result": "PASS",
       "evidence": "docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json: revision 1 commit dcf6f6e29fa9ea2c6899e0edb324a1bc8762b121, manifest SHA-256 ccd56a39edab4d23e2b54ac55045789c29199142213478d1e7f7016b52b704e6, 4/4 packet files and 3/3 related records match, anonymous HTTPS with no token, checked 2026-10-31T17:33:17Z."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check --base HEAD",
+      "result": "PASS",
+      "evidence": "After two intake runs (cycle demo-readiness-20261031, answered on 2026-10-31): DECISIONS COUNT 69 (60 before), RESULT ALL OK; the register diff is 108 appended lines and the generated view 9 appended rows; no existing decision changed."
+    },
+    {
+      "command": "Anonymous raw.githubusercontent.com fetch of every revision-2 packet file at the pushed commit, SHA-256 compared with MANIFEST.json",
+      "result": "PENDING",
+      "evidence": "Recorded in REMOTE_VERIFICATION.json in the revision-2 receipt commit."
     }
   ],
-  "acceptance_gaps": "Written analysis only. No game change is made, so no finding is closed and every runtime, displayed-Mobile, device, child and owner acceptance lane stays open. MA-VIS-011 and MA-SAVE-002 are V1 static findings awaiting runtime reproduction in work packages DR1 and DR3/Q1. Owner answers to Q1-Q8 are pending with stated defaults. The handoff grants no release authority; promotion still needs the owner's release instruction, a green exact-head Probe Suite and the runbook's save and device rehearsal. Game-wide master-audit satisfaction remains UNSATISFIED.",
+  "acceptance_gaps": "Written analysis only. No game change is made, so no finding is closed and every runtime, displayed-Mobile, device, child and owner acceptance lane stays open. MA-VIS-011 and MA-SAVE-002 are V1 static findings awaiting runtime reproduction in work packages DR1 and DR3/Q1. Owner answers to Q1-Q8 are recorded (defaults accepted 2026-10-31); Q1 still depends on reading the child's backed-up save. The handoff grants no release authority; promotion still needs the owner's release instruction, a green exact-head Probe Suite and the runbook's save and device rehearsal. Game-wide master-audit satisfaction remains UNSATISFIED.",
   "lessons": [
     {
       "lesson": "State-only probes passed while three owner-directed story clips play under the black transition cover; a check that the cover has cleared while a clip is active would have caught it.",

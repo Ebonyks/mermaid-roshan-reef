@@ -1,10 +1,15 @@
 # Demo readiness work order (November 2026 demo)
 
-Status: `PROPOSED / CANDIDATE`. Prepared by Claude for Codex: written
-analysis, priorities and acceptance criteria only. No game, art or audio
-change and no images. Evidence baseline: dev
+Status: `PROPOSED / CANDIDATE`, revision 2. Prepared by Claude for Codex:
+written analysis, priorities and acceptance criteria only. No game, art or
+audio change and no images. Evidence baseline: dev
 `218ae766f8e60afb3f6338b8fafce28ec9fab7f2` (2026-10-31), whose Probe Suite
 run 41215786419 passed.
+
+**Revision 2 (2026-10-31): the owner accepted every default ("Use the
+defaults").** The answers are recorded as `ODR-DEMO-FREEZE-20261031` and
+`ODR-DEMO-*-20261031` in `design/reference/owner_decisions.json`; section 7
+lists them. Codex may start with DR0.
 
 Files: this README (priorities and work packages), [AUDIT.md](AUDIT.md)
 (analysis of each high-priority fix, with code references),
@@ -80,8 +85,8 @@ Until the demo build is promoted:
   with one impact record and a green Probe Suite (`ODR-JOBART-PROCESS-20261018`
   already asks for one branch per package).
 - Park, do not merge: the flat-vector art campaign after R118, the Pop Star
-  rhythm foundation, the Racer integration (unless the owner keeps it in scope,
-  Q3), the Fashion work, the Opera exploration prototype, the minigame review,
+  rhythm foundation, the Racer integration, the Opera foyer movement repair,
+  the Arborist spray repair, the Fashion work, the Opera exploration prototype, the minigame review,
   the rig stress test, the audit self-refinement, the learning-sessions
   packet, the Rumi book and the picture book. Parked work loses nothing; it
   resumes after the demo.
@@ -104,10 +109,10 @@ Until the demo build is promoted:
 |---|---|---|
 | `codex/pool-visual-repair-20261017` (`8c4069c2`) | Owner-requested Pool repair; also fixes `MA-TOUCH-004`, the dropped fast taps in the seahorse rescue | Land (DR3) |
 | `codex/studio-scene-integration` (`b5f78e3a`) | Owner-requested Art Room furniture states and a ghost/alpha leak after reload | Land (DR3) |
-| `codex/grand-puff-care-20261017` (`e0abe9c9`, never pushed) | Owner decision `ODR-GRAND-PUFF-COLD-20261017`: Grand Puff is a friend with a cold | Push now (DR0); land if the owner says yes (Q2) |
-| `codex/opera-foyer-movement-20261017` (`2668ad75`) | Owner-reported immobile Roshan and unresponsive games in the Opera foyer | Park; the venue's doors still launch the story job without it (AUDIT D). Land after the demo unless the owner asks for it now (Q3) |
-| `codex/racer-castle-integration-20261022` (`96d6ef9e`) | Owner-directed restore of the full Canvas Racer | Park unless the owner keeps it (Q3) |
-| `codex/arborist-spray-20261015` (`941cb76d`) | Owner-reported spraying fix in the optional Tree Book practice | Park unless Part 2 shows it (Q3) |
+| `codex/grand-puff-care-20261017` (`e0abe9c9`, never pushed) | Owner decision `ODR-GRAND-PUFF-COLD-20261017`: Grand Puff is a friend with a cold | Push now (DR0); land if green by Tuesday (Q2, DR3c) |
+| `codex/opera-foyer-movement-20261017` (`2668ad75`) | Owner-reported immobile Roshan and unresponsive games in the Opera foyer | After the demo (Q3); the venue's doors still launch the story job without it (AUDIT D) |
+| `codex/racer-castle-integration-20261022` (`96d6ef9e`) | Owner-directed restore of the full Canvas Racer | Park until after the demo |
+| `codex/arborist-spray-20261015` (`941cb76d`) | Owner-reported spraying fix in the optional Tree Book practice | Park until after the demo |
 
 ## 5. Priorities and work packages
 
@@ -125,8 +130,8 @@ understandable without an adult; **after the demo** items wait without harm.
 | Should | DR5 Part 2 shaping | Picker over the ballet; voice promises a glowing door that never glows |
 | After the demo | [AUDIT F](AUDIT.md#f-areas-of-needed-improvement-after-the-demo) | Size, speed, pipeline, backups, voice sweep, Part 2 completion |
 
-Merge order: DR1+DR2 (one branch), DR3a, DR3b, DR3c (if Q2 is yes), DR4,
-DR5, then the release candidate. Each branch starts from current `dev`.
+Merge order: DR1+DR2 (one branch), DR3a, DR3b, DR3c (if green by
+Tuesday, Q2), DR4, DR5, then the release candidate. Each branch starts from current `dev`.
 
 ### DR0. Protect and freeze (Day 0, no game code)
 
@@ -139,8 +144,8 @@ DR5, then the release candidate. Each branch starts from current `dev`.
   keep today's stable APK.
 - Codex parks the sessions listed in section 3 and merges nothing else.
 - Done when: the branch is on `origin`; the save copy exists and opens as
-  JSON; the stable APK and its `.sha256` are kept; Q1-Q8 have answers or
-  defaults.
+  JSON; the stable APK and its `.sha256` are kept; the four save values are
+  in hand for Q1. (Q1-Q8 were answered on 2026-10-31.)
 
 ### DR1. Story clips visible (must) — [AUDIT C1](AUDIT.md#c1-three-story-clips-play-under-a-black-screen--blocker-ma-vis-011), `MA-VIS-011`
 
@@ -158,14 +163,14 @@ DR5, then the release candidate. Each branch starts from current `dev`.
 
 ### DR2. No grown-up surfaces (must) — [AUDIT D1, C5, C9](AUDIT.md#d1-one-tap-opens-a-dev-mode-job-menu--blocker-for-a-child-build)
 
-- If Q5 keeps the default: `OperaJobPlaytestMenu.ENABLED := false`
+- Q5 (answered: hide it): `OperaJobPlaytestMenu.ENABLED := false`
   (`scripts/opera_job_playtest_menu.gd:6`), and change
   `probe_opera.gd`'s `_audit_job_playtest_menu` leg (`:368-438`) to assert
   that `OperaLeftElevatorPlaytest` is absent while disabled.
 - Show the pause menu's FPS text only when `OS.has_feature("editor")`
   (`scripts/pause_menu.gd:62-65`, `scripts/main.gd:8241-8242`).
-- Microphone per Q4 (default: no code; the adult switches Mic off in
-  Options).
+- Microphone per Q4 (answered: no code; the adult switches Mic off in
+  Options during setup).
 - Done when: no "DEV", "playtest" or "FPS" text can be reached by touch in the
   demo build; probes pass.
 
@@ -184,11 +189,13 @@ reconciliation note, run the full local suite, then CI, then merge into
   the castle v3 manifest; re-merge `design/reference/overdraw.json` by hand.
   Fixes `MA-TOUCH-004`: move it to `FIXED_PENDING_VERIFICATION` with the
   fast-tap fixture result.
-- **DR3c Grand Puff care** (`e0abe9c9`), only if Q2 is yes. No script
-  overlap; merge the append-only documents, regenerate the audio quality
-  ledger, and bring `ODR-GRAND-PUFF-COLD-20261017` into `dev`'s decision
-  register. `CLAUDE.md` and `AGENTS.md` still state the earlier canon; change
-  them only if Q2 explicitly approves that high-risk edit.
+- **DR3c Grand Puff care** (`e0abe9c9`), in scope by Q2 if it is green by
+  Tuesday 3 November; otherwise it lands after the demo. No script overlap;
+  merge the append-only documents, regenerate the audio quality ledger, and
+  bring `ODR-GRAND-PUFF-COLD-20261017` into `dev`'s decision register.
+  `CLAUDE.md` and `AGENTS.md` still state the earlier canon. Q2 gave no
+  explicit yes for that high-risk edit, so leave both files unchanged and
+  record the mismatch in DR3c's impact record.
 - Done when: each branch's own acceptance list passes again on the merged
   head, with no new probe failure.
 
@@ -200,14 +207,14 @@ reconciliation note, run the full local suite, then CI, then merge into
   (`_day_one_room_handoff_target != ""`), show the existing
   `ghost_hand.png` on the global Back control.
 - Give each bathroom reprompt a fresh voice session id, as the Pool does.
-- Optional new line per Q6.
+- No new audio (Q6).
 - Done when: the real take plays for the castle line; the hand shows on Back
   only in finished rooms; repeated bathroom reminders are audible; probe legs
   cover all three.
 
 ### DR5. Part 2 shaping (should) — [AUDIT D](AUDIT.md#d-part-2-day-two)
 
-Default (Q3 option a, the whole party story):
+In scope by Q3 (option a, the whole party story):
 
 - Ballerina: start the ballet without activating the nook item, so the
   stuffie picker does not open over it (`main.gd:6011-6017`; no edit to
@@ -218,7 +225,8 @@ Default (Q3 option a, the whole party story):
 - Announce the current job after the Day Two card and on castle entry
   (`_chapter_two_announce_start`, `main.gd:6966`).
 
-If Q3 is option b (stop after the Painter): refuse acts outside
+Not chosen, kept for reference (Q3 option b, stop after the Painter):
+refuse acts outside
 `FIRST_WAVE_UNLOCK_MASK` (`0x0449`: Farmer, Chef, Candy Maker, Painter) in
 `ChapterTwoDirector.can_start_chapter2_act`
 (`chapter_two_director.gd:236-246`), return no plot action for the Ballerina
@@ -261,22 +269,24 @@ announcement items, DR3c, DR4, DR3a. DR0, DR1, DR2, DR6 and DR7 stay. If the
 device rehearsal fails on Thursday and Friday's fix also fails, move the demo
 rather than promote an unrehearsed build.
 
-## 7. Owner questions
+## 7. Owner answers (2026-10-31)
 
-Each has a default that Codex may use if there is no answer by the end of
-Day 0, except where a default says "only on an explicit yes" (high-risk or
-protected files).
+The owner answered "Use the defaults". Every row below is the accepted
+answer and is recorded in `design/reference/owner_decisions.json` under the
+ID shown. Q2's canon edit and Q7's restore needed an explicit yes, which was
+not given, so those files stay unchanged. The feature freeze itself is
+recorded as `ODR-DEMO-FREEZE-20261031`.
 
-| # | Question | Default |
-|---|---|---|
-| Q1 | Start the demo with New Game or Continue? | Decide from her save (runbook R0, R2). Use New Game if her save predates Day One, finished the old fight another way, or holds career stars that Chapter 2 would hide (`MA-SAVE-002`); her save is archived as `.before_new_game` and backed up. Otherwise Continue. |
-| Q2 | Put the "friend with a cold" Grand Puff (`ODR-GRAND-PUFF-COLD-20261017`) in the demo, and update the canon lines in `CLAUDE.md` and `AGENTS.md`? | Yes if DR3c is green by Tuesday; otherwise demo the current Puff and land the recast afterwards. Canon text: only on an explicit yes; otherwise leave both files unchanged and note the mismatch in the impact record. |
-| Q3 | How much of Part 2? (a) the whole party story with the DR5 fixes, ending on the Ember King cliffhanger; (b) stop after the Painter; (c) Day One only. Also: land the Opera foyer movement repair now? | (a); foyer movement after the demo. |
-| Q4 | Microphone? | Switch Mic off in Options on her device during setup; no code change. |
-| Q5 | Hide the playtest elevator for the demo build? | Yes (`ENABLED := false`); re-enable afterwards if still wanted. |
-| Q6 | Record one new synthetic line, "Let's go back to the hall!", for finished rooms? | No new audio for the demo; the hand on Back carries it. |
-| Q7 | Restore the deleted protected file `assets/book/baby_eagle.png`? | No change during the demo week. Restore the exact original from `master` only on an explicit yes; nothing uses it at runtime and it stays in history. |
-| Q8 | Demo date and device? | Saturday 7 November on the Lenovo Tab M11 named in the device protocol. |
+| # | Question | Answer (accepted default) | Decision |
+|---|---|---|---|
+| Q1 | Start the demo with New Game or Continue? | Decide from her save (runbook R0, R2). Use New Game if her save predates Day One, finished the old fight another way, or holds career stars that Chapter 2 would hide (`MA-SAVE-002`); her save is archived as `.before_new_game` and backed up. Otherwise Continue. | `ODR-DEMO-START-20261031` |
+| Q2 | Put the "friend with a cold" Grand Puff (`ODR-GRAND-PUFF-COLD-20261017`) in the demo, and update the canon lines in `CLAUDE.md` and `AGENTS.md`? | Yes if DR3c is green by Tuesday; otherwise demo the current Puff and land the recast afterwards. Canon text: only on an explicit yes; otherwise leave both files unchanged and note the mismatch in the impact record. | `ODR-DEMO-GRAND-PUFF-20261031` |
+| Q3 | How much of Part 2? (a) the whole party story with the DR5 fixes, ending on the Ember King cliffhanger; (b) stop after the Painter; (c) Day One only. Also: land the Opera foyer movement repair now? | (a); foyer movement after the demo. | `ODR-DEMO-PART2-SCOPE-20261031` |
+| Q4 | Microphone? | Switch Mic off in Options on her device during setup; no code change. | `ODR-DEMO-MIC-20261031` |
+| Q5 | Hide the playtest elevator for the demo build? | Yes (`ENABLED := false`); re-enable afterwards if still wanted. | `ODR-DEMO-PLAYTEST-ELEVATOR-20261031` |
+| Q6 | Record one new synthetic line, "Let's go back to the hall!", for finished rooms? | No new audio for the demo; the hand on Back carries it. | `ODR-DEMO-NO-NEW-AUDIO-20261031` |
+| Q7 | Restore the deleted protected file `assets/book/baby_eagle.png`? | No change during the demo week. Restore the exact original from `master` only on an explicit yes; nothing uses it at runtime and it stays in history. | `ODR-DEMO-BOOK-FILE-20261031` |
+| Q8 | Demo date and device? | Saturday 7 November on the Lenovo Tab M11 named in the device protocol. | `ODR-DEMO-DATE-DEVICE-20261031` |
 
 ## 8. Gates for every package
 

@@ -5,6 +5,9 @@ material only: no game, art or audio change, no images, no probe run.
 Baseline: dev `218ae766f8e60afb3f6338b8fafce28ec9fab7f2`. Line numbers refer
 to that commit. Entry point and work packages: [README.md](README.md).
 
+Revision 2 (2026-10-31) records the owner's answers ("Use the defaults");
+the analysis is unchanged.
+
 Method: read-only code review of the Day One route, Part 2 (Day Two)
 reachability and the release pipeline, plus `git` and `gh` queries. Nothing
 here is runtime, device, child or owner evidence. Each item says whether it
@@ -228,9 +231,9 @@ Verified by reading.
   catalog rows).
 - **Fix:** while `_day_one_room_handoff_target != ""`, show the existing
   `assets/castle/training/ghost_hand.png` pointer over the global Back
-  control, and remove it on leaving the room. Optional, owner's choice (Q6):
-  one new synthetic line in the existing filler voice, "Let's go back to the
-  hall!", with its licence row; until then the pointer carries the cue.
+  control, and remove it on leaving the room. The owner chose no new audio
+  for the demo (Q6, `ODR-DEMO-NO-NEW-AUDIO-20261031`), so the pointer
+  carries the cue.
 
 ### C4. Bathroom reminders are silent — SHOULD
 
@@ -294,8 +297,8 @@ is reached only from the dungeon, the Ember fortress and the Galaxy ice
 battle. None is on the Day One route, and the review found no visible entry
 to them after the Day Two card, although post-story Galaxy and Fairy
 Conservatory access was not reached (section D). Zero-code mitigation: switch Mic off in Options during the
-adult setup (runbook R4 step 2). The owner may instead ship
-`MIC_DEFAULT_ON := false` (Q4).
+adult setup (runbook R4 step 2), which is the owner's choice (Q4,
+`ODR-DEMO-MIC-20261031`).
 
 ---
 
@@ -343,7 +346,8 @@ Verified by reading.
 - It was added on 2026-09-30 (`b9b44fb6`) as an "Owner-requested temporary
   elevator launcher" (`opera_job_playtest_menu.gd:3`). Its runs write no save
   or reward, so it is safe, but it is a grown-up screen of words.
-- **Fix (Q5):** `ENABLED := false` for the demo build;
+- **Fix (Q5, answered: hide it, `ODR-DEMO-PLAYTEST-ELEVATOR-20261031`):**
+  `ENABLED := false` for the demo build;
   `_build_playtest_elevator` already returns early (`:532`).
   `probe_opera.gd` audits the elevator (`:80`, `:368-438`); change that leg to
   assert the elevator is absent while `ENABLED` is false. This is an explicit
@@ -400,7 +404,8 @@ on castle entry while a job is pending.
 
 Jobs 5 and 6 (Ballerina, Pop Star) are the owner-rejected designs of
 `MA-OPERA-014`; their rebuilds are not in code. They are playable and have no
-fail state. Q3 decides whether the demo shows them.
+fail state. The owner chose to show the whole story (Q3,
+`ODR-DEMO-PART2-SCOPE-20261031`).
 
 ### D6. Smaller Part 2 items — POLISH
 
@@ -506,7 +511,8 @@ Verified by reading `promote.yml`:
 - `assets/book/baby_eagle.png`, a protected book file, was deleted on `dev` in
   `d652d5a7` (2026-09-27, "Repair Castle sprite clipping and remove backpack
   Eagle"). No game script uses it; it is still in `master` (blob `bea3d685`)
-  and in history. Promotion will remove it from `master`'s tree too. Q7.
+  and in history. Promotion will remove it from `master`'s tree too. Q7: no
+  change during the demo week (`ODR-DEMO-BOOK-FILE-20261031`).
 
 ---
 
