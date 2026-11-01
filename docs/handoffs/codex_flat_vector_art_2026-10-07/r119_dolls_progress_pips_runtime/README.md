@@ -11,7 +11,7 @@ Original failures and their bounded recovery are preserved: two stale-card fixtu
 - [Local machine evidence](LOCAL_82_RESULT.json), [Dolls scene comparison](FRAME_REVIEW.json), [Geologist scene comparison](geologist_rest_repair/FRAME_REVIEW.json), and [startup recovery](chapter2_startup_recovery/RECOVERY.json).
 - [Production and separate acceptance lanes](PRODUCTION.json), [freeze disposition](DEMO_FREEZE_DISPOSITION.json), and [preservation metadata recovery](PRESERVATION_COVERAGE_RECOVERY.json).
 - [Immutable source tree](https://github.com/Ebonyks/mermaid-roshan-reef/tree/634c8e4a06aae91e30e71e5a5e314c59c29570ce), [source manifest](https://github.com/Ebonyks/mermaid-roshan-reef/blob/634c8e4a06aae91e30e71e5a5e314c59c29570ce/docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/MANIFEST.json), and [anonymous source verification](SOURCE_PARK_REMOTE_VERIFICATION.json).
-- [Delivery manifest](MANIFEST.json) and Delivery verification receipt: pending publication after anonymous byte verification..
+- [Delivery manifest](MANIFEST.json) and [Anonymous delivery verification](REMOTE_VERIFICATION.json)..
 
 Two static built-in ImageGen calls produced the empty and filled states. Native RGBA originals, editable Aseprite masters and whole 512-pixel exports are retained. The backend exposes no model version selector; no version is claimed. Animation calls: zero.
 
