@@ -922,7 +922,8 @@
     "assets_src/animation/roshan_job_rig_creative_space_20261101/evidence/regression/attempt_f59/static_summary.json",
     "ASSET_LICENSES.md",
     "audit/MASTER_AUDIT_2026-08-09.md",
-    "design/05_DOC_LEDGER.md"
+    "design/05_DOC_LEDGER.md",
+    "audit/receipts/roshan-job-rig-creative-space-20261101-remote.json"
   ],
   "validation": [
     {
@@ -977,8 +978,8 @@
     },
     {
       "command": "Own downstream GitHub payload verification",
-      "result": "PENDING",
-      "evidence": "Transport receipt pending at source snapshot; later audit/receipts record binds exact payload commit, hashes, anonymous access and check time. Archive transport never accepts this rejected candidate."
+      "result": "PASS",
+      "evidence": "audit/receipts/roshan-job-rig-creative-space-20261101-remote.json: anonymous exact remote manifest/payload/source-reference fetches and SHA-256 checks at 1d519b1a115b29ce3870aab285225ddc1ef246d3. ARCHIVE_COMPLETE only; GENERATION_READY=false and DELIVERY_ACCEPTED=false."
     }
   ],
   "acceptance_gaps": "Numerically rejected source-only review candidate. Failed tail/job seams, astronaut tail stretch and valve timing, 45 inherited mixed-slot outlines, unpublished owner shared contract, unsupported authored views and pickup/release transitions, normal-speed human review (desktop launch approval timed out), device, child and owner acceptance remain blocking. Original source/curves/common rests/weights and contact/state passes do not establish natural motion or close findings. Full project gates and own anonymous publication receipts are reported separately.",
