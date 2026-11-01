@@ -50,9 +50,8 @@ func _run_probe() -> void:
 	_check("prefixed event still resolves one speaker prefix",
 		director._voice_path("roshan", "roshan_bathroom_basket_hint", false)
 			== "res://assets/audio/voices/filler_v1/roshan_bathroom_basket_hint.ogg")
-	_check("generic talk remains distinct from required objective paths",
-		director._voice_path("roshan", "talk", false)
-			== "res://assets/audio/voices/filler_v1/roshan_talk.ogg")
+	_check("retired generic talk is silent while exact objectives remain available",
+		director._voice_path("roshan", "talk", false).is_empty())
 
 	# A required line starts first; the generic success/talk paths must not
 	# replace it in the same frame. The second exact objective is queued instead.
