@@ -1,0 +1,27 @@
+{
+  "rig_errors": [],
+  "seed_rig_sha256": "0023f07215712c50ad278d94bb7a2ebce371071c314c3b4b7811d5d16b76c327",
+  "contract_sha256": "b2a5dfe936d13ccdeb88e5c29ad268b19488de7cbe49d9b06abf84a94135fb5f",
+  "bindings": {
+    "detective": [],
+    "geologist": []
+  },
+  "new_garment_mesh_errors": [],
+  "negative_controls": {
+    "unauthored_view": true,
+    "unknown_socket": true,
+    "perspective_squash": true,
+    "rest_drift": true,
+    "common_weight_edit": true,
+    "extra_bone": true
+  },
+  "curves_preserved": {
+    "ease5": true,
+    "pulse": true,
+    "authored_pose": true,
+    "clip_length": true,
+    "build_animation": true
+  },
+  "pass": true,
+  "compatibility_scope": "Pinned14-bone rest/common weights/front grip only. Shared waist join, all mixed outline acceptance and unpublished shared contract remain separate blockers."
+}

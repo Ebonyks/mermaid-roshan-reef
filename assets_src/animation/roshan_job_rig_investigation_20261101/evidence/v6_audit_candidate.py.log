@@ -1,0 +1,26 @@
+[
+  {
+    "job": "detective",
+    "script": "seed_geometry.py",
+    "exit": 1,
+    "log": "detective_seed_geometry.log"
+  },
+  {
+    "job": "detective",
+    "script": "seed_motion.py",
+    "exit": 0,
+    "log": "detective_seed_motion.log"
+  },
+  {
+    "job": "geologist",
+    "script": "seed_geometry.py",
+    "exit": 1,
+    "log": "geologist_seed_geometry.log"
+  },
+  {
+    "job": "geologist",
+    "script": "seed_motion.py",
+    "exit": 0,
+    "log": "geologist_seed_motion.log"
+  }
+]

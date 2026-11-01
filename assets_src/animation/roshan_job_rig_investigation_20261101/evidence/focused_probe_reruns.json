@@ -1,0 +1,57 @@
+{
+  "rows": [
+    {
+      "probe": "probe_audit",
+      "exit": 0,
+      "seconds": 78.59320039999875,
+      "pass": true,
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree",
+        "-s",
+        "scripts/probe_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ]
+    },
+    {
+      "probe": "probe_opera_2d",
+      "exit": 0,
+      "seconds": 122.64036499999929,
+      "pass": true,
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree",
+        "-s",
+        "scripts/probe_opera_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ]
+    },
+    {
+      "probe": "probe_chapter2",
+      "exit": 4294967295,
+      "seconds": 162.70349010000064,
+      "pass": false,
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree",
+        "-s",
+        "scripts/probe_chapter2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ]
+    }
+  ],
+  "pass": false,
+  "initial_failures_preserved": true
+}

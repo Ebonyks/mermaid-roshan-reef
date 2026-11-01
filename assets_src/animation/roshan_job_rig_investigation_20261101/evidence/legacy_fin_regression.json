@@ -1,0 +1,11 @@
+{
+  "discovery": "Model board review identified that global fin erasure also removed the shared anatomical fin from legacy ballet/magician slots.",
+  "repair": "Restore exact seed anatomy and full ownership mask for old body/tail choices; select fin-free anatomy only for new tail choices. New body/legacy tail gets patched-neck anatomy plus only the seed anatomical fin. No old clothing is restored underneath new garments.",
+  "source": "Frozen v8 seed anatomy/ownership/original_tail, verified at b700b846",
+  "no_skeleton_change": true,
+  "generation_calls_added": 0,
+  "required_evidence": "Exact old27 mix comparison against an isolated immutable seed reference, original actions and all new mixed snapshots.",
+  "status": "PASS:270 native legacy snapshots exactly match immutable v8 seed",
+  "evidence": "legacy_seed_pixel_comparison.json",
+  "new_actions": "v6_new_action_preservation.json"
+}

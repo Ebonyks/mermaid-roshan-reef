@@ -1,0 +1,333 @@
+{
+  "ffmpeg": "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+  "clips": [
+    {
+      "job": "detective",
+      "clip": "work",
+      "frames": 193,
+      "decoded_frames": 193,
+      "rgba_mismatch_indices": [],
+      "args": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-y",
+        "-v",
+        "error",
+        "-framerate",
+        "30",
+        "-i",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\evidence\\raw_frames\\detective\\%04d.png",
+        "-frames:v",
+        "193",
+        "-c:v",
+        "apng",
+        "-plays",
+        "0",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\exports\\detective_work.apng"
+      ],
+      "lossless_pass": true,
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "time_mapping": "frame i = i/30s; endpoint included; each displayed for1/30s; no retiming or fabricated in-between pixels",
+      "sha256": "147648de74fb2a7e9d250a8807f439e794e9d74fd85d6c6478c681e164dcf490",
+      "bytes": 78819897,
+      "review_movie": {
+        "path": "review\\detective_work.mp4",
+        "sha256": "94b91d956174c024c37b8663656f1d97d69300f8ff76651654057cd61ca4d683",
+        "derivation": "actual native engine RGBA uniformly720/1024 scaled, centered on1280x720 dark field; silent diagnostic; no cinematic delivery acceptance"
+      }
+    },
+    {
+      "job": "detective",
+      "clip": "arm_bend",
+      "frames": 97,
+      "decoded_frames": 97,
+      "rgba_mismatch_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "args": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-y",
+        "-v",
+        "error",
+        "-framerate",
+        "30",
+        "-i",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\evidence\\raw_frames\\detective\\arm_bend\\%04d.png",
+        "-frames:v",
+        "97",
+        "-c:v",
+        "apng",
+        "-plays",
+        "0",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\exports\\detective_arm_bend.apng"
+      ],
+      "lossless_pass": false,
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "time_mapping": "frame i = i/30s; endpoint included; each displayed for1/30s; no retiming or fabricated in-between pixels",
+      "sha256": "eaa14b2375d59ff3c8aa577d23bc1dedb5013e2766e9c32c8889ee4e563e2a46",
+      "bytes": 32335859
+    },
+    {
+      "job": "detective",
+      "clip": "blink",
+      "frames": 73,
+      "decoded_frames": 73,
+      "rgba_mismatch_indices": [],
+      "args": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-y",
+        "-v",
+        "error",
+        "-framerate",
+        "30",
+        "-i",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\evidence\\raw_frames\\detective\\blink\\%04d.png",
+        "-frames:v",
+        "73",
+        "-c:v",
+        "apng",
+        "-plays",
+        "0",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\exports\\detective_blink.apng"
+      ],
+      "lossless_pass": true,
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "time_mapping": "frame i = i/30s; endpoint included; each displayed for1/30s; no retiming or fabricated in-between pixels",
+      "sha256": "d6c967b940bd232b9c6c16c463352c686014bddd1a5ee9e8575e09f55dc61869",
+      "bytes": 627834
+    },
+    {
+      "job": "detective",
+      "clip": "tail_bend",
+      "frames": 121,
+      "decoded_frames": 121,
+      "rgba_mismatch_indices": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "args": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-y",
+        "-v",
+        "error",
+        "-framerate",
+        "30",
+        "-i",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\evidence\\raw_frames\\detective\\tail_bend\\%04d.png",
+        "-frames:v",
+        "121",
+        "-c:v",
+        "apng",
+        "-plays",
+        "0",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\exports\\detective_tail_bend.apng"
+      ],
+      "lossless_pass": false,
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "time_mapping": "frame i = i/30s; endpoint included; each displayed for1/30s; no retiming or fabricated in-between pixels",
+      "sha256": "f45032583f5ff8100de9dccb2fa82c00ab826bea4ac66698e4e3e3a894a43f60",
+      "bytes": 43417505
+    },
+    {
+      "job": "geologist",
+      "clip": "work",
+      "frames": 193,
+      "decoded_frames": 193,
+      "rgba_mismatch_indices": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "args": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-y",
+        "-v",
+        "error",
+        "-framerate",
+        "30",
+        "-i",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\evidence\\raw_frames\\geologist\\%04d.png",
+        "-frames:v",
+        "193",
+        "-c:v",
+        "apng",
+        "-plays",
+        "0",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\exports\\geologist_work.apng"
+      ],
+      "lossless_pass": false,
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "time_mapping": "frame i = i/30s; endpoint included; each displayed for1/30s; no retiming or fabricated in-between pixels",
+      "sha256": "a4aa1f75c89840582f3ad86883a1162f330cdb062d0c5012c61868b5552d35c6",
+      "bytes": 84560218,
+      "review_movie": {
+        "path": "review\\geologist_work.mp4",
+        "sha256": "a204a2ec276cf17509fa6715810f08b1d946c00b8f57273a8dcf8688b45c8a8e",
+        "derivation": "actual native engine RGBA uniformly720/1024 scaled, centered on1280x720 dark field; silent diagnostic; no cinematic delivery acceptance"
+      }
+    },
+    {
+      "job": "geologist",
+      "clip": "arm_bend",
+      "frames": 97,
+      "decoded_frames": 97,
+      "rgba_mismatch_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "args": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-y",
+        "-v",
+        "error",
+        "-framerate",
+        "30",
+        "-i",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\evidence\\raw_frames\\geologist\\arm_bend\\%04d.png",
+        "-frames:v",
+        "97",
+        "-c:v",
+        "apng",
+        "-plays",
+        "0",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\exports\\geologist_arm_bend.apng"
+      ],
+      "lossless_pass": false,
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "time_mapping": "frame i = i/30s; endpoint included; each displayed for1/30s; no retiming or fabricated in-between pixels",
+      "sha256": "949bbd340d5eb3d24ed2a73759b96a34e2d32aa62e20b012bcf3d8c5c335b5ae",
+      "bytes": 30260146
+    },
+    {
+      "job": "geologist",
+      "clip": "blink",
+      "frames": 73,
+      "decoded_frames": 73,
+      "rgba_mismatch_indices": [],
+      "args": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-y",
+        "-v",
+        "error",
+        "-framerate",
+        "30",
+        "-i",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\evidence\\raw_frames\\geologist\\blink\\%04d.png",
+        "-frames:v",
+        "73",
+        "-c:v",
+        "apng",
+        "-plays",
+        "0",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\exports\\geologist_blink.apng"
+      ],
+      "lossless_pass": true,
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "time_mapping": "frame i = i/30s; endpoint included; each displayed for1/30s; no retiming or fabricated in-between pixels",
+      "sha256": "1eac71c451d92d98820df8e35cbb5172bf2be2370c937e9dafb21c0f72b91790",
+      "bytes": 593628
+    },
+    {
+      "job": "geologist",
+      "clip": "tail_bend",
+      "frames": 121,
+      "decoded_frames": 121,
+      "rgba_mismatch_indices": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "args": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-y",
+        "-v",
+        "error",
+        "-framerate",
+        "30",
+        "-i",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\evidence\\raw_frames\\geologist\\tail_bend\\%04d.png",
+        "-frames:v",
+        "121",
+        "-c:v",
+        "apng",
+        "-plays",
+        "0",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\rig-investigation-worktree\\assets_src\\animation\\roshan_job_rig_investigation_20261101\\exports\\geologist_tail_bend.apng"
+      ],
+      "lossless_pass": false,
+      "native_dimensions": [
+        1024,
+        1024
+      ],
+      "time_mapping": "frame i = i/30s; endpoint included; each displayed for1/30s; no retiming or fabricated in-between pixels",
+      "sha256": "9b93cafad8d206b1a06f64f158e8fbda3f91f34917673c0784982ad2a100bb36",
+      "bytes": 40704861
+    }
+  ],
+  "pass": false
+}

@@ -1,0 +1,59 @@
+{
+  "arm_bend": {
+    "max_angular_speed_deg_s": 115.41026380396421,
+    "max_angular_acceleration_deg_s2": 394.22421169226624,
+    "joint_min_alpha": {
+      "LeftUpper": 255,
+      "LeftFore": 255,
+      "LeftHand": 252
+    },
+    "endpoint_matrix_error": 0.0,
+    "closed_blink_frames": 0,
+    "half_blink_frames": 0,
+    "double_lid_frames": 0,
+    "pass": true
+  },
+  "blink": {
+    "max_angular_speed_deg_s": 0.0,
+    "max_angular_acceleration_deg_s2": 0.0,
+    "joint_min_alpha": {
+      "LeftUpper": 255,
+      "LeftFore": 255,
+      "LeftHand": 252
+    },
+    "endpoint_matrix_error": 0.0,
+    "closed_blink_frames": 2,
+    "half_blink_frames": 5,
+    "double_lid_frames": 0,
+    "pass": true
+  },
+  "tail_bend": {
+    "max_angular_speed_deg_s": 21.93275168176941,
+    "max_angular_acceleration_deg_s2": 64.60235573141505,
+    "joint_min_alpha": {
+      "LeftUpper": 255,
+      "LeftFore": 255,
+      "LeftHand": 252
+    },
+    "endpoint_matrix_error": 0.0,
+    "closed_blink_frames": 0,
+    "half_blink_frames": 0,
+    "double_lid_frames": 0,
+    "pass": true
+  },
+  "negative_controls": {
+    "90_degree_pose_pop_detected": true,
+    "measured_fault": {
+      "max_angular_speed_deg_s": 2700.0000000002788,
+      "max_angular_acceleration_deg_s2": 162000.0000000324
+    }
+  },
+  "thresholds": {
+    "angular_speed_deg_s": 140,
+    "angular_acceleration_deg_s2": 650,
+    "attachment_alpha_min": 192,
+    "endpoint_matrix_error": 1e-05
+  },
+  "limits": "Numerical smoothness/contact proxy only. No guarantee of natural acting; owner/device/child review pending.",
+  "pass": true
+}

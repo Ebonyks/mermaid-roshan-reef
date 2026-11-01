@@ -1,0 +1,28 @@
+{
+  "invalid_atomic": true,
+  "rows": [
+    {
+      "accepted": true,
+      "exact_slots": true,
+      "theme": "ballet"
+    },
+    {
+      "accepted": true,
+      "exact_slots": true,
+      "theme": "magician"
+    },
+    {
+      "accepted": true,
+      "exact_slots": true,
+      "theme": "detective"
+    },
+    {
+      "accepted": true,
+      "exact_slots": true,
+      "theme": "geologist"
+    }
+  ],
+  "scope": "source-only stable catalog IDs; no production wardrobe unlock added",
+  "evidence_candidate": "v5 catalog metadata lane; actor/selector code is identical to preferredv4",
+  "not_production_unlocks": true
+}
