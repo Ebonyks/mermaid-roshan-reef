@@ -5,6 +5,7 @@ extends SceneTree
 ## receive ordinary touch input, including the mouse-emulation path.
 
 var failures: int = 0
+var touch_studio: DayOneArtStudio
 
 
 func _init() -> void:
@@ -83,8 +84,12 @@ func _run() -> void:
 	# world owner that the real Craft Room mounts before the studio opens.
 	main.castle_room_world_root = Node2D.new()
 	root.add_child(main.castle_room_world_root)
+	main.castle_room_player_sprite = Sprite2D.new()
+	main.castle_room_world_root.add_child(main.castle_room_player_sprite)
+	main.castle_room_player_sprite.position = Vector2(640, 600)
 	root.add_child(studio)
 	studio.setup(main, false)
+	touch_studio = studio
 	var studio_audit: Dictionary = studio.audit_snapshot()
 	_check("studio builds seven large Canvas cleanup targets at castle scale",
 		int(studio_audit.get("material_count", 0)) == 4
@@ -145,7 +150,8 @@ func _run() -> void:
 	for grime: Dictionary in DayOneArtStudio.GRIME:
 		var grime_id: String = String(grime["id"])
 		var grime_card: Sprite2D = studio._grime_art[grime_id] as Sprite2D
-		var grime_center: Vector2 = grime_card.get_global_transform_with_canvas().origin
+		var grime_center: Vector2 = studio.get_global_transform_with_canvas() \
+			* studio._grime_center(grime_id)
 		var hand_center: Vector2 = studio._pointer.get_global_transform_with_canvas() \
 			* (studio._pointer.size * 0.5)
 		_check("hand points above visible %s" % grime_id,
@@ -262,6 +268,10 @@ func _art_gui_tap(point: Vector2) -> void:
 	release.position = point
 	Input.parse_input_event(release)
 	await process_frame
+	if touch_studio != null and is_instance_valid(touch_studio):
+		for _step: int in range(160):
+			touch_studio._contact_action._process(0.05)
+			touch_studio._process(0.05)
 
 
 func _check(label: String, ok: bool) -> void:

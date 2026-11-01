@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "care_parent": "262a528ba19cf47691c0ff419ca5b72395491b18",
+  "incoming_dev_parent": "1549c3777b653381030a3cc47f5b2479fb0d9a72",
+  "conflicts": [
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/audio_quality_summary_2026-08-24.json"
+  ],
+  "resolution": "Keep both license/master additions. Regenerate canonical audio ledger and summary from actual combined assets rather than choosing either stale inventory digest.",
+  "audio_receipt": "r2_audio_ledger_write.json",
+  "care_gameplay_unchanged_from": "ee5a9cecd78c27e9897f7c5e2eeb62385506a572",
+  "upstream_workflow": {
+    "path": ".github/workflows/probes.yml",
+    "unmodified_from_incoming": true,
+    "change": "Existing upstream probes job timeout55->90 minutes; checks/action pins/permissions unchanged.",
+    "owner_authorization": "audit/area_music/opera_melody_20261017/ci_budget_authorization.json",
+    "authorship": "Preserved published upstream change; no independently authored workflow edit."
+  }
+}

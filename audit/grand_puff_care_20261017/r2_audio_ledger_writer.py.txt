@@ -1,0 +1,21 @@
+from pathlib import Path
+import subprocess, json, time, sys
+root = Path(__file__).resolve().parents[2]
+out = root / 'audit/grand_puff_care_20261017'
+command = [sys.executable, '-B', 'tools/audit_audio_quality.py']
+start = time.time()
+with (out / 'r2_audio_ledger_write.log').open('w', encoding='utf-8') as log:
+    child = subprocess.Popen(command, cwd=root, stdout=log, stderr=subprocess.STDOUT, creationflags=0x08000000)
+    receipt = {'status': 'RUNNING', 'command': command, 'pid': child.pid, 'purpose': 'Compute actual combined inventory for unchanged five care cues plus incoming Opera melody; do not select either stale conflict hash.'}
+    (out / 'r2_audio_ledger_write.json').write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf-8')
+    print('CARE_R2_AUDIO_WRITE|STARTED|' + str(child.pid), flush=True)
+    code = child.wait()
+receipt.update(status='PASS' if code == 0 else 'FAIL', exit=code, seconds=round(time.time() - start, 3))
+if code == 0:
+    summary = json.loads((root / 'audit/audio_quality_summary_2026-08-24.json').read_text(encoding='utf-8'))
+    assert summary['inventory_count'] == 862 and summary['cohorts']['objective_guides'] == 7 and summary['protected_count'] == 13
+    receipt.update(inventory_count=862, objective_guides=7, protected_count=13, inventory_sha256=summary['inventory_sha256'])
+    subprocess.run(['git', 'add', '--', 'audit/audio_quality_ledger_2026-08-24.csv', 'audit/audio_quality_summary_2026-08-24.json'], cwd=root, check=True)
+(out / 'r2_audio_ledger_write.json').write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf-8')
+print(json.dumps(receipt), flush=True)
+sys.exit(code)

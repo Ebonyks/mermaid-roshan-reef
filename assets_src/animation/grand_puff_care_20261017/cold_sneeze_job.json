@@ -1,0 +1,134 @@
+{
+  "job_id": "grand-puff-cold-sneeze-20261017",
+  "revision": 1,
+  "date": "2026-10-17",
+  "source_commit": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+  "lane": "gameplay_sprite_candidate",
+  "intention": "A friend with a cold feels a sneeze coming, sneezes involuntarily, then relaxes gratefully when Roshan cleans his dusty shell.",
+  "action": "Four complete painted keys: sniffly rest, breath in, gentle achoo, relieved smile. Whole cloud body and attached ears respond coherently. Two pearl paws remain grounded. No attacking expression, new limbs, harmful impact or frightening illness.",
+  "fixed": "Lavender cloud curls, triangular mound silhouette, two spiral ears, forehead star, two pearl paws, authored paint and contours, orthographic front camera.",
+  "entry_exit": "Cell-local foot anchor (256,470). Whole character inside x40..472/y40..470. Grounded sniffly entry and grateful settled exit; authored durations and transitions reviewed separately.",
+  "reuse_gap": "Runtime jump/flinch/angry sheets lack sympathetic cold/sneeze/relief acting. Existing soap bubbles and rainbow friend are reusable. No original book PDF/manuscript found in tracked files; direct owner statement supplies canon, existing painted references supply identity.",
+  "method": "One bounded built-in ImageGen identity-preserving sheet edit for named pose keys; local authored 2D timing with Aseprite bridge if available. No video backend, per-frame campaign, 3D fallback or alteration of selected footage.",
+  "runtime_layout": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "grid": [
+      2,
+      2
+    ],
+    "cell": [
+      512,
+      512
+    ],
+    "reading_order": [
+      "sniffly_rest",
+      "breath_in",
+      "achoo",
+      "relief"
+    ],
+    "background": "true RGBA transparency"
+  },
+  "tolerances": "Common grounded feet/pivot <=4px drift after lossless registration; no cropping, neighbor bleed, extra parts or unexplained body-size changes. Inspect all cells and engine transitions at full speed and frame-step.",
+  "limits": {
+    "generated_takes": 2,
+    "built_in_calls_used": 1,
+    "wall_minutes": 20,
+    "cleanup_minutes": 40,
+    "paid_external_api_budget": 0,
+    "usage_policy": "Built-in image tool only; record exposed usage or call counts. No separately billed API or family imitation."
+  },
+  "stop": "After two nonviable takes or cap, preserve rejects, diagnose and continue independent work. No cap reset.",
+  "inputs": [
+    {
+      "path": "assets_src/cinematics/d1_c13_grand_puff_friendship_completion_visual_v1/handoff_art/characters/grand_puff.png",
+      "sha256": "e585e525624f4da1bc06fb468dd5618fc608b103565a907ce797f29c85e844ef",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "identity_reference",
+      "acceptance_scope": "Existing identity reference; no new pose acceptance",
+      "modification": "Original preserved"
+    },
+    {
+      "path": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png",
+      "sha256": "26694e302edfae4bb5c5313c010caf8fc3bb94943a01617b7d7eeb0db0205977",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "runtime_style_and_cell_reference",
+      "acceptance_scope": "Existing runtime family; appearance and topology reference",
+      "modification": "Original preserved"
+    }
+  ],
+  "attempts": [
+    {
+      "number": 1,
+      "prompt_path": "prompt_take01.txt",
+      "native_path": "native_take01.png",
+      "actual_native_dimensions": [
+        1254,
+        1254
+      ],
+      "requested_dimensions": [
+        1024,
+        1024
+      ],
+      "tool_output_id": "exec-5be8efc2-e446-4bd2-a659-d6f0f404aa99",
+      "provider_revision": "not exposed",
+      "seed": "not exposed",
+      "tool_wall_seconds": 40.9,
+      "usage": "one built-in call; billing not exposed",
+      "disposition": "CANDIDATE: whole-key registration and saturated matte cleanup in Aseprite; runtime and human review pending",
+      "prompt_sha256": "cef0b1645634d486ca86b7a929df371a362123e2981615dee1263b71be1b47ee",
+      "native_sha256": "f5fbad7a870bdfb028ad4c8eab8e31cf316bc1880add33de2de41586907803c0",
+      "native_dimensions": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "provider_revision": "Hosted revision/seed may not be exposed; retain returned IDs without inventing them.",
+  "reviews": {
+    "identity_topology_style": "PENDING",
+    "motion_contact_transitions": "PENDING",
+    "source_export_machine": "PASS",
+    "gameplay_machine": "Scoped care, touch, checkpoint, ending, audio and display probes pass; full suite pending.",
+    "device": "PENDING",
+    "child_owner": "PENDING"
+  },
+  "cinematic_machine": "NOT_APPLICABLE: gameplay atlas; selected Day One movie bytes unchanged.",
+  "archive_status": "IN_PREPARATION",
+  "runtime_integration": "CANDIDATE: new Canvas sprite on existing attic layer, original encounter geometry/timing retained; selected ending movie reused unchanged.",
+  "delivery_accepted": false,
+  "derivatives": [
+    {
+      "path": "native_take01.png",
+      "sha256": "f5fbad7a870bdfb028ad4c8eab8e31cf316bc1880add33de2de41586907803c0"
+    },
+    {
+      "path": "grand_puff_cold_keys.aseprite",
+      "sha256": "785f9f70e6d4d8267b16ead11b9762a16ed4c056c1337e7f0bac84f183f22bd7"
+    },
+    {
+      "path": "pose_registration.json",
+      "sha256": "acf33a006217c58a64f7d7df72613f4e7589fd820930eb3f43311c8eccae9ebb"
+    },
+    {
+      "path": "assets/sprites/dust_bunnies/boss/grand_puff_cold_keys_v1.png",
+      "sha256": "6fef220e68dbc2cb4c4cbc0d8cc158c2be601a0209a171c6038b98a745ba527c"
+    }
+  ],
+  "agent_static_review": "Four whole painted poses inspected. Aseprite removed 9941 saturated matte pixels and 84 faint isolated pixels below relieved support; original native untouched. Runtime Mobile screenshot review shows sympathetic acting and soap reaching coat. Human full-speed identity/motion, device/child/owner acceptance remains open.",
+  "machine_evidence": "audit/grand_puff_care_20261017/art_export_verification.json",
+  "local_cleanup_time": "NOT_MEASURED for initial prototype; final automated verification timed in machine receipt. Final creative/time-accounting acceptance remains open.",
+  "local_workflow_script": {
+    "path": "assets_src/animation/grand_puff_care_20261017/register_poses.lua",
+    "sha256": "be863896ab201608c718d749189c406ac006db95034c1ef5f79361fb8136bd4b",
+    "version": "Aseprite 1.3.18.4, Lua API41"
+  }
+}

@@ -22,7 +22,7 @@ const GRIME: Array[Dictionary] = [
 	{"id": "right_counter", "label": "right counter grime", "center": Vector2(854.0, 385.0),
 		"hit_size": Vector2(150.0, 110.0), "radius": Vector2(48.0, 12.0)},
 ]
-const DESK_CENTER := Vector2(512.0, 325.0)
+const DESK_CENTER := Vector2(512.0, 311.0)
 const DESK_HIT_SIZE := Vector2(310.0, 158.0)
 const SOURCE_CANVAS_SIZE := Vector2(1024.0, 576.0)
 const ART_TO_STAGE := 1.25
@@ -33,6 +33,7 @@ const ART_PAINT_CUPS := preload("res://assets/castle/day_one_art_studio/paint_cu
 const ART_GRIME_LEFT := preload("res://assets/castle/day_one_art_studio/grime_left.png")
 const ART_GRIME_DESK := preload("res://assets/castle/day_one_art_studio/grime_desk.png")
 const ART_GRIME_RIGHT := preload("res://assets/castle/day_one_art_studio/grime_right.png")
+const CLEANING_BRUSH := preload("res://assets/castle/day_one_art_studio/magic_cleaning_brush.png")
 const CONTACT_SHADOW := preload("res://assets/flats/castle/rooms/room_actor_shadow.png")
 const SPARKLE_COLORS: Array[Color] = [
 	Color(1.0, 0.83, 0.38), Color(0.52, 0.94, 1.0),
@@ -54,6 +55,11 @@ var _pulse_time: float = 0.0
 var _announcements_enabled: bool = true
 var _customizer_open: bool = false
 var _voice_session_id: String = "art_visit_0"
+var _furniture := DayOneArtFurniture2D.new()
+var _pending_kind: String = ""
+var _pending_id: String = ""
+var _carrying: bool = false
+var _tearing_down: bool = false
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
@@ -83,11 +89,13 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 
 
 func teardown() -> void:
+	_tearing_down = true
 	m._navigation_remove("day_one_art_studio")
 	set_process(false)
 	_customizer_open = false
 	if _contact_action != null:
 		_contact_action.cancel()
+	_furniture.teardown()
 	if _world_visual_layer != null and is_instance_valid(_world_visual_layer):
 		_world_visual_layer.queue_free()
 	_world_visual_layer = null
@@ -107,7 +115,7 @@ func refresh_from_state() -> void:
 			material_id, false))
 		material_button.visible = not collected
 		material_button.mouse_filter = Control.MOUSE_FILTER_STOP \
-			if not collected else Control.MOUSE_FILTER_IGNORE
+			if not collected and _pending_id == "" else Control.MOUSE_FILTER_IGNORE
 		var material_card: Sprite2D = _material_art.get(material_id) as Sprite2D
 		if material_card != null:
 			material_card.visible = not collected
@@ -120,10 +128,9 @@ func refresh_from_state() -> void:
 		var materials_ready: bool = _all_materials_collected()
 		grime_button.visible = materials_ready and not cleaned
 		grime_button.mouse_filter = Control.MOUSE_FILTER_STOP \
-			if not cleaned else Control.MOUSE_FILTER_IGNORE
-		var grime_card: Sprite2D = _grime_art.get(grime_id) as Sprite2D
-		if grime_card != null:
-			grime_card.visible = materials_ready and not cleaned
+			if grime_button.visible and _pending_id == "" else Control.MOUSE_FILTER_IGNORE
+	if _pending_kind != "grime":
+		_furniture.refresh(m.day_one_art_cleaned_grime)
 	var ready: bool = bool(m.day_one_art_desk_unlocked)
 	if _desk_button != null:
 		_desk_button.visible = ready and not _customizer_open
@@ -147,6 +154,9 @@ func audit_snapshot() -> Dictionary:
 		"expected_tap_count": MATERIALS.size() + GRIME.size(),
 		"child_sized_hit_targets": _child_sized_hit_targets(),
 		"canvas_only": true,
+		"dirty_furniture_count": _furniture.cards.size(),
+		"pending_kind": _pending_kind,
+		"pending_id": _pending_id,
 	}
 
 
@@ -162,6 +172,11 @@ func probe_collect_all() -> bool:
 
 func _process(delta: float) -> void:
 	_pulse_time += maxf(delta, 0.0)
+	if _carrying and _contact_action.active:
+		var carried: Sprite2D = _material_art.get(_pending_id) as Sprite2D
+		if carried != null:
+			carried.global_position = _contact_action.to_global(
+				_contact_action.hand_offset)
 	if _pointer != null and is_instance_valid(_pointer) and _pointer.visible:
 		_pointer.scale = Vector2.ONE * (1.0 + sin(_pulse_time * 4.2) * 0.10)
 		_pointer.rotation = sin(_pulse_time * 2.7) * 0.055
@@ -173,11 +188,7 @@ func _process(delta: float) -> void:
 func _draw() -> void:
 	# Representational supplies and grime are texture-backed cards.  Only the
 	# transient desk invitation remains code-native.
-	if m != null and bool(m.day_one_art_desk_unlocked):
-		var ring_scale: float = 1.0 + sin(_pulse_time * 3.2) * 0.06
-		for ring: int in range(3):
-			draw_arc(DESK_CENTER, (92.0 + float(ring) * 21.0) * ring_scale,
-				0.0, TAU, 40, Color(1.0, 0.84, 0.35, 0.32 - ring * 0.08), 8.0)
+	pass
 
 
 func _build_targets() -> void:
@@ -190,7 +201,7 @@ func _build_targets() -> void:
 	for grime: Dictionary in GRIME:
 		var grime_id: String = String(grime["id"])
 		_grime_buttons[grime_id] = _make_target_button(
-			"Scrub_" + grime_id, grime["center"] as Vector2,
+			"Scrub_" + grime_id, _grime_center(grime_id),
 			grime["hit_size"] as Vector2, _on_grime_pressed.bind(grime_id))
 	_desk_button = _make_target_button("OpenPaintDesk", DESK_CENTER, DESK_HIT_SIZE,
 		_on_desk_pressed)
@@ -216,6 +227,7 @@ func _build_item_art() -> void:
 	_world_visual_layer = Node2D.new()
 	_world_visual_layer.name = "DayOneArtStudioWorldVisuals"
 	m.castle_room_world_root.add_child(_world_visual_layer)
+	_furniture.setup(m, ART_TO_STAGE)
 	# These are the only new loose supplies. Existing stored brushes, bottles,
 	# cups, palette and paint table remain owned by the accepted room cards.
 	_material_art["brushes"] = _make_world_card("LooseBrushes", ART_BRUSHES,
@@ -237,15 +249,9 @@ func _build_item_art() -> void:
 			center + Vector2(0.0, 27.0), shadow_size, 249,
 			Color(0.22, 0.18, 0.40, 0.34))
 	# Surface marks share the room's own world depth rather than the stage UI.
-	_grime_art["left_counter"] = _make_world_card("GrimeLeft", ART_GRIME_LEFT,
-		Vector2(180.0, 385.0), Vector2(82.0, 18.0), 401,
-		Color(0.78, 0.72, 0.90, 0.70), -0.025)
-	_grime_art["desk_counter"] = _make_world_card("GrimeDesk", ART_GRIME_DESK,
-		Vector2(512.0, 290.0), Vector2(96.0, 18.0), 201,
-		Color(0.78, 0.72, 0.90, 0.68), 0.01)
-	_grime_art["right_counter"] = _make_world_card("GrimeRight", ART_GRIME_RIGHT,
-		Vector2(854.0, 385.0), Vector2(82.0, 18.0), 401,
-		Color(0.78, 0.72, 0.90, 0.70), 0.025)
+	# Keep the established audit seam pointed at each actual surface, rather
+	# than creating another translucent grime decal above a clean fixture.
+	_grime_art = _furniture.cards.duplicate()
 
 
 func _make_world_card(card_name: String, texture: Texture2D, center: Vector2,
@@ -297,18 +303,38 @@ func _build_pointer() -> void:
 
 
 func _on_material_pressed(material_id: String) -> void:
-	if _contact_action.available():
-		_contact_action.request(_material_center(material_id), Callable(self, "_finish_material").bind(material_id))
-	else:
-		_finish_material(material_id)
+	if m == null or _pending_id != "" or not _contact_action.available() \
+			or bool(m.day_one_art_collected_materials.get(material_id, false)):
+		return
+	_pending_kind = "material"
+	_pending_id = material_id
+	if not _contact_action.request(_material_center(material_id),
+			_start_storing.bind(material_id), {"cancelled": _cancel_pending}):
+		_cancel_pending()
+	refresh_from_state()
+
+
+func _start_storing(material_id: String) -> void:
+	if _tearing_down or _pending_id != material_id:
+		return
+	_carrying = true
+	var card: Sprite2D = _material_art.get(material_id) as Sprite2D
+	var floor_shadow: Sprite2D = _material_shadows.get(material_id) as Sprite2D
+	if card != null:
+		card.z_index = 600
+	if floor_shadow != null:
+		floor_shadow.visible = false
+	if not _contact_action.request(_storage_center(material_id),
+			_finish_material.bind(material_id), {"cancelled": _cancel_pending}):
+		_cancel_pending()
 
 
 func _finish_material(material_id: String) -> void:
 	if m == null or bool(m.day_one_art_collected_materials.get(material_id, false)):
 		return
 	m._ui_tap()
-	_spawn_clean_sparkles(_material_center(material_id))
-	_animate_storage_station(material_id)
+	_clear_pending()
+	_spawn_clean_sparkles(_storage_center(material_id))
 	if not _record_cleanup("material", material_id):
 		return
 	_say_day_one_context(_material_context_key(material_id),
@@ -332,21 +358,34 @@ func _animate_storage_station(material_id: String) -> void:
 
 
 func _on_grime_pressed(grime_id: String) -> void:
-	if _contact_action.available():
-		_contact_action.request(_grime_center(grime_id), Callable(self, "_finish_grime").bind(grime_id))
-	else:
-		_finish_grime(grime_id)
+	if m == null or _pending_id != "" or not _all_materials_collected() \
+			or not _contact_action.available() \
+			or bool(m.day_one_art_cleaned_grime.get(grime_id, false)):
+		return
+	_pending_kind = "grime"
+	_pending_id = grime_id
+	_say_day_one_context(_grime_context_key(grime_id),
+		_grime_context_caption(grime_id))
+	if not _contact_action.request(_furniture.scrub_start(grime_id),
+			_finish_grime.bind(grime_id), {
+				"tool_texture": CLEANING_BRUSH,
+				"tool_size": Vector2(68.0, 68.0),
+				"work_duration": 1.10,
+				"work_end": _furniture.scrub_end(grime_id),
+				"work_progress": _scrub_progress.bind(grime_id),
+				"cancelled": _cancel_pending}):
+		_cancel_pending()
+	refresh_from_state()
 
 
 func _finish_grime(grime_id: String) -> void:
 	if m == null or bool(m.day_one_art_cleaned_grime.get(grime_id, false)):
 		return
 	m._ui_tap()
+	_clear_pending()
 	_spawn_clean_sparkles(_grime_center(grime_id))
 	if not _record_cleanup("grime", grime_id):
 		return
-	_say_day_one_context(_grime_context_key(grime_id),
-		_grime_context_caption(grime_id))
 	if _all_grime_cleaned():
 		_say_day_one_context("day1_art_desk_unlock",
 			"The paint table is glowing! Let's make something!", 0)
@@ -369,6 +408,15 @@ func _on_desk_pressed() -> void:
 	_say_day_one_context("day1_art_desk_open",
 		"The paint desk is open!", 0)
 	m._open_attack_customizer(Callable(self, "_on_customization_confirmed"))
+	var picker: AttackCustomizer = m._attack_customizer
+	if picker != null and not picker.closed.is_connected(_on_picker_closed):
+		picker.closed.connect(_on_picker_closed)
+
+
+func _on_picker_closed() -> void:
+	if not _tearing_down and is_instance_valid(self):
+		_customizer_open = false
+		refresh_from_state()
 
 
 func _on_customization_confirmed(_result: Variant = null) -> void:
@@ -415,7 +463,7 @@ func _refresh_pointer() -> void:
 	if not found:
 		for grime: Dictionary in GRIME:
 			if not bool(m.day_one_art_cleaned_grime.get(String(grime["id"]), false)):
-				target = grime["center"] as Vector2
+				target = _grime_center(String(grime["id"]))
 				found = true
 				break
 	if not found and bool(m.day_one_art_desk_unlocked) and not _customizer_open:
@@ -521,10 +569,49 @@ func _material_center(material_id: String) -> Vector2:
 
 
 func _grime_center(grime_id: String) -> Vector2:
+	if DayOneArtFurniture2D.FIXTURES.has(grime_id):
+		return _furniture.contact(grime_id)
 	for grime: Dictionary in GRIME:
 		if String(grime["id"]) == grime_id:
 			return grime["center"] as Vector2
 	return DESK_CENTER
+
+
+func _storage_center(material_id: String) -> Vector2:
+	# Free painted work spaces, away from the existing stored inventory.
+	if material_id in ["brushes", "blue_paint"]:
+		return _furniture.contact("desk_counter")
+	return _furniture.contact("left_counter")
+
+
+func _scrub_progress(value: float, grime_id: String) -> void:
+	if _pending_kind == "grime" and _pending_id == grime_id:
+		_furniture.set_progress(grime_id, value)
+
+
+func _clear_pending() -> void:
+	_pending_id = ""
+	_pending_kind = ""
+	_carrying = false
+
+
+func _cancel_pending() -> void:
+	if _tearing_down:
+		return
+	if _pending_kind == "material":
+		var card: Sprite2D = _material_art.get(_pending_id) as Sprite2D
+		if card != null:
+			card.position = _material_center(_pending_id) * ART_TO_STAGE
+			card.z_index = 250
+	_clear_pending()
+	refresh_from_state()
+
+
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED,
+			NOTIFICATION_PAUSED]:
+		if _contact_action != null:
+			_contact_action.cancel()
 
 
 func _child_sized_hit_targets() -> bool:

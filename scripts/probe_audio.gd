@@ -119,6 +119,19 @@ func _init() -> void:
 	_check("Galaxy cue keeps the Lagoon ambience bed",
 		main.ambience.stream != null
 		and main.ambience.stream.resource_path.ends_with("ambience_lagoon.ogg"))
+	var previous_game: String = main.game
+	main.game = "dustboss"
+	var audio: AudioDirector = main._audio_ref()
+	for event: String in ["puff_cold_intro", "puff_clean", "puff_relief", "puff_almost", "puff_healthy"]:
+		audio.objective_guide(event)
+		audio._say("roshan", "talk")
+		_check("care cue owns exact Guide speech " + event,
+			audio._active_required_key == "guide_" + event
+			and main.audio_active_guide_mode == "dustboss" and audio._has_active_speech())
+		audio.clear_objective_guide("dustboss")
+		_check("care teardown retires speech " + event,
+			audio._active_required_key.is_empty() and not audio._has_active_speech())
+	main.game = previous_game
 	print("AUDIO|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit()
 

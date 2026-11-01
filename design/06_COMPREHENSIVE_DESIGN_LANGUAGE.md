@@ -637,6 +637,16 @@ pending) rebuild the Racer as a true-Canvas side-scrolling three-lane race in th
 replacing TUNE, TO THE LINE and the circle/steering grammar. The ban on an
 external kart scene or a probe-only bypass stays. This rule describes the
 shipping race until the rebuild lands and is then rewritten.
+Owner direction 2026-10-22 instead commissions integration of the already developed
+full Canvas racer using the generated Castle-room tracks. The existing exact
+`op_racer_steer` recording teaches the current gesture. The legacy
+`op_racer_lap_two` recording says “Draw big racing circles” and is retained for
+its historical circle game, not inserted into this driving implementation.
+A new second-lap spoken cue remains an audio gap. The contained career
+caller, single input/simulation path, implicit playfield steering and existing
+reward/save ownership remain binding; the October18 side-scroll handoff is a
+separate unimplemented candidate. Current scoped evidence is recorded in
+[the integration impact](audit_impacts/racer-castle-integration-20261022.json).
 
 `DL-INT-11` — Candymaker SYRUP uses one complete phone-legible mold and one
 generous pitcher grab region. The painted left spout, transformed stream origin,
@@ -663,6 +673,20 @@ preserves product source `51d0abc0`, passes exact local/topic/dev machine
 gates, and has matching dev APK evidence from Android run `31763879294`.
 Route cards MUST preserve their large touch targets without obscuring Roshan's
 lower body/tail.
+
+Owner correction 2026-10-17 adds a scoped playable-foyer exception to
+`DL-INT-12`: Roshan travels on the existing foyer floor, stairs and right lift;
+four bottom doors expose Farmer, Chef, Candy Maker and Painter. All four
+completions open Ballerina, Pop Star, Astronaut and Detective on the balcony.
+These doors launch the existing games on arrival and return to the exact foyer
+position. Chapter Two retains its sequential party contributions, independent
+save mask, late candle and Ballerina/Detective story contexts; those two authored
+games may also start through their foyer doors at the same valid story boundary.
+Freeplay uses earned `opera_stars` for the four-completion gate. The existing
+Magician remains in the upper gallery after those eight; unrelated career homes
+and retired boss tombstones are unchanged. This bounded owner correction
+supersedes the conflicting no-central-entry wording above only for these doors.
+See [impact and evidence](audit_impacts/opera-foyer-movement-20261017.json).
 
 Owner direction 2026-09-30 adds a scoped temporary developer exception to
 `DL-INT-12`: the Opera House's painted left elevator opens a playtest menu for
@@ -1094,11 +1118,15 @@ repair. They play only between scenes and never replace a child action. Each
 clip records source path and SHA-256, frame range, encoding and output SHA-256
 in a runtime manifest and `ASSET_LICENSES.md`. Status is
 `OWNER_DIRECTED_RUNTIME_CLIP`, never `DELIVERY_ACCEPTED`; other chapters, new
-footage and replacement shots follow the current workflow gates. Canon: Grand
-Puff is a friend trapped under dirt that made him grumpy and scary; Roshan
-faces him alone, the family joins only in the transformation clip after he is
-beaten, and the rainbow dust bunny then follows Roshan like Baby Eagle. The
-complete terms are in `AGENTS.md`.
+footage and replacement shots follow the current workflow gates. Canon,
+clarified by the owner on 2026-10-17: Grand Puff is a friend sick with a cold,
+never bad or evil. Roshan cleans his dusty coat; happy and healthy, the rainbow
+dust bunny jumps out of his old shell, then follows Roshan like Baby Eagle.
+Roshan helps alone in gameplay; the family joins only in the transformation
+clip after cleaning is complete. Preserve the original battle patterns, shapes
+and timing. This [scoped care correction](GRAND_PUFF_CARE_2026-10-17.md)
+supersedes prior grumpy/scary/beaten intent, while the selected clip source,
+straight-cut and acceptance restrictions above and in `AGENTS.md` remain.
 
 ---
 

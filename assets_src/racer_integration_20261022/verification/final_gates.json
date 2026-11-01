@@ -1,0 +1,62 @@
+{
+  "results": [
+    {
+      "command": [
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/racer_game_2d.gd",
+        "scripts/kart_canvas_2d.gd",
+        "scripts/kart_course_worlds.gd",
+        "scripts/opera_racer_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/probe_opera_2d.gd",
+        "scripts/probe_racer_integration.gd"
+      ],
+      "exit": 0,
+      "seconds": 3.96,
+      "log": "final_parser.log"
+    },
+    {
+      "command": [
+        "tools/lint_inference.py",
+        "scripts/racer_game_2d.gd",
+        "scripts/kart_canvas_2d.gd",
+        "scripts/kart_course_worlds.gd",
+        "scripts/opera_racer_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/probe_opera_2d.gd",
+        "scripts/probe_racer_integration.gd"
+      ],
+      "exit": 0,
+      "seconds": 0.19,
+      "log": "final_lint.log"
+    },
+    {
+      "command": [
+        "tools/audit_document_authority.py"
+      ],
+      "exit": 0,
+      "seconds": 17.05,
+      "log": "final_doc_authority.log"
+    },
+    {
+      "command": [
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit": 0,
+      "seconds": 2.9,
+      "log": "final_audit_development.log"
+    },
+    {
+      "command": [
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit": 0,
+      "seconds": 238.2,
+      "log": "final_2d_regression.log"
+    }
+  ]
+}
