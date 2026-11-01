@@ -1880,7 +1880,14 @@ func _init() -> void:
 
 	boxing.configure("boxing_jab", Color.WHITE)
 	_boxing_mouse_button(boxing, true, boxing.glove_rest(0))
-	_boxing_touch_event(boxing, 51, true, boxing.glove_rest(0))
+	# Direct tablet control claims the glove under the finger. An occupied
+	# glove cannot redirect a second touch to the distant unclaimed hand.
+	_boxing_touch_event(boxing, 50, true, boxing.glove_rest(0))
+	_ck("touching an occupied glove cannot remotely claim the other hand",
+		boxing.touch_owner_snapshot().size() == 1
+		and int(boxing.touch_owner_snapshot().get(OperaBoxingSurface.MOUSE_FINGER, -1)) == 0
+		and not boxing.touch_owner_snapshot().has(50))
+	_boxing_touch_event(boxing, 51, true, boxing.glove_rest(1))
 	var mixed_owners := boxing.touch_owner_snapshot()
 	_ck("mouse sentinel and touch cannot claim the same glove",
 		int(mixed_owners.get(OperaBoxingSurface.MOUSE_FINGER, -1)) == 0
@@ -1889,7 +1896,7 @@ func _init() -> void:
 	_ck("mouse release preserves the concurrently owned touch glove",
 		boxing.touch_owner_snapshot().size() == 1
 		and int(boxing.touch_owner_snapshot().get(51, -1)) == 1)
-	_boxing_touch_event(boxing, 51, false, boxing.glove_rest(0))
+	_boxing_touch_event(boxing, 51, false, boxing.glove_rest(1))
 
 	# Android may synthesize a mouse packet for the same touch. Once any screen
 	# touch has been seen, those emulated packets and stray releases are no-ops.

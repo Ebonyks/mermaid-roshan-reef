@@ -879,6 +879,20 @@
       "checks": [],
       "checkable": false,
       "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-BOXER-CONTACT-CONTROLS-20261031",
+      "date": "2026-10-31",
+      "authority": "recorded_owner",
+      "subject": "Boxer control modes and trajectory guard contact",
+      "question": "How should phone/tablet gloves and guard collision behave?",
+      "decision": "Phone edges control the gloves; tablet gloves are independently controlled. A glove in an incoming punch trajectory blocks it anywhere, including a held guard. Build the collision engine and stress-test it extensively.",
+      "source": "audit/boxer_contact_engine_20261031/owner_request.json",
+      "checks": [
+        "scripts/probe_boxing_contact.gd",
+        "scripts/probe_opera_2d.gd"
+      ],
+      "checkable": true
     }
   ]
 }

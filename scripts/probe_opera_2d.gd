@@ -1363,6 +1363,13 @@ func _init() -> void:
 			var hall_key := "magician/%s/%s" % [hall_part, hall_phase]
 			_check("Hall semantic pose coverage: %s" % hall_key,
 				hall_pose_coverage.has(hall_key))
+	# Keep synthetic viewports/stress clocks after the original career census.
+	# Window is in-tree here, and these fixtures cannot perturb sibling checks.
+	var boxing_engine_checks := preload("res://scripts/probe_boxing_contact_cases.gd").new()
+	for result: Dictionary in boxing_engine_checks.run(get_root()):
+		_check("boxing engine: " + String(result["label"]), bool(result["passed"]))
+	for result: Dictionary in await boxing_engine_checks.run_routed(get_root()):
+		_check("boxing screen edges: " + String(result["label"]), bool(result["passed"]))
 	if bad == 0:
 		print("OPERA2D|result: ALL OK")
 		quit()
