@@ -1,0 +1,139 @@
+{
+  "id": "slide-fanfare-exit-sampling-20261101",
+  "scope": "Owner-authorized speech-publication prerequisite: observe the exact active Slide Canvas layer tree_exiting event for chime handoff, instead of labelling a next-process-frame sample synchronous. Preserve strict -4dB/0.90 first fanfare and1.30/1.15 replay expectations and every original raw-input/reward/save/context assertion. Add exact-layer single-exit evidence. No production sound/game/art/voice change. Historical one-check red cause remains unproven; the observational retry passes unchanged code.",
+  "baseline": "fa41c852fde5e1f2009a79f9f42f44e8bd466c0b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-SND-01",
+    "DL-SND-03"
+  ],
+  "findings": [
+    "MA-CI-007"
+  ],
+  "files": [
+    "scripts/probe_audit.gd",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "integration_context": {
+    "incoming_dev": "f59a1d1d5bdd58604f4706d16fb4e76d8f7db8b9",
+    "preceding_candidate_tree": "91dee0caed63ee09280b03f0a477744be2449f90",
+    "original_probe_literal_sha256": "092c2c5cec5f5d87ab2a06c2c91ea65b204c51340b8d262b021c104f48a7975f",
+    "original_probe_git_lf_sha256": "79ef070b36b4188c2995a9dab0e0df99efd7469937267b4ac49cd58e2bd0d4cb"
+  },
+  "validation": [
+    {
+      "command": "Original trusted probe_audit in frozen run08",
+      "result": "FAIL",
+      "evidence": "tmp/roshan-less-chatter-linux-run-08/probe_audit.log SHA256 7bf243b27c79776e049aed421dfafdf5fd7f8da61eddc5e7932b27173b56198b. Only first-win chime handoff assertion fails; actual values were not logged, so historical cause is unproven."
+    },
+    {
+      "command": "Observational copy, all original assertions and game source unchanged",
+      "result": "PASS",
+      "evidence": "{\"purpose\": \"Actual unmodified assertions plus observational print after immutable chime snapshot; no game/test assertion or state edits\", \"exit_code\": 0, \"duration_seconds\": 47.50066579999998, \"script_sha256\": \"019445fb7c93259ba35ccb8280b2c28a8e3b531b0fde3a6dd0b87a6e4b69b45c\", \"log_sha256\": \"9e2d33d525289d2a8d1e49a32c720a88d1ef2864713dffaee2132ae71bf66487\", \"profile\": \"/tmp/rr-slide-chime-diagnostic-jsn35_l3\", \"observations\": [\"SLIDE_CHIME_DIAGNOSTIC|sample={\\\"pitch_scale\\\":0.899999976158142,\\\"volume_db\\\":-4.0} frame_delta=0.741278 time_scale=6.0\", \"SLIDE_CHIME_DIAGNOSTIC|sample={\\\"pitch_scale\\\":1.29999995231628,\\\"volume_db\\\":-4.0} frame_delta=0.223888 time_scale=6.0\", \"SLIDE_CHIME_DIAGNOSTIC|sample={\\\"pitch_scale\\\":1.14999997615814,\\\"volume_db\\\":-4.0} frame_delta=0.42967895238095 time_scale=6.0\", \"SLIDE_CHIME_DIAGNOSTIC|sample={\\\"pitch_scale\\\":1.45000004768372,\\\"volume_db\\\":-4.0} frame_delta=0.613166 time_scale=6.0\"]}"
+    },
+    {
+      "command": "Synchronous teardown candidate, late-step/restoration counterexamples, unchanged-assertion and source-isolation proof, full trusted coverage and final authority/CI gates",
+      "result": "PENDING",
+      "evidence": "Require actual layer exit capture, strict original values, all original assertion call expressions unchanged, counterexample rejection, all82 final applicable probe results, exact approved engine, no added spatial API debt and exact published-head CI before dev integration."
+    },
+    {
+      "command": "Overlapping diagnostic controls01, stopped before serial verification",
+      "result": "FAIL",
+      "evidence": "{\"interruption_receipt\": \"tmp\\\\roshan-less-chatter-slide-exit-controls-01\\\\interrupted_receipt.json\", \"interruption_receipt_sha256\": \"f0ff1d8220c55f9b7f94782c68597b1eb481bdd252b0403b1754da8c0ad9f647\", \"completed_controls\": [{\"name\": \"candidate\", \"result\": \"FAIL\", \"engine_exit_code\": 0, \"expected_negative\": false, \"duration_seconds\": 77.78, \"script_sha256\": \"44f6efed8aa19d3a2349c4d958315491960b01b0ffa1dc8fff9532cc4acfa2e9\", \"log_sha256\": \"411d1f448ecacd946b9b31e2b0930bc323146cec728d55befc47a502a2ae8d17\", \"profile\": \"/tmp/rr-slide-exit-candidate-b5l45k7x\", \"failure_lines\": [\"AUDIT|Slide Canvas|opening black cover swallows a complete touch neutrally: FAIL\", \"AUDIT|Slide Canvas|return poll vocabulary owns Enter, keypad Enter, X, and Y: FAIL\", \"AUDIT|Slide Canvas|post-overlay deliberate Classic steering collects five and wins gold: FAIL\", \"AUDIT|Harper/Fiona Canvas trusted suite: FAIL (3 checks)\"]}, {\"name\": \"baseline_late_step\", \"result\": \"PASS\", \"engine_exit_code\": 0, \"expected_negative\": true, \"duration_seconds\": 51.04, \"script_sha256\": \"7804aa442fb825e141b0e93c22fa78a12b4fd708532768d7fea30b9ca49d0c3a\", \"log_sha256\": \"211904a18db3f459c50e350197ad9a1d751b0cddae0150573e2613100a8ce5e2\", \"profile\": \"/tmp/rr-slide-exit-baseline_late_step-t_kir0q7\", \"failure_lines\": [\"AUDIT|Slide Canvas|first-win teardown hands chime to the 0.90 fanfare instead of restoring entry tuning: FAIL\", \"AUDIT|Harper/Fiona Canvas trusted suite: FAIL (1 checks)\"]}], \"late_step_incomplete_log\": \"tmp\\\\roshan-less-chatter-slide-exit-controls-01\\\\candidate_late_step.log\", \"late_step_incomplete_log_sha256\": \"73a2d8e524b1c94e7035ffda1a2426495c2c2b847ac294a63b7bb90eb7f2ad01\", \"qualification\": \"Candidate strict exit/chime checks pass but three existing input/cover/return checks fail while another full game process is active. Later late-step control cascades and is terminated, never accepted. Causation is not established; serial verification is queued without changed assertions, budgets or game source. Baseline late-step counterexample rejects exactly the target and aggregate1-check failure; no unrelated failures in that control.\"}"
+    },
+    {
+      "command": "Serial01 unchanged candidate replay check",
+      "result": "FAIL",
+      "evidence": "{\"receipt\": \"tmp/roshan-less-chatter-serial-final-01/receipt.json\", \"receipt_sha256\": \"ecdeda591905d534f9aa8a58ad4545378862599da86601137c722289406dc04c\", \"qualification\": \"Historical intermittent non-chime assertion causes remain unproven. No old failure is relabelled. Source and all original assertions remain unchanged across these controls; diagnostic passes are distinguished from canonical gate acceptance.\", \"controls\": [{\"name\": \"candidate\", \"result\": \"FAIL\", \"exit_code\": 0, \"expected_negative\": false, \"duration_seconds\": 80.98, \"script_sha256\": \"44f6efed8aa19d3a2349c4d958315491960b01b0ffa1dc8fff9532cc4acfa2e9\", \"log_sha256\": \"32bf42f57ad7e8fdb9385a7e5b65edc178ecc4bef9afd9f02e7f901c2b761d17\", \"failure_lines\": [\"AUDIT|Slide Canvas|deliberate three-fish replay earns silver without downgrading gold: FAIL\", \"AUDIT|Harper/Fiona Canvas trusted suite: FAIL (1 checks)\"], \"profile\": \"/tmp/rr-serial-slide-candidate-a9inzlw8\"}], \"canonical\": [], \"source_drift\": []}"
+    },
+    {
+      "command": "Replay observation with unchanged assertions",
+      "result": "PASS",
+      "evidence": "{\"receipt\": \"tmp/roshan-less-chatter-replay-state-diagnostic-01/receipt.json\", \"receipt_sha256\": \"120c5361344a45403fa84653984c308ccccf49069236316dbeabfb35231d45ea\", \"qualification\": \"Historical intermittent non-chime assertion causes remain unproven. No old failure is relabelled. Source and all original assertions remain unchanged across these controls; diagnostic passes are distinguished from canonical gate acceptance.\", \"observations\": [\"REPLAY_STATE_DIAGNOSTIC|{\\\"caught_ids\\\":[0,1,2],\\\"chime_after_next_frame\\\":{\\\"pitch_scale\\\":1.29999995231628,\\\"volume_db\\\":-4.0},\\\"chime_on_synchronous_exit\\\":{\\\"pitch_scale\\\":1.29999995231628,\\\"volume_db\\\":-4.0},\\\"collection_hidden_during_run\\\":true,\\\"collection_restored_on_exit\\\":true,\\\"completed\\\":true,\\\"context_hold_exact\\\":true,\\\"frames\\\":207,\\\"fresh_after_context_hold\\\":true,\\\"got\\\":3,\\\"living_hidden_during_run\\\":true,\\\"living_restored_on_exit\\\":true,\\\"mercy\\\":true,\\\"raw_neutral_on_exit\\\":true,\\\"return_guard_exact\\\":true,\\\"return_pose_armed_sync\\\":false,\\\"return_pose_lock_exercised\\\":false,\\\"return_pose_lock_tested_if_live\\\":true,\\\"start_layer_id\\\":255248567641,\\\"start_surface_id\\\":255265344546,\\\"tier\\\":2} medal=3 trophies=1/1 star_exact=true\"]}"
+    },
+    {
+      "command": "Serial02 canonical and late-step passes, bad-restore extra input failure",
+      "result": "FAIL",
+      "evidence": "{\"receipt\": \"tmp/roshan-less-chatter-serial-final-02/receipt.json\", \"receipt_sha256\": \"ff3cb38fc0f5a8a9260f8a1097b3ea19474785417c528b942a628351cbc3bc28\", \"qualification\": \"Historical intermittent non-chime assertion causes remain unproven. No old failure is relabelled. Source and all original assertions remain unchanged across these controls; diagnostic passes are distinguished from canonical gate acceptance.\", \"controls\": [{\"name\": \"candidate_late_step\", \"result\": \"PASS\", \"exit_code\": 0, \"expected_negative\": false, \"duration_seconds\": 44.8, \"script_sha256\": \"8ac4de568aef5ea0769357ad62731e6a69760fb8749041b52fa15ab8b19e7205\", \"log_sha256\": \"346704c0564b48817a471331f0e5833be96d3165c713bc59cac97995df4e543b\", \"failure_lines\": [], \"profile\": \"/tmp/rr-serial-slide-candidate_late_step-d0yb0hpd\"}, {\"name\": \"candidate_bad_restore\", \"result\": \"FAIL\", \"exit_code\": 0, \"expected_negative\": true, \"duration_seconds\": 73.27, \"script_sha256\": \"1006baf269f712f2fde8cda1aaabd161db5c59af15391a535093b02b1387a361\", \"log_sha256\": \"617ae2f9b80fb61191ffb03485fdab1d0dd3be3998551ef896a5093016a259ed\", \"failure_lines\": [\"AUDIT|Slide Canvas|post-overlay deliberate Classic steering collects five and wins gold: FAIL\", \"AUDIT|Slide Canvas|first-win teardown hands chime to the 0.90 fanfare instead of restoring entry tuning: FAIL\", \"AUDIT|Harper/Fiona Canvas trusted suite: FAIL (2 checks)\"], \"profile\": \"/tmp/rr-serial-slide-candidate_bad_restore-tv03aqu9\"}], \"canonical\": [{\"name\": \"probe_audit\", \"result\": \"PASS\", \"exit_code\": 0, \"duration_seconds\": 45.98, \"log_sha256\": \"738168ce22fbce5cbd9649ef03493c59d2ebac4ba6cbd6adac58ec2bc7391ee3\"}], \"source_drift\": []}"
+    },
+    {
+      "command": "Serial03 exact-source canonical/late-step retention and isolated bad-restore rejection",
+      "result": "PASS",
+      "evidence": "{\"receipt\": \"tmp/roshan-less-chatter-serial-final-03/receipt.json\", \"receipt_sha256\": \"7cadeed9ff27985e88c5f959f399f709c537b95a5f07e8eb1e5312c1cf41cf81\", \"qualification\": \"Historical intermittent non-chime assertion causes remain unproven. No old failure is relabelled. Source and all original assertions remain unchanged across these controls; diagnostic passes are distinguished from canonical gate acceptance.\", \"controls\": [{\"name\": \"candidate_late_step\", \"result\": \"PASS\", \"exit_code\": 0, \"expected_negative\": false, \"duration_seconds\": 44.8, \"script_sha256\": \"8ac4de568aef5ea0769357ad62731e6a69760fb8749041b52fa15ab8b19e7205\", \"log_sha256\": \"346704c0564b48817a471331f0e5833be96d3165c713bc59cac97995df4e543b\", \"failure_lines\": [], \"profile\": \"/tmp/rr-serial-slide-candidate_late_step-d0yb0hpd\", \"origin\": \"tmp/roshan-less-chatter-serial-final-02\"}, {\"name\": \"candidate_bad_restore\", \"result\": \"PASS\", \"exit_code\": 0, \"expected_negative\": true, \"duration_seconds\": 45.6106098, \"script_sha256\": \"1006baf269f712f2fde8cda1aaabd161db5c59af15391a535093b02b1387a361\", \"log_sha256\": \"5910789c4962033b4bfdba3a6411609262305cbbf7f035eab0afea30df91583a\", \"failure_lines\": [\"AUDIT|Slide Canvas|first-win teardown hands chime to the 0.90 fanfare instead of restoring entry tuning: FAIL\", \"AUDIT|Harper/Fiona Canvas trusted suite: FAIL (1 checks)\"], \"profile\": \"/tmp/rr-serial-bad-restore-p4_jcllg\", \"origin\": \"tmp/roshan-less-chatter-serial-final-03\"}], \"canonical\": [{\"name\": \"probe_audit\", \"result\": \"PASS\", \"exit_code\": 0, \"duration_seconds\": 45.98, \"log_sha256\": \"738168ce22fbce5cbd9649ef03493c59d2ebac4ba6cbd6adac58ec2bc7391ee3\", \"origin\": \"tmp/roshan-less-chatter-serial-final-02\"}], \"source_drift\": []}"
+    },
+    {
+      "command": "Final current-source local machine validation with qualified incremental standalone-audit verification",
+      "result": "PASS",
+      "evidence": "{\"receipt\": \"tmp\\\\roshan-less-chatter-final-machine-aggregate-04.json\", \"receipt_sha256\": \"2237d9e7f6eca9df0dd4272ddea2ae543aa0aa3f00f8ffc83107289e3b59a239\", \"trusted_probe_count\": 82, \"engine\": \"4.7.2.stable.official.ed1daf0bf\", \"engine_sha256\": \"8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e\", \"source_count\": 700, \"source_pins_sha256\": \"91198e6957d7f72d2cb628d6ae37c04f5f0e61064cb8107c1ee6e96d2a079177\", \"source_input_drift\": [], \"source_isolation\": {\"role\": \"standalone SceneTree probe entry; no class_name, source-path/UID reference from any other runtime script/scene/config\", \"other_runtime_references\": [], \"unchanged_production_and_other81_entries\": true}, \"inventory_verdict\": [\"GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\"], \"qualification\": \"Final applicable machine regression coverage combines81 unchanged independent probe entries with canonical reruns of the corrected standalone audit and any earlier red entries. Every original failed/interrupted run remains failed. No changed game dependency is reused. Exact published-head remote CI is still required before dev integration. Physical visual/device/listening/child/owner acceptance and strict whole-game2D/master satisfaction remain outstanding.\"}"
+    },
+    {
+      "command": "Exact published-head remote Probes before dev integration",
+      "result": "PENDING",
+      "evidence": "Required operational publication gate; local evidence never substitutes for exact new topic-head CI. Exact revision/run links recorded on PR42 after publication."
+    }
+  ],
+  "methodology_sources": [
+    "https://docs.godotengine.org/en/stable/classes/class_scenetree.html#class-scenetree-method-create-timer",
+    "https://docs.godotengine.org/en/stable/classes/class_node.html#class-node-signal-tree-exiting"
+  ],
+  "acceptance_gaps": "Probe-only event-sampling repair; no production audio modification or device/listening/visual/child/owner acceptance. MA-CI-007 remains CONFIRMED_OPEN and aggregateV1; shared-harness/top-twenty acceptance is unmet. Whole-game audit remains UNSATISFIED.",
+  "assertion_preservation": {
+    "result": "PASS",
+    "all_original_slide_check_calls_preserved": 181,
+    "missing": [],
+    "new_probe_literal_sha256": "44f6efed8aa19d3a2349c4d958315491960b01b0ffa1dc8fff9532cc4acfa2e9",
+    "production_changes_for_this_prerequisite": []
+  },
+  "source_isolation": {
+    "result": "PASS",
+    "source_count": 700,
+    "source_input_drift": [],
+    "other_runtime_references": [],
+    "comment_only_mentions": [
+      {
+        "path": "scripts/probe_passive.gd",
+        "line": 2
+      }
+    ],
+    "audit_has_class_name": false,
+    "role": "Standalone SceneTree test entry; passive probe only names it in its explanatory line2 comment. Production and all81 other probe entries unchanged."
+  },
+  "final_local_machine_validation": {
+    "receipt": "tmp\\roshan-less-chatter-final-machine-aggregate-04.json",
+    "receipt_sha256": "2237d9e7f6eca9df0dd4272ddea2ae543aa0aa3f00f8ffc83107289e3b59a239",
+    "trusted_probe_count": 82,
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "source_count": 700,
+    "source_pins_sha256": "91198e6957d7f72d2cb628d6ae37c04f5f0e61064cb8107c1ee6e96d2a079177",
+    "source_input_drift": [],
+    "source_isolation": {
+      "role": "standalone SceneTree probe entry; no class_name, source-path/UID reference from any other runtime script/scene/config",
+      "other_runtime_references": [],
+      "unchanged_production_and_other81_entries": true
+    },
+    "inventory_verdict": [
+      "GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED"
+    ],
+    "qualification": "Final applicable machine regression coverage combines81 unchanged independent probe entries with canonical reruns of the corrected standalone audit and any earlier red entries. Every original failed/interrupted run remains failed. No changed game dependency is reused. Exact published-head remote CI is still required before dev integration. Physical visual/device/listening/child/owner acceptance and strict whole-game2D/master satisfaction remain outstanding."
+  },
+  "publication_gate": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "work_branch": "codex/roshan-less-chatter-20261031",
+    "integration_branch": "dev",
+    "pull_request": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/42",
+    "exact_published_head_ci": "Required before integration; operational result and exact head recorded on the PR after this local evidence commit.",
+    "scope_authority": "Direct owner authorization: Repair the blockers and publish the speech fix. No stable promotion requested."
+  }
+}

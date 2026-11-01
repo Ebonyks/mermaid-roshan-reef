@@ -1,0 +1,441 @@
+{
+  "id": "geologist-feedback-rest-prerequisite-20261031",
+  "scope": "Mandatory full-suite prerequisite discovered during the Roshan chatter task: Geologist feedback returns actors toward stale pre-task rests, letting Roshan overlap the partner despite the authored task anchors being clear. Preserve authored artwork, layout coordinates, animation timing/height, tasks, rewards and saves. Capture the already-staged player/rival rests in the existing Geologist-only layout branch; retain all current clearance assertions and add a deterministic feedback-endpoint negative control.",
+  "baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-READ-03",
+    "DL-READ-05",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-SAVE-01",
+    "DL-SAVE-03"
+  ],
+  "findings": [],
+  "no_findings_reason": "No current canonical finding specifically tracks this stale Geologist feedback-rest defect. Existing game-wide visual/motion/device/child/owner gaps keep their scope and lifecycle; no new finding or closure is fabricated for this bounded gate prerequisite.",
+  "files": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/probe_opera_2d.gd"
+  ],
+  "validation": [
+    {
+      "command": "Baseline-versus-speech-candidate full Opera controls and two complete full-suite attempts",
+      "result": "FAIL",
+      "evidence": "Original AudioDirector and the speech candidate reproduce the same Geologist clearance failure. No Opera production/probe file differed from a0bb2cf4 in these controls. Both complete failed attempts are retained: tmp/roshan-less-chatter-full-ci-receipt.json and tmp/roshan-less-chatter-full-ci-03-receipt.json (sole gameplay failure in the latter). These results led to the separately authorized prerequisite repair."
+    },
+    {
+      "command": "Isolated classic-touch Opera diagnostic copy with unchanged clearance condition and logged actor bounds",
+      "result": "PASS",
+      "evidence": "Diagnostic reproduction (expected failing exit 1) log tmp/roshan-geologist-bounds-diagnostic-20261031.log SHA-256 b3172069fcd56ececc26208b8e1504c3b625179f2c144d0e2e63f50204ad2124. At finale start player Rect2(30,422,250,250) and rival Rect2(78,218,176,176) are clear; feedback moves player to Rect2(107.2868,374.1786,249.9811,249.9812), intersecting the rival. _bounce_actor targets actor_rests captured before the task layout; the Geologist staging branch never refreshes them. This is diagnostic evidence, not visual acceptance."
+    },
+    {
+      "command": "Implement bounded rest capture and deterministic negative/positive feedback control; run existing strict geometry and complete applicable gates",
+      "result": "PASS",
+      "evidence": "Scope recorded before production changes; production edits began only after the complete failed run03 ended. The minimal existing-anchor capture and deterministic negative/positive controls now pass, together with unchanged strict geometry and the complete run04. Exact machine receipts follow below; visual/device/child/owner acceptance remains outstanding."
+    },
+    {
+      "command": "Deterministic exact-height feedback regression against unchanged production",
+      "result": "PASS",
+      "evidence": "Expected failing negative control: twelve endpoint/clearance failures, zero script errors; no progress/award mutation. {\"exit_code\": 1, \"failures\": [\"OPERA2D|FAIL|geologist FOSSIL player feedback keeps both actors clear throughout\", \"OPERA2D|FAIL|geologist FOSSIL player feedback settles at its displayed task rest\", \"OPERA2D|FAIL|geologist FOSSIL rival feedback keeps both actors clear throughout\", \"OPERA2D|FAIL|geologist FOSSIL rival feedback settles at its displayed task rest\", \"OPERA2D|FAIL|geologist PAN player feedback keeps both actors clear throughout\", \"OPERA2D|FAIL|geologist PAN player feedback settles at its displayed task rest\", \"OPERA2D|FAIL|geologist PAN rival feedback keeps both actors clear throughout\", \"OPERA2D|FAIL|geologist PAN rival feedback settles at its displayed task rest\", \"OPERA2D|FAIL|geologist GEODE player feedback keeps both actors clear throughout\", \"OPERA2D|FAIL|geologist GEODE player feedback settles at its displayed task rest\", \"OPERA2D|FAIL|geologist GEODE rival feedback keeps both actors clear throughout\", \"OPERA2D|FAIL|geologist GEODE rival feedback settles at its displayed task rest\", \"OPERA2D|result: 12 FAIL\"], \"duration_seconds\": 72.75, \"log\": \"tmp/roshan-geologist-feedback-exact-baseline-20261031.log\", \"log_sha256\": \"d3cb99688290788fa394cdc8ca3c03b2057ee859ae41057c0388cc4775abb6e5\", \"qualification\": \"Negative control: proposed deterministic regression against unmodified production. Expected endpoint/clearance failure; original assertion retained.\"} Regression source SHA-256 6e57bcb55e009acacebcbef93c1cc51c5e1ece992e2236c976283316e02b7c94"
+    },
+    {
+      "command": "Diagnostic live-rest capture after opening, retaining the original clearance assertion",
+      "result": "PASS",
+      "evidence": "{\"exit_code\": 0, \"failures\": [], \"duration_seconds\": 67.83, \"log\": \"tmp/roshan-geologist-rest-candidate-diagnostic-20261031.log\", \"log_sha256\": \"b2af576c3b1e6ed14527f007e7335a2d438aeafc005cb46deb3c4956a826d54f\", \"qualification\": \"Diagnostic live capture after open only; production code and original strict test remain unchanged. Not closure evidence.\"} Temporary diagnostic only; production candidate still needs ordinary runtime verification."
+    },
+    {
+      "command": "Apply smallest production repair after the complete failed run ends",
+      "result": "PASS",
+      "evidence": "{\"world_unchanged_functions\": 184, \"world_changed_functions\": [\"_stage_room_finale_partner\"], \"world_layout_coordinates_animation_heights_durations_and_assets\": \"unchanged\", \"probe_unchanged_functions\": 55, \"probe_changed_functions\": [\"_drive_geologist_phase\"], \"probe_added_functions\": [\"_check_geologist_feedback_rests\"], \"original_clearance_helpers_and_assertion\": \"unchanged; deterministic controlled-clock endpoint/clearance checks added\"} Existing motion/profile, Master section9 and task routes rechecked. No new action, timing, asset, save, story or creative redesign."
+    },
+    {
+      "command": "Exact Godot4.7.2 classic-touch focused Opera2D, Opera, voice and Day One voice after the bounded prerequisite",
+      "result": "PASS",
+      "evidence": "{\"engine\": \"4.7.2.stable.official.ed1daf0bf\", \"results\": [{\"probe\": \"probe_opera_2d\", \"command\": [\"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\godot-4.7.2\\\\editor\\\\Godot_v4.7.2-stable_win64_console.exe\", \"--headless\", \"--path\", \"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\", \"-s\", \"scripts/probe_opera_2d.gd\", \"--\", \"--touch\", \"--classic-touch-test\"], \"exit_code\": 0, \"failure_marker\": false, \"duration_seconds\": 55.31, \"log\": \"tmp/roshan-geologist-rest-fixed-probe_opera_2d.log\", \"log_sha256\": \"38bb44c6ef33d72f8d1270faba6359af7163fce9e80592032560ee84f1a0762e\"}, {\"probe\": \"probe_opera\", \"command\": [\"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\godot-4.7.2\\\\editor\\\\Godot_v4.7.2-stable_win64_console.exe\", \"--headless\", \"--path\", \"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\", \"-s\", \"scripts/probe_opera.gd\", \"--\", \"--touch\", \"--classic-touch-test\"], \"exit_code\": 0, \"failure_marker\": false, \"duration_seconds\": 84.7, \"log\": \"tmp/roshan-geologist-rest-fixed-probe_opera.log\", \"log_sha256\": \"ab9cc1714deca62a528d1846777c523c4a0f2ecfb5c5c2f0b8a401e449c56d7f\"}, {\"probe\": \"probe_voice\", \"command\": [\"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\godot-4.7.2\\\\editor\\\\Godot_v4.7.2-stable_win64_console.exe\", \"--headless\", \"--path\", \"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\", \"-s\", \"scripts/probe_voice.gd\", \"--\", \"--touch\", \"--classic-touch-test\"], \"exit_code\": 0, \"failure_marker\": false, \"duration_seconds\": 19.17, \"log\": \"tmp/roshan-geologist-rest-fixed-probe_voice.log\", \"log_sha256\": \"3238753d67ea37cde8a93ca120333ce20bd07b9a8d2c792f55a569ceb7931453\"}, {\"probe\": \"probe_day_one_voice\", \"command\": [\"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\godot-4.7.2\\\\editor\\\\Godot_v4.7.2-stable_win64_console.exe\", \"--headless\", \"--path\", \"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\", \"-s\", \"scripts/probe_day_one_voice.gd\", \"--\", \"--touch\", \"--classic-touch-test\"], \"exit_code\": 0, \"failure_marker\": false, \"duration_seconds\": 25.26, \"log\": \"tmp/roshan-geologist-rest-fixed-probe_day_one_voice.log\", \"log_sha256\": \"50a7a84c1ce20b02a158485dab22961bc3b440dc9b823a60f9ef124cdca2dbea\"}]}"
+    },
+    {
+      "command": "Changed-five-script parser/inference, current document authority, development coverage and owner-decision preservation",
+      "result": "PASS",
+      "evidence": "Parser/inference exited0; DOCAUTH750/750 active73/records76 ALL OK; AUDITDEV base a0bb2cf4691631a534e210a5fb60fd227213322f ALL OK; owner register70 decisions, all prior entries preserved. No protected asset changes."
+    },
+    {
+      "command": "Full existing scripts/ci.sh final candidate, run04",
+      "result": "PASS",
+      "evidence": "Complete unchanged recipe, all ordered82 trusted probes; zero frozen source-input drift. Machine regression only; human/device acceptance remains outstanding. Exact receipt: {\"command\": \"bash --noprofile --norc scripts/ci.sh via tmp/roshan_less_chatter_ci_20261031.sh\", \"started_utc\": \"2026-11-01T00:48:20.617013+00:00\", \"finished_utc\": \"2026-11-01T03:06:23.914489+00:00\", \"exit_code\": 0, \"ordered_probe_coverage_matches\": true, \"expected_probe_count\": 82, \"ci_recipe_sha256\": \"5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e\", \"source_pins\": {\"scripts/audio_director.gd\": \"187ed975ee3f4f32a135c7967ba9c0c0579770b9db112c32a7718e57438235a9\", \"scripts/probe_voice.gd\": \"c1e2d99cc358424ad26bf9c69129fffaf844fcc607cc7187f532c9f1d772cfab\", \"scripts/probe_day_one_voice.gd\": \"53ea6053ace9ea6963a6c4420d699580bf76a8f5c99403438d803d2319974bfa\", \"scripts/opera_career_world_2d.gd\": \"c5ad0732aea3c185404b7dcb6d8f471fae7e9089384a33f792f18a98cc903f87\", \"scripts/probe_opera_2d.gd\": \"6e57bcb55e009acacebcbef93c1cc51c5e1ece992e2236c976283316e02b7c94\"}, \"frozen_source_input_count\": 691, \"source_input_drift\": [], \"source_input_manifest\": \"tmp/roshan-less-chatter-full-ci-04-inputs.json\", \"source_input_manifest_sha256\": \"ac90a8c9f9a02a7bf794c463d2743499d41a03e07a74963ed11321a6ad310564\", \"log\": \"tmp/roshan-less-chatter-full-ci-04.log\", \"log_sha256\": \"28440bfe01b540d9524a03e7cdaf44a4192651778f7cdd31b56f2a8108fd127f\", \"observed_probe_count\": 82}"
+    },
+    {
+      "command": "Final pre-commit parser/inference, authority/coverage, owner append-only guard, whitespace and source/original-preservation checks",
+      "result": "PASS",
+      "evidence": "{\"time_utc\": \"2026-11-01T03:07:39.375586+00:00\", \"base\": \"a0bb2cf4691631a534e210a5fb60fd227213322f\", \"results\": [{\"command\": [\"python\", \"-X\", \"utf8\", \"-B\", \"-m\", \"gdtoolkit.parser\", \"scripts/audio_director.gd\", \"scripts/probe_voice.gd\", \"scripts/probe_day_one_voice.gd\", \"scripts/opera_career_world_2d.gd\", \"scripts/probe_opera_2d.gd\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-0.log\", \"log_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"command\": [\"python\", \"-X\", \"utf8\", \"-B\", \"tools/lint_inference.py\", \"scripts/audio_director.gd\", \"scripts/probe_voice.gd\", \"scripts/probe_day_one_voice.gd\", \"scripts/opera_career_world_2d.gd\", \"scripts/probe_opera_2d.gd\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-1.log\", \"log_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"command\": [\"python\", \"-X\", \"utf8\", \"-B\", \"tools/audit_document_authority.py\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-2.log\", \"log_sha256\": \"6ac641918416b422047e2d7eb6cc2f74583afbdb6965fb78fa580dea32107e98\"}, {\"command\": [\"python\", \"-X\", \"utf8\", \"-B\", \"tools/audit_development.py\", \"--base\", \"auto\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-3.log\", \"log_sha256\": \"7f368e4906a83cc2b69851c1acf6ae8c58bbcdd861d8482c5353b8de36e2a0ab\"}, {\"command\": [\"python\", \"-X\", \"utf8\", \"-B\", \"tools/record_owner_decision.py\", \"--check\", \"--base\", \"a0bb2cf4691631a534e210a5fb60fd227213322f\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-4.log\", \"log_sha256\": \"cf4ea907ef3f8f100a2e5a5aafb9ac39f6c4661a6292118937227fb4e18fce50\"}, {\"command\": [\"git\", \"diff\", \"--check\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-5.log\", \"log_sha256\": \"dbf1834076ce70d06be0e46595d1476e210c57314a96b3cacd8404be60905b85\"}], \"full_run_postcheck_metadata_changes_only\": [\"design/reference/OWNER_DECISIONS.md\", \"design/reference/owner_decisions.json\"], \"protected_asset_changes\": [], \"intended_changed_files\": [\"audit/MASTER_AUDIT_2026-08-09.md\", \"audit/audio_quality_ledger_2026-08-24.csv\", \"audit/audio_quality_summary_2026-08-24.json\", \"audit/findings/ACTIVE_FINDINGS_2026-08-13.md\", \"design/05_DOC_LEDGER.md\", \"design/audit_impacts/geologist-feedback-rest-prerequisite-20261031.json\", \"design/audit_impacts/roshan-less-chatter-20261031.json\", \"design/reference/OWNER_DECISIONS.md\", \"design/reference/owner_decisions.json\", \"scripts/audio_director.gd\", \"scripts/opera_career_world_2d.gd\", \"scripts/probe_day_one_voice.gd\", \"scripts/probe_opera_2d.gd\", \"scripts/probe_voice.gd\"]}"
+    },
+    {
+      "command": "Combined-source verification after incoming dev 36b58801b1a9a4b7edc76b8c3bb72091565590cb",
+      "result": "FAIL",
+      "evidence": "Original attempt interrupted during the owner-reported restart: completed static/import and58 gameplay gates retained;24 host-terminated/unstarted gates are not accepted as passes. No assertion/script-error marker found in their logs. Recovery is separately recorded; no code/assertion/threshold changed. {\"interruption_receipt\": \"tmp/roshan-less-chatter-combined-05/interrupted_receipt.json\", \"interruption_receipt_sha256\": \"c56ba915452ca83bf8aa8be2e2d188989fa47f2f08b2ddc19957fc612c09f49a\", \"retained_completed_probes\": 58, \"interrupted_or_unstarted_probes\": 24, \"exit_codes\": {\"0x40010004\": 4, \"0xc000026b\": 20}, \"game_assertion_or_script_error_markers_in_interrupted_logs\": 0, \"static_result\": {\"name\": \"static-import\", \"exit_code\": 0, \"duration_seconds\": 8961.99, \"log\": \"tmp/roshan-less-chatter-combined-05/static-import.log\", \"log_sha256\": \"159501165902c4a97936de2801fcba2f6a9cc5c692b0047dce5da41500b6763e\"}, \"source_input_count\": 700, \"source_input_drift\": []}"
+    },
+    {
+      "command": "Native Windows recovery of the24 restart-interrupted run05 probes at unchanged700source hashes",
+      "result": "FAIL",
+      "evidence": "{\"native_recovery_receipt\": \"tmp/roshan-less-chatter-combined-05-resume-01/receipt.json\", \"native_recovery_receipt_sha256\": \"51ac0e3c3fb9d99cd88c0b1806109cfd2ef741c40112866dfb610f633031bd85\", \"result\": \"FAIL\", \"completed_passes_at_identical_source\": 81, \"failed_probe\": \"probe_chapter2\", \"first_failure\": \"career_11 child did not exit within unchanged30000ms; child log only contains engine banner\", \"isolated_native_result\": {\"result\": {\"name\": \"probe_chapter2\", \"exit_code\": 4294967295, \"native_exit_code\": 4294967295, \"supervisor_exit_code\": 4294967295, \"timeout_seconds\": 480, \"timed_out\": false, \"existing_verdict_timeout_rule_accepted\": false, \"failure_or_runtime_error_marker\": false, \"started_utc\": \"2026-11-01T06:28:17.467072+00:00\", \"duration_seconds\": 150.17, \"command\": [\"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\godot-4.7.2\\\\editor\\\\Godot_v4.7.2-stable_win64_console.exe\", \"--headless\", \"--path\", \"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\", \"-s\", \"scripts/probe_chapter2.gd\", \"--\", \"--touch\", \"--classic-touch-test\"], \"test_user_directory\": \"C:\\\\Users\\\\Peter\\\\AppData\\\\Local\\\\Temp\\\\rr05-jn0a974t\", \"log\": \"tmp/roshan-less-chatter-combined-05-isolated-02/probe_chapter2.log\", \"log_sha256\": \"909b457d0b8aac885ab631525d44fc631ed38ba65888def1d9fb4a2c6af4a437\"}, \"source_input_drift\": [], \"original_child_deadline_milliseconds\": 30000, \"qualification\": \"One strict isolated control after a two-worker recovery hit the unchanged child-exit deadline. No source/test/deadline altered; prior failure retained. Cause is not established.\"}, \"qualification\": \"The isolated native process ended without a verdict or assertion/error marker. Its engine log stops during ordinary route assertions; no matching Windows crash event was returned by the bounded query. Cause not established; neither failure is accepted as a pass.\"}"
+    },
+    {
+      "command": "Canonical launcher Chapter Two control after native recovery termination",
+      "result": "FAIL",
+      "evidence": "Canonical launcher reproduces career_11 child deadline failure1, unchanged30000ms child/480s outer limit; earlier native isolated unexpected-1 is separately retained with cause unknown. Receipt tmp/roshan-less-chatter-combined-05-canonical-03/receipt.json SHA256 faffe77a5484d8514dc93ced934e6bfce476ab0e90de293e8ddb63337bd99266; source700 drift0. No failing result is treated as success."
+    },
+    {
+      "command": "Isolated Linux verification of the unchanged latest candidate at the original deadlines",
+      "result": "FAIL",
+      "evidence": "{\"receipt\": \"tmp\\\\roshan-less-chatter-linux-run-07\\\\receipt.json\", \"receipt_sha256\": \"40c02dd35ced793b7b4a45e9e64f160c975e56c115d1093af2b57a9389ecee09\", \"result\": \"FAIL\", \"fresh_import\": {\"name\": \"import\", \"command\": [\"timeout\", \"12m\", \"/root/roshan-speech-qa-20261101/bin/godot\", \"--headless\", \"--path\", \"/root/roshan-speech-qa-20261101/project\", \"--import\"], \"exit_code\": 0, \"launcher_exit_code\": 0, \"duration_seconds\": 565.29, \"log\": \"import.log\", \"log_sha256\": \"5810424d73838aa14138265eab4ff517d0491c4df013b01defac3de78dd04913\"}, \"failed_probe\": {\"name\": \"probe_chapter2\", \"command\": [\"bash\", \"--noprofile\", \"--norc\", \"/tmp/rr-linux07-6pqasy20/one-probe.sh\", \"probe_chapter2\"], \"exit_code\": 1, \"launcher_exit_code\": 1, \"duration_seconds\": 113.21, \"log\": \"probe_chapter2.log\", \"log_sha256\": \"a2ca87e1ae76f6b6fdc916d57b1aae2eaa7777efc099f35cf1443c3017f2fc55\"}, \"source_count\": 700, \"source_drift\": [], \"qualification\": \"Original combined30s watchdog; career00 exceeds deadline after actual state and Continue checks. Remaining81 not run. Superseded only by separately recorded candidate with explicit60s startup/30s resume protocol, never relabelled PASS.\"}"
+    },
+    {
+      "command": "Windows latest-source run06 with fresh approved import and 2D audit before ChapterTwo control",
+      "result": "FAIL",
+      "evidence": "tmp/roshan-less-chatter-latest-06/receipt.json SHA256 c79c359986915b3e4e81ede7831aa0e65451bd12fe1dc04f65e6afebf8f9a941; fresh import and full 2D regression gate exit0, duration2264.46s; ChapterTwo exit1 in139.9s. [\"CHAPTER2|milestone child exits within its wall deadline: FAIL\", \"CHAPTER2|RESULT: FAIL checks_failed=1\"]. Frozen700 inputs unchanged; remaining81 probes were not run. No failed assertion/limit is waived. Separate verbose exact-state replay also exhausts30s loading probe_chapter2.gd before its first save check."
+    },
+    {
+      "command": "Current-source readiness guard controls before full run08",
+      "result": "PASS",
+      "evidence": "{\"controls\": {\"name\": \"readiness_controls\", \"command\": [\"env\", \"XDG_CONFIG_HOME=/tmp/rr-linux08-profiles-3lp9k2fz/readiness-control/config\", \"XDG_DATA_HOME=/tmp/rr-linux08-profiles-3lp9k2fz/readiness-control/data\", \"XDG_CACHE_HOME=/tmp/rr-linux08-profiles-3lp9k2fz/readiness-control/cache\", \"APPDATA=/tmp/rr-linux08-profiles-3lp9k2fz/readiness-control/appdata\", \"LOCALAPPDATA=/tmp/rr-linux08-profiles-3lp9k2fz/readiness-control/local\", \"timeout\", \"120s\", \"/root/roshan-speech-qa-20261101/bin/godot\", \"--headless\", \"--path\", \"/root/roshan-speech-qa-20261101/project\", \"--script\", \"/mnt/c/Users/Peter/Documents/mermaid-roshan-reef/tmp/probe_chapter2_readiness_controls_20261101.gd\"], \"exit_code\": 0, \"launcher_exit_code\": 0, \"duration_seconds\": 16.1, \"log\": \"readiness_controls.log\", \"log_sha256\": \"8c2431fc687b7bf9cef02e1e98b88c9fce65357a13a68eaf4232f121f668fe9f\"}, \"checks\": 16, \"qualification\": \"Direct calls to actual compiled stateless validator. Invalid partial JSON deliberately emits its expected JSON data-parse diagnostic and returns false; no game action or save state is fabricated. Full real save/Continue and82-probe acceptance remain separately pending.\"}"
+    },
+    {
+      "command": "Final current-source local machine validation with qualified incremental standalone-audit verification",
+      "result": "PASS",
+      "evidence": "{\"receipt\": \"tmp\\\\roshan-less-chatter-final-machine-aggregate-04.json\", \"receipt_sha256\": \"2237d9e7f6eca9df0dd4272ddea2ae543aa0aa3f00f8ffc83107289e3b59a239\", \"trusted_probe_count\": 82, \"engine\": \"4.7.2.stable.official.ed1daf0bf\", \"engine_sha256\": \"8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e\", \"source_count\": 700, \"source_pins_sha256\": \"91198e6957d7f72d2cb628d6ae37c04f5f0e61064cb8107c1ee6e96d2a079177\", \"source_input_drift\": [], \"source_isolation\": {\"role\": \"standalone SceneTree probe entry; no class_name, source-path/UID reference from any other runtime script/scene/config\", \"other_runtime_references\": [], \"unchanged_production_and_other81_entries\": true}, \"inventory_verdict\": [\"GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\"], \"qualification\": \"Final applicable machine regression coverage combines81 unchanged independent probe entries with canonical reruns of the corrected standalone audit and any earlier red entries. Every original failed/interrupted run remains failed. No changed game dependency is reused. Exact published-head remote CI is still required before dev integration. Physical visual/device/listening/child/owner acceptance and strict whole-game2D/master satisfaction remain outstanding.\"}"
+    },
+    {
+      "command": "Exact published-head remote Probes before dev integration",
+      "result": "PENDING",
+      "evidence": "Required operational publication gate; local evidence never substitutes for exact new topic-head CI. Exact revision/run links recorded on PR42 after publication."
+    }
+  ],
+  "acceptance_gaps": "PENDING / outstanding: actual configured runtime visual/motion review, target-device behavior, child and owner acceptance. No art generation or protected asset edits; no motion timing, new action, story, save or stable-release change. Machine regression does not establish those human/device gates. Game-wide master audit remains UNSATISFIED.",
+  "source_pins_before": {
+    "scripts/opera_career_world_2d.gd": "3a7b0810faed76d10255330fd23893a78b111a4f93b53a7d0effab01035d87ae",
+    "scripts/probe_opera_2d.gd": "9bdcab20c13a03a5fdb90a30bb855086d9cb83cb7aba703b3bfec77960ecd7d3"
+  },
+  "production_edit_after_full_receipt": {
+    "command": "bash --noprofile --norc scripts/ci.sh via tmp/roshan_less_chatter_ci_20261031.sh",
+    "started_utc": "2026-10-31T21:47:34.431746+00:00",
+    "finished_utc": "2026-11-01T00:39:15.493404+00:00",
+    "owned_suite_pid": 331944,
+    "exit_code": 1,
+    "ordered_probe_coverage_matches": true,
+    "expected_probe_count": 82,
+    "observed_probes": [
+      "probe_reef_districts",
+      "probe_ocean_kingdoms",
+      "probe_audit",
+      "probe_passive",
+      "probe_living_world",
+      "probe_load",
+      "probe_rank",
+      "probe_save_recovery",
+      "probe_galaxy_state",
+      "probe_collection",
+      "probe_mg2d",
+      "probe_fetch",
+      "probe_melody",
+      "probe_dolls",
+      "probe_seek",
+      "probe_audio",
+      "probe_dance",
+      "probe_l2",
+      "probe_l2_living_cards",
+      "probe_sky_lagoon_animals",
+      "probe_l2_reenter",
+      "probe_crown",
+      "probe_throne",
+      "probe_northern",
+      "probe_human_art_audit",
+      "probe_train",
+      "probe_verbs",
+      "probe_skins",
+      "probe_touch_router",
+      "probe_touch_stress",
+      "probe_interaction",
+      "probe_touch_adversary",
+      "probe_touch_look",
+      "probe_ui_system",
+      "probe_voice",
+      "probe_day_one_voice",
+      "probe_day_one_d8_revisits",
+      "probe_day_one_handoffs",
+      "probe_kart_feel",
+      "probe_combat",
+      "probe_dust_bunny",
+      "probe_dust_bunny_boss",
+      "probe_dust_boss",
+      "probe_hit",
+      "probe_partner",
+      "probe_combat_tutorial",
+      "probe_imp_ai",
+      "probe_mic",
+      "probe_stuffie",
+      "probe_dungeon",
+      "probe_ember",
+      "probe_opera",
+      "probe_opera_2d",
+      "probe_opera_diegetic_paths",
+      "probe_opera_detective",
+      "probe_opera_pipe",
+      "probe_opera_nursery",
+      "probe_opera_gesture_quality",
+      "probe_kitchen_props",
+      "probe_bathroom_props",
+      "probe_castle_door_language",
+      "probe_bathroom_integration",
+      "probe_day_one_bathroom_bunny",
+      "probe_day_one_bathroom_cleanup",
+      "probe_day_one_bathroom_movie_handoff",
+      "probe_day_one_director",
+      "probe_day_one_integration",
+      "probe_day_one_pool_cleanup",
+      "probe_day_one_art_attack_state",
+      "probe_day_one_castle_dressing",
+      "probe_day_one_story_clips",
+      "probe_chapter2",
+      "probe_chapter2_farmer_resume",
+      "probe_chapter2_lawn",
+      "probe_alpha_milestone_save",
+      "probe_dust_boss_balance",
+      "probe_start_menu_routing",
+      "probe_start_menu_new_game",
+      "probe_castle_pool_life_2d",
+      "probe_castle_pearl_art",
+      "probe_fairy_art",
+      "probe_props"
+    ],
+    "ci_recipe_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+    "source_pins": {
+      "scripts/audio_director.gd": "187ed975ee3f4f32a135c7967ba9c0c0579770b9db112c32a7718e57438235a9",
+      "scripts/probe_voice.gd": "c1e2d99cc358424ad26bf9c69129fffaf844fcc607cc7187f532c9f1d772cfab",
+      "scripts/probe_day_one_voice.gd": "53ea6053ace9ea6963a6c4420d699580bf76a8f5c99403438d803d2319974bfa"
+    },
+    "log": "tmp/roshan-less-chatter-full-ci-03.log",
+    "log_sha256": "63ed2cb5c8fff5220e9fafec2bd611f449f8492e985310cda4bb48abd4aa7b0e"
+  },
+  "production_edit_utc": "2026-11-01T00:40:43.450518+00:00",
+  "source_pins_after": {
+    "scripts/opera_career_world_2d.gd": "c5ad0732aea3c185404b7dcb6d8f471fae7e9089384a33f792f18a98cc903f87",
+    "scripts/probe_opera_2d.gd": "6e57bcb55e009acacebcbef93c1cc51c5e1ece992e2236c976283316e02b7c94"
+  },
+  "preservation": {
+    "world_unchanged_functions": 184,
+    "world_changed_functions": [
+      "_stage_room_finale_partner"
+    ],
+    "world_layout_coordinates_animation_heights_durations_and_assets": "unchanged",
+    "probe_unchanged_functions": 55,
+    "probe_changed_functions": [
+      "_drive_geologist_phase"
+    ],
+    "probe_added_functions": [
+      "_check_geologist_feedback_rests"
+    ],
+    "original_clearance_helpers_and_assertion": "unchanged; deterministic controlled-clock endpoint/clearance checks added"
+  },
+  "owner_followup_authorization": {
+    "source": "Direct owner answer to the scope question in this chat",
+    "text": "Repair the blockers and publish the speech fix",
+    "scope": "Repair the verification blockers and publish/integrate the speech fix into dev; no stable/master promotion requested."
+  },
+  "runtime_integration_reconciliation": {
+    "incoming_dev": "36b58801b1a9a4b7edc76b8c3bb72091565590cb",
+    "task_preservation_commit": "fa41c852fde5e1f2009a79f9f42f44e8bd466c0b",
+    "incoming_changed_file_count": 690,
+    "scope": "Preserve incoming runtime/art/canon/audit changes. Shared speech file adds five exact Guide cues; Geologist layout branch and the speech suppression semantics are unchanged. Resolve appended audit/owner history and derived audio metadata without replacing incoming facts. No expansion of the task into redesign or release.",
+    "required_evidence": "Recheck current planning/rules/ledger/findings, preserve both owner histories, parser/inference plus all current static/import/trusted gameplay gates at frozen combined source, then exact-head remote CI before dev integration.",
+    "combined_source_pins": {
+      "scripts/audio_director.gd": "2715ca5eddbc05913e9ed52c558579757efb990c0479be6115821c7016c6b278",
+      "scripts/probe_voice.gd": "c1e2d99cc358424ad26bf9c69129fffaf844fcc607cc7187f532c9f1d772cfab",
+      "scripts/probe_day_one_voice.gd": "53ea6053ace9ea6963a6c4420d699580bf76a8f5c99403438d803d2319974bfa",
+      "scripts/opera_career_world_2d.gd": "20a0bce585f1768a277a9123c155fef0b0fd7e1ecb569f28ac6317435223bf51",
+      "scripts/probe_opera_2d.gd": "24939a59fb7961d5cb40e50eee3c2f20115f3ec354b6b52687a0033b434ff536"
+    },
+    "verification_execution": "AGENTS.md permits full validation probe-by-probe. Run every unchanged static/import gate from scripts/ci.sh, then all82 exact probe commands/body, each with fresh user directories and the existing touch mode, timeout, runtime-error/failure greps and positive-output floor. Independent isolated probes may run concurrently; no assertion, threshold, fixture or gate is skipped/replaced. Freeze inputs and record per-probe exits/log hashes and actual recipe hash. This is separately identified from the ordered full run04.",
+    "restart_recovery": {
+      "original_interruption": {
+        "interruption_receipt": "tmp/roshan-less-chatter-combined-05/interrupted_receipt.json",
+        "interruption_receipt_sha256": "c56ba915452ca83bf8aa8be2e2d188989fa47f2f08b2ddc19957fc612c09f49a",
+        "retained_completed_probes": 58,
+        "interrupted_or_unstarted_probes": 24,
+        "exit_codes": {
+          "0x40010004": 4,
+          "0xc000026b": 20
+        },
+        "game_assertion_or_script_error_markers_in_interrupted_logs": 0,
+        "static_result": {
+          "name": "static-import",
+          "exit_code": 0,
+          "duration_seconds": 8961.99,
+          "log": "tmp/roshan-less-chatter-combined-05/static-import.log",
+          "log_sha256": "159501165902c4a97936de2801fcba2f6a9cc5c692b0047dce5da41500b6763e"
+        },
+        "source_input_count": 700,
+        "source_input_drift": []
+      },
+      "method": "Native subprocess launches avoid the observed MSYS fork/process-start failures; game tests unchanged. Fresh private test save directories; no cleanup/deletion of shared files.",
+      "runner_sha256": "35c00ca83b3f5c347e23cb8261b8d1bff01033766697ae258d698352fe595b98",
+      "result": "FAIL",
+      "strict_controls": {
+        "native_recovery_receipt": "tmp/roshan-less-chatter-combined-05-resume-01/receipt.json",
+        "native_recovery_receipt_sha256": "51ac0e3c3fb9d99cd88c0b1806109cfd2ef741c40112866dfb610f633031bd85",
+        "result": "FAIL",
+        "completed_passes_at_identical_source": 81,
+        "failed_probe": "probe_chapter2",
+        "first_failure": "career_11 child did not exit within unchanged30000ms; child log only contains engine banner",
+        "isolated_native_result": {
+          "result": {
+            "name": "probe_chapter2",
+            "exit_code": 4294967295,
+            "native_exit_code": 4294967295,
+            "supervisor_exit_code": 4294967295,
+            "timeout_seconds": 480,
+            "timed_out": false,
+            "existing_verdict_timeout_rule_accepted": false,
+            "failure_or_runtime_error_marker": false,
+            "started_utc": "2026-11-01T06:28:17.467072+00:00",
+            "duration_seconds": 150.17,
+            "command": [
+              "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+              "--headless",
+              "--path",
+              "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef",
+              "-s",
+              "scripts/probe_chapter2.gd",
+              "--",
+              "--touch",
+              "--classic-touch-test"
+            ],
+            "test_user_directory": "C:\\Users\\Peter\\AppData\\Local\\Temp\\rr05-jn0a974t",
+            "log": "tmp/roshan-less-chatter-combined-05-isolated-02/probe_chapter2.log",
+            "log_sha256": "909b457d0b8aac885ab631525d44fc631ed38ba65888def1d9fb4a2c6af4a437"
+          },
+          "source_input_drift": [],
+          "original_child_deadline_milliseconds": 30000,
+          "qualification": "One strict isolated control after a two-worker recovery hit the unchanged child-exit deadline. No source/test/deadline altered; prior failure retained. Cause is not established."
+        },
+        "qualification": "The isolated native process ended without a verdict or assertion/error marker. Its engine log stops during ordinary route assertions; no matching Windows crash event was returned by the bounded query. Cause not established; neither failure is accepted as a pass."
+      }
+    }
+  },
+  "latest_dev_reconciliation": {
+    "incoming_dev": "f59a1d1d5bdd58604f4706d16fb4e76d8f7db8b9",
+    "previous_uncommitted_merge": "36b58801b1a9a4b7edc76b8c3bb72091565590cb",
+    "changed_incoming_files": [
+      "audit/MASTER_AUDIT_2026-08-09.md",
+      "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "design/audit_impacts/demo-dr1-dr2-20261031.json",
+      "scripts/main.gd",
+      "scripts/opera_job_playtest_menu.gd",
+      "scripts/pause_menu.gd",
+      "scripts/probe_day_one_story_clips.gd",
+      "scripts/probe_opera.gd"
+    ],
+    "scope": "Preserve the published speech/Geologist patch and resolve metadata against latest dev. Incoming changes hide playtest/FPS UI and extend clip/menu tests; no assets, audio, tools, specifications, owner-register or scene changes. Abort only the uncommitted obsolete merge after verified full own-file backup; no red intermediate commit.",
+    "required_evidence": "Fresh full82 trusted gameplay probes plus source-sensitive import/parser/inference/authority/coverage/owner/2D/audio-reference and applicable runtime/static gates. Retain only completed unaffected tool/asset/audio evidence after exact input-preservation checks; preserve all prior failed runs. Exact new topic-head GitHub full Probes success before dev integration. Visual/device/child/owner remain separate.",
+    "result": "PASS",
+    "pre_prerequisite_result": "FAIL",
+    "qualification": "Final local machine source validated after explicit prerequisites; published-head remote CI remains required before dev integration."
+  },
+  "linux_verification_environment": {
+    "purpose": "Temporary local Linux verification with existing WSL2; no Windows feature/kernel/global configuration changes. Same pinned source and Godot4.7.2, original30s child/480s probe deadlines. No game code or protected assets changed.",
+    "home": "C:\\Users\\Peter\\AppData\\Local\\Temp\\rr-linux-qa-8ye4kuji",
+    "distro": "RoshanSpeechQA-20261101",
+    "install": "C:\\Users\\Peter\\AppData\\Local\\Temp\\rr-linux-qa-8ye4kuji\\install",
+    "initial_distro_list": "",
+    "rootfs_url": "https://cloud-images.ubuntu.com/wsl/releases/noble/current/ubuntu-noble-wsl-amd64-24.04lts.rootfs.tar.gz",
+    "rootfs_sha256": "2a790896740b14d637dbdc583cce1ba081ac53b9e9cdb46dc09a2f73abbd9934",
+    "engine_url": "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip",
+    "engine_sha512": "9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65",
+    "created_utc": "2026-11-01T07:46:53.850101+00:00",
+    "result": "PENDING",
+    "actual_distro": "RoshanSpeechQA1-20261101",
+    "actual_backend": "WSL1 Ubuntu24.04 after WSL2 CreateVm timeout",
+    "wsl2_import": {
+      "command": [
+        "wsl.exe",
+        "--import",
+        "RoshanSpeechQA-20261101",
+        "C:\\Users\\Peter\\AppData\\Local\\Temp\\rr-linux-qa-8ye4kuji\\install",
+        "C:\\Users\\Peter\\AppData\\Local\\Temp\\rr-linux-qa-8ye4kuji\\ubuntu-noble-wsl-amd64-24.04lts.rootfs.tar.gz",
+        "--version",
+        "2"
+      ],
+      "exit_code": 4294967295,
+      "log": "tmp\\roshan-less-chatter-linux-import.log",
+      "log_sha256": "a292897a25dd6b2d1cb17632ad4009a426c4a02c7f171f8c63a379013d13cf6a",
+      "finished_utc": "2026-11-01T07:50:08.955538+00:00"
+    },
+    "wsl1_import": {
+      "distro": "RoshanSpeechQA1-20261101",
+      "install": "C:\\Users\\Peter\\AppData\\Local\\Temp\\rr-linux-qa-8ye4kuji\\install-wsl1",
+      "command": [
+        "wsl.exe",
+        "--import",
+        "RoshanSpeechQA1-20261101",
+        "C:\\Users\\Peter\\AppData\\Local\\Temp\\rr-linux-qa-8ye4kuji\\install-wsl1",
+        "C:\\Users\\Peter\\AppData\\Local\\Temp\\rr-linux-qa-8ye4kuji\\ubuntu-noble-wsl-amd64-24.04lts.rootfs.tar.gz",
+        "--version",
+        "1"
+      ],
+      "exit_code": 0,
+      "output": "The operation completed successfully. \r\n",
+      "time_utc": "2026-11-01T08:00:20.049737+00:00"
+    },
+    "engine_bootstrap": {
+      "distro": "RoshanSpeechQA1-20261101",
+      "root": "/root/roshan-speech-qa-20261101",
+      "binary_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+      "exit_code": 0,
+      "log": "tmp\\roshan-less-chatter-linux-bootstrap.log",
+      "log_sha256": "8b62ea702e4b060afd4dae0db3a63f8b9e2908a9bb09c162308bafaf2622210a"
+    },
+    "initial_plan_result": "Original unchanged-source Linux run07 FAIL, recorded separately.",
+    "current_watchdog": "60s PID/source/input-bound startup, then30s actual restore;8s menu/480s outer retained. This changes original combined30s watchdog and makes no mobile performance claim.",
+    "temporary_environment_cleanup": "PENDING after verification and evidence capture"
+  },
+  "additional_prerequisite_impacts": [
+    "design/audit_impacts/chapter2-resume-startup-watchdog-20261101.json",
+    "design/audit_impacts/slide-fanfare-exit-sampling-20261101.json"
+  ],
+  "final_local_machine_validation": {
+    "receipt": "tmp\\roshan-less-chatter-final-machine-aggregate-04.json",
+    "receipt_sha256": "2237d9e7f6eca9df0dd4272ddea2ae543aa0aa3f00f8ffc83107289e3b59a239",
+    "trusted_probe_count": 82,
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "source_count": 700,
+    "source_pins_sha256": "91198e6957d7f72d2cb628d6ae37c04f5f0e61064cb8107c1ee6e96d2a079177",
+    "source_input_drift": [],
+    "source_isolation": {
+      "role": "standalone SceneTree probe entry; no class_name, source-path/UID reference from any other runtime script/scene/config",
+      "other_runtime_references": [],
+      "unchanged_production_and_other81_entries": true
+    },
+    "inventory_verdict": [
+      "GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED"
+    ],
+    "qualification": "Final applicable machine regression coverage combines81 unchanged independent probe entries with canonical reruns of the corrected standalone audit and any earlier red entries. Every original failed/interrupted run remains failed. No changed game dependency is reused. Exact published-head remote CI is still required before dev integration. Physical visual/device/listening/child/owner acceptance and strict whole-game2D/master satisfaction remain outstanding."
+  },
+  "publication_gate": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "work_branch": "codex/roshan-less-chatter-20261031",
+    "integration_branch": "dev",
+    "pull_request": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/42",
+    "exact_published_head_ci": "Required before integration; operational result and exact head recorded on the PR after this local evidence commit.",
+    "scope_authority": "Direct owner authorization: Repair the blockers and publish the speech fix. No stable promotion requested."
+  }
+}

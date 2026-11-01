@@ -2786,6 +2786,43 @@ func _drive_geology_surface(surface: Variant) -> void:
 			_geology_touch(surface, 0, false, surface.pointer_pos)
 
 
+func _check_geologist_feedback_rests(world: OperaCareerWorld2D) -> void:
+	# Step the real feedback Tween so a fast frame cannot skip its overlap.
+	# This adds no input, progress, or alternate production animation path.
+	var phase_before: int = world.phase_index
+	var progress_before: float = world.phase_progress
+	var earned_before: float = world.competition.player_progress
+	var phase_name: String = String((world.phases[phase_before] as Dictionary)["name"])
+	for key: String in ["player", "rival"]:
+		var actor: Control = world.player_actor if key == "player" else world.rival_actor
+		var before_position: Vector2 = actor.position
+		var before_scale: Vector2 = actor.scale
+		var feedback_height: float = 14.0 if key == "player" else 9.0
+		world._bounce_actor(actor, feedback_height, 0.30)
+		var motion: Tween = world.actor_tweens.get(key) as Tween
+		var samples_clear := motion != null and motion.is_valid()
+		if motion != null and motion.is_valid():
+			motion.pause()
+			for _sample: int in range(8):
+				if motion.is_valid():
+					motion.custom_step(0.04)
+				var player_rect := _actor_visual_rect(world.player_actor)
+				var rival_rect := _actor_visual_rect(world.rival_actor)
+				var canvas := Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)
+				samples_clear = samples_clear and _rect_inside(player_rect, canvas) \
+					and _rect_inside(rival_rect, canvas) \
+					and not player_rect.intersects(rival_rect)
+		_check("geologist %s %s feedback keeps both actors clear throughout" % [phase_name, key],
+			samples_clear)
+		_check("geologist %s %s feedback settles at its displayed task rest" % [phase_name, key],
+			actor.position.distance_to(before_position) <= 0.01
+			and actor.scale.distance_to(before_scale) <= 0.0001)
+	_check("geologist %s feedback cannot award or advance a task" % phase_name,
+		world.phase_index == phase_before
+		and is_equal_approx(world.phase_progress, progress_before)
+		and is_equal_approx(world.competition.player_progress, earned_before))
+
+
 func _drive_geologist_phase(world: OperaCareerWorld2D) -> void:
 	if world.phase_advance_pending:
 		world._advance_completed_phase()
@@ -2795,6 +2832,7 @@ func _drive_geologist_phase(world: OperaCareerWorld2D) -> void:
 		return
 	if not world.task_open:
 		world._open_task()
+		_check_geologist_feedback_rests(world)
 		return
 	_drive_geology_surface(world.surface)
 

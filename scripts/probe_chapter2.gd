@@ -34,6 +34,8 @@ var chapter_two: ChapterTwoDirector
 var startup_scene_ready_count := 0
 var startup_scene_closed_count := 0
 var startup_completion_count := 0
+const RESUME_STARTUP_LIMIT_MSEC := 60000
+const RESUME_OPERATION_LIMIT_MSEC := 30000
 const FIXTURE_SAVE_PREFIX := "probe_chapter2_isolated_"
 const MAIN_SCENE_PATH := "res://scenes/main.tscn"
 var fixture_save_path := ""
@@ -1560,6 +1562,39 @@ func _fixture_freeze_input(source: String, destination: String, expected_hash: S
 	return FileAccess.get_sha256(destination) == expected_hash and FileAccess.get_sha256(source) == expected_hash
 
 
+static func _fixture_resume_ready_matches(path: String, child_pid: int, parent_pid: int,
+		script_hash: String, expected_hash: String) -> bool:
+	if not FileAccess.file_exists(path):
+		return false
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not parsed is Dictionary:
+		return false
+	var record := parsed as Dictionary
+	return record.get("ready_for_resume", false) == true \
+		and int(record.get("process_id", -1)) == child_pid \
+		and int(record.get("parent_process_id", -1)) == parent_pid \
+		and String(record.get("script_sha256", "")) == script_hash \
+		and String(record.get("expectation_sha256", "")) == expected_hash
+
+
+func _fixture_publish_resume_ready(record: Dictionary) -> bool:
+	var path := fixture_expected_path + ".ready.json"
+	var temporary := path + ".tmp"
+	if FileAccess.file_exists(path) or FileAccess.file_exists(temporary):
+		return false
+	var file := FileAccess.open(temporary, FileAccess.WRITE)
+	if file == null:
+		return false
+	file.store_string(JSON.stringify({"ready_for_resume": true,
+		"process_id": OS.get_process_id(),
+		"parent_process_id": int(record.get("parent_process_id", -1)),
+		"script_sha256": FileAccess.get_sha256(get_script().resource_path),
+		"expectation_sha256": FileAccess.get_sha256(fixture_expected_path)}))
+	file.flush()
+	file.close()
+	return DirAccess.rename_absolute(temporary, path) == OK
+
+
 func _fixture_checkpoint_restart(host: ReefMain, label: String) -> ReefMain:
 	var checkpoint_failures := checks_failed
 	var earned := _fixture_snapshot(host)
@@ -1574,6 +1609,8 @@ func _fixture_checkpoint_restart(host: ReefMain, label: String) -> ReefMain:
 	var receipt_path := expected_path + ".receipt.json"
 	var log_path := expected_path + ".log"
 	var started_path := expected_path + ".started.json"
+	var ready_path := expected_path + ".ready.json"
+	var ready_temporary := ready_path + ".tmp"
 	var primary_copy := stem + ".primary.input.json"
 	var backup_copy := stem + ".backup.input.json"
 	var primary_hash := FileAccess.get_sha256(fixture_save_path)
@@ -1583,9 +1620,11 @@ func _fixture_checkpoint_restart(host: ReefMain, label: String) -> ReefMain:
 	_check("milestone evidence paths are unused", not FileAccess.file_exists(expected_path)
 		and not FileAccess.file_exists(receipt_path) and not FileAccess.file_exists(log_path)
 		and not FileAccess.file_exists(started_path)
+		and not FileAccess.file_exists(ready_path) and not FileAccess.file_exists(ready_temporary)
 		and not FileAccess.file_exists(primary_copy) and not FileAccess.file_exists(backup_copy))
 	if FileAccess.file_exists(expected_path) or FileAccess.file_exists(receipt_path) \
 			or FileAccess.file_exists(log_path) or FileAccess.file_exists(started_path) \
+			or FileAccess.file_exists(ready_path) or FileAccess.file_exists(ready_temporary) \
 			or FileAccess.file_exists(primary_copy) or FileAccess.file_exists(backup_copy):
 		return null
 	var backup_exists := FileAccess.file_exists(fixture_save_path + ".bak")
@@ -1599,13 +1638,15 @@ func _fixture_checkpoint_restart(host: ReefMain, label: String) -> ReefMain:
 		"backup": {"path": backup_copy if backup_exists else "", "sha256": backup_hash}}
 	var expected := {"snapshot": earned, "generation": generation, "frozen_inputs": frozen_inputs,
 		"primary_sha256": primary_hash, "backup_sha256": backup_hash,
-		"parent_process_id": OS.get_process_id(), "label": label, "script_sha256": script_hash}
+		"parent_process_id": OS.get_process_id(), "label": label, "script_sha256": script_hash,
+		"startup_limit_msec": RESUME_STARTUP_LIMIT_MSEC, "resume_limit_msec": RESUME_OPERATION_LIMIT_MSEC}
 	var file := FileAccess.open(expected_path, FileAccess.WRITE)
 	_check("milestone expectation receipt opens", file != null)
 	if file == null:
 		return null
 	file.store_string(JSON.stringify(expected))
 	file.close()
+	var expected_hash := FileAccess.get_sha256(expected_path)
 	var args := PackedStringArray(["--headless", "--path", ProjectSettings.globalize_path("res://"),
 		"--log-file", log_path, "--script", get_script().resource_path, "--",
 		"--chapter2-resume", fixture_save_path, "--expectation", expected_path])
@@ -1623,9 +1664,24 @@ func _fixture_checkpoint_restart(host: ReefMain, label: String) -> ReefMain:
 				"started_utc": Time.get_datetime_string_from_system(true), "expectation": expected_path,
 				"script_sha256": FileAccess.get_sha256(get_script().resource_path)}))
 			journal.close()
-		var deadline := Time.get_ticks_msec() + 30000
+		# Source compilation is bounded separately from the real resume. The
+		# child must bind readiness to this PID, script and exact expectation
+		# before starting its30-second production-boot/Continue budget.
+		var resume_ready := false
+		var deadline := Time.get_ticks_msec() + RESUME_STARTUP_LIMIT_MSEC
 		while OS.is_process_running(child_pid) and Time.get_ticks_msec() < deadline:
+			if not resume_ready and _fixture_resume_ready_matches(
+					ready_path, child_pid, OS.get_process_id(), script_hash, expected_hash):
+				resume_ready = true
+				deadline = Time.get_ticks_msec() + RESUME_OPERATION_LIMIT_MSEC
+			if Time.get_ticks_msec() >= deadline:
+				break
 			await create_timer(0.05, true, false, true).timeout
+		if not resume_ready and Time.get_ticks_msec() < deadline:
+			resume_ready = _fixture_resume_ready_matches(
+				ready_path, child_pid, OS.get_process_id(), script_hash, expected_hash)
+		_check("milestone %s binds fresh-process startup to exact script and expectation" % label,
+			resume_ready)
 		if OS.is_process_running(child_pid):
 			OS.kill(child_pid)
 			_check("milestone child exits within its wall deadline", false)
@@ -1645,13 +1701,15 @@ func _fixture_checkpoint_restart(host: ReefMain, label: String) -> ReefMain:
 					and int(receipt.get("process_id", -1)) == child_pid \
 					and int(receipt.get("parent_process_id", -1)) == OS.get_process_id() \
 					and int(receipt.get("loaded_generation", -1)) == generation \
+					and int(receipt.get("resume_elapsed_msec", -1)) >= 0 \
+					and int(receipt.get("resume_elapsed_msec", -1)) <= RESUME_OPERATION_LIMIT_MSEC \
 					and String(receipt.get("preboot_primary_sha256", "")) == primary_hash \
 					and String(receipt.get("preboot_backup_sha256", "")) == backup_hash \
 					and String(receipt.get("script_sha256", "")) == script_hash \
 					and (receipt.get("frozen_inputs", {}) as Dictionary) == frozen_inputs \
 					and _fixture_snapshots_equal(receipt.get("loaded_snapshot", {}) as Dictionary, earned)
 			var child_log := FileAccess.get_file_as_string(log_path) if FileAccess.file_exists(log_path) else ""
-			var verified := child_exit == 0 and valid and not child_log.is_empty() \
+			var verified := resume_ready and child_exit == 0 and valid and not child_log.is_empty() \
 				and not child_log.contains("FAIL") and not child_log.contains("SCRIPT ERROR:") \
 				and not child_log.contains("ERROR:")
 			_check("milestone %s fresh process proves exact bytes, loaded state and Continue" % label, verified)
@@ -1719,6 +1777,15 @@ func _fixture_child_resume() -> void:
 			and FileAccess.get_sha256(backup_copy) == backup_hash \
 			and String(frozen_backup.get("sha256", "")) == backup_hash
 	_check("child sees the exact retained primary and backup inputs without loading the copies", retained)
+	if checks_failed > 0:
+		quit(1)
+		return
+	var resume_started_msec := Time.get_ticks_msec()
+	var startup_ready := _fixture_publish_resume_ready(record)
+	_check("child publishes source-bound readiness before production boot", startup_ready)
+	if not startup_ready:
+		quit(1)
+		return
 	var host := await _fixture_boot_scene()
 	var loaded := fixture_loaded_snapshot.duplicate(true)
 	var generation := fixture_loaded_generation
@@ -1739,6 +1806,7 @@ func _fixture_child_resume() -> void:
 		quit(1)
 		return
 	file.store_string(JSON.stringify({"finished": true, "failures": checks_failed,
+		"resume_elapsed_msec": Time.get_ticks_msec() - resume_started_msec,
 		"process_id": OS.get_process_id(), "parent_process_id": parent_pid,
 		"loaded_snapshot": loaded, "loaded_generation": generation,
 		"preboot_primary_sha256": primary_hash, "preboot_backup_sha256": backup_hash,

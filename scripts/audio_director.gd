@@ -237,11 +237,10 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 			return teacher_path
 		teacher_path = "res://assets/audio/teacher/" + event_suffix + ".ogg"
 		return teacher_path if ResourceLoader.exists(teacher_path) else ""
-	# Day One's persistent Rumi greeting deliberately stays in Roshan's voice
-	# until an owner-approved Rumi identity recording exists. Reuse the approved
-	# Roshan acknowledgement; never synthesize or pitch a new Rumi identity.
-	if key == "roshan_day_one_rumi_hi":
-		key = "roshan_talk"
+	# Owner 2026-10-31: retire the repetitive stock reaction, including the
+	# obsolete greeting alias. Exact contextual/story/objective takes stay live.
+	if speaker == "roshan" and event_suffix in ["talk", "day_one_rumi_hi"]:
+		return ""
 	var protected_speaker := speaker in ["faron", "daddy", "chuck"]
 	# Daddy's numbered family recordings remain protected and win through their
 	# exact legacy keys. Synthetic filler is allowed only for a named Daddy event
@@ -251,7 +250,7 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 	if allow_exact_filler:
 		candidates.append(FILLER_VOICE_DIR + key + ".ogg")
 	candidates.append(LEGACY_VOICE_DIR + key + ".ogg")
-	if allow_generic and event_suffix != "":
+	if allow_generic and event_suffix != "" and speaker != "roshan":
 		if not protected_speaker:
 			candidates.append(FILLER_VOICE_DIR + speaker + ".ogg")
 		candidates.append(LEGACY_VOICE_DIR + speaker + ".ogg")
@@ -323,6 +322,10 @@ func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	if _flush_required_queue():
 		return
 	var exact_path := _voice_path(speaker, event_suffix, false)
+	# Silence a retired or missing Roshan cue before it can stop a live line,
+	# consume a pool player, or fall through to a generic recording/yay.
+	if speaker == "roshan" and exact_path.is_empty():
+		return
 	if (speaker == "guide" or event_suffix.begins_with("fashion_") or event_suffix.begins_with("teacher_") or event_suffix.begins_with("chapter2_lawn_") or event_suffix.begins_with("arborist_tree_book_")) and exact_path.is_empty():
 		return
 	if required and exact_path == "":

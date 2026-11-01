@@ -1,0 +1,105 @@
+{
+  "id": "chapter2-resume-startup-watchdog-20261101",
+  "scope": "Owner-authorized prerequisite to publish the speech fix: distinguish bounded editor/source compilation startup from real fresh-process save restoration. Add atomic PID/script/expectation-bound readiness before production boot; allow60s startup then retain30s resume, unchanged8s menu predicate and480s outer probe. Preserve every existing state/byte/generation/source/actual Continue assertion. This deliberately changes the former combined30s watchdog; it does not claim unchanged total timeout or mobile performance acceptance.",
+  "baseline": "fa41c852fde5e1f2009a79f9f42f44e8bd466c0b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03"
+  ],
+  "findings": [
+    "MA-CI-007"
+  ],
+  "files": [
+    "scripts/probe_chapter2.gd",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "integration_context": {
+    "incoming_dev": "f59a1d1d5bdd58604f4706d16fb4e76d8f7db8b9",
+    "measured_uncommitted_tree": "f3d33df65525faf27d3b65924932fb4f8d8afbe6",
+    "baseline_probe_literal_sha256": "0276b386e1a8f4432fc88a533dec6723d77791fa518f15f37960112c5155d6ff",
+    "baseline_probe_git_lf_sha256": "4bbc259a688fc00b35cb14e1caf977d94689c46e8863176bde6576e68a7bbd2e"
+  },
+  "validation": [
+    {
+      "command": "Original combined watchdog, latest-source Windows run06 and Linux run07",
+      "result": "FAIL",
+      "evidence": "tmp/roshan-less-chatter-latest-06/receipt.json and tmp/roshan-less-chatter-linux-run-07/receipt.json retain original30s child deadline failures. Source700 pins unchanged in each recorded domain. No original failure is converted to success."
+    },
+    {
+      "command": "Exact failed-save Linux source/Continue timing diagnostic",
+      "result": "PASS",
+      "evidence": "Diagnostic only, not full-gate acceptance: tmp/roshan-less-chatter-linux-child-timeline-01/receipt.json. First source assertion at27.001s, actual Continue completes29.893s, all child checks PASS29.925s, process closes30.797s and misses old30s total budget. Saved primary/backup bytes and source hashes are retained."
+    },
+    {
+      "command": "Child-only extraction prototypes",
+      "result": "FAIL",
+      "evidence": "Prototype01 missing dependency and02 accidentally included parent setup; these are generator failures, not game-state findings. Prototype03 preserves all included helpers byte-for-byte and finishes29.427s at original30s, but only0.573s headroom is insufficient for a robust repair; no child-only production extraction is adopted. Exact logs/receipts remain in tmp/roshan-less-chatter-linux-lean-child-trial-01,02,03 and source proofs."
+    },
+    {
+      "command": "New readiness protocol controls and full trusted suite on final source",
+      "result": "PENDING",
+      "evidence": "Require actual source-bound ready publication and receipt validation, negative ready-input controls, unchanged save/Continue checks, all82 trusted probes, parser/inference, authority/coverage/owner guards, no added spatial API debt, exact published-head Probes before dev integration."
+    },
+    {
+      "command": "Applied-source ChapterTwo actual save/Continue probe and six fresh processes",
+      "result": "PASS",
+      "evidence": "{\"probe\": {\"name\": \"probe_chapter2\", \"command\": [\"bash\", \"--noprofile\", \"--norc\", \"/tmp/rr-linux08-3gewui7f/one-probe.sh\", \"probe_chapter2\"], \"exit_code\": 0, \"launcher_exit_code\": 0, \"duration_seconds\": 480.78, \"log\": \"probe_chapter2.log\", \"log_sha256\": \"0ddad6d3b6fae708891129ee55daeb29ece8b0508f414593d74036220914df27\"}, \"milestone_receipt\": \"tmp\\\\roshan-less-chatter-startup-six-milestones.json\", \"milestone_receipt_sha256\": \"5499049061d4e98b250383f38d1e670b5109cf1e264402e0df472717fe85836c\", \"milestones\": [{\"name\": \"probe_chapter2_isolated_67_67636043.json.milestone_career_00.expected.json.receipt.json\", \"sha256\": \"93a3415753596a0b1ff7f3cc0aef28c18558a73dac2e8ed088e8ce458a80b040\", \"resume_elapsed_msec\": 1554, \"process_id\": 105, \"parent_process_id\": 67, \"script_sha256\": \"ca4517483d0419916ec8703f67121eae09c686141200fe3f72a35bf558ec10bd\", \"loaded_generation\": 28}, {\"name\": \"probe_chapter2_isolated_67_67636043.json.milestone_career_01.expected.json.receipt.json\", \"sha256\": \"d61f77fcafe3b9144141f84b0769b4e285e2fa16801a719af7de00429db0ec73\", \"resume_elapsed_msec\": 1371, \"process_id\": 161, \"parent_process_id\": 67, \"script_sha256\": \"ca4517483d0419916ec8703f67121eae09c686141200fe3f72a35bf558ec10bd\", \"loaded_generation\": 78}, {\"name\": \"probe_chapter2_isolated_67_67636043.json.milestone_career_02.expected.json.receipt.json\", \"sha256\": \"8defa5b890b9fc929279c70270cf7ca88c74d119dbdd58ca10207e80f0362c07\", \"resume_elapsed_msec\": 2141, \"process_id\": 123, \"parent_process_id\": 67, \"script_sha256\": \"ca4517483d0419916ec8703f67121eae09c686141200fe3f72a35bf558ec10bd\", \"loaded_generation\": 54}, {\"name\": \"probe_chapter2_isolated_67_67636043.json.milestone_career_06.expected.json.receipt.json\", \"sha256\": \"c8fdb36c41cf4fa6130481b0639f060acce2050cd12917101199551b2b1ba57a\", \"resume_elapsed_msec\": 1865, \"process_id\": 85, \"parent_process_id\": 67, \"script_sha256\": \"ca4517483d0419916ec8703f67121eae09c686141200fe3f72a35bf558ec10bd\", \"loaded_generation\": 19}, {\"name\": \"probe_chapter2_isolated_67_67636043.json.milestone_career_11.expected.json.receipt.json\", \"sha256\": \"72bcbaa4807eb9b0049718276ae161837220a45babe2a1e6ed7cc3811c48cc18\", \"resume_elapsed_msec\": 1338, \"process_id\": 143, \"parent_process_id\": 67, \"script_sha256\": \"ca4517483d0419916ec8703f67121eae09c686141200fe3f72a35bf558ec10bd\", \"loaded_generation\": 71}, {\"name\": \"probe_chapter2_isolated_67_67636043.json.milestone_story_complete.expected.json.receipt.json\", \"sha256\": \"51a2250d16d493614c392992babc5786d6acc61e61f916f97800f636e1089315\", \"resume_elapsed_msec\": 2291, \"process_id\": 179, \"parent_process_id\": 67, \"script_sha256\": \"ca4517483d0419916ec8703f67121eae09c686141200fe3f72a35bf558ec10bd\", \"loaded_generation\": 103}], \"engine\": \"4.7.2.stable.official.ed1daf0bf\", \"qualification\": \"All original save/source/byte/generation/state/real Continue assertions pass with exit0, retained480s outer. Full trusted roster and exact-head remote integration remain separately pending.\"}"
+    },
+    {
+      "command": "Full inventory03 before audit-prose correction",
+      "result": "FAIL",
+      "evidence": "Actual gate1 and one new audit-note identifier finding are preserved in tmp/roshan-less-chatter-final-source-gates-03/receipt.json SHA256 d5ad59589123ed7c7592554e024ad2631e5af5dcdec95a8a9b4c49c1385b6743. An accidentally joined phrase in prose was classified as a spatial API name. Two new audit records now use ordinary separated wording; unchanged classifier gives empty token maps. No tool, manifest, threshold or runtime code was changed; full inventory04 is required."
+    },
+    {
+      "command": "Final current-source local machine validation with qualified incremental standalone-audit verification",
+      "result": "PASS",
+      "evidence": "{\"receipt\": \"tmp\\\\roshan-less-chatter-final-machine-aggregate-04.json\", \"receipt_sha256\": \"2237d9e7f6eca9df0dd4272ddea2ae543aa0aa3f00f8ffc83107289e3b59a239\", \"trusted_probe_count\": 82, \"engine\": \"4.7.2.stable.official.ed1daf0bf\", \"engine_sha256\": \"8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e\", \"source_count\": 700, \"source_pins_sha256\": \"91198e6957d7f72d2cb628d6ae37c04f5f0e61064cb8107c1ee6e96d2a079177\", \"source_input_drift\": [], \"source_isolation\": {\"role\": \"standalone SceneTree probe entry; no class_name, source-path/UID reference from any other runtime script/scene/config\", \"other_runtime_references\": [], \"unchanged_production_and_other81_entries\": true}, \"inventory_verdict\": [\"GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\"], \"qualification\": \"Final applicable machine regression coverage combines81 unchanged independent probe entries with canonical reruns of the corrected standalone audit and any earlier red entries. Every original failed/interrupted run remains failed. No changed game dependency is reused. Exact published-head remote CI is still required before dev integration. Physical visual/device/listening/child/owner acceptance and strict whole-game2D/master satisfaction remain outstanding.\"}"
+    },
+    {
+      "command": "Exact published-head remote Probes before dev integration",
+      "result": "PENDING",
+      "evidence": "Required operational publication gate; local evidence never substitutes for exact new topic-head CI. Exact revision/run links recorded on PR42 after publication."
+    }
+  ],
+  "acceptance_gaps": "Probe-only operational timing repair; no game behavior, recording, art, save schema, device/child/owner or visual acceptance is supplied. MA-CI-007 shared-harness/top-twenty migration and aggregate V1/CONFIRMED_OPEN remain unchanged. Whole-game master audit stays UNSATISFIED.",
+  "final_local_machine_validation": {
+    "receipt": "tmp\\roshan-less-chatter-final-machine-aggregate-04.json",
+    "receipt_sha256": "2237d9e7f6eca9df0dd4272ddea2ae543aa0aa3f00f8ffc83107289e3b59a239",
+    "trusted_probe_count": 82,
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "source_count": 700,
+    "source_pins_sha256": "91198e6957d7f72d2cb628d6ae37c04f5f0e61064cb8107c1ee6e96d2a079177",
+    "source_input_drift": [],
+    "source_isolation": {
+      "role": "standalone SceneTree probe entry; no class_name, source-path/UID reference from any other runtime script/scene/config",
+      "other_runtime_references": [],
+      "unchanged_production_and_other81_entries": true
+    },
+    "inventory_verdict": [
+      "GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED"
+    ],
+    "qualification": "Final applicable machine regression coverage combines81 unchanged independent probe entries with canonical reruns of the corrected standalone audit and any earlier red entries. Every original failed/interrupted run remains failed. No changed game dependency is reused. Exact published-head remote CI is still required before dev integration. Physical visual/device/listening/child/owner acceptance and strict whole-game2D/master satisfaction remain outstanding."
+  },
+  "publication_gate": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "work_branch": "codex/roshan-less-chatter-20261031",
+    "integration_branch": "dev",
+    "pull_request": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/42",
+    "exact_published_head_ci": "Required before integration; operational result and exact head recorded on the PR after this local evidence commit.",
+    "scope_authority": "Direct owner authorization: Repair the blockers and publish the speech fix. No stable promotion requested."
+  }
+}
