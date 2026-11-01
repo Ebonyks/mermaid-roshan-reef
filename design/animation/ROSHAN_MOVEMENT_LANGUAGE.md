@@ -1,11 +1,15 @@
 # Mermaid Roshan — movement and acting language
 
-Version 1 · owner commission 2026-09-11 · source baseline
-`cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016`.
+Version 2 · Laura reference selected by the owner 2026-11-01.
+V2 source baseline: `27c88288bf6e39582072811443df79919e7bbb89`.
+V1 commission 2026-09-11 and historical source baseline
+`cdfd937a7db4b3d41e7c469fb8e6a8fe812cd016` remain preserved below.
 
 Authority: `BINDING_DOMAIN` for the commissioned direction and briefing
 protocol, subordinate to the [canonical motion rules](../06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards).
-Ribbon Glide with Playful Dolphin accents is the **working creative direction**.
+Laura is the owner-selected main acting reference; the detailed
+[Laura-led v2 specification](#laura-led-visual-movement-specification-v2-2026-11-01)
+refines the **Ribbon Glide with Playful Dolphin accents** working direction.
 Its numerical targets are pilot starting points, not measured asset facts or
 approved footage. The owner has commissioned this language, not selected an
 unseen pilot. Refine it through the [production protocol](ANIMATION_PRODUCTION_PROTOCOL.md)
@@ -27,7 +31,7 @@ The face establishes attention; the hands make the intention specific; the
 tail supplies travel and balance. At the important moment, simplify the
 performance so the object, friend, or result can be read.
 
-## Two reference styles, one consistent Roshan
+## Two emotional registers, one consistent Roshan
 
 These are original motion analogies. A ribbon suggests trailing rhythm; a
 dolphin suggests a brief propulsion pulse followed by glide. Neither supplies
@@ -229,7 +233,7 @@ fields, event tests, review records, dependency invalidation, and delivery lanes
 
 ## Reuse inventory and known limitations
 
-This is source inspection at the baseline above, not a fresh visual acceptance
+This v1 inventory is source inspection at the historical September baseline, not a fresh visual acceptance
 of any frame. Inventory accepted frames before requesting additional art.
 
 | Existing source | Useful vocabulary | Review before reuse |
@@ -326,3 +330,313 @@ External motion reference, archive completeness, generation readiness and
 delivery acceptance retain their separate claims. Follow the current
 [continuity protocol](../GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md)
 and the applicable shot-card contract for an actual handoff.
+
+## Laura-led visual movement specification (v2, 2026-11-01)
+
+### Authority, reference and evidence scope
+
+Owner decision `ODR-ROSHAN-LAURA-REFERENCE-20261101`: Laura from
+*Tropical-Rouge! Pretty Cure* (2021) is Roshan's main movement reference.
+The commission is to describe swimming, turns, gestures, settling and needed
+poses before making test runs. This section refines the earlier profile;
+Ribbon Glide and Playful Dolphin remain her everyday and excited registers.
+The selected reference is not a selection of any Roshan performance.
+
+Reference entry: [Laura reveals her mermaid identity](https://www.youtube.com/watch?v=6kKGfl1wqlc).
+[Toei's character page](https://www.toei-anim.co.jp/tv/tropical-rouge_precure/character/chara5.php)
+establishes Laura's identity and confident personality. The YouTube entry was
+located through search; continuous playback and shot timestamps have not been
+verified. No stroke duration, joint angle or pose below is represented as a
+measurement of that video. These are authored Roshan directions inspired by
+the owner's reference choice. Exact Laura shot annotation remains a reference
+evidence gap, distinct from this complete pre-test design description.
+
+Laura contributes buoyant confidence, clear attention, expressive shoulders
+and hands, and a readable contrast between travel and conversation. Roshan
+retains her own childhood proportions, warm helping personality and painted
+storybook finish. Laura's appearance, adult-like posing, haughty reactions,
+combat, transformations and human legs are not transferred. Reference footage
+is study material, not licensed source pixels or an image-generation identity
+input. No reference media is downloaded or incorporated by this change.
+
+This v2 section controls where older v1 eight-heading assumptions or the
+historical September/October proposals differ: ordinary travel faces left or
+right under `ODR-ROSHAN-ORIENTATION-20261004`; vertical route movement retains
+that horizontal facing. Intermediate front/quarter views describe turns and
+interaction staging, not additional up/down travel directions. The production
+protocol, scoped native-rig permissions, protected identity and source-specific
+Day One footage rules retain their authority. No new medium/method exception,
+runtime integration, test run, generation or spending is commissioned here.
+
+### Visual design language: the same painted child, richer anime acting
+
+The identity anchor is the approved base-world atlas family: a large expressive
+child's face, brown eyes, soft cheeks, brown curls and a tied rainbow ponytail;
+a small gold tiara with its existing gem outside career costumes; the approved
+pink/lavender bodice and sleeves; one connected iridescent lavender-pink-purple
+tail ending in the existing broad rainbow fin lobes. Preserve the source's
+actual proportions, handed details, painted scale pattern and contour thickness.
+The tail's rainbow and lavender readings are both canonical; the owner has not
+defined a new light-state protocol. Do not make hues pulse to imply propulsion.
+Existing retained career/playground variants keep their scoped authority;
+this direction does not order a redesign of them.
+
+The modern anime influence is in **posing and spacing**: a clear intention,
+asymmetry that gives the gesture a leader, a readable expressive peak, and a
+decisive but soft return. It does not require replacing the painted finish with
+flat cel shading, sharp facial features, long adult limbs, sparkle-covered
+silhouettes or hair that changes volume. Head/hand size stays constant through
+the acting; perspective is authored, not manufactured by shrinking a limb.
+
+At rest, imagine a comfortably supported child looking toward a friend: chest
+open, shoulders down, elbows soft, hands available beside the body. The tail
+hangs in a relaxed curve and the fin completes the silhouette behind/below her,
+clear of her hands and the actionable object. She is not standing on imaginary
+feet. Her gaze has a target. She neither stares permanently at the camera nor
+scans the world on a timer.
+
+In travel, imagine the same child gently committing her head and chest toward
+the route, with the continuous tail extending behind the waist and bending
+toward the fin. The body reads as one open curve, not a stiff torso attached to
+a wriggling appendage. Hands balance near the body with a small offset between
+them; they do not perform a repeated two-arm breaststroke. Her face and the
+working hand remain visible at the actual game scale. Preserve a clean gap
+between hand, cheek, hair and prop wherever their meaning needs to be read.
+
+### Coordination, water and physical support
+
+Eyes establish attention; head and chest commit; tail supplies thrust; hands
+balance or perform the task. This is a coordination order within one coherent
+performance, not a license to freeze the torso and animate a detached arm.
+Shoulder, neckline, sleeves, head, hair and tail answer a wave or reach without
+all moving by the same amount. The head stays readable; excitement does not
+shake every part or introduce continuous bobbing.
+
+Water supports the body while effort travels from waist through the tail to
+the fin. Use a connected flexion/extension, with a broad curved fin surface;
+no tail kink, knee, second tail, folded-paper fin or changing lobe count. Hair
+mass follows head/torso motion; the ponytail arc and fin tip resolve after the
+main movement. The tiara follows the head rigidly. Hair is not an independent
+metronome and must not slice through shoulders or change its tied attachment.
+
+A carried object quiets the upper body and keeps hands in useful support. It
+does not introduce a new speed penalty. At a work surface the contact point
+is the anchor: root/shoulders compensate so the hand stays on the actual tool
+or surface. A marker named support.tail describes a contact candidate only;
+it does not prove footing or authorize floor swimming. Water, Sky Lagoon,
+supported floor work, seats and rides retain their distinct scene contracts.
+
+### Swimming: start, cruise, effort and arrival
+
+The following are semantic key poses, not a prescription to show only eight
+drawings. Complete breakdowns/in-betweens are needed wherever the changing
+silhouette requires them. A rich set remains the goal; holds cannot replace
+missing effort, transitions or contact.
+
+| Phase | Complete-figure picture | Motion and readable purpose |
+|---|---|---|
+| S0 Available | Supported home pose; soft hands; fin on the view's declared home side | Quiet attention, no travel stroke while stationary |
+| S1 Commit | Eyes/head toward route, chest inclines, tail gathers gently | Visible start overlaps immediate navigation; no wind-up input delay |
+| S2 Load | A continuous tail curve grows behind the waist; arms remain soft | Preparation is in the tail/body, not stretched arms |
+| S3 Push | Curve progresses down the tail; fin presents a broad pushing surface | One smooth propulsion event, no sideways whole-body snake |
+| S4 Extend | Tail opens into a longer line; chest stays clear and steady | Effort resolves into forward travel; no global scale change |
+| S5 Glide | Relaxed tail, quiet hands, small trailing hair/fin response | Generous readable travel with momentum rather than constant pumping |
+| S6 Recover | Tail returns through a shallower curve; sleeves/hair retain volume | Rejoin the next stroke without fin-side or ponytail swaps |
+| S7 Arrive | Chest returns toward supported interaction pose; tail makes a contained opposing sweep | Decelerate, then release into the settling sequence below |
+
+Everyday travel uses one soft push and a generous glide. The excited register
+uses two compact pulses followed by a clear glide; urgency can remain focused
+and quiet. Slow travel reduces effort and permits longer glides; faster travel
+increases supported cadence without changing anatomy or replaying an entire
+start on every speed change. Neither input speed nor a random timer causes a
+celebration. Sky Lagoon uses the owner-directed slower, more modest swim.
+
+Retain the v1 **1.6–2.0-second complete everyday phrase** as a starting proposal,
+not a measured stroke or a mandatory engine rate. The historical motion
+handoff's 0.8–1.2-second slow stroke describes a different sub-unit; do not mix
+those units. Initial excited complete phrase remains 1.0–1.3 seconds. Exact
+effort/glide spacing belongs to later reviewed candidates. Authored cadence,
+renderer fps and navigation speed are separate. No new timing value overrides
+existing approved special-purpose clips or the unchanged rig audit floors.
+
+Navigation continues to own the route, speed and arrival. The visual stroke
+must agree with displacement; it cannot move the gameplay root through scenery
+to finish a flourish. Select an authored phase-compatible start/stop/bridge
+instead of always cutting to frame zero. The existing front/back swim sheet
+offers identity and gesture clues; its arm sweep is not proof of this proposed
+tail-led side-view cruise.
+
+### Turns: face, chest, tail, then settle
+
+Distinguish a path bend from a facing reversal. A shallow path bend can retain
+the current horizontal facing and use a small coordinated lean; it does not
+need a camera orbit. Up/down screen travel is still a route change, not an
+up/down-facing sprite. A reversal needs changing surfaces and occlusion.
+
+| Turn beat | Right-to-left example | Essential continuity |
+|---|---|---|
+| T0 Notice | Eyes attend toward the new target; head begins to turn | Input/navigation respond immediately |
+| T1 Gather | Right-facing silhouette opens toward quarter-right; arms compact | No hand through hair or torso; tail begins counterbalance |
+| T2 Cross | Front-facing crossover with both shoulders accounted for | Face width, near/far shoulder ownership and fin curve change through drawn poses |
+| T3 Commit | Quarter-left opens into the left-facing silhouette | The same attached tail/fin follows through; wardrobe/prop layers change deliberately |
+| T4 Resolve | Left-facing home/cruise phase; tail and ponytail finish once | Stable size and usable hands; no rebound into the old heading |
+
+The opposite turn requires the reverse coverage and its own continuity review.
+A face/eye artwork change must depict gaze and changing surfaces; rotating the
+front face in-plane cannot produce profile. No negative-width squeeze, opacity
+cross-fade or instantaneous mirror swap stands in for T1–T3. Earlier whole-sprite
+mirroring may remain only where the exact view/costume/contact policy explicitly
+permits it; the current native shared-view draft requires authored asymmetrical
+left views. This profile does not globally change callers' mirror behavior.
+
+Use v1's 0.25–0.40-second ordinary visible turn as an initial small-turn target.
+A complete reversal may need a different reviewed duration to preserve its
+surfaces; do not force five view keys into an unreadable burst. A renewed target
+can interrupt any beat and must choose a valid bridge from the actual displayed
+view. Do not queue full turns while the child changes direction repeatedly.
+For carrying, keep the prop supported during the turn with appropriate hand
+perspective. A two-hand carry cannot reuse a free-arm turn unchanged.
+
+### Gestures: expressive whole-figure acting with useful hands
+
+Each row below needs neutral entry, preparation, readable peak/contact,
+follow-through and a return compatible with the displayed facing. These phases
+are authored together; a raised hand over a frozen child is insufficient.
+
+| Intent | Visual phrase | Face, hand and body relationship | Required end |
+|---|---|---|---|
+| Notice/listen | Targeted glance, small head/shoulder invitation | Eyes find the real target; soft hands; no continuous scanning | Available listening pose |
+| Greet/wave | Attend, lift bent arm, open palm, one small wrist/forearm wave, lower | Small shoulder/chest answer and tail counterbalance; face clear of fingers | Hand actually returns; no perpetual waving |
+| Point/select | Look to target, extend one useful hand, hold the meaning briefly | Elbow stays natural; other hand balances; no accusatory stabbing | Neutral or a purposeful reach |
+| Reach/take | Look to grasp, open hand, reach, form grip at contact, gather object | Slight torso approach and tail balance; finger/prop overlap visible | Supported carry after validated grasp |
+| Carry | Close useful hands around object, quiet torso, restrained propulsion | Object mass expressed by support; face not hidden | Turn-compatible carry or place entry |
+| Place/give | Look to destination, present, establish support/recipient contact, release, withdraw | Prop stays supported through the ownership change | Empty hand returns; object stays at destination |
+| Wipe/scrub | Establish contact, move through the actual marked surface, recover | Shoulder/elbow coordinate; wrist follows tool; tail balances instead of bouncing | Tool/contact resolves before acknowledgement |
+| Scoop | Present net, enter debris region, traverse/lift with supported wrist | Net's leading edge explains collection; hair/fin stay clear | Carry/dispose transition, not generic cheer |
+| Help/lift | Look at friend, offer support, make the commissioned useful movement | Both characters' contact and eyelines share the event | Stable shared supported pose |
+| Delight/pride | Look at true result, share a smile, one open-hand/chest accent | Compact tail response; no theatrical body arch or victory bounce | Attentive quiet ready for input |
+| Unsure/retry | Look between target and hand, small tilt/reset, inviting palm | Kind uncertainty, no collapse, shame or panic | Available retry without lost progress |
+
+Eyes may blink naturally during a quiet transition, not on every button press
+or while the important contact must be read. Gaze and eyelids need view-specific
+art: a front blink patch stretched into profile is not a new expression.
+Palm, relaxed hand, point, open reach, closed grip and release have distinct
+silhouettes. Fingers should remain legible without becoming oversized.
+Near/far hands need deliberate layering around an object, not an automatic
+front-of-everything hand. Tools retain their own angle, support and perspective.
+
+### Settling and interruption: an active finish, then quiet
+
+Settling is not stopping the entire figure on the same frame or allowing a
+spring to oscillate indefinitely. Use four readable parts: (1) the gaze and
+head arrive at the target; (2) chest/working hand find their useful position;
+(3) tail/fin and ponytail resolve the same action once; (4) the figure remains
+comfortably supported and available. An arrival may use a small opposing tail
+sweep, a reach returns through a soft elbow, and a wave includes the lowering
+arc. They cannot all share one generic vertical bob.
+
+Initial ordinary arrival settle remains 0.20–0.35 seconds; excited settle
+0.25–0.40 seconds. Treat these as proposals, not physics or input locks. A
+contact action may require zero root excursion. Idle decoration remains below
+about 1% of neutral crown-to-fin body height as a pilot ceiling, with no
+whole-figure squash/zoom; this ceiling does not excuse a visibly frozen body.
+Sparse authored breath, a small fin adjustment and gentle hair response can
+provide life without starting another task or distraction.
+
+New intentional input interrupts ornament immediately, visibly acknowledged
+within two rendered frames at 30 fps. Preserve the route and current actual
+prop ownership. Before grasp, cancellation leaves the object in place; after
+validated grasp, it remains carried; after release/saved work, the effect is
+not undone. Pause/focus loss freezes or cancels by the activity contract; exit
+prevents late callbacks. A celebration is once per true event, never per loop
+or re-entry. Record bridges from travel, turn, gesture peak, contact and settle;
+do not hide cancellation behind a fade or restart.
+
+### Current setup and pose/paint backlog
+
+Two distinct baselines are involved. The integration atlas inventory is the
+source-hashed v2 evidence in [the impact record](../audit_impacts/roshan-laura-profile-20261101.json).
+The newer source-only native rig is inspected at immutable external revisions:
+[native stress/costume source b700b846](https://github.com/Ebonyks/mermaid-roshan-reef/tree/b700b846d1d2f4b1843279f268e2bb12e4b1f4ec/assets_src/animation/native_rig_stress_20261031),
+[replacement costume source](https://github.com/Ebonyks/mermaid-roshan-reef/tree/b700b846d1d2f4b1843279f268e2bb12e4b1f4ec/assets_src/animation/native_rig_costumes_20261031),
+and [detective/geologist source 0e479d06](https://github.com/Ebonyks/mermaid-roshan-reef/tree/0e479d064aaf2959fc04a8033af502b21f911620/assets_src/animation/roshan_job_rig_investigation_20261101).
+These are read-only evidence, not merge sources, a new accepted runtime or a
+transfer of source-study permission into production.
+
+The source study reports a fourteen-bone Skeleton2D, rigid arm pieces, a
+head/hair unit, small eyelid replacements and five tail/fin controls, with
+arm_bend, blink and tail_bend studies. The later shared contract draft names
+screen-side arm chains, grips, waist/headwear/support markers and view gaps.
+Only front is SEED_AVAILABLE; quarter-right, profile-right and quarter-left
+are SOURCE_GAP. Right-arm articulation and hair motion beyond the original
+rigid unit must be inspected/extended in that shared contract rather than
+assumed from the existence of semantic bone names. Bone/view topology stays
+with the shared-skeleton owner. No parallel skeleton is proposed here.
+
+| Priority / pose family | Existing useful source | What the native setup can support in its present view | Missing coverage to author or establish |
+|---|---|---|---|
+| P0 Home/listening, left and right | directional cells 2/6; front child identity | Front supported pose and bounded tail/blink study | Bind accepted side-facing homes, contour/size/fin-side landmarks and idle motion per view |
+| P0 Tail-driven side cruise | swim_front/back identity and 16-frame sequences; directional side silhouettes | Tail chain can explore modest in-plane flex; it does not establish thrust or side art | S2 load, S3 push, S4 extension, S5 glide, S6 recovery in side view plus complete intermediate/loop continuity |
+| P0 Start | Directional home and existing swim entry | Coordinated in-plane torso/tail timing is an authoring candidate | Home-to-load and first-push bridges for both facings, including start from carry |
+| P0 Brake/arrive | Existing directional finish clues | Tail counterbalance and torso recovery are candidates | Opposing sweep, supported arrival, fin/hair catch-up and quiet end; phase-compatible stops |
+| P0 Facing turn | Directional cells 6,7,0,1,2 as silhouette references | Front rig cannot reveal profile/hidden surfaces | T1/T2/T3 quarter/front crossover breakdowns, near/far arms, face/hair/fin occlusion, reverse sequence and interrupt bridges |
+| P0 View binding plates | Approved directional atlas and frozen front seed | front exists in source draft | Registered right profile/right quarter/left quarter/left profile, asymmetrical hair/fin treatment, view ownership and explicit mirror policy |
+| P1 Natural blink/gaze | Native front eyelids; gesture_b row 0 look | Front blink exists; independent eye direction is not established | View-specific half/closed lids and targeted gaze, including looking at a work hand |
+| P1 Wave up/peak/down | gesture_a row 0; retained whole-figure wave studies | Existing arm chain can explore a bounded in-plane lift | Natural open palm, lowered return, shoulder/torso/tail/hair coordination and view-specific entry/exit; prior wave acceptance does not transfer |
+| P1 Point/reach | gesture_b row 3 | Existing arm bend gives an initial planar path | Pointer/open-reach hands, appropriate shoulder/elbow surfaces, gaze and complete return per required view |
+| P1 Grasp/release | gesture_c row 0 collect; native closed-grip prototype | Existing grip/socket provides bounded source contact | Open-to-closed and closed-to-open hands around each real prop; near/far finger occluders; missing perspective repair |
+| P1 Two-hand carry/turn | gesture_d row 1 carry | Named grips do not establish coordinated two-arm travel | Both supported hand contacts, prop-facing surfaces, carry stroke and complete loaded turn/place poses |
+| P1 Scrub/wipe/scoop | Existing job tools; detective/geologist planar work evidence | Source jobs demonstrate specific retained-tool motions only | Real target-specific reach/contact/recovery; skimmer depth/edge views; pickup/release where required |
+| P1 Hair follow-through | Approved ponytail/curls; source head/hair unit | Rigid head/hair can follow torso | Coherent ponytail/curl drift and settle with root attachment; authored surfaces or reviewed source-contract extension, not free-floating overlays |
+| P1 Tail/fin extremes | Approved complete fin and source tail chain | Modest current-view bends | Load/push/brake silhouette extremes, volume-preserving inner curve and fin-surface views; check painted scales/cloth at all extremes |
+| P1 Delight/retry | gesture_a row 1 cheer; gesture_b expression vocabulary | In-plane accent can be authored within known limits | One coherent whole-body accent and release to home; no looping unrelated cheer keys |
+| P2 Costumes in every required action/view | Existing approved costume source families | Complete-set native replacements are provisional | Sleeve/neck/waist/fin coverage, tool-side sleeves and all reachable mixed-slot seams in new views; no old clothing underlay repair |
+| P2 Scene-specific support/actions | play_a/play_b, career keys and scene contract | General tail/arm bend proves no support | Exact seat/ride/flight/work poses and changing contacts for each commissioned context |
+
+The table is a coverage backlog, not an order to generate every row. P0 means
+required coverage for an eventual basic locomotion demonstration; P1 expands
+personality and useful contact; P2 extends the reviewed language into contexts.
+Reuse an existing exact pose if its identity, view, action and transition fit.
+Never infer a missing asset solely from a filename, nor accept existing pixels
+solely because an old sheet calls them chronological. Review retained Grok swim
+returns and whole-figure wave sources before commissioning replacements.
+
+Separate **new timing/pose authoring** from **new painted surfaces**. A modest
+front-view lift may use current controls; a profile face, hidden shoulder, new
+grip, fin underside or costume seam needs actual artwork/binding coverage.
+Hand sockets do not create fingers; fixed bone lengths do not prevent texture
+strain; smooth angular curves do not establish convincing water resistance.
+The source seed's head/hair rigidity, limited view inventory and mixed wardrobe
+waist gaps are substantive limits, not reasons to reduce the intended acting.
+
+Keep source-study audit floors unchanged. Their reported numerical controls
+(including visible strain, zero triangle flips, motion speed/acceleration,
+grip error and outline/contact checks) remain attached to their exact source
+contracts; this prose neither substitutes a new tolerance nor certifies them
+at a different view, outfit, pose or production scale. Source-profile evidence
+cannot close `MA-ROSHAN-005`, `MA-ROSHAN-006` or `MA-PLAY-004`.
+
+### Pre-test deliverable and later evidence
+
+Delivered now: owner reference selection, Roshan-specific visual/physical
+description, phase vocabulary, current-source inventory and prioritized pose
+requirements. No animation/Godot trial, native render, new art, runtime edit,
+asset generation, paid request or device session is performed by this task.
+Documentation authority/coverage checks are separate from animation test runs.
+
+Before a later commissioned run, its job card binds the selected view/home,
+existing source hashes, pose inventory, same-scale landmarks, hand/tool/support
+sockets, draw order, timings, loop/entry/exit/contact markers and cancellation
+rules. Declare method eligibility and the actual shared rig-contract version;
+missing view artwork cannot be concealed by deformation. Name the bounded
+action, attempts, wall/cleanup time and any funded monetary cap before pixels.
+
+The first future comparison should hold identity, costume, route, camera,
+scale and destination fixed: notice, start, cruise, reverse, arrive, greet once,
+settle; vary only ordinary versus delighted phrasing. A separate real work
+action and carried-object turn establish contact and support. Review at normal
+speed and frame-step, at game size on light/dark backgrounds. Bind source/output
+hashes and include entry, turn crossover, grip, release, interrupt and loop seam.
+No unearned score, invented reviewer verdict or green geometry check substitutes
+for identity, natural acting, Mobile/Speedy target-device 30 fps, child or owner
+acceptance. The master audit remains UNSATISFIED.

@@ -23,7 +23,7 @@ It does not create findings, close existing ones, or declare game-wide satisfact
 
 | Character | Direction document | Working direction | Authored candidates for this profile | Runtime/machine evidence for this profile | Visual/device/child/owner acceptance |
 |---|---|---|---|---|---|
-| Mermaid Roshan | [Movement language v1](../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md) | Ribbon Glide everyday; Playful Dolphin for delight. Pilot selection remains open. | Not produced by this documentation task; existing atlas inventory is linked in the profile | Not implemented or tested as a new movement suite; existing scoped game evidence is not transferred | All remain open for the proposed suite |
+| Mermaid Roshan | [Movement language v2](../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md#laura-led-visual-movement-specification-v2-2026-11-01) | Owner-selected Laura reference; Ribbon Glide everyday / Playful Dolphin delight; explicit swim/turn/gesture/settle phases and pose gaps | None produced for v2; integration atlas inventory and immutable native-rig source studies have distinct acceptance scopes | V2 documentation/source inspection only; no animation/Godot test or runtime implementation | Performance, device, child and owner acceptance remain open; reference choice alone is recorded |
 
 This table is a **profile commission inventory**, not a claim that only one
 character exists or that the game has no prior animation. Add each next
@@ -37,7 +37,7 @@ receive distinct identity/profile IDs even when they share a species or room.
 
 | Order | Bounded deliverable | Question it resolves | Required next evidence |
 |---|---|---|---|
-| 1 | Asset-to-action coverage review | Which existing chronological frames support the new phrasing? | Exact paths/cells, source hashes, directions, anchors, keep/gap rationale; no speculative regeneration |
+| 1 | V2 pre-test pose/view/paint coverage | Which selected-language poses fit the current sources? | [V2 inventory/backlog](../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md#current-setup-and-posepaint-backlog) records source hashes, front-only native-rig limits, side/quarter and hand/prop surface needs; exact per-cell/per-action review remains required before new pixels |
 | 2 | Matched ten-second A/B studies | Does the gentle glide or eager pulse best express her? | Same scene/scale/route/camera; exact candidates, normal-speed review, recorded selection and remaining owner review |
 | 3 | One real work/contact study and carry turn | Is she still recognizable while actually helping? | Before/contact/after, prop ownership, support and interruption evidence |
 | 4 | Bounded gameplay integration | Does the chosen performance preserve agency and saved truth? | Valid input, arrival/contact, cancellation, passive negative, pause/re-entry and required local/CI gates |
@@ -90,6 +90,9 @@ and production protocol rather than repairing or verifying runtime defects.
 Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11-roshan-animation-language.json).
 
 ## Branch history
+
+- 2026-11-01: owner selects Laura as the main movement reference. Roshan profile v2 describes painted identity, water/propulsion, turn occlusion, gestures, settle/interrupt behavior and prioritized new pose/view/paint coverage, including read-only native-rig branches. No test run, source generation, runtime change or finding closure. [Impact](../../design/audit_impacts/roshan-laura-profile-20261101.json).
+
 
 - 2026-10-07 (latest): owner reviewed rig pilot run 1 as a rough take but frozen, with frame-by-frame artifacts, and asked for full-body movement with the wave, a blink and hair flowing in the water (`ODR-RIG-PILOT-REV2-20261007`). [Revision 2](../../assets_src/cinematics/claude_rig_pilot_20261007/README.md#run-1-revision-2-whole-body-blink-hair-owner-review-2026-10-07) smooths the LTX arm path (max acceleration 76 to 13 °/frame²), authors anticipation, lift, lean, head tilt, free-arm and tail counter-swing on one master phase with short lags, adds an underwater idle with a travelling hair wave, and blinks with pilot-only painted lids (no approved front-facing closed eyes exist). Size still PASS. [Impact](../../design/audit_impacts/claude-rig-pilot-20261007.json). No runtime or finding change.
 - 2026-10-07 (later): owner asked for a deterministic-rig pilot with LTX animations as the motion guide, then for two test runs: one ignoring the rules, then the rules back where it falls short (`ODR-RIG-PILOT-GUIDES-20261007`, `ODR-RIG-PILOT-IMAGE-EXCEPTION-20261007`, `ODR-RIG-PILOT-RULES-OFF-TEST-20261007`). The [rig pilot](../../assets_src/cinematics/claude_rig_pilot_20261007/README.md) solves Union take 1 onto one fixed-length rig. Run 1 renders a Godot 4.7.2 Skeleton2D Roshan: one size (figure 0.05%, head 0.16%, W3 PASS) but part layers, an arm moving alone and a hand swap. Run 2 restores the rules: proportion-locked guides (W3 0.0%) on one master phase, with a controlled-comparison runner for the next take, not run here. The fit also measured take 1's own arm at +34% raised and −55% lowering, both asked for by the Union guide. [Impact](../../design/audit_impacts/claude-rig-pilot-20261007.json). No runtime or finding change.
