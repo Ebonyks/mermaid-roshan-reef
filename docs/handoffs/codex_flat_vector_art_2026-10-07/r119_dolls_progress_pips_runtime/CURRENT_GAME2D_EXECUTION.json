@@ -1,0 +1,20 @@
+{
+  "state": "FIRST_POST_REPAIR_INVENTORY_EXECUTION_PASS",
+  "source_pin_sha256": "f61ba4a69c0c6a4133336dc1608b951d78e3cf40344a4d942de026962b90ba70",
+  "command": [
+    "python",
+    "-B",
+    "tools/audit_game_2d.py",
+    "--regression-gate"
+  ],
+  "checker_sha256": "b8d44cac5aa42fe62e2ec41d34cff268b15db4c777325bf75fdbfd075209eb8b",
+  "execution_budget_seconds": 1800,
+  "exit_code": 0,
+  "elapsed_seconds": 529.456,
+  "log_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+  "raw_template_receipt": "SCAN_TIMEOUT_RECOVERY.json",
+  "raw_template_receipt_sha256": "995dc19abd6a754256354f59a158098d5440b74c6a3d2f0617eded6df23ab190",
+  "legacy_field_limit": "The reused continuation template retains original_execution_budget_seconds300 and resumed_execution_budget_seconds1800 fields. Actual repaired-source execution was one first1800s scan after metadata recovery; the real pre-repair300s timeout is preserved separately in ORIGINAL_PRE_REPAIR_SCAN_TIMEOUT_RECOVERY.json.",
+  "new_generation_calls": 0,
+  "new_frame_events": 0
+}

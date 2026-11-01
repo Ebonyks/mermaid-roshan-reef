@@ -1,0 +1,9 @@
+{
+  "state": "TRAILING_PREPARATION_LOCALE_ERROR_WITH_ORIGINAL_VALIDATOR_RUNNING",
+  "error": "Default cp1252 decode of the large changelog failed after the new validator had already been prepared. PowerShell continued to launch original validation session53192. Second launch83637 stopped at exclusive output-directory creation before any static or engine job. Preserve original healthy53192; no engine suite duplicated. Documentation is rewritten explicitlyUTF8.",
+  "original_healthy_handle": 53192,
+  "duplicate_precheck_handle": 83637,
+  "duplicate_terminal": "FileExistsError before staticprefix/engine invocation",
+  "runtime_unchanged_during_reconciliation": true,
+  "at_utc": "2026-10-31T19:17:49.304077+00:00"
+}

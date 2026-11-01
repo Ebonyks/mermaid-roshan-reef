@@ -1,0 +1,27 @@
+{
+  "state": "PLANNED_BOUNDED_UNMODIFIED_GATE_RETRY_AFTER_CAPACITY_CHANGE",
+  "source_pin_sha256": "f61ba4a69c0c6a4133336dc1608b951d78e3cf40344a4d942de026962b90ba70",
+  "original_validation": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-progress-pips-20261031\\full_validation_rest_coverage_recovery\\FINAL_RESULT.json",
+  "original_failed_log_sha256": "0ffcd2b53ec4b0253651f91dc7c31464cd8f254ce2a17140f69702becf07088a",
+  "actual_failure": "Original trusted Chapter2 parent passed its checks through career06; separate save-resume child PID334136 emitted only the exact4.7.2engine header before the original30000ms child deadline. Parent killed it and verified terminal; no child receipt or product assertion was observed. Invalid configuration errors above are deliberate negative tests, not the classified failure.",
+  "original_child_pid": 334136,
+  "child_terminal_verified": true,
+  "measured_host_load": {
+    "cpu_load_percent": 100,
+    "Godot_process_count_before": 27,
+    "Godot_process_count_after": 25,
+    "aggregate_Godot_CPU_seconds_over3seconds": 1.328125
+  },
+  "inference_limit": "Host contention is a plausible startup-timeout cause; no product cause has been established. Preserve failure and require actual unmodified probe PASS.",
+  "new_basis": "Wait for3host CPU samples <=80percent at10second intervals before a single original failed-probe retry, allowing at most30minutes for this execution opportunity. No other job is interrupted.",
+  "retry_cap_failed_probe": 1,
+  "original_child_wall_deadline_ms": 30000,
+  "probe_outer_deadline_seconds": 480,
+  "thresholds_and_trusted_scripts_modified": false,
+  "healthy_checks_reused": "All71passing current-source probes, completed currentstatic and first current2Dscan; exact runtime/source/engine and normal11 hashes guarded.",
+  "remaining": "If the original72passes, execute73..82once with original classifier/flags/deadlines and compose82same-source results. No healthy engine/native/static rerun. On retry failure stop for diagnosis, do not retry blindly.",
+  "new_generation_calls": 0,
+  "new_frames": 0,
+  "canonical_counts_applied": false,
+  "at_utc": "2026-10-31T21:42:46.010448+00:00"
+}

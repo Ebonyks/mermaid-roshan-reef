@@ -1878,6 +1878,12 @@ func _stage_room_finale_partner() -> void:
 		rival_actor.position = Vector2(78, 218)
 		rival_actor.size = Vector2(176, 176)
 		rival_actor.scale = Vector2.ONE
+		# Reactions must settle at these activity marks, not the preceding
+		# walking rests. Cancel an older reaction before this task owns them.
+		_capture_actor_rest("player", player_actor)
+		_capture_actor_rest("rival", rival_actor)
+		_restore_actor("player", player_actor)
+		_restore_actor("rival", rival_actor)
 		return
 	# Room finales keep Roshan beside the object she deliberately reached. Pick
 	# a route rest that clears both Roshan and the already-laid-out activity;

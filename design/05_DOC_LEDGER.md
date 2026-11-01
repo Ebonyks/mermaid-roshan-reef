@@ -1156,3 +1156,6 @@ Owner-requested analysis and Codex handoff for the commissioned under-pool book,
 
 | `assets_src/imagegen/dolls_cradle_sling_20261031/README.md` | 🟣 | `PROPOSED / CANDIDATE` R118 whole cradle native/reject/Aseprite/export provenance. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R118 originalFaron Dolls painted sling, native100checks16views; originalbehavior and separate acceptance lanes. |
+
+| `assets_src/imagegen/dolls_progress_pips_20261031/README.md` | 🟣 | `PROPOSED / CANDIDATE` R119 whole cloth marker empty/filled native and Aseprite provenance. |
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R119 originalMain/Faron progress marker native20frames; currentstatic/all82/exactCI/Dev and formal/external separate.  Scoped Geologist rest repair adds110checks6frames after preserved original gate failure; fresh fullgates pending.  PARKED source preservation underODR-DEMO-FREEZE-20261031; noDev integration. |

@@ -14680,3 +14680,27 @@ R91 scoped reuse: unchanged `assets/mg/butterfly.png` (SHA-256 `310539d933f10274
 | `assets_src/imagegen/dolls_cradle_sling_20261031/scaled_whole.aseprite` | Built-in OpenAI ImageGen, owner-authorized R118 static item; model/version unexposed | Project-generated artwork | Native or whole uniform Aseprite derivative; `assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json`; take1 remains a geometryreject, no owner acceptance. |
 
 | `assets/dolls/cradle_sling_painted.png` | R118 ImageGen take2 via Aseprite1.3.18.4 | Project-generated artwork | Whole uniform512RGBA lossless padded cutout; `assets_src/imagegen/dolls_cradle_sling_20261031/DERIVATION.json`; formal/external acceptance pending. |
+
+| `assets_src/imagegen/dolls_progress_pips_20261031/empty_512_export.png` | Built-in OpenAI ImageGen, owner-authorized R119 static progress-marker family; model/version unexposed | Project-generated artwork | Whole native or uniform Aseprite derivative, `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; no owner acceptance. |
+
+| `assets_src/imagegen/dolls_progress_pips_20261031/empty_512_master.aseprite` | Built-in OpenAI ImageGen, owner-authorized R119 static progress-marker family; model/version unexposed | Project-generated artwork | Whole native or uniform Aseprite derivative, `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; no owner acceptance. |
+
+| `assets_src/imagegen/dolls_progress_pips_20261031/empty_native.aseprite` | Built-in OpenAI ImageGen, owner-authorized R119 static progress-marker family; model/version unexposed | Project-generated artwork | Whole native or uniform Aseprite derivative, `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; no owner acceptance. |
+
+| `assets_src/imagegen/dolls_progress_pips_20261031/empty_native_roundtrip.png` | Built-in OpenAI ImageGen, owner-authorized R119 static progress-marker family; model/version unexposed | Project-generated artwork | Whole native or uniform Aseprite derivative, `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; no owner acceptance. |
+
+| `assets_src/imagegen/dolls_progress_pips_20261031/empty_take1_native.png` | Built-in OpenAI ImageGen, owner-authorized R119 static progress-marker family; model/version unexposed | Project-generated artwork | Whole native or uniform Aseprite derivative, `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; no owner acceptance. |
+
+| `assets_src/imagegen/dolls_progress_pips_20261031/filled_512_export.png` | Built-in OpenAI ImageGen, owner-authorized R119 static progress-marker family; model/version unexposed | Project-generated artwork | Whole native or uniform Aseprite derivative, `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; no owner acceptance. |
+
+| `assets_src/imagegen/dolls_progress_pips_20261031/filled_512_master.aseprite` | Built-in OpenAI ImageGen, owner-authorized R119 static progress-marker family; model/version unexposed | Project-generated artwork | Whole native or uniform Aseprite derivative, `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; no owner acceptance. |
+
+| `assets_src/imagegen/dolls_progress_pips_20261031/filled_native.aseprite` | Built-in OpenAI ImageGen, owner-authorized R119 static progress-marker family; model/version unexposed | Project-generated artwork | Whole native or uniform Aseprite derivative, `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; no owner acceptance. |
+
+| `assets_src/imagegen/dolls_progress_pips_20261031/filled_native_roundtrip.png` | Built-in OpenAI ImageGen, owner-authorized R119 static progress-marker family; model/version unexposed | Project-generated artwork | Whole native or uniform Aseprite derivative, `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; no owner acceptance. |
+
+| `assets_src/imagegen/dolls_progress_pips_20261031/filled_take1_native.png` | Built-in OpenAI ImageGen, owner-authorized R119 static progress-marker family; model/version unexposed | Project-generated artwork | Whole native or uniform Aseprite derivative, `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; no owner acceptance. |
+
+| `assets/dolls/progress_empty_painted.png` | R119 whole ImageGen cloth marker via Aseprite1.3.18.4 | Project-generated artwork | Full registered512RGBA state, uniformscale, lossless/mipmapped; `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; formal/external acceptance open. |
+
+| `assets/dolls/progress_filled_painted.png` | R119 whole ImageGen cloth marker via Aseprite1.3.18.4 | Project-generated artwork | Full registered512RGBA state, uniformscale, lossless/mipmapped; `assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json`; formal/external acceptance open. |

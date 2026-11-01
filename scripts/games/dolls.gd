@@ -33,6 +33,14 @@ class DollsNurserySurface extends OperaNurseryCatch:
 	const PAINTED_CRADLE_PATH := "res://assets/dolls/cradle_sling_painted.png"
 	const PAINTED_CRADLE_CONTENT := Rect2(60.0, 144.0, 393.0, 232.0)
 
+	const PAINTED_PIP_PATHS: Array[String] = [
+		"res://assets/dolls/progress_empty_painted.png",
+		"res://assets/dolls/progress_filled_painted.png",
+	]
+	const PAINTED_PIP_CONTENT := Rect2(53.0, 57.0, 406.0, 398.0)
+
+	var painted_pip_textures: Array[Texture2D] = []
+
 	var safe_mat_texture: Texture2D = null
 	var painted_cradle_texture: Texture2D = null
 
@@ -55,6 +63,10 @@ class DollsNurserySurface extends OperaNurseryCatch:
 		assert(safe_mat_texture != null, "Dolls painted safety mat is required")
 		painted_cradle_texture = load(PAINTED_CRADLE_PATH) as Texture2D
 		assert(painted_cradle_texture != null, "Dolls painted cradle sling is required")
+		for path: String in PAINTED_PIP_PATHS:
+			var pip: Texture2D = load(path) as Texture2D
+			assert(pip != null, "Dolls painted progress marker is required: " + path)
+			painted_pip_textures.append(pip)
 
 	func focus_rect_at(at_elapsed: float) -> Rect2:
 		var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)
@@ -92,6 +104,16 @@ class DollsNurserySurface extends OperaNurseryCatch:
 				bowl.end.y + 18.0 - PAINTED_CRADLE_CONTENT.end.y * scale_factor),
 			painted_cradle_texture.get_size() * scale_factor)
 
+	func painted_pip_destination(index: int) -> Rect2:
+		# Both authored whole states share one uniform36px envelope and the original
+		# slot centres. Rendering does not change caught/goal or input geometry.
+		var centre := Vector2(size.x * 0.5
+			+ (float(index) - float(goal - 1) * 0.5) * 48.0, 34.0)
+		var scale_factor := 36.0 / maxf(PAINTED_PIP_CONTENT.size.x,
+			PAINTED_PIP_CONTENT.size.y)
+		return Rect2(centre - PAINTED_PIP_CONTENT.get_center() * scale_factor,
+			Vector2.ONE * 512.0 * scale_factor)
+
 	func safe_mat_rect() -> Rect2:
 		return Rect2(
 			Vector2(size.x * 0.035, size.y * 0.775),
@@ -126,16 +148,11 @@ class DollsNurserySurface extends OperaNurseryCatch:
 	func _draw() -> void:
 		var panel := Rect2(Vector2.ZERO, size)
 		draw_rect(panel.grow(-4.0), Color(0.66, 0.90, 0.88), false, 5.0)
-		# Three large picture pips stay inside this layer (the legacy text HUD is
-		# deliberately below it). Filled picture dots plus the babies resting in the
-		# cradle communicate progress without reading.
+		# Three complete cloth markers show the original caught count without text.
+		# Empty and filled pictures swap at the same index threshold and position.
 		for index in range(goal):
-			var pip_x := size.x * 0.5 + (float(index) - float(goal - 1) * 0.5) * 48.0
-			draw_circle(Vector2(pip_x, 34.0), 18.0,
-				Color(0.20, 0.14, 0.34, 0.92))
-			draw_circle(Vector2(pip_x, 34.0), 12.0,
-				Color(1.0, 0.72, 0.76) if index < caught
-				else Color(0.94, 0.90, 1.0, 0.62))
+			var pip: Texture2D = painted_pip_textures[1 if index < caught else 0]
+			draw_texture_rect(pip, painted_pip_destination(index), false)
 
 		# One whole painted quilt keeps its authored contour and padded front edge.
 		# Babies and the cradle draw afterward; all catch and landing geometry stays

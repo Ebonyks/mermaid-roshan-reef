@@ -461,6 +461,8 @@ R114production2026-10-30: FV-2E260E1F7107 final crystal goal reuses existing who
 
 R115 partial production2026-10-30: [whole Geologist foreground station set](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md), baseline6d2e7c515738bb40a923210bb05c01aafc526e0e, one generated whole-tray sheet/three512exports plus existingwhole fossil/gallery. Only backdrop setup/foreground draw changed;28otherfunctions plusworld/input/save exact. Seven localprimitive sites reduce to one unchangedstrata call; cavebackground/river/natural/formal/device/child/owner/global acceptance remain open, lifecycle unchanged. Native/sourceCI/Dev are separate pending lanes.
 
+R119 boundedproduction2026-10-31: [painted Dolls progress states](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/README.md), existing legacy Faron role only, two authored whole states replace concentricdots;18otherfunctions/goal/geometry/input/save/reward exact. Native20configuredframes with actualrenderedcounts0/1/2/3; full3 Main-pollhold declared. Currentstatic/all82/exactsourceCI/Dev/formal/device/child/owner and whole-game retirement remain separate. Lifecycle `CONFIRMED_OPEN`, acceptedremoved0. Scope extension: original trusted Opera2D failure exposed stale Geologist reaction rests; same-mark correction native110checks6frames passes, fresh source-bound fullgates pending. No additional art credit or lifecycle change. Completed local82zero exits/currentstatic/native342checks are preserved on the workbranch; owner demo freeze parks campaign afterR118,0newDev credit. Existing lifecycle/acceptance gaps remain open.
+
 ## MA-PLAY-001
 
 | Field | Value |
