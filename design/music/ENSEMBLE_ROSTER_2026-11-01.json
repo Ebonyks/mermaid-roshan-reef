@@ -148,19 +148,101 @@
     {
       "id": "producer",
       "chair": "DJ and electronic producer",
-      "artist": "Quantic / Will Holland",
-      "recording": "The 5th Exotic (2001), especially Time Is The Enemy",
-      "reference": "https://quanticmusic.bandcamp.com/album/the-5th-exotic",
-      "function": "An electronic performing voice: beat construction, transformed motifs, harmonic depth and section transitions.",
-      "habit": "Build a purposeful production phrase from the band's own UVI performances; use filtering, chopping, delay and small electronic drum patterns as musical answers.",
-      "uncertainty": "Name the electronic part's job: groove, melody, atmosphere or transition. Keep that job audible and return the live thematic voice at the planned point.",
-      "tone": "Warm, detailed electronic depth whose texture remains related to the band's performances.",
+      "artist": "Multiple reference teams/artists, selected by cue and section",
+      "recording": "KPop Demon Hunters; Madeon; Condard; original DKC context; optional Quantic",
+      "reference": "https://www.netflix.com/tudum/articles/kpop-demon-hunters-soundtrack",
+      "function": "A versatile electronic performing and production voice: pop song architecture, bright dance momentum, chip-based beats, transformed motifs and section transitions.",
+      "habit": "Choose a primary production mode and anchor track for the cue; write a clear hook, groove and planned handoffs. Electronic leads, basses and chords may be original UVI performances; chopped band stems are one option.",
+      "uncertainty": "Select the cue/section reference lane first, then name the part’s job: groove, melody, atmosphere or transition. Keep the job audible and return to the written hook.",
+      "tone": "A warm, full modern mix with selected bright or retro voices. Chip timbres are deliberate instruments, with controlled edge and audible bass identity.",
       "uvi": [
         "lofi_electric_piano_smokey"
       ],
-      "candidate": "LoFi Dreams textures/keys and exact BeatBox Anthology programs need per-role auditions; processed source material comes from our licensed UVI stems.",
+      "candidate": "Exact BeatBox Anthology / LoFi Dreams programs need role auditions. UVI Toy Suite / 8-Bit Synth is an unverified installation/licence candidate for Game Boy colors; NES/SNES-style program coverage remains to be established.",
       "partner": "drum_kit",
-      "rest": "An acoustic-led section can give the producer a small texture or no active part; featured electronic sections give the producer a clear phrase to lead."
+      "rest": "An acoustic-led section can give the producer a small texture or no active part; featured electronic sections give the producer a clear phrase to lead.",
+      "reference_lanes": [
+        {
+          "id": "pop_architecture",
+          "reference_artists": "KPop Demon Hunters production team: 24, IDO, TEDDY and Ian Eisendrath on the selected songs",
+          "recordings": [
+            "Golden",
+            "How It’s Done"
+          ],
+          "source": "https://www.netflix.com/tudum/articles/kpop-demon-hunters-soundtrack",
+          "job": "Strong instrumental topline, distinct verse/pre-chorus/chorus identities and a purposeful contrasting bridge.",
+          "uncertainty": "If the section lacks focus, identify its hook and the instrument delivering it; make the chorus arrival clear through register, harmony and orchestration.",
+          "applications": [
+            "Pop Star",
+            "Theatre",
+            "celebration"
+          ]
+        },
+        {
+          "id": "bright_dance",
+          "reference_artists": "Madeon",
+          "recordings": [
+            "Pay No Mind (feat. Passion Pit), 2015"
+          ],
+          "source": "https://www.youtube.com/watch?v=BC_Ya4cY8RQ",
+          "job": "Bright harmonic lift, a buoyant pulse, melodic synth/band exchange and a satisfying return.",
+          "uncertainty": "If energy feels flat, change harmonic rhythm, bass movement or sectional texture before simply increasing loudness.",
+          "applications": [
+            "Racer",
+            "playful motion",
+            "celebration"
+          ]
+        },
+        {
+          "id": "retro_chip_beats",
+          "reference_artists": "Condard",
+          "recordings": [
+            "boombox.sav",
+            "new_saga.sav"
+          ],
+          "release": "Goes Hard, vol. 4 (Harder not Smarter instrumentals), 2026",
+          "source": "https://condard.bandcamp.com/album/goes-hard-vol-4-harder-not-smarter-instrumentals",
+          "job": "Distinctive chip-bass and lead figures, deliberate rhythmic cuts, compact voice economy and sparse breaks.",
+          "uncertainty": "If chip parts feel decorative, give one a recognizable bass, rhythmic or melodic job; a glitch must land back on the phrase.",
+          "applications": [
+            "Racer",
+            "Galaxy",
+            "Astronaut",
+            "mechanism play"
+          ]
+        },
+        {
+          "id": "console_color",
+          "reference_artists": "Condard for Game Boy performance; original Donkey Kong Country composers for SNES scene/form context",
+          "recordings": [
+            "boombox.sav",
+            "Aquatic Ambience",
+            "Fear Factory"
+          ],
+          "source": "https://condard.bandcamp.com/album/goes-hard-vol-4-harder-not-smarter-instrumentals",
+          "additional_source": "https://vgmonline.net/davidwiseinterview/",
+          "job": "Choose a named Game Boy-like, NES-like or SNES-style palette per cue; keep those sound-design targets distinct.",
+          "uncertainty": "Specify the intended voice and musical function first. SNES-style sampled color and space do not require turning the entire mix into a chip synth.",
+          "applications": [
+            "selected electronic/discovery cues only"
+          ],
+          "readiness": "UVI Toy Suite / 8-Bit Synth is a catalogue candidate with documented Game Boy sources, not a verified installed NES/SNES emulator or an approved purchase."
+        },
+        {
+          "id": "organic_bridge_optional",
+          "reference_artists": "Quantic / Will Holland",
+          "recordings": [
+            "Time Is The Enemy, The 5th Exotic (2001)"
+          ],
+          "source": "https://quanticmusic.bandcamp.com/album/the-5th-exotic",
+          "job": "Optional organic beat/band integration for a cue that actually calls for it.",
+          "uncertainty": "Consult only when the cue chooses an organic downtempo context. It is no longer the global producer default.",
+          "applications": [
+            "selected warm downtempo contexts"
+          ],
+          "status": "OPTIONAL_REFERENCE_PENDING_FIT_REVIEW"
+        }
+      ]
     }
   ],
   "guests": [
@@ -293,9 +375,21 @@
     ]
   },
   "seating_limit": "Options, not simultaneous required tracks. Every section names a lead, a groove leader, supporting roles and resting musicians.",
-  "reference_policy": "Historical recordings anchor our proposed working habits. No fresh subjective listening assessment, copied performances or artist participation asserted.",
+  "reference_policy": "Historical recordings anchor proposed choices. Most chairs have a primary artist plus contextual references; the producer explicitly uses a cue-selected multi-reference matrix. No fresh timed listening analysis or artist participation asserted.",
   "program_policy": "All instruments use the owner-approved UVI family and explicitly requested Sunbird. Rendered-program evidence remains in the sonic palette map; new roles/presets require native audition.",
-  "producer_material": "Our own licensed UVI performances and source stems, with editable original/chopped/processed tracks and source attribution. No third-party reference recordings enter the soundtrack.",
+  "producer_material": "Original performances on licensed UVI instruments, including dedicated electronic lead/bass/chord parts and our own band stems. Preserve dry source, edit and processed part separately. Reference recordings and ROM/sample rips do not become soundtrack material.",
   "runtime_scope": "Studio composition and flattened cue delivery; no new runtime DJ or adaptive audio system.",
-  "release_scope": "Studies/proposals only; demo freeze, human, voice, phone, child and release acceptance remain separate."
+  "release_scope": "Studies/proposals only; demo freeze, human, voice, phone, child and release acceptance remain separate.",
+  "producer_call_sheet_fields": [
+    "primary_mode",
+    "anchor_recording",
+    "secondary_reference_and_reason",
+    "foreground_hook_voice",
+    "groove_leader",
+    "console_color_if_any",
+    "exact_uvi_program_and_audition_status",
+    "section_handoffs",
+    "electronic_function",
+    "source_material"
+  ]
 }

@@ -2,7 +2,7 @@
 
 Status: **Proposed ensemble for owner review**. The owner endorses the overall sonic guide as the mission statement and requests a logical band with historical references for uncertain style and technique choices. This roster gives the DJ/electronic producer a core performing role.
 
-The [mission statement and palette families](SONIC_IDENTITY_PROPOSAL_2026-11-01.md) define the musical world. The ensemble defines who plays, how the musicians interact and which reference to consult. The habits below are our proposed choices for Roshan, informed by historical performances.
+The [mission statement and palette families](SONIC_IDENTITY_PROPOSAL_2026-11-01.md) define the musical world. The ensemble defines who plays, how the musicians interact and which reference to consult. The habits below are our proposed choices for Roshan, informed by historical performances. The producer uses several reference lanes, selected by cue and section, following the owner’s range correction.
 
 ## Ensemble structure
 
@@ -28,7 +28,7 @@ For Roshan, the director chooses emotional purpose, theme, contrast, form and re
 | Hand percussionist | [Mongo Santamaria - Afro-Blue, Mongo (recorded 1959)](https://folkways-media.si.edu/docs/folkways/artwork/SFW40802.pdf) | Conversation, hand-played movement and acoustic detail within the groove. |
 | Flute soloist | [Herbie Mann - Memphis Underground (1969)](https://music.apple.com/us/album/memphis-underground/76153610) | A lyrical breathing lead, particularly for Sky Lagoon and discovery. |
 | Pan soloist | [Andy Narell - Coffee Street, The Passage (pan-jazz ensemble reference)](https://music.apple.com/us/album/coffee-street-feat-calypsociation/1622052143?i=1622052150) | Opera's principal melodic signature and selected celebratory appearances. |
-| DJ and electronic producer | [Quantic / Will Holland - The 5th Exotic (2001), especially Time Is The Enemy](https://quanticmusic.bandcamp.com/album/the-5th-exotic) | An electronic performing voice: beat construction, transformed motifs, harmonic depth and section transitions. |
+| DJ and electronic producer | Cue-selected matrix: KPop Demon Hunters production team; Madeon; Condard; original DKC context. Quantic is an optional contextual reference. | Pop architecture, bright dance momentum, chip-based beats, original electronic hooks and purposeful transitions. |
 
 Bass, drums and rhythm guitar share the 1969 Meters reference. This provides one starting point for interlocking parts. Porter's own biography identifies the players and *Cissy Strut*. [George Porter Jr.](https://www.georgeporterjr.com/bio)
 
@@ -102,15 +102,49 @@ State the tune clearly; shape selected held notes with alternating-mallet rolls,
 
 ### DJ and electronic producer
 
-Build a purposeful production phrase from the band's own UVI performances; use filtering, chopping, delay and small electronic drum patterns as musical answers.
+Choose a production mode and a reference recording for the cue. Write original electronic lead, bass and chord parts when they serve the song; transformed band stems provide another vocabulary.
 
-**When uncertain:** Name the electronic part's job: groove, melody, atmosphere or transition. Keep that job audible and return the live thematic voice at the planned point.
+**When uncertain:** Pick the section's reference lane, then name the electronic part's job: groove, melody, atmosphere or transition. Keep the hook and phrase readable through a change of texture.
 
-**Tone and space:** Warm, detailed electronic depth whose texture remains related to the band's performances. An acoustic-led section can give the producer a small texture or no active part; featured electronic sections give the producer a clear phrase to lead.
+**Tone and space:** A full modern sound with deliberate bright or retro voices. Give bass notes identity, control sharp edges and leave a featured acoustic player room. Acoustic-led passages can give the producer a small part or a full rest.
 
-## The producer performs with the band
+## The producer's reference matrix
 
-Quantic's *The 5th Exotic* (2001), particularly *Time Is The Enemy*, is the producer's primary historical reference. Its credits name Will Holland as writer, producer, arranger, guitarist and double bassist. This offers a concrete model for production within an instrumental musical world. [Artist release and credits](https://quanticmusic.bandcamp.com/album/the-5th-exotic)
+The owner identifies this as the most complex chair and questions Quantic as its fit. **One fictional production chair has a broad reference board.** No one real musician is expected to supply the game's entire electronic language. Quantic is now an optional organic-context reference, pending fit review.
+
+The following are proposed production goals and reference-study questions, not a completed listening/transcription analysis or accepted cue plans.
+
+| Mode | Concrete anchors | Roshan arranging goal | When uncertain |
+|---|---|---|---|
+| Pop song architecture | KPop Demon Hunters: **Golden** and **How It's Done** | A strong instrumental topline, distinct verse/pre-chorus/chorus personalities and a contrasting bridge with narrative purpose. | Identify the hook and its lead player; make the chorus arrival clear through harmony, register and orchestration. |
+| Bright dance | Madeon: **Pay No Mind (feat. Passion Pit)** (2015) | A buoyant pulse, bright harmonic lift and melodic exchange between synths and the band. | Develop bass movement, harmonic rhythm or texture before increasing loudness. |
+| Retro chip beats and glitch-hop direction | Condard: **boombox.sav** and **new_saga.sav**, from **Goes Hard, vol. 4** (2026) | A recognizable chip-bass/lead figure, rhythmic cuts, voice economy and a meaningful sparse break. | Give the chip voice an actual musical job; make each disruption resolve into the phrase. |
+| Console-era color | Condard for Game Boy performance; original DKC **Aquatic Ambience / Fear Factory** for SNES scene and form context | Select a named Game Boy-like, NES-like or SNES-style palette for the cue. Give the chosen color a hook, counterline, pulse or harmonic role. | Specify the desired voice and its job before choosing a patch or effect. |
+| Optional organic bridge | Quantic: **Time Is The Enemy**, *The 5th Exotic* (2001) | Organic beat/band integration when the cue calls for warm downtempo production. | Use only for that chosen context; it no longer sets the global producer sound. |
+
+Netflix credits 24, IDO, TEDDY and Ian Eisendrath as producers of the two selected HUNTR/X songs. Its discussion of *Golden* identifies a purposeful contrasting bridge. These are team references, alongside the songwriting and performance contributions listed in the credits. [Official soundtrack notes](https://www.netflix.com/tudum/articles/kpop-demon-hunters-soundtrack)
+
+Madeon's official release identifies the 2015 Passion Pit collaboration. [Artist release](https://www.youtube.com/watch?v=BC_Ya4cY8RQ)
+
+Condard's instrumental release names both selected tracks and documents performance on one Game Boy's four channels. This provides a concrete study in economical voices and complete beat arrangements; our requested glitch-hop direction adds original rhythmic editing decisions. [Artist release and production notes](https://condard.bandcamp.com/album/goes-hard-vol-4-harder-not-smarter-instrumentals)
+
+### Console colors within the modern band
+
+Treat these as separate sound-design targets:
+
+- **Game Boy-like:** compact pulse/wave voices, stepped figures and noise accents, shaped into a memorable bass or lead part.
+- **NES-like:** a selected clear chip lead, a simple low voice and economical rhythmic punctuation. Establish the exact UVI program's suitability before claiming authenticity.
+- **SNES-style:** short sampled-instrument colors, rounded keys/mallets, pads and spatial depth, with the original DKC as scene/form context. This is a different color goal from the chip-lead modes.
+
+Use those voices on selected tracks or sections. Keep the band's warm low end, clear melody and clean master; a retro color does not require degrading the complete recording. A chip voice can state a real theme and pass it to guitar, flute or keys at a planned return.
+
+UVI documents Game Boy sources in **8-Bit Synth**, now included in **Toy Suite**. This is a catalogue candidate: installation, licence and exact useful programs have not been verified. The product description does not establish complete NES/SNES coverage. Existing UVI performances can be edited for deliberate retro-like colors, without claiming hardware emulation. [UVI Toy Suite](https://www.uvi.net/toy-suite), [UVI product status](https://support.uvi.net/hc/en-us/articles/115003307545-Discontinued-and-Legacy-Products)
+
+### The producer performs with the band
+
+The chair's continuing identity is playful rhythmic precision, loyalty to the written hook and intentional handoffs. A new genre changes the chosen production vocabulary while those habits remain recognizable.
+
+Pop Star and celebrations can choose the pop/dance lanes. Racer and Galaxy can choose chip beats or a declared hybrid. Water/reverie may choose a small electronic atmosphere or no active producer part. These are casting options for review, not mandatory assignments.
 
 The producer has four musical functions:
 
@@ -119,7 +153,7 @@ The producer has four musical functions:
 3. **Atmosphere:** shape a harmonic bed, filtered resonance or evolving instrumental texture with a beginning, movement and release.
 4. **Transition:** prepare a section with a planned reduction, filtered phrase, delay response or change of rhythmic register, followed by the returning thematic voice.
 
-Material comes from our own licensed UVI performances and stems. Preserve the original performance, edits and processed part separately. BeatBox Anthology offers kit choices; LoFi Dreams offers keys and textures; Falcon and the established REAPER effects shape this musical material. Exact new programs still need auditions.
+Material comes from original performances on licensed UVI instruments, including dedicated electronic leads, basses and chords, and from our own band stems. Preserve the original performance, edits and processed part separately. BeatBox Anthology offers kit choices; LoFi Dreams offers keys and textures; Falcon and the established REAPER effects shape this musical material. Exact new programs still need auditions.
 
 The producer can lead a complete section in Pop Star, Racer, Astronaut or Galaxy. An acoustic home section may give the producer a small texture or a rest. Each electronic part is judged by its musical job and the space it gives other players.
 
@@ -151,7 +185,7 @@ The additional percussion chair makes conga-and-timbales layers understandable a
 6. **Physical and library support:** strokes, breath, bowing, rolls and simultaneous parts must make sense. Unsupported articulations remain provisional while the sound or writing is revised.
 7. **Return to the song:** every part develops the written section and leaves space for voices and interaction. The tune and the section's personality should remain recognizable.
 
-When references suggest different choices, use this order: mission statement, cue purpose, shared ensemble context, chair's primary reference, then an explicitly named contextual reference. Record the choice in the cue brief. This makes the roster a working decision guide.
+When references suggest different choices, use this order: mission statement, cue purpose, shared ensemble context, the chair's chosen reference (the producer names a cue/section mode), then an explicitly named contextual reference. Record the choice in the cue brief. This makes the roster a working decision guide.
 
 ## Casting the palette families
 
@@ -168,6 +202,6 @@ The [roster data](ENSEMBLE_ROSTER_2026-11-01.json) lists seating options for all
 
 ## Cue brief and review workflow
 
-Each proposed cue gets a band call sheet: active chairs and exact UVI programs; historical references for featured parts; foreground and groove leaders by section; handoffs and rests; producer function and source material; deliberate overdubs; form, hook and ending.
+Each proposed cue gets a band call sheet: active chairs and exact UVI programs; historical references for featured parts; foreground and groove leaders by section; handoffs and rests; producer mode, anchor recording, any secondary influence and its reason, console color if any, function and source material; deliberate overdubs; form, hook and ending. A hybrid names which reference leads each section and how the handoff works.
 
 Review the ensemble and reference hierarchy before further preset selection or arrangement construction. The three current recordings remain studies. Overall mission-statement endorsement does not grant release acceptance or approve every cue cast. Existing source, protected-voice, mix, phone, child and demo/release rules retain their scopes.
