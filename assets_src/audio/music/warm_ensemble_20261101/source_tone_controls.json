@@ -1,0 +1,88 @@
+{
+  "status": "VERIFIED_IN_ACTUAL_RENDERED_NATIVE_STATES",
+  "edits": [
+    {
+      "source": "steel_pan_main",
+      "derived": "steel_pan_open",
+      "source_sha256": "ae325a3285c68018cbb4543a729f44df0afb8fd31c40edf265f69c97240a45ee",
+      "derived_sha256": "99745f9d93efa51cc96e2f646ffdef5afdd8356d61089a9984128f3f20e3ee51",
+      "internal_maximizers_bypassed": 1,
+      "old_pan_maximizer_threshold_db": -6,
+      "eq": {
+        "GainLow": 1.5,
+        "GainMid": 0,
+        "GainHigh": -1.5
+      },
+      "pan_source_layer_gain": 0.5,
+      "pan_release_ms": 18,
+      "native_samples_preserved": true
+    },
+    {
+      "source": "tchad_nylon_guitar",
+      "derived": "tchad_nylon_warm",
+      "source_sha256": "84951e8a6a26601f5e32f35d5b36a3506e10252973c09c92ec695d5901a65d41",
+      "derived_sha256": "bfcd1a08fa3caa4385cbe9e60e3ab32fca17c8c0c332114b519aabec584c5ec1",
+      "internal_maximizers_bypassed": 1,
+      "old_pan_maximizer_threshold_db": null,
+      "eq": {
+        "GainLow": 1,
+        "GainMid": 1,
+        "GainHigh": -3
+      },
+      "pan_source_layer_gain": null,
+      "pan_release_ms": null,
+      "native_samples_preserved": true
+    }
+  ],
+  "distortion_claim": "The former pan preset has an active zero-attack maximizer at -6 dB and a scooped/bright EQ. This is an upstream distortion risk; absence of file-level clipping did not rule it out. Exact perceived clipping still needs owner hearing.",
+  "rendered_parts": [
+    {
+      "cue": "opera_house",
+      "part": "pan",
+      "state": "steel_pan_open",
+      "maximizer_bypassed": true,
+      "native_eq_db": [
+        1.5,
+        0,
+        -1.5
+      ],
+      "native_state_sha256": "b8bbfd071aaf55d68fad30e189f3067455d5c687a8c35b9843785f55d7202154"
+    },
+    {
+      "cue": "opera_house",
+      "part": "guitar_comp",
+      "state": "tchad_nylon_warm",
+      "maximizer_bypassed": true,
+      "native_eq_db": [
+        1,
+        1,
+        -3
+      ],
+      "native_state_sha256": "420a1a0cc45fb54137dd1e35fa25b6ad0ce2c4794ffffa509b7bdbb6dab59a50"
+    },
+    {
+      "cue": "sky_lagoon",
+      "part": "guitar_comp",
+      "state": "tchad_nylon_warm",
+      "maximizer_bypassed": true,
+      "native_eq_db": [
+        1,
+        1,
+        -3
+      ],
+      "native_state_sha256": "420a1a0cc45fb54137dd1e35fa25b6ad0ce2c4794ffffa509b7bdbb6dab59a50"
+    },
+    {
+      "cue": "castle",
+      "part": "guitar_comp",
+      "state": "tchad_nylon_warm",
+      "maximizer_bypassed": true,
+      "native_eq_db": [
+        1,
+        1,
+        -3
+      ],
+      "native_state_sha256": "1dec4b7811e387f25573f274c87b605d7c3782b0f25b1fbb78c796272692f696"
+    }
+  ]
+}

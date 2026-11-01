@@ -1,0 +1,301 @@
+{
+  "status": "PROPOSED_ENSEMBLE_FOR_OWNER_REVIEW",
+  "mission_statement": "Owner endorses the overall sonic direction; this roster operationalizes it. Specific personnel/reference choices, programs and cue casts remain proposals.",
+  "concept": "Eight performing core chairs plus a DJ/electronic producer, with specialist guests. Cast a small subset per section; declare physical player/overdub allocation.",
+  "director": {
+    "role": "Musical direction and score architecture",
+    "reference": "David Wise and Eveline Fischer / original Donkey Kong Country (1994)",
+    "source": "https://vgmonline.net/davidwiseinterview/",
+    "responsibility": "Theme, emotional role, genre contrast, section arc and ownership of the current musical foreground."
+  },
+  "core": [
+    {
+      "id": "lead_guitar",
+      "chair": "Melodic guitarist",
+      "artist": "Ernest Ranglin",
+      "recording": "Surfin', Below the Bassline (1996)",
+      "reference": "https://music.apple.com/us/album/surfin/1444023621?i=1444023735",
+      "function": "A warm, singable foreground voice and short answering phrases.",
+      "habit": "Shape a sentence, leave a breath, then answer it. Use register and touch to distinguish the refrain from the verse.",
+      "uncertainty": "If the line meanders, return to the written hook and simplify the answer. Let rhythm guitar carry the chord pulse.",
+      "tone": "Rounded string attack and wood/body, with an articulate melodic center.",
+      "uvi": [
+        "sunbird_solo"
+      ],
+      "partner": "rhythm_guitar",
+      "rest": "When pan, flute or keys owns the melody, contribute a brief response or leave space."
+    },
+    {
+      "id": "rhythm_guitar",
+      "chair": "Rhythm guitarist",
+      "artist": "Leo Nocentelli with The Meters",
+      "recording": "Cissy Strut (1969)",
+      "reference": "https://www.georgeporterjr.com/bio",
+      "function": "Small chord voicings, offbeat strokes and recognizable rhythmic figures.",
+      "habit": "Interlock with bass and drums. Separate a picked figure from a sustained chord role; keep strokes playable.",
+      "uncertainty": "If the groove feels crowded, choose one rhythmic cell and leave room for the bass response. Use the Ranglin reference for the guitar section's warm melodic/chord relationship.",
+      "tone": "Soft transient, clear chord body, controlled upper-mid bite.",
+      "uvi": [
+        "tchad_nylon_warm"
+      ],
+      "partner": "bass",
+      "rest": "Thin to a dyad, single rhythmic note or silence during a featured guitar or keyboard phrase."
+    },
+    {
+      "id": "keys",
+      "chair": "Pianist and electric pianist",
+      "artist": "Monty Alexander",
+      "recording": "Montreux Alexander, 1976 performance (released 1977)",
+      "reference": "https://www.mps-music.com/releases/montreux-alexander-live/",
+      "function": "Harmonic movement, voiced accompaniment and occasional melodic leadership.",
+      "habit": "Use clear voice leading and rhythmic replies. Shape a register change or a more open voicing as a section event.",
+      "uncertainty": "If harmony is muddy, choose the important chord tones and a register outside the current lead. If the song needs a new section, let keys take a complete melodic phrase.",
+      "tone": "Warm core with selective bell-like detail and an expressive attack.",
+      "uvi": [
+        "lofi_electric_piano_smokey"
+      ],
+      "candidate": "Clean piano programs in LoFi Dreams or World Suite require selection/audition.",
+      "partner": "lead_guitar",
+      "rest": "Leave a clear hole when another chord instrument makes its response."
+    },
+    {
+      "id": "bass",
+      "chair": "Bassist",
+      "artist": "George Porter Jr.",
+      "recording": "The Meters, Cissy Strut (1969)",
+      "reference": "https://www.georgeporterjr.com/bio",
+      "function": "The low melodic foundation and a memorable rhythmic answer.",
+      "habit": "Write a short identifiable figure that fits the kick and guitar; vary an ending to announce a return.",
+      "uncertainty": "If the groove lacks identity, strengthen the bass figure before adding more percussion. For acoustic-trio passages use John Clayton on the Montreux Alexander recording as the contextual reference.",
+      "tone": "Rounded weight with enough note identity for a small speaker.",
+      "uvi": [
+        "cuba_bass",
+        "jazzistic_double_bass"
+      ],
+      "partner": "drum_kit",
+      "rest": "Sustain or simplify under a busy foreground phrase; a bass-only transition can have its own spotlight."
+    },
+    {
+      "id": "drum_kit",
+      "chair": "Drummer",
+      "artist": "Joseph Zigaboo Modeliste",
+      "recording": "The Meters, Cissy Strut (1969)",
+      "reference": "https://www.georgeporterjr.com/bio",
+      "function": "Pocket, sectional energy and readable rhythmic punctuation.",
+      "habit": "Develop a groove through accents, small variations and a planned fill at a phrase boundary.",
+      "uncertainty": "If an entrance has no impact, change the kit's register or density. When the producer leads the beat, answer sparsely. For the acoustic-trio context consult Jeff Hamilton on Montreux Alexander.",
+      "tone": "A selected coherent kit with rounded kick, controlled cymbals and believable brush or stick articulation.",
+      "uvi": [
+        "jazz_brushed_kit_1"
+      ],
+      "candidate": "Exact BeatBox Anthology kit remains to be chosen for electronic/dance roles.",
+      "partner": "bass",
+      "rest": "Allow a duo, hand-percussion or producer-led section to carry the pulse."
+    },
+    {
+      "id": "hand_percussion",
+      "chair": "Hand percussionist",
+      "artist": "Mongo Santamaria",
+      "recording": "Afro-Blue, Mongo (recorded 1959)",
+      "reference": "https://folkways-media.si.edu/docs/folkways/artwork/SFW40802.pdf",
+      "function": "Conversation, hand-played movement and acoustic detail within the groove.",
+      "habit": "Use complementary low/open/closed strokes and short answers. Give each percussion instrument a rhythmic purpose.",
+      "uncertainty": "If the rhythm feels generic, study the interaction of the parts and choose a simpler complementary pattern. Udu and other instrument-specific gestures need their own articulation audition.",
+      "tone": "Skin, body and natural decay, with useful dynamics between strokes.",
+      "uvi": [
+        "latin_congas",
+        "latin_bongos",
+        "latin_guiro",
+        "latin_maracas",
+        "latin_cowbell",
+        "udu_large_restored"
+      ],
+      "partner": "drum_kit",
+      "rest": "A held melodic statement may need only a small response; remove continuous ornament when the groove already reads."
+    },
+    {
+      "id": "flute",
+      "chair": "Flute soloist",
+      "artist": "Herbie Mann",
+      "recording": "Memphis Underground (1969)",
+      "reference": "https://music.apple.com/us/album/memphis-underground/76153610",
+      "function": "A lyrical breathing lead, particularly for Sky Lagoon and discovery.",
+      "habit": "Use phrasing, articulation and rhythmic confidence; a complete answer deserves a real breath.",
+      "uncertainty": "If the phrase sounds like a keyboard line, rephrase around breath length and the instrument's useful register. Let another player answer at the phrase end.",
+      "tone": "Breath-shaped onset and rounded center with controlled edge.",
+      "uvi": [
+        "djafe_flute_sustain"
+      ],
+      "partner": "lead_guitar",
+      "rest": "During another solo, contribute an answering fragment or rest for a full phrase."
+    },
+    {
+      "id": "pan",
+      "chair": "Pan soloist",
+      "artist": "Andy Narell",
+      "recording": "Coffee Street, The Passage (pan-jazz ensemble reference)",
+      "reference": "https://music.apple.com/us/album/coffee-street-feat-calypsociation/1622052143?i=1622052150",
+      "function": "Opera's principal melodic signature and selected celebratory appearances.",
+      "habit": "State the tune clearly; shape selected held notes with alternating-mallet rolls, accents and natural decay.",
+      "uncertainty": "If a passage is static, vary phrasing or hand the melody to a partner. Check the Greenidge/Provost references for the continuing articulation study; inspect what the actual UVI program supports.",
+      "tone": "A resonant body behind the strike, with clean source headroom.",
+      "uvi": [
+        "steel_pan_open"
+      ],
+      "partner": "flute",
+      "rest": "Keep one pan part in Opera; leave other sections and cues to their chosen voices."
+    },
+    {
+      "id": "producer",
+      "chair": "DJ and electronic producer",
+      "artist": "Quantic / Will Holland",
+      "recording": "The 5th Exotic (2001), especially Time Is The Enemy",
+      "reference": "https://quanticmusic.bandcamp.com/album/the-5th-exotic",
+      "function": "An electronic performing voice: beat construction, transformed motifs, harmonic depth and section transitions.",
+      "habit": "Build a purposeful production phrase from the band's own UVI performances; use filtering, chopping, delay and small electronic drum patterns as musical answers.",
+      "uncertainty": "Name the electronic part's job: groove, melody, atmosphere or transition. Keep that job audible and return the live thematic voice at the planned point.",
+      "tone": "Warm, detailed electronic depth whose texture remains related to the band's performances.",
+      "uvi": [
+        "lofi_electric_piano_smokey"
+      ],
+      "candidate": "LoFi Dreams textures/keys and exact BeatBox Anthology programs need per-role auditions; processed source material comes from our licensed UVI stems.",
+      "partner": "drum_kit",
+      "rest": "An acoustic-led section can give the producer a small texture or no active part; featured electronic sections give the producer a clear phrase to lead."
+    }
+  ],
+  "guests": [
+    {
+      "id": "kora",
+      "chair": "Kora counterpoint guest",
+      "artist": "Toumani Diabate",
+      "recording": "Kaira (1988)",
+      "reference": "https://music.apple.com/us/song/kaira/1629109828",
+      "function": "Independent plucked pattern and melodic counterpoint.",
+      "rule": "Keep the pattern and melody intelligible as a physical plucked performance.",
+      "readiness": "Native kora state available; focused audition still needed."
+    },
+    {
+      "id": "harp",
+      "chair": "Celtic harp guest",
+      "artist": "Alan Stivell",
+      "recording": "Ys, Renaissance of the Celtic Harp (1971)",
+      "reference": "https://music.apple.com/us/song/1667401645",
+      "function": "Atmospheric folk color, arpeggiated space and lyrical harp statements.",
+      "rule": "Use register, decay and deliberate pacing to create an arc.",
+      "readiness": "World Suite catalogue candidate; select exact program and audition."
+    },
+    {
+      "id": "fiddle",
+      "chair": "Fiddle and violin guest",
+      "artist": "Stephane Grappelli",
+      "recording": "Minor Swing with Django Reinhardt, 1937 recording",
+      "reference": "https://music.apple.com/us/song/691546774",
+      "function": "Singing bowed lines, light chamber dance and acoustic jazz responses.",
+      "rule": "Write bow-length phrases and select supported articulations.",
+      "readiness": "World Suite catalogue candidate; select exact program and audition."
+    },
+    {
+      "id": "duduk",
+      "chair": "Duduk guest",
+      "artist": "Djivan Gasparyan",
+      "recording": "Black Rock with Michael Brook (1998)",
+      "reference": "https://realworldrecords.com/releases/black-rock/",
+      "function": "A distinct reed voice for reflective discovery and night colors.",
+      "rule": "Use a dedicated duduk performance reference rather than transplanting the flute's vocabulary.",
+      "readiness": "World Suite catalogue candidate; select exact program and audition."
+    },
+    {
+      "id": "aux_percussion",
+      "chair": "Additional percussion guest",
+      "artist": "Willie Bobo",
+      "recording": "Timbales on Mongo Santamaria's Afro-Blue (1959)",
+      "reference": "https://folkways-media.si.edu/docs/folkways/artwork/SFW40802.pdf",
+      "function": "A separate player for timbales or auxiliary figures alongside the conga part.",
+      "rule": "Assign simultaneous parts to a real additional player or a declared studio overdub.",
+      "readiness": "Selected Latin timbales/percussion programs already rendered in studies."
+    }
+  ],
+  "family_seating_options": {
+    "tide": [
+      "lead_guitar",
+      "keys",
+      "bass",
+      "hand_percussion",
+      "producer",
+      "duduk"
+    ],
+    "grove": [
+      "rhythm_guitar",
+      "bass",
+      "drum_kit",
+      "hand_percussion",
+      "lead_guitar",
+      "pan",
+      "kora",
+      "producer"
+    ],
+    "home": [
+      "lead_guitar",
+      "rhythm_guitar",
+      "keys",
+      "bass",
+      "drum_kit",
+      "harp",
+      "producer"
+    ],
+    "stage": [
+      "pan",
+      "flute",
+      "keys",
+      "rhythm_guitar",
+      "bass",
+      "drum_kit",
+      "hand_percussion",
+      "aux_percussion",
+      "producer"
+    ],
+    "wonder": [
+      "flute",
+      "keys",
+      "producer",
+      "bass",
+      "kora",
+      "harp",
+      "duduk"
+    ],
+    "motion": [
+      "producer",
+      "bass",
+      "rhythm_guitar",
+      "keys",
+      "drum_kit",
+      "hand_percussion"
+    ],
+    "wilderness": [
+      "flute",
+      "rhythm_guitar",
+      "bass",
+      "hand_percussion",
+      "harp",
+      "fiddle",
+      "duduk",
+      "producer"
+    ],
+    "friends": [
+      "lead_guitar",
+      "keys",
+      "bass",
+      "drum_kit",
+      "hand_percussion",
+      "pan",
+      "flute",
+      "producer"
+    ]
+  },
+  "seating_limit": "Options, not simultaneous required tracks. Every section names a lead, a groove leader, supporting roles and resting musicians.",
+  "reference_policy": "Historical recordings anchor our proposed working habits. No fresh subjective listening assessment, copied performances or artist participation asserted.",
+  "program_policy": "All instruments use the owner-approved UVI family and explicitly requested Sunbird. Rendered-program evidence remains in the sonic palette map; new roles/presets require native audition.",
+  "producer_material": "Our own licensed UVI performances and source stems, with editable original/chopped/processed tracks and source attribution. No third-party reference recordings enter the soundtrack.",
+  "runtime_scope": "Studio composition and flattened cue delivery; no new runtime DJ or adaptive audio system.",
+  "release_scope": "Studies/proposals only; demo freeze, human, voice, phone, child and release acceptance remain separate."
+}

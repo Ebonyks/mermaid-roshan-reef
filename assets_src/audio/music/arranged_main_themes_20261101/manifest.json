@@ -1,0 +1,327 @@
+{
+  "status": "PASS",
+  "stage": "FULL_ARRANGEMENT_OWNER_REVIEW",
+  "native_host": "REAPER / Falcon, owner-local UVI libraries",
+  "external_ai_audio_upload": false,
+  "master_chain": {
+    "track_eq": "Native ReaEQ with per-role curves in score",
+    "room": "Quiet filtered shared ReaVerbate return",
+    "compressor": "ReaComp 1.35:1, attack 30 ms, release 140 ms; measured fixed-performance comparison in mix_assessment.json",
+    "album_target_lufs": -18.25,
+    "limiter": "Native ReaLimit threshold=ceiling=-3.8 dB, release 15 dB/sec; not milliseconds",
+    "reaper_normalization": false,
+    "codec_normalization": false
+  },
+  "melody_preservation": "Exact pitches, durations, rhythm and velocities copied from approved A/B phrases; native MIDI verified against complete written score.",
+  "native_parts": [
+    {
+      "cue": "opera_house",
+      "part": "pan",
+      "notes": 385,
+      "native_programs": 1,
+      "native_state_sha256": "4719838e5c4c8eebc5ae6ffce70bd932883814ebfabc19be6dc41c1e5a5f1459"
+    },
+    {
+      "cue": "opera_house",
+      "part": "guitar_comp",
+      "notes": 711,
+      "native_programs": 1,
+      "native_state_sha256": "6bdce96cc6524400c3b6f25ff516f635ef6293e0ddfe93fcf263a917d8c3c2b8"
+    },
+    {
+      "cue": "opera_house",
+      "part": "cuba_bass",
+      "notes": 213,
+      "native_programs": 1,
+      "native_state_sha256": "a190e463c78c90ac9c761c43963066ddb31d03e217ed14c1fdd8b9980f4ed99f"
+    },
+    {
+      "cue": "opera_house",
+      "part": "congas",
+      "notes": 295,
+      "native_programs": 1,
+      "native_state_sha256": "459be71c6f3c1a10a75bc47ce9cfed381d32ca973901f32136d759ca9ed7c5bd"
+    },
+    {
+      "cue": "opera_house",
+      "part": "maracas",
+      "notes": 161,
+      "native_programs": 1,
+      "native_state_sha256": "fc9847a3e635862f8b7fc6dd3d1513e51af6b99c26f551ed35ec5a0f4f2407dd"
+    },
+    {
+      "cue": "opera_house",
+      "part": "flute",
+      "notes": 27,
+      "native_programs": 1,
+      "native_state_sha256": "1e17b310670d80984084533e2110327cb7cfa15685774b9d5d35c46326c967ee"
+    },
+    {
+      "cue": "sky_lagoon",
+      "part": "flute",
+      "notes": 241,
+      "native_programs": 1,
+      "native_state_sha256": "edff742cc7ea87f5180275b41931841df362ba85f3628626df0a1acdc9c136e3"
+    },
+    {
+      "cue": "sky_lagoon",
+      "part": "valiha",
+      "notes": 202,
+      "native_programs": 1,
+      "native_state_sha256": "94038a57ebc2188588f59047655ee47e2ac30979c792f6c4d9bb12bacbd49b99"
+    },
+    {
+      "cue": "sky_lagoon",
+      "part": "cuba_bass",
+      "notes": 90,
+      "native_programs": 1,
+      "native_state_sha256": "ca3498648c2b42313612903a2146f60081fada76ae3cbf38a875ede6e6a85e05"
+    },
+    {
+      "cue": "sky_lagoon",
+      "part": "udu",
+      "notes": 112,
+      "native_programs": 1,
+      "native_state_sha256": "0bf421b18cbd25ba0fc82431dcc26768f3f7fa12ac0823f82cde52f4b73a3bee"
+    },
+    {
+      "cue": "castle",
+      "part": "sunbird",
+      "notes": 329,
+      "native_programs": 1,
+      "native_state_sha256": "a152bc3c8e06eb087a7404c36ea9548685a135a9c68d320c9b3b6418e4247afb"
+    },
+    {
+      "cue": "castle",
+      "part": "jazz_bass",
+      "notes": 122,
+      "native_programs": 1,
+      "native_state_sha256": "e6b7fc3478b3a33dc3998bf74bebf5ccb40b99d01198beff6d9d9d4b05cff85a"
+    },
+    {
+      "cue": "castle",
+      "part": "brushes",
+      "notes": 140,
+      "native_programs": 1,
+      "native_state_sha256": "36f3b6d6912ba35ecb62c666d17fab3366c45e4a58f9620b9a3d71fd76e3dc3d"
+    },
+    {
+      "cue": "castle",
+      "part": "ep",
+      "notes": 84,
+      "native_programs": 1,
+      "native_state_sha256": "f6149d6fa2a19f4caaa1d13bf55b10a98771b0d33c719f1d276b72dae099783c"
+    }
+  ],
+  "cues": [
+    {
+      "id": "opera_house",
+      "title": "The Curtain Opens",
+      "pcm": {
+        "duration_seconds": 228.63889583333332,
+        "sample_rate": 48000,
+        "channels": 2,
+        "frames": 10974667,
+        "sample_peak_dbfs": -3.964,
+        "tail_rms_dbfs": -240.0,
+        "mono_rms_change_db": -0.057,
+        "clipped_samples": 0,
+        "sha256": "448cb67302e955b8423e6b1d7bb1fa0b46b8770b84e043dcabafea48b11ba638"
+      },
+      "native_loudness": {
+        "input_i": "-18.30",
+        "input_tp": "-3.95",
+        "input_lra": "4.80",
+        "input_thresh": "-28.56",
+        "output_i": "-17.58",
+        "output_tp": "-3.50",
+        "output_lra": "4.50",
+        "output_thresh": "-27.83",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.42"
+      },
+      "outputs": {
+        "flac": {
+          "path": "opera_house/opera_house_master.flac",
+          "sha256": "70653336197f5d05c8594a46b30bdc009c0554a7238b113655eca7b91751f721",
+          "bytes": 35915229,
+          "loudness": {
+            "input_i": "-18.30",
+            "input_tp": "-3.95",
+            "input_lra": "4.80",
+            "input_thresh": "-28.56",
+            "output_i": "-17.58",
+            "output_tp": "-3.50",
+            "output_lra": "4.50",
+            "output_thresh": "-27.83",
+            "normalization_type": "dynamic",
+            "target_offset": "-0.42"
+          }
+        },
+        "ogg": {
+          "path": "opera_house/opera_house.ogg",
+          "sha256": "98076b132ebd1acf9be2cf09e91c4b116067afbfca5cb7f9e22d97ded158b452",
+          "bytes": 3007906,
+          "loudness": {
+            "input_i": "-18.29",
+            "input_tp": "-3.68",
+            "input_lra": "4.80",
+            "input_thresh": "-28.56",
+            "output_i": "-17.58",
+            "output_tp": "-3.23",
+            "output_lra": "4.50",
+            "output_thresh": "-27.84",
+            "normalization_type": "dynamic",
+            "target_offset": "-0.42"
+          }
+        }
+      },
+      "score_sha256": "e792b9cf900a7984f99e8350d255e16dfb1a6936b0643733149c6dfc44c2c953",
+      "composition_sha256": "3e30ca50bb25420fc22435971ecccc354cbb914c052d3d60ff546275521933a1",
+      "mix_sha256": "1407f1a422ca629ce1ac12d5a81aa809f9a5a5fe82f7570c7eeb9f0c5334571c"
+    },
+    {
+      "id": "sky_lagoon",
+      "title": "Cloudwater Crossing",
+      "pcm": {
+        "duration_seconds": 198.16666666666666,
+        "sample_rate": 48000,
+        "channels": 2,
+        "frames": 9512000,
+        "sample_peak_dbfs": -5.318,
+        "tail_rms_dbfs": -240.0,
+        "mono_rms_change_db": -0.066,
+        "clipped_samples": 0,
+        "sha256": "017782c8d56a56ef448922995e4a0710f9537afb91481ad8e68ee82b9edc5cc0"
+      },
+      "native_loudness": {
+        "input_i": "-18.20",
+        "input_tp": "-5.30",
+        "input_lra": "4.70",
+        "input_thresh": "-28.43",
+        "output_i": "-17.61",
+        "output_tp": "-3.00",
+        "output_lra": "4.80",
+        "output_thresh": "-27.69",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.39"
+      },
+      "outputs": {
+        "flac": {
+          "path": "sky_lagoon/sky_lagoon_master.flac",
+          "sha256": "28800b37c441276553de0308ea131367dc69415d535209d0c300120f436c51ea",
+          "bytes": 28536900,
+          "loudness": {
+            "input_i": "-18.20",
+            "input_tp": "-5.30",
+            "input_lra": "4.70",
+            "input_thresh": "-28.43",
+            "output_i": "-17.61",
+            "output_tp": "-3.00",
+            "output_lra": "4.80",
+            "output_thresh": "-27.69",
+            "normalization_type": "dynamic",
+            "target_offset": "-0.39"
+          }
+        },
+        "ogg": {
+          "path": "sky_lagoon/sky_lagoon.ogg",
+          "sha256": "1ffe1abb9900ccca178b9d8ce8f65b569fe82640bcdb488e7e7fd0ea7782b0a4",
+          "bytes": 2363942,
+          "loudness": {
+            "input_i": "-18.15",
+            "input_tp": "-5.24",
+            "input_lra": "4.70",
+            "input_thresh": "-28.39",
+            "output_i": "-17.61",
+            "output_tp": "-3.00",
+            "output_lra": "4.80",
+            "output_thresh": "-27.69",
+            "normalization_type": "dynamic",
+            "target_offset": "-0.39"
+          }
+        }
+      },
+      "score_sha256": "f6d41f6bf0a429defaac18aa43cb48c5daecb140b53634963161331f3097cf6e",
+      "composition_sha256": "9cae30d039922bae20fa24d680be5132beb0467ffc3fe95bcea79708dcf87303",
+      "mix_sha256": "3ae5176da304fd54a51f0bf8a3675fed34cf9d993d74635ee32c32b2749edd7e"
+    },
+    {
+      "id": "castle",
+      "title": "Welcome Home",
+      "pcm": {
+        "duration_seconds": 211.89285416666667,
+        "sample_rate": 48000,
+        "channels": 2,
+        "frames": 10170857,
+        "sample_peak_dbfs": -3.806,
+        "tail_rms_dbfs": -240.0,
+        "mono_rms_change_db": -0.321,
+        "clipped_samples": 0,
+        "sha256": "4831c70a6c2ef38fcc08ccaff40797f5bf381ab0f34bf70c12cc33364cdd7fee"
+      },
+      "native_loudness": {
+        "input_i": "-18.19",
+        "input_tp": "-3.69",
+        "input_lra": "4.90",
+        "input_thresh": "-28.36",
+        "output_i": "-17.30",
+        "output_tp": "-3.00",
+        "output_lra": "4.20",
+        "output_thresh": "-27.46",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.70"
+      },
+      "outputs": {
+        "flac": {
+          "path": "castle/castle_master.flac",
+          "sha256": "46de8dd2efcadc9bbcf3ca6486bd02c7a28afc7c69cdbf2f25b0a089bf7389fb",
+          "bytes": 34201917,
+          "loudness": {
+            "input_i": "-18.19",
+            "input_tp": "-3.69",
+            "input_lra": "4.90",
+            "input_thresh": "-28.36",
+            "output_i": "-17.30",
+            "output_tp": "-3.00",
+            "output_lra": "4.20",
+            "output_thresh": "-27.46",
+            "normalization_type": "dynamic",
+            "target_offset": "-0.70"
+          }
+        },
+        "ogg": {
+          "path": "castle/castle.ogg",
+          "sha256": "3a680132e0d2c157baaedfc1c1fef0d03132cc4d885ce2d2258283f862c17788",
+          "bytes": 3140160,
+          "loudness": {
+            "input_i": "-18.15",
+            "input_tp": "-3.50",
+            "input_lra": "4.90",
+            "input_thresh": "-28.33",
+            "output_i": "-17.30",
+            "output_tp": "-3.00",
+            "output_lra": "4.20",
+            "output_thresh": "-27.46",
+            "normalization_type": "dynamic",
+            "target_offset": "-0.70"
+          }
+        }
+      },
+      "score_sha256": "c1d833cc1144c4a11cfde928351cecefefb96dc09f6e924d2276b0d6ee5cb33b",
+      "composition_sha256": "5b12fcc3c932343e64c3a0abfdb68286fd93207d3aa6cee0bd832780c0de5708",
+      "mix_sha256": "a2c35d19ce3aaaf1aae8227c323d8d35aa422ee786317f5c95f401b589e83565"
+    }
+  ],
+  "delivery": {
+    "path": "C:\\Users\\Peter\\Documents\\REAPER Media\\Mermaid Roshan Soundtrack 20261031\\Full Arrangements 20261101",
+    "files": 32,
+    "receipt_sha256": "8d335b811bbabb35c40cb00b61252acf08e3a5df6b2ee2040262da7e769d1972"
+  },
+  "acceptance_gaps": [
+    "Owner full-song listening and artistic acceptance",
+    "Future runtime integration, voice-over/device/child listening; existing game audio unchanged"
+  ],
+  "host_version": "REAPER 7.80/x64",
+  "master_gain_readback_sha256": "d4303873c6be05e49532a5a70c09702ea787364be170b544afb95e6a39b09590"
+}

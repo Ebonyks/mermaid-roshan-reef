@@ -140,6 +140,10 @@ uses the stricter 48 kHz stereo / managed 96 kbps delivery profile in Section
 
 ## 5. Shared musical language
 
+
+Owner direction, 2026-11-01: the replacement soundtrack is now in a **whole-game multi-genre design phase**, using modern expressive UVI-family instruments and the original 1994 SNES *Donkey Kong Country* as an additional reference. The [sonic identity proposal](design/music/SONIC_IDENTITY_PROPOSAL_2026-11-01.md) and [palette map](design/music/SONIC_PALETTE_MAP_2026-11-01.json) are for owner review. The three Opera, Sky Lagoon and Castle versions are improving studies, explicitly not release accepted. The uniform chamber-pop default and full motif statement in every cue below describe the currently implemented deterministic catalogue; they do not constrain the proposed UVI replacement score to one genre or an overt full motif in every room. Existing mix, voice, routing, provenance, device and acceptance requirements retain their authority. The owner subsequently endorses the overall sonic guide as the mission statement and commissions a coherent [performing ensemble](design/music/ENSEMBLE_DESIGN_GUIDE_2026-11-01.md), including a DJ/electronic producer and clear historical references for uncertain technique/style decisions. Detailed personnel, programs and cue casts remain proposals. The demo freeze is unchanged.
+
+
 ### 5.1 Storybook acoustic chamber-pop
 
 The score’s common language is **storybook acoustic chamber-pop**: a small, warm ensemble playing clear tunes and gentle repeated patterns, with occasional toy-like or soft electronic color. It should feel handmade and singable, not like a large cinematic library, a genre parody, or a wall of synthetic sound.

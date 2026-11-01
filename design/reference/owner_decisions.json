@@ -923,6 +923,30 @@
         "scripts/probe_opera_2d.gd"
       ],
       "checkable": true
+    },
+    {
+      "id": "ODR-MUSIC-SONIC-IDENTITY-20261101",
+      "date": "2026-11-01",
+      "authority": "recorded_owner",
+      "subject": "Whole-game soundtrack identity and reference design",
+      "question": "Owner-initiated scope correction during soundtrack development",
+      "decision": "Develop a whole-game multi-genre sonic identity, adding the original SNES Donkey Kong Country soundtrack as a concrete influence and realizing the feel through modern VST performances. Palette, instrument, theme and reference design is a key phase. Opera House, Sky Lagoon and Castle are improving studies but are not polished enough for release. Specific proposed palette choices still require review; the existing UVI-family, protected-media and release constraints retain their scopes.",
+      "source": "design/music/owner_direction_20261101.json",
+      "checks": [],
+      "checkable": false,
+      "cycle": "sonic-identity-20261101"
+    },
+    {
+      "id": "ODR-MUSIC-ENSEMBLE-20261101",
+      "date": "2026-11-01",
+      "authority": "recorded_owner",
+      "subject": "Performing ensemble and historical music references",
+      "question": "Owner-initiated organization of the sonic mission as a band",
+      "decision": "The overall sonic guide is a good mission statement. Organize the soundtrack as a logical group of musicians, each with a clear historical reference point to guide uncertain stylistic and technique decisions. The existing cast is a good start but is incomplete; add a DJ/electronic producer so that element can mix with the music. Detailed proposed personnel, programs and cue casts are not automatically accepted for release.",
+      "source": "design/music/ensemble_owner_direction_20261101.json",
+      "checks": [],
+      "checkable": false,
+      "cycle": "ensemble-20261101"
     }
   ]
 }
