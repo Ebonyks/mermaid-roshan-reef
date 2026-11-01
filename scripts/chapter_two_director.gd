@@ -593,11 +593,11 @@ func should_show_candle(room_id: String) -> bool:
 func can_launch_plot_act(room_id: String, act_index: int,
 		plot_context: String) -> bool:
 	if plot_context == PLOT_CONTEXT_STUFFIE_BALLET:
-		return room_id == "playroom" and act_index == ACT_BALLERINA \
+		return room_id in ["playroom", "opera_hall"] and act_index == ACT_BALLERINA \
 			and can_start_stuffie_ballet()
 	if plot_context == PLOT_CONTEXT_DETECTIVE_CANDLE:
-		return room_id == "library" and act_index == ACT_DETECTIVE \
-			and room_plot_action(room_id) == ACTION_DETECTIVE_SEARCH
+		return room_id in ["library", "opera_hall"] and act_index == ACT_DETECTIVE \
+			and room_plot_action("library") == ACTION_DETECTIVE_SEARCH
 	return false
 
 

@@ -1,0 +1,19 @@
+import os,sys,subprocess,time,json,hashlib,tempfile
+from pathlib import Path
+r=Path(sys.argv[1]).resolve();name=sys.argv[2];cmd=sys.argv[3:]
+out=r/'tmp/foyer-evidence';out.mkdir(parents=True,exist_ok=True)
+paths=sorted(set(subprocess.check_output(['git','ls-files','scripts','tools','project.godot'],cwd=r,text=True).splitlines()))
+hashes={p:hashlib.sha256((r/p).read_bytes()).hexdigest() for p in paths if (r/p).is_file()}
+env=dict(os.environ);env['GODOT']='C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe'
+env['PYTHONUTF8']='1';env['PYTHONIOENCODING']='utf-8'
+profile=out/(name+'-profile');profile.mkdir(exist_ok=True)
+for key in ['APPDATA','LOCALAPPDATA','XDG_DATA_HOME','XDG_CONFIG_HOME']:
+ p=profile/key;p.mkdir(exist_ok=True);env[key]=str(p)
+started=time.time();log=out/(name+'.log')
+with log.open('wb') as f:
+ try: result=subprocess.run(cmd,cwd=r,env=env,stdout=f,stderr=subprocess.STDOUT,timeout=5400);code=result.returncode
+ except subprocess.TimeoutExpired:code=124
+after={p:hashlib.sha256((r/p).read_bytes()).hexdigest() for p in hashes if (r/p).is_file()}
+receipt={'command':cmd,'working_directory':str(r),'exit_code':code,'seconds':round(time.time()-started,3),'source_sha256':hashes,'changed_sources':[p for p in hashes if after.get(p)!=hashes[p]],'log_sha256':hashlib.sha256(log.read_bytes()).hexdigest(),'log':str(log),'profile':str(profile),'claim':'Machine evidence only. Visual/device/child/owner acceptance and game-wide satisfaction remain separate.'}
+(out/(name+'.json')).write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({k:v for k,v in receipt.items() if k!='source_sha256'}));print(log.read_text(encoding='utf-8',errors='replace')[-4500:]);sys.exit(code)

@@ -1,0 +1,44 @@
+from pathlib import Path
+import subprocess,os,time,json,tempfile,ctypes as C
+from ctypes import wintypes as W
+root=Path(__file__).resolve().parents[2]; out=root/'audit/grand_puff_care_20261017'
+class Memory(C.Structure):
+    _fields_=[('cb',W.DWORD),('PageFaultCount',W.DWORD)]+[(key,C.c_size_t) for key in ['PeakWorkingSetSize','WorkingSetSize','QuotaPeakPagedPoolUsage','QuotaPagedPoolUsage','QuotaPeakNonPagedPoolUsage','QuotaNonPagedPoolUsage','PagefileUsage','PeakPagefileUsage','PrivateUsage']]
+class BasicLimits(C.Structure):
+    _fields_=[('ProcessTime',C.c_int64),('JobTime',C.c_int64),('Flags',W.DWORD),('MinimumWorkingSet',C.c_size_t),('MaximumWorkingSet',C.c_size_t),('ActiveProcesses',W.DWORD),('Affinity',C.c_size_t),('Priority',W.DWORD),('Scheduling',W.DWORD)]
+class ExtendedLimits(C.Structure):
+    _fields_=[('Basic',BasicLimits),('IO',C.c_uint64*6),('ProcessMemoryLimit',C.c_size_t),('JobMemoryLimit',C.c_size_t),('PeakProcessMemoryUsed',C.c_size_t),('PeakJobMemoryUsed',C.c_size_t)]
+kernel=C.WinDLL('kernel32',use_last_error=True)
+kernel.QueryInformationJobObject.argtypes=[W.HANDLE,C.c_int,C.c_void_p,W.DWORD,C.c_void_p]
+kernel.OpenProcess.argtypes=[W.DWORD,W.BOOL,W.DWORD];kernel.OpenProcess.restype=W.HANDLE
+kernel.CloseHandle.argtypes=[W.HANDLE]
+kernel.K32GetProcessMemoryInfo.argtypes=[W.HANDLE,C.c_void_p,W.DWORD]
+limits=ExtendedLimits(); has_job=bool(kernel.QueryInformationJobObject(None,9,C.byref(limits),C.sizeof(limits),None))
+job={'query_ok':has_job,'flags':hex(limits.Basic.Flags),'process_time_100ns':limits.Basic.ProcessTime,'job_time_100ns':limits.Basic.JobTime,'process_memory_limit':limits.ProcessMemoryLimit,'job_memory_limit':limits.JobMemoryLimit}
+folder=Path(tempfile.mkdtemp(prefix='care-console-',dir=root/'tmp/puff-crash'))
+env=dict(os.environ,APPDATA=str(folder),LOCALAPPDATA=str(folder))
+engine=r'C:\Users\Peter\AppData\Local\Programs\MermaidReefTools\Godot\4.7.2\godot_console.exe'
+command=[engine,'--headless','--path',str(root),'-s','scripts/probe_dust_boss_balance.gd']
+samples=[];start=time.time(); handle=None;engine_pid=None
+with (out/'console_balance.log').open('w',encoding='utf-8') as log:
+    child=subprocess.Popen(command,env=env,cwd=root,stdout=log,stderr=subprocess.STDOUT)
+    print('CONSOLE_BALANCE|STARTED|',child.pid,'|job',json.dumps(job),flush=True)
+    while child.poll() is None:
+        if engine_pid is None:
+            query='Get-CimInstance Win32_Process -Filter "ParentProcessId='+str(child.pid)+'" | Select-Object -ExpandProperty ProcessId'
+            found=subprocess.run(['powershell','-NoProfile','-Command',query],capture_output=True,text=True,creationflags=0x08000000).stdout.strip()
+            if found.isdigit():
+                engine_pid=int(found); handle=kernel.OpenProcess(0x0400|0x0010,False,engine_pid)
+        if handle:
+            memory=Memory();memory.cb=C.sizeof(memory)
+            if kernel.K32GetProcessMemoryInfo(handle,C.byref(memory),C.sizeof(memory)):
+                samples.append({'seconds':round(time.time()-start,3),'working_set':memory.WorkingSetSize,'private':memory.PrivateUsage,'peak_working_set':memory.PeakWorkingSetSize,'peak_commit':memory.PeakPagefileUsage})
+        receipt={'status':'RUNNING','wrapper_pid':child.pid,'engine_pid':engine_pid,'job_limits':job,'samples':samples,'command':command}
+        (out/'console_balance_telemetry.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+        time.sleep(2)
+    code=child.returncode
+if handle:kernel.CloseHandle(handle)
+text=(out/'console_balance.log').read_text(encoding='utf-8',errors='replace')
+receipt.update(status='PASS' if code==0 and 'DUSTBAL|result: ALL OK' in text else 'INCOMPLETE',exit=code,seconds=time.time()-start,game_verdict='DUSTBAL|result: ALL OK' in text)
+(out/'console_balance_telemetry.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({k:v for k,v in receipt.items() if k!='samples'}),flush=True)

@@ -1,0 +1,70 @@
+from pathlib import Path
+import hashlib, json, subprocess
+from datetime import datetime, timezone
+
+root = Path(__file__).resolve().parents[2]
+out = root / 'audit/grand_puff_care_20261017'
+def read(name):
+    return json.loads((out / name).read_text(encoding='utf-8'))
+def write(path, value):
+    path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+pin = read('source_pin_final_v2.json')
+drift = [v['path'] for v in pin['source_files']
+         if hashlib.sha256((root / v['path']).read_bytes()).hexdigest() != v['sha256']]
+focused = read('final_v2_focused_results.json')
+display = read('final_v2_display_results.json')
+full = read('full_final_v2_ci_result.json')
+gate_path = out / 'final_local_gates.json'
+gates = json.loads(gate_path.read_text(encoding='utf-8')) if gate_path.exists() else None
+if full['status'] == 'PASS':
+    assert full['exit'] == 0 and not full['source_drift'] and len(full['probes']) == 82
+assert not drift, drift
+assert all(v['exit'] == 0 and not v['failures'] for v in focused + display)
+assert all(v['verdict'] for v in display)
+protected = subprocess.check_output(['git', 'diff', '--name-only', 'HEAD', '--',
+    'assets/book/', 'assets/audio/voices/', 'assets/characters/friends/',
+    'assets/cinematics/', 'assets_src/cinematics/'], cwd=root, text=True).splitlines()
+assert not protected, protected
+verification = {
+    'schema': 'grand_puff_care_verification/1',
+    'checked_utc': datetime.now(timezone.utc).isoformat(),
+    'baseline': '1a4e8a1ceae29b401d63900a57a531b2f4442ba8',
+    'stage': 'V2 care candidate before incoming dev reconciliation; later integration and published-head evidence remain separate.',
+    'source_pin': 'audit/grand_puff_care_20261017/source_pin_final_v2.json',
+    'source_drift': drift,
+    'implementation': 'Sympathetic cold/sneeze/clean/relief Canvas acting and five neutral Guide cues. Original profile byte-identical, five danger steps, final pace, counter timing/assistance, checkpoints and rewards retained. Existing selected rainbow transformation reused; paused fade reveal repaired.',
+    'focused': {'status': 'PASS', 'evidence': 'final_v2_focused_results.json', 'probes': [v['probe'] for v in focused]},
+    'display': {'status': 'PASS', 'evidence': 'final_v2_display_results.json', 'renderer': 'Mobile Vulkan, desktop NVIDIA RTX 3060 Ti', 'sizes': [v['dimensions'] for v in display], 'scope': 'Three actual forehead cleans, final-earned checkpoint interruption/re-entry, healthy splash and underlying actor from first frame, visibly revealed selected rainbow emergence, Day Two. Prior rooms/arrival watched keys injected; not fresh-save whole-game QA or target-device acceptance.'},
+    'full_local': {'status': full['status'], 'receipt': 'full_final_v2_ci_result.json', 'exit': full.get('exit'), 'probes_completed_or_started': len(full.get('probes', [])), 'source_drift': full.get('source_drift')},
+    'art': {'status': 'PASS_MACHINE_ONLY', 'evidence': 'art_export_verification.json', 'scope': 'Aseprite exact RGBA export, common support, transparent edges. Human identity/style/motion/contact and initial unmeasured prototype cleanup time remain open.'},
+    'audio': {'status': 'PASS_MACHINE_ONLY', 'evidence': ['../audio_quality_summary_2026-08-24.json', '../../assets_src/audio/grand_puff_care_20261017/INSTALL_RECEIPT.json'], 'scope': '862-file strict quality inventory; five new neutral adult Guide cues, priority and teardown assertions. Device listening/child comprehension open; failed producer/export attempts preserved.'},
+    'protected_changes': protected,
+    'negative_evidence': [
+        {'evidence': 'fade_negative_results.json', 'repair': 'Final V2 story probe plus displayed actual movie pixels pass.'},
+        {'evidence': 'projection_expansion_negative.json', 'repair': 'Read retained sprite boundary instead of adding Vector3 construction; exact projected-height assertion passes, no ceiling raised.'},
+        {'evidence': 'saved_intro_negative_results.json', 'repair': 'Final V2 cold/healthy portrait and exact Guide assertions pass.'},
+        {'evidence': 'saved_pose_negative.json', 'repair': 'Final V2 underlying restored kit pose assertion and both-width first/settled frame inspection pass.'},
+    ],
+    'incomplete_runs': ['full_ci_result.json', 'full_console_ci_result.json', 'full_final_ci_result.json'],
+    'unresolved_native_diagnostic': 'Direct GUI headless balance exited -1 incompletely without an observed native exception. Original-controller diagnostic also incomplete and was not a full baseline checkout. Same approved engine bytes through resolver console launcher completed all eight personas/four negative controls; cause of direct GUI exits remains unproven under open MA-CI-007. See balance_native_observer.json, legacy_balance_control.json and console_balance_telemetry.json.',
+    'publication': {'topic_exact_head_ci': 'PENDING', 'dev_integration': 'PENDING', 'master_promotion': 'NOT_REQUESTED'},
+    'acceptance': {'target_device_performance_playback_listening': 'PENDING', 'child_comprehension': 'PENDING', 'owner_art_and_motion': 'PENDING', 'fresh_save_full_game_QA11': 'PENDING', 'complete_initial_cleanup_time_accounting': 'NOT_MEASURED', 'game_wide_master_audit': 'UNSATISFIED'},
+}
+write(out / 'verification.json', verification)
+impact_path = root / 'design/audit_impacts/grand-puff-care-20261017.json'
+impact = json.loads(impact_path.read_text(encoding='utf-8'))
+impact['validation'] = [
+    {'command': 'Approved source inventory and direct owner canon comparison', 'result': 'PASS', 'evidence': 'design/GRAND_PUFF_CARE_2026-10-17.md; source job cards and assets_manifest.json. Existing movie/follower reused. No tracked original manuscript/PDF found; direct user cold/care instruction is canon.'},
+    {'command': 'Godot 4.7.2 focused DustBoss, DayOneStoryClips and Audio probes', 'result': 'PASS', 'evidence': 'audit/grand_puff_care_20261017/final_v2_focused_results.json; source_pin_final_v2.json. Real touch/negative controls, all three rounds, rewards, saved interruption/re-entry, ending/follower and required speech priority/teardown.'},
+    {'command': 'Godot 4.7.2 actual Mobile displayed encounter at 1280x720 and 1560x720', 'result': 'PASS', 'evidence': 'audit/grand_puff_care_20261017/final_v2_display_results.json and display*_final_v2 captures. Desktop framebuffer review only; full-speed formal motion/contact, device/child/owner acceptance remains open.'},
+    {'command': 'Displayed ending plus paused arena-return negative control before repair', 'result': 'FAIL', 'evidence': 'audit/grand_puff_care_20261017/fade_negative_results.json and display1280_before_fade_fix/ending_movie.png. Historical reproduced opaque fade; preserved rather than relabeled.'},
+    {'command': 'Paused fade reveal and cold/completed-save pose repairs', 'result': 'PASS', 'evidence': 'Final V2 focused and actual Mobile display receipts above. Negative projection, saved-intro and underlying-world-pose records retained; positive original-height and saved healthy pose/voice assertions pass.'},
+    {'command': 'Aseprite lossless source export and strict full audio quality inventory', 'result': 'PASS', 'evidence': 'audit/grand_puff_care_20261017/art_export_verification.json; audit/audio_quality_summary_2026-08-24.json (862 files); source audio INSTALL_RECEIPT.json. Machine scope only; initial prototype cleanup time NOT_MEASURED.'},
+    {'command': 'Unmodified scripts/ci.sh through approved resolver console launcher', 'result': ('PASS' if full.get('exit') == 0 and not full.get('source_drift') and len(full.get('probes', [])) == 82 else 'FAIL') if 'exit' in full else 'PENDING', 'evidence': 'audit/grand_puff_care_20261017/full_final_v2_ci_result.json and corresponding log; source_pin_final_v2.json. Actual exit and all 82 probe verdicts determine completion. Expected negative unit-fixture/advisory words are retained in the raw log.'},
+    {'command': 'Final parser/inference, authority/development, whitespace and protected/profile preservation', 'result': gates['status'] if gates else 'PENDING', 'evidence': 'audit/grand_puff_care_20261017/final_local_gates.json and corresponding log. Every actual command exit is retained; original profile and protected paths must be unchanged.'},
+    {'command': 'Exact published combined-source CI and dev integration', 'result': 'PENDING', 'evidence': 'Recorded before publication. Later GitHub workflow verdicts bind their exact commit; no master promotion requested.'},
+]
+impact['acceptance_gaps'] = 'Scoped machine gameplay/audio/export and desktop Mobile display checks pass. Full/current-source and exact published-head gates tracked separately in verification.json. Target Lenovo performance/playback/listening, child comprehension, full fresh-save QA11 and formal owner identity/style/motion/contact remain open. Initial prototype cleanup minutes were NOT_MEASURED; no claim of complete final-animation accounting. Earlier direct GUI balance exits remain unproven under MA-CI-007. Related finding lifecycle and game-wide UNSATISFIED unchanged; no release promotion requested.'
+write(impact_path, impact)
+print('CARE_VERIFICATION|updated|full_local=' + full['status'])

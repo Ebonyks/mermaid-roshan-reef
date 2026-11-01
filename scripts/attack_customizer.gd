@@ -111,7 +111,7 @@ func open(on_confirm: Callable = Callable()) -> void:
 	visible = true
 	is_open = true
 	_pulse_time = 0.0
-	if m != null and m.has_method("_say"):
+	if m != null and m.has_method("_say") and m._day_one_art_studio == null:
 		# Reuse the authored, manifest-backed paint invitation. The hand and
 		# familiar star carry the non-reader instruction without moving this
 		# picker from its established craft-room location.
@@ -122,14 +122,22 @@ func open(on_confirm: Callable = Callable()) -> void:
 		tw.tween_property(_card, "scale", Vector2.ONE, 0.18).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func close() -> void:
+	_finish(false)
+
+
+func confirm() -> void:
+	_finish(true)
+
+
+func _finish(confirmed: bool) -> void:
 	m._navigation_remove("attack_customizer")
 	if not is_open:
 		return
 	is_open = false
 	visible = false
-	if _on_confirm.is_valid():
-		var callback: Callable = _on_confirm
-		_on_confirm = Callable()
+	var callback: Callable = _on_confirm
+	_on_confirm = Callable()
+	if confirmed and callback.is_valid():
 		callback.call()
 	closed.emit()
 
@@ -213,7 +221,7 @@ func _build() -> void:
 	confirm.focus_mode = Control.FOCUS_NONE
 	StorybookUI.style_picture_button(confirm, StorybookUI.GOLD,
 		StorybookUI.PURPLE, 34, StorybookUI.ROLE_CHILD_CONTROL)
-	confirm.pressed.connect(close)
+	confirm.pressed.connect(Callable(self, "confirm"))
 	_card.add_child(confirm)
 	_pointer = Label.new()
 	_pointer.name = "AttackCustomizerPointer"
@@ -306,7 +314,7 @@ func _on_dim_input(event: InputEvent) -> void:
 		return
 	accept_event()
 	if _choice_made:
-		close()
+		confirm()
 
 func _refresh_choices() -> void:
 	for button: AttackChoice in _color_buttons:

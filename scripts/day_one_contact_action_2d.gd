@@ -12,11 +12,18 @@ var room_shadow: Sprite2D
 var avatar: Sprite2D
 var shadow: Sprite2D
 var work_bubbles: Sprite2D
+var work_tool: Sprite2D
 var hand_offset := Vector2(46.0, 23.0) * 0.95
 var target := Vector2.ZERO
 var active: bool = false
 var work_time: float = 0.0
+var work_duration: float = 0.42
 var done: Callable
+var cancelled: Callable
+var work_progress: Callable
+var work_start := Vector2.ZERO
+var work_end := Vector2.ZERO
+var sweep_work: bool = false
 var actor_visible: bool = true
 var shadow_visible: bool = true
 var unit_scale: float = 1.0
@@ -51,6 +58,12 @@ func bind(actor: Sprite2D, actor_shadow: Sprite2D, skin: String) -> void:
 	work_bubbles.position = hand_offset
 	work_bubbles.visible = false
 	add_child(work_bubbles)
+	work_tool = Sprite2D.new()
+	work_tool.name = "LocalWorkTool"
+	work_tool.position = hand_offset
+	work_tool.visible = false
+	work_tool.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	add_child(work_tool)
 	z_index = 500
 	visible = false
 
@@ -63,7 +76,8 @@ func identity_sprite() -> Sprite2D:
 func available() -> bool:
 	return is_instance_valid(room_actor) and avatar != null
 
-func request(point: Vector2, callback: Callable = Callable()) -> bool:
+func request(point: Vector2, callback: Callable = Callable(),
+		options: Dictionary = {}) -> bool:
 	if active or not available():
 		return false
 	actor_visible = room_actor.visible
@@ -76,7 +90,14 @@ func request(point: Vector2, callback: Callable = Callable()) -> bool:
 	active = true
 	target = point
 	work_time = 0.0
+	work_duration = maxf(float(options.get("work_duration", 0.42)), 0.10)
 	done = callback
+	cancelled = options.get("cancelled", Callable()) as Callable
+	work_progress = options.get("work_progress", Callable()) as Callable
+	work_start = point
+	work_end = options.get("work_end", point) as Vector2
+	sweep_work = options.has("work_end")
+	_configure_work_tool(options)
 	return true
 
 func follow(point: Vector2) -> void:
@@ -97,23 +118,40 @@ func in_contact() -> bool:
 func _process(delta: float) -> void:
 	if not active:
 		return
+	if is_inside_tree() and get_tree().paused:
+		cancel()
+		return
 	position = position.move_toward(target - hand_offset, maxf(delta, 0.0) * 440.0 * unit_scale)
 	if not in_contact():
 		_show_work_bubbles(false)
 		return
 	work_time += maxf(delta, 0.0)
 	_show_work_bubbles(true)
-	if work_time >= 0.42 and done.is_valid():
+	_animate_work_tool()
+	if work_progress.is_valid():
+		work_progress.call(clampf(work_time / work_duration, 0.0, 1.0))
+	if sweep_work:
+		target = work_start.lerp(work_end, clampf(work_time / work_duration, 0.0, 1.0))
+		position = target - hand_offset
+	if work_time >= work_duration and done.is_valid():
 		var callback: Callable = done
-		cancel()
+		_release(false)
 		callback.call()
 
 func cancel() -> void:
+	_release(true)
+
+
+func _release(invoke_cancelled: bool) -> void:
 	if not active:
 		return
+	var cancel_callback: Callable = cancelled
 	active = false
 	done = Callable()
+	cancelled = Callable()
+	work_progress = Callable()
 	_show_work_bubbles(false)
+	_show_work_tool(false)
 	if is_instance_valid(room_actor):
 		room_actor.global_position = global_position
 		var foot: Vector2 = (room_actor.get_parent() as CanvasItem).get_global_transform().affine_inverse() * to_global(Vector2(0.0, 110.0) * unit_scale)
@@ -124,13 +162,16 @@ func cancel() -> void:
 		room_shadow.global_position = to_global(Vector2(0.0, 110.0) * unit_scale)
 		room_shadow.visible = shadow_visible
 	visible = false
+	if invoke_cancelled and cancel_callback.is_valid():
+		cancel_callback.call()
 
 func _exit_tree() -> void:
 	cancel()
 
 
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED]:
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED,
+			NOTIFICATION_PAUSED]:
 		cancel()
 
 
@@ -143,3 +184,36 @@ func _show_work_bubbles(working: bool) -> void:
 		work_bubbles.position = hand_offset + Vector2(0.0, -6.0 * unit_scale) \
 			+ Vector2.from_angle(work_time * 4.0) * 4.0 * unit_scale
 		work_bubbles.rotation = sin(work_time * 3.0) * 0.18
+
+
+func _configure_work_tool(options: Dictionary) -> void:
+	if work_tool == null:
+		return
+	var tool_texture: Texture2D = options.get("tool_texture") as Texture2D
+	work_tool.texture = tool_texture
+	if tool_texture == null:
+		_show_work_tool(false)
+		return
+	var tool_size: Vector2 = options.get("tool_size", Vector2(58.0, 58.0)) \
+		as Vector2
+	work_tool.scale = tool_size * unit_scale / tool_texture.get_size()
+	work_tool.position = hand_offset
+	work_tool.rotation = -0.35
+	_show_work_tool(true)
+
+
+func _animate_work_tool() -> void:
+	if work_tool == null or not work_tool.visible:
+		return
+	var contact_motion := Vector2.ZERO
+	if in_contact():
+		contact_motion = Vector2(sin(work_time * 17.0) * 10.0,
+			cos(work_time * 8.5) * 3.0) * unit_scale
+	work_tool.position = hand_offset + contact_motion
+	work_tool.rotation = -0.35 + sin(work_time * 17.0) * 0.24
+
+
+func _show_work_tool(working: bool) -> void:
+	if work_tool == null:
+		return
+	work_tool.visible = working and work_tool.texture != null

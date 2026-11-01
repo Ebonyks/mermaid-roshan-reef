@@ -1,0 +1,6 @@
+local s=assert(app.open('assets_src/animation/grand_puff_care_20261017/emergence_native_take02.png'))
+local im=Image(s)
+Image(im,Rectangle(634,180,620,480)):saveAs('tmp/puff-crash/emergence_pose1_review.png')
+Image(im,Rectangle(930,900,324,330)):saveAs('tmp/puff-crash/emergence_pose3_review.png')
+Image(im,Rectangle(300,690,380,350)):saveAs('tmp/puff-crash/emergence_air_review.png')
+Image(im,Rectangle(20,960,550,270)):saveAs('tmp/puff-crash/emergence_shell_review.png')

@@ -77,6 +77,11 @@
       "command": "Final pre-commit parser/inference, authority/coverage, owner append-only guard, whitespace and source/original-preservation checks",
       "result": "PASS",
       "evidence": "{\"time_utc\": \"2026-11-01T03:07:39.375586+00:00\", \"base\": \"a0bb2cf4691631a534e210a5fb60fd227213322f\", \"results\": [{\"command\": [\"python\", \"-X\", \"utf8\", \"-B\", \"-m\", \"gdtoolkit.parser\", \"scripts/audio_director.gd\", \"scripts/probe_voice.gd\", \"scripts/probe_day_one_voice.gd\", \"scripts/opera_career_world_2d.gd\", \"scripts/probe_opera_2d.gd\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-0.log\", \"log_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"command\": [\"python\", \"-X\", \"utf8\", \"-B\", \"tools/lint_inference.py\", \"scripts/audio_director.gd\", \"scripts/probe_voice.gd\", \"scripts/probe_day_one_voice.gd\", \"scripts/opera_career_world_2d.gd\", \"scripts/probe_opera_2d.gd\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-1.log\", \"log_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"}, {\"command\": [\"python\", \"-X\", \"utf8\", \"-B\", \"tools/audit_document_authority.py\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-2.log\", \"log_sha256\": \"6ac641918416b422047e2d7eb6cc2f74583afbdb6965fb78fa580dea32107e98\"}, {\"command\": [\"python\", \"-X\", \"utf8\", \"-B\", \"tools/audit_development.py\", \"--base\", \"auto\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-3.log\", \"log_sha256\": \"7f368e4906a83cc2b69851c1acf6ae8c58bbcdd861d8482c5353b8de36e2a0ab\"}, {\"command\": [\"python\", \"-X\", \"utf8\", \"-B\", \"tools/record_owner_decision.py\", \"--check\", \"--base\", \"a0bb2cf4691631a534e210a5fb60fd227213322f\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-4.log\", \"log_sha256\": \"cf4ea907ef3f8f100a2e5a5aafb9ac39f6c4661a6292118937227fb4e18fce50\"}, {\"command\": [\"git\", \"diff\", \"--check\"], \"exit_code\": 0, \"log\": \"tmp/roshan-less-chatter-final-gate-5.log\", \"log_sha256\": \"dbf1834076ce70d06be0e46595d1476e210c57314a96b3cacd8404be60905b85\"}], \"full_run_postcheck_metadata_changes_only\": [\"design/reference/OWNER_DECISIONS.md\", \"design/reference/owner_decisions.json\"], \"protected_asset_changes\": [], \"intended_changed_files\": [\"audit/MASTER_AUDIT_2026-08-09.md\", \"audit/audio_quality_ledger_2026-08-24.csv\", \"audit/audio_quality_summary_2026-08-24.json\", \"audit/findings/ACTIVE_FINDINGS_2026-08-13.md\", \"design/05_DOC_LEDGER.md\", \"design/audit_impacts/geologist-feedback-rest-prerequisite-20261031.json\", \"design/audit_impacts/roshan-less-chatter-20261031.json\", \"design/reference/OWNER_DECISIONS.md\", \"design/reference/owner_decisions.json\", \"scripts/audio_director.gd\", \"scripts/opera_career_world_2d.gd\", \"scripts/probe_day_one_voice.gd\", \"scripts/probe_opera_2d.gd\", \"scripts/probe_voice.gd\"]}"
+    },
+    {
+      "command": "Combined-source verification after incoming dev 36b58801b1a9a4b7edc76b8c3bb72091565590cb",
+      "result": "PENDING",
+      "evidence": "Prior run04 passes the preserved task commit at a0bb2cf4, not this new runtime combination. Current merge is uncommitted until its required checks pass. All previous failures and human/device gaps remain explicit."
     }
   ],
   "acceptance_gaps": "PENDING / outstanding: actual configured runtime visual/motion review, target-device behavior, child and owner acceptance. No art generation or protected asset edits; no motion timing, new action, story, save or stable-release change. Machine regression does not establish those human/device gates. Game-wide master audit remains UNSATISFIED.",
@@ -209,5 +214,20 @@
     "source": "Direct owner answer to the scope question in this chat",
     "text": "Repair the blockers and publish the speech fix",
     "scope": "Repair the verification blockers and publish/integrate the speech fix into dev; no stable/master promotion requested."
+  },
+  "runtime_integration_reconciliation": {
+    "incoming_dev": "36b58801b1a9a4b7edc76b8c3bb72091565590cb",
+    "task_preservation_commit": "fa41c852fde5e1f2009a79f9f42f44e8bd466c0b",
+    "incoming_changed_file_count": 690,
+    "scope": "Preserve incoming runtime/art/canon/audit changes. Shared speech file adds five exact Guide cues; Geologist layout branch and the speech suppression semantics are unchanged. Resolve appended audit/owner history and derived audio metadata without replacing incoming facts. No expansion of the task into redesign or release.",
+    "required_evidence": "Recheck current planning/rules/ledger/findings, preserve both owner histories, parser/inference plus all current static/import/trusted gameplay gates at frozen combined source, then exact-head remote CI before dev integration.",
+    "combined_source_pins": {
+      "scripts/audio_director.gd": "2715ca5eddbc05913e9ed52c558579757efb990c0479be6115821c7016c6b278",
+      "scripts/probe_voice.gd": "c1e2d99cc358424ad26bf9c69129fffaf844fcc607cc7187f532c9f1d772cfab",
+      "scripts/probe_day_one_voice.gd": "53ea6053ace9ea6963a6c4420d699580bf76a8f5c99403438d803d2319974bfa",
+      "scripts/opera_career_world_2d.gd": "20a0bce585f1768a277a9123c155fef0b0fd7e1ecb569f28ac6317435223bf51",
+      "scripts/probe_opera_2d.gd": "24939a59fb7961d5cb40e50eee3c2f20115f3ec354b6b52687a0033b434ff536"
+    },
+    "verification_execution": "AGENTS.md permits full validation probe-by-probe. Run every unchanged static/import gate from scripts/ci.sh, then all82 exact probe commands/body, each with fresh user directories and the existing touch mode, timeout, runtime-error/failure greps and positive-output floor. Independent isolated probes may run concurrently; no assertion, threshold, fixture or gate is skipped/replaced. Freeze inputs and record per-probe exits/log hashes and actual recipe hash. This is separately identified from the ordered full run04."
   }
 }
