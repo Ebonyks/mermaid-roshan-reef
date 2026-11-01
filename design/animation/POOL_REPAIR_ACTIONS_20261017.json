@@ -1,0 +1,81 @@
+{
+  "id": "pool-repair-actions-20261017-v1",
+  "method": "Existing approved authored poses and source-preserving Canvas presentation; no generation, new artwork, model or rig",
+  "generation_calls": 0,
+  "monetary_spend": 0,
+  "sources": [
+    {
+      "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+      "scope": "Existing approved Rumi identity/pose source; runtime performance acceptance is separate"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "scope": "Existing swimming cutout; this repair does not claim newly authored paddling"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_seahorse_fountain_rest.png",
+      "sha256": "5912698f5c91165f8b6ce74fcee1125b6c423a05dd8628777b13e05adea0883b",
+      "scope": "Canonical source-owned V4 fixture. Runtime local alpha mask stops only its painted water arc; original bytes unchanged"
+    },
+    {
+      "path": "assets/shaders/castle_fixture_water.gdshader",
+      "sha256": "f129ae768ba7cc1e3ed642931248775fec47b89b22c3e8cc9a074e2c719b2891",
+      "scope": "Current frozen checkout source; SOURCE_PIN.json also records Git-normalized hashes. Supports this bounded implementation, not historical approval of new water motion."
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "sha256": "b1c226ec13827480df85654df6b89d8178a3d49c9d7361bf8b244cfecb629d7b",
+      "scope": "Current frozen checkout source; SOURCE_PIN.json also records Git-normalized hashes. Supports this bounded implementation, not historical approval of new water motion."
+    }
+  ],
+  "actions": [
+    {
+      "id": "rumi_pool_greeting_v1",
+      "verb": "Look at the child and wave once after a deliberate greeting",
+      "fixed": "Node position (565, 300); scale 0.96; registered head/torso; one held idle pose",
+      "moving": "Authored complete pose keys 0, 2, 3, 2, 0, four per second; return to the exact idle pose",
+      "entry": "Persistent Rumi appears only after the selected clip's single rise; greeting requires her hotspot",
+      "exit": "One-shot finishes at key 0 and resumes held idle; teardown frees actor and callback",
+      "geometry": "Complete 256x384 source cells with zero margins. Sprite pixel offsets: idle/key 0=(0,0), key 2=(36,-5), key 3=(41,-6). Face-template correlation independently corroborated by skin-component centroids. Effective z 96 keeps her complete raised palm ahead of rear fixture z 82; her fixed station keeps pink float and star clear",
+      "tolerance": "Rest/settled exact sampling; head registration within 3 source pixels; complete source cells and no rear-fixture hand occlusion",
+      "attempts": "Rejected rough registration v2/v3 and source-margin/rear-fixture clipping v4/v5 retained as diagnostic evidence; final offset/z candidate passed agent desktop frame-by-frame review in native final3 and final routed captures",
+      "limits": "Existing poses only; zero generation; bounded source-registration repair",
+      "acceptance": "Machine and agent desktop review separate from actual-device/child/owner acceptance"
+    },
+    {
+      "id": "dust_bunny_pool_glide_v1",
+      "verb": "Swim a short straight length, pause, turn and return",
+      "fixed": "Complete cutout scale/rotation and water-supported baseline; safe footprint inside owning basin",
+      "moving": "5-second cosine-eased horizontal glide, 1-second rest, mirrored 5-second return, 1-second rest; no independent vertical orbit or squash",
+      "entry": "Existing Pool or filled-bath setup",
+      "exit": "Owner teardown/fade; existing bathroom reaction remains separate",
+      "geometry": "Existing bounded travel and full footprint clamp; facing follows direction",
+      "tolerance": "No gameplay progress from motion; no crossing basin bounds; turn at zero speed",
+      "attempts": "One code presentation repair; zero generation",
+      "limits": "Held cutout with restrained translation; not a new authored paddle loop",
+      "acceptance": "Runtime/device/child/owner motion review remains separate"
+    },
+    {
+      "id": "pool_painted_water_sheen_v1",
+      "verb": "Carry a restrained highlight down each clean painted stream while preserving its authored rainbow or arc",
+      "fixed": "Existing V4 painted base RGB, complete fixture silhouette, exact runtime water mask, source outlet/landing placement and Canvas geometry",
+      "moving": "Narrow downward TIME/UV.y highlight bands, alpha cap0.085; existing flow_amount/fill_amount and top-to-bottom startup reveal remain authoritative",
+      "entry": "Existing authored fixture startup/reveal; steady clean sheen continues only after the fixture action is no longer busy",
+      "exit": "Room teardown or inactive water state hides/releases the existing layer; no shader-produced geometry replaces the art",
+      "geometry": "Use unchanged V4 manifest water-mask polygon, outlet and landing records through castle_fixture_rigs.gd. The highlight respects the same mask and reveal. Other rooms retain the default shader branch; only Pool enables painted_highlight_only.",
+      "method": "Source-preserving Canvas shader/compositing with existing art and masks; zero image/video generation or new animation artwork",
+      "attempts": "One bounded local implementation with source-bound native clean-water samples and diagnostic playback; no paid takes",
+      "limits": "No identity redesign, broad cyan replacement, new spatial resources, or selected-story-clip modification; generation_calls0, monetary_spend0",
+      "evidence": "audit/cycles/pool-visual-repair-20261017/REVIEW.json, native water samples, clean diagnostic movie, overdraw receipt and current v2 water_renderer_revision contract",
+      "acceptance": "Agent desktop diagnostic review only; exact-source full local/remote suite pending terminal result, actual-device performance/visual, child and owner acceptance pending. Historical96frame review explicitly excludes this new water performance."
+    }
+  ],
+  "time_accounting": {
+    "repair_session": "2026-10-17",
+    "measured_cleanup_minutes": null,
+    "limit": "No image-generation campaign or paid backend; elapsed source/engine repair recorded by task logs, no fabricated stopwatch value"
+  },
+  "selected_clip": "d1_pool_clean bytes/cuts unchanged; it retains the single Rumi rise (DL-CIN-16)"
+}

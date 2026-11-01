@@ -22,6 +22,17 @@ var restored_completion_events: Dictionary = {}
 
 
 func _init() -> void:
+	# This probe writes real checkpoints. Refuse the ordinary desktop profile;
+	# CI already supplies per-probe APPDATA/LOCALAPPDATA or XDG_DATA_HOME.
+	var windows: bool = OS.has_feature("windows")
+	var base: String = OS.get_environment("APPDATA" if windows else "XDG_DATA_HOME").replace("\\", "/").to_lower().trim_suffix("/")
+	var normal: String = (OS.get_environment("USERPROFILE") + "/AppData/Roaming" if windows else OS.get_environment("HOME") + "/.local/share").replace("\\", "/").to_lower()
+	var actual: String = OS.get_user_data_dir().replace("\\", "/").to_lower()
+	if base.is_empty() or base == normal or not actual.begins_with(base + "/"):
+		printerr("DAY_ONE_POOL|PROFILE_ISOLATION_REQUIRED: supply a temporary APPDATA/LOCALAPPDATA or XDG_DATA_HOME before running this save-writing probe")
+		quit(2)
+		return
+	print("DAY_ONE_POOL|ISOLATED_USER_DATA|" + OS.get_user_data_dir())
 	call_deferred("_run_probe")
 
 
@@ -65,6 +76,7 @@ func _run_probe() -> void:
 
 	var initial: Dictionary = cleanup.audit_snapshot()
 	_probe_trash_atlas_sampling(cleanup.skimmer_activity)
+	_probe_float_clear_space(cleanup.skimmer_activity)
 	_check("three bespoke ordered activities",
 		int(initial.get("activity_count", 0)) == 3
 		and initial.get("activity_ids", []) == ["pool_surface", "waterfall", "seahorse"]
@@ -123,7 +135,7 @@ func _run_probe() -> void:
 		bool(swimmer.get("inside_bounds", false))
 		and bool(swimmer.get("fully_contained", false))
 		and swimmer.get("bounds", Rect2()) == Rect2(300.0, 285.0, 680.0, 235.0)
-		and String(swimmer.get("animation", "")) == "bounded_bob_paddle"
+		and String(swimmer.get("animation", "")) == "short_glide_settle"
 		and String(swimmer.get("asset", "")).ends_with(
 			"dust_bunny_swimming.png")
 		and float(swimmer.get("display_width", 0.0)) <= 124.0
@@ -521,8 +533,8 @@ func _probe_seahorse_mouth_contact(host: Control) -> void:
 		activity.start()
 		var seahorse: Sprite2D = activity.get_node("SickSeahorseBase") as Sprite2D
 		var prop: Sprite2D = activity.get_node("MouthTrashPullProp") as Sprite2D
-		var mouth_pixel := Vector2(394, 322) - seahorse.texture.get_size() * 0.5
-		var stem_pixel := Vector2(1011.712, 393.984) - prop.texture.get_size() * 0.5
+		var mouth_pixel := Vector2(91, 70) - seahorse.texture.get_size() * 0.5
+		var stem_pixel := Vector2(376.0, 205.0) - prop.texture.get_size() * 0.5
 		var maximum_gap: float = prop.to_global(stem_pixel).distance_to(
 			seahorse.to_global(mouth_pixel))
 		# Slow, then overlapping rapid tugs; sample every rendered frame.
@@ -537,7 +549,7 @@ func _probe_seahorse_mouth_contact(host: Control) -> void:
 		await create_timer(0.40).timeout
 		maximum_gap = maxf(maximum_gap, prop.to_global(stem_pixel).distance_to(
 			seahorse.to_global(mouth_pixel)))
-		_check("seahorse stem stays in mouth through restored/slow/rapid/stopped tugs %s" % bounds,
+		_check("seahorse bag neck stays plugged in mouth through restored/slow/rapid/stopped tugs %s" % bounds,
 			maximum_gap < 0.5 and is_zero_approx(prop.rotation))
 		_check("socket animation preserves partial progress without completing",
 			int(activity.audit_snapshot().get("taps", 0)) == 6
@@ -572,6 +584,37 @@ func _probe_trash_atlas_sampling(activity: PoolSkimmerActivity) -> void:
 		_check("trash %d live texture has transparent sampled edges without neighbor pixels" % index,
 			edge_alpha <= 1.0 / 255.0)
 	_check("both wrapper and can live textures were checked", sampled == 2)
+
+
+func _probe_float_clear_space(activity: PoolSkimmerActivity) -> void:
+	# Source-owned V4 rest silhouettes, projected by the room's 1.25 transform.
+	# These zones include margin beyond every pink petal and golden star point.
+	var float_zones: Array[Rect2] = [Rect2(394, 383, 116, 98), Rect2(667, 365, 103, 87)]
+	var clear: bool = true
+	for tick: int in range(180):
+		activity._demo_time = float(tick) * 0.1
+		activity._advance_floating_pieces()
+		for index: int in range(activity._trash_sprites.size()):
+			var piece: Sprite2D = activity._trash_sprites[index]
+			var half: Vector2 = piece.texture.get_size() * piece.scale * 0.5
+			var extent := Vector2(absf(cos(piece.rotation)) * half.x + absf(sin(piece.rotation)) * half.y,
+				absf(sin(piece.rotation)) * half.x + absf(cos(piece.rotation)) * half.y)
+			var piece_box := Rect2(piece.position - extent, extent * 2.0)
+			for zone: Rect2 in float_zones:
+				clear = clear and not piece_box.intersects(zone)
+	_check("floating debris never cuts off the pink float or star during drift", clear)
+	activity._demo_time = 1.0
+	activity._last_input_time = 0.0
+	activity._process(0.01)
+	var first_tip: Vector2 = activity._demo_pointer.position + PoolSkimmerActivity.GUIDE_FINGERTIP * activity._demo_pointer.scale
+	activity._process(2.0)
+	var later_tip: Vector2 = activity._demo_pointer.position + PoolSkimmerActivity.GUIDE_FINGERTIP * activity._demo_pointer.scale
+	_check("idle hand keeps pointing to the same missed piece instead of cycling",
+		absf(first_tip.x - activity._trash_sprites[0].position.x) < 9.0
+		and absf(later_tip.x - activity._trash_sprites[0].position.x) < 1.0)
+	_check("each piece has one restrained authored water-contact cue", activity._trash_contacts.size() == 6)
+	activity._demo_time = 0.0
+	activity._last_input_time = 0.0
 
 
 func _probe_seahorse_input_contract(host: Control) -> void:
@@ -717,6 +760,21 @@ func _probe_contact_action(host: Control) -> void:
 		seahorse._contact_action._process(0.05)
 	_check("focus loss drops waiting taps with the unearned work",
 		seahorse._taps == 4 and int(seahorse.audit_snapshot().get("queued_tugs", -1)) == 0)
+	seahorse.stop()
+	# MA-TOUCH-004: a complete rapid burst must survive a far approach. More
+	# than three legitimate requests wait; each still needs its own contact.
+	seahorse.setup(Vector2(960.0, 390.0), Vector2(208.75, 241.25), 0)
+	actor.position = Vector2(80.0, 600.0)
+	seahorse.bind_room_actor(actor, null, "classic")
+	seahorse.start()
+	for _quick: int in range(12):
+		seahorse._register_tap(seahorse.fixture_center)
+	_check("eight rapid valid requests survive the far approach and excess is bounded",
+		seahorse._taps == 0 and seahorse._queued_tugs == 7)
+	for index: int in range(200):
+		seahorse._contact_action._process(0.05)
+	_check("eight rapid requests each earn local contact with no silent loss",
+		seahorse._taps == 8 and seahorse._queued_tugs == 0 and seahorse._completion_started)
 	seahorse.stop()
 	seahorse.free()
 	actor.position = Vector2(80.0, 600.0)

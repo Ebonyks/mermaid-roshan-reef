@@ -1,0 +1,365 @@
+{
+  "id": "pool-repair-final-local-ci06-verification",
+  "verified_at_utc": "2026-10-18T00:50:28.324Z",
+  "parent": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+  "branch": "codex/pool-visual-repair-20261017",
+  "command": "exact Godot4.7.2 scripts/ci.sh; fresh preflight-asserted temporary user data",
+  "actual_user_data": "C:/Users/Peter/AppData/Local/Temp/reef_pool_full_ci06_k3lafg_v/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light",
+  "process_receipt": "FULL_CI06_PROCESS.json",
+  "exit": 0,
+  "wall_seconds": 4878.26,
+  "log": "full-ci06.log",
+  "log_sha256": "9aa1d3edfd787eaf08aef5cafa9910f0720721b21360238599f54f1060b6f0d1",
+  "ordered_probe_count": 82,
+  "expected_roster_count": 82,
+  "ordered_roster_matches": true,
+  "probe_exits": [
+    {
+      "probe": "probe_reef_districts",
+      "exit": 0
+    },
+    {
+      "probe": "probe_ocean_kingdoms",
+      "exit": 0
+    },
+    {
+      "probe": "probe_audit",
+      "exit": 0
+    },
+    {
+      "probe": "probe_passive",
+      "exit": 0
+    },
+    {
+      "probe": "probe_living_world",
+      "exit": 0
+    },
+    {
+      "probe": "probe_load",
+      "exit": 0
+    },
+    {
+      "probe": "probe_rank",
+      "exit": 0
+    },
+    {
+      "probe": "probe_save_recovery",
+      "exit": 0
+    },
+    {
+      "probe": "probe_galaxy_state",
+      "exit": 0
+    },
+    {
+      "probe": "probe_collection",
+      "exit": 0
+    },
+    {
+      "probe": "probe_mg2d",
+      "exit": 0
+    },
+    {
+      "probe": "probe_fetch",
+      "exit": 0
+    },
+    {
+      "probe": "probe_melody",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dolls",
+      "exit": 0
+    },
+    {
+      "probe": "probe_seek",
+      "exit": 0
+    },
+    {
+      "probe": "probe_audio",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dance",
+      "exit": 0
+    },
+    {
+      "probe": "probe_l2",
+      "exit": 0
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "exit": 0
+    },
+    {
+      "probe": "probe_sky_lagoon_animals",
+      "exit": 0
+    },
+    {
+      "probe": "probe_l2_reenter",
+      "exit": 0
+    },
+    {
+      "probe": "probe_crown",
+      "exit": 0
+    },
+    {
+      "probe": "probe_throne",
+      "exit": 0
+    },
+    {
+      "probe": "probe_northern",
+      "exit": 0
+    },
+    {
+      "probe": "probe_human_art_audit",
+      "exit": 0
+    },
+    {
+      "probe": "probe_train",
+      "exit": 0
+    },
+    {
+      "probe": "probe_verbs",
+      "exit": 0
+    },
+    {
+      "probe": "probe_skins",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_router",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_stress",
+      "exit": 0
+    },
+    {
+      "probe": "probe_interaction",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_look",
+      "exit": 0
+    },
+    {
+      "probe": "probe_ui_system",
+      "exit": 0
+    },
+    {
+      "probe": "probe_voice",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_voice",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_d8_revisits",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_handoffs",
+      "exit": 0
+    },
+    {
+      "probe": "probe_kart_feel",
+      "exit": 0
+    },
+    {
+      "probe": "probe_combat",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_bunny",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_bunny_boss",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_boss",
+      "exit": 0
+    },
+    {
+      "probe": "probe_hit",
+      "exit": 0
+    },
+    {
+      "probe": "probe_partner",
+      "exit": 0
+    },
+    {
+      "probe": "probe_combat_tutorial",
+      "exit": 0
+    },
+    {
+      "probe": "probe_imp_ai",
+      "exit": 0
+    },
+    {
+      "probe": "probe_mic",
+      "exit": 0
+    },
+    {
+      "probe": "probe_stuffie",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dungeon",
+      "exit": 0
+    },
+    {
+      "probe": "probe_ember",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_2d",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_diegetic_paths",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_detective",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_pipe",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_nursery",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_gesture_quality",
+      "exit": 0
+    },
+    {
+      "probe": "probe_kitchen_props",
+      "exit": 0
+    },
+    {
+      "probe": "probe_bathroom_props",
+      "exit": 0
+    },
+    {
+      "probe": "probe_castle_door_language",
+      "exit": 0
+    },
+    {
+      "probe": "probe_bathroom_integration",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_bunny",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_cleanup",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_movie_handoff",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_director",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_integration",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_pool_cleanup",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_art_attack_state",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_castle_dressing",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_story_clips",
+      "exit": 0
+    },
+    {
+      "probe": "probe_chapter2",
+      "exit": 0
+    },
+    {
+      "probe": "probe_chapter2_farmer_resume",
+      "exit": 0
+    },
+    {
+      "probe": "probe_chapter2_lawn",
+      "exit": 0
+    },
+    {
+      "probe": "probe_alpha_milestone_save",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_boss_balance",
+      "exit": 0
+    },
+    {
+      "probe": "probe_start_menu_routing",
+      "exit": 0
+    },
+    {
+      "probe": "probe_start_menu_new_game",
+      "exit": 0
+    },
+    {
+      "probe": "probe_castle_pool_life_2d",
+      "exit": 0
+    },
+    {
+      "probe": "probe_castle_pearl_art",
+      "exit": 0
+    },
+    {
+      "probe": "probe_fairy_art",
+      "exit": 0
+    },
+    {
+      "probe": "probe_props",
+      "exit": 0
+    }
+  ],
+  "nonzero_probe_exits": [],
+  "display_only_exception": "probe_human_art_audit intentionally prints HEADLESS SKIP and exits0; the separate native Pool720/800 captures are review-only displayed evidence, not replaced by this entry.",
+  "freeze": "CANDIDATE_FREEZE_CI06.json",
+  "freeze_sha256": "ff757524901ab86f0b3071e668713fb8c42ed079fd91d1700abecb95d99efb79",
+  "frozen_paths_checked": 29,
+  "freeze_mismatches": [],
+  "review_media_checked": 48,
+  "review_media_mismatches": [],
+  "historical_binding_and_failed_run_files_checked": 18,
+  "historical_binding_or_failed_run_mismatches": [],
+  "advisory_notices": {
+    "game2d": "NO_REGRESSION only; exact shrinking baseline, migration remains UNSATISFIED",
+    "visual_audit": "FAIL15, REVIEW_OPEN17, MANUAL_OPEN2, COVERAGE_GAP87, WAIVED0, PASS32, NOT_APPLICABLE94; RESULT UNSATISFIED",
+    "gold_star": "OK60 games,0 errors,34 stale assessments; no score/acceptance refresh claimed",
+    "typography": "Existing font authority/coverage/device evidence remains OPEN"
+  },
+  "prior_failure_limit": "CI05 FAIL remains unchanged; its three127 missing-verdict causes remain unexplained despite controlled rerun and current canonical success. No attribution, cap increase, validator weakening or source change to explain them.",
+  "save_incident_limit": "VERIFICATION_INCIDENT.json remains binding: earlier default-desktop-profile write, unknown prior progress, preserved snapshots not a verified pre-test recovery; owner live preview uses a separate unaffected profile.",
+  "remaining_acceptance": "Topic exact-head remote CI, dev integration and matching build remain pending at preparation. Actual device/child/owner visual, motion and touch acceptance remains open. Master audit UNSATISFIED, QP-2a unchanged, no release authority."
+}

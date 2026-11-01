@@ -1,0 +1,37 @@
+{
+  "id": "pool-focused-probe-profile-incident-20261017",
+  "status": "ACKNOWLEDGED_DEFAULT_PROFILE_WRITE_NO_UNVERIFIED_RESTORE",
+  "cause": "An initial standalone focused probe was launched without per-probe APPDATA/LOCALAPPDATA overrides. It writes real checkpoints even when ReefMain is constructed outside the normal boot.",
+  "observed": {
+    "default_save": {
+      "modified_utc": "2026-10-17T17:59:52Z",
+      "bytes": 4233,
+      "sha256": "b81409bba2d108625739b2e1c10be48dc0d9571baf2d1cc4d7b1233b02cd07eb"
+    },
+    "default_backup": {
+      "modified_utc": "2026-10-17T17:59:52Z",
+      "bytes": 4233,
+      "sha256": "c9b95b66fd00f22f2e2c5b41d2803e4f5c581c58be483e2e3a593dea0dabd5d6"
+    },
+    "older_before_new_game": {
+      "modified_local": "2026-08-26T10:06:13",
+      "bytes": 1916,
+      "sha256": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158"
+    }
+  },
+  "impact": "The default desktop profile was written during the probe. Prior contents/progress are unknown; no verified recent pre-test backup has been found. Do not infer that this profile was already a test save. The active owner preview uses its distinct custom MermaidReef-OperaRemovalReview-20261017 user directory, so that live preview profile was not the default target.",
+  "preservation": "Default save, .bak and older before_new_game were copied unchanged to an ignored private task backup. No save bytes, private backup or save contents are committed. No blind restore was performed.",
+  "prevention": [
+    "Focused probe now refuses ordinary default-user-data paths before constructing ReefMain.",
+    "All subsequent focused runs use fresh temporary APPDATA/LOCALAPPDATA or XDG_DATA_HOME.",
+    "Capture helper asserts overrides under a fresh profile and records engine-reported actual user data directory."
+  ],
+  "negative_control": {
+    "method": "Simulated default profile inside a fresh disposable Temp directory, without touching real default data",
+    "expected_exit": 2,
+    "actual_exit": 2,
+    "refusal": "PROFILE_ISOLATION_REQUIRED",
+    "save_files_created": 0
+  },
+  "acceptance_limit": "This mitigation prevents recurrence; it does not recover unknown previous default-profile progress."
+}

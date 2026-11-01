@@ -1,0 +1,20 @@
+{
+  "probe": "probe_dust_boss",
+  "command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "-c",
+    "set -o pipefail; timeout 8m \"$GODOT\" --headless -s scripts/probe_dust_boss.gd -- --touch --classic-touch-test"
+  ],
+  "cap_seconds": 480,
+  "actual_user_data": "C:/Users/Peter/AppData/Local/Temp/reef_pool_ci05_rerun_probe_dust_boss_o80k6a2h/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light",
+  "start_utc": "2026-10-17T23:15:23.889840+00:00",
+  "status": "TERMINAL",
+  "pid": 164596,
+  "end_utc": "2026-10-17T23:16:11.100935+00:00",
+  "wall_seconds": 47.21,
+  "exit": 0,
+  "terminal_verdict": true,
+  "failure_markers": false,
+  "log_sha256": "71a0c009fc66f5553c761ce55075fe2bdbd893ffee760061328825750a090782",
+  "diagnostic_pass": true
+}

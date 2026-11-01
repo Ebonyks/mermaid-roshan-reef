@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "pool-visual-repair-dev-reconciliation-20261101",
+  "date": "2026-11-01",
+  "integration_baseline": "93166ab1828ab9857227d038f8833b92dfb2f9f1",
+  "source_branch": "origin/codex/pool-visual-repair-20261017",
+  "source_tip": "8c4069c2652e196198f0488e838350a1674a522f",
+  "implementation_commit": "6ac82b4e87704835f8d8d102e6b8fa005d5d1bc6",
+  "divergence_at_start": {
+    "integration_only_commits": 96,
+    "source_only_commits": 2
+  },
+  "merge_mode": "no-commit merge into fresh codex/demo-dr3b-pool-20261101-v2 based on origin/dev",
+  "conflicts": [
+    {
+      "path": "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+      "resolution": "Retain current-dev authority and regenerate the candidate binding from the merged runtime. Preserve all 96 frame approvals and 12 occlusion records; do not revive the source branch's superseded payload hash."
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "resolution": "Retain every current finding and later history entry, append the scoped Pool history, and reconcile MA-TOUCH-004 to FIXED_PENDING_VERIFICATION without closing device, child, owner or release evidence."
+    }
+  ],
+  "castle_frame_binding": {
+    "prior_dev_candidate_payload_sha256": "ed13d35a54331db9e6cf073536362a9b1f2b58879595233f29e03805ef31d59b",
+    "source_candidate_payload_sha256": "0c509c34c43e3e429889b3319134881c3c20242afb893b4c588f8b73a7a83c24",
+    "merged_candidate_payload_sha256": "6832b5f60b98e0df8973b76c2601f49f8ebfdffe65d4126bef88ba50b273ade0",
+    "runtime_layout_semantic_sha256": "52fab4e580a027c3e0042bb92662c6e82d80062eff621165eca476e3c260cfde",
+    "fixture_runtime_semantic_sha256": "8089a7355f34d17c750100b7e754a001b3aa9e466c0ec28d6ee715f404d0137f",
+    "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
+    "asset_count": 12,
+    "authored_frame_count": 96,
+    "blocking_findings": 0,
+    "pre_refresh_check": "FAIL: approval ledger candidate_payload_sha256 is missing or stale; no other issue reported",
+    "post_refresh_check": "PASS: CASTLE_INTERACTION_FRAME_REVIEW|RESULT=OK|assets=12|frames=96|reviewer=Luna visual re-review 2026-09-01"
+  },
+  "source_remote_evidence": {
+    "source_tip_probe_runs": [
+      {"id": 39091425683, "conclusion": "cancelled"},
+      {"id": 41237708106, "conclusion": "cancelled"}
+    ],
+    "implementation_probe_run": {"id": 39084577588, "conclusion": "success"}
+  },
+  "reconciliation_validation": {
+    "approved_engine": "4.7.2.stable.official.ed1daf0bf",
+    "head_before_candidate_commit": "93166ab1828ab9857227d038f8833b92dfb2f9f1",
+    "checked_at": "2026-11-01T09:05:31-08:00",
+    "pool_overdraw": {
+      "result": "PASS",
+      "measured_at": "2026-11-01T14:49:02Z",
+      "states": 9,
+      "peak_gpu_layers": 6,
+      "bound_input_hashes": 11,
+      "reference_sha256": "acb5d5568d265310489a4b08cea77eed859d3e212ac531afba1fc5f807c44a90"
+    },
+    "castle_v2_manifest": {
+      "result": "PASS",
+      "assets": 29,
+      "instances": 34,
+      "average": 4.86,
+      "water": 5,
+      "spring": 6,
+      "max_room_rgba_mib": 16.0,
+      "raw_sha256": "be72cfa943c4c8837e31cad0b194b0078552203c31b86b36391478dc9290e219"
+    },
+    "canonical_full_suite": {
+      "command": "GODOT=<resolved exact 4.7.2-stable> scripts/ci.sh",
+      "result": "PASS",
+      "process_exit": 0,
+      "notes": "Full import, analyzer, static contracts and trusted probe roster completed. Expected declared master-audit UNSATISFIED/manual lanes remain separate; no failing process or probe verdict."
+    },
+    "status": "LOCAL_VALIDATION_PASS_REMOTE_PENDING"
+  },
+  "required_validation": {
+    "document_authority": "PASS: inventory=752 ledger=752 active=74 records=77",
+    "development_coverage": "PASS: base=93166ab1828ab9857227d038f8833b92dfb2f9f1",
+    "true_2d_regression": "PASS_NO_REGRESSION: production 3D files=52; strict project status remains UNSATISFIED",
+    "parser_and_inference": "PASS: all 11 changed GDScript files",
+    "exact_godot_4_7_2_import_analyzer_and_trusted_probes": "PASS: canonical scripts/ci.sh process exit 0",
+    "exact_candidate_remote_probe_suite": "PENDING"
+  },
+  "acceptance_limits": "Historical source-head machine evidence remains evidence. Current merged-head visual, target-device, child and owner acceptance are absent. This receipt grants no release or master-audit satisfaction claim."
+}

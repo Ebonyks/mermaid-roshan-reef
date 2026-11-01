@@ -1,0 +1,828 @@
+{
+  "id": "pool-repair-final-local-ci07-verification",
+  "verified_at_utc": "2026-10-18T02:47:09.979088+00:00",
+  "topic_parent": "6ac82b4e87704835f8d8d102e6b8fa005d5d1bc6",
+  "incoming_parent": "a9875690ceff436e9ce012a675db09a236aef0f5",
+  "branch": "codex/pool-visual-repair-20261017",
+  "command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "scripts/ci.sh"
+  ],
+  "actual_user_data": "C:/Users/Peter/AppData/Local/Temp/reef_pool_full_ci07_1thakcmc/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light",
+  "process_receipt": "FULL_CI07_PROCESS.json",
+  "exit": 0,
+  "wall_seconds": 3343.92,
+  "log": "full-ci07.log",
+  "log_sha256": "5df8a2cb4f8dc87a6b710c8cff653d1e839c194ac35fd52209dcc25d2eb9ac30",
+  "ordered_probe_count": 82,
+  "expected_roster_count": 82,
+  "ordered_roster_matches": true,
+  "probe_exits": [
+    {
+      "probe": "probe_reef_districts",
+      "exit": 0
+    },
+    {
+      "probe": "probe_ocean_kingdoms",
+      "exit": 0
+    },
+    {
+      "probe": "probe_audit",
+      "exit": 0
+    },
+    {
+      "probe": "probe_passive",
+      "exit": 0
+    },
+    {
+      "probe": "probe_living_world",
+      "exit": 0
+    },
+    {
+      "probe": "probe_load",
+      "exit": 0
+    },
+    {
+      "probe": "probe_rank",
+      "exit": 0
+    },
+    {
+      "probe": "probe_save_recovery",
+      "exit": 0
+    },
+    {
+      "probe": "probe_galaxy_state",
+      "exit": 0
+    },
+    {
+      "probe": "probe_collection",
+      "exit": 0
+    },
+    {
+      "probe": "probe_mg2d",
+      "exit": 0
+    },
+    {
+      "probe": "probe_fetch",
+      "exit": 0
+    },
+    {
+      "probe": "probe_melody",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dolls",
+      "exit": 0
+    },
+    {
+      "probe": "probe_seek",
+      "exit": 0
+    },
+    {
+      "probe": "probe_audio",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dance",
+      "exit": 0
+    },
+    {
+      "probe": "probe_l2",
+      "exit": 0
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "exit": 0
+    },
+    {
+      "probe": "probe_sky_lagoon_animals",
+      "exit": 0
+    },
+    {
+      "probe": "probe_l2_reenter",
+      "exit": 0
+    },
+    {
+      "probe": "probe_crown",
+      "exit": 0
+    },
+    {
+      "probe": "probe_throne",
+      "exit": 0
+    },
+    {
+      "probe": "probe_northern",
+      "exit": 0
+    },
+    {
+      "probe": "probe_human_art_audit",
+      "exit": 0
+    },
+    {
+      "probe": "probe_train",
+      "exit": 0
+    },
+    {
+      "probe": "probe_verbs",
+      "exit": 0
+    },
+    {
+      "probe": "probe_skins",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_router",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_stress",
+      "exit": 0
+    },
+    {
+      "probe": "probe_interaction",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_look",
+      "exit": 0
+    },
+    {
+      "probe": "probe_ui_system",
+      "exit": 0
+    },
+    {
+      "probe": "probe_voice",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_voice",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_d8_revisits",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_handoffs",
+      "exit": 0
+    },
+    {
+      "probe": "probe_kart_feel",
+      "exit": 0
+    },
+    {
+      "probe": "probe_combat",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_bunny",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_bunny_boss",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_boss",
+      "exit": 0
+    },
+    {
+      "probe": "probe_hit",
+      "exit": 0
+    },
+    {
+      "probe": "probe_partner",
+      "exit": 0
+    },
+    {
+      "probe": "probe_combat_tutorial",
+      "exit": 0
+    },
+    {
+      "probe": "probe_imp_ai",
+      "exit": 0
+    },
+    {
+      "probe": "probe_mic",
+      "exit": 0
+    },
+    {
+      "probe": "probe_stuffie",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dungeon",
+      "exit": 0
+    },
+    {
+      "probe": "probe_ember",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_2d",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_diegetic_paths",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_detective",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_pipe",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_nursery",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_gesture_quality",
+      "exit": 0
+    },
+    {
+      "probe": "probe_kitchen_props",
+      "exit": 0
+    },
+    {
+      "probe": "probe_bathroom_props",
+      "exit": 0
+    },
+    {
+      "probe": "probe_castle_door_language",
+      "exit": 0
+    },
+    {
+      "probe": "probe_bathroom_integration",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_bunny",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_cleanup",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_movie_handoff",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_director",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_integration",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_pool_cleanup",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_art_attack_state",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_castle_dressing",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_story_clips",
+      "exit": 0
+    },
+    {
+      "probe": "probe_chapter2",
+      "exit": 0
+    },
+    {
+      "probe": "probe_chapter2_farmer_resume",
+      "exit": 0
+    },
+    {
+      "probe": "probe_chapter2_lawn",
+      "exit": 0
+    },
+    {
+      "probe": "probe_alpha_milestone_save",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_boss_balance",
+      "exit": 0
+    },
+    {
+      "probe": "probe_start_menu_routing",
+      "exit": 0
+    },
+    {
+      "probe": "probe_start_menu_new_game",
+      "exit": 0
+    },
+    {
+      "probe": "probe_castle_pool_life_2d",
+      "exit": 0
+    },
+    {
+      "probe": "probe_castle_pearl_art",
+      "exit": 0
+    },
+    {
+      "probe": "probe_fairy_art",
+      "exit": 0
+    },
+    {
+      "probe": "probe_props",
+      "exit": 0
+    }
+  ],
+  "nonzero_probe_exits": [],
+  "display_only_exception": "probe_human_art_audit HEADLESS SKIP exits0; native Pool review remains separate.",
+  "freeze": "CANDIDATE_FREEZE_CI07.json",
+  "freeze_sha256": "95dd3a0c5768d1d2f8d4d0725bf648812365852b5818ffcda655c470912d8106",
+  "frozen_paths_checked": 36,
+  "freeze_mismatches": [],
+  "pool_sources_checked": 13,
+  "pool_source_mismatches": [],
+  "review_media_checked": 48,
+  "review_media_mismatches": [],
+  "previous_topic_packet_files_checked": 91,
+  "previous_topic_packet_mismatches": [],
+  "previous_topic_packet_files": [
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/CANDIDATE_FREEZE.json",
+      "sha256": "638eaa3e36f5d7263803e22b79d0732528e082b7f83ce5a86dbe359095677325",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/CANDIDATE_FREEZE_CI06.json",
+      "sha256": "ff757524901ab86f0b3071e668713fb8c42ed079fd91d1700abecb95d99efb79",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/CONTRACT_REFERENCE_REVIEW.json",
+      "sha256": "82d77ae209720260a7d2510e8f3121113c687a6466fb32cb945a9ffb22882faa",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/FINAL_LOCAL_CI06_VERIFICATION.json",
+      "sha256": "5720964b65b67c17d27d8fac83fb8c778dc09fa4650db37682911600b3b8c735",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/FRAME_BINDING_REVALIDATION.json",
+      "sha256": "32669f0e6d1d439ae71556d909ed9acb7ce9a84fc5e90aabc2c454277ca8664d",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/FULL_CI04_PROCESS.json",
+      "sha256": "540d7d27aa7ff7179440a55f0419f4bd3e065e4b17be40a172f3ae74419408c6",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/FULL_CI05_PROCESS.json",
+      "sha256": "b32f499a2e7508d4e39d8ea0dd32e15d351d38c8e4c32388ebb681fa9fd8c76a",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/FULL_CI06_PROCESS.json",
+      "sha256": "2d875bd1ff380422b796f13f1ff9e56c4a63edcbe5ed2ae491d253891f90b09a",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/PRE_RECONCILE_CI06_PIN.json",
+      "sha256": "31b2e85aaddc800f9e561fe771f7632198a29bf0bc60ae676a98d8f9a18c471f",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/PRE_RECONCILE_PIN.json",
+      "sha256": "23b25bee713fa5383fae7e3800c38c747f21ee8bf00f51cc2b9e3f1faac25864",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/RECONCILIATION.json",
+      "sha256": "cd6053f61a23856ff6a722a19e571b518649cf232122b02e75812d166f9ffa3d",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/RECONCILIATION_CI06.json",
+      "sha256": "90f87a306982638912b436c7396a239495a49dd545323c4634058be39c1fd51a",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/REVIEW.json",
+      "sha256": "ed1ffbeab88ec124f45a75e6a45c8434d6e099c9f1fbf002a3a2cd04b3dbd0cd",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/SOURCE_PIN.json",
+      "sha256": "ae888ac892dd003445d6e7f1f53c69c06b2f22683051926e3612adad32f64ffb",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/SOURCE_PIN_CI06.json",
+      "sha256": "25d91dbb752cc35b51994a397bf6b8d11e6424e6ceda96e3fdad623e5c3f6c26",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/VERIFICATION_INCIDENT.json",
+      "sha256": "8accf953e82ad2cc7f100319fdc25ef246015e1405b62741643e05df19f47099",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/VERIFICATION_INCIDENT_FOLLOWUP_20261018.json",
+      "sha256": "c7edcbe8263846109573c358f971bcc61cf3fb3bd6ca0a9ddd2901bf1e3bc640",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/failed_probe_reruns/RESULT.json",
+      "sha256": "cc4acd713c6340c5f2e2e8e92c3be3e4794e71f6597a3accce2d7e6d13dad4f8",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/failed_probe_reruns/probe_dust_boss.json",
+      "sha256": "7bed7a97f69669c529676306de603e8b5e78cbd6076d304d2d5621365673d55c",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/failed_probe_reruns/probe_dust_boss.log",
+      "sha256": "71a0c009fc66f5553c761ce55075fe2bdbd893ffee760061328825750a090782",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/failed_probe_reruns/probe_kart_feel.json",
+      "sha256": "b21260d4f8f69bcc6b74a96c4cf18f81d7e2e2814e3876cf35c8984a40c737c9",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/failed_probe_reruns/probe_kart_feel.log",
+      "sha256": "46ff279c63064ea1d6dd43b95ce692427665536623b6c235a45c61f2cbb5082e",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/failed_probe_reruns/probe_opera.json",
+      "sha256": "dcb055b7663232fd13949f19359cb662b09d5cdd31154526490bb47ac11d642f",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/failed_probe_reruns/probe_opera.log",
+      "sha256": "c218617b67fda1607987c549a6a61c06e5837437c3a88b05ca32ea5a7667eef2",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/focused04.log",
+      "sha256": "e34965efc6f626a30f44ed97f0cd6aa8e033a6484e86f2236e9a17d9545181a9",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/full-ci03.log",
+      "sha256": "1d6b1294a562cf109fa685021515b34ed299d3364bb7a331dcc01f31b4b0037c",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/full-ci04.log",
+      "sha256": "fb89b8acd1e1002edfcc64aaa281bb43e20ee658780fc3ef61a3fa310fdae382",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/full-ci05.log",
+      "sha256": "8ff7bf14a9a4deaaa74a72c00f9e3f5acca2bc999e633b472ace1381d00b7cb8",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/full-ci06.log",
+      "sha256": "9aa1d3edfd787eaf08aef5cafa9910f0720721b21360238599f54f1060b6f0d1",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/00_dirty_arrival.png",
+      "sha256": "2e2f0f13c6ffbc1e3e188e3bdb6b17a4201e25a08ed28fa80f289038b87f7729",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/00a_roshan_approaching_trash.png",
+      "sha256": "55b9d2525839280b8b24ba25996393f5c4aee171d68ee51c465eaddafd2c66ca",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/00b_roshan_scooping_trash.png",
+      "sha256": "923d4544ef6516091ffc6796af03de669a56af60f547ef3527c73dd85b5dc427",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/00c_missed_piece_hand.png",
+      "sha256": "49830642f79bc510f4a1a57f92c4c092ac05d4a719bc12dc842d93a2a48e2729",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/01_skimmer_catch.png",
+      "sha256": "1cd49796b377439a7a5096bd509f3a3c13ec8e473494c46b0899a9d8548d063b",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/02_pool_clear_waterfall_dirty.png",
+      "sha256": "87cffa736ed5c5f5b03aa859dbab4eefb661f71733c668568900a127d8d1934b",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/03_waterfall_scrub.png",
+      "sha256": "1d44c4e36196e9f635f5b50dd10f5d419acbe333ac4ab6d892798fd26466e5d5",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/04_waterfall_clear_static.png",
+      "sha256": "7ed0ccb8ea42bc1ef62bcdbdc3686698ed71c8064904b7a1cace8c8e6953285a",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/05_seahorse_tug_midway.png",
+      "sha256": "0389eb43ad20a08e490731669b1427b38c3d78739219664b6b8aa8b93a453be2",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/06_seahorse_trash_release.png",
+      "sha256": "09ec08cef33c6306a2185f49c745802caf1fb1d386840326f840d713180c7d17",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/07_rainbow_reveal_active.png",
+      "sha256": "82fa3f6dcddcb8253e270434d35beed05a0b85189ca1e035255f9f43a873fcd4",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/08_clean_pool_reveal.png",
+      "sha256": "755d9744b5cd8e215aba778a9f0425b6c5ff48b19151299cc2e335daed996035",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/08_water_motion_0.png",
+      "sha256": "cf42cddacc0dcc1713ced4f99db25b8e45272f7a7e95c20537d4207deabae6a4",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/08_water_motion_1.png",
+      "sha256": "5a3430947a7d9df409953e89efd7a5d2e7e7439e3dde706c3b2df5b406616084",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/08_water_motion_2.png",
+      "sha256": "bd813d4131ca5b039359931be0c2ea5b225f485b85046e50718731cd27056528",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/08_water_motion_3.png",
+      "sha256": "39eedad275341de6913147a63d9513843461deca7b4a916d48f13e9fcf35c430",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/09_persistent_rumi_rest.png",
+      "sha256": "68c96095ef5a1fa642d4cac9a5a8e46facbb6ae77a7702fd492550706d40d3de",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/10_persistent_rumi_greeting.png",
+      "sha256": "c29ddab88ba3afb4d13dec1b83847f1b02933d36682280147282365c3aeba1ac",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/10a_rumi_greet_start.png",
+      "sha256": "bbd55fb6d97c1ea8b19dfe6762d052f68e8f8319a487adb83c03b28b9a223955",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/10b_rumi_greet_reach.png",
+      "sha256": "c08d4509dcb3e422c37d1e80b22fae604bf81babf3a2d75c7a59a4498d35e6bc",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/10d_rumi_greet_return.png",
+      "sha256": "fe1db5942d59e55d58529282291e965449f99e574c25fce0554e906e8c0d523c",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/10e_rumi_greet_rest.png",
+      "sha256": "a5fad64206ade83fa8241ff6aab66dd428c442c3c39d279506d855647af06be2",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/11_persistent_rumi_settled.png",
+      "sha256": "4f8aea144aa47503f973e2fb3a0d337770e5675cb9753e1a5b25e694c9bcd940",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/capture.log",
+      "sha256": "1d48ea943431ff9b6a390a9ae5957ae1be6862c5c024502033edb207f2f06832",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile720/receipt.json",
+      "sha256": "d56ba903b818cc9a8d3cd45bc9ee0638b171cbaca1a1efb1ebc7539dd98febca",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/00_dirty_arrival.png",
+      "sha256": "0238d212d37d51ec2ab8759bb4aa945098759d955931a70d7cea7108dfef6b56",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/00a_roshan_approaching_trash.png",
+      "sha256": "c00a5ad986bd2b11d5f2aeba48e3992ad41c1efab352c1383088c8fadf012aac",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/00b_roshan_scooping_trash.png",
+      "sha256": "429e5a606584489eb02d42ebcc057f0513add30560de1a6d6f136c387a999457",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/00c_missed_piece_hand.png",
+      "sha256": "e06edb32119309b1173288d273db47ae75aa78efd4693cc5552390654b5bf858",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/01_skimmer_catch.png",
+      "sha256": "830c39424c7541afdd158e211d5c21756beb6f6eb8399ee90670054d1d73b154",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/02_pool_clear_waterfall_dirty.png",
+      "sha256": "73d2bc1e4e021e21a9c47b6156d6f8853645ffaa14a6899959a944c20ae56afd",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/03_waterfall_scrub.png",
+      "sha256": "793af633556219975b6e61374f257e2c448fb9bab66f5abf4e27f637ad2e1f1c",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/04_waterfall_clear_static.png",
+      "sha256": "dcaae68727cdd2b1f54115d39bcea6f3d9ea3f93780d9a25b2bf2c59f1f078ec",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/05_seahorse_tug_midway.png",
+      "sha256": "07ee99903dac36b89c8218764854ccc4049e6267826529903b0ec4aae8b7866d",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/06_seahorse_trash_release.png",
+      "sha256": "e1c59c821ca289e80523bbc4bd92a504ea0582d7f249c0530baeb3cf5d270726",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/07_rainbow_reveal_active.png",
+      "sha256": "bdbb4889882df110c8fd66cb0ee140b0efca0559a963f4d0bf0f0a249e13291d",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/08_clean_pool_reveal.png",
+      "sha256": "966aaf84feacb7f81d3841a718ffed8a954bcb36408f18adcf2878aa3d78cbbe",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/08_water_motion_0.png",
+      "sha256": "d854b05b296aba8ab7ebf62fcb4cacae0d9cc662ec8877c44cc5ca95ba9c5120",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/08_water_motion_1.png",
+      "sha256": "9c7f254d21a1f60cdcb575c5d031928383ddbb5b3d5afcce10905e7e9f3faa78",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/08_water_motion_2.png",
+      "sha256": "93cbf9af9fc28bd212ba432ce5f5f1b9e9aaa59bddfbd6d9f9d04440ce9a144c",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/08_water_motion_3.png",
+      "sha256": "01d9cfdf03e51f9f9d08e87ba0b8f06d920bf7c3e7a937b11003811a2d5343e6",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/09_persistent_rumi_rest.png",
+      "sha256": "7a5563e7cfdc109aac025536516b3e4a6bfee33f204fdb28e75ddd0a5ae21875",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/10_persistent_rumi_greeting.png",
+      "sha256": "40999e3669f9516728f7be0566c52e079948b543f991bdbe0486357b05d88478",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/10a_rumi_greet_start.png",
+      "sha256": "6bc6ee6957ffa71b71326dc7d32858a9fed9e1da33b8aa66674a32d8a43cf369",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/10b_rumi_greet_reach.png",
+      "sha256": "1231209c31b489e204db5f7c5957e455612c7cd0d79053e935b12fd2bb29be8b",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/10d_rumi_greet_return.png",
+      "sha256": "0b1c515bb4474ec45936bf9728edc5e0c5f0dfbb0df1449944c3410ce65582f8",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/10e_rumi_greet_rest.png",
+      "sha256": "5daf9aaf1b64dec1cae24df9a189f69fb6103511f601c6df5b434cad2b0da136",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/11_persistent_rumi_settled.png",
+      "sha256": "f52c184565daae765661fc3e22394d665a43e7974374ab78217be535a6b1cd36",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/capture.log",
+      "sha256": "9a3630e3063124beafa409f7030dbe5229fee0b40a93b3fc583e1411ca8f9144",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/mobile800/receipt.json",
+      "sha256": "54662f68492796e219a21ad651b12c811433e0ad205ca621a5ec989933c0a0b8",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/motion/motion_clean.mp4",
+      "sha256": "6538ba095096565c0dd213ff29333453aac904e2aceaa343ed71aedaaa883eae",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/motion/motion_dirty.mp4",
+      "sha256": "3cbd0ff39ac9b6595b72ebe47f4b93c50491ac62cb647e1ffaab3213668920b2",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/overdraw.log",
+      "sha256": "db4a5467d82ab902a87f1f2b5595c78acfb8baa5cead28e4e2a5c676218958c8",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/profile_preflight.gd",
+      "sha256": "6383e23c5c6a412aba8244994a73ca12e85c9fb874f39602df4c58f7819c5e88",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/relevant_probes/RESULT.json",
+      "sha256": "a7b7c538485675af6ff75ce2c912400c980f7f0e291ec29e7758623753e69140",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/relevant_probes/probe_bathroom_integration.log",
+      "sha256": "5f67fe461b054046959a68d6e6475a644eb6f887fc0fcadffefac2376a73a8a5",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/relevant_probes/probe_castle_pool_life_2d.log",
+      "sha256": "b41c69a66d1e2b23df708a7e1604e5da2d6c9494e0fb4ff37823da8a6eb87386",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/relevant_probes/probe_day_one_bathroom_bunny.log",
+      "sha256": "ff1eee13cdc7248e8fa9fc01f9ce3e6245e250e1ea05852a7f8cdce604e5f087",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/relevant_probes/probe_day_one_castle_dressing.log",
+      "sha256": "67e53b0daa4a1d16ddf2bd5f1e43f675ba5f1a4d2808d97fc7237472b5e15051",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/relevant_probes/probe_day_one_integration.log",
+      "sha256": "1081a1eb7ea5b4f618d539b45a27d602a7edc72b89d06ba96ef05d8ebc70d88f",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/relevant_probes/probe_day_one_story_clips.log",
+      "sha256": "c44d32041fdbf977944efba92676c37730e0c27bcb2c65b157a0bebb47f5b766",
+      "match": true
+    },
+    {
+      "path": "audit/cycles/pool-visual-repair-20261017/relevant_probes/probe_skins.log",
+      "sha256": "f9216ffc2a236309af63ce0770a53cf7f5413fd29dff1c40978fb311d3d8f6b4",
+      "match": true
+    }
+  ],
+  "advisory_notices": {
+    "game2d": "NO_REGRESSION only; exact shrinking baseline, migration remains UNSATISFIED",
+    "visual_audit": "FAIL15, REVIEW_OPEN17, MANUAL_OPEN2, COVERAGE_GAP87, WAIVED0, PASS32, NOT_APPLICABLE94; RESULT UNSATISFIED",
+    "gold_star": "OK60 games,0 errors,34 stale assessments; no score/acceptance refresh claimed",
+    "typography": "Existing font authority/coverage/device evidence remains OPEN"
+  },
+  "prior_failure_limit": "All original CI03/04/05 and CI06 evidence unchanged. CI05 remains FAIL;127 causes unproven. No cap/gate changes.",
+  "save_incident_limit": "Initial normal-profile write and unknown prior progress remain acknowledged. Private snapshots preserved, no blind restore. Later observed writer remains unknown; no save-content or recovery claim.",
+  "remaining_acceptance": "Exact reconciled-head remoteCI, dev integration/APK, actual device, child and owner acceptance pending at preparation. Game-wide audit remains UNSATISFIED."
+}

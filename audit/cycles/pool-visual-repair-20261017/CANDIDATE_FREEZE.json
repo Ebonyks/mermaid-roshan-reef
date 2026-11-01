@@ -1,0 +1,43 @@
+{
+  "id": "pool-visual-repair-20261017-ci05-freeze",
+  "frozen_at_utc": "2026-10-17T22:01:25.514Z",
+  "head": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "origin_dev_fresh_fetch": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "scope": "All changed code and production metadata frozen before CI05, plus shared authority/license documents. Review-only logs/status receipts are excluded and may be appended by the running diagnostic process; final audit-status receipts update only after terminal result. No runtime or production metadata edits during CI05.",
+  "files": {
+    ".gitattributes": "fcab0b0d615759da0fcd18349aa45cc3cf7d972316ad0a1417aead31e565b3bb",
+    "ASSET_LICENSES.md": "d6d1cc0b64cab89098d5a5709fe430058dcda18a8f8266ce07a9996168844229",
+    "assets/flats/castle/interactions_v2/castle_interactions_v2.json": "f64d1bc0f54b53c673b44ccc9ada21ba160bac2180c589270bddd1da37ead819",
+    "assets/shaders/castle_fixture_water.gdshader": "f129ae768ba7cc1e3ed642931248775fec47b89b22c3e8cc9a074e2c719b2891",
+    "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json": "b62bff675bf611eeb65dec6bfa3866da9abce72fffdbeb501a5f0ef81d23486f",
+    "audit/MASTER_AUDIT_2026-08-09.md": "da398ffa348173199a8ce19e273fd37ca5fe38ee3e5cbb7ca4fe51c0e1bee753",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md": "61b457af72b5f8d64ffa52326ad3fda0cd76459e5458f58f0849266591587d59",
+    "design/05_DOC_LEDGER.md": "a5027a4ab7cbd502732ad9cd0852d5d97889cd26e08e7212970d32d0ab8c769b",
+    "design/animation/POOL_REPAIR_ACTIONS_20261017.json": "9ff87eddaf8fd3f52717926120fcdb6b4414f41488b1a91bfbc5b1345ba0c458",
+    "design/reference/overdraw.json": "bdc5493749b041b03e77ea4a0436faa0856b1ad52bfe693a9c283448063e5cf9",
+    "scripts/arena/castle_fixture_rigs.gd": "b1c226ec13827480df85654df6b89d8178a3d49c9d7361bf8b244cfecb629d7b",
+    "scripts/arena/castle_rooms_25d.gd": "cc2159703cb8f731784cd51d0b8d40375d0d0da9fbfdb436d8012984a3ca13a9",
+    "scripts/arena/day_one_castle_dressing.gd": "498891bb38414dc21101fcd7bb2245688ad4d6593bc5b6c949c3058173092662",
+    "scripts/games/day_one_dust_bunny_swimmer.gd": "82bbfd3c845c951a8fdc4abf74484f1ee0f0721440abfb4491dc19ed3f30712d",
+    "scripts/games/pool_seahorse_rescue_activity.gd": "928f6e39128c108e85fc801788c68c4e44509a0bd2aaad9b822049208b6eae5f",
+    "scripts/games/pool_skimmer_activity.gd": "65afbeba1988cc1b004918a3a5679bfd254e02b6fff4d36511393d9f3ae085ab",
+    "scripts/games/pool_waterfall_activity.gd": "924035d3e26536d820e0f109ebd9a814582e554f52ce617ddc178ccb2957b4b9",
+    "scripts/main.gd": "82c3e537d6f5dc251bb3857d1430089138377883860b44a668f4aced984dadad",
+    "scripts/probe_day_one_pool_cleanup.gd": "1687975e1d3e52a38ab9dfc763199579d94b7be5b3ff1695cab256ce576b68d8",
+    "scripts/probe_day_one_pool_shots.gd": "b6bac0646759da60ab2216b7a21c750ca19346ecfcefc21697d29ad0a6ad29b7",
+    "shaders/pool_blocked_fountain.gdshader": "ad13c03ec16fa9d6f740d11ca162bd309be46a5cd80ee64432a0cbde8956e330",
+    "shaders/pool_floating_debris.gdshader": "7581bcb94bb9d7d07b52355b469751c638b344697dbed1494b2c2588dbfa0268",
+    "tools/build_castle_interaction_v2_manifest.py": "d1d25b58e8fe4ea0dae3a6ed371a58a7fadf91c88b1263fc2df90566b659461e",
+    "tools/capture_pool_repair.py": "3245192154d00293494425ca35a2ab19313634b3dda7cbfd1b6b845eeef682e3"
+  },
+  "source_pin": "SOURCE_PIN.json",
+  "token_preflight": "Existing tools.audit_game_2d._token_counts returned empty for every newly owned textual record after truthful prose correction; no inventory allowance/exemption or validator change.",
+  "prior_failure": "FULL_CI04_PROCESS.json and full-ci04.log retain actual exit1, prose token only.",
+  "bounded_preflight": {
+    "python -B tools/audit_game_2d.py --regression-gate": "exit0; NO_REGRESSION - exact shrinking baseline; production52/probe61/scene1/configuration1; game-wide migration remains UNSATISFIED",
+    "python -B tools/audit_document_authority.py": "exit0; INVENTORY706/LEDGER706/ACTIVE69/RECORDS72; ALL OK",
+    "python -B tools/audit_development.py --base auto": "exit0; base39b0e158db7de3d0c178c4444f97c04fda75bec5; ALL OK",
+    "new textual-record token scan": "18 newly owned textual records; existing token scanner returned no class-shaped API tokens",
+    "git diff --cached --check": "exit0; scoped evidence-byte policy only, code checks unchanged"
+  }
+}

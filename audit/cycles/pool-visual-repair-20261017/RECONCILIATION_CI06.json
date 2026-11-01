@@ -1,0 +1,52 @@
+{
+  "id": "pool-repair-ci06-reconciliation",
+  "previous_parent": "39b0e158db7de3d0c178c4444f97c04fda75bec5",
+  "parent": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+  "branch": "codex/pool-visual-repair-20261017",
+  "stash_sha": "1f6b9add3a4e7a75be797f2ae1292a977e7e272b",
+  "stash_retained": true,
+  "owned_checkpoint": "PRE_RECONCILE_CI06_PIN.json",
+  "owned_files_verified": 108,
+  "stash_paths": 109,
+  "missing_owned_files": [],
+  "media_hashes_unchanged": 48,
+  "changed_owned_files": [
+    {
+      "path": ".gitattributes",
+      "before": "fcab0b0d615759da0fcd18349aa45cc3cf7d972316ad0a1417aead31e565b3bb",
+      "after": "6cacd3733c343ad153f95466d29d4431ecd47fdf42fcc5953b00f891ce9ed6c7"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "before": "d6d1cc0b64cab89098d5a5709fe430058dcda18a8f8266ce07a9996168844229",
+      "after": "6a4a69d0c2bae7260ae3afa7e487c6939fbcad2401f7044373dea9ecc4caa604"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "before": "da398ffa348173199a8ce19e273fd37ca5fe38ee3e5cbb7ca4fe51c0e1bee753",
+      "after": "14e3e7827c8b183b44ad25637dbef1396b77a786a443291688987811c339766d"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "before": "61b457af72b5f8d64ffa52326ad3fda0cd76459e5458f58f0849266591587d59",
+      "after": "a71c905a0404a1ec93abc9aa24191e1d6c1c2484826435c41fe8af9ff96597d9"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "before": "a5027a4ab7cbd502732ad9cd0852d5d97889cd26e08e7212970d32d0ab8c769b",
+      "after": "2775bfda9726bb0c2c829ff741bfa89e2fd951f643913ada94c2769f0c5ade31"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "before": "498891bb38414dc21101fcd7bb2245688ad4d6593bc5b6c949c3058173092662",
+      "after": "62a37f285b84d628c9d8708e2c19b7f4f0b88ce391e2ea1ac4768542dff897a9"
+    }
+  ],
+  "conflict_resolution": ".gitattributes append conflict resolved by preserving both Grand Puff and Pool evidence-only byte rules; no global text-policy change",
+  "source_delta": "Only dressing teardown adopts incoming CHG-097 queue_free() for both mounted/detached lifecycle. Pool position/motion/art/keys/shaders/clip bytes unchanged; full CI06 verifies combined lifecycle/probe baseline.",
+  "newline_restoration": "Only two owned shaders restored to original checkout bytes after normalized equality was proven; source content unchanged",
+  "capture_bindings": "Original mobile720/mobile800/motion receipts and SOURCE_PIN.json remain byte-for-byte unchanged. No historical capture or approval rebound to new runtime behavior.",
+  "private_backup": "Ignored tmp/pool-repair/default-profile-preserved untouched; ignored exact-byte recovery copy retained; no root checkout edits",
+  "authority_recheck": "Current master task index/repair protocol, incoming MA-PLAY-001 and MA-CI-007 histories, document-ledger scope, auth/save/input/motion rules and audit-development contract rechecked; open lifecycles remain open",
+  "verification": "Revised SOURCE_PIN_CI06.json and CANDIDATE_FREEZE_CI06.json bind combined current source; new full suite pending, prior CI05 FAIL retained"
+}

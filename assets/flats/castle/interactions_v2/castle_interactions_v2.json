@@ -2,7 +2,7 @@
   "schema_version": 2,
   "generated_on": "2026-08-02",
   "generator": "tools/build_castle_interaction_v2_manifest.py",
-  "generator_sha256": "628a797bfe82d369f01a6b5847c624636bb7a62aa19c96255f2fa4c7908aff61",
+  "generator_sha256": "e527fa63ff3a1dafb2b0c938d078745182baab3564b7cdba9ecc7965d7180e58",
   "visual_review_evidence": {
     "path": "audit/castle_interactions_v2/castle_interaction_frames_v2.png",
     "sha256": "4ace63822e2d625312f8674196f67f909679e4cac3a8a6cd45a186f48ba5df70",
@@ -29,7 +29,16 @@
     "authored_state_count": 8,
     "primary_animation_is_overlay": false,
     "water_renderer": "assets/shaders/castle_fixture_water.gdshader",
-    "water_renderer_sha256": "168cb9fe89d06e11101b4dcc5084247158c7411463f3c3e168493453e64431aa",
+    "water_renderer_sha256": "c0c8f68f3dd154b148d9b41e6b025f7ab1c6f692560cbf3c46389be02be1b8e2",
+    "water_renderer_revision": {
+      "date": "2026-10-17",
+      "scope": "Pool-only optional painted_highlight_only branch preserves authored rainbow/arc RGB with restrained downward highlights. Other rooms retain the existing default shader branch.",
+      "startup": "Existing flow_amount, fill_amount and outlet-to-landing reveal remain authoritative; sustained Pool sheen starts only after the authored fixture action settles.",
+      "acceptance": "Current implementation/source binding only. Historical art approval does not accept this new shader performance; actual-device, child and owner visual/motion review remain separate.",
+      "authored_frame_pixels_unchanged": true,
+      "previous_renderer_sha256": "168cb9fe89d06e11101b4dcc5084247158c7411463f3c3e168493453e64431aa",
+      "previous_generator_sha256": "628a797bfe82d369f01a6b5847c624636bb7a62aa19c96255f2fa4c7908aff61"
+    },
     "water_ripple_texture": "assets/terrain/up_water_nrm.jpg",
     "water_ripple_texture_sha256": "e9233e71728ae5b934fb8b0f1af817783df4011fb0403700477c0cdf2b75b219",
     "water_caustics_texture": "assets/terrain/caustics.png",
@@ -407,7 +416,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 0.99186992,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -618,7 +627,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -800,7 +809,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1008,7 +1017,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 0.98387097,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1223,7 +1232,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1231,7 +1240,7 @@
           1.0
         ],
         "alpha_matte_recovered": true,
-        "alpha_recovery": "Aseprite bounded backing restoration; see assets_src/repairs/rumi_transparency_2026-09-30/REPAIR.json",
+        "alpha_recovery": "Aseprite source-reference backing restoration inside reviewed polygon; RGB composited against adjacent intact board color",
         "rgb_subject_repainted": false,
         "whole_object_translation_only": true,
         "whole_sheet_uniform_scale_only": true,
@@ -1393,7 +1402,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1563,7 +1572,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1730,7 +1739,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -1897,7 +1906,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 0.94573643,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2065,7 +2074,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 0.9348659,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2235,7 +2244,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2405,7 +2414,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2575,7 +2584,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2745,7 +2754,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -2912,7 +2921,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 0.953125,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3123,7 +3132,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 0.85614035,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3293,7 +3302,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3463,7 +3472,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 0.976,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3633,7 +3642,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 0.99591837,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3804,7 +3813,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -3974,7 +3983,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -4144,7 +4153,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -4311,7 +4320,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 0.92424242,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -4481,7 +4490,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 0.953125,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -4651,7 +4660,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -4821,7 +4830,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 0.744,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -4988,7 +4997,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -5158,7 +5167,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [
@@ -5328,7 +5337,7 @@
       "transparent_border": true,
       "normalization": {
         "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
-        "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+        "report_sha256": "efd505d06c618ce71d96b411852049b491a3979e3f87e4914b7ebddcf5629041",
         "uniform_scale": 1.0,
         "padding_pixels": 6,
         "anchor_spread_pixels": [

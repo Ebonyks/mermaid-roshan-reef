@@ -1,0 +1,40 @@
+{
+  "id": "pool-repair-ci06-source-pin",
+  "task_baseline": "d5e63a1ec6e79745da504ee3c3945e59ae35ea79",
+  "verification_parent": "1a4e8a1ceae29b401d63900a57a531b2f4442ba8",
+  "branch": "codex/pool-visual-repair-20261017",
+  "previous_pin": "SOURCE_PIN.json",
+  "files": {
+    "scripts/games/pool_skimmer_activity.gd": "65afbeba1988cc1b004918a3a5679bfd254e02b6fff4d36511393d9f3ae085ab",
+    "assets/shaders/castle_fixture_water.gdshader": "f129ae768ba7cc1e3ed642931248775fec47b89b22c3e8cc9a074e2c719b2891",
+    "scripts/games/day_one_dust_bunny_swimmer.gd": "82bbfd3c845c951a8fdc4abf74484f1ee0f0721440abfb4491dc19ed3f30712d",
+    "scripts/probe_day_one_pool_cleanup.gd": "1687975e1d3e52a38ab9dfc763199579d94b7be5b3ff1695cab256ce576b68d8",
+    "scripts/games/pool_waterfall_activity.gd": "924035d3e26536d820e0f109ebd9a814582e554f52ce617ddc178ccb2957b4b9",
+    "scripts/probe_day_one_pool_shots.gd": "b6bac0646759da60ab2216b7a21c750ca19346ecfcefc21697d29ad0a6ad29b7",
+    "scripts/arena/castle_rooms_25d.gd": "cc2159703cb8f731784cd51d0b8d40375d0d0da9fbfdb436d8012984a3ca13a9",
+    "shaders/pool_blocked_fountain.gdshader": "ad13c03ec16fa9d6f740d11ca162bd309be46a5cd80ee64432a0cbde8956e330",
+    "scripts/arena/castle_fixture_rigs.gd": "b1c226ec13827480df85654df6b89d8178a3d49c9d7361bf8b244cfecb629d7b",
+    "scripts/games/pool_seahorse_rescue_activity.gd": "928f6e39128c108e85fc801788c68c4e44509a0bd2aaad9b822049208b6eae5f",
+    "scripts/main.gd": "82c3e537d6f5dc251bb3857d1430089138377883860b44a668f4aced984dadad",
+    "shaders/pool_floating_debris.gdshader": "7581bcb94bb9d7d07b52355b469751c638b344697dbed1494b2c2588dbfa0268",
+    "scripts/arena/day_one_castle_dressing.gd": "62a37f285b84d628c9d8708e2c19b7f4f0b88ce391e2ea1ac4768542dff897a9"
+  },
+  "git_staged_blob_sha256": {
+    "scripts/games/pool_skimmer_activity.gd": "38b3d524e638f764ded75d7e68e670318539be67160441b00f750ff2465f6db3",
+    "assets/shaders/castle_fixture_water.gdshader": "c0c8f68f3dd154b148d9b41e6b025f7ab1c6f692560cbf3c46389be02be1b8e2",
+    "scripts/games/day_one_dust_bunny_swimmer.gd": "4e5ad1c3c1f58f81d74d15ec80c5437438454a1163e49ad5224ab8f13e0ef3a6",
+    "scripts/probe_day_one_pool_cleanup.gd": "dead8331277816a6aec68bb678aa5e967642e68c38dc5ddbbca6f180bda35944",
+    "scripts/games/pool_waterfall_activity.gd": "fd271ae14ddbb98fef40a07ec45feadd2ac12981b0bed4a5a0f0c90f7e0f2160",
+    "scripts/probe_day_one_pool_shots.gd": "ebea07f2823f02c7bc8bdea472acbe7a28c38640d9da284fd495bbb49cf6b7d7",
+    "scripts/arena/castle_rooms_25d.gd": "c2815d3adde944b4c6653c74e56baeac417c9fd7d02842e0ddaf977a3891f104",
+    "shaders/pool_blocked_fountain.gdshader": "ad13c03ec16fa9d6f740d11ca162bd309be46a5cd80ee64432a0cbde8956e330",
+    "scripts/arena/castle_fixture_rigs.gd": "8089a7355f34d17c750100b7e754a001b3aa9e466c0ec28d6ee715f404d0137f",
+    "scripts/games/pool_seahorse_rescue_activity.gd": "891157adf363f9b91d59913d88c7acfecde5e80571ce47a7d091498b03c03cd7",
+    "scripts/main.gd": "32ae510fc9cb1cf6a28a092a9e264ef6190cb03c111ce237cd3b1e684809de0c",
+    "shaders/pool_floating_debris.gdshader": "7581bcb94bb9d7d07b52355b469751c638b344697dbed1494b2c2588dbfa0268",
+    "scripts/arena/day_one_castle_dressing.gd": "c5e04ad6775bd8fc4e090295ea86650d52f72d35861006d4921af343c0b8ff54"
+  },
+  "hash_policy": "Raw current Windows checkout hashes and Git-normalized staged blob hashes are distinct. Original capture receipts and original SOURCE_PIN.json retain their actual old sources unchanged.",
+  "source_delta": "Only dressing teardown adopts upstream CHG-097 queued deletion; no Pool appearance/action geometry or art/clip bytes change. No old capture or human review is rebound to new behavior.",
+  "reconciliation_receipt": "RECONCILIATION_CI06.json"
+}

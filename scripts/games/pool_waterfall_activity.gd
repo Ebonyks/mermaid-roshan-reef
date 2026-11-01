@@ -366,7 +366,9 @@ func _build_dirty_slices() -> void:
 			lane_size.x / source_lane_width,
 			fixture_size.y / maxf(source_size.y, 1.0))
 		sprite.z_index = 2
-		sprite.modulate = Color(0.88, 0.91, 0.78, 0.98)
+		# The room already supplies the shared dirty grade; a second olive tint
+		# made active lanes clash with the passive painted waterfall and fixtures.
+		sprite.modulate = Color.WHITE
 		_slice_nodes.append(sprite)
 		_slice_base_scales.append(sprite.scale)
 		add_child(sprite)
@@ -392,6 +394,7 @@ func _build_scrubber() -> void:
 	_scrubber.texture = _scrubber_texture
 	_scrubber.z_index = 501 # Above the temporary action actor, at the held handle.
 	_scrubber.modulate = Color(0.86, 0.91, 0.88, 0.98)
+	_scrubber.material = PoolSkimmerActivity.room_prop_material()
 	_scrubber.visible = false
 	if _scrubber_texture != null:
 		var source_size := _scrubber_texture.get_size()

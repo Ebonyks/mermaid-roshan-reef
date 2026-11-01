@@ -3182,6 +3182,14 @@ func _sync_castle_voice_caption() -> void:
 		or (day_one_is_active() and (castle_room_id in ["bubble_bath", "playroom"] \
 			or (castle_room_id == "mermaid_pool" and day_one_pool_cleanup_step == 0)))
 	castle_voice_caption.position.y = 112.0 if floor_objective_room else 590.0
+	if castle_room_id == "mermaid_pool":
+		# Keep the caption in the quiet top arch, clear of every pool fixture.
+		# The former 112px-high banner covered the waterfall and seahorse mouths.
+		castle_voice_caption.position = Vector2(300.0, 24.0)
+		castle_voice_caption.size = Vector2(680.0, 48.0)
+	else:
+		castle_voice_caption.position.x = 230.0
+		castle_voice_caption.size = Vector2(820.0, 112.0)
 	castle_voice_caption.text = hud_msg.text if hud_msg != null else ""
 	castle_voice_caption.visible = castle_visible and has_message
 	# The Castle owns one caption; its lower duplicate covered cleanup
