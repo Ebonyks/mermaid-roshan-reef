@@ -179,3 +179,10 @@ Final local project evidence: **58 static gates and all 82 trusted probes pass**
 on the recorded current base, including approved-engine import, 2D no-regression,
 authority, actual-diff coverage and contract tests. The source candidate remains
 numerically and visually rejected. See `evidence/final_gates.json`.
+
+Transport verifier revision 2 supports both legacy sheet references and the
+teacher/geologist specialist-authority backlog entries. Their missing art
+inventory remains unresolved; authority pointers are checked without inventing
+a sheet. It checkpoints fetched hashes and also verifies project policy/licence
+metadata. See `evidence/transport_verifier_correction.json`; art and rig bytes
+remain frozen and rejected.

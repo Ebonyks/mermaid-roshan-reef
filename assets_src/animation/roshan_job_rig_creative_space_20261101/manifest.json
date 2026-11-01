@@ -6,7 +6,7 @@
   "source_baseline": "f59a1d1d5bdd58604f4706d16fb4e76d8f7db8b9",
   "verification_base": "93166ab1828ab9857227d038f8833b92dfb2f9f1",
   "recipient_access": "Public GitHub anonymous HTTPS; exact remote receipt required",
-  "payload_sha256": "0a50710940a9709742c59527d4ddb70cdffd2cf048fb220a47e48d5b9e40c1ad",
+  "payload_sha256": "8143b4633d88a1ed20337ff5b3d3af2545eef402de0abd99148e1f01636ff1b9",
   "payload_algorithm": "UTF-8 sorted repository path + NUL + lowercase file SHA-256 + LF",
   "exclusions": [
     "manifest.json (self-reference)",
@@ -54,8 +54,8 @@
     },
     {
       "path": "assets_src/animation/roshan_job_rig_creative_space_20261101/README.md",
-      "bytes": 12922,
-      "sha256": "6b2bf229f0a3387a127ff9a55f556dfdef65be74aa2fffed2bb0c9a67516e00a",
+      "bytes": 13346,
+      "sha256": "e527b101aee474a947667d063c6a8ff17d420dc60eba9e3945a4beeb261d898b",
       "role": "source packet metadata/instructions",
       "source_path": "README.md",
       "source_note": "Authored/derived in this packet; provenance.json, corrective_attempts.json, registration.json and source code record derivation. Evidence raw paths are ignored reproducible build products.",
@@ -9031,6 +9031,17 @@
       "source_revision": "THIS_PAYLOAD; owner-local contract limitation retained where applicable"
     },
     {
+      "path": "assets_src/animation/roshan_job_rig_creative_space_20261101/evidence/transport_verifier_correction.json",
+      "bytes": 711,
+      "sha256": "4c1d31215a1ba2f59a130c7e721d928fd32590ed5bff6508a7d69b1ace202232",
+      "role": "measurement/history; acceptance scope retained",
+      "source_path": "evidence/transport_verifier_correction.json",
+      "source_note": "Authored/derived in this packet; provenance.json, corrective_attempts.json, registration.json and source code record derivation. Evidence raw paths are ignored reproducible build products.",
+      "license_provenance": "Project-owned code/art or existing project-generated art; source scope and ASSET_LICENSES.md apply; no downstream artistic acceptance",
+      "modification_status": "DECLARED_DERIVATIVE_OR_NEW_RECORD",
+      "source_revision": "THIS_PAYLOAD; owner-local contract limitation retained where applicable"
+    },
+    {
       "path": "assets_src/animation/roshan_job_rig_creative_space_20261101/evidence/upstream_seed_remote_verification.json",
       "bytes": 11068,
       "sha256": "8d48bde3aa5135d062f84221a68c1fa7b0747ce574dcbcf17d50d98209966a3c",
@@ -11286,8 +11297,8 @@
     },
     {
       "path": "assets_src/animation/roshan_job_rig_creative_space_20261101/scripts/verify_remote.py",
-      "bytes": 4226,
-      "sha256": "d8624a0c5e3ad777a5d0b9ebba48592ec674db4b71459508f35692d6b3eeeadc",
+      "bytes": 6145,
+      "sha256": "27bc2c2b0ffe3484138fc71f9a4336e8b7b278e88e10976d3046bf9fc8278e90",
       "role": "reproduction/verification source",
       "source_path": "scripts/verify_remote.py",
       "source_note": "Authored/derived in this packet; provenance.json, corrective_attempts.json, registration.json and source code record derivation. Evidence raw paths are ignored reproducible build products.",

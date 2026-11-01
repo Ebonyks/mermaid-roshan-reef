@@ -1,12 +1,14 @@
 """Anonymous byte verification of an exact published review revision, never acceptance."""
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor,as_completed
-import argparse,datetime,hashlib,json,time,urllib.request,urllib.parse
+import argparse,datetime,hashlib,json,re,subprocess,time,urllib.request,urllib.parse
 
 P=Path(__file__).resolve().parents[1];R=P.parents[2]
 parser=argparse.ArgumentParser();parser.add_argument('revision');parser.add_argument('--receipt',required=True);args=parser.parse_args()
 assert len(args.revision)==40 and all(c in '0123456789abcdef' for c in args.revision)
 prefix=P.relative_to(R).as_posix();sha=lambda b:hashlib.sha256(b).hexdigest()
+target=Path(args.receipt).resolve();assert target.is_relative_to(R);target.parent.mkdir(parents=True,exist_ok=True)
+def save(record):target.write_text(json.dumps(record,indent=2)+'\n',encoding='utf8')
 def fetch(revision,path):
     url='https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/'+revision+'/'+urllib.parse.quote(path,safe='/')
     for attempt in range(3):
@@ -15,7 +17,7 @@ def fetch(revision,path):
         except Exception:
             if attempt==2:raise
             time.sleep(attempt+1)
-manifest_bytes,code,url=fetch(args.revision,prefix+'/manifest.json')
+manifest_bytes,code,manifest_url=fetch(args.revision,prefix+'/manifest.json')
 manifest=json.loads(manifest_bytes);local=(P/'manifest.json').read_bytes();assert sha(local)==sha(manifest_bytes),'remote manifest differs from exact local payload'
 canonical=''.join(x['path']+'\0'+x['sha256']+'\n' for x in sorted(manifest['files'],key=lambda x:x['path'])).encode('utf8');assert sha(canonical)==manifest['payload_sha256']
 def check(item,revision=args.revision):
@@ -24,17 +26,37 @@ def check(item,revision=args.revision):
         return dict(path=item['path'],revision=revision,url=url,status=status,expected_sha256=item['sha256'],actual_sha256=actual,bytes=len(data),passed=actual==item['sha256'] and ('bytes' not in item or len(data)==item['bytes']))
     except Exception as exc:return dict(path=item['path'],revision=revision,passed=False,error=str(exc))
 rows=[]
+def checkpoint():
+    save(dict(payload_revision=args.revision,status='IN_PROGRESS_NOT_VERIFIED',passed=False,ARCHIVE_COMPLETE=False,GENERATION_READY=False,DELIVERY_ACCEPTED=False,checked_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),manifest_url=manifest_url,manifest_sha256=sha(manifest_bytes),payload_sha256=manifest['payload_sha256'],files=sorted(rows,key=lambda x:x['path'])))
+checkpoint()
 with ThreadPoolExecutor(max_workers=6) as pool:
     jobs=[pool.submit(check,x) for x in manifest['files']]
     for future in as_completed(jobs):
         rows.append(future.result())
-        if len(rows)%50==0:print('ANONYMOUS PAYLOAD',len(rows),'/',len(jobs),flush=True)
+        if len(rows)%50==0:checkpoint();print('ANONYMOUS PAYLOAD',len(rows),'/',len(jobs),flush=True)
+checkpoint()
 inventory=json.loads((P/'source_inventory.json').read_text(encoding='utf8'));backlog=json.loads((P/'coverage_backlog.json').read_text(encoding='utf8'))
 references={x['path']:x for x in inventory['sources']}
-for x in backlog['career_families']:references[x['source']]=dict(path=x['source'],sha256=x['sha256'])
+source_gaps=[]
+def git_reference(revision,path):
+    assert (R/path).resolve().is_relative_to(R)
+    data=subprocess.check_output(['git','show',revision+':'+path],cwd=R)
+    return dict(path=path,sha256=sha(data),bytes=len(data))
+for x in backlog['career_families']:
+    if x.get('source'):
+        references[x['source']]=dict(path=x['source'],sha256=x['sha256'])
+    else:
+        source_gaps.append(x)
+        for path in re.findall(r'(?:design|scripts)/[A-Za-z0-9_/.-]+',x.get('source_authority','')):
+            references[path]=git_reference(inventory['baseline'],path)
 with ThreadPoolExecutor(max_workers=6) as pool:source_rows=list(pool.map(lambda x:check(x,inventory['baseline']),references.values()))
-passed=code==200 and all(x['passed'] for x in rows+source_rows)
-result=dict(request_id='CREATIVE_SPACE_20261101_REJECTED_REVIEW_V1',payload_revision=args.revision,repository='Ebonyks/mermaid-roshan-reef',branch='codex/roshan-job-rig-creative-space-20261101',entry='https://github.com/Ebonyks/mermaid-roshan-reef/blob/'+args.revision+'/'+prefix+'/README.md',tree='https://github.com/Ebonyks/mermaid-roshan-reef/tree/'+args.revision+'/'+prefix,manifest_url=url,manifest_sha256=sha(manifest_bytes),payload_sha256=manifest['payload_sha256'],access_mode='Anonymous HTTPS with no credentials, cookies, token or authenticated session',checked_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),ARCHIVE_COMPLETE=passed,GENERATION_READY=False,DELIVERY_ACCEPTED=False,classification=manifest['classification'],human_device_child_owner_acceptance='PENDING; numerical/provenance/shared-contract gaps remain blocking',passed=passed,files=sorted(rows,key=lambda x:x['path']),historical_source_references=sorted(source_rows,key=lambda x:x['path']),upstream_seed_receipt=prefix+'/evidence/upstream_seed_remote_verification.json',shared_contract='Exact owner-local freeze b2a5dfe9; owner publication remains pending')
-target=Path(args.receipt).resolve();assert target.is_relative_to(R);target.parent.mkdir(parents=True,exist_ok=True);target.write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
-print('REMOTE REVIEW ARCHIVE',passed,len(rows),'payload files;',len(source_rows),'historical source references',flush=True)
+metadata_paths=['AGENTS.md','SECURITY.md','ASSET_LICENSES.md','audit/MASTER_AUDIT_2026-08-09.md','design/05_DOC_LEDGER.md','design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md','audit/findings/ACTIVE_FINDINGS_2026-08-13.md','design/AUDIT_DEVELOPMENT_CONTRACT.md','design/animation/ANIMATION_PRODUCTION_PROTOCOL.md','design/animation/ROSHAN_MOVEMENT_LANGUAGE.md','design/audit_impacts/roshan-job-rig-creative-space-20261101.json','tools/resolve_godot.py']
+metadata=[git_reference(args.revision,path) for path in metadata_paths]
+with ThreadPoolExecutor(max_workers=6) as pool:metadata_rows=list(pool.map(check,metadata))
+passed=code==200 and len(rows)==len(manifest['files']) and all(x['passed'] for x in rows+source_rows+metadata_rows)
+result=dict(request_id='CREATIVE_SPACE_20261101_REJECTED_REVIEW_V2',payload_revision=args.revision,repository='Ebonyks/mermaid-roshan-reef',branch='codex/roshan-job-rig-creative-space-20261101',entry='https://github.com/Ebonyks/mermaid-roshan-reef/blob/'+args.revision+'/'+prefix+'/README.md',tree='https://github.com/Ebonyks/mermaid-roshan-reef/tree/'+args.revision+'/'+prefix,manifest_url=manifest_url,manifest_sha256=sha(manifest_bytes),payload_sha256=manifest['payload_sha256'],access_mode='Anonymous HTTPS with no credentials, cookies, token or authenticated session',checked_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),ARCHIVE_COMPLETE=passed,GENERATION_READY=False,DELIVERY_ACCEPTED=False,classification=manifest['classification'],human_device_child_owner_acceptance='PENDING; numerical/provenance/shared-contract gaps remain blocking',passed=passed,files=sorted(rows,key=lambda x:x['path']),historical_source_references=sorted(source_rows,key=lambda x:x['path']),required_project_metadata=sorted(metadata_rows,key=lambda x:x['path']),unresolved_specialist_art_inventory=source_gaps,upstream_seed_receipt=prefix+'/evidence/upstream_seed_remote_verification.json',shared_contract='Exact owner-local freeze b2a5dfe9; owner publication remains pending')
+save(result)
+print('REMOTE REVIEW ARCHIVE',passed,len(rows),'payload files;',len(source_rows),'historical source references;',len(metadata_rows),'project metadata files',flush=True)
+for row in rows+source_rows+metadata_rows:
+    if not row['passed']:print('REMOTE BYTE FAILURE',row['path'],flush=True)
 raise SystemExit(0 if passed else 1)
