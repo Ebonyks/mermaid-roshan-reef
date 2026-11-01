@@ -71,8 +71,15 @@ func _tap_edge() -> void:
 
 func _tap_boss_world() -> void:
 	var boss_node: Node3D = main.g.get("db_boss") as Node3D
+	var half_height := Vector3(0.0, DustBossGame.BOSS_H * 0.5, 0.0)
 	var screen_point: Vector2 = main.player.cam.unproject_position(
-		boss_node.global_position + Vector3(0.0, DustBossGame.BOSS_H * 0.5, 0.0))
+		boss_node.global_position + half_height)
+	var care_kit: DustBunnyBossSprite = _boss().kit()
+	var projected_top: Vector2 = main.player.cam.unproject_position(
+		care_kit.to_global(care_kit.sprite.position * 2.0))
+	_ck("Canvas bridge preserves the original projected card height",
+		projected_top.distance_to(main.player.cam.unproject_position(
+			boss_node.global_position + half_height * 2.0)) < 0.001)
 	_ck("flashing boss head remains inside the touch viewport",
 		main.get_viewport().get_visible_rect().has_point(screen_point))
 	var hits_before: int = _hits()
@@ -191,6 +198,7 @@ func _royal_hall_target() -> Button:
 	return null
 
 func _splash_and_geometry_case() -> void:
+	_care_contract_case()
 	for malformed: Variant in [null, false, "wrong", {}, [], INF, NAN]:
 		main.save_data["dustboss_pending_attacks"] = malformed
 		_boss()._restore_round_checkpoint()
@@ -204,6 +212,9 @@ func _splash_and_geometry_case() -> void:
 	_ck("fight opens on an input-blocking 2D splash", _state() == "splash" and main.g.get("db_splash") is BossSplash2D)
 	var splash: BossSplash2D = main.g.get("db_splash") as BossSplash2D
 	_ck("Grand Puff splash reserves the gold lesson for real play", splash != null and not splash.teach_counter)
+	_ck("cold introduction keeps a sniffly identity and exact spoken context",
+		splash != null and splash._animation_ids["identity"] == &"idle"
+		and main._audio_ref()._active_required_key == "guide_puff_cold_intro")
 	var splash_elapsed: float = float(splash.get("_elapsed")) if splash != null else -1.0
 	main.get_tree().paused = true
 	await _frames(8)
@@ -245,6 +256,40 @@ func _splash_and_geometry_case() -> void:
 	_pattern_geometry_case()
 	await _free_steering_case("showing")
 	await _dash_case()
+
+func _care_contract_case() -> void:
+	var boss: DustBossGame = _boss()
+	var kit: DustBunnyBossSprite = boss.kit()
+	_ck("care acting is a Canvas sprite with no duplicate spatial card",
+		kit.care_mode and not kit.sprite.visible and boss.care_view is Sprite2D
+		and boss.care_view.get_parent() == main.g.get("db_attic_layer"))
+	var expected: Array = [[0, 5.2, 2.35], [0, 5.2, 2.2],
+		[0, 5.2, 2.2], [0, 5.2, 2.2], [1, 4.4, 2.7]]
+	var index: int = 0
+	var unchanged: bool = boss.encounter.profile.phases.size() == 3
+	for phase: EncounterPhase2D in boss.encounter.profile.phases:
+		for attack: EncounterAttack2D in phase.attacks:
+			var spec: Array = expected[index]
+			unchanged = unchanged and int(attack.shape) == int(spec[0]) \
+				and is_equal_approx(attack.warning_seconds, float(spec[2])) \
+				and is_equal_approx(attack.radius if attack.shape == EncounterAttack2D.Shape.CIRCLE \
+					else attack.half_width, float(spec[1]))
+			index += 1
+	_ck("owner's original five circle/circle/lane steps and timings remain exact",
+		unchanged and index == expected.size() and EncounterProfile2D.grand_puff().counter_seconds == 3.2
+		and boss.encounter.profile.counter_seconds == (3.2 if boss._lesson_learned("counter") else 8.0))
+	var frames: SpriteFrames = kit.sprite.sprite_frames
+	var cadence: bool = true
+	for pair: Array in [[&"care_sneeze", &"jump"], [&"care_sneeze_final", &"angry_jump_final"],
+			[&"laugh_vulnerable", &"laugh_vulnerable"], [&"flinch_1", &"flinch_1"],
+			[&"flinch_2", &"flinch_2"], [&"flinch_3", &"flinch_3"]]:
+		var original: Dictionary = DustBunnyBossSprite.ANIMATION_SPECS[pair[1]]
+		cadence = cadence and frames.get_frame_count(pair[0]) == original["frames"].size() \
+			and frames.get_animation_speed(pair[0]) == float(original["fps"])
+	_ck("sneeze, counter and washing reactions preserve the original cadence", cadence)
+	kit.play_sneeze_warning()
+	_ck("warning reads as an intake of breath", kit.sprite.animation == &"care_breath")
+	kit.play_idle()
 
 func _negative_input_case() -> void:
 	main.touch_ui.cancel_all_touches()
@@ -665,6 +710,11 @@ func _final_checkpoint_restart_case(pearls_before: int) -> void:
 	await process_frame
 	_ck("final checkpoint restores three rounds exactly", main.game == "dustboss"
 		and _hits() == DustBossGame.HP)
+	var completed_splash: BossSplash2D = main.g.get("db_splash") as BossSplash2D
+	_ck("completed checkpoint welcomes a healthy friend instead of asking for another clean",
+		completed_splash != null and completed_splash._boss.animation == &"care_relief"
+		and _boss().kit().sprite.animation == &"care_relief"
+		and main._audio_ref()._active_required_key == "guide_puff_healthy")
 	var repeated_combat := false
 	var resumed_friends := false
 	for _i in range(1800):

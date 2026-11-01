@@ -1,8 +1,8 @@
 class_name DustBossGame
 extends RefCounted
-# Grand Puff teaches one repeating rule: leave every painted danger shape,
-# then tap the flashing head once. Damage costs time and mastery but never
-# progress or life. Targets lock when their tell begins and never home.
+# Grand Puff has a cold. Step clear of an accidental dusty sneeze, then tap
+# his star to wash the dusty coat. Each intentional clean is saved. Old damage
+# and counter keys remain compatibility names, never the character's intent.
 const HP := DustBunnyBossSprite.TOTAL_DAMAGE_ROUNDS
 const BossSplash2DLogic = preload("res://scripts/boss_splash_2d.gd")
 const DustBossTelegraph2DLogic = preload("res://scripts/dust_boss_telegraph_2d.gd")
@@ -10,7 +10,7 @@ const ATTIC_BACKDROP = preload("res://assets/flats/castle/boss/dusty_attic_arena
 
 const LANDED_ROUND_HOLD_T := 1.8 # one bounded, child-readable landed-round hold
 const WIN_T := 3.4             # befriending beat before the win banner
-const STORY_WIN_T := 1.6       # shorter beat when the transformation clip follows
+const STORY_WIN_T := 1.6       # original handoff; the care cue is 1.533 seconds
 
 const LEAP_H := 7.6            # existing contact-shadow scale reference
 const HOP_H := 2.4
@@ -59,6 +59,7 @@ var m: ReefMain
 var stage: OctagonStage
 var _day_one_voice_session: String = "boss_visit_0"
 var attack_feedback: HitEngine = null
+var care_view: GrandPuffCare2D = null
 var encounter := BossEncounter2D.new()
 var patterns: EncounterPatterns2D = null
 var navigation := EncounterNavigation2D.new()
@@ -83,6 +84,11 @@ func _say_day_one_context(cue_id: String, caption: String,
 		variant: int = 0) -> void:
 	m.say_day_one_context(cue_id, caption, "boss", _day_one_voice_session,
 		variant, false)
+
+
+func _say_care(event: String, caption: String) -> void:
+	m.show_msg("", caption)
+	m._audio_ref().objective_guide(event)
 
 # ---- lifecycle -------------------------------------------------------------
 func build(fr: Dictionary, _origin: Vector3) -> void:
@@ -151,14 +157,18 @@ func _restore_round_checkpoint() -> void:
 	k.damage_rounds_completed = restored
 	k.boss_health_rounds_remaining = HP - restored
 	k.final_round_active = restored >= HP - 1
+	# Original final-round cadence is preserved; the acting is a sneeze, not rage.
 	k.combat_speed_scale = DustBunnyBossSprite.FINAL_ROUND_SPEED_SCALE \
 		if k.final_round_active else 1.0
+	if k.care_mode and restored >= HP and is_instance_valid(k.sprite):
+		# The completed friend stays healthy beneath the splash's entrance/reveal.
+		k.sprite.animation = &"care_relief"
+		k.sprite.frame = 0
+		k.sprite.pause()
 
 func action_label() -> String:
-	# the only verb in this fight is a bonk; the shared reef button otherwise
-	# reads "JUMP" with an up-arrow for the whole encounter
 	var k: DustBunnyBossSprite = kit()
-	return "BONK!" if String(m.g.get("db_state", "")) == "vuln" \
+	return "CLEAN!" if String(m.g.get("db_state", "")) == "vuln" \
 		and k != null and is_instance_valid(k) and k.vulnerable else "WAIT"
 
 
@@ -172,6 +182,8 @@ func danger_geometry() -> Dictionary:
 
 func stage_close() -> void:
 	_cancel_world_move()
+	m._audio_ref().clear_objective_guide("dustboss")
+	care_view = null # The owned attic Canvas layer retires its visual child.
 	if m.touch_ui != null:
 		m.touch_ui.set_encounter_controls()
 	if m.hud_msg != null and _caption_style != null:
@@ -281,15 +293,24 @@ func _show_boss_splash(fr: Dictionary) -> void:
 		_begin_showing(fr)
 		return
 	var badge: Texture2D = DustBossLesson2D.STAR
+	var already_clean: bool = int(m.g.get("db_hits", 0)) >= HP
+	var identity: StringName = &"care_relief" if already_clean else &"idle"
 	splash.configure(
-		DustBunnyBossSprite.make_sprite_frames(),
+		GrandPuffCare2D.make_frames(),
 		"GRAND PUFF",
-		"THE GREAT DUST BUNNY",
-		badge, ATTIC_BACKDROP)
+		"ALL CLEAN!" if already_clean else "LET'S HELP HIM FEEL BETTER",
+		badge, ATTIC_BACKDROP, {
+			"entrance": &"care_relief" if already_clean else &"care_sneeze",
+			"identity": identity, "vulnerable": identity,
+		})
 	splash.teach_counter = false
 	splash.finished.connect(_on_boss_splash_finished.bind(fr), CONNECT_ONE_SHOT)
 	m.add_child(splash)
 	m.g["db_splash"] = splash
+	if already_clean:
+		_say_care("puff_healthy", "All clean! Feeling better!")
+	else:
+		_say_care("puff_cold_intro", "Grand Puff has a cold. Let's help!")
 
 
 func _on_boss_splash_finished(fr: Dictionary) -> void:
@@ -302,11 +323,9 @@ func _on_boss_splash_finished(fr: Dictionary) -> void:
 		_enter_state("friends")
 		var k: DustBunnyBossSprite = kit()
 		if k != null and is_instance_valid(k):
-			if _story_transformation_ready():
-				k.transform_ending = true
-				k.hold_for_transformation()
-			else:
-				k.play_implode()
+			m.g["db_story_transformation"] = _story_transformation_ready()
+			k.transform_ending = true
+			k.hold_for_transformation()
 		return
 	_begin_showing(fr)
 
@@ -373,7 +392,7 @@ func _on_vulnerability_changed(is_open: bool) -> void:
 		_music_seek(MUSIC_ACTION_T)
 
 func phase() -> int:
-	# 0 puffy → 1 dizzy → 2 angry; clamped so the winning hit reads as angry
+	# Each saved cleaning round moves from sniffly toward a clean, happy friend.
 	return clampi(encounter.completed_rounds, 0, encounter.profile.phases.size() - 1)
 
 func phase_cfg() -> Dictionary:
@@ -391,6 +410,9 @@ func _begin_attack_tell() -> void:
 	_prepare_telegraph_geometry()
 	m.g["db_attack_hit"] = false
 	_enter_state("tell")
+	var k: DustBunnyBossSprite = kit()
+	if k != null:
+		k.play_sneeze_warning()
 	_say_day_one_context("day1_boss_leave_shape",
 		"Move out of the glowing shape!")
 
@@ -477,6 +499,9 @@ func _tick_attack_strike(st: float, tapped: bool) -> void:
 	if impact == BossEncounter2D.Impact.NEXT_TELL:
 		_prepare_telegraph_geometry()
 		_enter_state("tell")
+		var k: DustBunnyBossSprite = kit()
+		if k != null:
+			k.play_sneeze_warning()
 		_say_day_one_context("day1_boss_leave_shape",
 			"Move out of the glowing shape!")
 		return
@@ -503,8 +528,7 @@ func _begin_counter_opening() -> void:
 		k.play_vulnerable_laugh()
 	m.g["db_flash"] = 0.0
 	_enter_state("vuln")
-	_say_day_one_context("day1_boss_wait_gold",
-		"Wait for the gold star, then tap!")
+	_say_care("puff_clean", "Tap his star to clean!")
 
 
 func _tick_counter_opening(delta: float, tapped: bool) -> void:
@@ -559,8 +583,8 @@ func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void
 	m.g["db_spin"] = float(m.g.get("db_spin", 0.0)) + 9.0 * delta
 	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - delta * 22.0)
 	m.g["db_flash"] = 0.0
-	# the kit is playing flinch_3 -> angry; this hold is the breather the child
-	# gets to see what she did before he is moving again
+	# The compatibility flinch sequence shows cleaning and a relieved smile.
+	# Keep the original breather before the next accidental sneeze.
 	var hold: float = 4.6 if rounds == 1 and not bool(m.save_data.get("dustboss_lesson_dash", false)) else LANDED_ROUND_HOLD_T
 	if rounds >= HP:
 		return                     # the friends beat owns the ending
@@ -568,15 +592,13 @@ func _tick_struck(delta: float, st: float, fr: Dictionary, tapped: bool) -> void
 		m.g["db_spin"] = 0.0
 		_begin_attack_tell()
 
-# THE ENDING — nobody loses: he deflates into a small cuddly puff, gives back
-# the castle's dust in a burst of stars, and the win banner fires.
+# The whole, relieved friend hands off to the existing rainbow emergence clip.
 func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 	if tapped:
 		_answer_only()
 	m.g["db_y"] = maxf(0.0, float(m.g.get("db_y", 0.0)) - 0.3)
 	m.g["db_flash"] = 0.0
-	# the kit plays the implosion off flinch_3 and reports when the last wisp
-	# is gone; only then is the fight over
+	# The compatibility completion signal now means the whole friend has settled.
 	var done: bool = bool(m.g.get("db_imploded", false))
 	var win_t: float = STORY_WIN_T if bool(m.g.get("db_story_transformation", false)) else WIN_T
 	if ((done and st >= win_t) or st >= win_t + 2.0) \
@@ -595,17 +617,19 @@ func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 		m.g["db_perfect_bonus_pearls"] = bonus
 		m.pearl_count += BASE_WIN_PEARLS + bonus
 		m._fanfare()
+		if not m.day_one_is_active() and _story_transformation_ready():
+			m._day_one_play_story_clip("d1_puff_transformation", true)
 		m.day_one_complete_boss_and_begin_day_two()
 		m._end_game(true, fr, _victory_message(bumps, tier))
 
 func _victory_message(bumps: int, tier: int) -> String:
 	if bumps == 0:
-		return "PERFECT AVOIDANCE! Three gold stars and two bonus pearls — Grand Puff is your friend!"
+		return "All clean! Grand Puff feels better! Three gold stars and two bonus pearls!"
 	if tier == MASTERY_GOLD:
-		return "Three gold stars! Grand Puff is your friend. Avoid every dust attack next time for the shining bonus!"
+		return "Three gold stars! You helped Grand Puff feel better!"
 	if tier == MASTERY_SILVER:
-		return "Two silver stars! Grand Puff is your friend. Dodge one more bump next time to light the gold star!"
-	return "A bronze star! Grand Puff is your friend. Play again and dodge his hops to light more stars!"
+		return "Two silver stars! Grand Puff is clean, happy and healthy!"
+	return "A bronze star! Thank you for helping Grand Puff feel better!"
 
 # ---- the verbs -------------------------------------------------------------
 func on_world_tap(screen_pos: Vector2) -> void:
@@ -731,16 +755,19 @@ func pose_for_state() -> String:
 	# is the map, kept public so the probe can assert it without reaching into
 	# the tick. (Names are DustBunnyBossSprite animation names.)
 	var st: String = String(m.g.get("db_state", ""))
-	var rounds: int = int(m.g.get("db_hits", 0))
 	match st:
-		"tell", "strike", "damage_recovery":
-			return "angry_jump_final" if rounds >= 2 else "jump"
+		"tell":
+			return "care_breath"
+		"strike":
+			return "care_sneeze_final" if int(m.g.get("db_hits", 0)) >= 2 else "care_sneeze"
+		"damage_recovery":
+			return "idle"
 		"vuln":
 			return "laugh_vulnerable"
 		"struck":
-			return "flinch_3"
+			return "care_relief"
 		"friends":
-			return "implode"
+			return "care_relief"
 	return "idle"
 
 # ---- presentation ----------------------------------------------------------
@@ -767,6 +794,15 @@ func _place_boss(delta: float) -> void:
 			# Retained actor projection bridge; the invitation itself is Canvas art.
 			lesson.boss_anchor = m.player.cam.unproject_position(
 				boss.global_position + Vector3(0.0, BOSS_H * puff + 1.5, 0.0))
+			if care_view != null and k != null and k.sprite != null:
+				var foot: Vector2 = m.player.cam.unproject_position(boss.global_position)
+				var top: Vector2 = m.player.cam.unproject_position(
+					k.to_global(k.sprite.position * 2.0))
+				var edge: float = absf(foot.y - top.y)
+				care_view.present(k.sprite.sprite_frames, k.sprite.animation,
+					k.sprite.frame, foot, edge)
+				care_view.flip_h = k.sprite.flip_h
+				lesson.boss_anchor = care_view.forehead_anchor()
 	var shadow: Sprite2D = m.g.get("db_shadow") as Sprite2D
 	if shadow != null and is_instance_valid(shadow):
 		var lift: float = clampf(float(m.g.get("db_y", 0.0)) / LEAP_H, 0.0, 1.0)
@@ -775,6 +811,7 @@ func _place_boss(delta: float) -> void:
 		var width: float = stage.project_floor_point(floor_point + Vector2(BOSS_H * 0.36, 0.0)).distance_to(shadow.position) * 2.0
 		shadow.scale = Vector2.ONE * width / float(shadow.texture.get_width()) * (1.0 - 0.5 * lift) * maxf(0.02, puff)
 		shadow.modulate.a = 0.65 - 0.35 * lift
+
 
 func _update_hud() -> void:
 	# Grand Puff and his remaining floor dust carry the lesson. Mastery belongs
@@ -993,9 +1030,12 @@ func _build_boss() -> void:
 	# it, tells it when to jump and when to open, and answers its signals.
 	var kit := DustBunnyBossSprite.new()
 	kit.name = "GrandPuff"
+	kit.care_mode = true
 	kit.scale = Vector3.ONE * (BOSS_H / maxf(0.01, DustBunnyBossSprite.DISPLAY_HEIGHT))
 	boss.add_child(kit)
 	m.g["db_kit"] = kit
+	care_view = GrandPuffCare2D.new()
+	(m.g["db_attic_layer"] as CanvasLayer).add_child(care_view)
 	kit.damage_cycle_completed.connect(_on_round_done)
 	kit.implosion_finished.connect(_on_imploded)
 	kit.final_round_started.connect(_on_final_round)
@@ -1027,8 +1067,9 @@ func _on_round_done() -> void:
 			Color(0.86, 0.78, 1.0))
 	var fr: Dictionary = m.g.get("fr", {})
 	if rounds >= HP:
-		# the kit plays the implosion itself off flinch_3; wait for the signal
+		# The coat is clean; a whole, relieved friend hands off to the ending.
 		_enter_state("friends")
+		_say_care("puff_healthy", "All clean! Feeling better!")
 		if _story_transformation_ready():
 			# He is a friend under the dirt: stay whole for the transformation clip
 			# instead of bursting apart (owner canon, DL-CIN-16).
@@ -1039,26 +1080,22 @@ func _on_round_done() -> void:
 			if m.player != null:
 				m.player.play_verb("cheer")
 			return
-		_say_day_one_context("day1_boss_defeated",
-			"Grand Puff burst into sparkly stars!")
 		if m.player != null:
 			m.player.play_verb("cheer")
 		return
 	_enter_state("struck")
 	if rounds == 1:
-		_say_day_one_context("day1_boss_hit_first",
-			"Boop! Grand Puff is dizzy!")
+		_say_care("puff_relief", "Ahh! That feels better!")
 	else:
-		_say_day_one_context("day1_boss_hit_second",
-			"Bonk! Two dust puffs down!")
+		_say_care("puff_almost", "Nearly clean! One more gentle wash!")
 
 func _on_final_round(_speed: float) -> void:
-	_say_day_one_context("day1_boss_enraged",
-		"Grand Puff is speedy now! Keep watching the star!")
+	# The existing signal is compatibility only; no enraged voice or acting.
+	pass
 
-## The Day One transformation clip replaces the implosion when it can play.
+## Reuse the owner-selected emergence on the first completion and later visits.
 func _story_transformation_ready() -> bool:
-	return m.day_one_is_active() and DayOneStoryClips.enabled() \
+	return DayOneStoryClips.enabled() \
 		and DayOneStoryClips.available("d1_puff_transformation")
 
 func _on_imploded() -> void:
@@ -1066,5 +1103,5 @@ func _on_imploded() -> void:
 
 func _on_tap_progress(accepted: int, _required: int) -> void:
 	m.g["db_taps_this_round"] = accepted
-	if accepted > 0:
+	if accepted > 0 and (kit() == null or not kit().care_mode):
 		_show_attack_feedback()

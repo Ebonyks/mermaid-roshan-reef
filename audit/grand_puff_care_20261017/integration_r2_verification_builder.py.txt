@@ -1,0 +1,65 @@
+from pathlib import Path
+import subprocess, json, hashlib
+from datetime import datetime, timezone
+root = Path(__file__).resolve().parents[2]
+out = root / 'audit/grand_puff_care_20261017'
+def read(name):
+    return json.loads((out / name).read_text(encoding='utf-8'))
+def write(path, data):
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+full = read('integration_r2_ci_result.json')
+pin = read('source_pin_integration_r2.json')
+binding = read('integration_r2_source_binding.json')
+own = read('full_final_v2_ci_result.json')
+assert own['exit'] == 0 and len(own['probes']) == 82 and not own['source_drift']
+assert binding['status'] == 'PASS' and binding['source_count'] == len(pin['source_files'])
+drift = [v['path'] for v in pin['source_files'] if hashlib.sha256((root / v['path']).read_bytes()).hexdigest() != v['sha256']]
+assert not drift, drift
+if full['status'] == 'PASS':
+    assert full['exit'] == 0 and len(full['probes']) == 82 and not full['source_drift']
+care_files = ['scripts/audio_director.gd', 'scripts/dust_boss_lesson_2d.gd', 'scripts/dust_bunny_boss_sprite.gd', 'scripts/games/dust_boss.gd', 'scripts/grand_puff_care_2d.gd', 'scripts/main.gd', 'scripts/probe_audio.gd', 'scripts/probe_day_one_story_clips.gd', 'scripts/probe_dust_boss.gd']
+subprocess.run(['git', 'diff', '--exit-code', pin['baseline'], '--', *care_files], cwd=root, check=True)
+protected = subprocess.check_output(['git', 'diff', '--name-only', '1a4e8a1ceae29b401d63900a57a531b2f4442ba8', '--', 'assets/book/', 'assets/audio/voices/', 'assets/characters/friends/', 'assets/cinematics/', 'assets_src/cinematics/', 'scripts/encounter_profile_2d.gd'], cwd=root, text=True).splitlines()
+assert not protected, protected
+export_filters = subprocess.check_output(['rg', '^(export_filter|exclude_filter)=', 'export_presets.cfg'], cwd=root, text=True).splitlines()
+assert export_filters.count('export_filter="all_resources"') == 2
+exclude_lines = [v for v in export_filters if v.startswith('exclude_filter=')]
+assert len(exclude_lines) == 2 and all('assets_src/*' in v and 'audit/*' in v for v in exclude_lines)
+assert (root / 'assets_src/.gdignore').is_file() and (root / 'audit/.gdignore').is_file()
+gate_path = out / 'integration_r2_final_gates.json'
+gates = json.loads(gate_path.read_text(encoding='utf-8')) if gate_path.exists() else None
+verification = {
+    'schema': 'grand_puff_care_integration/1',
+    'checked_utc': datetime.now(timezone.utc).isoformat(),
+    'care_parent': pin['baseline'],
+    'incoming_dev_parent': pin['integration_parent'],
+    'stage': 'Resolved uncommitted merge; exact published-head CI and dev delivery remain separate.',
+    'source_pin': 'audit/grand_puff_care_20261017/source_pin_integration_r2.json',
+    'source_binding': 'audit/grand_puff_care_20261017/integration_r2_source_binding.json',
+    'source_drift': drift,
+    'original_care_full_suite': {'status': 'PASS', 'probes': 82, 'exit': 0, 'receipt': 'full_final_v2_ci_result.json'},
+    'combined_full_suite': {'status': full['status'], 'probes': len(full.get('probes', [])), 'exit': full.get('exit'), 'receipt': 'integration_r2_ci_result.json', 'log': 'integration_r2_ci.log'},
+    'combined_final_gates': {'status': gates['status'] if gates else 'PENDING', 'receipt': 'integration_r2_final_gates.json'},
+    'care_code_unchanged_from_tested_parent': care_files,
+    'protected_and_original_profile_changes': protected,
+    'export_scope': {'status': 'PASS_STATIC_ONLY', 'source': 'export_presets.cfg', 'preset_count': 2, 'resource_filter': 'all_resources', 'source_and_audit_exclusions': ['assets_src/*', 'audit/*'], 'import_ignores_present': ['assets_src/.gdignore', 'audit/.gdignore'], 'scope': 'Source takes and review captures excluded. Packaged APK execution remains separate CI/device evidence.'},
+    'resolution': 'integration_r2_resolution.json; both license/master additions retained and actual862-file audio ledger regenerated. Published upstream CI90-minute budget is unmodified; existing47 decision contents retained.',
+    'display_evidence': 'V2 actual Mobile1280x720 and1560x720 receipts remain scoped to unchanged care gameplay; prior rooms/arrival flags injected. No new movie pixels or protected-original edits.',
+    'publication': {'exact_combined_head_ci': 'PENDING_AT_RECORDING', 'dev_push': 'PENDING_AT_RECORDING', 'master_promotion': 'NOT_REQUESTED'},
+    'acceptance_gaps': 'No connected Android device. Phone performance/playback/listening, child comprehension, owner identity/style/motion/contact and complete fresh-save QA11 remain open. Initial prototype cleanup time NOT_MEASURED. Earlier direct-GUI headless exits remain unproven; full console launcher evidence does not explain them. Global master audit UNSATISFIED.'
+}
+write(out / 'integration_r2_verification.json', verification)
+impact_path = root / 'design/audit_impacts/grand-puff-care-20261017.json'
+impact = json.loads(impact_path.read_text(encoding='utf-8'))
+for row in impact['validation']:
+    if row['command'].startswith('Resolved newer dev music/CI reconciliation:'):
+        row['result'] = ('PASS' if full['status'] == 'PASS' else 'FAIL') if 'exit' in full else 'PENDING'
+        row['evidence'] = 'audit/grand_puff_care_20261017/integration_r2_verification.json; integration_r2_ci_result.json and log; source_pin_integration_r2.json; integration_r2_source_binding.json. Own nine care scripts unchanged from tested ee5a9cec parent; all frozen combined sources pinned and mapped to staged blobs. Original V2 full/display evidence retained separately.'
+gate_command = 'Final newer-dev parser/inference, authority/development and protected/profile preservation'
+entry = next((v for v in impact['validation'] if v['command'] == gate_command), None)
+if entry is None:
+    entry = {'command': gate_command}
+    impact['validation'].append(entry)
+entry.update(result=gates['status'] if gates else 'PENDING', evidence='audit/grand_puff_care_20261017/integration_r2_final_gates.json and corresponding log; all actual exits retained. Published-head CI remains separate.')
+write(impact_path, impact)
+print('CARE_R2_VERIFICATION|' + full['status'])

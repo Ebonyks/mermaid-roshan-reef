@@ -1,0 +1,53 @@
+from pathlib import Path
+import subprocess, json, re, sys
+root = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(root))
+from tools.record_owner_decision import render, validate, append_only_issues
+
+for rel, left_key, right_key in [
+    ('.gitattributes', 'grand_puff_care_20261017', 'remove_opera_anteroom_20261017'),
+    ('audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md', 'Grand Puff cold and care CHG-098', 'Direct Opera foyer entry and source recovery CHG-101'),
+]:
+    path = root / rel
+    text = path.read_text(encoding='utf-8')
+    pattern = re.compile(r'^<<<<<<< HEAD\n(.*?)^=======\n(.*?)^>>>>>>> origin/dev\n', re.M | re.S)
+    matches = list(pattern.finditer(text))
+    if not matches:
+        assert left_key in text and right_key in text
+        assert '<<<<<<<' not in text and '>>>>>>>' not in text
+        continue
+    assert len(matches) == 1, rel
+    left, right = matches[0].groups()
+    assert left_key in left and right_key in right
+    path.write_text(pattern.sub(lambda m: m[1].rstrip('\n') + '\n\n' + m[2].lstrip('\n'), text), encoding='utf-8')
+
+rel = 'design/reference/owner_decisions.json'
+ours = json.loads(subprocess.check_output(['git', 'show', 'HEAD:' + rel], cwd=root))
+theirs = json.loads(subprocess.check_output(['git', 'show', 'MERGE_HEAD:' + rel], cwd=root))
+merged = json.loads(json.dumps(theirs))
+by_id = {v['id']: v for v in merged['decisions']}
+for row in ours['decisions']:
+    if row['id'] in by_id:
+        assert by_id[row['id']] == row, row['id']
+    else:
+        merged['decisions'].append(row)
+assert not validate(root, merged)
+assert not append_only_issues(theirs, merged)
+merged_rows = {v['id']: v for v in merged['decisions']}
+assert all(merged_rows[v['id']] == v for v in ours['decisions'])
+(root / rel).write_text(json.dumps(merged, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+(root / 'design/reference/OWNER_DECISIONS.md').write_text(render(merged), encoding='utf-8')
+subprocess.run(['git', 'add', '--', '.gitattributes', 'audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md', rel, 'design/reference/OWNER_DECISIONS.md'], cwd=root, check=True)
+assert not subprocess.check_output(['git', 'diff', '--name-only', '--diff-filter=U'], cwd=root).strip()
+receipt = {
+    'status': 'PASS',
+    'care_parent': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip(),
+    'incoming_dev_parent': subprocess.check_output(['git', 'rev-parse', 'MERGE_HEAD'], cwd=root, text=True).strip(),
+    'conflicts': ['.gitattributes', 'audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md', 'design/reference/owner_decisions.json', 'design/reference/OWNER_DECISIONS.md'],
+    'resolution': 'Retain both evidence attribute sections and both change histories. Use the published incoming dev decision sequence as the append-only prefix, then append the unchanged care decision. Regenerate the Markdown view. Every decision row from both parents is value-identical; no decision removed or rewritten.',
+    'initial_guard_failure': 'First attempt correctly rejected requiring two different concurrent last entries to both be the exact prefix. Register files were not written before that assertion. Integration-parent prefix ordering resolves the conflict without changing decision content.',
+    'idempotency_guard_correction': 'The retry guard initially assumed the care folder name occurred once, although three separate attribute rules intentionally contain it. The guard now checks both retained sections and absence of conflict markers; no register mutation occurred on that rejected retry.',
+    'owner_decision_count': len(merged['decisions']),
+}
+(root / 'audit/grand_puff_care_20261017/integration_resolution.json').write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf-8')
+print('CARE_MERGE_APPENDS|PASS|owner_decisions=' + str(len(merged['decisions'])))

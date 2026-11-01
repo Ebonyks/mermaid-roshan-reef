@@ -1,0 +1,14 @@
+{
+  "status": "FAIL_PRESERVED",
+  "command": "python -B tools/audit_game_2d.py --regression-gate",
+  "source_pin": "audit/grand_puff_care_20261017/source_pin.json",
+  "observed_failure": "GAME2D| FAIL| G2D102| scripts/games/dust_boss.gd| production 3D API debt expanded for Vector3: 14 -> 15",
+  "observed_result": "FAIL - manifest drift (1 finding(s)); 2D contract remains UNSATISFIED",
+  "process_capture_limit": "The outer PowerShell command continued with source reads and returned 0. This is the auditor's explicit failing report; its individual exit code was not separately captured in that first call. Fresh positive runs must capture the auditor exit directly.",
+  "source_archives": {
+    "scripts/games/dust_boss.gd": "audit/grand_puff_care_20261017/dust_boss_before_projection_fix.gd.txt",
+    "scripts/probe_dust_boss.gd": "audit/grand_puff_care_20261017/probe_before_projection_fix.gd.txt"
+  },
+  "repair": "Read the existing kit's original sprite boundary via to_global, removing the extra vector construction. Keep the old 3D ceiling unchanged and assert projected-height equivalence using the probe's existing vector. No new world simulation or spatial resource.",
+  "full_run": "The incomplete direct-GUI CI run was deliberately stopped at its verified owned process tree before source changes; retain full_ci_projection_stop.json and full_ci_result.json. Fresh console run uses a new source pin."
+}
