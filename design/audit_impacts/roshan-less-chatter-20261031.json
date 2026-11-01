@@ -173,6 +173,16 @@
       "command": "Exact published-head remote Probes before dev integration",
       "result": "PENDING",
       "evidence": "Required operational publication gate; local evidence never substitutes for exact new topic-head CI. Exact revision/run links recorded on PR42 after publication."
+    },
+    {
+      "command": "Published merge ee86 push CI owner-prefix comparison",
+      "result": "FAIL",
+      "evidence": "{\"run\": \"https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41301724280\", \"log_sha256\": \"70bee8c3059430c52bb7e7925d73cd566272c571f764ae5a491ec884dba6e7b4\", \"failure\": \"test_live_register_only_appends_since_the_comparison_base: new canonical dev rows precede the topic request. Every prior value and relative order is preserved; canonical dev remains the exact prefix. Import/analyzer/gameplay stages were skipped, not passed.\"}"
+    },
+    {
+      "command": "Unchanged112-test CI set under canonical PR and subsequent push comparison contexts",
+      "result": "PASS",
+      "evidence": "{\"receipt\": \"tmp\\\\roshan-less-chatter-owner-merge-context-validation.json\", \"receipt_sha256\": \"2e33aa5a80040469ed647e711563f2a2467c589116ad8489dd1e52ba31ab002a\", \"contexts\": [{\"context\": \"old_push\", \"event\": {\"before\": \"fa41c852fde5e1f2009a79f9f42f44e8bd466c0b\"}, \"actual_exit_code\": 1, \"expected_exit_code\": 1, \"log\": \"tmp\\\\roshan-owner-ci-old_push.log\", \"log_sha256\": \"3ce124317ec20c609b37314c087fd8841b6963e89b28e31830bb175b31ba3405\"}, {\"context\": \"pr_base\", \"event\": {\"pull_request\": {\"base\": {\"sha\": \"f59a1d1d5bdd58604f4706d16fb4e76d8f7db8b9\"}}}, \"actual_exit_code\": 0, \"expected_exit_code\": 0, \"log\": \"tmp\\\\roshan-owner-ci-pr_base.log\", \"log_sha256\": \"123694fb98e723121780d80148f1a781d5b71e54b8449c96270714fb3c2eba52\"}, {\"context\": \"followup_push\", \"event\": {\"before\": \"ee86ae60cc236a1e10c2a11cf403ff60443f0a42\"}, \"actual_exit_code\": 0, \"expected_exit_code\": 0, \"log\": \"tmp\\\\roshan-owner-ci-followup_push.log\", \"log_sha256\": \"4b52fceea2051e0cbccceb8bb20c841309a660a9513ad9f14dfcbc13c10e5964\"}], \"source_count\": 700, \"source_input_drift\": [], \"qualification\": \"Original pre-merge push-prefix failure remains failed and is reproduced as a negative. Canonical PR and actual subsequent push contexts pass all112 tests. No owner row, tool, test, workflow or game source changes.\"}"
     }
   ],
   "acceptance_gaps": "Target-device listening, child comprehension and owner acceptance of speech pacing remain outstanding. No artwork or save-schema changes; no visual acceptance claim. Game-wide master audit remains UNSATISFIED.",
@@ -388,5 +398,29 @@
     "pull_request": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/42",
     "exact_published_head_ci": "Required before integration; operational result and exact head recorded on the PR after this local evidence commit.",
     "scope_authority": "Direct owner authorization: Repair the blockers and publish the speech fix. No stable promotion requested."
+  },
+  "owner_history_merge_verification": {
+    "commits": {
+      "topic_before_merge": "fa41c852fde5e1f2009a79f9f42f44e8bd466c0b",
+      "canonical_dev": "f59a1d1d5bdd58604f4706d16fb4e76d8f7db8b9",
+      "published_merge": "ee86ae60cc236a1e10c2a11cf403ff60443f0a42"
+    },
+    "register": "design/reference/owner_decisions.json",
+    "register_blob_sha256": {
+      "topic_before_merge": "d2200c73e86414595ee17d035588a69bfb369b4541541f54b60758223c594138",
+      "canonical_dev": "b393fcb6625e9cd053845ad927b754d2dbef500e553fca232812aed2778ce050",
+      "published_merge": "82bdb7253986d4bda525532a80bcf3ef4caa70ce35a79777c281d027e07391f6"
+    },
+    "decision_counts": {
+      "topic_before_merge": 70,
+      "canonical_dev": 71,
+      "published_merge": 72
+    },
+    "all_prior_decision_values_unchanged": true,
+    "canonical_dev_prefix_exact": true,
+    "topic_relative_order_preserved": true,
+    "topic_was_full_prefix_after_merge": false,
+    "published_merge_register_unchanged_in_followup": true,
+    "explanation": "Two canonical dev decisions arrived after the topic request was recorded. The merge retains canonical dev as the exact prefix and appends the unchanged speech request. The push event compares against pre-merge topic history; that strict full-prefix comparison fails. PR/dev comparison uses the canonical prefix and passes. This follow-up adds the actual merge-history and CI evidence; it changes no register row, tool, test, workflow or game source."
   }
 }
