@@ -16,7 +16,7 @@ def main():
  block+=end
  if start in text:a=text.index(start);b=text.index(end,a)+len(end);text=text[:a]+block+text[b:]
  else:text+='\n\n'+block+'\n'
- license.write_text(text,encoding='utf-8')
+ license.write_text(text,encoding='utf-8',newline='\n')
  impact=REPO/'design/audit_impacts/native-rig-costume-replacement-20261101.json';d=json.loads(impact.read_text(encoding='utf-8'))
  changed=subprocess.run(['git','diff','--name-only','26bd6d1f0573f7b1ad76511c22abf584e44b7e24'],cwd=REPO,capture_output=True,text=True,check=True).stdout.splitlines()
  untracked=subprocess.run(['git','ls-files','--others','--exclude-standard'],cwd=REPO,capture_output=True,text=True,check=True).stdout.splitlines()

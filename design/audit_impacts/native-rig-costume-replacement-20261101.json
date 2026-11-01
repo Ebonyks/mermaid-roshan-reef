@@ -217,6 +217,7 @@
     "assets_src/animation/native_rig_costumes_20261031/replacement_v6/evidence/project_ci_receipt.json",
     "assets_src/animation/native_rig_costumes_20261031/replacement_v6/evidence/project_ci_receipt_initial.json",
     "assets_src/animation/native_rig_costumes_20261031/replacement_v6/evidence/project_ci_source.json",
+    "assets_src/animation/native_rig_costumes_20261031/replacement_v6/evidence/publication_normalization_correction_v8.json",
     "assets_src/animation/native_rig_costumes_20261031/replacement_v6/evidence/receipt_controls.json",
     "assets_src/animation/native_rig_costumes_20261031/replacement_v6/evidence/records_refresh.log",
     "assets_src/animation/native_rig_costumes_20261031/replacement_v6/evidence/rejected_export_verifier_path_v8.json",
@@ -897,6 +898,10 @@
     {
       "lesson": "Survey clothing remnants in limb cutouts and crowns as separate removable outfit surfaces, while keeping restored original skin and anatomy as exact references.",
       "write_back": "assets_src/animation/native_rig_costumes_20261031/README.md#owner-correction-true-costume-replacement"
+    },
+    {
+      "lesson": "A working-tree SHA is not a published-byte proof: root text normalization changed the license-ledger bytes. Explicit LF and staged Git-blob equality precede the rerun of every required anonymous fetch. Initial4c19341b packet verification failed; it was not a complete handoff.",
+      "write_back": "audit/MASTER_AUDIT_2026-08-09.md#0-planning-entry"
     }
   ],
   "planned_files": [

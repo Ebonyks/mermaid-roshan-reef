@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "scope": "Current study payload; overlay v5 remains OWNER_REJECTED, corrective candidate acceptance separately recorded.",
-  "generated_utc": "2026-11-01T11:14:41.899463+00:00",
+  "generated_utc": "2026-11-01T11:32:40.980483+00:00",
   "files": [
     {
       "path": ".gdignore",
@@ -3089,6 +3089,11 @@
       "bytes": 805
     },
     {
+      "path": "replacement_v6/evidence/publication_normalization_correction_v8.json",
+      "sha256": "6fa9a6baeb76c58923cc1297dbf4f826b1fe73f47b94655cf96e60813e395319",
+      "bytes": 1135
+    },
+    {
       "path": "replacement_v6/evidence/receipt_controls.json",
       "sha256": "8bc8a91dc8df22aba21fe187002229ee496285e17c38742c03f22780445f0e00",
       "bytes": 167
@@ -6170,8 +6175,8 @@
     },
     {
       "path": "replacement_v6/scripts/refresh_records.py",
-      "sha256": "493a76efe469e0e5574e33ea2a3a004d33efc2985ef72eaa245ade37f185ffb8",
-      "bytes": 3691
+      "sha256": "93d01434f9e434fba34af876bae329ac00d08c22794878c7025f45a00303423a",
+      "bytes": 3704
     },
     {
       "path": "replacement_v6/scripts/reopen_masters.lua",
@@ -6220,8 +6225,8 @@
     },
     {
       "path": "replacement_v6/seed_manifest.json",
-      "sha256": "1b79def892d1286d7c7bffa5bc2ad31228af9e181a8db2961af8a5286a99ad55",
-      "bytes": 61788
+      "sha256": "a73306f10a65591d41568083242391616245da1bde94d059c9c91009be5d4da4",
+      "bytes": 62046
     },
     {
       "path": "review/ballet/arm_bend.mp4",
@@ -6705,8 +6710,8 @@
     },
     {
       "path": "replacement_v6/manifest.json",
-      "sha256": "bc4306f6e74ba2656fab62e278faa23eedf728311657cf1e57d316e9b7bd2929",
-      "bytes": 146647
+      "sha256": "4d3d3ba83dc0c0e023c3ad56008021ff2ac9f471eefbb7f3c32c8ad16c8626f6",
+      "bytes": 146840
     }
   ]
 }
