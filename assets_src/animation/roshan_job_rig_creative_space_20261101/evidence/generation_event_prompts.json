@@ -1,0 +1,52 @@
+{
+  "source": "Codex chat 01a195be-b342-77b1-92cb-49475cec9688 native events and original corrective-attempt file-change record, read 2026-11-01",
+  "limits": "Revised-prompt events are not a separately exposed submitted-input/reference-order record. Provider revision/seed/request/billing remain unexposed. Original local prompt transcription is preserved when encoding is corrected.",
+  "events": [
+    {
+      "event_id": "exec-3e7bf0fa-77b1-4e53-b7f4-31bcb96c85dd",
+      "status": "completed",
+      "revised_prompt": "Use case: identity-preserve. Asset type: 2D RGBA garment fitting source, one still only, not animation. IMAGE_1 is the EXACT Roshan pose, anatomy, proportions and canvas registration to preserve. IMAGE_2 is the existing approved painter body garment design; IMAGE_3 painter headpiece; IMAGE_4 painter tail garment. Replace ALL of IMAGE_1's pink shirt, lavender puff sleeves, blue waist and scaly tail surface with the painter garments from IMAGE_2–4 correctly fitted in perspective to this same neutral pose. The painter has the lavender shell bodice with coral ruffled straps, gold shell/pearls, coral waist ribbon, cream apron with painted rainbow and paint dabs, scalloped petal hem, lavender/coral/mint/gold tail sleeve curving left, and lavender beret with coral plume and paint dabs. Preserve these existing design details; no redesign. Make complete new garment silhouettes: no old blouse or sleeves showing underneath, bare arms from the ruffled straps. Keep exact original head, face, brown/rainbow hair, hands, tail curvature and rainbow fin tips, same entire figure scale/position; remove tiny tiara under the beret. The correct unchanged tail-fin attachment stays near (434,794) in IMAGE_1's 1024 square coordinates; waist near (535,475), neckline near (535,349). Keep arms relaxed downward-outward, do not add a tool yet. This source will be isolated into garment layers; preserve anatomy appearance. Painted polished storybook, clean fine contours, soft authored shading, no 3D, no pixel art. Full figure with generous transparent padding. True transparent RGBA, no background, shadows, text, guides, duplicate subjects or effects.",
+      "saved_basename": "exec-3e7bf0fa-77b1-4e53-b7f4-31bcb96c85dd.png"
+    },
+    {
+      "event_id": "exec-1e8e0957-05cb-4bf0-a891-aede1d5d240f",
+      "status": "completed",
+      "revised_prompt": "Use case: identity-preserve. Asset type: single 2D RGBA garment fitting source, not animation. IMAGE_1 is the EXACT Roshan neutral pose/anatomy and entire figure registration. IMAGE_2 approved astronaut body garment, IMAGE_3 approved open-face astronaut hood/helmet, IMAGE_4 approved astronaut tail garment. Replace ALL old clothing with these garments, fitted to IMAGE_1 pose: pearl-cream and turquoise shell chest with gold crescent/stars, lavender belt, cream/turquoise petal peplum and decorative turquoise/cream tail sleeve with gold pearl hems. Keep original single tail curving LEFT and the original rainbow fins at the very end, no feet/legs. The helmet is the existing open-face hood in IMAGE_3 with opaque shell, turquoise/gold rim and two earcups; place naturally around her original face, preserve eyes/mouth readability. Brown/rainbow hair stays BEHIND the hood, not through opaque helmet surfaces, crown completely removed. Bare arms from short fitted armholes, no old purple sleeves. Keep exact original face, head proportions, hair color, hands, resting arm positions, scale and pose, only tailoring garments. No invented tools or mechanics. Waist near (535,475), neckline near (535,349), tail/fin socket near (434,794) in original 1024-square coordinates. Do not turn it into a vertical straight tail or flip fin side. This output will supply CLOTHING ONLY for isolation onto unchanged original anatomy; do not redesign her. Polished painted 2D storybook style with fine warm contours; no 3D or pixel art. True transparent RGBA, full figure/padding, no shadows/background, labels, extra figure or effects.",
+      "saved_basename": "exec-1e8e0957-05cb-4bf0-a891-aede1d5d240f.png"
+    },
+    {
+      "event_id": "exec-b1b5ba39-738d-4ccb-9501-d52236c97d81",
+      "status": "completed",
+      "revised_prompt": "Use case: precise-object-edit. IMAGE_1 is the edit target, an existing painted child mermaid costume prototype on transparent RGBA. Fill ONLY the small transparent gap between the bottom of Roshan's chin/neck and the painter bodice neckline and shoulder straps, approximately x460–615,y329–400 in the 1024-square input. Paint a natural modest upper chest/neck/shoulder skin connection matching her existing warm skin, with continuous painted contours and subtle soft shading. This is NOT a bare body: the complete lavender bodice and coral straps remain exactly as they are; only the accidental hole immediately ABOVE the bodice is repaired. No cleavage or new anatomy, preserve childlike proportions. Keep existing face, hair, hands, arms, clothing designs, tail, rainbow fins, entire figure size, position, canvas and all other pixels unchanged in appearance. No pose change, no redrawing the outfit, no new ornaments. Preserve 1024 square registration if possible, true transparent background. This source is for extracting only the tiny neck/upper-chest repair patch; no generated face or body substitute will be used.",
+      "saved_basename": "exec-b1b5ba39-738d-4ccb-9501-d52236c97d81.png"
+    },
+    {
+      "event_id": "exec-d1264a19-e95e-4654-af38-2181e758581a",
+      "status": "completed",
+      "revised_prompt": "Use case: identity-preserve / precise-object-edit. Asset type: one RGBA painted sprite contact-part source. IMAGE_1 is Roshan's approved neutral anatomy/style reference. IMAGE_2 is the actual painter brush design. Draw ONLY one close-up of Roshan's SCREEN-LEFT hand with a short wrist/forearm end, no other character or face, holding this coral brush securely. The wrist enters from upper RIGHT and the fingers/palm point down LEFT as in IMAGE_1's screen-left hand at the end of her relaxed arm. Preserve the same childlike warm skin, slender wrist, soft hand shape and polished 2D paint/outline style. Five fingers total including thumb: fingers naturally CURLED around the handle, thumb pressing the near side; clear believable contact, not an open hand behind a floating brush. Brush handle gold/cream shell ferrule and coral handle; bristles tipped coral, no dripping ribbon. Position brush bristles up/left relative to the hand, handle passing diagonally across the palm, fingers in FRONT where wrapped, handle visible behind the fingers. A matching useful grip in frontal-view perspective, no extreme foreshortening, no 3D. This is an authored alternate grasp view, not a new hand design or an animation frame series. Large enough to cleanly isolate the hand and tool together. True transparent RGBA, generous padding, no text, labels, shadows, background, duplicate hands, extra digits or detached fingers.",
+      "saved_basename": "exec-d1264a19-e95e-4654-af38-2181e758581a.png"
+    }
+  ],
+  "original_corrective_record": [
+    {
+      "id": "neck_take01",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the edit target, an existing painted child mermaid costume prototype on transparent RGBA. Fill ONLY the small transparent gap between the bottom of Roshan's chin/neck and the painter bodice neckline and shoulder straps, approximately x460–615,y329–400 in the 1024-square input. Paint a natural modest upper chest/neck/shoulder skin connection matching her existing warm skin, with continuous painted contours and subtle soft shading. This is NOT a bare body: the complete lavender bodice and coral straps remain exactly as they are; only the accidental hole immediately ABOVE the bodice is repaired. No cleavage or new anatomy, preserve childlike proportions. Keep existing face, hair, hands, arms, clothing designs, tail, rainbow fins, entire figure size, position, canvas and all other pixels unchanged in appearance. No pose change, no redrawing the outfit, no new ornaments. Preserve 1024 square registration if possible, true transparent background. This source is for extracting only the tiny neck/upper-chest repair patch; no generated face or body substitute will be used.",
+      "start_utc": "2026-11-01T06:36:50.990Z",
+      "end_utc": "2026-11-01T06:37:13.191Z",
+      "elapsed_seconds": 22.201,
+      "tool": "builtin image_gen",
+      "provider_model_revision_seed_request_billing": "not exposed",
+      "native": "native/neck_source.png"
+    },
+    {
+      "id": "grip_take01",
+      "prompt": "Use case: identity-preserve / precise-object-edit. Asset type: one RGBA painted sprite contact-part source. IMAGE_1 is Roshan's approved neutral anatomy/style reference. IMAGE_2 is the actual painter brush design. Draw ONLY one close-up of Roshan's SCREEN-LEFT hand with a short wrist/forearm end, no other character or face, holding this coral brush securely. The wrist enters from upper RIGHT and the fingers/palm point down LEFT as in IMAGE_1's screen-left hand at the end of her relaxed arm. Preserve the same childlike warm skin, slender wrist, soft hand shape and polished 2D paint/outline style. Five fingers total including thumb: fingers naturally CURLED around the handle, thumb pressing the near side; clear believable contact, not an open hand behind a floating brush. Brush handle gold/cream shell ferrule and coral handle; bristles tipped coral, no dripping ribbon. Position brush bristles up/left relative to the hand, handle passing diagonally across the palm, fingers in FRONT where wrapped, handle visible behind the fingers. A matching useful grip in frontal-view perspective, no extreme foreshortening, no 3D. This is an authored alternate grasp view, not a new hand design or an animation frame series. Large enough to cleanly isolate the hand and tool together. True transparent RGBA, generous padding, no text, labels, shadows, background, duplicate hands, extra digits or detached fingers.",
+      "start_utc": "2026-11-01T06:37:50.554Z",
+      "end_utc": "2026-11-01T06:38:23.866Z",
+      "elapsed_seconds": 33.312,
+      "tool": "builtin image_gen",
+      "provider_model_revision_seed_request_billing": "not exposed",
+      "native": "native/brush_grip_source.png"
+    }
+  ]
+}

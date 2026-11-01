@@ -1,0 +1,86 @@
+{
+  "contract": {
+    "id": "roshan.canvas.shared",
+    "version": "1.0.0",
+    "file": "contract/rig_v1.json",
+    "sha256": "b2a5dfe936d13ccdeb88e5c29ad268b19488de7cbe49d9b06abf84a94135fb5f",
+    "publication": "PROVISIONAL_LOCAL_PIN"
+  },
+  "allowed_view": [
+    "front"
+  ],
+  "reject_unknown_view": true,
+  "bones_rest_weights": "14 seed bones/rests, original curves and common vertices/weights/triangles unchanged; declared GarmentExtension adds only new cloth coverage with interpolation from the common field.",
+  "objects": {
+    "coral_brush": {
+      "role": "painter PAINT tool",
+      "socket": "grip.screen_left",
+      "source_grip_px": [
+        800,
+        770
+      ],
+      "source_wrist_px": [
+        1040,
+        650
+      ],
+      "source_to_atlas_scale": 0.16,
+      "sprite_scale": 0.5625,
+      "sprite_rotation_bone_local_rad": -2.56,
+      "occlusion": "authored hand-and-brush unit: curled fingers in front of handle; original distal hand hidden for this action only",
+      "view": "front",
+      "contact_s": [
+        1.1,
+        3.6
+      ],
+      "entry_exit": "held-tool context throughout the five-second action; pickup/release transitions remain source gaps",
+      "support": "hand.screen_left; no free-floating tool"
+    },
+    "rocket_valve": {
+      "role": "actual astronaut VALVE wheel; rocket stays parked",
+      "mount_canvas_px": [
+        376,
+        443
+      ],
+      "contact_radius_px": 32,
+      "socket": "grip.screen_left",
+      "contact": "palm push/turn, not a claimed closed-fist grasp",
+      "view": "front",
+      "orientation": "wheel turns in its plane; camera and mount fixed",
+      "layer": "mount below actor; wheel behind palm/fingers",
+      "contact_s": [
+        1.1,
+        3.6
+      ],
+      "release_s": 3.6,
+      "settle_s": [
+        3.6,
+        4.5
+      ],
+      "contact_tolerance_px": 3
+    }
+  },
+  "garment_slots": {
+    "head": "headwear and clean scalp; astronaut opaque rim/earcups above source hair with open face aperture",
+    "body": "new RGBA contours over erased clothing; new neck support only for painter/astronaut",
+    "tail": "new RGBA tail garment with source fin retained in front; own silhouette, not old-clothing alpha"
+  },
+  "wardrobe_compatibility": {
+    "universal": "BLOCKED_SHARED_WAIST_JOIN",
+    "failing_legacy_body_tail_pairs": [
+      [
+        "original",
+        "magician"
+      ],
+      [
+        "ballet",
+        "original"
+      ],
+      [
+        "ballet",
+        "magician"
+      ]
+    ],
+    "evidence": "evidence/mixed/audit.json",
+    "scope": "Do not equate deterministic swaps with complete outlines. No legacy fixture art is repaired by this packet."
+  }
+}

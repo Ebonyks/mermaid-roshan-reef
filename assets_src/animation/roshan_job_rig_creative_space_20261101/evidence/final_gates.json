@@ -1,0 +1,3356 @@
+{
+  "passed": true,
+  "baseline": "93166ab1828ab9857227d038f8833b92dfb2f9f1",
+  "static_expected": 58,
+  "static": [
+    {
+      "name": "static_00",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_godot_baseline"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1.622,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_01",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_godot_baseline.py",
+        "--godot",
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 0.853,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_02",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_fashion_beta"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1.217,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_03",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_fashion_beta.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 16.807,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_04",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/attack_customizer.gd",
+        "scripts/audio_director.gd",
+        "scripts/boot_splash_overlay.gd",
+        "scripts/boss_encounter_2d.gd",
+        "scripts/boss_splash_2d.gd",
+        "scripts/camera_kit.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/castle_door_cue.gd",
+        "scripts/castle_door_language.gd",
+        "scripts/castle_logo_studio.gd",
+        "scripts/chapter_two_career_scene_adapter.gd",
+        "scripts/chapter_two_director.gd",
+        "scripts/chapter_two_ember_encounter.gd",
+        "scripts/chapter_two_giant_cake_2d.gd",
+        "scripts/chapter_two_lawn_finale_2d.gd",
+        "scripts/chapter_two_party_plan.gd",
+        "scripts/chapter_two_party_table_2d.gd",
+        "scripts/chapter_two_rainbow_candle_2d.gd",
+        "scripts/chapter_two_room_plot.gd",
+        "scripts/chapter_two_voice_catalog.gd",
+        "scripts/chef_painted_art.gd",
+        "scripts/collection_system.gd",
+        "scripts/combat_arena.gd",
+        "scripts/combat_tutorial.gd",
+        "scripts/comfy_games.gd",
+        "scripts/companion.gd",
+        "scripts/craft_studio.gd",
+        "scripts/day_one_art_furniture_2d.gd",
+        "scripts/day_one_art_studio.gd",
+        "scripts/day_one_bathroom_movie_handoff.gd",
+        "scripts/day_one_contact_action_2d.gd",
+        "scripts/day_one_contextual_voice_catalog.gd",
+        "scripts/day_one_director.gd",
+        "scripts/day_one_flow.gd",
+        "scripts/day_one_story_clips.gd",
+        "scripts/day_two_transition_2d.gd",
+        "scripts/debug_export_stage_pathfinding.gd",
+        "scripts/dev_mode.gd",
+        "scripts/dungeon_art.gd",
+        "scripts/dungeon_level.gd",
+        "scripts/dungeon_puzzle_room.gd",
+        "scripts/dust_boss_lesson_2d.gd",
+        "scripts/dust_boss_telegraph_2d.gd",
+        "scripts/dust_bunny_ai.gd",
+        "scripts/dust_bunny_boss_sprite.gd",
+        "scripts/dust_bunny_sprite.gd",
+        "scripts/ember_fortress.gd",
+        "scripts/encounter_attack_2d.gd",
+        "scripts/encounter_contract_checks.gd",
+        "scripts/encounter_gesture_guide_2d.gd",
+        "scripts/encounter_navigation_2d.gd",
+        "scripts/encounter_patterns_2d.gd",
+        "scripts/encounter_phase_2d.gd",
+        "scripts/encounter_profile_2d.gd",
+        "scripts/encounter_telegraph_2d.gd",
+        "scripts/encounter_warning_cue_2d.gd",
+        "scripts/fairy_restoration_prototype.gd",
+        "scripts/fashion_beta_test_case.gd",
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_designer_test_case.gd",
+        "scripts/fashion_dressing_input.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/fashion_parts.gd",
+        "scripts/fashion_parts_test_case.gd",
+        "scripts/fashion_skin_catalog.gd",
+        "scripts/fashion_skin_engine.gd",
+        "scripts/fashion_skin_engine_test_case.gd",
+        "scripts/fashion_wardrobe.gd",
+        "scripts/fx_water.gd",
+        "scripts/galaxy.gd",
+        "scripts/grand_puff_care_2d.gd",
+        "scripts/hit_engine.gd",
+        "scripts/imp_ai.gd",
+        "scripts/interaction_affordance.gd",
+        "scripts/interaction_director.gd",
+        "scripts/intro_overlay.gd",
+        "scripts/juice.gd",
+        "scripts/kart.gd",
+        "scripts/kart_canvas_2d.gd",
+        "scripts/kart_course_worlds.gd",
+        "scripts/kart_driving.gd",
+        "scripts/landmark_art.gd",
+        "scripts/light_rig.gd",
+        "scripts/living_world.gd",
+        "scripts/living_world_canvas.gd",
+        "scripts/living_world_catalog.gd",
+        "scripts/main.gd",
+        "scripts/medal_system.gd",
+        "scripts/mic_input.gd",
+        "scripts/navigation_controller.gd",
+        "scripts/nursery_painted_art.gd",
+        "scripts/opera_act.gd",
+        "scripts/opera_ballet_surface.gd",
+        "scripts/opera_boxing_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_chef_surface.gd",
+        "scripts/opera_competition.gd",
+        "scripts/opera_geology_surface.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_hotspot_catalog.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/opera_imp_clips.gd",
+        "scripts/opera_job_playtest_menu.gd",
+        "scripts/opera_mastery.gd",
+        "scripts/opera_nursery_catch.gd",
+        "scripts/opera_performance_overlay.gd",
+        "scripts/opera_performance_plan.gd",
+        "scripts/opera_racer_surface.gd",
+        "scripts/opera_roshan_actor.gd",
+        "scripts/opera_route_presentation.gd",
+        "scripts/opera_stage_paths.gd",
+        "scripts/opera_teacher_surface.gd",
+        "scripts/opera_tree_book_test.gd",
+        "scripts/opera_world_backdrop_2d.gd",
+        "scripts/opera_world_hotspot_2d.gd",
+        "scripts/painted_feedback_art.gd",
+        "scripts/partner_assist.gd",
+        "scripts/pause_menu.gd",
+        "scripts/physics.gd",
+        "scripts/player.gd",
+        "scripts/probe.gd",
+        "scripts/probe_alpha_milestone_save.gd",
+        "scripts/probe_anim_lab.gd",
+        "scripts/probe_aquatic2.gd",
+        "scripts/probe_aq_ref.gd",
+        "scripts/probe_art_audit_35.gd",
+        "scripts/probe_art_manifest.gd",
+        "scripts/probe_audio.gd",
+        "scripts/probe_audit.gd",
+        "scripts/probe_basement.gd",
+        "scripts/probe_bathroom_integration.gd",
+        "scripts/probe_bathroom_props.gd",
+        "scripts/probe_boot_display.gd",
+        "scripts/probe_camera.gd",
+        "scripts/probe_castle_cam.gd",
+        "scripts/probe_castle_canvas2d.gd",
+        "scripts/probe_castle_door_language.gd",
+        "scripts/probe_castle_door_visual_capture.gd",
+        "scripts/probe_castle_mobile_capture.gd",
+        "scripts/probe_castle_pearl_art.gd",
+        "scripts/probe_castle_pool_life_2d.gd",
+        "scripts/probe_castle_shots.gd",
+        "scripts/probe_castle_shots_2d.gd",
+        "scripts/probe_chapter2.gd",
+        "scripts/probe_chapter2_farmer_resume.gd",
+        "scripts/probe_chapter2_lawn.gd",
+        "scripts/probe_chuck.gd",
+        "scripts/probe_collection.gd",
+        "scripts/probe_combat.gd",
+        "scripts/probe_combat_tutorial.gd",
+        "scripts/probe_creatures.gd",
+        "scripts/probe_crown.gd",
+        "scripts/probe_dance.gd",
+        "scripts/probe_day_one_art_attack_state.gd",
+        "scripts/probe_day_one_art_studio_shots.gd",
+        "scripts/probe_day_one_bathroom_bunny.gd",
+        "scripts/probe_day_one_bathroom_cleanup.gd",
+        "scripts/probe_day_one_bathroom_integration.gd",
+        "scripts/probe_day_one_bathroom_movie_handoff.gd",
+        "scripts/probe_day_one_bathroom_shots.gd",
+        "scripts/probe_day_one_castle_dressing.gd",
+        "scripts/probe_day_one_contextual_voice.gd",
+        "scripts/probe_day_one_d8_revisits.gd",
+        "scripts/probe_day_one_director.gd",
+        "scripts/probe_day_one_handoffs.gd",
+        "scripts/probe_day_one_integration.gd",
+        "scripts/probe_day_one_pool_cleanup.gd",
+        "scripts/probe_day_one_pool_shots.gd",
+        "scripts/probe_day_one_story_clips.gd",
+        "scripts/probe_day_one_voice.gd",
+        "scripts/probe_dolls.gd",
+        "scripts/probe_dungeon.gd",
+        "scripts/probe_dust_boss.gd",
+        "scripts/probe_dust_boss_balance.gd",
+        "scripts/probe_dust_boss_shots.gd",
+        "scripts/probe_dust_bunny.gd",
+        "scripts/probe_dust_bunny_boss.gd",
+        "scripts/probe_ember.gd",
+        "scripts/probe_ember_art.gd",
+        "scripts/probe_fable_audit.gd",
+        "scripts/probe_fable_kit.gd",
+        "scripts/probe_fairy_art.gd",
+        "scripts/probe_fairy_conservatory_handoff.gd",
+        "scripts/probe_fairy_conservatory_route.gd",
+        "scripts/probe_fairy_restoration.gd",
+        "scripts/probe_fetch.gd",
+        "scripts/probe_galaxy_peek.gd",
+        "scripts/probe_galaxy_state.gd",
+        "scripts/probe_garden_shots.gd",
+        "scripts/probe_heading.gd",
+        "scripts/probe_hit.gd",
+        "scripts/probe_human_art_audit.gd",
+        "scripts/probe_imp_ai.gd",
+        "scripts/probe_imp_animation_art.gd",
+        "scripts/probe_interaction.gd",
+        "scripts/probe_kart_feel.gd",
+        "scripts/probe_kitchen_props.gd",
+        "scripts/probe_l2.gd",
+        "scripts/probe_l2_living_cards.gd",
+        "scripts/probe_l2_reenter.gd",
+        "scripts/probe_living_world.gd",
+        "scripts/probe_load.gd",
+        "scripts/probe_melody.gd",
+        "scripts/probe_mg2d.gd",
+        "scripts/probe_mic.gd",
+        "scripts/probe_mouselook.gd",
+        "scripts/probe_northern.gd",
+        "scripts/probe_northern_art_audit.gd",
+        "scripts/probe_ocean_kingdoms.gd",
+        "scripts/probe_opera.gd",
+        "scripts/probe_opera_2d.gd",
+        "scripts/probe_opera_2d_balance.gd",
+        "scripts/probe_opera_art.gd",
+        "scripts/probe_opera_balance.gd",
+        "scripts/probe_opera_detective.gd",
+        "scripts/probe_opera_diegetic_paths.gd",
+        "scripts/probe_opera_gesture_quality.gd",
+        "scripts/probe_opera_mastery.gd",
+        "scripts/probe_opera_nursery.gd",
+        "scripts/probe_opera_performance.gd",
+        "scripts/probe_opera_pipe.gd",
+        "scripts/probe_overdraw.gd",
+        "scripts/probe_painter.gd",
+        "scripts/probe_partner.gd",
+        "scripts/probe_passive.gd",
+        "scripts/probe_penguin_beak.gd",
+        "scripts/probe_penguin_face.gd",
+        "scripts/probe_peng_pal.gd",
+        "scripts/probe_pg_water.gd",
+        "scripts/probe_pg_wide.gd",
+        "scripts/probe_playground_shots.gd",
+        "scripts/probe_props.gd",
+        "scripts/probe_racer_integration.gd",
+        "scripts/probe_race_feel.gd",
+        "scripts/probe_rank.gd",
+        "scripts/probe_reef_districts.gd",
+        "scripts/probe_reef_shots.gd",
+        "scripts/probe_river_profile.gd",
+        "scripts/probe_save_recovery.gd",
+        "scripts/probe_seek.gd",
+        "scripts/probe_skins.gd",
+        "scripts/probe_sky_lagoon_alive.gd",
+        "scripts/probe_sky_lagoon_animals.gd",
+        "scripts/probe_sky_lagoon_art.gd",
+        "scripts/probe_stage_navigation_2d.gd",
+        "scripts/probe_start_menu_new_game.gd",
+        "scripts/probe_start_menu_routing.gd",
+        "scripts/probe_stuffie.gd",
+        "scripts/probe_texture_seams.gd",
+        "scripts/probe_throne.gd",
+        "scripts/probe_throne_shots.gd",
+        "scripts/probe_touch_adversary.gd",
+        "scripts/probe_touch_look.gd",
+        "scripts/probe_touch_router.gd",
+        "scripts/probe_touch_stress.gd",
+        "scripts/probe_toy_anim.gd",
+        "scripts/probe_train.gd",
+        "scripts/probe_tree_book_test.gd",
+        "scripts/probe_ui.gd",
+        "scripts/probe_ui_system.gd",
+        "scripts/probe_upstairs.gd",
+        "scripts/probe_verbs.gd",
+        "scripts/probe_visual_audit.gd",
+        "scripts/probe_voice.gd",
+        "scripts/racer_game_2d.gd",
+        "scripts/rainbow_friend_follower.gd",
+        "scripts/reef_districts.gd",
+        "scripts/roshan_sprite_anchors.gd",
+        "scripts/roshan_sprite_frames.gd",
+        "scripts/roshan_sprite_loop.gd",
+        "scripts/save_state.gd",
+        "scripts/shell_ornament.gd",
+        "scripts/sprite_transition_2d.gd",
+        "scripts/stage_navigation_2d.gd",
+        "scripts/start_menu.gd",
+        "scripts/storybook_ui.gd",
+        "scripts/story_art.gd",
+        "scripts/stuffie_battle.gd",
+        "scripts/support_career_painted_art.gd",
+        "scripts/tap_move_director.gd",
+        "scripts/teacher_lesson_plan.gd",
+        "scripts/touch_ui.gd",
+        "scripts/tree_book_test_checks.gd",
+        "scripts/wardrobe_ui.gd",
+        "scripts/arena/castle_fixture_rigs.gd",
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/arena/courtyard_train.gd",
+        "scripts/arena/day_one_castle_dressing.gd",
+        "scripts/arena/day_one_castle_grime.gd",
+        "scripts/arena/fairy_conservatory_door_2d.gd",
+        "scripts/arena/fairy_conservatory_handoff_2d.gd",
+        "scripts/arena/northern_kingdom.gd",
+        "scripts/arena/sky_lagoon.gd",
+        "scripts/arena/sky_lagoon_promenade.gd",
+        "scripts/demo/sky_lagoon_alive.gd",
+        "scripts/games/brawl.gd",
+        "scripts/games/dance_engine.gd",
+        "scripts/games/day_one_bathroom_cleaning.gd",
+        "scripts/games/day_one_bathroom_cleanup.gd",
+        "scripts/games/day_one_bathroom_toilet.gd",
+        "scripts/games/day_one_dust_bunny_swimmer.gd",
+        "scripts/games/day_one_fixture_scrub.gd",
+        "scripts/games/day_one_pool_cleanup.gd",
+        "scripts/games/dolls.gd",
+        "scripts/games/dust_boss.gd",
+        "scripts/games/dust_boss_patterns.gd",
+        "scripts/games/fairy.gd",
+        "scripts/games/fetch.gd",
+        "scripts/games/melody.gd",
+        "scripts/games/octagon_stage.gd",
+        "scripts/games/picture_games.gd",
+        "scripts/games/pool_seahorse_rescue_activity.gd",
+        "scripts/games/pool_skimmer_activity.gd",
+        "scripts/games/pool_waterfall_activity.gd",
+        "scripts/games/seek.gd",
+        "scripts/games/shop.gd",
+        "scripts/games/side_scroll.gd",
+        "scripts/games/slide_race.gd",
+        "scripts/games/treasure.gd",
+        "scripts/painter/painter_document.gd",
+        "scripts/painter/painter_guided_probe.gd",
+        "scripts/painter/painter_probe.gd",
+        "scripts/painter/painter_studio.gd",
+        "scripts/painter/painter_template.gd",
+        "scripts/painter/vendor/painter_flood_fill.gd"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 57.502,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_05",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/lint_inference.py",
+        "scripts/attack_customizer.gd",
+        "scripts/audio_director.gd",
+        "scripts/boot_splash_overlay.gd",
+        "scripts/boss_encounter_2d.gd",
+        "scripts/boss_splash_2d.gd",
+        "scripts/camera_kit.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/castle_door_cue.gd",
+        "scripts/castle_door_language.gd",
+        "scripts/castle_logo_studio.gd",
+        "scripts/chapter_two_career_scene_adapter.gd",
+        "scripts/chapter_two_director.gd",
+        "scripts/chapter_two_ember_encounter.gd",
+        "scripts/chapter_two_giant_cake_2d.gd",
+        "scripts/chapter_two_lawn_finale_2d.gd",
+        "scripts/chapter_two_party_plan.gd",
+        "scripts/chapter_two_party_table_2d.gd",
+        "scripts/chapter_two_rainbow_candle_2d.gd",
+        "scripts/chapter_two_room_plot.gd",
+        "scripts/chapter_two_voice_catalog.gd",
+        "scripts/chef_painted_art.gd",
+        "scripts/collection_system.gd",
+        "scripts/combat_arena.gd",
+        "scripts/combat_tutorial.gd",
+        "scripts/comfy_games.gd",
+        "scripts/companion.gd",
+        "scripts/craft_studio.gd",
+        "scripts/day_one_art_furniture_2d.gd",
+        "scripts/day_one_art_studio.gd",
+        "scripts/day_one_bathroom_movie_handoff.gd",
+        "scripts/day_one_contact_action_2d.gd",
+        "scripts/day_one_contextual_voice_catalog.gd",
+        "scripts/day_one_director.gd",
+        "scripts/day_one_flow.gd",
+        "scripts/day_one_story_clips.gd",
+        "scripts/day_two_transition_2d.gd",
+        "scripts/debug_export_stage_pathfinding.gd",
+        "scripts/dev_mode.gd",
+        "scripts/dungeon_art.gd",
+        "scripts/dungeon_level.gd",
+        "scripts/dungeon_puzzle_room.gd",
+        "scripts/dust_boss_lesson_2d.gd",
+        "scripts/dust_boss_telegraph_2d.gd",
+        "scripts/dust_bunny_ai.gd",
+        "scripts/dust_bunny_boss_sprite.gd",
+        "scripts/dust_bunny_sprite.gd",
+        "scripts/ember_fortress.gd",
+        "scripts/encounter_attack_2d.gd",
+        "scripts/encounter_contract_checks.gd",
+        "scripts/encounter_gesture_guide_2d.gd",
+        "scripts/encounter_navigation_2d.gd",
+        "scripts/encounter_patterns_2d.gd",
+        "scripts/encounter_phase_2d.gd",
+        "scripts/encounter_profile_2d.gd",
+        "scripts/encounter_telegraph_2d.gd",
+        "scripts/encounter_warning_cue_2d.gd",
+        "scripts/fairy_restoration_prototype.gd",
+        "scripts/fashion_beta_test_case.gd",
+        "scripts/fashion_designer.gd",
+        "scripts/fashion_designer_test_case.gd",
+        "scripts/fashion_dressing_input.gd",
+        "scripts/fashion_outfit_renderer.gd",
+        "scripts/fashion_parts.gd",
+        "scripts/fashion_parts_test_case.gd",
+        "scripts/fashion_skin_catalog.gd",
+        "scripts/fashion_skin_engine.gd",
+        "scripts/fashion_skin_engine_test_case.gd",
+        "scripts/fashion_wardrobe.gd",
+        "scripts/fx_water.gd",
+        "scripts/galaxy.gd",
+        "scripts/grand_puff_care_2d.gd",
+        "scripts/hit_engine.gd",
+        "scripts/imp_ai.gd",
+        "scripts/interaction_affordance.gd",
+        "scripts/interaction_director.gd",
+        "scripts/intro_overlay.gd",
+        "scripts/juice.gd",
+        "scripts/kart.gd",
+        "scripts/kart_canvas_2d.gd",
+        "scripts/kart_course_worlds.gd",
+        "scripts/kart_driving.gd",
+        "scripts/landmark_art.gd",
+        "scripts/light_rig.gd",
+        "scripts/living_world.gd",
+        "scripts/living_world_canvas.gd",
+        "scripts/living_world_catalog.gd",
+        "scripts/main.gd",
+        "scripts/medal_system.gd",
+        "scripts/mic_input.gd",
+        "scripts/navigation_controller.gd",
+        "scripts/nursery_painted_art.gd",
+        "scripts/opera_act.gd",
+        "scripts/opera_ballet_surface.gd",
+        "scripts/opera_boxing_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_chef_surface.gd",
+        "scripts/opera_competition.gd",
+        "scripts/opera_geology_surface.gd",
+        "scripts/opera_gesture_surface.gd",
+        "scripts/opera_hotspot_catalog.gd",
+        "scripts/opera_house.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/opera_imp_clips.gd",
+        "scripts/opera_job_playtest_menu.gd",
+        "scripts/opera_mastery.gd",
+        "scripts/opera_nursery_catch.gd",
+        "scripts/opera_performance_overlay.gd",
+        "scripts/opera_performance_plan.gd",
+        "scripts/opera_racer_surface.gd",
+        "scripts/opera_roshan_actor.gd",
+        "scripts/opera_route_presentation.gd",
+        "scripts/opera_stage_paths.gd",
+        "scripts/opera_teacher_surface.gd",
+        "scripts/opera_tree_book_test.gd",
+        "scripts/opera_world_backdrop_2d.gd",
+        "scripts/opera_world_hotspot_2d.gd",
+        "scripts/painted_feedback_art.gd",
+        "scripts/partner_assist.gd",
+        "scripts/pause_menu.gd",
+        "scripts/physics.gd",
+        "scripts/player.gd",
+        "scripts/probe.gd",
+        "scripts/probe_alpha_milestone_save.gd",
+        "scripts/probe_anim_lab.gd",
+        "scripts/probe_aquatic2.gd",
+        "scripts/probe_aq_ref.gd",
+        "scripts/probe_art_audit_35.gd",
+        "scripts/probe_art_manifest.gd",
+        "scripts/probe_audio.gd",
+        "scripts/probe_audit.gd",
+        "scripts/probe_basement.gd",
+        "scripts/probe_bathroom_integration.gd",
+        "scripts/probe_bathroom_props.gd",
+        "scripts/probe_boot_display.gd",
+        "scripts/probe_camera.gd",
+        "scripts/probe_castle_cam.gd",
+        "scripts/probe_castle_canvas2d.gd",
+        "scripts/probe_castle_door_language.gd",
+        "scripts/probe_castle_door_visual_capture.gd",
+        "scripts/probe_castle_mobile_capture.gd",
+        "scripts/probe_castle_pearl_art.gd",
+        "scripts/probe_castle_pool_life_2d.gd",
+        "scripts/probe_castle_shots.gd",
+        "scripts/probe_castle_shots_2d.gd",
+        "scripts/probe_chapter2.gd",
+        "scripts/probe_chapter2_farmer_resume.gd",
+        "scripts/probe_chapter2_lawn.gd",
+        "scripts/probe_chuck.gd",
+        "scripts/probe_collection.gd",
+        "scripts/probe_combat.gd",
+        "scripts/probe_combat_tutorial.gd",
+        "scripts/probe_creatures.gd",
+        "scripts/probe_crown.gd",
+        "scripts/probe_dance.gd",
+        "scripts/probe_day_one_art_attack_state.gd",
+        "scripts/probe_day_one_art_studio_shots.gd",
+        "scripts/probe_day_one_bathroom_bunny.gd",
+        "scripts/probe_day_one_bathroom_cleanup.gd",
+        "scripts/probe_day_one_bathroom_integration.gd",
+        "scripts/probe_day_one_bathroom_movie_handoff.gd",
+        "scripts/probe_day_one_bathroom_shots.gd",
+        "scripts/probe_day_one_castle_dressing.gd",
+        "scripts/probe_day_one_contextual_voice.gd",
+        "scripts/probe_day_one_d8_revisits.gd",
+        "scripts/probe_day_one_director.gd",
+        "scripts/probe_day_one_handoffs.gd",
+        "scripts/probe_day_one_integration.gd",
+        "scripts/probe_day_one_pool_cleanup.gd",
+        "scripts/probe_day_one_pool_shots.gd",
+        "scripts/probe_day_one_story_clips.gd",
+        "scripts/probe_day_one_voice.gd",
+        "scripts/probe_dolls.gd",
+        "scripts/probe_dungeon.gd",
+        "scripts/probe_dust_boss.gd",
+        "scripts/probe_dust_boss_balance.gd",
+        "scripts/probe_dust_boss_shots.gd",
+        "scripts/probe_dust_bunny.gd",
+        "scripts/probe_dust_bunny_boss.gd",
+        "scripts/probe_ember.gd",
+        "scripts/probe_ember_art.gd",
+        "scripts/probe_fable_audit.gd",
+        "scripts/probe_fable_kit.gd",
+        "scripts/probe_fairy_art.gd",
+        "scripts/probe_fairy_conservatory_handoff.gd",
+        "scripts/probe_fairy_conservatory_route.gd",
+        "scripts/probe_fairy_restoration.gd",
+        "scripts/probe_fetch.gd",
+        "scripts/probe_galaxy_peek.gd",
+        "scripts/probe_galaxy_state.gd",
+        "scripts/probe_garden_shots.gd",
+        "scripts/probe_heading.gd",
+        "scripts/probe_hit.gd",
+        "scripts/probe_human_art_audit.gd",
+        "scripts/probe_imp_ai.gd",
+        "scripts/probe_imp_animation_art.gd",
+        "scripts/probe_interaction.gd",
+        "scripts/probe_kart_feel.gd",
+        "scripts/probe_kitchen_props.gd",
+        "scripts/probe_l2.gd",
+        "scripts/probe_l2_living_cards.gd",
+        "scripts/probe_l2_reenter.gd",
+        "scripts/probe_living_world.gd",
+        "scripts/probe_load.gd",
+        "scripts/probe_melody.gd",
+        "scripts/probe_mg2d.gd",
+        "scripts/probe_mic.gd",
+        "scripts/probe_mouselook.gd",
+        "scripts/probe_northern.gd",
+        "scripts/probe_northern_art_audit.gd",
+        "scripts/probe_ocean_kingdoms.gd",
+        "scripts/probe_opera.gd",
+        "scripts/probe_opera_2d.gd",
+        "scripts/probe_opera_2d_balance.gd",
+        "scripts/probe_opera_art.gd",
+        "scripts/probe_opera_balance.gd",
+        "scripts/probe_opera_detective.gd",
+        "scripts/probe_opera_diegetic_paths.gd",
+        "scripts/probe_opera_gesture_quality.gd",
+        "scripts/probe_opera_mastery.gd",
+        "scripts/probe_opera_nursery.gd",
+        "scripts/probe_opera_performance.gd",
+        "scripts/probe_opera_pipe.gd",
+        "scripts/probe_overdraw.gd",
+        "scripts/probe_painter.gd",
+        "scripts/probe_partner.gd",
+        "scripts/probe_passive.gd",
+        "scripts/probe_penguin_beak.gd",
+        "scripts/probe_penguin_face.gd",
+        "scripts/probe_peng_pal.gd",
+        "scripts/probe_pg_water.gd",
+        "scripts/probe_pg_wide.gd",
+        "scripts/probe_playground_shots.gd",
+        "scripts/probe_props.gd",
+        "scripts/probe_racer_integration.gd",
+        "scripts/probe_race_feel.gd",
+        "scripts/probe_rank.gd",
+        "scripts/probe_reef_districts.gd",
+        "scripts/probe_reef_shots.gd",
+        "scripts/probe_river_profile.gd",
+        "scripts/probe_save_recovery.gd",
+        "scripts/probe_seek.gd",
+        "scripts/probe_skins.gd",
+        "scripts/probe_sky_lagoon_alive.gd",
+        "scripts/probe_sky_lagoon_animals.gd",
+        "scripts/probe_sky_lagoon_art.gd",
+        "scripts/probe_stage_navigation_2d.gd",
+        "scripts/probe_start_menu_new_game.gd",
+        "scripts/probe_start_menu_routing.gd",
+        "scripts/probe_stuffie.gd",
+        "scripts/probe_texture_seams.gd",
+        "scripts/probe_throne.gd",
+        "scripts/probe_throne_shots.gd",
+        "scripts/probe_touch_adversary.gd",
+        "scripts/probe_touch_look.gd",
+        "scripts/probe_touch_router.gd",
+        "scripts/probe_touch_stress.gd",
+        "scripts/probe_toy_anim.gd",
+        "scripts/probe_train.gd",
+        "scripts/probe_tree_book_test.gd",
+        "scripts/probe_ui.gd",
+        "scripts/probe_ui_system.gd",
+        "scripts/probe_upstairs.gd",
+        "scripts/probe_verbs.gd",
+        "scripts/probe_visual_audit.gd",
+        "scripts/probe_voice.gd",
+        "scripts/racer_game_2d.gd",
+        "scripts/rainbow_friend_follower.gd",
+        "scripts/reef_districts.gd",
+        "scripts/roshan_sprite_anchors.gd",
+        "scripts/roshan_sprite_frames.gd",
+        "scripts/roshan_sprite_loop.gd",
+        "scripts/save_state.gd",
+        "scripts/shell_ornament.gd",
+        "scripts/sprite_transition_2d.gd",
+        "scripts/stage_navigation_2d.gd",
+        "scripts/start_menu.gd",
+        "scripts/storybook_ui.gd",
+        "scripts/story_art.gd",
+        "scripts/stuffie_battle.gd",
+        "scripts/support_career_painted_art.gd",
+        "scripts/tap_move_director.gd",
+        "scripts/teacher_lesson_plan.gd",
+        "scripts/touch_ui.gd",
+        "scripts/tree_book_test_checks.gd",
+        "scripts/wardrobe_ui.gd",
+        "scripts/arena/castle_fixture_rigs.gd",
+        "scripts/arena/castle_rooms_25d.gd",
+        "scripts/arena/courtyard_train.gd",
+        "scripts/arena/day_one_castle_dressing.gd",
+        "scripts/arena/day_one_castle_grime.gd",
+        "scripts/arena/fairy_conservatory_door_2d.gd",
+        "scripts/arena/fairy_conservatory_handoff_2d.gd",
+        "scripts/arena/northern_kingdom.gd",
+        "scripts/arena/sky_lagoon.gd",
+        "scripts/arena/sky_lagoon_promenade.gd",
+        "scripts/games/brawl.gd",
+        "scripts/games/dance_engine.gd",
+        "scripts/games/day_one_bathroom_cleaning.gd",
+        "scripts/games/day_one_bathroom_cleanup.gd",
+        "scripts/games/day_one_bathroom_toilet.gd",
+        "scripts/games/day_one_dust_bunny_swimmer.gd",
+        "scripts/games/day_one_fixture_scrub.gd",
+        "scripts/games/day_one_pool_cleanup.gd",
+        "scripts/games/dolls.gd",
+        "scripts/games/dust_boss.gd",
+        "scripts/games/dust_boss_patterns.gd",
+        "scripts/games/fairy.gd",
+        "scripts/games/fetch.gd",
+        "scripts/games/melody.gd",
+        "scripts/games/octagon_stage.gd",
+        "scripts/games/picture_games.gd",
+        "scripts/games/pool_seahorse_rescue_activity.gd",
+        "scripts/games/pool_skimmer_activity.gd",
+        "scripts/games/pool_waterfall_activity.gd",
+        "scripts/games/seek.gd",
+        "scripts/games/shop.gd",
+        "scripts/games/side_scroll.gd",
+        "scripts/games/slide_race.gd",
+        "scripts/games/treasure.gd"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 2.362,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_06",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tests.test_audit_typography",
+        "tests.test_type_c_layout"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 109.674,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_07",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_typography.py",
+        "--check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 7.94,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_08",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_bake_zone_mask"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 2.603,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_09",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_roshan_2d.py",
+        "--stress"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1.965,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_10",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_roshan_2d.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 9.737,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_11",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_game_2d"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 235.141,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_12",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_game_2d.py",
+        "--stress"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 12.628,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_13",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_roshan_sprite_clipping"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 3.738,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_14",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_roshan_sprite_clipping.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 30.353,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_15",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_probe_parity.py",
+        "--stress"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1.145,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_16",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_probe_parity.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 0.502,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_17",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 2.571,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_18",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_document_authority.py",
+        "--stress"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1.05,
+      "effective_pass": true,
+      "replay": {
+        "name": "final_authority",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+          "-B",
+          "tools/audit_document_authority.py"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 23.45991199999844
+      }
+    },
+    {
+      "name": "static_19",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_development"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 40.505,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_20",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_record_owner_decision",
+        "tools.tests.test_run_advisory_sensor",
+        "tools.tests.test_study_game",
+        "tools.tests.test_build_study_roadmap",
+        "tools.tests.test_plan_prompt",
+        "tools.tests.test_resolve_godot",
+        "tools.tests.test_gold_star"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 176.027,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_21",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/gold_star.py",
+        "--check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 7.744,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_22",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit": 1,
+      "passed": false,
+      "advisory": false,
+      "seconds": 20.084,
+      "effective_pass": true,
+      "replay": {
+        "name": "final_coverage",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+          "-B",
+          "tools/audit_development.py",
+          "--base",
+          "auto"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 16.0459125999987
+      }
+    },
+    {
+      "name": "static_23",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_document_authority.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 24.156,
+      "effective_pass": true,
+      "replay": {
+        "name": "final_authority",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+          "-B",
+          "tools/audit_document_authority.py"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 23.45991199999844
+      }
+    },
+    {
+      "name": "static_24",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_imagine_handoff"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 7.088,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_25",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_imagine_handoff.py",
+        "--all"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 4.141,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_26",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_fairy_art_v2.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 4.442,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_27",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_fairy_conservatory_handoff.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 2.544,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_28",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/prepare_opera_nursery_art.py",
+        "--check-only"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1.126,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_29",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/prepare_opera_minigame_art.py",
+        "--check-only"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 33.381,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_30",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_opera_diegetic_hotspot_art.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 2.184,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_31",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_opera_borderless_minigame_art.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1.433,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_32",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_opera_roshan_animation.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1.697,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_33",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/build_day_one_story_clips.py",
+        "--check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 0.696,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_34",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/build_area_music.py",
+        "--check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 142.364,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_35",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_audio_quality"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 9.719,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_36",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/build_audio_quality_replacements.py",
+        "--check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 4.09,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_37",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_audio_quality.py",
+        "--check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1856.315,
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_38",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_visual_design"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1630.8193950999994,
+      "log": "remaining_static_38.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_39",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_visual_design.py",
+        "--stress"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 511.8478959999993,
+      "log": "remaining_static_39.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_40",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_visual_design.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": true,
+      "seconds": 70.18588509999972,
+      "log": "remaining_static_40.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_41",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_scene_congruency.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 38.0539804,
+      "log": "remaining_static_41.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_42",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_sky_lagoon_layout.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1.4543731000012485,
+      "log": "remaining_static_42.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_43",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_castle_card_alpha.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 5.259239900005923,
+      "log": "remaining_static_43.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_44",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.tests.test_check_grade_headroom"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 1.960831699994742,
+      "log": "remaining_static_44.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_45",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/check_grade_headroom.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 33.50766220000514,
+      "log": "remaining_static_45.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_46",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_castle_interactions.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 6.451819900001283,
+      "log": "remaining_static_46.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_47",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/normalize_castle_interaction_v2_sheets.py",
+        "--check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 25.413255699997535,
+      "log": "remaining_static_47.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_48",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_castle_interactions_v2.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 33.9819170999981,
+      "log": "remaining_static_48.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_49",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/build_castle_interaction_v4_delivery.py",
+        "--check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 28.848529999995662,
+      "log": "remaining_static_49.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_50",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_castle_native_interactions.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 46.12337059999845,
+      "log": "remaining_static_50.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_51",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/repair_castle_room_native_backgrounds.py",
+        "--check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 20.315569900005357,
+      "log": "remaining_static_51.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_52",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/build_interactive_background_ownership.py",
+        "--check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 14.83476260000316,
+      "log": "remaining_static_52.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_53",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/refine_castle_depth_cards.py",
+        "--check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 3.873347400003695,
+      "log": "remaining_static_53.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_54",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/audit_castle_static_depth_cards.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 8.243571899998642,
+      "log": "remaining_static_54.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_55",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "unittest",
+        "tools.test_audit_castle_native_interactions",
+        "tools.test_build_castle_interaction_v4_delivery",
+        "tools.test_castle_interaction_frame_qa",
+        "tools.test_review_castle_interaction_frames_v4",
+        "tools.test_refine_castle_depth_cards",
+        "tools.test_audit_castle_static_depth_cards",
+        "tools.test_repair_castle_room_native_backgrounds",
+        "tools.test_interactive_background_ownership"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 27.004474699999264,
+      "log": "remaining_static_55.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_56",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/review_castle_interaction_frames_v4.py",
+        "check"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 39.04596420000598,
+      "log": "remaining_static_56.log",
+      "effective_pass": true,
+      "replay": null
+    },
+    {
+      "name": "static_57",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 460.933,
+      "log": "game_2d.log",
+      "evidence_reuse": "Same actual current-base 2D regression gate as CI static_57; no production file changed. Not a second execution.",
+      "effective_pass": true,
+      "replay": null
+    }
+  ],
+  "probe_expected": 82,
+  "probe_pass": {
+    "probe_reef_districts": true,
+    "probe_ocean_kingdoms": true,
+    "probe_audit": true,
+    "probe_passive": true,
+    "probe_living_world": true,
+    "probe_load": true,
+    "probe_rank": true,
+    "probe_save_recovery": true,
+    "probe_galaxy_state": true,
+    "probe_collection": true,
+    "probe_mg2d": true,
+    "probe_fetch": true,
+    "probe_melody": true,
+    "probe_dolls": true,
+    "probe_seek": true,
+    "probe_audio": true,
+    "probe_dance": true,
+    "probe_l2": true,
+    "probe_l2_living_cards": true,
+    "probe_sky_lagoon_animals": true,
+    "probe_l2_reenter": true,
+    "probe_crown": true,
+    "probe_throne": true,
+    "probe_northern": true,
+    "probe_human_art_audit": true,
+    "probe_train": true,
+    "probe_verbs": true,
+    "probe_skins": true,
+    "probe_touch_router": true,
+    "probe_touch_stress": true,
+    "probe_interaction": true,
+    "probe_touch_adversary": true,
+    "probe_touch_look": true,
+    "probe_ui_system": true,
+    "probe_voice": true,
+    "probe_day_one_voice": true,
+    "probe_day_one_d8_revisits": true,
+    "probe_day_one_handoffs": true,
+    "probe_kart_feel": true,
+    "probe_combat": true,
+    "probe_dust_bunny": true,
+    "probe_dust_bunny_boss": true,
+    "probe_dust_boss": true,
+    "probe_hit": true,
+    "probe_partner": true,
+    "probe_combat_tutorial": true,
+    "probe_imp_ai": true,
+    "probe_mic": true,
+    "probe_stuffie": true,
+    "probe_dungeon": true,
+    "probe_ember": true,
+    "probe_opera": true,
+    "probe_opera_2d": true,
+    "probe_opera_diegetic_paths": true,
+    "probe_opera_detective": true,
+    "probe_opera_pipe": true,
+    "probe_opera_nursery": true,
+    "probe_opera_gesture_quality": true,
+    "probe_kitchen_props": true,
+    "probe_bathroom_props": true,
+    "probe_castle_door_language": true,
+    "probe_bathroom_integration": true,
+    "probe_day_one_bathroom_bunny": true,
+    "probe_day_one_bathroom_cleanup": true,
+    "probe_day_one_bathroom_movie_handoff": true,
+    "probe_day_one_director": true,
+    "probe_day_one_integration": true,
+    "probe_day_one_pool_cleanup": true,
+    "probe_day_one_art_attack_state": true,
+    "probe_day_one_castle_dressing": true,
+    "probe_day_one_story_clips": true,
+    "probe_chapter2": true,
+    "probe_chapter2_farmer_resume": true,
+    "probe_chapter2_lawn": true,
+    "probe_alpha_milestone_save": true,
+    "probe_dust_boss_balance": true,
+    "probe_start_menu_routing": true,
+    "probe_start_menu_new_game": true,
+    "probe_castle_pool_life_2d": true,
+    "probe_castle_pearl_art": true,
+    "probe_fairy_art": true,
+    "probe_props": true
+  },
+  "probe_evidence": {
+    "probe_reef_districts": [
+      {
+        "name": "probe_reef_districts",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_reef_districts.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 19.035
+      }
+    ],
+    "probe_ocean_kingdoms": [
+      {
+        "name": "probe_ocean_kingdoms",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_ocean_kingdoms.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 23.746
+      }
+    ],
+    "probe_audit": [
+      {
+        "name": "probe_audit",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_audit.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 62.914
+      }
+    ],
+    "probe_passive": [
+      {
+        "name": "probe_passive",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_passive.gd",
+          "--",
+          "--touch",
+          "--hybrid-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 83.911
+      }
+    ],
+    "probe_living_world": [
+      {
+        "name": "probe_living_world",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_living_world.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 32.399
+      }
+    ],
+    "probe_load": [
+      {
+        "name": "probe_load",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_load.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 26.027
+      }
+    ],
+    "probe_rank": [
+      {
+        "name": "probe_rank",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_rank.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 23.706
+      }
+    ],
+    "probe_save_recovery": [
+      {
+        "name": "probe_save_recovery",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_save_recovery.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 20.184
+      }
+    ],
+    "probe_galaxy_state": [
+      {
+        "name": "probe_galaxy_state",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_galaxy_state.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 26.107
+      }
+    ],
+    "probe_collection": [
+      {
+        "name": "probe_collection",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_collection.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 18.341
+      }
+    ],
+    "probe_mg2d": [
+      {
+        "name": "probe_mg2d",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_mg2d.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 40.6
+      }
+    ],
+    "probe_fetch": [
+      {
+        "name": "probe_fetch",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_fetch.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 20.349
+      }
+    ],
+    "probe_melody": [
+      {
+        "name": "probe_melody",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_melody.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 45.601
+      }
+    ],
+    "probe_dolls": [
+      {
+        "name": "probe_dolls",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_dolls.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 28.79
+      }
+    ],
+    "probe_seek": [
+      {
+        "name": "probe_seek",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_seek.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 22.11
+      }
+    ],
+    "probe_audio": [
+      {
+        "name": "probe_audio",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_audio.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 22.961
+      }
+    ],
+    "probe_dance": [
+      {
+        "name": "probe_dance",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_dance.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 19.589
+      }
+    ],
+    "probe_l2": [
+      {
+        "name": "probe_l2",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_l2.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 24.597
+      }
+    ],
+    "probe_l2_living_cards": [
+      {
+        "name": "probe_l2_living_cards",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_l2_living_cards.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 21.209
+      }
+    ],
+    "probe_sky_lagoon_animals": [
+      {
+        "name": "probe_sky_lagoon_animals",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_sky_lagoon_animals.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 25.388
+      }
+    ],
+    "probe_l2_reenter": [
+      {
+        "name": "probe_l2_reenter",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_l2_reenter.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 25.808
+      }
+    ],
+    "probe_crown": [
+      {
+        "name": "probe_crown",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_crown.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 42.764
+      }
+    ],
+    "probe_throne": [
+      {
+        "name": "probe_throne",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_throne.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 48.003
+      }
+    ],
+    "probe_northern": [
+      {
+        "name": "probe_northern",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_northern.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 23.079
+      }
+    ],
+    "probe_human_art_audit": [
+      {
+        "name": "probe_human_art_audit",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_human_art_audit.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 22.733
+      }
+    ],
+    "probe_train": [
+      {
+        "name": "probe_train",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_train.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 29.507
+      }
+    ],
+    "probe_verbs": [
+      {
+        "name": "probe_verbs",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_verbs.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 66.141
+      }
+    ],
+    "probe_skins": [
+      {
+        "name": "probe_skins",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_skins.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 20.512
+      }
+    ],
+    "probe_touch_router": [
+      {
+        "name": "probe_touch_router",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_touch_router.gd",
+          "--",
+          "--touch",
+          "--hybrid-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 22.56
+      }
+    ],
+    "probe_touch_stress": [
+      {
+        "name": "probe_touch_stress",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_touch_stress.gd",
+          "--",
+          "--touch",
+          "--hybrid-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 34.471
+      }
+    ],
+    "probe_interaction": [
+      {
+        "name": "probe_interaction",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_interaction.gd",
+          "--",
+          "--touch",
+          "--hybrid-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 46.626
+      }
+    ],
+    "probe_touch_adversary": [
+      {
+        "name": "probe_touch_adversary",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_touch_adversary.gd",
+          "--",
+          "--touch",
+          "--hybrid-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 114.454
+      }
+    ],
+    "probe_touch_look": [
+      {
+        "name": "probe_touch_look",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_touch_look.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 31.753
+      }
+    ],
+    "probe_ui_system": [
+      {
+        "name": "probe_ui_system",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_ui_system.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 70.026
+      }
+    ],
+    "probe_voice": [
+      {
+        "name": "probe_voice",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_voice.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 22.136
+      }
+    ],
+    "probe_day_one_voice": [
+      {
+        "name": "probe_day_one_voice",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_voice.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 25.727
+      }
+    ],
+    "probe_day_one_d8_revisits": [
+      {
+        "name": "probe_day_one_d8_revisits",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_d8_revisits.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 0.953
+      }
+    ],
+    "probe_day_one_handoffs": [
+      {
+        "name": "probe_day_one_handoffs",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_handoffs.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 24.95
+      }
+    ],
+    "probe_kart_feel": [
+      {
+        "name": "probe_kart_feel",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_kart_feel.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 82.608
+      }
+    ],
+    "probe_combat": [
+      {
+        "name": "probe_combat",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_combat.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 23.62
+      }
+    ],
+    "probe_dust_bunny": [
+      {
+        "name": "probe_dust_bunny",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_dust_bunny.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 0.907
+      }
+    ],
+    "probe_dust_bunny_boss": [
+      {
+        "name": "probe_dust_bunny_boss",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_dust_bunny_boss.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 1.348
+      }
+    ],
+    "probe_dust_boss": [
+      {
+        "name": "probe_dust_boss",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_dust_boss.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 68.978
+      }
+    ],
+    "probe_hit": [
+      {
+        "name": "probe_hit",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_hit.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 30.429
+      }
+    ],
+    "probe_partner": [
+      {
+        "name": "probe_partner",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_partner.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 26.077
+      }
+    ],
+    "probe_combat_tutorial": [
+      {
+        "name": "probe_combat_tutorial",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_combat_tutorial.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 33.21
+      }
+    ],
+    "probe_imp_ai": [
+      {
+        "name": "probe_imp_ai",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_imp_ai.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 3.446
+      }
+    ],
+    "probe_mic": [
+      {
+        "name": "probe_mic",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_mic.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 23.696
+      }
+    ],
+    "probe_stuffie": [
+      {
+        "name": "probe_stuffie",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_stuffie.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 39.274
+      }
+    ],
+    "probe_dungeon": [
+      {
+        "name": "probe_dungeon",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_dungeon.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 41.68
+      }
+    ],
+    "probe_ember": [
+      {
+        "name": "probe_ember",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_ember.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 27.783
+      }
+    ],
+    "probe_opera": [
+      {
+        "name": "probe_opera",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_opera.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 109.56
+      }
+    ],
+    "probe_opera_2d": [
+      {
+        "name": "probe_opera_2d",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_opera_2d.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 95.358
+      }
+    ],
+    "probe_opera_diegetic_paths": [
+      {
+        "name": "probe_opera_diegetic_paths",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_opera_diegetic_paths.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 5.583
+      }
+    ],
+    "probe_opera_detective": [
+      {
+        "name": "probe_opera_detective",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_opera_detective.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 20.002
+      }
+    ],
+    "probe_opera_pipe": [
+      {
+        "name": "probe_opera_pipe",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_opera_pipe.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 1.803
+      }
+    ],
+    "probe_opera_nursery": [
+      {
+        "name": "probe_opera_nursery",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_opera_nursery.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 20.862
+      }
+    ],
+    "probe_opera_gesture_quality": [
+      {
+        "name": "probe_opera_gesture_quality",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_opera_gesture_quality.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 6.93
+      }
+    ],
+    "probe_kitchen_props": [
+      {
+        "name": "probe_kitchen_props",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_kitchen_props.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 2.042
+      }
+    ],
+    "probe_bathroom_props": [
+      {
+        "name": "probe_bathroom_props",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_bathroom_props.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 1.286
+      }
+    ],
+    "probe_castle_door_language": [
+      {
+        "name": "probe_castle_door_language",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_castle_door_language.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 23.777
+      }
+    ],
+    "probe_bathroom_integration": [
+      {
+        "name": "probe_bathroom_integration",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_bathroom_integration.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 45.303
+      }
+    ],
+    "probe_day_one_bathroom_bunny": [
+      {
+        "name": "probe_day_one_bathroom_bunny",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_bathroom_bunny.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 25.36
+      },
+      {
+        "name": "probe_day_one_bathroom_bunny",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_bathroom_bunny.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 21.536076199998206,
+        "log": "tail_probe_day_one_bathroom_bunny.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_day_one_bathroom_cleanup": [
+      {
+        "name": "probe_day_one_bathroom_cleanup",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_bathroom_cleanup.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 25.894
+      },
+      {
+        "name": "probe_day_one_bathroom_cleanup",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_bathroom_cleanup.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 27.79077700000198,
+        "log": "tail_probe_day_one_bathroom_cleanup.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_day_one_bathroom_movie_handoff": [
+      {
+        "name": "probe_day_one_bathroom_movie_handoff",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_bathroom_movie_handoff.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 18.661
+      },
+      {
+        "name": "probe_day_one_bathroom_movie_handoff",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_bathroom_movie_handoff.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 23.308046500002092,
+        "log": "tail_probe_day_one_bathroom_movie_handoff.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_day_one_director": [
+      {
+        "name": "probe_day_one_director",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_director.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 26.352
+      },
+      {
+        "name": "probe_day_one_director",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_director.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 24.122216499999922,
+        "log": "tail_probe_day_one_director.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_day_one_integration": [
+      {
+        "name": "probe_day_one_integration",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_integration.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 17.203
+      },
+      {
+        "name": "probe_day_one_integration",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_integration.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 17.568328499997733,
+        "log": "tail_probe_day_one_integration.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_day_one_pool_cleanup": [
+      {
+        "name": "probe_day_one_pool_cleanup",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_pool_cleanup.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 27.938
+      },
+      {
+        "name": "probe_day_one_pool_cleanup",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_pool_cleanup.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 26.6853201000049,
+        "log": "tail_probe_day_one_pool_cleanup.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_day_one_art_attack_state": [
+      {
+        "name": "probe_day_one_art_attack_state",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_art_attack_state.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 20.482
+      },
+      {
+        "name": "probe_day_one_art_attack_state",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_art_attack_state.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 19.1893157999948,
+        "log": "tail_probe_day_one_art_attack_state.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_day_one_castle_dressing": [
+      {
+        "name": "probe_day_one_castle_dressing",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_castle_dressing.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 1.174
+      },
+      {
+        "name": "probe_day_one_castle_dressing",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_castle_dressing.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 1.2718983000013395,
+        "log": "tail_probe_day_one_castle_dressing.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_day_one_story_clips": [
+      {
+        "name": "probe_day_one_story_clips",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_story_clips.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "advisory": false,
+        "seconds": 39.101
+      },
+      {
+        "name": "probe_day_one_story_clips",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_day_one_story_clips.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 33.19709390000207,
+        "log": "tail_probe_day_one_story_clips.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_chapter2": [
+      {
+        "name": "probe_chapter2",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_chapter2.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 343.0097911999983,
+        "log": "tail_probe_chapter2.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_chapter2_farmer_resume": [
+      {
+        "name": "probe_chapter2_farmer_resume",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_chapter2_farmer_resume.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 41.732165300003544,
+        "log": "tail_probe_chapter2_farmer_resume.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_chapter2_lawn": [
+      {
+        "name": "probe_chapter2_lawn",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_chapter2_lawn.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 23.496845000001485,
+        "log": "tail_probe_chapter2_lawn.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_alpha_milestone_save": [
+      {
+        "name": "probe_alpha_milestone_save",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_alpha_milestone_save.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 35.01399300000048,
+        "log": "tail_probe_alpha_milestone_save.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_dust_boss_balance": [
+      {
+        "name": "probe_dust_boss_balance",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_dust_boss_balance.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 254.79789799999708,
+        "log": "tail_probe_dust_boss_balance.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_start_menu_routing": [
+      {
+        "name": "probe_start_menu_routing",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_start_menu_routing.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 21.96909179999784,
+        "log": "tail_probe_start_menu_routing.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_start_menu_new_game": [
+      {
+        "name": "probe_start_menu_new_game",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_start_menu_new_game.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 47.37227349999739,
+        "log": "tail_probe_start_menu_new_game.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_castle_pool_life_2d": [
+      {
+        "name": "probe_castle_pool_life_2d",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_castle_pool_life_2d.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 21.594263000006322,
+        "log": "tail_probe_castle_pool_life_2d.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_castle_pearl_art": [
+      {
+        "name": "probe_castle_pearl_art",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_castle_pearl_art.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 31.33808339999814,
+        "log": "tail_probe_castle_pearl_art.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_fairy_art": [
+      {
+        "name": "probe_fairy_art",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_fairy_art.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 1.551174300002458,
+        "log": "tail_probe_fairy_art.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ],
+    "probe_props": [
+      {
+        "name": "probe_props",
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "-s",
+          "scripts/probe_props.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "exit": 0,
+        "passed": true,
+        "seconds": 22.805218499997864,
+        "log": "tail_probe_props.log",
+        "profile": "fresh isolated timestamp profile"
+      }
+    ]
+  },
+  "preflight": [
+    {
+      "name": "import",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-creative-space-20261101\\mermaid-roshan-reef",
+        "--import"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 34.19
+    },
+    {
+      "name": "game_2d",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit": 0,
+      "passed": true,
+      "advisory": false,
+      "seconds": 460.933
+    }
+  ],
+  "final_checks": [
+    {
+      "name": "final_authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit": 0,
+      "passed": true,
+      "seconds": 23.45991199999844
+    },
+    {
+      "name": "final_coverage",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit": 0,
+      "passed": true,
+      "seconds": 16.0459125999987
+    },
+    {
+      "name": "final_contract_tests",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "exit": 0,
+      "passed": true,
+      "seconds": 46.750471899998956
+    },
+    {
+      "name": "final_diff_check",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "HEAD",
+        "--",
+        "assets_src/animation/roshan_job_rig_creative_space_20261101",
+        "ASSET_LICENSES.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/05_DOC_LEDGER.md",
+        "design/audit_impacts/roshan-job-rig-creative-space-20261101.json"
+      ],
+      "exit": 0,
+      "passed": true,
+      "seconds": 1.2731768999947235
+    }
+  ],
+  "scheduling": "Serial prefix and isolated final-twenty runner; same original CI commands, eight-minute timeouts, failure/resource regex and positive-output floor. No test assertions changed. Any stopped duplicate gets no verdict.",
+  "prior_failures": "All f59 attempts and the early structural coverage failure during file creation remain preserved. Governance replay uses the complete actual diff; no narrower base.",
+  "candidate_acceptance": "FAIL: source candidate numerical/static-visual failures remain separately blocking. Green project regression does not accept it.",
+  "targeted_final_replay": {
+    "reason": "Preserve literal CRLF and raw-log bytes while checking authored whitespace; new diagnostic path added to full-diff coverage. Previously passing contract unit tests remain unchanged and retained.",
+    "initial_diagnostic": "evidence/final_diff_check_first.log",
+    "replayed": [
+      "final_authority",
+      "final_coverage",
+      "final_diff_check"
+    ]
+  }
+}

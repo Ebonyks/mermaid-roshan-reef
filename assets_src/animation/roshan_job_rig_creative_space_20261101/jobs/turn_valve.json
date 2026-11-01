@@ -1,0 +1,77 @@
+{
+  "id": "turn_valve",
+  "version": 1,
+  "baseline": "f59a1d1d5bdd58604f4706d16fb4e76d8f7db8b9",
+  "lane": "SOURCE_ONLY_NATIVE_PROTOTYPE",
+  "intent": "Roshan turns the actual launch valve while the rocket remains parked",
+  "mechanic_authority": "scripts/chapter_two_career_scene_adapter.gd:62-66",
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md Ribbon Glide",
+  "shared_contract": "roshan.canvas.shared 1.0.0; provisional local pin",
+  "fixed": [
+    "camera",
+    "bone/rest topology",
+    "actor scale",
+    "face/hair/hand identity",
+    "fixture mount"
+  ],
+  "sources": "source_inventory.json and registration.json",
+  "method": "native 14 Bone2D, unchanged original 3-action curves, declared coordinated job rotations; Aseprite clothing isolation/registration from two fitting plates, reused game props",
+  "entry_exit": "front neutral pose; source-local prop ownership; no gameplay effects/saves; five-second loop returns exact neutral",
+  "timeline_s": {
+    "anticipation": [
+      0,
+      0.35
+    ],
+    "approach": [
+      0.35,
+      1.1
+    ],
+    "contact": [
+      1.1,
+      3.6
+    ],
+    "settle": [
+      3.6,
+      4.5
+    ],
+    "quiet_hold": [
+      4.5,
+      5
+    ]
+  },
+  "geometry": {
+    "units": "native 1024 canvas pixels",
+    "socket": "grip.screen_left",
+    "grip_offset_px": [
+      24,
+      0
+    ],
+    "view": "front",
+    "layers": "Fixed mount below actor, turning wheel behind original open palm; palm push, not a closed grasp.",
+    "tolerances_px": {
+      "socket": 3,
+      "fixture": 0,
+      "loop": 0.001
+    }
+  },
+  "events": "presentation-only contacts; no awards or writes; no new job mechanic",
+  "interruptions": "seek/reset switches action synchronously; no timers, delayed effects or save mutations; pause freezes presentation",
+  "verification": "native captures full-speed/frame-step, original 3 curves, independent slot/live swaps, contamination/poison controls, geometry/contact reports",
+  "limits": {
+    "total_task_calls_cap": 4,
+    "per_gap": 2,
+    "art_wall_minutes_cap": 120,
+    "cleanup_minutes_cap": 45,
+    "paid_external_budget": 0
+  },
+  "acceptance": {
+    "human": "PENDING",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING",
+    "production": "NOT_AUTHORIZED"
+  },
+  "candidate_status": "NUMERICALLY_REJECTED",
+  "measured_result": "evidence/numeric/summary.json",
+  "verification_base": "93166ab1828ab9857227d038f8833b92dfb2f9f1"
+}

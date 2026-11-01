@@ -1,0 +1,52 @@
+{
+  "method": "builtin image_gen fitting stills, Aseprite RGBA garment isolation; native Bone2D source prototype",
+  "accepted_scope": "candidate garment source only; generated faces/hands/hair/anatomy excluded",
+  "attempts": [
+    {
+      "id": "painter_fit_take01",
+      "prompt": "Use case: identity-preserve. Asset type: 2D RGBA garment fitting source, one still only, not animation. IMAGE_1 is the EXACT Roshan pose, anatomy, proportions and canvas registration to preserve. IMAGE_2 is the existing approved painter body garment design; IMAGE_3 painter headpiece; IMAGE_4 painter tail garment. Replace ALL of IMAGE_1's pink shirt, lavender puff sleeves, blue waist and scaly tail surface with the painter garments from IMAGE_2\u20134 correctly fitted in perspective to this same neutral pose. The painter has the lavender shell bodice with coral ruffled straps, gold shell/pearls, coral waist ribbon, cream apron with painted rainbow and paint dabs, scalloped petal hem, lavender/coral/mint/gold tail sleeve curving left, and lavender beret with coral plume and paint dabs. Preserve these existing design details; no redesign. Make complete new garment silhouettes: no old blouse or sleeves showing underneath, bare arms from the ruffled straps. Keep exact original head, face, brown/rainbow hair, hands, tail curvature and rainbow fin tips, same entire figure scale/position; remove tiny tiara under the beret. The correct unchanged tail-fin attachment stays near (434,794) in IMAGE_1's 1024 square coordinates; waist near (535,475), neckline near (535,349). Keep arms relaxed downward-outward, do not add a tool yet. This source will be isolated into garment layers; preserve anatomy appearance. Painted polished storybook, clean fine contours, soft authored shading, no 3D, no pixel art. Full figure with generous transparent padding. True transparent RGBA, no background, shadows, text, guides, duplicate subjects or effects.",
+      "start_utc": "2026-11-01T06:19:41.263Z",
+      "end_utc": "2026-11-01T06:20:16.036Z",
+      "elapsed_seconds": 34.773,
+      "tool": "builtin image_gen",
+      "provider_model_revision_seed_request_billing": "not exposed",
+      "native": "native/painter_fit_take01.png",
+      "disposition": "CANDIDATE_CLOTHING_ONLY",
+      "prompt_transcription_before_recovery": "Use case: identity-preserve. Asset type: 2D RGBA garment fitting source, one still only, not animation. IMAGE_1 is the EXACT Roshan pose, anatomy, proportions and canvas registration to preserve. IMAGE_2 is the existing approved painter body garment design; IMAGE_3 painter headpiece; IMAGE_4 painter tail garment. Replace ALL of IMAGE_1's pink shirt, lavender puff sleeves, blue waist and scaly tail surface with the painter garments from IMAGE_2\u00e2\u20ac\u201c4 correctly fitted in perspective to this same neutral pose. The painter has the lavender shell bodice with coral ruffled straps, gold shell/pearls, coral waist ribbon, cream apron with painted rainbow and paint dabs, scalloped petal hem, lavender/coral/mint/gold tail sleeve curving left, and lavender beret with coral plume and paint dabs. Preserve these existing design details; no redesign. Make complete new garment silhouettes: no old blouse or sleeves showing underneath, bare arms from the ruffled straps. Keep exact original head, face, brown/rainbow hair, hands, tail curvature and rainbow fin tips, same entire figure scale/position; remove tiny tiara under the beret. The correct unchanged tail-fin attachment stays near (434,794) in IMAGE_1's 1024 square coordinates; waist near (535,475), neckline near (535,349). Keep arms relaxed downward-outward, do not add a tool yet. This source will be isolated into garment layers; preserve anatomy appearance. Painted polished storybook, clean fine contours, soft authored shading, no 3D, no pixel art. Full figure with generous transparent padding. True transparent RGBA, no background, shadows, text, guides, duplicate subjects or effects.",
+      "prompt_record_kind": "Exact native imageGeneration revisedPrompt event (submitted/reference order not separately exposed)",
+      "local_event_id": "exec-3e7bf0fa-77b1-4e53-b7f4-31bcb96c85dd",
+      "prompt_sha256_utf8": "4b955568f96c30e6495bc7f281aefe1ed244251dbab360617c2b414cc211d1f2"
+    },
+    {
+      "id": "astronaut_fit_take01",
+      "prompt": "Use case: identity-preserve. Asset type: single 2D RGBA garment fitting source, not animation. IMAGE_1 is the EXACT Roshan neutral pose/anatomy and entire figure registration. IMAGE_2 approved astronaut body garment, IMAGE_3 approved open-face astronaut hood/helmet, IMAGE_4 approved astronaut tail garment. Replace ALL old clothing with these garments, fitted to IMAGE_1 pose: pearl-cream and turquoise shell chest with gold crescent/stars, lavender belt, cream/turquoise petal peplum and decorative turquoise/cream tail sleeve with gold pearl hems. Keep original single tail curving LEFT and the original rainbow fins at the very end, no feet/legs. The helmet is the existing open-face hood in IMAGE_3 with opaque shell, turquoise/gold rim and two earcups; place naturally around her original face, preserve eyes/mouth readability. Brown/rainbow hair stays BEHIND the hood, not through opaque helmet surfaces, crown completely removed. Bare arms from short fitted armholes, no old purple sleeves. Keep exact original face, head proportions, hair color, hands, resting arm positions, scale and pose, only tailoring garments. No invented tools or mechanics. Waist near (535,475), neckline near (535,349), tail/fin socket near (434,794) in original 1024-square coordinates. Do not turn it into a vertical straight tail or flip fin side. This output will supply CLOTHING ONLY for isolation onto unchanged original anatomy; do not redesign her. Polished painted 2D storybook style with fine warm contours; no 3D or pixel art. True transparent RGBA, full figure/padding, no shadows/background, labels, extra figure or effects.",
+      "start_utc": "2026-11-01T06:20:48.764Z",
+      "end_utc": "2026-11-01T06:21:26.925Z",
+      "elapsed_seconds": 38.161,
+      "tool": "builtin image_gen",
+      "provider_model_revision_seed_request_billing": "not exposed",
+      "native": "native/astronaut_fit_take01.png",
+      "disposition": "CANDIDATE_CLOTHING_ONLY",
+      "prompt_transcription_before_recovery": "Use case: identity-preserve. Asset type: single 2D RGBA garment fitting source, not animation. IMAGE_1 is the EXACT Roshan neutral pose/anatomy and entire figure registration. IMAGE_2 approved astronaut body garment, IMAGE_3 approved open-face astronaut hood/helmet, IMAGE_4 approved astronaut tail garment. Replace ALL old clothing with these garments, fitted to IMAGE_1 pose: pearl-cream and turquoise shell chest with gold crescent/stars, lavender belt, cream/turquoise petal peplum and decorative turquoise/cream tail sleeve with gold pearl hems. Keep original single tail curving LEFT and the original rainbow fins at the very end, no feet/legs. The helmet is the existing open-face hood in IMAGE_3 with opaque shell, turquoise/gold rim and two earcups; place naturally around her original face, preserve eyes/mouth readability. Brown/rainbow hair stays BEHIND the hood, not through opaque helmet surfaces, crown completely removed. Bare arms from short fitted armholes, no old purple sleeves. Keep exact original face, head proportions, hair color, hands, resting arm positions, scale and pose, only tailoring garments. No invented tools or mechanics. Waist near (535,475), neckline near (535,349), tail/fin socket near (434,794) in original 1024-square coordinates. Do not turn it into a vertical straight tail or flip fin side. This output will supply CLOTHING ONLY for isolation onto unchanged original anatomy; do not redesign her. Polished painted 2D storybook style with fine warm contours; no 3D or pixel art. True transparent RGBA, full figure/padding, no shadows/background, labels, extra figure or effects.",
+      "prompt_record_kind": "Exact native imageGeneration revisedPrompt event (submitted/reference order not separately exposed)",
+      "local_event_id": "exec-1e8e0957-05cb-4bf0-a891-aede1d5d240f",
+      "prompt_sha256_utf8": "e36d0ca49adb74b6d94137791de1abb605151045f0e9596d1f77be0e8acb27d7"
+    }
+  ],
+  "calls": 4,
+  "cap": 4,
+  "per_gap": 2,
+  "paid_external_spend": 0,
+  "workspaces": "Isolated managed worktree; main checkout and all peer chat files read-only",
+  "shared_contract": "contract/rig_v1.json frozen locally at b2a5dfe936d13ccdeb88e5c29ad268b19488de7cbe49d9b06abf84a94135fb5f; publication pending",
+  "corrective_attempts": "corrective_attempts.json",
+  "further_generation": "STOP_AT_TASK_CAP",
+  "cleanup": "Aseprite traced isolation, uniform per-garment registration, source skin-window local infill and wrist clipping; earlier failing masks retained. Exact manual cleanup minutes not separately instrumented, so no cleanup-budget compliance claim.",
+  "corrected_seed_publication": {
+    "revision": "b700b846d1d2f4b1843279f268e2bb12e4b1f4ec",
+    "receipt": "evidence/upstream_seed_remote_verification.json",
+    "access": "anonymous HTTPS exact SHA-256 verified"
+  },
+  "reference_record_limit": "Approved appearance sources are preserved in fixtures/seed_art and source_inventory.json. The initial fitting-call transcript retains prompts but did not separately record a per-IMAGE binding list; do not infer generator readiness or exact first-frame acceptance.",
+  "prompt_encoding_recovery": "Native revised-prompt events recovered through read_thread; earlier mojibake transcription preserved alongside the exact Unicode record. See evidence/generation_event_prompts.json."
+}
