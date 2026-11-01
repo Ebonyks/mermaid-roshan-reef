@@ -1,0 +1,85 @@
+{
+  "geometry_pass": true,
+  "clips": {
+    "arm_bend": {
+      "frames": 97,
+      "visible_triangle_count": 227,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 0.9999997485042015,
+      "max_visible_area_ratio": 1.0000001939467935,
+      "max_visible_stretch": 1.0000001075100908,
+      "min_visible_stretch": 0.9999998742520928,
+      "max_bone_scale_error": 3.6936176650570474e-07,
+      "rigid_head_distance_error_px": 0.0,
+      "max_alpha_components": 1,
+      "max_interior_hole_pixels": 262,
+      "edge_alpha_pixels": 0,
+      "worst_frame": {
+        "frame": 2,
+        "time": 0.0666666666666667
+      },
+      "pixel_seam_pass": true,
+      "max_total_interior_hole_pixels": 733,
+      "max_interior_hole_components": 6,
+      "worst_triangle_source_center": [
+        404,
+        520
+      ],
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": true
+    },
+    "blink": {
+      "frames": 73,
+      "visible_triangle_count": 227,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 1.0,
+      "max_visible_area_ratio": 1.0,
+      "max_visible_stretch": 1.0,
+      "min_visible_stretch": 1.0,
+      "max_bone_scale_error": 2.3917538582995945e-07,
+      "rigid_head_distance_error_px": 0.0,
+      "max_alpha_components": 1,
+      "max_interior_hole_pixels": 258,
+      "edge_alpha_pixels": 0,
+      "worst_frame": null,
+      "pixel_seam_pass": true,
+      "max_total_interior_hole_pixels": 729,
+      "max_interior_hole_components": 6,
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": true
+    },
+    "tail_bend": {
+      "frames": 121,
+      "visible_triangle_count": 227,
+      "inverted_visible_triangles": 0,
+      "min_visible_area_ratio": 0.9999997648695063,
+      "max_visible_area_ratio": 1.0000001712468687,
+      "max_visible_stretch": 1.0000000856234306,
+      "min_visible_stretch": 0.9999998777358522,
+      "max_bone_scale_error": 3.9761287840001103e-07,
+      "rigid_head_distance_error_px": 0.0,
+      "max_alpha_components": 1,
+      "max_interior_hole_pixels": 261,
+      "edge_alpha_pixels": 0,
+      "worst_frame": {
+        "frame": 26,
+        "time": 0.866666666666667
+      },
+      "pixel_seam_pass": true,
+      "max_total_interior_hole_pixels": 733,
+      "max_interior_hole_components": 6,
+      "worst_triangle_source_center": [
+        416,
+        520
+      ],
+      "loop_endpoint_changed_pixels": 0,
+      "geometry_pass": true
+    }
+  },
+  "negative_controls": {
+    "interior_slit_detected": true,
+    "detached_piece_detected": true,
+    "scaled_head_detected": true
+  }
+}
+

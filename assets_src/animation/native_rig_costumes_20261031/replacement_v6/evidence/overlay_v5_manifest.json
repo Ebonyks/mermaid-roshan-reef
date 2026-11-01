@@ -1,0 +1,2677 @@
+{
+  "id": "native-rig-costumes-20261031",
+  "baseline": "005ba38a170f226d51ee906ce7d390ef682af9ac",
+  "scope": "Internal source-only two-costume shared-rig study; no external animation handoff",
+  "source_acceptance": "Existing wardrobe garments and original character sources retain their candidate/approved scopes; derivatives not preaccepted.",
+  "payload": [
+    {
+      "path": ".gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 49,
+      "sha256": "5c293bc4a8762da239e872f399f00ec843850aaa6fc9192ef734866aef22219b"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 129,
+      "sha256": "460257bd4ad5d40fb27b77105912f3cdeab295ec2a5be5e29e0f154ea9cdcbd7"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11163,
+      "sha256": "8a804887a6ff2290418c5361ba2d2e03220917bc5f20801ec06a25cbff3eac70"
+    },
+    {
+      "path": "art/ballet_body.png",
+      "bytes": 420201,
+      "sha256": "dec147e751dab6be7646b78a2a099da65a5d8963d818e2f266866f9a7c44a2dc"
+    },
+    {
+      "path": "art/ballet_composed.png",
+      "bytes": 499816,
+      "sha256": "5949b5bd06cb2c4863c712f61dce1028b94233efd9eeacad298a442b0500a53b"
+    },
+    {
+      "path": "art/ballet_head.png",
+      "bytes": 58238,
+      "sha256": "1108a5d77b37b594a7665dbf2c2b85f9956db534f607bbf9980b9bdd775ac2fc"
+    },
+    {
+      "path": "art/ballet_tail.png",
+      "bytes": 423987,
+      "sha256": "5405500116588cb0da6866044129e14af7237c0ae613d4ff842d000d3d482156"
+    },
+    {
+      "path": "art/magician_body.png",
+      "bytes": 381057,
+      "sha256": "4e5e2aef13e7e48ee6c16c841d7293bf0abc09f5be342d9f88936f37cfd4f834"
+    },
+    {
+      "path": "art/magician_composed.png",
+      "bytes": 502687,
+      "sha256": "f1521369064f8a0bfda0a36bae435618c028af85811a0f38936c8f43dfa00311"
+    },
+    {
+      "path": "art/magician_head.png",
+      "bytes": 66906,
+      "sha256": "ad572b014036bae789a118b4e98a20ea2fbe865e800b0f49d738b5f468e32406"
+    },
+    {
+      "path": "art/magician_tail.png",
+      "bytes": 384533,
+      "sha256": "3f4d71f65f0c5dea9ba1b622dabb5248b0e58736f060d380365c7c17cc5f25e2"
+    },
+    {
+      "path": "evidence/agent_static_review.json",
+      "bytes": 8238,
+      "sha256": "5d3db2b5c008744c3edf6f7e281befa8190b1f1738c4b7d8e4ddc5c52e38897d"
+    },
+    {
+      "path": "evidence/analyzer_render_stress.gd.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/analyzer_render_stress.gd.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "evidence/analyzer_stress_swaps.gd.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/analyzer_stress_swaps.gd.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "evidence/analyzer_study.gd.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/analyzer_study.gd.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "evidence/archive_swaps.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "evidence/archive_swaps.log",
+      "bytes": 87,
+      "sha256": "196d7a55a1f7bd1b9067e9c7f8a118bbe625e91ef5efc3df95e845382314bfbd"
+    },
+    {
+      "path": "evidence/aseprite_import.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/aseprite_import.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/aseprite_processes.json",
+      "bytes": 53,
+      "sha256": "e19c5232acf60117d6e7bfdb419f922f7f1b104e9c9190312bdf9e2bfeff0baa"
+    },
+    {
+      "path": "evidence/aseprite_reopen.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/aseprite_reopen.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/aseprite_roundtrip.json",
+      "bytes": 1904,
+      "sha256": "8bde29470cf683bd4c7ed060506a263f70889f70044060cae27c75278eadc4e8"
+    },
+    {
+      "path": "evidence/aseprite_verify.log",
+      "bytes": 1904,
+      "sha256": "8bde29470cf683bd4c7ed060506a263f70889f70044060cae27c75278eadc4e8"
+    },
+    {
+      "path": "evidence/authority_contract_tests.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "evidence/authority_contract_tests.log",
+      "bytes": 179,
+      "sha256": "4c52014700074d117c1644bd58d7d7a319e8d532fc31b09476efab80cc9c32d5"
+    },
+    {
+      "path": "evidence/ballet_gates_v2.json",
+      "bytes": 77,
+      "sha256": "3621e0bfa836fa752bf321c1c9e09deaae7111d9a8ef3083ea24427d2b77f5c1"
+    },
+    {
+      "path": "evidence/ballet_gates_v3.json",
+      "bytes": 77,
+      "sha256": "4529a6b0a4023451e12822566def84894e882afaef9afb45e1c8286a83a19d96"
+    },
+    {
+      "path": "evidence/ballet_gates_v4.json",
+      "bytes": 77,
+      "sha256": "364703cc25aab6ec68b238c337530b2e649d3eb225ce606ac590e65e9382c6db"
+    },
+    {
+      "path": "evidence/ballet_gates_v5.json",
+      "bytes": 77,
+      "sha256": "acbf3a07ef66975ce2bb6511738018194f96b83cf43f41faf16ccfcde9c6867f"
+    },
+    {
+      "path": "evidence/ballet_geometry_v2.log",
+      "bytes": 11222,
+      "sha256": "47ebb3edd3d30af5c435ca5b5795575b0bd7aa9e2b466f7ca0d1cd53b59eac45"
+    },
+    {
+      "path": "evidence/ballet_geometry_v3.log",
+      "bytes": 11222,
+      "sha256": "47ebb3edd3d30af5c435ca5b5795575b0bd7aa9e2b466f7ca0d1cd53b59eac45"
+    },
+    {
+      "path": "evidence/ballet_geometry_v4.log",
+      "bytes": 11222,
+      "sha256": "47ebb3edd3d30af5c435ca5b5795575b0bd7aa9e2b466f7ca0d1cd53b59eac45"
+    },
+    {
+      "path": "evidence/ballet_geometry_v5.log",
+      "bytes": 11208,
+      "sha256": "96002a6fc0debea4238ec3fbd77574d8572f528cae11f9b6d39bf13e5c5ec5d3"
+    },
+    {
+      "path": "evidence/ballet_motion_v2.log",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/ballet_motion_v3.log",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/ballet_motion_v4.log",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/ballet_motion_v5.log",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/ballet_render_v1.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ballet_render_v1.log",
+      "bytes": 312,
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "path": "evidence/ballet_render_v2.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ballet_render_v2.log",
+      "bytes": 312,
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "path": "evidence/ballet_render_v3.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ballet_render_v3.log",
+      "bytes": 312,
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "path": "evidence/ballet_render_v4.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ballet_render_v4.log",
+      "bytes": 312,
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "path": "evidence/ballet_render_v5.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/ballet_render_v5.log",
+      "bytes": 312,
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "path": "evidence/comparison_reel.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "evidence/comparison_reel.log",
+      "bytes": 20,
+      "sha256": "a5a8dae88b27f671ba960ef38a014c3628084e509e7d9848ef85f7f5f430a733"
+    },
+    {
+      "path": "evidence/executed_helpers/focused_melody_gate.sh.txt",
+      "bytes": 3130,
+      "sha256": "1eb38425dac8e2b7ce80ec063565c3f611a3c83049893992fc016f30d445c147"
+    },
+    {
+      "path": "evidence/executed_helpers/focused_opera_gate.sh.txt",
+      "bytes": 3132,
+      "sha256": "eae6b65c7b60178c33b2f4fc084cdf99e751129e9940a59b173bcb7bd0cd8cf1"
+    },
+    {
+      "path": "evidence/executed_helpers/project_gates.sh.txt",
+      "bytes": 5145,
+      "sha256": "78d9981087b9b38ed95e263bb4798cbe77003cc79e45b115b2f4a93ba387988f"
+    },
+    {
+      "path": "evidence/executed_helpers/project_probe_rerun.sh.txt",
+      "bytes": 4660,
+      "sha256": "5422d8ad338864934137f546731ca768c34671d03f9706c264e1facdc9ffb9cf"
+    },
+    {
+      "path": "evidence/executed_helpers/trace_melody_gate.sh.txt",
+      "bytes": 3280,
+      "sha256": "54e81a08fb0f679ab0366b698c214e791e9540f7182784d887034ac73ad1c6dc"
+    },
+    {
+      "path": "evidence/executed_helpers/trace_opera_gate.sh.txt",
+      "bytes": 3256,
+      "sha256": "069f35aebe82ee1a204186d7720b7dc3624517e0afdf87090fb8c1b6d435bfbc"
+    },
+    {
+      "path": "evidence/final_analyzer_probe_opera_2d.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_analyzer_probe_opera_2d.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "evidence/final_analyzer_render_stress.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_analyzer_render_stress.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "evidence/final_analyzer_stress_swaps.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_analyzer_stress_swaps.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "evidence/final_analyzer_study.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_analyzer_study.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "evidence/final_analyzer_trace_melody.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_analyzer_trace_melody.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "evidence/final_analyzer_trace_opera_2d.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_analyzer_trace_opera_2d.log",
+      "bytes": 75,
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "evidence/final_authority.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_authority.log",
+      "bytes": 78,
+      "sha256": "d71f89f48b9097c456686f0a41da94d4790b85ed87b97fd600377dfada9caa1c"
+    },
+    {
+      "path": "evidence/final_development.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_development.log",
+      "bytes": 80,
+      "sha256": "7f368e4906a83cc2b69851c1acf6ae8c58bbcdd861d8482c5353b8de36e2a0ab"
+    },
+    {
+      "path": "evidence/final_gate_receipt.json",
+      "bytes": 8927,
+      "sha256": "8b869c8c6f741fc159d5902ebc22a101a33cfe197d60e87d973124052ce9ee03"
+    },
+    {
+      "path": "evidence/final_gd_parser.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_gd_parser.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_inference.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_inference.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/final_whitespace.err",
+      "bytes": 196899,
+      "sha256": "23ad3d5e0f867e0dd6771900fdf120d9a0e3f18028ac51b5daa1073b81be32e2"
+    },
+    {
+      "path": "evidence/final_whitespace.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/frozen_inputs.json",
+      "bytes": 3272,
+      "sha256": "2371aa4191299968adc01bbc492c36b7279353e81f288634ef2b9bdf684c51f8"
+    },
+    {
+      "path": "evidence/frozen_inputs_v4_rejected.json",
+      "bytes": 3251,
+      "sha256": "b829513eb62310b02c6e73f2e6a8c0e9dac083e6285f744db5ac022e603412d3"
+    },
+    {
+      "path": "evidence/geologist_sampling_diagnosis.json",
+      "bytes": 4620,
+      "sha256": "17320e013110a4e698c25025e785f439e5b30a1d9d8b406f40e44baa8f90809f"
+    },
+    {
+      "path": "evidence/identity_audit.json",
+      "bytes": 79324,
+      "sha256": "1afd2b480e65bbd9509857bbd45ade8df5068005a36e6f487e0271d118f728fb"
+    },
+    {
+      "path": "evidence/identity_audit_v4_rejected.json",
+      "bytes": 79325,
+      "sha256": "a1222ae72d7f13008c5da8d2354e2506de014807f2d3904921ae5723e7f2f4f6"
+    },
+    {
+      "path": "evidence/import_sidecar_restoration.json",
+      "bytes": 301,
+      "sha256": "3f468d5ec13f8c018de247f22ecb6f08c87beaa66b20cc07d619e3ca7bcf40ff"
+    },
+    {
+      "path": "evidence/initial_archive_swaps.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "path": "evidence/initial_archive_swaps.log",
+      "bytes": 274,
+      "sha256": "89f639ec047ea67a57be3d925b00bdfa56394b5153f448e3a529e78fc09ff6bd"
+    },
+    {
+      "path": "evidence/initial_aseprite_import.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/initial_aseprite_processes.json",
+      "bytes": 59,
+      "sha256": "b8b2855a2b4c78895366c2dd3ce762de7d2d24a7d43f2b16e446a4e9ed1689ba"
+    },
+    {
+      "path": "evidence/initial_aseprite_reopen.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/initial_aseprite_verify.log",
+      "bytes": 1322,
+      "sha256": "e47eb6b75c87e0a60e174e8d5de1ce7e6cea95fc2b9bcc00edeba5bf3bf5a6a4"
+    },
+    {
+      "path": "evidence/initial_checker_project_gate_receipt.json",
+      "bytes": 3193,
+      "sha256": "63a7f52718c8bc4534ac12f4486d6913300ccbd657d4857f554b1c145ae3daee"
+    },
+    {
+      "path": "evidence/initial_checker_project_receipt.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/initial_checker_project_receipt.log",
+      "bytes": 3193,
+      "sha256": "63a7f52718c8bc4534ac12f4486d6913300ccbd657d4857f554b1c145ae3daee"
+    },
+    {
+      "path": "evidence/initial_final_gate_receipt.json",
+      "bytes": 8530,
+      "sha256": "5c4f950713ddd63557917427cfe9a0a8d9eed54e392425220863ef378a5f2caf"
+    },
+    {
+      "path": "evidence/initial_final_whitespace.err",
+      "bytes": 196899,
+      "sha256": "23ad3d5e0f867e0dd6771900fdf120d9a0e3f18028ac51b5daa1073b81be32e2"
+    },
+    {
+      "path": "evidence/initial_final_whitespace.log",
+      "bytes": 7913637,
+      "sha256": "27cdbd84e3c688d499500fff59e51a64863ba1abaacdb223dc860636373f05dc"
+    },
+    {
+      "path": "evidence/intermediate_final_whitespace.log",
+      "bytes": 104,
+      "sha256": "43441398eddb8349bcf0d695446ecaa2e14046a4566523d8630ba3b3f188b2ab"
+    },
+    {
+      "path": "evidence/magician_gates_v2.json",
+      "bytes": 79,
+      "sha256": "a17c859435f74c4bbe76f01d8314d37c99b5b4b946bfc6117bdc026323cfff41"
+    },
+    {
+      "path": "evidence/magician_gates_v3.json",
+      "bytes": 79,
+      "sha256": "3f6b9aa1c053d913e77ce46e2634bfe7aa5773786e331514ae7877b62b120e53"
+    },
+    {
+      "path": "evidence/magician_gates_v4.json",
+      "bytes": 79,
+      "sha256": "7207e51bd6b1b8abe873ea0af479073df1f8fad76e053f76c951a9d64f595983"
+    },
+    {
+      "path": "evidence/magician_gates_v5.json",
+      "bytes": 79,
+      "sha256": "569666c14bd363b192f89311b600e1c1ec0d66bb3b24b2368fca885dba0de146"
+    },
+    {
+      "path": "evidence/magician_geometry_v2.log",
+      "bytes": 11224,
+      "sha256": "5b0f64449ca2b8644dadb31f8bab18bafa71db357dcddd0fd685fcae9593b1b0"
+    },
+    {
+      "path": "evidence/magician_geometry_v3.log",
+      "bytes": 11224,
+      "sha256": "5b0f64449ca2b8644dadb31f8bab18bafa71db357dcddd0fd685fcae9593b1b0"
+    },
+    {
+      "path": "evidence/magician_geometry_v4.log",
+      "bytes": 11224,
+      "sha256": "5b0f64449ca2b8644dadb31f8bab18bafa71db357dcddd0fd685fcae9593b1b0"
+    },
+    {
+      "path": "evidence/magician_geometry_v5.log",
+      "bytes": 11223,
+      "sha256": "cd2729f0ddf9e01998525d4ed4830b1616122b3b8d6efd21c2d21b50afffbc0a"
+    },
+    {
+      "path": "evidence/magician_motion_v2.log",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/magician_motion_v3.log",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/magician_motion_v4.log",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/magician_motion_v5.log",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/magician_render_v2.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/magician_render_v2.log",
+      "bytes": 312,
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "path": "evidence/magician_render_v3.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/magician_render_v3.log",
+      "bytes": 312,
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "path": "evidence/magician_render_v4.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/magician_render_v4.log",
+      "bytes": 312,
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "path": "evidence/magician_render_v5.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/magician_render_v5.log",
+      "bytes": 312,
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "path": "evidence/media_verification.json",
+      "bytes": 5525,
+      "sha256": "1efed44be414bf4145eb0f4fcda85d7232dbd6ebf2eaf9bca99c820775802d98"
+    },
+    {
+      "path": "evidence/melody_baseline.json",
+      "bytes": 653,
+      "sha256": "086d8395f3f7148023b514404163131dc64b80c403fd4dc8843d5e134bf52ac9"
+    },
+    {
+      "path": "evidence/melody_diagnostic.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "evidence/melody_diagnostic.log",
+      "bytes": 61574,
+      "sha256": "ca582387cc8a7a47edb191a5b32ee9b14b7541ed6ede1839f2f2a3a6e63c1bd2"
+    },
+    {
+      "path": "evidence/melody_focused.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "evidence/melody_focused.log",
+      "bytes": 22877,
+      "sha256": "98ae51b7c6f145393dddb548f0544d12d72d85f1670c34bdb7e4192342a1d708"
+    },
+    {
+      "path": "evidence/melody_rerun_initial.log",
+      "bytes": 22940,
+      "sha256": "face02e3d48523549d5e646907667ca6c16b56b680741765162288530a33d785"
+    },
+    {
+      "path": "evidence/native_script_gates.json",
+      "bytes": 144,
+      "sha256": "a18503288c81bac352fa381c8e8e2bc6b06c91108e7869bf0a7069660b8bbc04"
+    },
+    {
+      "path": "evidence/native_script_inference.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/native_script_parser.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/opera_2d_diagnostic.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "path": "evidence/opera_2d_diagnostic.log",
+      "bytes": 98537,
+      "sha256": "625c4f4211cbc3b52f17c3f922e3cd17483c759da4cac3ba4003bbc2aea79193"
+    },
+    {
+      "path": "evidence/opera_2d_focused.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "path": "evidence/opera_2d_focused.log",
+      "bytes": 96028,
+      "sha256": "c8c7a9809c338e96a4e9c34ea06904c43f04f1a1172c8648ba9a42d144abb758"
+    },
+    {
+      "path": "evidence/opera_2d_initial.log",
+      "bytes": 96026,
+      "sha256": "7598c8ed6e02e212a8a82f868ce8679f0b9a50ff6616d46fe7c7833282745c15"
+    },
+    {
+      "path": "evidence/opera_2d_repaired.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "evidence/opera_2d_repaired.log",
+      "bytes": 96027,
+      "sha256": "6a19dcb3c758a47010fc8528490fd66993653081147b3641711018c2c5f8560e"
+    },
+    {
+      "path": "evidence/original_render_v1.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/original_render_v1.log",
+      "bytes": 312,
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "path": "evidence/original_render_v2.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/original_render_v2.log",
+      "bytes": 312,
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "path": "evidence/package_review.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "evidence/package_review.log",
+      "bytes": 1353,
+      "sha256": "2bec242b4a95ec833763a2fd157166e2b910d1c74dcf384e46b4e386aacd6dea"
+    },
+    {
+      "path": "evidence/package_review_v5.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "evidence/package_review_v5.log",
+      "bytes": 1859,
+      "sha256": "5cbc27e1ee8d14449d411b5aa2bd95cc466087b428e7a751a21bd390268fcc10"
+    },
+    {
+      "path": "evidence/portable_helpers.json",
+      "bytes": 2625,
+      "sha256": "89df991fad566dede26a12180705571d4736c932d26dcb1d77eb53ac0dda4477"
+    },
+    {
+      "path": "evidence/precommit_authority.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/precommit_authority.log",
+      "bytes": 78,
+      "sha256": "d71f89f48b9097c456686f0a41da94d4790b85ed87b97fd600377dfada9caa1c"
+    },
+    {
+      "path": "evidence/precommit_development.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/precommit_development.log",
+      "bytes": 80,
+      "sha256": "7f368e4906a83cc2b69851c1acf6ae8c58bbcdd861d8482c5353b8de36e2a0ab"
+    },
+    {
+      "path": "evidence/precommit_gate_receipt.json",
+      "bytes": 1412,
+      "sha256": "62b3397e92bfebe3e77bae19a4970f0f45127f206b4b6f6fe8a21cd0fe243383"
+    },
+    {
+      "path": "evidence/precommit_whitespace.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/precommit_whitespace.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/preparation_reject_v1/ballet_neutral.png",
+      "bytes": 507038,
+      "sha256": "da0287cb71bc432b275229c7bfc30a1cd764a9fa76af22b6a537429f8fea14b0"
+    },
+    {
+      "path": "evidence/preparation_reject_v1/build_costumes.py.txt",
+      "bytes": 6040,
+      "sha256": "cf3612e273ff57511db5daeebf68ccb24a2c93e137ddd264d59f4ec44f7c85c7"
+    },
+    {
+      "path": "evidence/preparation_reject_v1/magician_neutral.png",
+      "bytes": 520125,
+      "sha256": "65fe8bb97ef351794557bdc9f4ebd0ba2c432739eeb4801eeca7ab006c387623"
+    },
+    {
+      "path": "evidence/preparation_reject_v2/ballet_neutral.png",
+      "bytes": 512869,
+      "sha256": "64e62adc4f5b4e0493bb5585e02f603eb470304d6a61ae1622ab20e563f3996d"
+    },
+    {
+      "path": "evidence/preparation_reject_v2/magician_neutral.png",
+      "bytes": 509819,
+      "sha256": "74114a2781fe76e17cb8ea3cb15b03a709e99d490a6c463c043b733fda789d10"
+    },
+    {
+      "path": "evidence/preparation_reject_v3/ballet_neutral.png",
+      "bytes": 528470,
+      "sha256": "cefdb7f5aa8e4eaa301c0499de1df873e333a701b197460c8997c87e36d095df"
+    },
+    {
+      "path": "evidence/preparation_reject_v3/magician_neutral.png",
+      "bytes": 527631,
+      "sha256": "474c930ac4c881d840e7f3569793f34e81ccdd023e1db2fd8a1bd9f0fd5a7af7"
+    },
+    {
+      "path": "evidence/preparation_reject_v4/ballet_neutral.png",
+      "bytes": 523941,
+      "sha256": "17d5ed902e7f2ca2b83b63496e51959a82e1491596e8cabc4935c59a0d816fcc"
+    },
+    {
+      "path": "evidence/preparation_reject_v4/build_costumes.py.txt",
+      "bytes": 10414,
+      "sha256": "e7b22a980efc01a04cdb53dc3bb446abd5dc077d061fef746038b3476ee846a0"
+    },
+    {
+      "path": "evidence/preparation_reject_v4/magician_neutral.png",
+      "bytes": 523346,
+      "sha256": "dda611570a1db4e5f15a699fccdfa712e38b63c162f10b929ccb99cc41adcdc4"
+    },
+    {
+      "path": "evidence/preparation_reject_v5/ballet_neutral.png",
+      "bytes": 523602,
+      "sha256": "04f5bc23cd728fd6bd57345fa13e57b74e373fec65b3477bcbea56cbd67e2aa7"
+    },
+    {
+      "path": "evidence/preparation_reject_v5/build_costumes.py.txt",
+      "bytes": 10829,
+      "sha256": "6b4148562d809818ffc47ed674f68379b175441e870fd397b473c59291c5746f"
+    },
+    {
+      "path": "evidence/preparation_reject_v5/magician_neutral.png",
+      "bytes": 524990,
+      "sha256": "4d08f2280e537e794c81a78af3f255cc937c5bf223bd90f355bacdc476f962ae"
+    },
+    {
+      "path": "evidence/preparation_reject_v6/ballet_neutral.png",
+      "bytes": 517910,
+      "sha256": "7296f9a6b09118e2565bfdd2d9f50f4974479e6510b8bb9f1d1788cbb2347b15"
+    },
+    {
+      "path": "evidence/preparation_reject_v6/magician_neutral.png",
+      "bytes": 520698,
+      "sha256": "aef48c23ba174294306f1999d4f3c6154c3eb697ec2f55ac6927994dd55db0d7"
+    },
+    {
+      "path": "evidence/preparation_reject_v7/ballet_neutral.png",
+      "bytes": 521995,
+      "sha256": "496c0a08f4bd4a20d4b1730a8cc3bd42e6049c7810a8f7cf7836adaca22159db"
+    },
+    {
+      "path": "evidence/preparation_reject_v7/build_costumes.py.txt",
+      "bytes": 11713,
+      "sha256": "812335ab06905357db2bd1b46193f3e4de95a49a4cead76371a6ce7119bfce5f"
+    },
+    {
+      "path": "evidence/preparation_reject_v7/magician_neutral.png",
+      "bytes": 526091,
+      "sha256": "b2fd80c47b0afdb46a6633aac375a3c738795f842a14b4f3c1352886a0a19e6a"
+    },
+    {
+      "path": "evidence/preparation_reject_v8/ballet_neutral.png",
+      "bytes": 515590,
+      "sha256": "2c3654a478e849088c9751c1c58b1615c3331813fc0ac833b5f9a80253fe08b8"
+    },
+    {
+      "path": "evidence/preparation_reject_v8/magician_neutral.png",
+      "bytes": 513691,
+      "sha256": "a177ef94dc03f1e8391b929b4a36aa334cb83220a3e710fb29fb53cb2fbb7058"
+    },
+    {
+      "path": "evidence/probe_opera_2d_before.gd.txt",
+      "bytes": 154606,
+      "sha256": "9bdcab20c13a03a5fdb90a30bb855086d9cb83cb7aba703b3bfec77960ecd7d3"
+    },
+    {
+      "path": "evidence/project_gate_contract.json",
+      "bytes": 475,
+      "sha256": "2280e8188e06310584008dd747dbbf63501483e1e4f5aa16bc63bd85e700077c"
+    },
+    {
+      "path": "evidence/project_gate_receipt.json",
+      "bytes": 3190,
+      "sha256": "c31f1c8da7a29f2af99566931531943cb518c2e5bcc3371ff8c5644045661234"
+    },
+    {
+      "path": "evidence/project_gates.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "path": "evidence/project_gates.log",
+      "bytes": 767352,
+      "sha256": "3d618264d66bc7b9eb3d006fe63e8ad963837d18ecaf648a5b0a2fef1573768d"
+    },
+    {
+      "path": "evidence/project_probes_rerun.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "path": "evidence/project_probes_rerun.log",
+      "bytes": 472828,
+      "sha256": "a7ce2fd6122aa6fea643d85dbe791042832a2e9b676edd1ad3cc279f80def863"
+    },
+    {
+      "path": "evidence/project_receipt.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/project_receipt.log",
+      "bytes": 3190,
+      "sha256": "c31f1c8da7a29f2af99566931531943cb518c2e5bcc3371ff8c5644045661234"
+    },
+    {
+      "path": "evidence/render_ballet_v1/arm_bend_archive.json",
+      "bytes": 17691,
+      "sha256": "f43f5dfdf1a9d6392c395ec2596f34a06f3dde2bcbd8b2df117bf1cc58ae6370"
+    },
+    {
+      "path": "evidence/render_ballet_v1/arm_bend_rgba.mkv",
+      "bytes": 14376181,
+      "sha256": "cf41fbf7615e4c8d63d07ce7c522ff48802187a005c7a9564f1a1d5e38532fab"
+    },
+    {
+      "path": "evidence/render_ballet_v1/blink_archive.json",
+      "bytes": 13416,
+      "sha256": "9be8a4d5b01352a918ea989eeadd917a31b77b025975afa78fed96b4455f967e"
+    },
+    {
+      "path": "evidence/render_ballet_v1/blink_rgba.mkv",
+      "bytes": 2742996,
+      "sha256": "a05d6a376b91794b8fa0ba799c40b546ca46e641cb10e0becef4f2b6644520eb"
+    },
+    {
+      "path": "evidence/render_ballet_v1/engine_receipt.json",
+      "bytes": 453,
+      "sha256": "b287a40ae25733e0324cf470caf21fb7704950b098f33b6cd49c438742e04964"
+    },
+    {
+      "path": "evidence/render_ballet_v1/samples.json",
+      "bytes": 493891,
+      "sha256": "6e975ecaddfef0be33779ea495203d628a65114e7904b397e3feee4dfcf9bacc"
+    },
+    {
+      "path": "evidence/render_ballet_v1/stress_samples.json",
+      "bytes": 1294429,
+      "sha256": "f579cac685d10b34b6affb44d6549f35007da4412f05c587d43d69b2ade6db9f"
+    },
+    {
+      "path": "evidence/render_ballet_v1/tail_bend_archive.json",
+      "bytes": 21986,
+      "sha256": "369875ab343904a45779576e83c9e577eb60d5cfbf1bdd783282474509a49be4"
+    },
+    {
+      "path": "evidence/render_ballet_v1/tail_bend_rgba.mkv",
+      "bytes": 19842914,
+      "sha256": "46fff997d97c950075f8535f8638015c100ae9a5cfd10d26a9a4e01c285aac66"
+    },
+    {
+      "path": "evidence/render_ballet_v2/arm_bend_archive.json",
+      "bytes": 17691,
+      "sha256": "0994a6b775d793b10dc4c343f4bc10da4e08c180608d78cf31f536184308fc75"
+    },
+    {
+      "path": "evidence/render_ballet_v2/arm_bend_board.jpg",
+      "bytes": 362089,
+      "sha256": "594a67c8674100342f5fcd05ff4ea2c73284735f6bcc480a116cba3200fcb5cf"
+    },
+    {
+      "path": "evidence/render_ballet_v2/arm_bend_rgba.mkv",
+      "bytes": 14417289,
+      "sha256": "2bf4a96e6263dc8080aa2d716a24db4610a88ecd953f7495a3e8375604b5976e"
+    },
+    {
+      "path": "evidence/render_ballet_v2/audit_Body_stdout.log",
+      "bytes": 2888,
+      "sha256": "99a03b2529d2419ebae98a95a8333696e3e83e7de42f388d9d90212817c76aab"
+    },
+    {
+      "path": "evidence/render_ballet_v2/audit_Forearm_stdout.log",
+      "bytes": 2679,
+      "sha256": "ed6ca730128f8bf14a69d372d235553c1e338f80471ae3700110581123d1ef87"
+    },
+    {
+      "path": "evidence/render_ballet_v2/audit_Headwear_stdout.log",
+      "bytes": 2887,
+      "sha256": "8674d1ecdda8fd4dae9a789b6ba126b4915cdf822fa107fbe81a6c928cf8f5a9"
+    },
+    {
+      "path": "evidence/render_ballet_v2/audit_UpperArm_stdout.log",
+      "bytes": 2664,
+      "sha256": "ad461a25edcc08f27eb06e7220441014333feaee2f19b9ba5d34344382b3e641"
+    },
+    {
+      "path": "evidence/render_ballet_v2/blink_archive.json",
+      "bytes": 13416,
+      "sha256": "8c39169260480036d75017e535e86d877eac2c39fd050dde8e654927601304a0"
+    },
+    {
+      "path": "evidence/render_ballet_v2/blink_board.jpg",
+      "bytes": 359835,
+      "sha256": "824f208149c10e952392cdfe1c9a398fe492ab2dfc13d50a6ad94868aff0e9a1"
+    },
+    {
+      "path": "evidence/render_ballet_v2/blink_rgba.mkv",
+      "bytes": 2742648,
+      "sha256": "242c6fac044c61e9acdc1e2450f2c2df5a5d320d380a185a9576f3ce4a467aa2"
+    },
+    {
+      "path": "evidence/render_ballet_v2/engine_receipt.json",
+      "bytes": 453,
+      "sha256": "b287a40ae25733e0324cf470caf21fb7704950b098f33b6cd49c438742e04964"
+    },
+    {
+      "path": "evidence/render_ballet_v2/geometry_audit.json",
+      "bytes": 16372,
+      "sha256": "970ea983d89d6d8ae512622ce16a18b2a7b39a826f7d8526e014b4e3ad422305"
+    },
+    {
+      "path": "evidence/render_ballet_v2/geometry_audit_Body.json",
+      "bytes": 3710,
+      "sha256": "b909885e0386a02277699c7c96a36d8fb57b668e71913a66290c097fc36287e6"
+    },
+    {
+      "path": "evidence/render_ballet_v2/geometry_audit_Forearm.json",
+      "bytes": 3501,
+      "sha256": "5be1b5f670e72b958b314588a86f24e3f521b0ac7789e154d7fa93f67b505f45"
+    },
+    {
+      "path": "evidence/render_ballet_v2/geometry_audit_Headwear.json",
+      "bytes": 3709,
+      "sha256": "1fab54b4e72d5e77b3013e1937c9e168bb62c68bc12b14fab61534ceb60068f1"
+    },
+    {
+      "path": "evidence/render_ballet_v2/geometry_audit_UpperArm.json",
+      "bytes": 3486,
+      "sha256": "979bf9f90b351da331614bdc4513be927bedfbd2932a0707e290d05fd205cf54"
+    },
+    {
+      "path": "evidence/render_ballet_v2/motion_audit.json",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/render_ballet_v2/samples.json",
+      "bytes": 493891,
+      "sha256": "6e975ecaddfef0be33779ea495203d628a65114e7904b397e3feee4dfcf9bacc"
+    },
+    {
+      "path": "evidence/render_ballet_v2/stress_samples.json",
+      "bytes": 1294429,
+      "sha256": "f579cac685d10b34b6affb44d6549f35007da4412f05c587d43d69b2ade6db9f"
+    },
+    {
+      "path": "evidence/render_ballet_v2/tail_bend_archive.json",
+      "bytes": 21986,
+      "sha256": "6ba9bfd198a52f299d8b8ee69336652f8848ec7035d24efa1661c6ae16970c80"
+    },
+    {
+      "path": "evidence/render_ballet_v2/tail_bend_board.jpg",
+      "bytes": 361202,
+      "sha256": "cba956ae13c4f95ac3f44d11465a8db3e747bec09d9467010c993e6971eea4d4"
+    },
+    {
+      "path": "evidence/render_ballet_v2/tail_bend_rgba.mkv",
+      "bytes": 19891338,
+      "sha256": "e5d0204997644df90b71671d8d0bbf0c28d2187d507ff497104d6d679fb3f8ac"
+    },
+    {
+      "path": "evidence/render_ballet_v3/arm_bend_archive.json",
+      "bytes": 17691,
+      "sha256": "fafece8e1b21ac843e5b4f6109217977a19ea13bd0e1807a335b507c7b98866b"
+    },
+    {
+      "path": "evidence/render_ballet_v3/arm_bend_board.jpg",
+      "bytes": 360916,
+      "sha256": "6c9bcb7ac7e7258037783331dba156a9495708534e24caaf388f2d441444dffc"
+    },
+    {
+      "path": "evidence/render_ballet_v3/arm_bend_rgba.mkv",
+      "bytes": 13924278,
+      "sha256": "ccde038f2831ad722d72b7498bb0d75aef8b4c7cdad762b83d89ca22819df845"
+    },
+    {
+      "path": "evidence/render_ballet_v3/audit_Body_stdout.log",
+      "bytes": 2888,
+      "sha256": "99a03b2529d2419ebae98a95a8333696e3e83e7de42f388d9d90212817c76aab"
+    },
+    {
+      "path": "evidence/render_ballet_v3/audit_Forearm_stdout.log",
+      "bytes": 2679,
+      "sha256": "ed6ca730128f8bf14a69d372d235553c1e338f80471ae3700110581123d1ef87"
+    },
+    {
+      "path": "evidence/render_ballet_v3/audit_Headwear_stdout.log",
+      "bytes": 2887,
+      "sha256": "8674d1ecdda8fd4dae9a789b6ba126b4915cdf822fa107fbe81a6c928cf8f5a9"
+    },
+    {
+      "path": "evidence/render_ballet_v3/audit_UpperArm_stdout.log",
+      "bytes": 2664,
+      "sha256": "ad461a25edcc08f27eb06e7220441014333feaee2f19b9ba5d34344382b3e641"
+    },
+    {
+      "path": "evidence/render_ballet_v3/blink_archive.json",
+      "bytes": 13416,
+      "sha256": "3f88d55a127fdcfe92ea602d753a9fcea1ca17bcb39c85daf1237258741ac5d0"
+    },
+    {
+      "path": "evidence/render_ballet_v3/blink_board.jpg",
+      "bytes": 358809,
+      "sha256": "8619be865a886118eee98841a089cb1eeb444bcaa536c6dab39a60043a1bae28"
+    },
+    {
+      "path": "evidence/render_ballet_v3/blink_rgba.mkv",
+      "bytes": 2728857,
+      "sha256": "2c61eecd8dfb223a711acb2d9675b9c2789d26b96555aa102a88381549d1df4f"
+    },
+    {
+      "path": "evidence/render_ballet_v3/engine_receipt.json",
+      "bytes": 453,
+      "sha256": "b287a40ae25733e0324cf470caf21fb7704950b098f33b6cd49c438742e04964"
+    },
+    {
+      "path": "evidence/render_ballet_v3/geometry_audit.json",
+      "bytes": 16372,
+      "sha256": "0a24436fba817a4a87be8ffb79c551dd909b8b22286111f62dd454a965e0ba91"
+    },
+    {
+      "path": "evidence/render_ballet_v3/geometry_audit_Body.json",
+      "bytes": 3710,
+      "sha256": "43c25d3344ae25742930deb45f137b638e4ef9cd8b890c5bf85f16588c0ef78a"
+    },
+    {
+      "path": "evidence/render_ballet_v3/geometry_audit_Forearm.json",
+      "bytes": 3501,
+      "sha256": "273309a3bb664239630109d9729702b5578fd4cf60c3bd9c04bb84f9ca301d02"
+    },
+    {
+      "path": "evidence/render_ballet_v3/geometry_audit_Headwear.json",
+      "bytes": 3709,
+      "sha256": "860270231e76dd56c12c5ac95006ce4b0e681d51fc50698d52a148f0a62dddf5"
+    },
+    {
+      "path": "evidence/render_ballet_v3/geometry_audit_UpperArm.json",
+      "bytes": 3486,
+      "sha256": "1513c81beceaefe8da725d522117b0e6f90abbdf1de7a44948286982854fdd5d"
+    },
+    {
+      "path": "evidence/render_ballet_v3/motion_audit.json",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/render_ballet_v3/samples.json",
+      "bytes": 493891,
+      "sha256": "6e975ecaddfef0be33779ea495203d628a65114e7904b397e3feee4dfcf9bacc"
+    },
+    {
+      "path": "evidence/render_ballet_v3/stress_samples.json",
+      "bytes": 1294429,
+      "sha256": "f579cac685d10b34b6affb44d6549f35007da4412f05c587d43d69b2ade6db9f"
+    },
+    {
+      "path": "evidence/render_ballet_v3/tail_bend_archive.json",
+      "bytes": 21986,
+      "sha256": "83c1e8682329712936705e6413990c2be3e108cace4543ed4b11986b5b2515bc"
+    },
+    {
+      "path": "evidence/render_ballet_v3/tail_bend_board.jpg",
+      "bytes": 359992,
+      "sha256": "98caa1e65540b94a9c2d2edc3361310c4b12e84cd8bc138134a36902c45aa3d1"
+    },
+    {
+      "path": "evidence/render_ballet_v3/tail_bend_rgba.mkv",
+      "bytes": 19013120,
+      "sha256": "e86f780dea33e706e17ab5cb2da8292ebb369cab03c4bdfc4f10dc9900ebc0b3"
+    },
+    {
+      "path": "evidence/render_ballet_v4/arm_bend_archive.json",
+      "bytes": 17691,
+      "sha256": "82e2b3015f4b4e2a89448986271c539ec0d64fbd30eea4c40df5e0ce6abc2029"
+    },
+    {
+      "path": "evidence/render_ballet_v4/arm_bend_board.jpg",
+      "bytes": 361693,
+      "sha256": "6711c2519fbe83940d0e9b439008124a9e509b3e45fedc3c08b045d51084320b"
+    },
+    {
+      "path": "evidence/render_ballet_v4/arm_bend_rgba.mkv",
+      "bytes": 14059258,
+      "sha256": "de70463c2efa3ca9936b7f73765ae3ee9dc3c9980b1005ab682a9249bf0ea944"
+    },
+    {
+      "path": "evidence/render_ballet_v4/audit_Body_stdout.log",
+      "bytes": 2888,
+      "sha256": "99a03b2529d2419ebae98a95a8333696e3e83e7de42f388d9d90212817c76aab"
+    },
+    {
+      "path": "evidence/render_ballet_v4/audit_Forearm_stdout.log",
+      "bytes": 2679,
+      "sha256": "ed6ca730128f8bf14a69d372d235553c1e338f80471ae3700110581123d1ef87"
+    },
+    {
+      "path": "evidence/render_ballet_v4/audit_Headwear_stdout.log",
+      "bytes": 2887,
+      "sha256": "8674d1ecdda8fd4dae9a789b6ba126b4915cdf822fa107fbe81a6c928cf8f5a9"
+    },
+    {
+      "path": "evidence/render_ballet_v4/audit_UpperArm_stdout.log",
+      "bytes": 2664,
+      "sha256": "ad461a25edcc08f27eb06e7220441014333feaee2f19b9ba5d34344382b3e641"
+    },
+    {
+      "path": "evidence/render_ballet_v4/blink_archive.json",
+      "bytes": 13416,
+      "sha256": "aca60d81bd300075c6693a42ed1d526c7860d6bbf727c4454e78fd66b7a8dc1e"
+    },
+    {
+      "path": "evidence/render_ballet_v4/blink_board.jpg",
+      "bytes": 359563,
+      "sha256": "0c0208bea1d416fb17b3a31224ab812b12e3608d25ba688b9698102bb0b3912b"
+    },
+    {
+      "path": "evidence/render_ballet_v4/blink_rgba.mkv",
+      "bytes": 2735999,
+      "sha256": "61b0c21bf32502deec81add313f92cad050a54a00d4bb02c11d5bafaa52b0f3e"
+    },
+    {
+      "path": "evidence/render_ballet_v4/engine_receipt.json",
+      "bytes": 453,
+      "sha256": "b287a40ae25733e0324cf470caf21fb7704950b098f33b6cd49c438742e04964"
+    },
+    {
+      "path": "evidence/render_ballet_v4/geometry_audit.json",
+      "bytes": 16372,
+      "sha256": "9906b7e55aa27103c90252558e728cf2c766c175a12bfd0c01a1161ebb297ead"
+    },
+    {
+      "path": "evidence/render_ballet_v4/geometry_audit_Body.json",
+      "bytes": 3710,
+      "sha256": "dd43acf7c14da881fbdfb3deabd686e6c183bceda404e87c494ac2ef16eeabcf"
+    },
+    {
+      "path": "evidence/render_ballet_v4/geometry_audit_Forearm.json",
+      "bytes": 3501,
+      "sha256": "448426c8f163d08ef420fa4db5c937af1287e51f1b902f382140ed7712ce8166"
+    },
+    {
+      "path": "evidence/render_ballet_v4/geometry_audit_Headwear.json",
+      "bytes": 3709,
+      "sha256": "ef2f54a56b2719d92ddd189cfea42187ee79c4af103f8ded5077ec6e6d7134ad"
+    },
+    {
+      "path": "evidence/render_ballet_v4/geometry_audit_UpperArm.json",
+      "bytes": 3486,
+      "sha256": "a23004e43c469a1b84b920af3711c88b39cb8e863aed16643d09dfc90d86b26d"
+    },
+    {
+      "path": "evidence/render_ballet_v4/motion_audit.json",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/render_ballet_v4/samples.json",
+      "bytes": 493891,
+      "sha256": "6e975ecaddfef0be33779ea495203d628a65114e7904b397e3feee4dfcf9bacc"
+    },
+    {
+      "path": "evidence/render_ballet_v4/stress_samples.json",
+      "bytes": 1294429,
+      "sha256": "f579cac685d10b34b6affb44d6549f35007da4412f05c587d43d69b2ade6db9f"
+    },
+    {
+      "path": "evidence/render_ballet_v4/tail_bend_archive.json",
+      "bytes": 21986,
+      "sha256": "eaa118060266e54cbac370d5f58791c3c78723973fd3effdd34126197d78caf9"
+    },
+    {
+      "path": "evidence/render_ballet_v4/tail_bend_board.jpg",
+      "bytes": 360853,
+      "sha256": "93393c41b95093d8fd66bb061e5e985761e2789893d3bcb1aac72174afb239f9"
+    },
+    {
+      "path": "evidence/render_ballet_v4/tail_bend_rgba.mkv",
+      "bytes": 19255583,
+      "sha256": "1553329c838ee97051018e502b7ce81b29b28dd771cdffe17b52924541b1156c"
+    },
+    {
+      "path": "evidence/render_ballet_v5/arm_bend_archive.json",
+      "bytes": 26434,
+      "sha256": "ee78c92891c1af573cc683d3eb9a6b11736776f79d474a86d41bee86a8690079"
+    },
+    {
+      "path": "evidence/render_ballet_v5/arm_bend_board.jpg",
+      "bytes": 372048,
+      "sha256": "1ce600f33158d81953bdbadd388cf43da946fa34327bbfb8c8f1f2aef379f98d"
+    },
+    {
+      "path": "evidence/render_ballet_v5/arm_bend_rgba.mkv",
+      "bytes": 14665891,
+      "sha256": "60183fd53acf95a3cbf6a5e351a5bd330f55085bd6d9b459211ac03916b912ef"
+    },
+    {
+      "path": "evidence/render_ballet_v5/audit_Body_stdout.log",
+      "bytes": 2888,
+      "sha256": "35ac54c9c5b7ed94856ace7b64579ef38304900d1cc905a49f4388689828b0ed"
+    },
+    {
+      "path": "evidence/render_ballet_v5/audit_Forearm_stdout.log",
+      "bytes": 2679,
+      "sha256": "96a40c6e40ada8d1b1c410d493ce9d9fe84a6223cede012e4bd9946efb6baab5"
+    },
+    {
+      "path": "evidence/render_ballet_v5/audit_Headwear_stdout.log",
+      "bytes": 2873,
+      "sha256": "9dfabd597c40c176d5906e9367a138abed4968597b3b607ed041acc9262eefea"
+    },
+    {
+      "path": "evidence/render_ballet_v5/audit_UpperArm_stdout.log",
+      "bytes": 2664,
+      "sha256": "a593e5f724aad58118860bb74f922c691184c733e2267d9f1cd6934c68647b6e"
+    },
+    {
+      "path": "evidence/render_ballet_v5/blink_archive.json",
+      "bytes": 19999,
+      "sha256": "82d5a49a5f74da608bd507a2475d2f753a2e113ed130c362eb7cd4ea48ad1342"
+    },
+    {
+      "path": "evidence/render_ballet_v5/blink_board.jpg",
+      "bytes": 370385,
+      "sha256": "17d1ab42aa7d6b07cb64d84a6569343f98f9dd4768a8e0a3c93766536dfb96a1"
+    },
+    {
+      "path": "evidence/render_ballet_v5/blink_rgba.mkv",
+      "bytes": 2791353,
+      "sha256": "830c31f953f2b37ec2ce92fa593173b5394f9bf909fbd8da295efc43fd360fe7"
+    },
+    {
+      "path": "evidence/render_ballet_v5/engine_receipt.json",
+      "bytes": 453,
+      "sha256": "b287a40ae25733e0324cf470caf21fb7704950b098f33b6cd49c438742e04964"
+    },
+    {
+      "path": "evidence/render_ballet_v5/geometry_audit.json",
+      "bytes": 16358,
+      "sha256": "b9f433d8780935b49ffff6ba911d7d6fe38048d0730deaac2848f432752baca3"
+    },
+    {
+      "path": "evidence/render_ballet_v5/geometry_audit_Body.json",
+      "bytes": 3710,
+      "sha256": "132c7912ba2da581b73612969f4270aa356c8bd72dbadb2cdfdc22b352086ae3"
+    },
+    {
+      "path": "evidence/render_ballet_v5/geometry_audit_Forearm.json",
+      "bytes": 3501,
+      "sha256": "bfaffc944df38e2aa3264d570861985b29ca15f926613954c9083563aa9c9c8a"
+    },
+    {
+      "path": "evidence/render_ballet_v5/geometry_audit_Headwear.json",
+      "bytes": 3695,
+      "sha256": "d67727c86cbccb9d0814d7965b77c7061933fbc11236a422db7a141a1d26088c"
+    },
+    {
+      "path": "evidence/render_ballet_v5/geometry_audit_UpperArm.json",
+      "bytes": 3486,
+      "sha256": "90225a400e519bb5da62669c52b5dd6b582e0485d46dca32737e684bdfc2eda0"
+    },
+    {
+      "path": "evidence/render_ballet_v5/motion_audit.json",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/render_ballet_v5/samples.json",
+      "bytes": 493891,
+      "sha256": "6e975ecaddfef0be33779ea495203d628a65114e7904b397e3feee4dfcf9bacc"
+    },
+    {
+      "path": "evidence/render_ballet_v5/stress_samples.json",
+      "bytes": 1294429,
+      "sha256": "f579cac685d10b34b6affb44d6549f35007da4412f05c587d43d69b2ade6db9f"
+    },
+    {
+      "path": "evidence/render_ballet_v5/tail_bend_archive.json",
+      "bytes": 32890,
+      "sha256": "b2401b14d37bfe637a22ed9e83a241b6c9c199a8776cf071385b2b46fdd6420d"
+    },
+    {
+      "path": "evidence/render_ballet_v5/tail_bend_board.jpg",
+      "bytes": 371502,
+      "sha256": "833d89a9c8b1097182ebfd2d17e31ad102776861f38a5a6e14aa5334f6e2ebc0"
+    },
+    {
+      "path": "evidence/render_ballet_v5/tail_bend_rgba.mkv",
+      "bytes": 19949382,
+      "sha256": "21ac4b0171e59a2f1e20d2a918d08dbc62b757a99ea138b91b442aac73eb5229"
+    },
+    {
+      "path": "evidence/render_magician_v2/arm_bend_archive.json",
+      "bytes": 17691,
+      "sha256": "885393259cc45e4a3d015116a4aa7fa859fcb5ce913258923e7bbe2dcaa6689a"
+    },
+    {
+      "path": "evidence/render_magician_v2/arm_bend_board.jpg",
+      "bytes": 371625,
+      "sha256": "cc790c254597c2b65052706973ba1ccd85f083271f52a10b549e01fa3466c7e9"
+    },
+    {
+      "path": "evidence/render_magician_v2/arm_bend_rgba.mkv",
+      "bytes": 13955959,
+      "sha256": "631c9115763324796f80877ade37035d1d21975dc7c9b5cf564793fbf4c38110"
+    },
+    {
+      "path": "evidence/render_magician_v2/audit_Body_stdout.log",
+      "bytes": 2888,
+      "sha256": "99a03b2529d2419ebae98a95a8333696e3e83e7de42f388d9d90212817c76aab"
+    },
+    {
+      "path": "evidence/render_magician_v2/audit_Forearm_stdout.log",
+      "bytes": 2679,
+      "sha256": "ed6ca730128f8bf14a69d372d235553c1e338f80471ae3700110581123d1ef87"
+    },
+    {
+      "path": "evidence/render_magician_v2/audit_Headwear_stdout.log",
+      "bytes": 2889,
+      "sha256": "70f72db7f292bd989671bc5fbb36c4973b1f5d67190020fafda1281bec74ce86"
+    },
+    {
+      "path": "evidence/render_magician_v2/audit_UpperArm_stdout.log",
+      "bytes": 2664,
+      "sha256": "ad461a25edcc08f27eb06e7220441014333feaee2f19b9ba5d34344382b3e641"
+    },
+    {
+      "path": "evidence/render_magician_v2/blink_archive.json",
+      "bytes": 13416,
+      "sha256": "99899bc36750a09d191ac4f8340336b0002a6eb10a88ce3ee63d44192861350b"
+    },
+    {
+      "path": "evidence/render_magician_v2/blink_board.jpg",
+      "bytes": 370351,
+      "sha256": "69378a7e76286911b1f37bba2575b29c4cb14596360779d539450892e98c5192"
+    },
+    {
+      "path": "evidence/render_magician_v2/blink_rgba.mkv",
+      "bytes": 2678655,
+      "sha256": "48479d66779382d94b0fcb6633425c783545eb74623eb84857acc0cb47f29ca3"
+    },
+    {
+      "path": "evidence/render_magician_v2/engine_receipt.json",
+      "bytes": 453,
+      "sha256": "b287a40ae25733e0324cf470caf21fb7704950b098f33b6cd49c438742e04964"
+    },
+    {
+      "path": "evidence/render_magician_v2/geometry_audit.json",
+      "bytes": 16382,
+      "sha256": "38721b536f721f856f47dd1ba428fa825ca566d7d61f5fae682dc4572148a15a"
+    },
+    {
+      "path": "evidence/render_magician_v2/geometry_audit_Body.json",
+      "bytes": 3712,
+      "sha256": "b4b7ba465cad60ade8c0e96444ddcddb70c21cdda9e0fe5bda939e323d9fbc70"
+    },
+    {
+      "path": "evidence/render_magician_v2/geometry_audit_Forearm.json",
+      "bytes": 3503,
+      "sha256": "3aecea35abd8d577b61ed489b45df5f42739b5318f56744e814baa4925d0dde1"
+    },
+    {
+      "path": "evidence/render_magician_v2/geometry_audit_Headwear.json",
+      "bytes": 3713,
+      "sha256": "d10674e75810b202130f054077a721f3dc8954bddcfcf901185985464be4c2fd"
+    },
+    {
+      "path": "evidence/render_magician_v2/geometry_audit_UpperArm.json",
+      "bytes": 3488,
+      "sha256": "159876c612f916b8685cdb62117e656f9fbd03431f9a95b4c6833cdefe08a79e"
+    },
+    {
+      "path": "evidence/render_magician_v2/motion_audit.json",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/render_magician_v2/samples.json",
+      "bytes": 493891,
+      "sha256": "6e975ecaddfef0be33779ea495203d628a65114e7904b397e3feee4dfcf9bacc"
+    },
+    {
+      "path": "evidence/render_magician_v2/stress_samples.json",
+      "bytes": 1294429,
+      "sha256": "f579cac685d10b34b6affb44d6549f35007da4412f05c587d43d69b2ade6db9f"
+    },
+    {
+      "path": "evidence/render_magician_v2/tail_bend_archive.json",
+      "bytes": 21986,
+      "sha256": "4acfb21bb8906d595a547d04094447408d288053b62a352f85fef7e03701d544"
+    },
+    {
+      "path": "evidence/render_magician_v2/tail_bend_board.jpg",
+      "bytes": 370849,
+      "sha256": "92a035983960c9ccb5b7b7dda0714e68b6cb27c86a3e48ff8b006f21f78bbdb9"
+    },
+    {
+      "path": "evidence/render_magician_v2/tail_bend_rgba.mkv",
+      "bytes": 19099898,
+      "sha256": "41fa17f8af1ec24f40aede5b9ebf3470af7c3003249ff4f633a658bb4c49a4b5"
+    },
+    {
+      "path": "evidence/render_magician_v3/arm_bend_archive.json",
+      "bytes": 17691,
+      "sha256": "c99ac78e94d57b9d4dc3dd8b31e6a12b130c5286229655872929d9855f69aebd"
+    },
+    {
+      "path": "evidence/render_magician_v3/arm_bend_board.jpg",
+      "bytes": 371884,
+      "sha256": "7e6fc634907f8f86a041bc723df1e3ab778243bddaa9eb811fb8fa367e64b257"
+    },
+    {
+      "path": "evidence/render_magician_v3/arm_bend_rgba.mkv",
+      "bytes": 14048448,
+      "sha256": "2bafdaf4fe7d3ea4b96e5826d6c37dd406a3d4d82770c76d0b3c82f7ba2cce11"
+    },
+    {
+      "path": "evidence/render_magician_v3/audit_Body_stdout.log",
+      "bytes": 2888,
+      "sha256": "99a03b2529d2419ebae98a95a8333696e3e83e7de42f388d9d90212817c76aab"
+    },
+    {
+      "path": "evidence/render_magician_v3/audit_Forearm_stdout.log",
+      "bytes": 2679,
+      "sha256": "ed6ca730128f8bf14a69d372d235553c1e338f80471ae3700110581123d1ef87"
+    },
+    {
+      "path": "evidence/render_magician_v3/audit_Headwear_stdout.log",
+      "bytes": 2889,
+      "sha256": "70f72db7f292bd989671bc5fbb36c4973b1f5d67190020fafda1281bec74ce86"
+    },
+    {
+      "path": "evidence/render_magician_v3/audit_UpperArm_stdout.log",
+      "bytes": 2664,
+      "sha256": "ad461a25edcc08f27eb06e7220441014333feaee2f19b9ba5d34344382b3e641"
+    },
+    {
+      "path": "evidence/render_magician_v3/blink_archive.json",
+      "bytes": 13416,
+      "sha256": "4cfe0da37d1cea3c161f6a0b432f49c3156c82ffa85ee71d43f2c03fffa3e515"
+    },
+    {
+      "path": "evidence/render_magician_v3/blink_board.jpg",
+      "bytes": 370596,
+      "sha256": "43dc646d55884a2f834960bc31f34aed30664614ff6252ce8c69a5e3f87b5c42"
+    },
+    {
+      "path": "evidence/render_magician_v3/blink_rgba.mkv",
+      "bytes": 2685657,
+      "sha256": "4489156338509d6a9bee95e3320ef2f678a643698c2ce9c23c4cfb4dd550028e"
+    },
+    {
+      "path": "evidence/render_magician_v3/engine_receipt.json",
+      "bytes": 453,
+      "sha256": "b287a40ae25733e0324cf470caf21fb7704950b098f33b6cd49c438742e04964"
+    },
+    {
+      "path": "evidence/render_magician_v3/geometry_audit.json",
+      "bytes": 16382,
+      "sha256": "c2d41777436d2b42a90faf09b21d336530fecf37adaa0133991ae4a86917e63b"
+    },
+    {
+      "path": "evidence/render_magician_v3/geometry_audit_Body.json",
+      "bytes": 3712,
+      "sha256": "ac0a6276eb700095cca5ce061b26e40da26fd396b016fb661f918e2b7bc1ff95"
+    },
+    {
+      "path": "evidence/render_magician_v3/geometry_audit_Forearm.json",
+      "bytes": 3503,
+      "sha256": "f910f2653e1d50e2dd4ebb51363bdaba75879dd399bfb823d2d3420c3feb8111"
+    },
+    {
+      "path": "evidence/render_magician_v3/geometry_audit_Headwear.json",
+      "bytes": 3713,
+      "sha256": "3856573b54cf07745ce2fb9f70f924653ca35cebe69bf5ebe54358000e7b5e51"
+    },
+    {
+      "path": "evidence/render_magician_v3/geometry_audit_UpperArm.json",
+      "bytes": 3488,
+      "sha256": "0efb9f5609cef9ea2444f7f4a76214bbc592a19c494a963ce8fd28044ce93734"
+    },
+    {
+      "path": "evidence/render_magician_v3/motion_audit.json",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/render_magician_v3/samples.json",
+      "bytes": 493891,
+      "sha256": "6e975ecaddfef0be33779ea495203d628a65114e7904b397e3feee4dfcf9bacc"
+    },
+    {
+      "path": "evidence/render_magician_v3/stress_samples.json",
+      "bytes": 1294429,
+      "sha256": "f579cac685d10b34b6affb44d6549f35007da4412f05c587d43d69b2ade6db9f"
+    },
+    {
+      "path": "evidence/render_magician_v3/tail_bend_archive.json",
+      "bytes": 21986,
+      "sha256": "5d13076e8c56960c646cb2ed41cda369123d2248125225e5c44750b38fedbdac"
+    },
+    {
+      "path": "evidence/render_magician_v3/tail_bend_board.jpg",
+      "bytes": 370962,
+      "sha256": "17f4afbd223a70c655eaa6a59ccfd5d693ca1c41f7899d05062dcd00e320b514"
+    },
+    {
+      "path": "evidence/render_magician_v3/tail_bend_rgba.mkv",
+      "bytes": 19406123,
+      "sha256": "a11e4ea996f5406fdb68fccb474c4df41eeef8feb7c09b2380114b0e03b04acd"
+    },
+    {
+      "path": "evidence/render_magician_v4/arm_bend_archive.json",
+      "bytes": 17691,
+      "sha256": "6e40e66ecfa7cc34382b248d08341c2b8cf90b9fafd788009eab60a1e604d18d"
+    },
+    {
+      "path": "evidence/render_magician_v4/arm_bend_board.jpg",
+      "bytes": 371884,
+      "sha256": "7e6fc634907f8f86a041bc723df1e3ab778243bddaa9eb811fb8fa367e64b257"
+    },
+    {
+      "path": "evidence/render_magician_v4/arm_bend_rgba.mkv",
+      "bytes": 14048448,
+      "sha256": "d0ba8628ebe8ae8b45d6b35c2e9f6d14eb0992ccac60e716b22a9836731f202d"
+    },
+    {
+      "path": "evidence/render_magician_v4/audit_Body_stdout.log",
+      "bytes": 2888,
+      "sha256": "99a03b2529d2419ebae98a95a8333696e3e83e7de42f388d9d90212817c76aab"
+    },
+    {
+      "path": "evidence/render_magician_v4/audit_Forearm_stdout.log",
+      "bytes": 2679,
+      "sha256": "ed6ca730128f8bf14a69d372d235553c1e338f80471ae3700110581123d1ef87"
+    },
+    {
+      "path": "evidence/render_magician_v4/audit_Headwear_stdout.log",
+      "bytes": 2889,
+      "sha256": "70f72db7f292bd989671bc5fbb36c4973b1f5d67190020fafda1281bec74ce86"
+    },
+    {
+      "path": "evidence/render_magician_v4/audit_UpperArm_stdout.log",
+      "bytes": 2664,
+      "sha256": "ad461a25edcc08f27eb06e7220441014333feaee2f19b9ba5d34344382b3e641"
+    },
+    {
+      "path": "evidence/render_magician_v4/blink_archive.json",
+      "bytes": 13416,
+      "sha256": "16b9204be2276ebf2c39c1f49ae4b0fae63dd5f5e3b3fba4743d0ed3b54b779d"
+    },
+    {
+      "path": "evidence/render_magician_v4/blink_board.jpg",
+      "bytes": 370596,
+      "sha256": "43dc646d55884a2f834960bc31f34aed30664614ff6252ce8c69a5e3f87b5c42"
+    },
+    {
+      "path": "evidence/render_magician_v4/blink_rgba.mkv",
+      "bytes": 2685657,
+      "sha256": "587e3d942a663a7788698c6cbe7787d91b77cf3ef5ba77a6108794d4e41a2c3d"
+    },
+    {
+      "path": "evidence/render_magician_v4/engine_receipt.json",
+      "bytes": 453,
+      "sha256": "b287a40ae25733e0324cf470caf21fb7704950b098f33b6cd49c438742e04964"
+    },
+    {
+      "path": "evidence/render_magician_v4/geometry_audit.json",
+      "bytes": 16382,
+      "sha256": "dbbfddc72c4dd3e34e255ab5fcb97f4f4da5ecfa6ff611c0c9ee3b58c5a99e3a"
+    },
+    {
+      "path": "evidence/render_magician_v4/geometry_audit_Body.json",
+      "bytes": 3712,
+      "sha256": "c4246635b2732d607474b6b4ddd7cd04d322819c97a17d2cb9d9ec62de2a6c84"
+    },
+    {
+      "path": "evidence/render_magician_v4/geometry_audit_Forearm.json",
+      "bytes": 3503,
+      "sha256": "2f0c009775d783b703953baacad49c2f6ecd09f1efd357384d91ed5ca66c35cb"
+    },
+    {
+      "path": "evidence/render_magician_v4/geometry_audit_Headwear.json",
+      "bytes": 3713,
+      "sha256": "5e7cd7f45703fca4fd9bf0526437028824a09844820ec66d91c9634506684cb9"
+    },
+    {
+      "path": "evidence/render_magician_v4/geometry_audit_UpperArm.json",
+      "bytes": 3488,
+      "sha256": "2441c587867e1540eef0317033275959c9396612e517184a580ae83698bbcf72"
+    },
+    {
+      "path": "evidence/render_magician_v4/motion_audit.json",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/render_magician_v4/samples.json",
+      "bytes": 493891,
+      "sha256": "6e975ecaddfef0be33779ea495203d628a65114e7904b397e3feee4dfcf9bacc"
+    },
+    {
+      "path": "evidence/render_magician_v4/stress_samples.json",
+      "bytes": 1294429,
+      "sha256": "f579cac685d10b34b6affb44d6549f35007da4412f05c587d43d69b2ade6db9f"
+    },
+    {
+      "path": "evidence/render_magician_v4/tail_bend_archive.json",
+      "bytes": 21986,
+      "sha256": "797ae8f92a42187424a6f91e9f1278ca4efadfbb8388da8f8dbc5e6573f9b98f"
+    },
+    {
+      "path": "evidence/render_magician_v4/tail_bend_board.jpg",
+      "bytes": 370962,
+      "sha256": "17f4afbd223a70c655eaa6a59ccfd5d693ca1c41f7899d05062dcd00e320b514"
+    },
+    {
+      "path": "evidence/render_magician_v4/tail_bend_rgba.mkv",
+      "bytes": 19406123,
+      "sha256": "f333b57b3bcb209f97724bd70503e7fc5f6696fae8d244e1995bfedf91a8704e"
+    },
+    {
+      "path": "evidence/render_magician_v5/arm_bend_archive.json",
+      "bytes": 26434,
+      "sha256": "7bc7d7cf3d3434f244fc86e953fa2feb2aab35540860c5b19f739d636178d9c5"
+    },
+    {
+      "path": "evidence/render_magician_v5/arm_bend_board.jpg",
+      "bytes": 381632,
+      "sha256": "43451849b489ac7ac1327e3b84b2689ea90630f9df28cb2130c8d8cbf85f5fc8"
+    },
+    {
+      "path": "evidence/render_magician_v5/arm_bend_rgba.mkv",
+      "bytes": 14660122,
+      "sha256": "326c1d34016a37e4473ab4df71507b010e6eee15315e31d7873861c16959544e"
+    },
+    {
+      "path": "evidence/render_magician_v5/audit_Body_stdout.log",
+      "bytes": 2888,
+      "sha256": "99a03b2529d2419ebae98a95a8333696e3e83e7de42f388d9d90212817c76aab"
+    },
+    {
+      "path": "evidence/render_magician_v5/audit_Forearm_stdout.log",
+      "bytes": 2679,
+      "sha256": "ed6ca730128f8bf14a69d372d235553c1e338f80471ae3700110581123d1ef87"
+    },
+    {
+      "path": "evidence/render_magician_v5/audit_Headwear_stdout.log",
+      "bytes": 2888,
+      "sha256": "19a0fa6dcb2fdb5048c7554c530f54b73e8068cb85ec9af8fdf4f8530cb4481e"
+    },
+    {
+      "path": "evidence/render_magician_v5/audit_UpperArm_stdout.log",
+      "bytes": 2664,
+      "sha256": "ad461a25edcc08f27eb06e7220441014333feaee2f19b9ba5d34344382b3e641"
+    },
+    {
+      "path": "evidence/render_magician_v5/blink_archive.json",
+      "bytes": 19999,
+      "sha256": "5f672f2bd42aef05cb7c17111d4a11e52d46453f617a35f379576eaf1c5c47d0"
+    },
+    {
+      "path": "evidence/render_magician_v5/blink_board.jpg",
+      "bytes": 380078,
+      "sha256": "8dffd4b926a8f58ad6158ffd742cac4e37ceb88a07517dbc2cd813966eb84e6b"
+    },
+    {
+      "path": "evidence/render_magician_v5/blink_rgba.mkv",
+      "bytes": 2767651,
+      "sha256": "47e627c0741e69840b72c4404e9c6639a21f89da68a2ecf49d46398981cc980c"
+    },
+    {
+      "path": "evidence/render_magician_v5/engine_receipt.json",
+      "bytes": 453,
+      "sha256": "b287a40ae25733e0324cf470caf21fb7704950b098f33b6cd49c438742e04964"
+    },
+    {
+      "path": "evidence/render_magician_v5/geometry_audit.json",
+      "bytes": 16381,
+      "sha256": "3d423670ab2f9680f8e81fdc5c9093ee4aef617f15b6c372db0b241eeca9244c"
+    },
+    {
+      "path": "evidence/render_magician_v5/geometry_audit_Body.json",
+      "bytes": 3712,
+      "sha256": "1960ada6ec1e20eb93994fcc05d0c8be402e37d65d92da25602be207bef659a9"
+    },
+    {
+      "path": "evidence/render_magician_v5/geometry_audit_Forearm.json",
+      "bytes": 3503,
+      "sha256": "191b50e20aaba65bb2137ffee1208d5744c620775b9b7ed5b56f93046a4ef519"
+    },
+    {
+      "path": "evidence/render_magician_v5/geometry_audit_Headwear.json",
+      "bytes": 3712,
+      "sha256": "7f2e162c74cb0bc3369bd6b45f59263447262b9e57a6f9c8d81fe9ad87568634"
+    },
+    {
+      "path": "evidence/render_magician_v5/geometry_audit_UpperArm.json",
+      "bytes": 3488,
+      "sha256": "9dd67f21c22fd61a43ff313d08c7ea90cffdcbe7ca3f98215761c512c67e7fd3"
+    },
+    {
+      "path": "evidence/render_magician_v5/motion_audit.json",
+      "bytes": 1650,
+      "sha256": "f2417a44a6c17a672a9f721cf659bee5535c959748500b28c3452dae490282b9"
+    },
+    {
+      "path": "evidence/render_magician_v5/samples.json",
+      "bytes": 493891,
+      "sha256": "6e975ecaddfef0be33779ea495203d628a65114e7904b397e3feee4dfcf9bacc"
+    },
+    {
+      "path": "evidence/render_magician_v5/stress_samples.json",
+      "bytes": 1294429,
+      "sha256": "f579cac685d10b34b6affb44d6549f35007da4412f05c587d43d69b2ade6db9f"
+    },
+    {
+      "path": "evidence/render_magician_v5/tail_bend_archive.json",
+      "bytes": 32890,
+      "sha256": "028a5126d0b005de04def872cf4167a20d35850ba313e0c2e5a1138d40dc119f"
+    },
+    {
+      "path": "evidence/render_magician_v5/tail_bend_board.jpg",
+      "bytes": 380691,
+      "sha256": "d93b92264f28fca5985111982204491e22ab6c0d4b8a38b96ebaaad102b131a2"
+    },
+    {
+      "path": "evidence/render_magician_v5/tail_bend_rgba.mkv",
+      "bytes": 20091947,
+      "sha256": "bb52570a2ef4dea306f7374f0e7afd415fa4bef687be4a68b5eef7df64f9752d"
+    },
+    {
+      "path": "evidence/render_original_v1/arm_bend_archive.json",
+      "bytes": 17691,
+      "sha256": "8f8e3ac51deb779df06ab6818d61d7b9b9df6bf80639712e01a675d353d8e668"
+    },
+    {
+      "path": "evidence/render_original_v1/arm_bend_rgba.mkv",
+      "bytes": 12630779,
+      "sha256": "75336de46f610f995cbc1bdabc3daa1fcf21b09abc224c55830fee83136d258b"
+    },
+    {
+      "path": "evidence/render_original_v1/blink_archive.json",
+      "bytes": 13416,
+      "sha256": "a8689c31d9043a6dde38f8554468577deaf55e150e6bd2386dfe859fdafef5e7"
+    },
+    {
+      "path": "evidence/render_original_v1/blink_rgba.mkv",
+      "bytes": 2645158,
+      "sha256": "cd0c21ac2aef1303883b2f8f3f3638ad4872371ccf1b00d5f8a3231898c14bce"
+    },
+    {
+      "path": "evidence/render_original_v1/engine_receipt.json",
+      "bytes": 453,
+      "sha256": "b287a40ae25733e0324cf470caf21fb7704950b098f33b6cd49c438742e04964"
+    },
+    {
+      "path": "evidence/render_original_v1/samples.json",
+      "bytes": 493891,
+      "sha256": "6e975ecaddfef0be33779ea495203d628a65114e7904b397e3feee4dfcf9bacc"
+    },
+    {
+      "path": "evidence/render_original_v1/stress_samples.json",
+      "bytes": 1294429,
+      "sha256": "f579cac685d10b34b6affb44d6549f35007da4412f05c587d43d69b2ade6db9f"
+    },
+    {
+      "path": "evidence/render_original_v1/tail_bend_archive.json",
+      "bytes": 21986,
+      "sha256": "5258a3b6065f5c93490babb23ef041aab7bd5afe83b43001249bf9270506b3c6"
+    },
+    {
+      "path": "evidence/render_original_v1/tail_bend_rgba.mkv",
+      "bytes": 17248048,
+      "sha256": "7785d4723001564389271d93b863bc0c1e17264f6948628c02d00379632ba027"
+    },
+    {
+      "path": "evidence/render_original_v2/arm_bend_archive.json",
+      "bytes": 17691,
+      "sha256": "dfc0d5e84e9addc2666b5fca8a7c0e52de2c6fb88c116ae4cd91e2ae8fd90317"
+    },
+    {
+      "path": "evidence/render_original_v2/arm_bend_rgba.mkv",
+      "bytes": 12630779,
+      "sha256": "53ee8739dbe296b7ce6ff0bb6415fc360836b56bfd478ca83c85ce32ffc37982"
+    },
+    {
+      "path": "evidence/render_original_v2/blink_archive.json",
+      "bytes": 13416,
+      "sha256": "8ac8faa7b62c96fee218c42672374fa5a032a785bd04a6c719720784121cd331"
+    },
+    {
+      "path": "evidence/render_original_v2/blink_rgba.mkv",
+      "bytes": 2645158,
+      "sha256": "0b4fabffc98534ed77454d09eac8c4a9c5fec5bb8fd32817806419c86f0b9695"
+    },
+    {
+      "path": "evidence/render_original_v2/engine_receipt.json",
+      "bytes": 453,
+      "sha256": "b287a40ae25733e0324cf470caf21fb7704950b098f33b6cd49c438742e04964"
+    },
+    {
+      "path": "evidence/render_original_v2/samples.json",
+      "bytes": 493891,
+      "sha256": "6e975ecaddfef0be33779ea495203d628a65114e7904b397e3feee4dfcf9bacc"
+    },
+    {
+      "path": "evidence/render_original_v2/stress_samples.json",
+      "bytes": 1294429,
+      "sha256": "f579cac685d10b34b6affb44d6549f35007da4412f05c587d43d69b2ade6db9f"
+    },
+    {
+      "path": "evidence/render_original_v2/tail_bend_archive.json",
+      "bytes": 21986,
+      "sha256": "bd44f96a719059cc89a9109eaea35b1238791d9a72c5f92ce3f9977c5bcdd231"
+    },
+    {
+      "path": "evidence/render_original_v2/tail_bend_rgba.mkv",
+      "bytes": 17248048,
+      "sha256": "e4e8793a9ea4119b344dc9789dc20a43d8bb31e50c3ed8f1b85e7f8982ce5076"
+    },
+    {
+      "path": "evidence/reproduction.json",
+      "bytes": 453,
+      "sha256": "afdbc6553d3105451676c1f5c70b309614a84cd6f676e425ca621096c422b847"
+    },
+    {
+      "path": "evidence/retained_failures.json",
+      "bytes": 2367,
+      "sha256": "a668e0f641e012f3d913fe654739d3285dc3e28bbfe153ef59c6a5de442b7835"
+    },
+    {
+      "path": "evidence/same_audit_contract.json",
+      "bytes": 1308,
+      "sha256": "f6da9fc038b9e35de50db2f9824a844662d71e63fa9fe03f04ef40821e7b716e"
+    },
+    {
+      "path": "evidence/summary.json",
+      "bytes": 3792,
+      "sha256": "467ea2dc87b0fde920ff5987922dfee2cc34d2c57fbe5b5b147c5268ba1b9fcf"
+    },
+    {
+      "path": "evidence/swaps_v1.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/swaps_v1.log",
+      "bytes": 220,
+      "sha256": "66933fa5d99a66bc022d819707c8128318e5bc02def353cd99e05804623e5d0c"
+    },
+    {
+      "path": "evidence/swaps_v1/snapshot_archive.json",
+      "bytes": 17581,
+      "sha256": "e37f051ff8f84ed34fa0221a7d6c575d4dd4ae49836259bcb31338319d155edb"
+    },
+    {
+      "path": "evidence/swaps_v1/snapshot_archive_failed_v1.json",
+      "bytes": 17740,
+      "sha256": "8d182235da2b37f967f3639c67dfebd46ada348a0172be872921f50992c9fc35"
+    },
+    {
+      "path": "evidence/swaps_v1/snapshot_concat.txt",
+      "bytes": 3672,
+      "sha256": "c56adc5fd78a2bc522937fa74c4d52988b7c7cf67b151938f3ca51606815b195"
+    },
+    {
+      "path": "evidence/swaps_v1/snapshot_rgba.mkv",
+      "bytes": 25091073,
+      "sha256": "62b4c41051c6465f6784d4e0372148c1891c3cd2d5b0a0033d0ce73d3f9498fb"
+    },
+    {
+      "path": "evidence/swaps_v1/snapshot_rgba_failed_v1.mkv",
+      "bytes": 25091030,
+      "sha256": "682c3a9a8fc79413a2db6be31bd41fd830d94af1377d74cf2cc48ddebc72c71b"
+    },
+    {
+      "path": "evidence/swaps_v1/swap_audit.json",
+      "bytes": 27550,
+      "sha256": "96d8a2c0c6027a915093a1cdcbc8d68fc40699626d252b120a41490ec70c0c02"
+    },
+    {
+      "path": "evidence/swaps_v2.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/swaps_v2.log",
+      "bytes": 220,
+      "sha256": "66933fa5d99a66bc022d819707c8128318e5bc02def353cd99e05804623e5d0c"
+    },
+    {
+      "path": "evidence/swaps_v2/snapshot_archive.json",
+      "bytes": 17581,
+      "sha256": "10f4b24079a1a8fce52429fe2a37c6d41ba3c1092634d0bc5dc6064bb90aa82e"
+    },
+    {
+      "path": "evidence/swaps_v2/snapshot_rgba.mkv",
+      "bytes": 25296211,
+      "sha256": "55b89e5c2dac71b3f0201a2531315423f4cb8283c55ac0b23d0bc76567fbc907"
+    },
+    {
+      "path": "evidence/swaps_v2/swap_audit.json",
+      "bytes": 27642,
+      "sha256": "cefebb116ba549cd3b1c0ec416f96b8317c2526327c0c4907f76f4996977031e"
+    },
+    {
+      "path": "evidence/swaps_v3.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/swaps_v3.log",
+      "bytes": 220,
+      "sha256": "66933fa5d99a66bc022d819707c8128318e5bc02def353cd99e05804623e5d0c"
+    },
+    {
+      "path": "evidence/swaps_v3/snapshot_archive.json",
+      "bytes": 17581,
+      "sha256": "17e79d9ad581c8e1744dafd8c47e5c8697b41c671e6019c282f3f8ddc9dea65c"
+    },
+    {
+      "path": "evidence/swaps_v3/snapshot_rgba.mkv",
+      "bytes": 25875740,
+      "sha256": "f116d30bb808709f501ceb34a4f842a2939e93a076e0a39ffb5b2e316f0e6a42"
+    },
+    {
+      "path": "evidence/swaps_v3/swap_audit.json",
+      "bytes": 27642,
+      "sha256": "cefebb116ba549cd3b1c0ec416f96b8317c2526327c0c4907f76f4996977031e"
+    },
+    {
+      "path": "godot/costume.gdshader",
+      "bytes": 392,
+      "sha256": "03518a6117468b0d643676e8dd7b8ec8635ad37ae416344872cdbd9866d44d09"
+    },
+    {
+      "path": "godot/costumes.json",
+      "bytes": 3762,
+      "sha256": "dd59e540dd21f44003ef82b545185212f5e9164d0c11f20610aec4782203dbda"
+    },
+    {
+      "path": "godot/project.godot",
+      "bytes": 487,
+      "sha256": "41f4a5766e957cbdfdb5863cbdd89f67facb88c29f883dafd5134a468e63e85a"
+    },
+    {
+      "path": "godot/render_stress.gd",
+      "bytes": 4113,
+      "sha256": "463c0fcf3c320a7ac4b1038fff1a21b0df8bb965cdb0c3ee3144c3afc0882138"
+    },
+    {
+      "path": "godot/rig.json",
+      "bytes": 923766,
+      "sha256": "18811c1b50bba8f3849708fb648afd26ca20796de035194a89f1afc2581930d5"
+    },
+    {
+      "path": "godot/rig_ballet.json",
+      "bytes": 923747,
+      "sha256": "12c558db3d5673c742316c17a5640f2b941ccfa081f822ab3d303230613a315e"
+    },
+    {
+      "path": "godot/rig_magician.json",
+      "bytes": 923751,
+      "sha256": "d9cb524867c657d2e6de1b0cc51f21c8a95555f47976e65d81d497b3a8b0b810"
+    },
+    {
+      "path": "godot/stress_swaps.gd",
+      "bytes": 6734,
+      "sha256": "1f21d60e371a6219871ccf9012e3a470a8557742d955f8040cfbcf3d135973d4"
+    },
+    {
+      "path": "godot/study.gd",
+      "bytes": 11553,
+      "sha256": "18c226bce11b3b2b5a0a09c34d4847122981099bfabfafdf9bc79dda98939071"
+    },
+    {
+      "path": "godot/study.tscn",
+      "bytes": 162,
+      "sha256": "296bf8a580910fd3e9bd3f731406a6e8ed5655baa297a6e504d65176268570fc"
+    },
+    {
+      "path": "job_cards.json",
+      "bytes": 7726,
+      "sha256": "8bd278f6f768babf8c43657b42eeb92de150a1c8b4e1a6783af8164e463ddcc0"
+    },
+    {
+      "path": "job_cards/ballet_arm_bend.json",
+      "bytes": 8878,
+      "sha256": "e1e33445d805229a4a79f0220fd3ab24ae5a01af4c5c55fedacef1aa79b52220"
+    },
+    {
+      "path": "job_cards/ballet_blink.json",
+      "bytes": 8822,
+      "sha256": "647751d66e91df29844e533576f566c5f1106ed8841f0477ce02b15d4ab8bab0"
+    },
+    {
+      "path": "job_cards/ballet_tail_bend.json",
+      "bytes": 8873,
+      "sha256": "cad3d995773b909de1d612aa213bd4add188175f293820608f493049f68209ea"
+    },
+    {
+      "path": "job_cards/magician_arm_bend.json",
+      "bytes": 8900,
+      "sha256": "04bfaecd71799e24469f6677a03fbfd59e3f71679228f77f230156cf3cbc479a"
+    },
+    {
+      "path": "job_cards/magician_blink.json",
+      "bytes": 8844,
+      "sha256": "c0fbcb1b02a5e08b89bed289e099d272c97badcbbec2109cff089f2534ecbcc3"
+    },
+    {
+      "path": "job_cards/magician_tail_bend.json",
+      "bytes": 8895,
+      "sha256": "601bc788942a88a70b324f8c8e5ea275ed619d7442dc51c4b20f207564572254"
+    },
+    {
+      "path": "masters/ballet/arm_bend.aseprite",
+      "bytes": 62693988,
+      "sha256": "d078dfcb105e3b52dbe86c62205d43c080e95db38bed994a4ff44a4742974a98"
+    },
+    {
+      "path": "masters/ballet/blink.aseprite",
+      "bytes": 47051420,
+      "sha256": "b0553c436047a91cd0b7fbde08b1c12882cf5a5048628072327d41c051c145f0"
+    },
+    {
+      "path": "masters/ballet/tail_bend.aseprite",
+      "bytes": 78220635,
+      "sha256": "72721faa1f1927839a640c6e39a175a97b602d68e87c253639563d1a3c6d25f8"
+    },
+    {
+      "path": "masters/magician/arm_bend.aseprite",
+      "bytes": 63361605,
+      "sha256": "a11c0237cd53d1694cbe2ffddc6d5286c9273b3c5bd7df3df04d94122e481745"
+    },
+    {
+      "path": "masters/magician/blink.aseprite",
+      "bytes": 47548622,
+      "sha256": "0ba05a2a4be9848d1ab47aac087698580b72f9a6f8eb0bd95d72c2c4c0b9fb70"
+    },
+    {
+      "path": "masters/magician/tail_bend.aseprite",
+      "bytes": 79093154,
+      "sha256": "df78b161ffb565b911706641ed107f0f2993f48cf6e392f6c661043e609b2bf9"
+    },
+    {
+      "path": "native/ballet_fit.png",
+      "bytes": 1102731,
+      "sha256": "d280d696ec4056f31248cb91036b258ddc2fb50edb0c509389d5c8c943369fe8"
+    },
+    {
+      "path": "native/magician_fit.png",
+      "bytes": 981839,
+      "sha256": "b2b413e5d26c9ed567dcae6dc76cd61d21b88fefc461fb563b0876f7a1aea3f0"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 6610,
+      "sha256": "8629cf9c9230605d8b0185b4e91ef75034f8fa575abc701a702419686daeeb20"
+    },
+    {
+      "path": "review/ballet/arm_bend.mp4",
+      "bytes": 329545,
+      "sha256": "db510a76648461f46d72c75b5b8c537e90c1f2466205e6cbcb0998e65be191a2"
+    },
+    {
+      "path": "review/ballet/arm_bend_detail_01.jpg",
+      "bytes": 329344,
+      "sha256": "3d760a2dfc8ef5fe49d54e849315f5f95d1f9854538ef4ebb30b8df85d640344"
+    },
+    {
+      "path": "review/ballet/arm_bend_detail_02.jpg",
+      "bytes": 338304,
+      "sha256": "71c806a400f38acdd25f89814636d78757658e61a09d6567b7df27f236c0db6c"
+    },
+    {
+      "path": "review/ballet/arm_bend_detail_03.jpg",
+      "bytes": 337570,
+      "sha256": "0feabbcc80b34e96dc10dbe1b8fa602ef64cde9e03a119f30d0ea17d047d87c7"
+    },
+    {
+      "path": "review/ballet/arm_bend_detail_04.jpg",
+      "bytes": 336909,
+      "sha256": "59c118da8dbea666daa5738068060a880fa68c8ca1089a4b9d673adcd2644ce5"
+    },
+    {
+      "path": "review/ballet/arm_bend_detail_05.jpg",
+      "bytes": 37445,
+      "sha256": "7f90f60d9f96674f968ef08ac18c41ecb21f5c96de2d50705f5feddaf3d43afb"
+    },
+    {
+      "path": "review/ballet/arm_bend_slow.mp4",
+      "bytes": 405739,
+      "sha256": "b88492aa7b0074a06942b6dc061f244ac7b73083c35b0243353816e58f663e9f"
+    },
+    {
+      "path": "review/ballet/blink.mp4",
+      "bytes": 70225,
+      "sha256": "932194edc00327413cb5ffde5fe32dbb608ac55ef646e6e7276d427baeb68a4b"
+    },
+    {
+      "path": "review/ballet/blink_detail_01.jpg",
+      "bytes": 288529,
+      "sha256": "eaba7ea96832d5eed282cb1ce76cf421ec45e16a502645dc7b593f03fd776ac8"
+    },
+    {
+      "path": "review/ballet/blink_detail_02.jpg",
+      "bytes": 281932,
+      "sha256": "376122a9ae62ab883e33109324975f4162cbde83b53e0643d1d7852b9108db5e"
+    },
+    {
+      "path": "review/ballet/blink_detail_03.jpg",
+      "bytes": 288535,
+      "sha256": "e668ef9cb589a7d10690d4c27e43a49b66458bac116a0733187d5e91d5838126"
+    },
+    {
+      "path": "review/ballet/blink_detail_04.jpg",
+      "bytes": 36424,
+      "sha256": "0185cf46545e14e89a34dd729e5c1597902ba16dc7a92dd73d9a8bdaf6ddfebd"
+    },
+    {
+      "path": "review/ballet/blink_slow.mp4",
+      "bytes": 76015,
+      "sha256": "2cae7afcfc43684124497133280e5fde11446fab4abaa3ca2af3e93b9f810e64"
+    },
+    {
+      "path": "review/ballet/tail_bend.mp4",
+      "bytes": 441609,
+      "sha256": "703c9a7c9e74e1a335d6db77f444f45598968bf795ee4a43be721368abd1956d"
+    },
+    {
+      "path": "review/ballet/tail_bend_detail_01.jpg",
+      "bytes": 423709,
+      "sha256": "a2fb9733c090a14973c98831de3dad7cf3eba9fa4680c585310f2735093603bf"
+    },
+    {
+      "path": "review/ballet/tail_bend_detail_02.jpg",
+      "bytes": 420837,
+      "sha256": "f5ed939c004b82a2f4d6d96cfebe1b59656a21c891f5954555d6953a47888caf"
+    },
+    {
+      "path": "review/ballet/tail_bend_detail_03.jpg",
+      "bytes": 422056,
+      "sha256": "33a87bc6ef099a486ef0c722179cbb6da02761d742a4501a7854f209c2dea974"
+    },
+    {
+      "path": "review/ballet/tail_bend_detail_04.jpg",
+      "bytes": 421647,
+      "sha256": "29fba908796992d845f4c624fd592a66d71ffd61a6ea4df74f0fc4e99b9b8676"
+    },
+    {
+      "path": "review/ballet/tail_bend_detail_05.jpg",
+      "bytes": 424773,
+      "sha256": "ab22e4810c0a69171ed371239ad755f71ce838ffd12547385f7e0fd4a9acf4b2"
+    },
+    {
+      "path": "review/ballet/tail_bend_detail_06.jpg",
+      "bytes": 41624,
+      "sha256": "b651c87593ab065d09d3f63ce3d55e1e6a53d81c21ebf9b14ee2f58c4aaa3904"
+    },
+    {
+      "path": "review/ballet/tail_bend_slow.mp4",
+      "bytes": 543339,
+      "sha256": "4d178fdb42b46659fae72177626f5e3fd6f9947c97e526cdd82b39887a8160aa"
+    },
+    {
+      "path": "review/ballet/three_studies.mp4",
+      "bytes": 1750939,
+      "sha256": "62186dd14b94d91eb06e62820bbaeec0968643203b7e4b774f9f0524626d65f4"
+    },
+    {
+      "path": "review/ballet_neutral.png",
+      "bytes": 545006,
+      "sha256": "a7f8d32f17f4eccd991dda64526d25ce266ac213d5c1e42d2477497c1dfd187f"
+    },
+    {
+      "path": "review/compare_arm_bend.mp4",
+      "bytes": 618988,
+      "sha256": "b868137d0d7a1299b4bdcb78eaac82f4b6e2398cc18e7ec70082130368d51049"
+    },
+    {
+      "path": "review/compare_arm_bend_background.png",
+      "bytes": 18832,
+      "sha256": "f43cf8b573fb292f7437d2cbb8c44b3e931172d03def1e5289ce6256219a9be0"
+    },
+    {
+      "path": "review/compare_blink.mp4",
+      "bytes": 128099,
+      "sha256": "d2e59179637f521b4f4b4839af8721f20df81ca34932a222335a1de56b97da7b"
+    },
+    {
+      "path": "review/compare_blink_background.png",
+      "bytes": 17784,
+      "sha256": "c4260b6d97a24d7739863c525fae70b59cd3469a3f9faf922029457793666507"
+    },
+    {
+      "path": "review/compare_tail_bend.mp4",
+      "bytes": 802836,
+      "sha256": "66be6010ecde0b6f04d51932b2ffef84c18bae5f0d96ef6f699d4e11f2b68de7"
+    },
+    {
+      "path": "review/compare_tail_bend_background.png",
+      "bytes": 17903,
+      "sha256": "3079582431412ef09fd3d52b04e47645c408614959f436b5d68ed10f0ed92831"
+    },
+    {
+      "path": "review/comparison_concat.txt",
+      "bytes": 170,
+      "sha256": "f571d87dfdb907709d8d68c2b6ef8567a46074b676f0187d6f46b3bd9f1cdca1"
+    },
+    {
+      "path": "review/costume_comparison.mp4",
+      "bytes": 3095821,
+      "sha256": "463d045c6dc417c0bf11c88f3da6b616894157cac0bdc8f93005cef1d598fe5d"
+    },
+    {
+      "path": "review/magician/arm_bend.mp4",
+      "bytes": 332453,
+      "sha256": "9249b814d271e24f30a3c748bf44a201566e526226373e3b7c2704f65d369836"
+    },
+    {
+      "path": "review/magician/arm_bend_detail_01.jpg",
+      "bytes": 344416,
+      "sha256": "55f9213125020ac1da566c8fd171d9ae229b3592fc1c65cfd12a361c6334752b"
+    },
+    {
+      "path": "review/magician/arm_bend_detail_02.jpg",
+      "bytes": 352456,
+      "sha256": "17e12e8c1b112fb580119fe13f59ec2da5f3bd247f776a12df42e463c624d46a"
+    },
+    {
+      "path": "review/magician/arm_bend_detail_03.jpg",
+      "bytes": 351720,
+      "sha256": "1feb82a16c818de56f826c279f60241d811c0a7275f4e3aab4cc04bc5410d93c"
+    },
+    {
+      "path": "review/magician/arm_bend_detail_04.jpg",
+      "bytes": 351815,
+      "sha256": "0151fdd064fb9860c17b889abf20ee86ed80be2ad12cede951d0d04e485a333c"
+    },
+    {
+      "path": "review/magician/arm_bend_detail_05.jpg",
+      "bytes": 38054,
+      "sha256": "f3cafa1e6159a12b3d116ca0ee6b50549bffe0075e0ecd52957afd40f2df41be"
+    },
+    {
+      "path": "review/magician/arm_bend_slow.mp4",
+      "bytes": 399288,
+      "sha256": "713ea94dc25f5c1ef445eb3046ff08196a96b1abc643df80a3111d3ef76da85c"
+    },
+    {
+      "path": "review/magician/blink.mp4",
+      "bytes": 70727,
+      "sha256": "4de6af0bda3650acf91bf555e7d4323edd63d0c6c11e064419a1d874f6f09e28"
+    },
+    {
+      "path": "review/magician/blink_detail_01.jpg",
+      "bytes": 288529,
+      "sha256": "eaba7ea96832d5eed282cb1ce76cf421ec45e16a502645dc7b593f03fd776ac8"
+    },
+    {
+      "path": "review/magician/blink_detail_02.jpg",
+      "bytes": 281932,
+      "sha256": "376122a9ae62ab883e33109324975f4162cbde83b53e0643d1d7852b9108db5e"
+    },
+    {
+      "path": "review/magician/blink_detail_03.jpg",
+      "bytes": 288535,
+      "sha256": "e668ef9cb589a7d10690d4c27e43a49b66458bac116a0733187d5e91d5838126"
+    },
+    {
+      "path": "review/magician/blink_detail_04.jpg",
+      "bytes": 36424,
+      "sha256": "0185cf46545e14e89a34dd729e5c1597902ba16dc7a92dd73d9a8bdaf6ddfebd"
+    },
+    {
+      "path": "review/magician/blink_slow.mp4",
+      "bytes": 76816,
+      "sha256": "fcdc64febb7e16d0839390ca8f65ea1661105c2d3e57418ff16fc8ff7141640c"
+    },
+    {
+      "path": "review/magician/tail_bend.mp4",
+      "bytes": 452117,
+      "sha256": "bc7123eb6387640f82d5eadeb5a0d558f61536e169711be8ad52494293a27960"
+    },
+    {
+      "path": "review/magician/tail_bend_detail_01.jpg",
+      "bytes": 451212,
+      "sha256": "f66cf6b7378376afa4cee0d6957c30fc0f7049ef5d05e38c0d2f27bbc5349e9d"
+    },
+    {
+      "path": "review/magician/tail_bend_detail_02.jpg",
+      "bytes": 448321,
+      "sha256": "867ebb83b6ad0a66dde5444ce0cab75d0d16078c321a80ed875e8d23d4cff45b"
+    },
+    {
+      "path": "review/magician/tail_bend_detail_03.jpg",
+      "bytes": 448928,
+      "sha256": "f7e5980abd4defd01e98d27d03f5c780a690e024bcd5155413dacf7fe74cf25c"
+    },
+    {
+      "path": "review/magician/tail_bend_detail_04.jpg",
+      "bytes": 448064,
+      "sha256": "11443e93e13e9c6803490c37690fd50b62d5c6c75672def3a91d718a21aa6651"
+    },
+    {
+      "path": "review/magician/tail_bend_detail_05.jpg",
+      "bytes": 452371,
+      "sha256": "e6b13e0f715e8f3b5c03f6515fae7fe4e146e9271d75ac0cfdc0f60d0a3dfbdd"
+    },
+    {
+      "path": "review/magician/tail_bend_detail_06.jpg",
+      "bytes": 42748,
+      "sha256": "6df647a8ab9bf8f2901efb50c4353a201a1d20e160d2f5344fdc491fe78581c3"
+    },
+    {
+      "path": "review/magician/tail_bend_slow.mp4",
+      "bytes": 528279,
+      "sha256": "f3090549163548feff8fe4130e63d68ab713615c9e0913e4d8990cfb0d2cd645"
+    },
+    {
+      "path": "review/magician/three_studies.mp4",
+      "bytes": 1774078,
+      "sha256": "5820ea85e1af27c2b90017b36442ef89fb384cf09ebe02d4748d21552cad576f"
+    },
+    {
+      "path": "review/magician_neutral.png",
+      "bytes": 547937,
+      "sha256": "04af8e6fc79f91c29cddbc3e8a66b86985778169806f41cb841d1ab0072ee51e"
+    },
+    {
+      "path": "review/swap_combinations_01.jpg",
+      "bytes": 343934,
+      "sha256": "2c96719f7b919ae025423e90e398a7cc3785f59c97612faccdbb1c580fb36b19"
+    },
+    {
+      "path": "review/swap_combinations_02.jpg",
+      "bytes": 346142,
+      "sha256": "bce37a8157fd87839cf6ba225951084ae8cc7d81335001233b6b9e02ce5b2b8e"
+    },
+    {
+      "path": "review/swap_combinations_03.jpg",
+      "bytes": 341168,
+      "sha256": "42265bc7044a8febd64531e42f4f2c3e76cdf0fdd0d3ef983dbd2d58dccfcee5"
+    },
+    {
+      "path": "review/swap_combinations_04.jpg",
+      "bytes": 346895,
+      "sha256": "1f53a9396c7de48e1199b113063aa699edf4b4f5080ac7db3089835b34798592"
+    },
+    {
+      "path": "review/swap_combinations_05.jpg",
+      "bytes": 337472,
+      "sha256": "e415e588b3fb8f684285f1474eab63f57b209e9462cb54716d5e2f8d14480ed6"
+    },
+    {
+      "path": "review/swap_combinations_06.jpg",
+      "bytes": 329784,
+      "sha256": "672d806317eb7da0a587a628c0abb0f14ac90dca16332f711f59b3f4489a66a6"
+    },
+    {
+      "path": "review/swap_combinations_07.jpg",
+      "bytes": 249202,
+      "sha256": "3028bed545eabba9d35f76ef1b5dcdc5aef552a73687c6eb4e544a1f5c7a2ff8"
+    },
+    {
+      "path": "scripts/archive_swaps.py",
+      "bytes": 2462,
+      "sha256": "b73dae2e271cefea7e5afe49c7a757869e84e8a8da12de10f85dc1f5e5a01530"
+    },
+    {
+      "path": "scripts/audit_identity.py",
+      "bytes": 3276,
+      "sha256": "9db6c880c9bf2d8a05b6c140f6701f08f50723dd94f356fd58d3d192e342ade5"
+    },
+    {
+      "path": "scripts/audit_motion.py",
+      "bytes": 3368,
+      "sha256": "9d1245416eee6eef61015a151d85e013eb5b45d52d17e0e7a920672d17433908"
+    },
+    {
+      "path": "scripts/audit_study.py",
+      "bytes": 11204,
+      "sha256": "eef44a94b735a0dcac30addc8ed009204a1a11e33147d46522c0901915fedd74"
+    },
+    {
+      "path": "scripts/build_costumes.py",
+      "bytes": 6650,
+      "sha256": "21fcdeb2032e0b9160f33483d98088d2086ef0d103e1af0e07c75479087d33c2"
+    },
+    {
+      "path": "scripts/comparison_reel.py",
+      "bytes": 1748,
+      "sha256": "b20cb48ae4f8b236d563641edb8d42a032b024be6888d690d6b40bfabd617eb5"
+    },
+    {
+      "path": "scripts/final_gates.py",
+      "bytes": 2967,
+      "sha256": "d875084c8d38245347c66b7fa8b918fe3dfb869973f5e59144d230ccf212d9ec"
+    },
+    {
+      "path": "scripts/focused_melody_gate.sh",
+      "bytes": 3069,
+      "sha256": "65f4f88a296c83b14ca34fb4a7028edd73ec8c6d1cd644022810536f83ebd19b"
+    },
+    {
+      "path": "scripts/focused_opera_gate.sh",
+      "bytes": 3071,
+      "sha256": "a7bdf5ea6d290009392d3b46417ee4de7e3249d7ae630cd3dc88b1bd01af6b53"
+    },
+    {
+      "path": "scripts/import_masters.lua",
+      "bytes": 733,
+      "sha256": "f4679239c1ef86cc4269245fe487c549c5f1cacc5d99f9c84e33c17f1a15ffda"
+    },
+    {
+      "path": "scripts/package_costumes.py",
+      "bytes": 2811,
+      "sha256": "7bc4fbe7aae797bc8306ab0f69750cf94e1b63eef0bbe588dd8a9f406696669c"
+    },
+    {
+      "path": "scripts/package_review.py",
+      "bytes": 5496,
+      "sha256": "cc0a5d0474b9fd765acbaa1e27d6f3b4ca25c7455d0af72c025934bbc35889e1"
+    },
+    {
+      "path": "scripts/project_gates.sh",
+      "bytes": 5145,
+      "sha256": "78d9981087b9b38ed95e263bb4798cbe77003cc79e45b115b2f4a93ba387988f"
+    },
+    {
+      "path": "scripts/project_probe_rerun.sh",
+      "bytes": 4599,
+      "sha256": "4ab1a14a818f349a2af85fdcdb3ae78ec25c6244c77eb5c2ebc77a6085b06e51"
+    },
+    {
+      "path": "scripts/record_evidence.py",
+      "bytes": 10801,
+      "sha256": "f8a8aa4818ab9db7a1225d3982c8b5c748751f161958d72732515806a34a8374"
+    },
+    {
+      "path": "scripts/reopen_masters.lua",
+      "bytes": 503,
+      "sha256": "749323cc72130ca74b5309050625ca6cb6a6eafea2c4754ee672df681afe0c9f"
+    },
+    {
+      "path": "scripts/run_candidates.ps1",
+      "bytes": 1117,
+      "sha256": "960599d57797519da06c2f231d03ea911b3f7b9af4363f2f02afe31f2ee4dbed"
+    },
+    {
+      "path": "scripts/run_focused_melody.ps1",
+      "bytes": 218,
+      "sha256": "9c2123cf86366c97a8a471a65977ac4e119abb644226d122768b7ddd81dd25f6"
+    },
+    {
+      "path": "scripts/run_focused_opera.ps1",
+      "bytes": 219,
+      "sha256": "9f89ca18628c0a8b487f952f5dda8caec51342038c65cc981174c7b0a64d8239"
+    },
+    {
+      "path": "scripts/run_focused_repaired.ps1",
+      "bytes": 220,
+      "sha256": "ba042482eebba858d69755388676b939734ad829c9449b93b7a7f94febd5a7fb"
+    },
+    {
+      "path": "scripts/run_masters.ps1",
+      "bytes": 1365,
+      "sha256": "02218495d76f606250932d1bbe5510e830e6b6e157921bb540f498772cfc9a6f"
+    },
+    {
+      "path": "scripts/run_package.ps1",
+      "bytes": 638,
+      "sha256": "f075bfae3dc6f53d6e47610987297c952b7516e02e5bcaa2f6d00a401f954cdd"
+    },
+    {
+      "path": "scripts/run_project_gates.ps1",
+      "bytes": 311,
+      "sha256": "ee0b73c00da5e5c0660814503680dee05aeff76e5aab05cc526d4b64287bdede"
+    },
+    {
+      "path": "scripts/run_project_probe_rerun.ps1",
+      "bytes": 227,
+      "sha256": "76d7fa88bd2dcf0cf26735c4e7a40324f407655c9513d79a716a7fd0bf6f58af"
+    },
+    {
+      "path": "scripts/run_source_checks.ps1",
+      "bytes": 1452,
+      "sha256": "db518d42991de5589e125a9002357184243384bd37e09ea9762bc863176d61ce"
+    },
+    {
+      "path": "scripts/run_swap_archive.ps1",
+      "bytes": 229,
+      "sha256": "388b0094ef59faaa6efd773c9f68e7e9c7257bf7cc82a23f9fa81c764bb26c5d"
+    },
+    {
+      "path": "scripts/run_trace_melody.ps1",
+      "bytes": 222,
+      "sha256": "56115c57a856c75dfbecf103475f9cfe335266f098d569fbdea00332a539358a"
+    },
+    {
+      "path": "scripts/run_trace_opera.ps1",
+      "bytes": 223,
+      "sha256": "0ebe339dcd8a07d1030ced89253edd11cee89f4fdc0af81fa10fd4c81105a246"
+    },
+    {
+      "path": "scripts/trace_melody.gd",
+      "bytes": 1261,
+      "sha256": "5bec00d1d26a14fe8b515694882e64cda9f2336921d894d75a7da2e2946e35b7"
+    },
+    {
+      "path": "scripts/trace_melody_gate.sh",
+      "bytes": 3219,
+      "sha256": "8a8122f995efd1352dc8399b0db9ac1a9e113a6546b899e39c1210775e25e429"
+    },
+    {
+      "path": "scripts/trace_opera_2d.gd",
+      "bytes": 1140,
+      "sha256": "c1557f7382031f92a0fe61c38335972cf84ba9aa179682c9989d6b5dfa6f62ec"
+    },
+    {
+      "path": "scripts/trace_opera_gate.sh",
+      "bytes": 3195,
+      "sha256": "e31312a27150e8a6b8c41fc40a597a42c1f26a6cd0cb6d2d6b500a02c5cbaf12"
+    },
+    {
+      "path": "scripts/verify_masters.py",
+      "bytes": 1171,
+      "sha256": "436b34403bfc9b962fa401966d15602039e8aee8a7953c47556c23715e791798"
+    },
+    {
+      "path": "scripts/verify_project_receipt.py",
+      "bytes": 4913,
+      "sha256": "55ad2d80a4db134b4e913a70e5029b8b4bf674e772e3fa2317a3c7b777a3ad16"
+    },
+    {
+      "path": "scripts/write_job_cards.py",
+      "bytes": 6828,
+      "sha256": "582c7c57cad8ea740aef1c5268b54f81d983df89b94124f28439f48a0faa3f0e"
+    }
+  ],
+  "sorted_payload_sha256": "c4f2b9d5d1d64796a3b7e3c2c0a2a496cd457a898e4d89026456b847d229a145",
+  "publication": {
+    "branch": "codex/native-rig-costumes-20261031",
+    "dev_integration": false,
+    "reason": "ODR-DEMO-FREEZE-20261031"
+  },
+  "acceptance": {
+    "production_integrated": false,
+    "owner": "PENDING",
+    "device": "PENDING",
+    "child": "PENDING",
+    "game_wide": "UNSATISFIED"
+  },
+  "limits": "RGBA archives retain exact pixels, not original PNG container bytes. Raw PNG captures remain locally preserved in ignored paths. Native source images are retained unchanged."
+}

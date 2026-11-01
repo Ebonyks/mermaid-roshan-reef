@@ -1,0 +1,7 @@
+{
+  "status": "REJECTED",
+  "precheck_cases": 12,
+  "precheck_result": "FAIL42neutral/33atarmpeakRGBApixels",
+  "diagnosis": "27certain old-tail pixels fall outside coarse left boundary at y562..573. Remaining rendered differences are their filtered footprint. Keep the poison test unchanged.",
+  "fix": "Select the entire actual opaque tail run containing the measured tail center in every pre-junction row; preserve the authored fin ownership boundary; include filtering halo. No numerical or contamination threshold changed."
+}

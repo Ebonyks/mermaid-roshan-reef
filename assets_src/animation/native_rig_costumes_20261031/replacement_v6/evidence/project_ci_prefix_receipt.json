@@ -1,0 +1,14 @@
+{
+  "exit": 1,
+  "start_utc": "2026-11-01T07:01:23.312017+00:00",
+  "end_utc": "2026-11-01T07:47:16.813876+00:00",
+  "command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "-c",
+    "export PATH=\"$PWD/tmp/native_costume_ci_bin:$PATH\"; exec bash tmp/native_costume_full_ci.sh"
+  ],
+  "source_ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "executed_lf_helper_sha256": "99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c",
+  "unchanged_beyond_crlf_to_lf": true,
+  "scope": "Complete canonical scripts/ci.sh, same gate/probe commands, failure classifiers and deadlines. Direct subprocess files avoid PowerShell NativeCommandError on normal unittest stderr."
+}
