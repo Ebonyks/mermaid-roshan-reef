@@ -1,0 +1,119 @@
+{
+  "baseline": "005ba38a170f226d51ee906ce7d390ef682af9ac",
+  "candidate": "Final v5 after headwear alpha-speck removal",
+  "costumes": {
+    "ballet": {
+      "geometry_pass": true,
+      "motion_pass": true,
+      "engine_receipt": {
+        "adapter": "NVIDIA GeForce RTX 3060 Ti",
+        "cycles": 120,
+        "device_claim": "desktop only; Lenovo/device/owner review pending",
+        "driver": "vulkan",
+        "engine": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "frames_rendered": 291,
+        "max_repeat_matrix_error": 0.0,
+        "rates": [
+          15,
+          24,
+          30,
+          60,
+          120
+        ],
+        "rendering_method": "mobile",
+        "state_seeks": 57744
+      }
+    },
+    "magician": {
+      "geometry_pass": true,
+      "motion_pass": true,
+      "engine_receipt": {
+        "adapter": "NVIDIA GeForce RTX 3060 Ti",
+        "cycles": 120,
+        "device_claim": "desktop only; Lenovo/device/owner review pending",
+        "driver": "vulkan",
+        "engine": {
+          "build": "official",
+          "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+          "hex": 263938,
+          "major": 4,
+          "minor": 7,
+          "patch": 2,
+          "status": "stable",
+          "string": "4.7.2-stable (official)",
+          "timestamp": 0
+        },
+        "frames_rendered": 291,
+        "max_repeat_matrix_error": 0.0,
+        "rates": [
+          15,
+          24,
+          30,
+          60,
+          120
+        ],
+        "rendering_method": "mobile",
+        "state_seeks": 57744
+      }
+    }
+  },
+  "acceptance": {
+    "production_integrated": false,
+    "owner": "PENDING",
+    "device": "PENDING",
+    "child": "PENDING",
+    "game_wide": "UNSATISFIED"
+  },
+  "publication": {
+    "branch": "codex/native-rig-costumes-20261031",
+    "dev_integration": false,
+    "reason": "ODR-DEMO-FREEZE-20261031"
+  },
+  "swap": {
+    "pass": true,
+    "evidence": "evidence/swaps_v3/swap_audit.json"
+  },
+  "identity": {
+    "pass": true,
+    "evidence": "evidence/identity_audit.json"
+  },
+  "same_audit": {
+    "pass": true,
+    "evidence": "evidence/same_audit_contract.json"
+  },
+  "aseprite": {
+    "pass": true,
+    "evidence": "evidence/aseprite_roundtrip.json"
+  },
+  "media": {
+    "pass": true,
+    "evidence": "evidence/media_verification.json"
+  },
+  "reproduction": {
+    "pass": true,
+    "evidence": "evidence/reproduction.json"
+  },
+  "costume_audits_pass": true,
+  "final_machine_pass": true,
+  "retained_render_runs": 11,
+  "retained_render_frames": 3201,
+  "retained_state_seeks": 635184,
+  "local_project_probe_lane": {
+    "initial_exit": "1",
+    "final_rerun_exit": "1",
+    "latest_individual_pass": true,
+    "single_full_rerun_pass": false,
+    "scope": "Initial exact import/2D-regression/82-probe suffix found a reproduced zero-sample Geologist probe gap. A complete rerun follows a probe-only sampling repair, retaining every geometry predicate. The later unchanged Melody intermittent miss and downstream count failure are retained; read-only trace and uninstrumented focused retest pass, without proving historical cause. Latest individual verdicts are distinct from a green uninterrupted full-suite run. Earlier static/audio/full-CI prefix is prior exact baseline evidence, not a new local full-ci claim. Exact published-head full CI tracked separately.",
+    "evidence": "evidence/project_gate_receipt.json"
+  }
+}
