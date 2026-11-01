@@ -3048,6 +3048,7 @@ func _fade_cut(cb: Callable) -> void:
 	if fade_tween != null and fade_tween.is_valid():
 		fade_tween.kill()
 	fade_tween = create_tween()
+	fade_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	fade_tween.tween_property(fade_rect, "modulate:a", 0.0, 0.25)
 	fade_tween.tween_callback(_finish_touch_transition)
 
@@ -8238,7 +8239,8 @@ func _process(delta: float) -> void:
 	else:
 		_tick_overlay_pads(delta)
 		_tick_pad_cursor(delta)
-	if fps_lbl != null and pause_panel != null and pause_panel.visible:
+	if OS.has_feature("editor") and fps_lbl != null \
+			and pause_panel != null and pause_panel.visible:
 		fps_lbl.text = "FPS: %d   (%s)" % [Engine.get_frames_per_second(), quality]
 	if speech_t > 0.0:
 		speech_t -= delta

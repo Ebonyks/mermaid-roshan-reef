@@ -3,7 +3,7 @@ extends Control
 ## Owner-requested temporary elevator launcher. Uses the shipping job engine;
 ## each run is fresh and opts out of durable story, checkpoint and reward writes.
 
-const ENABLED := true
+const ENABLED := false
 const ROUTE_ID := "opera_job_playtest"
 const COLUMNS := 5
 const CARD_SIZE := Vector2(224.0, 152.0)

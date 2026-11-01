@@ -59,10 +59,11 @@ func _build_pause() -> void:
 	shell.name = "MenuShell"
 	StorybookUI.adorn_panel(m.pause_panel, shell_rect, "Menu")
 
-	m.fps_lbl = Label.new()
-	StorybookUI.style_label(m.fps_lbl, 18, Color(0.74, 0.82, 0.94), 2)
-	m.fps_lbl.position = Vector2(1030, 686)
-	m.pause_panel.add_child(m.fps_lbl)
+	if OS.has_feature("editor"):
+		m.fps_lbl = Label.new()
+		StorybookUI.style_label(m.fps_lbl, 18, Color(0.74, 0.82, 0.94), 2)
+		m.fps_lbl.position = Vector2(1030, 686)
+		m.pause_panel.add_child(m.fps_lbl)
 	var resume := _pause_btn("▶   BACK TO PLAY", Rect2(350, 105, 580, 140), "primary")
 	resume.name = "PauseResumeButton"
 	resume.pressed.connect(toggle_pause)

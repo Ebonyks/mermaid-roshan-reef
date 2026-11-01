@@ -366,6 +366,23 @@ func _audit_cancel_return() -> void:
 
 
 func _audit_job_playtest_menu() -> void:
+	if not OperaJobPlaytestMenu.ENABLED:
+		rooms.show_room("opera_hall", false)
+		await _frames(3)
+		_check("disabled playtest entry still opens the shipping Opera venue",
+			routes.open_opera_venue())
+		await _frames(3)
+		var disabled_venue: OperaHouseVenue2D = routes.opera_venue
+		var disabled_menu: OperaJobPlaytestMenu = disabled_venue.job_playtest_menu \
+			if disabled_venue != null else null
+		var disabled_elevator: Button = disabled_venue.get_node_or_null(
+			"OperaLeftElevatorPlaytest") as Button if disabled_venue != null else null
+		_check("demo build omits the disabled playtest menu and elevator touch target",
+			disabled_menu == null and disabled_elevator == null)
+		if disabled_venue != null:
+			disabled_venue.close()
+		await _frames(3)
+		return
 	var original_save := main.save_data.duplicate(true)
 	var original_story := main._chapter_two_ref().serialize_state()
 	var original_events := main.chapter2_event_history.duplicate(true)
