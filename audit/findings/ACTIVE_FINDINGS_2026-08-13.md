@@ -439,6 +439,8 @@ R117 partialproduction2026-10-31: [whole painted Dolls mat](../../docs/handoffs/
 
 R118 partialproduction2026-10-31: [whole paintedDolls cradle](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/README.md), source218ae766f8e60afb3f6338b8fafce28ec9fab7f2 exactCIgreen/normalDev/local82/static/native100checks16views,10priorbaselineframes reused no newcredit. Two staticcalls/one wideaspectreject/onewhole512export,17otherfunctions andfunctionalgeometry exact.21source20partialDev artifacts;6917bounded4175excluded11092retained events. Separatefocus/pips/safe-ring/roomapproval/otherart/formal/external/global and lifecycleOPEN,acceptedremoved0.
 
+R119 preservation2026-10-31: [paintedDolls progress sourcecandidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/README.md) andboundedGeologist reactionrepair; all82local/currentstatic/native342executedchecks/26effectiveframes sourcebound. ODR-DEMO-FREEZE-20261031 explicitly parks campaign afterR118; source634c8e4a06aae91e30e71e5a5e314c59c29570ce preserved,0newDev credit.22source20partialDev artifacts;6943bounded4177excluded11120retained nativePNGevents. Lifecycle/formal/device/child/owner/global remainOPEN,acceptedremoved0.
+
 ## MA-VIS-007
 
 | Field | Value |

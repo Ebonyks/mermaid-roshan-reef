@@ -1,0 +1,989 @@
+{
+  "schema": "reef.runtime_trial_delivery/1",
+  "revision": "FV-AUDIT-20261031-R119-PARKED",
+  "baseline": "39178b3139f2192b3b2e4b9d30eb677c54027cb7",
+  "actual_runtime_source": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+  "state": "PARKED_SOURCE_CANDIDATE_NO_DEV",
+  "files": [
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297623,
+      "sha256": "4efc4100c606fca0aa1cfa936eb2d555da290c570e5b3f07dc7c0804d287cd7b",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 293668,
+      "sha256": "7c2615ced6868f7fd2b519b62a6ba1b2a5f3a41e4e71bae4beffc7a95b909d59",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 331139,
+      "sha256": "aaa7ce712161d54b94cde215e0b541c1f3c156d91d2c5ff2133517940f12d59b",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 273975,
+      "sha256": "2953eb4205d785c5e3c614532b47e12b078f842a74e8d6ff5f1dad12e793b8ab",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 184923,
+      "sha256": "01b3b9edf158086f06dd0170b7e0b6382e0b9cd489d3ddf2cee69589106e162d",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/CANONICAL_GATES.json",
+      "bytes": 737,
+      "sha256": "687891f6d3e2c94391b799ce01a0cfac723404b5c7712310862583c517b0517d",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/CANONICAL_METADATA_RECOVERY.json",
+      "bytes": 641,
+      "sha256": "43ff49cc7b4bb46f357749c079b7b72f1af7d7d2ad02ad58240f81a37246248d",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/CANONICAL_METADATA_RECOVERY_RUNNER.py",
+      "bytes": 8521,
+      "sha256": "2f67cc08bb12498af9c7d6a61b7817d8420e5e24711aed2917fe5e458d6aeb46",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/CANONICAL_NAVIGATION_FAILURE.json",
+      "bytes": 397,
+      "sha256": "a3a9a4c289b9393ac035e786e2ece7d3e7a11ecb2c219907a36541d4e60291e6",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/CANONICAL_NAVIGATION_FAILURE.log",
+      "bytes": 257,
+      "sha256": "b20b2bad1bca0d8c984c9a90cdd0051b1d936d1d0758f0b07c6183229cde8b46",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/CANONICAL_PRESERVATION_RUNNER.py",
+      "bytes": 25241,
+      "sha256": "a776a7568d3668d7953c6eb5c180cf0d489d2afeb767aec800e577d899603247",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/CURRENT_ART_CENSUS.json",
+      "bytes": 288938,
+      "sha256": "c2dca216b05480d7b58b9bd642c4daf7d47824e21d94102948fb9c5674ef0b7c",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/CURRENT_GAME2D_EXECUTION.json",
+      "bytes": 1059,
+      "sha256": "fb8bd521610e44a18617d40e483e473b62dd508c02194bdc5e0191f62707a961",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/DEMO_FREEZE_DISPOSITION.json",
+      "bytes": 2929,
+      "sha256": "61182c4e060343e28ee2e509a7509e7ee1c875e9cbcfcde2e2f5982840c54a84",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/DERIVATION.json",
+      "bytes": 4319,
+      "sha256": "44ed9b803fbe731bc11082ad2e9e0a6deb25e84c6863e3f7d09257441fa474e4",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/FIXTURE_TIMING_CORRECTION.json",
+      "bytes": 2045,
+      "sha256": "41d154802cd8743cd161e5cfc7214b1b3bb1252e0c13909d3a4df4cf42c87380",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/FOCUSED_RESULT.json",
+      "bytes": 19924,
+      "sha256": "360bcb24b51c5782369c66dc8a11db8733344304287f8fd6c222b49d27e06201",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/FRAME_REVIEW.json",
+      "bytes": 4182,
+      "sha256": "c3d02d6a3e8914e8832580aeb355944a2be4b520dcc11e3f58a46e9031774376",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/FUNCTION_PRESERVATION.json",
+      "bytes": 2335,
+      "sha256": "2a58798611fbafeb325696cc2632de4ff7ad05a44e5ad67c057ec73cdf087904",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/GENERATION_ACCOUNTING.json",
+      "bytes": 3056,
+      "sha256": "d7490b6382d3988be452d3613a1dd87f911ed432712b6844a4858eab554c2938",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/IMPORT_RESULT.json",
+      "bytes": 543,
+      "sha256": "2fef656423d71b3c03babae10dbc71fed26c3e569e54afb84aa334205a39ac36",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/LOCAL_82_RESULT.json",
+      "bytes": 99851,
+      "sha256": "b9b23ec0c69ef5c17c4e5271df1f29a87e037c884a897dbc8194b7a52143df06",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/PLAN.json",
+      "bytes": 3526,
+      "sha256": "b4690faccac5f80fa879197e8bf216d01fb89db85e4e89394ed5d8b907b9a880",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/PRESERVATION_COVERAGE_FAILURE.json",
+      "bytes": 367,
+      "sha256": "7ee5ea0b38799ca86f6f9c552b32c3fa9f2ad4bb1cd8731038f318eb7e4707a8",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/PRESERVATION_COVERAGE_RECOVERY.json",
+      "bytes": 476,
+      "sha256": "cdbd5fcc9f6b4db3598bbe69bf63e77c62e9beed15a2b7dbc4742affdacd72a7",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/PRESERVATION_METADATA_RECOVERY.json",
+      "bytes": 578,
+      "sha256": "903aec2472b410bf80283c8bb9e3bb3621b19b0d5677fa60775f9fb12ef623c9",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/PRESERVATION_NAVIGATION_FAILURE.json",
+      "bytes": 486,
+      "sha256": "c0dc791c29db0bcc748e55105a5f5b9ba3fa01ce2c98ec92f9f6f1582a18dc01",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/PRESERVATION_RUNTIME_REUSE.json",
+      "bytes": 741,
+      "sha256": "6dc6196514e69cddec358de3c434e23f30de83cd4df6ac88c85a5ec90500a40c",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/PRODUCTION.json",
+      "bytes": 5855,
+      "sha256": "5c510cbabbbd0c48e00427de2b8147a79b3307b5024f982793de163498f4b19b",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/README.md",
+      "bytes": 3829,
+      "sha256": "f40d12296e0a9698c4b5ec64a4c0e9c06df5d8ce747d36ea4bac8dbfdb9f56bf",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/REFERENCE_BINDING.json",
+      "bytes": 11816,
+      "sha256": "856ed9a04f0843b37b55a830f26f9a0ee956725eb170ed982d3a719ec350451c",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/SOURCE_PARK_CI_HANDLES.json",
+      "bytes": 289,
+      "sha256": "3a8dff04bb7fefccf68fb06c627abd6b387849882b50628d7d06355fefb83222",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/SOURCE_PARK_FINAL.json",
+      "bytes": 1081,
+      "sha256": "29cbd81ebf07c128adecdc3d3989653534bf14b8c165e5a782007faa6934bcc6",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/SOURCE_PARK_PRECOMMIT_GATES.json",
+      "bytes": 1047,
+      "sha256": "d1aa29e725bf985bde2565a94fad337dd31e2270a84a9afd1e105f6f724dbbf2",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/SOURCE_PARK_REMOTE_VERIFICATION.json",
+      "bytes": 97215,
+      "sha256": "aa4a52c6c51107a7a5ea584ddfaf332d0c67ebc26084c2903b32db7349968975",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/SOURCE_PIN.json",
+      "bytes": 657508,
+      "sha256": "f61ba4a69c0c6a4133336dc1608b951d78e3cf40344a4d942de026962b90ba70",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/STATIC_COVERAGE_RECOVERY.json",
+      "bytes": 2758,
+      "sha256": "d58a6fee01b8412fa81bda2568440994c2832291aae820806acec5903a97acd4",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/STATIC_RESULT.json",
+      "bytes": 764,
+      "sha256": "59af999e36a1031274e0e07e8f7c374f8e673b8907eb8909f549be759585d21d",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/STATUS.json",
+      "bytes": 1410,
+      "sha256": "09afd57c2ac1eca0948eda2f5fe06ec83037a1c568b9899a14df6bc6baa06893",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/chapter2_startup_recovery/EXECUTION_BASIS.json",
+      "bytes": 1105,
+      "sha256": "59df476940af3a25d897ea96a7f8b7969bdbfe56e5129532489dd78d006614c7",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/chapter2_startup_recovery/ORIGINAL_CAPACITY_OPPORTUNITY_STOP.json",
+      "bytes": 240,
+      "sha256": "5cdc49b39019a6a6873c250b61abb1adaac6063a5479550c824fb730050ba55b",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/chapter2_startup_recovery/PLAN.json",
+      "bytes": 3576,
+      "sha256": "a3f7bf7c2cce7c66818d4530ccb737f24b509ce4bf98b3aa31e15616ee6b94bb",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/chapter2_startup_recovery/RECOVERY.json",
+      "bytes": 7250,
+      "sha256": "38c645ef5221b25efdd6755c8c6ca510297d8b00acf4b0e798cf9920cd125542",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/chapter2_startup_recovery/STANDALONE_DIAGNOSTIC_RESULT.json",
+      "bytes": 626,
+      "sha256": "e6e9661d863d9e7313b8c193b62038f554422dcb588d1081f7c4965aed83b504",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/geologist_rest_repair/FRAME_REVIEW.json",
+      "bytes": 1316,
+      "sha256": "6f4eac717dd8c5fb52d39f7f92d502e42752d400a1dd9c0733098d3091fed474",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/geologist_rest_repair/FUNCTION_PRESERVATION.json",
+      "bytes": 558,
+      "sha256": "699b4c446bbb088f093d2e10c0bbdde6fc68cdd895407910f78f4de6bc6aade6",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/geologist_rest_repair/NATIVE_RESULT.json",
+      "bytes": 8647,
+      "sha256": "ca646cab580dec09b353e1700866b9d864b968aaed7313ccc86d4ab55ca56dc0",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/geologist_rest_repair/PATCH_BINDING.json",
+      "bytes": 403,
+      "sha256": "3fb88b5c687e1ce067a7a363943e65eb845ae9e90188adf6a72335bd13bbd7d3",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/geologist_rest_repair/PLAN.json",
+      "bytes": 2587,
+      "sha256": "0e480b9e13cf96251c687feb00d853471d1253bdafe9bcde930901be8e4800c1",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 103931,
+      "sha256": "e3d15416d3bbbbcd7c628cd673a797c20389ba330500ff250cb89cfca271398f",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 1894356,
+      "sha256": "b59a4d825884d7070dc25514502d296ebee7259c8b521447f51a2c0dd37a7e42",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1292283,
+      "sha256": "d94bb5878220c8ea6b8aa96b120355f805fbbd05dadba1943b59b9c342ee1798",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 556806,
+      "sha256": "3e26ed583897721250faae4c721136652635304a1eae71904db8943e38edc177",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": null,
+      "path": "design/audit_impacts/flat-vector-r119-preservation-demo-freeze-20261031.json",
+      "bytes": 7657,
+      "sha256": "a482200c6774dac01b29072feb9cfa3626e666af6bffb770a7be5dfd27e90ee3",
+      "role": "Parked sourcecandidate canonicalregistry/native/machine/freeze provenance"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets/dolls/progress_empty_painted.png",
+      "bytes": 289391,
+      "sha256": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets/dolls/progress_empty_painted.png.import",
+      "bytes": 984,
+      "sha256": "10801e72e529f9e061fb0ca6ecf0f9fe725f4c4effc6546715e5b6c223af94d8",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets/dolls/progress_filled_painted.png",
+      "bytes": 272304,
+      "sha256": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets/dolls/progress_filled_painted.png.import",
+      "bytes": 988,
+      "sha256": "47b7e2f63415cd9b453a991a670214c4db8343366ab0e7b35b5aa93c9b66c60f",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json",
+      "bytes": 4319,
+      "sha256": "44ed9b803fbe731bc11082ad2e9e0a6deb25e84c6863e3f7d09257441fa474e4",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/EMPTY_PROMPT.txt",
+      "bytes": 1680,
+      "sha256": "5401db04d2215bf2ab3cadc415f1eebe6e0ad90774545db07c4c10e74de7a995",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/FILLED_PROMPT.txt",
+      "bytes": 1009,
+      "sha256": "38173c2d93ca1627377106d58a9955998dbed9cf6cbd516deafa3a3b6e459d60",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/GENERATION_ACCOUNTING.json",
+      "bytes": 2967,
+      "sha256": "860bdf22d7535eba03839ba9511d3fb6b067e703d9121e0dcabd13d9bd5a6e16",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/PLAN.json",
+      "bytes": 3240,
+      "sha256": "ce5bb75684d1a02b0c7a718dd49ca686def5f52902ecc3c33bfd914c82111c7b",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/README.md",
+      "bytes": 766,
+      "sha256": "bc6fd69952db90732191aa96f2d053134b588979b7ff15ed14cc763574425996",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/REFERENCE_BINDING.json",
+      "bytes": 1167,
+      "sha256": "7149ffaf27a08e2c1103fd5bc67f0175fbddbb3c8e05035aa42115d01cbee9d6",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/empty_512_export.png",
+      "bytes": 289391,
+      "sha256": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/empty_512_master.aseprite",
+      "bytes": 371747,
+      "sha256": "f736c075b2fe294681c2b019944737506612975709076ff607ecda597d4b76a2",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/empty_native.aseprite",
+      "bytes": 2112170,
+      "sha256": "ffff595486046957898a933a28cb7631fa344a97b6844bda600013a870474e32",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/empty_native_roundtrip.png",
+      "bytes": 1459462,
+      "sha256": "3be49727972e413d8907e917997387d9cef6b07a54ad9a6d4a58eb9960e265d9",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/empty_take1_native.png",
+      "bytes": 1544837,
+      "sha256": "b69b283836d63118d277c8d4801a45a3c38930ae05004a46a0b8ff04e4102261",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/empty_whole_export.lua",
+      "bytes": 984,
+      "sha256": "5047d17cc4cb19903692287dc0ad54966d65cff91f9f4b9d1ec66ffbcdcc8cef",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/filled_512_export.png",
+      "bytes": 272304,
+      "sha256": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/filled_512_master.aseprite",
+      "bytes": 354884,
+      "sha256": "dcae761098dfc71bfb187201c04903d88f79bdf32b7b4c90c3127af6b93cbf19",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/filled_native.aseprite",
+      "bytes": 1997364,
+      "sha256": "8b4299bdd79c1dc7950b2e6599d91617de03a26a487d9f9abdfcf1304d957b07",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/filled_native_roundtrip.png",
+      "bytes": 1345769,
+      "sha256": "d238e66d44a8df20e494f37f3c768d9f9d84afa944899303af09c49a65ae7f22",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/filled_take1_native.png",
+      "bytes": 1437450,
+      "sha256": "db2e5839c6b577ee7dbcf95af81715c9bab0c7024987304604ebd3a1a0f51927",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "assets_src/imagegen/dolls_progress_pips_20261031/filled_whole_export.lua",
+      "bytes": 989,
+      "sha256": "fe8d8e15d61042674cf82ae6ac530f0780a28e0843edbd0f34618f4dc5c3f31e",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/DELIVERY_SOURCE_BINDING.json",
+      "bytes": 2125144,
+      "sha256": "bb5566f9b8fd17953ea7a1f16f15299e0c2fb366481866288b6b52897e01074e",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/SOURCE_PIN.json",
+      "bytes": 652470,
+      "sha256": "4cbb0ba6a542a5db8bb26541ce624a3a0108f21ed47f91e0c2c43fdabcf4c81b",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/TRUSTED_LOG_INDEX.json",
+      "bytes": 18546,
+      "sha256": "eca1db2cbc94d3870f2036130961f5a2305349dbed7b1291ac273f9daf99629e",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/TRUSTED_PROBES.log",
+      "bytes": 13844084,
+      "sha256": "c7eb27bfbc20a8ab293eed4964086d71184a2e842723837bdd5d2a4ba33bd8ab",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/01_falling_mat.png",
+      "bytes": 1099994,
+      "sha256": "1028387632618b8c57fd644c5027c05fe5d2584db7dba7711ae5c463aaebdc62",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/02_passive_safe_landing.png",
+      "bytes": 1101441,
+      "sha256": "17a1307af03bbec43d1ea935a35adfa700c109ee336a5a4f41dc30e7fe8651bf",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/03_left_safe_edge.png",
+      "bytes": 1101596,
+      "sha256": "fe1f842151df88f197b403323d106d5365108642d6008703e40e6830941e8e75",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/04_right_safe_edge.png",
+      "bytes": 1101807,
+      "sha256": "31ad983e4bc2895aafe1ac33be068a336db7d10cb77b53ce37bb1588c262e9f9",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/05_owned_catch_mat_remains.png",
+      "bytes": 1102255,
+      "sha256": "bab136d5da95be69b3e00e84678016d401a77dbdb0035c5391a2865436a0f350",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/06_two_owned_catches.png",
+      "bytes": 1102527,
+      "sha256": "3c3ae7c2c76b9c49ad0a83d38caeb99980850b43f103c8a91b07f219426c90dd",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/07_left_two_baby_catch_region.png",
+      "bytes": 1100255,
+      "sha256": "d1e45caaf5853883a5f8ed037c992162ae0394a50906673b150ad5c299583548",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/08_right_two_baby_catch_region.png",
+      "bytes": 1099523,
+      "sha256": "59cfd37ec30f58b037852e6e13c8ba198be40ace0f90edf870b87a5b03e62131",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/09_three_owned_catches_poll_held.png",
+      "bytes": 1101409,
+      "sha256": "b1747a86c4d34d84f5f46c561905e952150fce73dec2e83d3bafd00f9f3a0651",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/10_original_goal_teardown.png",
+      "bytes": 1389593,
+      "sha256": "a2c7de0342b55853578414d396f07eb5c15bd0c9c7cc5132d49e22c7d262ef3d",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1600/01_falling_mat.png",
+      "bytes": 1108173,
+      "sha256": "c0c1ff08d7436a533e0d2b34b02067445595af6d918c6d655aacda36bd205c12",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1600/02_passive_safe_landing.png",
+      "bytes": 1109605,
+      "sha256": "c98007cfd4260326981dd365ca0ab10b840a690dcda39667c06b9fee15de2387",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1600/03_left_safe_edge.png",
+      "bytes": 1109677,
+      "sha256": "2e3200a1ef66a1b04a8fcf6cc31f48f1491d52d6be1c9a4595826b6dd47dbe2a",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1600/04_right_safe_edge.png",
+      "bytes": 1109876,
+      "sha256": "cb9803bb02d9876130701754465a9ad5f709f5c568655f003f434ba6fb99f0b0",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1600/05_owned_catch_mat_remains.png",
+      "bytes": 1110256,
+      "sha256": "d118e201d2283b3a984550a684b2f095f523cc551377c439999e82e1954ccff4",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1600/06_two_owned_catches.png",
+      "bytes": 1110502,
+      "sha256": "30d59536243deb070259ed0dbd6ddcf4b8ebc3c9a07dc464be06f349aaccacd6",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1600/07_left_two_baby_catch_region.png",
+      "bytes": 1108331,
+      "sha256": "efde588a59009aa147a1e06b88fb635faeea593e264d08936b94e0f86df5c505",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1600/08_right_two_baby_catch_region.png",
+      "bytes": 1107740,
+      "sha256": "a4c786487897d337c9a580c5281518baa86246588130a16ddb91ca54ddbf0a51",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1600/09_three_owned_catches_poll_held.png",
+      "bytes": 1109688,
+      "sha256": "80c952ed505920ae88917aeb82235fe8ddd5aa08705495e46bee95b3672be83b",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1600/10_original_goal_teardown.png",
+      "bytes": 1807401,
+      "sha256": "107eac3aacc2f8f8b8823a2d8460f54f10dd1bb28855a93bdb766e296fec9c5a",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/excluded_fixture_actor_sync/1280/09_three_owned_catches_poll_held.png",
+      "bytes": 1099380,
+      "sha256": "c9521c7fd2e639546c65e563772db56755735da333b1c44abc7e48fc4f57854e",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/excluded_fixture_actor_sync/1600/09_three_owned_catches_poll_held.png",
+      "bytes": 1107770,
+      "sha256": "d52e49fdb4ad0de1f421a8d390eeaa050f3c09bb34d10e9ecac0b208f0cc6a31",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/geologist_rest_repair/1280/01_original_fixed_marks.png",
+      "bytes": 670925,
+      "sha256": "c6a97bf66095fa7d6ee09d5ae896ef0b56531c9d6a99ac9b9258a4187f29c6c2",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/geologist_rest_repair/1280/02_success_and_partner_reactions.png",
+      "bytes": 669139,
+      "sha256": "2fbe5a5a6f92287575364048cbf6ff1cda76b19d969f9a5b41fc7545ef166d17",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/geologist_rest_repair/1280/03_reactions_settled.png",
+      "bytes": 663452,
+      "sha256": "c7ae251a357038efa3192a4f2bc7c1ea206074ecd64e046b2566bbcc24b8d426",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/geologist_rest_repair/1600/01_original_fixed_marks.png",
+      "bytes": 679618,
+      "sha256": "04847a6241e953611f17fe975aeaed9864e27e6914dfa70a55f77189ab1d54f9",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/geologist_rest_repair/1600/02_success_and_partner_reactions.png",
+      "bytes": 677606,
+      "sha256": "730f744e8ddf60d869121764dbb8f4083da41878fa24cd0c20c313d591465cfb",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/geologist_rest_repair/1600/03_reactions_settled.png",
+      "bytes": 671739,
+      "sha256": "43e0ed991cd7adbb6b5e6370345c29ec913f17b7940a7ff94ee9061882612a31",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "scripts/games/dolls.gd",
+      "bytes": 14820,
+      "sha256": "1bc0ae6a9c81cd034051507d65fab5655b85b3140004302c6426024d47f17bd5",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "path": "scripts/opera_career_world_2d.gd",
+      "bytes": 243172,
+      "sha256": "f2da3880b3367ce988aea8a0d9033f414d15e3f4b280fed22c33752b8e69069d",
+      "role": "Parked R119 completed candidate/provenance/native/machine/freeze preservation payload"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/01_falling_mat.png",
+      "bytes": 1095868,
+      "sha256": "434ee06837d6d0c4c9181b4cc88af21172b7ae7cf26465e7c013c3a87590d800",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/02_passive_safe_landing.png",
+      "bytes": 1097194,
+      "sha256": "331aa288d91080349a18675708692243f95b275be41691152ed3838e895df06e",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/03_left_safe_edge.png",
+      "bytes": 1097299,
+      "sha256": "5896fab9d8a6c9db037e30982c40124f87d02672faff4d7bd55c329e369613a0",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/04_right_safe_edge.png",
+      "bytes": 1097471,
+      "sha256": "82e3ece644a135adeb62c1bcf8c447bba842fb8e5a911077f10e4e451823a92b",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/05_owned_catch_mat_remains.png",
+      "bytes": 1097084,
+      "sha256": "5607c9778f037cd6f8fa5417b800d0554e1b1157accee5869dfb1f4f256945c5",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/06_two_owned_catches.png",
+      "bytes": 1097250,
+      "sha256": "e0c4d0e923eba841de93550633b7b9faa307b326fbbbb52bf5ebc3576698a8f1",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/07_left_two_baby_catch_region.png",
+      "bytes": 1095109,
+      "sha256": "8b7df9390543c0619314da948c4acbc8255de834b10b0d70ae2d3c8701669564",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/08_right_two_baby_catch_region.png",
+      "bytes": 1094442,
+      "sha256": "dba945e9c84023b3ebbecad008e3b8d62f99e911da6690d34d4d3e5fbf1c3c03",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/RESULT.json",
+      "bytes": 11041,
+      "sha256": "79ca1f385655ff7e63e1be156b9227ac5042cb5bb15dd9d26fa6c4ce54fed874",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/01_falling_mat.png",
+      "bytes": 1103342,
+      "sha256": "d22c856bc5570d67ed70f3c110a2a38e84af537132347f434da07770c8f809fd",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/02_passive_safe_landing.png",
+      "bytes": 1104745,
+      "sha256": "f8dc43dc9e993ca7370d3e318951d311819a5f381dc347514d9854e099f0c28e",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/03_left_safe_edge.png",
+      "bytes": 1104860,
+      "sha256": "2b0b9851aae2243006599a1f4980c288c9da41c70579005de3bbff8eac92d20c",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/04_right_safe_edge.png",
+      "bytes": 1105050,
+      "sha256": "329258ffcc6b6e8d3690c7bfeb6100b8c8bddd9042a8d9f348e681da5aed233d",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/05_owned_catch_mat_remains.png",
+      "bytes": 1104709,
+      "sha256": "f804982ddfd031674206bd66b1d8fb5858c0bff8aa5f4703f5ba2b354500c5fa",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/06_two_owned_catches.png",
+      "bytes": 1104861,
+      "sha256": "7fcf19a8bdabbf00e036811bba7851aaead52584042b0d5164cb7ad4471d4811",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/07_left_two_baby_catch_region.png",
+      "bytes": 1102453,
+      "sha256": "b5d2b982223fc76c89d960e25a01abcc4d4f0c287188f0cc99b8b8501affb8fe",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/08_right_two_baby_catch_region.png",
+      "bytes": 1101720,
+      "sha256": "49ffa9d367ce5832d2440bfa6e50dd801397476b9973a7ef1ccd3062b4fc7982",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/RESULT.json",
+      "bytes": 11033,
+      "sha256": "80cb3ee984c538cb211c46d33c6c62f076a8dbfe7af6abc6144929033da4863f",
+      "role": "Prior exact218 same-scene native context, reused without new frame credit"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/SOURCE_PIN.json",
+      "bytes": 650935,
+      "sha256": "04d0d78210e4f8b549161454ad6fdd0ed2a2db1dff8eef2cea7c422ff30874b1",
+      "role": "Prior exact precommit tested runtime binding"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/DELIVERY_SOURCE_BINDING.json",
+      "bytes": 2123520,
+      "sha256": "c9643afe0201f2c19e4d893bbfd9d84d0dd3536033745692e5fec89585bf583e",
+      "role": "Prior tested filesystem to exact218 source binding"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "scripts/games/dolls.gd",
+      "bytes": 14041,
+      "sha256": "cd897b813eb4ae58d83d37495ae389a53d0b56bd0eac4cd4f016af245b10d95e",
+      "role": "Exact procedural progress marker baseline"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "scripts/opera_nursery_catch.gd",
+      "bytes": 8816,
+      "sha256": "9209a053b34c0bc48c2aab05969d83315921617c51d62904ec31712712a037ef",
+      "role": "Unchanged behavior parent"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets/dolls/cradle_sling_painted.png",
+      "bytes": 157099,
+      "sha256": "837b1dbf53908e9bcdfc2a57c93ad96c7d90a369a87c4e1192c198abedb3e1ca",
+      "role": "Existing cloth source/reference"
+    },
+    {
+      "revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "path": "assets/dolls/safety_mat_painted.png",
+      "bytes": 199995,
+      "sha256": "da27e6f70b2ecbe34f62408ee5b6ce716110e9066a71656399154392c7ede8b7",
+      "role": "Existing cloth source/reference"
+    },
+    {
+      "revision": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+      "path": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md",
+      "bytes": 19284,
+      "sha256": "a7d501c0e5ced730058ca1c1ad858e3da523c7a1f123b4059bda5ddef4097ce2",
+      "role": "Exact owner-approved demo freeze authority; explicitly parks flat-vector campaign afterR118"
+    },
+    {
+      "revision": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+      "path": "audit/cycles/demo-readiness-20261031/owner_answers.json",
+      "bytes": 6280,
+      "sha256": "7faafe79fda20306fe3edb1f282594735c4d0ecdde34961cbc95a10c4d8a1cad",
+      "role": "Exact owner-approved demo freeze authority; explicitly parks flat-vector campaign afterR118"
+    }
+  ],
+  "required_files": 138,
+  "required_bytes": 85318571,
+  "Dev_integrated": false,
+  "new_partial_Dev_artifact_credits": 0,
+  "new_generation_calls": 2,
+  "preservation_generation_calls": 0,
+  "new_bounded_source_artifacts": 1,
+  "new_frame_events": {
+    "bounded": 26,
+    "excluded": 2,
+    "retained": 28
+  },
+  "accepted_removed": 0,
+  "mission_complete": false
+}

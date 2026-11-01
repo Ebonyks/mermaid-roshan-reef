@@ -1,0 +1,48 @@
+{
+  "state": "PLANNED_BEFORE_EDIT",
+  "baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "file": "scripts/opera_career_world_2d.gd",
+  "original_raw_sha256": "3c47e585d9535e29308bc65a1bf8d02d265e3421eb289c890eb22d5003d1541f",
+  "defect": "Geologist fixed task marks were never captured as actor reaction rests. Original unchanged trusted Opera2D gate and logging-only diagnostic both show success bounce interpolating Roshan from (30,422) toward her obsolete walking rest, overlapping rival during phase3 completion. At guard9 actor rect(30,422,250,250), guard10(189.778,328.654,249.960,249.960) intersects rival(78,218,176,176).",
+  "scope": "Only Geologist/task_open branch of _stage_room_finale_partner: after existing fixed staging, capture both actor rests and restore each to cancel stale outstanding tweens. Same art, positions, sizes, scales, task verbs, goals, saves, rewards and unmodified trusted probe assertions. Current task pose texture is captured before restoring.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-03",
+    "DL-MOT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15",
+    "DL-MOT-03",
+    "DL-MOT-04"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-010"
+  ],
+  "authorities": [
+    "audit/MASTER_AUDIT_2026-08-09.md#0-planning-entry",
+    "audit/MASTER_AUDIT_2026-08-09.md#development-task-index",
+    "audit/MASTER_AUDIT_2026-08-09.md#9-individual-repair-and-regression-protocol",
+    "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "design/GEOLOGIST_REBUILD_2026-09-05.md"
+  ],
+  "evidence_required": [
+    "Preserve original trusted failure and logging-only geometry diagnosis",
+    "Same diagnostic after repair plus actual unmodified trusted gate",
+    "Native exact4.7.2 Mobile/Speedy Geologist reaction/contact context",
+    "Fresh source-bound current static and full82 because shared runtime source changed; remote exact-source CI/normalDev; original Dolls art frames remain historical exact-source context",
+    "Anonymous immutable actual-manifest delivery; formalQA11/device/child/owner remain open"
+  ],
+  "new_generation_calls": 0,
+  "new_art_roles": 0,
+  "whole_game_accepted_removals": 0,
+  "coordination": "Primary editor active on Opera foyer door signs/red color balance. No primary checkout touched, no chat messaging, scope does not touch venue/door files.",
+  "created_at_utc": "2026-10-31T19:07:26.635476+00:00"
+}

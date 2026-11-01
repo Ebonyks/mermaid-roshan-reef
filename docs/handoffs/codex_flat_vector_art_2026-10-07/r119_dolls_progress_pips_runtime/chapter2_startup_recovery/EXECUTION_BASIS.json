@@ -1,0 +1,26 @@
+{
+  "state": "EXACT_ORIGINAL_CHILD_DIAGNOSTIC_COMPLETED_INSIDE_UNCHANGED30S_BUDGET",
+  "diagnostic": {
+    "role": "DIAGNOSTIC_ONLY_NOT_TRUSTED_GATE",
+    "exit_code": 0,
+    "timeout": false,
+    "elapsed_seconds": 24.146,
+    "first_engine_header_seconds": 0.527,
+    "first_child_assertion_seconds": 20.696,
+    "child_result_observed": true,
+    "receipt_written": true,
+    "receipt_sha256": "8ded04812c0b6b7d6b959bc5b4a3e612f28cc4d7e96284b9b4f0c20cace89b3f",
+    "log_sha256": "7a6f17955c33dcf380364b5518bb4f1a0857b40c24db343da7c736e15e500c88",
+    "normal_unchanged": true,
+    "original_trusted_gate_satisfied": false,
+    "new_frames": 0,
+    "new_generation_calls": 0,
+    "completed_at_utc": "2026-10-31T22:19:54.203757+00:00"
+  },
+  "diagnostic_is_not_original_gate_acceptance": true,
+  "source_pin_sha256": "f61ba4a69c0c6a4133336dc1608b951d78e3cf40344a4d942de026962b90ba70",
+  "previous_capacity_wait_ended_without_probe_dispatch": true,
+  "original_child_deadline_ms": 30000,
+  "original_failed_probe_retry_cap": 1,
+  "at_utc": "2026-10-31T22:23:00.733075+00:00"
+}

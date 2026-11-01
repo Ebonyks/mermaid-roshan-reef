@@ -2679,3 +2679,7 @@ Actualsource `a290753627a06ca7b251c3423cce6cf6f5d13827`: [production](../docs/ha
 ### R118 painted Dolls cradle in Dev
 
 Actualsource `218ae766f8e60afb3f6338b8fafce28ec9fab7f2`: [production](../docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/README.md), one wholepainted sling replaces3semicirclearcs,17otherfunctions andfunctionalgeometry exact. Local82/static/native100/exactCI/normalDev verified,16bounded0excluded16retained newevents. SourceCHG-124 owns boundedrollback afterlaterconsumerreview. Canonical preservesroot5/history/healthyengineevidence; otherart/roomapproval/formal/external/global open,acceptedremoved0.
+
+### R119 source preservation under the owner demo freeze
+
+[Parked candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/README.md), source`634c8e4a06aae91e30e71e5a5e314c59c29570ce`, preserves already-produced2wholepaintedprogress states andsame-markGeologist reactionrepair. Local82/currentstatic/sourcebinding/native342checks are retained;26bounded2excluded28retained newnativeevents. ExplicitODR-DEMO-FREEZE-20261031 parks campaign afterR118.22source20partialDev artifacts;0newDev credit,acceptedremoved0. SourceCHG-125 owns futureboundedrollback; normalintegration/currentDev/CI/formal/external/global acceptance remainopen. No engine suite or newgeneration for preservation bookkeeping.

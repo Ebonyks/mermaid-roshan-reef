@@ -1,0 +1,77 @@
+{
+  "stable_id": "FV-12A0922A07E6",
+  "name": "Dolls caught-baby progress markers",
+  "baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "canonical_baseline": "39178b3139f2192b3b2e4b9d30eb677c54027cb7",
+  "source": "scripts/games/dolls.gd:DollsNurserySurface._draw",
+  "source_raw_sha256": "cd897b813eb4ae58d83d37495ae389a53d0b56bd0eac4cd4f016af245b10d95e",
+  "scope": "Replace only two concentric dot drawings for each of the original three progress slots with whole painted empty/filled cloth markers. Keep original goal/caught threshold, slot spacing48px, centre y34, diameter36px, no numerals or reading. Cradle, mat, babies, selected skin and every input/spawn/save/reward/lifecycle/geometry function unchanged.",
+  "method": "Built-in ImageGen whole empty cloth medallion then registered full-heart variant; Aseprite whole uniform technical exports, preserve native sources and rejects. No forced reuse or failed-reuse prerequisite.",
+  "static_take_cap_per_variant": 2,
+  "variant_names": [
+    "empty",
+    "filled"
+  ],
+  "static_calls_used": 0,
+  "animation_calls": 0,
+  "protected_originals_touched": false,
+  "funded_animation_caps_touched": false,
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "required_evidence": [
+    "Native RGBA/Aseprite whole512 exports CUTOUT_OK and matched visible registration, no halo; exact source and calls per variant",
+    "Same current R118 Main/Faron captures source-bound to218 reused without new frame credit; ten-axis comparison at original36px count zero/one/two and completed result three via actual input",
+    "Original Main two-aspect native input/passive/safe-landings/centre and both clamps/two owned catches/full goal3 and teardown; normal11 unchanged/private saves/source hashes",
+    "Applicable exact4.7.2 Mobile/Speedy import/currentstatic/all82/exactsourceCI/normalDev; every actual source/canonical manifest required file anonymous immutable, count delta once"
+  ],
+  "publication": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "source_branch": "codex/flat-vector-geologist-pan-runtime-20261017",
+    "canonical_branch": "codex/flat-vector-r6-20261012",
+    "recipient_access": "Anonymous immutable HTTPS exact bytes/SHA256"
+  },
+  "coordination": "Opera house four-screen rebuild is active in primary; no primary checkout or Opera house files touched. Coordinator and Nursery completed/notLoaded; no other chats messaged, no paused goals resumed.",
+  "river_context": "Read-only inspection only. Old whole river sheets retain red-fringe and incomplete-port limitations; no new river generation, runtime or count credit.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "new_roles": 0,
+  "new_families": 0,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "created_at_utc": "2026-10-31T16:13:16.755659+00:00",
+  "geologist_rest_repair": {
+    "state": "SCOPED_NATIVE_REVIEW_PASS_FRESH_FULL_GATES_PENDING",
+    "plan": "geologist_rest_repair/PLAN.json",
+    "checks": 110,
+    "bounded_frames": 6,
+    "new_art": 0
+  }
+}

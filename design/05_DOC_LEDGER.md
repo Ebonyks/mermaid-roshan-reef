@@ -1458,3 +1458,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r117_dolls_safety_mat_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R117wholepainted legacyDolls mat/quilt inDev, actualnative/currentstatic/all82/exactCI. Otherart/roomapproval/formal/external/global acceptance open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R118wholepainted legacyDolls cradle inDev; native100/currentstatic/all82/exactCI; allformal/external/otherart/global acceptance open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` completedR119source/native/machine preservation, PARKED underowner demo freeze afterR118;22source/20partialDev artifacts,0newDev credit. Formal/external/global open. |

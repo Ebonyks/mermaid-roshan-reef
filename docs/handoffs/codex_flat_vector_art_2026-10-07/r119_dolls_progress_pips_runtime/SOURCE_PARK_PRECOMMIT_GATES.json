@@ -1,0 +1,36 @@
+[
+  {
+    "gate": "PARK_PARSER",
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reused_original_successful_gate": true
+  },
+  {
+    "gate": "PARK_INFERENCE",
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reused_original_successful_gate": true
+  },
+  {
+    "gate": "PARK_AUTHORITY_COVERAGE_RECOVERY",
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_document_authority.py"
+    ],
+    "log_sha256": "a3d576f915c16536be9d4b346901936c8f51bccdd85525ec5001114fe1880455"
+  },
+  {
+    "gate": "PARK_DEVELOPMENT_COVERAGE_RECOVERY",
+    "exit_code": 0,
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_development.py",
+      "--base",
+      "auto"
+    ],
+    "log_sha256": "658f27262f418f9c74267009d66ffc926dd1ee24669cff91ed00b44876a03bd8"
+  }
+]

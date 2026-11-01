@@ -1,0 +1,40 @@
+{
+  "state": "FIXTURE_TIMING_CORRECTION_ONLY",
+  "reason": "Main.set_process(false) retained previous right-clamp actor card while thirdcatch moved surface catcher to0.55. Counter state/pixels and original game unchanged. Original nine-capture images excluded only at two affected full3 frames.",
+  "original_fixture_sha256": "c2d28a2ec2e1aed24c814c67d994146594ab54571ea3c434fe30a324aef1c7af",
+  "corrected_fixture_sha256": "52f068dbca6df48118509610494b962574915cc2230604d99d345b4e5f26d444",
+  "actual_runtime_unchanged": true,
+  "new_generation_calls": 0,
+  "healthy_engine_suites_restarted": false,
+  "expected_new_native_frame_events": 2,
+  "excluded_original_frames": [
+    {
+      "width": 1280,
+      "path": "candidate_native_final/1280/output/09_three_owned_catches_poll_held.png",
+      "sha256": "c9521c7fd2e639546c65e563772db56755735da333b1c44abc7e48fc4f57854e"
+    },
+    {
+      "width": 1600,
+      "path": "candidate_native_final/1600/output/09_three_owned_catches_poll_held.png",
+      "sha256": "d52e49fdb4ad0de1f421a8d390eeaa050f3c09bb34d10e9ecac0b208f0cc6a31"
+    }
+  ],
+  "expected_final_frame_events": {
+    "bounded": 20,
+    "excluded": 2,
+    "retained": 22
+  },
+  "method": "Replay original private configured entry and real GUI catch actions; no duplicate healthy pictures01-08 or result10. Only full3 frame is newly captured after calling the original card-layout helper; restore original Main polling and verify original win/save/teardown.",
+  "at_utc": "2026-10-31T16:30:21.071189+00:00",
+  "failed_helper_attempt": {
+    "state": "TERMINAL_SCRIPT_ERROR_BEFORE_NEW_FRAME",
+    "session_id": 32569,
+    "invalid_call": "_dolls_ref",
+    "actual_current_helper": "m._game_obj(\"dolls\",DollsGame) as DollsGame; _layout_catcher_card()",
+    "log": "candidate_native_repaired/1280/engine.log",
+    "stop": "candidate_FOCUSED_FINAL_STOP.json",
+    "new_frame_events": 0,
+    "source_pixels_or_game_code_changed": false
+  },
+  "updated_at_utc": "2026-10-31T16:36:11.651950+00:00"
+}

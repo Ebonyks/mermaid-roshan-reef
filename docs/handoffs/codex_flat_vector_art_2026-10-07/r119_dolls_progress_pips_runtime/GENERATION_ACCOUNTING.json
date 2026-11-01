@@ -1,0 +1,89 @@
+{
+  "cap_per_variant": 2,
+  "used": {
+    "empty": 1,
+    "filled": 1
+  },
+  "attempts": [
+    {
+      "variant": "empty",
+      "attempt": 1,
+      "state": "USABLE_CONTEXT_REVIEWED_CANDIDATE_NOT_OWNER_APPROVED",
+      "prompt": "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\dolls_progress_pips_20261031\\EMPTY_PROMPT.txt",
+      "at_utc": "2026-10-31T16:14:38.013686+00:00",
+      "request_id": "exec-36c63fd9-a7d4-4208-a2ad-f77141daba2e",
+      "native_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-36c63fd9-a7d4-4208-a2ad-f77141daba2e.png",
+      "native_project": "assets_src/imagegen/dolls_progress_pips_20261031/empty_take1_native.png",
+      "native_sha256": "b69b283836d63118d277c8d4801a45a3c38930ae05004a46a0b8ff04e4102261",
+      "cutout_profile": {
+        "mode": "RGBA",
+        "transparent_pct": 52.7,
+        "faint_haze_pct_of_canvas": 0.4,
+        "semi_pct_of_visible": 0.6,
+        "near_opaque_pct_of_visible": 98.6,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          131,
+          141,
+          1124,
+          1113
+        ],
+        "verdict": "CUTOUT_OK"
+      },
+      "model_version": "NOT_EXPOSED"
+    },
+    {
+      "variant": "filled",
+      "attempt": 1,
+      "state": "USABLE_CONTEXT_REVIEWED_CANDIDATE_NOT_OWNER_APPROVED",
+      "at_utc": "2026-10-31T16:16:00.148381+00:00",
+      "request_id": "exec-78a02d3b-6176-495f-8b6f-38b48e9120eb",
+      "native_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-78a02d3b-6176-495f-8b6f-38b48e9120eb.png",
+      "native_project": "assets_src/imagegen/dolls_progress_pips_20261031/filled_take1_native.png",
+      "native_sha256": "db2e5839c6b577ee7dbcf95af81715c9bab0c7024987304604ebd3a1a0f51927",
+      "cutout_profile": {
+        "mode": "RGBA",
+        "transparent_pct": 52.3,
+        "faint_haze_pct_of_canvas": 0.5,
+        "semi_pct_of_visible": 0.6,
+        "near_opaque_pct_of_visible": 98.4,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          130,
+          139,
+          1125,
+          1115
+        ],
+        "verdict": "CUTOUT_OK"
+      },
+      "model_version": "NOT_EXPOSED"
+    }
+  ],
+  "animation_calls": 0,
+  "backend": "Built-in image_gen",
+  "model_version": "NOT_EXPOSED",
+  "funded_animation_caps_unchanged": true,
+  "static_calls_used": 2,
+  "native_outputs": 2,
+  "technical_exports": 2,
+  "rejected_takes": 0,
+  "reported_cost": null,
+  "usage_accounting": "Two built-in static calls, one per whole state; provider monetary usage not exposed",
+  "candidate": "USABLE_CONTEXT_REVIEWED_WHOLE_STATES",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

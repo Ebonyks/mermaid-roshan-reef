@@ -1,0 +1,18 @@
+{
+  "state": "LINK_TO_FUTURE_RECEIPT_DEFERRED_UNTIL_RECEIPT_EXISTS",
+  "failure": "CANONICAL_NAVIGATION_FAILURE.json",
+  "repair": "Payload entry declares receipt pending without a dangling navigation link. The exact verified receipt and its working entry link are added together in the receipt commit.",
+  "counts_reapplied": false,
+  "existing_counts": {
+    "source": 22,
+    "partialDev": 20,
+    "bounded": 6943,
+    "excluded": 4177,
+    "retained": 11120,
+    "accepted_removed": 0
+  },
+  "runtime_or_art_changed": false,
+  "engine_checks_restarted": false,
+  "Dev_integrated": false,
+  "at_utc": "2026-11-01T00:16:01.353850+00:00"
+}
