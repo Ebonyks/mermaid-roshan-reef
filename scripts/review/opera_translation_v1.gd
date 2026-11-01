@@ -14,7 +14,7 @@ const WORLD_SIZE := Vector2(2560,1440)
 const SOURCE_SCALE := 2.5
 const DOOR_X: Array[float] = [357,459,565,667]
 const SIGN_Y: Array[float] = [94,406,734]
-const FLOOR_Y: Array[float] = [342,665,1015]
+const FLOOR_Y: Array[float] = [372,704,1035]
 const ACTS: Array[int] = [13,8,2]
 const ACT_COLUMNS: Array[int] = [2,3,2]
 const CRESTS: Array[String] = ["opera_crest_singer.png","opera_crest_magician.png","opera_crest_ballerina.png"]
@@ -35,6 +35,12 @@ var actor: Sprite2D
 var animator: Node
 var ambience: Node2D
 var navigation: RefCounted
+var floor_navigation: RefCounted
+var riding_lift := false
+var last_floor_position := Vector2(1280,1380)
+var floor_recoveries := 0
+var floor_alpha_cache: Dictionary = {}
+var floor_alpha_images: Dictionary = {}
 var marker: Node2D
 var map_control: Control
 var pause_button: Button
@@ -71,6 +77,7 @@ var tiled_background := false
 
 func setup(main: ReefMain, original_venue: OperaHouseVenue2D) -> void:
 	m = main
+	process_priority = 100 # Ground after the approved atlas/transition update.
 	venue = original_venue
 	name = "OperaExplorationV1"
 	size = VIEW_SIZE
@@ -79,17 +86,16 @@ func setup(main: ReefMain, original_venue: OperaHouseVenue2D) -> void:
 	z_index = 100
 	venue.accepting_input = false
 	completed_mask = m.opera_stars
-	navigation = NAVIGATION.new()
+	# The painted staircases have shut gates. Only the lift landings connect
+	# galleries; a closed painted staircase is not a usable floor route.
 	var lanes: Array[PackedVector2Array] = [
-		PackedVector2Array([Vector2(438,342),Vector2(2120,342)]),
-		PackedVector2Array([Vector2(438,665),Vector2(2120,665)]),
-		PackedVector2Array([Vector2(340,1015),Vector2(2230,1015)]),
-		PackedVector2Array([Vector2(438,342),Vector2(438,665),Vector2(438,1015)]),
-		PackedVector2Array([Vector2(2120,342),Vector2(2120,665),Vector2(2120,1015)]),
-		PackedVector2Array([Vector2(420,1015),Vector2(445,950),Vector2(485,870),Vector2(535,785),Vector2(575,710),Vector2(610,665)]),
-		PackedVector2Array([Vector2(2140,1015),Vector2(2115,950),Vector2(2075,870),Vector2(2025,785),Vector2(1985,710),Vector2(1950,665)]),
-		PackedVector2Array([Vector2(1050,1015),Vector2(940,1120),Vector2(940,1380),Vector2(1620,1380),Vector2(1620,1120),Vector2(1510,1015)])]
-	navigation.configure(lanes)
+		PackedVector2Array([Vector2(438,372),Vector2(2120,372)]),
+		PackedVector2Array([Vector2(438,704),Vector2(2120,704)]),
+		PackedVector2Array([Vector2(340,1035),Vector2(2230,1035)]),
+		PackedVector2Array([Vector2(1050,1035),Vector2(940,1120),Vector2(940,1380),Vector2(1620,1380),Vector2(1620,1120),Vector2(1510,1035)])]
+	floor_navigation = NAVIGATION.new()
+	floor_navigation.configure(lanes)
+	navigation = floor_navigation
 	world = Node2D.new()
 	world.name = "OriginalOperaFourScreenWorld"
 	add_child(world)
@@ -135,7 +141,7 @@ func _build_original_house() -> void:
 		card.region_rect = Rect2(0,0,float(rect[2]),float(rect[3]))
 		card.position = Vector2(float(rect[0]),float(rect[1]))/reference_size*WORLD_SIZE
 		card.scale = WORLD_SIZE/reference_size
-		card.z_index = int(info.get("z_index",-30))
+		card.z_index = 8 if String(info.get("owner","")) in ["upper_balcony","middle_balcony"] else int(info.get("z_index",-30))
 		card.set_meta("source_role",String(info.get("role","legacy_background")))
 		card.set_meta("source_owner",String(info.get("owner","")))
 		var material := ShaderMaterial.new()
@@ -157,7 +163,7 @@ func _build_original_signs() -> void:
 			icon.set_meta("complete_painted_crest",path)
 			icon.position = Vector2(DOOR_X[column]*SOURCE_SCALE,SIGN_Y[row])
 			icon.scale = Vector2.ONE*0.31
-			icon.z_index = 1
+			icon.z_index = 12
 			world.add_child(icon)
 
 func _build_doors() -> void:
@@ -172,7 +178,7 @@ func _build_doors() -> void:
 		star.position = crest.position+Vector2(34,24)
 		# Source masters have different native sizes; badge size is in world pixels.
 		star.scale = Vector2.ONE*(36.0/maxf(star.texture.get_width(),star.texture.get_height()))
-		star.z_index = 2
+		star.z_index = 13
 		world.add_child(star)
 		badges.append(star)
 		objects.append({"object_id":"opera_door_%d" % ACTS[row],
@@ -232,9 +238,10 @@ func _build_player() -> void:
 	motion_source.name = "RoshanWorldTravelSampler"
 	add_child(motion_source)
 	animator.setup_sprite_2d(actor,false,motion_source)
+	_ground_actor_to_floor()
 	marker = Node2D.new()
 	marker.name = "TravelDestination"
-	marker.z_index = 4
+	marker.z_index = 14
 	marker.draw.connect(_draw_marker)
 	world.add_child(marker)
 	marker.hide()
@@ -246,14 +253,15 @@ func _build_interactions() -> void:
 	for side: int in range(2):
 		var x: float = 438.0 if side==0 else 2120.0
 		objects.append({"object_id":"original_lift_%d" % side,"rect":Rect2(x-65,125,130,930),
-			"approach_point":Vector2(x,1015),"arrival_radius":ARRIVAL_RADIUS,"action":"lift","side":side,"return_target":"opera_hall"})
+			"approach_point":Vector2(x,1035),"arrival_radius":ARRIVAL_RADIUS,"action":"lift","side":side,"return_target":"opera_hall"})
 	objects.append({"object_id":"original_ticket_bell","rect":Rect2(540,845,165,180),
-		"approach_point":Vector2(640,1015),"arrival_radius":ARRIVAL_RADIUS,"action":"bell","return_target":"opera_hall"})
+		"approach_point":Vector2(640,1035),"arrival_radius":ARRIVAL_RADIUS,"action":"bell","return_target":"opera_hall"})
 	objects.append({"object_id":"original_refreshment_cart","rect":Rect2(2270,1040,280,290),
-		"approach_point":Vector2(2230,1015),"arrival_radius":ARRIVAL_RADIUS,"action":"tea","return_target":"opera_hall"})
+		"approach_point":Vector2(2230,1035),"arrival_radius":ARRIVAL_RADIUS,"action":"tea","return_target":"opera_hall"})
 
 func _build_hud() -> void:
 	var back := Button.new()
+	back.z_index = 30
 	back.text = "↩"
 	back.position = Vector2(16,16)
 	back.size = Vector2(64,64)
@@ -261,11 +269,13 @@ func _build_hud() -> void:
 	back.pressed.connect(_leave_review)
 	add_child(back)
 	pause_button = Button.new()
+	pause_button.z_index = 30
 	StorybookUI.style_icon_button(pause_button,"||","secondary",Vector2(110,110),"Pause")
 	pause_button.position = Vector2(18,590)
 	pause_button.pressed.connect(_toggle_pause)
 	add_child(pause_button)
 	status = Label.new()
+	status.z_index = 30
 	status.text = "Opera house · original design · exploration v1"
 	status.position = Vector2(280,16)
 	status.size = Vector2(720,44)
@@ -275,6 +285,7 @@ func _build_hud() -> void:
 	add_child(status)
 	status.hide()
 	map_control = Control.new()
+	map_control.z_index = 30
 	map_control.name = "ReadOnlyFourScreenLocator"
 	map_control.position = Vector2(1112,16)
 	map_control.size = Vector2(144,81)
@@ -315,8 +326,10 @@ func request_destination(point: Vector2) -> void:
 	if paused or job != null or overview or busy or not is_visible_in_tree():
 		return
 	cancel_travel()
+	if not point.is_finite():
+		return
 	camera_hold = false
-	var target: Vector2 = navigation.nearest_point(point)
+	var target: Vector2 = floor_navigation.nearest_point(point)
 	for object: Dictionary in objects:
 		if (object["rect"] as Rect2).has_point(point):
 			pending_object = String(object["object_id"])
@@ -328,7 +341,7 @@ func request_destination(point: Vector2) -> void:
 				var destination: int = _nearest_floor(point.y)
 				object["destination_floor"] = destination if destination!=nearest else (nearest+2)%3
 			break
-	route = navigation.route(player_root.position,target)
+	route = _plan_floor_route(player_root.position,target)
 	route_cursor = 1 if route.size()>1 else 0
 	marker.position = target
 	marker.show()
@@ -336,6 +349,11 @@ func request_destination(point: Vector2) -> void:
 	m._say("roshan","talk")
 
 func cancel_travel() -> void:
+	if riding_lift and player_root != null:
+		# Interrupt only at a real landing, never leave Roshan suspended in a shaft.
+		player_root.position.y = FLOOR_Y[_nearest_floor(player_root.position.y)]
+		riding_lift = false
+	_recover_floor_position()
 	route.clear()
 	route_cursor = 0
 	pending_object = ""
@@ -348,21 +366,133 @@ func _process(delta: float) -> void:
 		return
 	if not is_visible_in_tree() or paused or job != null or overview:
 		return
+	if not player_root.position.is_finite():
+		riding_lift = false
 	elapsed += minf(delta,0.05)
+	if not riding_lift and _recover_floor_position():
+		cancel_travel()
+	if not route.is_empty() and (route_cursor < 0 or route_cursor >= route.size()):
+		cancel_travel()
 	if not route.is_empty():
 		var target: Vector2 = route[route_cursor]
+		var source: Vector2 = route[maxi(0,route_cursor-1)]
+		var lift_leg: bool = _is_lift_leg(source,target)
+		if lift_leg and not riding_lift:
+			riding_lift = true
+			lift_rides += 1
+			ambience.lift_burst = 2.8
+			_play_chime()
 		actor.flip_h = target.x < player_root.position.x
 		player_root.position = player_root.position.move_toward(target,SPEED*minf(delta,0.05))
+		if lift_leg:
+			player_root.position.x = source.x
+		elif _recover_floor_position():
+			cancel_travel()
+			_update_camera(delta)
+			motion_source.position = player_root.position
+			return
 		if player_root.position.distance_to(target)<=0.5:
+			player_root.position = target
+			riding_lift = false
+			last_floor_position = target
 			route_cursor += 1
 			if route_cursor>=route.size():
 				var selected: String = pending_object
 				cancel_travel()
 				_activate_arrived(selected)
+	if not riding_lift:
+		last_floor_position = player_root.position
+	_ground_actor_to_floor()
 	_update_camera(delta)
 	motion_source.position = player_root.position
 	if marker.visible:
 		marker.queue_redraw()
+
+func _sprite_foot_bottom(sprite: Sprite2D) -> float:
+	var sample: Rect2 = RoshanSpriteFrames.sampled_rect_2d(sprite)
+	var texture_id: int = sprite.texture.get_instance_id()
+	var key: String = "%d:%s" % [texture_id,str(sample)]
+	if not floor_alpha_cache.has(key):
+		if not floor_alpha_images.has(texture_id):
+			var image: Image = sprite.texture.get_image()
+			if image.is_compressed():
+				image.decompress()
+			floor_alpha_images[texture_id] = image
+		var image: Image = floor_alpha_images[texture_id] as Image
+		floor_alpha_cache[key] = float(image.get_region(Rect2i(sample)).get_used_rect().end.y)
+	return sprite.get_rect().position.y+float(floor_alpha_cache[key])
+
+func _ground_actor_to_floor() -> void:
+	# Read-only alpha measurements retain every approved pose and pixel. The
+	# gameplay root owns the foot; torso-anchor and idle-breath offsets cannot
+	# detach the visible silhouette from its painted floor contact.
+	actor.position.y = -_sprite_foot_bottom(actor)*actor.scale.y
+	var transition: Node = actor.get_node_or_null("TemporalSpriteTransition")
+	if transition != null:
+		var ghost: Sprite2D = transition.transition_ghost()
+		if ghost != null and ghost.texture != null:
+			ghost.position.y = -actor.position.y/actor.scale.y-_sprite_foot_bottom(ghost)*ghost.scale.y
+
+func _walking_route(source: Vector2, target: Vector2) -> PackedVector2Array:
+	if source.distance_to(target)<=0.05:
+		return PackedVector2Array([source])
+	return floor_navigation.route(source,target)
+
+func _plan_floor_route(source: Vector2, target: Vector2) -> PackedVector2Array:
+	var direct: PackedVector2Array = _walking_route(source,target)
+	if not direct.is_empty():
+		return direct
+	var best := PackedVector2Array()
+	var best_distance := INF
+	# Only landings join the walking network to a lift. A shaft crossing a
+	# staircase in the painting must never become an accidental mid-air exit.
+	for shaft_x: float in [438.0,2120.0]:
+		for entry_y: float in FLOOR_Y:
+			var entry := Vector2(shaft_x,entry_y)
+			var approach: PackedVector2Array = _walking_route(source,entry)
+			if approach.is_empty():
+				continue
+			for exit_y: float in FLOOR_Y:
+				if entry_y==exit_y:
+					continue
+				var landing := Vector2(shaft_x,exit_y)
+				var departure: PackedVector2Array = _walking_route(landing,target)
+				if departure.is_empty():
+					continue
+				var candidate: PackedVector2Array = approach.duplicate()
+				candidate.append(landing)
+				candidate.append_array(departure.slice(1))
+				var distance := 0.0
+				for index: int in range(1,candidate.size()):
+					distance += candidate[index-1].distance_to(candidate[index])
+				if distance<best_distance:
+					best = candidate
+					best_distance = distance
+	return best
+
+func _is_lift_leg(source: Vector2, target: Vector2) -> bool:
+	if absf(source.x-target.x)>0.05 or absf(source.y-target.y)<0.05:
+		return false
+	if absf(source.x-438.0)>0.05 and absf(source.x-2120.0)>0.05:
+		return false
+	return absf(source.y-FLOOR_Y[_nearest_floor(source.y)])<0.05 \
+		and absf(target.y-FLOOR_Y[_nearest_floor(target.y)])<0.05
+
+func _recover_floor_position() -> bool:
+	if floor_navigation == null or player_root == null:
+		return false
+	if player_root.position.is_finite() and floor_navigation.contains_point(player_root.position):
+		last_floor_position = player_root.position
+		return false
+	# Match Castle's explicit floor-contact contract. Never award or activate
+	# a pending object while recovering from an invalid position.
+	player_root.position = last_floor_position
+	if not player_root.position.is_finite() or not floor_navigation.contains_point(player_root.position):
+		player_root.position = Vector2(1280,1380)
+	floor_recoveries += 1
+	camera_hold = false
+	camera_initialized = false
+	return true
 
 func _update_camera(delta: float) -> void:
 	if camera_hold:
@@ -401,7 +531,9 @@ func _nearest_floor(y: float) -> int:
 	return nearest
 
 func _preview_pointer(point: Vector2) -> void:
-	marker.position = navigation.nearest_point(point+camera_position)
+	if not point.is_finite():
+		return
+	marker.position = floor_navigation.nearest_point(point+camera_position)
 	marker.show()
 	marker.queue_redraw()
 
@@ -413,9 +545,6 @@ func _ride_lift(object: Dictionary) -> void:
 	pending_object = ""
 	marker.position = target
 	marker.show()
-	lift_rides += 1
-	ambience.lift_burst = 2.8
-	_play_chime()
 
 func _respond_to_prop(action: String) -> void:
 	prop_responses += 1
@@ -489,6 +618,7 @@ func _job_finished(completed: bool) -> void:
 	venue.accepting_input = false
 	m.clear_dialogue()
 	player_root.position = return_position
+	_recover_floor_position()
 	camera_position = return_camera
 	camera_hold = true
 	world.position = -camera_position
@@ -560,9 +690,12 @@ func set_review_overview(enabled: bool) -> void:
 	status.text = "Original Opera house · full-layout review" if enabled else "Opera house · original design · exploration v1"
 
 func review_snapshot() -> Dictionary:
+	if player_root==null or animator==null or map_control==null:
+		return {"ready":false,"initializing":true}
 	return {"world_size":WORLD_SIZE,"position":player_root.position,"camera":camera_position,
 		"travelling":not route.is_empty(),"pending":pending_object,"completed_mask":completed_mask,
 		"running_act":running_act,"launches":launches,"paused":paused,"ambient_phase":ambience.phase,
+		"floor_locked":floor_navigation.contains_point(player_root.position),"riding_lift":riding_lift,"floor_recoveries":floor_recoveries,
 		"actor":animator.animation_state(),"overview":overview,"prop_responses":prop_responses,"lift_rides":lift_rides,
 		"art":"layout-preserving detail-restoration candidate; no thematic art",
 		"native_background_size":native_background_size,"native_2k_background":tiled_background,

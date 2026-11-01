@@ -1,6 +1,6 @@
 # Mermaid Roshan: Reef of Light — game-wide master audit
 
-Owner-commissioned [four-screen Opera exploration plan and isolated v1](../design/OPERA_HOUSE_EXPLORATION_V1_2026-10-31.md) is a review prototype with a measured7360×4140 tiled detail candidate, source-owned fixtures and production/acceptance gaps; it changes no finding lifecycle or Castle career ownership. [Scoped impact](../design/audit_impacts/opera-four-screen-v1-20261031.json).
+Owner-commissioned [four-screen Opera exploration plan and isolated v1](../design/OPERA_HOUSE_EXPLORATION_V1_2026-10-31.md) is a review prototype with a measured7360×4140 tiled detail candidate, source-owned fixtures and production/acceptance gaps; it changes no finding lifecycle or Castle career ownership. [Scoped impact](../design/audit_impacts/opera-four-screen-v1-20261031.json). Owner floor-lock correction and exact new evidence: [bounded correction](../design/audit_impacts/opera-floor-lock-20261031.json); whole-game geometry acceptance remains open.
 
 Owner-directed foyer icon placement is tracked in the [bounded impact](../design/audit_impacts/opera-icons-above-doors-20261017.json) and CHG-102; implementation and machine evidence do not close formal visual/device/child/owner acceptance.
 

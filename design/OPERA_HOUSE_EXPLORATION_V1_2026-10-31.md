@@ -16,8 +16,9 @@ generations are rejected, preserved outside runtime and have no runtime referenc
 The subsequent two built-in edits restore detail and heal only embedded
 medallions so separate signs can sit above each arch.
 
-Roshan uses the approved authored swim atlas and follows the original galleries,
-curved stair paths and two working lifts. Foyer routes pass around the central
+Roshan uses the approved authored swim atlas and follows the original gallery
+and foyer floor lanes. Two working lifts connect floors; the painted staircases
+have closed gates and remain inaccessible scenery. Foyer routes pass around the central
 island. A press previews the destination; one-finger drag/release commits it.
 The camera follows smoothly across quadrant boundaries. Atlas motion samples
 logical travel independently of camera translation.
@@ -230,3 +231,65 @@ intermittent failure. This is probe-by-probe completion; a redundant whole-suite
 repeat was interrupted, and no new single-invocation green result is claimed.
 The temporary clean-baseline control checkout was removed after preserving its
 exact sources, command, hashes and logs. The private demo remains running.
+
+## Owner correction: floor-constrained travel
+
+The owner reports bounded-location trouble and requires Roshan to stay on the
+floor as in Castle. The prior review wrongly exposed vertical lift shafts as
+ordinary walking branches and did not recover off-floor positions. Native
+baseline reproduction retains both failures; the exact reported error string
+was not present in the current logs.
+
+The corrected review uses the shared Castle floor-lane helper for walking.
+Only explicit lift landings connect floors; shaft/stair crossings never become
+mid-air exits. Controlled lift travel locks the horizontal coordinate, and
+cancellation or pause ends at a real landing. Invalid/off-floor coordinates
+recover to the last safe floor contact, cancel pending actions and preserve
+progress. Ordinary wall taps project to a floor/stair contact. Artwork, existing
+Castle routing, activity ownership and normal saves remain unchanged.
+
+Exact new focused runtime, source/analyzer and authority evidence belongs to
+verification/floor_lock and the [floor correction impact](audit_impacts/opera-floor-lock-20261031.json).
+Earlier20check and82probe evidence remains historical, not a new test of this
+correction. Whole-game geometry, phone/child/owner acceptance and production
+integration remain separate; no finding lifecycle is closed.
+
+Native review also reveals a visual hovering offset on the upper gallery. The
+final correction measures floor contacts at original-art y148.8/281.6/414,
+anchors both the unchanged approved atlas silhouette and its existing blend to
+the gameplay foot, and stages the original balcony rails in front of the lower
+body. The painted stairs have shut gates, so they are inaccessible scenery;
+working lifts connect the galleries. No character, rail or gate art is redrawn.
+The earlier28logical passes and hovering capture remain in pre_visual_grounding.
+
+The first visual-placement attempt incorrectly measured the whole atlas after
+the sprite switched to256pixel region sampling. Its29PASSnumeric report is
+rejected by the native capture and retained under incorrect_whole_atlas_sampling.
+The final placement reads the exact displayed source region. Its independent
+checker derives the runtime region/grid sample directly, checks the blend card
+as well as the actor and verifies the256pixel sampling contract. This replaces
+a shared false assumption; no threshold or comparison is weakened.
+
+Final floor correction:30focused checks pass against the displayed-cell
+sampling, including unchanged saves and independent actor/blend foot checks.
+A separate real travel leg reaches the middle gallery and returns to the foyer:
+1009additional samples remain on floors or controlled lifts, with maximum
+visible-foot error0.0000611pixels. Native upper/middle/foyer captures are retained.
+Phone, child, exact owner visual acceptance, complete ornamental occlusion,
+semantic recovery voice and production integration remain pending.
+
+A final refresh poll arrived while the high-resolution background was still
+constructing the actor and caused a diagnostic nil access. Uninitialized
+snapshots now return a safe not-ready result and refresh waits for actor/HUD
+readiness. The restored foyer stays live through a15second hold. Dictionary
+hashes are compared within each run; the fresh-run hash differs from earlier
+runs while stars64and pearls9stay unchanged. No save is restored to force a
+particular dictionary hash. The updated probe adds an uninitialized-state check.
+
+Final startup follow-up waits for the actual main save/menu boundary, rather
+than debugger-helper liveness. The final31check rerun passes, including safe
+uninitialized snapshots, against three current source hashes. Its fully loaded
+private bank is64stars/12pearls; dictionary hash1795345105stays unchanged within
+the run. Early9pearl/default-state reads do not establish the loaded save state.
+No old save or hash is forced back into place. The main game, save code and
+protected art/audio remain unchanged. Current exact-topic CI is separate.

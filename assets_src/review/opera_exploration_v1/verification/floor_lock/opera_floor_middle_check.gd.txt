@@ -1,0 +1,34 @@
+extends Node
+var venue: Node
+var probe: Node
+var safe := true
+var samples := 0
+var max_error := 0.0
+func _ready() -> void:
+	call_deferred("_run")
+func _travel(point: Vector2) -> bool:
+	venue.request_destination(point)
+	for index: int in range(1800):
+		await get_tree().process_frame
+		var foot: Vector2 = venue.player_root.position
+		safe = safe and (venue.riding_lift or venue.floor_navigation.contains_point(foot))
+		max_error = maxf(max_error,probe._visual_foot_error(venue.actor))
+		samples += 1
+		if venue.route.is_empty():
+			return foot.distance_to(point)<0.5
+	return false
+func _run() -> void:
+	venue = get_tree().current_scene.find_child("OperaExplorationV1",true,false)
+	probe = get_tree().current_scene.get_node("OperaFloorLockProbe")
+	var before: int = venue.m.save_data.hash()
+	var middle: bool = await _travel(Vector2(1280,704))
+	for index: int in range(60): await get_tree().process_frame
+	get_viewport().get_texture().get_image().save_png("C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera-four-screen-v1-20261031/assets_src/review/opera_exploration_v1/verification/floor_lock/middle_gallery.png")
+	var restored: bool = await _travel(Vector2(1280,1380))
+	for index: int in range(60): await get_tree().process_frame
+	get_viewport().get_texture().get_image().save_png("C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera-four-screen-v1-20261031/assets_src/review/opera_exploration_v1/verification/floor_lock/final_foyer.png")
+	var result: Dictionary = {"middle_gallery_reached":middle,"foyer_restored":restored,"samples":samples,"all_samples_on_floor_or_lift":safe,"max_visible_foot_error":max_error,"save_unchanged":before==venue.m.save_data.hash(),"final":venue.review_snapshot()}
+	var file: FileAccess = FileAccess.open("C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera-four-screen-v1-20261031/assets_src/review/opera_exploration_v1/verification/floor_lock/middle_gallery_check.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(result,"\t")+"\n")
+	probe.queue_free()
+	queue_free()

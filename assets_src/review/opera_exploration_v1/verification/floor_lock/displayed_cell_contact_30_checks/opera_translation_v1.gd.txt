@@ -1,0 +1,700 @@
+extends Control
+## Owner-corrected 1:1 translation: one original house, continuous 2 x 2 world.
+
+const NAVIGATION := preload("res://scripts/stage_navigation_2d.gd")
+const ACTOR_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const AMBIENCE := preload("res://scripts/review/opera_translation_ambience_v1.gd")
+const CURTAIN_CARD := preload("res://scripts/review/opera_curtain_card_v1.gd")
+const LIFE_SHADER := preload("res://shaders/opera_translation_life.gdshader")
+const RESTORED := "res://assets/review/opera_translation_v1/"
+const TILED_DETAIL := "res://assets/review/opera_tiled_detail_v1/"
+const ART := "res://assets/flats/castle/opera_house_venue_2d/"
+const VIEW_SIZE := Vector2(1280,720)
+const WORLD_SIZE := Vector2(2560,1440)
+const SOURCE_SCALE := 2.5
+const DOOR_X: Array[float] = [357,459,565,667]
+const SIGN_Y: Array[float] = [94,406,734]
+const FLOOR_Y: Array[float] = [372,704,1035]
+const ACTS: Array[int] = [13,8,2]
+const ACT_COLUMNS: Array[int] = [2,3,2]
+const CRESTS: Array[String] = ["opera_crest_singer.png","opera_crest_magician.png","opera_crest_ballerina.png"]
+# Historical decorative portals retain their old career pictures; only ACTS
+# own launch targets here. Use the complete approved family, never mural crops.
+const SIGN_FILES: Array[String] = [
+	"opera_crest_painter.png", "opera_crest_engineer.png", "opera_crest_singer.png", "opera_crest_racer.png",
+	"opera_crest_doctor.png", "opera_crest_farmer.png", "opera_crest_boxer.png", "opera_crest_magician.png",
+	"opera_crest_chef.png", "opera_crest_detective.png", "opera_crest_ballerina.png", "opera_crest_candy.png"]
+const SPEED := 300.0
+const ARRIVAL_RADIUS := 12.0
+
+var m: ReefMain
+var venue: OperaHouseVenue2D
+var world: Node2D
+var player_root: Node2D
+var actor: Sprite2D
+var animator: Node
+var ambience: Node2D
+var navigation: RefCounted
+var floor_navigation: RefCounted
+var riding_lift := false
+var last_floor_position := Vector2(1280,1380)
+var floor_recoveries := 0
+var floor_alpha_cache: Dictionary = {}
+var floor_alpha_images: Dictionary = {}
+var marker: Node2D
+var map_control: Control
+var pause_button: Button
+var status: Label
+var route := PackedVector2Array()
+var route_cursor := 0
+var pending_object := ""
+var objects: Array[Dictionary] = []
+var badges: Array[Sprite2D] = []
+var completed_mask := 0
+var camera_position := Vector2.ZERO
+var return_position := Vector2.ZERO
+var return_camera := Vector2.ZERO
+var pointer_owner := -2
+var pointer_position := Vector2.ZERO
+var paused := false
+var running_act := -1
+var job: OperaHouse
+var launches := 0
+var elapsed := 0.0
+var overview := false
+var camera_initialized := false
+var focus_paused := false
+var prop_responses := 0
+var lift_rides := 0
+var busy := false
+var door_tween: Tween
+var sound: AudioStreamPlayer
+var opened_curtain_index := -1
+var camera_hold := false
+var motion_source: Node2D
+var native_background_size := Vector2(1672,941)
+var tiled_background := false
+
+func setup(main: ReefMain, original_venue: OperaHouseVenue2D) -> void:
+	m = main
+	process_priority = 100 # Ground after the approved atlas/transition update.
+	venue = original_venue
+	name = "OperaExplorationV1"
+	size = VIEW_SIZE
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	clip_contents = true
+	z_index = 100
+	venue.accepting_input = false
+	completed_mask = m.opera_stars
+	# The painted staircases have shut gates. Only the lift landings connect
+	# galleries; a closed painted staircase is not a usable floor route.
+	var lanes: Array[PackedVector2Array] = [
+		PackedVector2Array([Vector2(438,372),Vector2(2120,372)]),
+		PackedVector2Array([Vector2(438,704),Vector2(2120,704)]),
+		PackedVector2Array([Vector2(340,1035),Vector2(2230,1035)]),
+		PackedVector2Array([Vector2(1050,1035),Vector2(940,1120),Vector2(940,1380),Vector2(1620,1380),Vector2(1620,1120),Vector2(1510,1035)])]
+	floor_navigation = NAVIGATION.new()
+	floor_navigation.configure(lanes)
+	navigation = floor_navigation
+	world = Node2D.new()
+	world.name = "OriginalOperaFourScreenWorld"
+	add_child(world)
+	ambience = AMBIENCE.new()
+	ambience.name = "OriginalFixtureLife"
+	ambience.z_index = 10
+	world.add_child(ambience)
+	_build_original_house()
+	_build_curtain_cards()
+	_build_doors()
+	_build_interactions()
+	_build_player()
+	_build_hud()
+	player_root.position = Vector2(1280,1380)
+	motion_source.position = player_root.position
+	_update_camera(0.0)
+	_refresh_badges()
+	m._navigation_push("opera_exploration_v1",self,Callable(self,"_leave_review"))
+	m._set_world_controls_enabled(false,"opera_exploration_v1")
+	m.clear_dialogue()
+	if m.hud_msg != null:
+		m.hud_msg.hide()
+
+func _build_original_house() -> void:
+	var art_root: String = TILED_DETAIL if FileAccess.file_exists(TILED_DETAIL+"layout.json") else RESTORED
+	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(art_root+"layout.json")) as Dictionary
+	var native_size: Array = layout["native_size"] as Array
+	native_background_size = Vector2(float(native_size[0]),float(native_size[1]))
+	tiled_background = bool(layout.get("native_2k_per_screen",false))
+	var pieces: Array = (layout["cards"] as Array).duplicate()
+	pieces.append_array(layout.get("objects",[]) as Array)
+	for value: Variant in pieces:
+		var info: Dictionary = value as Dictionary
+		var rect: Array = info["source_rect"] as Array
+		var reference: Array = info.get("reference_size",native_size) as Array
+		var reference_size := Vector2(float(reference[0]),float(reference[1]))
+		var card := Sprite2D.new()
+		card.name = String(info.get("id","RestoredOriginalScreen_%d_%d" % [int(int(rect[1])>0),int(int(rect[0])>0)]))
+		card.texture = load(art_root+String(info["path"])) as Texture2D
+		card.centered = false
+		card.region_enabled = true
+		card.region_filter_clip_enabled = true
+		card.region_rect = Rect2(0,0,float(rect[2]),float(rect[3]))
+		card.position = Vector2(float(rect[0]),float(rect[1]))/reference_size*WORLD_SIZE
+		card.scale = WORLD_SIZE/reference_size
+		card.z_index = 8 if String(info.get("owner","")) in ["upper_balcony","middle_balcony"] else int(info.get("z_index",-30))
+		card.set_meta("source_role",String(info.get("role","legacy_background")))
+		card.set_meta("source_owner",String(info.get("owner","")))
+		var material := ShaderMaterial.new()
+		material.shader = LIFE_SHADER
+		material.set_shader_parameter("source_offset",Vector2(float(rect[0]),float(rect[1]))/reference_size*Vector2(1024,576))
+		material.set_shader_parameter("source_span",card.texture.get_size()/reference_size*Vector2(1024,576))
+		card.material = material
+		ambience.materials.append(material)
+		world.add_child(card)
+	_build_original_signs()
+
+func _build_original_signs() -> void:
+	for row: int in range(3):
+		for column: int in range(4):
+			var icon := Sprite2D.new()
+			icon.name = "OriginalAboveDoorIcon_%d_%d" % [row,column]
+			var path: String = "res://assets/opera/worlds/ui/crests/"+SIGN_FILES[row*4+column]
+			icon.texture = load(path) as Texture2D
+			icon.set_meta("complete_painted_crest",path)
+			icon.position = Vector2(DOOR_X[column]*SOURCE_SCALE,SIGN_Y[row])
+			icon.scale = Vector2.ONE*0.31
+			icon.z_index = 12
+			world.add_child(icon)
+
+func _build_doors() -> void:
+	for row: int in range(3):
+		var x: float = DOOR_X[ACT_COLUMNS[row]]*SOURCE_SCALE
+		var crest: Sprite2D = world.get_node("OriginalAboveDoorIcon_%d_%d" % [row,ACT_COLUMNS[row]]) as Sprite2D
+		crest.name = "CareerCrest_%d" % ACTS[row]
+		crest.set_meta("resident_act",ACTS[row])
+		var star := Sprite2D.new()
+		star.name = "EarnedRoomStar_%d" % ACTS[row]
+		star.texture = load("res://assets/mg/star.png") as Texture2D
+		star.position = crest.position+Vector2(34,24)
+		# Source masters have different native sizes; badge size is in world pixels.
+		star.scale = Vector2.ONE*(36.0/maxf(star.texture.get_width(),star.texture.get_height()))
+		star.z_index = 13
+		world.add_child(star)
+		badges.append(star)
+		objects.append({"object_id":"opera_door_%d" % ACTS[row],
+			"rect":Rect2(x-95.0,SIGN_Y[row]-46.0,190.0,FLOOR_Y[row]-SIGN_Y[row]+60.0),
+			"approach_point":Vector2(x,FLOOR_Y[row]),"arrival_radius":ARRIVAL_RADIUS,
+			"act":ACTS[row],"action":"career","return_target":"opera_hall"})
+
+func _build_curtain_cards() -> void:
+	if FileAccess.file_exists(TILED_DETAIL+"layout.json"):
+		var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(TILED_DETAIL+"layout.json")) as Dictionary
+		var fabrics: Array = layout.get("curtains",[]) as Array
+		if fabrics.size()==12:
+			for index: int in range(fabrics.size()):
+				var info: Dictionary = fabrics[index] as Dictionary
+				var texture: Texture2D = load(TILED_DETAIL+String(info["path"])) as Texture2D
+				var bounds: Array = info["original_bounds"] as Array
+				var rect: Array = info["native_rect"] as Array
+				var card: Node2D = CURTAIN_CARD.new()
+				card.name = "OriginalCurtain_%d_%d" % [index/4,index%4]
+				card.z_index = -25
+				world.add_child(card)
+				card.setup(texture.get_image(),Rect2i(int(rect[0]),int(rect[1]),int(rect[2]),int(rect[3])),Rect2(Vector2(float(bounds[0]),float(bounds[1]))*SOURCE_SCALE,Vector2(float(bounds[2]),float(bounds[3]))*SOURCE_SCALE))
+				ambience.curtains.append(card)
+			return
+	var texture := load(RESTORED+"restoration_healed_source.png") as Texture2D
+	var image: Image = texture.get_image()
+	var y_start: Array[float] = [81,205,341]
+	var y_end: Array[float] = [130,252,397]
+	for row: int in range(3):
+		for column: int in range(4):
+			var bounds := Rect2(DOOR_X[column]-20.0,y_start[row],40.0,y_end[row]-y_start[row])
+			var native_rect := Rect2i(Vector2i(bounds.position*Vector2(1672.0/1024.0,941.0/576.0)),
+				Vector2i(bounds.size*Vector2(1672.0/1024.0,941.0/576.0)))
+			var card: Node2D = CURTAIN_CARD.new()
+			card.name = "OriginalCurtain_%d_%d" % [row,column]
+			card.z_index = -25
+			world.add_child(card)
+			card.setup(image,native_rect,Rect2(bounds.position*SOURCE_SCALE,bounds.size*SOURCE_SCALE))
+			ambience.curtains.append(card)
+
+func _build_player() -> void:
+	player_root = Node2D.new()
+	player_root.name = "RoshanTravelRoot"
+	player_root.z_index = 5
+	world.add_child(player_root)
+	actor = Sprite2D.new()
+	actor.name = "ApprovedAnimatedRoshan"
+	actor.position = Vector2(0,-64)
+	actor.scale = Vector2.ONE*0.70
+	player_root.add_child(actor)
+	animator = ACTOR_LOOP.new()
+	animator.wardrobe_owner = m
+	actor.add_child(animator)
+	# The panorama scrolls under the HUD. Sample world travel before that camera
+	# translation so a centered Roshan keeps swimming while the scenery moves.
+	motion_source = Node2D.new()
+	motion_source.name = "RoshanWorldTravelSampler"
+	add_child(motion_source)
+	animator.setup_sprite_2d(actor,false,motion_source)
+	_ground_actor_to_floor()
+	marker = Node2D.new()
+	marker.name = "TravelDestination"
+	marker.z_index = 14
+	marker.draw.connect(_draw_marker)
+	world.add_child(marker)
+	marker.hide()
+	sound = AudioStreamPlayer.new()
+	sound.volume_db = -17.0
+	add_child(sound)
+
+func _build_interactions() -> void:
+	for side: int in range(2):
+		var x: float = 438.0 if side==0 else 2120.0
+		objects.append({"object_id":"original_lift_%d" % side,"rect":Rect2(x-65,125,130,930),
+			"approach_point":Vector2(x,1035),"arrival_radius":ARRIVAL_RADIUS,"action":"lift","side":side,"return_target":"opera_hall"})
+	objects.append({"object_id":"original_ticket_bell","rect":Rect2(540,845,165,180),
+		"approach_point":Vector2(640,1035),"arrival_radius":ARRIVAL_RADIUS,"action":"bell","return_target":"opera_hall"})
+	objects.append({"object_id":"original_refreshment_cart","rect":Rect2(2270,1040,280,290),
+		"approach_point":Vector2(2230,1035),"arrival_radius":ARRIVAL_RADIUS,"action":"tea","return_target":"opera_hall"})
+
+func _build_hud() -> void:
+	var back := Button.new()
+	back.z_index = 30
+	back.text = "↩"
+	back.position = Vector2(16,16)
+	back.size = Vector2(64,64)
+	back.add_theme_font_size_override("font_size",44)
+	back.pressed.connect(_leave_review)
+	add_child(back)
+	pause_button = Button.new()
+	pause_button.z_index = 30
+	StorybookUI.style_icon_button(pause_button,"||","secondary",Vector2(110,110),"Pause")
+	pause_button.position = Vector2(18,590)
+	pause_button.pressed.connect(_toggle_pause)
+	add_child(pause_button)
+	status = Label.new()
+	status.z_index = 30
+	status.text = "Opera house · original design · exploration v1"
+	status.position = Vector2(280,16)
+	status.size = Vector2(720,44)
+	status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	StorybookUI.style_label(status,24)
+	status.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(status)
+	status.hide()
+	map_control = Control.new()
+	map_control.z_index = 30
+	map_control.name = "ReadOnlyFourScreenLocator"
+	map_control.position = Vector2(1112,16)
+	map_control.size = Vector2(144,81)
+	map_control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	map_control.draw.connect(_draw_locator)
+	add_child(map_control)
+
+func _gui_input(event: InputEvent) -> void:
+	if m==null or player_root==null:
+		return
+	if paused or job != null or overview or busy:
+		return
+	if event is InputEventScreenTouch:
+		if event.pressed and pointer_owner == -2:
+			pointer_owner = event.index
+			pointer_position = event.position
+			_preview_pointer(event.position)
+		elif not event.pressed and pointer_owner == event.index:
+			pointer_owner = -2
+			request_destination(event.position+camera_position)
+	elif event is InputEventScreenDrag and pointer_owner == event.index:
+		pointer_position = event.position
+		_preview_pointer(event.position)
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed and pointer_owner == -2:
+			pointer_owner = -1
+			pointer_position = event.position
+			_preview_pointer(event.position)
+		elif not event.pressed and pointer_owner == -1:
+			pointer_owner = -2
+			request_destination(event.position+camera_position)
+	elif event is InputEventMouseMotion and pointer_owner == -1:
+		pointer_position = event.position
+		_preview_pointer(event.position)
+	accept_event()
+
+func request_destination(point: Vector2) -> void:
+	if paused or job != null or overview or busy or not is_visible_in_tree():
+		return
+	cancel_travel()
+	if not point.is_finite():
+		return
+	camera_hold = false
+	var target: Vector2 = floor_navigation.nearest_point(point)
+	for object: Dictionary in objects:
+		if (object["rect"] as Rect2).has_point(point):
+			pending_object = String(object["object_id"])
+			target = object["approach_point"] as Vector2
+			if object["action"]=="lift":
+				var nearest: int = _nearest_floor(player_root.position.y)
+				target.y = FLOOR_Y[nearest]
+				object["approach_point"] = target
+				var destination: int = _nearest_floor(point.y)
+				object["destination_floor"] = destination if destination!=nearest else (nearest+2)%3
+			break
+	route = _plan_floor_route(player_root.position,target)
+	route_cursor = 1 if route.size()>1 else 0
+	marker.position = target
+	marker.show()
+	marker.queue_redraw()
+	m._say("roshan","talk")
+
+func cancel_travel() -> void:
+	if riding_lift and player_root != null:
+		# Interrupt only at a real landing, never leave Roshan suspended in a shaft.
+		player_root.position.y = FLOOR_Y[_nearest_floor(player_root.position.y)]
+		riding_lift = false
+	_recover_floor_position()
+	route.clear()
+	route_cursor = 0
+	pending_object = ""
+	pointer_owner = -2
+	if marker != null:
+		marker.hide()
+
+func _process(delta: float) -> void:
+	if m==null or player_root==null:
+		return
+	if not is_visible_in_tree() or paused or job != null or overview:
+		return
+	if not player_root.position.is_finite():
+		riding_lift = false
+	elapsed += minf(delta,0.05)
+	if not riding_lift and _recover_floor_position():
+		cancel_travel()
+	if not route.is_empty() and (route_cursor < 0 or route_cursor >= route.size()):
+		cancel_travel()
+	if not route.is_empty():
+		var target: Vector2 = route[route_cursor]
+		var source: Vector2 = route[maxi(0,route_cursor-1)]
+		var lift_leg: bool = _is_lift_leg(source,target)
+		if lift_leg and not riding_lift:
+			riding_lift = true
+			lift_rides += 1
+			ambience.lift_burst = 2.8
+			_play_chime()
+		actor.flip_h = target.x < player_root.position.x
+		player_root.position = player_root.position.move_toward(target,SPEED*minf(delta,0.05))
+		if lift_leg:
+			player_root.position.x = source.x
+		elif _recover_floor_position():
+			cancel_travel()
+			_update_camera(delta)
+			motion_source.position = player_root.position
+			return
+		if player_root.position.distance_to(target)<=0.5:
+			player_root.position = target
+			riding_lift = false
+			last_floor_position = target
+			route_cursor += 1
+			if route_cursor>=route.size():
+				var selected: String = pending_object
+				cancel_travel()
+				_activate_arrived(selected)
+	if not riding_lift:
+		last_floor_position = player_root.position
+	_ground_actor_to_floor()
+	_update_camera(delta)
+	motion_source.position = player_root.position
+	if marker.visible:
+		marker.queue_redraw()
+
+func _sprite_foot_bottom(sprite: Sprite2D) -> float:
+	var sample: Rect2 = RoshanSpriteFrames.sampled_rect_2d(sprite)
+	var texture_id: int = sprite.texture.get_instance_id()
+	var key: String = "%d:%s" % [texture_id,str(sample)]
+	if not floor_alpha_cache.has(key):
+		if not floor_alpha_images.has(texture_id):
+			var image: Image = sprite.texture.get_image()
+			if image.is_compressed():
+				image.decompress()
+			floor_alpha_images[texture_id] = image
+		var image: Image = floor_alpha_images[texture_id] as Image
+		floor_alpha_cache[key] = float(image.get_region(Rect2i(sample)).get_used_rect().end.y)
+	return sprite.get_rect().position.y+float(floor_alpha_cache[key])
+
+func _ground_actor_to_floor() -> void:
+	# Read-only alpha measurements retain every approved pose and pixel. The
+	# gameplay root owns the foot; torso-anchor and idle-breath offsets cannot
+	# detach the visible silhouette from its painted floor contact.
+	actor.position.y = -_sprite_foot_bottom(actor)*actor.scale.y
+	var transition: Node = actor.get_node_or_null("TemporalSpriteTransition")
+	if transition != null:
+		var ghost: Sprite2D = transition.transition_ghost()
+		if ghost != null and ghost.texture != null:
+			ghost.position.y = -actor.position.y/actor.scale.y-_sprite_foot_bottom(ghost)*ghost.scale.y
+
+func _walking_route(source: Vector2, target: Vector2) -> PackedVector2Array:
+	if source.distance_to(target)<=0.05:
+		return PackedVector2Array([source])
+	return floor_navigation.route(source,target)
+
+func _plan_floor_route(source: Vector2, target: Vector2) -> PackedVector2Array:
+	var direct: PackedVector2Array = _walking_route(source,target)
+	if not direct.is_empty():
+		return direct
+	var best := PackedVector2Array()
+	var best_distance := INF
+	# Only landings join the walking network to a lift. A shaft crossing a
+	# staircase in the painting must never become an accidental mid-air exit.
+	for shaft_x: float in [438.0,2120.0]:
+		for entry_y: float in FLOOR_Y:
+			var entry := Vector2(shaft_x,entry_y)
+			var approach: PackedVector2Array = _walking_route(source,entry)
+			if approach.is_empty():
+				continue
+			for exit_y: float in FLOOR_Y:
+				if entry_y==exit_y:
+					continue
+				var landing := Vector2(shaft_x,exit_y)
+				var departure: PackedVector2Array = _walking_route(landing,target)
+				if departure.is_empty():
+					continue
+				var candidate: PackedVector2Array = approach.duplicate()
+				candidate.append(landing)
+				candidate.append_array(departure.slice(1))
+				var distance := 0.0
+				for index: int in range(1,candidate.size()):
+					distance += candidate[index-1].distance_to(candidate[index])
+				if distance<best_distance:
+					best = candidate
+					best_distance = distance
+	return best
+
+func _is_lift_leg(source: Vector2, target: Vector2) -> bool:
+	if absf(source.x-target.x)>0.05 or absf(source.y-target.y)<0.05:
+		return false
+	if absf(source.x-438.0)>0.05 and absf(source.x-2120.0)>0.05:
+		return false
+	return absf(source.y-FLOOR_Y[_nearest_floor(source.y)])<0.05 \
+		and absf(target.y-FLOOR_Y[_nearest_floor(target.y)])<0.05
+
+func _recover_floor_position() -> bool:
+	if floor_navigation == null or player_root == null:
+		return false
+	if player_root.position.is_finite() and floor_navigation.contains_point(player_root.position):
+		last_floor_position = player_root.position
+		return false
+	# Match Castle's explicit floor-contact contract. Never award or activate
+	# a pending object while recovering from an invalid position.
+	player_root.position = last_floor_position
+	if not player_root.position.is_finite() or not floor_navigation.contains_point(player_root.position):
+		player_root.position = Vector2(1280,1380)
+	floor_recoveries += 1
+	camera_hold = false
+	camera_initialized = false
+	return true
+
+func _update_camera(delta: float) -> void:
+	if camera_hold:
+		world.position = -camera_position
+		map_control.queue_redraw()
+		return
+	var desired := Vector2(clampf(player_root.position.x-640.0,0,1280),
+		clampf(player_root.position.y-430.0,0,694))
+	if not camera_initialized:
+		camera_position = desired
+		camera_initialized = true
+	else:
+		camera_position = camera_position.lerp(desired,1.0-exp(-7.0*delta))
+	world.position = -camera_position
+	if map_control != null:
+		map_control.queue_redraw()
+
+func _activate_arrived(object_id: String) -> void:
+	for object: Dictionary in objects:
+		if object["object_id"] == object_id:
+			if player_root.position.distance_to(object["approach_point"] as Vector2)<=float(object["arrival_radius"]):
+				match String(object["action"]):
+					"career":
+						_open_curtain(int(object["act"]))
+					"lift":
+						_ride_lift(object)
+					"bell", "tea":
+						_respond_to_prop(String(object["action"]))
+			return
+
+func _nearest_floor(y: float) -> int:
+	var nearest := 0
+	for index: int in range(1,3):
+		if absf(FLOOR_Y[index]-y)<absf(FLOOR_Y[nearest]-y):
+			nearest = index
+	return nearest
+
+func _preview_pointer(point: Vector2) -> void:
+	if not point.is_finite():
+		return
+	marker.position = floor_navigation.nearest_point(point+camera_position)
+	marker.show()
+	marker.queue_redraw()
+
+func _ride_lift(object: Dictionary) -> void:
+	var target: Vector2 = object["approach_point"] as Vector2
+	target.y = FLOOR_Y[int(object["destination_floor"])]
+	route = PackedVector2Array([player_root.position,target])
+	route_cursor = 1
+	pending_object = ""
+	marker.position = target
+	marker.show()
+
+func _respond_to_prop(action: String) -> void:
+	prop_responses += 1
+	if action=="tea":
+		ambience.tea_burst = 3.0
+	else:
+		ambience.bell_burst = 2.0
+	_play_chime()
+
+func _play_chime() -> void:
+	sound.stream = load("res://assets/audio/chime.ogg") as AudioStream
+	sound.play()
+
+func _open_curtain(act: int) -> void:
+	busy = true
+	var row: int = ACTS.find(act)
+	opened_curtain_index = row*4+ACT_COLUMNS[row]
+	for material: ShaderMaterial in ambience.materials:
+		material.set_shader_parameter("selected_door",Vector2(DOOR_X[ACT_COLUMNS[row]],float(row)))
+	_play_chime()
+	door_tween = create_tween()
+	door_tween.tween_method(_set_door_open,0.0,1.0,0.65)
+	door_tween.tween_callback(func() -> void:
+		busy = false
+		_launch_act(act))
+
+func _set_door_open(value: float) -> void:
+	for material: ShaderMaterial in ambience.materials:
+		material.set_shader_parameter("door_open",value)
+	for index: int in range(ambience.curtains.size()):
+		ambience.curtains[index].opening = value if index==opened_curtain_index else 0.0
+
+func _launch_act(act: int) -> void:
+	if running_act>=0 or job!=null or not ACTS.has(act):
+		return
+	return_position = player_root.position
+	return_camera = camera_position
+	running_act = act
+	launches += 1
+	hide()
+	venue.hide()
+	m._castle_rooms_ref().suspend()
+	m.clear_dialogue()
+	m.game = "opera"
+	m.opera_return_room = "opera_hall"
+	m.opera_active_act_index = act
+	OperaRoutePresentation.suspend(m)
+	job = OperaHouse.new()
+	m.add_child(job)
+	m.opera_game = job
+	if not job.start(m,act,Callable(self,"_job_finished"),{},{"reward_policy":"dev_playtest"}):
+		m._navigation_remove("opera_act")
+		job.queue_free()
+		_job_finished(false)
+
+func _job_finished(completed: bool) -> void:
+	if running_act<0:
+		return
+	if completed:
+		completed_mask |= 1<<running_act
+		ambience.celebration_position = badges[ACTS.find(running_act)].position
+		ambience.celebration = 2.5
+	running_act = -1
+	job = null
+	m.opera_game = null
+	m.opera_active_act_index = -1
+	m.opera_return_room = ""
+	m.opera_plot_context = ""
+	m._restore_opera_route_state("opera_hall")
+	venue.open(m.opera_stars)
+	venue.accepting_input = false
+	m.clear_dialogue()
+	player_root.position = return_position
+	_recover_floor_position()
+	camera_position = return_camera
+	camera_hold = true
+	world.position = -camera_position
+	motion_source.position = player_root.position
+	_refresh_badges()
+	_set_door_open(0.0)
+	show()
+	m._navigation_push("opera_exploration_v1",self,Callable(self,"_leave_review"))
+
+func _refresh_badges() -> void:
+	for row: int in range(3):
+		badges[row].visible = (completed_mask & (1<<ACTS[row]))!=0
+
+func _toggle_pause() -> void:
+	focus_paused = false
+	_set_paused(not paused)
+
+func _set_paused(value: bool) -> void:
+	paused = value
+	if paused and door_tween != null and door_tween.is_valid():
+		door_tween.kill()
+		busy = false
+		_set_door_open(0.0)
+	cancel_travel()
+	animator.set_paused(paused)
+	ambience.enabled = not paused
+	pause_button.text = "▶" if paused else "||"
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT and is_node_ready():
+		cancel_travel()
+		if not paused and job == null:
+			_set_paused(true)
+			focus_paused = true
+	elif what == NOTIFICATION_APPLICATION_FOCUS_IN and is_node_ready() and focus_paused:
+		focus_paused = false
+		_set_paused(false)
+
+func _leave_review() -> void:
+	if job!=null:
+		return
+	cancel_travel()
+	m._navigation_remove("opera_exploration_v1")
+	m._set_world_controls_enabled(true,"opera_exploration_v1")
+	venue.accepting_input = true
+	venue._go_back()
+	queue_free()
+
+func _draw_marker() -> void:
+	marker.draw_arc(Vector2.ZERO,14.0+sin(elapsed*4.0)*2.0,0,TAU,32,Color(1,0.9,0.5,0.9),2.5,true)
+	marker.draw_circle(Vector2.ZERO,4,Color(1,0.96,0.76,0.9))
+
+func _draw_locator() -> void:
+	var texture := load(ART+"room_opera_house_venue.png") as Texture2D
+	# Canvas draw commands retain the RID, so keep its Resource alive as well.
+	map_control.set_meta("retained_map_texture",texture)
+	map_control.draw_texture_rect(texture,Rect2(Vector2.ZERO,Vector2(144,81)),false,Color(1,1,1,0.9))
+	map_control.draw_line(Vector2(72,0),Vector2(72,81),Color(1,0.9,0.7,0.6),1)
+	map_control.draw_line(Vector2(0,40.5),Vector2(144,40.5),Color(1,0.9,0.7,0.6),1)
+	map_control.draw_rect(Rect2(camera_position/WORLD_SIZE*Vector2(144,81),Vector2(72,40.5)),Color(1,0.95,0.64),false,2)
+	map_control.draw_circle(player_root.position/WORLD_SIZE*Vector2(144,81),3,Color(0.5,1,1))
+
+func set_review_overview(enabled: bool) -> void:
+	cancel_travel()
+	overview = enabled
+	status.visible = enabled
+	world.scale = Vector2.ONE*(0.5 if enabled else 1.0)
+	world.position = Vector2.ZERO if enabled else -camera_position
+	status.text = "Original Opera house · full-layout review" if enabled else "Opera house · original design · exploration v1"
+
+func review_snapshot() -> Dictionary:
+	return {"world_size":WORLD_SIZE,"position":player_root.position,"camera":camera_position,
+		"travelling":not route.is_empty(),"pending":pending_object,"completed_mask":completed_mask,
+		"running_act":running_act,"launches":launches,"paused":paused,"ambient_phase":ambience.phase,
+		"floor_locked":floor_navigation.contains_point(player_root.position),"riding_lift":riding_lift,"floor_recoveries":floor_recoveries,
+		"actor":animator.animation_state(),"overview":overview,"prop_responses":prop_responses,"lift_rides":lift_rides,
+		"art":"layout-preserving detail-restoration candidate; no thematic art",
+		"native_background_size":native_background_size,"native_2k_background":tiled_background,
+		"native_detail_acceptance":"tiled generated surface detail; original fixture geometry/palette locked with registered microdetail; visual/device acceptance pending" if tiled_background else "restored source 1672x941; native 2K per screen remains pending"}

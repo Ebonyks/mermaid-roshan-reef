@@ -11,6 +11,12 @@ var phase := "starting"
 var results: Dictionary = {}
 var samples := 0
 var island_clear := true
+var floor_safe := true
+var lift_samples := 0
+var visual_floor_safe := true
+var visual_alpha_cache: Dictionary = {}
+var visual_image_cache: Dictionary = {}
+var max_visual_floor_error := 0.0
 
 func _ready() -> void:
 	call_deferred("_run")
@@ -24,10 +30,46 @@ func _wait(condition: Callable) -> bool:
 		await get_tree().process_frame
 		var point: Vector2 = venue.player_root.position
 		island_clear = island_clear and not Rect2(1120,1085,315,255).has_point(point)
+		if venue.riding_lift:
+			lift_samples += 1
+			floor_safe = floor_safe and (absf(point.x-438.0)<0.05 or absf(point.x-2120.0)<0.05) \
+				and point.y>=372.0 and point.y<=1035.0
+		else:
+			floor_safe = floor_safe and venue.floor_navigation.contains_point(point)
+		var visual_error: float = _visual_foot_error(venue.actor)
+		var smoother: Node = venue.actor.get_node("TemporalSpriteTransition")
+		var ghost: Sprite2D = smoother.transition_ghost()
+		if ghost.visible:
+			visual_error = maxf(visual_error,_visual_foot_error(ghost))
+		max_visual_floor_error = maxf(max_visual_floor_error,visual_error)
+		visual_floor_safe = visual_floor_safe and visual_error<=0.5
 		samples += 1
 		if bool(condition.call()):
 			return true
 	return false
+
+func _visual_foot_error(sprite: Sprite2D) -> float:
+	# Derive the GPU's actual sample independently of the placement helper.
+	var sample := Rect2(Vector2.ZERO,sprite.texture.get_size())
+	if sprite.region_enabled:
+		sample = sprite.region_rect
+	var cell: Vector2 = sample.size/Vector2(sprite.hframes,sprite.vframes)
+	sample = Rect2(sample.position+Vector2(sprite.frame%sprite.hframes,
+		floori(float(sprite.frame)/float(sprite.hframes)))*cell,cell)
+	var texture_id: int = sprite.texture.get_instance_id()
+	var key: String = "%d:%s" % [texture_id,str(sample)]
+	if not visual_alpha_cache.has(key):
+		if not visual_image_cache.has(texture_id):
+			var image: Image = sprite.texture.get_image()
+			if image.is_compressed():
+				image.decompress()
+			visual_image_cache[texture_id] = image
+		var image: Image = visual_image_cache[texture_id] as Image
+		visual_alpha_cache[key] = image.get_region(Rect2i(sample)).get_used_rect()
+	var alpha: Rect2i = visual_alpha_cache[key] as Rect2i
+	var local_foot := Vector2(sprite.get_rect().get_center().x,sprite.get_rect().position.y+float(alpha.end.y))
+	var foot: Vector2 = venue.world.to_local(sprite.to_global(local_foot))
+	return absf(foot.y-venue.player_root.position.y)
 
 func _travel(point: Vector2) -> bool:
 	venue.request_destination(point)
@@ -49,6 +91,9 @@ func _run() -> void:
 		return
 	if venue.paused:
 		venue._set_paused(false)
+	var empty_review: Control = load("res://scripts/review/opera_translation_v1.gd").new() as Control
+	_record("uninitialized review snapshot is safe",empty_review.review_snapshot().get("ready",true)==false)
+	empty_review.free()
 	var baseline_mask: int = venue.completed_mask
 	var baseline_save_hash: int = venue.m.save_data.hash()
 	var baseline_stars: int = venue.m.opera_stars
@@ -68,6 +113,43 @@ func _run() -> void:
 	venue.notification(NOTIFICATION_APPLICATION_FOCUS_IN)
 	_record("focus notification resumes only automatic pause",focus_stopped and not venue.paused and not venue.focus_paused)
 	_record("passive no award",venue.completed_mask==baseline_mask and venue.m.opera_stars==baseline_stars)
+	phase = "floor lock and bounded recovery"
+	_record("lift shafts are excluded from ordinary floor lanes",
+		not venue.floor_navigation.contains_point(Vector2(438,500))
+		and not venue.floor_navigation.contains_point(Vector2(2120,850))
+		and not venue.navigation.contains_point(Vector2(438,500))
+		and not venue.floor_navigation.contains_point(Vector2(485,870)))
+	venue._preview_pointer(Vector2(438,500)-venue.camera_position)
+	_record("wall touch previews a real floor contact",venue.floor_navigation.contains_point(venue.marker.position))
+	venue.cancel_travel()
+	var safe_position: Vector2 = venue.player_root.position
+	var recoveries_before: int = venue.floor_recoveries
+	var recoveries_valid := true
+	for invalid: Vector2 in [Vector2(-500,-500),Vector2(1280,780),Vector2(4000,4000),Vector2(INF,NAN)]:
+		venue.player_root.position = invalid
+		venue._process(0.0)
+		recoveries_valid = recoveries_valid and venue.player_root.position==safe_position \
+			and venue.route.is_empty() and venue.pending_object.is_empty()
+	_record("off-floor and non-finite positions recover to the last floor contact",
+		recoveries_valid and venue.floor_recoveries==recoveries_before+4)
+	venue.request_destination(Vector2(INF,NAN))
+	_record("invalid destination cannot create a route",venue.route.is_empty() and venue.player_root.position==safe_position)
+	venue.request_destination(Vector2(438,340))
+	var riding: bool = await _wait(func() -> bool: return venue.riding_lift and not venue.floor_navigation.contains_point(venue.player_root.position))
+	venue.cancel_travel()
+	_record("interrupted lift stops at a real landing",riding and not venue.riding_lift and venue.floor_navigation.contains_point(venue.player_root.position) and venue.route.is_empty())
+	await _travel(Vector2(1280,1380))
+	venue.request_destination(Vector2(2120,340))
+	var riding_before_pause: bool = await _wait(func() -> bool: return venue.riding_lift and not venue.floor_navigation.contains_point(venue.player_root.position))
+	venue._set_paused(true)
+	_record("pausing a lift leaves Roshan at a floor landing",riding_before_pause and not venue.riding_lift and venue.floor_navigation.contains_point(venue.player_root.position) and venue.route.is_empty())
+	venue._set_paused(false)
+	await _travel(Vector2(1280,1380))
+	var rides_before: int = venue.lift_rides
+	var upper_floor: bool = await _travel(Vector2(1280,372))
+	_record("cross-floor travel uses a controlled lift",upper_floor and venue.lift_rides>rides_before and venue.floor_navigation.contains_point(venue.player_root.position))
+	await _capture("floor_locked_upper_gallery")
+	await _travel(Vector2(1280,1380))
 	phase = "routed native input"
 	var motion := InputEventMouseMotion.new()
 	motion.position = Vector2(500,500)
@@ -114,11 +196,11 @@ func _run() -> void:
 	phase = "four-screen traversal"
 	await _travel(Vector2(1280,1380))
 	var left_top: bool = await _travel(Vector2(438,340))
-	_record("left lift reaches original upper gallery",left_top and venue.player_root.position.distance_to(Vector2(438,342))<1.0)
+	_record("left lift reaches original upper gallery",left_top and venue.player_root.position.distance_to(Vector2(438,372))<1.0)
 	await _capture("operative_upper_left")
 	# A lift stop is an action target. Choose gallery floor beside it when
 	# testing horizontal travel, then tap the lift itself for the ride leg.
-	venue.request_destination(Vector2(2030,342))
+	venue.request_destination(Vector2(2030,372))
 	for index: int in range(12):
 		await get_tree().process_frame
 	var frame_a: int = venue.animator.get("_displayed_frame")
@@ -129,13 +211,13 @@ func _run() -> void:
 	await _capture("authored_swim_b")
 	_record("authored swim advances during travel",frame_a!=frame_b and venue.animator.animation_state()=="swim",[frame_a,frame_b])
 	var right_top: bool = await _wait(func() -> bool: return venue.route.is_empty())
-	_record("upper gallery connects across screen boundary",right_top and venue.player_root.position.distance_to(Vector2(2030,342))<1.0)
+	_record("upper gallery connects across screen boundary",right_top and venue.player_root.position.distance_to(Vector2(2030,372))<1.0)
 	await _capture("operative_upper_right")
-	var right_ground: bool = await _travel(Vector2(2120,1015))
-	_record("right lift reaches original foyer",right_ground and venue.player_root.position.distance_to(Vector2(2120,1015))<1.0)
+	var right_ground: bool = await _travel(Vector2(2120,1035))
+	_record("right lift reaches original foyer",right_ground and venue.player_root.position.distance_to(Vector2(2120,1035))<1.0)
 	await _capture("operative_lower_right")
-	var left_ground: bool = await _travel(Vector2(800,1015))
-	_record("foyer connects across screen boundary",left_ground and venue.player_root.position.distance_to(Vector2(800,1015))<1.0)
+	var left_ground: bool = await _travel(Vector2(800,1035))
+	_record("foyer connects across screen boundary",left_ground and venue.player_root.position.distance_to(Vector2(800,1035))<1.0)
 	await _capture("operative_lower_left")
 	phase = "cancellation"
 	venue.request_destination(Vector2(1412,900))
@@ -186,6 +268,9 @@ func _run() -> void:
 		_record("successful callback fixture could start",false)
 	_record("normal progress and practice saves unchanged",venue.m.opera_stars==baseline_stars and venue.m.pearl_count==baseline_pearls and venue.m.save_data.hash()==baseline_save_hash)
 	_record("routes avoid central seating footprint",island_clear,{"samples":samples})
+	_record("every sampled movement stays on floor or a controlled lift",floor_safe and lift_samples>0,{"samples":samples,"lift_samples":lift_samples})
+	_record("approved atlas and blend silhouette stay at the painted floor contact",visual_floor_safe,{"maximum_error_pixels":max_visual_floor_error})
+	_record("runtime samples the displayed256pixel cell",venue.actor.region_enabled and venue.actor.region_rect.size==Vector2(256,256) and venue.actor.hframes==1 and venue.actor.vframes==1)
 	phase = "restore exploration starting point"
 	await _travel(Vector2(1280,1380))
 	await _capture("operative_final_foyer")

@@ -20,8 +20,16 @@ func _open_review() -> void:
 	if main==null:
 		push_error("Opera review requires the existing main state owner")
 		return
-	for index: int in range(3):
+	# The debugger helper can answer while main is still loading its save.
+	# The start-menu layer is built AFTER _load_save() in ReefMain._ready().
+	# Entering before that boundary lets normal startup replace this review.
+	for index: int in range(1800):
+		if main.start_menu_layer != null and is_instance_valid(main.start_menu_layer):
+			break
 		await get_tree().process_frame
+	if main.start_menu_layer == null or not is_instance_valid(main.start_menu_layer):
+		push_error("Opera review is waiting for main save/menu initialization")
+		return
 	main.day_one_active = false
 	main.chapter2_active = false
 	main.start_menu_active = false
