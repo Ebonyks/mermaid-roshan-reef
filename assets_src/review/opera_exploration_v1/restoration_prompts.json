@@ -1,0 +1,44 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-10-31",
+  "provider_revision": "not exposed",
+  "provider_request_id": "not exposed; tool output filenames retained",
+  "seed": "not exposed",
+  "billed_cost": "not exposed",
+  "paid_api_calls": 0,
+  "aggregate_calls": {
+    "rejected_thematic": 5,
+    "active_restoration": 2,
+    "total": 7
+  },
+  "outputs": [
+    {
+      "file": "restoration_master.png",
+      "tool_output": "exec-e3cea0b4-be3f-411a-9cbd-a1154d2a9cdf.png",
+      "input": "assets_src/concepts/opera_house_flat/opera_house_master_scene_key_2026-07-21.png",
+      "role": "edit target",
+      "prompt": "Use case: precise-object-edit / resolution restoration. EDIT TARGET: the attached original Opera House design. Make a higher-resolution restoration of THIS EXACT IMAGE, not a thematic recreation or redesign. Preserve the camera, framing, proportions and every object's exact normalized position. The exact three balcony levels, twelve doorways in three rows of four, both navy-and-gold lift columns, both curved red-carpet stairs, both ceiling chandeliers, every wall sconce, original drapery colors, plants, left and right sofas, central round seating island, red runner, pale teal/coral terrazzo pattern, service carts, wall pictures, clock and mirrors all stay in place. Preserve the original small door emblems exactly; runtime moves these separately. Restore clean painted contours, pearl strings, gold filigree, fabric folds and fine terrazzo detail at much higher resolution. Highest supported native resolution, request 8192 x 4608 landscape 16:9. Do not crop or extend the frame. Do not add, remove, relocate, reinterpret or substitute any architecture, furnishing, icon or prop. Do not change the palette or lighting. No figures, writing, HUD, new room themes, new doors or extra floors. Return one faithful complete restoration of the attached image.",
+      "requested_size": [
+        8192,
+        4608
+      ],
+      "actual_size": [
+        1672,
+        941
+      ],
+      "status": "CANDIDATE_LAYOUT_PRESERVING_RESTORATION"
+    },
+    {
+      "file": "restoration_healed.png",
+      "tool_output": "exec-1cb6ac16-0da2-466e-be42-e5507e32cfa5.png",
+      "input": "restoration_master.png",
+      "role": "edit target",
+      "prompt": "Use case: precise-object-edit. EDIT TARGET: this exact restored Opera House image. Change ONLY the twelve small round career medallions sitting directly on the arched doorway crowns (four upper purple medallions, four middle teal medallions, four lower red medallions). Remove these twelve discs and cleanly restore the continuous matching ivory-and-gold shell/arch moulding behind them. No icon should remain attached to a doorway crown. Preserve absolutely everything else at exactly the same coordinates: all twelve doors, fabric folds and curtain colors, three floors, balconies, lift columns, stairs, chandeliers, furniture, plants, carpet, cart and terrazzo. No repaint of the full scene, no new objects, no crop, no perspective or layout change. Maintain the input's fine restored detail and native resolution; return the same complete 16:9 image. Runtime will reinsert the original medallion artwork once above each arch as separate cards.",
+      "actual_size": [
+        1672,
+        941
+      ],
+      "status": "CANDIDATE_LOCAL_MEDALLION_HEAL"
+    }
+  ]
+}

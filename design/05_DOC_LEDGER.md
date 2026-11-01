@@ -1,5 +1,9 @@
 # Master design — document ledger
 
+| Document | State | Authority / scope |
+|---|---|---|
+| `design/OPERA_HOUSE_EXPLORATION_V1_2026-10-31.md` | 🟣 | `PROPOSED_CURRENT`; owner-corrected 1:1 translation of the original Opera house into one continuous four-screen world. Original layout/art, authored travel, local fixture motion, complete painted crests, source-balanced Canvas color and above-door completion are review candidates. Thematic drafts are rejected; tiled7360×4140 detail and source-owned fixtures have measured coverage, while exact art, final layer/navigation review, production integration and visual/device/child/owner acceptance remain pending. No finding closure or Castle career ownership change. |
+
 Opera door icon correction CHG-102 is a scoped artwork/presentation change recorded in the existing master changelog and [impact](audit_impacts/opera-icons-above-doors-20261017.json). Existing document authority and finding lifecycles remain unchanged.
 
 

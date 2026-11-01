@@ -1,0 +1,26 @@
+extends Node
+var done := false
+func _ready() -> void:
+	call_deferred("_capture")
+func _capture() -> void:
+	var room: Node = get_tree().current_scene.find_child("OperaExplorationV1",true,false)
+	if room == null:
+		return
+	var folder := "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera_motion_capture_20261031/"
+	DirAccess.make_dir_recursive_absolute(folder)
+	var rows: Array[Dictionary] = []
+	for index: int in range(80):
+		if index == 16:
+			room.request_destination(Vector2(438,342))
+		await RenderingServer.frame_post_draw
+		var filename: String = "frame_%03d.png" % index
+		var im: Image = get_viewport().get_texture().get_image()
+		im.save_png(folder+filename)
+		rows.append({"file":filename,"ticks_usec":Time.get_ticks_usec(),"phase":room.ambience.phase,"position":str(room.player_root.position)})
+		await get_tree().create_timer(0.1).timeout
+	var file: FileAccess = FileAccess.open(folder+"timings.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(rows,"\t")+"\n")
+	room.request_destination(Vector2(1280,1380))
+	done = true
+	print("OPERA_MOTION_CAPTURE|DONE")
+

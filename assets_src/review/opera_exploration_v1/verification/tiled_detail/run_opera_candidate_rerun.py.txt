@@ -1,0 +1,28 @@
+from pathlib import Path
+import os,subprocess,json,hashlib,datetime,time
+r=Path(r'C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera-four-screen-v1-20261031')
+base=r;v=r/'assets_src/review/opera_exploration_v1/verification/tiled_detail'
+expected='218ae766f8e60afb3f6338b8fafce28ec9fab7f2'
+assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=base,text=True).strip()==expected
+assert (base/'scripts/review/opera_translation_v1.gd').exists()
+pins=[]
+for rel in ['project.godot','scenes/main.tscn','scripts/main.gd','scripts/opera_career_world_2d.gd','scripts/probe_opera_2d.gd','scripts/opera_roshan_actor.gd']:
+ p=base/rel
+ if not p.is_file():continue
+ actual=p.read_bytes().replace(b'\r\n',b'\n');head=subprocess.check_output(['git','show',expected+':'+rel],cwd=base).replace(b'\r\n',b'\n')
+ assert actual==head
+ pins.append({'path':rel,'baseline_normalized_sha256':hashlib.sha256(actual).hexdigest(),'matches_baseline_commit':True})
+userdata=r/('tmp/candidate_rerun_userdata_'+datetime.datetime.now().strftime('%H%M%S'));userdata.mkdir(parents=True,exist_ok=False)
+env=os.environ.copy()
+for key,folder in [('APPDATA','appdata'),('LOCALAPPDATA','localappdata'),('XDG_DATA_HOME','data'),('XDG_CONFIG_HOME','config')]:
+ p=userdata/folder;p.mkdir(exist_ok=True);env[key]=str(p)
+engine=r'C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe'
+command=[engine,'--headless','--path',str(base),'-s','scripts/probe_opera_2d.gd','--','--touch','--classic-touch-test']
+start=datetime.datetime.now(datetime.timezone.utc).isoformat()
+with (v/'candidate_opera_2d_rerun.log').open('wb') as out:
+ p=subprocess.run(command,cwd=base,env=env,stdout=out,stderr=subprocess.STDOUT,timeout=480)
+log=(v/'candidate_opera_2d_rerun.log').read_text(encoding='utf-8',errors='replace')
+receipt={'command':command,'baseline':expected,'checkout':str(base),'baseline_source_pins':pins,'review_additions_absent':False,'import_cache':'Candidate existing imported assets; unchanged production Opera sources pinned to baseline.','isolated_userdata':str(userdata),'start_utc':start,'end_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'exit_code':p.returncode,'log_sha256':hashlib.sha256((v/'candidate_opera_2d_rerun.log').read_bytes()).hexdigest(),'same_geologist_failure':'OPERA2D|FAIL|geologist stages the room-finale partner clear of Roshan and the activity' in log,'failure_lines':[line for line in log.splitlines() if 'FAIL' in line or 'SCRIPT ERROR' in line]}
+(v/'candidate_opera_2d_rerun_receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+print(json.dumps(receipt))
+

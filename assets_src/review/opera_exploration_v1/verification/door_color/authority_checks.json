@@ -1,0 +1,26 @@
+[
+  {
+    "check": "authority",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_document_authority.py"
+    ],
+    "exit_code": 0,
+    "sha256": "a9764536a35f96f44049302c57d350aa6c92ffee7fe48d879b1ff56fecb95042",
+    "output": "DOCAUTH|INVENTORY=748|LEDGER=748|ACTIVE=71|RECORDS=74\r\nDOCAUTH|RESULT|ALL OK\r\n"
+  },
+  {
+    "check": "development",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_development.py",
+      "--base",
+      "auto"
+    ],
+    "exit_code": 0,
+    "sha256": "658f27262f418f9c74267009d66ffc926dd1ee24669cff91ed00b44876a03bd8",
+    "output": "AUDITDEV|BASE|218ae766f8e60afb3f6338b8fafce28ec9fab7f2\r\nAUDITDEV|RESULT|ALL OK\r\n"
+  }
+]

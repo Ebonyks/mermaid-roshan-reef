@@ -1,0 +1,39 @@
+extends Node
+## Capture natural opposite curtain phases; never set animation time or gameplay state.
+var venue: Variant
+var panel: Sprite2D
+var offset := 0.0
+var state := 0
+var age := 0.0
+var done := false
+var rows: Array[Dictionary] = []
+var first_camera := Vector2.ZERO
+
+func _ready() -> void:
+	venue = get_tree().current_scene.find_child("OperaExplorationV1",true,false)
+	panel = venue.ambience.curtains[10].left as Sprite2D
+	var factor: Vector2 = (panel.material as ShaderMaterial).get_shader_parameter("pixel_to_legacy")
+	offset = float(panel.texture.get_height())*0.055*factor.y
+	first_camera = venue.camera_position
+
+func _process(delta: float) -> void:
+	if done: return
+	age += delta
+	if venue.paused or venue.job!=null or not venue.route.is_empty() or age>16.0:
+		_finish(false,"Review became busy or diagnostic timed out")
+		return
+	var phase: float = venue.ambience.phase
+	var wave: float = sin(phase+offset)
+	if (state==0 and wave>=0.995) or (state==1 and wave<=-0.995):
+		var image: Image = get_viewport().get_texture().get_image()
+		var label: String = "a" if state==0 else "b"
+		image.save_png("C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera_curtain_peak_"+label+".png")
+		rows.append({"phase":phase,"bottom_wave":wave,"native_size":image.get_size(),"camera":venue.camera_position,"player":venue.player_root.position,"file":"opera_curtain_peak_"+label+".png"})
+		state += 1
+		if state==2:
+			_finish(venue.camera_position.distance_to(first_camera)<0.01,"Natural opposite phases captured")
+
+func _finish(passed: bool, reason: String) -> void:
+	done = true
+	var file: FileAccess = FileAccess.open("C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera_curtain_peak_receipt.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify({"result":"PASS" if passed else "FAIL","reason":reason,"scope":"Unmodified native framebuffer at two naturally reached opposite curtain extrema. No phase assignment or retiming; not owner/device motion acceptance.","elapsed_seconds":age,"bottom_vertex_phase_offset":offset,"captures":rows,"save_hash":venue.m.save_data.hash()},"\t"))
