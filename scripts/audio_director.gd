@@ -18,6 +18,11 @@ const OBJECTIVE_GUIDE_DIR := "res://assets/audio/objective_guides/"
 const OBJECTIVE_GUIDES := {
 	"seek_tap_wiggly_tree": {"mode": "seek", "file": "guide_seek_tap_wiggly_tree.ogg"},
 	"dolls_catch_three": {"mode": "dolls", "file": "guide_dolls_catch_three.ogg"},
+	"puff_cold_intro": {"mode": "dustboss", "file": "guide_puff_cold_intro.ogg"},
+	"puff_clean": {"mode": "dustboss", "file": "guide_puff_clean.ogg"},
+	"puff_relief": {"mode": "dustboss", "file": "guide_puff_relief.ogg"},
+	"puff_almost": {"mode": "dustboss", "file": "guide_puff_almost.ogg"},
+	"puff_healthy": {"mode": "dustboss", "file": "guide_puff_healthy.ogg"},
 }
 const DAY_ONE_CONTEXT_CATALOG_SCRIPT: GDScript = preload(
 	"res://scripts/day_one_contextual_voice_catalog.gd")
@@ -31,6 +36,11 @@ const RETIRED_OVERLAY_CONTEXT_CUES: Dictionary = {
 const DAY_ONE_REQUIRED_EVENTS: Dictionary = {
 	"seek_tap_wiggly_tree": true,
 	"dolls_catch_three": true,
+	"puff_cold_intro": true,
+	"puff_clean": true,
+	"puff_relief": true,
+	"puff_almost": true,
+	"puff_healthy": true,
 	"castle_home_day_one": true,
 	"castle_door_resting": true,
 	"day_one_jobs_resting": true,

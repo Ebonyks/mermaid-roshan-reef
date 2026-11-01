@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "artifacts": [
+    {
+      "key": "guide_puff_cold_intro",
+      "source": "assets_src\\audio\\grand_puff_care_20261017\\generated_delivery\\review\\guide_puff_cold_intro_calibrated.ogg",
+      "output": "assets\\audio\\objective_guides\\guide_puff_cold_intro.ogg",
+      "sha256": "ab483ed60d45ace54e663cf3ebd4434a92957e04e2ce866b1e95b20e7c9f92bf",
+      "status": "PASS"
+    },
+    {
+      "key": "guide_puff_clean",
+      "source": "assets_src\\audio\\grand_puff_care_20261017\\generated_delivery\\review\\guide_puff_clean_calibrated.ogg",
+      "output": "assets\\audio\\objective_guides\\guide_puff_clean.ogg",
+      "sha256": "b01bd5bd7766e869a37b92440719caf1683a67bff2560e90695ba2e7cae4745f",
+      "status": "PASS"
+    },
+    {
+      "key": "guide_puff_relief",
+      "source": "assets_src\\audio\\grand_puff_care_20261017\\generated_delivery\\review\\guide_puff_relief_calibrated.ogg",
+      "output": "assets\\audio\\objective_guides\\guide_puff_relief.ogg",
+      "sha256": "4a530b44b35010778e16066c6dc4559fc20c438765e610e1b31205e860bec477",
+      "status": "PASS"
+    },
+    {
+      "key": "guide_puff_almost",
+      "source": "assets_src\\audio\\grand_puff_care_20261017\\generated_delivery\\review\\guide_puff_almost_calibrated.ogg",
+      "output": "assets\\audio\\objective_guides\\guide_puff_almost.ogg",
+      "sha256": "de8564abae36d2db37dee7362b60ad9dd32651e53fdaee3814a9107d1181f6ac",
+      "status": "PASS"
+    },
+    {
+      "key": "guide_puff_healthy",
+      "source": "assets_src\\audio\\grand_puff_care_20261017\\guide_puff_healthy_limited01.ogg",
+      "output": "assets\\audio\\objective_guides\\guide_puff_healthy.ogg",
+      "sha256": "954365261e0c6be510fe5932f9f7ee6073e20d30d5c07be9500184b1d41c5bd5",
+      "status": "PASS"
+    }
+  ],
+  "guide_validation": {
+    "present": true,
+    "blocking": false,
+    "issues": [],
+    "count": 7,
+    "human_review_state": "OPEN_DEVICE_LISTENING"
+  },
+  "new_synthesis_calls": 5,
+  "paid_api_calls": 0,
+  "old_entries_preserved": true,
+  "protected_original_diff": "",
+  "external_acceptance": "OPEN_DEVICE_LISTENING_CHILD_OWNER"
+}

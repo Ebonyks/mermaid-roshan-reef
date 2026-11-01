@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "care_parent": "ee5a9cecd78c27e9897f7c5e2eeb62385506a572",
+  "incoming_dev_parent": "a9875690ceff436e9ce012a675db09a236aef0f5",
+  "conflicts": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md"
+  ],
+  "resolution": "Retain both evidence attribute sections and both change histories. Use the published incoming dev decision sequence as the append-only prefix, then append the unchanged care decision. Regenerate the Markdown view. Every decision row from both parents is value-identical; no decision removed or rewritten.",
+  "initial_guard_failure": "First attempt correctly rejected requiring two different concurrent last entries to both be the exact prefix. Register files were not written before that assertion. Integration-parent prefix ordering resolves the conflict without changing decision content.",
+  "idempotency_guard_correction": "The retry guard initially assumed the care folder name occurred once, although three separate attribute rules intentionally contain it. The guard now checks both retained sections and absence of conflict markers; no register mutation occurred on that rejected retry.",
+  "owner_decision_count": 47
+}

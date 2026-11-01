@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:\\Program Files\\Aseprite\\Aseprite.exe",
+    "--batch",
+    "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef\\assets_src\\animation\\grand_puff_care_20261017\\grand_puff_cold_keys.aseprite",
+    "--sheet",
+    "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef\\tmp\\puff-crash\\care-roundtrip-final.png",
+    "--sheet-columns",
+    "2",
+    "--format",
+    "json-array",
+    "--data",
+    "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef\\tmp\\puff-crash\\care-roundtrip-final.json"
+  ],
+  "exit": 0,
+  "seconds": 1.8056585000013001,
+  "runtime_sha256": "6fef220e68dbc2cb4c4cbc0d8cc158c2be601a0209a171c6038b98a745ba527c",
+  "editable_master_sha256": "785f9f70e6d4d8267b16ead11b9762a16ed4c056c1337e7f0bac84f183f22bd7",
+  "exact_rgba_roundtrip": true,
+  "cells": [
+    {
+      "index": 0,
+      "dominant_bounds": [
+        43,
+        173,
+        460,
+        470
+      ],
+      "painted_edge_pixels": 0,
+      "pixels_below_support_margin": 0
+    },
+    {
+      "index": 1,
+      "dominant_bounds": [
+        66,
+        139,
+        467,
+        470
+      ],
+      "painted_edge_pixels": 0,
+      "pixels_below_support_margin": 0
+    },
+    {
+      "index": 2,
+      "dominant_bounds": [
+        42,
+        159,
+        447,
+        470
+      ],
+      "painted_edge_pixels": 0,
+      "pixels_below_support_margin": 0
+    },
+    {
+      "index": 3,
+      "dominant_bounds": [
+        57,
+        160,
+        462,
+        470
+      ],
+      "painted_edge_pixels": 0,
+      "pixels_below_support_margin": 0
+    }
+  ],
+  "root": [
+    256,
+    470
+  ],
+  "scope": "Whole-pose registration, transparent borders and editable-to-runtime pixel identity only. Dominant alpha20 component reaches the same support in each key; not a human identity/motion or device/child/owner acceptance.",
+  "runtime_cadence": "scripts/grand_puff_care_2d.gd selects these keys with original jump/counter/flinch FPS and frame counts. Aseprite pose tags are editable key durations, not a claim that each engine action uses the master timeline.",
+  "cleanup_time_limit": "Initial prototype cleanup minutes were not instrumented; no claim of complete final-animation time accounting. Final automated export verification is timed above. Three built-in image calls total (one cold, two rejected emergence); no paid external call."
+}

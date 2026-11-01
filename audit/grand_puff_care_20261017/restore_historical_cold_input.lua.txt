@@ -1,0 +1,66 @@
+-- Aseprite bridge: preserve native source, register whole drawings, export RGBA.
+local root = 'assets_src/animation/grand_puff_care_20261017/'
+local source = assert(app.open(root .. 'native_take01.png'))
+local original = Image(source)
+assert(source.width == 1254 and source.height == 1254, 'Unexpected native geometry')
+-- The hosted transparency matte contains saturated blue/magenta garbage,
+-- unlike the authored lavender/navy contours. Remove only those chroma pixels
+-- in this derived copy; preserve the native take and all ordinary paint/alpha.
+local removed_chroma = 0
+for pixel in original:pixels() do
+  local value = pixel()
+  local r,g,b,a = app.pixelColor.rgbaR(value),app.pixelColor.rgbaG(value),
+    app.pixelColor.rgbaB(value),app.pixelColor.rgbaA(value)
+  local blue = b > 160 and b-r > 70 and b-g > 70
+  local magenta = r > 180 and b > 180 and g < 90
+  if a > 0 and (blue or magenta) then
+    pixel(app.pixelColor.rgba(0,0,0,0))
+    removed_chroma = removed_chroma + 1
+  end
+end
+local master = Sprite(512, 512, ColorMode.RGB)
+master.layers[1].name = 'Registered whole painted keys'
+local atlas = Image(1024, 1024, ColorMode.RGB)
+-- The generator did not honor its exact grid. These non-overlapping source
+-- rectangles retain complete contours; paw midpoints supply the root anchors.
+local poses = {
+  {rect={0,0,634,627}, anchor={328.25,599}, name='sniffly_rest', duration=0.8},
+  {rect={634,0,620,627}, anchor={294.25,603}, name='breath_in', duration=0.32},
+  {rect={0,627,634,627}, anchor={342.25,523}, name='achoo', duration=0.16},
+  {rect={634,627,620,627}, anchor={299.5,515}, name='relief', duration=0.72},
+}
+local mapping = {}
+local removed_floor_specks = 0
+for index,pose in ipairs(poses) do
+  local r = pose.rect
+  local cell = Image(original, Rectangle(r[1],r[2],r[3],r[4]))
+  local width = math.floor(r[3] * 0.67 + 0.5)
+  local height = math.floor(r[4] * 0.67 + 0.5)
+  cell:resize{width=width, height=height, method='bilinear'}
+  local x = 256 - math.floor(pose.anchor[1] * width / r[3] + 0.5)
+  local y = 470 - math.floor(pose.anchor[2] * height / r[4] + 0.5)
+  local registered = Image(512,512,ColorMode.RGB)
+  registered:drawImage(cell, Point(x,y))
+  if index > 1 then master:newEmptyFrame() end
+  master:newCel(master.layers[1],index,registered,Point(0,0))
+  master.frames[index].duration = pose.duration
+  local tag = master:newTag(index,index)
+  tag.name = pose.name
+  local tx = ((index-1) % 2) * 512
+  local ty = math.floor((index-1) / 2) * 512
+  atlas:drawImage(registered,Point(tx,ty))
+  mapping[index] = {name=pose.name,source_rect=r,source_paw_anchor=pose.anchor,
+    resized={width,height},translation={x,y},root={256,470},duration=pose.duration,
+    atlas_rect={tx,ty,512,512}}
+end
+master:saveAs('tmp/puff-crash/historical-cold-input.aseprite')
+atlas:saveAs('assets_src/animation/grand_puff_care_20261017/cold_keys_input_before_floor_cleanup.png')
+local receipt = assert(io.open('tmp/puff-crash/historical-cold-registration.json','w'))
+receipt:write(json.encode{aseprite_version=tostring(app.version),api_version=app.apiVersion,
+  method='Saturated blue/magenta matte contamination removed in derived copy; uniform whole-drawing 0.67 bilinear normalization plus translation. No repaint, body parts, morphing or interpolation',
+  removed_chroma_pixels=removed_chroma,
+  removed_floor_specks=removed_floor_specks,
+  native='native_take01.png',mapping=mapping,master='grand_puff_cold_keys.aseprite',
+  runtime='assets/sprites/dust_bunnies/boss/grand_puff_cold_keys_v1.png'})
+receipt:close()
+print('GRAND_PUFF_CARE_POSES|REGISTERED|4')

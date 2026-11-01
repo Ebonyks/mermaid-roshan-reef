@@ -224,7 +224,11 @@ func _init() -> void:
 		if route_room == "opera_hall":
 			route_ui.open_opera_venue()
 			await process_frame
-		var expected_indices := CastleCareerRoutes.act_indices_for_room(route_room)
+		var home_indices: Array[int] = CastleCareerRoutes.act_indices_for_room(route_room)
+		var expected_indices: Array[int] = home_indices.duplicate()
+		if route_room == "opera_hall":
+			# Owner-requested foyer doors supplement the unchanged canonical homes.
+			expected_indices = [6, 0, 3, 10, 2, 13, 11, 1, 8]
 		var actual_indices: Array[int] = []
 		var room_art_ok := route_ui.root != null and route_ui.root.visible \
 			and route_ui.root.size.is_equal_approx(StorybookUI.CANVAS_SIZE) \
@@ -232,10 +236,17 @@ func _init() -> void:
 		for card: Button in route_ui.buttons:
 			var act_index := int(card.get_meta("act_index", -1))
 			actual_indices.append(act_index)
-			all_card_indices.append(act_index)
+			if act_index in home_indices:
+				all_card_indices.append(act_index)
 			if route_room == "opera_hall":
 				var portal_focus := card.get_theme_stylebox("focus") \
 					as StyleBoxFlat
+				var portal_picture := card.get_node_or_null("CareerPicture") as TextureRect
+				var portal_costume := String((OperaHouse.ACTS[act_index] as Dictionary).get("costume", ""))
+				var portal_crest_file := String(CastleCareerRoutes.CAREER_CREST_FILES.get(portal_costume, ""))
+				var portal_texture_path: String = portal_picture.texture.resource_path \
+					if portal_picture != null and portal_picture.texture != null else ""
+				var portal_bounds := Rect2(Vector2.ZERO, card.size)
 				room_art_ok = room_art_ok and card.text.is_empty() \
 					and card.visible and not card.clip_contents \
 					and card.size.x >= StorybookUI.MIN_TOUCH.x \
@@ -246,7 +257,13 @@ func _init() -> void:
 					and not bool(card.get_meta("opaque_card", true)) \
 					and bool(card.get_meta("painted_door_hit_region", false)) \
 					and not bool(card.get_meta("floating_decoration", true)) \
-					and card.get_child_count() == 0 \
+					and card.get_child_count() == 1 \
+					and portal_picture != null and portal_picture.texture != null \
+					and portal_picture.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+					and portal_bounds.encloses(Rect2(portal_picture.position, portal_picture.size)) \
+					and not portal_crest_file.is_empty() \
+					and portal_texture_path == CastleCareerRoutes.CREST_ROOT + portal_crest_file \
+					and card.disabled == (act_index not in [6, 0, 3, 10]) \
 					and portal_focus != null \
 					and portal_focus.border_width_left == 0 \
 					and is_zero_approx(portal_focus.bg_color.a)
@@ -292,9 +309,9 @@ func _init() -> void:
 			await _capture_viewport(lobby_shot_out.path_join(
 				"castle_career_routes_%s.png" % route_room))
 	all_card_indices.sort()
-	_check("nine room route sets cover all fifteen live sparse slots once",
+	_check("canonical room homes cover all fifteen sparse slots once alongside the foyer exception",
 		all_card_indices == OperaHouse.LIVE_ACT_INDICES and all_route_art_ok)
-	_check("Opera Hall has only Ballerina, Pop Star and Magician",
+	_check("Opera Hall retains Ballerina, Pop Star and Magician as canonical residents",
 		CastleCareerRoutes.act_indices_for_room("opera_hall") == [2, 13, 8])
 	_check("the removed all-career lobby cannot load or appear",
 		not ResourceLoader.exists("res://scripts/opera_lobby_2d.gd")
@@ -1872,6 +1889,9 @@ func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
 	world._show_phase()
 	await process_frame
 	var racer_surface := world.surface as OperaRacerSurface
+	var owned_engine: RacerGame2D = racer_surface._engine
+	var owned_engine_id: int = owned_engine.get_instance_id()
+	var owned_engine_bound: int = _subtree_node_count(owned_engine)
 	var open_finale_race_staged := world.task_open \
 		and racer_surface != null and racer_surface._rival_art != null \
 		and not world.player_actor.visible and not world.rival_actor.visible \
@@ -1921,8 +1941,10 @@ func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
 	_check("racer steering surface owns the contained 1280x720 stage",
 		world.surface.size.is_equal_approx(StorybookUI.CANVAS_SIZE)
 		and _control_inside_stage(world.action_panel))
-	_check("racer finale adds no nodes beyond its post-build Canvas bound",
-		_subtree_node_count(world) <= post_build_bound)
+	_check("full racer adds one fixed owned engine within the original World bound",
+		owned_engine.get_parent() == racer_surface
+		and not owned_engine.is_processing()
+		and _subtree_node_count(world) - owned_engine_bound <= post_build_bound)
 	_check("racer owns exactly one active Canvas career world",
 		get_root().find_children("*", "OperaCareerWorld2D", true, false).size() == 1)
 	_check("racer finale launches no external main child",
@@ -1954,6 +1976,12 @@ func _exercise_racer_finale(act: OperaAct, world: OperaCareerWorld2D,
 		main.game == "opera" and main.kart_game == null
 		and world.root.visible and world.surface.mode == "kart_race"
 		and _direct_child_instance_ids(main) == direct_main_before)
+	print("OPERA2D|racer owned counts|engine=", _subtree_node_count(owned_engine), " init=", owned_engine_bound, " world_rest=", _subtree_node_count(world) - _subtree_node_count(owned_engine), " baseline=", post_build_bound)
+	_check("complete race keeps its original owned engine bounded",
+		is_instance_valid(owned_engine)
+		and owned_engine.get_instance_id() == owned_engine_id
+		and _subtree_node_count(owned_engine) <= owned_engine_bound
+		and bool(drive_result.get("bounded_while_driving", false)))
 	return open_finale_race_staged
 
 
@@ -2057,6 +2085,7 @@ func _drive_racer_turn(act: OperaAct, world: OperaCareerWorld2D,
 		"completed": false,
 		"frames": 0,
 		"touch_used": false,
+		"bounded_while_driving": true,
 		"cancel_tested": false,
 		"cancel_froze": false,
 		"resumed": false,
@@ -2067,6 +2096,7 @@ func _drive_racer_turn(act: OperaAct, world: OperaCareerWorld2D,
 	if not (world.surface is OperaRacerSurface):
 		return result
 	var surface := world.surface as OperaRacerSurface
+	var driving_node_bound: int = _subtree_node_count(world)
 	var touch_index := 41
 	var steering_center := OperaRacerSurface.STEERING_RECT.get_center()
 	_racer_touch(surface, touch_index, true, steering_center)
@@ -2086,6 +2116,7 @@ func _drive_racer_turn(act: OperaAct, world: OperaCareerWorld2D,
 	var freeze_frames_left := 0
 	var freeze_distance := -1.0
 	for frame in range(RACER_MAX_DRIVE_FRAMES):
+		result["bounded_while_driving"] = bool(result["bounded_while_driving"]) and _subtree_node_count(world) <= driving_node_bound
 		if test_cancel_freeze and not bool(result["cancel_tested"]) \
 				and float(surface.kart.get("s", 0.0)) >= 24.0:
 			freeze_distance = float(surface.kart.get("s", 0.0))
@@ -2152,12 +2183,14 @@ func _exercise_racer_policy_comparison() -> void:
 	var inside_run := _run_standalone_racer_policy(true)
 	var center_seconds := float(center_run.get("seconds", 999.0))
 	var inside_seconds := float(inside_run.get("seconds", 999.0))
+	print("OPERA2D|racer policy measurements|center=", center_run, " inside=", inside_run)
 	_check("inside-line steering has causal pace and pearl payoff",
 		bool(center_run.get("finished", false))
 		and bool(inside_run.get("finished", false))
 		and center_seconds <= 70.0 and inside_seconds <= 70.0
 		and center_seconds - inside_seconds >= 1.0
-		and int(center_run.get("pearls", -1)) == 0
+		# The recovered full course includes centerline pearls. Actual hit/miss
+		# footprints are exercised with real steering in probe_racer_integration.
 		and int(inside_run.get("pearls", 0)) >= 1)
 
 	var turbo := OperaRacerSurface.new()
@@ -2199,12 +2232,13 @@ func _run_standalone_racer_policy(follow_inside: bool) -> Dictionary:
 		if follow_inside:
 			var curvature := surface.road_curvature(
 				float(surface.kart.get("s", 0.0)))
-			var target_lat := -signf(curvature) * 3.0
+			# Preserve a purposeful inside line on the recovered wider road.
+			var target_lat: float = -signf(curvature) * surface._engine._rhalf() * 0.4
 			var steer := clampf(
 				(target_lat - float(surface.kart.get("lat", 0.0))) * 0.38
 				- float(surface.kart.get("latv", 0.0)) * 0.08, -0.55, 0.55)
 			_racer_drag(surface, 81,
-				steering_center + Vector2(steer * 290.0, 0.0))
+				steering_center + Vector2(steer * OperaRacerSurface.STEERING_RANGE, 0.0))
 		surface._process(RACER_TICK_SECONDS)
 		frames = frame + 1
 		if surface.race_finished:

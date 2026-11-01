@@ -1,0 +1,23 @@
+extends Node
+
+func _ready() -> void:
+	get_window().mode = Window.MODE_WINDOWED
+	get_window().size = Vector2i(1280, 720)
+	get_window().title = "Mermaid Roshan - Opera Foyer Movement Fix (isolated review)"
+	var main: ReefMain = (load("res://scenes/main.tscn") as PackedScene).instantiate() as ReefMain
+	add_child(main)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	main.day_one_active = false
+	main.chapter2_active = false
+	main.opera_stars = 0
+	main.start_menu_active = false
+	if main.start_menu_layer != null:
+		main.start_menu_layer.hide()
+	main._skip_intro()
+	main.game = "level2"
+	main.g["t"] = 0.0
+	main._enter_castle_interior_now(false)
+	await get_tree().create_timer(2.0).timeout
+	main._castle_rooms_ref().show_room("opera_hall", false)
+	print("OPERA_FOYER_REVIEW|exact candidate six sources|isolated review save only|READY")

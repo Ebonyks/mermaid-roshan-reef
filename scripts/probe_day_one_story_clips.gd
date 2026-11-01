@@ -133,13 +133,13 @@ func _run_behavioral_checks() -> void:
 	_check("the boss-defeated hook plays the transformation clip",
 		main._day_one_story_clip != null
 		and main._day_one_story_clip.movie_id == "d1_puff_transformation" and paused)
-	main._fade_cut(func() -> void:
-		pass)
-	_check("the transformation cut starts behind the full rebuild cover",
-		main.fade_rect != null and main.fade_rect.modulate.a >= 0.98)
-	await create_timer(0.35, true).timeout
-	_check("the transformation reveal clears while its story clip pauses the tree",
-		main.fade_rect != null and main.fade_rect.modulate.a <= 0.02
+	# The actual win returns the arena while the movie owns the paused tree.
+	# Its fade must reveal the video rather than stay black until the movie ends.
+	main._leave_arena()
+	await create_timer(0.4, true, false, true).timeout
+	_check("arena return reveals the movie while gameplay remains paused",
+		paused and main._day_one_story_clip != null
+		and main.fade_rect.modulate.a <= 0.001
 		and main.fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE)
 	main._on_day_one_hook_event(DayOneDirector.EVENT_DAY_TWO_BEGINS, {})
 	_check("the Day Two hook queues the epilogue behind it",
@@ -160,6 +160,15 @@ func _run_behavioral_checks() -> void:
 		and main.day_two_transition_active)
 	_check("a story clip never replays on the same save",
 		not main._day_one_play_story_clip("d1_puff_transformation"))
+	_check("a completed helping encounter can explicitly replay the unchanged emergence",
+		main._day_one_play_story_clip("d1_puff_transformation", true)
+		and main._day_one_story_clip.movie_id == "d1_puff_transformation" and paused)
+	main._day_one_story_clip.skip()
+	await _frames(3)
+	_check("replay completion restores input and retains watched progress",
+		not paused and main.day_one_story_clips_seen.has("d1_puff_transformation"))
+	_check("the repeat exception cannot replay unrelated watched story clips",
+		not main._day_one_play_story_clip("d1_epilogue", true))
 	main._write_save()
 	var saved: Variant = main.save_data.get("day_one_story_clips_seen", {})
 	_check("watched clips persist in the save",

@@ -1,0 +1,33 @@
+extends SceneTree
+func _initialize() -> void:
+ var failures:=0
+ var raw_path:="res://assets/kart/chase/anchors.json"
+ var raw:=FileAccess.get_file_as_string(raw_path)
+ var anchors=JSON.parse_string(raw)
+ var exact_hash:=FileAccess.get_sha256(raw_path)
+ print("PACK|anchors JSON|",exact_hash)
+ if not anchors is Dictionary or exact_hash!="38441c903bbc66933d6d152c27c3216c5ba882042f928fb1fadad04595c0ef16":failures+=1
+ for name: String in ["kart","moto","truck"]:
+  for pose: String in ["straight","left","right","boost"]:
+   var path: String="res://assets/kart/chase/"+name+"_"+pose+".png"
+   var texture=load(path)
+   var good: bool=texture is Texture2D
+   print("PACK|",path,"|", "OK" if good else "FAIL")
+   if not good:failures+=1
+  var empty=load("res://assets/kart/chase/empty_"+name+".png")
+  if not empty is Texture2D:failures+=1
+ for path: String in ["res://scripts/racer_game_2d.gd","res://scripts/kart_canvas_2d.gd","res://scripts/kart_course_worlds.gd","res://scripts/opera_racer_surface.gd"]:
+  var code=load(path)
+  var good: bool=code is Script and code.can_instantiate()
+  print("PACK|",path,"|", "OK" if good else "FAIL")
+  if not good:failures+=1
+ for room: String in ["movie_lounge","family_gallery","royal_bedroom"]:
+  for row in range(2):
+   for col in range(2):
+    var path: String="res://assets/flats/castle/rooms/background_tiles/room_%s_background_r%d_c%d.png"%[room,row,col]
+    if not load(path) is Texture2D:failures+=1
+ var leak:=FileAccess.file_exists("res://tmp/racer_ai_demo/project.godot")
+ if leak:failures+=1
+ print("PACK|demo staging excluded|",not leak)
+ print("PACK|RESULT|", "ALL OK" if failures==0 else "FAIL", "|failures=",failures)
+ quit(0 if failures==0 else 1)

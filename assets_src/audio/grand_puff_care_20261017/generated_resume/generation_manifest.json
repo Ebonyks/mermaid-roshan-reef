@@ -1,0 +1,197 @@
+{
+  "schema": "reef.objective-guide-candidates.v1",
+  "status": "GENERATION_OR_EXPORT_FAILED",
+  "started_utc": "2026-10-17T23:13:05.419857+00:00",
+  "owner_authorization_date": "2026-10-17",
+  "owner_scope": "Five new care-story Guide lines for the owner-directed Grand Puff rework; neutral adult, no family imitation, protected-voice mutation or paid API",
+  "identity": "Neutral adult synthetic Guide; af_heart, unpitched, speed 1.0",
+  "model_reference": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX",
+  "model_license": "Apache-2.0 (upstream ONNX model card)",
+  "model_source": "tools/kokoro/model.onnx",
+  "model_sha256": "8fbea51ea711f2af382e88c833d9e288c6dc82ce5e98421ea61c058ce21a34cb",
+  "voices_source": "tools/kokoro/voices.bin",
+  "voices_sha256": "b58979d4eb5b1fdbe783c93f9f43c21217cb8f07af9d3860547371a5b2c8b646",
+  "generator_source_sha256": "33f4f50b9938e0f88b1f3e3974633b7714f90acb26abb7b21ff7c88094f0651d",
+  "runtime_versions": {
+    "kokoro-onnx": "0.5.0",
+    "onnxruntime": "1.28.0",
+    "soundfile": "0.14.0",
+    "numpy": "2.5.1"
+  },
+  "ffmpeg_version": "ffmpeg version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+  "ffprobe_version": "ffprobe version 8.1.2-essentials_build-www.gyan.dev Copyright (c) 2007-2026 the FFmpeg developers",
+  "onnx": {
+    "provider": "CPUExecutionProvider",
+    "intra_op_threads": 2,
+    "inter_op_threads": 1,
+    "execution_mode": "ORT_SEQUENTIAL"
+  },
+  "paid_api_calls": 0,
+  "synthesis_calls": 0,
+  "attempts": [
+    {
+      "key": "guide_puff_cold_intro",
+      "text": "Grand Puff has a cold. Let's help!",
+      "voice": "af_heart",
+      "speed": 1.0,
+      "pitch_change": false,
+      "language": "en-us",
+      "phonemes": "ɡɹˈænd pˈʌf hɐz ɐ kˈoʊld. lˈɛts hˈɛlp!",
+      "token_count": 38,
+      "status": "CANDIDATE_MACHINE_FAIL",
+      "started_utc": "2026-10-17T23:13:08.087845+00:00",
+      "native_reused_from": "generated\\native\\guide_puff_cold_intro.wav",
+      "native_reused_sha256": "0c6c2152fbc4213fd62ca008d8f26519bad79c979483d6998c41efba5c5710d0",
+      "inference_seconds": 0.00388,
+      "native_stats": {
+        "finite": true,
+        "samples": 65400,
+        "sample_peak": 0.5256776213645935,
+        "dc_mean": -0.0003321315161883831,
+        "duration_seconds": 2.725
+      },
+      "native": {
+        "path": "native/guide_puff_cold_intro.wav",
+        "sha256": "1c22f35a7e4a0ff68615cc3520bab439d3f9534799004b788e7fb3ba446fc6d5",
+        "sample_rate_hz": 24000,
+        "format": "WAV float32 mono; unmodified model samples"
+      },
+      "native_to_review": {
+        "trim_threshold_dbfs": -60,
+        "retained_native_sample_range": [
+          6190,
+          58219
+        ],
+        "leading_pad_seconds": 0.04,
+        "trailing_pad_seconds": 0.1,
+        "derivative_path": "derived/guide_puff_cold_intro_trim.wav",
+        "derivative_sha256": "a7fc457c349fef58cf37c348ed8f57dd51f49a885f8d869ca8fafd25ee5de75c",
+        "resample_to_hz": 48000,
+        "pitch_change": false,
+        "retiming": false,
+        "loudness_target_lufs": -16,
+        "true_peak_target_dbtp": -2.8
+      },
+      "conditioning": {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffmpeg.EXE",
+          "-hide_banner",
+          "-loglevel",
+          "error",
+          "-n",
+          "-i",
+          "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef\\assets_src\\audio\\grand_puff_care_20261017\\generated_resume\\derived\\guide_puff_cold_intro_trim.wav",
+          "-af",
+          "highpass=f=40,acompressor=threshold=-20dB:ratio=2.5:attack=5:release=80",
+          "-c:a",
+          "pcm_f32le",
+          "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef\\assets_src\\audio\\grand_puff_care_20261017\\generated_resume\\derived\\guide_puff_cold_intro_dc_compressed.wav"
+        ],
+        "input_sha256": "a7fc457c349fef58cf37c348ed8f57dd51f49a885f8d869ca8fafd25ee5de75c",
+        "output_sha256": "f18d988d7cd9ca13d926fc4f1b5d8ede48c56ad2946322288ba090cc26c6f7c2",
+        "purpose": "Remove DC and restrain peaks before lossless loudness mastering"
+      },
+      "loudnorm_first_pass": {
+        "input_i": "-25.48",
+        "input_tp": "-11.20",
+        "input_lra": "0.00",
+        "input_thresh": "-35.48",
+        "output_i": "-17.08",
+        "output_tp": "-2.80",
+        "output_lra": "0.00",
+        "output_thresh": "-27.08",
+        "normalization_type": "linear",
+        "target_offset": "1.08"
+      },
+      "loudnorm_first_command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffmpeg.EXE",
+        "-hide_banner",
+        "-nostats",
+        "-i",
+        "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef\\assets_src\\audio\\grand_puff_care_20261017\\generated_resume\\derived\\guide_puff_cold_intro_dc_compressed.wav",
+        "-af",
+        "loudnorm=I=-16:TP=-2.8:LRA=7:print_format=json",
+        "-f",
+        "null",
+        "-"
+      ],
+      "review": {
+        "path": "review/guide_puff_cold_intro.ogg",
+        "sha256": "1415b2ae4d76f3421fc0ba5ccc80c9662e354cb7ab5c187b7af7242d4aa60da8",
+        "bytes": 23538,
+        "verification": {
+          "codec": "vorbis",
+          "sample_rate_hz": 48000,
+          "channels": 1,
+          "bitrate_kbps": 96.0,
+          "duration_seconds": 2.167875,
+          "integrated_lufs": -17.19,
+          "true_peak_dbtp": -3.34,
+          "decoded_finite": true,
+          "decoded_sample_peak": 0.6752638220787048,
+          "decoded_dc_mean": -0.0003608910774346441
+        },
+        "encoding_command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffmpeg.EXE",
+          "-hide_banner",
+          "-nostats",
+          "-n",
+          "-i",
+          "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef\\assets_src\\audio\\grand_puff_care_20261017\\generated_resume\\derived\\guide_puff_cold_intro_dc_compressed.wav",
+          "-af",
+          "loudnorm=I=-16:TP=-2.8:LRA=7:measured_I=-25.48:measured_TP=-11.20:measured_LRA=0.00:measured_thresh=-35.48:offset=1.08:linear=true:print_format=json",
+          "-ar",
+          "48000",
+          "-ac",
+          "1",
+          "-c:a",
+          "libvorbis",
+          "-b:a",
+          "96k",
+          "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef\\assets_src\\audio\\grand_puff_care_20261017\\generated_resume\\review\\guide_puff_cold_intro.ogg"
+        ],
+        "measurement_command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffmpeg.EXE",
+          "-hide_banner",
+          "-nostats",
+          "-i",
+          "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef\\assets_src\\audio\\grand_puff_care_20261017\\generated_resume\\review\\guide_puff_cold_intro.ogg",
+          "-af",
+          "loudnorm=I=-16:TP=-2.8:LRA=7:print_format=json",
+          "-f",
+          "null",
+          "-"
+        ],
+        "ffprobe_command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\FFmpeg\\8.1.2\\bin\\ffprobe.EXE",
+          "-v",
+          "error",
+          "-show_streams",
+          "-show_format",
+          "-of",
+          "json",
+          "C:\\Users\\Peter\\.codex\\worktrees\\grand-puff-crash-20261017\\mermaid-roshan-reef\\assets_src\\audio\\grand_puff_care_20261017\\generated_resume\\review\\guide_puff_cold_intro.ogg"
+        ],
+        "machine_pass": false
+      },
+      "finished_utc": "2026-10-17T23:13:08.654226+00:00"
+    }
+  ],
+  "protected_original_changes": 0,
+  "acceptance": {
+    "machine": "FAIL",
+    "human_listening": "NOT_MEASURED",
+    "device": "NOT_MEASURED",
+    "child": "NOT_MEASURED",
+    "owner": "NOT_MEASURED"
+  },
+  "previous_run": {
+    "path": "generated/generation_manifest.json",
+    "sha256": "32fe196db45b21085a7cc0fd9b0e51bf341863f24353ccb9b35f2358de8a882a",
+    "synthesis_calls": 1,
+    "failure": "JSONDecodeError: Extra data: line 13 column 1 (char 275)"
+  },
+  "failure": "RuntimeError: Candidate technical delivery check failed: guide_puff_cold_intro",
+  "finished_utc": "2026-10-17T23:13:08.655161+00:00",
+  "wall_seconds": 1.175127
+}

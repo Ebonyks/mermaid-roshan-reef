@@ -879,6 +879,35 @@
       "checks": [],
       "checkable": false,
       "cycle": "demo-readiness-20261031"
+    },
+    {
+      "id": "ODR-GRAND-PUFF-COLD-20261017",
+      "date": "2026-10-17",
+      "subject": "Grand Puff care canon and preserved challenge",
+      "decision": "Grand Puff is a friend sick with a cold, never bad or evil. Roshan cleans his dusty coat, he becomes happy and healthy, and the rainbow dust bunny jumps out of his old shell. Preserve the original attack patterns, shapes and as much of the existing encounter as possible; option 1 retains accidental sneeze avoidance plus cleaning openings.",
+      "source": "design/GRAND_PUFF_CARE_2026-10-17.md#owner-direction",
+      "authority": "recorded_owner",
+      "question": "Direct story commission and subsequent play-style answer in this conversation",
+      "checks": [
+        "scripts/probe_dust_boss.gd",
+        "scripts/probe_day_one_story_clips.gd"
+      ],
+      "checkable": true,
+      "cycle": "grand-puff-care-20261017"
+    },
+    {
+      "id": "ODR-OPERA-FOYER-MOVEMENT-WAVES-20261017",
+      "date": "2026-10-17",
+      "subject": "Playable Opera foyer and four-door waves",
+      "authority": "recorded_owner",
+      "question": "How should movement, games and the next floor work in the pictured foyer?",
+      "decision": "Roshan can’t move freely in this room! Fix this. The games also don’t seem to work at the moment either. When all 4 stages are completed on the bottom, have the next four open Scoped implementation: direct foyer entry to the existing birthday eight, retaining canonical story order, results and contexts. This supersedes the room-only entry restriction only for these pictured career doors; other careers retain their room homes. Exact visual/device/child/owner acceptance remains separate.",
+      "source": "audit/opera_foyer_movement_20261017/owner_request.json",
+      "checks": [
+        "scripts/probe_opera.gd",
+        "scripts/probe_chapter2.gd"
+      ],
+      "checkable": true
     }
   ]
 }

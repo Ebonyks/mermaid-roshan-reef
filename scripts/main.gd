@@ -2704,7 +2704,7 @@ func _start_opera_from_room(act_index: int, room_id: String) -> void:
 		return
 	opera_pending_act_index = act_index
 	opera_return_room = room_id
-	opera_plot_context = ""
+	opera_plot_context = CastleCareerRoutes.foyer_plot_context(self, act_index) if room_id == "opera_hall" else ""
 	castle_rooms.suspend()
 	_fade_cut(_start_opera_now)
 
@@ -3035,7 +3035,7 @@ func _fade_cut(cb: Callable) -> void:
 	# rebuild must happen in THIS call chain — probes call these entry points
 	# and assert state a frame or two later, so cb is never tween-deferred.
 	# Snap the cover to full black, run the build under it in the same frame,
-	# then tween only the reveal. State timing is byte-identical to before.
+	# Reveal keeps running while a story clip owns pause; state timing is unchanged.
 	_prepare_touch_transition()
 	if fade_rect == null:
 		cb.call()
@@ -3047,8 +3047,7 @@ func _fade_cut(cb: Callable) -> void:
 	_populate_touch_interactables()
 	if fade_tween != null and fade_tween.is_valid():
 		fade_tween.kill()
-	fade_tween = create_tween()
-	fade_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	fade_tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	fade_tween.tween_property(fade_rect, "modulate:a", 0.0, 0.25)
 	fade_tween.tween_callback(_finish_touch_transition)
 
@@ -5968,12 +5967,11 @@ func chapter2_can_start_opera_act(act_index: int) -> bool:
 
 
 func chapter2_opera_route_matches(room_id: String, act_index: int) -> bool:
+	if room_id == "opera_hall":
+		return CastleCareerRoutes.foyer_can_launch(self, act_index)
 	if not chapter2_is_active():
 		return CastleCareerRoutes.route_matches(room_id, act_index)
 	var director := _chapter_two_ref()
-	if director.tutorial_phase_is_active():
-		return room_id == "opera_hall" \
-			and director.can_start_opera_tutorial(act_index)
 	var party_entry := ChapterTwoPartyPlan.entry_for_act(act_index)
 	return director.can_start_chapter2_act(act_index) \
 		and String(party_entry.get("room", "")) == room_id
@@ -6767,7 +6765,7 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 		_queue_save()
 
 
-func _day_one_play_story_clip(movie_id: String) -> bool:
+func _day_one_play_story_clip(movie_id: String, repeat_completed: bool = false) -> bool:
 	if not DayOneStoryClipsLogic.enabled() \
 			or not DayOneStoryClipsLogic.available(movie_id):
 		return false
@@ -6782,7 +6780,7 @@ func _day_one_play_story_clip(movie_id: String) -> bool:
 		if not _day_one_story_clip_queue.has(movie_id):
 			_day_one_story_clip_queue.append(movie_id)
 		return true
-	if day_one_story_clips_seen.has(movie_id):
+	if day_one_story_clips_seen.has(movie_id) and not (repeat_completed and movie_id == "d1_puff_transformation"):
 		return false
 	var preview: DayOneStoryClips = DayOneStoryClipsLogic.new() \
 		as DayOneStoryClips

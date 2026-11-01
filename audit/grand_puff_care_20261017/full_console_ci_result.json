@@ -1,0 +1,19 @@
+{
+  "status": "FAIL_PRESERVED",
+  "command": [
+    "C:\\Program Files\\Git\\bin\\bash.exe",
+    "scripts/ci.sh"
+  ],
+  "pid": 3796,
+  "source_pin": "audit/grand_puff_care_20261017/source_pin_projection_fixed.json",
+  "started_epoch": 1792283601.792885,
+  "engine": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+  "log": "tmp/puff-crash/care-full-console-ci.log",
+  "exit": 1,
+  "seconds": 236.19,
+  "source_drift": [],
+  "probes": [],
+  "failure_lines": [
+    "FONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING"
+  ]
+}

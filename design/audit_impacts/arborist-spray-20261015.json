@@ -1,0 +1,153 @@
+{
+  "id": "arborist-spray-20261015",
+  "baseline": "5120b6d59885dd057937aaf284e73681d8eac9f5",
+  "scope": "Owner-reported Arborist spraying comprehension repair in the optional Tree Book practice: put intentional hold, authored bottle spray and visible healing on the same patient canopy; preserve diagnosis choices, voice cues, stars and additive partial-treatment saves. Final cue-coordinate review also aligns the displayed hand fingertip and actual viewport touch with the spray contact, and widens the hit region to the visible canopy. Reconcile current dev doorframe integration without altering its source or licence/audit facts; validate the combined source.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-07",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-SND-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-ASSET-04",
+    "DL-QA-14",
+    "DL-QA-15",
+    "DL-AGE-06",
+    "DL-MOT-02",
+    "DL-MED-01"
+  ],
+  "findings": [
+    "MA-PLAY-004"
+  ],
+  "finding_scope": "Scoped prototype improvement only; no game-wide finding lifecycle, closure, or acceptance facts change.",
+  "files": [
+    "scripts/opera_tree_book_test.gd",
+    "scripts/tree_book_test_checks.gd",
+    "design/OPERA_TREE_BOOK_TEST_2026-09-30.md",
+    "design/05_DOC_LEDGER.md",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "tools/capture_arborist_spray.gd",
+    "assets_src/review/arborist_spray_20261015/.gdignore",
+    "assets_src/review/arborist_spray_20261015/01_approach.png",
+    "assets_src/review/arborist_spray_20261015/02_ready.png",
+    "assets_src/review/arborist_spray_20261015/03_spraying.png",
+    "assets_src/review/arborist_spray_20261015/04_released.png",
+    "assets_src/review/arborist_spray_20261015/05_healthy.png",
+    "assets_src/review/arborist_spray_20261015/06_wide_touch.png",
+    "assets_src/review/arborist_spray_20261015/VERIFICATION.json",
+    "assets_src/review/arborist_spray_20261015/full_ci.log",
+    "assets_src/review/arborist_spray_20261015/focused.log",
+    "assets_src/review/arborist_spray_20261015/capture.log",
+    "assets_src/review/arborist_spray_20261015/full_ci_attempt_1.log",
+    "assets_src/review/arborist_spray_20261015/initial_import.log",
+    "assets_src/review/arborist_spray_20261015/final_checks.log",
+    "assets_src/review/arborist_spray_20261015/raw_logs.zip",
+    "assets_src/review/arborist_spray_20261015/focused_v2.log",
+    "assets_src/review/arborist_spray_20261015/capture_v2.log",
+    "assets_src/review/arborist_spray_20261015/full_ci_v2.log",
+    "assets_src/review/arborist_spray_20261015/raw_logs_v2.zip",
+    "assets_src/review/arborist_spray_20261015/full_ci_integration.log",
+    "assets_src/review/arborist_spray_20261015/raw_logs_integration.zip"
+  ],
+  "validation": [
+    {
+      "command": "Baseline code and existing treatment capture review",
+      "result": "PASS",
+      "evidence": "5120b6d5: LEAF_RECT (701,118,142,142) is detached from PATIENT_RECT (900,105,310,305). assets_src/review/tree_book_test_20260930/page_4.png shows distant bottle and detached specimen. Drawing tests only current pointer position, while progress also requires press origin; those predicates disagree."
+    },
+    {
+      "command": "python -B -m gdtoolkit.parser scripts/opera_tree_book_test.gd scripts/tree_book_test_checks.gd tools/capture_arborist_spray.gd; python -B tools/lint_inference.py scripts/opera_tree_book_test.gd scripts/tree_book_test_checks.gd tools/capture_arborist_spray.gd",
+      "result": "PASS",
+      "evidence": "Both commands exit0; exact tested source hashes in assets_src/review/arborist_spray_20261015/VERIFICATION.json."
+    },
+    {
+      "command": "Godot 4.7.2 --headless --path . --script scripts/probe_tree_book_test.gd",
+      "result": "PASS",
+      "evidence": "Corrected pictured-hint source: focused_v2.log passes58 checks with exit0; the frozen hashes and native fingertip measurement are in VERIFICATION.json. Full trusted Opera2D must independently re-earn its integrated result."
+    },
+    {
+      "command": "Godot 4.7.2 --path . --rendering-method mobile --script tools/capture_arborist_spray.gd",
+      "result": "PASS",
+      "evidence": "Corrected capture_v2.log exits0: actual pictured fingertip touch at1280x720 and1920x900 starts spraying; six unique source-bound captures verified and changed hint states inspected. Previous bad cue source remains immutable at db1d8f78."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Authority704/704 inventory/ledger,69active/72records ALL OK; exact source baseline5120b6d5 coverage ALL OK;54 document tests and6/6stress pass. Final repeat required after evidence metadata completion."
+    },
+    {
+      "command": "scripts/ci.sh through tmp/arborist-spray-20261015/full_ci.sh",
+      "result": "PASS",
+      "evidence": "PREVIOUS source db1d8f78 only: original full_ci.log exits0 with82/82 ordered probes and64 integrated Tree Book checks. It does not verify the later pictured-tip correction; full_ci_v2.log must re-earn that result."
+    },
+    {
+      "command": "Pictured fingertip versus owned touch-region review",
+      "result": "FAIL",
+      "evidence": "At published source db1d8f78 the hand box extends below old LEAF_RECT.end.y395; its visible fingertip is near y435 while the progress test touched SPRAY_CONTACT.y385. Correct the hint socket and add actual pictured-tip viewport input. Earlier57/64/82 pass receipts remain scoped to that revision, not acceptance of this coordinate mismatch."
+    },
+    {
+      "command": "Corrected-hint focused, actual pictured-tip viewport, and full unchanged scripts/ci.sh run",
+      "result": "PASS",
+      "evidence": "VERIFICATION.json binds exact corrected source hashes,58 focused checks,65 integrated checks, actual pictured fingertip input at both viewport sizes, and82/82 ordered zero-exit trusted probes without failure markers. Exact raw streams preserved in raw_logs_v2.zip; v1 remains immutable history at db1d8f78."
+    },
+    {
+      "command": "Merge/reconcile origin/dev dd799b2d, then unchanged full scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "Incoming dev dd799b2d43871b29d1d6e0503646308a194dad1e runtime preserved. Combined full_ci_integration.log exits0:82/82 exact ordered probes,65 integrated Tree Book assertions, zero trusted failure markers. VERIFICATION.json binds raw/canonical log hashes and unchanged runtime source hashes. New exact published-head CI required before dev integration. Exact combined runtime source commit 9b49c87f7f340e3c644937d4c14bf8c22f67c384; subsequent binding is metadata only."
+    }
+  ],
+  "acceptance_gaps": "Combined current-dev source passes58 focused/65 integrated Tree Book checks and82 full local probes. Exact published-head GitHub CI is required before dev integration; prior corrected-head runs hit the existing55-minute job limit. Device, child, full-speed human motion and owner acceptance remain pending; no release/master-audit satisfaction claim.",
+  "references_used": [
+    {
+      "path": "design/OPERA_TREE_BOOK_TEST_2026-09-30.md",
+      "purpose": "Current scoped practice contract and additive checkpoint schema."
+    },
+    {
+      "path": "assets_src/imagegen/arborist_test_20260930/CLIP_CONTRACT.json",
+      "purpose": "Reuse existing carry/aim/spray/finish atlas; preserve source provenance and measured sampling."
+    }
+  ],
+  "motion_contract": {
+    "method": "Unchanged authored carry/aim/spray/finish states with measured lower-fin registration, declared local Canvas travel/droplets, and discrete sick/healthy patient endpoints. Initial whole-tree blend rejected for ghosting; no character frame or identity redesign.",
+    "timing": "1.1-second approach; indefinite aim; fresh owned canopy hold advances 1.6-second dose, capped at 0.1 seconds per tick; finish holds until explicit replay/exit.",
+    "source_contract": "assets_src/imagegen/arborist_test_20260930/CLIP_CONTRACT.json remains historical source provenance; this record describes new runtime staging/timing.",
+    "budget": "Zero generation calls, zero paid work.",
+    "review_required": "Every carry/aim/spray/finish transition, contact, release and settle at desktop Mobile; device/child/owner acceptance separate."
+  },
+  "publication": "Corrected source on codex/arborist-spray-20261015, PR33. Exact published-head GitHub CI required before dev integration; superseded run38853605995 canceled. No master promotion requested.",
+  "previous_candidate": {
+    "revision": "db1d8f78bfcd32aa005840bc6ce71c12c91dea52",
+    "verification_path": "assets_src/review/arborist_spray_20261015/VERIFICATION.json",
+    "machine_results": "57 focused,64 integrated and82 trusted local probes pass; visual fingertip mismatch identified afterward.",
+    "github_run": "38853605995 canceled for the corrected candidate before integration; no dev merge."
+  },
+  "previous_implementation_source_commit": "c02e8c88dc3ac8b5fbbdd4028e30eae753c12429",
+  "implementation_source_commit": "2f1808755a4f41999c6a9184727c2cb1c9abd82d",
+  "change_id": "CHG-037",
+  "integration_parent": "dd799b2d43871b29d1d6e0503646308a194dad1e",
+  "change_id_reconciliation": "The draft CHG-036 label in earlier Arborist commits collided with the now-integrated doorframe CHG-036. Current Arborist repair is CHG-037; historical source/logs are preserved.",
+  "combined_source_commit": "9b49c87f7f340e3c644937d4c14bf8c22f67c384"
+}

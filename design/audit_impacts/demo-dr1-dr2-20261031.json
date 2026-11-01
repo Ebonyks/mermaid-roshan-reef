@@ -2,6 +2,11 @@
   "id": "demo-dr1-dr2-20261031",
   "scope": "Implement the owner-approved November demo packages DR1 and DR2 together: keep the synchronous rebuild cover but let its reveal finish while Day One story clips pause the tree; disable the temporary Opera job-playtest elevator for the demo; and restrict the pause-menu FPS label to editor runs. Add regression checks for both affected clip orderings and the disabled child-facing surface without changing story footage, save data, career routes, art, audio, or protected originals.",
   "baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+  "reconciliation": {
+    "target_dev": "36b58801b1a9a4b7edc76b8c3bb72091565590cb",
+    "target_dev_probe_suite": "PASS: https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41263637433",
+    "resolution": "Current dev independently contained the same pause-processing reveal semantics and a stronger real _leave_arena transformation leg. The reconciliation keeps that runtime spelling and real-route leg, retains this package's castle-entry leg and DR2 shipping-surface checks, and preserves both authority histories. This package neither authorizes nor accepts the target baseline's out-of-freeze Arborist, Racer, R118, Opera-foyer, or chapter-guide payload; that separate integration violation remains release-blocking."
+  },
   "rules": [
     "DL-AUTH-05",
     "DL-AUTH-06",
@@ -46,27 +51,27 @@
     {
       "command": "python -B tools/audit_document_authority.py",
       "result": "PASS",
-      "evidence": "DOCAUTH inventory=750, ledger=750, active=73, records=76; RESULT ALL OK."
+      "evidence": "Original candidate: DOCAUTH inventory=750, ledger=750, active=73, records=76; RESULT ALL OK. Reconciled tree: inventory=752, ledger=752, active=74, records=77; RESULT ALL OK."
     },
     {
       "command": "python -B tools/audit_development.py --base auto",
       "result": "PASS",
-      "evidence": "AUDITDEV base a0bb2cf4691631a534e210a5fb60fd227213322f; RESULT ALL OK."
+      "evidence": "Original candidate base a0bb2cf4691631a534e210a5fb60fd227213322f and reconciled base 36b58801b1a9a4b7edc76b8c3bb72091565590cb each report AUDITDEV RESULT ALL OK."
     },
     {
       "command": "python -B tools/audit_game_2d.py --regression-gate",
       "result": "PASS",
-      "evidence": "RESULT NO_REGRESSION on the exact shrinking baseline. The audit remains honestly UNSATISFIED with 52 production 3D files; this package adds no spatial resource or node and does not claim master-audit satisfaction."
+      "evidence": "Original candidate and reconciled tree each report RESULT NO_REGRESSION on the exact shrinking baseline. The audit remains honestly UNSATISFIED with 52 production 3D files; this package adds no spatial resource or node and does not claim master-audit satisfaction."
     },
     {
       "command": "Exact Godot 4.7.2-stable import and focused DR1/DR2 probes",
       "result": "PASS",
-      "evidence": "Resolved 4.7.2.stable.official.ed1daf0bf; full import exited 0; probe_day_one_story_clips.gd reports RESULT: PASS failures=0 and probe_opera.gd reports result: ALL OK. The story probe covers real castle-entry and Grand Puff transformation cuts while the story layer pauses the tree; the Opera probe covers the absent disabled playtest menu/elevator plus every shipping career route."
+      "evidence": "Resolved 4.7.2.stable.official.ed1daf0bf. Full import and the two focused probes exited 0 on the original candidate and again after reconciliation with 36b58801b1a9a4b7edc76b8c3bb72091565590cb. probe_day_one_story_clips.gd reports RESULT: PASS failures=0 and probe_opera.gd reports result: ALL OK. The story probe covers real castle-entry and Grand Puff transformation cuts while the story layer pauses the tree; the Opera probe covers the absent disabled playtest menu/elevator plus every shipping career route."
     },
     {
       "command": "Exact Godot 4.7.2-stable analyzer",
       "result": "PASS",
-      "evidence": "The scripts/ci.sh analyzer phase completed on Godot 4.7.2.stable.official.ed1daf0bf before the trusted runtime probes began."
+      "evidence": "The scripts/ci.sh analyzer phase completed on Godot 4.7.2.stable.official.ed1daf0bf before the original trusted runtime probes began. After reconciliation, --check-only passes independently for all five changed GDScripts."
     },
     {
       "command": "scripts/ci.sh trusted suite",
@@ -75,8 +80,13 @@
     },
     {
       "command": "GitHub Probe Suite on the exact pushed candidate",
+      "result": "PASS",
+      "evidence": "Run 41263860760 completed both probes and area-music-provenance successfully at exact candidate d078b5c0ff4254830ed1e1336c6074479e9516d5: https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41263860760"
+    },
+    {
+      "command": "GitHub Probe Suite on the reconciled exact head",
       "result": "PENDING",
-      "evidence": "Required before any dev integration."
+      "evidence": "Required after committing and pushing the reviewed merge with current dev 36b58801b1a9a4b7edc76b8c3bb72091565590cb; no dev integration or promotion is claimed before it succeeds."
     },
     {
       "command": "Displayed desktop and Lenovo Tab M11 review of castle reveal, transformation, epilogue, pause menu, and Opera venue",
