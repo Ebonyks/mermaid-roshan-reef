@@ -1,4 +1,15 @@
 {
-  "state": "NOT_CHECKED_BEFORE_SOURCE_PUSH",
-  "scope": "Review branch only; exact GitHub checks will be queried after publication. No CI/integration claim from local green."
+  "checked_source_revision": "c5a072a2c2e09f1c338610be92cdd55540c26011",
+  "check_time_utc": "2026-11-01T17:10:28.984488+00:00",
+  "runs": [
+    {
+      "conclusion": "",
+      "databaseId": 41329693250,
+      "headSha": "c5a072a2c2e09f1c338610be92cdd55540c26011",
+      "status": "in_progress",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41329693250",
+      "workflowName": "Probe suite (graphics fork)"
+    }
+  ],
+  "scope": "Exact source push runs observed; no green-remote/integration claim. Receipt-only followup triggers its own checks. Final head is queried read-only after publication."
 }
