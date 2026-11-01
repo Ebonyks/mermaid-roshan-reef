@@ -1,0 +1,178 @@
+{
+  "rows": [
+    {
+      "clip": "boxer",
+      "control": "none",
+      "detected": true,
+      "reason": "normal reference, fault detection not applicable",
+      "changed_pixels": 0,
+      "image": "boxer_none.png"
+    },
+    {
+      "clip": "boxer",
+      "control": "grip_slip",
+      "detected": true,
+      "reason": "actual grip error plus rendered change",
+      "changed_pixels": 5072,
+      "image": "boxer_grip_slip.png"
+    },
+    {
+      "clip": "boxer",
+      "control": "fixture_drift",
+      "detected": true,
+      "reason": "actual support-node transform plus rendered change",
+      "changed_pixels": 6637,
+      "image": "boxer_fixture_drift.png"
+    },
+    {
+      "clip": "boxer",
+      "control": "missing_arm",
+      "detected": true,
+      "reason": "actual mid-forearm occupancy=0 plus rendered change",
+      "changed_pixels": 2616,
+      "image": "boxer_missing_arm.png"
+    },
+    {
+      "clip": "boxer",
+      "control": "original_underlay",
+      "detected": true,
+      "reason": "actual original texture/material reinsertion and rendered change",
+      "changed_pixels": 159041,
+      "image": "boxer_original_underlay.png"
+    },
+    {
+      "clip": "boxer",
+      "control": "identity_scale",
+      "detected": true,
+      "reason": "actual Head transform and rendered change",
+      "changed_pixels": 74677,
+      "image": "boxer_identity_scale.png"
+    },
+    {
+      "clip": "boxer",
+      "control": "frozen_view",
+      "detected": true,
+      "reason": "frozen guard surface differs from expected authored jab surface at contact; semantic human review remains separate",
+      "changed_pixels": 3828,
+      "image": "boxer_frozen_view.png"
+    },
+    {
+      "clip": "racer",
+      "control": "none",
+      "detected": true,
+      "reason": "normal reference, fault detection not applicable",
+      "changed_pixels": 0,
+      "image": "racer_none.png"
+    },
+    {
+      "clip": "racer",
+      "control": "grip_slip",
+      "detected": true,
+      "reason": "actual grip error plus rendered change",
+      "changed_pixels": 26999,
+      "image": "racer_grip_slip.png"
+    },
+    {
+      "clip": "racer",
+      "control": "fixture_drift",
+      "detected": true,
+      "reason": "actual support-node transform plus rendered change",
+      "changed_pixels": 26999,
+      "image": "racer_fixture_drift.png"
+    },
+    {
+      "clip": "racer",
+      "control": "missing_arm",
+      "detected": true,
+      "reason": "actual mid-forearm occupancy=0 plus rendered change",
+      "changed_pixels": 2380,
+      "image": "racer_missing_arm.png"
+    },
+    {
+      "clip": "racer",
+      "control": "original_underlay",
+      "detected": true,
+      "reason": "actual original texture/material reinsertion and rendered change",
+      "changed_pixels": 139358,
+      "image": "racer_original_underlay.png"
+    },
+    {
+      "clip": "racer",
+      "control": "identity_scale",
+      "detected": true,
+      "reason": "actual Head transform and rendered change",
+      "changed_pixels": 82995,
+      "image": "racer_identity_scale.png"
+    },
+    {
+      "clip": "racer",
+      "control": "frozen_view",
+      "detected": null,
+      "reason": "not applicable: no authored boxer glove views in this action; unchanged image is expected",
+      "changed_pixels": 0,
+      "image": "racer_frozen_view.png"
+    },
+    {
+      "clip": "popstar",
+      "control": "none",
+      "detected": true,
+      "reason": "normal reference, fault detection not applicable",
+      "changed_pixels": 0,
+      "image": "popstar_none.png"
+    },
+    {
+      "clip": "popstar",
+      "control": "grip_slip",
+      "detected": true,
+      "reason": "actual grip error plus rendered change",
+      "changed_pixels": 20576,
+      "image": "popstar_grip_slip.png"
+    },
+    {
+      "clip": "popstar",
+      "control": "fixture_drift",
+      "detected": true,
+      "reason": "actual support-node transform plus rendered change",
+      "changed_pixels": 16286,
+      "image": "popstar_fixture_drift.png"
+    },
+    {
+      "clip": "popstar",
+      "control": "missing_arm",
+      "detected": true,
+      "reason": "actual mid-forearm occupancy=0 plus rendered change",
+      "changed_pixels": 2635,
+      "image": "popstar_missing_arm.png"
+    },
+    {
+      "clip": "popstar",
+      "control": "original_underlay",
+      "detected": true,
+      "reason": "actual original texture/material reinsertion and rendered change",
+      "changed_pixels": 156002,
+      "image": "popstar_original_underlay.png"
+    },
+    {
+      "clip": "popstar",
+      "control": "identity_scale",
+      "detected": true,
+      "reason": "actual Head transform and rendered change",
+      "changed_pixels": 72312,
+      "image": "popstar_identity_scale.png"
+    },
+    {
+      "clip": "popstar",
+      "control": "frozen_view",
+      "detected": null,
+      "reason": "not applicable: no authored boxer glove views in this action; unchanged image is expected",
+      "changed_pixels": 0,
+      "image": "popstar_frozen_view.png"
+    }
+  ],
+  "surveyed_old_clothing_pixels": 7394,
+  "undeleted_old_clothing_pixels": 0,
+  "source_poison_cases": 27,
+  "max_source_poison_leak_pixels": 0,
+  "pass": true,
+  "scope": "Retained actual image faults; no fictional view control result for racer/popstar. Numerical detection never accepts naturalness."
+}

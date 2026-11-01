@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "id": "popstar-object-action-v1",
+  "scope": "SOURCE_ONLY_PROTOTYPE",
+  "intention": "Roshan steadies the fixed microphone stand at its clamp, adjusts the supported upper microphone angle, releases and settles; no new audio or objectives.",
+  "personality": "Attentive Ribbon Glide, small purposeful whole-figure counterbalance then quiet settle",
+  "sources": [
+    {
+      "path": "assets/opera/worlds/actors/roshan_popstar.png",
+      "sha256": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+      "sha256": "0084e74b73042832f248c26f6688e484b7376ea6418caee09b2e4beeebfb0ee9",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    }
+  ],
+  "method": "native Skeleton2D unchanged topology/rest; registered replacement garment textures, Aseprite RGBA parts, explicit socket binding/IK and authored changing-surface prop views",
+  "generated_takes_cap": 2,
+  "initial_take_count": 0,
+  "wall_minutes_cap": 120,
+  "cleanup_minutes_cap": 90,
+  "paid_external_budget": 0,
+  "imagegen_usage": "builtin owner-authorized; model/revision/seed and monetary usage unexposed, record call counts",
+  "required_evidence": [
+    "original arm_bend blink tail_bend exact regressions",
+    "mixed-slot waist/component/hole checks",
+    "support/contact maximum3native pixels",
+    "geometry/stretch/flips and loop/transition/interrupt",
+    "source-poison/reinsertion negatives",
+    "Aseprite roundtrip",
+    "full-speed and frame-step actual Mobile capture"
+  ],
+  "generation_prompt_file": "popstar_garment_prompt.txt",
+  "scope_revision": "Existing approved stand reused. Fixed lower support and upper hinge at256,270; no handheld ownership or new prop art.",
+  "initial_wall_cap_minutes": 90,
+  "wall_budget_start_utc": "2026-11-01T06:58:18.603216+00:00",
+  "budget_revision": "One bounded, cumulative local method correction after preserved numerical seam failures; no timer reset, no new generated takes or monetary allocation. Earlier90minute overrun remains a process deviation.",
+  "method_revision": "Correct alpha-over beneath protected antialiasing; retain own-fabric underlap behind rigid jacket panel. Artwork sources, fourteen bones/rest/common weights/three original curves and numerical floors stay unchanged."
+}

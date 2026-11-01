@@ -1,0 +1,105 @@
+{
+  "source_folder": "evidence\\verification_v3\\action_repeatability_raw",
+  "input_frozen": "sport-stage-source-v3",
+  "actions": {
+    "boxer": {
+      "max_angular_speed_deg_s": 108.39559022740238,
+      "max_angular_acceleration_deg_s2": 187.13174198311737,
+      "frames": 241,
+      "views": [
+        "guard",
+        "jab",
+        "palm"
+      ],
+      "contact_frames": 8,
+      "max_contact_error": 0.0,
+      "max_fixture_error": 0.0,
+      "max_painted_wrist_error": 0,
+      "max_knuckle_mitt_error": 0.021026611328125,
+      "joint_min_alpha": {
+        "LeftUpper": 255,
+        "LeftFore": 255,
+        "LeftHand": 252,
+        "RightUpper": 173,
+        "RightFore": 255,
+        "RightHand": 58
+      },
+      "mid_forearm_min_alpha": {
+        "Left": 252,
+        "Right": 252
+      },
+      "max_bone_scale_error": 1.6136092306773264e-07,
+      "endpoint_changed_pixels": 0,
+      "endpoint_matrix_error": 0.0,
+      "pass": false
+    },
+    "racer": {
+      "max_angular_speed_deg_s": 53.64367920928428,
+      "max_angular_acceleration_deg_s2": 183.06145113778538,
+      "frames": 241,
+      "views": [
+        "front"
+      ],
+      "contact_frames": 151,
+      "max_contact_error": 8.63167442730628e-05,
+      "max_fixture_error": 0.0,
+      "max_painted_wrist_error": 8.63167442730628e-05,
+      "max_knuckle_mitt_error": 0,
+      "joint_min_alpha": {
+        "LeftUpper": 253,
+        "LeftFore": 255,
+        "LeftHand": 252,
+        "RightUpper": 253,
+        "RightFore": 255,
+        "RightHand": 98
+      },
+      "mid_forearm_min_alpha": {
+        "Left": 252,
+        "Right": 252
+      },
+      "max_bone_scale_error": 1.6913815548136313e-07,
+      "endpoint_changed_pixels": 0,
+      "endpoint_matrix_error": 0.0,
+      "pass": false
+    },
+    "popstar": {
+      "max_angular_speed_deg_s": 66.39384861534553,
+      "max_angular_acceleration_deg_s2": 210.73832184993634,
+      "frames": 241,
+      "views": [
+        "front"
+      ],
+      "contact_frames": 151,
+      "max_contact_error": 6.103515625e-05,
+      "max_fixture_error": 0.0,
+      "max_painted_wrist_error": 6.82393801980652e-05,
+      "max_knuckle_mitt_error": 0,
+      "joint_min_alpha": {
+        "LeftUpper": 255,
+        "LeftFore": 255,
+        "LeftHand": 255,
+        "RightUpper": 253,
+        "RightFore": 255,
+        "RightHand": 53
+      },
+      "mid_forearm_min_alpha": {
+        "Left": 252,
+        "Right": 252
+      },
+      "max_bone_scale_error": 1.5257770935583892e-07,
+      "endpoint_changed_pixels": 0,
+      "endpoint_matrix_error": 0.0,
+      "pass": false
+    }
+  },
+  "thresholds": {
+    "angular_speed_deg_s": 140,
+    "angular_acceleration_deg_s2": 650,
+    "uniform_scale_error": 1e-05,
+    "contact_wrist_fixture_pixels": 3,
+    "joint_and_midarm_alpha": 192,
+    "loop_pixels": 0
+  },
+  "pass": false,
+  "scope": "Actual image/transform/fixture sampling; does not certify naturalness, semantic grip/perspective, paint finish or human/device/child acceptance."
+}

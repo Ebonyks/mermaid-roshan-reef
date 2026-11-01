@@ -1,0 +1,53 @@
+{
+  "status": "INVENTORY_BEFORE_GENERATION",
+  "sources": [
+    {
+      "path": "assets/opera/worlds/actors/roshan_boxer.png",
+      "sha256": "6e8bed8acab5232e86f317deeb728133a4292f4de495febfaa894872ef66d462",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_racer.png",
+      "sha256": "b3e92a0f3204e2277e1fdd06988c9393288223fcfc98a9f4c8e033c8c517c6bc",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_popstar.png",
+      "sha256": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_boxer_sheet_a.png",
+      "sha256": "dbda6f6edd01e48b74095915f338fe3f6eb690ccd5f0f314d50e6940bb33c7c9",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png",
+      "sha256": "f62f881d42b439bde09a8bc7f6e0000125acd3e27aabf1fd39d90722ce75ca79",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+      "sha256": "0084e74b73042832f248c26f6688e484b7376ea6418caee09b2e4beeebfb0ee9",
+      "role": "approved appearance source; derivative not accepted",
+      "modified": false
+    }
+  ],
+  "fashion_items": "Inventoried slots_v1/items and beta_20261025/items: no boxer/racer/popstar complete corresponding set; star set is different fashion design, not job silhouette authority.",
+  "props": "Existing boxer_quality glove_left/right and focus_mitt can be reused; shell wheel widget is only hub, not a functional rim/grip view; racer concept source includes wheel/hands; approved popstar card/sheet contain shell microphone and known second-tail ribbon defect. No 3D Blender props reused.",
+  "gaps": [
+    "Complete registered boxer waistcoat/shirt/headband and tail surface, no original lavender sleeve underlay",
+    "Complete registered racer coral jacket/puff sleeves and helmet, two-hand wheel grip with actual rim",
+    "Complete registered popstar coral stage jacket and sash without second-tail ribbon; shell microphone grip",
+    "Boxer glove fore-and-aft thumb/palm/knuckle views; current two glove assets are screen-side variants only"
+  ],
+  "seed_publication": "LOCAL_FROZEN_PROVISIONAL",
+  "shared_contract": "1.0.0 local frozen provisional; no explicit waist join sub-contract found yet",
+  "wheel_gap_detail": "The approved racer wheel in its card is occluded by both hands; the widget is a hub only. A clean complete rim with continuous negative space and declared grip positions was missing.",
+  "prop_references": "references/provenance.json includes exact unchanged glove/mitt/microphone source copies and hashes."
+}
