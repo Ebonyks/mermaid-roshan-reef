@@ -27,6 +27,18 @@ OBJECTIVE_GUIDE_MANIFEST_REL = OBJECTIVE_GUIDE_ROOT_REL + "OBJECTIVE_GUIDE_MANIF
 OBJECTIVE_GUIDE_TEXT = {
     "guide_seek_tap_wiggly_tree": "Tap the wiggly tree!",
     "guide_dolls_catch_three": "Move left and right. Catch three sleepy dolls!",
+    "guide_puff_cold_intro": "Grand Puff has a cold. Let's help!",
+    "guide_puff_clean": "Tap his star to clean!",
+    "guide_puff_relief": "Ahh! That feels better!",
+    "guide_puff_almost": "Nearly clean! One more gentle wash!",
+    "guide_puff_healthy": "All clean! Feeling better!",
+}
+OBJECTIVE_GUIDE_SOURCE_ROOTS = {
+    key: ("assets_src/audio/grand_puff_care_20261017" if key in {
+        "guide_puff_cold_intro", "guide_puff_clean", "guide_puff_relief",
+        "guide_puff_almost", "guide_puff_healthy"}
+        else "assets_src/audio/objective_guides_20261014")
+    for key in OBJECTIVE_GUIDE_TEXT
 }
 FILLER_MANIFEST_NAME = "FILLER_MANIFEST.json"
 TEACHER_ROOT_REL = "assets/audio/teacher/"
@@ -1130,7 +1142,7 @@ def validate_objective_guides(root: Path) -> dict[str, object]:
         return {"present": True, "blocking": True, "issues": [f"Objective Guide manifest invalid: {error}"]}
     if manifest.get("schema") != "reef.objective-guide-runtime.v1" or manifest.get("speaker") != "guide":
         issues.append("Objective Guide schema/speaker mismatch")
-    if manifest.get("synthesis_calls") != 2 or manifest.get("protected_original_changes") != 0:
+    if manifest.get("synthesis_calls") != len(OBJECTIVE_GUIDE_TEXT) or manifest.get("protected_original_changes") != 0:
         issues.append("Objective Guide synthesis/protected-source accounting mismatch")
     entries = manifest.get("entries", [])
     if not isinstance(entries, list):
@@ -1155,7 +1167,7 @@ def validate_objective_guides(root: Path) -> dict[str, object]:
             issues.append(f"Objective Guide {key} output missing/hash mismatch")
             continue
         source = _safe_relative(root, entry.get("native_source_path"))
-        if source is None or not source.is_relative_to(root / "assets_src/audio/objective_guides_20261014")                 or not source.is_file() or sha256(source) != entry.get("native_source_sha256"):
+        if source is None or not source.is_relative_to(root / OBJECTIVE_GUIDE_SOURCE_ROOTS[key])                 or not source.is_file() or sha256(source) != entry.get("native_source_sha256"):
             issues.append(f"Objective Guide {key} native source missing/hash mismatch")
         if not entry.get("trigger") or not entry.get("visual_pointer") or not entry.get("historical_family_recording_gap"):
             issues.append(f"Objective Guide {key} trigger/pointer/historical gap missing")

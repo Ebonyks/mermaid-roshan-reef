@@ -1,0 +1,33 @@
+from pathlib import Path
+import subprocess, json, time, sys
+
+root = Path(__file__).resolve().parents[2]
+out = root / 'audit/grand_puff_care_20261017'
+name = sys.argv[1] if len(sys.argv) > 1 else 'final_local_gates'
+changed = subprocess.check_output(['git', 'diff', '--name-only', '1a4e8a1ceae29b401d63900a57a531b2f4442ba8', '--', 'scripts/'], cwd=root, text=True).splitlines()
+scripts = [p for p in changed if p.endswith('.gd') and (root / p).is_file()]
+commands = [
+    [sys.executable, '-B', '-m', 'gdtoolkit.parser', *scripts],
+    [sys.executable, '-B', 'tools/lint_inference.py', *scripts],
+    [sys.executable, '-B', 'tools/audit_document_authority.py'],
+    [sys.executable, '-B', 'tools/audit_development.py', '--base', 'auto'],
+    ['git', 'diff', '--check', 'HEAD'],
+]
+rows = []
+with (out / (name + '.log')).open('w', encoding='utf-8') as log:
+    for command in commands:
+        start = time.time()
+        process = subprocess.run(command, cwd=root, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        text = process.stdout.decode('utf-8', errors='replace')
+        log.write(json.dumps(command) + '\n' + text + '\n')
+        log.flush()
+        rows.append({'command': command, 'exit': process.returncode, 'seconds': round(time.time() - start, 3)})
+        print(name + '|' + str(process.returncode) + '|' + ' '.join(command), flush=True)
+        if process.returncode:
+            break
+protected = subprocess.check_output(['git', 'diff', '--name-only', '1a4e8a1ceae29b401d63900a57a531b2f4442ba8', '--', 'assets/book/', 'assets/audio/voices/', 'assets/characters/friends/', 'assets/cinematics/', 'assets_src/cinematics/'], cwd=root, text=True).splitlines()
+profile = subprocess.check_output(['git', 'diff', '--name-only', '1a4e8a1ceae29b401d63900a57a531b2f4442ba8', '--', 'scripts/encounter_profile_2d.gd'], cwd=root, text=True).splitlines()
+passed = len(rows) == len(commands) and all(v['exit'] == 0 for v in rows) and not protected and not profile
+receipt = {'status': 'PASS' if passed else 'FAIL', 'commands': rows, 'protected_changes': protected, 'original_encounter_profile_changes': profile, 'log': 'audit/grand_puff_care_20261017/' + name + '.log'}
+(out / (name + '.json')).write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf-8')
+sys.exit(0 if passed else 1)

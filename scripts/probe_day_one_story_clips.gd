@@ -133,6 +133,14 @@ func _run_behavioral_checks() -> void:
 	_check("the boss-defeated hook plays the transformation clip",
 		main._day_one_story_clip != null
 		and main._day_one_story_clip.movie_id == "d1_puff_transformation" and paused)
+	# The actual win returns the arena while the movie owns the paused tree.
+	# Its fade must reveal the video rather than stay black until the movie ends.
+	main._leave_arena()
+	await create_timer(0.4, true, false, true).timeout
+	_check("arena return reveals the movie while gameplay remains paused",
+		paused and main._day_one_story_clip != null
+		and main.fade_rect.modulate.a <= 0.001
+		and main.fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE)
 	main._on_day_one_hook_event(DayOneDirector.EVENT_DAY_TWO_BEGINS, {})
 	_check("the Day Two hook queues the epilogue behind it",
 		main._day_one_story_clip_queue == ["d1_epilogue"])
@@ -152,6 +160,15 @@ func _run_behavioral_checks() -> void:
 		and main.day_two_transition_active)
 	_check("a story clip never replays on the same save",
 		not main._day_one_play_story_clip("d1_puff_transformation"))
+	_check("a completed helping encounter can explicitly replay the unchanged emergence",
+		main._day_one_play_story_clip("d1_puff_transformation", true)
+		and main._day_one_story_clip.movie_id == "d1_puff_transformation" and paused)
+	main._day_one_story_clip.skip()
+	await _frames(3)
+	_check("replay completion restores input and retains watched progress",
+		not paused and main.day_one_story_clips_seen.has("d1_puff_transformation"))
+	_check("the repeat exception cannot replay unrelated watched story clips",
+		not main._day_one_play_story_clip("d1_epilogue", true))
 	main._write_save()
 	var saved: Variant = main.save_data.get("day_one_story_clips_seen", {})
 	_check("watched clips persist in the save",
@@ -186,6 +203,24 @@ func _run_behavioral_checks() -> void:
 	await _frames(3)
 	var director: DayOneDirector = friend_main._day_one_ref()
 	director.arrival_plane_media_seen = true
+	director.day_one_active = true
+	director.dirty_castle_discovered = false
+	friend_main.day_one_event_seen.erase(DayOneDirector.EVENT_DIRTY_CASTLE_DISCOVERY)
+	friend_main.day_one_story_clips_seen.erase("d1_castle")
+	CLIPS.headless_override = true
+	friend_main._enter_level2_now(true)
+	friend_main._enter_castle_interior()
+	_check("castle entry starts its reveal clip under the full rebuild cover",
+		friend_main._day_one_story_clip != null
+		and friend_main._day_one_story_clip.movie_id == "d1_castle" and paused
+		and friend_main.fade_rect != null and friend_main.fade_rect.modulate.a >= 0.98)
+	await create_timer(0.35, true).timeout
+	_check("the castle reveal clears while its story clip pauses the tree",
+		friend_main.fade_rect != null and friend_main.fade_rect.modulate.a <= 0.02
+		and friend_main.fade_rect.mouse_filter == Control.MOUSE_FILTER_IGNORE)
+	friend_main._day_one_story_clip.skip()
+	await _frames(3)
+	CLIPS.headless_override = false
 	director.day_one_active = false
 	friend_main._enter_level2_now(true)
 	friend_main._enter_castle_interior_now()
@@ -248,6 +283,7 @@ func _probe_castle_hidden_under_clip(main: ReefMain) -> void:
 	_check("the castle draws again when the clip ends",
 		main._day_one_story_clip == null and _castle_picture_visible(main)
 		and _castle_caption_visible(main) == caption_before)
+	main.day_one_story_clips_seen.erase("d1_castle")
 	_check("a second clip over the castle starts", main._day_one_play_story_clip("d1_castle"))
 	_check("the castle is hidden again under the second clip",
 		not _castle_picture_visible(main))

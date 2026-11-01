@@ -4926,6 +4926,14 @@ func _slide_drive_run(slide: SlideRaceGame,
 	if main.game != "slide" or slide.active_layer() == null:
 		return {}
 	var start_layer_id: int = slide.active_layer().get_instance_id()
+	var exit_layer: CanvasLayer = slide.active_layer()
+	var exit_chime: Dictionary = {}
+	var exit_observation: Dictionary = {"count": 0, "layer_id": 0}
+	var observe_exit: Callable = func() -> void:
+		exit_observation["count"] = int(exit_observation["count"]) + 1
+		exit_observation["layer_id"] = exit_layer.get_instance_id()
+		exit_chime.merge(_slide_chime_context(), true)
+	exit_layer.tree_exiting.connect(observe_exit, CONNECT_ONE_SHOT)
 	var start_surface: Node2D = slide.stage_root()
 	var start_surface_id: int = start_surface.get_instance_id() \
 		if start_surface != null else 0
@@ -5037,8 +5045,14 @@ func _slide_drive_run(slide: SlideRaceGame,
 			_slide_push_drag(point, point - last_point, source_index, source_device)
 		last_point = point
 		await process_frame
-	# process_frame resumes before the returned world's Node._process pass. This
-	# snapshot therefore binds synchronous Canvas teardown, not a later cleanup.
+	if is_instance_valid(exit_layer) and exit_layer.tree_exiting.is_connected(observe_exit):
+		exit_layer.tree_exiting.disconnect(observe_exit)
+	_slide_check("raw ride observes exactly its original Canvas layer exit",
+		int(exit_observation["count"]) == 1
+		and int(exit_observation["layer_id"]) == start_layer_id and not exit_chime.is_empty())
+	# The exit signal captures chime tuning inside teardown, before timer-driven
+	# fanfare steps can advance. The return guard is still sampled before the
+	# returned world's next Node._process pass.
 	var synchronous_return_guard: Dictionary = main.call(
 		"_slide_canvas_return_guard_snapshot") as Dictionary
 	var held_on_exit: bool = main.game == "" \
@@ -5056,7 +5070,7 @@ func _slide_drive_run(slide: SlideRaceGame,
 			expected_collection_visible)
 	var living_restored_on_exit: bool = main.game == "" \
 		and _slide_living_world_snapshot() == expected_living
-	var chime_on_synchronous_exit: Dictionary = _slide_chime_context()
+	var chime_on_synchronous_exit: Dictionary = exit_chime.duplicate(true)
 	var pose_lock_on_synchronous_exit: bool = main.game == "" \
 		and main.pose_t >= 0.0
 	await process_frame

@@ -1,0 +1,31 @@
+from pathlib import Path
+import subprocess, json, sys
+root = Path(__file__).resolve().parents[2]
+out = root / 'audit/grand_puff_care_20261017'
+assert not subprocess.check_output(['git', 'diff', '--name-only', '--diff-filter=U'], cwd=root).strip()
+care_files = ['scripts/audio_director.gd', 'scripts/dust_boss_lesson_2d.gd', 'scripts/dust_bunny_boss_sprite.gd', 'scripts/games/dust_boss.gd', 'scripts/grand_puff_care_2d.gd', 'scripts/main.gd', 'scripts/probe_audio.gd', 'scripts/probe_day_one_story_clips.gd', 'scripts/probe_dust_boss.gd']
+subprocess.run(['git', 'diff', '--exit-code', 'HEAD', '--', *care_files], cwd=root, check=True)
+subprocess.run([sys.executable, '-B', 'tmp/puff-crash/pin_care_source.py', 'source_pin_integration.json'], cwd=root, check=True)
+pin_path = out / 'source_pin_integration.json'
+pin = json.loads(pin_path.read_text(encoding='utf-8'))
+pin['integration_parent'] = subprocess.check_output(['git', 'rev-parse', 'MERGE_HEAD'], cwd=root, text=True).strip()
+pin['stage'] = 'Resolved uncommitted dev merge. Care gameplay files unchanged from care parent; incoming Opera scripts and all shared sources included in this new full-suite pin.'
+pin_path.write_text(json.dumps(pin, indent=2) + '\n', encoding='utf-8')
+source = (root / 'tmp/puff-crash/run_care_v2_ci.py').read_text(encoding='utf-8')
+for old, new in [
+    ('source_pin_final_v2.json', 'source_pin_integration.json'),
+    ('care-full-final-v2-ci.log', 'care-integration-ci.log'),
+    ('full_final_v2_ci_result.json', 'integration_ci_result.json'),
+    ('full_final_v2_ci.log', 'integration_ci.log'),
+    ('FULL_FINAL_V2_CI', 'INTEGRATION_CI'),
+]:
+    source = source.replace(old, new)
+(root / 'tmp/puff-crash/run_care_integration_ci.py').write_text(source, encoding='utf-8')
+(out / 'integration_ci_runner.py.txt').write_text(source, encoding='utf-8')
+(out / 'integration_resolution.py.txt').write_bytes((root / 'tmp/puff-crash/resolve_care_dev_appends.py').read_bytes())
+(out / 'integration_source_binding.py.txt').write_bytes((root / 'tmp/puff-crash/bind_care_index.py').read_bytes())
+impact_path = root / 'design/audit_impacts/grand-puff-care-20261017.json'
+impact = json.loads(impact_path.read_text(encoding='utf-8'))
+impact['validation'].append({'command': 'Resolved latest dev reconciliation: full unmodified local CI and exact combined source binding', 'result': 'PENDING', 'evidence': 'audit/grand_puff_care_20261017/integration_resolution.json; source_pin_integration.json; integration_ci_result.json and log; integration_source_binding.json. Original V2 full pass is retained separately. All decision content preserved; published incoming register sequence remains the append-only prefix.'})
+impact_path.write_text(json.dumps(impact, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+print('CARE_INTEGRATION_PREP|PASS|' + str(len(pin['source_files'])))

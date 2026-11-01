@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/audio_director.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/dust_boss_lesson_2d.gd",
+        "scripts/dust_bunny_boss_sprite.gd",
+        "scripts/games/dust_boss.gd",
+        "scripts/grand_puff_care_2d.gd",
+        "scripts/main.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/probe_audio.gd",
+        "scripts/probe_day_one_story_clips.gd",
+        "scripts/probe_dust_boss.gd",
+        "scripts/probe_opera.gd",
+        "scripts/probe_throne.gd"
+      ],
+      "exit": 0,
+      "seconds": 4.763
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/audio_director.gd",
+        "scripts/castle_career_routes.gd",
+        "scripts/dust_boss_lesson_2d.gd",
+        "scripts/dust_bunny_boss_sprite.gd",
+        "scripts/games/dust_boss.gd",
+        "scripts/grand_puff_care_2d.gd",
+        "scripts/main.gd",
+        "scripts/opera_house_venue_2d.gd",
+        "scripts/probe_audio.gd",
+        "scripts/probe_day_one_story_clips.gd",
+        "scripts/probe_dust_boss.gd",
+        "scripts/probe_opera.gd",
+        "scripts/probe_throne.gd"
+      ],
+      "exit": 0,
+      "seconds": 0.255
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit": 0,
+      "seconds": 12.722
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit": 0,
+      "seconds": 3.449
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "HEAD"
+      ],
+      "exit": 0,
+      "seconds": 0.382
+    }
+  ],
+  "protected_changes": [],
+  "original_encounter_profile_changes": [],
+  "log": "audit/grand_puff_care_20261017/integration_r2_final_gates.log"
+}

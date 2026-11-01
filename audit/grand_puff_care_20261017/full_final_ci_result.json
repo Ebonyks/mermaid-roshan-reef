@@ -1,0 +1,20 @@
+{
+  "status": "FAIL_PRESERVED",
+  "command": [
+    "C:\\Program Files\\Git\\bin\\bash.exe",
+    "scripts/ci.sh"
+  ],
+  "pid": 161540,
+  "source_pin": "audit/grand_puff_care_20261017/source_pin_final.json",
+  "started_epoch": 1792284265.2311606,
+  "engine": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+  "log": "tmp/puff-crash/care-full-final-ci.log",
+  "exit": 1,
+  "seconds": 1112.18,
+  "source_drift": [],
+  "probes": [],
+  "failure_lines": [
+    "FONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING",
+    "GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale"
+  ]
+}

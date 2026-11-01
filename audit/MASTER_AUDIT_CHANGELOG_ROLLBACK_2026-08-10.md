@@ -1960,6 +1960,15 @@ external acceptance gate before committing or integrating the recovery.
 
 ## 8. Maintenance rule
 
+### Studio dirty furniture CHG-036
+
+- Date: 2026-10-15. Owner reports identical tables before/after cleaning and transparency glitches; keeps the floor-supply phase.
+- Baseline: `5120b6d59885dd057937aaf284e73681d8eac9f5`. Candidate source and evidence are enumerated in `design/audit_impacts/studio-dirty-furniture-20261015.json`; no release or external acceptance claim.
+- Change: complete matched dirty/clean Canvas furniture cards, one shader draw per fixture, surface-bounded brush sweep, travel/pickup/storage before progress, focus/pause/exit cancellation, Back-versus-confirm separation, and removal of orphan frame-smoothing ghosts during saved-outfit refresh.
+- Dependencies: existing floor supplies, Roshan atlas and brush, additive cleanup/profile save keys, exact Godot 4.7.2 Mobile. New native art, rejected take, deterministic matte/registration builder and hashes are preserved under `assets_src/castle/studio_furniture_20261015/`.
+- Risks/evidence: local stress covers rapid taps, no actor/passive negatives, interrupted work, all eight grime save subsets, re-entry, exact touch targets and two aspects. The initial harness was obscured by a story clip; a later pixel review caught dirty-color multiplication in the clean shader. Those diagnostic failures are retained, never counted as visual acceptance. Full regression and external acceptance results remain explicit in the impact.
+- Rollback class: `manual_reconstruction`. Reconstruct the furniture/controller/picker/smoothing ownership coherently on a clean topic branch, preserve saves/originals/evidence, and rerun all gates. Do not reinstate remote awards, invisible Roshan or dirty/clean states that look identical as an accepted fallback.
+
 Any later commit that materially changes one of these behaviors must append a
 dated entry under the existing ID with its exact commit, path delta, new risks,
 new evidence, and changed rollback dependency. It must not rewrite the original
@@ -2055,6 +2064,42 @@ R95 replaces the flat pan renderer with a complete existing painted pan, byte-id
 CHG-104 source publication update: same painted pan reconciled to `1a4e8a1ceae29b401d63900a57a531b2f4442ba8`; actual import/static gates and all82 trusted probes PASS via documented probe-by-probe route, exact original failure preserved. Normal save/source guards unchanged. Runtime source manifest publishes actual candidate; remoteCI/Dev integration and formal/device/child/owner acceptance pending. No new generation/frame/removal count.
 
 
+### Grand Puff cold and care CHG-098
+
+- Date: 2026-10-17. Manual owner commission, not an automatic planner emitter.
+  Baseline `1a4e8a1ceae29b401d63900a57a531b2f4442ba8`; the original care source
+  and evidence are bound in [the impact](../design/audit_impacts/grand-puff-care-20261017.json)
+  and `audit/grand_puff_care_20261017/source_pin_final_v2.json`. The later dev
+  reconciliation has its own `source_pin_integration.json` and full-suite
+  receipt, preserving the original results separately.
+- Benefit: Grand Puff is a sick friend who welcomes cleaning. Warm Canvas
+  acting, soap contact and five neutral Guide cues replace hostile story
+  meaning. Original circles/lane, timing, windows, three saved rounds and
+  rewards remain. The unchanged selected emergence movie also supports a
+  completed helping replay; missing media safely preserves progress.
+- Bounded repair: actual displayed review found the arena-return fade frozen
+  opaque over the movie's paused tree. The negative handoff assertion fails
+  before the pause-mode correction. Post-repair 1280×720 and 1560×720 Mobile
+  captures show the selected movie and rainbow friend, then reach Day Two.
+- Source and risk: one cold-pose ImageGen call plus local Aseprite registration;
+  two additional emergence studies rejected at the action cap and never used
+  at runtime. Selected movie, protected book/family originals and rainbow
+  follower remain unchanged. Original prototype cleanup minutes were not
+  instrumented; final visual/motion/time-accounting acceptance remains open.
+  Legacy spatial kit compatibility remains measured debt, not final 2D.
+- Verification: explicit original-profile/cadence, actual touch, passive/held/
+  drag negatives, saved checkpoints, focus-loss entry recovery, first and
+  replay clip ownership, exact Guide priority/teardown and siblings are kept.
+  The console-launcher balance run passes all eight playing styles and four
+  negative controls. Incomplete direct-GUI headless runs and the original-
+  controller comparison remain diagnostic failures; no native exception was
+  observed and cause is unproven. Complete-suite and published-head statuses
+  remain separate in the impact. No device/child/owner or global closure.
+- Rollback: reverse only this scoped implementation on a clean topic and rerun
+  the exact-engine gates, preserving every save key, protected source and
+  immutable evidence. Never accept the known black fade or entry crash as a
+  runtime fallback. Technical rollback does not revoke the owner's care canon
+  or authorize retired 3D resources, family imitation or replacement footage.
 
 ### Direct Opera foyer entry and source recovery CHG-101
 
@@ -2233,3 +2278,38 @@ R114 CHG-120 verification: actualcandidate currentstatic/import/all82trusted/nat
 ### Dolls whole painted cradle sling — CHG-124
 
 [Impact](../design/audit_impacts/flat-vector-dolls-cradle-sling-20261031.json) / [candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/README.md), baseline `a290753627a06ca7b251c3423cce6cf6f5d13827`. Replace only three cradle semicircles with one whole painted softsling; original17other functions and functionalbowl/catch/input/save/reward/lifecycle exact. Benefits material/target/supportreadability; risks clamp clipping, bodycontact, phonecontrast and focuscueocclusion checked in bothaspects. Uniform122width paddedbase18px belowoldbowl, unchangedsettledfeet supported. Two static takes/one wideaspectreject; native100/16viewedframes,10priorbaselineframes reused no newcredit. No animation/protected edits. Manual bounded load/render rollback afterlaterconsumer review, never mixed-content automaticrevert. Fullgates/exactCI/normalDev/formal/external remain separate.
+### Demo story reveal and debug-surface freeze — CHG-125
+
+- Date 2026-10-31; exact baseline `a0bb2cf4691631a534e210a5fb60fd227213322f`; [impact](../design/audit_impacts/demo-dr1-dr2-20261031.json). Implements owner-approved demo packages DR1 and DR2 only: the shared synchronous rebuild cover keeps its full-black entry but its 0.25-second reveal processes while a Day One clip pauses the tree; the temporary Opera job-playtest elevator is disabled; the pause FPS label and per-frame update are editor-only. No clip pixels/timing, story order, career route, save key, art, audio or protected original changes.
+- Benefit: the child can see the castle reveal and Grand Puff transformation instead of hearing them under black, and demo builds omit two developer-facing surfaces. Risk is an early cover release, uncovered rebuild, touch interception, accidental Opera route loss or debug visibility in export. Deterministic focused legs assert the cover begins full, clears after 0.35 seconds while the real clip keeps the tree paused, ignores touch after reveal, and that the shipping Opera venue and all career routes remain available without the disabled elevator.
+- Exact Godot `4.7.2.stable.official.ed1daf0bf` import and focused `probe_day_one_story_clips.gd` / `probe_opera.gd` pass locally. Parser and inference gates pass. Exact candidate `d078b5c0ff4254830ed1e1336c6074479e9516d5` passes both jobs of GitHub Probe Suite run `41263860760`. Displayed desktop review of castle/transformation/epilogue, Lenovo Tab M11, save/install-over, child and owner acceptance remain separate and blocking; `MA-VIS-011` is only `FIXED_PENDING_VERIFICATION`.
+- Rollback class `manual_reconstruction`: from a clean descendant after reviewing later consumers, remove only the reveal tween pause-mode assignment, restore `OperaJobPlaytestMenu.ENABLED` and the FPS-label guards to this exact baseline, and remove only the corresponding new probe assertions. Preserve all unrelated later demo packages, save data, clip assets, career routes and protected sources. Re-run exact-engine focused/full gates; never broad-revert a mixed integration or push master directly.
+
+### Arborist spraying comprehension CHG-037
+
+- Date: 2026-10-15; owner asks to make Arborist spraying understandable. Exact source baseline `5120b6d59885dd057937aaf284e73681d8eac9f5`; implementation source commit `c02e8c88dc3ac8b5fbbdd4028e30eae753c12429` is bound to the tested GDScript hashes by the evidence receipt; the subsequent binding changes metadata only. [Impact](../design/audit_impacts/arborist-spray-20261015.json) enumerates every changed path and binds source hashes/evidence.
+- Benefit: the owned hold, local authored spray, hand cue and earned recovery refer to the same visible patient canopy. Release/cancel preserves the dose. Diagnosis, voices, star masks and save schema remain unchanged.
+- Risks: larger composition/contact placement, changed 1.6-second dose timing and phone touch feel require review. Original PNG/OGG sources are reused byte-for-byte; existing device/child/owner and game-wide MA-PLAY-004 gates remain open.
+- Dependencies: the existing optional Tree Book activity, measured carry/aim/spray/finish atlas, exact voice cues and version-1 checkpoint. No new paid generation or runtime dependency.
+- Evidence: focused/integrated Tree Book checks, real-viewport Mobile treatment/wide-touch captures, parser/lint, document/coverage gates and full local CI are recorded separately in the impact/verification receipt; missing evidence is not inferred green.
+- Rollback class: manual reconstruction on clean `codex/rollback-chg-037`. Restore only this change's Tree Book source/checks/current-doc deltas from the exact baseline, preserve additive checkpoints/protected originals and other agents' integration, then run focused and full gates. Do not restore the whole baseline tree or erase historical evidence.
+
+CHG-037 pictured-tip follow-up: final coordinate review found that v1's illustrated fingertip lay below its old touch bounds despite the57/64/82 machine pass. The superseded GitHub run38853605995 was canceled before integration and PR33 marked draft. The measured native fingertip socket, broader full-canopy target and actual pictured-tip viewport assertions now pass58 focused/65 integrated checks and the complete82/82 zero-exit local suite. Old evidence remains at immutable source `db1d8f78bfcd32aa005840bc6ce71c12c91dea52`; the corrected implementation source is `2f1808755a4f41999c6a9184727c2cb1c9abd82d`, bound to its tested hashes by the evidence receipt. External acceptance is unchanged.
+
+CHG-037 integration reconciliation: dev `dd799b2d43871b29d1d6e0503646308a194dad1e` landed the painted-doorframe repair under canonical CHG-036 while the Arborist PR was verifying. The Arborist draft's provisional36 label is reassigned to37 here; immutable prior commits/logs retain their original labels. Both licence and audit entries are preserved, incoming runtime files remain byte-identical to dev, and the combined source passes its full unchanged local gate (82/82 trusted probes,65 integrated Tree Book checks; hashes/raw stdout in the verification receipt). Exact published-head GitHub CI remains required before integration.
+## Opera foyer movement and four-door waves (CHG-100)
+
+- Owner request: 2026-10-17, recorded verbatim in [the request](opera_foyer_movement_20261017/owner_request.json). Roshan could not travel in the pictured foyer, career entries were unresponsive, and the owner requests the next four doors after all four bottom stages are complete. The earlier owner-requested extra-antechamber removal is preserved.
+- Exact source boundary: task baseline `d5e63a1ec6e79745da504ee3c3945e59ae35ea79`, retained dirty-baseline rescue `bf3e442d6772dcd7f53785ea4654922d6ed75839`, and reconciled integration parent `39b0e158db7de3d0c178c4444f97c04fda75bec5`. Implementation source `14cf8ed9218d2fff7033113782417bcae0df7965`, whose single parent is `39b0e158db7de3d0c178c4444f97c04fda75bec5`, is committed; [source binding](opera_foyer_movement_20261017/source_binding.json) records all seven exact candidate Git blobs and raw SHA-256 values. The [implementation binding](opera_foyer_movement_20261017/implementation_binding.json) verifies all1612 tested source paths with explicit checkout normalization and literal native evidence. The metadata followup changes no runtime; exact-head remote full CI and integration remain pending.
+- Exact runtime/probe paths: `scripts/opera_house_venue_2d.gd`, `scripts/castle_career_routes.gd`, `scripts/main.gd`, `scripts/chapter_two_director.gd`, `scripts/opera_job_playtest_menu.gd`, and `scripts/probe_opera.gd`, and `scripts/probe_opera_2d.gd`. The [impact](../design/audit_impacts/opera-foyer-movement-20261017.json) enumerates every affected governance/evidence/license path. No protected source art, recorded voice, save key, star identity, reward, retired boss slot, or new 3D resource is changed.
+- Intended benefit: touch/mouse/keyboard travel on declared floor/stair/lift lanes; arrival-gated entry to the existing games; reachable practice-book input; four bottom completions unlock four balcony games and remain unlocked after save/re-entry. Chapter Two keeps sequential party contributions and the authored Ballerina/Detective contexts. Existing art, crests and exact recorded objective lines are reused.
+- Risks and dependencies: projection or stair/lift/support presentation, doorway/actor overlap, focus/cancel ownership, alternate-aspect layout, Chapter Two phase/context or reward drift, and saved unlock interpretation. Dependencies are the shared `StageNavigation2D`, existing career adapters, director/save masks, recorded objective channel, and the scoped owner exception in `DL-INT-12`; historical CHG-026/027 and Chapter Two CHG-035 retain their dated scopes. R91 collection work at the reconciled parent is preserved.
+- Evidence and limits: the linked impact retains failing baseline, every focused/import attempt, native raw logs/hashes, final Mobile diagnostic images, live isolated touch inspection, and full-suite receipt as it completes. The outer full-ci-05 launcher reaches exit124 at90minutes; its exact partial log is preserved while the same verified native `scripts/ci.sh` process continues unchanged under a read-only process-handle observer. The native full run completes all82 but remains FAIL: two stale Opera2D assertions and two exit127 runs without final verdict. The documented probe-by-probe alternative must establish all82 successful programs with exact source agreement, including corrected Opera2D and unchanged balance/Start New retries, before commit. No failed full-run result is relabelled. Exact-head remote CI/integration remain separate. Formal two-aspect visual, voice listening, target-device performance/touch, observed child and owner acceptance remain pending; finding lifecycles and global UNSATISFIED are unchanged.
+- Rollback class: `manual_reconstruction`, with no sealed-planner emitter or ownership-inventory change. Start a clean `codex/rollback-chg-100` branch, inspect the eventual exact implementation commit and later callers, and reconstruct only the coherent seven-file navigation/input/plot-context/probe change and its current authority records. Preserve additive saves, sparse star identities, recorded evidence, protected originals, the earlier antechamber removal and unrelated concurrent work. Do not promote the immobile/unresponsive foyer, stale full-file main.gd, an unauthorized extra antechamber or 3D fallback as an accepted result. Inspect every diff, stop on conflict, and require parser/lint, authority/development/rollback checks, focused movement/entry/save/Chapter Two tests, approved-engine import/analyzer and the full trusted suite before any commit/push/merge of an inverse. Device/child/owner and release authority remain unchanged.
+
+
+CHG-100 final local gameplay verification: the documented probe-by-probe alternative verifies all82 trusted programs at unchanged production bytes. Corrected full Opera2D passes in63.646s, unchanged balance in254.977s, and unchanged Start New plus its independent actual Continue verifier in38.572s. [Reconciliation](opera_foyer_movement_20261017/probe_by_probe_verification.json) binds all1612 source paths, every program receipt and preserved red full-run history. No zero-exit full-ci-05, formal visual/device/child/owner, integration or release claim is made. Final metadata gates and exact-head remote full CI remain required.
+
+CHG-100 final metadata verification: [governance receipt](opera_foyer_movement_20261017/governance_final.json) passes79 tests,6/6 authority stress, complete706/706 authority inventory/ledger, all69 active/72 retained finding records, development coverage at39b0e158, shrink-only2D NO_REGRESSION and staged whitespace checks. All1612 script/tool/project sources are unchanged during these gates. Actual implementation-commit binding and exact-head remote full CI remain required before integration.
+
+CHG-100 exact implementation binding: `14cf8ed9218d2fff7033113782417bcae0df7965` / parent `39b0e158db7de3d0c178c4444f97c04fda75bec5` / tree `9de4ecc88919667baad22d086a0cf7be526719c2`; all1612 tested source paths map to committed blobs (911 literal, 701 explicit CRLF-to-LF), including seven literal changed scripts. All80 committed audit artifacts are byte-exact and no assets change. This metadata-only binding earns required authority/coverage checks before publication; it grants no external acceptance.

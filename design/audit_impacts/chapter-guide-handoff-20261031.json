@@ -1,0 +1,115 @@
+{
+  "id": "chapter-guide-handoff-20261031",
+  "scope": "Owner-requested review of the master audit as a development guide for future chapters, delivered as a written Codex handoff with a read-only measurement tool and a chapter-map seed. It opens MA-DOC-010 and routes the New chapter task and the chapter planning answer to it. It benefits the child indirectly: the next chapter gets the story so far, where it fits, how it plugs into the code and Chapter 2's lessons, so it is less likely to ship a dead end like MA-PLAY-005 or contradict canon the child already knows. No game script, scene, asset, audio, save key or workflow is changed, and no image is made.",
+  "baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "integration_reconciliation": {
+    "candidate_baseline": "bb6217d010f03ce22830d6f9ff1ef8347aaab9b3",
+    "source_tip": "3a69202559a20e235a05e087db756e514b1e16d7",
+    "source_probe_run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41236100059",
+    "resolution": "Documentation-only conflict resolution retained both the current MA-VIS-011/demo-readiness history and the incoming MA-DOC-010/chapter-guide history. The combined integration candidate still requires successful exact-head Probe Suite evidence before entering dev."
+  },
+  "rules": [
+    "DL-AUTH-02",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-01",
+    "DL-PLAN-02",
+    "DL-PLAN-05",
+    "DL-PLAN-06",
+    "DL-QA-02",
+    "DL-SAVE-04",
+    "DL-CODE-10",
+    "DL-CIN-16"
+  ],
+  "findings": [
+    "MA-DOC-010"
+  ],
+  "finding_scope": "MA-DOC-010 is opened CONFIRMED_OPEN P2 from static and Git-history evidence at dev 218ae766. MA-DOC-006, MA-DOC-007, MA-DOC-008, MA-DOC-009, MA-PLAY-001, MA-PLAY-005 and MA-PLAY-006 are cited as related, not changed.",
+  "files": [
+    "docs/handoffs/codex_chapter_guide_2026-10-31/.gdignore",
+    "docs/handoffs/codex_chapter_guide_2026-10-31/README.md",
+    "docs/handoffs/codex_chapter_guide_2026-10-31/MANIFEST.json",
+    "docs/handoffs/codex_chapter_guide_2026-10-31/data/measurements_218ae766.json",
+    "docs/handoffs/codex_chapter_guide_2026-10-31/data/chapter_map_seed.json",
+    "docs/handoffs/codex_chapter_guide_2026-10-31/tools/measure_chapter_guide.py",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B docs/handoffs/codex_chapter_guide_2026-10-31/tools/measure_chapter_guide.py --rev 218ae766f8e60afb3f6338b8fafce28ec9fab7f2 --output docs/handoffs/codex_chapter_guide_2026-10-31/data/measurements_218ae766.json",
+      "result": "PASS",
+      "evidence": "Read-only run against the committed baseline; every number in the handoff README and the MA-DOC-010 record is taken from this output."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH|INVENTORY=748|LEDGER=748|ACTIVE=72|RECORDS=75 and DOCAUTH|RESULT|ALL OK on the staged tree before the first commit."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV|BASE|218ae766f8e60afb3f6338b8fafce28ec9fab7f2 and AUDITDEV|RESULT|ALL OK before the first commit."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Ran 54 tests, OK; DOCAUTH|STRESS|6/6."
+    },
+    {
+      "command": "python -B tools/plan_prompt.py --check and python -B tools/record_owner_decision.py --check",
+      "result": "PASS",
+      "evidence": "PROMPTS: ALL OK; DECISIONS|COUNT|60 and DECISIONS|RESULT|ALL OK (no catalogue or register change in this task)."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "GAME2D RESULT NO_REGRESSION (exact shrinking baseline); migration debt remains UNSATISFIED and unchanged. Run on the working tree before the first push and again after the last edit to this record."
+    },
+    {
+      "command": "Probe Suite (GitHub Actions) on the pushed work-branch head",
+      "result": "PENDING",
+      "evidence": "Required green before merging into dev."
+    },
+    {
+      "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed revision, compared with MANIFEST.json SHA-256",
+      "result": "PENDING",
+      "evidence": "Required before reporting the handoff delivered."
+    }
+  ],
+  "acceptance_gaps": "Nothing is implemented. Every work package CG0-CG8, the owner's answers to Q1-Q5 and the owner's review of the result (V7) remain open. The chapter-map seed is a starting point to re-verify, not an authority. No device, child or visual claim applies to this documentation change.",
+  "lessons": [
+    {
+      "lesson": "Counting chapter save keys by grepping scripts/save_state.gd found 2 day_one_ keys, but DayOneDirector.serialize_state() returns 26; count keys at each serializer, not only in the save owner.",
+      "write_back": "docs/handoffs/codex_chapter_guide_2026-10-31/tools/measure_chapter_guide.py (serialize_state_keys) and CG4 of the handoff"
+    },
+    {
+      "lesson": "The first, chat-only analysis said the two chapter directors share no common structure; measuring their public functions showed a shared informal interface (hook_event, serialize_state, restore_state) that no document records.",
+      "write_back": "CG4: the chapter-director section of design/03_TECHNICAL_ARCHITECTURE.md"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md",
+      "purpose": "Canon register, brief V2 and decision-backfill plans that CG2 and CG7 build on"
+    },
+    {
+      "path": "docs/handoffs/codex_master_audit_refinement_2026-09-30/seed/canon_seed.json",
+      "purpose": "21 seed entities and 15 conflicts for the canon slice"
+    },
+    {
+      "path": "docs/handoffs/codex_reference_consolidation_2026-09-30/REFERENCE_PLAN.md",
+      "purpose": "References R04 and R08, so CG3 and CG6 do not duplicate them"
+    },
+    {
+      "path": "docs/handoffs/codex_rumi_book_revision_2026-10-17/GAME_INTEGRATION.md",
+      "purpose": "The proposed book-led chapter listed in the chapter-map seed"
+    },
+    {
+      "path": "design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md",
+      "purpose": "Chapter 2 ending, the candle theft and the Prince's role"
+    }
+  ]
+}
