@@ -44,7 +44,7 @@ unclassified until this ledger gains one new scoped row for it.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V44 paired-door repair and34-entry consistency audit with two open findings; exact V43/V42 body; owner/child/SLP/physical print and arrival imposition/gutter held. |
+| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V45 exact-language draft23/25implemented,11/15held; V44 art/continuity and owner/child/SLP/print holds preserved. |
 | `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; Static-book source/identity/layout rules and scoped owner exceptions through V44 bounded door repair and consistency-audit direction, plus the V45 owner moral decision (2026-10-31: empathy for dust bunnies who cause problems but just need help; friendship makes big jobs possible; text-only). Manuscript/character standards preserved; arrival imposition/gutter and print held. Second-AI compliance review is supporting evidence, not new creative authority; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
@@ -816,14 +816,14 @@ Kept as-is; noted so a future edit updates every copy.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V44 current page plan; exact32 owner captions and source mapping; doublewide physical imposition held. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V44 current scoped door review and comprehensive34-entry audit; two open continuity findings and owner/print holds. |
+| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V45 current delivered captions;23updates,11/15held, unchanged order and imposition hold. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V45 scoped language/layout checks with two held captions and inherited continuity/owner/print holds. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
 | `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performances and v17 repository-detail score; frightened lower-right stages supersede the quiet reveal; owner acceptance remains open. |
 
-| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V44 editorial continuity/readability analysis; two open scenery/prop findings, exact manuscript and child/SLP evidence open. |
+| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V45 empathy/friendship arc and explicit11/15text gaps; child/SLP and inherited art findings open. |
 
 | `books/chapter_one/reviews/2026-09-30/REVIEW.md` | ⚪ | `HISTORICAL_EVIDENCE`; unchanged-V27 comprehensive comparison and recommendations. V28 implements selected corrections; unresolved source/print questions remain current through landscape/REVIEW.md. |
 
@@ -871,10 +871,16 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Sealed V43 cover/title and unchanged V42 body; superseded for door structure by V44, no whole-book acceptance. |
 | `books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/peer_review/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Sealed V43 iterative critique; V44 reopens missed door structure, no inherited feature acceptance. |
 
-| `books/chapter_one/landscape/revisions/v44_door_and_consistency/README.md` | 🔵 | `SUPPORTING_CURRENT`; Current V44 cover doorway repair and full34-entry audit; two inherited continuity findings remain open. |
+| `books/chapter_one/landscape/revisions/v44_door_and_consistency/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Sealed V44 door repair/full34-entry audit, two continuity findings remain open; V45 owns current text draft. |
 | `books/chapter_one/handoffs/2026-10-31_v45_story_language/README.md` | 🔵 | `SUPPORTING_CURRENT`; owner-approved V45 text-only work order for Codex (2026-10-31): new captions on 25 pages and the page-21 bubbles so the book states one moral (dust bunnies who cause problems just need help; friends make big jobs possible), with exact words in MANUSCRIPT.json. Written by Claude without images; V45 not started; no art, print, child or SLP acceptance. |
 | `books/chapter_one/handoffs/2026-10-31_v45_story_language/CRITIQUE.md` | 🔵 | `SUPPORTING_CURRENT`; Claude's story and language critique of V44 (eight ranked problems, the moral's threads, Roshan's arc, resolutions, relatability and the page-by-page V45 text); editorial evidence for the V45 work order, not owner, child, SLP or print acceptance. |
 
 | `books/chapter_one/landscape/revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; Current primary character/scenery/layout audit with page-specific evidence, proposed bounded repairs and explicit acceptance holds. |
 
 | `books/chapter_one/landscape/revisions/v44_door_and_consistency/peer_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Independent full-book and final-cover critique navigation; scope satisfaction and creative acceptance separate. |
+
+| `books/chapter_one/landscape/revisions/v45_story_language_r02_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Current V45 language/plot draft;23of25exact captions and page21bubbles;11/15held. |
+
+| `books/chapter_one/landscape/revisions/v45_story_language_r02_review/HELD_PAGES.md` | 🔵 | `SUPPORTING_CURRENT`; Explicit work-order shortening requests for11/15; no unauthorized word/art/type-size change. |
+
+| `books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Independent scoped critique navigation; implemented scope,held pages and human/print acceptance separate. |

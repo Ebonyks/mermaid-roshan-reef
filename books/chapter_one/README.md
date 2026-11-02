@@ -1,9 +1,9 @@
 # Mermaid Roshan and the Dust Bunnies
 
-Status: SUPPORTING_CURRENT; [V44 door repair and whole-book consistency audit](landscape/revisions/v44_door_and_consistency/README.md).
+Status: SUPPORTING_CURRENT; [V45 story/language draft](landscape/revisions/v45_story_language_r02_review/README.md).
 
-[Read](landscape/revisions/v44_door_and_consistency/complete/READ_BOOK.html) · [Reading PDF](landscape/revisions/v44_door_and_consistency/complete/Mermaid_Roshan_and_the_Dust_Bunnies_V44.pdf) · [Comprehensive audit](landscape/revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md) · [Design language](DESIGN_LANGUAGE.md).
+[Read](landscape/revisions/v45_story_language_r02_review/complete/READ_BOOK.html) · [Email PDF](landscape/revisions/v45_story_language_r02_review/complete/Mermaid_Roshan_Book_V45_Email.pdf) · [Page status and caption movements](landscape/revisions/v45_story_language_r02_review/README.md#requested-page-report) · [Held pages](landscape/revisions/v45_story_language_r02_review/HELD_PAGES.md).
 
-Grand Puff's cover doorway now has two opened leaves, four complete hinges and paired handles. Original character/cameo artwork is preserved; the title shifts slightly left for clearance. Both reviewers inspected all34 entries. Characters are broadly consistent, but opening geography and seahorse fountain ornament remain open continuity findings.
+23of25 exact requested captions and the page21 apology/promise bubbles are implemented. Stories11/15retain exact V44 pending shorter supplied words; no text was cut or reduced. The moral is empathy for dust bunnies and doing big jobs with friends. All artwork, covers,34-entry mixed-width order and type sizes remain. V44 and its source originals are preserved.
 
-All33 other entries remain exact V43/V42 reading pages. This34-entry mixed-width illustration review is not an imposed print edition. Arrival page assignment/gutter and V41 printPart2, owner illustrations, physical print, child and qualifiedSLP remain held. Prior versions are preserved; no game/release change.
+Owner new-story-fact/illustration acceptance, V44's two art continuity findings, arrival imposition/gutter, V41 printPart2, child/SLP and physical proof remain open. No game/release changes.

@@ -1,13 +1,9 @@
-# V44 cover and story comprehension
+# V45 empathy, asking for help and friendship
 
-Status: SUPPORTING_CURRENT. V44 repairs the paired cover door and title clearance. The fresh34-entry review retains two open scenery/prop continuity findings, [documented here](revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md). All story words remain unchanged. The selected title is Mermaid Roshan and the Dust Bunnies. The cover foregrounds two gentle lavender bunnies and retains the worried doorway Puff, matching the castle-care and friendship story. Lamma is a hidden sighting behind the blue bucket. The story text and all33 body/rear renders remain V42-exact; the prior scoped arrival analysis follows. Owner,child and qualifiedSLP acceptance remain separate.
+Status: SUPPORTING_CURRENT; editorial review, not a child/SLP session. [Work order](../handoffs/2026-10-31_v45_story_language/README.md) and [implemented scope](revisions/v45_story_language_r02_review/README.md).
 
-## Preserved V42 arrival analysis
+The care story now connects Roshan's overwhelmed reaction, Daddy's small-job advice, her promise at the stuck door, the bunnies' needs, reciprocal help, asking friends, forgiveness and belonging. The art and sequence remain V44. Page21 changes excuse to apology plus future promise. Its authorized top-caption fallback has a literal spatial reading-order limitation; the intended oral order remains in the manuscript.
 
-Status: SUPPORTING_CURRENT; editorial evidence separate from child and qualifiedSLP acceptance.
+Stories11and15are held with old captions: the new Rumi introduction/request and the expanded cup-out/water-out sentence are not implemented. The rest of the new arc remains visible; do not claim25/25. Synthetic voiced rehearsal/editorial cadence review does not close actual human or child read-aloud. New story facts still await owner reading. Separate question-card anchor data records delivered words; its other branch is unchanged.
 
-The cropped wide arrival gives more page area to the actual setting and less to empty sky/foreground. Left water/posts/stone landing,plane,next playground,and the continuous route to the four-tower castle/right lagoon remain visible together in original geography. Original words/manual breaks remain. The next castle-entrance illustration and dialogue are retained, so flight->arrival->entrance remains explicit in this review.
-
-All33other proofs retain the existing care story,visible door dust,waterfall/rainbow,Eagle under two bunnies,tissue boxes,apology and finale. No source or character redesign. Actual physical page placement is pending: converting this wide review entry to two bound pages adds one interior unit and changes later recto/verso/reveal parity. That mapping,printed gutter,owner acceptance,child reading,SLP andphysical print remain open.
-
-[Source/crop and sequence](revisions/v42_doublewide_arrival/REVISION_REVIEW.html) · [Independent review](revisions/v42_doublewide_arrival/peer_review/README.md).
+V44's island/Sky Lagoon and seahorse-forehead continuity findings remain open, as do owner illustrations, V41 printPart2, arrival imposition/parity/gutter, physical print and qualifiedSLP.

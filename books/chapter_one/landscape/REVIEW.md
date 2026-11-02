@@ -1,9 +1,7 @@
-# V44 door repair and comprehensive book review
+# V45 story/language review
 
-Status: SUPPORTING_CURRENT. [Full audit](revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md) · [Before/after](revisions/v44_door_and_consistency/REVISION_REVIEW.html) · [Exact checks](revisions/v44_door_and_consistency/complete/verification.json) · [Independent critique](revisions/v44_door_and_consistency/peer_review/README.md).
+Status: SUPPORTING_CURRENT. [Exact per-page report](revisions/v45_story_language_r02_review/README.md) · [Held-page request](revisions/v45_story_language_r02_review/HELD_PAGES.md) · [Machine checks](revisions/v45_story_language_r02_review/complete/verification.json) · [Independent critique](revisions/v45_story_language_r02_review/peer_review/README.md).
 
-The missing cover door half/hardware is repaired locally. Paired leaves, four hinges and two handles frame original Puff; natural edge occlusion is declared. Both title lines shift together20logicalpt left. Dust-bunny cover hierarchy and hidden Lamma remain.
+23of25 requested captions are implemented.11is held for contrast/space and15for caption overlap with Roshan's tail; both remain exact V44. Page21 uses the explicitly allowed single-top-caption fallback; it does not literally place the happy reply after the lower bubbles. All words/punctuation on implemented pages match the supplied manuscript; only wrapping/quiet caption geometry changes.
 
-Fresh primary and second-AI audits individually reviewed all34 entries. No additional definite character anatomy/costume contradiction was confirmed. Two inherited visual continuity findings remain open: story1 island/ocean versus story2 Sky Lagoon geography, and seahorse forehead/horn across11,15,16. Scoped repair satisfaction does not pass whole-book consistency. Proposed bounded repairs are documented.
-
-All33 body/rear entries retain exact renders/text/boxes/vectors/native images/alpha. Physical arrival imposition/parity/gutter, V41 printP1–P8, owner/child/SLP and print remain held.
+V44 caption gate77PASS/7OUTLINE_REQUIRED/0FAIL; V45 99/9/0 with identical method and thresholds. Source/font/art streams and all34 caption-free/outside-caption pixels match.11unchanged entries remain exact. Owner, human read-aloud/child/SLP, print and inherited art-continuity holds remain separate.
