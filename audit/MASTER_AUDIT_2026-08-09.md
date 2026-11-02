@@ -2003,6 +2003,82 @@ finding records; section 10 controls that designation.
   mono, device, child, and human listening remain open. No bulk transcode or
   metadata-only upsample is accepted as repair.
 
+#### Audit addendum: ensemble review and palette gaps (2026-11-01)
+
+This addendum adds findings only. It does not change existing decisions, the
+owner-endorsed mission statement, cue acceptance status or the demo freeze, and
+it does not change the `MA-AUDIO-001` state above. Context: the
+[sonic identity proposal](../design/music/SONIC_IDENTITY_PROPOSAL_2026-11-01.md),
+[ensemble design guide](../design/music/ENSEMBLE_DESIGN_GUIDE_2026-11-01.md)
+and [palette map](../design/music/SONIC_PALETTE_MAP_2026-11-01.json).
+
+##### Design intent (owner clarification)
+
+The ensemble is a **bottom-up** design. Performer profiles supply color and
+performance character; orchestration is intentionally not pinned. Cohesion
+comes from the shared grammar (motif fragments, harmonic warmth,
+call-and-response), not from fixed arrangement roles.
+
+**Acceptance rule for a profile:** it must translate into render decisions, not
+identity alone. Each profile names at least: time feel (swing, placement
+against the beat), velocity range and touch, phrase length and breath or space,
+and the articulations it relies on in the chosen program. Examples:
+
+- Ranglin: stroke placement, space between answers, soft velocity ceiling.
+- Modeliste: ghost-note density and hat swing, mapped to Falcon swing and
+  velocity layers.
+- Mann / Gasparyan: breath points, phrase-end shape, attack articulations.
+
+##### Monkey Island influence (owner-stated; likely the largest game influence)
+
+The owner identifies *Monkey Island* (notably *Monkey Island 2: LeChuck's
+Revenge*, music by Michael Land, Peter McConnell and Clint Bajakian) as
+probably the project's largest game influence, alongside the existing
+[*Donkey Kong Country* reference](../design/music/SONIC_IDENTITY_PROPOSAL_2026-11-01.md#what-the-donkey-kong-country-reference-provides).
+This adds to that section; it does not replace it.
+
+| What to study | Roshan translation |
+|---|---|
+| Caribbean-flavored score with wit and character | Afro-Caribbean warmth carried by personality and humor, not by genre signifiers alone |
+| iMUSE: one tune re-arranged per location, crossfaded as the player moves | A theme survives a change of lead and ensemble between places; this is the strongest precedent for the "family connection survives a change of instrument" rule |
+| Transitions that land on musical boundaries | Location handoffs resolve at phrase or bar points, not mid-phrase cuts |
+| Character and place themes in a shared idiom | Supports the Theatre and Home families: concise, singable identities that still belong to one score |
+
+Study target only; adaptive runtime behavior remains outside this proposal's
+scope and the demo freeze.
+
+##### Open findings from the band review
+
+1. **DJ/producer slot is unnamed** and carries the lo-fi directive plus the
+   downtempo half of Water and reverie. Name it first. Candidates: Bonobo
+   (downtempo built around world instruments), Nujabes (jazz-sample lo-fi).
+2. **Four rendered programs lack a performer anchor:** valiha, udu, Jazzistic
+   upright bass, brushed kit. Valiha reference: Justin Vali. Upright and
+   brushes: Monty Alexander's trio recordings with John Clayton and Jeff
+   Hamilton. Udu: assign explicitly to the Hussain or Santamaria profile.
+3. **Modeliste profile** should center his sampled breaks as lo-fi source
+   material rather than his dense live feel.
+4. **Uncovered roles:** nylon/bossa guitar for Home and companionship;
+   Celtic-idiom fiddle for Weather (Grappelli covers swing/Theatre); Ember King
+   chiptune has no reference.
+5. **Tabla** (Hussain) is not in the palette; his profile must name the UVI
+   program it maps to.
+
+##### Library gaps (pending audition of installed banks; no purchase proposed)
+
+Installed: BeatBox Anthology 2, Jazzistic, KeySuite Acoustic, LoFi Dreams,
+Percussion Factory, Sunbird, World Suite 3. Percussion Factory and KeySuite
+Acoustic are not yet listed in the palette map and should be added.
+
+| Gap | Candidate UVI fill | Condition |
+|---|---|---|
+| Electric funk bass (Porter) | Soul Bass | Highest value per cost |
+| Live soul kit (Modeliste) | Soul Drums | Can be processed toward lo-fi |
+| Water-family depth | One Falcon pad expansion (Ether Fields, Atmospherics or Organic Pads) | After LoFi Dreams textures are auditioned |
+| Foreground electric piano | Attack EP88 or Key Suite Electric | Only if LoFi Dreams EP falls short |
+| Solo violin | IRCAM Solo Instruments 2 | Only if World Suite 3 bowed programs fall short; known to sound dry |
+| Clean electric guitar (Ranglin, Nocentelli) | No dedicated UVI library; Eternal Funk demos worth checking | Otherwise Sunbird and Tchad nylon carry guitar roles |
+
 ### MA-PLAY-001 — normal-play reachability
 
 - **State:** P1, `CONFIRMED_OPEN`, V1/V3 partial.
