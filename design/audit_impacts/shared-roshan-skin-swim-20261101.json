@@ -556,6 +556,7 @@
     "assets_src/animation/roshan_shared_swim_20261101/tools/run_project_gates.py",
     "assets_src/animation/roshan_shared_swim_20261101/tools/verify_publication.py",
     "assets_src/animation/roshan_shared_swim_20261101/tools/write_results.py",
+    "assets_src/review/shared_roshan_publication_20261101.json",
     "design/animation/skin_binding/attachment_mesh.schema.json",
     "design/animation/skin_binding/rig_binding.schema.json",
     "design/animation/skin_binding/skin.recipe.template.json",
@@ -589,6 +590,11 @@
       "command": "Owner-held master audit raw-byte guard",
       "result": "PASS",
       "evidence": "assets_src/animation/roshan_shared_swim_20261101/evidence/master_audit_guard.json"
+    },
+    {
+      "command": "Anonymous HTTPS fetch of manifest and every required file at immutable source revision d51012425321b1afc9789599cb4ddfe18b025e70",
+      "result": "PASS",
+      "evidence": "assets_src/review/shared_roshan_publication_20261101.json"
     }
   ],
   "acceptance_gaps": "Source prototype machine checks pass. Exact human identity/style/fin-interpolation/natural-motion review, actual-device performance/lifecycle, child/owner and production integration remain open. No finding closure. Master audit unchanged and writeback explicitly not authorized.",
@@ -611,5 +617,14 @@
       "write_back": "Source fin material, audit_native_geometry.py and three negative controls; proposed master entry held."
     }
   ],
-  "performance_scope": "Desktop Mobile renderer and size/cache/estimated-byte evidence only. Offline 30fps sampling is not frame-time evidence. Actual Speedy-tier Lenovo Tab M11 transparency/shader/decoded/GPU memory/lifecycle acceptance remains pending."
+  "performance_scope": "Desktop Mobile renderer and size/cache/estimated-byte evidence only. Offline 30fps sampling is not frame-time evidence. Actual Speedy-tier Lenovo Tab M11 transparency/shader/decoded/GPU memory/lifecycle acceptance remains pending.",
+  "source_publication": {
+    "source_revision": "d51012425321b1afc9789599cb4ddfe18b025e70",
+    "payload_sha256": "bffad7a9810121e533b0aa2264601f7d94b8fd14407a4c79e8adee1b177acc1c",
+    "required_files": 528,
+    "verified_payload_bytes": 529926069,
+    "access_mode": "Anonymous HTTPS to immutable raw GitHub revision; no Authorization header, cookies or GitHub credentials.",
+    "receipt": "assets_src/review/shared_roshan_publication_20261101.json",
+    "scope": "This metadata-only change records the already sealed source packet. Its immutable manifest names source revision A; no packet/runtime/master file changes."
+  }
 }
