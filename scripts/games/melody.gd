@@ -48,6 +48,10 @@ const OBJECTIVE := "Tap each rainbow note in the green!"
 const OBJECTIVE_VOICE := "op_popstar_rhythm"
 
 
+const APRON_BODY_PATH := "res://assets/melody/stage_apron_painted.png"
+const APRON_RAINBOW_PATH := "res://assets/melody/stage_apron_rainbow_painted.png"
+
+
 class ProsceniumCanvas extends Control:
 	const NAVY := MelodyGame.NAVY
 	const INK := MelodyGame.INK
@@ -62,7 +66,8 @@ class ProsceniumCanvas extends Control:
 	var left_curtain: Polygon2D = null
 	var right_curtain: Polygon2D = null
 	var crown_header: Polygon2D = null
-	var stage_apron: Polygon2D = null
+	var stage_apron: NinePatchRect = null
+	var apron_rainbow: NinePatchRect = null
 	var coverage_ratio := 0.0
 
 
@@ -73,7 +78,30 @@ class ProsceniumCanvas extends Control:
 		left_curtain = _polygon("LeftCurtainGeometry", PINK.darkened(0.17))
 		right_curtain = _polygon("RightCurtainGeometry", LAVENDER.darkened(0.20))
 		crown_header = _polygon("CrownHeaderGeometry", INK)
-		stage_apron = _polygon("StageApronGeometry", INK_SOFT)
+		stage_apron = NinePatchRect.new()
+		stage_apron.name = "PaintedStageApronBody"
+		stage_apron.texture = load(MelodyGame.APRON_BODY_PATH) as Texture2D
+		stage_apron.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		stage_apron.patch_margin_left = 16
+		stage_apron.patch_margin_right = 16
+		stage_apron.patch_margin_top = 8
+		stage_apron.patch_margin_bottom = 8
+		stage_apron.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		stage_apron.focus_mode = Control.FOCUS_NONE
+		stage_apron.z_index = -1
+		add_child(stage_apron)
+		apron_rainbow = NinePatchRect.new()
+		apron_rainbow.name = "PaintedStageApronRainbow"
+		apron_rainbow.texture = load(MelodyGame.APRON_RAINBOW_PATH) as Texture2D
+		apron_rainbow.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		apron_rainbow.patch_margin_left = 12
+		apron_rainbow.patch_margin_right = 12
+		apron_rainbow.patch_margin_top = 0
+		apron_rainbow.patch_margin_bottom = 0
+		apron_rainbow.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		apron_rainbow.focus_mode = Control.FOCUS_NONE
+		apron_rainbow.z_index = 0
+		add_child(apron_rainbow)
 
 
 	func layout(rect: Rect2, viewport_size: Vector2) -> void:
@@ -108,12 +136,10 @@ class ProsceniumCanvas extends Control:
 			Vector2(size.x * 0.20, header_height),
 			Vector2(0.0, header_height * 0.78),
 		])
-		stage_apron.polygon = PackedVector2Array([
-			Vector2(0.0, lower_y),
-			Vector2(size.x, lower_y),
-			Vector2(size.x, size.y),
-			Vector2.ZERO + Vector2(0.0, size.y),
-		])
+		stage_apron.position = Vector2(0.0, lower_y)
+		stage_apron.size = Vector2(size.x, apron_height)
+		apron_rainbow.position = Vector2(side_width * 0.72, lower_y + 11.0)
+		apron_rainbow.size = Vector2(size.x - side_width * 1.44, 60.0)
 		var covered_area: float = size.x * (header_height + apron_height) \
 			+ side_width * 2.0 * (size.y - header_height - apron_height)
 		coverage_ratio = covered_area / maxf(viewport_size.x * viewport_size.y, 1.0)
@@ -146,12 +172,6 @@ class ProsceniumCanvas extends Control:
 			var radius: float = 150.0 - float(color_index) * 10.0
 			draw_arc(crown_center, radius, PI + 0.20, TAU - 0.20, 40,
 				NOTE_COLORS[color_index], 8.0, true)
-		# Foot-level rainbow rails turn the lower frame into a runway.
-		for color_index in range(NOTE_COUNT):
-			var rail_y: float = size.y - apron_height + 14.0 + float(color_index) * 9.0
-			draw_line(Vector2(side_width * 0.72, rail_y),
-				Vector2(size.x - side_width * 0.72, rail_y),
-				NOTE_COLORS[color_index], 6.0, true)
 		# Warm bulbs make the proscenium instantly legible even at arm's length.
 		var bulb_count: int = maxi(12, int(size.x / 66.0))
 		for bulb_index in range(bulb_count):

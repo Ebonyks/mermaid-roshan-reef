@@ -71,6 +71,12 @@ const EXPECTED_STAGE_NODES: Array[String] = [
 ]
 
 
+const APRON_BODY_PATH := "res://assets/melody/stage_apron_painted.png"
+const APRON_BODY_SHA256 := "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee"
+const APRON_RAINBOW_PATH := "res://assets/melody/stage_apron_rainbow_painted.png"
+const APRON_RAINBOW_SHA256 := "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c"
+
+
 class CountingAudioDirector:
 	extends AudioDirector
 
@@ -502,6 +508,21 @@ func _check_asset_contract() -> void:
 	_check("exact non-reader objective voice is present and immutable",
 		ResourceLoader.exists(VOICE_PATH)
 		and FileAccess.get_sha256(VOICE_PATH) == VOICE_SHA256)
+	for item: Dictionary in [
+		{"path": APRON_BODY_PATH, "sha": APRON_BODY_SHA256, "size": Vector2i(1024, 73)},
+		{"path": APRON_RAINBOW_PATH, "sha": APRON_RAINBOW_SHA256, "size": Vector2i(522, 60)},
+	]:
+		var path: String = item["path"]
+		var image := Image.load_from_file(path)
+		var import_text := FileAccess.get_file_as_string(path + ".import")
+		_check("painted apron exact whole asset/hash/size/import/license " + path,
+			image != null and image.get_size() == item["size"]
+			and FileAccess.get_sha256(path) == item["sha"]
+			and import_text.contains("compress/mode=0")
+			and import_text.contains("mipmaps/generate=true")
+			and import_text.contains("\"vram_texture\": false")
+			and licenses.contains(path.trim_prefix("res://")))
+
 
 
 func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
@@ -875,6 +896,8 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 	var expected_paths: Array[String] = TILE_PATHS.duplicate()
 	expected_paths.append(DADDY_PATH)
 	expected_paths.append(ROSHAN_PATH)
+	expected_paths.append(APRON_BODY_PATH)
+	expected_paths.append(APRON_RAINBOW_PATH)
 	var exact_once := counts.size() == expected_paths.size()
 	var decoded_bytes := 0
 	var declared_upload_bytes := 0
@@ -889,7 +912,7 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 		var import_text := FileAccess.get_file_as_string(path + ".import")
 		declared_upload_bytes += pixels if import_text.contains(
 			"compress/mode=2") else pixels * 4
-	_check("live Canvas binds only four tiles, Daddy, and Roshan exactly once each",
+	_check("live Canvas binds four tiles, two actors and two painted apron textures exactly once",
 		exact_once)
 	_check("unique live texture census stays within conservative decoded and declared-upload bounds",
 		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024
@@ -942,10 +965,7 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 			or not (zone is Control) or not (pointer is Control):
 		return false
 	if not _exact_direct_child_names(scenic, TILE_NODE_NAMES) \
-			or not _exact_typed_geometry_children(proscenium, [
-				"LeftCurtainGeometry", "RightCurtainGeometry",
-				"CrownHeaderGeometry", "StageApronGeometry",
-			], []) \
+			or not _painted_apron_contract(proscenium) \
 			or not _exact_typed_geometry_children(
 				footlights, [], ["FootlightRailGeometry"]) \
 			or not _exact_typed_geometry_children(
@@ -1125,6 +1145,10 @@ func _collect_visual_rects(node: Node, rects: Array[Rect2]) -> void:
 			var alpha_rect: Rect2 = _texture_rect_alpha_rect(texture_rect)
 			if alpha_rect.has_area():
 				rects.append(alpha_rect)
+	elif node is NinePatchRect:
+		var alpha_rect: Rect2 = _nine_patch_alpha_rect(node as NinePatchRect)
+		if alpha_rect.has_area():
+			rects.append(alpha_rect)
 	elif node is ColorRect:
 		var color_rect := node as ColorRect
 		if color_rect.color.a > 0.02:
@@ -2676,3 +2700,82 @@ func _finish() -> void:
 	else:
 		print("MELODY|result: %d FAIL" % bad)
 		quit(1)
+
+func _painted_apron_contract(node: Node) -> bool:
+	if not (node is Control):
+		return false
+	var frame := node as Control
+	if not _exact_direct_child_names(frame, [
+		"LeftCurtainGeometry", "RightCurtainGeometry", "CrownHeaderGeometry",
+		"PaintedStageApronBody", "PaintedStageApronRainbow",
+	]) or frame.z_index != 10 or frame.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+			or frame.focus_mode != Control.FOCUS_NONE:
+		return false
+	for name: String in ["LeftCurtainGeometry", "RightCurtainGeometry", "CrownHeaderGeometry"]:
+		if not (frame.get_node_or_null(name) is Polygon2D):
+			return false
+	var apron_height: float = clampf(frame.size.y * 0.145, 92.0, 106.0)
+	var side_width: float = clampf(frame.size.x * 0.15, 176.0, 230.0)
+	var lower_y: float = frame.size.y - apron_height
+	for spec: Dictionary in [
+		{"name": "PaintedStageApronBody", "path": APRON_BODY_PATH,
+			"position": Vector2(0.0, lower_y), "size": Vector2(frame.size.x, apron_height),
+			"source_size": Vector2(1024.0, 73.0), "z": -1, "side": 16, "top": 8},
+		{"name": "PaintedStageApronRainbow", "path": APRON_RAINBOW_PATH,
+			"position": Vector2(side_width * 0.72, lower_y + 11.0),
+			"size": Vector2(frame.size.x - side_width * 1.44, 60.0),
+			"source_size": Vector2(522.0, 60.0), "z": 0, "side": 12, "top": 0},
+	]:
+		var part: Node = frame.get_node_or_null(String(spec["name"]))
+		if not (part is NinePatchRect):
+			return false
+		var card := part as NinePatchRect
+		if card.texture == null or card.texture.resource_path != String(spec["path"]) \
+				or card.texture.get_size() != spec["source_size"] \
+				or card.position.distance_to(spec["position"]) > 0.001 \
+				or card.size.distance_to(spec["size"]) > 0.001 \
+				or card.z_index != int(spec["z"]) or card.get_child_count() != 0 \
+				or card.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+				or card.focus_mode != Control.FOCUS_NONE or card.modulate != Color.WHITE \
+				or card.self_modulate != Color.WHITE or card.scale != Vector2.ONE \
+				or card.rotation != 0.0 or card.material != null \
+				or card.texture_filter != CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+				or card.region_rect != Rect2() or not card.draw_center \
+				or card.patch_margin_left != int(spec["side"]) \
+				or card.patch_margin_right != int(spec["side"]) \
+				or card.patch_margin_top != int(spec["top"]) \
+				or card.patch_margin_bottom != int(spec["top"]):
+			return false
+	return true
+
+
+func _nine_patch_alpha_rect(item: NinePatchRect) -> Rect2:
+	var source: Texture2D = _source_texture(item.texture)
+	if source == null:
+		return Rect2()
+	var used: Rect2i = _texture_alpha_used_rect(source)
+	if used.size == Vector2i.ZERO:
+		return Rect2()
+	var source_size: Vector2 = source.get_size()
+	var rect: Rect2 = item.get_global_rect()
+	var left: float = _nine_patch_axis(float(used.position.x), source_size.x, rect.size.x,
+		float(item.patch_margin_left), float(item.patch_margin_right))
+	var right: float = _nine_patch_axis(float(used.end.x), source_size.x, rect.size.x,
+		float(item.patch_margin_left), float(item.patch_margin_right))
+	var top: float = _nine_patch_axis(float(used.position.y), source_size.y, rect.size.y,
+		float(item.patch_margin_top), float(item.patch_margin_bottom))
+	var bottom: float = _nine_patch_axis(float(used.end.y), source_size.y, rect.size.y,
+		float(item.patch_margin_top), float(item.patch_margin_bottom))
+	return Rect2(rect.position + Vector2(left, top), Vector2(right - left, bottom - top))
+
+
+func _nine_patch_axis(value: float, native_size: float, target_size: float,
+		begin: float, end: float) -> float:
+	if value <= begin:
+		return value
+	if value >= native_size - end:
+		return target_size - (native_size - value)
+	return begin + (value - begin) * (target_size - begin - end) \
+		/ maxf(native_size - begin - end, 1.0)
+
+
