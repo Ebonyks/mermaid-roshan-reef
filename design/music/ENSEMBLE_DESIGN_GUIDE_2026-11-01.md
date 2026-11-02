@@ -25,7 +25,7 @@ The original **Donkey Kong Country** provides the whole-score architecture refer
 | Traditional/world percussion collaborator | tabla, dholak, djembe, udu, frame and regional drum sets | [Zakir Hussain — Making Music (1987)](https://ecmrecords.com/product/making-music-zakir-hussain/); [Mamady Keita — Mogobalu concert context](https://www.ttmda.com/accreditation/mamady-keita/global-presence.php) |
 | Wind collaborator | flute, low whistle, recorder, related breathy wind programs | [Herbie Mann — Memphis Underground (1969)](https://music.apple.com/us/album/memphis-underground/76153610) |
 | Pitched-percussion collaborator | steel pan, balafon, marimba, vibraphone, small struck bells | [Andy Narell — Coffee Street, The Passage (pan-jazz ensemble reference)](https://music.apple.com/us/album/coffee-street-feat-calypsociation/1622052143?i=1622052150) |
-| Electronic-production collaborator | UVI electronic drums, sampler/synth voices, original processed band stems, authorized RetroPlug/LSDJ | Current foundation: [Nujabes — Reflection Eternal](https://music.apple.com/us/song/1445812716) and [J Dilla — Donuts](https://www.stonesthrow.com/store/donuts/). Additional pop/dance/chip contexts use the matrix below. |
+| Electronic-production collaborator | UVI electronic drums, sampler/synth voices, original processed band stems, authorized RetroPlug/LSDJ | Owner-selected identity: **Bonobo — Simon Green**. [Kiara / Black Sands](https://ninjatune.net/release/bonobo/black-sands), [Cirrus](https://downloads.ninjatune.net/release/bonobo/cirrus) and [Break Apart / Kerala](https://downloads.ninjatune.net/release/bonobo/migration). Focused pop/dance/chip studies extend this identity. |
 
 These are conceptual capabilities. The [roster data](ENSEMBLE_ROSTER_2026-11-01.json) distinguishes previously rendered programs from broader instrument choices needing exact preset/articulation auditions. The reference artists are creative study points, not participants in this project or claims that they played every proposed instrument.
 
@@ -133,12 +133,15 @@ A kit menu is a sound source. The proposed part still identifies the drums, idio
 
 ## The producer's reference matrix
 
-The owner identifies this as the most complex chair and questions Quantic as its fit. **One fictional production chair has a broad reference board.** No one real musician is expected to supply the game's entire electronic language. Quantic is now an optional organic-context reference, pending fit review.
+**Bonobo is the owner-selected single primary artistic identity for this producer.** The [detailed producer profile](performers/producer.md) defines the musician’s compositional, instrumental, rhythmic and production knowledge. Other references solve specific pop, dance or chip questions; they do not share equal identity-defining weight. Quantic remains historical optional context. This resolves the earlier uncertainty about the producer’s primary reference.
+
+The proposed working habits are deliberate bass/percussion relationships, transformed original acoustic material, evolving layers, selective withdrawals and clear returns. Use those habits to serve the approved tune and scene. [Bonobo’s first-person production account](https://www.ableton.com/en/blog/bonobo-path-to-migration/)
 
 The following are proposed production goals and reference-study questions, not a completed listening/transcription analysis or accepted cue plans.
 
 | Mode | Concrete anchors | Roshan arranging goal | When uncertain |
 |---|---|---|---|
+| Bonobo identity | **Kiara**, **Black Sands**, **Cirrus**, **Break Apart**, **Kerala** | A developed original song with a clear hook, bass identity, acoustic/electronic interplay and meaningful entrances and withdrawals. | Preserve the tune; choose one part to lead and remove layers that hide its purpose. |
 | Current lo-fi foundation | Nujabes: **Reflection Eternal** (2005); J Dilla: **Last Donut of the Night**, *Donuts* (2006) | Warm beat/bass identity, a clear melodic idea and spacious movement. | Develop phrasing, placement and arrangement; preserve useful instrument body and headroom. |
 | Pop song architecture | KPop Demon Hunters: **Golden** and **How It's Done** | A strong instrumental topline, distinct verse/pre-chorus/chorus personalities and a contrasting bridge with narrative purpose. | Identify the hook and its lead player; make the chorus arrival clear through harmony, register and orchestration. |
 | Bright dance | Madeon: **Pay No Mind (feat. Passion Pit)** (2015) | A buoyant pulse, bright harmonic lift and melodic exchange between synths and the band. | Develop bass movement, harmonic rhythm or texture before increasing loudness. |
@@ -174,7 +177,7 @@ Keep the general UVI/Sunbird instrument family for the other band roles. The exc
 
 ### The producer performs with the band
 
-The chair's continuing identity is playful rhythmic precision, loyalty to the written hook and intentional handoffs. A new genre changes the chosen production vocabulary while those habits remain recognizable.
+The chair’s continuing identity is Bonobo-informed musicianship: deliberate rhythmic detail, bass movement, acoustic/electronic dialogue, loyalty to the written hook and intentional handoffs. A new genre changes the chosen production vocabulary while those habits remain recognizable.
 
 Pop Star and celebrations can choose the pop/dance lanes. Racer and Galaxy can choose chip beats or a declared hybrid. Water/reverie may choose a small electronic atmosphere or no active producer part. These are casting options for review, not mandatory assignments.
 
@@ -234,3 +237,8 @@ All eight family seating lists in the roster are **capability options**. Choose 
 Every cue brief records: purpose and hook; proposed form; active members and selected instruments; role changes, foreground/groove leaders, handoffs and rests by section; exact programs and readiness; instrument/context references; traditional percussion idiom; lo-fi treatment and any producer mode; source material, overdubs and ending.
 
 The overall mission, collective concept, traditional-member addition and current lo-fi direction are owner-directed. Specific capability ranges, references, exact presets and cue casts remain proposals for review. Existing studies remain unaccepted for release. The UVI/Sunbird instrument family and specific RetroPlug/LSDJ exception continue; demo, protected-source and release authority are unchanged.
+
+
+## Performer profiles in song construction
+
+Each of the ten core members and five guest families now has an individual [performer profile](performers/README.md), with a corresponding [master-audit log](../../audit/MASTER_AUDIT_2026-08-09.md#soundtrack-performer-logs). Use its technique, knowledge, physical limits, references and actual preset evidence in each song’s call sheet. Record the profile revision, selected program and active articulation, phrase/dynamics, section roles, handoffs and acceptance questions before building. Detailed profile capabilities remain proposed artistic guidance; a native render is not performance acceptance.

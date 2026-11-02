@@ -44,7 +44,9 @@
         "from": "foreground hook",
         "to": "picked ostinato",
         "trigger": "The section changes emotional purpose or foreground musician."
-      }
+      },
+      "profile": "design/music/performers/strings_a.md",
+      "profile_revision": 1
     },
     {
       "id": "strings_b",
@@ -81,7 +83,9 @@
         "from": "groove figure",
         "to": "chord movement",
         "trigger": "The section changes emotional purpose or foreground musician."
-      }
+      },
+      "profile": "design/music/performers/strings_b.md",
+      "profile_revision": 1
     },
     {
       "id": "keys",
@@ -118,7 +122,9 @@
         "from": "melody",
         "to": "ostinato",
         "trigger": "The section changes emotional purpose or foreground musician."
-      }
+      },
+      "profile": "design/music/performers/keys.md",
+      "profile_revision": 1
     },
     {
       "id": "bass",
@@ -155,7 +161,9 @@
         "from": "foundation",
         "to": "countermelody",
         "trigger": "The section changes emotional purpose or foreground musician."
-      }
+      },
+      "profile": "design/music/performers/bass.md",
+      "profile_revision": 1
     },
     {
       "id": "acoustic_drums",
@@ -192,7 +200,9 @@
         "from": "groove lead",
         "to": "textural pulse",
         "trigger": "The section changes emotional purpose or foreground musician."
-      }
+      },
+      "profile": "design/music/performers/acoustic_drums.md",
+      "profile_revision": 1
     },
     {
       "id": "afro_caribbean_percussion",
@@ -235,7 +245,9 @@
         "from": "groove lead",
         "to": "call and response",
         "trigger": "The section changes emotional purpose or foreground musician."
-      }
+      },
+      "profile": "design/music/performers/afro_caribbean_percussion.md",
+      "profile_revision": 1
     },
     {
       "id": "traditional_percussion",
@@ -276,7 +288,9 @@
         "trigger": "A drum phrase becomes the central musical idea."
       },
       "contextual_artist": "Mamady Keita",
-      "contextual_recording": "Mogobalu (1998 concert-film context)"
+      "contextual_recording": "Mogobalu (1998 concert-film context)",
+      "profile": "design/music/performers/traditional_percussion.md",
+      "profile_revision": 1
     },
     {
       "id": "winds",
@@ -313,7 +327,9 @@
         "from": "foreground tune",
         "to": "sustained harmonic color",
         "trigger": "The section changes emotional purpose or foreground musician."
-      }
+      },
+      "profile": "design/music/performers/winds.md",
+      "profile_revision": 1
     },
     {
       "id": "pitched_percussion",
@@ -351,17 +367,19 @@
         "from": "foreground tune",
         "to": "counterline",
         "trigger": "The section changes emotional purpose or foreground musician."
-      }
+      },
+      "profile": "design/music/performers/pitched_percussion.md",
+      "profile_revision": 1
     },
     {
       "id": "producer",
       "chair": "Electronic-production collaborator",
-      "artist": "Multiple reference teams/artists, selected by cue and section",
-      "recording": "Current lo-fi foundation: Nujabes / J Dilla; cue-specific pop, dance, chip and organic contexts",
-      "reference": "https://www.netflix.com/tudum/articles/kpop-demon-hunters-soundtrack",
+      "artist": "Bonobo / Simon Green",
+      "recording": "Kiara; Black Sands; Cirrus; Break Apart; Kerala",
+      "reference": "https://www.ableton.com/en/blog/bonobo-path-to-migration/",
       "function": "Context-selected composition and performance roles: beat lead, foreground hook, harmonic bed, motif development, soundscape, transition.",
-      "habit": "Co-compose the musical context, select its reference lane and create original electronic parts or transformations. A world-drum performance may seed the beat; a synth or chip voice may own the tune.",
-      "uncertainty": "For the current score, begin from the lo-fi foundation and name any cue-specific pop, dance or chip lane. Name the hook, groove leader and handoff; use processing to develop the phrase.",
+      "habit": "Develop an original song through deliberate bass/percussion relationships, acoustic/electronic dialogue, transformed original band material, meaningful entrances/withdrawals and clear melodic returns.",
+      "uncertainty": "Use Bonobo as the coherent primary identity; select a supplemental pop, dance or chip principle only for a named cue need. Preserve the approved hook and a clear section leader.",
       "tone": "A warm, full modern mix with selected bright or retro voices. Chip timbres are deliberate instruments, with controlled edge and audible bass identity.",
       "uvi": [
         "lofi_electric_piano_smokey"
@@ -384,7 +402,8 @@
           "applications": [
             "current general rhythmic foundation; adapted to cue purpose"
           ],
-          "status": "OWNER_DIRECTED_LOFI_FOUNDATION_PROPOSED_REFERENCE_TRACKS"
+          "status": "OWNER_DIRECTED_LOFI_FOUNDATION_PROPOSED_REFERENCE_TRACKS",
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
         },
         {
           "id": "pop_architecture",
@@ -400,7 +419,8 @@
             "Pop Star",
             "Theatre",
             "celebration"
-          ]
+          ],
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
         },
         {
           "id": "bright_dance",
@@ -415,7 +435,8 @@
             "Racer",
             "playful motion",
             "celebration"
-          ]
+          ],
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
         },
         {
           "id": "retro_chip_beats",
@@ -434,7 +455,8 @@
             "Astronaut",
             "mechanism play",
             "Ember King - owner-directed chiptune identity"
-          ]
+          ],
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
         },
         {
           "id": "console_color",
@@ -451,7 +473,8 @@
           "applications": [
             "selected electronic/discovery cues only"
           ],
-          "readiness": "Owner-authorized RetroPlug/LSDJ installed for authentic Game Boy. This does not establish NES/SNES production-cart or UVI patch readiness."
+          "readiness": "Owner-authorized RetroPlug/LSDJ installed for authentic Game Boy. This does not establish NES/SNES production-cart or UVI patch readiness.",
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
         },
         {
           "id": "organic_bridge_optional",
@@ -465,7 +488,8 @@
           "applications": [
             "selected warm downtempo contexts"
           ],
-          "status": "OPTIONAL_REFERENCE_PENDING_FIT_REVIEW"
+          "status": "OPTIONAL_REFERENCE_PENDING_FIT_REVIEW",
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
         }
       ],
       "authorized_exception": {
@@ -493,12 +517,15 @@
         "soundscape",
         "transition"
       ],
-      "capability_status": "Proposed conceptual instrument range. Previously rendered programs listed in uvi; other exact programs/articulations need audition.",
+      "capability_status": "Detailed profile proposed; five electronic/lo-fi kit configurations have native audition evidence. Exact additional instruments and performances retain their own readiness checks.",
       "role_shift_example": {
         "from": "beat lead",
         "to": "harmonic bed",
         "trigger": "The section changes emotional purpose or foreground musician."
-      }
+      },
+      "primary_identity_status": "OWNER_SELECTED",
+      "profile": "design/music/performers/producer.md",
+      "profile_revision": 2
     }
   ],
   "guests": [
@@ -520,7 +547,9 @@
         "counterpart or rhythmic/harmonic pattern",
         "atmospheric support"
       ],
-      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition."
+      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition.",
+      "profile": "design/music/performers/kora.md",
+      "profile_revision": 1
     },
     {
       "id": "harp",
@@ -540,7 +569,9 @@
         "counterpart or rhythmic/harmonic pattern",
         "atmospheric support"
       ],
-      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition."
+      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition.",
+      "profile": "design/music/performers/harp.md",
+      "profile_revision": 1
     },
     {
       "id": "fiddle",
@@ -560,7 +591,9 @@
         "counterpart or rhythmic/harmonic pattern",
         "atmospheric support"
       ],
-      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition."
+      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition.",
+      "profile": "design/music/performers/fiddle.md",
+      "profile_revision": 1
     },
     {
       "id": "duduk",
@@ -580,7 +613,9 @@
         "counterpart or rhythmic/harmonic pattern",
         "atmospheric support"
       ],
-      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition."
+      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition.",
+      "profile": "design/music/performers/duduk.md",
+      "profile_revision": 1
     },
     {
       "id": "aux_percussion",
@@ -601,7 +636,9 @@
         "counterpart or rhythmic/harmonic pattern",
         "atmospheric support"
       ],
-      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition."
+      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition.",
+      "profile": "design/music/performers/aux_percussion.md",
+      "profile_revision": 1
     }
   ],
   "family_seating_options": {
@@ -735,5 +772,7 @@
     "groove": "Choose intentional placement and swing where it serves the song; acoustic and ambient cues can express this through sparse pulse or space.",
     "fidelity": "Preserve warm body, note identity and clean masters. Hiss, pitch drift and bit reduction are optional designed colors; exact treatments require audition.",
     "kit_readiness": "Existing brushed Jazzistic and UVI percussion programs verified. Owner reports world kits; select exact world/BBA programs before production use."
-  }
+  },
+  "performer_profiles": "design/music/performers/registry.json",
+  "construction_workflow": "design/music/performers/README.md"
 }

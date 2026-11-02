@@ -1,9 +1,9 @@
 -- Native UVI MIDI construction and per-part EQ stem rendering; no desktop input.
 local path=debug.getinfo(1,'S').source:sub(2):gsub('\\','/')
 local root=assert(path:match('^(.*)/tools/reaper/[^/]+$'))
-local build=root..'/build/warm_ensemble_20261101/'
-local package=root..'/assets_src/audio/music/warm_ensemble_20261101/'
-assert(reaper.GetResourcePath():gsub('\\','/'):find('/build/reaper-profile-warm',1,true),'Isolated soundtrack worker only')
+local build=_G.ROSHAN_AUTHORING_BUILD or root..'/build/warm_ensemble_20261101/'
+local package=_G.ROSHAN_AUTHORING_PACKAGE or root..'/assets_src/audio/music/warm_ensemble_20261101/'
+assert(reaper.GetResourcePath():gsub('\\','/'):find(_G.ROSHAN_RESOURCE_GUARD or '/build/reaper-profile-warm',1,true),'Isolated soundtrack worker only')
 reaper.Audio_Init();local ok,mode=reaper.GetAudioDeviceInfo('MODE');assert(ok and mode=='Dummy Audio')
 assert(reaper.CountTracks(0)==0,'Protect nonempty projects')
 local function write(p,s)local f=assert(io.open(p,'wb'));f:write(s);f:close()end
@@ -63,7 +63,8 @@ for _,s in ipairs(scores)do
   reaper.GetSetMediaTrackInfo_String(tr,'P_NAME',t.name,true)
   reaper.GetSetMediaTrackInfo_String(tr,'P_EXT:RoshanPartID',t.id,true)
   reaper.GetSetMediaTrackInfo_String(tr,'P_EXT:RoshanLibrary',t.library,true)
-  reaper.SetMediaTrackInfo_Value(tr,'D_VOL',1);reaper.SetMediaTrackInfo_Value(tr,'D_PAN',0)
+  reaper.SetMediaTrackInfo_Value(tr,'D_VOL',1);reaper.SetMediaTrackInfo_Value(tr,'D_PAN',t.ensemble_pan or 0)
+  if t.stereo_width then reaper.SetMediaTrackInfo_Value(tr,'D_WIDTH',t.stereo_width)end
   gain_envelope(tr,s,t)
   reaper.SetMediaTrackInfo_Value(tr,'D_VOL',assert(part_gains[s.id][t.id]))
   local fx=reaper.TrackFX_AddByName(tr,'VST3i: Falcon (UVI)',false,-1);assert(fx==0)

@@ -1,13 +1,19 @@
 -- Apply measured album gain and a transparent native peak guard to saved sessions.
 local path=debug.getinfo(1,'S').source:sub(2):gsub('\\','/')
 local root=assert(path:match('^(.*)/tools/reaper/[^/]+$'))
-local build=root..'/build/warm_ensemble_20261101/'
-local package=root..'/assets_src/audio/music/warm_ensemble_20261101/'
-assert(reaper.GetResourcePath():gsub('\\','/'):find('/build/reaper-profile-warm',1,true))
+local build=_G.ROSHAN_AUTHORING_BUILD or root..'/build/warm_ensemble_20261101/'
+local package=_G.ROSHAN_AUTHORING_PACKAGE or root..'/assets_src/audio/music/warm_ensemble_20261101/'
+assert(reaper.GetResourcePath():gsub('\\','/'):find(_G.ROSHAN_RESOURCE_GUARD or '/build/reaper-profile-warm',1,true))
 reaper.Audio_Init();reaper.Audio_Init();local ok,mode=reaper.GetAudioDeviceInfo('MODE');assert(ok and mode=='Dummy Audio')
 local gains=dofile(build..'master_gains.lua');local scores=dofile(package..'performance.lua')
+local selected_cue=_G.ROSHAN_SCORE_CUE
+if _G.ROSHAN_AUTHORING_BUILD then
+ local f=io.open(build..'cue_filter.txt','rb')
+ if f then local v=f:read('*a'):match('^%s*(.-)%s*$');f:close();if #v>0 then assert(v:match('^[a-z_]+$'));selected_cue=v end end
+end
+if selected_cue then local chosen={};for _,s in ipairs(scores)do if s.id==selected_cue then chosen[#chosen+1]=s end end;assert(#chosen==1);scores=chosen end
 local function file(n,s)local f=assert(io.open(build..n,'w'));f:write(s);f:close()end
-local receipt=assert(io.open(build..'native_mastering.tsv','w'))
+local receipt=assert(io.open(build..'native_mastering.tsv',_G.ROSHAN_AUTHORING_BUILD and 'a'or'w'))
 receipt:write('cue\tproject\talbum_gain_db\tlimiter_threshold\tlimiter_ceiling\tlimiter_release_db_per_sec\n')
 local function set_display(tr,fx,p,target,tolerance)
  local lo,hi=0,1
@@ -23,7 +29,7 @@ for _,s in ipairs(scores)do
  for _,kind in ipairs({'composition','mix'})do
   file('current.txt','Mastering '..s.id..' '..kind)
   reaper.Main_OnCommand(40859,0);reaper.Main_openProject(build..s.id..'_'..kind..'.rpp')
-  dofile(root..'/tools/reaper/reference_bus_guards.lua')(s)
+  if not _G.ROSHAN_SKIP_LEGACY_GUARDS then dofile(root..'/tools/reaper/reference_bus_guards.lua')(s)end
   local master=reaper.GetMasterTrack(0);assert(reaper.TrackFX_GetCount(master)==4)
   reaper.SetMediaTrackInfo_Value(master,'D_VOL',1)
   local global=nil
@@ -32,7 +38,7 @@ for _,s in ipairs(scores)do
   local gain_display=set_display(master,2,global,gains[s.id],.051)
   reaper.TrackFX_SetNamedConfigParm(master,2,'renamed_name',string.format('Album gain %+0.2f dB',gains[s.id]))
   reaper.TrackFX_SetEnabled(master,1,true)
-  local peak=-4.8
+  local peak=_G.ROSHAN_MASTER_CEILING or -4.8
   local threshold=set_display(master,3,0,peak);local ceiling=set_display(master,3,1,peak);reaper.TrackFX_SetParamNormalized(master,3,2,.3548134)
   local _,release=reaper.TrackFX_GetFormattedParamValue(master,3,2,'') -- 15 dB/sec, not milliseconds
   reaper.TrackFX_SetEnabled(master,3,true)

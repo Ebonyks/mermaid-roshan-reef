@@ -2,7 +2,7 @@
 
 Status: **Owner-endorsed overall mission statement with proposed implementation details**. The owner regards the overall sonic design as the mission statement; detailed palettes, programs and cue casts remain for review. The owner has commissioned a game-wide, multi-genre design phase and added the original 1994 SNES *Donkey Kong Country* as a concrete influence. Opera House, Sky Lagoon and Castle are improving studies; the owner has explicitly not accepted them for release. This proposal develops the musical language before further cue construction.
 
-The [ensemble design guide](ENSEMBLE_DESIGN_GUIDE_2026-11-01.md) organizes this direction as a collective of multi-instrumentalist creatives, including a DJ/producer and an additional traditional/world percussion member. Instrument families and historical/contextual references guide shifting roles, collaborative writing and cue-specific orchestration.
+The [ensemble design guide](ENSEMBLE_DESIGN_GUIDE_2026-11-01.md) organizes this direction as a collective of multi-instrumentalist creatives, including a **Bonobo-led DJ/producer** and an additional traditional/world percussion member. Instrument families and historical/contextual references guide shifting roles, collaborative writing and cue-specific orchestration.
 
 ## Sound identity
 
@@ -153,3 +153,8 @@ Review the identity, family map and thematic roles first. Then audition the cont
 Keep the established REAPER/Falcon/Lua workflow, editable individual parts and printed mixes. EQ and dynamics begin at the instrument source, followed by ensemble balance and restrained mastering. Preserve earlier versions and clear authorship, program and render records.
 
 The existing audio mix, voice protection, routing, mobile and human-listening requirements remain binding. The current demo freeze keeps this work on a source/design branch; this proposal does not insert new music into the demo. Musical identity and cue acceptance remain owner decisions, separately from machine checks.
+
+
+## Performer knowledge and construction
+
+The [individual performer profiles](performers/README.md) develop the collective’s skills, techniques, references and instrument limits for practical song construction. The producer’s single primary identity is now **Bonobo**, by owner direction; focused pop/dance/chip references remain useful extensions. Each song’s plan records who leads, supports, answers or rests, and which verified instrument/articulation realizes the part. The [master-audit logs](../../audit/MASTER_AUDIT_2026-08-09.md#soundtrack-performer-logs) track every performer separately. Revised cue plans remain for owner review before new full arrangements.

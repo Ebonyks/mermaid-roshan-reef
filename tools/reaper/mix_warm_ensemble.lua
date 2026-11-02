@@ -1,16 +1,22 @@
 -- Balance native MIDI sessions and create reproducible printed-stem mixes.
 local path=debug.getinfo(1,'S').source:sub(2):gsub('\\','/')
 local root=assert(path:match('^(.*)/tools/reaper/[^/]+$'))
-local build=root..'/build/warm_ensemble_20261101/'
-local package=root..'/assets_src/audio/music/warm_ensemble_20261101/'
-assert(reaper.GetResourcePath():gsub('\\','/'):find('/build/reaper-profile-warm',1,true))
+local build=_G.ROSHAN_AUTHORING_BUILD or root..'/build/warm_ensemble_20261101/'
+local package=_G.ROSHAN_AUTHORING_PACKAGE or root..'/assets_src/audio/music/warm_ensemble_20261101/'
+assert(reaper.GetResourcePath():gsub('\\','/'):find(_G.ROSHAN_RESOURCE_GUARD or '/build/reaper-profile-warm',1,true))
 reaper.Audio_Init()
 reaper.Audio_Init();local ok,mode=reaper.GetAudioDeviceInfo('MODE');assert(ok and mode=='Dummy Audio',tostring(ok)..':'..tostring(mode))
 assert(reaper.CountTracks(0)==0,'Empty private worker required')
 local scores=dofile(package..'performance.lua');local gains=dofile(build..'group_gains.lua');local groups=dofile(build..'groups.lua')
+local selected_cue=_G.ROSHAN_SCORE_CUE
+if _G.ROSHAN_AUTHORING_BUILD then
+ local f=io.open(build..'cue_filter.txt','rb')
+ if f then local v=f:read('*a'):match('^%s*(.-)%s*$');f:close();if #v>0 then assert(v:match('^[a-z_]+$'));selected_cue=v end end
+end
+if selected_cue then local chosen={};for _,s in ipairs(scores)do if s.id==selected_cue then chosen[#chosen+1]=s end end;assert(#chosen==1);scores=chosen end
 local function db(x)return 10^(x/20)end
 local function write(path,s)local f=assert(io.open(path,'w'));f:write(s);f:close()end
-local log=assert(io.open(build..'mix_controls.tsv','w'))
+local log=assert(io.open(build..'mix_controls.tsv',_G.ROSHAN_AUTHORING_BUILD and 'a'or'w'))
 local function formatted(tr,fx,p,target)
  local lo,hi=0,1
  for i=1,32 do
@@ -65,6 +71,7 @@ local function room_and_master(s,offset)
  reaper.TrackFX_SetParam(master,comp,4,0);reaper.TrackFX_SetParam(master,comp,10,0);reaper.TrackFX_SetParam(master,comp,11,1)
  reaper.TrackFX_SetParam(master,comp,15,0);reaper.TrackFX_SetParam(master,comp,16,0)
  formatted(master,comp,7,90);formatted(master,comp,14,3)
+ if _G.ROSHAN_BUS_TIMING then formatted(master,comp,1,1.35);formatted(master,comp,2,25);formatted(master,comp,3,150)end
  local gain=reaper.TrackFX_AddByName(master,'ReaEQ (Cockos)',false,-1);assert(gain==2)
  disable_bands(master,gain)
  reaper.TrackFX_SetNamedConfigParm(master,gain,'renamed_name','Album gain - unity until mastering')
