@@ -959,6 +959,18 @@
       "checks": [],
       "checkable": false,
       "cycle": "producer-range-20261101"
+    },
+    {
+      "id": "ODR-MUSIC-RETROPLUG-EMBER-20261101",
+      "date": "2026-11-01",
+      "authority": "recorded_owner",
+      "subject": "RetroPlug/LSDJ exception and Ember King chiptune theme",
+      "question": "Owner-directed tool installation and explicit UVI-rule exception",
+      "decision": "Install RetroPlug to use the already downloaded LSDJ for Game Boy tones. This is an explicit exception to the UVI-only instrument rule. Chiptune is the theme for the Ember King. Other instrumentation retains the existing UVI/Sunbird direction; tool/genre authorization does not establish a finished composition, runtime replacement or release acceptance.",
+      "source": "design/music/retroplug_owner_direction_20261101.json",
+      "checks": [],
+      "checkable": false,
+      "cycle": "retroplug-ember-20261101"
     }
   ]
 }

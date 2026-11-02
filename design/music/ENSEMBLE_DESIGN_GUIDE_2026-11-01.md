@@ -140,6 +140,14 @@ Use those voices on selected tracks or sections. Keep the band's warm low end, c
 
 UVI documents Game Boy sources in **8-Bit Synth**, now included in **Toy Suite**. This is a catalogue candidate: installation, licence and exact useful programs have not been verified. The product description does not establish complete NES/SNES coverage. Existing UVI performances can be edited for deliberate retro-like colors, without claiming hardware emulation. [UVI Toy Suite](https://www.uvi.net/toy-suite), [UVI product status](https://support.uvi.net/hc/en-us/articles/115003307545-Discontinued-and-Legacy-Products)
 
+### Authorized Game Boy lane and Ember King identity
+
+Owner direction, 2026-11-01, explicitly authorizes **RetroPlug/LSDJ as an exception to the UVI-only instrument rule**. **Chiptune is the Ember King character theme.** The [setup record](RETROPLUG_LSDJ_SETUP_2026-11-01.md) documents the local toolchain; this genre decision is accepted direction, while the theme's hook, form, tempo, sound choices and arrangement remain to be planned.
+
+The producer can now write original performances in LSDJ and bring the four Game Boy channels into REAPER separately. Proposed musical roles are pulse 1 for the hook, pulse 2 for an answer/arpeggiated harmony, wave for a characterful bass/body voice and noise for rhythmic punctuation. Condard remains the practical Game Boy reference. Choose contrasting section behaviors and let channels rest; a continuous four-voice texture is not required.
+
+Keep the general UVI/Sunbird instrument family for the other band roles. The exception does not automatically authorize other emulators, ROMs or non-UVI instruments. Existing Ember-area and dungeon cue routing is unchanged; a character's genre assignment does not itself replace every room cue.
+
 ### The producer performs with the band
 
 The chair's continuing identity is playful rhythmic precision, loyalty to the written hook and intentional handoffs. A new genre changes the chosen production vocabulary while those habits remain recognizable.
@@ -153,7 +161,7 @@ The producer has four musical functions:
 3. **Atmosphere:** shape a harmonic bed, filtered resonance or evolving instrumental texture with a beginning, movement and release.
 4. **Transition:** prepare a section with a planned reduction, filtered phrase, delay response or change of rhythmic register, followed by the returning thematic voice.
 
-Material comes from original performances on licensed UVI instruments, including dedicated electronic leads, basses and chords, and from our own band stems. Preserve the original performance, edits and processed part separately. BeatBox Anthology offers kit choices; LoFi Dreams offers keys and textures; Falcon and the established REAPER effects shape this musical material. Exact new programs still need auditions.
+Material comes from original performances on licensed UVI instruments, including dedicated electronic leads, basses and chords, and from our own band stems, plus original Game Boy performances in the specifically authorized RetroPlug/LSDJ lane. Preserve the original performance, edits and processed part separately. BeatBox Anthology offers kit choices; LoFi Dreams offers keys and textures; Falcon and the established REAPER effects shape this musical material. Exact new programs still need auditions.
 
 The producer can lead a complete section in Pop Star, Racer, Astronaut or Galaxy. An acoustic home section may give the producer a small texture or a rest. Each electronic part is judged by its musical job and the space it gives other players.
 
@@ -202,6 +210,6 @@ The [roster data](ENSEMBLE_ROSTER_2026-11-01.json) lists seating options for all
 
 ## Cue brief and review workflow
 
-Each proposed cue gets a band call sheet: active chairs and exact UVI programs; historical references for featured parts; foreground and groove leaders by section; handoffs and rests; producer mode, anchor recording, any secondary influence and its reason, console color if any, function and source material; deliberate overdubs; form, hook and ending. A hybrid names which reference leads each section and how the handoff works.
+Each proposed cue gets a band call sheet: active chairs and exact UVI programs or the authorized RetroPlug/LSDJ setup; historical references for featured parts; foreground and groove leaders by section; handoffs and rests; producer mode, anchor recording, any secondary influence and its reason, console color if any, function and source material; deliberate overdubs; form, hook and ending. A hybrid names which reference leads each section and how the handoff works.
 
 Review the ensemble and reference hierarchy before further preset selection or arrangement construction. The three current recordings remain studies. Overall mission-statement endorsement does not grant release acceptance or approve every cue cast. Existing source, protected-voice, mix, phone, child and demo/release rules retain their scopes.

@@ -98,7 +98,7 @@ World Traveler is the loop-and-phrase instrument within World Suite 3. It remain
 
 LoFi Dreams supplies useful keys and textures, with its effect amount chosen for the role. Its name does not require every part to receive audible degradation. [LoFi Dreams manual](https://manual.uvi.net/lofi-dreams/en/print/)
 
-All instruments remain within the owner-directed UVI soundkit family, including the explicitly requested UVI-powered Sunbird. Additional libraries can fill a named gap after the installed options have been auditioned. No purchase is proposed here.
+The general instrument family remains the owner-directed UVI soundkits, including explicitly requested UVI-powered Sunbird. The owner now explicitly authorizes **RetroPlug/LSDJ as the exception for Game Boy/chiptune**, and assigns **chiptune to the Ember King character theme**. See the [verified tool setup and scope](RETROPLUG_LSDJ_SETUP_2026-11-01.md). Additional libraries can fill a named gap after the installed options have been auditioned. No purchase is proposed here.
 
 ### Tone targets for preset auditions
 
@@ -138,7 +138,7 @@ The companion map assigns **44 current declarative cues and 14 retained score ro
 Before another cue is built, its short composition brief should name:
 
 1. Scene purpose, palette family, genre and two concrete references at most.
-2. Lead, supporting voices and exact auditioned UVI programs.
+2. Lead, supporting voices and exact auditioned UVI programs or the explicitly authorized RetroPlug/LSDJ Game Boy setup.
 3. Main hook, thematic relationship and contrasting material.
 4. Form with section lengths, entrances, withdrawals, handoffs and return.
 5. Rhythm, bass, harmony, performance articulations and spaces for speech.

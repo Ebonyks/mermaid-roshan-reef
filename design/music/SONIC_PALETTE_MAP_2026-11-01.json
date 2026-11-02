@@ -960,5 +960,25 @@
   "performance_reference_status": "Named listening/audition queue; no new subjective listening assessment asserted.",
   "ensemble_roster": "ENSEMBLE_ROSTER_2026-11-01.json",
   "ensemble_guide": "ENSEMBLE_DESIGN_GUIDE_2026-11-01.md",
-  "acceptance_scope": "Overall sonic design endorsed as mission statement; detailed personnel, references, presets, cue casts and release acceptance remain separate."
+  "acceptance_scope": "Overall sonic design endorsed as mission statement; detailed personnel, references, presets, cue casts and release acceptance remain separate.",
+  "authorized_non_uvi_lane": {
+    "tools": [
+      "RetroPlug",
+      "LSDJ"
+    ],
+    "platform": "Game Boy",
+    "authorization": "Explicit owner exception, 2026-11-01",
+    "source": "design/music/retroplug_owner_direction_20261101.json",
+    "readiness": "Installed; native host/recall evidence in retroplug_installation_20261101.json; musical audition remains open."
+  },
+  "character_identity_overrides": {
+    "ember_king": {
+      "style": "chiptune",
+      "status": "OWNER_DIRECTED_GENRE_NOT_FINISHED_COMPOSITION",
+      "performer": "producer",
+      "reference": "Condard / selected Game Boy production lane",
+      "source": "design/music/retroplug_owner_direction_20261101.json",
+      "scope": "The character theme. Existing ember/dungeon_ember area cues retain runtime behavior; new hook, form, tempo and integration remain to be planned."
+    }
+  }
 }

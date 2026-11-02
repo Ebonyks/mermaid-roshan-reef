@@ -158,7 +158,7 @@
       "uvi": [
         "lofi_electric_piano_smokey"
       ],
-      "candidate": "Exact BeatBox Anthology / LoFi Dreams programs need role auditions. UVI Toy Suite / 8-Bit Synth is an unverified installation/licence candidate for Game Boy colors; NES/SNES-style program coverage remains to be established.",
+      "candidate": "RetroPlug/LSDJ is installed and native hosting verified for Game Boy. Exact BBA/LoFi programs, any UVI Toy Suite installation and NES/SNES-style coverage still need their own verification.",
       "partner": "drum_kit",
       "rest": "An acoustic-led section can give the producer a small texture or no active part; featured electronic sections give the producer a clear phrase to lead.",
       "reference_lanes": [
@@ -208,7 +208,8 @@
             "Racer",
             "Galaxy",
             "Astronaut",
-            "mechanism play"
+            "mechanism play",
+            "Ember King - owner-directed chiptune identity"
           ]
         },
         {
@@ -226,7 +227,7 @@
           "applications": [
             "selected electronic/discovery cues only"
           ],
-          "readiness": "UVI Toy Suite / 8-Bit Synth is a catalogue candidate with documented Game Boy sources, not a verified installed NES/SNES emulator or an approved purchase."
+          "readiness": "Owner-authorized RetroPlug/LSDJ installed for authentic Game Boy. This does not establish NES/SNES production-cart or UVI patch readiness."
         },
         {
           "id": "organic_bridge_optional",
@@ -242,7 +243,17 @@
           ],
           "status": "OPTIONAL_REFERENCE_PENDING_FIT_REVIEW"
         }
-      ]
+      ],
+      "authorized_exception": {
+        "tools": [
+          "RetroPlug 0.7.4",
+          "LSDJ 9.4.2 stable"
+        ],
+        "character": "Ember King",
+        "direction": "CHIPTUNE_OWNER_DIRECTED",
+        "source": "design/music/retroplug_owner_direction_20261101.json",
+        "setup": "design/music/RETROPLUG_LSDJ_SETUP_2026-11-01.md"
+      }
     }
   ],
   "guests": [
@@ -376,8 +387,8 @@
   },
   "seating_limit": "Options, not simultaneous required tracks. Every section names a lead, a groove leader, supporting roles and resting musicians.",
   "reference_policy": "Historical recordings anchor proposed choices. Most chairs have a primary artist plus contextual references; the producer explicitly uses a cue-selected multi-reference matrix. No fresh timed listening analysis or artist participation asserted.",
-  "program_policy": "All instruments use the owner-approved UVI family and explicitly requested Sunbird. Rendered-program evidence remains in the sonic palette map; new roles/presets require native audition.",
-  "producer_material": "Original performances on licensed UVI instruments, including dedicated electronic lead/bass/chord parts and our own band stems. Preserve dry source, edit and processed part separately. Reference recordings and ROM/sample rips do not become soundtrack material.",
+  "program_policy": "UVI soundkits and explicitly requested Sunbird remain the general instrument family. Owner explicitly authorizes RetroPlug/LSDJ as the exception for the authentic Game Boy/chiptune lane; Ember King’s theme is chiptune. New program choices still require audition; no other non-UVI instruments are authorized by this exception.",
+  "producer_material": "Original performances on licensed UVI instruments, including dedicated electronic lead/bass/chord parts and our own band stems. Preserve dry source, edit and processed part separately. Reference recordings and ROM/sample rips do not become soundtrack material. The owner-authorized RetroPlug/LSDJ lane adds original Game Boy performances and editable song/stem sources; software/ROMs remain private.",
   "runtime_scope": "Studio composition and flattened cue delivery; no new runtime DJ or adaptive audio system.",
   "release_scope": "Studies/proposals only; demo freeze, human, voice, phone, child and release acceptance remain separate.",
   "producer_call_sheet_fields": [
