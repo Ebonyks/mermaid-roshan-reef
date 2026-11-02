@@ -52,6 +52,51 @@ const ROSHAN_SHA256 := \
 const VOICE_PATH := "res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg"
 const VOICE_SHA256 := \
 	"e2d819527d370aff926302dbfecd6beb9e6c2165024d7abad131a28d90cac4ed"
+const PIP_ASSETS := [
+	{"path": "res://assets/melody/progress_pip_idle_red_painted.png", "sha256": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f",
+		"alpha_bounds": Rect2i(4, 2, 123, 125)},
+	{"path": "res://assets/melody/progress_pip_idle_orange_painted.png", "sha256": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b",
+		"alpha_bounds": Rect2i(4, 2, 122, 125)},
+	{"path": "res://assets/melody/progress_pip_idle_yellow_painted.png", "sha256": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6",
+		"alpha_bounds": Rect2i(4, 2, 121, 125)},
+	{"path": "res://assets/melody/progress_pip_idle_green_painted.png", "sha256": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd",
+		"alpha_bounds": Rect2i(3, 2, 122, 125)},
+	{"path": "res://assets/melody/progress_pip_idle_blue_painted.png", "sha256": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4",
+		"alpha_bounds": Rect2i(4, 3, 120, 125)},
+	{"path": "res://assets/melody/progress_pip_idle_indigo_painted.png", "sha256": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0",
+		"alpha_bounds": Rect2i(3, 3, 121, 125)},
+	{"path": "res://assets/melody/progress_pip_idle_violet_painted.png", "sha256": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e",
+		"alpha_bounds": Rect2i(2, 2, 123, 125)},
+	{"path": "res://assets/melody/progress_pip_current_red_painted.png", "sha256": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494",
+		"alpha_bounds": Rect2i(4, 2, 122, 124)},
+	{"path": "res://assets/melody/progress_pip_current_orange_painted.png", "sha256": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b",
+		"alpha_bounds": Rect2i(4, 2, 121, 125)},
+	{"path": "res://assets/melody/progress_pip_current_yellow_painted.png", "sha256": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109",
+		"alpha_bounds": Rect2i(3, 1, 122, 125)},
+	{"path": "res://assets/melody/progress_pip_current_green_painted.png", "sha256": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28",
+		"alpha_bounds": Rect2i(3, 2, 122, 125)},
+	{"path": "res://assets/melody/progress_pip_current_blue_painted.png", "sha256": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11",
+		"alpha_bounds": Rect2i(4, 2, 121, 125)},
+	{"path": "res://assets/melody/progress_pip_current_indigo_painted.png", "sha256": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77",
+		"alpha_bounds": Rect2i(4, 2, 121, 125)},
+	{"path": "res://assets/melody/progress_pip_current_violet_painted.png", "sha256": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2",
+		"alpha_bounds": Rect2i(2, 2, 122, 125)},
+	{"path": "res://assets/melody/progress_pip_filled_red_painted.png", "sha256": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a",
+		"alpha_bounds": Rect2i(2, 1, 124, 125)},
+	{"path": "res://assets/melody/progress_pip_filled_orange_painted.png", "sha256": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508",
+		"alpha_bounds": Rect2i(4, 1, 122, 125)},
+	{"path": "res://assets/melody/progress_pip_filled_yellow_painted.png", "sha256": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8",
+		"alpha_bounds": Rect2i(3, 1, 122, 125)},
+	{"path": "res://assets/melody/progress_pip_filled_green_painted.png", "sha256": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0",
+		"alpha_bounds": Rect2i(2, 1, 123, 125)},
+	{"path": "res://assets/melody/progress_pip_filled_blue_painted.png", "sha256": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421",
+		"alpha_bounds": Rect2i(2, 0, 123, 126)},
+	{"path": "res://assets/melody/progress_pip_filled_indigo_painted.png", "sha256": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e",
+		"alpha_bounds": Rect2i(2, 0, 122, 126)},
+	{"path": "res://assets/melody/progress_pip_filled_violet_painted.png", "sha256": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5",
+		"alpha_bounds": Rect2i(2, 0, 124, 126)},
+]
+
 const OBJECTIVE := "Tap each rainbow note in the green!"
 const EXPECTED_COLORS: Array[Color] = [
 	Color(1.0, 0.24, 0.28),
@@ -502,6 +547,8 @@ func _check_asset_contract() -> void:
 	_check("exact non-reader objective voice is present and immutable",
 		ResourceLoader.exists(VOICE_PATH)
 		and FileAccess.get_sha256(VOICE_PATH) == VOICE_SHA256)
+	_check_painted_pip_assets()
+
 
 
 func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
@@ -550,6 +597,8 @@ func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
 		and _note_source_binds_geometry_color()
 		and melody.note_count() == 7 and melody.active_note_id() == 0
 		and melody.progress_count() == 0)
+	_check("painted pips preserve all21 whole-image state mappings and restore the live progress state",
+		_all_pip_states_contract(surface))
 	_check("stage has no failure state, countdown, or passive completion path",
 		bool(snapshot.get("no_fail_state", false))
 		and not bool(snapshot.get("has_timer", true))
@@ -564,6 +613,7 @@ func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
 		and main.touch_control_blocks.size() == controls_baseline.size() + 1
 		and main.touch_control_blocks.has("melody")
 		and not main.touch_ui.world_controls_enabled)
+
 
 
 func _check_rendered_stage_contract(surface: Node2D) -> void:
@@ -872,29 +922,44 @@ func _runtime_tile_contract(surface: Node2D,
 func _check_runtime_texture_census(surface: Node2D) -> void:
 	var counts: Dictionary = {}
 	_collect_runtime_texture_paths(surface, counts)
-	var expected_paths: Array[String] = TILE_PATHS.duplicate()
-	expected_paths.append(DADDY_PATH)
-	expected_paths.append(ROSHAN_PATH)
-	var exact_once := counts.size() == expected_paths.size()
-	var decoded_bytes := 0
-	var declared_upload_bytes := 0
-	for path: String in expected_paths:
+	var base_paths: Array[String] = TILE_PATHS.duplicate()
+	base_paths.append(DADDY_PATH)
+	base_paths.append(ROSHAN_PATH)
+	var live_paths: Array[String] = base_paths.duplicate()
+	for index in range(7):
+		var pip: Node = _stage_node(surface, "ProgressPip%d" % index)
+		var state_index: int = 2 if bool(pip.get("filled")) else (
+			1 if bool(pip.get("current")) else 0)
+		live_paths.append(_pip_asset_path(state_index, index))
+	var exact_once: bool = counts.size() == live_paths.size()
+	for path: String in live_paths:
 		exact_once = exact_once and int(counts.get(path, 0)) == 1
-		var image := Image.load_from_file(path)
+	# Include every preloaded state, not just the seven currently attached images.
+	var resident_paths: Array[String] = base_paths.duplicate()
+	for asset: Dictionary in PIP_ASSETS:
+		resident_paths.append(String(asset["path"]))
+	var decoded_bytes: int = 0
+	var declared_upload_bytes: int = 0
+	for path: String in resident_paths:
+		var image: Image = Image.load_from_file(path)
 		if image == null:
 			exact_once = false
 			continue
 		var pixels: int = image.get_width() * image.get_height()
 		decoded_bytes += pixels * 4
-		var import_text := FileAccess.get_file_as_string(path + ".import")
-		declared_upload_bytes += pixels if import_text.contains(
+		var import_text: String = FileAccess.get_file_as_string(path + ".import")
+		var upload: int = pixels if import_text.contains(
 			"compress/mode=2") else pixels * 4
-	_check("live Canvas binds only four tiles, Daddy, and Roshan exactly once each",
-		exact_once)
-	_check("unique live texture census stays within conservative decoded and declared-upload bounds",
+		if import_text.contains("mipmaps/generate=true"):
+			upload = ceili(float(upload) * 4.0 / 3.0)
+		declared_upload_bytes += upload
+	_check("live Canvas binds four tiles, Daddy, Roshan and seven whole pips exactly once each",
+		exact_once and live_paths.size() == 13 and resident_paths.size() == 27)
+	_check("all resident states stay within original conservative decoded and declared-upload bounds",
 		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024
 		and declared_upload_bytes > 0
 		and declared_upload_bytes <= 12 * 1024 * 1024)
+
 
 
 func _collect_runtime_texture_paths(node: Node, counts: Dictionary) -> void:
@@ -965,8 +1030,9 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 		if not (note is Control) or not (pip is Control) \
 				or not _exact_typed_geometry_children(
 				note, ["NoteColorGeometry"], []) \
-				or not _exact_typed_geometry_children(
-				pip, ["ProgressPipGeometry"], []):
+				or not _whole_painted_pip(pip, index,
+				2 if bool(pip.get("filled")) else (
+				1 if bool(pip.get("current")) else 0)):
 			return false
 	return true
 
@@ -1073,7 +1139,8 @@ func _node_visual_rect(node: Node) -> Rect2:
 	var merged: Rect2 = rects[0]
 	for index in range(1, rects.size()):
 		merged = merged.merge(rects[index])
-	if node is Control and _has_geometry_descendant(node):
+	if node is Control and (_has_geometry_descendant(node) \
+			or String(node.name).begins_with("ProgressPip")):
 		var control := node as Control
 		var control_rect := _transform_rect(
 			Rect2(Vector2.ZERO, control.size),
@@ -2676,3 +2743,130 @@ func _finish() -> void:
 	else:
 		print("MELODY|result: %d FAIL" % bad)
 		quit(1)
+func _pip_asset_path(state_index: int, color_index: int) -> String:
+	return String(PIP_ASSETS[state_index * 7 + color_index]["path"])
+
+
+
+func _pip_image_alpha_bounds(image: Image) -> Rect2i:
+	var first := Vector2i(image.get_width(), image.get_height())
+	var last := Vector2i(-1, -1)
+	for y in range(image.get_height()):
+		for x in range(image.get_width()):
+			if roundi(image.get_pixel(x, y).a * 255.0) >= 32:
+				first = Vector2i(mini(first.x, x), mini(first.y, y))
+				last = Vector2i(maxi(last.x, x), maxi(last.y, y))
+	return Rect2i(first, last - first + Vector2i.ONE)
+
+
+
+func _check_painted_pip_assets() -> void:
+	var exact_assets: bool = PIP_ASSETS.size() == 21
+	var palette_ok: bool = true
+	var registered_bounds: bool = true
+	var licensed: bool = true
+	var licenses: String = FileAccess.get_file_as_string("res://ASSET_LICENSES.md")
+	for index in range(PIP_ASSETS.size()):
+		var asset: Dictionary = PIP_ASSETS[index]
+		var path: String = String(asset["path"])
+		var image: Image = Image.load_from_file(path)
+		var import_text: String = FileAccess.get_file_as_string(path + ".import")
+		exact_assets = exact_assets and image != null \
+			and FileAccess.get_sha256(path) == String(asset["sha256"]) \
+			and import_text.contains("compress/mode=0") \
+			and import_text.contains("\"vram_texture\": false") \
+			and import_text.contains("mipmaps/generate=true") \
+			and import_text.contains("process/size_limit=1024")
+		if image == null:
+			palette_ok = false
+			registered_bounds = false
+			continue
+		exact_assets = exact_assets and image.get_size() == Vector2i(128, 128) \
+			and image.get_format() == Image.FORMAT_RGBA8
+		registered_bounds = registered_bounds \
+			and _pip_image_alpha_bounds(image) == asset["alpha_bounds"] \
+			and image.get_pixel(0, 0).a < 0.02
+		var sample: Color = image.get_pixel(64, 32)
+		var hue: float = sample.h
+		var color_index: int = index % 7
+		var hue_ok: bool = false
+		match color_index:
+			0: hue_ok = hue <= 0.06 or hue >= 0.96
+			1: hue_ok = hue > 0.06 and hue < 0.11
+			2: hue_ok = hue >= 0.11 and hue < 0.20
+			3: hue_ok = hue >= 0.20 and hue < 0.44
+			4: hue_ok = hue >= 0.48 and hue < 0.61
+			5: hue_ok = hue >= 0.61 and hue < 0.73
+			6: hue_ok = hue >= 0.73 and hue < 0.88
+		palette_ok = palette_ok and hue_ok and sample.s > 0.25 \
+			and sample.a > 0.95
+		licensed = licensed and licenses.contains(path.trim_prefix("res://"))
+	_check("all21 painted pip images have exact128RGBA hashes and lossless Mobile mip imports",
+		exact_assets)
+	_check("all three authored states preserve the seven distinct ordered color identities",
+		palette_ok)
+	_check("painted pip registration follows actual alpha32 bounds and transparent corners",
+		registered_bounds)
+	_check("every painted pip and native derivation retains its own license/provenance entry",
+		licensed and licenses.contains("melody_progress_pips_20261102/PROVENANCE.json"))
+
+
+
+func _whole_painted_pip(pip: Node, color_index: int, state_index: int) -> bool:
+	if not (pip is Control) or pip.get_child_count() != 1 \
+			or not (pip.get_child(0) is Sprite2D):
+		return false
+	var control := pip as Control
+	var sprite := pip.get_child(0) as Sprite2D
+	var bounds: Rect2i = PIP_ASSETS[state_index * 7 + color_index]["alpha_bounds"]
+	var diameter: float = 46.0 if state_index == 1 else 38.0
+	var body_rect := Rect2(Vector2(bounds.position) - Vector2.ONE * 64.0 \
+		+ sprite.offset, Vector2(bounds.size))
+	var projected: Rect2 = _transform_rect(body_rect, sprite.transform)
+	return sprite.name == &"PaintedProgressPip" and sprite.get_child_count() == 0 \
+		and sprite.texture is Texture2D and not (sprite.texture is AtlasTexture) \
+		and sprite.texture.resource_path == _pip_asset_path(state_index, color_index) \
+		and sprite.texture.get_size() == Vector2(128.0, 128.0) \
+		and sprite.centered and not sprite.region_enabled \
+		and sprite.hframes == 1 and sprite.vframes == 1 \
+		and not sprite.flip_h and not sprite.flip_v \
+		and sprite.material == null and not sprite.use_parent_material \
+		and sprite.modulate == Color.WHITE and sprite.self_modulate == Color.WHITE \
+		and is_zero_approx(sprite.rotation) and sprite.skew == 0.0 \
+		and is_equal_approx(sprite.scale.x, sprite.scale.y) \
+		and sprite.scale.x > 0.0 and sprite.z_index == 0 and sprite.z_as_relative \
+		and sprite.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+		and sprite.position.is_equal_approx(Vector2.ONE * 24.0) \
+		and control.size.is_equal_approx(Vector2.ONE * 48.0) \
+		and control.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and control.focus_mode == Control.FOCUS_NONE and control.z_index == 40 \
+		and control.modulate == Color.WHITE and control.self_modulate == Color.WHITE \
+		and control.material == null and control.scale.is_equal_approx(Vector2.ONE * clampf(
+			control.get_viewport().get_visible_rect().size.y / 720.0, 0.78, 1.15)) \
+		and is_zero_approx(control.rotation) \
+		and projected.get_center().is_equal_approx(Vector2.ONE * 24.0) \
+		and is_equal_approx(maxf(projected.size.x, projected.size.y), diameter) \
+		and Rect2(Vector2.ZERO, control.size).encloses(projected)
+
+
+
+func _all_pip_states_contract(surface: Node2D) -> bool:
+	var all_ok: bool = true
+	for color_index in range(7):
+		var pip: Node = _stage_node(surface, "ProgressPip%d" % color_index)
+		if pip == null:
+			return false
+		var was_filled: bool = bool(pip.get("filled"))
+		var was_current: bool = bool(pip.get("current"))
+		all_ok = all_ok and was_filled == (color_index < melody.progress_count()) \
+			and was_current == (color_index == melody.active_note_id())
+		for state_index in range(3):
+			pip.call("set_state", state_index == 2, state_index == 1)
+			all_ok = _whole_painted_pip(pip, color_index, state_index) and all_ok
+		pip.call("set_state", was_filled, was_current)
+		var restored_state: int = 2 if was_filled else (1 if was_current else 0)
+		all_ok = _whole_painted_pip(pip, color_index, restored_state) and all_ok
+	return all_ok
+
+
+

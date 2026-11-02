@@ -2313,3 +2313,11 @@ CHG-100 final local gameplay verification: the documented probe-by-probe alterna
 CHG-100 final metadata verification: [governance receipt](opera_foyer_movement_20261017/governance_final.json) passes79 tests,6/6 authority stress, complete706/706 authority inventory/ledger, all69 active/72 retained finding records, development coverage at39b0e158, shrink-only2D NO_REGRESSION and staged whitespace checks. All1612 script/tool/project sources are unchanged during these gates. Actual implementation-commit binding and exact-head remote full CI remain required before integration.
 
 CHG-100 exact implementation binding: `14cf8ed9218d2fff7033113782417bcae0df7965` / parent `39b0e158db7de3d0c178c4444f97c04fda75bec5` / tree `9de4ecc88919667baad22d086a0cf7be526719c2`; all1612 tested source paths map to committed blobs (911 literal, 701 explicit CRLF-to-LF), including seven literal changed scripts. All80 committed audit artifacts are byte-exact and no assets change. This metadata-only binding earns required authority/coverage checks before publication; it grants no external acceptance.
+
+
+## CHG-133 — R127 painted Melody progress-pip source candidate, 2026-11-02
+
+- Baseline: `27c88288bf6e39582072811443df79919e7bbb89`; scope: FV-E6549378F626 only. One native atlas,21 complete128px idle/current/filled pictures; original behavior and68 other controller methods LF-exact,83 original probe methods LF-exact.
+- Rules and findings: [audit impact](../design/audit_impacts/flat-vector-melody-progress-pips-20261102.json), [runtime evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/README.md). MA-VIS-006/008 remain CONFIRMED_OPEN; candidate192 native checks and complete current all82/static/analyzer/2D gates pass; formal/device/child/owner/global evidence separate.
+- Owner authority: resume art candidates, keep Dev frozen; Oct17 quality-first production. No Dev/master writes, protected original edits, animation campaign, workflow or security-policy changes.
+- Rollback: preserve this candidate/native/master history on its durable topic branch; revert the bounded candidate commit on an authorized work branch, retaining original save keys/input/voice semantics and all evidence. Re-run applicable gates on any changed runtime bytes; no automatic production rollback or release.

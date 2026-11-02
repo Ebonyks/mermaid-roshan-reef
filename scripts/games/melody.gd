@@ -30,6 +30,65 @@ const NOTE_COLORS := [
 	Color(0.72, 0.40, 0.90),
 ]
 
+const PIP_TEXTURES := [
+	[
+		preload("res://assets/melody/progress_pip_idle_red_painted.png"),
+		preload("res://assets/melody/progress_pip_idle_orange_painted.png"),
+		preload("res://assets/melody/progress_pip_idle_yellow_painted.png"),
+		preload("res://assets/melody/progress_pip_idle_green_painted.png"),
+		preload("res://assets/melody/progress_pip_idle_blue_painted.png"),
+		preload("res://assets/melody/progress_pip_idle_indigo_painted.png"),
+		preload("res://assets/melody/progress_pip_idle_violet_painted.png"),
+	],
+	[
+		preload("res://assets/melody/progress_pip_current_red_painted.png"),
+		preload("res://assets/melody/progress_pip_current_orange_painted.png"),
+		preload("res://assets/melody/progress_pip_current_yellow_painted.png"),
+		preload("res://assets/melody/progress_pip_current_green_painted.png"),
+		preload("res://assets/melody/progress_pip_current_blue_painted.png"),
+		preload("res://assets/melody/progress_pip_current_indigo_painted.png"),
+		preload("res://assets/melody/progress_pip_current_violet_painted.png"),
+	],
+	[
+		preload("res://assets/melody/progress_pip_filled_red_painted.png"),
+		preload("res://assets/melody/progress_pip_filled_orange_painted.png"),
+		preload("res://assets/melody/progress_pip_filled_yellow_painted.png"),
+		preload("res://assets/melody/progress_pip_filled_green_painted.png"),
+		preload("res://assets/melody/progress_pip_filled_blue_painted.png"),
+		preload("res://assets/melody/progress_pip_filled_indigo_painted.png"),
+		preload("res://assets/melody/progress_pip_filled_violet_painted.png"),
+	],
+]
+const PIP_ALPHA_RECTS := [
+	[
+		Rect2i(4, 2, 123, 125),
+		Rect2i(4, 2, 122, 125),
+		Rect2i(4, 2, 121, 125),
+		Rect2i(3, 2, 122, 125),
+		Rect2i(4, 3, 120, 125),
+		Rect2i(3, 3, 121, 125),
+		Rect2i(2, 2, 123, 125),
+	],
+	[
+		Rect2i(4, 2, 122, 124),
+		Rect2i(4, 2, 121, 125),
+		Rect2i(3, 1, 122, 125),
+		Rect2i(3, 2, 122, 125),
+		Rect2i(4, 2, 121, 125),
+		Rect2i(4, 2, 121, 125),
+		Rect2i(2, 2, 122, 125),
+	],
+	[
+		Rect2i(2, 1, 124, 125),
+		Rect2i(4, 1, 122, 125),
+		Rect2i(3, 1, 122, 125),
+		Rect2i(2, 1, 123, 125),
+		Rect2i(2, 0, 123, 126),
+		Rect2i(2, 0, 122, 126),
+		Rect2i(2, 0, 124, 126),
+	],
+]
+
 const TILE_PATHS: Array[String] = [
 	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
 	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
@@ -476,54 +535,44 @@ class RainbowNoteCanvas extends Control:
 
 
 class ProgressPipCanvas extends Control:
-	const NAVY := MelodyGame.NAVY
-	const PAPER := MelodyGame.PAPER
+	const NOTE_COLORS := MelodyGame.NOTE_COLORS
+	const PIP_TEXTURES := MelodyGame.PIP_TEXTURES
+	const PIP_ALPHA_RECTS := MelodyGame.PIP_ALPHA_RECTS
 
 	var pip_color := Color.WHITE
 	var filled := false
 	var current := false
-	var pip_geometry: Polygon2D = null
+	var pip_id: int = 0
+	var painted_pip: Sprite2D = null
 
 
 	func setup(color: Color) -> void:
 		pip_color = color
+		pip_id = NOTE_COLORS.find(color)
+		assert(pip_id >= 0)
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 40
 		size = Vector2.ONE * 48.0
-		pip_geometry = Polygon2D.new()
-		pip_geometry.name = "ProgressPipGeometry"
-		pip_geometry.z_index = -1
-		var points := PackedVector2Array()
-		for point_index in range(20):
-			var angle: float = float(point_index) * TAU / 20.0
-			points.append(size * 0.5 + Vector2(cos(angle), sin(angle)) * 19.0)
-		pip_geometry.polygon = points
-		add_child(pip_geometry)
+		painted_pip = Sprite2D.new()
+		painted_pip.name = "PaintedProgressPip"
+		painted_pip.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		add_child(painted_pip)
+		set_state(filled, current)
 
 
 	func set_state(next_filled: bool, next_current: bool) -> void:
 		filled = next_filled
 		current = next_current
-		pip_geometry.color = pip_color if filled or current \
-			else Color(pip_color.r, pip_color.g, pip_color.b, 0.32)
-		queue_redraw()
-
-
-	func _draw() -> void:
-		var center := size * 0.5
-		if current:
-			draw_circle(center, 23.0, Color(1.0, 1.0, 1.0, 0.92),
-				true, -1.0, true)
-		draw_circle(center, 19.0, NAVY, true, -1.0, true)
-		draw_circle(center, 14.5,
-			pip_color if filled else Color(pip_color.r, pip_color.g, pip_color.b, 0.32),
-			true, -1.0, true)
-		if filled:
-			draw_line(center + Vector2(-7.0, 0.0), center + Vector2(-1.0, 7.0),
-				PAPER, 4.5, true)
-			draw_line(center + Vector2(-1.0, 7.0), center + Vector2(9.0, -8.0),
-				PAPER, 4.5, true)
+		var state_index: int = 2 if filled else (1 if current else 0)
+		painted_pip.texture = PIP_TEXTURES[state_index][pip_id] as Texture2D
+		var bounds: Rect2i = PIP_ALPHA_RECTS[state_index][pip_id]
+		var bounds_center: Vector2 = Vector2(bounds.position) + Vector2(bounds.size) * 0.5
+		painted_pip.position = size * 0.5
+		painted_pip.offset = Vector2.ONE * 64.0 - bounds_center
+		var diameter: float = 46.0 if current and not filled else 38.0
+		var native_diameter: float = maxf(float(bounds.size.x), float(bounds.size.y))
+		painted_pip.scale = Vector2.ONE * diameter / native_diameter
 
 
 var m: ReefMain
