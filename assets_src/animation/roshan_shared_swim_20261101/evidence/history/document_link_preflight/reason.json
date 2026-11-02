@@ -1,0 +1,5 @@
+{
+  "status": "FAILED_PREFLIGHT_RETAINED",
+  "reason": "License links target new non-Markdown packet files, which authority checks require in the Git index. The coverage log was newly created after the earlier impact enumeration. Stage the requested packet, refresh exact coverage, rerun unchanged gates; no authority checker weakened.",
+  "diagnosed_cause": "The source guide was inadvertently authored at the worktree root while license links targeted the packet. Moved the task-authored guide into the packet. The earlier tracked-file hypothesis was incorrect. No authority checker weakened."
+}

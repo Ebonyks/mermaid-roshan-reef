@@ -1,0 +1,139 @@
+{
+  "sources": [
+    {
+      "path": "references/roshan_base.png",
+      "original": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "identity",
+      "modifications": "None; exact byte copy. Original unchanged.",
+      "acceptance_scope": "Existing static character identity/design reference only; does not accept generated derivatives or a new performance.",
+      "license": "Existing project asset provenance/rights retained; see root ASSET_LICENSES.md. No relicense."
+    },
+    {
+      "path": "references/roshan_swim_front.png",
+      "original": "assets/characters/roshan_25d/roshan_swim_front.png",
+      "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+      "role": "existing_view_only",
+      "modifications": "None; exact byte copy. Original unchanged.",
+      "acceptance_scope": "Existing static character identity/design reference only; does not accept generated derivatives or a new performance.",
+      "license": "Existing project asset provenance/rights retained; see root ASSET_LICENSES.md. No relicense."
+    },
+    {
+      "path": "references/ballet_body.png",
+      "original": "assets_src/fashion_designer/beta_20261025/native/ballet_body.png",
+      "sha256": "8fb71bbcb8ad1e0da00128df75e1bf2825c7f72682c0678e02d397ab6981cc9c",
+      "role": "wardrobe_design",
+      "modifications": "None; exact byte copy. Original unchanged.",
+      "acceptance_scope": "Existing static character identity/design reference only; does not accept generated derivatives or a new performance.",
+      "license": "Existing project asset provenance/rights retained; see root ASSET_LICENSES.md. No relicense."
+    },
+    {
+      "path": "references/ballet_tail.png",
+      "original": "assets_src/fashion_designer/beta_20261025/native/ballet_tail.png",
+      "sha256": "ab7a071ddf2fbb4580fc6b67401e512d8d3398370affda27a224edd37d12c1f2",
+      "role": "wardrobe_design",
+      "modifications": "None; exact byte copy. Original unchanged.",
+      "acceptance_scope": "Existing static character identity/design reference only; does not accept generated derivatives or a new performance.",
+      "license": "Existing project asset provenance/rights retained; see root ASSET_LICENSES.md. No relicense."
+    },
+    {
+      "path": "references/ballet_head.png",
+      "original": "assets_src/fashion_designer/beta_20261025/native/ballet_head.png",
+      "sha256": "02c3208e30bf1952c6348ec966fd9f968dc300f888894cf4c47a11b06d7a95c1",
+      "role": "wardrobe_design",
+      "modifications": "None; exact byte copy. Original unchanged.",
+      "acceptance_scope": "Existing static character identity/design reference only; does not accept generated derivatives or a new performance.",
+      "license": "Existing project asset provenance/rights retained; see root ASSET_LICENSES.md. No relicense."
+    },
+    {
+      "path": "references/magician_body.png",
+      "original": "assets_src/fashion_designer/beta_20261025/native/magician_body.png",
+      "sha256": "5d01759d95f7b2a89b8749cc7e4eadbad8a7da2ba0f7f32713221275ddbae70a",
+      "role": "wardrobe_design",
+      "modifications": "None; exact byte copy. Original unchanged.",
+      "acceptance_scope": "Existing static character identity/design reference only; does not accept generated derivatives or a new performance.",
+      "license": "Existing project asset provenance/rights retained; see root ASSET_LICENSES.md. No relicense."
+    },
+    {
+      "path": "references/magician_tail.png",
+      "original": "assets_src/fashion_designer/beta_20261025/native/magician_tail.png",
+      "sha256": "46803069cbbca5297cda3584d95fdedc2ce0a362197c58a33058edc1ce2c253d",
+      "role": "wardrobe_design",
+      "modifications": "None; exact byte copy. Original unchanged.",
+      "acceptance_scope": "Existing static character identity/design reference only; does not accept generated derivatives or a new performance.",
+      "license": "Existing project asset provenance/rights retained; see root ASSET_LICENSES.md. No relicense."
+    },
+    {
+      "path": "references/magician_head.png",
+      "original": "assets_src/fashion_designer/beta_20261025/native/magician_head.png",
+      "sha256": "c55e9659bb5a14f195145b6652917ee04905b57c7cdad0b1f788cb48f8465d7d",
+      "role": "wardrobe_design",
+      "modifications": "None; exact byte copy. Original unchanged.",
+      "acceptance_scope": "Existing static character identity/design reference only; does not accept generated derivatives or a new performance.",
+      "license": "Existing project asset provenance/rights retained; see root ASSET_LICENSES.md. No relicense."
+    }
+  ],
+  "generation_input_bindings": {
+    "shared_view": {
+      "IMAGE_1": {
+        "path": "references/roshan_base.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+      },
+      "IMAGE_2": {
+        "path": "references/roshan_swim_front.png",
+        "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01"
+      }
+    },
+    "ballet": {
+      "IMAGE_1": {
+        "path": "art_source/shared_view_parts_take01.png",
+        "sha256": "cbf323644c3a7f1450790547e2fda42cb9cda165bb72b55391dbff85190dc80e"
+      },
+      "IMAGE_2": {
+        "path": "references/ballet_body.png",
+        "sha256": "8fb71bbcb8ad1e0da00128df75e1bf2825c7f72682c0678e02d397ab6981cc9c"
+      },
+      "IMAGE_3": {
+        "path": "references/ballet_tail.png",
+        "sha256": "ab7a071ddf2fbb4580fc6b67401e512d8d3398370affda27a224edd37d12c1f2"
+      },
+      "IMAGE_4": {
+        "path": "references/ballet_head.png",
+        "sha256": "02c3208e30bf1952c6348ec966fd9f968dc300f888894cf4c47a11b06d7a95c1"
+      }
+    },
+    "magician": {
+      "IMAGE_1": {
+        "path": "art_source/shared_view_parts_take01.png",
+        "sha256": "cbf323644c3a7f1450790547e2fda42cb9cda165bb72b55391dbff85190dc80e"
+      },
+      "IMAGE_2": {
+        "path": "references/magician_body.png",
+        "sha256": "5d01759d95f7b2a89b8749cc7e4eadbad8a7da2ba0f7f32713221275ddbae70a"
+      },
+      "IMAGE_3": {
+        "path": "references/magician_tail.png",
+        "sha256": "46803069cbbca5297cda3584d95fdedc2ce0a362197c58a33058edc1ce2c253d"
+      },
+      "IMAGE_4": {
+        "path": "references/magician_head.png",
+        "sha256": "c55e9659bb5a14f195145b6652917ee04905b57c7cdad0b1f788cb48f8465d7d"
+      },
+      "IMAGE_5": {
+        "path": "art_source/ballet_parts_take01.png",
+        "sha256": "bb293f197853e5b494824e6509b10a2572922ad85b60c4eb4a5239c6f3163a3a"
+      }
+    },
+    "neck": {
+      "IMAGE_1": {
+        "path": "art_source/shared_view_parts_take01.png",
+        "sha256": "cbf323644c3a7f1450790547e2fda42cb9cda165bb72b55391dbff85190dc80e"
+      }
+    }
+  },
+  "bound_roles": "Shared: identity and existing view only. Ballet/Magician: shared part geometry/style plus original costume designs; Magician IMAGE_5 supplies sheet layout/relative scale only. Neck: shared joint/style repair.",
+  "reviews_used_as_generation_pixels": false,
+  "position_guides_used_as_delivery_pixels": false,
+  "generated_candidates_accepted": false,
+  "master_audit_writeback_authorized": false
+}

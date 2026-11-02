@@ -1,0 +1,1446 @@
+{
+	"actor_instances_constructed": 1,
+	"counts": {
+		"ballet": 229,
+		"live_swaps": 229,
+		"magician": 229
+	},
+	"pass": true,
+	"renderer": "mobile",
+	"run_id": "a23126013a1b43d1a95c54447c85bc8b",
+	"source_only": true,
+	"swaps": [
+		{
+			"after": {
+				"actor_id": 31440504273,
+				"anatomy_nodes": [
+					[
+						"head_hair",
+						32581354988
+					],
+					[
+						"arm_far",
+						32732349934
+					],
+					[
+						"arm_near",
+						32883344880
+					],
+					[
+						"neck_yoke",
+						33034339826
+					],
+					[
+						"fin_node",
+						33453770228
+					]
+				],
+				"animation": "sequence",
+				"animator_id": 35366372861,
+				"bone_ids": [
+					[
+						"Hips",
+						31625053657
+					],
+					[
+						"Spine",
+						31641830874
+					],
+					[
+						"Chest",
+						31658608091
+					],
+					[
+						"Neck",
+						31675385308
+					],
+					[
+						"Head",
+						31692162525
+					],
+					[
+						"HairRoot",
+						31708939742
+					],
+					[
+						"HairA",
+						31725716959
+					],
+					[
+						"HairB",
+						31742494176
+					],
+					[
+						"TailA",
+						31759271393
+					],
+					[
+						"TailB",
+						31776048610
+					],
+					[
+						"TailC",
+						31792825827
+					],
+					[
+						"TailD",
+						31809603044
+					],
+					[
+						"Fin",
+						31826380261
+					],
+					[
+						"LeftUpper",
+						31843157478
+					],
+					[
+						"LeftFore",
+						31859934695
+					],
+					[
+						"LeftHand",
+						31876711912
+					],
+					[
+						"RightUpper",
+						31893489129
+					],
+					[
+						"RightFore",
+						31910266346
+					],
+					[
+						"RightHand",
+						31927043563
+					]
+				],
+				"fin_state": "fin_broad",
+				"identity_asset_hash": "1bc4a85de8b4c7e2cac344d909778e91a5cc4b24e46e6b5f66dc0ba5f8eb2395",
+				"mesh_count": 17,
+				"node_count": 31,
+				"paused": false,
+				"phase": 1.23333333333333,
+				"pose_hash": "985527d73a78db2b96d5500154fd7f57aada5aa7348d245cd2a33b3d0c1bcd79",
+				"rest_hash": "685c51c187c09311aa0350b779f5cc0aafcfb4096dd3ff03147122499a4ff980",
+				"rig_hash": "8ec99a43336ded8e33112fd8c836781aa9ef89c61a21afa767b08df6e49231db",
+				"root_transform": "Transform2D(1, 0, 0, 1, 242.10446, -86.82368)",
+				"skeleton_id": 31608276440,
+				"slot_nodes": [
+					[
+						"body_front",
+						33470547448
+					],
+					[
+						"tail_cover",
+						33487324665
+					],
+					[
+						"sleeve_left",
+						33504101882
+					],
+					[
+						"sleeve_right",
+						33520879099
+					],
+					[
+						"headwear_front",
+						33537656316
+					]
+				],
+				"texture_count": 17,
+				"velocity": "Vector2(208.508, -74.7753)"
+			},
+			"before": {
+				"actor_id": 31440504273,
+				"anatomy_nodes": [
+					[
+						"head_hair",
+						32581354988
+					],
+					[
+						"arm_far",
+						32732349934
+					],
+					[
+						"arm_near",
+						32883344880
+					],
+					[
+						"neck_yoke",
+						33034339826
+					],
+					[
+						"fin_node",
+						33453770228
+					]
+				],
+				"animation": "sequence",
+				"animator_id": 35366372861,
+				"bone_ids": [
+					[
+						"Hips",
+						31625053657
+					],
+					[
+						"Spine",
+						31641830874
+					],
+					[
+						"Chest",
+						31658608091
+					],
+					[
+						"Neck",
+						31675385308
+					],
+					[
+						"Head",
+						31692162525
+					],
+					[
+						"HairRoot",
+						31708939742
+					],
+					[
+						"HairA",
+						31725716959
+					],
+					[
+						"HairB",
+						31742494176
+					],
+					[
+						"TailA",
+						31759271393
+					],
+					[
+						"TailB",
+						31776048610
+					],
+					[
+						"TailC",
+						31792825827
+					],
+					[
+						"TailD",
+						31809603044
+					],
+					[
+						"Fin",
+						31826380261
+					],
+					[
+						"LeftUpper",
+						31843157478
+					],
+					[
+						"LeftFore",
+						31859934695
+					],
+					[
+						"LeftHand",
+						31876711912
+					],
+					[
+						"RightUpper",
+						31893489129
+					],
+					[
+						"RightFore",
+						31910266346
+					],
+					[
+						"RightHand",
+						31927043563
+					]
+				],
+				"fin_state": "fin_broad",
+				"identity_asset_hash": "1bc4a85de8b4c7e2cac344d909778e91a5cc4b24e46e6b5f66dc0ba5f8eb2395",
+				"mesh_count": 17,
+				"node_count": 31,
+				"paused": false,
+				"phase": 1.23333333333333,
+				"pose_hash": "985527d73a78db2b96d5500154fd7f57aada5aa7348d245cd2a33b3d0c1bcd79",
+				"rest_hash": "685c51c187c09311aa0350b779f5cc0aafcfb4096dd3ff03147122499a4ff980",
+				"rig_hash": "8ec99a43336ded8e33112fd8c836781aa9ef89c61a21afa767b08df6e49231db",
+				"root_transform": "Transform2D(1, 0, 0, 1, 242.10446, -86.82368)",
+				"skeleton_id": 31608276440,
+				"slot_nodes": [
+					[
+						"body_front",
+						33470547448
+					],
+					[
+						"tail_cover",
+						33487324665
+					],
+					[
+						"sleeve_left",
+						33504101882
+					],
+					[
+						"sleeve_right",
+						33520879099
+					],
+					[
+						"headwear_front",
+						33537656316
+					]
+				],
+				"texture_count": 17,
+				"velocity": "Vector2(208.508, -74.7753)"
+			},
+			"frame": 37,
+			"skin": "magician"
+		},
+		{
+			"after": {
+				"actor_id": 31440504273,
+				"anatomy_nodes": [
+					[
+						"head_hair",
+						32581354988
+					],
+					[
+						"arm_far",
+						32732349934
+					],
+					[
+						"arm_near",
+						32883344880
+					],
+					[
+						"neck_yoke",
+						33034339826
+					],
+					[
+						"fin_node",
+						33453770228
+					]
+				],
+				"animation": "sequence",
+				"animator_id": 35366372861,
+				"bone_ids": [
+					[
+						"Hips",
+						31625053657
+					],
+					[
+						"Spine",
+						31641830874
+					],
+					[
+						"Chest",
+						31658608091
+					],
+					[
+						"Neck",
+						31675385308
+					],
+					[
+						"Head",
+						31692162525
+					],
+					[
+						"HairRoot",
+						31708939742
+					],
+					[
+						"HairA",
+						31725716959
+					],
+					[
+						"HairB",
+						31742494176
+					],
+					[
+						"TailA",
+						31759271393
+					],
+					[
+						"TailB",
+						31776048610
+					],
+					[
+						"TailC",
+						31792825827
+					],
+					[
+						"TailD",
+						31809603044
+					],
+					[
+						"Fin",
+						31826380261
+					],
+					[
+						"LeftUpper",
+						31843157478
+					],
+					[
+						"LeftFore",
+						31859934695
+					],
+					[
+						"LeftHand",
+						31876711912
+					],
+					[
+						"RightUpper",
+						31893489129
+					],
+					[
+						"RightFore",
+						31910266346
+					],
+					[
+						"RightHand",
+						31927043563
+					]
+				],
+				"fin_state": "fin_broad",
+				"identity_asset_hash": "1bc4a85de8b4c7e2cac344d909778e91a5cc4b24e46e6b5f66dc0ba5f8eb2395",
+				"mesh_count": 17,
+				"node_count": 31,
+				"paused": false,
+				"phase": 2.53333333333333,
+				"pose_hash": "aa93a5ebb7175bf98f5238af9ad590d1dbb99657d0c412e86cf538fdd972f939",
+				"rest_hash": "685c51c187c09311aa0350b779f5cc0aafcfb4096dd3ff03147122499a4ff980",
+				"rig_hash": "8ec99a43336ded8e33112fd8c836781aa9ef89c61a21afa767b08df6e49231db",
+				"root_transform": "Transform2D(1, 0, 0, 1, 461.63983, -165.55359)",
+				"skeleton_id": 31608276440,
+				"slot_nodes": [
+					[
+						"body_front",
+						33470547448
+					],
+					[
+						"tail_cover",
+						33487324665
+					],
+					[
+						"sleeve_left",
+						33504101882
+					],
+					[
+						"sleeve_right",
+						33520879099
+					],
+					[
+						"headwear_front",
+						33537656316
+					]
+				],
+				"texture_count": 17,
+				"velocity": "Vector2(457.65027, -164.12288)"
+			},
+			"before": {
+				"actor_id": 31440504273,
+				"anatomy_nodes": [
+					[
+						"head_hair",
+						32581354988
+					],
+					[
+						"arm_far",
+						32732349934
+					],
+					[
+						"arm_near",
+						32883344880
+					],
+					[
+						"neck_yoke",
+						33034339826
+					],
+					[
+						"fin_node",
+						33453770228
+					]
+				],
+				"animation": "sequence",
+				"animator_id": 35366372861,
+				"bone_ids": [
+					[
+						"Hips",
+						31625053657
+					],
+					[
+						"Spine",
+						31641830874
+					],
+					[
+						"Chest",
+						31658608091
+					],
+					[
+						"Neck",
+						31675385308
+					],
+					[
+						"Head",
+						31692162525
+					],
+					[
+						"HairRoot",
+						31708939742
+					],
+					[
+						"HairA",
+						31725716959
+					],
+					[
+						"HairB",
+						31742494176
+					],
+					[
+						"TailA",
+						31759271393
+					],
+					[
+						"TailB",
+						31776048610
+					],
+					[
+						"TailC",
+						31792825827
+					],
+					[
+						"TailD",
+						31809603044
+					],
+					[
+						"Fin",
+						31826380261
+					],
+					[
+						"LeftUpper",
+						31843157478
+					],
+					[
+						"LeftFore",
+						31859934695
+					],
+					[
+						"LeftHand",
+						31876711912
+					],
+					[
+						"RightUpper",
+						31893489129
+					],
+					[
+						"RightFore",
+						31910266346
+					],
+					[
+						"RightHand",
+						31927043563
+					]
+				],
+				"fin_state": "fin_broad",
+				"identity_asset_hash": "1bc4a85de8b4c7e2cac344d909778e91a5cc4b24e46e6b5f66dc0ba5f8eb2395",
+				"mesh_count": 17,
+				"node_count": 31,
+				"paused": false,
+				"phase": 2.53333333333333,
+				"pose_hash": "aa93a5ebb7175bf98f5238af9ad590d1dbb99657d0c412e86cf538fdd972f939",
+				"rest_hash": "685c51c187c09311aa0350b779f5cc0aafcfb4096dd3ff03147122499a4ff980",
+				"rig_hash": "8ec99a43336ded8e33112fd8c836781aa9ef89c61a21afa767b08df6e49231db",
+				"root_transform": "Transform2D(1, 0, 0, 1, 461.63983, -165.55359)",
+				"skeleton_id": 31608276440,
+				"slot_nodes": [
+					[
+						"body_front",
+						33470547448
+					],
+					[
+						"tail_cover",
+						33487324665
+					],
+					[
+						"sleeve_left",
+						33504101882
+					],
+					[
+						"sleeve_right",
+						33520879099
+					],
+					[
+						"headwear_front",
+						33537656316
+					]
+				],
+				"texture_count": 17,
+				"velocity": "Vector2(457.65027, -164.12288)"
+			},
+			"frame": 76,
+			"skin": "ballet"
+		},
+		{
+			"after": {
+				"actor_id": 31440504273,
+				"anatomy_nodes": [
+					[
+						"head_hair",
+						32581354988
+					],
+					[
+						"arm_far",
+						32732349934
+					],
+					[
+						"arm_near",
+						32883344880
+					],
+					[
+						"neck_yoke",
+						33034339826
+					],
+					[
+						"fin_node",
+						33453770228
+					]
+				],
+				"animation": "sequence",
+				"animator_id": 35366372861,
+				"bone_ids": [
+					[
+						"Hips",
+						31625053657
+					],
+					[
+						"Spine",
+						31641830874
+					],
+					[
+						"Chest",
+						31658608091
+					],
+					[
+						"Neck",
+						31675385308
+					],
+					[
+						"Head",
+						31692162525
+					],
+					[
+						"HairRoot",
+						31708939742
+					],
+					[
+						"HairA",
+						31725716959
+					],
+					[
+						"HairB",
+						31742494176
+					],
+					[
+						"TailA",
+						31759271393
+					],
+					[
+						"TailB",
+						31776048610
+					],
+					[
+						"TailC",
+						31792825827
+					],
+					[
+						"TailD",
+						31809603044
+					],
+					[
+						"Fin",
+						31826380261
+					],
+					[
+						"LeftUpper",
+						31843157478
+					],
+					[
+						"LeftFore",
+						31859934695
+					],
+					[
+						"LeftHand",
+						31876711912
+					],
+					[
+						"RightUpper",
+						31893489129
+					],
+					[
+						"RightFore",
+						31910266346
+					],
+					[
+						"RightHand",
+						31927043563
+					]
+				],
+				"fin_state": "fin_broad",
+				"identity_asset_hash": "1bc4a85de8b4c7e2cac344d909778e91a5cc4b24e46e6b5f66dc0ba5f8eb2395",
+				"mesh_count": 17,
+				"node_count": 31,
+				"paused": false,
+				"phase": 3.76666666666666,
+				"pose_hash": "c9bddacd80b8c3cab45f5d4614bf08624d5f6872e958306ab952e67e1e9242ab",
+				"rest_hash": "685c51c187c09311aa0350b779f5cc0aafcfb4096dd3ff03147122499a4ff980",
+				"rig_hash": "8ec99a43336ded8e33112fd8c836781aa9ef89c61a21afa767b08df6e49231db",
+				"root_transform": "Transform2D(1, 0, 0, 1, 738.62396, -264.88593)",
+				"skeleton_id": 31608276440,
+				"slot_nodes": [
+					[
+						"body_front",
+						33470547448
+					],
+					[
+						"tail_cover",
+						33487324665
+					],
+					[
+						"sleeve_left",
+						33504101882
+					],
+					[
+						"sleeve_right",
+						33520879099
+					],
+					[
+						"headwear_front",
+						33537656316
+					]
+				],
+				"texture_count": 17,
+				"velocity": "Vector2(68.53449, -24.577885)"
+			},
+			"before": {
+				"actor_id": 31440504273,
+				"anatomy_nodes": [
+					[
+						"head_hair",
+						32581354988
+					],
+					[
+						"arm_far",
+						32732349934
+					],
+					[
+						"arm_near",
+						32883344880
+					],
+					[
+						"neck_yoke",
+						33034339826
+					],
+					[
+						"fin_node",
+						33453770228
+					]
+				],
+				"animation": "sequence",
+				"animator_id": 35366372861,
+				"bone_ids": [
+					[
+						"Hips",
+						31625053657
+					],
+					[
+						"Spine",
+						31641830874
+					],
+					[
+						"Chest",
+						31658608091
+					],
+					[
+						"Neck",
+						31675385308
+					],
+					[
+						"Head",
+						31692162525
+					],
+					[
+						"HairRoot",
+						31708939742
+					],
+					[
+						"HairA",
+						31725716959
+					],
+					[
+						"HairB",
+						31742494176
+					],
+					[
+						"TailA",
+						31759271393
+					],
+					[
+						"TailB",
+						31776048610
+					],
+					[
+						"TailC",
+						31792825827
+					],
+					[
+						"TailD",
+						31809603044
+					],
+					[
+						"Fin",
+						31826380261
+					],
+					[
+						"LeftUpper",
+						31843157478
+					],
+					[
+						"LeftFore",
+						31859934695
+					],
+					[
+						"LeftHand",
+						31876711912
+					],
+					[
+						"RightUpper",
+						31893489129
+					],
+					[
+						"RightFore",
+						31910266346
+					],
+					[
+						"RightHand",
+						31927043563
+					]
+				],
+				"fin_state": "fin_broad",
+				"identity_asset_hash": "1bc4a85de8b4c7e2cac344d909778e91a5cc4b24e46e6b5f66dc0ba5f8eb2395",
+				"mesh_count": 17,
+				"node_count": 31,
+				"paused": false,
+				"phase": 3.76666666666666,
+				"pose_hash": "c9bddacd80b8c3cab45f5d4614bf08624d5f6872e958306ab952e67e1e9242ab",
+				"rest_hash": "685c51c187c09311aa0350b779f5cc0aafcfb4096dd3ff03147122499a4ff980",
+				"rig_hash": "8ec99a43336ded8e33112fd8c836781aa9ef89c61a21afa767b08df6e49231db",
+				"root_transform": "Transform2D(1, 0, 0, 1, 738.62396, -264.88593)",
+				"skeleton_id": 31608276440,
+				"slot_nodes": [
+					[
+						"body_front",
+						33470547448
+					],
+					[
+						"tail_cover",
+						33487324665
+					],
+					[
+						"sleeve_left",
+						33504101882
+					],
+					[
+						"sleeve_right",
+						33520879099
+					],
+					[
+						"headwear_front",
+						33537656316
+					]
+				],
+				"texture_count": 17,
+				"velocity": "Vector2(68.53449, -24.577885)"
+			},
+			"frame": 113,
+			"skin": "magician"
+		},
+		{
+			"after": {
+				"actor_id": 31440504273,
+				"anatomy_nodes": [
+					[
+						"head_hair",
+						32581354988
+					],
+					[
+						"arm_far",
+						32732349934
+					],
+					[
+						"arm_near",
+						32883344880
+					],
+					[
+						"neck_yoke",
+						33034339826
+					],
+					[
+						"fin_node",
+						33453770228
+					]
+				],
+				"animation": "sequence",
+				"animator_id": 35366372861,
+				"bone_ids": [
+					[
+						"Hips",
+						31625053657
+					],
+					[
+						"Spine",
+						31641830874
+					],
+					[
+						"Chest",
+						31658608091
+					],
+					[
+						"Neck",
+						31675385308
+					],
+					[
+						"Head",
+						31692162525
+					],
+					[
+						"HairRoot",
+						31708939742
+					],
+					[
+						"HairA",
+						31725716959
+					],
+					[
+						"HairB",
+						31742494176
+					],
+					[
+						"TailA",
+						31759271393
+					],
+					[
+						"TailB",
+						31776048610
+					],
+					[
+						"TailC",
+						31792825827
+					],
+					[
+						"TailD",
+						31809603044
+					],
+					[
+						"Fin",
+						31826380261
+					],
+					[
+						"LeftUpper",
+						31843157478
+					],
+					[
+						"LeftFore",
+						31859934695
+					],
+					[
+						"LeftHand",
+						31876711912
+					],
+					[
+						"RightUpper",
+						31893489129
+					],
+					[
+						"RightFore",
+						31910266346
+					],
+					[
+						"RightHand",
+						31927043563
+					]
+				],
+				"fin_state": "fin_edge",
+				"identity_asset_hash": "1bc4a85de8b4c7e2cac344d909778e91a5cc4b24e46e6b5f66dc0ba5f8eb2395",
+				"mesh_count": 17,
+				"node_count": 31,
+				"paused": false,
+				"phase": 5.13333333333332,
+				"pose_hash": "549c14361ff20a8021b146a18d2ef935289dc1a44d8285b96db2fb8cd5fbeea4",
+				"rest_hash": "685c51c187c09311aa0350b779f5cc0aafcfb4096dd3ff03147122499a4ff980",
+				"rig_hash": "8ec99a43336ded8e33112fd8c836781aa9ef89c61a21afa767b08df6e49231db",
+				"root_transform": "Transform2D(1, 0, 0, 1, 1101.3433, -394.9646)",
+				"skeleton_id": 31608276440,
+				"slot_nodes": [
+					[
+						"body_front",
+						33470547448
+					],
+					[
+						"tail_cover",
+						33487324665
+					],
+					[
+						"sleeve_left",
+						33504101882
+					],
+					[
+						"sleeve_right",
+						33520879099
+					],
+					[
+						"headwear_front",
+						33537656316
+					]
+				],
+				"texture_count": 17,
+				"velocity": "Vector2(184.77458, -66.26401)"
+			},
+			"before": {
+				"actor_id": 31440504273,
+				"anatomy_nodes": [
+					[
+						"head_hair",
+						32581354988
+					],
+					[
+						"arm_far",
+						32732349934
+					],
+					[
+						"arm_near",
+						32883344880
+					],
+					[
+						"neck_yoke",
+						33034339826
+					],
+					[
+						"fin_node",
+						33453770228
+					]
+				],
+				"animation": "sequence",
+				"animator_id": 35366372861,
+				"bone_ids": [
+					[
+						"Hips",
+						31625053657
+					],
+					[
+						"Spine",
+						31641830874
+					],
+					[
+						"Chest",
+						31658608091
+					],
+					[
+						"Neck",
+						31675385308
+					],
+					[
+						"Head",
+						31692162525
+					],
+					[
+						"HairRoot",
+						31708939742
+					],
+					[
+						"HairA",
+						31725716959
+					],
+					[
+						"HairB",
+						31742494176
+					],
+					[
+						"TailA",
+						31759271393
+					],
+					[
+						"TailB",
+						31776048610
+					],
+					[
+						"TailC",
+						31792825827
+					],
+					[
+						"TailD",
+						31809603044
+					],
+					[
+						"Fin",
+						31826380261
+					],
+					[
+						"LeftUpper",
+						31843157478
+					],
+					[
+						"LeftFore",
+						31859934695
+					],
+					[
+						"LeftHand",
+						31876711912
+					],
+					[
+						"RightUpper",
+						31893489129
+					],
+					[
+						"RightFore",
+						31910266346
+					],
+					[
+						"RightHand",
+						31927043563
+					]
+				],
+				"fin_state": "fin_edge",
+				"identity_asset_hash": "1bc4a85de8b4c7e2cac344d909778e91a5cc4b24e46e6b5f66dc0ba5f8eb2395",
+				"mesh_count": 17,
+				"node_count": 31,
+				"paused": false,
+				"phase": 5.13333333333332,
+				"pose_hash": "549c14361ff20a8021b146a18d2ef935289dc1a44d8285b96db2fb8cd5fbeea4",
+				"rest_hash": "685c51c187c09311aa0350b779f5cc0aafcfb4096dd3ff03147122499a4ff980",
+				"rig_hash": "8ec99a43336ded8e33112fd8c836781aa9ef89c61a21afa767b08df6e49231db",
+				"root_transform": "Transform2D(1, 0, 0, 1, 1101.3433, -394.9646)",
+				"skeleton_id": 31608276440,
+				"slot_nodes": [
+					[
+						"body_front",
+						33470547448
+					],
+					[
+						"tail_cover",
+						33487324665
+					],
+					[
+						"sleeve_left",
+						33504101882
+					],
+					[
+						"sleeve_right",
+						33520879099
+					],
+					[
+						"headwear_front",
+						33537656316
+					]
+				],
+				"texture_count": 17,
+				"velocity": "Vector2(184.77458, -66.26401)"
+			},
+			"frame": 154,
+			"skin": "ballet"
+		},
+		{
+			"after": {
+				"actor_id": 31440504273,
+				"anatomy_nodes": [
+					[
+						"head_hair",
+						32581354988
+					],
+					[
+						"arm_far",
+						32732349934
+					],
+					[
+						"arm_near",
+						32883344880
+					],
+					[
+						"neck_yoke",
+						33034339826
+					],
+					[
+						"fin_node",
+						33453770228
+					]
+				],
+				"animation": "sequence",
+				"animator_id": 35366372861,
+				"bone_ids": [
+					[
+						"Hips",
+						31625053657
+					],
+					[
+						"Spine",
+						31641830874
+					],
+					[
+						"Chest",
+						31658608091
+					],
+					[
+						"Neck",
+						31675385308
+					],
+					[
+						"Head",
+						31692162525
+					],
+					[
+						"HairRoot",
+						31708939742
+					],
+					[
+						"HairA",
+						31725716959
+					],
+					[
+						"HairB",
+						31742494176
+					],
+					[
+						"TailA",
+						31759271393
+					],
+					[
+						"TailB",
+						31776048610
+					],
+					[
+						"TailC",
+						31792825827
+					],
+					[
+						"TailD",
+						31809603044
+					],
+					[
+						"Fin",
+						31826380261
+					],
+					[
+						"LeftUpper",
+						31843157478
+					],
+					[
+						"LeftFore",
+						31859934695
+					],
+					[
+						"LeftHand",
+						31876711912
+					],
+					[
+						"RightUpper",
+						31893489129
+					],
+					[
+						"RightFore",
+						31910266346
+					],
+					[
+						"RightHand",
+						31927043563
+					]
+				],
+				"fin_state": "fin_cup",
+				"identity_asset_hash": "1bc4a85de8b4c7e2cac344d909778e91a5cc4b24e46e6b5f66dc0ba5f8eb2395",
+				"mesh_count": 17,
+				"node_count": 31,
+				"paused": false,
+				"phase": 6.23333333333332,
+				"pose_hash": "26cd8687db4d48655f51583158bcad00a07b0b8094efb5674164908799a7877c",
+				"rest_hash": "685c51c187c09311aa0350b779f5cc0aafcfb4096dd3ff03147122499a4ff980",
+				"rig_hash": "8ec99a43336ded8e33112fd8c836781aa9ef89c61a21afa767b08df6e49231db",
+				"root_transform": "Transform2D(1, 0, 0, 1, 1185.8257, -425.26163)",
+				"skeleton_id": 31608276440,
+				"slot_nodes": [
+					[
+						"body_front",
+						33470547448
+					],
+					[
+						"tail_cover",
+						33487324665
+					],
+					[
+						"sleeve_left",
+						33504101882
+					],
+					[
+						"sleeve_right",
+						33520879099
+					],
+					[
+						"headwear_front",
+						33537656316
+					]
+				],
+				"texture_count": 17,
+				"velocity": "Vector2(36.157684, -12.966895)"
+			},
+			"before": {
+				"actor_id": 31440504273,
+				"anatomy_nodes": [
+					[
+						"head_hair",
+						32581354988
+					],
+					[
+						"arm_far",
+						32732349934
+					],
+					[
+						"arm_near",
+						32883344880
+					],
+					[
+						"neck_yoke",
+						33034339826
+					],
+					[
+						"fin_node",
+						33453770228
+					]
+				],
+				"animation": "sequence",
+				"animator_id": 35366372861,
+				"bone_ids": [
+					[
+						"Hips",
+						31625053657
+					],
+					[
+						"Spine",
+						31641830874
+					],
+					[
+						"Chest",
+						31658608091
+					],
+					[
+						"Neck",
+						31675385308
+					],
+					[
+						"Head",
+						31692162525
+					],
+					[
+						"HairRoot",
+						31708939742
+					],
+					[
+						"HairA",
+						31725716959
+					],
+					[
+						"HairB",
+						31742494176
+					],
+					[
+						"TailA",
+						31759271393
+					],
+					[
+						"TailB",
+						31776048610
+					],
+					[
+						"TailC",
+						31792825827
+					],
+					[
+						"TailD",
+						31809603044
+					],
+					[
+						"Fin",
+						31826380261
+					],
+					[
+						"LeftUpper",
+						31843157478
+					],
+					[
+						"LeftFore",
+						31859934695
+					],
+					[
+						"LeftHand",
+						31876711912
+					],
+					[
+						"RightUpper",
+						31893489129
+					],
+					[
+						"RightFore",
+						31910266346
+					],
+					[
+						"RightHand",
+						31927043563
+					]
+				],
+				"fin_state": "fin_cup",
+				"identity_asset_hash": "1bc4a85de8b4c7e2cac344d909778e91a5cc4b24e46e6b5f66dc0ba5f8eb2395",
+				"mesh_count": 17,
+				"node_count": 31,
+				"paused": false,
+				"phase": 6.23333333333332,
+				"pose_hash": "26cd8687db4d48655f51583158bcad00a07b0b8094efb5674164908799a7877c",
+				"rest_hash": "685c51c187c09311aa0350b779f5cc0aafcfb4096dd3ff03147122499a4ff980",
+				"rig_hash": "8ec99a43336ded8e33112fd8c836781aa9ef89c61a21afa767b08df6e49231db",
+				"root_transform": "Transform2D(1, 0, 0, 1, 1185.8257, -425.26163)",
+				"skeleton_id": 31608276440,
+				"slot_nodes": [
+					[
+						"body_front",
+						33470547448
+					],
+					[
+						"tail_cover",
+						33487324665
+					],
+					[
+						"sleeve_left",
+						33504101882
+					],
+					[
+						"sleeve_right",
+						33520879099
+					],
+					[
+						"headwear_front",
+						33537656316
+					]
+				],
+				"texture_count": 17,
+				"velocity": "Vector2(36.157684, -12.966895)"
+			},
+			"frame": 187,
+			"skin": "magician"
+		}
+	],
+	"version": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"visual_device_owner_acceptance": false
+}

@@ -1,0 +1,41 @@
+{
+  "status": "REJECTED_TECHNICAL_FRAMING",
+  "reason": "Fin reaches viewport boundary at a few phases; adjust review camera framing, never art scale or acceptance limits.",
+  "all_original_rgba_preserved": true,
+  "archives": [
+    {
+      "job": "ballet",
+      "old_zip": "ballet_rgba_delta.zip",
+      "old_zip_sha256": "c6a45eed74a39bea148fc1d4ddc2656de4ef9572ebdf4a465e4a67a55f183935",
+      "video": "evidence/history/framing_preflight/ballet_rgba_delta.mkv",
+      "bytes": 3970621,
+      "sha256": "c90e97c45667b84b1c4f8c032a93faf62a493307ddcc6e5c336071d55cdc48ea",
+      "manifest": "evidence/history/framing_preflight/ballet_rgba_delta.json",
+      "all_delta_and_native_pixels_exact": true,
+      "frames": 229
+    },
+    {
+      "job": "magician",
+      "old_zip": "magician_rgba_delta.zip",
+      "old_zip_sha256": "0f25ab9b24bf54385d3f50dd33b1bcae9c351de64c63792b095cdd58cb11f4db",
+      "video": "evidence/history/framing_preflight/magician_rgba_delta.mkv",
+      "bytes": 3979942,
+      "sha256": "b7af4e6566844cf0b68027ada8dcedb30c86787382ee7f82278f38477c16d34a",
+      "manifest": "evidence/history/framing_preflight/magician_rgba_delta.json",
+      "all_delta_and_native_pixels_exact": true,
+      "frames": 229
+    },
+    {
+      "job": "live_swaps",
+      "old_zip": "live_swaps_rgba_delta.zip",
+      "old_zip_sha256": "3853128392e2dafd9acd0b1df0f7199cb4d83856c05b3eb63b8ec6423c669a43",
+      "video": "evidence/history/framing_preflight/live_swaps_rgba_delta.mkv",
+      "bytes": 3975381,
+      "sha256": "ab1574c709e0be64538da9de4b5d97bc7bf9694536edbf058183c2cf83616240",
+      "manifest": "evidence/history/framing_preflight/live_swaps_rgba_delta.json",
+      "all_delta_and_native_pixels_exact": true,
+      "frames": 229
+    }
+  ],
+  "storage_format": "Explicit lossless RGB/alpha XOR video; native data exact against named base. ZIP staging bytes replaced after verification."
+}
