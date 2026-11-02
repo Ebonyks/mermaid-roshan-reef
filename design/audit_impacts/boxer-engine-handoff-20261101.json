@@ -28,6 +28,7 @@
     "docs/handoffs/codex_boxer_engine_2026-11-01/EVALUATION.md",
     "docs/handoffs/codex_boxer_engine_2026-11-01/ROADMAP.md",
     "docs/handoffs/codex_boxer_engine_2026-11-01/MANIFEST.json",
+    "docs/handoffs/codex_boxer_engine_2026-11-01/REMOTE_VERIFICATION.json",
     "docs/handoffs/codex_boxer_engine_2026-11-01/data/results_22df5b75.txt",
     "docs/handoffs/codex_boxer_engine_2026-11-01/harness/boundary_checks.gd",
     "docs/handoffs/codex_boxer_engine_2026-11-01/harness/collision_integration.gd",
@@ -97,8 +98,8 @@
     },
     {
       "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed revision, compared with MANIFEST.json SHA-256",
-      "result": "PENDING",
-      "evidence": "Required before reporting the handoff delivered."
+      "result": "PASS",
+      "evidence": "Revision e450dc60883cd69536926b146b268abfbd2b7015 checked 2026-11-02T01:47:27+00:00 by anonymous HTTPS GET to raw.githubusercontent.com with no token or cookies: 15/15 files match MANIFEST.json bytes and SHA-256; manifest sha256 d59a0e67c6ea685ef11b905b8503e6986be9e87183a13af19afdf7fc54b8288b (4916 bytes). Receipt: docs/handoffs/codex_boxer_engine_2026-11-01/REMOTE_VERIFICATION.json."
     }
   ],
   "acceptance_gaps": "Nothing in the game is implemented. Work packages BX0-BX9 and acceptance AC-1 to AC-10 remain open, including device (Lenovo Tab M11 and a phone), observed-child and owner review of the warning's look and the hooks' feel. The playthrough figures come from child timing models built from published averages, not from the intended child. No visual claim is made: no screenshots were taken.",
