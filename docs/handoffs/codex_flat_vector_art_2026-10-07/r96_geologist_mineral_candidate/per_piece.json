@@ -18835,7 +18835,14 @@
         "FVF-CFB3F02098DE",
         "FVF-DA74517277FC"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        {
+          "source_revision": "877fb264778f59b6f1d1602fd8af4f73970351be",
+          "path": "scripts/games/melody.gd",
+          "node": "StageStar/StageStarPaintedCard",
+          "scope": "Source branch only, Dev frozen"
+        }
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
         "coverage_state": "COVERAGE_GAP",
@@ -18865,8 +18872,8 @@
       "context_brief_id": "BRIEF-MELODY",
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
-      "named_gap": null,
-      "status": "IDENTIFIED",
+      "named_gap": "Exact current source star was a flat gold/outline polygon plus code-drawn white glint beside painted scenery. R122 replaces this role only with one whole painted gold five-point star.",
+      "status": "SOURCE_CANDIDATE",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -18875,12 +18882,86 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r122_source_candidate": {
+          "stable_ids": [
+            "FV-8E1550C50601"
+          ],
+          "state": "SOURCE_BOUND_PAINTED_STAR_CANDIDATE_DEV_FROZEN",
+          "source_revision": "877fb264778f59b6f1d1602fd8af4f73970351be",
+          "source_branch": "codex/flat-vector-melody-star-20261102",
+          "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r122_melody_star_runtime/MANIFEST.json",
+          "source_required_files": 185,
+          "source_all_required_anonymous_exact": true,
+          "source_CI_snapshot": [
+            {
+              "conclusion": "",
+              "databaseId": 41421050319,
+              "headSha": "877fb264778f59b6f1d1602fd8af4f73970351be",
+              "status": "in_progress",
+              "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41421050319",
+              "workflowName": "Probe suite (graphics fork)"
+            }
+          ],
+          "owner_scope": {
+            "owner_answer": "Resume art candidates; keep Dev frozen",
+            "permission": "Static source candidates, work-branch source integration and established GitHub publication only",
+            "Dev_frozen": true,
+            "master_frozen": true,
+            "automation_resumed": false,
+            "paused_chats_resumed": false
+          },
+          "new_bounded_source_artifacts": 1,
+          "existing_named_roles": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "new_runtime_PNG": 1,
+          "native_generated_samples": 1,
+          "generation_calls": 1,
+          "nonselected_native_takes": 0,
+          "rejected_shape_takes": 0,
+          "technical_exports": 1,
+          "backend": "Built-in image_gen; no model selector or model/version returned",
+          "model_version": "NOT_EXPOSED",
+          "animation_calls": 0,
+          "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+          "native_effective_checks": {
+            "reused_exact_source": 69,
+            "current_candidate": 90,
+            "effective": 159
+          },
+          "check_count_unit": "Executed/effective configured checks; not unique requirements. Original90-check attempt includes one retained exact-float failure; diagnostic26 checks retain that failure and create0 image events; only failed tall30-check case is corrected/retried.",
+          "new_native_frame_events": {
+            "bounded": 6,
+            "excluded": 2,
+            "retained": 8
+          },
+          "reused_source_frames": 6,
+          "acceptance_scope": "Local stage-star-only ten-axis comparison across three configured Mobile/Speedy aspects; contact axis explicitly not applicable for a floating emblem. Natural routes/formalQA11 and physical device/child/owner remain open.",
+          "invisible_geometry": "No new functional geometry. One TextureRect contains appearance pixels; old star polygon/custom-draw path removed. Other original theatre roles remain open.",
+          "original_controller_other_methods_LF_exact": 67,
+          "original_probe_other_methods_LF_exact": 85,
+          "full_game_probe_unchanged": true,
+          "fixture_correction": "Only exact x==y replaced by0.0001px comparison after measured0.000022888px Control rounding at1280x800. Parent/card equality, square asset, KEEP_ASPECT_CENTERED uniform rendering, source layout and all art/resource floors unchanged; original failure retained, two healthy cases reused.",
+          "original_texture_ceilings_unchanged": {
+            "decoded_bytes": 24117248,
+            "declared_upload_bytes": 12582912
+          },
+          "Dev_integrated": false,
+          "new_partial_Dev_artifacts": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "whole_role_closed": false,
+          "accepted_removed": 0,
+          "mission_complete": false
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Exact source-bound scene/material references; quality-based reuse or ImageGen, no failed-reuse prerequisite",
+        "Applicable provenance/license/import/geometry/passive/save/teardown gates",
+        "FormalQA11/current natural-route/device/child/owner acceptance remains separately open"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -18895,8 +18976,15 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Review Melody reward star during Melody reward star active/rest/changed/payoff/settle states on Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261102-R122-SOURCE",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r122_melody_star_runtime/FRAME_REVIEW.json",
+          "source_revision": "877fb264778f59b6f1d1602fd8af4f73970351be",
+          "status": "SOURCE_CANDIDATE_NOT_FORMAL_QA11"
+        }
+      ],
+      "proposed_update": "Review the published painted star in its configured current three-aspect source context; resolve remaining natural routes/states and formal/external gates. Do not regenerate approved art for novelty.",
       "route_refs": [
         "minigame.melody",
         "game.melody"
@@ -18904,7 +18992,13 @@
       "route_evidence": "Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE)",
       "context_action": "Melody reward star active/rest/changed/payoff/settle states",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-8E1550C50601"
+      "individual_brief_id": "PIECE-FV-8E1550C50601",
+      "r122_prior_status": "IDENTIFIED",
+      "source_candidate_output": {
+        "revision": "877fb264778f59b6f1d1602fd8af4f73970351be",
+        "path": "assets/melody/star_painted.png",
+        "sha256": "44a7b3a8351778b5912ac3a9c54085b20a990967e2b036aeff88f2b388a93e8e"
+      }
     },
     {
       "id": "FV-BE13EF06ECAF",
@@ -25446,7 +25540,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261101-R121-SOURCE",
+  "revision": "FV-AUDIT-20261102-R122-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -39734,6 +39828,91 @@
     "conclusion": "success",
     "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41383041660",
     "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/R120_EXACT_CI_SUCCESS.json",
+    "historical_pending_snapshots_preserved": true,
+    "new_artwork_or_Dev_credit": 0
+  },
+  "r122_parent_receipt_revision": "e8478cef33cf957fe6181e4962a6bdfa9fd66f7f",
+  "r122_melody_star_runtime": {
+    "stable_ids": [
+      "FV-8E1550C50601"
+    ],
+    "state": "SOURCE_BOUND_PAINTED_STAR_CANDIDATE_DEV_FROZEN",
+    "source_revision": "877fb264778f59b6f1d1602fd8af4f73970351be",
+    "source_branch": "codex/flat-vector-melody-star-20261102",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r122_melody_star_runtime/MANIFEST.json",
+    "source_required_files": 185,
+    "source_all_required_anonymous_exact": true,
+    "source_CI_snapshot": [
+      {
+        "conclusion": "",
+        "databaseId": 41421050319,
+        "headSha": "877fb264778f59b6f1d1602fd8af4f73970351be",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41421050319",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "owner_scope": {
+      "owner_answer": "Resume art candidates; keep Dev frozen",
+      "permission": "Static source candidates, work-branch source integration and established GitHub publication only",
+      "Dev_frozen": true,
+      "master_frozen": true,
+      "automation_resumed": false,
+      "paused_chats_resumed": false
+    },
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "new_runtime_PNG": 1,
+    "native_generated_samples": 1,
+    "generation_calls": 1,
+    "nonselected_native_takes": 0,
+    "rejected_shape_takes": 0,
+    "technical_exports": 1,
+    "backend": "Built-in image_gen; no model selector or model/version returned",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "native_effective_checks": {
+      "reused_exact_source": 69,
+      "current_candidate": 90,
+      "effective": 159
+    },
+    "check_count_unit": "Executed/effective configured checks; not unique requirements. Original90-check attempt includes one retained exact-float failure; diagnostic26 checks retain that failure and create0 image events; only failed tall30-check case is corrected/retried.",
+    "new_native_frame_events": {
+      "bounded": 6,
+      "excluded": 2,
+      "retained": 8
+    },
+    "reused_source_frames": 6,
+    "acceptance_scope": "Local stage-star-only ten-axis comparison across three configured Mobile/Speedy aspects; contact axis explicitly not applicable for a floating emblem. Natural routes/formalQA11 and physical device/child/owner remain open.",
+    "invisible_geometry": "No new functional geometry. One TextureRect contains appearance pixels; old star polygon/custom-draw path removed. Other original theatre roles remain open.",
+    "original_controller_other_methods_LF_exact": 67,
+    "original_probe_other_methods_LF_exact": 85,
+    "full_game_probe_unchanged": true,
+    "fixture_correction": "Only exact x==y replaced by0.0001px comparison after measured0.000022888px Control rounding at1280x800. Parent/card equality, square asset, KEEP_ASPECT_CENTERED uniform rendering, source layout and all art/resource floors unchanged; original failure retained, two healthy cases reused.",
+    "original_texture_ceilings_unchanged": {
+      "decoded_bytes": 24117248,
+      "declared_upload_bytes": 12582912
+    },
+    "Dev_integrated": false,
+    "new_partial_Dev_artifacts": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_role_closed": false,
+    "accepted_removed": 0,
+    "mission_complete": false
+  },
+  "r121_exact_source_CI_new_observation": {
+    "run_id": 41404127761,
+    "revision": "621a098f6795d8aa2e0bd0838c2ff5e65aeb142c",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41404127761",
+    "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r122_melody_star_runtime/R121_EXACT_CI_SUCCESS.json",
     "historical_pending_snapshots_preserved": true,
     "new_artwork_or_Dev_credit": 0
   }

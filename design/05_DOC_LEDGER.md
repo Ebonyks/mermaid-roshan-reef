@@ -1464,3 +1464,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` source-only painted Melody curtains, two existing roles/one artifact; art resumed, Dev frozen.23 source/20 partialDev; formal/external/global open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R121 painted header source-only production,24 source20 partialDev artifacts; Dev frozen, formal/external/global acceptance open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r122_melody_star_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R122 painted star source-only production,25 source20 partialDev artifacts; Dev frozen, formal/external/global acceptance open. |
