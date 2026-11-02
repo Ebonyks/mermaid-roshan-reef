@@ -132,6 +132,8 @@ Owner extension, 2026-11-01, requires a reusable [costume conversion guide](../d
 
 The detailed guide also specifies editable garment/Aseprite sources, rigid versus weighted attachments, weight-transfer preparation, repair ownership, conversion caching and real cleanup/binding/validation-time measurement. Whole-character review clips remain diagnostic exports, not the skin-authoring source of truth. No production finding closes and the source-only demo freeze remains.
 
+Published source review: [source packet](../assets_src/animation/laura_swim_costumes_20261101/README.md), [manifest](../assets_src/animation/laura_swim_costumes_20261101/manifest.json) and [anonymous remote-verification receipt](receipts/laura-costume-skin-guide-publication-20261101.json). The receipt supplies the GitHub entry, immutable source revision and direct remote manifest. Every required payload/support file was fetched and byte/hash-verified at that exact revision. This publishes the diagnostic archive and proposed conversion workflow; the multi-builder architecture remains owner-rejected, and the generic live loader, real two-skin runtime proof and visual/device/child/owner acceptance remain pending. The source-only demo freeze remains in force.
+
 ### Development task index
 
 | Geologist in-world painted station props | [R115 candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-geologist-station-props-20261030.json); whole fossil/three trays/gallery foreground candidate; originaltaskguard/input/save unchanged. Cavebackground/river/formal/external open. |

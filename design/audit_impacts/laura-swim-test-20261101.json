@@ -840,6 +840,11 @@
       "command": "python -B -m unittest tools.tests.test_costume_skin_binding",
       "result": "PASS",
       "evidence": "assets_src/animation/laura_swim_costumes_20261101/evidence/costume_format_gate.json"
+    },
+    {
+      "command": "Anonymous immutable GitHub manifest and every required payload/support file SHA-256/byte verification at f07a871dd2fcc1034c83c73b3dff698428cf929a",
+      "result": "PASS",
+      "evidence": "audit/receipts/laura-costume-skin-guide-publication-20261101.json"
     }
   ],
   "required_evidence": [
@@ -853,9 +858,7 @@
   ],
   "acceptance_gaps": "Source-only candidate. Existing costume defects, missing profile/turn and independent hair coverage, exact human motion, phone performance, child/owner and production adoption remain separate. Owner rejects the current multi-builder architecture. Existing comparison is diagnostic evidence only; one live actor with data-only skin swaps is not yet implemented or accepted.",
   "status": "IN_PROGRESS",
-  "planned_files": [
-    "audit/receipts/laura-costume-skin-guide-publication-20261101.json"
-  ],
+  "planned_files": [],
   "owner_corrections": [
     {
       "decision_id": "ODR-RIG-SKIN-ARCHITECTURE-20261101",
