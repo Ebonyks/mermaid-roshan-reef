@@ -44,6 +44,7 @@ const TILE_SOURCE_RECTS: Array[Rect2i] = [
 ]
 const DADDY_PATH := "res://assets/characters/stickers/daddy.png"
 const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
+const STAGE_STAR_PATH := "res://assets/melody/star_painted.png"
 const OBJECTIVE := "Tap each rainbow note in the green!"
 const OBJECTIVE_VOICE := "op_popstar_rhythm"
 
@@ -215,49 +216,28 @@ class FootlightsCanvas extends Control:
 
 
 class StageStarCanvas extends Control:
-	const NAVY := MelodyGame.NAVY
-	const GOLD := MelodyGame.GOLD
-	var star_geometry: Polygon2D = null
+	var painted_star: TextureRect = null
 
 	func setup() -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 18
-		star_geometry = Polygon2D.new()
-		star_geometry.name = "StageStarGeometry"
-		star_geometry.color = GOLD
-		star_geometry.z_index = -1
-		add_child(star_geometry)
+		painted_star = TextureRect.new()
+		painted_star.name = "StageStarPaintedCard"
+		painted_star.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		painted_star.focus_mode = Control.FOCUS_NONE
+		painted_star.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		painted_star.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		painted_star.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		painted_star.texture = load(MelodyGame.STAGE_STAR_PATH) as Texture2D
+		add_child(painted_star)
 
 
 	func layout(center: Vector2, diameter: float) -> void:
 		size = Vector2.ONE * diameter
 		position = center - size * 0.5
-		star_geometry.polygon = _star_points(size * 0.5,
-			minf(size.x, size.y) * 0.39, minf(size.x, size.y) * 0.18)
-		queue_redraw()
-
-
-	func _draw() -> void:
-		var center := size * 0.5
-		var outer: PackedVector2Array = _star_points(center,
-			minf(size.x, size.y) * 0.48, minf(size.x, size.y) * 0.22)
-		draw_colored_polygon(outer, NAVY)
-		var inner: PackedVector2Array = _star_points(center,
-			minf(size.x, size.y) * 0.39, minf(size.x, size.y) * 0.18)
-		draw_colored_polygon(inner, GOLD)
-		draw_circle(center - size * 0.08, size.x * 0.055, Color.WHITE,
-			true, -1.0, true)
-
-
-	func _star_points(center: Vector2, outer_radius: float,
-			inner_radius: float) -> PackedVector2Array:
-		var points := PackedVector2Array()
-		for index in range(10):
-			var radius: float = outer_radius if index % 2 == 0 else inner_radius
-			var angle: float = -PI * 0.5 + float(index) * PI / 5.0
-			points.append(center + Vector2(cos(angle), sin(angle)) * radius)
-		return points
+		painted_star.position = Vector2.ZERO
+		painted_star.size = size
 
 
 class TimingZoneCanvas extends Control:

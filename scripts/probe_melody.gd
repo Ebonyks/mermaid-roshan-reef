@@ -49,6 +49,8 @@ const DADDY_SHA256 := \
 const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
 const ROSHAN_SHA256 := \
 	"2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523"
+const STAGE_STAR_PATH := "res://assets/melody/star_painted.png"
+const STAGE_STAR_SHA256 := "44a7b3a8351778b5912ac3a9c54085b20a990967e2b036aeff88f2b388a93e8e"
 const VOICE_PATH := "res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg"
 const VOICE_SHA256 := \
 	"e2d819527d370aff926302dbfecd6beb9e6c2165024d7abad131a28d90cac4ed"
@@ -503,6 +505,21 @@ func _check_asset_contract() -> void:
 		ResourceLoader.exists(VOICE_PATH)
 		and FileAccess.get_sha256(VOICE_PATH) == VOICE_SHA256)
 
+	var star_image := Image.load_from_file(STAGE_STAR_PATH)
+	var star_import := FileAccess.get_file_as_string(STAGE_STAR_PATH + ".import")
+	_check("painted stage star is the exact whole256-square RGBA candidate",
+		star_image != null and star_image.get_size() == Vector2i(256, 256)
+		and star_image.get_format() == Image.FORMAT_RGBA8
+		and FileAccess.get_sha256(STAGE_STAR_PATH) == STAGE_STAR_SHA256)
+	_check("painted stage star is lossless mipmapped with no VRAM or oversize import",
+		star_import.contains("compress/mode=0")
+		and star_import.contains("\"vram_texture\": false")
+		and star_import.contains("mipmaps/generate=true")
+		and star_import.contains("process/size_limit=256"))
+	_check("painted stage-star native and editable-master provenance is licensed",
+		licenses.contains("assets/melody/star_painted.png")
+		and licenses.contains("assets_src/imagegen/melody_star_20261102/"))
+
 
 func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
 		direct_baseline: Dictionary, game_nodes_baseline: Array[int],
@@ -875,6 +892,7 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 	var expected_paths: Array[String] = TILE_PATHS.duplicate()
 	expected_paths.append(DADDY_PATH)
 	expected_paths.append(ROSHAN_PATH)
+	expected_paths.append(STAGE_STAR_PATH)
 	var exact_once := counts.size() == expected_paths.size()
 	var decoded_bytes := 0
 	var declared_upload_bytes := 0
@@ -889,7 +907,7 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 		var import_text := FileAccess.get_file_as_string(path + ".import")
 		declared_upload_bytes += pixels if import_text.contains(
 			"compress/mode=2") else pixels * 4
-	_check("live Canvas binds only four tiles, Daddy, and Roshan exactly once each",
+	_check("live Canvas binds four tiles, Daddy, Roshan, and painted star exactly once each",
 		exact_once)
 	_check("unique live texture census stays within conservative decoded and declared-upload bounds",
 		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024
@@ -948,8 +966,7 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 			], []) \
 			or not _exact_typed_geometry_children(
 				footlights, [], ["FootlightRailGeometry"]) \
-			or not _exact_typed_geometry_children(
-				star, ["StageStarGeometry"], []) \
+			or not _painted_stage_star_contract(star) \
 			or not _exact_typed_geometry_children(
 				zone, ["GreenWindowGeometry"], []) \
 			or not _exact_typed_geometry_children(pointer, [
@@ -969,6 +986,31 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 				pip, ["ProgressPipGeometry"], []):
 			return false
 	return true
+
+
+func _painted_stage_star_contract(star: Node) -> bool:
+	if not (star is Control) or not _exact_direct_child_names(
+			star, ["StageStarPaintedCard"]):
+		return false
+	var control := star as Control
+	var card := star.get_node("StageStarPaintedCard") as TextureRect
+	return card != null and card.get_child_count() == 0 \
+		and card.get_script() == null and card.texture != null \
+		and card.texture.resource_path == STAGE_STAR_PATH \
+		and card.texture.get_size() == Vector2(256, 256) \
+		and card.expand_mode == TextureRect.EXPAND_IGNORE_SIZE \
+		and card.stretch_mode == TextureRect.STRETCH_KEEP_ASPECT_CENTERED \
+		and card.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+		and card.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and card.focus_mode == Control.FOCUS_NONE \
+		and control.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and control.focus_mode == Control.FOCUS_NONE \
+		and control.z_index == 18 and card.z_index == 0 \
+		and card.position.is_zero_approx() and card.size.is_equal_approx(control.size) \
+		and card.scale == Vector2.ONE and is_zero_approx(card.rotation) \
+		and not card.flip_h and not card.flip_v \
+		and card.modulate == Color.WHITE and card.self_modulate == Color.WHITE \
+		and card.visible and _texture_rect_alpha_rect(card).has_area()
 
 
 func _exact_direct_child_names(node: Node, expected: Array[String]) -> bool:

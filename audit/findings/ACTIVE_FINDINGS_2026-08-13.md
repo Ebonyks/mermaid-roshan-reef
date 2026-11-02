@@ -1902,3 +1902,5 @@ CHG-107 publication reconciliation2026-10-19: topic256e1f36 passes exact remoteP
 | closure | Open as of 2026-10-31 at `218ae766`; no repair is made. |
 | relationships | Upgrade-path companion to `MA-SAVE-001` (unsaved castle scratch); shares the `DL-SAVE-06` career-bit rules with `MA-OPERA-011`; release evidence under `MA-RELEASE-001`. |
 | history | 2026-10-31: opened `CONFIRMED_OPEN` P1 by Claude from the owner-requested demo-readiness review at dev `218ae766`. |
+
+R122 source candidate: [painted Melody stage star](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r122_melody_star_runtime/README.md), baseline27c88288bf6e39582072811443df79919e7bbb89. Only this role’s polygon/custom drawing retires on its work branch; current all82/static/analyzer/2D and90 effective native checks pass. MA-VIS-006/008 remain CONFIRMED_OPEN; Dev, formalQA11/device/child/owner/natural-route/global acceptance and accepted-removal credit are absent.

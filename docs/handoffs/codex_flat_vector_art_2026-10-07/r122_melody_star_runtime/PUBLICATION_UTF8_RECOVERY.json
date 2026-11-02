@@ -1,0 +1,9 @@
+{
+  "reason": "The original publication helper used Windows default cp1252 for its README read, mangling the em-dash on the first staging attempt and failing the second read. Restore that exact reversible UTF8 metadata transformation and make every helper text read explicit UTF8. No runtime file or pixels changed.",
+  "original_failure_retained": true,
+  "README_restored_utf8": true,
+  "import_force_stage_retained": true,
+  "all82_pass_retained": true,
+  "no_engine_restarted": true,
+  "at_utc": "2026-11-02T09:28:15.545583+00:00"
+}
