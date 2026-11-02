@@ -19437,7 +19437,14 @@
         "FVF-CFB3F02098DE",
         "FVF-DA74517277FC"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        {
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "scripts/games/melody.gd",
+          "node": "ProgressPipCanvas (ProgressPip0 through ProgressPip6)/PaintedProgressPip",
+          "scope": "Source branch only, Dev frozen"
+        }
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
         "coverage_state": "COVERAGE_GAP",
@@ -19467,8 +19474,8 @@
       "context_brief_id": "BRIEF-MELODY",
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
-      "named_gap": null,
-      "status": "IDENTIFIED",
+      "named_gap": "The Melody progress-pip role used flat circles and procedural checks beside painted scenery. R127 supplies21 whole painted state/color pictures at the original geometry and state flow.",
+      "status": "SOURCE_CANDIDATE",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -19477,12 +19484,140 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r126_source_candidate": {
+          "stable_ids": [
+            "FV-E6549378F626"
+          ],
+          "state": "SOURCE_BOUND_PAINTED_PROGRESS_PIP_CANDIDATE_DEV_FROZEN",
+          "new_bounded_source_artifacts": 1,
+          "existing_named_roles": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "new_runtime_PNG": 21,
+          "native_generated_samples": 1,
+          "authored_state_color_pictures": 21,
+          "generation_calls": 1,
+          "native_rejects": 0,
+          "technical_exports": 21,
+          "backend": "Built-in image_gen; no model selector or model/version returned",
+          "model_version": "NOT_EXPOSED",
+          "animation_calls": 0,
+          "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+          "native_effective_checks": {
+            "reused_exact_baseline_source": 171,
+            "current_candidate": 192,
+            "effective": 363
+          },
+          "check_count_unit": "Configured checks, not unique requirements or formalQA11.",
+          "new_native_frame_events": {
+            "bounded": 21,
+            "excluded": 7,
+            "retained": 28
+          },
+          "reused_historical_context_frames": 21,
+          "reused_historical_context_new_credit": 0,
+          "acceptance_scope": "Local pip-only ten-axis comparison:21 current candidate frames;21 exact source frames already reviewed in R126; three configured Mobile/Speedy aspects. All21 authored state mappings at component level;19 pictures naturally held. FormalQA11/natural routes/device/child/owner remain open.",
+          "invisible_geometry": "No functional invisible geometry changed. Only visible ProgressPipGeometry and the primitive pip draw path are replaced. Original48px controls,24px pivot,38/46px body/current cue,z40,height-derived uniform scale,state flow and all other theatre roles remain.",
+          "original_controller_other_methods_LF_exact": 68,
+          "original_probe_other_methods_LF_exact": 83,
+          "full_game_probe_unchanged": true,
+          "original_texture_ceilings_unchanged": {
+            "decoded_bytes": 24117248,
+            "declared_upload_bytes": 12582912
+          },
+          "total_resident_texture_count": 27,
+          "Dev_integrated": false,
+          "new_partial_Dev_artifacts": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "whole_role_closed": false,
+          "accepted_removed": 0,
+          "mission_complete": false,
+          "static_item_call_cap": 2,
+          "calls_remaining": 1,
+          "technical_runtime_targets": 21,
+          "technical_reexports": 0,
+          "technical_export_count_unit": "21whole128-square state/color pictures, exported once each from one1912x823native atlas. No animation or re-export.",
+          "configured_instance_topology": {
+            "whole_pip_state_color_pictures": 21,
+            "colors": [
+              "red",
+              "orange",
+              "yellow",
+              "green",
+              "blue",
+              "indigo",
+              "violet"
+            ],
+            "states": [
+              "idle",
+              "current",
+              "filled"
+            ],
+            "logical_size": 48,
+            "ordinary_body_diameter": 38,
+            "current_body_diameter": 46,
+            "pivot": [
+              24,
+              24
+            ],
+            "z_index": 40,
+            "naturally_held_unique_pictures": 19
+          },
+          "runtime_base_RGBA_bytes": 1376256,
+          "capture_recovery": "Initial tall fixture strict float equality found original scaled Control47.99997/23.99998 instead of48/24. Verifier-only correction; production unchanged, healthy standard/wide retained; only tall recaptured,7failed frames excluded.",
+          "excluded_capture_runs": 1,
+          "static_evidence_mode": "Complete original source-bound global static pass; two new verifier literals calibrated with34012other original index entries unchanged; fresh current parser/inference/governance/real analyzer/2D and all82 trusted probes.",
+          "initial_focused_verifier": {
+            "passed": 200,
+            "failed": 1,
+            "reason": "Incorrect orange/yellow classification boundary also excluded original yellow; two disjoint-bin numeric literals corrected, no artwork/identity/pixel/quality-floor/assertion removal.",
+            "evidence": "COLOR_VERIFIER_RECOVERY.json"
+          },
+          "new_recovery_frame_events": 0,
+          "phone_size_review": {
+            "candidate": 21,
+            "source": 3,
+            "review_derivative_PNG": 24,
+            "whole_HUD_scale": 0.3,
+            "local_readability": "PROVISIONAL_PASS",
+            "new_native_frame_events": 0,
+            "formal_QA11": null,
+            "device": null,
+            "child": null,
+            "owner": null,
+            "evidence": "PHONE_SQUINT_REVIEW.json"
+          },
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "source_branch": "codex/flat-vector-melody-progress-pips-20261102",
+          "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/MANIFEST.json",
+          "source_required_files": 367,
+          "source_all_required_anonymous_exact": true,
+          "source_CI_snapshot": [
+            {
+              "conclusion": "",
+              "databaseId": 41538353211,
+              "headSha": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+              "status": "in_progress",
+              "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41538353211",
+              "workflowName": "Probe suite (graphics fork)"
+            }
+          ],
+          "owner_scope": {
+            "authority": "Direct owner reply in current chat",
+            "question": "You resumed the art goal, but the owner-approved demo plan still says \u201cNo new art\u201d until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
+            "answer": "Resume art candidates; keep Dev frozen",
+            "scope": "Production of work-branch art candidates and established GitHub delivery. Dev/master frozen; no promotion/release, automation resume, messaging/interruption of other chats or paused-goal resumption."
+          }
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Exact source-bound scene/material references; quality-based reuse or ImageGen, no failed-reuse prerequisite",
+        "Applicable provenance/license/import/geometry/passive/save/teardown/resource gates",
+        "Formal QA11/current natural-route/device/child/owner acceptance remains separately open"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -19497,8 +19632,15 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Review Melody progress pip during Melody progress pip active/rest/changed/payoff/settle states on Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261102-R127-SOURCE",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/FRAME_REVIEW.json",
+          "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "status": "SOURCE_CANDIDATE_NOT_FORMAL_QA11"
+        }
+      ],
+      "proposed_update": "Review the21 published whole painted pip pictures and three-aspect progress contexts; resolve natural-route/state/formal/external gates. Keep Dev frozen.",
       "route_refs": [
         "minigame.melody",
         "game.melody"
@@ -19506,7 +19648,225 @@
       "route_evidence": "Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE)",
       "context_action": "Melody progress pip active/rest/changed/payoff/settle states",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-E6549378F626"
+      "individual_brief_id": "PIECE-FV-E6549378F626",
+      "r126_prior_status": "IDENTIFIED",
+      "source_candidate_outputs": [
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_idle_red_painted.png",
+          "sha256": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_idle_orange_painted.png",
+          "sha256": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_idle_yellow_painted.png",
+          "sha256": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_idle_green_painted.png",
+          "sha256": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_idle_blue_painted.png",
+          "sha256": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_idle_indigo_painted.png",
+          "sha256": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_idle_violet_painted.png",
+          "sha256": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_current_red_painted.png",
+          "sha256": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_current_orange_painted.png",
+          "sha256": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_current_yellow_painted.png",
+          "sha256": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_current_green_painted.png",
+          "sha256": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_current_blue_painted.png",
+          "sha256": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_current_indigo_painted.png",
+          "sha256": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_current_violet_painted.png",
+          "sha256": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_filled_red_painted.png",
+          "sha256": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_filled_orange_painted.png",
+          "sha256": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_filled_yellow_painted.png",
+          "sha256": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_filled_green_painted.png",
+          "sha256": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_filled_blue_painted.png",
+          "sha256": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_filled_indigo_painted.png",
+          "sha256": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+          "path": "assets/melody/progress_pip_filled_violet_painted.png",
+          "sha256": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5",
+          "dimensions": [
+            128,
+            128
+          ]
+        }
+      ],
+      "configured_source_instance_topology": {
+        "whole_pip_state_color_pictures": 21,
+        "colors": [
+          "red",
+          "orange",
+          "yellow",
+          "green",
+          "blue",
+          "indigo",
+          "violet"
+        ],
+        "states": [
+          "idle",
+          "current",
+          "filled"
+        ],
+        "logical_size": 48,
+        "ordinary_body_diameter": 38,
+        "current_body_diameter": 46,
+        "pivot": [
+          24,
+          24
+        ],
+        "z_index": 40,
+        "naturally_held_unique_pictures": 19
+      }
     },
     {
       "id": "FV-8E1550C50601",
@@ -26243,7 +26603,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261102-R126-CI-CHECKOUT-TIMEOUT",
+  "revision": "FV-AUDIT-20261102-R127-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -40913,7 +41273,7 @@
     "historical_pending_snapshots_preserved": true,
     "new_artwork_or_Dev_credit": 0
   },
-  "r126_parent_receipt_revision": "d4aae47c05edb15774218a2f3a5b825ae7098805",
+  "r126_parent_receipt_revision": "7297b1f3196e39a32591bef2f286d446a2e62bd6",
   "r126_melody_note_runtime": {
     "stable_ids": [
       "FV-A914479B2992"
@@ -41083,5 +41443,133 @@
     "child": null,
     "owner": null,
     "mission_complete": false
+  },
+  "r127_melody_progress_pips_runtime": {
+    "stable_ids": [
+      "FV-E6549378F626"
+    ],
+    "state": "SOURCE_BOUND_PAINTED_PROGRESS_PIP_CANDIDATE_DEV_FROZEN",
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "new_runtime_PNG": 21,
+    "native_generated_samples": 1,
+    "authored_state_color_pictures": 21,
+    "generation_calls": 1,
+    "native_rejects": 0,
+    "technical_exports": 21,
+    "backend": "Built-in image_gen; no model selector or model/version returned",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "native_effective_checks": {
+      "reused_exact_baseline_source": 171,
+      "current_candidate": 192,
+      "effective": 363
+    },
+    "check_count_unit": "Configured checks, not unique requirements or formalQA11.",
+    "new_native_frame_events": {
+      "bounded": 21,
+      "excluded": 7,
+      "retained": 28
+    },
+    "reused_historical_context_frames": 21,
+    "reused_historical_context_new_credit": 0,
+    "acceptance_scope": "Local pip-only ten-axis comparison:21 current candidate frames;21 exact source frames already reviewed in R126; three configured Mobile/Speedy aspects. All21 authored state mappings at component level;19 pictures naturally held. FormalQA11/natural routes/device/child/owner remain open.",
+    "invisible_geometry": "No functional invisible geometry changed. Only visible ProgressPipGeometry and the primitive pip draw path are replaced. Original48px controls,24px pivot,38/46px body/current cue,z40,height-derived uniform scale,state flow and all other theatre roles remain.",
+    "original_controller_other_methods_LF_exact": 68,
+    "original_probe_other_methods_LF_exact": 83,
+    "full_game_probe_unchanged": true,
+    "original_texture_ceilings_unchanged": {
+      "decoded_bytes": 24117248,
+      "declared_upload_bytes": 12582912
+    },
+    "total_resident_texture_count": 27,
+    "Dev_integrated": false,
+    "new_partial_Dev_artifacts": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_role_closed": false,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "static_item_call_cap": 2,
+    "calls_remaining": 1,
+    "technical_runtime_targets": 21,
+    "technical_reexports": 0,
+    "technical_export_count_unit": "21whole128-square state/color pictures, exported once each from one1912x823native atlas. No animation or re-export.",
+    "configured_instance_topology": {
+      "whole_pip_state_color_pictures": 21,
+      "colors": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "indigo",
+        "violet"
+      ],
+      "states": [
+        "idle",
+        "current",
+        "filled"
+      ],
+      "logical_size": 48,
+      "ordinary_body_diameter": 38,
+      "current_body_diameter": 46,
+      "pivot": [
+        24,
+        24
+      ],
+      "z_index": 40,
+      "naturally_held_unique_pictures": 19
+    },
+    "runtime_base_RGBA_bytes": 1376256,
+    "capture_recovery": "Initial tall fixture strict float equality found original scaled Control47.99997/23.99998 instead of48/24. Verifier-only correction; production unchanged, healthy standard/wide retained; only tall recaptured,7failed frames excluded.",
+    "excluded_capture_runs": 1,
+    "static_evidence_mode": "Complete original source-bound global static pass; two new verifier literals calibrated with34012other original index entries unchanged; fresh current parser/inference/governance/real analyzer/2D and all82 trusted probes.",
+    "initial_focused_verifier": {
+      "passed": 200,
+      "failed": 1,
+      "reason": "Incorrect orange/yellow classification boundary also excluded original yellow; two disjoint-bin numeric literals corrected, no artwork/identity/pixel/quality-floor/assertion removal.",
+      "evidence": "COLOR_VERIFIER_RECOVERY.json"
+    },
+    "new_recovery_frame_events": 0,
+    "phone_size_review": {
+      "candidate": 21,
+      "source": 3,
+      "review_derivative_PNG": 24,
+      "whole_HUD_scale": 0.3,
+      "local_readability": "PROVISIONAL_PASS",
+      "new_native_frame_events": 0,
+      "formal_QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "evidence": "PHONE_SQUINT_REVIEW.json"
+    },
+    "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+    "source_branch": "codex/flat-vector-melody-progress-pips-20261102",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/MANIFEST.json",
+    "source_required_files": 367,
+    "source_all_required_anonymous_exact": true,
+    "source_CI_snapshot": [
+      {
+        "conclusion": "",
+        "databaseId": 41538353211,
+        "headSha": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41538353211",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "owner_scope": {
+      "authority": "Direct owner reply in current chat",
+      "question": "You resumed the art goal, but the owner-approved demo plan still says \u201cNo new art\u201d until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
+      "answer": "Resume art candidates; keep Dev frozen",
+      "scope": "Production of work-branch art candidates and established GitHub delivery. Dev/master frozen; no promotion/release, automation resume, messaging/interruption of other chats or paused-goal resumption."
+    }
   }
 }
