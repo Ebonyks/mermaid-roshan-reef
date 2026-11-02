@@ -1,0 +1,73 @@
+{
+  "id": "flat-vector-r121-melody-header-20261101",
+  "baseline": "7afd127c6518dc7facaecec371936d3ad953eb0b",
+  "scope": "Reconcile verified R121 source-only painted header production, exact R120 CI success and current per-piece/coverage/tally. Dev remains frozen; no canonical runtime change.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-MED-05",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-READ-02",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/CANONICAL_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/FRAME_INDEX.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/FRAME_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/GENERATION_ACCOUNTING.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/IMPLEMENTATION_SCOPE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/LOCAL_82_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/NATIVE_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/OWNER_RESUME.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/PAYLOAD_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/PRODUCTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/R120_EXACT_CI_SUCCESS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/SOURCE_CI_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/SOURCE_FINAL.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/STATIC_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/VALIDATION_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "change_record": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#chg-127--r121-painted-theatre-header-source-only-production",
+  "validation": [
+    {
+      "command": "Actual source candidate all82/static/analyzer/2D/native and anonymous every-required-file verification",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/SOURCE_FINAL.json; SOURCE_REMOTE_VERIFICATION.json; LOCAL_82_RESULT.json; NATIVE_RESULT.json"
+    },
+    {
+      "command": "Canonical metadata authority/development and anonymous payload/receipt verification",
+      "result": "PENDING",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/CANONICAL_GATES.json; REMOTE_VERIFICATION.json; PAYLOAD_PIN.json"
+    }
+  ],
+  "acceptance_gaps": "FormalQA11/device/child/owner/natural-route/global gaps remain open;0 newDev/accepted-removal credit."
+}

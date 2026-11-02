@@ -1,12 +1,12 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261101-R120-SOURCE",
-  "current_entry": "r120_melody_curtains_runtime/README.md",
+  "revision": "FV-AUDIT-20261101-R121-SOURCE",
+  "current_entry": "r121_melody_header_runtime/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r120_melody_curtains_runtime/MANIFEST.json",
+  "current_manifest": "r121_melody_header_runtime/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
@@ -4114,5 +4114,86 @@
     "whole_role_closed": false,
     "accepted_removed": 0,
     "mission_complete": false
+  },
+  "r121_melody_header_runtime": {
+    "stable_ids": [
+      "FV-0671240CDB11"
+    ],
+    "state": "SOURCE_BOUND_PAINTED_HEADER_CANDIDATE_DEV_FROZEN",
+    "source_revision": "621a098f6795d8aa2e0bd0838c2ff5e65aeb142c",
+    "source_branch": "codex/flat-vector-melody-header-20261101",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/MANIFEST.json",
+    "source_required_files": 191,
+    "source_all_required_anonymous_exact": true,
+    "source_CI_snapshot": [
+      {
+        "conclusion": "",
+        "databaseId": 41404127761,
+        "headSha": "621a098f6795d8aa2e0bd0838c2ff5e65aeb142c",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41404127761",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "owner_scope": {
+      "quote": "Resume art candidates; keep Dev frozen",
+      "scope": "Source art-candidate production/publication only. No Dev/master action or automation resume."
+    },
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "new_runtime_PNG": 1,
+    "native_generated_samples": 2,
+    "generation_calls": 2,
+    "nonselected_native_takes": 1,
+    "rejected_shape_takes": 1,
+    "technical_exports": 2,
+    "backend": "Built-in image_gen; no model selector or model/version returned",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "native_executed_checks": {
+      "reused_exact_source": 69,
+      "current_candidate": 87,
+      "effective": 156,
+      "excluded": 0
+    },
+    "check_count_unit": "Executed checks; not unique requirements",
+    "new_native_frame_events": {
+      "bounded": 6,
+      "excluded": 0,
+      "retained": 6
+    },
+    "reused_source_frames": 6,
+    "acceptance_scope": "Local header-only ten-axis comparison across three configured Mobile/Speedy aspects. More arch clipping atwide aspect remains a device/owner review point. Natural routes/formalQA11 remain open.",
+    "invisible_geometry": "No new functional geometry; TextureRect contains appearance pixels. Other original stage roles remain open.",
+    "original_controller_other_methods_LF_exact": 68,
+    "original_probe_other_methods_LF_exact": 83,
+    "full_game_probe_unchanged": true,
+    "metric_correction": "Only actual painted-header alpha added on original200x90 grid; all floors unchanged, empty/transparent negative controls fail.83 original probe attempts include one preserved metric failure;82 unique original probes pass.",
+    "original_texture_ceilings_unchanged": {
+      "decoded_bytes": 24117248,
+      "declared_upload_bytes": 12582912
+    },
+    "Dev_integrated": false,
+    "new_partial_Dev_artifacts": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_role_closed": false,
+    "accepted_removed": 0,
+    "mission_complete": false
+  },
+  "r120_exact_source_CI_new_observation": {
+    "run_id": 41383041660,
+    "revision": "0e8095e656aaae795076b98b202cc453c3234e06",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41383041660",
+    "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/R120_EXACT_CI_SUCCESS.json",
+    "historical_pending_snapshots_preserved": true,
+    "new_artwork_or_Dev_credit": 0
   }
 }
