@@ -77,6 +77,10 @@ Scoped Grok builder consolidation (2026-09-14): [single project database](../ass
 
 Scoped static Chapter One book: [book workspace](../books/chapter_one/README.md), [owner background and page design language](../books/chapter_one/DESIGN_LANGUAGE.md), and [impact](../design/audit_impacts/picture-book-dedicated-branch-20260920.json). No game finding closure or cinematic acceptance.
 
+Scoped V45 static-book language review: [draft and critique](../books/chapter_one/landscape/revisions/v45_story_language/README.md), [impact](../design/audit_impacts/picture-book-v45-language-20261031.json).24exact proposed captions plus a declared concise page11 adaptation; unchanged art and game. Owner/child/SLP/print and inherited continuity remain open.
+
+Scoped strict V45r02 static-book language review: [current draft and two held captions](../books/chapter_one/landscape/revisions/v45_story_language_r02_review/README.md), [impact](../design/audit_impacts/picture-book-v45-story-language-20261101.json).23exact proposed captions;11/15remainV44 pending shorter supplied words. Parallel V45 packet is preserved. No game finding or owner/child/SLP/print closure.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 Owner handoff-publication correction (2026-09-16): [mandatory GitHub delivery](../AGENTS.md#external-handoffs-github-delivery-is-mandatory) and [change evidence](../design/audit_impacts/handoff-publication-memory-20260916.json). Publish and remotely verify each external handoff/QC revision before waiting for returns; local workspaces are staging only. This operational correction closes no cinematic or game-wide acceptance finding.

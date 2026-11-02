@@ -1,0 +1,275 @@
+{
+  "book": "Mermaid Roshan and the Dust Bunnies",
+  "revision": "V45 story and language (text only)",
+  "baseline": {
+    "revision": "V44",
+    "commit": "49a199846c61a39a3735e162214706b3687f12d3",
+    "control": "books/chapter_one/landscape/revisions/v44_door_and_consistency/BOOK_CURRENT.json"
+  },
+  "rules": {
+    "exact": "Every v45_text and v45_bubbles string must appear exactly: same words, spelling, capitals and punctuation, with curly quotes and apostrophes and three plain periods for ellipses.",
+    "line_breaks": "A newline marks a line or pause break. Lines may be re-wrapped to fit the caption box; no words may be cut.",
+    "unchanged": "Pages with changed=false keep their V44 text and caption placement byte for byte. The rear cover text is unchanged."
+  },
+  "rear_text": "Pearl Castle needs help.\nWhere will Roshan begin?",
+  "rear_changed": false,
+  "pages": [
+    {
+      "page": 1,
+      "v44_text": "“Look, Daddy!\nPearl Castle!”",
+      "v45_text": "“Look, Daddy!\nPearl Castle!”",
+      "changed": false
+    },
+    {
+      "page": 2,
+      "v44_text": "The plane landed at Sky Lagoon.\nPearl Castle was close by.",
+      "v45_text": "The plane landed at Sky Lagoon.\nPearl Castle was close by.",
+      "changed": false
+    },
+    {
+      "page": 3,
+      "v44_text": "“Let’s look inside,\nDaddy,” said Roshan.",
+      "v45_text": "“Let’s look inside,\nDaddy,” said Roshan.",
+      "changed": false
+    },
+    {
+      "page": 4,
+      "v44_text": "Inside, dust covered the floor.\n“Let’s clean it together!”\nsaid Roshan.",
+      "v45_text": "Inside, dust covered the floor.\n“It’s SO messy!” said Roshan.\n“Where do we start?”",
+      "changed": true,
+      "kind": "core",
+      "why": "Gives Roshan a feeling every child knows, a mess that looks too big, and sets up Daddy's answer and the big-job lesson."
+    },
+    {
+      "page": 5,
+      "v44_text": "Sniff, sniff!\nSomeone was sniffling behind a big shell door.\n“Hello?” said Roshan.",
+      "v45_text": "Sniff, sniff!\nSomeone was sniffling behind a big shell door.\n“Hello?” said Roshan. But the door was stuck.\n“We’ll come back!” she promised.",
+      "changed": true,
+      "kind": "core",
+      "why": "She no longer walks away from someone in need: the door is stuck and she promises to come back (your choice)."
+    },
+    {
+      "page": 6,
+      "v44_text": "Daddy gave her a brush and some sponges.\n“One little job at a time,” said Daddy.",
+      "v45_text": "Daddy gave her a duster and two sponges.\n“One little job at a time,” said Daddy.",
+      "changed": true,
+      "kind": "polish",
+      "why": "The picture shows a feather duster and two sponges; the words now name them exactly."
+    },
+    {
+      "page": 7,
+      "v44_text": "A dust bunny splashed in the dirty bath.\nIt loved to play. Splash, splash!",
+      "v45_text": "A dust bunny splashed in the dirty bath.\nSplash, splash! Gunk went everywhere!\nThe little bunny just wanted to play.",
+      "changed": true,
+      "kind": "core",
+      "why": "The bunny's play causes trouble, but it just wants to play: the first of three \"just\" moments."
+    },
+    {
+      "page": 8,
+      "v44_text": "Round and round went the sponge.\nRoshan wiped the sink clean.",
+      "v45_text": "Roshan started with one little job: the sink.\nRound and round went her sponge!",
+      "changed": true,
+      "kind": "core",
+      "why": "Roshan answers her own question by choosing one little job."
+    },
+    {
+      "page": 9,
+      "v44_text": "Out went the dirty bath water.\nRoshan scrubbed the tub. Scrub, scrub!",
+      "v45_text": "The dust bunny hopped out, and Roshan pulled the plug.\nOut went the dirty water!\nShe scrubbed the tub. Scrub, scrub!",
+      "changed": true,
+      "kind": "polish",
+      "why": "The bunny hops out before the plug is pulled, so no child worries it went down the drain; matches the plug-chain picture."
+    },
+    {
+      "page": 10,
+      "v44_text": "Clean water filled the bath.\nThe dust bunny was ready to play!",
+      "v45_text": "Soon the bath was sparkling clean.\nNow the dust bunny had a good place to play!\nFar away, someone went sniff, sniff.",
+      "changed": true,
+      "kind": "core",
+      "why": "Cleaning meets the bunny's need, \"sparkling\" plants the sparkles of page 23, and a sniffle keeps the mystery alive."
+    },
+    {
+      "page": 11,
+      "v44_text": "Rumi was stuck under the gunk.\nShe needed help!",
+      "v45_text": "Rumi was stuck under the gunk.\n“Can you help me?” she called.",
+      "changed": true,
+      "kind": "core",
+      "why": "Introduces Rumi and the pool, and Rumi asks for help in her own words, the words Roshan uses on page 25."
+    },
+    {
+      "page": 12,
+      "v44_text": "“I’ll help!” said Roshan.\nScoop, scoop!",
+      "v45_text": "“I’ll help!” said Roshan.\nScoop, scoop!",
+      "changed": false
+    },
+    {
+      "page": 13,
+      "v44_text": "Rainbow colors\npeeked through the gunk.",
+      "v45_text": "Rainbow colors\npeeked through the gunk.",
+      "changed": false
+    },
+    {
+      "page": 14,
+      "v44_text": "Whoosh! The waterfall turned rainbow!\nThe swimming pool was magic!\nIt made the water rainbow-colored.",
+      "v45_text": "Whoosh! The waterfall turned rainbow!\nThe pool was magic.\nIts rainbow had been hiding under the gunk!",
+      "changed": true,
+      "kind": "polish",
+      "why": "Explains the magic simply and plants \"hiding under the gunk\", which returns with Grand Puff."
+    },
+    {
+      "page": 15,
+      "v44_text": "A cup was stuck in the fountain.\nRoshan pulled it free. Whoosh!",
+      "v45_text": "A cup was stuck in the seahorse fountain.\nRoshan pulled and pulled...\nOut came the cup, and out came the water!",
+      "changed": true,
+      "kind": "polish",
+      "why": "Replaces a second \"Whoosh!\" with effort (pulled and pulled) and a clear cause: cup out, water out."
+    },
+    {
+      "page": 16,
+      "v44_text": "The gunk was gone. Up came Rumi!\nShe had lived in Pearl Castle for hundreds of years.\nNow she was free!",
+      "v45_text": "The gunk washed away. Up came Rumi!\nShe had lived in Pearl Castle for hundreds of years.\nNow she was free!",
+      "changed": true,
+      "kind": "polish",
+      "why": "Says why the gunk left: the water washed it away."
+    },
+    {
+      "page": 17,
+      "v44_text": "“You helped me!”\nsaid Rumi.\nShe gave Roshan\na great big hug.",
+      "v45_text": "“You helped me!” said Rumi.\nShe gave Roshan a great big hug.\n“If you ever need help, just call!”",
+      "changed": true,
+      "kind": "core",
+      "why": "Rumi offers help in return, so her coming back on page 26 is earned."
+    },
+    {
+      "page": 18,
+      "v44_text": "Chirp, chirp!\n“Someone in the playroom\nneeds help!” said Roshan.",
+      "v45_text": "Chirp, chirp!\nA worried little chirp came from the playroom.\n“Someone needs help!” said Roshan.",
+      "changed": true,
+      "kind": "polish",
+      "why": "Names the feeling (worried) and shows how Roshan knows someone needs help."
+    },
+    {
+      "page": 19,
+      "v44_text": "Two dust bunnies sat on Baby Eagle.\nThey wanted to play, but he was stuck.\n“I’ll help!” said Roshan.",
+      "v45_text": "Two dust bunnies sat on Baby Eagle.\nThey just wanted to play, but he was stuck!\n“I’ll help!” said Roshan.",
+      "changed": true,
+      "kind": "core",
+      "why": "\"Just wanted to play\" repeats the bunnies' pattern: trouble, but not bad."
+    },
+    {
+      "page": 20,
+      "v44_text": "She gently brushed one bunny away,\nthen the other.",
+      "v45_text": "She gently brushed one bunny away,\nthen the other.",
+      "changed": false
+    },
+    {
+      "page": 21,
+      "v44_text": "Baby Eagle was free!\n“Let’s play gently,” said Roshan.",
+      "v45_text": "Baby Eagle was free!\n“Chirp, chirp!” he said happily.\n“Let’s all play gently,” said Roshan.",
+      "changed": true,
+      "v44_bubbles": [
+        "Sorry!",
+        "We were just\nplaying!"
+      ],
+      "v45_bubbles": [
+        "Sorry!",
+        "We’ll be gentle!"
+      ],
+      "reading_order": [
+        "Baby Eagle was free!",
+        "Sorry!",
+        "We’ll be gentle!",
+        "“Chirp, chirp!” he said happily.",
+        "“Let’s all play gently,” said Roshan."
+      ],
+      "kind": "core",
+      "why": "Your choice: an apology plus a promise; Baby Eagle forgives with a happy chirp, and everyone plays gently."
+    },
+    {
+      "page": 22,
+      "v44_text": "In the art room, Roshan put\nthe paints in their places.\nThen she scrubbed the table. Scrub, scrub!",
+      "v45_text": "In the art room, Roshan put the paints in their places.\nShe scrubbed the table. Scrub, scrub!\n“One little job at a time,” she sang.",
+      "changed": true,
+      "kind": "core",
+      "why": "Roshan now says Daddy's advice herself, showing she has learned it."
+    },
+    {
+      "page": 23,
+      "v44_text": "Only the big shell door was still shut.\nBehind it, someone sneezed... AH-CHOO!",
+      "v45_text": "Sparkles flew from every clean room to the big shell door. Click!\nRoshan kept her promise.\nBehind the door, someone sneezed... AH-CHOO!",
+      "changed": true,
+      "kind": "core",
+      "why": "The sparkles already drawn on the page unstick the door, and she keeps her promise."
+    },
+    {
+      "page": 24,
+      "v44_text": "Grand Puff!\nHe was covered in dust.\nHe did not feel well.",
+      "v45_text": "It was Grand Puff, the biggest dust bunny of all!\nEvery sneeze puffed out more dust.\nHe did not feel well.",
+      "changed": true,
+      "kind": "core",
+      "why": "Answers the mystery and the title: Grand Puff is the biggest dust bunny, and his sneezes cause the dust."
+    },
+    {
+      "page": 25,
+      "v44_text": "“Hold on, we’ll make you feel\nclean and better!” said Roshan.",
+      "v45_text": "Roshan wasn’t mad. “I’ll help!” she said.\nBut Grand Puff was too big to wash alone.\n“Can you help me?” she called.",
+      "changed": true,
+      "kind": "core",
+      "why": "The heart of the lesson: she isn't mad at the one who made the mess, and the job is too big alone, so she asks for help."
+    },
+    {
+      "page": 26,
+      "v44_text": "Daddy, Rumi, and Baby Eagle helped Roshan.\nTogether, they washed Grand Puff. Scrub, scrub!",
+      "v45_text": "“We’ll help!” said Daddy and Rumi.\n“Chirp, chirp!” said Baby Eagle.\nTogether, they washed Grand Puff. Scrub, scrub!",
+      "changed": true,
+      "kind": "core",
+      "why": "The friends she helped answer \"We'll help!\", and Baby Eagle helps in his own voice."
+    },
+    {
+      "page": 27,
+      "v44_text": "Soft bubbles covered Grand Puff.\nLittle colors began to shine beneath them.",
+      "v45_text": "Soft bubbles covered Grand Puff.\nThen rainbow colors peeked through the bubbles!",
+      "changed": true,
+      "kind": "polish",
+      "why": "Echoes page 13: colors peek through the bubbles the way they peeked through the gunk."
+    },
+    {
+      "page": 28,
+      "v44_text": "POP! Grand Puff sprang out, rainbow bright!\nThe dust fell away.",
+      "v45_text": "POP! Grand Puff sprang out, rainbow bright!\nThe dust fell away.",
+      "changed": false
+    },
+    {
+      "page": 29,
+      "v44_text": "Down came Grand Puff, soft and small.\nHe felt like himself again.",
+      "v45_text": "Down came Grand Puff, soft and small.\n“I feel all better!” he said.",
+      "changed": true,
+      "kind": "polish",
+      "why": "Grand Puff says how he feels in his own words instead of an idiom."
+    },
+    {
+      "page": 30,
+      "v44_text": "The art room was tidy.\nOne little job at a time,\nPearl Castle was clean again.",
+      "v45_text": "The art room was tidy.\nPearl Castle was clean again!\nIt was a big job, but friends can do big jobs together!",
+      "changed": true,
+      "kind": "core",
+      "why": "Keeps the art room named and says the friendship half of the moral out loud, last on the page."
+    },
+    {
+      "page": 31,
+      "v44_text": "“We helped your rainbow shine!” said Roshan.\n“Thank you!” said Grand Puff.\nRoshan smiled. “Come and rest with us!”",
+      "v45_text": "“Sorry about all the dust,” said Grand Puff.\n“That’s okay,” said Roshan.\n“You just needed help. Everyone needs help sometimes!”",
+      "changed": true,
+      "kind": "core",
+      "why": "Says the other half: he says sorry, and Roshan forgives him because everyone needs help sometimes. Drops the praise for his new colors."
+    },
+    {
+      "page": 32,
+      "v44_text": "There was room for everyone.\nThey curled up and fell asleep.",
+      "v45_text": "“Come and rest with us!” said Roshan.\nThere was room for everyone, even the dust bunnies.\nThey curled up together and fell asleep.",
+      "changed": true,
+      "kind": "core",
+      "why": "The invitation leads straight into the nap, and \"even the dust bunnies\" ties the title to belonging."
+    }
+  ]
+}

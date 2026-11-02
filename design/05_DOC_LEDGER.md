@@ -872,7 +872,7 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/peer_review/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Sealed V43 iterative critique; V44 reopens missed door structure, no inherited feature acceptance. |
 
 | `books/chapter_one/landscape/revisions/v44_door_and_consistency/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Sealed V44 door repair/full34-entry audit, two continuity findings remain open; V45 owns current text draft. |
-| `books/chapter_one/handoffs/2026-10-31_v45_story_language/README.md` | 🔵 | `SUPPORTING_CURRENT`; owner-approved V45 text-only work order for Codex (2026-10-31): new captions on 25 pages and the page-21 bubbles so the book states one moral (dust bunnies who cause problems just need help; friends make big jobs possible), with exact words in MANUSCRIPT.json. Written by Claude without images; V45 not started; no art, print, child or SLP acceptance. |
+| `books/chapter_one/handoffs/2026-10-31_v45_story_language/README.md` | 🔵 | `SUPPORTING_CURRENT`; pinned incoming work order at550a0b8: exact25captions, explicit shortening/hold rule. Strict V45r02 implements23,holds11/15; parallel V45 has an unaccepted proposed adaptation. Owner/new-fact,child/SLP/print gates remain open. |
 | `books/chapter_one/handoffs/2026-10-31_v45_story_language/CRITIQUE.md` | 🔵 | `SUPPORTING_CURRENT`; Claude's story and language critique of V44 (eight ranked problems, the moral's threads, Roshan's arc, resolutions, relatability and the page-by-page V45 text); editorial evidence for the V45 work order, not owner, child, SLP or print acceptance. |
 
 | `books/chapter_one/landscape/revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; Current primary character/scenery/layout audit with page-specific evidence, proposed bounded repairs and explicit acceptance holds. |
@@ -884,3 +884,7 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v45_story_language_r02_review/HELD_PAGES.md` | 🔵 | `SUPPORTING_CURRENT`; Explicit work-order shortening requests for11/15; no unauthorized word/art/type-size change. |
 
 | `books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Independent scoped critique navigation; implemented scope,held pages and human/print acceptance separate. |
+
+| `books/chapter_one/landscape/revisions/v45_story_language/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; preserved parallel V45 draft at01004e37, with proposed page11 adaptation not owner-accepted. Current strict23/25review is V45r02; no new art/canon/print authority. |
+
+| `books/chapter_one/landscape/revisions/v45_story_language/EDITORIAL_CRITIQUE.md` | ⚪ | `HISTORICAL_EVIDENCE`; preserved parallel V45 draft at01004e37, with proposed page11 adaptation not owner-accepted. Current strict23/25review is V45r02; no new art/canon/print authority. |
