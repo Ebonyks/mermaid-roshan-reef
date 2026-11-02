@@ -71,6 +71,30 @@ const EXPECTED_STAGE_NODES: Array[String] = [
 ]
 
 
+const NOTE_PATHS: Array[String] = [
+	"res://assets/melody/rainbow_note_red_painted.png",
+	"res://assets/melody/rainbow_note_orange_painted.png",
+	"res://assets/melody/rainbow_note_yellow_painted.png",
+	"res://assets/melody/rainbow_note_green_painted.png",
+	"res://assets/melody/rainbow_note_blue_painted.png",
+	"res://assets/melody/rainbow_note_indigo_painted.png",
+	"res://assets/melody/rainbow_note_violet_painted.png",
+]
+const NOTE_HASHES: Array[String] = [
+	"8e31e25551ba1af58467581c924460edcbb4940e4724b4c122dabae404196aa6",
+	"83cf5aba818c6f7101dfd319f5d355d09119efd5d8e21e45b957300f2c134567",
+	"a7a5ee15af599870188d4c95b5f95795373d90c6741c3c13605926625dfe14ba",
+	"1ae079c7d022ebe03a06809094521f02ef524df546a007315e302cf843437429",
+	"6fa514888498221dfd0727fd5c70c5362a8ed63bfcb5d15f728949ef7d8b70c1",
+	"14d78588224523486f01611a18d6a10e87ff1d2c263d9865b29a7b7f94fae7e2",
+	"3dfa929249a8c829b9b5d118197420144a3d2ae5367ba81c12b0abc4e7c20593",
+]
+const NOTE_HUE_RANGES: Array[Vector2] = [
+	Vector2(0.0, 0.06), Vector2(0.06, 0.12), Vector2(0.12, 0.20),
+	Vector2(0.20, 0.44), Vector2(0.48, 0.61), Vector2(0.61, 0.73),
+	Vector2(0.73, 0.88),
+]
+
 class CountingAudioDirector:
 	extends AudioDirector
 
@@ -502,6 +526,15 @@ func _check_asset_contract() -> void:
 	_check("exact non-reader objective voice is present and immutable",
 		ResourceLoader.exists(VOICE_PATH)
 		and FileAccess.get_sha256(VOICE_PATH) == VOICE_SHA256)
+	var painted_assets_ok := true
+	for i in range(NOTE_PATHS.size()):
+		var image := Image.load_from_file(NOTE_PATHS[i])
+		var import_text := FileAccess.get_file_as_string(NOTE_PATHS[i] + ".import")
+		painted_assets_ok = painted_assets_ok and image != null and image.get_size() == Vector2i(256, 256) and FileAccess.get_sha256(NOTE_PATHS[i]) == NOTE_HASHES[i] and import_text.contains("compress/mode=0") and import_text.contains("\"vram_texture\": false") and import_text.contains("mipmaps/generate=true") and licenses.contains(NOTE_PATHS[i].trim_prefix("res://"))
+		if image != null and image.get_size() == Vector2i(256, 256):
+			var sample: Color = image.get_pixel(64, 115)
+			painted_assets_ok = painted_assets_ok and sample.a > 0.95 and sample.s > 0.30 and sample.v > 0.35 and sample.h >= NOTE_HUE_RANGES[i].x and sample.h <= NOTE_HUE_RANGES[i].y
+	_check("seven exact whole painted token states preserve ordered distinct hues with lossless mipmapped imports and license rows", painted_assets_ok)
 
 
 func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
@@ -545,9 +578,9 @@ func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
 	_check("runtime four-tile transforms are seam-free and cover the phone viewport",
 		bool(tile_contract.get("seam_free", false))
 		and bool(tile_contract.get("covers_viewport", false)))
-	_check("attached note geometry exposes all seven ordered colors and the draw path binds the same source color",
+	_check("whole authored note textures expose all seven ordered colors and bind the matching painted state",
 		_colors_equal(_actual_note_colors(surface), EXPECTED_COLORS)
-		and _note_source_binds_geometry_color()
+		and _note_source_binds_painted_states()
 		and melody.note_count() == 7 and melody.active_note_id() == 0
 		and melody.progress_count() == 0)
 	_check("stage has no failure state, countdown, or passive completion path",
@@ -737,7 +770,7 @@ func _layout_geometry_contract(surface: Node2D,
 		and arrow_tip_distance <= 4.0 \
 		and pointer_geometry_unique \
 		and _subtree_has_green(zone) \
-		and _subtree_has_color(note, expected_note_color) \
+		and _note_authored_color(note, true).is_equal_approx(expected_note_color) \
 		and int(pointer.get("target_id")) == note_id \
 		and progress_clear and actors_clear and decorations_clear \
 		and z_order_valid
@@ -875,6 +908,7 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 	var expected_paths: Array[String] = TILE_PATHS.duplicate()
 	expected_paths.append(DADDY_PATH)
 	expected_paths.append(ROSHAN_PATH)
+	expected_paths.append_array(NOTE_PATHS)
 	var exact_once := counts.size() == expected_paths.size()
 	var decoded_bytes := 0
 	var declared_upload_bytes := 0
@@ -889,7 +923,7 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 		var import_text := FileAccess.get_file_as_string(path + ".import")
 		declared_upload_bytes += pixels if import_text.contains(
 			"compress/mode=2") else pixels * 4
-	_check("live Canvas binds only four tiles, Daddy, and Roshan exactly once each",
+	_check("live Canvas binds only four tiles, Daddy, Roshan and seven whole note textures exactly once each",
 		exact_once)
 	_check("unique live texture census stays within conservative decoded and declared-upload bounds",
 		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024
@@ -963,8 +997,7 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 		var note: Node = _stage_node(surface, "RainbowNote%d" % index)
 		var pip: Node = _stage_node(surface, "ProgressPip%d" % index)
 		if not (note is Control) or not (pip is Control) \
-				or not _exact_typed_geometry_children(
-				note, ["NoteColorGeometry"], []) \
+				or not _painted_note_contract(note, index == melody.active_note_id()) \
 				or not _exact_typed_geometry_children(
 				pip, ["ProgressPipGeometry"], []):
 			return false
@@ -1362,16 +1395,14 @@ func _pointer_source_is_geometry_only() -> bool:
 		and not block.contains("draw_")
 
 
-func _note_source_binds_geometry_color() -> bool:
+func _note_source_binds_painted_states() -> bool:
 	var source := FileAccess.get_file_as_string("res://scripts/games/melody.gd")
 	var block_start: int = source.find("class RainbowNoteCanvas extends Control:")
-	var block_end: int = source.find("class ProgressPipCanvas extends Control:",
-		block_start + 1)
+	var block_end: int = source.find("class ProgressPipCanvas extends Control:", block_start + 1)
 	if block_start < 0 or block_end <= block_start:
 		return false
 	var block: String = source.substr(block_start, block_end - block_start)
-	return block.count("color_geometry.color = note_color") == 1 \
-		and block.count("draw_circle(center, 35.0, note_color") == 1
+	return block.count("painted_note.texture = MelodyGame.NOTE_TEXTURES[note_id]") == 1 and not block.contains("func _draw(") and not block.contains("Polygon2D") and not block.contains("draw_circle(") and not block.contains(".modulate =")
 
 
 func _polygon_union_metrics(node: Node, viewport_rect: Rect2) -> Dictionary:
@@ -2558,7 +2589,7 @@ func _actual_note_colors(surface: Node) -> Array:
 	var colors: Array = []
 	for note_index in range(7):
 		var note: Node = _stage_node(surface, "RainbowNote%d" % note_index)
-		colors.append(_note_geometry_color(note,
+		colors.append(_note_authored_color(note,
 			note_index == melody.active_note_id()))
 	return colors
 
@@ -2567,27 +2598,13 @@ func _active_note_actual_color() -> Color:
 	var surface: Node2D = melody.surface()
 	var note: Node = _stage_node(surface,
 		"RainbowNote%d" % melody.active_note_id())
-	return _note_geometry_color(note, true)
+	return _note_authored_color(note, true)
 
 
-func _note_geometry_color(note: Node, expected_visible: bool) -> Color:
-	if not (note is CanvasItem):
+func _note_authored_color(note: Node, expected_visible: bool) -> Color:
+	if not _painted_note_contract(note, expected_visible):
 		return Color.BLACK
-	var note_item := note as CanvasItem
-	var geometry: Node = _stage_node(note, "NoteColorGeometry")
-	if not (geometry is Polygon2D) \
-			or geometry.get_parent() != note \
-			or _count_nodes_named(note, "NoteColorGeometry") != 1:
-		return Color.BLACK
-	var polygon := geometry as Polygon2D
-	if note_item.visible != expected_visible \
-			or polygon.visible == false \
-			or polygon.is_visible_in_tree() != expected_visible \
-			or polygon.polygon.size() < 20 \
-			or not _points_rect(polygon.polygon).has_area() \
-			or polygon.color.a <= 0.85:
-		return Color.BLACK
-	return polygon.color
+	return EXPECTED_COLORS[int(note.get("note_id"))]
 
 
 func _read_probe_save() -> Dictionary:
@@ -2676,3 +2693,16 @@ func _finish() -> void:
 	else:
 		print("MELODY|result: %d FAIL" % bad)
 		quit(1)
+
+func _painted_note_contract(note: Node, expected_visible: bool) -> bool:
+	if not (note is Control):
+		return false
+	var state: int = int(note.get("note_id"))
+	if state < 0 or state >= NOTE_PATHS.size():
+		return false
+	var control := note as Control
+	var card := note.get_node_or_null("PaintedNote") as Sprite2D
+	var state_color: Color = note.get("note_color")
+	return card != null and note.get_child_count() == 1 and card.get_child_count() == 0 and card.get_parent() == note and control.size == Vector2.ONE * 84.0 and control.z_index == 35 and control.mouse_filter == Control.MOUSE_FILTER_IGNORE and control.visible == expected_visible and card.visible and card.is_visible_in_tree() == expected_visible and card.texture != null and card.texture.resource_path == NOTE_PATHS[state] and card.texture.get_size() == Vector2(256, 256) and not card.region_enabled and card.hframes == 1 and card.vframes == 1 and card.centered and card.offset == Vector2.ZERO and card.position == Vector2.ONE * 42.0 and card.scale.is_equal_approx(Vector2.ONE * 84.0 / 256.0) and card.modulate == Color.WHITE and card.self_modulate == Color.WHITE and card.material == null and is_zero_approx(card.rotation) and not card.flip_h and not card.flip_v and card.z_index == 0 and card.z_as_relative and not card.show_behind_parent and card.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS and state_color.is_equal_approx(EXPECTED_COLORS[state])
+
+

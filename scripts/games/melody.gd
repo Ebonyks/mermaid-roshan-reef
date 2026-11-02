@@ -48,6 +48,16 @@ const OBJECTIVE := "Tap each rainbow note in the green!"
 const OBJECTIVE_VOICE := "op_popstar_rhythm"
 
 
+const NOTE_TEXTURES: Array[Texture2D] = [
+	preload("res://assets/melody/rainbow_note_red_painted.png"),
+	preload("res://assets/melody/rainbow_note_orange_painted.png"),
+	preload("res://assets/melody/rainbow_note_yellow_painted.png"),
+	preload("res://assets/melody/rainbow_note_green_painted.png"),
+	preload("res://assets/melody/rainbow_note_blue_painted.png"),
+	preload("res://assets/melody/rainbow_note_indigo_painted.png"),
+	preload("res://assets/melody/rainbow_note_violet_painted.png"),
+]
+
 class ProsceniumCanvas extends Control:
 	const NAVY := MelodyGame.NAVY
 	const INK := MelodyGame.INK
@@ -428,7 +438,7 @@ class RainbowNoteCanvas extends Control:
 
 	var note_color := Color.WHITE
 	var note_id := -1
-	var color_geometry: Polygon2D = null
+	var painted_note: Sprite2D = null
 
 
 	func setup(next_id: int, color: Color) -> void:
@@ -438,16 +448,13 @@ class RainbowNoteCanvas extends Control:
 		focus_mode = Control.FOCUS_NONE
 		z_index = 35
 		size = Vector2.ONE * NOTE_VISIBLE_SIZE
-		color_geometry = Polygon2D.new()
-		color_geometry.name = "NoteColorGeometry"
-		color_geometry.color = note_color
-		color_geometry.z_index = -1
-		var points := PackedVector2Array()
-		for point_index in range(24):
-			var angle: float = float(point_index) * TAU / 24.0
-			points.append(size * 0.5 + Vector2(cos(angle), sin(angle)) * 41.0)
-		color_geometry.polygon = points
-		add_child(color_geometry)
+		painted_note = Sprite2D.new()
+		painted_note.name = "PaintedNote"
+		painted_note.texture = MelodyGame.NOTE_TEXTURES[note_id]
+		painted_note.position = size * 0.5
+		painted_note.scale = Vector2.ONE * NOTE_VISIBLE_SIZE / 256.0
+		painted_note.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		add_child(painted_note)
 		queue_redraw()
 
 
@@ -456,23 +463,6 @@ class RainbowNoteCanvas extends Control:
 		rotation = sin(pulse * 3.1 + float(note_id)) * 0.035
 		pivot_offset = size * 0.5
 		queue_redraw()
-
-
-	func _draw() -> void:
-		var center := size * 0.5
-		draw_circle(center, 41.0, Color(NAVY.r, NAVY.g, NAVY.b, 0.94),
-			true, -1.0, true)
-		draw_circle(center, 35.0, note_color, true, -1.0, true)
-		draw_circle(center - Vector2(8.0, 9.0), 7.0,
-			Color(1.0, 1.0, 1.0, 0.78), true, -1.0, true)
-		# One large eighth note, built from broad shapes for preschool legibility.
-		draw_circle(Vector2(35.0, 55.0), 11.5, PAPER, true, -1.0, true)
-		draw_line(Vector2(44.0, 54.0), Vector2(44.0, 22.0), PAPER, 9.0, true)
-		var flag := PackedVector2Array([
-			Vector2(44.0, 19.0), Vector2(66.0, 25.0),
-			Vector2(59.0, 38.0), Vector2(44.0, 32.0),
-		])
-		draw_colored_polygon(flag, PAPER)
 
 
 class ProgressPipCanvas extends Control:
