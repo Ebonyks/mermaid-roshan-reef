@@ -1,0 +1,61 @@
+{
+  "pass": true,
+  "bounded_attempts": 2,
+  "production_or_probe_modified": false,
+  "original_canonical_exit": 1,
+  "original_failure": "a prop crossing the waterline procs a splash",
+  "runs": [
+    {
+      "attempt": 1,
+      "pass": true,
+      "exit": 0,
+      "elapsed_seconds": 31.225,
+      "utc": "2026-11-02T01:42:05.749573+00:00",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "failure_regex_unchanged": "FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error",
+      "runtime_regex_unchanged": "SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)",
+      "save_isolated": true,
+      "production_scripts_scenes_project_equal_HEAD": true,
+      "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+      "probe_sha256": "3096e78f8108439bdb730a9302d259fdd86ac7bbded032621fda82f0155c8b37",
+      "log": "probe_props_baseline_01.log",
+      "log_sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+      "matches": []
+    },
+    {
+      "attempt": 2,
+      "pass": true,
+      "exit": 0,
+      "elapsed_seconds": 22.984,
+      "utc": "2026-11-02T01:42:37.191080+00:00",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "-s",
+        "scripts/probe_props.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "timeout_seconds": 480,
+      "failure_regex_unchanged": "FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error",
+      "runtime_regex_unchanged": "SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)",
+      "save_isolated": true,
+      "production_scripts_scenes_project_equal_HEAD": true,
+      "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+      "probe_sha256": "3096e78f8108439bdb730a9302d259fdd86ac7bbded032621fda82f0155c8b37",
+      "log": "probe_props_baseline_02.log",
+      "log_sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+      "matches": []
+    }
+  ]
+}

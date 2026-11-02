@@ -1,0 +1,75 @@
+{
+  "theme": "boxer",
+  "group": "sport",
+  "pass": false,
+  "clips": {
+    "loop": {
+      "frames": 55,
+      "outline_failed_frames": [],
+      "geometry_failed_frames": [],
+      "joint_failed_frames": [],
+      "inverted_visible_triangles": 0,
+      "min_visible_stretch": 0.8806891050350182,
+      "max_visible_stretch": 1.1611962653651984,
+      "max_bone_scale_error": 2.8031209020618064e-07,
+      "rigid_head_distance_error_px": 2.0240533331161714e-05,
+      "minimum_joint_alpha": 252,
+      "max_alpha_components": 1,
+      "edge_alpha_pixels": 0,
+      "max_angular_speed_deg_s": 43.391057859024684,
+      "max_angular_acceleration_deg_s2": 592.822938728968,
+      "endpoint_matrix_error": 0.0,
+      "loop_endpoint_changed_pixels": 0,
+      "motion_pass": true,
+      "geometry_pass": true,
+      "outline_pass": true,
+      "joint_pass": true,
+      "pass": true
+    },
+    "travel": {
+      "frames": 217,
+      "outline_failed_frames": [],
+      "geometry_failed_frames": [],
+      "joint_failed_frames": [],
+      "inverted_visible_triangles": 0,
+      "min_visible_stretch": 0.8806890049381125,
+      "max_visible_stretch": 1.1611986405023942,
+      "max_bone_scale_error": 2.9336614237873704e-07,
+      "rigid_head_distance_error_px": 2.0240533331161714e-05,
+      "minimum_joint_alpha": 252,
+      "max_alpha_components": 1,
+      "edge_alpha_pixels": 0,
+      "max_angular_speed_deg_s": 43.391057859028436,
+      "max_angular_acceleration_deg_s2": 592.8229387289865,
+      "endpoint_matrix_error": 6.103515698896445e-05,
+      "loop_endpoint_changed_pixels": null,
+      "motion_pass": false,
+      "geometry_pass": true,
+      "outline_pass": true,
+      "joint_pass": true,
+      "pass": false
+    }
+  },
+  "negative_controls": {
+    "detached_piece": true,
+    "torn_figure": true,
+    "scaled_head": true,
+    "pose_pop": true
+  },
+  "native_state": {
+    "frames": {
+      "loop": 55,
+      "travel": 217
+    },
+    "max_matrix_error": 0.0,
+    "pass": true,
+    "seeks": 1362,
+    "theme": "boxer"
+  },
+  "visible_meshes": [
+    "Body",
+    "UpperArm",
+    "Forearm",
+    "Headwear"
+  ]
+}

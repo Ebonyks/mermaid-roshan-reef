@@ -923,6 +923,32 @@
         "scripts/probe_opera_2d.gd"
       ],
       "checkable": true
+    },
+    {
+      "id": "ODR-RIG-SKIN-ARCHITECTURE-20261101",
+      "date": "2026-11-01",
+      "authority": "recorded_owner",
+      "subject": "One Roshan rig with data-only costume skins",
+      "question": "Owner correction to the swimming costume test architecture",
+      "decision": "These look good, but are obviously of the wrong design. These are individually building each costumed creation as a new character, as opposed to streamlining a good system to implement skins on the same skeletal frame. Identify this part of the rigging process and best workflow to be able to address it.",
+      "source": "assets_src/animation/laura_swim_costumes_20261101/SKIN_BINDING_WORKFLOW.md",
+      "checks": [],
+      "checkable": false
+    },
+    {
+      "id": "ODR-COSTUME-SKIN-CONVERSION-GUIDE-20261101",
+      "date": "2026-11-01",
+      "authority": "recorded_owner",
+      "subject": "Costume-to-skin conversion guide and master audit criteria",
+      "question": "Owner extends the reusable skin workflow into an efficient conversion guide",
+      "decision": "The workflow should go a step further, and be able to provide a guide (sent to the master audit, in addition to the criteria here also contributing to master audit) for costumes to be translated into the proper skin binding format for improved efficiency",
+      "source": "design/animation/COSTUME_SKIN_CONVERSION_GUIDE.md",
+      "checks": [
+        "tools/prepare_costume_skin.py",
+        "tools/validate_costume_skin.py",
+        "tools/tests/test_costume_skin_binding.py"
+      ],
+      "checkable": true
     }
   ]
 }
