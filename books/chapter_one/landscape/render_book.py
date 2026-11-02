@@ -130,17 +130,31 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,o
   line_width=pdfmetrics.stringWidth(line,'Sniglet',size)
   xx=x+width-line_width if right else x+(width-line_width)/2 if center else x
   c.saveState();c.setFont('Sniglet',size)
-  if shadow:
-   c.setFillColorRGB(.04,.09,.18);c.drawString(xx+.6,y-.6,line)
-  c.setFillColorRGB(*((1,1,.98) if color=='white' else (.06,.16,.29)))
-  if halo:
-   c.setStrokeColorRGB(*((.06,.12,.25) if color=='white' else (1,1,.98)));c.setLineWidth(max(.85,outline))
-   obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(1);obj.textOut(line);obj.setTextRenderMode(0);c.drawText(obj)
-   obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(0);obj.textOut(line);c.drawText(obj)
-  elif outline:
-   c.setStrokeColorRGB(.06,.16,.29);c.setLineWidth(outline)
-   obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(2);obj.textOut(line);c.drawText(obj)
-  else:c.drawString(xx,y,line)
+  profile=B.get('lettering_profile',{})
+  if profile.get('id')=='v46_solid':
+   # Thin pale letters need a real interior above the backing, not a dark
+   # fill-and-stroke pass whose stroke consumes their centres.
+   ink=profile['white_rgb'] if color=='white' else profile['navy_rgb']
+   c.setFillAlpha(1);c.setStrokeAlpha(1);c.setLineJoin(1)
+   if color=='white' or halo:
+    backing=profile['navy_rgb'] if color=='white' else profile['white_rgb']
+    c.setStrokeColorRGB(*backing)
+    c.setLineWidth(profile['white_backing_stroke'] if color=='white' else profile['navy_halo_stroke'])
+    obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(1);obj.textOut(line);obj.setTextRenderMode(0);c.drawText(obj)
+   c.setFillColorRGB(*ink);c.setStrokeColorRGB(*ink);c.setLineWidth(profile['ink_stroke'])
+   obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(2);obj.textOut(line);obj.setTextRenderMode(0);c.drawText(obj)
+  else:
+   if shadow:
+    c.setFillColorRGB(.04,.09,.18);c.drawString(xx+.6,y-.6,line)
+   c.setFillColorRGB(*((1,1,.98) if color=='white' else (.06,.16,.29)))
+   if halo:
+    c.setStrokeColorRGB(*((.06,.12,.25) if color=='white' else (1,1,.98)));c.setLineWidth(max(.85,outline))
+    obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(1);obj.textOut(line);obj.setTextRenderMode(0);c.drawText(obj)
+    obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(0);obj.textOut(line);c.drawText(obj)
+   elif outline:
+    c.setStrokeColorRGB(.06,.16,.29);c.setLineWidth(outline)
+    obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(2);obj.textOut(line);c.drawText(obj)
+   else:c.drawString(xx,y,line)
   c.restoreState()
   line_width=pdfmetrics.stringWidth(line,'Sniglet',size)
   TEXT_LINES.append({'page':PAGE,'text':line,'box':[xx,y+pdfmetrics.getDescent('Sniglet')*size/1000,line_width,(pdfmetrics.getAscent('Sniglet')-pdfmetrics.getDescent('Sniglet'))*size/1000],'font_size':size,'physical_font_size':size*S,'color':color,'outline':outline,'halo':halo})

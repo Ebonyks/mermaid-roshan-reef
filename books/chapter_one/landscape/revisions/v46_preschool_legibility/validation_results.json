@@ -1,0 +1,36 @@
+{
+  "baseline": "116b33fa829f7397e55f70af01be45dc39b3f85b",
+  "recorded_at_utc": "2026-11-02T03:29:09.214813+00:00",
+  "commands": [
+    {
+      "command": "python -X utf8 -B books/chapter_one/landscape/revisions/v46_preschool_legibility/verify_revision.py",
+      "result": "PASS",
+      "exit_code": 0,
+      "evidence": "Strict five-review binding;34/34art-only/outside-caption/nativeimagealpha;327seals;inkpaint/cmap PASS;74PASS/6OUTLINE_REQUIRED/0FAIL; actual PDF958f9edc9abeeec38af3249531de7ed36639e9dd2907e85ea8b2f2fb90f9c54d."
+    },
+    {
+      "command": "python -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "exit_code": 0,
+      "evidence": "52tests in51.866s,OK; DOCAUTH STRESS6/6"
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "exit_code": 0,
+      "evidence": "DOCAUTH INVENTORY631/LEDGER631,ACTIVE56,RECORDS58;ALL OK"
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "exit_code": 0,
+      "evidence": "AUDITDEV BASE5920c673305989ee29d91876480ff445dba9fc8b;ALL OK"
+    }
+  ],
+  "historical_failures": [
+    "Iteration02 Whoosh contrast FAIL was retained and fixed by relocation; floor unchanged.",
+    "Unavailable optional fontTools dependency: replaced by already installed ReportLab cmap reader; full strict audit then passes.",
+    "Initial authority run rejected five plain-language ledger-state labels. Restored the schema-required historical/supporting icons; rerun required before publication."
+  ],
+  "acceptance": "Technical/editorial candidate only; no child/human spoken/SLP/owner/print acceptance."
+}

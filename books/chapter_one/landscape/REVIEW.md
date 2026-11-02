@@ -1,7 +1,9 @@
-# V45 story/language review
+# V46 preschool text and solid lettering review
 
-Status: SUPPORTING_CURRENT. [Exact per-page report](revisions/v45_story_language_r02_review/README.md) · [Held-page request](revisions/v45_story_language_r02_review/HELD_PAGES.md) · [Machine checks](revisions/v45_story_language_r02_review/complete/verification.json) · [Independent critique](revisions/v45_story_language_r02_review/peer_review/README.md).
+Status: SUPPORTING_CURRENT. [Review packet](revisions/v46_preschool_legibility/README.md) | [Exact manuscript](revisions/v46_preschool_legibility/manuscript.json) | [Machine verification](revisions/v46_preschool_legibility/complete/verification.json) | [Independent review](revisions/v46_preschool_legibility/peer_review/final_candidate_review.json).
 
-23of25 requested captions are implemented.11is held for contrast/space and15for caption overlap with Roshan's tail; both remain exact V44. Page21 uses the explicitly allowed single-top-caption fallback; it does not literally place the happy reply after the lower bubbles. All words/punctuation on implemented pages match the supplied manuscript; only wrapping/quiet caption geometry changes.
+Owner feedback supersedes V45's verbatim-manuscript constraint for this text pass.26 captions are shortened/recast; six already-short captions stay.309 caption words replace509, maximum 14/page, plus unchanged four bubble words. These are editorial density measures, not a clinical language score or an early-reader claim. No held-word pages remain.
 
-V44 caption gate77PASS/7OUTLINE_REQUIRED/0FAIL; V45 99/9/0 with identical method and thresholds. Source/font/art streams and all34 caption-free/outside-caption pixels match.11unchanged entries remain exact. Owner, human read-aloud/child/SLP, print and inherited art-continuity holds remain separate.
+The thin white Sniglet face previously received a dark fill-and-stroke pass that consumed its visible interior. V46 paints the contrasting backing first, then opaque strengthened ink above it. Navy is darker; font family/body 20/bubbles 18 stay fixed. A profile opt-in preserves the historical renderer branch for old controls. All34 entries get stronger lettering; no artwork is regenerated or re-encoded.
+
+Actual PDF paint-state/word/font/art/contrast checks and focused visual reviews are evidence for this candidate only. V44 geography/fountain findings, owner/illustrations, human/child/SLP, physical print and arrival gutter/imposition remain open.

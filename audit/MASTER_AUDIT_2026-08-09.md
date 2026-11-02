@@ -79,7 +79,7 @@ Scoped static Chapter One book: [book workspace](../books/chapter_one/README.md)
 
 Scoped V45 static-book language review: [draft and critique](../books/chapter_one/landscape/revisions/v45_story_language/README.md), [impact](../design/audit_impacts/picture-book-v45-language-20261031.json).24exact proposed captions plus a declared concise page11 adaptation; unchanged art and game. Owner/child/SLP/print and inherited continuity remain open.
 
-Scoped strict V45r02 static-book language review: [current draft and two held captions](../books/chapter_one/landscape/revisions/v45_story_language_r02_review/README.md), [impact](../design/audit_impacts/picture-book-v45-story-language-20261101.json).23exact proposed captions;11/15remainV44 pending shorter supplied words. Parallel V45 packet is preserved. No game finding or owner/child/SLP/print closure.
+Scoped V46 static-book preschool-copy/lettering correction: [current review](../books/chapter_one/landscape/revisions/v46_preschool_legibility/README.md), [impact](../design/audit_impacts/picture-book-v46-preschool-legibility-20261101.json). Concise copy and opaque solid ink preserve artwork/font sizes; V45 histories remain. No game finding or owner/child/SLP/print closure.
 
 <!-- AUDIT_TASK_INDEX_END -->
 

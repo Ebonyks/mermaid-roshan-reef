@@ -1,40 +1,40 @@
-# V45 current page plan
+# V46 current page plan
 
-Status: SUPPORTING_CURRENT.23requested caption updates;11/15retain V44. Cover/rear/order/doublewide format unchanged; physical imposition/gutter held. Exact requested strings are in the [manuscript](../handoffs/2026-10-31_v45_story_language/MANUSCRIPT.json).
+Status: SUPPORTING_CURRENT. Short preschool read-aloud review; all artwork, font/minimum sizes, cover/rear wording and mixed-width order retained. See [V46](revisions/v46_preschool_legibility/README.md).
 
-| Story | State | Delivered caption |
+| Story | Caption words | Delivered caption |
 | --- | --- | --- |
-| 1 | UNCHANGED | “Look, Daddy! / Pearl Castle!” |
-| 2 | UNCHANGED | The plane landed at Sky Lagoon. / Pearl Castle was close by. |
-| 3 | UNCHANGED | “Let’s look inside, / Daddy,” said Roshan. |
-| 4 | UPDATED | Inside, dust covered the floor. / “It’s SO messy!” said Roshan. / “Where do we start?” |
-| 5 | UPDATED | Sniff, sniff! / Someone was sniffling behind a big shell door. / “Hello?” said Roshan. But the door was stuck. / “We’ll come back!” she promised. |
-| 6 | UPDATED | Daddy gave her a duster and two sponges. / “One little job at a time,” said Daddy. |
-| 7 | UPDATED | A dust bunny splashed in the dirty bath. / Splash, splash! Gunk went everywhere! / The little bunny just wanted to play. |
-| 8 | UPDATED | Roshan started with one little job: the sink. / Round and round went her sponge! |
-| 9 | UPDATED | The dust bunny hopped out, and Roshan pulled the plug. / Out went the / dirty water! / She scrubbed / the tub. / Scrub, scrub! |
-| 10 | UPDATED | Soon the bath was sparkling clean. / Now the dust bunny had a good place to play! / Far away, someone went sniff, sniff. |
-| 11 | HELD exactV44 | Rumi was stuck under the gunk. / She needed help! |
-| 12 | UNCHANGED | “I’ll help!” said Roshan. / Scoop, scoop! |
-| 13 | UNCHANGED | Rainbow colors / peeked through the gunk. |
-| 14 | UPDATED | Whoosh! The waterfall turned rainbow! / The pool was magic. / Its rainbow had been hiding under the gunk! |
-| 15 | HELD exactV44 | A cup was stuck in the fountain. / Roshan pulled it free. Whoosh! |
-| 16 | UPDATED | The gunk washed away. Up came Rumi! / She had lived in Pearl Castle for hundreds of years. / Now she was free! |
-| 17 | UPDATED | “You helped me!” said Rumi. / She gave Roshan a great big hug. / “If you ever need help, just call!” |
-| 18 | UPDATED | Chirp, chirp! A worried little chirp came from the playroom. “Someone needs help!” said Roshan. |
-| 19 | UPDATED | Two dust bunnies sat on Baby Eagle. / They just wanted to play, but he was stuck! / “I’ll help!” said Roshan. |
-| 20 | UNCHANGED | She gently brushed one bunny away, / then the other. |
-| 21 | UPDATED | Baby Eagle was free! / “Chirp, chirp!” he said happily. / “Let’s all play gently,” said Roshan. |
-| 22 | UPDATED | In the art room, Roshan put the paints in their / places. She scrubbed the table. Scrub, scrub! / “One little job at a time,” she sang. |
-| 23 | UPDATED | Sparkles flew from every clean room to the big shell door. Click! Roshan kept her promise. Behind the door, someone sneezed... AH-CHOO! |
-| 24 | UPDATED | It was Grand Puff, the biggest dust bunny of all! / Every sneeze puffed out more dust. / He did not feel well. |
-| 25 | UPDATED | Roshan wasn’t mad. “I’ll help!” she said. / But Grand Puff was too big to wash alone. / “Can you help me?” she called. |
-| 26 | UPDATED | “We’ll help!” said Daddy and Rumi. / “Chirp, chirp!” said Baby Eagle. / Together, they washed Grand Puff. Scrub, scrub! |
-| 27 | UPDATED | Soft bubbles covered Grand Puff. / Then rainbow colors peeked through the bubbles! |
-| 28 | UNCHANGED | POP! Grand Puff sprang out, rainbow bright! / The dust fell away. |
-| 29 | UPDATED | Down came Grand Puff, soft and small. / “I feel all better!” he said. |
-| 30 | UPDATED | The art room was tidy. / Pearl Castle was clean again! / It was a big job, but friends can do big jobs together! |
-| 31 | UPDATED | “Sorry about all the dust,” said Grand Puff. / “That’s okay,” said Roshan. / “You just needed help. Everyone needs help sometimes!” |
-| 32 | UPDATED | “Come and rest with us!” said Roshan. There was room for everyone, even the dust bunnies. They curled up together and fell asleep. |
+| 1 | 4 | “Look, Daddy! / Pearl Castle!” |
+| 2 | 11 | The plane landed at Sky Lagoon. / Pearl Castle was close by. |
+| 3 | 6 | “Let’s look inside, / Daddy,” said Roshan. |
+| 4 | 8 | “Oh, what a mess! / Where do we start?” |
+| 5 | 12 | Sniff, sniff! The big door was stuck. / “We’ll come back!” promised Roshan. |
+| 6 | 14 | Daddy gave her a duster and two sponges. / “One little job at a time!” |
+| 7 | 11 | Splash, splash! / The dust bunny wanted to play. / Gunk went everywhere! |
+| 8 | 9 | First, the sink! / Round and round went Roshan’s sponge. |
+| 9 | 11 | The bunny was out. / Roshan pulled / the plug. / Swish! Scrub, scrub! |
+| 10 | 13 | The bath was clean! / Now the bunny could play. / Far away: sniff, sniff. |
+| 11 | 9 | Rumi was stuck in gunk. / “Can you help me?” |
+| 12 | 6 | “I’ll help!” said Roshan. / Scoop, scoop! |
+| 13 | 6 | Rainbow colors / peeked through the gunk. |
+| 14 | 5 | Whoosh! / The waterfall turned rainbow! |
+| 15 | 8 | Out came the cup! Out splashed the water! |
+| 16 | 10 | The gunk washed away. / Up came Rumi, free at last! |
+| 17 | 10 | Rumi hugged Roshan. / “Thank you! Call if you need help!” |
+| 18 | 10 | Chirp, chirp! / “Someone in the playroom / needs help!” said Roshan. |
+| 19 | 12 | Two bunnies wanted to play, / but Baby Eagle was stuck under them. |
+| 20 | 9 | She gently brushed one bunny away, / then the other. |
+| 21 | 6 | Baby Eagle was free! / Chirp, chirp! |
+| 22 | 10 | Paints away. Scrub, scrub! / “One little job at a time!” |
+| 23 | 12 | “We’re back!” / Sparkles from the clean rooms reached the door. / Click! AH-CHOO! |
+| 24 | 10 | Grand Puff sneezed. / AH-CHOO! Dust flew. / He didn’t feel well. |
+| 25 | 12 | “He’s too big to wash alone. / Can you help me?” called Roshan. |
+| 26 | 14 | Daddy, Rumi and Baby Eagle helped Roshan. / Scrub, scrub! They washed Grand Puff together. |
+| 27 | 9 | Soft bubbles covered Grand Puff. / Rainbow colors peeked through! |
+| 28 | 9 | POP! Out jumped Grand Puff! / Down fell the dust. |
+| 29 | 11 | Down came Grand Puff, soft and small. / “I feel all better!” |
+| 30 | 10 | Pearl Castle was clean! / Friends can do big jobs together. |
+| 31 | 13 | “Sorry about the dust,” said Grand Puff. / “Everyone needs help sometimes,” said Roshan. |
+| 32 | 9 | “Come snuggle!” said Roshan. / There was room for everyone. |
 
-[Page controls and box movements](revisions/v45_story_language_r02_review/README.md#requested-page-report). Arrival remains one28×10in entry among14×10in singles; no imposed32-page interior or preserved physical reveal parity is claimed.
+Page21 bubbles remain exactly Sorry! and We’ll be gentle! at18logicalpt; body20logicalpt. Arrival remains one28x10in review entry among14x10in singles. Physical imposition/parity/gutter and owner/child/SLP/print acceptance remain open.

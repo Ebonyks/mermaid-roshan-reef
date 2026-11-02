@@ -44,8 +44,8 @@ unclassified until this ledger gains one new scoped row for it.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V45 exact-language draft23/25implemented,11/15held; V44 art/continuity and owner/child/SLP/print holds preserved. |
-| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; Static-book source/identity/layout rules and scoped owner exceptions through V44 bounded door repair and consistency-audit direction, plus the V45 owner moral decision (2026-10-31: empathy for dust bunnies who cause problems but just need help; friendship makes big jobs possible; text-only). Manuscript/character standards preserved; arrival imposition/gutter and print held. Second-AI compliance review is supporting evidence, not new creative authority; no game/cinematic authority. |
+| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V46 preschool copy/solid-lettering review;309caption words,no held-word pages; art/owner/child/SLP/print limits remain. |
+| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; Static-book source/identity/layout rules and scoped owner exceptions through V44 bounded door repair and consistency-audit direction, V46 owner text-density/legibility correction authorizes concise copy and solid ink while preserving art/font sizes; plus the V45 owner moral decision (2026-10-31: empathy for dust bunnies who cause problems but just need help; friendship makes big jobs possible; text-only). Manuscript/character standards preserved; arrival imposition/gutter and print held. Second-AI compliance review is supporting evidence, not new creative authority; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |
@@ -872,19 +872,20 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/peer_review/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Sealed V43 iterative critique; V44 reopens missed door structure, no inherited feature acceptance. |
 
 | `books/chapter_one/landscape/revisions/v44_door_and_consistency/README.md` | 🔵 | `HISTORICAL_EVIDENCE`; Sealed V44 door repair/full34-entry audit, two continuity findings remain open; V45 owns current text draft. |
-| `books/chapter_one/handoffs/2026-10-31_v45_story_language/README.md` | 🔵 | `SUPPORTING_CURRENT`; pinned incoming work order at550a0b8: exact25captions, explicit shortening/hold rule. Strict V45r02 implements23,holds11/15; parallel V45 has an unaccepted proposed adaptation. Owner/new-fact,child/SLP/print gates remain open. |
+| `books/chapter_one/handoffs/2026-10-31_v45_story_language/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; frozen V45 exact-word review/work order and held-page evidence. V46 owner feedback authorizes shorter copy and stronger lettering; prior artifacts remain unchanged. |
 | `books/chapter_one/handoffs/2026-10-31_v45_story_language/CRITIQUE.md` | 🔵 | `SUPPORTING_CURRENT`; Claude's story and language critique of V44 (eight ranked problems, the moral's threads, Roshan's arc, resolutions, relatability and the page-by-page V45 text); editorial evidence for the V45 work order, not owner, child, SLP or print acceptance. |
 
 | `books/chapter_one/landscape/revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; Current primary character/scenery/layout audit with page-specific evidence, proposed bounded repairs and explicit acceptance holds. |
 
 | `books/chapter_one/landscape/revisions/v44_door_and_consistency/peer_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Independent full-book and final-cover critique navigation; scope satisfaction and creative acceptance separate. |
 
-| `books/chapter_one/landscape/revisions/v45_story_language_r02_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Current V45 language/plot draft;23of25exact captions and page21bubbles;11/15held. |
+| `books/chapter_one/landscape/revisions/v45_story_language_r02_review/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; frozen V45 exact-word review/work order and held-page evidence. V46 owner feedback authorizes shorter copy and stronger lettering; prior artifacts remain unchanged. |
 
-| `books/chapter_one/landscape/revisions/v45_story_language_r02_review/HELD_PAGES.md` | 🔵 | `SUPPORTING_CURRENT`; Explicit work-order shortening requests for11/15; no unauthorized word/art/type-size change. |
+| `books/chapter_one/landscape/revisions/v45_story_language_r02_review/HELD_PAGES.md` | ⚪ | `HISTORICAL_EVIDENCE`; frozen V45 exact-word review/work order and held-page evidence. V46 owner feedback authorizes shorter copy and stronger lettering; prior artifacts remain unchanged. |
 
-| `books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/README.md` | 🔵 | `SUPPORTING_CURRENT`; Independent scoped critique navigation; implemented scope,held pages and human/print acceptance separate. |
+| `books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; frozen V45 exact-word review/work order and held-page evidence. V46 owner feedback authorizes shorter copy and stronger lettering; prior artifacts remain unchanged. |
 
-| `books/chapter_one/landscape/revisions/v45_story_language/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; preserved parallel V45 draft at01004e37, with proposed page11 adaptation not owner-accepted. Current strict23/25review is V45r02; no new art/canon/print authority. |
+| `books/chapter_one/landscape/revisions/v45_story_language/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; preserved parallel V45 draft at01004e37, with proposed page11 adaptation not owner-accepted. V46 is now current; no new art/canon/print authority. |
 
-| `books/chapter_one/landscape/revisions/v45_story_language/EDITORIAL_CRITIQUE.md` | ⚪ | `HISTORICAL_EVIDENCE`; preserved parallel V45 draft at01004e37, with proposed page11 adaptation not owner-accepted. Current strict23/25review is V45r02; no new art/canon/print authority. |
+| `books/chapter_one/landscape/revisions/v45_story_language/EDITORIAL_CRITIQUE.md` | ⚪ | `HISTORICAL_EVIDENCE`; preserved parallel V45 draft at01004e37, with proposed page11 adaptation not owner-accepted. V46 is now current; no new art/canon/print authority. |
+| `books/chapter_one/landscape/revisions/v46_preschool_legibility/README.md` | 🔵 | `SUPPORTING_CURRENT`; V46 concise preschool read-aloud and solid-lettering candidate; fixed art/font sizes and no held-word pages. Owner/child/SLP/print and inherited art acceptance remain open. |
