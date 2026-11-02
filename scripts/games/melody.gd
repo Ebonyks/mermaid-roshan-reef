@@ -64,6 +64,10 @@ class ProsceniumCanvas extends Control:
 	var crown_header: Polygon2D = null
 	var stage_apron: Polygon2D = null
 	var coverage_ratio := 0.0
+	const CREAM_BULB: Texture2D = preload("res://assets/melody/theatre_bulb_cream_painted.png")
+	const GOLD_BULB: Texture2D = preload("res://assets/melody/theatre_bulb_gold_painted.png")
+	var upper_bulbs: Array[Sprite2D] = []
+	var lower_bulbs: Array[Sprite2D] = []
 
 
 	func setup() -> void:
@@ -117,6 +121,13 @@ class ProsceniumCanvas extends Control:
 		var covered_area: float = size.x * (header_height + apron_height) \
 			+ side_width * 2.0 * (size.y - header_height - apron_height)
 		coverage_ratio = covered_area / maxf(viewport_size.x * viewport_size.y, 1.0)
+		var bulb_count: int = maxi(12, int(size.x / 66.0))
+		_ensure_bulb_count(bulb_count)
+		for bulb_index in range(bulb_count):
+			var bulb_x: float = 24.0 + float(bulb_index) \
+				* (size.x - 48.0) / float(maxi(bulb_count - 1, 1))
+			upper_bulbs[bulb_index].position = Vector2(bulb_x, 22.0)
+			lower_bulbs[bulb_index].position = Vector2(bulb_x, size.y - 19.0)
 		queue_redraw()
 
 
@@ -152,14 +163,33 @@ class ProsceniumCanvas extends Control:
 			draw_line(Vector2(side_width * 0.72, rail_y),
 				Vector2(size.x - side_width * 0.72, rail_y),
 				NOTE_COLORS[color_index], 6.0, true)
-		# Warm bulbs make the proscenium instantly legible even at arm's length.
-		var bulb_count: int = maxi(12, int(size.x / 66.0))
-		for bulb_index in range(bulb_count):
-			var bulb_x: float = 24.0 + float(bulb_index) \
-				* (size.x - 48.0) / float(maxi(bulb_count - 1, 1))
-			draw_circle(Vector2(bulb_x, 22.0), 7.5, PAPER, true, -1.0, true)
-			draw_circle(Vector2(bulb_x, size.y - 19.0), 7.0,
-				GOLD.lightened(0.28), true, -1.0, true)
+
+
+
+	func _ensure_bulb_count(count: int) -> void:
+		if upper_bulbs.size() == count:
+			return
+		for bulb: Sprite2D in upper_bulbs + lower_bulbs:
+			remove_child(bulb)
+			bulb.queue_free()
+		upper_bulbs.clear()
+		lower_bulbs.clear()
+		for index in range(count):
+			upper_bulbs.append(_painted_bulb(
+				"UpperPaintedBulb%02d" % index, CREAM_BULB, 15.0))
+			lower_bulbs.append(_painted_bulb(
+				"LowerPaintedBulb%02d" % index, GOLD_BULB, 14.0))
+
+
+	func _painted_bulb(node_name: String, source: Texture2D,
+			diameter: float) -> Sprite2D:
+		var bulb := Sprite2D.new()
+		bulb.name = node_name
+		bulb.texture = source
+		bulb.scale = Vector2.ONE * diameter / 128.0
+		bulb.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		add_child(bulb)
+		return bulb
 
 
 	func _polygon(node_name: String, color: Color) -> Polygon2D:

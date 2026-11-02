@@ -71,6 +71,16 @@ const EXPECTED_STAGE_NODES: Array[String] = [
 ]
 
 
+const BULB_PATHS: Array[String] = [
+	"res://assets/melody/theatre_bulb_cream_painted.png",
+	"res://assets/melody/theatre_bulb_gold_painted.png",
+]
+const BULB_HASHES: Array[String] = [
+	"6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+	"6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+]
+
+
 class CountingAudioDirector:
 	extends AudioDirector
 
@@ -502,6 +512,21 @@ func _check_asset_contract() -> void:
 	_check("exact non-reader objective voice is present and immutable",
 		ResourceLoader.exists(VOICE_PATH)
 		and FileAccess.get_sha256(VOICE_PATH) == VOICE_SHA256)
+	for index in range(BULB_PATHS.size()):
+		var path: String = BULB_PATHS[index]
+		var bulb := Image.load_from_file(path)
+		var import_text := FileAccess.get_file_as_string(path + ".import")
+		_check("painted theatre bulb%d exact RGBA128 square/hash" % index,
+			bulb != null and bulb.get_size() == Vector2i(128, 128)
+			and bulb.get_format() == Image.FORMAT_RGBA8
+			and FileAccess.get_sha256(path) == BULB_HASHES[index])
+		_check("painted theatre bulb%d lossless mipmapped mobile import/provenance" % index,
+			import_text.contains("compress/mode=0")
+			and import_text.contains("\"vram_texture\": false")
+			and import_text.contains("mipmaps/generate=true")
+			and import_text.contains("process/size_limit=1024")
+			and licenses.contains(path.trim_prefix("res://")))
+
 
 
 func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
@@ -875,11 +900,15 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 	var expected_paths: Array[String] = TILE_PATHS.duplicate()
 	expected_paths.append(DADDY_PATH)
 	expected_paths.append(ROSHAN_PATH)
+	expected_paths.append_array(BULB_PATHS)
+	var frame := surface.get_node("OperaProscenium") as Control
+	var bulb_count: int = maxi(12, int(frame.size.x / 66.0))
 	var exact_once := counts.size() == expected_paths.size()
 	var decoded_bytes := 0
 	var declared_upload_bytes := 0
 	for path: String in expected_paths:
-		exact_once = exact_once and int(counts.get(path, 0)) == 1
+		var expected_instances: int = bulb_count if path in BULB_PATHS else 1
+		exact_once = exact_once and int(counts.get(path, 0)) == expected_instances
 		var image := Image.load_from_file(path)
 		if image == null:
 			exact_once = false
@@ -889,7 +918,7 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 		var import_text := FileAccess.get_file_as_string(path + ".import")
 		declared_upload_bytes += pixels if import_text.contains(
 			"compress/mode=2") else pixels * 4
-	_check("live Canvas binds only four tiles, Daddy, and Roshan exactly once each",
+	_check("live Canvas binds original six textures once and two shared painted bulbs at exact row counts",
 		exact_once)
 	_check("unique live texture census stays within conservative decoded and declared-upload bounds",
 		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024
@@ -913,6 +942,38 @@ func _stage_node(surface: Node, node_name: String) -> Node:
 	if surface == null:
 		return null
 	return surface.find_child(node_name, true, false)
+
+
+func _painted_bulbs_contract(frame: Control) -> bool:
+	var count: int = maxi(12, int(frame.size.x / 66.0))
+	var names: Array[String] = [
+		"LeftCurtainGeometry", "RightCurtainGeometry",
+		"CrownHeaderGeometry", "StageApronGeometry",
+	]
+	for name: String in names:
+		if not (frame.get_node_or_null(name) is Polygon2D):
+			return false
+	for index in range(count):
+		var x: float = 24.0 + float(index) * (frame.size.x - 48.0) / float(maxi(count - 1, 1))
+		for row in range(2):
+			var name: String = ("UpperPaintedBulb%02d" if row == 0 else "LowerPaintedBulb%02d") % index
+			names.append(name)
+			var bulb := frame.get_node_or_null(name) as Sprite2D
+			var diameter: float = 15.0 if row == 0 else 14.0
+			var y: float = 22.0 if row == 0 else frame.size.y - 19.0
+			if bulb == null or bulb.texture == null or bulb.texture.resource_path != BULB_PATHS[row] \
+					or bulb.texture.get_size() != Vector2(128, 128) \
+					or not bulb.position.is_equal_approx(Vector2(x, y)) \
+					or not bulb.scale.is_equal_approx(Vector2.ONE * diameter / 128.0) \
+					or bulb.modulate != Color.WHITE or bulb.self_modulate != Color.WHITE \
+					or not is_zero_approx(bulb.rotation) or bulb.material != null \
+					or bulb.region_enabled or not bulb.centered or bulb.offset != Vector2.ZERO \
+					or bulb.flip_h or bulb.flip_v or bulb.hframes != 1 or bulb.vframes != 1 \
+					or bulb.z_index != 0 or not bulb.z_as_relative or bulb.show_behind_parent \
+					or bulb.get_child_count() != 0 or not bulb.visible \
+					or bulb.texture_filter != CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS:
+				return false
+	return _exact_direct_child_names(frame, names)
 
 
 func _surface_structure_exact(surface: Node2D) -> bool:
@@ -942,10 +1003,7 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 			or not (zone is Control) or not (pointer is Control):
 		return false
 	if not _exact_direct_child_names(scenic, TILE_NODE_NAMES) \
-			or not _exact_typed_geometry_children(proscenium, [
-				"LeftCurtainGeometry", "RightCurtainGeometry",
-				"CrownHeaderGeometry", "StageApronGeometry",
-			], []) \
+			or not _painted_bulbs_contract(proscenium as Control) \
 			or not _exact_typed_geometry_children(
 				footlights, [], ["FootlightRailGeometry"]) \
 			or not _exact_typed_geometry_children(
