@@ -23,7 +23,7 @@ It does not create findings, close existing ones, or declare game-wide satisfact
 
 | Character | Direction document | Working direction | Authored candidates for this profile | Runtime/machine evidence for this profile | Visual/device/child/owner acceptance |
 |---|---|---|---|---|---|
-| Mermaid Roshan | [Movement language v2](../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md#laura-led-visual-movement-specification-v2-2026-11-01) | Owner-selected Laura reference; Ribbon Glide everyday / Playful Dolphin delight; explicit swim/turn/gesture/settle phases and pose gaps | None produced for v2; integration atlas inventory and immutable native-rig source studies have distinct acceptance scopes | V2 documentation/source inspection only; no animation/Godot test or runtime implementation | Performance, device, child and owner acceptance remain open; reference choice alone is recorded |
+| Mermaid Roshan | [Movement language v2](../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md#laura-led-visual-movement-specification-v2-2026-11-01) | Owner-selected Laura; effort/glide, useful hands and quiet settle | [Current-rig energetic redo](../../assets_src/animation/roshan_laura_rig_test_20261101/README.md); earlier take02 OWNER_REJECTED as stiff/unlike Laura | Exact per-attempt actual capture/geometry/motion/alpha/master results in source record; wrong pitch/unweighted wrist corrected; independent head strains neck; no gameplay integration | Facing/side-swim, palm, neck/hair coverage and human/device/child/owner acceptance remain open |
 
 This table is a **profile commission inventory**, not a claim that only one
 character exists or that the game has no prior animation. Add each next
@@ -90,6 +90,12 @@ and production protocol rather than repairing or verifying runtime defects.
 Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11-roshan-animation-language.json).
 
 ## Branch history
+
+- 2026-11-01 (owner correction): take02 is rejected as stiff/unlike Laura; [energetic redo](../../assets_src/animation/roshan_laura_rig_test_20261101/README.md) corrects travel pitch and invisible wrist animation. Actual Forearm pixels are bound to LeftFore; Head movement exposes neck/shoulder strain. Existing numerical passes never accepted acting. Current candidate, surface/pose gaps and human/device/child/owner acceptance remain separate.
+
+
+- 2026-11-01 (follow-on): owner commissions the [current-rig Laura study](../../assets_src/animation/roshan_laura_rig_test_20261101/README.md). Two actual Mobile renders preserve the source14-bone rig/art; current331-frame candidate tests effort/glide, labelled route reversal, one greeting and settle. Geometry/motion pass;112strict raster-hole failures, missing facing/palm/hair surfaces and human/device/child/owner acceptance remain open. No game integration or finding closure. [Impact](../../design/audit_impacts/roshan-laura-rig-test-20261101.json).
+
 
 - 2026-11-01: owner selects Laura as the main movement reference. Roshan profile v2 describes painted identity, water/propulsion, turn occlusion, gestures, settle/interrupt behavior and prioritized new pose/view/paint coverage, including read-only native-rig branches. No test run, source generation, runtime change or finding closure. [Impact](../../design/audit_impacts/roshan-laura-profile-20261101.json).
 

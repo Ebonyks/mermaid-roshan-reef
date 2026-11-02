@@ -1,0 +1,54 @@
+{
+  "owner_request": "Make a short test animation using the current rig: Roshan swims, turns, waves, and settles, following Laura movement language. Show me the result and identify where new poses are still needed.",
+  "source_revision": "b700b846d1d2f4b1843279f268e2bb12e4b1f4ec",
+  "workflow": "Unchanged14-bone Canvas source rig, textures, rest, vertices and weights; newly authored AnimationPlayer curves; actual Godot4.7.2 Mobile captures; original raster frames, lossless Aseprite bridge and lossy review MP4 kept separately.",
+  "model_calls": 0,
+  "paid_cost_usd": 0,
+  "new_art": false,
+  "topology_or_weights_changed": false,
+  "rig_source_only": true,
+  "runtime_integration": false,
+  "reference": "Owner-selected Laura; Roshan-authored phrasing, no extracted anime pixels or quantitative Laura-shot measurements.",
+  "attempts": [
+    {
+      "id": "take01",
+      "frames": 301,
+      "review": "Superseded: forearm75degrees reads as a reach. Native scene PNGs and review retained. Exact prelaunch action-script snapshot was not captured; no historical code-byte reproducibility claim."
+    },
+    {
+      "id": "take02",
+      "frames": 331,
+      "review": "OWNER_REJECTED: stiff, not like Laura. Root tilted against travel; Head held zero; wrist track drove an unweighted control and did not wave the painted hand."
+    },
+    {
+      "id": "take03",
+      "frames": 331,
+      "review": "Diagnostic: correct travel pitch, active visible forearm wave, head/torso/fin response. Independent Head rotation fails Body strain in190frames; all other mesh/motion lanes pass. Source and report retained."
+    },
+    {
+      "id": "take04",
+      "frames": 331,
+      "review": "Current bounded correction: retain livelier visible-control performance; remove only independent Head rotation unsupported by the neck mesh. Actual diagnostic and human/owner results remain separately recorded."
+    }
+  ],
+  "native_to_review": "Frame i at i/30seconds,1280x720 whole canvas;331samples including endpoint;11.033s playback, H264 CRF17 yuv420p square pixels faststart, silent. No temporal interpolation or cropped/warped character surfaces.",
+  "aseprite_bridge": "Project whole-frame import/reopen/export bridge copied byte-for-byte from tools/sprite_pipeline_bridge.lua;33/34ms duration rounding; one complete-figure layer. Native rig authoring remains Godot curves/tres.",
+  "inspection": "Agent chronological-sheet/full-size review and actual per-frame diagnostics; no human/device/child/owner acceptance invented.",
+  "source_acceptance_limit": "Existing source-study art approval does not imply any new production acceptance; no independent hair, new facing views or open palm generated.",
+  "tools": {
+    "godot": "4.7.2-stable official.ed1daf0bf; Mobile Vulkan RTX3060Ti actual capture",
+    "aseprite_binary_sha256": "e320ffdf2663dc39b012c5791dd0ac5cec64b3621b7f3bb82b5f02b6c73483bf",
+    "aseprite_version_limit": "CLI --version returned no captured version text; exact installed binary hash recorded.",
+    "ffmpeg": "8.1.2",
+    "python_libraries": {
+      "numpy": "2.5.1",
+      "Pillow": "12.3.0",
+      "scipy": "1.18.0"
+    }
+  },
+  "owner_rejection": {
+    "verbatim": "It's very stiff at this point, doesn't look like laura at all. Redo, with more vibrant energy",
+    "result": "Take02 OWNER_REJECTED; no later candidate pre-accepted."
+  },
+  "control_diagnosis": "Nonzero mesh weights: Body(Torso,Head,TailA,TailB,TailC,TailD,Fin), UpperArm(LeftUpper), Forearm(LeftFore). LeftHand and right-arm names alone provide no painted articulation."
+}

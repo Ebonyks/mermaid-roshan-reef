@@ -1,0 +1,102 @@
+{
+  "owner_request": "Make a short test animation using the current rig: Roshan swims, turns, waves, and settles, following Laura movement language. Show result and identify needed new poses.",
+  "lane": "REFERENCE_ONLY_SOURCE_RIG_TEST",
+  "started_utc": "2026-11-01T23:38:33Z",
+  "aggregate_limits": {
+    "generated_calls": 0,
+    "paid_cost_usd": 0,
+    "local_render_revisions": 4,
+    "wall_minutes": 45,
+    "cleanup_minutes": 15,
+    "stop": "After two nonviable renders retain result and diagnose missing poses; no ImageGen or new rig topology.",
+    "scope_extension": "Owner expressly commissioned redo after rejecting take02; original2renders remain counted. At most2corrected native renders, original45minute aggregate wall cap retained; no generation or paid spend."
+  },
+  "actions": [
+    {
+      "id": "swim",
+      "method": "Native Godot 4.7.2 Skeleton2D with existing art, bones, rest and weights; new authored continuous curves",
+      "fixed": "Camera, proportions, painted identity, rig topology; no mirror/squeeze/crossfade",
+      "entry_exit": "supported rest to moving effort/glide",
+      "required": "Two gentle tail efforts separated by glide; front-view approximation only",
+      "limits": "Shared aggregate limits; no cap reset between actions"
+    },
+    {
+      "id": "turn",
+      "method": "Native Godot 4.7.2 Skeleton2D with existing art, bones, rest and weights; new authored continuous curves",
+      "fixed": "Camera, proportions, painted identity, rig topology; no mirror/squeeze/crossfade",
+      "entry_exit": "rightward travel to leftward return",
+      "required": "Gather, bank and reverse route; true facing surfaces are absent and must remain labelled as a gap",
+      "limits": "Shared aggregate limits; no cap reset between actions"
+    },
+    {
+      "id": "wave",
+      "method": "Native Godot 4.7.2 Skeleton2D with existing art, bones, rest and weights; new authored continuous curves",
+      "fixed": "Camera, proportions, painted identity, rig topology; no mirror/squeeze/crossfade",
+      "entry_exit": "supported arrival to hand-lift and return",
+      "required": "Torso/tail counterbalance with arm/forearm/wrist movement and blink; no newly painted palm",
+      "limits": "Shared aggregate limits; no cap reset between actions"
+    },
+    {
+      "id": "settle",
+      "method": "Native Godot 4.7.2 Skeleton2D with existing art, bones, rest and weights; new authored continuous curves",
+      "fixed": "Camera, proportions, painted identity, rig topology; no mirror/squeeze/crossfade",
+      "entry_exit": "lowered hand to quiet available pose",
+      "required": "Tail follow-through resolves once; no endless body bob",
+      "limits": "Shared aggregate limits; no cap reset between actions"
+    }
+  ],
+  "tolerances": {
+    "existing_source_geometry": "Same 0.80–1.20 visible strain and zero triangle flips; preserve actual failures",
+    "motion": "140 degrees/s and 650 degrees/s^2 from inspected shared source contract; report, do not relax",
+    "constant_scale": 0.62,
+    "output": [
+      1280,
+      720,
+      30
+    ],
+    "frame_count": 331,
+    "native_seconds": 11,
+    "turn_view_status": "MISSING; route reversal only, no simulated yaw"
+  },
+  "attempts": [
+    {
+      "id": "take01",
+      "result": "superseded diagnostic",
+      "reason": "Wave reads as sideways reach at the original forearm angle; no full facing turn is available."
+    },
+    {
+      "id": "take02",
+      "result": "OWNER_REJECTED: stiff, not like Laura",
+      "change": "Raise forearm to100degrees over1.75s, slower lowering; capture actual transparent figure for unchanged geometry/alpha diagnostics."
+    },
+    {
+      "id": "take03",
+      "result": "Diagnostic: vibrant visible-control pass; independent Head motion violates neck/shoulder visible-strain limits in190frames. Kept as failure evidence.",
+      "change": "Corrected swim pitch, visible forearm wave, coordinated head/torso/tail/fin action and brisker travel phrasing."
+    },
+    {
+      "id": "take04",
+      "result": "Current review candidate:331actualMobile frames; geometry/motion pass;67strict alpha-hole failures retained. No true facing turn or independent hair/palm/neck action.",
+      "change": "Keep take03 corrected pitch, visible forearm wave, torso and strong fin action. Lock only unsupported independent Head rotation; head follows torso/bank. Numerical ablation predicts original geometry floors pass without reducing main energy."
+    }
+  ],
+  "reported_usage": {
+    "generated_calls": 0,
+    "paid_cost_usd": 0,
+    "local_render_revisions": 4,
+    "pixel_cleanup_minutes": 0,
+    "pixel_cleanup_note": "No artwork repaint/cleanup was performed. Authoring/inspection/export elapsed wall window recorded separately."
+  },
+  "elapsed_wall_seconds_at_freeze": 1689.4,
+  "owner_rejection": {
+    "verbatim": "It's very stiff at this point, doesn't look like laura at all. Redo, with more vibrant energy",
+    "result": "take02 OWNER_REJECTED",
+    "diagnosis": [
+      "Wrong bank sign: tilted against travel",
+      "Head track held zero",
+      "Hand and RightArm bone controls have no mesh weights; wrist wave was invisible",
+      "Tail/torso excursions too small and pauses too long"
+    ],
+    "method_change": "Correct travel-axis lean; coordinate visible Root/Torso/Head/LeftUpper/LeftFore and distributed tail chain. Forearm carries the painted hand; no reliance on unweighted controls. Preserve front-only limitation."
+  }
+}

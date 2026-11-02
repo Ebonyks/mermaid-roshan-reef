@@ -1,0 +1,833 @@
+{
+  "id": "roshan_laura_rig_test_20261101",
+  "status": "VIBRANT_TAKE04_SOURCE_REVIEW_CANDIDATE_WITH_POSE_AND_ALPHA_GAPS",
+  "archive_complete": false,
+  "generation_ready": false,
+  "delivery_accepted": false,
+  "runtime_integrated": false,
+  "payload_sha256": "e9e0e977748bd9af4a63c4b9b87a26884b2e9b16ea4afcf3ad8f083f05f94cdc",
+  "payload_hash_method": "UTF8 sorted relative path + NUL + lowercase SHA256 + LF; manifest excluded",
+  "current_attempt": "take04",
+  "owner_rejected": "take02",
+  "diagnostic_geometry_failure": "take03",
+  "frames": 331,
+  "fps": 30,
+  "canvas": [
+    1280,
+    720
+  ],
+  "files": [
+    {
+      "path": ".gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "574dca45282c721e228acd15bf9aaeef98616404a08f68a929e460f25f1b6cd1",
+      "bytes": 74,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "e3eaa9c815cb72c63a084a2f6781388e5088d41dd174b356d73ac08c1f738694",
+      "bytes": 70,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take01_native_scene_0000.zip",
+      "sha256": "cf1949b5e272706c5e60caca5431f5b12dc0e7768a3fb544b6f513653ee829e0",
+      "bytes": 13237445,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take01_native_scene_0064.zip",
+      "sha256": "f31797a6472508d82c23bf9b6c78134f5c6a93b619c9dd3cde8db8a37afbbf1e",
+      "bytes": 13313263,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take01_native_scene_0128.zip",
+      "sha256": "c07ffdbab729a181446871e9eeec95cefe2f90d07f5668a2ce4189970611c1d4",
+      "bytes": 13418978,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take01_native_scene_0192.zip",
+      "sha256": "4b647761856e1513e3482563e890f7446ed16bdf6d755efa1ff630da87b8f202",
+      "bytes": 13520615,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take01_native_scene_0256.zip",
+      "sha256": "da8193932142a74994fdde95e8944df130dba2d8fc9d7f891707bdbe3ca3c1e2",
+      "bytes": 9402060,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take02_native_figure_0000.zip",
+      "sha256": "8fac9d656f9a5c274cbee4e0b01af99136b4311f465684d96e1ebffbdf8edd2e",
+      "bytes": 12509434,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take02_native_figure_0064.zip",
+      "sha256": "9c08a4bedf062eb92ee7a96c7cdf01a61754744469130f12e5ca888f1808f014",
+      "bytes": 12523344,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take02_native_figure_0128.zip",
+      "sha256": "6d9fe9d6935c864960ef3d53a4c1854a082062b5857a2bb10a873a0a810be291",
+      "bytes": 12493972,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take02_native_figure_0192.zip",
+      "sha256": "01f8be30e8b14eb337c4178fa16d253ae424ad8a695db4bb0888fd2d24be50bf",
+      "bytes": 12514356,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take02_native_figure_0256.zip",
+      "sha256": "b0e309073a409e407fc602ce722036d4562128490266dbf07a844b0f0eb5c586",
+      "bytes": 12495382,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take02_native_figure_0320.zip",
+      "sha256": "45e2b0c35140d5f8a061dc5147378f8aa1daffbae3a20111bacfe3a49fcfa6bb",
+      "bytes": 2143954,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take03_native_figure_0000.zip",
+      "sha256": "3ccc26ccfa6ec6fd84f3e60cf7e548e8a6efebeee3d044bb8a0d9704f63e8e48",
+      "bytes": 12425678,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take03_native_figure_0064.zip",
+      "sha256": "b0a59549e71c96f5a96ea72a8fac389e26c722c5bf9fa722f97daa2daadce872",
+      "bytes": 12460952,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take03_native_figure_0128.zip",
+      "sha256": "7198d2cf8b0fe75aa7cc94ceed930a69f62275a21dbd557ad62be6a783da4aba",
+      "bytes": 12509543,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take03_native_figure_0192.zip",
+      "sha256": "616af6da8e13126067e4b5d9d1cb33063fed2b324b5188d38de3b5e71e1ed571",
+      "bytes": 12541525,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take03_native_figure_0256.zip",
+      "sha256": "63790fc097a6868a35bd87f69a796ecbbd31c50a12da4a2908f34b70b31ef834",
+      "bytes": 12497432,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take03_native_figure_0320.zip",
+      "sha256": "5362fd8a9452c20af7c049314abb7d9f58f93bac96b272878fa0ec846b828692",
+      "bytes": 2143471,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take04_native_figure_0000.zip",
+      "sha256": "54bb814b2b77b813aa8d3d6484836f1a1d201ab35a11958ab4b192e87e0f5a60",
+      "bytes": 12425702,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take04_native_figure_0064.zip",
+      "sha256": "8156bce12b55b25c8cdce7d7bc0340cf9775817878cdf46b9a5b99804c23e7fc",
+      "bytes": 12460035,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take04_native_figure_0128.zip",
+      "sha256": "6334883080c1e43b7cad91f0b1c4e631065946a9e75c8ddee1d981cc081a80c6",
+      "bytes": 12510561,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take04_native_figure_0192.zip",
+      "sha256": "c39d0d8771813d06a399518887090bc8f3a7076d52d3552263e822cd1c17dd68",
+      "bytes": 12542708,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take04_native_figure_0256.zip",
+      "sha256": "3b73d205d710b572476731ae273c2b0994a704238459af8fb9a9290973b2ea75",
+      "bytes": 12498966,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "archives/take04_native_figure_0320.zip",
+      "sha256": "dba888453606344b50bdbb829c4713f898ab8048b888868e63b577e31cf9451a",
+      "bytes": 2143471,
+      "role": "literal_native_frame_archive",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "art/body.png",
+      "sha256": "dded9a4df58f32b5b75a63c6d7be88c98f5dba3c64d88dd55def6ad44a6e3eea",
+      "bytes": 472707,
+      "role": "existing_source_art",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "art/eyes_closed.png",
+      "sha256": "f6c5abdf1d00ab49e6f889a47a03c1070c3b43f3e4f4016b00c18bd5881a909b",
+      "bytes": 32864,
+      "role": "existing_source_art",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "art/eyes_half.png",
+      "sha256": "a28c55c2afc5e990d61e77ba283fac1e395515773b4dd48c8b3e811b0eb54739",
+      "bytes": 34125,
+      "role": "existing_source_art",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "art/forearm.png",
+      "sha256": "565207ab35e95b50d1a2fd1fdca2cea637800030d11a377117604b94a560f00f",
+      "bytes": 28402,
+      "role": "existing_source_art",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "art/upper_arm.png",
+      "sha256": "ae92c6911651a39d47db27a0171b2c459d1af77444a467c74e005fc68e1bb181",
+      "bytes": 27975,
+      "role": "existing_source_art",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "aseprite.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "aseprite.log",
+      "sha256": "113235dbef000247bf66d2a731036e797d32e4e2286a21ea0079b823b22c4cab",
+      "bytes": 42,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "aseprite_take03.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "aseprite_take03.log",
+      "sha256": "113235dbef000247bf66d2a731036e797d32e4e2286a21ea0079b823b22c4cab",
+      "bytes": 42,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "aseprite_take04.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "aseprite_take04.log",
+      "sha256": "113235dbef000247bf66d2a731036e797d32e4e2286a21ea0079b823b22c4cab",
+      "bytes": 42,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "capture_take01.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "capture_take01.log",
+      "sha256": "1c998d559c3345d406eadb07235e1dd08af500a1a01c0a08aa727ea3a396c528",
+      "bytes": 204,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "capture_take02.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "capture_take02.log",
+      "sha256": "fa67e04c68a5089a81cee7143dde06a381a550dad97fec605b7be90ec9d15ce6",
+      "bytes": 204,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "capture_take03.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "capture_take03.log",
+      "sha256": "fa67e04c68a5089a81cee7143dde06a381a550dad97fec605b7be90ec9d15ce6",
+      "bytes": 204,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "capture_take04.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "capture_take04.log",
+      "sha256": "fa67e04c68a5089a81cee7143dde06a381a550dad97fec605b7be90ec9d15ce6",
+      "bytes": 204,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "diagnostic_take03/contact_sheet.jpg",
+      "sha256": "c89103c73c7b73cd1a989c8c03d0c4665573f919b7f8084150f25783f6c393cd",
+      "bytes": 120310,
+      "role": "diagnostic_geometry_failure_take03",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art",
+      "dimensions": [
+        1920,
+        1440
+      ]
+    },
+    {
+      "path": "diagnostic_take03/inspection.json",
+      "sha256": "b7e8adc756fef9273e7ed03d765e30a44ad2e396e2cc8d756fb7955394bba7b6",
+      "bytes": 23218,
+      "role": "diagnostic_geometry_failure_take03",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "diagnostic_take03/master_proof.json",
+      "sha256": "9e1c7016b648ec754f9f0a7b1c81735cfd404102def00bc5a148e05bb2c20896",
+      "bytes": 1369,
+      "role": "diagnostic_geometry_failure_take03",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "diagnostic_take03/motion.gd",
+      "sha256": "facba253f0ed744f614c2bedcbfc39c408ff500b8e4f7142af20203487b74440",
+      "bytes": 6390,
+      "role": "diagnostic_geometry_failure_take03",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "diagnostic_take03/sequence.tres",
+      "sha256": "cfafcc68cf56cbd8646cb987317b79fa1c84a45751eb8d67d52aff7ad725d1c7",
+      "bytes": 638282,
+      "role": "diagnostic_geometry_failure_take03",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "diagnostic_take03/whole_sprite.aseprite",
+      "sha256": "4b2b127d6f99ce1697c6faab3ccc097755447fd389291959e6cbc7ab33e32e21",
+      "bytes": 79457154,
+      "role": "diagnostic_geometry_failure_take03",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "evidence/take01_environment.json",
+      "sha256": "b6d37bf50ce862479517cf1df6db9c7b07eb6aaeaece6b709994c06050bb9313",
+      "bytes": 460,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "evidence/take01_samples.json",
+      "sha256": "b90ce5420d4f4edaff53742cd8448877620786424a74f6d16999c792e567e9d5",
+      "bytes": 635530,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "evidence/take02_environment.json",
+      "sha256": "9d52097cb49da5c61c161d1a7a144a6553068aa9f3cd1489c20ae30df97e8cfd",
+      "bytes": 460,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "evidence/take02_samples.json",
+      "sha256": "54755b43e0ec80660c4aca1f744eb18491144c3cca10f97f0fe4262b613f76b7",
+      "bytes": 698080,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "evidence/take03_environment.json",
+      "sha256": "9d52097cb49da5c61c161d1a7a144a6553068aa9f3cd1489c20ae30df97e8cfd",
+      "bytes": 460,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "evidence/take03_samples.json",
+      "sha256": "36ede87794f6f850e4756318de47cf7d28b4dff821286b5e7bff0fa89c8d7ab1",
+      "bytes": 713803,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "evidence/take04_environment.json",
+      "sha256": "9d52097cb49da5c61c161d1a7a144a6553068aa9f3cd1489c20ae30df97e8cfd",
+      "bytes": 460,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "evidence/take04_samples.json",
+      "sha256": "fbb9022e079307a4e98a9b7589537fb87df03aa6f9218a424197693a957afac2",
+      "bytes": 709215,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "export_receipt.json",
+      "sha256": "5443d84c1e66a6d2462514f4117e9eaa4e85a26da85a00acf573c6ea5a52b242",
+      "bytes": 5550,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "godot/art/eyes_closed.png",
+      "sha256": "f6c5abdf1d00ab49e6f889a47a03c1070c3b43f3e4f4016b00c18bd5881a909b",
+      "bytes": 32864,
+      "role": "existing_source_art",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "godot/art/eyes_half.png",
+      "sha256": "a28c55c2afc5e990d61e77ba283fac1e395515773b4dd48c8b3e811b0eb54739",
+      "bytes": 34125,
+      "role": "existing_source_art",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "godot/capture.gd",
+      "sha256": "a7202bd693933555f6e1762e412e38752fbbe8c5f757d9704ffa739c6d7a6b38",
+      "bytes": 2235,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "godot/motion.gd",
+      "sha256": "07964d66cbd7ed7a26f18dd66be3af3754808f273f49054720dfee7fc3fe1d01",
+      "bytes": 6482,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "godot/project.godot",
+      "sha256": "5d14e8b99fb6e34735f8da72c992a1e9e097f57417d3607b7ac7670a398bc68b",
+      "bytes": 488,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "godot/rig.json",
+      "sha256": "1499cadaa518016eaf3ee23f50cb83b3afa587ef9e0bb6037ea8b8ffd4f205f0",
+      "bytes": 3248059,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "godot/seed.gd",
+      "sha256": "1b62c7b8e130da02d9da20228464436175fdb1f897e651707011d5c5959bacd8",
+      "bytes": 8245,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "godot/sequence.tres",
+      "sha256": "865b1d52402127b175181d2b5aa6edc184cc8bfae24de20bbb951060bf058c57",
+      "bytes": 629640,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "godot/study.tscn",
+      "sha256": "e4b2c07f31f1dd420d674a0bfc4dc000f9483be17d2ba086f00e4c4c827eeb27",
+      "bytes": 167,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "inspection.json",
+      "sha256": "40af1fb80a8d97ec2bf507f52007946a3d77c23735d3a56c4d6c6c4fced81c59",
+      "bytes": 20624,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "inspection_initial_float_comparison.json",
+      "sha256": "492d7f1d164df0a460bb6f2d0f06b0bf41378986ccbfb7cb75eb6b9e07943c7f",
+      "bytes": 31870,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "job_cards.json",
+      "sha256": "1bdeea2e01eeca26fdef7d6a9bb5ab34f26deb1f3e2809ecc5003b1f5f4ffa5e",
+      "bytes": 5477,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "masters/master_proof.json",
+      "sha256": "9e1c7016b648ec754f9f0a7b1c81735cfd404102def00bc5a148e05bb2c20896",
+      "bytes": 1369,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "masters/whole_sprite.aseprite",
+      "sha256": "b849c751694cbec0cf6f7ebfe1cccd17fd9c08a52b9af7916638a8c15811f301",
+      "bytes": 79466237,
+      "role": "current_editable_whole_figure_master",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "provenance.json",
+      "sha256": "0779bc07232c5ac72225eb6eb78236f3940b832c95a0b84a0037c884e1ece005",
+      "bytes": 3566,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "README.md",
+      "sha256": "3c829e8088bef13e02c17ef604574b3e1cb2c1e97e5d429a828abc1f4d55ce67",
+      "bytes": 6849,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "rejected_take02/capture.gd",
+      "sha256": "a7202bd693933555f6e1762e412e38752fbbe8c5f757d9704ffa739c6d7a6b38",
+      "bytes": 2235,
+      "role": "owner_rejected_take02",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "rejected_take02/contact_sheet.jpg",
+      "sha256": "9ab620bc6b62ca8cb154870d3ef3d9495ed54a1bcd3383d6bc0a9a5735d94cc9",
+      "bytes": 121009,
+      "role": "owner_rejected_take02",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art",
+      "dimensions": [
+        1920,
+        1440
+      ]
+    },
+    {
+      "path": "rejected_take02/export_receipt.json",
+      "sha256": "7a56979eeb8d4095d53ed37176276d23acce64068151d5e5c4b7edc02ead1bf6",
+      "bytes": 3065,
+      "role": "owner_rejected_take02",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "rejected_take02/inspection.json",
+      "sha256": "985dbf2948631d766edbfbcf1b99ffb217f786dd5de35cd883988f383559cfb2",
+      "bytes": 31869,
+      "role": "owner_rejected_take02",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "rejected_take02/master_proof.json",
+      "sha256": "9e1c7016b648ec754f9f0a7b1c81735cfd404102def00bc5a148e05bb2c20896",
+      "bytes": 1369,
+      "role": "owner_rejected_take02",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "rejected_take02/motion.gd",
+      "sha256": "9308cc6ccc52accee9df8503da8890e899c142bbf6e4153f0a2a052fec911aa2",
+      "bytes": 5815,
+      "role": "owner_rejected_take02",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "rejected_take02/roshan_laura_test.mp4",
+      "sha256": "8430f702bc72373724036dfb963273cd3ff0ca105aad9c3f2516afa1da0923e0",
+      "bytes": 1412235,
+      "role": "owner_rejected_take02",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "rejected_take02/sequence.tres",
+      "sha256": "2f2f6907b6f944d7a5fab50ee1ae456e02b5d2f8bb878e69a6bd4a5cb3bbd784",
+      "bytes": 608998,
+      "role": "owner_rejected_take02",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "rejected_take02/whole_sprite.aseprite",
+      "sha256": "11d01eb3f202d27e1efb17f6edfc1e811b936d7aef3f60041ba5b186e7c65a08",
+      "bytes": 79408274,
+      "role": "owner_rejected_take02",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "review/contact_sheet.jpg",
+      "sha256": "147b18049820a8b0ecc42d2380124a83ddad6d5739c5f01c92ce3b4fe2759991",
+      "bytes": 120466,
+      "role": "review_only",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art",
+      "dimensions": [
+        1920,
+        1440
+      ]
+    },
+    {
+      "path": "review/roshan_laura_test.mp4",
+      "sha256": "1da9024329690fa9c63d4813f4065506fe2926df07074a5cb17b8a6efd566c67",
+      "bytes": 1955402,
+      "role": "review_only",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "review/roshan_laura_vibrant_take03.mp4",
+      "sha256": "77f1bbbdd5478680b58d6e1ae1a7afda292d396ab83b490f1b9cf05f7f3e9073",
+      "bytes": 1918705,
+      "role": "review_only",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "review/roshan_laura_vibrant_take04.mp4",
+      "sha256": "1da9024329690fa9c63d4813f4065506fe2926df07074a5cb17b8a6efd566c67",
+      "bytes": 1955402,
+      "role": "review_only",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "review/take01_contact_sheet.jpg",
+      "sha256": "af59c4c3ed12314cd24e0b8ae0e3e8e10996688a548209be0c36ac9f7ec2f9d6",
+      "bytes": 111750,
+      "role": "review_only",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art",
+      "dimensions": [
+        1920,
+        1440
+      ]
+    },
+    {
+      "path": "review/take01_reach_diagnostic.mp4",
+      "sha256": "34aa59edc9cf266ef16ec58a17e08a03616b9c134b9d90b487481756002cf3e9",
+      "bytes": 1305418,
+      "role": "review_only",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "source_inventory.json",
+      "sha256": "e35a3d18ef236f1f0c2a2e6f05062aa35830218c131ffdfc2ee9b493b75d2a02",
+      "bytes": 4533,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "tools/aseprite_bridge.lua",
+      "sha256": "247f4c085e8f9f39ee365840ccf0c20defffa6075cded432bb247e2acbca9686",
+      "bytes": 1721,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "tools/inspect_capture.py",
+      "sha256": "f548d4dc7cacb34f96f203a6a46792b7362e39362ed58495336869c388756d9a",
+      "bytes": 4349,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "tools/package.py",
+      "sha256": "17e1488533ca156661f2861f77fcb3510e42a3d0cbb475fbb7d8f4047d74b41b",
+      "bytes": 2994,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    },
+    {
+      "path": "tools/seed_audit.py",
+      "sha256": "eef44a94b735a0dcac30addc8ed009204a1a11e33147d46522c0901915fedd74",
+      "bytes": 11204,
+      "role": "source_or_evidence",
+      "license": "Original project source-study rights retained; see ASSET_LICENSES.md and source_inventory.json",
+      "modification": "Preserved exact input, declared authored source, actual capture or declared review/archive/master derivative; no new art"
+    }
+  ]
+}

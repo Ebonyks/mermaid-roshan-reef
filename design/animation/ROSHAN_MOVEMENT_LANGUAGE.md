@@ -640,3 +640,13 @@ hashes and include entry, turn crossover, grip, release, interrupt and loop seam
 No unearned score, invented reviewer verdict or green geometry check substitutes
 for identity, natural acting, Mobile/Speedy target-device 30 fps, child or owner
 acceptance. The master audit remains UNSATISFIED.
+
+
+## Follow-on current-rig study (2026-11-01)
+
+The owner subsequently commissioned the [short current-rig test](../../assets_src/animation/roshan_laura_rig_test_20261101/README.md). It renders swimming effort, a labelled bank/route reversal, one greeting and settling in the existing front view. Geometry/motion evidence is separate from retained strict silhouette failures, missing true facing turns, side swim poses, open-palm/gaze/hair coverage and human/device/child/owner acceptance. This source-only experiment does not change the earlier pre-test specification claim or production-method authority.
+
+
+### Owner correction: energy and visible controls
+
+The owner rejected the first displayed rig study as stiff and unlike Laura, and requested more vibrant energy. The [redo source record](../../assets_src/animation/roshan_laura_rig_test_20261101/README.md) corrects its bank against travel and its invisible wrist wave: the existing painted hand follows LeftFore, while LeftHand carries no mesh weights. Named controls and smooth telemetry are insufficient; the action must be visible in rendered pixels. The stronger source performance uses the actual forearm, shoulder, torso and fin, while independent head rotation requires better neck/shoulder coverage. Earlier numerical passes do not accept the rejected performance.
