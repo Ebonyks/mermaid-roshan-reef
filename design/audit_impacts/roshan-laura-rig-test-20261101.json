@@ -1,7 +1,7 @@
 {
   "id": "roshan-laura-rig-test-20261101",
   "baseline": "c966b3c4bb72e3b8f145afe065e1e23d7f39ebe3",
-  "scope": "Owner-authorized source-only native2D rig swim/turn-attempt/wave/settle study and explicit energetic redo after take02 was rejected as stiff/unlike Laura. Preserve original rig/art and all attempts; correct wrong travel pitch and invisible wrist track; coordinate visible forearm/torso/tail/fin while keeping unsupported independent Head motion out of current candidate. No game integration or production acceptance.",
+  "scope": "Owner-authorized source-only native2D rig swim/turn-attempt/wave/settle study and explicit energetic redo after take02 was rejected as stiff/unlike Laura. Preserve original rig/art and all attempts; correct wrong travel pitch and invisible wrist track; coordinate visible forearm/torso/tail/fin while keeping unsupported independent Head motion out of current candidate. No game integration or production acceptance. Latest owner rejection also rejects take04: shoulder-led tweened relocation, no credible propulsion. Rebuild the source study from locomotion, inventory existing swim art and document provisional per-view binding/physics limits. Do not accept or integrate any old take.",
   "rules": [
     "DL-AUTH-05",
     "DL-AUTH-06",
@@ -77,6 +77,7 @@
     "assets_src/animation/roshan_laura_rig_test_20261101/diagnostic_take03/motion.gd",
     "assets_src/animation/roshan_laura_rig_test_20261101/diagnostic_take03/sequence.tres",
     "assets_src/animation/roshan_laura_rig_test_20261101/diagnostic_take03/whole_sprite.aseprite",
+    "assets_src/animation/roshan_laura_rig_test_20261101/evidence/remote_verification_f198.json",
     "assets_src/animation/roshan_laura_rig_test_20261101/evidence/take01_environment.json",
     "assets_src/animation/roshan_laura_rig_test_20261101/evidence/take01_samples.json",
     "assets_src/animation/roshan_laura_rig_test_20261101/evidence/take02_environment.json",
@@ -111,6 +112,36 @@
     "assets_src/animation/roshan_laura_rig_test_20261101/rejected_take02/roshan_laura_test.mp4",
     "assets_src/animation/roshan_laura_rig_test_20261101/rejected_take02/sequence.tres",
     "assets_src/animation/roshan_laura_rig_test_20261101/rejected_take02/whole_sprite.aseprite",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/.gitignore",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/approved_swim_atlas.png",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/binding_take01_scene_0000.zip",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/binding_take01_scene_0064.zip",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/binding_take01_scene_0128.zip",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/binding_take02_rgba_0000.zip",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/binding_take02_rgba_0064.zip",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/binding_take02_rgba_0128.zip",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/build_plan.py",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/capture.log",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/environment.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/inspect.py",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/inspection.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/intake.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/native_archive_receipt.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/plan.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/pose_requirements.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/project.godot",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/rejected_binding_take01/capture.log",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/rejected_binding_take01/environment.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/rejected_binding_take01/rejection.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/rejected_binding_take01/samples.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/rejected_binding_take01/view_binding.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/review_media_probe.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/roshan_tail_stroke_glide.mp4",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/samples.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/solver_evidence.json",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/study.gd",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/study.tscn",
+    "assets_src/animation/roshan_laura_rig_test_20261101/restart_tail_propulsion/view_binding.json",
     "assets_src/animation/roshan_laura_rig_test_20261101/review/contact_sheet.jpg",
     "assets_src/animation/roshan_laura_rig_test_20261101/review/roshan_laura_test.mp4",
     "assets_src/animation/roshan_laura_rig_test_20261101/review/roshan_laura_vibrant_take03.mp4",
@@ -146,9 +177,9 @@
       "evidence": "Agent chronological-sheet and selected full-size inspection only; no invented human/device verdict. True facing turn and side-view swim remain pose/view gaps."
     },
     {
-      "command": "Four bounded actual Godot4.7.2 Mobile source renders and current native-sample diagnosis",
+      "command": "Historical four bounded Godot4.7.2 Mobile renders at f198c8b7599188debcc7f378b71696f054d45997",
       "result": "PASS",
-      "evidence": "take01 diagnostic; take02 OWNER_REJECTED; take03 energetic diagnostic fails independent-head Body strain in190frames; take04actual331samples pass all3meshes at unchanged0.80–1.20 visible strain/zero folds, motion140deg/s650deg/s2 and constant scale. Actual inspection.json and per-attempt native records retained."
+      "evidence": "take01 diagnostic; take02 OWNER_REJECTED; take03 energetic diagnostic fails independent-head Body strain in190frames; take04actual331samples pass all3meshes at unchanged0.80â€“1.20 visible strain/zero folds, motion140deg/s650deg/s2 and constant scale. Actual inspection.json and per-attempt native records retained."
     },
     {
       "command": "Current Aseprite source/master exact RGBA roundtrip and native archives",
@@ -156,21 +187,51 @@
       "evidence": "Current take04 master331/331reopened RGBA frames exact, one layer.23indexedZIPs preserve1294literal nativePNG files across4renders; allarchiveSHA roundtrips pass. Rejected take02 and diagnostic take03 source/master records retained separately."
     },
     {
-      "command": "Current strict alpha/interior-hole check",
+      "command": "Historical take04 strict alpha/interior-hole check",
       "result": "FAIL",
       "evidence": "67currentframes fail unchanged seed interior-hole predicates. No large detached pieces or edge crops. No threshold lowered; contour/artistic acceptance remains open."
     },
     {
       "command": "Published-head CI and dev integration",
       "result": "PENDING",
-      "evidence": "Review source packet publication pending; no game integration or promotion authorized by this study. Source alpha/human/owner acceptance remain open even if generic CI later passes."
+      "evidence": "c966b3c4bb72e3b8f145afe065e1e23d7f39ebe3 full CI completed green (runs41348754712/41348669017); runtime code/assets/project/tools/workflows identical through f198 and this source-only restart. Exact f198/new-head CI pending. No dev integration; rejected motion never accepted by CI."
+    },
+    {
+      "command": "Owner review of displayed take04",
+      "result": "FAIL",
+      "evidence": "This is terrible. The movements don't make any sense. She moves from her shoulder as opposed to her tail. There is no realistic movement here, just tweening and sprite relocation. Start over."
+    },
+    {
+      "command": "Native Godot4.7.2-stable Mobile diagonal-view restart, two bounded renders",
+      "result": "FAIL",
+      "evidence": "First binding tears at fin; second181actualframes have visible strain0.30205–2.63007,102failingframes; Fin179.25deg/s2410.83deg/s2, TailC721.39deg/s2,TailD865.52deg/s2 vs original140/650. inspection.json; native frames preserved. No third local render."
+    },
+    {
+      "command": "Restart tail-disabled causal-motion ablation and actual alpha predicate",
+      "result": "PASS",
+      "evidence": "solver_evidence.json: no tail motion produces0distance/0speed; no actor rotation, constant scale. Actual181RGBA frames have0strict alpha failures. This passes no geometry, fluid-dynamics or human acceptance."
+    },
+    {
+      "command": "Restart literal native PNG byte archives",
+      "result": "PASS",
+      "evidence": "native_archive_receipt.json:362literal originalPNG files in6indexedZIPs, all SHA256 readback matches. Native solver/view-binding/scene/plan retained, no new Aseprite master claimed."
+    },
+    {
+      "command": "Restart source syntax, authority, coverage and owner-register checks",
+      "result": "PASS",
+      "evidence": "Godot4.7.2 actual native script compile/render; gdtoolkit parser and lint_inference new study.gd; git diff --check; DOCAUTH753/753/74/77 ALL OK; AUDITDEV auto-base27c88288bf6e39582072811443df79919e7bbb89 ALL OK; owner register76 ALL OK. These are source/governance checks only."
+    },
+    {
+      "command": "Historical f198 immutable anonymous GitHub manifest and all payload bytes; new review media metadata",
+      "result": "PASS",
+      "evidence": "evidence/remote_verification_f198.json verifies96/96required payload files at exact f198 by SHA256, byte count and anonymousHTTPS200. New review_media_probe.json:181frames,1280x720,30/1fps,SAR1:1,DAR16:9,no rotation. Initial encode had unspecified SAR; corrected encoding explicitly sets square pixels, no native pose/frame changes. Neither accepts motion."
     }
   ],
-  "acceptance_gaps": "Owner rejected take02. Take04 is a livelier current source-rig review candidate, not accepted Laura acting. True facing/side-swim, articulated palm, independent hair and neck/shoulder pose coverage remain missing.67strict alpha-hole failures retained. No production/game integration, target-device, child or owner acceptance/finding closure.",
+  "acceptance_gaps": "Owner rejected take02/take04. Restart binding take02 has102/181geometry-failingframes, Fin/TailC/TailD motion failures despite passing strict alpha. Two new renders stopped without viable candidate. Actual authored swim/fluke/turn/brake/gesture keys and reviewed binding, natural acting/full-speed human, target-device, child and owner acceptance remain open. No runtime integration or finding closure.",
   "owner_request": {
     "date": "2026-11-01",
     "source": "Owner follow-on message in this Codex chat",
-    "verbatim": "Make a short test animation using the current rig: Roshan swims, turns, waves, and settles, following Lauraâ€™s movement language. Show me the result and identify where new poses are still needed."
+    "verbatim": "Make a short test animation using the current rig: Roshan swims, turns, waves, and settles, following LauraÃ¢â‚¬â„¢s movement language. Show me the result and identify where new poses are still needed."
   },
   "owner_corrections": [
     {
@@ -182,6 +243,11 @@
       "decision_id": "ODR-ROSHAN-LAURA-ENERGY-20261101",
       "evidence": "owner_rejection.verbatim in this record",
       "write_back": "design/reference/owner_decisions.json; source-study README, job cards and native curves"
+    },
+    {
+      "decision_id": "ODR-ROSHAN-TAIL-PROPULSION-RESTART-20261101",
+      "evidence": "Owner verbatim rejection in job_cards.json restart_intake; take04 remains rejected.",
+      "write_back": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md owner-restart section; decision register and source README."
     }
   ],
   "owner_rejection": {
@@ -189,5 +255,12 @@
     "decision_id": "ODR-ROSHAN-LAURA-ENERGY-20261101",
     "rejected": "take02",
     "diagnostic": "Wrong pitch sign; unweighted wrist/right-arm controls; independent Head articulation stretches current neck mesh."
-  }
+  },
+  "lessons": [
+    {
+      "lesson": "Do not use independent actor relocation plus portrait banking as evidence of swimming. Tail-force ablation can test causality but cannot accept acting; missing changing surfaces and a failing view binding must be resolved as inputs.",
+      "write_back": "ROSHAN_MOVEMENT_LANGUAGE owner restart; restart_tail_propulsion/pose_requirements.json",
+      "recurrence_key": "roshan-locomotion-without-authored-swim-coverage"
+    }
+  ]
 }

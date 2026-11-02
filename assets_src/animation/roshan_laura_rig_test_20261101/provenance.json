@@ -28,7 +28,7 @@
     {
       "id": "take04",
       "frames": 331,
-      "review": "Current bounded correction: retain livelier visible-control performance; remove only independent Head rotation unsupported by the neck mesh. Actual diagnostic and human/owner results remain separately recorded."
+      "review": "OWNER_REJECTED: This is terrible. The movements don't make any sense. She moves from her shoulder as opposed to her tail. There is no realistic movement here, just tweening and sprite relocation. Start over."
     }
   ],
   "native_to_review": "Frame i at i/30seconds,1280x720 whole canvas;331samples including endpoint;11.033s playback, H264 CRF17 yuv420p square pixels faststart, silent. No temporal interpolation or cropped/warped character surfaces.",
@@ -50,5 +50,27 @@
     "verbatim": "It's very stiff at this point, doesn't look like laura at all. Redo, with more vibrant energy",
     "result": "Take02 OWNER_REJECTED; no later candidate pre-accepted."
   },
-  "control_diagnosis": "Nonzero mesh weights: Body(Torso,Head,TailA,TailB,TailC,TailD,Fin), UpperArm(LeftUpper), Forearm(LeftFore). LeftHand and right-arm names alone provide no painted articulation."
+  "control_diagnosis": "Nonzero mesh weights: Body(Torso,Head,TailA,TailB,TailC,TailD,Fin), UpperArm(LeftUpper), Forearm(LeftFore). LeftHand and right-arm names alone provide no painted articulation.",
+  "latest_owner_rejection": {
+    "verbatim": "This is terrible. The movements don't make any sense. She moves from her shoulder as opposed to her tail. There is no realistic movement here, just tweening and sprite relocation. Start over.",
+    "attempt": "take04"
+  },
+  "restart": {
+    "local_renders": 2,
+    "cumulative_renders": 6,
+    "status": "NOT_VIABLE_STOPPED_AT_TWO",
+    "take01": "Agent rejected visible fin comb tear from hard weight boundaries. Native frames and binding retained.",
+    "take02": "Continuous weights remove tearing and all strict alpha failures, but102/181frames violate unchanged geometry floors, range0.30205–2.63007; Fin/TailC/TailD violate original motion floors. No acceptance.",
+    "native_to_review": "181 actual1280x720Mobile samples t0..6s;30fps silentH264CRF17yuv420p squarepixel faststart,6.033s; no temporal interpolation.",
+    "cost_usd": 0,
+    "generated_calls": 0,
+    "pixel_cleanup_minutes": 0,
+    "method_change_required": "Do not make another amplitude/timing revision. Establish real swim keys/changing fluke surfaces and a reviewed view binding before a new full-sequence test.",
+    "art_work_window_seconds_to_inspection": 530.5,
+    "freeze_time_utc": "2026-11-02T00:42:14.813585+00:00",
+    "new_view_weights_and_rest": true,
+    "shared_graph_or_front_seed_changed": false
+  },
+  "restart_source": "restart_tail_propulsion/intake.json",
+  "topology_weights_scope": "Original front seed only. Restart has isolated provisional view rest/weights; shared semantic graph/front source unchanged."
 }

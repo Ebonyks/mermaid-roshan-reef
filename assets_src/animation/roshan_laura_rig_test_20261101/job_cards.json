@@ -46,7 +46,7 @@
     }
   ],
   "tolerances": {
-    "existing_source_geometry": "Same 0.80–1.20 visible strain and zero triangle flips; preserve actual failures",
+    "existing_source_geometry": "Same 0.80Ã¢â‚¬â€œ1.20 visible strain and zero triangle flips; preserve actual failures",
     "motion": "140 degrees/s and 650 degrees/s^2 from inspected shared source contract; report, do not relax",
     "constant_scale": 0.62,
     "output": [
@@ -76,7 +76,7 @@
     },
     {
       "id": "take04",
-      "result": "Current review candidate:331actualMobile frames; geometry/motion pass;67strict alpha-hole failures retained. No true facing turn or independent hair/palm/neck action.",
+      "result": "OWNER_REJECTED: shoulder-led motion, no realistic swimming; tweening and sprite relocation. Owner directs start over.",
       "change": "Keep take03 corrected pitch, visible forearm wave, torso and strong fin action. Lock only unsupported independent Head rotation; head follows torso/bank. Numerical ablation predicts original geometry floors pass without reducing main energy."
     }
   ],
@@ -98,5 +98,29 @@
       "Tail/torso excursions too small and pauses too long"
     ],
     "method_change": "Correct travel-axis lean; coordinate visible Root/Torso/Head/LeftUpper/LeftFore and distributed tail chain. Forearm carries the painted hand; no reliance on unweighted controls. Preserve front-only limitation."
+  },
+  "restart_intake": {
+    "verbatim": "This is terrible. The movements don't make any sense. She moves from her shoulder as opposed to her tail. There is no realistic movement here, just tweening and sprite relocation. Start over.",
+    "diagnosis": [
+      "Predetermined Root/actor movement was independent of the tail action.",
+      "Upright front view cannot establish the requested side-swim surfaces.",
+      "Increasing bank and arm/fin amplitude did not repair locomotion."
+    ],
+    "change_of_method": "Remove the old sequence entirely. Inspect reusable swimming art; establish a stroke-driven locomotion-only study before turns or greeting. Shared front rig/topology/rest remains preserved. Any new per-view binding is provisional source evidence, never production authority.",
+    "new_trial_cap": "Two local locomotion renders maximum, 35 minutes author/render/inspection after source intake; zero generated calls, zero paid spend. Preserve cumulative four old attempts. Stop and record missing poses if the new basis is nonviable."
+  },
+  "restart_outcome": {
+    "local_renders": 2,
+    "cumulative_renders": 6,
+    "status": "NOT_VIABLE_STOPPED_AT_TWO",
+    "take01": "Agent rejected visible fin comb tear from hard weight boundaries. Native frames and binding retained.",
+    "take02": "Continuous weights remove tearing and all strict alpha failures, but102/181frames violate unchanged geometry floors, range0.30205–2.63007; Fin/TailC/TailD violate original motion floors. No acceptance.",
+    "native_to_review": "181 actual1280x720Mobile samples t0..6s;30fps silentH264CRF17yuv420p squarepixel faststart,6.033s; no temporal interpolation.",
+    "cost_usd": 0,
+    "generated_calls": 0,
+    "pixel_cleanup_minutes": 0,
+    "method_change_required": "Do not make another amplitude/timing revision. Establish real swim keys/changing fluke surfaces and a reviewed view binding before a new full-sequence test.",
+    "art_work_window_seconds_to_inspection": 530.5,
+    "freeze_time_utc": "2026-11-02T00:42:14.813585+00:00"
   }
 }

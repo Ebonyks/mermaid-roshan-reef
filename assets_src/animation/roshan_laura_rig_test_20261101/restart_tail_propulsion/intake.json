@@ -1,0 +1,34 @@
+{
+  "status": "SOURCE_ONLY_NEW_VIEW_BINDING",
+  "owner_rejected": [
+    "take02",
+    "take04"
+  ],
+  "source_path": "assets/characters/roshan_25d/roshan_swim_front.png",
+  "source_sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+  "source_region": [
+    512,
+    512,
+    256,
+    256
+  ],
+  "source_cell_zero_based": 10,
+  "preserved": "Old front rig, rest, weights, topology and rejected media unchanged. This isolated view binding is provisional, not a shared rig-contract change.",
+  "method": "Native Canvas Skeleton2D; same semantic14-bone parent graph, newly registered per-view rest/weights for existing diagonal swim artwork. Tail-first traveling flexion; no actor rotation, no torso angle track, no arm wave.",
+  "physics": "Planar anisotropic resistive-force approximation driven only by relative tail motion. Integrate horizontal acceleration and drag at240Hz. This is a qualitative source test, not validated aquatic dynamics. Buoyancy/vertical motion and full free-body torque are out of scope.",
+  "limits": {
+    "renders": 2,
+    "wall_minutes": 35,
+    "generated_calls": 0,
+    "paid_cost_usd": 0
+  },
+  "missing": [
+    "Tail/fluke underside and cupping keys",
+    "Anatomical facing turn and hidden surfaces",
+    "New-view blink/gaze/palm/hair",
+    "Full free-body torque/vertical steering, device/child/owner acceptance"
+  ],
+  "source_revision": "b2b246232760b9e68db5a9b4019f4876f2b82765",
+  "source_acceptance_scope": "Existing project Roshan atlas identity/artwork only; no new swimming performance, view binding, topology, style or rig acceptance transferred.",
+  "license_provenance": "Existing project source rights and ASSET_LICENSES.md; byte-identical source copy at named revision."
+}

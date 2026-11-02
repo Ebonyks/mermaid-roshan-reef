@@ -650,3 +650,25 @@ The owner subsequently commissioned the [short current-rig test](../../assets_sr
 ### Owner correction: energy and visible controls
 
 The owner rejected the first displayed rig study as stiff and unlike Laura, and requested more vibrant energy. The [redo source record](../../assets_src/animation/roshan_laura_rig_test_20261101/README.md) corrects its bank against travel and its invisible wrist wave: the existing painted hand follows LeftFore, while LeftHand carries no mesh weights. Named controls and smooth telemetry are insufficient; the action must be visible in rendered pixels. The stronger source performance uses the actual forearm, shoulder, torso and fin, while independent head rotation requires better neck/shoulder coverage. Earlier numerical passes do not accept the rejected performance.
+
+
+### Owner restart: propulsion must come from the tail
+
+The owner rejects take04 as shoulder-led tweening/sprite relocation and directs
+a restart (ODR-ROSHAN-TAIL-PROPULSION-RESTART-20261101). Attention may lead intent;
+it must not be mistaken for the mechanical origin of swimming. Load begins at
+the waist/tail base, flexion travels distally, the fluke changes pitch against
+its sweep, acceleration follows the effective stroke, and glide loses speed.
+Chest, head, useful hands and hair react to that same action. An independently
+keyed route plus body tilt does not establish this chain.
+
+The separate [locomotion restart](../../assets_src/animation/roshan_laura_rig_test_20261101/README.md)
+inventories and reuses swim atlas cell10 and an isolated provisional view binding.
+It removes actor/shoulder rotation and independent relocation; a tail-disabled
+ablation produces zero travel. Nevertheless the second render fails unchanged
+strain/motion floors, despite passing its strict alpha predicate. Two local
+restart renders end without a viable candidate; no third cosmetic revision.
+Before another full sequence, establish the actual load/power/extension/glide/
+recovery and fluke-reversal keys and a reviewed view binding. True turns,
+open-palm acting, gaze, neck/hair response and braking/settling remain separate
+pose requirements. Causal telemetry does not accept the natural performance.

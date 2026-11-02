@@ -1,116 +1,93 @@
-# Laura-led Roshan current-rig movement test
+# Roshan locomotion restart and rejected Laura rig studies
 
-Owner commission and requested redo: 2026-11-01.
-Status: SOURCE-ONLY REVIEW CANDIDATE; no production or owner acceptance.
+Owner correction: 2026-11-01. Status: **NO VIABLE ANIMATION CANDIDATE**.
+Take02 and take04 are OWNER_REJECTED. New locomotion-only trial is diagnostic,
+not a successful redo, production asset or accepted Laura performance.
 
-[Watch the livelier redo](review/roshan_laura_vibrant_take04.mp4).
-[Chronological sheet](review/contact_sheet.jpg).
-[Editable whole-figure Aseprite master](masters/whole_sprite.aseprite).
+## Why the previous movement failed
 
-## Owner rejection and correction
+The owner rejected shoulder-led motion and tweened sprite relocation, and
+said to start over. The earlier upright front pose, Root banking and independent
+position path could not establish tail propulsion. More arm/fin amplitude did
+not repair that structural error. Geometry passes never accepted the acting.
+The old source, original native frames, MP4s and Aseprite masters stay preserved.
 
-The owner rejected take02: "It's very stiff at this point, doesn't look like
-laura at all. Redo, with more vibrant energy". Its source, movie and master
-remain in rejected_take02/. Earlier numerical passes accept no acting.
+## The separate restart
 
-The inspection found two concrete causes. The Root pitch leaned against the
-travel direction. Also, LeftHand has no nonzero mesh weights, so its wrist
-track changed telemetry without moving the painted hand. The previous
-"wrist greeting" description was incorrect. The right-arm control names also
-have no painted articulation in this seed. The painted forearm and hand are
-bound to LeftFore; the upper arm is bound to LeftUpper.
+[Watch the failed stroke/glide diagnostic](restart_tail_propulsion/roshan_tail_stroke_glide.mp4).
+It uses existing approved swim atlas cell10, a diagonal three-quarter swim pose,
+rather than tilting the upright portrait. The shared front source is unchanged.
+A provisional per-view binding keeps the same semantic14-bone parent graph,
+with new registered rest/weights; this is not an accepted shared rig extension.
 
-The redo pitches into travel, distinguishes two efforts from their glides,
-adds stronger fin follow-through, and performs the greeting through the
-visible forearm and shoulder. Torso and tail answer the same action.
-Take03 also tried independent Head motion, but that overstretched the current
-neck/shoulder mesh. Numerical ablation isolated that cause. Take04 retains the
-livelier acting and keeps only the unsupported independent head rotation at
-rest; the head/hair unit follows the torso and whole-body bank.
+A traveling flexion begins at the tail base and reaches the fluke. The fin
+feathers against its sweep. Shoulders, torso and whole-actor rotation do not
+drive the action. Horizontal travel is integrated from a qualitative planar
+tail/water drag approximation at240Hz, not an independent position curve.
+Disabling tail motion gives exactly zero displacement and zero speed. That
+ablation proves only this causal relationship; it does not validate swimming
+biomechanics or establish a convincing character performance.
 
-The native 14-bone rig, rest, vertices, weights and painted source textures
-remain unchanged from b700b846d1d2f4b1843279f268e2bb12e4b1f4ec. No new art,
-new topology, image generation, paid service or game/save change is used.
-The [Laura-led profile](../../../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md#laura-led-visual-movement-specification-v2-2026-11-01)
-provides authored Roshan direction, not quantitative measurements of Laura.
+Two local renders were made, retaining the four earlier attempts in the count.
+The first tore visibly at hard fin-weight boundaries and was rejected by the
+agent. The second uses continuous weights and has no strict alpha predicate
+failures, but remains **NOT VIABLE**:
 
-## Actual sequence
+| Evidence lane | Result at new binding take02 |
+|---|---|
+| Actual native render | Godot4.7.2-stable Mobile;181 samples,1280x720,30fps |
+| Root/shoulder propulsion | No actor rotation; upper figure held; tail-disabled travel0 |
+| Contour predicate | PASS across181 actual transparent captures; no threshold change |
+| Visible mesh strain | FAIL102/181frames;0.30205–2.63007 against unchanged0.80–1.20 |
+| Visible triangle folds |0 |
+| Bone motion | FAIL Fin179.25deg/s/2410.83deg/s2; TailC721.39deg/s2; TailD865.52deg/s2; original limits140/650 |
+| Natural acting/full-speed human review | Not established; selected full-size frame inspection only |
+| Actual phone, child and owner acceptance | Not performed |
 
-| Time | Visible action | Remaining limitation |
-|---|---|---|
-| 0-0.25s | Brief supported gather and blink | No targeted eye-direction artwork |
-| 0.25-3.55s | Forward pitch into rightward travel; two tail efforts, recovery and glide | Frontal banked art, not a finished side-view swimmer |
-| 3.55-5.50s | Counterbalance, opposite bank and leftward return | Route reversal only: actual facing-turn surfaces are absent |
-| 5.30-9.95s | Shoulder/forearm greeting with coordinated torso/tail response; deliberate lowering | Existing fingers; no independently articulated palm |
-| 9.95-11s | Fin resolves once and she returns to quiet availability | Independent hair and head/neck acting remain pose/binding gaps |
+The two-render restart cap is reached. No third deformation revision is made.
+New authored keys and a reviewed binding are required before another full-sequence
+trial. The head/hair/arms remain largely rigid in this mechanics diagnostic;
+no facing turn, wave, active brake or quiet supported settle is falsely supplied.
 
-There are 331 actual samples, t=0 through 11s inclusive. Playback at 30fps is
-11.033s. The 1280x720 square-pixel MP4 is a silent, lossy review derivative.
-The original native figure PNGs are preserved literally in indexed ZIPs.
-No mirror, horizontal squeeze, cross-fade, optical interpolation or invented
-profile surface disguises the missing turn. The movie labels that limitation.
+## Required poses before the next full sequence
 
-## Poses and bindings still needed
+The detailed [pose specification](restart_tail_propulsion/pose_requirements.json)
+names load, power stroke, extension, glide, recovery/fluke reversal and brake.
+Each needs a complete whole-figure silhouette, continuous waist/tail volume,
+actual fluke edge/underside/face coverage and reviewed intermediate surfaces.
+The wave additionally needs an open palm and useful gaze; a facing turn needs
+actual quarter/front/quarter occlusion, near/far arms, face, hair and fin views.
+Independent tied-ponytail response and neck/shoulder coverage remain open.
+A flat front pose cannot acquire hidden surfaces from bone names or scaling.
 
-1. Registered left/right side-swim load, push, extension, recovery and brake
-   poses. Frontal tail flex plus banking cannot reveal those surfaces.
-2. Quarter-right, front crossover and quarter-left turn breakdowns, with
-   changing face/hair, near/far shoulders and hands, and an attached fin swish.
-3. A dedicated open-palm wave, finger silhouettes and useful hand articulation.
-   Named unweighted controls are not evidence that the painted hand moves.
-4. Neck/shoulder coverage that permits independent head acting without visible
-   strain, plus view-correct gaze and eyelids.
-5. Independent tied-ponytail/curl follow-through and tail/fin changing surfaces.
-   Current hair moves with the head unit; it does not flow independently.
-6. Exact review of strict interior-hole failures, rather than accepting a
-   smooth trace as clean contour evidence.
+Laura remains the owner's acting reference. No anime pixels, traced poses or
+quantitative Laura swimming measurements were used. The selected reference
+was sampled in the browser at0,10,34and48seconds: dialogue/face views and a
+held tail close-up do not provide a measured full swimming cycle. Further
+swimming reference must be directly observed before claiming a shot match.
 
-## Evidence and scope
+## Source, evidence and reproduction
 
-inspection.json records the current actual samples. The seed geometry/alpha
-helper is copied unchanged; visible strain 0.80-1.20, zero triangle folds,
-140 degrees/s and 650 degrees/s2 remain the same numerical floors. Motion,
-geometry, alpha, natural acting and human/device/child/owner review are
-separate claims. No failing floor is lowered and no human verdict is invented.
+Use exactly Godot4.7.2-stable, Mobile rendering. The new native editable source
+is restart_tail_propulsion/project.godot, study.gd, view_binding.json and
+build_plan.py/plan.json. Run build_plan.py, then the native Godot project with
+-- --capture. A real rendering window is required; the headless dummy renderer
+is not pixel evidence. Run restart_tail_propulsion/inspect.py for actual-sample
+geometry/motion/alpha diagnostics with the unchanged seed helper.
 
-Rejected take02 and diagnostic take03 retain their own source/inspection
-records. Take03's independent Head test fails geometry despite passing motion;
-that is the reason for the bounded correction, not evidence of new accepted
-anatomy. The initial scale-check report is also retained: it compared a
-float32 .62 with a Python literal. Its corrected check compares observed scale
-across all frames and checks the intended .62 to 1e-7; no animation or geometry
-floor was changed for that diagnostic correction.
+181 literal new RGBA frames and181 literal failed-first-binding scene frames
+are preserved in indexed native ZIPs with SHA256 receipts. The silent MP4 is a
+6.033s H264 review derivative, frame i at i/30seconds, square pixels, whole
+1280x720 canvas, no interpolation or new pixels. The old source/master records
+retain their exact scope. No new Aseprite master is claimed for this failed
+new binding; the editable native solver, binding, scene and plan are retained.
+No image generation, paid service, pixel repaint or protected-art change occurs.
 
-The first two local renders remain counted. The owner's explicit redo extends
-the same task to at most four local renders, not a fresh campaign or a reset
-of the 45-minute aggregate art-work window. Generated calls and paid cost are
-zero. No artwork cleanup was performed. See job_cards.json for actual limits,
-attempts, authoring changes and reported usage.
-
-Agent review covers chronological sheets and selected full-size poses.
-Human normal-speed/frame-step, actual phone performance, child and owner
-acceptance remain open. MA-ROSHAN-005 and MA-ROSHAN-006 do not close, and the
-master audit remains UNSATISFIED. This is not a production cinematic or game
-integration, and grants no GENERATION_READY or DELIVERY_ACCEPTED claim.
-
-## Reproduce and edit
-
-Open godot/project.godot in exactly Godot 4.7.2-stable with Mobile rendering.
-Press Space to play/pause the sequence.
-motion.gd authors the current curves and writes godot/sequence.tres. Run
-capture.gd with an absolute output directory after -- for actual scene and
-transparent figure captures plus bone telemetry. The source project never
-loads the main game or its saves. A rendering window is required; the headless
-dummy renderer is not valid pixel evidence.
-
-tools/inspect_capture.py <capture-folder> reproduces the source diagnostics.
-tools/aseprite_bridge.lua is the project's unchanged whole-frame bridge:
-331 native figure images, one layer, phase tags and 33/34ms duration rounding.
-The native Godot curves are the editable rig source; Aseprite preserves and
-reopens the complete rendered figure sequence. tools/package.py verifies
-literal native PNG archives and exact RGBA equality after reopening the master.
-
-See [source inventory](source_inventory.json), [job cards](job_cards.json),
-[provenance](provenance.json), [manifest](manifest.json),
-[export receipt](export_receipt.json) and
+See [intake](restart_tail_propulsion/intake.json),
+[inspection](restart_tail_propulsion/inspection.json),
+[solver ablation](restart_tail_propulsion/solver_evidence.json),
+[job cards](job_cards.json), [provenance](provenance.json),
+[manifest](manifest.json), [source inventory](source_inventory.json) and
 [impact](../../../design/audit_impacts/roshan-laura-rig-test-20261101.json).
+No gameplay/save changes, integration, finding closure, GENERATION_READY or
+DELIVERY_ACCEPTED claim. MA-ROSHAN-005/006 and the master audit remain open.
