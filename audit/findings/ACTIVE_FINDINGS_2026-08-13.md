@@ -451,6 +451,8 @@ R123 source production2026-11-02: [painted Melody rainbow light rail](../../docs
 
 R124 source production2026-11-02: [painted Melody stage apron](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r124_melody_apron_runtime/README.md), exact sourcef1fe4a15eda241001e42eb0aa9629bbff5d69dec, current local82/static/analyzer/2D and102 current native executed checks. Six new bounded frames, six raw-exact source references reused.27 source20 partialDev artifacts; Dev frozen. MA-VIS-006 lifecycle and formal/device/child/owner/natural-route/global gaps remain OPEN; accepted removals0.
 
+R125 source production2026-11-02: [painted Melody theatre bulbs](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r125_melody_bulbs_runtime/README.md), exact sourcee4166d1b74e5f04ce3b7388b517d8127686dedaa, current local82/static/analyzer/2D and99 current native executed checks. Six new bounded frames, six raw-exact source references reused.28 source20 partialDev artifacts; Dev frozen. MA-VIS-006 lifecycle and formal/device/child/owner/natural-route/global gaps remain OPEN; accepted removals0.
+
 ## MA-VIS-007
 
 | Field | Value |

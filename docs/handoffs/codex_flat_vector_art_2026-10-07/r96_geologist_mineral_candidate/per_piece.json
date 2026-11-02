@@ -18357,7 +18357,14 @@
         "FVF-CFB3F02098DE",
         "FVF-DA74517277FC"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        {
+          "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+          "path": "scripts/games/melody.gd",
+          "node": "OperaProscenium/UpperPaintedBulbNN and LowerPaintedBulbNN",
+          "scope": "Source branch only, Dev frozen"
+        }
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
         "coverage_state": "COVERAGE_GAP",
@@ -18387,8 +18394,8 @@
       "context_brief_id": "BRIEF-MELODY",
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
-      "named_gap": null,
-      "status": "IDENTIFIED",
+      "named_gap": "The original theatre-bulb role used two rows of flat cream/gold circles beside painted scenery. R125 replaces those existing appearance rows with two whole painted bulb variants at original geometry.",
+      "status": "SOURCE_CANDIDATE",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -18397,12 +18404,99 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r125_source_candidate": {
+          "stable_ids": [
+            "FV-3C4F040EA786"
+          ],
+          "state": "SOURCE_BOUND_PAINTED_BULBS_CANDIDATE_DEV_FROZEN",
+          "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+          "source_branch": "codex/flat-vector-melody-bulbs-20261102",
+          "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r125_melody_bulbs_runtime/MANIFEST.json",
+          "source_required_files": 185,
+          "source_all_required_anonymous_exact": true,
+          "source_CI_snapshot": [
+            {
+              "conclusion": "",
+              "databaseId": 41484922684,
+              "headSha": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+              "status": "in_progress",
+              "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41484922684",
+              "workflowName": "Probe suite (graphics fork)"
+            }
+          ],
+          "owner_scope": {
+            "owner_answer": "Resume art candidates; keep Dev frozen",
+            "source_candidates_and_work_branch_integration_authorized": true,
+            "Dev_frozen": true,
+            "master_frozen": true,
+            "automation_resumed": false
+          },
+          "new_bounded_source_artifacts": 1,
+          "existing_named_roles": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "new_runtime_PNG": 2,
+          "native_generated_samples": 2,
+          "generation_calls": 2,
+          "nonselected_native_takes": 0,
+          "rejected_shape_takes": 0,
+          "technical_exports": 2,
+          "backend": "Built-in image_gen; no model selector or model/version returned",
+          "model_version": "NOT_EXPOSED",
+          "animation_calls": 0,
+          "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+          "native_effective_checks": {
+            "reused_exact_source": 69,
+            "current_candidate": 99,
+            "effective": 168
+          },
+          "check_count_unit": "Configured executed checks, not unique requirements or formalQA11 acceptance.",
+          "new_native_frame_events": {
+            "bounded": 6,
+            "excluded": 0,
+            "retained": 6
+          },
+          "reused_source_frames": 6,
+          "acceptance_scope": "Local bulb-only ten-axis comparison in the same configured three-aspect Mobile/Speedy scene. Natural routes/formalQA11 and physical device/child/owner remain open.",
+          "invisible_geometry": "No functional invisible geometry changed. Whole painted Sprite2D bulbs replace only two draw_circle rows; same count/centers/15px upper and14px lower sizes/parentz10/foreground order. Other theatre roles remain original at fresh source baseline.",
+          "original_controller_other_methods_LF_exact": 69,
+          "original_probe_other_methods_LF_exact": 85,
+          "full_game_probe_unchanged": true,
+          "original_texture_ceilings_unchanged": {
+            "decoded_bytes": 24117248,
+            "declared_upload_bytes": 12582912
+          },
+          "Dev_integrated": false,
+          "new_partial_Dev_artifacts": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "whole_role_closed": false,
+          "accepted_removed": 0,
+          "mission_complete": false,
+          "static_item_call_cap": 2,
+          "calls_remaining": 0,
+          "technical_runtime_targets": 2,
+          "technical_reexports": 0,
+          "technical_export_count_unit": "Two actual selected128-square whole-bulb exports; no retries, native rejects or extra frame events.",
+          "configured_instance_topology": {
+            "whole_bulb_variants": 2,
+            "rows": 2,
+            "per_row_count": "maxi(12,int(frame.width/66))",
+            "upper_diameter": 15,
+            "lower_diameter": 14
+          },
+          "runtime_base_RGBA_bytes": 131072,
+          "technical_recovery": "Initial verification expected alpha255 exactly; Aseprite uniform bilinear exports have alpha0..254. Native/crop RGBA remain exact; both selected outputs retained unchanged with no re-export, opacity fix or new generation.",
+          "initial_alpha_expectation_failure_retained": true
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Exact source-bound scene/material references; quality-based reuse or ImageGen, no failed-reuse prerequisite",
+        "Applicable provenance/license/import/geometry/passive/save/teardown/resource gates",
+        "FormalQA11/current natural-route/device/child/owner acceptance remains separately open"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -18417,8 +18511,15 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Review Theatre bulbs during Theatre bulbs active/rest/changed/payoff/settle states on Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261102-R125-SOURCE",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r125_melody_bulbs_runtime/FRAME_REVIEW.json",
+          "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+          "status": "SOURCE_CANDIDATE_NOT_FORMAL_QA11"
+        }
+      ],
+      "proposed_update": "Review the published painted theatre bulbs in its configured three-aspect source context; resolve natural routes/states and formal/external gates. Keep Dev frozen.",
       "route_refs": [
         "minigame.melody",
         "game.melody"
@@ -18426,7 +18527,35 @@
       "route_evidence": "Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE)",
       "context_action": "Theatre bulbs active/rest/changed/payoff/settle states",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-3C4F040EA786"
+      "individual_brief_id": "PIECE-FV-3C4F040EA786",
+      "r125_prior_status": "IDENTIFIED",
+      "source_candidate_outputs": [
+        {
+          "revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+          "path": "assets/melody/theatre_bulb_cream_painted.png",
+          "sha256": "6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+          "path": "assets/melody/theatre_bulb_gold_painted.png",
+          "sha256": "6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+          "dimensions": [
+            128,
+            128
+          ]
+        }
+      ],
+      "configured_source_instance_topology": {
+        "whole_bulb_variants": 2,
+        "rows": 2,
+        "per_row_count": "maxi(12,int(frame.width/66))",
+        "upper_diameter": 15,
+        "lower_diameter": 14
+      }
     },
     {
       "id": "FV-864287E0D0F3",
@@ -25855,7 +25984,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261102-R124-SOURCE",
+  "revision": "FV-AUDIT-20261102-R125-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -40424,6 +40553,104 @@
     "conclusion": "success",
     "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41442654533",
     "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r124_melody_apron_runtime/R123_EXACT_CI_SUCCESS.json",
+    "historical_pending_snapshots_preserved": true,
+    "new_artwork_or_Dev_credit": 0
+  },
+  "r125_parent_receipt_revision": "3e5e932d6b750ab538d0d8b0e30d88f805e03c94",
+  "r125_melody_bulbs_runtime": {
+    "stable_ids": [
+      "FV-3C4F040EA786"
+    ],
+    "state": "SOURCE_BOUND_PAINTED_BULBS_CANDIDATE_DEV_FROZEN",
+    "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+    "source_branch": "codex/flat-vector-melody-bulbs-20261102",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r125_melody_bulbs_runtime/MANIFEST.json",
+    "source_required_files": 185,
+    "source_all_required_anonymous_exact": true,
+    "source_CI_snapshot": [
+      {
+        "conclusion": "",
+        "databaseId": 41484922684,
+        "headSha": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41484922684",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "owner_scope": {
+      "owner_answer": "Resume art candidates; keep Dev frozen",
+      "source_candidates_and_work_branch_integration_authorized": true,
+      "Dev_frozen": true,
+      "master_frozen": true,
+      "automation_resumed": false
+    },
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "new_runtime_PNG": 2,
+    "native_generated_samples": 2,
+    "generation_calls": 2,
+    "nonselected_native_takes": 0,
+    "rejected_shape_takes": 0,
+    "technical_exports": 2,
+    "backend": "Built-in image_gen; no model selector or model/version returned",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "native_effective_checks": {
+      "reused_exact_source": 69,
+      "current_candidate": 99,
+      "effective": 168
+    },
+    "check_count_unit": "Configured executed checks, not unique requirements or formalQA11 acceptance.",
+    "new_native_frame_events": {
+      "bounded": 6,
+      "excluded": 0,
+      "retained": 6
+    },
+    "reused_source_frames": 6,
+    "acceptance_scope": "Local bulb-only ten-axis comparison in the same configured three-aspect Mobile/Speedy scene. Natural routes/formalQA11 and physical device/child/owner remain open.",
+    "invisible_geometry": "No functional invisible geometry changed. Whole painted Sprite2D bulbs replace only two draw_circle rows; same count/centers/15px upper and14px lower sizes/parentz10/foreground order. Other theatre roles remain original at fresh source baseline.",
+    "original_controller_other_methods_LF_exact": 69,
+    "original_probe_other_methods_LF_exact": 85,
+    "full_game_probe_unchanged": true,
+    "original_texture_ceilings_unchanged": {
+      "decoded_bytes": 24117248,
+      "declared_upload_bytes": 12582912
+    },
+    "Dev_integrated": false,
+    "new_partial_Dev_artifacts": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_role_closed": false,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "static_item_call_cap": 2,
+    "calls_remaining": 0,
+    "technical_runtime_targets": 2,
+    "technical_reexports": 0,
+    "technical_export_count_unit": "Two actual selected128-square whole-bulb exports; no retries, native rejects or extra frame events.",
+    "configured_instance_topology": {
+      "whole_bulb_variants": 2,
+      "rows": 2,
+      "per_row_count": "maxi(12,int(frame.width/66))",
+      "upper_diameter": 15,
+      "lower_diameter": 14
+    },
+    "runtime_base_RGBA_bytes": 131072,
+    "technical_recovery": "Initial verification expected alpha255 exactly; Aseprite uniform bilinear exports have alpha0..254. Native/crop RGBA remain exact; both selected outputs retained unchanged with no re-export, opacity fix or new generation.",
+    "initial_alpha_expectation_failure_retained": true
+  },
+  "r124_exact_source_CI_new_observation": {
+    "run_id": 41461637778,
+    "revision": "f1fe4a15eda241001e42eb0aa9629bbff5d69dec",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41461637778",
+    "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r125_melody_bulbs_runtime/R124_EXACT_CI_SUCCESS.json",
     "historical_pending_snapshots_preserved": true,
     "new_artwork_or_Dev_credit": 0
   }

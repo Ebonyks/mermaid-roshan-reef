@@ -10,17 +10,17 @@
   "all_game_artwork_total": null,
   "distinct_screen_total": null,
   "regression_total": null,
-  "retained_bounded": 6979,
+  "retained_bounded": 6985,
   "retained_excluded": 4185,
-  "retained_native_events": 11164,
-  "existing_sample_work_branch_implemented": 27,
-  "known_implementation_count_scope": "27 published bounded source artifacts,20 partialDev artifacts. R124 one existing stage-apron role forms one bounded artifact with two whole painted cards and seven authored horizontal colors. Lower263 roles35 families and unknown whole-game denominators retained.",
+  "retained_native_events": 11170,
+  "existing_sample_work_branch_implemented": 28,
+  "known_implementation_count_scope": "28 published bounded source artifacts,20 partialDev artifacts. R125 one existing theatre-bulb role forms one bounded artifact with two whole painted bulb variants in two width-dependent repeated rows. Lower263 roles35 families and unknown whole-game denominators retained.",
   "samples_awaiting_review_global": null,
   "approved": 0,
   "dev_integrated": 20,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261102-R124-SOURCE",
+  "revision": "FV-AUDIT-20261102-R125-SOURCE",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
@@ -2964,5 +2964,103 @@
     "new_artwork_or_Dev_credit": 0
   },
   "new_source_captures_here": 0,
-  "reused_source_new_frame_credit": 0
+  "reused_source_new_frame_credit": 0,
+  "r125_parent_receipt_revision": "3e5e932d6b750ab538d0d8b0e30d88f805e03c94",
+  "r125_melody_bulbs_runtime": {
+    "stable_ids": [
+      "FV-3C4F040EA786"
+    ],
+    "state": "SOURCE_BOUND_PAINTED_BULBS_CANDIDATE_DEV_FROZEN",
+    "source_revision": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+    "source_branch": "codex/flat-vector-melody-bulbs-20261102",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r125_melody_bulbs_runtime/MANIFEST.json",
+    "source_required_files": 185,
+    "source_all_required_anonymous_exact": true,
+    "source_CI_snapshot": [
+      {
+        "conclusion": "",
+        "databaseId": 41484922684,
+        "headSha": "e4166d1b74e5f04ce3b7388b517d8127686dedaa",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41484922684",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "owner_scope": {
+      "owner_answer": "Resume art candidates; keep Dev frozen",
+      "source_candidates_and_work_branch_integration_authorized": true,
+      "Dev_frozen": true,
+      "master_frozen": true,
+      "automation_resumed": false
+    },
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "new_runtime_PNG": 2,
+    "native_generated_samples": 2,
+    "generation_calls": 2,
+    "nonselected_native_takes": 0,
+    "rejected_shape_takes": 0,
+    "technical_exports": 2,
+    "backend": "Built-in image_gen; no model selector or model/version returned",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "native_effective_checks": {
+      "reused_exact_source": 69,
+      "current_candidate": 99,
+      "effective": 168
+    },
+    "check_count_unit": "Configured executed checks, not unique requirements or formalQA11 acceptance.",
+    "new_native_frame_events": {
+      "bounded": 6,
+      "excluded": 0,
+      "retained": 6
+    },
+    "reused_source_frames": 6,
+    "acceptance_scope": "Local bulb-only ten-axis comparison in the same configured three-aspect Mobile/Speedy scene. Natural routes/formalQA11 and physical device/child/owner remain open.",
+    "invisible_geometry": "No functional invisible geometry changed. Whole painted Sprite2D bulbs replace only two draw_circle rows; same count/centers/15px upper and14px lower sizes/parentz10/foreground order. Other theatre roles remain original at fresh source baseline.",
+    "original_controller_other_methods_LF_exact": 69,
+    "original_probe_other_methods_LF_exact": 85,
+    "full_game_probe_unchanged": true,
+    "original_texture_ceilings_unchanged": {
+      "decoded_bytes": 24117248,
+      "declared_upload_bytes": 12582912
+    },
+    "Dev_integrated": false,
+    "new_partial_Dev_artifacts": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_role_closed": false,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "static_item_call_cap": 2,
+    "calls_remaining": 0,
+    "technical_runtime_targets": 2,
+    "technical_reexports": 0,
+    "technical_export_count_unit": "Two actual selected128-square whole-bulb exports; no retries, native rejects or extra frame events.",
+    "configured_instance_topology": {
+      "whole_bulb_variants": 2,
+      "rows": 2,
+      "per_row_count": "maxi(12,int(frame.width/66))",
+      "upper_diameter": 15,
+      "lower_diameter": 14
+    },
+    "runtime_base_RGBA_bytes": 131072,
+    "technical_recovery": "Initial verification expected alpha255 exactly; Aseprite uniform bilinear exports have alpha0..254. Native/crop RGBA remain exact; both selected outputs retained unchanged with no re-export, opacity fix or new generation.",
+    "initial_alpha_expectation_failure_retained": true
+  },
+  "r124_exact_source_CI_new_observation": {
+    "run_id": 41461637778,
+    "revision": "f1fe4a15eda241001e42eb0aa9629bbff5d69dec",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41461637778",
+    "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r125_melody_bulbs_runtime/R124_EXACT_CI_SUCCESS.json",
+    "historical_pending_snapshots_preserved": true,
+    "new_artwork_or_Dev_credit": 0
+  }
 }

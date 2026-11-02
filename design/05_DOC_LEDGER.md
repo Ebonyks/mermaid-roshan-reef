@@ -1470,3 +1470,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R123 painted footlights source-only production,26 source20 partialDev artifacts; Dev frozen, formal/external/global acceptance open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r124_melody_apron_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R124 painted stage apron source-only production,27 source20 partialDev artifacts; Dev frozen, formal/external/global acceptance open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r125_melody_bulbs_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R125 painted theatre bulbs source-only production,28 source20 partialDev artifacts; Dev frozen, formal/external/global acceptance open. |

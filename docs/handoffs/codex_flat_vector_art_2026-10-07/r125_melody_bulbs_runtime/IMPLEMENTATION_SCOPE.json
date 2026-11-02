@@ -1,0 +1,34 @@
+{
+  "game": {
+    "original_methods": 71,
+    "unchanged_original_methods": 69,
+    "changed_original_methods": [
+      "ProsceniumCanvas.layout",
+      "ProsceniumCanvas._draw"
+    ],
+    "added_methods": [
+      "ProsceniumCanvas._ensure_bulb_count",
+      "ProsceniumCanvas._painted_bulb"
+    ]
+  },
+  "probe": {
+    "original_methods": 88,
+    "unchanged_original_methods": 85,
+    "changed_original_methods": [
+      "root._check_asset_contract",
+      "root._check_runtime_texture_census",
+      "root._surface_structure_exact"
+    ],
+    "added_methods": [
+      "root._painted_bulbs_contract"
+    ]
+  },
+  "full_game_probe_unchanged": true,
+  "new_base_RGBA8_bytes": 131072,
+  "new_functional_or_3D_geometry": false,
+  "rendering": "Whole128square Sprite2D cards, upper15/128 lower14/128 uniform scale; original count/centers/z/order; no tint, lights, region fragments, redraw or fallback.",
+  "original_texture_ceilings_unchanged": {
+    "decoded_bytes": 24117248,
+    "declared_upload_bytes": 12582912
+  }
+}
