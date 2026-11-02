@@ -1,0 +1,16 @@
+{
+  "reason": "Polygon-only metric omitted the actual painted header from measured bounds. Failed coverage already exceeded0.28, but polygon-only height was611.9/720 and685.6/800, below original0.86height floor. Include only actual decoded-alpha grid cells; retain200x90 grid,0.28 coverage,0.875width and0.86height floors.",
+  "changed_file": "scripts/probe_melody.gd",
+  "before_sha256": "72e21b49aa10df60cce72d748a370c65adeaa7b4157b7e9d6cbdc4e444b0b589",
+  "after_sha256": "3aa0ea07bdfa6f681d68119096ac461dd35e281f8e8f33db0a58d2350bc1a7a5",
+  "game_or_asset_pixels_changed": false,
+  "original_failed_probe_session": 67487,
+  "original_failure_log_sha256": "ef9a24ec2cbd5c706a50dc301b2cfdd7b0c89c5e0386e16f208c6b1ad78b1a6d",
+  "negative_controls": [
+    "fully transparent header",
+    "empty noninteractive header control",
+    "restored original header"
+  ],
+  "native87_and_six_frames_reused": true,
+  "Dev_integrated": false
+}

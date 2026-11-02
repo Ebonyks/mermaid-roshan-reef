@@ -49,6 +49,9 @@ const DADDY_SHA256 := \
 const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
 const ROSHAN_SHA256 := \
 	"2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523"
+const HEADER_PATH := "res://assets/melody/crown_header_painted.png"
+const HEADER_SHA256 := \
+	"3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e"
 const VOICE_PATH := "res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg"
 const VOICE_SHA256 := \
 	"e2d819527d370aff926302dbfecd6beb9e6c2165024d7abad131a28d90cac4ed"
@@ -493,6 +496,15 @@ func _check_asset_contract() -> void:
 		and daddy_import.contains("\"vram_texture\": false")
 		and roshan_import.contains("compress/mode=2")
 		and roshan_import.contains("\"vram_texture\": true"))
+	var header := Image.load_from_file(HEADER_PATH)
+	var header_import := FileAccess.get_file_as_string(HEADER_PATH + ".import")
+	_check("painted whole crown header is exact RGBA with safe lossless NPOT import",
+		header != null and header.get_size() == Vector2i(1024, 148)
+		and header.get_format() == Image.FORMAT_RGBA8
+		and FileAccess.get_sha256(HEADER_PATH) == HEADER_SHA256
+		and header_import.contains("compress/mode=0")
+		and header_import.contains("\"vram_texture\": false")
+		and header_import.contains("mipmaps/generate=true"))
 	var licenses := FileAccess.get_file_as_string("res://ASSET_LICENSES.md")
 	_check("all reused background/actor/voice families retain repository provenance",
 		licenses.contains("sky_lagoon_panorama_master_v5_hd_3x1.png")
@@ -576,7 +588,8 @@ func _check_rendered_stage_contract(surface: Node2D) -> void:
 	var standard: Dictionary = _layout_geometry_contract(surface,
 		standard_viewport)
 	print("MELODY|LAYOUT_FACTS|standard=", standard)
-	_check("actual proscenium polygons visibly dominate the 1280x720 stage",
+	_check_header_alpha_metric_controls(surface, standard_viewport)
+	_check("actual geometry and painted-header alpha visibly dominate the 1280x720 stage",
 		bool(standard.get("proscenium_dominant", false)))
 	_check("actual Daddy and Roshan alpha bounds are readable at 1280x720",
 		bool(standard.get("actors_readable", false)))
@@ -875,6 +888,7 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 	var expected_paths: Array[String] = TILE_PATHS.duplicate()
 	expected_paths.append(DADDY_PATH)
 	expected_paths.append(ROSHAN_PATH)
+	expected_paths.append(HEADER_PATH)
 	var exact_once := counts.size() == expected_paths.size()
 	var decoded_bytes := 0
 	var declared_upload_bytes := 0
@@ -889,7 +903,7 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 		var import_text := FileAccess.get_file_as_string(path + ".import")
 		declared_upload_bytes += pixels if import_text.contains(
 			"compress/mode=2") else pixels * 4
-	_check("live Canvas binds only four tiles, Daddy, and Roshan exactly once each",
+	_check("live Canvas binds four tiles, Daddy, Roshan and one painted header exactly once each",
 		exact_once)
 	_check("unique live texture census stays within conservative decoded and declared-upload bounds",
 		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024
@@ -942,10 +956,7 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 			or not (zone is Control) or not (pointer is Control):
 		return false
 	if not _exact_direct_child_names(scenic, TILE_NODE_NAMES) \
-			or not _exact_typed_geometry_children(proscenium, [
-				"LeftCurtainGeometry", "RightCurtainGeometry",
-				"CrownHeaderGeometry", "StageApronGeometry",
-			], []) \
+			or not _proscenium_structure_exact(proscenium) \
 			or not _exact_typed_geometry_children(
 				footlights, [], ["FootlightRailGeometry"]) \
 			or not _exact_typed_geometry_children(
@@ -996,6 +1007,31 @@ func _exact_typed_geometry_children(node: Node, polygon_names: Array,
 		if not (node.get_child(polygon_names.size() + index) is Line2D):
 			return false
 	return true
+
+
+func _proscenium_structure_exact(node: Node) -> bool:
+	if not _exact_direct_child_names(node, [
+			"LeftCurtainGeometry", "RightCurtainGeometry",
+			"PaintedCrownHeader", "StageApronGeometry"]):
+		return false
+	for index in [0, 1, 3]:
+		if not (node.get_child(index) is Polygon2D):
+			return false
+	var header := node.get_child(2) as TextureRect
+	if header == null or header.texture == null or header.texture is AtlasTexture:
+		return false
+	var source_size: Vector2 = header.texture.get_size()
+	return header.texture.resource_path == HEADER_PATH \
+		and source_size == Vector2(1024, 148) \
+		and header.get_child_count() == 0 and header.material == null \
+		and header.modulate == Color.WHITE and header.self_modulate == Color.WHITE \
+		and header.expand_mode == TextureRect.EXPAND_IGNORE_SIZE \
+		and header.stretch_mode == TextureRect.STRETCH_KEEP_ASPECT_CENTERED \
+		and header.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+		and header.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and header.focus_mode == Control.FOCUS_NONE and header.z_index == -1 \
+		and header.rotation == 0.0 and header.scale == Vector2.ONE \
+		and absf(header.size.x / source_size.x - header.size.y / source_size.y) < 0.00001
 
 
 func _node_texture(node: Node) -> Texture2D:
@@ -1374,7 +1410,32 @@ func _note_source_binds_geometry_color() -> bool:
 		and block.count("draw_circle(center, 35.0, note_color") == 1
 
 
+func _check_header_alpha_metric_controls(surface: Node2D,
+		viewport_rect: Rect2) -> void:
+	var header := _stage_node(surface, "PaintedCrownHeader") as TextureRect
+	if header == null:
+		_check("painted-header alpha controls have the live header", false)
+		return
+	var original_modulate: Color = header.modulate
+	var original_texture: Texture2D = header.texture
+	header.modulate.a = 0.0
+	_check("fully transparent header cannot inflate measured stage bounds",
+		not bool(_layout_geometry_contract(surface, viewport_rect).get(
+			"proscenium_dominant", true)))
+	header.modulate = original_modulate
+	header.texture = null
+	_check("empty header control cannot count as visible painted coverage",
+		not bool(_layout_geometry_contract(surface, viewport_rect).get(
+			"proscenium_dominant", true)))
+	header.texture = original_texture
+	_check("restored exact painted header retains original dominance floors",
+		bool(_layout_geometry_contract(surface, viewport_rect).get(
+			"proscenium_dominant", false)))
+
+
 func _polygon_union_metrics(node: Node, viewport_rect: Rect2) -> Dictionary:
+	# Keep the original200x90 grid and all caller floors. The painted header
+	# contributes decoded alpha, never its transparent TextureRect bounds.
 	var polygons: Array[PackedVector2Array] = []
 	_collect_polygons(node, polygons)
 	if polygons.is_empty():
@@ -1382,23 +1443,52 @@ func _polygon_union_metrics(node: Node, viewport_rect: Rect2) -> Dictionary:
 	var union_rect: Rect2 = _points_rect(polygons[0])
 	for index in range(1, polygons.size()):
 		union_rect = union_rect.merge(_points_rect(polygons[index]))
+	var header := node.get_node_or_null("PaintedCrownHeader") as TextureRect
+	var header_image: Image = null
+	var header_inverse := Transform2D.IDENTITY
+	var header_size := Vector2.ZERO
+	var header_alpha := 0.0
+	if header != null and header.texture != null and header.is_visible_in_tree():
+		header_image = header.texture.get_image()
+		header_inverse = header.get_global_transform_with_canvas().affine_inverse()
+		header_size = header.size
+		header_alpha = _effective_canvas_alpha(header)
+		if header_image != null and header_image.is_compressed():
+			header_image = header_image.duplicate()
+			if header_image.decompress() != OK:
+				header_image = null
 	var columns := 200
 	var rows := 90
+	var cell_size := Vector2(viewport_rect.size.x / float(columns),
+		viewport_rect.size.y / float(rows))
 	var covered := 0
 	for row in range(rows):
 		for column in range(columns):
 			var point := viewport_rect.position + Vector2(
-				(float(column) + 0.5) * viewport_rect.size.x / float(columns),
-				(float(row) + 0.5) * viewport_rect.size.y / float(rows))
+				(float(column) + 0.5) * cell_size.x,
+				(float(row) + 0.5) * cell_size.y)
+			var opaque := false
 			for polygon: PackedVector2Array in polygons:
 				if Geometry2D.is_point_in_polygon(point, polygon):
-					covered += 1
+					opaque = true
 					break
+			if not opaque and header_image != null and header_alpha >= 0.5:
+				var local: Vector2 = header_inverse * point
+				if Rect2(Vector2.ZERO, header_size).has_point(local):
+					var x: int = clampi(int(local.x / header_size.x
+						* header_image.get_width()), 0, header_image.get_width() - 1)
+					var y: int = clampi(int(local.y / header_size.y
+						* header_image.get_height()), 0, header_image.get_height() - 1)
+					if header_image.get_pixel(x, y).a * header_alpha >= 0.5:
+						opaque = true
+						union_rect = union_rect.merge(Rect2(
+							point - cell_size * 0.5, cell_size))
+			if opaque:
+				covered += 1
 	return {
 		"rect": union_rect.intersection(viewport_rect),
 		"coverage": float(covered) / float(columns * rows),
 	}
-
 
 func _collect_polygons(node: Node,
 		polygons: Array[PackedVector2Array]) -> void:

@@ -44,6 +44,7 @@ const TILE_SOURCE_RECTS: Array[Rect2i] = [
 ]
 const DADDY_PATH := "res://assets/characters/stickers/daddy.png"
 const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
+const HEADER_PATH := "res://assets/melody/crown_header_painted.png"
 const OBJECTIVE := "Tap each rainbow note in the green!"
 const OBJECTIVE_VOICE := "op_popstar_rhythm"
 
@@ -61,7 +62,7 @@ class ProsceniumCanvas extends Control:
 
 	var left_curtain: Polygon2D = null
 	var right_curtain: Polygon2D = null
-	var crown_header: Polygon2D = null
+	var crown_header: TextureRect = null
 	var stage_apron: Polygon2D = null
 	var coverage_ratio := 0.0
 
@@ -72,7 +73,16 @@ class ProsceniumCanvas extends Control:
 		z_index = 10
 		left_curtain = _polygon("LeftCurtainGeometry", PINK.darkened(0.17))
 		right_curtain = _polygon("RightCurtainGeometry", LAVENDER.darkened(0.20))
-		crown_header = _polygon("CrownHeaderGeometry", INK)
+		crown_header = TextureRect.new()
+		crown_header.name = "PaintedCrownHeader"
+		crown_header.texture = load(MelodyGame.HEADER_PATH) as Texture2D
+		crown_header.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		crown_header.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		crown_header.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		crown_header.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		crown_header.focus_mode = Control.FOCUS_NONE
+		crown_header.z_index = -1
+		add_child(crown_header)
 		stage_apron = _polygon("StageApronGeometry", INK_SOFT)
 
 
@@ -97,17 +107,11 @@ class ProsceniumCanvas extends Control:
 			Vector2(size.x - side_width * 0.82, lower_y),
 			Vector2(size.x, size.y),
 		])
-		crown_header.polygon = PackedVector2Array([
-			Vector2.ZERO,
-			Vector2(size.x, 0.0),
-			Vector2(size.x, header_height * 0.78),
-			Vector2(size.x * 0.80, header_height),
-			Vector2(size.x * 0.68, header_height * 0.63),
-			Vector2(size.x * 0.50, header_height),
-			Vector2(size.x * 0.32, header_height * 0.63),
-			Vector2(size.x * 0.20, header_height),
-			Vector2(0.0, header_height * 0.78),
-		])
+		# One whole painted header, uniformly scaled and bottom-aligned to the
+		# original opening. The viewport clips its raised rainbow as before.
+		var header_source_size: Vector2 = crown_header.texture.get_size()
+		crown_header.size = header_source_size * (size.x / header_source_size.x)
+		crown_header.position = Vector2(0.0, header_height - crown_header.size.y)
 		stage_apron.polygon = PackedVector2Array([
 			Vector2(0.0, lower_y),
 			Vector2(size.x, lower_y),
@@ -140,12 +144,6 @@ class ProsceniumCanvas extends Control:
 			draw_line(Vector2(size.x - fold_offset, header_height),
 				Vector2(size.x - fold_offset * 0.78, size.y - apron_height),
 				Color(0.84, 0.75, 1.0, 0.38), 9.0, true)
-		# A seven-band crown rainbow is the visual identity of Daddy's theater.
-		var crown_center := Vector2(size.x * 0.5, header_height * 0.96)
-		for color_index in range(NOTE_COUNT):
-			var radius: float = 150.0 - float(color_index) * 10.0
-			draw_arc(crown_center, radius, PI + 0.20, TAU - 0.20, 40,
-				NOTE_COLORS[color_index], 8.0, true)
 		# Foot-level rainbow rails turn the lower frame into a runway.
 		for color_index in range(NOTE_COUNT):
 			var rail_y: float = size.y - apron_height + 14.0 + float(color_index) * 9.0
