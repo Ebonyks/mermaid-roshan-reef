@@ -1184,3 +1184,7 @@ The bounded 2026-11-01 [Chapter Two startup watchdog prerequisite](audit_impacts
 2026-11-01 speech-publication prerequisite: [Slide fanfare exit sampling](audit_impacts/slide-fanfare-exit-sampling-20261101.json) records a probe-only exact-exit observer, retained strict chime/input/save assertions and pending final controls. MA-CI-007 remains open; production audio and human/device acceptance are unchanged.
 
 2026-11-01 speech-publication local verification: all82 applicable trusted probes, actual fresh-process/strict counterexample controls, current source/authority gates and exact no-regression inventory are verified in the [final speech impact](audit_impacts/roshan-less-chatter-20261031.json) and its three linked prerequisites. Failed/interrupted attempts remain failed. Exact published-head CI/integration and physical visual/device/listening/child/owner acceptance remain separate; no finding lifecycle or whole-game satisfaction is closed.
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R120 source-only painted Melody curtains, actual three-aspect native comparison and current local82/static/analyzer/2D pass; formal/external acceptance remains open and owner keeps Dev frozen. |
+
+| `assets_src/imagegen/melody_curtains_20261101/README.md` | 🟣 | `PROPOSED / CANDIDATE` R120 two static native curtain outputs, exact Aseprite/whole-export provenance and separate source-candidate acceptance. |

@@ -1,0 +1,13 @@
+{
+  "state": "SOURCE_CAPTURE_ENTRY_FIXED_NO_GAME_OR_ART_EDITS",
+  "cause": "Display start menu uses intro_active but _skip_intro only clears legacy story intro; it left the real title Canvas covering the configured Melody stage.",
+  "repair": "Use existing display-boot probe isolated resumable-save fixture and real Continue signal, then production Daddy/Melody entry. Assert title/handoff Canvas absent at every capture.",
+  "original_fixture_checks": 54,
+  "original_frames_retained": 6,
+  "original_frames_excluded": 6,
+  "import_drift": "193 sidecars CRLF-to-LF only, each exact prehash reconstructed; no semantic Git/source/pixels change, child normal11 unchanged.",
+  "healthy_import_restarted": false,
+  "source_code_changed": false,
+  "art_generated": false,
+  "formal_QA11": null
+}

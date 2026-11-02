@@ -49,6 +49,14 @@ const DADDY_SHA256 := \
 const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
 const ROSHAN_SHA256 := \
 	"2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523"
+const CURTAIN_PATHS: Array[String] = [
+	"res://assets/melody/curtain_left_painted.png",
+	"res://assets/melody/curtain_right_painted.png",
+]
+const CURTAIN_SHA256: Array[String] = [
+	"e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8",
+	"4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e",
+]
 const VOICE_PATH := "res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg"
 const VOICE_SHA256 := \
 	"e2d819527d370aff926302dbfecd6beb9e6c2165024d7abad131a28d90cac4ed"
@@ -493,6 +501,23 @@ func _check_asset_contract() -> void:
 		and daddy_import.contains("\"vram_texture\": false")
 		and roshan_import.contains("compress/mode=2")
 		and roshan_import.contains("\"vram_texture\": true"))
+	var curtains_ok := true
+	var curtain_imports_ok := true
+	for index in range(CURTAIN_PATHS.size()):
+		var path: String = CURTAIN_PATHS[index]
+		var curtain := Image.load_from_file(path)
+		curtains_ok = curtains_ok and curtain != null \
+			and curtain.get_size() == Vector2i(384, 768) \
+			and curtain.get_format() == Image.FORMAT_RGBA8 \
+			and curtain.detect_alpha() != Image.ALPHA_NONE \
+			and FileAccess.get_sha256(path) == CURTAIN_SHA256[index]
+		var settings := FileAccess.get_file_as_string(path + ".import")
+		curtain_imports_ok = curtain_imports_ok \
+			and settings.contains("compress/mode=0") \
+			and settings.contains("\"vram_texture\": false") \
+			and settings.contains("mipmaps/generate=true")
+	_check("two exact painted curtain sources retain real RGBA alpha and bounded384x768 dimensions", curtains_ok)
+	_check("NPOT painted curtains retain lossless mipmapped imports without forbidden VRAM mode", curtain_imports_ok)
 	var licenses := FileAccess.get_file_as_string("res://ASSET_LICENSES.md")
 	_check("all reused background/actor/voice families retain repository provenance",
 		licenses.contains("sky_lagoon_panorama_master_v5_hd_3x1.png")
@@ -576,7 +601,7 @@ func _check_rendered_stage_contract(surface: Node2D) -> void:
 	var standard: Dictionary = _layout_geometry_contract(surface,
 		standard_viewport)
 	print("MELODY|LAYOUT_FACTS|standard=", standard)
-	_check("actual proscenium polygons visibly dominate the 1280x720 stage",
+	_check("actual geometry and painted-source alpha visibly dominate the 1280x720 proscenium",
 		bool(standard.get("proscenium_dominant", false)))
 	_check("actual Daddy and Roshan alpha bounds are readable at 1280x720",
 		bool(standard.get("actors_readable", false)))
@@ -875,6 +900,8 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 	var expected_paths: Array[String] = TILE_PATHS.duplicate()
 	expected_paths.append(DADDY_PATH)
 	expected_paths.append(ROSHAN_PATH)
+	for curtain_path: String in CURTAIN_PATHS:
+		expected_paths.append(curtain_path)
 	var exact_once := counts.size() == expected_paths.size()
 	var decoded_bytes := 0
 	var declared_upload_bytes := 0
@@ -889,7 +916,7 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 		var import_text := FileAccess.get_file_as_string(path + ".import")
 		declared_upload_bytes += pixels if import_text.contains(
 			"compress/mode=2") else pixels * 4
-	_check("live Canvas binds only four tiles, Daddy, and Roshan exactly once each",
+	_check("live Canvas binds four tiles, two original actors and two painted curtains exactly once each",
 		exact_once)
 	_check("unique live texture census stays within conservative decoded and declared-upload bounds",
 		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024
@@ -942,10 +969,7 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 			or not (zone is Control) or not (pointer is Control):
 		return false
 	if not _exact_direct_child_names(scenic, TILE_NODE_NAMES) \
-			or not _exact_typed_geometry_children(proscenium, [
-				"LeftCurtainGeometry", "RightCurtainGeometry",
-				"CrownHeaderGeometry", "StageApronGeometry",
-			], []) \
+			or not _painted_proscenium_structure(proscenium) \
 			or not _exact_typed_geometry_children(
 				footlights, [], ["FootlightRailGeometry"]) \
 			or not _exact_typed_geometry_children(
@@ -967,6 +991,41 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 				note, ["NoteColorGeometry"], []) \
 				or not _exact_typed_geometry_children(
 				pip, ["ProgressPipGeometry"], []):
+			return false
+	return true
+
+
+func _painted_proscenium_structure(node: Node) -> bool:
+	if not _exact_direct_child_names(node, [
+			"LeftPaintedCurtain", "RightPaintedCurtain",
+			"CrownHeaderGeometry", "StageApronGeometry"]):
+		return false
+	if not (node.get_node("CrownHeaderGeometry") is Polygon2D) \
+			or not (node.get_node("StageApronGeometry") is Polygon2D):
+		return false
+	var names: Array[String] = ["LeftPaintedCurtain", "RightPaintedCurtain"]
+	for index in range(names.size()):
+		var clip := node.get_node(names[index]) as Control
+		if clip == null or not clip.clip_contents \
+				or not clip.is_visible_in_tree() \
+				or clip.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+				or not _exact_direct_child_names(clip, ["PaintedCloth"]) \
+				or _has_geometry_descendant(clip):
+			return false
+		var cloth := clip.get_node("PaintedCloth") as TextureRect
+		if cloth == null or cloth.texture == null \
+				or not cloth.is_visible_in_tree() \
+				or _effective_canvas_alpha(cloth) < 0.98 \
+				or cloth.texture.resource_path != CURTAIN_PATHS[index] \
+				or cloth.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+				or cloth.get_child_count() != 0:
+			return false
+		var texture_size: Vector2 = cloth.texture.get_size()
+		if texture_size != Vector2(384, 768) \
+				or absf(cloth.size.x / texture_size.x \
+					- cloth.size.y / texture_size.y) > 0.00001 \
+				or cloth.rotation != 0.0 \
+				or not (node as Control).get_global_rect().encloses(clip.get_global_rect()):
 			return false
 	return true
 
@@ -1375,10 +1434,22 @@ func _note_source_binds_geometry_color() -> bool:
 
 
 func _polygon_union_metrics(node: Node, viewport_rect: Rect2) -> Dictionary:
+	# Preserve the original200x90 coverage grid and0.28 caller floor. Painted
+	# cloth contributes only its actual decoded alpha inside its live clip;
+	# a transparent TextureRect/functional clipping box is never opaque art.
 	var polygons: Array[PackedVector2Array] = []
 	_collect_polygons(node, polygons)
 	if polygons.is_empty():
 		return {}
+	var cards: Array[Dictionary] = []
+	for name_value: String in ["LeftPaintedCurtain", "RightPaintedCurtain"]:
+		var clip := node.get_node_or_null(name_value) as Control
+		var cloth := clip.get_node_or_null("PaintedCloth") as TextureRect if clip != null else null
+		if cloth != null and cloth.texture != null and cloth.is_visible_in_tree():
+			cards.append({"image": cloth.texture.get_image(),
+				"inverse": cloth.get_global_transform_with_canvas().affine_inverse(),
+				"size": cloth.size, "clip": clip.get_global_rect(),
+				"alpha": _effective_canvas_alpha(cloth)})
 	var union_rect: Rect2 = _points_rect(polygons[0])
 	for index in range(1, polygons.size()):
 		union_rect = union_rect.merge(_points_rect(polygons[index]))
@@ -1390,14 +1461,31 @@ func _polygon_union_metrics(node: Node, viewport_rect: Rect2) -> Dictionary:
 			var point := viewport_rect.position + Vector2(
 				(float(column) + 0.5) * viewport_rect.size.x / float(columns),
 				(float(row) + 0.5) * viewport_rect.size.y / float(rows))
+			var opaque := false
 			for polygon: PackedVector2Array in polygons:
 				if Geometry2D.is_point_in_polygon(point, polygon):
-					covered += 1
+					opaque = true
 					break
-	return {
-		"rect": union_rect.intersection(viewport_rect),
-		"coverage": float(covered) / float(columns * rows),
-	}
+			if not opaque:
+				for card: Dictionary in cards:
+					var image: Image = card["image"]
+					var inverse: Transform2D = card["inverse"]
+					var texture_size: Vector2 = card["size"]
+					var clip_rect: Rect2 = card["clip"]
+					var alpha: float = card["alpha"]
+					var local: Vector2 = inverse * point
+					if image == null or not clip_rect.has_point(point) \
+							or not Rect2(Vector2.ZERO, texture_size).has_point(local):
+						continue
+					var x: int = clampi(int(local.x / texture_size.x * image.get_width()), 0, image.get_width() - 1)
+					var y: int = clampi(int(local.y / texture_size.y * image.get_height()), 0, image.get_height() - 1)
+					if image.get_pixel(x, y).a * alpha >= 0.5:
+						opaque = true
+						break
+			if opaque:
+				covered += 1
+	return {"rect": union_rect.intersection(viewport_rect),
+		"coverage": float(covered) / float(columns * rows)}
 
 
 func _collect_polygons(node: Node,

@@ -200,8 +200,7 @@ func _init() -> void:
 				and _melody_surface_exact(surface) \
 				and _melody_tile_bindings_exact(surface) \
 				and _melody_spatial_descendant_count(layer) == 0 \
-				and surface.find_child("LeftCurtainGeometry", true, false) != null \
-				and surface.find_child("RightCurtainGeometry", true, false) != null \
+				and _melody_painted_curtains_exact(surface) \
 				and surface.find_child("DaddyGuide", true, false) != null \
 				and surface.find_child("PopstarRoshan", true, false) != null \
 				and surface.find_child("TimingZone", true, false) != null \
@@ -5465,6 +5464,43 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 		await process_frame
 	main.touch_ui.stick_vec = Vector2.ZERO   # release the virtual hand
 	return main.game == "" and bool(f["won"])
+
+
+func _melody_painted_curtains_exact(surface: Node) -> bool:
+	var proscenium: Control = surface.find_child("OperaProscenium", true, false) as Control
+	if proscenium == null or proscenium.get_child_count() != 4 \
+			or surface.find_child("LeftCurtainGeometry", true, false) != null \
+			or surface.find_child("RightCurtainGeometry", true, false) != null:
+		return false
+	var names: Array[String] = ["LeftPaintedCurtain", "RightPaintedCurtain"]
+	var paths: Array[String] = [
+		"res://assets/melody/curtain_left_painted.png",
+		"res://assets/melody/curtain_right_painted.png",
+	]
+	var hashes: Array[String] = [
+		"e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8",
+		"4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e",
+	]
+	for index in range(names.size()):
+		var clip: Control = proscenium.get_node_or_null(names[index]) as Control
+		if clip == null or not clip.clip_contents or clip.get_child_count() != 1 \
+				or not clip.is_visible_in_tree() or clip.size.x <= 0.0 or clip.size.y <= 0.0 \
+				or clip.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+				or _melody_named_count(surface, names[index]) != 1:
+			return false
+		var cloth: TextureRect = clip.get_child(0) as TextureRect
+		if cloth == null or cloth.name != &"PaintedCloth" or cloth.texture == null \
+				or cloth.texture is AtlasTexture or cloth.get_child_count() != 0 \
+				or not cloth.is_visible_in_tree() or cloth.size.x <= 0.0 \
+				or cloth.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+				or cloth.texture.resource_path != paths[index] \
+				or cloth.texture.get_size() != Vector2(384, 768) \
+				or FileAccess.get_sha256(paths[index]) != hashes[index] \
+				or not is_zero_approx(cloth.rotation) \
+				or absf(cloth.size.x / 384.0 - cloth.size.y / 768.0) > 0.00001 \
+				or not proscenium.get_global_rect().encloses(clip.get_global_rect()):
+			return false
+	return true
 
 
 func _melody_surface_exact(surface: Node) -> bool:

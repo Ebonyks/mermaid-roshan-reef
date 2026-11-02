@@ -42,6 +42,13 @@ const TILE_SOURCE_RECTS: Array[Rect2i] = [
 	Rect2i(0, 1024, 1024, 1024),
 	Rect2i(1024, 1024, 1024, 1024),
 ]
+const CURTAIN_LEFT_PATH := "res://assets/melody/curtain_left_painted.png"
+const CURTAIN_RIGHT_PATH := "res://assets/melody/curtain_right_painted.png"
+# Alpha >=8 bounds identify the authored cloth, ignoring invisible low-alpha
+# PNG margin noise. The complete source image is scaled uniformly.
+const CURTAIN_VISIBLE_RECTS: Array[Rect2] = [
+	Rect2(84, 9, 216, 749), Rect2(88, 14, 212, 742),
+]
 const DADDY_PATH := "res://assets/characters/stickers/daddy.png"
 const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
 const OBJECTIVE := "Tap each rainbow note in the green!"
@@ -59,8 +66,8 @@ class ProsceniumCanvas extends Control:
 	const NOTE_COUNT := MelodyGame.NOTE_COUNT
 	const NOTE_COLORS := MelodyGame.NOTE_COLORS
 
-	var left_curtain: Polygon2D = null
-	var right_curtain: Polygon2D = null
+	var left_curtain: Control = null
+	var right_curtain: Control = null
 	var crown_header: Polygon2D = null
 	var stage_apron: Polygon2D = null
 	var coverage_ratio := 0.0
@@ -70,8 +77,8 @@ class ProsceniumCanvas extends Control:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 10
-		left_curtain = _polygon("LeftCurtainGeometry", PINK.darkened(0.17))
-		right_curtain = _polygon("RightCurtainGeometry", LAVENDER.darkened(0.20))
+		left_curtain = _curtain("LeftPaintedCurtain", MelodyGame.CURTAIN_LEFT_PATH)
+		right_curtain = _curtain("RightPaintedCurtain", MelodyGame.CURTAIN_RIGHT_PATH)
 		crown_header = _polygon("CrownHeaderGeometry", INK)
 		stage_apron = _polygon("StageApronGeometry", INK_SOFT)
 
@@ -83,20 +90,10 @@ class ProsceniumCanvas extends Control:
 		var header_height: float = clampf(size.y * 0.17, 104.0, 120.0)
 		var apron_height: float = clampf(size.y * 0.145, 92.0, 106.0)
 		var lower_y: float = size.y - apron_height
-		left_curtain.polygon = PackedVector2Array([
-			Vector2(0.0, header_height * 0.62),
-			Vector2(side_width * 0.72, header_height * 0.78),
-			Vector2(side_width, lower_y * 0.48),
-			Vector2(side_width * 0.82, lower_y),
-			Vector2(0.0, size.y),
-		])
-		right_curtain.polygon = PackedVector2Array([
-			Vector2(size.x, header_height * 0.62),
-			Vector2(size.x - side_width * 0.72, header_height * 0.78),
-			Vector2(size.x - side_width, lower_y * 0.48),
-			Vector2(size.x - side_width * 0.82, lower_y),
-			Vector2(size.x, size.y),
-		])
+		_layout_curtain(left_curtain, side_width, header_height,
+			0.0, MelodyGame.CURTAIN_VISIBLE_RECTS[0])
+		_layout_curtain(right_curtain, side_width, header_height,
+			size.x - side_width, MelodyGame.CURTAIN_VISIBLE_RECTS[1])
 		crown_header.polygon = PackedVector2Array([
 			Vector2.ZERO,
 			Vector2(size.x, 0.0),
@@ -126,20 +123,6 @@ class ProsceniumCanvas extends Control:
 		var side_width: float = clampf(size.x * 0.15, 176.0, 230.0)
 		var header_height: float = clampf(size.y * 0.17, 104.0, 120.0)
 		var apron_height: float = clampf(size.y * 0.145, 92.0, 106.0)
-		# Navy and pearl outlines keep the authored meadow visibly inside a
-		# theatrical object rather than reading as the activity itself.
-		draw_line(Vector2(side_width, header_height * 0.88),
-			Vector2(side_width * 0.82, size.y - apron_height), NAVY, 18.0, true)
-		draw_line(Vector2(size.x - side_width, header_height * 0.88),
-			Vector2(size.x - side_width * 0.82, size.y - apron_height), NAVY, 18.0, true)
-		for fold_index in range(4):
-			var fold_offset: float = 28.0 + float(fold_index) * 31.0
-			draw_line(Vector2(fold_offset, header_height),
-				Vector2(fold_offset * 0.78, size.y - apron_height),
-				Color(1.0, 0.72, 0.88, 0.38), 9.0, true)
-			draw_line(Vector2(size.x - fold_offset, header_height),
-				Vector2(size.x - fold_offset * 0.78, size.y - apron_height),
-				Color(0.84, 0.75, 1.0, 0.38), 9.0, true)
 		# A seven-band crown rainbow is the visual identity of Daddy's theater.
 		var crown_center := Vector2(size.x * 0.5, header_height * 0.96)
 		for color_index in range(NOTE_COUNT):
@@ -160,6 +143,39 @@ class ProsceniumCanvas extends Control:
 			draw_circle(Vector2(bulb_x, 22.0), 7.5, PAPER, true, -1.0, true)
 			draw_circle(Vector2(bulb_x, size.y - 19.0), 7.0,
 				GOLD.lightened(0.28), true, -1.0, true)
+
+
+	func _curtain(node_name: String, path: String) -> Control:
+		# These two invisible rectangles only clip cloth at the stage boundary;
+		# they supply no appearance pixels and do not mask the authored contour.
+		var clip := Control.new()
+		clip.name = node_name
+		clip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		clip.focus_mode = Control.FOCUS_NONE
+		clip.clip_contents = true
+		clip.z_index = -1
+		add_child(clip)
+		var cloth := TextureRect.new()
+		cloth.name = "PaintedCloth"
+		cloth.texture = load(path) as Texture2D
+		cloth.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		cloth.stretch_mode = TextureRect.STRETCH_SCALE
+		cloth.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		cloth.focus_mode = Control.FOCUS_NONE
+		clip.add_child(cloth)
+		return clip
+
+
+	func _layout_curtain(clip: Control, side_width: float,
+			header_height: float, x: float, visible_rect: Rect2) -> void:
+		clip.position = Vector2(x, 0.0)
+		clip.size = Vector2(side_width, size.y)
+		var cloth := clip.get_node("PaintedCloth") as TextureRect
+		var painted_scale: float = side_width / visible_rect.size.x
+		cloth.size = cloth.texture.get_size() * painted_scale
+		cloth.position = Vector2(0.0, header_height * 0.62) 			- visible_rect.position * painted_scale
+		# The original crown and apron still occlude the top/hem. A wider
+		# viewport scales the whole cloth uniformly behind that same apron.
 
 
 	func _polygon(node_name: String, color: Color) -> Polygon2D:
@@ -587,6 +603,8 @@ static func runtime_art_paths() -> Array[String]:
 		paths.append(tile_path)
 	paths.append(DADDY_PATH)
 	paths.append(ROSHAN_PATH)
+	paths.append(CURTAIN_LEFT_PATH)
+	paths.append(CURTAIN_RIGHT_PATH)
 	return paths
 
 
@@ -980,9 +998,11 @@ func audit_snapshot() -> Dictionary:
 		"proscenium_rect": _proscenium_rect,
 		"proscenium_coverage": _proscenium.coverage_ratio,
 		"proscenium_geometry_nodes": [
-			"LeftCurtainGeometry", "RightCurtainGeometry",
 			"CrownHeaderGeometry", "StageApronGeometry",
 		],
+		"proscenium_painted_nodes": ["LeftPaintedCurtain", "RightPaintedCurtain"],
+		"curtain_paths": [CURTAIN_LEFT_PATH, CURTAIN_RIGHT_PATH],
+		"coverage_basis": "Layout estimate; the trusted probe checks actual source alpha.",
 		"footlights_visible": _footlights != null and _footlights.visible,
 		"stage_star_visible": _stage_star != null and _stage_star.visible,
 		"daddy_path": DADDY_PATH,
