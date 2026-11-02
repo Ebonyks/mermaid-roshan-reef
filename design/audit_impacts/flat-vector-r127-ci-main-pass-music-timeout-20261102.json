@@ -1,0 +1,62 @@
+{
+  "id": "flat-vector-r127-ci-main-pass-music-timeout-20261102",
+  "baseline": "f334d6f13aa929d86eefee9676aa2c58a2e60852",
+  "scope": "Publish exact terminal R127 main-job success and overall music-checkout cancellation, preserving source candidate, counts and all acceptance gaps. No runtime/workflow change.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_MAIN_JOB.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_MUSIC_CHECKOUT.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_MUSIC_TIMEOUT_JOB.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_RESULT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_RESULT_MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_RESULT_RECEIPT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_TERMINAL_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_TERMINAL_RUN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_VERIFIED_PROBE_COVERAGE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/VALIDATION_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "change_record": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#chg-133--r127-painted-melody-progress-pip-source-only-production",
+  "validation": [
+    {
+      "command": "Exact-source main CI job125595861226 and configured81-program coverage",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_TERMINAL_RUN.json; CI_MAIN_JOB.log; CI_VERIFIED_PROBE_COVERAGE.json"
+    },
+    {
+      "command": "Separate music job125595861612 and full CI run",
+      "result": "FAIL",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_MUSIC_TIMEOUT_JOB.json; CI_MUSIC_CHECKOUT.log; full run cancelled, music verification skipped"
+    },
+    {
+      "command": "Authority/development, unchanged counts and anonymous immutable observation delivery",
+      "result": "PENDING",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_RESULT_GATES.json; CI_RESULT_RECEIPT.json"
+    },
+    {
+      "command": "Repeat engine suite for unchanged runtime",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Actual source f348ec44 unchanged; exact local and main remote evidence retained immutably."
+    }
+  ],
+  "acceptance_gaps": "Music verification did not run remotely. FormalQA11, physical device/performance, child, owner, full natural-route/state/action and whole-game inventory/coverage remain open; Dev frozen and accepted-removal0."
+}

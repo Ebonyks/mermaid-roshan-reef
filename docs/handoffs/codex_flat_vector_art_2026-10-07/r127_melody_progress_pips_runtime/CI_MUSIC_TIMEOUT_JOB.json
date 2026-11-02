@@ -1,0 +1,516 @@
+{
+  "state": "VERIFIED_NEW_MUSIC_JOB_TERMINAL_MAIN_JOB_STILL_ACTIVE",
+  "checked_at_utc": "2026-11-02T22:51:35.551603+00:00",
+  "run": {
+    "conclusion": "",
+    "databaseId": 41538353211,
+    "headSha": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+    "jobs": [
+      {
+        "completedAt": "0001-01-01T00:00:00Z",
+        "conclusion": "",
+        "databaseId": 125595861226,
+        "name": "probes",
+        "startedAt": "2026-11-02T22:34:08Z",
+        "status": "in_progress",
+        "steps": [
+          {
+            "completedAt": "2026-11-02T22:34:10Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-02T22:34:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T22:49:34Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 2,
+            "startedAt": "2026-11-02T22:34:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T22:49:36Z",
+            "conclusion": "success",
+            "name": "Download Godot (checksum-verified)",
+            "number": 3,
+            "startedAt": "2026-11-02T22:49:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Static gates (parse + Variant-inference lint)",
+            "number": 4,
+            "startedAt": "2026-11-02T22:49:36Z",
+            "status": "in_progress"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Import (deadlock-guarded)",
+            "number": 5,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+            "number": 6,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Run trusted probes",
+            "number": 7,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+            "number": 8,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Dust boss balance playtest (advisory)",
+            "number": 9,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Opera balance playtest (advisory)",
+            "number": 10,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Publish opera art manifest (advisory)",
+            "number": 11,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Upload opera art manifest",
+            "number": 12,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Capture first-world visual review",
+            "number": 13,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Capture legacy human-art diagnostic",
+            "number": 14,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Upload legacy human-art diagnostic",
+            "number": 15,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Capture Sky Lagoon visual review",
+            "number": 16,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Upload Sky Lagoon visual review",
+            "number": 17,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Capture northern-world visual review",
+            "number": 18,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Upload northern-world visual review",
+            "number": 19,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Capture dust-boss arena review",
+            "number": 20,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Upload dust-boss arena review",
+            "number": 21,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Capture pearl-castle visual review",
+            "number": 22,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Upload pearl-castle visual review",
+            "number": 23,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Upload advisory sensor receipts",
+            "number": 24,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          },
+          {
+            "completedAt": "0001-01-01T00:00:00Z",
+            "conclusion": "",
+            "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 48,
+            "startedAt": "0001-01-01T00:00:00Z",
+            "status": "pending"
+          }
+        ],
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41538353211/job/125595861226"
+      },
+      {
+        "completedAt": "2026-11-02T22:49:16Z",
+        "conclusion": "cancelled",
+        "databaseId": 125595861612,
+        "name": "area-music-provenance",
+        "startedAt": "2026-11-02T22:34:08Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-11-02T22:34:11Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-11-02T22:34:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T22:49:10Z",
+            "conclusion": "cancelled",
+            "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 2,
+            "startedAt": "2026-11-02T22:34:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T22:49:10Z",
+            "conclusion": "skipped",
+            "name": "Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+            "number": 3,
+            "startedAt": "2026-11-02T22:49:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T22:49:10Z",
+            "conclusion": "skipped",
+            "name": "Verify deterministic area-music delivery",
+            "number": 4,
+            "startedAt": "2026-11-02T22:49:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T22:49:14Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+            "number": 8,
+            "startedAt": "2026-11-02T22:49:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-11-02T22:49:14Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 9,
+            "startedAt": "2026-11-02T22:49:14Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41538353211/job/125595861612"
+      }
+    ],
+    "status": "in_progress",
+    "updatedAt": "2026-11-02T22:34:09Z",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41538353211"
+  },
+  "music_job": {
+    "id": 125595861612,
+    "run_id": 41538353211,
+    "workflow_name": "Probe suite (graphics fork)",
+    "head_branch": "codex/flat-vector-melody-progress-pips-20261102",
+    "run_url": "https://api.github.com/repos/Ebonyks/mermaid-roshan-reef/actions/runs/41538353211",
+    "run_attempt": 1,
+    "node_id": "CR_kwDOTFBnf88AAAAdPhjCbA",
+    "head_sha": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+    "url": "https://api.github.com/repos/Ebonyks/mermaid-roshan-reef/actions/jobs/125595861612",
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41538353211/job/125595861612",
+    "status": "completed",
+    "conclusion": "cancelled",
+    "created_at": "2026-11-02T22:34:05Z",
+    "started_at": "2026-11-02T22:34:08Z",
+    "completed_at": "2026-11-02T22:49:16Z",
+    "name": "area-music-provenance",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-11-02T22:34:09Z",
+        "completed_at": "2026-11-02T22:34:11Z"
+      },
+      {
+        "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "number": 2,
+        "started_at": "2026-11-02T22:34:11Z",
+        "completed_at": "2026-11-02T22:49:10Z"
+      },
+      {
+        "name": "Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 3,
+        "started_at": "2026-11-02T22:49:10Z",
+        "completed_at": "2026-11-02T22:49:10Z"
+      },
+      {
+        "name": "Verify deterministic area-music delivery",
+        "status": "completed",
+        "conclusion": "skipped",
+        "number": 4,
+        "started_at": "2026-11-02T22:49:10Z",
+        "completed_at": "2026-11-02T22:49:10Z"
+      },
+      {
+        "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8,
+        "started_at": "2026-11-02T22:49:10Z",
+        "completed_at": "2026-11-02T22:49:14Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 9,
+        "started_at": "2026-11-02T22:49:14Z",
+        "completed_at": "2026-11-02T22:49:14Z"
+      }
+    ],
+    "check_run_url": "https://api.github.com/repos/Ebonyks/mermaid-roshan-reef/check-runs/125595861612",
+    "labels": [
+      "windows-2025"
+    ],
+    "runner_id": 1000005363,
+    "runner_name": "GitHub Actions 1000005363",
+    "runner_group_id": 0,
+    "runner_group_name": "GitHub Actions"
+  },
+  "music_check": {
+    "id": 125595861612,
+    "name": "area-music-provenance",
+    "node_id": "CR_kwDOTFBnf88AAAAdPhjCbA",
+    "head_sha": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+    "external_id": "f5af2b82-2ab0-5ece-9e0a-c8bde87614f9",
+    "url": "https://api.github.com/repos/Ebonyks/mermaid-roshan-reef/check-runs/125595861612",
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41538353211/job/125595861612",
+    "details_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41538353211/job/125595861612",
+    "status": "completed",
+    "conclusion": "cancelled",
+    "started_at": "2026-11-02T22:34:08Z",
+    "completed_at": "2026-11-02T22:49:16Z",
+    "output": {
+      "title": null,
+      "summary": null,
+      "text": null,
+      "annotations_count": 3,
+      "annotations_url": "https://api.github.com/repos/Ebonyks/mermaid-roshan-reef/check-runs/125595861612/annotations"
+    },
+    "check_suite": {
+      "id": 112563915565
+    },
+    "app": {
+      "id": 15368,
+      "client_id": "Iv1.05c79e9ad1f6bdfa",
+      "slug": "github-actions",
+      "node_id": "MDM6QXBwMTUzNjg=",
+      "owner": {
+        "login": "github",
+        "id": 9919,
+        "node_id": "MDEyOk9yZ2FuaXphdGlvbjk5MTk=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/github",
+        "html_url": "https://github.com/github",
+        "followers_url": "https://api.github.com/users/github/followers",
+        "following_url": "https://api.github.com/users/github/following{/other_user}",
+        "gists_url": "https://api.github.com/users/github/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/github/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/github/subscriptions",
+        "organizations_url": "https://api.github.com/users/github/orgs",
+        "repos_url": "https://api.github.com/users/github/repos",
+        "events_url": "https://api.github.com/users/github/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/github/received_events",
+        "type": "Organization",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "name": "GitHub Actions",
+      "description": "Automate your workflow from idea to production",
+      "external_url": "https://help.github.com/en/actions",
+      "html_url": "https://github.com/apps/github-actions",
+      "created_at": "2018-07-30T09:30:17Z",
+      "updated_at": "2026-06-18T16:17:48Z",
+      "permissions": {
+        "actions": "write",
+        "administration": "read",
+        "artifact_metadata": "write",
+        "attestations": "write",
+        "checks": "write",
+        "code_quality": "write",
+        "contents": "write",
+        "copilot_requests": "write",
+        "deployments": "write",
+        "discussions": "write",
+        "drives": "write",
+        "issues": "write",
+        "merge_queues": "write",
+        "metadata": "read",
+        "models": "read",
+        "packages": "write",
+        "pages": "write",
+        "pull_requests": "write",
+        "repository_hooks": "write",
+        "repository_projects": "write",
+        "security_events": "write",
+        "statuses": "write",
+        "vulnerability_alerts": "read"
+      },
+      "events": [
+        "branch_protection_rule",
+        "check_run",
+        "check_suite",
+        "create",
+        "delete",
+        "deployment",
+        "deployment_status",
+        "discussion",
+        "discussion_comment",
+        "fork",
+        "gollum",
+        "issues",
+        "issue_comment",
+        "label",
+        "merge_group",
+        "milestone",
+        "page_build",
+        "public",
+        "pull_request",
+        "pull_request_review",
+        "pull_request_review_comment",
+        "push",
+        "registry_package",
+        "release",
+        "repository",
+        "repository_dispatch",
+        "status",
+        "watch",
+        "workflow_dispatch",
+        "workflow_run"
+      ]
+    },
+    "pull_requests": []
+  },
+  "annotations": [
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/f348ec44b1fd8f1db46323fdf437782cf789bf7e/.github",
+      "start_line": 1,
+      "start_column": null,
+      "end_line": 1,
+      "end_column": null,
+      "annotation_level": "failure",
+      "title": "",
+      "message": "The job has exceeded the maximum execution time of 15m0s",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/f348ec44b1fd8f1db46323fdf437782cf789bf7e/.github",
+      "start_line": 2,
+      "start_column": null,
+      "end_line": 2,
+      "end_column": null,
+      "annotation_level": "warning",
+      "title": "",
+      "message": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+      "raw_details": ""
+    },
+    {
+      "path": ".github",
+      "blob_href": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/f348ec44b1fd8f1db46323fdf437782cf789bf7e/.github",
+      "start_line": 160,
+      "start_column": null,
+      "end_line": 160,
+      "end_column": null,
+      "annotation_level": "failure",
+      "title": "",
+      "message": "The operation was canceled.",
+      "raw_details": ""
+    }
+  ],
+  "log_sha256": "77825a2f33ce6fa0e0292b14ac59db592b741eb0c9438bcd2341a2395fe185e3",
+  "remote_run_restarted": false,
+  "Dev_frozen": true
+}

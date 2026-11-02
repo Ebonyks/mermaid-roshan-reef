@@ -1,0 +1,209 @@
+﻿2026-11-02T22:34:09.8659864Z Current runner version: '2.338.2'
+2026-11-02T22:34:09.8895897Z ##[group]Runner Image Provisioner
+2026-11-02T22:34:09.8897237Z Hosted Compute Agent
+2026-11-02T22:34:09.8898195Z Version: 20261021.618
+2026-11-02T22:34:09.8899275Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-11-02T22:34:09.8900616Z Build Date: 2026-10-21T00:45:21Z
+2026-11-02T22:34:09.8901761Z Worker ID: {1bef575a-d389-4e11-9c0a-756259a2e2ee}
+2026-11-02T22:34:09.8902551Z Region: centralus
+2026-11-02T22:34:09.8903074Z Cloud: Azure
+2026-11-02T22:34:09.8903585Z ##[endgroup]
+2026-11-02T22:34:09.8905053Z ##[group]Operating System
+2026-11-02T22:34:09.8905698Z Microsoft Windows Server 2025
+2026-11-02T22:34:09.8906267Z 10.0.26100
+2026-11-02T22:34:09.8906731Z Datacenter
+2026-11-02T22:34:09.8907235Z ##[endgroup]
+2026-11-02T22:34:09.8907727Z ##[group]Runner Image
+2026-11-02T22:34:09.8908334Z Image: windows-2025-vs2026
+2026-11-02T22:34:09.8908882Z Version: 20261030.294.1
+2026-11-02T22:34:09.8910331Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261030.294/images/windows/Windows2025-VS2026-Readme.md
+2026-11-02T22:34:09.8911922Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261030.294
+2026-11-02T22:34:09.8913385Z ##[endgroup]
+2026-11-02T22:34:09.8914454Z ##[group]GITHUB_TOKEN Permissions
+2026-11-02T22:34:09.8916876Z Contents: read
+2026-11-02T22:34:09.8917450Z Metadata: read
+2026-11-02T22:34:09.8917947Z ##[endgroup]
+2026-11-02T22:34:09.8920070Z Secret source: Actions
+2026-11-02T22:34:09.8920926Z Cache mode: write
+2026-11-02T22:34:09.8921638Z Prepare workflow directory
+2026-11-02T22:34:10.0021927Z Prepare all required actions
+2026-11-02T22:34:10.0071648Z Getting action download info
+2026-11-02T22:34:10.2583451Z Download action repository 'actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-11-02T22:34:10.4993513Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+2026-11-02T22:34:11.3127398Z Complete job name: area-music-provenance
+2026-11-02T22:34:11.9741355Z ##[group]Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+2026-11-02T22:34:11.9742621Z with:
+2026-11-02T22:34:11.9743085Z   persist-credentials: false
+2026-11-02T22:34:11.9743648Z   repository: Ebonyks/mermaid-roshan-reef
+2026-11-02T22:34:11.9747961Z   token: ***
+2026-11-02T22:34:11.9748402Z   ssh-strict: true
+2026-11-02T22:34:11.9748846Z   ssh-user: git
+2026-11-02T22:34:11.9749267Z   clean: true
+2026-11-02T22:34:11.9749725Z   sparse-checkout-cone-mode: true
+2026-11-02T22:34:11.9750261Z   fetch-depth: 1
+2026-11-02T22:34:11.9750699Z   fetch-tags: false
+2026-11-02T22:34:11.9751147Z   show-progress: true
+2026-11-02T22:34:11.9751595Z   lfs: false
+2026-11-02T22:34:11.9752010Z   submodules: false
+2026-11-02T22:34:11.9752469Z   set-safe-directory: true
+2026-11-02T22:34:11.9753152Z env:
+2026-11-02T22:34:11.9753580Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-02T22:34:11.9755422Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-02T22:34:11.9756751Z ##[endgroup]
+2026-11-02T22:34:12.1698065Z Syncing repository: Ebonyks/mermaid-roshan-reef
+2026-11-02T22:34:12.1700696Z ##[group]Getting Git version info
+2026-11-02T22:34:12.1701525Z Working directory is 'D:\a\mermaid-roshan-reef\mermaid-roshan-reef'
+2026-11-02T22:34:12.2650409Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-02T22:34:12.6507493Z git version 2.56.0.windows.4
+2026-11-02T22:34:12.6562291Z ##[endgroup]
+2026-11-02T22:34:12.6600732Z Temporarily overriding HOME='D:\a\_temp\047bd977-f275-4a3a-bbea-b49e67a260f7' before making global git config changes
+2026-11-02T22:34:12.6602649Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-02T22:34:12.6604535Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+2026-11-02T22:34:12.7421016Z Deleting the contents of 'D:\a\mermaid-roshan-reef\mermaid-roshan-reef'
+2026-11-02T22:34:12.7427433Z ##[group]Initializing the repository
+2026-11-02T22:34:12.7436794Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+2026-11-02T22:34:12.8584275Z Initialized empty Git repository in D:/a/mermaid-roshan-reef/mermaid-roshan-reef/.git/
+2026-11-02T22:34:12.8641582Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/Ebonyks/mermaid-roshan-reef
+2026-11-02T22:34:12.9469346Z ##[endgroup]
+2026-11-02T22:34:12.9470835Z ##[group]Disabling automatic garbage collection
+2026-11-02T22:34:12.9480359Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-02T22:34:12.9912651Z ##[endgroup]
+2026-11-02T22:34:12.9915160Z ##[group]Setting up auth
+2026-11-02T22:34:12.9925227Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-02T22:34:13.0372524Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-02T22:34:14.6332762Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-02T22:34:14.6718605Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-02T22:34:15.2653716Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-02T22:34:15.3039972Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-02T22:34:15.8726302Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-02T22:34:15.9221103Z ##[endgroup]
+2026-11-02T22:34:15.9222118Z ##[group]Fetching the repository
+2026-11-02T22:34:15.9244234Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +f348ec44b1fd8f1db46323fdf437782cf789bf7e:refs/remotes/origin/codex/flat-vector-melody-progress-pips-20261102
+2026-11-02T22:48:14.1479270Z From https://github.com/Ebonyks/mermaid-roshan-reef
+2026-11-02T22:48:14.1480783Z  * [new ref]           f348ec44b1fd8f1db46323fdf437782cf789bf7e -> origin/codex/flat-vector-melody-progress-pips-20261102
+2026-11-02T22:48:14.1550840Z ##[endgroup]
+2026-11-02T22:48:14.1551468Z ##[group]Determining the checkout info
+2026-11-02T22:48:14.1562636Z ##[endgroup]
+2026-11-02T22:48:14.1599041Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-02T22:48:14.2123206Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-02T22:48:14.2639206Z ##[group]Checking out the ref
+2026-11-02T22:48:14.2649034Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B codex/flat-vector-melody-progress-pips-20261102 refs/remotes/origin/codex/flat-vector-melody-progress-pips-20261102
+2026-11-02T22:48:15.4542613Z Updating files:   1% (634/34154)
+2026-11-02T22:48:15.7252490Z Updating files:   2% (684/34154)
+2026-11-02T22:48:15.9052100Z Updating files:   3% (1025/34154)
+2026-11-02T22:48:16.3545841Z Updating files:   4% (1367/34154)
+2026-11-02T22:48:17.0179892Z Updating files:   4% (1592/34154)
+2026-11-02T22:48:17.3616731Z Updating files:   5% (1708/34154)
+2026-11-02T22:48:17.8639329Z Updating files:   5% (1941/34154)
+2026-11-02T22:48:18.2482757Z Updating files:   6% (2050/34154)
+2026-11-02T22:48:18.3609594Z Updating files:   7% (2391/34154)
+2026-11-02T22:48:19.1647497Z Updating files:   7% (2420/34154)
+2026-11-02T22:48:19.3694792Z Updating files:   8% (2733/34154)
+2026-11-02T22:48:19.8131228Z Updating files:   8% (2876/34154)
+2026-11-02T22:48:20.2568386Z Updating files:   9% (3074/34154)
+2026-11-02T22:48:20.3687148Z Updating files:  10% (3416/34154)
+2026-11-02T22:48:20.8049099Z Updating files:  10% (3539/34154)
+2026-11-02T22:48:21.2118253Z Updating files:  11% (3757/34154)
+2026-11-02T22:48:21.3718085Z Updating files:  12% (4099/34154)
+2026-11-02T22:48:21.5222920Z Updating files:  12% (4288/34154)
+2026-11-02T22:48:21.8979862Z Updating files:  13% (4441/34154)
+2026-11-02T22:48:22.4372236Z Updating files:  14% (4782/34154)
+2026-11-02T22:48:22.5307878Z Updating files:  14% (5060/34154)
+2026-11-02T22:48:23.1719368Z Updating files:  15% (5124/34154)
+2026-11-02T22:48:23.3727893Z Updating files:  16% (5465/34154)
+2026-11-02T22:48:23.7519577Z Updating files:  16% (5645/34154)
+2026-11-02T22:48:24.3205322Z Updating files:  17% (5807/34154)
+2026-11-02T22:48:24.3756999Z Updating files:  18% (6148/34154)
+2026-11-02T22:48:24.9354374Z Updating files:  18% (6220/34154)
+2026-11-02T22:48:25.3741116Z Updating files:  19% (6490/34154)
+2026-11-02T22:48:26.2942552Z Updating files:  19% (6622/34154)
+2026-11-02T22:48:26.3906281Z Updating files:  20% (6831/34154)
+2026-11-02T22:48:26.6904245Z Updating files:  20% (6861/34154)
+2026-11-02T22:48:27.2027660Z Updating files:  21% (7173/34154)
+2026-11-02T22:48:27.3899573Z Updating files:  22% (7514/34154)
+2026-11-02T22:48:28.2584062Z Updating files:  22% (7593/34154)
+2026-11-02T22:48:28.3903735Z Updating files:  23% (7856/34154)
+2026-11-02T22:48:29.4034495Z Updating files:  23% (7910/34154)
+2026-11-02T22:48:30.2550809Z Updating files:  23% (8013/34154)
+2026-11-02T22:48:30.3996370Z Updating files:  24% (8197/34154)
+2026-11-02T22:48:31.4620231Z Updating files:  24% (8227/34154)
+2026-11-02T22:48:31.9544700Z Updating files:  24% (8437/34154)
+2026-11-02T22:48:32.2496436Z Updating files:  25% (8539/34154)
+2026-11-02T22:48:32.4207158Z Updating files:  26% (8881/34154)
+2026-11-02T22:48:33.4136917Z Updating files:  26% (8955/34154)
+2026-11-02T22:48:33.8298715Z Updating files:  26% (9126/34154)
+2026-11-02T22:48:34.4097344Z Updating files:  27% (9222/34154)
+2026-11-02T22:48:35.4319119Z Updating files:  27% (9348/34154)
+2026-11-02T22:48:36.4725438Z Updating files:  27% (9490/34154)
+2026-11-02T22:48:37.3303960Z Updating files:  27% (9503/34154)
+2026-11-02T22:48:37.4135749Z Updating files:  28% (9564/34154)
+2026-11-02T22:48:38.4108770Z Updating files:  28% (9574/34154)
+2026-11-02T22:48:39.1013332Z Updating files:  28% (9653/34154)
+2026-11-02T22:48:39.4236685Z Updating files:  29% (9905/34154)
+2026-11-02T22:48:39.5144495Z Updating files:  29% (10108/34154)
+2026-11-02T22:48:40.4552800Z Updating files:  30% (10247/34154)
+2026-11-02T22:48:41.1863303Z Updating files:  30% (10370/34154)
+2026-11-02T22:48:41.4327079Z Updating files:  31% (10588/34154)
+2026-11-02T22:48:42.4500454Z Updating files:  31% (10656/34154)
+2026-11-02T22:48:42.6186935Z Updating files:  31% (10871/34154)
+2026-11-02T22:48:43.4556578Z Updating files:  32% (10930/34154)
+2026-11-02T22:48:43.7340882Z Updating files:  32% (11168/34154)
+2026-11-02T22:48:44.8313675Z Updating files:  33% (11271/34154)
+2026-11-02T22:48:45.4504289Z Updating files:  33% (11373/34154)
+2026-11-02T22:48:45.5785260Z Updating files:  34% (11613/34154)
+2026-11-02T22:48:46.4812140Z Updating files:  34% (11623/34154)
+2026-11-02T22:48:46.6569585Z Updating files:  34% (11905/34154)
+2026-11-02T22:48:47.5431104Z Updating files:  35% (11954/34154)
+2026-11-02T22:48:48.4209044Z Updating files:  35% (12104/34154)
+2026-11-02T22:48:48.6178006Z Updating files:  36% (12296/34154)
+2026-11-02T22:48:49.4638607Z Updating files:  36% (12467/34154)
+2026-11-02T22:48:49.5054139Z Updating files:  37% (12637/34154)
+2026-11-02T22:48:50.5048188Z Updating files:  37% (12672/34154)
+2026-11-02T22:48:50.8456218Z Updating files:  37% (12865/34154)
+2026-11-02T22:48:51.8591897Z Updating files:  38% (12979/34154)
+2026-11-02T22:48:51.9150099Z Updating files:  38% (13286/34154)
+2026-11-02T22:48:52.3652015Z Updating files:  39% (13321/34154)
+2026-11-02T22:48:52.5085554Z Updating files:  40% (13662/34154)
+2026-11-02T22:48:53.5073275Z Updating files:  40% (13772/34154)
+2026-11-02T22:48:56.2309386Z Updating files:  40% (13873/34154)
+2026-11-02T22:48:56.2671590Z Updating files:  40% (13989/34154)
+2026-11-02T22:48:56.5316729Z Updating files:  41% (14004/34154)
+2026-11-02T22:48:56.9104627Z Updating files:  41% (14148/34154)
+2026-11-02T22:48:57.5375572Z Updating files:  42% (14345/34154)
+2026-11-02T22:48:58.0677332Z Updating files:  42% (14515/34154)
+2026-11-02T22:48:58.5447576Z Updating files:  43% (14687/34154)
+2026-11-02T22:48:59.3133661Z Updating files:  43% (14822/34154)
+2026-11-02T22:48:59.5556805Z Updating files:  44% (15028/34154)
+2026-11-02T22:49:00.5795593Z Updating files:  44% (15071/34154)
+2026-11-02T22:49:01.5687452Z Updating files:  44% (15151/34154)
+2026-11-02T22:49:01.5881917Z Updating files:  44% (15352/34154)
+2026-11-02T22:49:02.5758977Z Updating files:  45% (15370/34154)
+2026-11-02T22:49:03.2991960Z Updating files:  45% (15569/34154)
+2026-11-02T22:49:03.5760719Z Updating files:  46% (15711/34154)
+2026-11-02T22:49:04.5869877Z Updating files:  46% (15788/34154)
+2026-11-02T22:49:04.8639609Z Updating files:  46% (16005/34154)
+2026-11-02T22:49:05.7578555Z Updating files:  47% (16053/34154)
+2026-11-02T22:49:06.6164823Z Updating files:  47% (16148/34154)
+2026-11-02T22:49:07.2160097Z Updating files:  47% (16313/34154)
+2026-11-02T22:49:07.6292818Z Updating files:  48% (16394/34154)
+2026-11-02T22:49:08.7552254Z Updating files:  48% (16525/34154)
+2026-11-02T22:49:08.8235791Z Updating files:  48% (16726/34154)
+2026-11-02T22:49:09.8130182Z Updating files:  49% (16736/34154)
+2026-11-02T22:49:10.0915252Z Updating files:  49% (16806/34154)
+2026-11-02T22:49:10.1957729Z ##[error]The operation was canceled.
+2026-11-02T22:49:10.6934683Z Post job cleanup.
+2026-11-02T22:49:12.1628973Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-02T22:49:12.2029736Z git version 2.56.0.windows.4
+2026-11-02T22:49:12.2140552Z Temporarily overriding HOME='D:\a\_temp\60669e45-bc98-425a-bd82-c1b4f940c212' before making global git config changes
+2026-11-02T22:49:12.2141620Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-02T22:49:12.2155108Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+2026-11-02T22:49:12.2561328Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-02T22:49:12.2950582Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-02T22:49:13.0425370Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-02T22:49:13.0760842Z http.https://github.com/.extraheader
+2026-11-02T22:49:13.0805741Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-11-02T22:49:13.1187506Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-02T22:49:13.6784571Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-02T22:49:13.7181455Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-02T22:49:14.3450405Z Cleaning up orphan processes
+2026-11-02T22:49:14.5289680Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

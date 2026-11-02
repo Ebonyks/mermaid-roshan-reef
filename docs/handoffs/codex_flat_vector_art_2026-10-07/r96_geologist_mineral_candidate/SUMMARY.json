@@ -20,7 +20,7 @@
   "dev_integrated": 20,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261102-R127-SOURCE",
+  "revision": "FV-AUDIT-20261102-R127-CI-MAIN-PASS-MUSIC-TIMEOUT",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
@@ -3362,5 +3362,183 @@
       "scope": "Production of work-branch art candidates and established GitHub delivery. Dev/master frozen; no promotion/release, automation resume, messaging/interruption of other chats or paused-goal resumption."
     }
   },
-  "non_native_phone_review_derivatives_this_revision": 24
+  "non_native_phone_review_derivatives_this_revision": 24,
+  "r127_terminal_CI_observation": {
+    "state": "MAIN_CI_JOB_SUCCESS_FULL_RUN_CANCELLED_MUSIC_CHECKOUT_TIMEOUT",
+    "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+    "run_id": 41538353211,
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41538353211",
+    "status": "completed",
+    "overall_conclusion": "cancelled",
+    "main_job": {
+      "id": 125595861226,
+      "conclusion": "success",
+      "started_at": "2026-11-02T22:34:08Z",
+      "completed_at": "2026-11-02T23:39:17Z",
+      "verified_success_steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "conclusion": "success"
+        },
+        {
+          "number": 3,
+          "name": "Download Godot (checksum-verified)",
+          "conclusion": "success"
+        },
+        {
+          "number": 4,
+          "name": "Static gates (parse + Variant-inference lint)",
+          "conclusion": "success"
+        },
+        {
+          "number": 5,
+          "name": "Import (deadlock-guarded)",
+          "conclusion": "success"
+        },
+        {
+          "number": 6,
+          "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+          "conclusion": "success"
+        },
+        {
+          "number": 7,
+          "name": "Run trusted probes",
+          "conclusion": "success"
+        },
+        {
+          "number": 8,
+          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "conclusion": "success"
+        },
+        {
+          "number": 9,
+          "name": "Dust boss balance playtest (advisory)",
+          "conclusion": "success"
+        },
+        {
+          "number": 10,
+          "name": "Opera balance playtest (advisory)",
+          "conclusion": "success"
+        },
+        {
+          "number": 11,
+          "name": "Publish opera art manifest (advisory)",
+          "conclusion": "success"
+        },
+        {
+          "number": 12,
+          "name": "Upload opera art manifest",
+          "conclusion": "success"
+        },
+        {
+          "number": 13,
+          "name": "Capture first-world visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 14,
+          "name": "Capture legacy human-art diagnostic",
+          "conclusion": "success"
+        },
+        {
+          "number": 15,
+          "name": "Upload legacy human-art diagnostic",
+          "conclusion": "success"
+        },
+        {
+          "number": 16,
+          "name": "Capture Sky Lagoon visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 17,
+          "name": "Upload Sky Lagoon visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 18,
+          "name": "Capture northern-world visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 19,
+          "name": "Upload northern-world visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 20,
+          "name": "Capture dust-boss arena review",
+          "conclusion": "success"
+        },
+        {
+          "number": 21,
+          "name": "Upload dust-boss arena review",
+          "conclusion": "success"
+        },
+        {
+          "number": 22,
+          "name": "Capture pearl-castle visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 23,
+          "name": "Upload pearl-castle visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 24,
+          "name": "Upload advisory sensor receipts",
+          "conclusion": "success"
+        }
+      ],
+      "remote_assertive_headless_programs": 81,
+      "separate_legacy_display_diagnostic": true,
+      "probe_coverage": "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_VERIFIED_PROBE_COVERAGE.json",
+      "actual_main_log_sha256": "388863bb5fba9ff94af47cd52468daf6b70b0eb75940aaaa1cfe597e194964fe"
+    },
+    "music_job": {
+      "id": 125595861612,
+      "conclusion": "cancelled",
+      "completed_at": "2026-11-02T22:49:16Z",
+      "verified_reason": "15-minute job execution limit during checkout; setup-python and deterministic music verification skipped.",
+      "verification_ran": false,
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/CI_MUSIC_TIMEOUT_JOB.json",
+      "log_sha256": "77825a2f33ce6fa0e0292b14ac59db592b741eb0c9438bcd2341a2395fe185e3"
+    },
+    "full_run_pass": false,
+    "local_trusted_programs_executed": 82,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "local_program_scope_note": "The local82-program list includes the display-only human-art program, which reports HEADLESS SKIP without assertions. CI intentionally runs81 assertive headless programs and a separate Xvfb legacy diagnostic. No count is promoted to formal visual acceptance.",
+    "candidate_native_checks": 192,
+    "reused_baseline_source_native_checks": 171,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "source_candidate_unchanged": true,
+    "historical_art_delivery": {
+      "source_revision": "f348ec44b1fd8f1db46323fdf437782cf789bf7e",
+      "canonical_payload": "0293c0c8a3f52f9d3e3d651eb5b99f3dd6416443",
+      "canonical_receipt": "f334d6f13aa929d86eefee9676aa2c58a2e60852"
+    },
+    "CI_visual_artifacts": "Unchanged-world diagnostic artifacts outside the selected pip scene; not ingested or credited here as pip frames, accepted artwork or formalQA11.",
+    "observer_terminal": {
+      "session_id": 90019,
+      "exit_code": 0,
+      "meaning": "Observer completed; exit0 is not a full CI pass"
+    },
+    "remote_rerun_requested": false,
+    "workflow_edited": false,
+    "new_artwork_credit": 0,
+    "new_frame_events": 0,
+    "Dev_integrated": false,
+    "accepted_removed": 0,
+    "mission_complete": false
+  }
 }
