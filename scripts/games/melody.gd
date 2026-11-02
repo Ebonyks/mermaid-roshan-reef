@@ -44,6 +44,16 @@ const TILE_SOURCE_RECTS: Array[Rect2i] = [
 ]
 const DADDY_PATH := "res://assets/characters/stickers/daddy.png"
 const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
+const FOOTLIGHT_RAIL_PATH := "res://assets/melody/footlight_rail_painted.png"
+const FOOTLIGHT_GLOBE_PATHS: Array[String] = [
+	"res://assets/melody/footlight_red.png",
+	"res://assets/melody/footlight_orange.png",
+	"res://assets/melody/footlight_yellow.png",
+	"res://assets/melody/footlight_green.png",
+	"res://assets/melody/footlight_sky_blue.png",
+	"res://assets/melody/footlight_periwinkle.png",
+	"res://assets/melody/footlight_purple.png",
+]
 const OBJECTIVE := "Tap each rainbow note in the green!"
 const OBJECTIVE_VOICE := "op_popstar_rhythm"
 
@@ -172,46 +182,44 @@ class ProsceniumCanvas extends Control:
 
 
 class FootlightsCanvas extends Control:
-	const NAVY := MelodyGame.NAVY
-	const NOTE_COUNT := MelodyGame.NOTE_COUNT
-	const NOTE_COLORS := MelodyGame.NOTE_COLORS
-	var rail_geometry: Line2D = null
+	var painted_rail: NinePatchRect = null
+	var painted_globes: Array[Sprite2D] = []
 
 	func setup() -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 16
-		rail_geometry = Line2D.new()
-		rail_geometry.name = "FootlightRailGeometry"
-		rail_geometry.default_color = NAVY
-		rail_geometry.width = 36.0
-		rail_geometry.antialiased = true
-		rail_geometry.z_index = -1
-		add_child(rail_geometry)
+		painted_rail = NinePatchRect.new()
+		painted_rail.name = "PaintedFootlightRail"
+		painted_rail.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		painted_rail.focus_mode = Control.FOCUS_NONE
+		painted_rail.texture = load(MelodyGame.FOOTLIGHT_RAIL_PATH) as Texture2D
+		painted_rail.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		painted_rail.patch_margin_left = 18
+		painted_rail.patch_margin_right = 18
+		painted_rail.patch_margin_top = 0
+		painted_rail.patch_margin_bottom = 0
+		painted_rail.z_index = -1
+		add_child(painted_rail)
+		for index in range(13):
+			var globe := Sprite2D.new()
+			globe.name = "PaintedFootlightGlobe%d" % index
+			globe.texture = load(MelodyGame.FOOTLIGHT_GLOBE_PATHS[
+				index % MelodyGame.NOTE_COUNT]) as Texture2D
+			globe.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+			globe.scale = Vector2.ONE * (30.0 / 128.0)
+			add_child(globe)
+			painted_globes.append(globe)
 
 
 	func layout(rect: Rect2) -> void:
 		position = rect.position
 		size = rect.size
-		rail_geometry.points = PackedVector2Array([
-			Vector2(18.0, size.y * 0.5),
-			Vector2(maxf(18.0, size.x - 18.0), size.y * 0.5),
-		])
-		queue_redraw()
-
-
-	func _draw() -> void:
-		if size.x <= 0.0:
-			return
-		var count := 13
-		for index in range(count):
-			var center := Vector2((float(index) + 0.5) * size.x / float(count),
-				size.y * 0.5)
-			var color: Color = NOTE_COLORS[index % NOTE_COUNT]
-			draw_circle(center, 15.0, NAVY, true, -1.0, true)
-			draw_circle(center, 10.5, color.lightened(0.24), true, -1.0, true)
-			draw_circle(center - Vector2(3.0, 3.0), 3.0, Color.WHITE,
-				true, -1.0, true)
+		painted_rail.position = Vector2(18.0, size.y * 0.5 - 18.0)
+		painted_rail.size = Vector2(maxf(36.0, size.x - 36.0), 36.0)
+		for index in range(painted_globes.size()):
+			painted_globes[index].position = Vector2(
+				(float(index) + 0.5) * size.x / 13.0, size.y * 0.5)
 
 
 class StageStarCanvas extends Control:

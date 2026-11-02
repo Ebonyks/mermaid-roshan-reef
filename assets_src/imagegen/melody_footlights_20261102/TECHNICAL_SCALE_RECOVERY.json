@@ -1,0 +1,55 @@
+{
+  "reason": "Aseprite1.3.18.4 floors scale=128/425 to127px for four cells; source crops and whole-native roundtrips are all pixel-exact. Only those four technical exports use explicit128x128 bilinear dimensions; no artwork/native crop changes and no healthy engine test rerun.",
+  "first_outputs": [
+    {
+      "name": "yellow",
+      "first_export_dimensions": [
+        127,
+        127
+      ],
+      "first_export_sha256": "0f6d75dd46b3cb7eb9c1c4f3f0d8bbf56d8ad5d43a85b60949d5606fd0610c11",
+      "status": "NONSELECTED_TECHNICAL127_ROUNDING_EXPORT_NOT_RUNTIME_TARGET"
+    },
+    {
+      "name": "green",
+      "first_export_dimensions": [
+        127,
+        127
+      ],
+      "first_export_sha256": "734d1f9fc80d8b39e3bb49cd588fa0d3e26247a6dcf60e2b5d8fba52c6f8e9f9",
+      "status": "NONSELECTED_TECHNICAL127_ROUNDING_EXPORT_NOT_RUNTIME_TARGET"
+    },
+    {
+      "name": "sky_blue",
+      "first_export_dimensions": [
+        127,
+        127
+      ],
+      "first_export_sha256": "5658bfb5b81873ec6673d84bf156159b514e23674ad410759f8f3180f5c7fbf3",
+      "status": "NONSELECTED_TECHNICAL127_ROUNDING_EXPORT_NOT_RUNTIME_TARGET"
+    },
+    {
+      "name": "purple",
+      "first_export_dimensions": [
+        127,
+        127
+      ],
+      "first_export_sha256": "2a9758186f2fffb9c194e76151281c6634385ccf9e46be656cec08837c7614dc",
+      "status": "NONSELECTED_TECHNICAL127_ROUNDING_EXPORT_NOT_RUNTIME_TARGET"
+    }
+  ],
+  "corrected_exports": [
+    "yellow",
+    "green",
+    "sky_blue",
+    "purple"
+  ],
+  "healthy_exports_retained": [
+    "red",
+    "orange",
+    "periwinkle",
+    "rail"
+  ],
+  "new_generation_calls": 0,
+  "creative_pixel_changes": false
+}

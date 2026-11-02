@@ -49,6 +49,26 @@ const DADDY_SHA256 := \
 const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
 const ROSHAN_SHA256 := \
 	"2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523"
+const FOOTLIGHT_RAIL_PATH := "res://assets/melody/footlight_rail_painted.png"
+const FOOTLIGHT_GLOBE_PATHS: Array[String] = [
+	"res://assets/melody/footlight_red.png",
+	"res://assets/melody/footlight_orange.png",
+	"res://assets/melody/footlight_yellow.png",
+	"res://assets/melody/footlight_green.png",
+	"res://assets/melody/footlight_sky_blue.png",
+	"res://assets/melody/footlight_periwinkle.png",
+	"res://assets/melody/footlight_purple.png",
+]
+const FOOTLIGHT_SHA256: Array[String] = [
+	"2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+	"4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+	"e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+	"89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+	"10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+	"55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+	"e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+	"50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+]
 const VOICE_PATH := "res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg"
 const VOICE_SHA256 := \
 	"e2d819527d370aff926302dbfecd6beb9e6c2165024d7abad131a28d90cac4ed"
@@ -503,6 +523,27 @@ func _check_asset_contract() -> void:
 		ResourceLoader.exists(VOICE_PATH)
 		and FileAccess.get_sha256(VOICE_PATH) == VOICE_SHA256)
 
+	var footlight_paths: Array[String] = FOOTLIGHT_GLOBE_PATHS.duplicate()
+	footlight_paths.append(FOOTLIGHT_RAIL_PATH)
+	var footlights_exact := true
+	var footlights_imported := true
+	for index in range(footlight_paths.size()):
+		var path: String = footlight_paths[index]
+		var image := Image.load_from_file(path)
+		var dimensions := Vector2i(128, 128) if index < 7 else Vector2i(674, 36)
+		footlights_exact = footlights_exact and image != null \
+			and image.get_size() == dimensions and image.get_format() == Image.FORMAT_RGBA8 \
+			and FileAccess.get_sha256(path) == FOOTLIGHT_SHA256[index]
+		var imports := FileAccess.get_file_as_string(path + ".import")
+		footlights_imported = footlights_imported and imports.contains("compress/mode=0") \
+			and imports.contains("\"vram_texture\": false") \
+			and imports.contains("mipmaps/generate=true")
+	_check("painted footlights bind all eight exact whole-source RGBA exports", footlights_exact)
+	_check("painted globe/rail imports are lossless mipmapped without VRAM", footlights_imported)
+	_check("painted globe/rail source and editable provenance are licensed",
+		licenses.contains("assets/melody/footlight_")
+		and licenses.contains("assets_src/imagegen/melody_footlights_20261102/"))
+
 
 func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
 		direct_baseline: Dictionary, game_nodes_baseline: Array[int],
@@ -872,25 +913,32 @@ func _runtime_tile_contract(surface: Node2D,
 func _check_runtime_texture_census(surface: Node2D) -> void:
 	var counts: Dictionary = {}
 	_collect_runtime_texture_paths(surface, counts)
-	var expected_paths: Array[String] = TILE_PATHS.duplicate()
-	expected_paths.append(DADDY_PATH)
-	expected_paths.append(ROSHAN_PATH)
-	var exact_once := counts.size() == expected_paths.size()
+	var expected: Dictionary = {}
+	for path: String in TILE_PATHS:
+		expected[path] = 1
+	expected[DADDY_PATH] = 1
+	expected[ROSHAN_PATH] = 1
+	expected[FOOTLIGHT_RAIL_PATH] = 1
+	for index in range(13):
+		var path: String = FOOTLIGHT_GLOBE_PATHS[index % 7]
+		expected[path] = int(expected.get(path, 0)) + 1
+	var exact_bindings: bool = counts.size() == expected.size()
 	var decoded_bytes := 0
 	var declared_upload_bytes := 0
-	for path: String in expected_paths:
-		exact_once = exact_once and int(counts.get(path, 0)) == 1
+	for path: String in expected:
+		exact_bindings = exact_bindings \
+			and int(counts.get(path, 0)) == int(expected[path])
 		var image := Image.load_from_file(path)
 		if image == null:
-			exact_once = false
+			exact_bindings = false
 			continue
 		var pixels: int = image.get_width() * image.get_height()
 		decoded_bytes += pixels * 4
 		var import_text := FileAccess.get_file_as_string(path + ".import")
 		declared_upload_bytes += pixels if import_text.contains(
 			"compress/mode=2") else pixels * 4
-	_check("live Canvas binds only four tiles, Daddy, and Roshan exactly once each",
-		exact_once)
+	_check("live Canvas binds four tiles/two actors/one rail and exact13-globe palette counts",
+		exact_bindings)
 	_check("unique live texture census stays within conservative decoded and declared-upload bounds",
 		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024
 		and declared_upload_bytes > 0
@@ -946,8 +994,7 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 				"LeftCurtainGeometry", "RightCurtainGeometry",
 				"CrownHeaderGeometry", "StageApronGeometry",
 			], []) \
-			or not _exact_typed_geometry_children(
-				footlights, [], ["FootlightRailGeometry"]) \
+			or not _painted_footlights_contract(footlights) \
 			or not _exact_typed_geometry_children(
 				star, ["StageStarGeometry"], []) \
 			or not _exact_typed_geometry_children(
@@ -969,6 +1016,50 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 				pip, ["ProgressPipGeometry"], []):
 			return false
 	return true
+
+
+func _painted_footlights_contract(node: Node) -> bool:
+	if not (node is Control):
+		return false
+	var parent := node as Control
+	var names: Array[String] = ["PaintedFootlightRail"]
+	for index in range(13):
+		names.append("PaintedFootlightGlobe%d" % index)
+	if not _exact_direct_child_names(parent, names):
+		return false
+	var rail := parent.get_node("PaintedFootlightRail") as NinePatchRect
+	if rail == null or rail.texture == null or rail.get_child_count() != 0 \
+			or rail.get_script() != null or rail.texture.resource_path != FOOTLIGHT_RAIL_PATH \
+			or rail.texture.get_size() != Vector2(674, 36) \
+			or rail.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+			or rail.focus_mode != Control.FOCUS_NONE or rail.z_index != -1 \
+			or rail.patch_margin_left != 18 or rail.patch_margin_right != 18 \
+			or rail.patch_margin_top != 0 or rail.patch_margin_bottom != 0 \
+			or not rail.draw_center or rail.axis_stretch_horizontal != NinePatchRect.AXIS_STRETCH_MODE_STRETCH \
+			or rail.texture_filter != CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+			or rail.modulate != Color.WHITE or rail.self_modulate != Color.WHITE \
+			or not rail.position.is_equal_approx(Vector2(18.0, parent.size.y * 0.5 - 18.0)) \
+			or not rail.size.is_equal_approx(Vector2(maxf(36.0, parent.size.x - 36.0), 36.0)) \
+			or not rail.scale.is_equal_approx(Vector2.ONE) or not is_zero_approx(rail.rotation) \
+			or not _nine_patch_alpha_rect(rail).has_area():
+		return false
+	for index in range(13):
+		var globe := parent.get_node("PaintedFootlightGlobe%d" % index) as Sprite2D
+		var center := Vector2((float(index) + 0.5) * parent.size.x / 13.0, parent.size.y * 0.5)
+		if globe == null or globe.texture == null or globe.get_child_count() != 0 \
+				or globe.get_script() != null or globe.texture.resource_path != FOOTLIGHT_GLOBE_PATHS[index % 7] \
+				or globe.texture.get_size() != Vector2(128, 128) \
+				or not globe.centered or globe.region_enabled or globe.flip_h or globe.flip_v \
+				or globe.hframes != 1 or globe.vframes != 1 or globe.frame != 0 \
+				or not globe.offset.is_zero_approx() or not globe.position.is_equal_approx(center) \
+				or not globe.scale.is_equal_approx(Vector2.ONE * (30.0 / 128.0)) \
+				or not is_zero_approx(globe.rotation) or globe.z_index != 0 \
+				or globe.modulate != Color.WHITE or globe.self_modulate != Color.WHITE \
+				or globe.texture_filter != CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+				or not globe.visible or not _sprite_alpha_rect(globe).has_area():
+			return false
+	return parent.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and parent.focus_mode == Control.FOCUS_NONE and parent.z_index == 16 and rail.visible
 
 
 func _exact_direct_child_names(node: Node, expected: Array[String]) -> bool:
@@ -1125,6 +1216,10 @@ func _collect_visual_rects(node: Node, rects: Array[Rect2]) -> void:
 			var alpha_rect: Rect2 = _texture_rect_alpha_rect(texture_rect)
 			if alpha_rect.has_area():
 				rects.append(alpha_rect)
+	elif node is NinePatchRect:
+		var alpha_rect: Rect2 = _nine_patch_alpha_rect(node as NinePatchRect)
+		if alpha_rect.has_area():
+			rects.append(alpha_rect)
 	elif node is ColorRect:
 		var color_rect := node as ColorRect
 		if color_rect.color.a > 0.02:
@@ -1174,6 +1269,36 @@ func _texture_rect_alpha_rect(item: TextureRect) -> Rect2:
 	return Rect2(
 		draw_position + Vector2(used.position) * scale_factor,
 		Vector2(used.size) * scale_factor)
+
+
+func _nine_patch_alpha_rect(item: NinePatchRect) -> Rect2:
+	var source: Texture2D = _source_texture(item.texture)
+	if source == null:
+		return Rect2()
+	var used: Rect2i = _texture_alpha_used_rect(source)
+	if used.size == Vector2i.ZERO:
+		return Rect2()
+	var source_size: Vector2 = source.get_size()
+	var rect: Rect2 = item.get_global_rect()
+	var left: float = _nine_patch_axis(float(used.position.x), source_size.x, rect.size.x,
+		float(item.patch_margin_left), float(item.patch_margin_right))
+	var right: float = _nine_patch_axis(float(used.end.x), source_size.x, rect.size.x,
+		float(item.patch_margin_left), float(item.patch_margin_right))
+	var top: float = _nine_patch_axis(float(used.position.y), source_size.y, rect.size.y,
+		float(item.patch_margin_top), float(item.patch_margin_bottom))
+	var bottom: float = _nine_patch_axis(float(used.end.y), source_size.y, rect.size.y,
+		float(item.patch_margin_top), float(item.patch_margin_bottom))
+	return Rect2(rect.position + Vector2(left, top), Vector2(right - left, bottom - top))
+
+
+func _nine_patch_axis(value: float, native_size: float, target_size: float,
+		begin: float, end: float) -> float:
+	if value <= begin:
+		return value
+	if value >= native_size - end:
+		return target_size - (native_size - value)
+	return begin + (value - begin) * (target_size - begin - end) \
+		/ maxf(native_size - begin - end, 1.0)
 
 
 func _texture_alpha_used_rect(texture: Texture2D) -> Rect2i:

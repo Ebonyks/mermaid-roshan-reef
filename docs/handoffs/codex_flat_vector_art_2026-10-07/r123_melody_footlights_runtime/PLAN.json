@@ -1,0 +1,57 @@
+{
+  "id": "R123",
+  "stable_id": "FV-864287E0D0F3",
+  "name": "Rainbow note rail",
+  "runtime_role": "StageFootlights / FootlightsCanvas",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "branch": "codex/flat-vector-melody-footlights-20261102",
+  "scope": "Replace only the visible primitive FootlightsCanvas rainbow rail: one painted plum support and whole painted light globes in the original13-instance seven-color sequence. Preserve exact parent position/size/z16, centers/spacing,30px globe diameter and36px rail height at all three aspects, noninteraction, all progression/input/voices/saves/actors, and every other theatre role. Source branch only; Dev frozen.",
+  "owner_scope": "Resume art candidates; keep Dev frozen",
+  "method": "Builtin ImageGen painted seven-color whole-globe asset family and painted rail; preserve each native, exact Aseprite editable masters and technical lossless exports. Use source-painted pixels on Canvas; no procedural artwork or runtime relighting. Rail display may use bounded nine-slice mapping to preserve end contours at existing widths; every globe displays as one complete authored sprite.",
+  "static_item_call_cap": 2,
+  "calls_used": 0,
+  "animation_calls": 0,
+  "design_outputs_planned": [
+    "seven-color globe atlas or equivalent whole-source family",
+    "one continuous painted plum rail"
+  ],
+  "backend": "builtin image_gen; no model selector exposed; returned version recorded only if provided",
+  "existing_named_roles": 1,
+  "new_roles": 0,
+  "new_families": 0,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-MED-05",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-READ-02",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "required_evidence": [
+    "Current exact scene/material source bindings and native outputs/prompts/backend limits",
+    "Whole-globe/end-contour preservation, palette order13-instance layout, editable masters/export/import/provenance",
+    "Same-scene ten-axis comparison and actual changed-candidate native state/lifecycle/input/save/resource checks",
+    "Exact4.7.2 Mobile/Speedy current applicable gates and trusted82, immutable source/canonical publication and anonymous manifest/every-required-file verification"
+  ],
+  "coordination": "Coordinator and job chat completed/no new cursor; only current art chat active in valid50-chat snapshot. No messages/interrupts/resumes.",
+  "created_at_utc": "2026-11-02T10:45:45.681574+00:00"
+}
