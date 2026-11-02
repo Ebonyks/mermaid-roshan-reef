@@ -441,6 +441,8 @@ R118 partialproduction2026-10-31: [whole paintedDolls cradle](../../docs/handoff
 
 R119 preservation2026-10-31: [paintedDolls progress sourcecandidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/README.md) andboundedGeologist reactionrepair; all82local/currentstatic/native342executedchecks/26effectiveframes sourcebound. ODR-DEMO-FREEZE-20261031 explicitly parks campaign afterR118; source634c8e4a06aae91e30e71e5a5e314c59c29570ce preserved,0newDev credit.22source20partialDev artifacts;6943bounded4177excluded11120retained nativePNGevents. Lifecycle/formal/device/child/owner/global remainOPEN,acceptedremoved0.
 
+R120 source production2026-11-01: [painted Melody curtains](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/README.md), source0e8095e656aaae795076b98b202cc453c3234e06, current local82/static/analyzer/2D and165 effective native executed checks.12 bounded6 excluded18 retained frames;23 source20 partialDev artifacts. Owner resumed candidates, Dev remains frozen. MA-VIS-006 lifecycle/formal/device/child/owner/global gaps remain OPEN; accepted removals0.
+
 ## MA-VIS-007
 
 | Field | Value |

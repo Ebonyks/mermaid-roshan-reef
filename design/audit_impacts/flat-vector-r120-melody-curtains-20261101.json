@@ -1,0 +1,71 @@
+{
+  "id": "flat-vector-r120-melody-curtains-20261101",
+  "baseline": "3c3b39838b2ceacb13281a83957442662ca2f5b9",
+  "scope": "Record verified painted Melody curtain source candidate, owner candidate-only resume/Dev hold, bounded same-scene evidence and canonical counts. No runtime edits on canonical branch.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-ASSET-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/.gdignore",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/ACTOR_LAYOUT_PRESERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/CANDIDATE_NATIVE_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/CANONICAL_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/CANONICAL_PUBLICATION_RUNNER.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/FRAME_INDEX.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/FRAME_REVIEW.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/FULL_GAME_ART_CONTRACT_CORRECTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/FULL_VALIDATION_RECOVERY_BASIS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/FUNCTION_PRESERVATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/LOCAL_82_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/ORIGINAL_FULL_VALIDATION_FAILURE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/OWNER_RESUME.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/PAYLOAD_PIN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/PLAN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/PROBE_ART_CONTRACT_CHANGE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/PRODUCTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/R119_EXACT_CI_SUCCESS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/SOURCE_CI_HANDLES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/SOURCE_FINAL.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/SOURCE_NATIVE_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/SOURCE_PRECOMMIT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/SOURCE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/STATIC_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/VALIDATION_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/delivery_common.py",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Source exact4.7.2/static/analyzer/2D/all82/currentnative/everyrequiredfile anonymous immutable",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/LOCAL_82_RESULT.json; SOURCE_REMOTE_VERIFICATION.json; FRAME_REVIEW.json"
+    },
+    {
+      "command": "Canonical document authority/development and immutable manifest verification",
+      "result": "PENDING",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r120_melody_curtains_runtime/CANONICAL_GATES.json; REMOTE_VERIFICATION.json"
+    }
+  ],
+  "acceptance_gaps": "Dev explicitly frozen. Exact-source CI and formalQA11/device/child/owner/natural-route/global evidence separate; accepted removals0."
+}

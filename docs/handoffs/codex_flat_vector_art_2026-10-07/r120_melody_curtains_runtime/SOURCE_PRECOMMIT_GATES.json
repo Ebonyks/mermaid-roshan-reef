@@ -1,0 +1,47 @@
+[
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_document_authority.py"
+    ],
+    "exit_code": 0,
+    "log_sha256": "35edd0ae4dfe9bfbcbce50cf3f9a1a482377e435287da0e6d3b2e02bc1a335c3"
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_development.py",
+      "--base",
+      "auto"
+    ],
+    "exit_code": 0,
+    "log_sha256": "bfdebdcdf9b9fe6339c10a3e217412a82484429cf183c3865a29b7ead7bf2936"
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-m",
+      "gdtoolkit.parser",
+      "scripts/games/melody.gd",
+      "scripts/probe_melody.gd",
+      "scripts/probe_audit.gd",
+      "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r120_melody_curtains_runtime\\capture_curtains.gd"
+    ],
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/lint_inference.py",
+      "scripts/games/melody.gd",
+      "scripts/probe_melody.gd",
+      "scripts/probe_audit.gd"
+    ],
+    "exit_code": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
