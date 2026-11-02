@@ -1,0 +1,31 @@
+{
+  "original_game_methods": 71,
+  "unchanged_original_game_methods": 68,
+  "changed_game_methods": [
+    "ProsceniumCanvas.setup",
+    "ProsceniumCanvas.layout",
+    "ProsceniumCanvas._draw"
+  ],
+  "original_probe_methods": 88,
+  "unchanged_original_probe_methods": 84,
+  "changed_probe_methods": [
+    "root._check_asset_contract",
+    "root._check_runtime_texture_census",
+    "root._surface_structure_exact",
+    "root._collect_visual_rects"
+  ],
+  "added_probe_methods": [
+    "root._nine_patch_alpha_rect",
+    "root._nine_patch_axis",
+    "root._painted_apron_contract"
+  ],
+  "full_game_probe_unchanged": true,
+  "all_controller_state_and_original_stage_layout_call_LF_exact": true,
+  "new_base_RGBA8_bytes": 424288,
+  "new_functional_or_3D_geometry": false,
+  "rendering": "Two whole-asset NinePatchRect Canvas cards. Body16px side/8px top-bottom margins; rainbow12px sides and whole60px height. Only straight middle spans adapt. Source artwork remains unshaded/untinted.",
+  "original_texture_ceilings_unchanged": {
+    "decoded_bytes": 24117248,
+    "declared_upload_bytes": 12582912
+  }
+}
