@@ -453,6 +453,8 @@ R124 source production2026-11-02: [painted Melody stage apron](../../docs/handof
 
 R125 source production2026-11-02: [painted Melody theatre bulbs](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r125_melody_bulbs_runtime/README.md), exact sourcee4166d1b74e5f04ce3b7388b517d8127686dedaa, current local82/static/analyzer/2D and99 current native executed checks. Six new bounded frames, six raw-exact source references reused.28 source20 partialDev artifacts; Dev frozen. MA-VIS-006 lifecycle and formal/device/child/owner/natural-route/global gaps remain OPEN; accepted removals0.
 
+R126source production2026-11-02: [painted Melody note token](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/README.md), exact source7f21934d20f9d1abdb78b8c1b5869586efd0cd79, current local82/static/analyzer/2D plus171source/171candidate configured native checks. All42bounded frames directly reviewed;14excluded source fixture frames preserved.29source/20partialDev artifacts; Dev frozen. MA-VIS-006lifecycle and formal/device/child/owner/natural-route/global gaps remain OPEN; accepted removals0.
+
 ## MA-VIS-007
 
 | Field | Value |
