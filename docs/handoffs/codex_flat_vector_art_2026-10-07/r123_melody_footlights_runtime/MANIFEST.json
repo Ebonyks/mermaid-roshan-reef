@@ -1,0 +1,1834 @@
+{
+  "schema": "reef.runtime_trial_delivery/1",
+  "revision": "FV-AUDIT-20261102-R123-SOURCE",
+  "baseline": "7841d79b160b9582099a78d53c2017aa792d4d97",
+  "actual_runtime_source": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+  "state": "PAINTED_FOOTLIGHTS_SOURCE_CANDIDATE_DEV_FROZEN",
+  "files": [
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297586,
+      "sha256": "e5bca1d2b2a670509366e40246d4e3a482d8cc3660c645a3cd97c30daece424c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 299309,
+      "sha256": "453ce75c13de457d44d7e6c0dc3600a59a9267fc2138145e919456ca5a0dc55e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 333154,
+      "sha256": "9c7508b3721532115969b5bc1221e8b013f239e5d7c63c1af2c5cb1d397ec09f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 275008,
+      "sha256": "9552645db989fefe0269802b06edd0ce14ed21697a669e088e7e57888a93e68a",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "design/audit_impacts/flat-vector-r123-melody-footlights-20261102.json",
+      "bytes": 4473,
+      "sha256": "83981b58a7b8600f1534b35fe4213cc8924b1b43be47fef76bc8c42f5f376467",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 200540,
+      "sha256": "145dd45f12cc19313613ab9ddbb614f44318db4de62fe9d72a2cd650a0794005",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/CANONICAL_GATES.json",
+      "bytes": 681,
+      "sha256": "4519875fa48c4496d26239e92ba773d52256a4ade5fa3e0c9d1a66e1fddebf9f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/FRAME_INDEX.json",
+      "bytes": 5390,
+      "sha256": "f5e3bda3b7093340e58564b36537528f89844f69c9d89829985fd379b0c9b995",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/FRAME_REVIEW.json",
+      "bytes": 4649,
+      "sha256": "a15661c1ddab10e23ef477f585b0ac932980e1d790ff2752f9eef760dda9d878",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/GENERATION_ACCOUNTING.json",
+      "bytes": 465,
+      "sha256": "03926bd47b69c56a508c2c04144244d2a47caa79662be4ac6322b73da683314e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/IMPLEMENTATION_SCOPE.json",
+      "bytes": 1113,
+      "sha256": "08a449b83a8f19332e16797fd965462ca23df8fe3ca7599acc452da09a384a83",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/LOCAL_82_RESULT.json",
+      "bytes": 86679,
+      "sha256": "db99d6125d19d88c932a96076ba4ec272cebde4ac82a20089e933b4bff78576f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/NATIVE_RESULT.json",
+      "bytes": 20476,
+      "sha256": "41cb76eceffc6f87b48172c2675144f37e77e79665e63fbb492662be8205b753",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/OWNER_RESUME.json",
+      "bytes": 315,
+      "sha256": "ca3888871cbc2c41ca77e87b7e4f8302fdea5609e4b1ee0b34dca094f9f36b5a",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/PLAN.json",
+      "bytes": 2731,
+      "sha256": "cb740ed1a91a3875e660b2b6b106332298bf809a203f9133c0bcd0bc4cbaade4",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/PRODUCTION.json",
+      "bytes": 3906,
+      "sha256": "292ef02d4229f28eeb84d9805f318bdb6b6daf927213d1bf4542fd8b9c102c7d",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/R122_EXACT_CI_SUCCESS.json",
+      "bytes": 9819,
+      "sha256": "28fd82998d2a674ee5dcb0b6a7aab121cee3ce71dc6a7e0d573d70bea5faddbd",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/README.md",
+      "bytes": 3558,
+      "sha256": "b82e98f55627318bdf8037353b3e182d19c2a357c7c5fd77b7a4a4c47a844cd2",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/SOURCE_CI_HANDLES.json",
+      "bytes": 289,
+      "sha256": "4378216eaa4cb8ade7135fa839b5a3900d7c2476bcd767e448fa1ac57f8e73cb",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/SOURCE_FINAL.json",
+      "bytes": 914,
+      "sha256": "d3c98a69dba36a8784cb80140b71ab3807b90edc242bf5101f950915ebc94cdc",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/SOURCE_REMOTE_VERIFICATION.json",
+      "bytes": 101467,
+      "sha256": "aeedd6246a13621a45a7c61ec0a487d254d2c0cdd6c2ccdfbcec8014ed79384a",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/STATIC_RESULT.json",
+      "bytes": 608,
+      "sha256": "fac2da7ae8557e5c6761763e153d51359889ddc0ea1992e6c174f749c97dd58c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/VALIDATION_STATUS.json",
+      "bytes": 485,
+      "sha256": "622564b2c9c4c6723a93be81daacb8e5af150b675cf48168e6071d69290fa802",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 120136,
+      "sha256": "9f273ea224fce59efb90af90eb9f58256115243409b454f0eeb3825e40747652",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 1938647,
+      "sha256": "5e003fe9603e55aef8ca223ac0fd1409289b49df94b931b4cc926fe459c5ada4",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1341486,
+      "sha256": "9183c12bffa3d388a46358d7247ca1f0c7e5e32f1b886c9a1d0692f62ccde6f5",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 573720,
+      "sha256": "bd5c744215921b446eb0a41a66bb24c47129bdf19b6e898eadd66460afe22be9",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "ASSET_LICENSES.md",
+      "bytes": 6200668,
+      "sha256": "5ecaa82558219b2347ae4fc79b94f45992fb7095cc3827e791976f9be8fd177b",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_green.png",
+      "bytes": 30705,
+      "sha256": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_green.png.import",
+      "bytes": 964,
+      "sha256": "8478ecc94463a30c63bbe436c76da12ee24b4550122f251e127c805ad0273df1",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_orange.png",
+      "bytes": 30483,
+      "sha256": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_orange.png.import",
+      "bytes": 967,
+      "sha256": "8ba064fdfe03fad957ea544d32d8d5c13acfcf0412ac9d586b85ff0ac7b56ed6",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_periwinkle.png",
+      "bytes": 29537,
+      "sha256": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_periwinkle.png.import",
+      "bytes": 979,
+      "sha256": "5de5946c8512ae2cda028c10360b2ab83d165aafd56c2235f75703c0cd356478",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_purple.png",
+      "bytes": 29226,
+      "sha256": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_purple.png.import",
+      "bytes": 967,
+      "sha256": "e49ab09ddf2037fe73f1c75944d9fc156dd8f3f991db6bfa62037ce502a733bc",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_rail_painted.png",
+      "bytes": 35846,
+      "sha256": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_rail_painted.png.import",
+      "bytes": 985,
+      "sha256": "676a7ef8fbc0c8dc26057ee3702bc39356526339eea23c70d538f13621515b87",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_red.png",
+      "bytes": 30293,
+      "sha256": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_red.png.import",
+      "bytes": 957,
+      "sha256": "85cdfe2ce74035acc062db62555eca670f1c3582f54a4f3b9d1f188ecfe21bdc",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_sky_blue.png",
+      "bytes": 29879,
+      "sha256": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_sky_blue.png.import",
+      "bytes": 973,
+      "sha256": "c032aa788b9a78ec17ef0d9646af09b8ee0ff5ad31a696f47f703ca801bb7fad",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_yellow.png",
+      "bytes": 29763,
+      "sha256": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets/melody/footlight_yellow.png.import",
+      "bytes": 967,
+      "sha256": "db40a4523755d77639d19ba90d06c136691952a9a0d12ae6f8153582da7c9914",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/EXPORT.json",
+      "bytes": 3661,
+      "sha256": "d082f35830d02b115669f6fc832423da00deb25e57a3e09114e442e68e301a72",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/EXPORT.lua",
+      "bytes": 9652,
+      "sha256": "af10b6e5c37121fdad635022392686cd020d4276f64f63ca687dcae8a849a4a0",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/EXTRACTION_PLAN.json",
+      "bytes": 3965,
+      "sha256": "400753ab666546172dd34cd972af724d1d5d02d2caa2e11a7f1d0db2accc09e6",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/FIX_POT_EXPORTS.lua",
+      "bytes": 2531,
+      "sha256": "a7506d97b0efdd5b0a0f2da4c1570b4a092c2416552fe8b953c8d07452b11268",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/GENERATION_ACCOUNTING.json",
+      "bytes": 465,
+      "sha256": "03926bd47b69c56a508c2c04144244d2a47caa79662be4ac6322b73da683314e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/GLOBES_PROVENANCE.json",
+      "bytes": 1062,
+      "sha256": "f809e442458f3441494f616abb802bb22c90508e365b7953d71eafe970a3e984",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/GLOBES_REFERENCE_BINDING.json",
+      "bytes": 1682,
+      "sha256": "8c12fc88b7c0be91a5fdd8420895499852e2007235717186729e7d2a64e672d1",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/PROMPT_GLOBES.txt",
+      "bytes": 2031,
+      "sha256": "e14bafd9dec21c0fd6e8f416d68337b7c1bd5a5ff573e08f119580f40ddf4aac",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/PROMPT_RAIL.txt",
+      "bytes": 1869,
+      "sha256": "f17cda60229c008834827030183036195063739fc5c9c44c9c092bc5e4f840e5",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/RAIL_PROVENANCE.json",
+      "bytes": 1001,
+      "sha256": "6d1dcc0e1037cb8a1a4b54b60163ea5af2db5dc5e98dcc79eddfe46e85ee034b",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/README.md",
+      "bytes": 1438,
+      "sha256": "566beb68db3cf4c13dc1d83a85c673c9fc8d73119df66b9705bc40990fb61320",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/REFERENCE_BINDING.json",
+      "bytes": 2024,
+      "sha256": "cc7d9a6cb3a77141aceafb1fffff263f0fc97a14bd5cfb98c37c50241e7c0d9f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/TECHNICAL_SCALE_RECOVERY.json",
+      "bytes": 1673,
+      "sha256": "a404f7a10278ac7752c13dace7f2cb1818c31fec504e41fdb6ddfa750183d6a4",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_green_128.aseprite",
+      "bytes": 278794,
+      "sha256": "7d85dc8162a88117131ed63b5bacf32b6d77b56929a16d30c84f5d982f8b8cbe",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_green_native.aseprite",
+      "bytes": 2888147,
+      "sha256": "1ba2d2857fbc92a54cfa9c84f2674601a6e1cb0447a6f91f70fcf59f0c3d4622",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_green_native_roundtrip.png",
+      "bytes": 288097,
+      "sha256": "97c4406bd62265b553aefd8d99a37a15619959f62e323d602fba2616c4113584",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_orange_128.aseprite",
+      "bytes": 279609,
+      "sha256": "91bbfb57c5d8793974e7ff7d2a35c0062921f09472abc6926419de10c73dabf6",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_orange_native.aseprite",
+      "bytes": 2888147,
+      "sha256": "a38b2159c1fca818e14d1cc628195b7fa54aefcd9061fb4f5af185629d022187",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_orange_native_roundtrip.png",
+      "bytes": 291178,
+      "sha256": "8f616b0a81d8714ba181c68206d511167e6271c7f4f4f64cf20355dfb03774c4",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_periwinkle_128.aseprite",
+      "bytes": 279609,
+      "sha256": "253110ecf902093eb8aabdb3859fe4808a48fd6ec528a5d6959f7cd966c778a8",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_periwinkle_native.aseprite",
+      "bytes": 2888147,
+      "sha256": "b29e7438b73ba9c39739048469e307413ead3864db55eeca78d83d55b356a611",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_periwinkle_native_roundtrip.png",
+      "bytes": 280968,
+      "sha256": "e41ee29e8c5312c15e12bc84d32b3e85b2053e2ac62e31552ed2819881670f92",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_purple_128.aseprite",
+      "bytes": 278794,
+      "sha256": "822046af0047c514112a18f032d7a0c5b8a12da97236c2f4a8be2e24c4fb662c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_purple_native.aseprite",
+      "bytes": 2888147,
+      "sha256": "22d722b10aca0d58d83349e754dce125e5601ef78a06194ac53a1bebba9fd61b",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_purple_native_roundtrip.png",
+      "bytes": 275504,
+      "sha256": "18cd8387aa8b44831aab1662d62da8a226983556fa688e27888e621801452881",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_red_128.aseprite",
+      "bytes": 281315,
+      "sha256": "3409ab22af1e8101df1e3117202a4d989f945599c84026d482e62c37e6c7e450",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_red_native.aseprite",
+      "bytes": 2888147,
+      "sha256": "6fa05ac052c4a2984f479bae1fa8a80914724d535894bf68f20184a565f2c9a3",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_red_native_roundtrip.png",
+      "bytes": 288169,
+      "sha256": "f02072ce3565d90b0483bfcf3d14575822c9cd00d33d5beef880a7eecf8b5551",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_sky_blue_128.aseprite",
+      "bytes": 278794,
+      "sha256": "c8af16dcb439f06fa2ee401307e4163d2b350f5478409f159c5a765a134784e2",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_sky_blue_native.aseprite",
+      "bytes": 2888147,
+      "sha256": "e2991cc6ee302a2419ea5340fc41a985f37d76dac05657ea86d4429fecfde403",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_sky_blue_native_roundtrip.png",
+      "bytes": 281691,
+      "sha256": "fe3933d4149f3264a5fb95917d4335d976bdb153687cd90e068a43a8bc30d5de",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_yellow_128.aseprite",
+      "bytes": 278794,
+      "sha256": "36fa5899fda81263ed01030274f077f3da78ddd2b4edd218d081bf23e36f0ea8",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_yellow_native.aseprite",
+      "bytes": 2888147,
+      "sha256": "f4bc4e641dbce1d24f2c22d596935c80538ea9e37e2da935cb222a205d0e24c2",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globe_yellow_native_roundtrip.png",
+      "bytes": 280865,
+      "sha256": "cf26bb65685ab1ff630b89b0809aeb1b782152e6a7a7e58a88f7498e849ddb2a",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globes_native.aseprite",
+      "bytes": 2888147,
+      "sha256": "395969389da20e0ef470e3d56279cec3a3cb2256179c38b0f137a3ab596e5d15",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/globes_native_roundtrip.png",
+      "bytes": 2012806,
+      "sha256": "c27407f3926e3005b34d801a973035aa2915018bdcc00f8c12a712fdfb7a9572",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/rail_crop_native.aseprite",
+      "bytes": 363741,
+      "sha256": "a6b8929408ad615cef70cfa8f5875836b3974f0a74b64dc64ee5e0a6561fb97e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/rail_crop_roundtrip.png",
+      "bytes": 280854,
+      "sha256": "f16ec5dc014ccd6a665f08e9b9050cf33c3eb94cbec2d85ae78653f5c6062fb1",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/rail_native.aseprite",
+      "bytes": 363741,
+      "sha256": "969c0651111e34afbf9e5563b81c92e0094111a0c575fd255538e5cd20667d16",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/rail_native_roundtrip.png",
+      "bytes": 289580,
+      "sha256": "460a446ec7ada6e6fab5cac8fe74d5b43c021e1645d75d5d1d5a6de3a3425b80",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/masters/rail_runtime.aseprite",
+      "bytes": 48833,
+      "sha256": "946a2fff13e77339abf2e0450ecc6eb6fceafd047ab8ba71cad3006a6833ac03",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/native/globes_original.png",
+      "bytes": 2100326,
+      "sha256": "92f86b55365de9eae1fabab8926935f10545aeda8196fc5cc9980cf7bb9d8d3e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/native/rail_original.png",
+      "bytes": 392516,
+      "sha256": "0473fbd76c3536a95b0b94a37d700bd49c04c2000f08c19219e040198b5e778a",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/references/actual_melody_source_1280.png",
+      "bytes": 806971,
+      "sha256": "affa39bddaf3f04b2d5c168fa76b6e7220a85cba3b823e941ac2826f2c821e3d",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/references/painted_theatre_material.png",
+      "bytes": 672260,
+      "sha256": "32f8f27ec6624aefcd25bd8a67fb43299c6c94fa770edcacc60aa7b4e8bb2297",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/technical_scale_rounding/footlight_green.png",
+      "bytes": 30287,
+      "sha256": "734d1f9fc80d8b39e3bb49cd588fa0d3e26247a6dcf60e2b5d8fba52c6f8e9f9",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/technical_scale_rounding/footlight_purple.png",
+      "bytes": 28913,
+      "sha256": "2a9758186f2fffb9c194e76151281c6634385ccf9e46be656cec08837c7614dc",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/technical_scale_rounding/footlight_sky_blue.png",
+      "bytes": 29452,
+      "sha256": "5658bfb5b81873ec6673d84bf156159b514e23674ad410759f8f3180f5c7fbf3",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/technical_scale_rounding/footlight_yellow.png",
+      "bytes": 29273,
+      "sha256": "0f6d75dd46b3cb7eb9c1c4f3f0d8bbf56d8ad5d43a85b60949d5606fd0610c11",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/technical_scale_rounding/globe_green_127.aseprite",
+      "bytes": 274927,
+      "sha256": "568ec8ae0a4ddad038c9c350afc4cf6d9e0030f9b0eb880f41d93f2c114e38ef",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/technical_scale_rounding/globe_purple_127.aseprite",
+      "bytes": 274927,
+      "sha256": "9fb9f095659c694c898ba904ebf4bb79fbf8de284621c2403ad119f0d28b32e0",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/technical_scale_rounding/globe_sky_blue_127.aseprite",
+      "bytes": 274927,
+      "sha256": "617e157eeae649bf5a130473f431815e0975b19e42e89dbe50af4edc2644cf60",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "assets_src/imagegen/melody_footlights_20261102/technical_scale_rounding/globe_yellow_127.aseprite",
+      "bytes": 274927,
+      "sha256": "4711fe0e5c81308682a8c1984c32afe6163c9923182a7a7a3767d82d199e484c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 337527,
+      "sha256": "121ceaa98365d4a2d0e5f0ad9cc2e28c18e79e83d9d81cba67aa4522baf758b2",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 219862,
+      "sha256": "7427741eb322df9b060313ef885ef0a95003088f7b3ecf6b1995000e62957fa7",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 318278,
+      "sha256": "06c7f856c6b66cf23edbb0efbc8758266d821571f7c1d778750e56d92247b0ba",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 242133,
+      "sha256": "09a8a56bb003f206291e8412eb3396446b3c28950d6966ffad5b648011f6f158",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "design/audit_impacts/flat-vector-melody-footlights-20261102.json",
+      "bytes": 24337,
+      "sha256": "9a2b83f75d5d773f1e9a67d2837e2e18c2d3698c8e20f25081713f68fbe213aa",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/CHANGED_PROBE_ANALYZER.log",
+      "bytes": 73,
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/CURRENT_CI_STATIC_PREFIX.sh",
+      "bytes": 10887,
+      "sha256": "7d99abb34bca38ea853eab319b252060cc888d43ab57a6c06612505f030134dd",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/CURRENT_CI_STATIC_RESUME.sh",
+      "bytes": 6424,
+      "sha256": "984d5a66db0c4e12461204527d1166ce8c26e7e23a61e10c6ed4a47eaa8d5b64",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/DELIVERY_SOURCE_BINDING.json",
+      "bytes": 2094978,
+      "sha256": "62189deb9ea1c119d01259dfd1f5d011727306e33c90f4cb923248a2954485b2",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/FRAME_INDEX.json",
+      "bytes": 5390,
+      "sha256": "f5e3bda3b7093340e58564b36537528f89844f69c9d89829985fd379b0c9b995",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/FRAME_REVIEW.json",
+      "bytes": 4649,
+      "sha256": "a15661c1ddab10e23ef477f585b0ac932980e1d790ff2752f9eef760dda9d878",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/GAME2D.log",
+      "bytes": 411,
+      "sha256": "cd9caf9b33d75e4bef2367ab3eaf08685a07073d3e472062c1110bd000d4e731",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/GENERATION_ACCOUNTING.json",
+      "bytes": 465,
+      "sha256": "03926bd47b69c56a508c2c04144244d2a47caa79662be4ac6322b73da683314e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/IMPLEMENTATION_SCOPE.json",
+      "bytes": 1113,
+      "sha256": "08a449b83a8f19332e16797fd965462ca23df8fe3ca7599acc452da09a384a83",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/IMPORT_CAPTURE_RUNNER.py",
+      "bytes": 6401,
+      "sha256": "705038a297c7ce7791dbcb2311b0486ac160b1a3e5ea213a5b3ddee243a38eea",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/IMPORT_EOL_BINDING.json",
+      "bytes": 62,
+      "sha256": "a0f55f35b7ef7a1e685f63db3a23950a2780845fdb53bfded21a6093c73a6787",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/IMPORT_RESULT.json",
+      "bytes": 3293,
+      "sha256": "0ca8c2a9f52c25e173027f1f0c7416dbc709a5da0fd1c8a73f10faf586f2efe3",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/LOCAL_82_LAUNCH.json",
+      "bytes": 6166,
+      "sha256": "6f18699bef77ad390c8104ca13d3508ebf51e4c0ddc5cbefa34d25201bdcc9e7",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/LOCAL_82_RESULT.json",
+      "bytes": 86679,
+      "sha256": "db99d6125d19d88c932a96076ba4ec272cebde4ac82a20089e933b4bff78576f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/LOCAL_82_RESUME_LAUNCH.json",
+      "bytes": 6166,
+      "sha256": "0b464c1ff24475ec877269e8d2cc9fccfbf80b7818747ab1fb5251d497e09728",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/NATIVE_RESULT.json",
+      "bytes": 20476,
+      "sha256": "41cb76eceffc6f87b48172c2675144f37e77e79665e63fbb492662be8205b753",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/OWNER_RESUME.json",
+      "bytes": 315,
+      "sha256": "ca3888871cbc2c41ca77e87b7e4f8302fdea5609e4b1ee0b34dca094f9f36b5a",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/PLAN.json",
+      "bytes": 2731,
+      "sha256": "cb740ed1a91a3875e660b2b6b106332298bf809a203f9133c0bcd0bc4cbaade4",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/R122_EXACT_CI_SUCCESS.json",
+      "bytes": 9819,
+      "sha256": "28fd82998d2a674ee5dcb0b6a7aab121cee3ce71dc6a7e0d573d70bea5faddbd",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/README.md",
+      "bytes": 3139,
+      "sha256": "9263215a836ba9b92ed66de11cbdb56d0122b92138630eb36d76eb42aaaecc0e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/REFERENCE_BINDING.json",
+      "bytes": 2024,
+      "sha256": "cc7d9a6cb3a77141aceafb1fffff263f0fc97a14bd5cfb98c37c50241e7c0d9f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/SOURCE_BASELINE_PIN.json",
+      "bytes": 659007,
+      "sha256": "1d6f4ae317b4b1d3b016b714a482844409fd6228a02a1c72f6e5998680b9503a",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/SOURCE_CONTEXT_REUSE.json",
+      "bytes": 644,
+      "sha256": "bb8423580adcc6bf7ad012bec464d3b3e0d8588d83fa563e7d9fdbe787a734e7",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/SOURCE_PIN.json",
+      "bytes": 661188,
+      "sha256": "272c6f38e91c8c5e5ef7bbc5e54f0861d8c7525884c3fe173743070d34a6bb3e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/STATIC_INITIAL_FAILURE.json",
+      "bytes": 294,
+      "sha256": "623923429ed959ecfe6f72b664f208ebffacff47b164b71f11e8d30d0a47b3c2",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/STATIC_PREFIX.log",
+      "bytes": 15793,
+      "sha256": "9a20e5033499f93e9e659d26a93f8d904f7bc7e0c833579db0bcbf0b0beb12aa",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/STATIC_RESULT.json",
+      "bytes": 608,
+      "sha256": "fac2da7ae8557e5c6761763e153d51359889ddc0ea1992e6c174f749c97dd58c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/STATIC_RESUME.log",
+      "bytes": 43314,
+      "sha256": "7edb358573dd5125a1f9757d62f45ab0594423ac48daa7efb843f05d76c8e04f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/STATIC_RESUME_RESULT.json",
+      "bytes": 294,
+      "sha256": "a5033e4e9788d82351996f7d52700c6e65a356de55e8b5d961e1af4933aa0670",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/VALIDATION_RESUME_RUNNER.py",
+      "bytes": 9060,
+      "sha256": "36db61f9a67a26fd50aa259bae9e316ddb68f6f5222b8566d84af242ce52b6f5",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/VALIDATION_RUNNER.py",
+      "bytes": 8557,
+      "sha256": "4a1d230074a75899e7439005ce5f9cb75621a1e590645c8107f4af267ec44d3f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/VALIDATION_STATUS.json",
+      "bytes": 485,
+      "sha256": "622564b2c9c4c6723a93be81daacb8e5af150b675cf48168e6071d69290fa802",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1280x720/01_stage_entry.png",
+      "bytes": 851487,
+      "sha256": "a0a43e462ef3c78bc7b02908bb4996935dfff161d359624adef75461bb16c0be",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1280x720/02_one_deliberate_note.png",
+      "bytes": 849935,
+      "sha256": "e6f42d961b43d42cb83383eace48ebdc8d4e1f46e4b0fffb126a60677e547730",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1280x720/LAUNCH.json",
+      "bytes": 581,
+      "sha256": "6d82ef5bceb1d664617146b6c653000dd85403cb7a7fc206b1932628f1fb25b5",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1280x720/RESULT.json",
+      "bytes": 7844,
+      "sha256": "a0298a40462672d6480bd6be618b153293c4aa59351fd9a863af26c55e51495e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1280x720/engine.log",
+      "bytes": 195,
+      "sha256": "60f7a01003c2cc4798b63ef095cd6cffde32180a291ef63224c1dcb98201e0eb",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1280x800/01_stage_entry.png",
+      "bytes": 947860,
+      "sha256": "8d3a8f4dea51ee6458e681e83dfd0a784b8c97948d059b533aa14dd7df410fee",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1280x800/02_one_deliberate_note.png",
+      "bytes": 946093,
+      "sha256": "d5aafd9083213a4feebf25cedc527554f52ea8bb7b0b177a66ebf7cb1a4512a3",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1280x800/LAUNCH.json",
+      "bytes": 581,
+      "sha256": "6cce163c0c22f44ede02fb3ffcb6e136a59a973710c4d00199acbf0e60a3431f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1280x800/RESULT.json",
+      "bytes": 7863,
+      "sha256": "9cd2580fff19b19c01aa4e18e9710f71c75d29892f67d04f4fb5a6945c33e3ea",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1280x800/engine.log",
+      "bytes": 195,
+      "sha256": "60f7a01003c2cc4798b63ef095cd6cffde32180a291ef63224c1dcb98201e0eb",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1600x720/01_stage_entry.png",
+      "bytes": 1028793,
+      "sha256": "f16c3da23107689aa7a1a92a673770b0c03224c6b421b32df5c586df9050f05d",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1600x720/02_one_deliberate_note.png",
+      "bytes": 1026856,
+      "sha256": "206dba1d35e7850f7d9f7657ab1a50fd0698d84c11e0b39d5d925e9ef346ea7e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1600x720/LAUNCH.json",
+      "bytes": 581,
+      "sha256": "b71f64b22e2116a532be83e734e5d037bfaf5620c297156afb0752c7dccbad21",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1600x720/RESULT.json",
+      "bytes": 7838,
+      "sha256": "a8ec3bbb89bec41275c77649afb076a10586d0b18875062b34990ca80bbc09ee",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1600x720/engine.log",
+      "bytes": 195,
+      "sha256": "60f7a01003c2cc4798b63ef095cd6cffde32180a291ef63224c1dcb98201e0eb",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/capture_footlights.gd",
+      "bytes": 9337,
+      "sha256": "fc88522aba7801c407cef6d967b85be90b08b8ddcea84b2301af1b349a335997",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/source/1280x720/01_stage_entry.png",
+      "bytes": 806971,
+      "sha256": "affa39bddaf3f04b2d5c168fa76b6e7220a85cba3b823e941ac2826f2c821e3d",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/source/1280x720/02_one_deliberate_note.png",
+      "bytes": 804993,
+      "sha256": "5babca26b69f1d4e4ee04fb27c20ed62e14ffc5ae6c53ca38985ab9c4187e414",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/source/1280x720/RESULT.json",
+      "bytes": 7003,
+      "sha256": "e83152faa712afda30d3c8aa8dc85abc9c87fa1d32c97a4b514075b5b67d8d59",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/source/1280x800/01_stage_entry.png",
+      "bytes": 903268,
+      "sha256": "63d11c31661704dc81d91b6e51166011152d1601e184be306e9552bcfeeafcad",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/source/1280x800/02_one_deliberate_note.png",
+      "bytes": 901683,
+      "sha256": "5a763d7c0da71d49e7d2040795707b5364011d093feec677ae40b26a99f725aa",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/source/1280x800/RESULT.json",
+      "bytes": 7020,
+      "sha256": "b64198fcb8227d7ae4b2fedaa2472bd9e7e247373c3e1278bcb3409cc805b766",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/source/1600x720/01_stage_entry.png",
+      "bytes": 975931,
+      "sha256": "76b6ec436b90c57f733d6db0bc23670f55fc9f952adeca44a10ce46fa9aea5eb",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/source/1600x720/02_one_deliberate_note.png",
+      "bytes": 973891,
+      "sha256": "be1e4bde9884bd71fa63f98f8e362bfe04cdf4391ab45b03b0e87847bed31691",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/source/1600x720/RESULT.json",
+      "bytes": 6993,
+      "sha256": "bdfc813faabef25afa6f8475cda16b8539ab8a2c7ce78e18cbd93285190391da",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_alpha_milestone_save.log",
+      "bytes": 52101,
+      "sha256": "72e810efbd50e8a2fb435a01189a5545adc1a89e7fcc855a1369b9bc1c76f7ac",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_audio.log",
+      "bytes": 68399,
+      "sha256": "757946f2aa7cb64a381c0d5a78b2e551b3b873015fb83b46099c8acb62eda277",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_audit.log",
+      "bytes": 200597,
+      "sha256": "65b65a4bf6a63ee793ee1a563b2b670beb7e24f643e8124acf046a1ddcd5619c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_bathroom_integration.log",
+      "bytes": 142035,
+      "sha256": "19899753c1cc6162fafa71e26161079b7a40b16d21e2bc44d56ca4a2834b7330",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_bathroom_props.log",
+      "bytes": 7886,
+      "sha256": "af19dfe34bfb2de0e1561501660a521b470c66d9d133fd9dbf3c34867484745c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_castle_door_language.log",
+      "bytes": 101565,
+      "sha256": "ba2cd1d675152feb4f2e2eb79ce9ac52507bee06440d783431d33db97b1472fd",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_castle_pearl_art.log",
+      "bytes": 185133,
+      "sha256": "89d1e8ae1acf1c4d8beaba19198e3e74a1f69202852d85b04d47fcef9d47ba13",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_castle_pool_life_2d.log",
+      "bytes": 36197,
+      "sha256": "279807f267e6027feb0f586d19503f92ea2e94c5e0c7d02f879b3432abbc3110",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_chapter2.log",
+      "bytes": 1667214,
+      "sha256": "6d4e18d9ee84d74934ca7126dc3854562b16e8a8db8c049ab1a916ea181b1a94",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_chapter2_farmer_resume.log",
+      "bytes": 600400,
+      "sha256": "b918c64a9a74c7d4caacabafffac210d37369924f3d8dba0000129eca1b61ae4",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_chapter2_lawn.log",
+      "bytes": 145484,
+      "sha256": "62c265141882e30835fd35c2f2efb20623e6ba023553ab7327f9c72305481dcf",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_collection.log",
+      "bytes": 40994,
+      "sha256": "88ae1d5e05a901996b649923e4a4ef1768e5d9f885fa0b5f49cda7aaff425c1c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_combat.log",
+      "bytes": 64259,
+      "sha256": "f3a7c211a49d6adae73777ad8dd971a63602c2b88e68e76a89a3efa65030d5d8",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_combat_tutorial.log",
+      "bytes": 92179,
+      "sha256": "e6b345e806692a05812dfaad8b2c85af8c0a5a053abeaa434d2ddda5532f1c90",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_crown.log",
+      "bytes": 251760,
+      "sha256": "5ab46986de47e203f85443c860559ba2f474b0564e23bee45e8d89a91663700e",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_dance.log",
+      "bytes": 53310,
+      "sha256": "7610a96faa0df7126c6684cf7d8e4474fa022582f67c0339eb0f25127cc27522",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_art_attack_state.log",
+      "bytes": 48971,
+      "sha256": "a72507da12c567b6b26c138f0a4406def69eea856a95609ef2180861569e71ee",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_bathroom_bunny.log",
+      "bytes": 40908,
+      "sha256": "0094cd08617481c4f42aec0a7e6bb7b72fa365a3a3667d4634b6cb0b2421d0fe",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_bathroom_cleanup.log",
+      "bytes": 56738,
+      "sha256": "dd274b2ad049f5771796de7f8225da315c90c445fdbe3be2570231c183efc148",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_bathroom_movie_handoff.log",
+      "bytes": 36624,
+      "sha256": "4dd813d79cfa1b92f43a9b01f352d7db6dcc14d7632abf3ea55e9270613ea1bc",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_castle_dressing.log",
+      "bytes": 2942,
+      "sha256": "928e9d45f997a1450a7e38064e9de7ad83a20bf38fa897c3f340a4bc2f4144d5",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_d8_revisits.log",
+      "bytes": 1685,
+      "sha256": "6911849de7cc0c035563aa7ffb6ba1e98dffe69e5e0b7d90e551a3bc5acd877f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_director.log",
+      "bytes": 36655,
+      "sha256": "b3b795632a106e3aa0c9c5b114151e88011f240268efd542d6bdd5b1303714fe",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_handoffs.log",
+      "bytes": 42661,
+      "sha256": "893db9b81820d934d00ec80d25410ff2a31326ecbd0a5b9bffd01f9388cf74be",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_integration.log",
+      "bytes": 38263,
+      "sha256": "f4521cf6cf7ccb2754d58b48f349540212845568522142ccf17246f26cc6784d",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_pool_cleanup.log",
+      "bytes": 61062,
+      "sha256": "467927181b016a8ee1fdab2a5490e443f1084bcccf8c2e7e62465f26fb2cd04f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_story_clips.log",
+      "bytes": 281470,
+      "sha256": "5c00654a77ba69dfd0c3abcf15d9d4ecc4a55404a086cc6566cf347799870a20",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_day_one_voice.log",
+      "bytes": 44960,
+      "sha256": "dbc444c9116d7242d165893eb3dc2a3290fd587ff0d47a5cf4b5fdee2488f77c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_dolls.log",
+      "bytes": 67518,
+      "sha256": "95042ceade4fd5909a444a14fe26cb1c26b731895a4eff65111d15f769c21d65",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_dungeon.log",
+      "bytes": 177571,
+      "sha256": "aeaedd21e30c1ef8d53a3d522a6b77ec854d1237241a13b1859a2673496b656d",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_dust_boss.log",
+      "bytes": 173008,
+      "sha256": "61c4d25d2f3f63f13409343c3a7e69386e458769af89bc6e2d84c886ea23a9f3",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_dust_boss_balance.log",
+      "bytes": 542655,
+      "sha256": "b06f77c9ab7a839ee1436a4b0cae4d253fb04a346a2e9c4a4442db630a798845",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_dust_bunny.log",
+      "bytes": 3041,
+      "sha256": "dc1dc00e40d3c1baf941484ec96b84a1c2ee0092a4be5f7b988829131b19e599",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_dust_bunny_boss.log",
+      "bytes": 14903,
+      "sha256": "7043e655a25900837afa093d567f24d43a9d61c4a5bf44ad25aefe2249b1182c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_ember.log",
+      "bytes": 166765,
+      "sha256": "6e11db21d755c326f098d7fb54b93e1ab9b96848380beae0d6fea1311be33a0b",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_fairy_art.log",
+      "bytes": 1904,
+      "sha256": "30e8c0430731b77c0e88b6f5a7f265a29419ae4cb8e2323463eff352b7602ef1",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_fetch.log",
+      "bytes": 46616,
+      "sha256": "afc4b79a51c6d6e467dae4db7e855e66eccd652f805d1079af8b2158a22e873c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_galaxy_state.log",
+      "bytes": 97273,
+      "sha256": "2dec5b4dc2770df63342ee27b522ad887821851d7b94f4a4d30b697866e3c1ff",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_hit.log",
+      "bytes": 53542,
+      "sha256": "50c547383709bce4c3b8ad03658a60939e2a8cc5b81f43944ae9d1c063dc8203",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_human_art_audit.log",
+      "bytes": 35591,
+      "sha256": "9aa892921e69b324fadb99f6694f109480d8a2a3e29291057e79c319af17db75",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_imp_ai.log",
+      "bytes": 2485,
+      "sha256": "ca4b1dff264394e2937afdb4c08907fa6a90d061aaac5768c72b536c5fc80469",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_interaction.log",
+      "bytes": 426953,
+      "sha256": "0c02c3abf3155d470535dc84ca2ef7320a27141cdcc2f37a004117feacfb558f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_kart_feel.log",
+      "bytes": 78855,
+      "sha256": "d9dc26a4cf972169e8f6815c778f9ad887498758d3869ee4b6b74009949663cf",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_kitchen_props.log",
+      "bytes": 19450,
+      "sha256": "7a863819fb120bdef65251ad34ea4d9dbd86d66fdde9647c2a4bd70dfb02d9c8",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_l2.log",
+      "bytes": 138030,
+      "sha256": "4a2cc73cac8e7a9d1abbd410053224cf0483899a3d220a62e68fa2ec9474e899",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_l2_living_cards.log",
+      "bytes": 77081,
+      "sha256": "dbe459f8ae1bf82dcc902d6b8971dd600aa9c78c4ab1e3f2e05fc6a6991b6829",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_l2_reenter.log",
+      "bytes": 64216,
+      "sha256": "2778180c29e28cf4b5e199c8a236373d84f7946bfaf5a62b2425236e43506a25",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_living_world.log",
+      "bytes": 225707,
+      "sha256": "ced39bcc8f22c3952bb277c0f40a53200f95849a08235bca9015dd1e28970b50",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_load.log",
+      "bytes": 126663,
+      "sha256": "eb26ff85c00832cebc19c174836cfe148909fa3cd71dc5437217d23cb7e7dea3",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_melody.log",
+      "bytes": 109546,
+      "sha256": "f56aab6c38ed2373831ca87675928ab3a9b13fd5d1ecff6bcf513782b2676ccb",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_mg2d.log",
+      "bytes": 66480,
+      "sha256": "bd115e5aea24c907293f9321aa9ee99eb041c0f0eda078a0487a681275d9f900",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_mic.log",
+      "bytes": 44806,
+      "sha256": "fa66d5a64eabc0288b70c595a6ab65924304c7e6bea99f1b74d393a8cee7fafd",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_northern.log",
+      "bytes": 72633,
+      "sha256": "515b4fc128018e6eda87b7c56898b6064c6934ffd5cf9aa08dfebc0bf9d7edda",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_ocean_kingdoms.log",
+      "bytes": 159769,
+      "sha256": "6fe8f88ecd9e0b6805edf6b8b430fb39193a99e8114ee5165d89f948f5225a01",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_opera.log",
+      "bytes": 1459961,
+      "sha256": "45150c70810e9a5b1c1a770b7daa640a40a5f566d42cc9a9674a4a11e9906b19",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_opera_2d.log",
+      "bytes": 1478007,
+      "sha256": "488e12c72853ecb30d0832b65ab5344d1349d7aef1db056918b5574bd9e03402",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_opera_detective.log",
+      "bytes": 72690,
+      "sha256": "bdbda36d26443e33230dbea7e1db0f77a2a65acbebb040081727342274a7205d",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_opera_diegetic_paths.log",
+      "bytes": 1122,
+      "sha256": "12cd1b05b12b709df848d97b1eb706b1d676741ccd62982d4f3fd3e3dd48e4c5",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_opera_gesture_quality.log",
+      "bytes": 160952,
+      "sha256": "cd43c5e62d69597b04ffbf75e5a2bcb0291fb1950f205ed7916bf385d8924cbf",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_opera_nursery.log",
+      "bytes": 73312,
+      "sha256": "d0c4db8c1726f0bc4b047d3b03d448f9dcd038b73088ff33bfaeda0aa6748f0b",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_opera_pipe.log",
+      "bytes": 10886,
+      "sha256": "3c5d450dac6071428bd0a868d3533b93528d83a3c9a577d39d36f96c4e00bb7c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_partner.log",
+      "bytes": 75328,
+      "sha256": "20597031e2ee66d39b29711005e49108c7b2cdbf64eca603842bf0b87d5e394a",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_passive.log",
+      "bytes": 107041,
+      "sha256": "47419fa1ab707c9f5c68b4bd9742873fe647d37cf110166a4cf62591775087b4",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_props.log",
+      "bytes": 44030,
+      "sha256": "85df7e518362ce1dd6bd7f7862f108b8ce9a8554a0502c18e580a89da5b03b09",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_rank.log",
+      "bytes": 46534,
+      "sha256": "3032957d877596a775b14f1fc07edbca68ed7706d9dc6b37600631e3dd186401",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_reef_districts.log",
+      "bytes": 37185,
+      "sha256": "b5153d5a6896dd991af61e4bc0b119c8b73c409430d1970812084a88823d2963",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_save_recovery.log",
+      "bytes": 41390,
+      "sha256": "cef97b4ed3870f140914b796f342407dcd0e32af546ac119608533e2d7403551",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_seek.log",
+      "bytes": 62760,
+      "sha256": "0a9e6eee3090091ce5614cc942bc0df816ced1ac92d0802d63242b91904d96b0",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_skins.log",
+      "bytes": 41712,
+      "sha256": "f5bb8017d6d6f10b9729b2347e24ec3b5dab9580176bd88c572b9585757c224c",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_sky_lagoon_animals.log",
+      "bytes": 155468,
+      "sha256": "d7e3f56efb0d6ce2ffc50ddff90e1df5852e8776ff8d1d76508fa8174b0e0878",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_start_menu_new_game.log",
+      "bytes": 60554,
+      "sha256": "5d3618f2ce008c21b6f1c3bea9c298b00fc346564ef1045f3638109ccd01cb4a",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_start_menu_routing.log",
+      "bytes": 37581,
+      "sha256": "d8707cc6478d14c4d2a9110f7f70fefadfe0b6f304869f043d072e70deed0e94",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_stuffie.log",
+      "bytes": 156021,
+      "sha256": "b62389a36755f0a7b5ef3cb0fbc21ae9f0eb0cfdc01c55b02ca7b0646954b89f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_throne.log",
+      "bytes": 208033,
+      "sha256": "c8b1f792e1ffc022ba78f04af5341e62cb05f1c652d7ae4209fe4e9f618579ce",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_touch_adversary.log",
+      "bytes": 711105,
+      "sha256": "e6cba9dee7a74430c817251f2188a677ac481b715789dcb3b8a4caffbd2103e2",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_touch_look.log",
+      "bytes": 49893,
+      "sha256": "a098e7e16b274287aee3db45f2664581e728225441892e995a141edbac96905d",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_touch_router.log",
+      "bytes": 41511,
+      "sha256": "9c1301e63be073067bfef295a55cba2d82672d1b354700c21f42cf3397e9e9e7",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_touch_stress.log",
+      "bytes": 69636,
+      "sha256": "8c677902143ac24cd2062092e9d9928258921a68eb4c808d921ac06b6b6bc9c5",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_train.log",
+      "bytes": 88412,
+      "sha256": "4ba819ec361ce8e2de5d63050a6145064ae26a8e3321ca8967990d00e048d437",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_ui_system.log",
+      "bytes": 333701,
+      "sha256": "6f94712be3464024f4966e5ac065265b41b9a7f9479ecd7a223d374e7759fa2a",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_verbs.log",
+      "bytes": 40585,
+      "sha256": "b7e46d7b6bb8667db7d32c659848e2fc5c589ff5757c4ab4154a857d9c084c5f",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/trusted_logs/probe_voice.log",
+      "bytes": 98756,
+      "sha256": "3e50fbb85b05282ec5d4691dfc5e478d6f0967b52c92b832267214cd89dd7c54",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "scripts/games/melody.gd",
+      "bytes": 43714,
+      "sha256": "c75d2349d83e3198e0d28d7ff9ef5f3538904b895dfebedef96efc5822b6b9ad",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "scripts/probe_melody.gd",
+      "bytes": 119923,
+      "sha256": "7b0ba047bd8bd5ecdb0cdd68eee5dc8671696969e64a837bc3d427cc05038371",
+      "role": "R123 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/characters/stickers/daddy.png",
+      "bytes": 850745,
+      "sha256": "402024ac72c5365aae8562d422b9f888a6f5cdef7b6539409747e8f965cd0122",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/characters/stickers/daddy.png.import",
+      "bytes": 946,
+      "sha256": "dcf8d3a42423aee64a9465275bf854b343a6478dabf64632620cbaaadf190232",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+      "bytes": 1119885,
+      "sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png.import",
+      "bytes": 1365,
+      "sha256": "e329f8247a9c3f30abbbf72f564acdb2413b7065cb344d4254c29f92a7ba057b",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+      "bytes": 1235978,
+      "sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png.import",
+      "bytes": 1365,
+      "sha256": "cb2c97cfdaf35b96fc6b203431b0b941c942452e1bcd2c6aea30e518f865759d",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+      "bytes": 1758075,
+      "sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png.import",
+      "bytes": 1365,
+      "sha256": "29032aeaaeaa9a5bb8892a78741ebaa711f7bfd622c72347499ae400e111f7ef",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+      "bytes": 1608993,
+      "sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png.import",
+      "bytes": 1365,
+      "sha256": "42492f764d1f8f0b7836879506275bc7b959f80c4ebcd2d57dfea6e7c84a72ab",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/opera/worlds/actors/roshan_popstar.png",
+      "bytes": 258084,
+      "sha256": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/opera/worlds/actors/roshan_popstar.png.import",
+      "bytes": 1218,
+      "sha256": "794a4b6318907a71cd2a843e47a9c78cfe99a85588aa33717eff21bd131b36a1",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/MANIFEST.json",
+      "bytes": 81882,
+      "sha256": "5193d71f21a8f2d05ed843263c8d25aaf00d1f036bfb474cd90be90e422b1697",
+      "role": "Actual bounded R123 source delivery manifest"
+    }
+  ],
+  "required_files": 259,
+  "required_bytes": 83843046,
+  "Dev_integrated": false,
+  "new_partial_Dev_artifacts": 0,
+  "new_bounded_source_artifacts": 1,
+  "new_frame_events": {
+    "bounded": 6,
+    "excluded": 0,
+    "retained": 6
+  },
+  "accepted_removed": 0,
+  "mission_complete": false
+}

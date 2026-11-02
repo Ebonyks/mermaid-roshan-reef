@@ -18330,7 +18330,14 @@
         "FVF-CFB3F02098DE",
         "FVF-DA74517277FC"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        {
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "path": "scripts/games/melody.gd",
+          "node": "StageFootlights/FootlightsCanvas",
+          "scope": "Source branch only, Dev frozen"
+        }
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
         "coverage_state": "COVERAGE_GAP",
@@ -18360,8 +18367,8 @@
       "context_brief_id": "BRIEF-MELODY",
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
-      "named_gap": null,
-      "status": "IDENTIFIED",
+      "named_gap": "The current FootlightsCanvas rail was one flat navy line and13 code-drawn circle/glint groups beside painted scenery. R123 replaces this existing role with a painted support and13 whole globes from seven colors.",
+      "status": "SOURCE_CANDIDATE",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -18370,12 +18377,99 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r123_source_candidate": {
+          "stable_ids": [
+            "FV-864287E0D0F3"
+          ],
+          "state": "SOURCE_BOUND_PAINTED_FOOTLIGHTS_CANDIDATE_DEV_FROZEN",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "source_branch": "codex/flat-vector-melody-footlights-20261102",
+          "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/MANIFEST.json",
+          "source_required_files": 230,
+          "source_all_required_anonymous_exact": true,
+          "source_CI_snapshot": [
+            {
+              "conclusion": "",
+              "databaseId": 41442654533,
+              "headSha": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+              "status": "in_progress",
+              "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41442654533",
+              "workflowName": "Probe suite (graphics fork)"
+            }
+          ],
+          "owner_scope": {
+            "owner_answer": "Resume art candidates; keep Dev frozen",
+            "permission": "Static source candidates, work-branch integration and established GitHub publication; Dev/master/automation remain frozen",
+            "Dev_frozen": true,
+            "master_frozen": true,
+            "automation_resumed": false,
+            "paused_chats_resumed": false
+          },
+          "new_bounded_source_artifacts": 1,
+          "existing_named_roles": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "new_runtime_PNG": 8,
+          "native_generated_samples": 2,
+          "generation_calls": 2,
+          "nonselected_native_takes": 0,
+          "rejected_shape_takes": 0,
+          "technical_exports": 12,
+          "backend": "Built-in image_gen; no model selector or model/version returned",
+          "model_version": "NOT_EXPOSED",
+          "animation_calls": 0,
+          "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+          "native_effective_checks": {
+            "reused_exact_source": 69,
+            "current_candidate": 99,
+            "effective": 168
+          },
+          "check_count_unit": "Configured executed checks, not unique requirements or formalQA11 acceptance.",
+          "new_native_frame_events": {
+            "bounded": 6,
+            "excluded": 0,
+            "retained": 6
+          },
+          "reused_source_frames": 6,
+          "acceptance_scope": "Local footlight-role ten-axis comparison across three configured Mobile/Speedy aspects. Natural routes/formalQA11 and physical device/child/owner remain open.",
+          "invisible_geometry": "No new functional invisible geometry. Thirteen whole painted Sprite2D globes and one bounded NinePatchRect support replace appearance-only code-drawn circles/glints and navy line. Original parent/input/z/centers/diameters remain.",
+          "original_controller_other_methods_LF_exact": 68,
+          "original_probe_other_methods_LF_exact": 84,
+          "full_game_probe_unchanged": true,
+          "original_texture_ceilings_unchanged": {
+            "decoded_bytes": 24117248,
+            "declared_upload_bytes": 12582912
+          },
+          "Dev_integrated": false,
+          "new_partial_Dev_artifacts": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "whole_role_closed": false,
+          "accepted_removed": 0,
+          "mission_complete": false,
+          "static_item_call_cap": 2,
+          "calls_remaining": 0,
+          "technical_runtime_targets": 8,
+          "nonselected_technical_rounding_exports": 4,
+          "technical_export_count_unit": "Eight selected runtime targets plus four retained nonselected127px rounding variants. Native/crop roundtrip validation images are separate evidence, not art pieces or frame events.",
+          "configured_instance_topology": {
+            "assemblies": 1,
+            "whole_globes": 13,
+            "unique_globe_sources": 7,
+            "painted_supports": 1
+          },
+          "runtime_base_RGBA_bytes": 555808,
+          "technical_recovery": "Four425px whole-object crops first rounded to127px under fractional Aseprite scaling. Retained nonselected; only those four reexported at explicit128px from unchanged exact crop masters. Native/crop pixels remain exact.",
+          "validation_recovery": "Twelve copied source-reference files initially lacked audit-impact coverage. Original failure retained; only failed document gate and previously unrun suffix resumed. Healthy static stages and99 native checks reused with complete frozen runtime hash proof."
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Exact source-bound scene/material references; quality-based reuse or ImageGen, no failed-reuse prerequisite",
+        "Applicable provenance/license/import/geometry/passive/save/teardown gates",
+        "FormalQA11/current natural-route/device/child/owner acceptance remains separately open"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -18390,8 +18484,15 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Review Rainbow note rail during Rainbow note rail active/rest/changed/payoff/settle states on Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261102-R123-SOURCE",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/FRAME_REVIEW.json",
+          "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "status": "SOURCE_CANDIDATE_NOT_FORMAL_QA11"
+        }
+      ],
+      "proposed_update": "Review the published painted footlights in their configured three-aspect source context; resolve natural routes/states and formal/external gates. Keep Dev frozen.",
       "route_refs": [
         "minigame.melody",
         "game.melody"
@@ -18399,7 +18500,93 @@
       "route_evidence": "Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE)",
       "context_action": "Rainbow note rail active/rest/changed/payoff/settle states",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-864287E0D0F3"
+      "individual_brief_id": "PIECE-FV-864287E0D0F3",
+      "r123_prior_status": "IDENTIFIED",
+      "source_candidate_support_output": {
+        "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+        "path": "assets/melody/footlight_rail_painted.png",
+        "sha256": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813"
+      },
+      "source_candidate_outputs": [
+        {
+          "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "path": "assets/melody/footlight_red.png",
+          "sha256": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "path": "assets/melody/footlight_orange.png",
+          "sha256": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "path": "assets/melody/footlight_yellow.png",
+          "sha256": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "path": "assets/melody/footlight_green.png",
+          "sha256": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "path": "assets/melody/footlight_sky_blue.png",
+          "sha256": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "path": "assets/melody/footlight_periwinkle.png",
+          "sha256": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "path": "assets/melody/footlight_purple.png",
+          "sha256": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+          "dimensions": [
+            128,
+            128
+          ]
+        },
+        {
+          "revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+          "path": "assets/melody/footlight_rail_painted.png",
+          "sha256": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+          "dimensions": [
+            674,
+            36
+          ]
+        }
+      ],
+      "configured_source_instance_topology": {
+        "assemblies": 1,
+        "whole_globes": 13,
+        "unique_globe_sources": 7,
+        "painted_supports": 1
+      }
     },
     {
       "id": "FV-A914479B2992",
@@ -25540,7 +25727,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261102-R122-SOURCE",
+  "revision": "FV-AUDIT-20261102-R123-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -39913,6 +40100,104 @@
     "conclusion": "success",
     "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41404127761",
     "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r122_melody_star_runtime/R121_EXACT_CI_SUCCESS.json",
+    "historical_pending_snapshots_preserved": true,
+    "new_artwork_or_Dev_credit": 0
+  },
+  "r123_parent_receipt_revision": "7841d79b160b9582099a78d53c2017aa792d4d97",
+  "r123_melody_footlights_runtime": {
+    "stable_ids": [
+      "FV-864287E0D0F3"
+    ],
+    "state": "SOURCE_BOUND_PAINTED_FOOTLIGHTS_CANDIDATE_DEV_FROZEN",
+    "source_revision": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+    "source_branch": "codex/flat-vector-melody-footlights-20261102",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/MANIFEST.json",
+    "source_required_files": 230,
+    "source_all_required_anonymous_exact": true,
+    "source_CI_snapshot": [
+      {
+        "conclusion": "",
+        "databaseId": 41442654533,
+        "headSha": "0d4ae7949be7268cdbf87140628ab485aeabc091",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41442654533",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "owner_scope": {
+      "owner_answer": "Resume art candidates; keep Dev frozen",
+      "permission": "Static source candidates, work-branch integration and established GitHub publication; Dev/master/automation remain frozen",
+      "Dev_frozen": true,
+      "master_frozen": true,
+      "automation_resumed": false,
+      "paused_chats_resumed": false
+    },
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "new_runtime_PNG": 8,
+    "native_generated_samples": 2,
+    "generation_calls": 2,
+    "nonselected_native_takes": 0,
+    "rejected_shape_takes": 0,
+    "technical_exports": 12,
+    "backend": "Built-in image_gen; no model selector or model/version returned",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "native_effective_checks": {
+      "reused_exact_source": 69,
+      "current_candidate": 99,
+      "effective": 168
+    },
+    "check_count_unit": "Configured executed checks, not unique requirements or formalQA11 acceptance.",
+    "new_native_frame_events": {
+      "bounded": 6,
+      "excluded": 0,
+      "retained": 6
+    },
+    "reused_source_frames": 6,
+    "acceptance_scope": "Local footlight-role ten-axis comparison across three configured Mobile/Speedy aspects. Natural routes/formalQA11 and physical device/child/owner remain open.",
+    "invisible_geometry": "No new functional invisible geometry. Thirteen whole painted Sprite2D globes and one bounded NinePatchRect support replace appearance-only code-drawn circles/glints and navy line. Original parent/input/z/centers/diameters remain.",
+    "original_controller_other_methods_LF_exact": 68,
+    "original_probe_other_methods_LF_exact": 84,
+    "full_game_probe_unchanged": true,
+    "original_texture_ceilings_unchanged": {
+      "decoded_bytes": 24117248,
+      "declared_upload_bytes": 12582912
+    },
+    "Dev_integrated": false,
+    "new_partial_Dev_artifacts": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_role_closed": false,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "static_item_call_cap": 2,
+    "calls_remaining": 0,
+    "technical_runtime_targets": 8,
+    "nonselected_technical_rounding_exports": 4,
+    "technical_export_count_unit": "Eight selected runtime targets plus four retained nonselected127px rounding variants. Native/crop roundtrip validation images are separate evidence, not art pieces or frame events.",
+    "configured_instance_topology": {
+      "assemblies": 1,
+      "whole_globes": 13,
+      "unique_globe_sources": 7,
+      "painted_supports": 1
+    },
+    "runtime_base_RGBA_bytes": 555808,
+    "technical_recovery": "Four425px whole-object crops first rounded to127px under fractional Aseprite scaling. Retained nonselected; only those four reexported at explicit128px from unchanged exact crop masters. Native/crop pixels remain exact.",
+    "validation_recovery": "Twelve copied source-reference files initially lacked audit-impact coverage. Original failure retained; only failed document gate and previously unrun suffix resumed. Healthy static stages and99 native checks reused with complete frozen runtime hash proof."
+  },
+  "r122_exact_source_CI_new_observation": {
+    "run_id": 41421050319,
+    "revision": "877fb264778f59b6f1d1602fd8af4f73970351be",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41421050319",
+    "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/R122_EXACT_CI_SUCCESS.json",
     "historical_pending_snapshots_preserved": true,
     "new_artwork_or_Dev_credit": 0
   }

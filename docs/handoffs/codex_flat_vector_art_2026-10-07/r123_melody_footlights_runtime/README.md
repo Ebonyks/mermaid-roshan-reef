@@ -1,0 +1,17 @@
+# R123 painted Melody rainbow light rail
+
+The existing rainbow note rail, stable piece `FV-864287E0D0F3`, now has a painted plum support and thirteen whole painted globes on its source branch. Seven colors repeat in the original order. Parent position/size/z16, thirteen centers,30px globe diameter,36px rail height and noninteraction remain. The support preserves18px painted end contours while its straight middle changes length. Other theatre roles remain open. **Owner resumed art candidates; Dev remains frozen.**
+
+![Painted footlights in the actual Melody stage](https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/0d4ae7949be7268cdbf87140628ab485aeabc091/docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/candidate/1280x720/01_stage_entry.png)
+
+[Source packet and before/after frames](https://github.com/Ebonyks/mermaid-roshan-reef/blob/0d4ae7949be7268cdbf87140628ab485aeabc091/docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/README.md) · [Immutable source tree](https://github.com/Ebonyks/mermaid-roshan-reef/tree/0d4ae7949be7268cdbf87140628ab485aeabc091) · [Source manifest](https://github.com/Ebonyks/mermaid-roshan-reef/blob/0d4ae7949be7268cdbf87140628ab485aeabc091/docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/MANIFEST.json) · [Anonymous source verification](SOURCE_REMOTE_VERIFICATION.json).
+
+All82 current trusted probes, complete static set, exact4.7.2 analyzer and2D no-regression guard pass. Current native Mobile/Speedy evidence has99 configured checks across1280×720,1600×720,1280×800 plus69 reused exact-source checks. Six current candidate stills and the same six source stills are directly reviewed. All5,062 pre-edit baseline runtime files were verified raw-exact; source copies receive0 new frame credit. Initial documentation coverage failed for twelve copied reference files; that failure is retained and only that gate and the previously unrun suffix were resumed. Runtime pixels and healthy stages were reused unchanged.
+
+Two built-in static ImageGen calls produced the seven-color globe native and continuous rail native. Editable Aseprite native/crop masters and roundtrips are pixel-exact. Runtime consumes seven128-square globes and one674×36 support. Four initial127px exports remain nonselected technical history; only those numerical-rounding exports were corrected to explicit128px from unchanged masters. No native art was repainted. Model/version, seed and cost were not exposed. Static item cap2 is exhausted; animation calls0.
+
+Canonical totals:26 bounded published source artifacts,20 partialDev artifacts;6,973 bounded +4,185 excluded =11,158 retained native PNG events. Lower263 known roles/35 families and unknown whole-game denominators remain. Accepted removals and complete named-role closures:0. FormalQA11, physical device/performance, child, owner, natural routes and global inventory/coverage remain open. **No Dev integration, master promotion, release or automation resume occurred.**
+
+R122's exact-source run41421050319 succeeded; [new verified observation](R122_EXACT_CI_SUCCESS.json) preserves earlier pending snapshots and grants0 new artwork credit. R123 exact-source CI remains separately tracked in [SOURCE_CI_HANDLES.json](SOURCE_CI_HANDLES.json).
+
+[Current delivery manifest](MANIFEST.json) · [Anonymous immutable receipt](REMOTE_VERIFICATION.json) · [Payload revision](PAYLOAD_PIN.json). Resolve null manifest revisions against the payload revision, not the later receipt-only commit.
