@@ -1,112 +1,135 @@
-# Mermaid Roshan ensemble design guide
+# Mermaid Roshan creative ensemble
 
-Status: **Proposed ensemble for owner review**. The owner endorses the overall sonic guide as the mission statement and requests a logical band with historical references for uncertain style and technique choices. This roster gives the DJ/electronic producer a core performing role.
+Status: **Owner-directed collective concept, multi-instrumentalism and current lo-fi foundation; proposed members' capability ranges and exact references for review.** The [sonic mission](SONIC_IDENTITY_PROPOSAL_2026-11-01.md) defines the musical world. This guide describes the people who explore it together.
 
-The [mission statement and palette families](SONIC_IDENTITY_PROPOSAL_2026-11-01.md) define the musical world. The ensemble defines who plays, how the musicians interact and which reference to consult. The habits below are our proposed choices for Roshan, informed by historical performances. The producer uses several reference lanes, selected by cue and section, following the owner’s range correction.
+## A collective of composers and multi-instrumentalists
 
-## Ensemble structure
+The ensemble is a studio collective of **ten core creative members**, with specialist guests. Each member works across a related instrument family and can bring a hook, chord movement, rhythmic cell, sound idea or formal suggestion. Their musical function changes with the song and section.
 
-The core has **eight performing chairs and one DJ/producer**, with specialist guests. Most sections cast a small combination; a larger ensemble return is a deliberate event. Each section names the foreground, groove leader, supporting musicians and resting players.
+The two fretted-string collaborators have distinct historical starting points and overlapping abilities. Either can take melody, harmony or groove. The wind member can offer a theme, answer, held color or rhythmic fragment; the pitched-percussion member can select pan, wood mallets or bells. The producer composes with electronic voices and can develop the group's ideas. The **traditional/world percussion collaborator is an additional core member**, alongside the Afro-Caribbean percussion specialist and acoustic drummer.
 
-The two guitar chairs are distinct: melodic guitar and rhythm guitar. Keys and plucked guests can trade harmonic responsibility. Simultaneous percussion parts name an additional musician or a deliberate studio overdub, keeping individual parts physically believable.
+A member's historical reference is a vocabulary to consult. Select the reference appropriate to the actual instrument and context, and add a named contextual reference where needed. Instrument-family breadth does not make playing techniques interchangeable.
 
-### Musical direction
+The original **Donkey Kong Country** provides the whole-score architecture reference: diverse settings and genres connected by purposeful themes, expressive atmosphere, contrast and memorable returns. The collective explores how modern tools can serve each scene, then develops selected ideas into written songs. [David Wise interview](https://vgmonline.net/davidwiseinterview/)
 
-The original *Donkey Kong Country*, with David Wise and Eveline Fischer as guiding figures, provides the architecture reference. Wise describes a broad influence set including synthesized film music, rock and dance. [Composer interview](https://vgmonline.net/davidwiseinterview/)
+## The proposed core members
 
-For Roshan, the director chooses emotional purpose, theme, contrast, form and returning identity. The mission statement has precedence over a flourish borrowed from a reference. Historical performances guide a specific decision; the cue decides which part of that vocabulary is useful.
-
-## Core roster
-
-| Chair | Historical reference point | Responsibility |
+| Creative member | Related instrument range | Historical starting point |
 |---|---|---|
-| Melodic guitarist | [Ernest Ranglin - Surfin', Below the Bassline (1996)](https://music.apple.com/us/album/surfin/1444023621?i=1444023735) | A warm, singable foreground voice and short answering phrases. |
-| Rhythm guitarist | [Leo Nocentelli with The Meters - Cissy Strut (1969)](https://www.georgeporterjr.com/bio) | Small chord voicings, offbeat strokes and recognizable rhythmic figures. |
-| Pianist and electric pianist | [Monty Alexander - Montreux Alexander, 1976 performance (released 1977)](https://www.mps-music.com/releases/montreux-alexander-live/) | Harmonic movement, voiced accompaniment and occasional melodic leadership. |
-| Bassist | [George Porter Jr. - The Meters, Cissy Strut (1969)](https://www.georgeporterjr.com/bio) | The low melodic foundation and a memorable rhythmic answer. |
-| Drummer | [Joseph Zigaboo Modeliste - The Meters, Cissy Strut (1969)](https://www.georgeporterjr.com/bio) | Pocket, sectional energy and readable rhythmic punctuation. |
-| Hand percussionist | [Mongo Santamaria - Afro-Blue, Mongo (recorded 1959)](https://folkways-media.si.edu/docs/folkways/artwork/SFW40802.pdf) | Conversation, hand-played movement and acoustic detail within the groove. |
-| Flute soloist | [Herbie Mann - Memphis Underground (1969)](https://music.apple.com/us/album/memphis-underground/76153610) | A lyrical breathing lead, particularly for Sky Lagoon and discovery. |
-| Pan soloist | [Andy Narell - Coffee Street, The Passage (pan-jazz ensemble reference)](https://music.apple.com/us/album/coffee-street-feat-calypsociation/1622052143?i=1622052150) | Opera's principal melodic signature and selected celebratory appearances. |
-| DJ and electronic producer | Cue-selected matrix: KPop Demon Hunters production team; Madeon; Condard; original DKC context. Quantic is an optional contextual reference. | Pop architecture, bright dance momentum, chip-based beats, original electronic hooks and purposeful transitions. |
+| Fretted-strings collaborator A | steel-string acoustic guitar, nylon-string guitar, ukulele | [Ernest Ranglin — Surfin', Below the Bassline (1996)](https://music.apple.com/us/album/surfin/1444023621?i=1444023735) |
+| Fretted-strings collaborator B | nylon-string guitar, steel-string guitar, mandolin, tres | [Leo Nocentelli with The Meters — Cissy Strut (1969)](https://www.georgeporterjr.com/bio) |
+| Keyboard collaborator | acoustic piano, electric piano, organ, keyboard synths | [Monty Alexander — Montreux Alexander, 1976 performance (released 1977)](https://www.mps-music.com/releases/montreux-alexander-live/) |
+| Low-strings collaborator | electric bass, upright bass, low plucked-string programs | [George Porter Jr. — The Meters, Cissy Strut (1969)](https://www.georgeporterjr.com/bio) |
+| Acoustic-drum and groove collaborator | brushed acoustic kit, damped stick kit, rim and tom setups, small acoustic percussion | [Joseph Zigaboo Modeliste — The Meters, Cissy Strut (1969)](https://www.georgeporterjr.com/bio) |
+| Afro-Caribbean percussion collaborator | congas, bongos, timbales, guiro and shakers, cowbell | [Mongo Santamaria — Afro-Blue, Mongo (recorded 1959)](https://folkways-media.si.edu/docs/folkways/artwork/SFW40802.pdf) |
+| Traditional/world percussion collaborator | tabla, dholak, djembe, udu, frame and regional drum sets | [Zakir Hussain — Making Music (1987)](https://ecmrecords.com/product/making-music-zakir-hussain/); [Mamady Keita — Mogobalu concert context](https://www.ttmda.com/accreditation/mamady-keita/global-presence.php) |
+| Wind collaborator | flute, low whistle, recorder, related breathy wind programs | [Herbie Mann — Memphis Underground (1969)](https://music.apple.com/us/album/memphis-underground/76153610) |
+| Pitched-percussion collaborator | steel pan, balafon, marimba, vibraphone, small struck bells | [Andy Narell — Coffee Street, The Passage (pan-jazz ensemble reference)](https://music.apple.com/us/album/coffee-street-feat-calypsociation/1622052143?i=1622052150) |
+| Electronic-production collaborator | UVI electronic drums, sampler/synth voices, original processed band stems, authorized RetroPlug/LSDJ | Current foundation: [Nujabes — Reflection Eternal](https://music.apple.com/us/song/1445812716) and [J Dilla — Donuts](https://www.stonesthrow.com/store/donuts/). Additional pop/dance/chip contexts use the matrix below. |
 
-Bass, drums and rhythm guitar share the 1969 Meters reference. This provides one starting point for interlocking parts. Porter's own biography identifies the players and *Cissy Strut*. [George Porter Jr.](https://www.georgeporterjr.com/bio)
+These are conceptual capabilities. The [roster data](ENSEMBLE_ROSTER_2026-11-01.json) distinguishes previously rendered programs from broader instrument choices needing exact preset/articulation auditions. The reference artists are creative study points, not participants in this project or claims that they played every proposed instrument.
 
-Monty Alexander's 1976 trio gives acoustic passages a second shared context, with John Clayton and Jeff Hamilton identified in the label credits. The Smithsonian's notes identify Mongo Santamaria on congas and Willie Bobo on timbales in the 1959 *Afro-Blue* recording. [MPS recording notes](https://www.mps-music.com/releases/montreux-alexander-live/), [Smithsonian recording notes](https://folkways-media.si.edu/docs/folkways/artwork/SFW40802.pdf)
+The Meters remain a shared groove reference for strings, bass and acoustic drums; Monty Alexander's trio offers an acoustic context. Those references guide interaction while member roles rotate. [George Porter Jr.](https://www.georgeporterjr.com/bio), [MPS trio credits](https://www.mps-music.com/releases/montreux-alexander-live/)
 
-## Working habits for each chair
+## How each member explores a cue
 
-### Melodic guitarist
+### Fretted-strings collaborator A
 
-Shape a sentence, leave a breath, then answer it. Use register and touch to distinguish the refrain from the verse.
+Choose the string instrument and touch that give this cue its emotional center. A picked hook can become a chord figure or a sparse response when another musician takes the theme.
 
-**When uncertain:** If the line meanders, return to the written hook and simplify the answer. Let rhythm guitar carry the chord pulse.
+**Possible roles:** foreground hook, chord body, picked ostinato, rhythmic answer.
 
-**Tone and space:** Rounded string attack and wood/body, with an articulate melodic center. When pan, flute or keys owns the melody, contribute a brief response or leave space.
+**When uncertain:** If a line wanders, simplify its written hook. If guitar is only background, consider a complete featured phrase or a different register before adding tracks.
 
-### Rhythm guitarist
+### Fretted-strings collaborator B
 
-Interlock with bass and drums. Separate a picked figure from a sustained chord role; keep strokes playable.
+Bring interlocking chord/riff ideas to the writing session, and trade melodic and harmonic responsibility with the other guitarist or keys.
 
-**When uncertain:** If the groove feels crowded, choose one rhythmic cell and leave room for the bass response. Use the Ranglin reference for the guitar section's warm melodic/chord relationship.
+**Possible roles:** groove figure, foreground melody, chord movement, counterline.
 
-**Tone and space:** Soft transient, clear chord body, controlled upper-mid bite. Thin to a dyad, single rhythmic note or silence during a featured guitar or keyboard phrase.
+**When uncertain:** Choose a repeatable rhythmic cell and playable voicing; when the cue asks for melody, consult the melodic guitar context and write a complete sentence.
 
-### Pianist and electric pianist
+### Keyboard collaborator
 
-Use clear voice leading and rhythmic replies. Shape a register change or a more open voicing as a section event.
+Develop a harmonic or melodic idea in the keyboard voice the scene needs. The same player can open with an EP pulse and return later with the main tune.
 
-**When uncertain:** If harmony is muddy, choose the important chord tones and a register outside the current lead. If the song needs a new section, let keys take a complete melodic phrase.
+**Possible roles:** melody, harmonic movement, ostinato, bass register, atmosphere.
 
-**Tone and space:** Warm core with selective bell-like detail and an expressive attack. Leave a clear hole when another chord instrument makes its response.
+**When uncertain:** Change register, voicing or instrument when the emotional job changes; choose a clear foreground and leave another harmonic player a reply.
 
-### Bassist
+### Low-strings collaborator
 
-Write a short identifiable figure that fits the kick and guitar; vary an ending to announce a return.
+Suggest a short low figure that can become part of the composition. Trade between a melodic bass role, an anchoring pedal and a full rest.
 
-**When uncertain:** If the groove lacks identity, strengthen the bass figure before adding more percussion. For acoustic-trio passages use John Clayton on the Montreux Alexander recording as the contextual reference.
+**Possible roles:** foundation, bass hook, countermelody, sparse pedal, transition lead.
 
-**Tone and space:** Rounded weight with enough note identity for a small speaker. Sustain or simplify under a busy foreground phrase; a bass-only transition can have its own spotlight.
+**When uncertain:** Strengthen the bass idea before adding percussion. Choose electric/upright articulation and note length for the song’s context, using the named ensemble reference.
 
-### Drummer
+### Acoustic-drum and groove collaborator
 
-Develop a groove through accents, small variations and a planned fill at a phrase boundary.
+Co-write the feel with the producer and percussion members. Use a compact coherent kit, and allow a world drum, bass figure or electronic beat to lead instead.
 
-**When uncertain:** If an entrance has no impact, change the kit's register or density. When the producer leads the beat, answer sparsely. For the acoustic-trio context consult Jeff Hamilton on Montreux Alexander.
+**Possible roles:** groove lead, producer-beat response, textural pulse, phrase punctuation, rest.
 
-**Tone and space:** A selected coherent kit with rounded kick, controlled cymbals and believable brush or stick articulation. Allow a duo, hand-percussion or producer-led section to carry the pulse.
+**When uncertain:** Begin from rounded kick, dry rim/snare, brushes or restrained toms. Change density and placement before adding heavy cymbals; the current baseline is lo-fi, with metal-style kit production excluded.
 
-### Hand percussionist
+### Afro-Caribbean percussion collaborator
 
-Use complementary low/open/closed strokes and short answers. Give each percussion instrument a rhythmic purpose.
+Offer a rhythmic cell, call or turnaround that can shape the written form. Select a complementary instrument set and share space with the traditional percussion member.
 
-**When uncertain:** If the rhythm feels generic, study the interaction of the parts and choose a simpler complementary pattern. Udu and other instrument-specific gestures need their own articulation audition.
+**Possible roles:** groove lead, rhythmic hook, call and response, section accent, sparse texture.
 
-**Tone and space:** Skin, body and natural decay, with useful dynamics between strokes. A held melodic statement may need only a small response; remove continuous ornament when the groove already reads.
+**When uncertain:** Name the low/open/closed strokes and interaction with bass. Keep a recognizable part instead of running every available percussion instrument continuously.
 
-### Flute soloist
+### Traditional/world percussion collaborator
 
-Use phrasing, articulation and rhythmic confidence; a complete answer deserves a real breath.
+Choose a particular drum family and idiom, articulate its strokes and develop an intentional phrase with bass, winds, strings or the producer. The percussion idea may be the seed of the cue.
 
-**When uncertain:** If the phrase sounds like a keyboard line, rephrase around breath length and the instrument's useful register. Let another player answer at the phrase end.
+**Possible roles:** groove lead, pitched-stroke motif, call and response, textural pulse, section transition.
 
-**Tone and space:** Breath-shaped onset and rounded center with controlled edge. During another solo, contribute an answering fragment or rest for a full phrase.
+**When uncertain:** Consult Zakir for tabla and ensemble conversation, Mamady for djembe/dunun context, and a dedicated reference for another selected tradition. A mapped world kit still needs a physically readable part and appropriate articulations.
 
-### Pan soloist
+### Wind collaborator
 
-State the tune clearly; shape selected held notes with alternating-mallet rolls, accents and natural decay.
+Choose a wind color for the emotional job, then shape breaths, register and articulation. The player can carry a refrain or become a small returning color.
 
-**When uncertain:** If a passage is static, vary phrasing or hand the melody to a partner. Check the Greenidge/Provost references for the continuing articulation study; inspect what the actual UVI program supports.
+**Possible roles:** foreground tune, answer, sustained harmonic color, rhythmic motif, atmosphere.
 
-**Tone and space:** A resonant body behind the strike, with clean source headroom. Keep one pan part in Opera; leave other sections and cues to their chosen voices.
+**When uncertain:** Use instrument-specific range and breath. If the melodic job passes to another player, change the wind’s contribution or leave a complete phrase of space.
 
-### DJ and electronic producer
+### Pitched-percussion collaborator
 
-Choose a production mode and a reference recording for the cue. Write original electronic lead, bass and chord parts when they serve the song; transformed band stems provide another vocabulary.
+Choose metal, wood or bell resonance to suit the cue. The same musical mind can lead on pan, sketch a balafon groove or answer on a mallet instrument.
 
-**When uncertain:** Pick the section's reference lane, then name the electronic part's job: groove, melody, atmosphere or transition. Keep the hook and phrase readable through a change of texture.
+**Possible roles:** foreground tune, harmonic ostinato, counterline, rhythmic hook, color accent.
 
-**Tone and space:** A full modern sound with deliberate bright or retro voices. Give bass notes identity, control sharp edges and leave a featured acoustic player room. Acoustic-led passages can give the producer a small part or a full rest.
+**When uncertain:** Choose the actual instrument’s technique and reference. Pan rolls do not automatically become wood-mallet articulation. Keep Opera’s single pan part and principal pan identity; other casts remain cue-plan choices.
+
+### Electronic-production collaborator
+
+Co-compose the musical context, select its reference lane and create original electronic parts or transformations. A world-drum performance may seed the beat; a synth or chip voice may own the tune.
+
+**Possible roles:** beat lead, foreground hook, harmonic bed, motif development, soundscape, transition.
+
+**When uncertain:** For the current score, begin from the lo-fi foundation and name any cue-specific pop, dance or chip lane. Name the hook, groove leader and handoff; use processing to develop the phrase.
+
+## The current rhythmic foundation
+
+**Lo-fi beats are the current underlying rhythmic theme.** Start from rounded low end, a compact drum sound, useful space and a memorable rhythmic/melodic idea. Proposed reference studies are **Nujabes — Reflection Eternal** (2005) and **J Dilla — Last Donut of the Night**, from *Donuts* (2006). These are targets for focused study and original writing, not a completed listening analysis. [Nujabes recording](https://music.apple.com/us/song/1445812716), [Stones Throw release and official video](https://www.stonesthrow.com/store/donuts/)
+
+Use soft/damped kick, dry snare or rim, brushes and shaker detail, controlled toms and selected world drums. Choose swing and note placement for the particular groove. Preserve the warmth and clarity of the instruments; hiss, pitch drift and bit reduction are optional colors to audition. **Metal-style drum-kit production is outside the current default palette.**
+
+The underlying language can appear as a producer-led beat, a hand-drum/bass conversation, restrained acoustic playing or a sparse pulse. Ambient and tender passages can let the beat recede. Pop, bright dance and the Ember King's chiptune retain their selected personalities within the broader score.
+
+Name one groove leader per section: producer, acoustic drummer, Afro-Caribbean percussionist or traditional percussionist. The others can answer, add a small complementary part, suggest an arranging change or rest. Planned breaks and handoffs give a recurring groove room to develop.
+
+## Traditional/world percussion has a creative voice
+
+The new member can originate a cue's rhythmic hook, provide pitched-stroke movement, converse with a melody or lead a whole passage. **Zakir Hussain — Making Music** (original release 1987) is the primary tabla/ensemble-dialogue reference. **Mamady Keita — Mogobalu** (1998 concert-film context) provides a djembe/dunun context. Pick a suitable reference for the actual tradition; an udu part requires its own touch, register and articulation choices. [ECM](https://ecmrecords.com/product/making-music-zakir-hussain/), [TTM Djembe Academy](https://www.ttmda.com/accreditation/mamady-keita/global-presence.php)
+
+Current readiness is deliberately specific: udu, congas, bongos, timbales and several Latin auxiliary programs already have rendered evidence. The owner reports world drum kits in the current configuration. UVI's catalogue lists further regional drums and Indian percussion. The next audition selects exact kits, strokes and dynamic response from those installed resources. [World Suite 3 catalogue](https://www.uvi.net/world-suite-3)
+
+A kit menu is a sound source. The proposed part still identifies the drums, idiom, player, phrase and physical articulation. Distinguish the new traditional member's contribution from the Afro-Caribbean specialist and the acoustic drummer in each cue plan. Simultaneous incompatible instruments use another player or a declared studio overdub.
 
 ## The producer's reference matrix
 
@@ -116,6 +139,7 @@ The following are proposed production goals and reference-study questions, not a
 
 | Mode | Concrete anchors | Roshan arranging goal | When uncertain |
 |---|---|---|---|
+| Current lo-fi foundation | Nujabes: **Reflection Eternal** (2005); J Dilla: **Last Donut of the Night**, *Donuts* (2006) | Warm beat/bass identity, a clear melodic idea and spacious movement. | Develop phrasing, placement and arrangement; preserve useful instrument body and headroom. |
 | Pop song architecture | KPop Demon Hunters: **Golden** and **How It's Done** | A strong instrumental topline, distinct verse/pre-chorus/chorus personalities and a contrasting bridge with narrative purpose. | Identify the hook and its lead player; make the chorus arrival clear through harmony, register and orchestration. |
 | Bright dance | Madeon: **Pay No Mind (feat. Passion Pit)** (2015) | A buoyant pulse, bright harmonic lift and melodic exchange between synths and the band. | Develop bass movement, harmonic rhythm or texture before increasing loudness. |
 | Retro chip beats and glitch-hop direction | Condard: **boombox.sav** and **new_saga.sav**, from **Goes Hard, vol. 4** (2026) | A recognizable chip-bass/lead figure, rhythmic cuts, voice economy and a meaningful sparse break. | Give the chip voice an actual musical job; make each disruption resolve into the phrase. |
@@ -169,47 +193,44 @@ A guitar phrase might receive a rhythmically transformed answer. A flute return 
 
 Production remains in the studio and renders to the established stereo cue delivery. This role does not commission a new runtime DJ or adaptive-audio system.
 
-## Specialist guests
+## Specialist guests are multi-instrumentalists too
 
-| Guest chair | Historical reference | Contribution and working rule |
+| Guest family | Related instrument range | Starting reference |
 |---|---|---|
-| Kora counterpoint guest | [Toumani Diabate - Kaira (1988)](https://music.apple.com/us/song/kaira/1629109828) | Independent plucked pattern and melodic counterpoint. Keep the pattern and melody intelligible as a physical plucked performance. |
-| Celtic harp guest | [Alan Stivell - Ys, Renaissance of the Celtic Harp (1971)](https://music.apple.com/us/song/1667401645) | Atmospheric folk color, arpeggiated space and lyrical harp statements. Use register, decay and deliberate pacing to create an arc. |
-| Fiddle and violin guest | [Stephane Grappelli - Minor Swing with Django Reinhardt, 1937 recording](https://music.apple.com/us/song/691546774) | Singing bowed lines, light chamber dance and acoustic jazz responses. Write bow-length phrases and select supported articulations. |
-| Duduk guest | [Djivan Gasparyan - Black Rock with Michael Brook (1998)](https://realworldrecords.com/releases/black-rock/) | A distinct reed voice for reflective discovery and night colors. Use a dedicated duduk performance reference rather than transplanting the flute's vocabulary. |
-| Additional percussion guest | [Willie Bobo - Timbales on Mongo Santamaria's Afro-Blue (1959)](https://folkways-media.si.edu/docs/folkways/artwork/SFW40802.pdf) | A separate player for timbales or auxiliary figures alongside the conga part. Assign simultaneous parts to a real additional player or a declared studio overdub. |
+| Harp-lute and plucked-string guest | kora, ngoni and related plucked lutes | [Toumani Diabate — Kaira (1988)](https://music.apple.com/us/song/kaira/1629109828) |
+| Harp-family guest | Celtic harp, small folk harps | [Alan Stivell — Ys, Renaissance of the Celtic Harp (1971)](https://music.apple.com/us/song/1667401645) |
+| Bowed-string guest | violin/fiddle, viola da gamba | [Stephane Grappelli — Minor Swing with Django Reinhardt, 1937 recording](https://music.apple.com/us/song/691546774) |
+| Reed-family guest | duduk, clarinet-family reed voices | [Djivan Gasparyan — Black Rock with Michael Brook (1998)](https://realworldrecords.com/releases/black-rock/) |
+| Additional Latin-percussion guest | timbales, bongos, small auxiliary percussion | [Willie Bobo — Timbales on Mongo Santamaria's Afro-Blue (1959)](https://folkways-media.si.edu/docs/folkways/artwork/SFW40802.pdf) |
 
-Each guest receives a real melodic statement, counterpoint, rhythmic pattern or atmospheric phrase. Kora, harp, fiddle and duduk have different physical languages. Expand the chair's reference and exact program through focused audition before writing its cue. Newly installed libraries join through the same performer/reference process.
+Guest roles can be foreground, counterpoint, harmony, pulse or atmosphere according to the instrument and cue. Select an instrument-specific contextual reference before using a newly proposed capability. The capability list does not establish native preset readiness. Preserve breath, bowing, fingering, striking and decay differences.
 
-The additional percussion chair makes conga-and-timbales layers understandable as two players. Further simultaneous parts are assigned to another player or a declared overdub in the cue brief.
+## Collaborative writing and section casting
 
-## How the ensemble makes decisions
+1. **Context:** define the scene's emotional job, narrative purpose and space for play/voices.
+2. **Ideas:** invite a theme, groove, harmony, texture or formal idea from any member. Choose the central idea and what the child should recognize on its return.
+3. **Form:** propose a written song structure with contrasting sections, a clear hook and a meaningful ending/loop route before construction.
+4. **Instrument choices:** choose each member's actual instrument and contextual reference for this cue. Use a small purposeful subset of the collective.
+5. **Role rotation:** map foreground, harmonic movement, groove leadership, counterpoint, texture and rests by section. A bass or drum idea can become the foreground; a former lead can support or rest.
+6. **Orchestration:** plan handoffs, density, register and entrances; identify deliberate studio overdubs. Keep individual instrumental parts physically credible.
+7. **Production:** select the lo-fi groove treatment and any pop/dance/chip mode; then audition exact supported programs/articulations. EQ, balance and mastering develop from the source performances.
+8. **Review:** hear the lead and hook first, then construct the reviewed arrangement with space to develop. Preserve the established human/voice/mono/phone/child acceptance lanes.
 
-1. **Cue purpose and returning tune:** the director chooses the emotional job, family and form from the mission statement.
-2. **Foreground musician:** consult that chair's primary reference for phrasing, range and articulation. Name where the phrase passes to a partner.
-3. **Groove leader:** bass and rhythm partners establish a shared cell. Drummer-led and producer-led sections can use different amounts of acoustic/electronic detail.
-4. **Harmony:** choose who supplies chord body, who supplies movement and who rests. Register and voicing keep these roles readable.
-5. **Producer's musical verb:** state what is built, answered, transformed or opened, and where it resolves.
-6. **Physical and library support:** strokes, breath, bowing, rolls and simultaneous parts must make sense. Unsupported articulations remain provisional while the sound or writing is revised.
-7. **Return to the song:** every part develops the written section and leaves space for voices and interaction. The tune and the section's personality should remain recognizable.
+Reference precedence is mission statement, cue purpose, collective interaction, chosen instrument/context reference, then supported library articulation. Record the choice when references suggest different directions.
 
-When references suggest different choices, use this order: mission statement, cue purpose, shared ensemble context, the chair's chosen reference (the producer names a cue/section mode), then an explicitly named contextual reference. Record the choice in the cue brief. This makes the roster a working decision guide.
+### Illustrative role rotations
 
-## Casting the palette families
+These are options for future cue-plan review, not changes to the approved melodies or new compositions:
 
-The [roster data](ENSEMBLE_ROSTER_2026-11-01.json) lists seating options for all eight families. Cast a subset by section.
+- A water cue could begin with wind melody and EP pulse; keys then takes the main phrase while winds become a held color, with a traditional drum answering near the return.
+- A sunlit cue could grow from a bass figure and hand drums; the mallet member takes the hook, a guitarist supplies a counterline, and the producer develops a short rhythmic transition.
+- A character cue could begin with a traditional drum's pitched-stroke idea and let guitar or winds answer. The drum member may later thin to a pulse while the theme expands.
+- The Ember King keeps the owner-directed chiptune identity. The producer can develop colleagues' original rhythmic/melodic ideas within the four Game Boy voices, with any additional band contribution explicitly planned.
 
-- **Water and reverie:** lyrical guitar, keys, flute or duduk; a small low pulse and producer-shaped landscape.
-- **Sunlit groove:** rhythm guitar, bass and hand percussion establish the pocket; a selected pan, guitar or kora voice carries the tune.
-- **Home:** guitar or keys leads, with acoustic-trio dynamics and selected harp colors.
-- **Theatre:** pan, flute or keys takes a written spotlight, with assigned rhythm/percussion and a purposeful producer transition or break.
-- **Air and discovery:** flute and selected plucked/reed guests converse with electronic depth and a small audible pulse.
-- **Movement:** producer or drummer leads, bass has a memorable figure, and keys or guitar supplies a clear response.
-- **Weather and distant places:** harp, fiddle, flute or a dedicated reed voice leads a local dance or atmospheric form.
-- **Challenge and celebration:** calls and answers develop toward a welcoming return; preceding space earns the larger band statement.
+## Family casting and cue call sheet
 
-## Cue brief and review workflow
+All eight family seating lists in the roster are **capability options**. Choose the instruments and roles for the actual context; the lists do not call the full band into every cue. The added traditional member is available to each family and may rest entirely where appropriate.
 
-Each proposed cue gets a band call sheet: active chairs and exact UVI programs or the authorized RetroPlug/LSDJ setup; historical references for featured parts; foreground and groove leaders by section; handoffs and rests; producer mode, anchor recording, any secondary influence and its reason, console color if any, function and source material; deliberate overdubs; form, hook and ending. A hybrid names which reference leads each section and how the handoff works.
+Every cue brief records: purpose and hook; proposed form; active members and selected instruments; role changes, foreground/groove leaders, handoffs and rests by section; exact programs and readiness; instrument/context references; traditional percussion idiom; lo-fi treatment and any producer mode; source material, overdubs and ending.
 
-Review the ensemble and reference hierarchy before further preset selection or arrangement construction. The three current recordings remain studies. Overall mission-statement endorsement does not grant release acceptance or approve every cue cast. Existing source, protected-voice, mix, phone, child and demo/release rules retain their scopes.
+The overall mission, collective concept, traditional-member addition and current lo-fi direction are owner-directed. Specific capability ranges, references, exact presets and cue casts remain proposals for review. Existing studies remain unaccepted for release. The UVI/Sunbird instrument family and specific RetroPlug/LSDJ exception continue; demo, protected-source and release authority are unchanged.

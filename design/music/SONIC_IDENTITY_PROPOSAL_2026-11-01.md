@@ -2,7 +2,7 @@
 
 Status: **Owner-endorsed overall mission statement with proposed implementation details**. The owner regards the overall sonic design as the mission statement; detailed palettes, programs and cue casts remain for review. The owner has commissioned a game-wide, multi-genre design phase and added the original 1994 SNES *Donkey Kong Country* as a concrete influence. Opera House, Sky Lagoon and Castle are improving studies; the owner has explicitly not accepted them for release. This proposal develops the musical language before further cue construction.
 
-The [ensemble design guide](ENSEMBLE_DESIGN_GUIDE_2026-11-01.md) organizes this direction as a performing band, including a core DJ/producer and historical references for uncertain technique and style decisions.
+The [ensemble design guide](ENSEMBLE_DESIGN_GUIDE_2026-11-01.md) organizes this direction as a collective of multi-instrumentalist creatives, including a DJ/producer and an additional traditional/world percussion member. Instrument families and historical/contextual references guide shifting roles, collaborative writing and cue-specific orchestration.
 
 ## Sound identity
 
@@ -11,6 +11,8 @@ The [ensemble design guide](ENSEMBLE_DESIGN_GUIDE_2026-11-01.md) organizes this 
 The score should move comfortably between aquatic ambience, acoustic soul, chamber dance, funk, folk and calypso. Afro-Caribbean playing supplies a strong rhythmic and instrumental influence across the project. Its presence can be a bass figure, guitar response or percussion conversation as readily as a steel-pan lead.
 
 The constants are expressive foreground playing, a tune the listener can follow, purposeful rhythmic movement and space for another voice to answer. Lead instruments, meter, harmonic mode, ensemble size and genre change with the scene. A family connection should survive a change from guitar to flute, fiddle, piano or synth.
+
+The owner now directs **lo-fi beats as the current underlying rhythmic theme**. Rounded drums, readable bass figures, spacious placement and live/world-percussion detail connect the cue families; metal-style drum-kit production is outside the current default palette. The collective can express that language through a soft beat, a hand-drum conversation or a sparse acoustic pulse. Genre and foreground still follow the scene's purpose. Exact beat references and programs are proposed in the ensemble guide.
 
 ## What the Donkey Kong Country reference provides
 
@@ -138,7 +140,7 @@ The companion map assigns **44 current declarative cues and 14 retained score ro
 Before another cue is built, its short composition brief should name:
 
 1. Scene purpose, palette family, genre and two concrete references at most.
-2. Lead, supporting voices and exact auditioned UVI programs or the explicitly authorized RetroPlug/LSDJ Game Boy setup.
+2. Active multi-instrumentalist members, their chosen instruments, shifting section roles and exact auditioned UVI programs or the explicitly authorized RetroPlug/LSDJ Game Boy setup.
 3. Main hook, thematic relationship and contrasting material.
 4. Form with section lengths, entrances, withdrawals, handoffs and return.
 5. Rhythm, bass, harmony, performance articulations and spaces for speech.

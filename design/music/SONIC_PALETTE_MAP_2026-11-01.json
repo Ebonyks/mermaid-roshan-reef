@@ -955,6 +955,30 @@
       "recording": "Ys",
       "url": "https://music.apple.com/us/song/1667401645",
       "role": "Harp and atmospheric folk"
+    },
+    {
+      "artist": "Nujabes",
+      "recording": "Reflection Eternal",
+      "url": "https://music.apple.com/us/song/1445812716",
+      "role": "Proposed current warm beat/melodic-space reference"
+    },
+    {
+      "artist": "J Dilla",
+      "recording": "Last Donut of the Night / Donuts",
+      "url": "https://www.stonesthrow.com/store/donuts/",
+      "role": "Proposed beat-led composition/arrangement reference"
+    },
+    {
+      "artist": "Zakir Hussain",
+      "recording": "Making Music (1987)",
+      "url": "https://ecmrecords.com/product/making-music-zakir-hussain/",
+      "role": "Traditional percussion as a co-composing ensemble voice"
+    },
+    {
+      "artist": "Mamady Keita",
+      "recording": "Mogobalu (1998 concert film)",
+      "url": "https://www.ttmda.com/accreditation/mamady-keita/global-presence.php",
+      "role": "Djembe/dunun-specific contextual study"
     }
   ],
   "performance_reference_status": "Named listening/audition queue; no new subjective listening assessment asserted.",
@@ -980,5 +1004,42 @@
       "source": "design/music/retroplug_owner_direction_20261101.json",
       "scope": "The character theme. Existing ember/dungeon_ember area cues retain runtime behavior; new hook, form, tempo and integration remain to be planned."
     }
+  },
+  "ensemble_concept": {
+    "direction": "OWNER_DIRECTED_CONTEXT_LED_MULTI_INSTRUMENTALIST_COLLECTIVE",
+    "core_members": 10,
+    "guest_families": 5,
+    "roles": "Members contribute to writing, choose related instruments and rotate foreground, harmony, groove, response, texture and rests by cue/section.",
+    "capability_acceptance": "Detailed capabilities, new programs and reference-track choices are proposed realizations for review.",
+    "source": "design/music/collective_owner_direction_20261101.json"
+  },
+  "rhythmic_foundation": {
+    "owner_direction": "Lo-fi beats are the underlying theme for the current time; add traditional/world percussion, with metal-style drum kits excluded from the current default palette.",
+    "reference_status": "Nujabes / J Dilla track choices proposed for review.",
+    "beat_palette": [
+      "rounded kick",
+      "dry snare or rim",
+      "brush/shaker detail",
+      "short controlled toms",
+      "traditional pitched/body drum strokes"
+    ],
+    "orchestration": "Producer, acoustic drummer or either percussion member may lead the groove; the others take complementary roles or rest.",
+    "groove": "Choose intentional placement and swing where it serves the song; acoustic and ambient cues can express this through sparse pulse or space.",
+    "fidelity": "Preserve warm body, note identity and clean masters. Hiss, pitch drift and bit reduction are optional designed colors; exact treatments require audition.",
+    "kit_readiness": "Existing brushed Jazzistic and UVI percussion programs verified. Owner reports world kits; select exact world/BBA programs before production use."
+  },
+  "traditional_percussion": {
+    "member": "traditional_percussion",
+    "status": "OWNER_DIRECTED_ADDITION",
+    "rendered_programs": [
+      "udu_large_restored"
+    ],
+    "related_rendered_programs": [
+      "latin_congas",
+      "latin_bongos",
+      "latin_timbales"
+    ],
+    "world_kit_status": "Owner reports kits in current configuration; select/audition exact presets and supported strokes.",
+    "catalogue_source": "https://www.uvi.net/world-suite-3"
   }
 }
