@@ -1,0 +1,59 @@
+{
+  "id": "flat-vector-r126-ci-checkout-timeout-20261102",
+  "baseline": "9c7824a3c222106f3706c70e429af8b89ec6e7b0",
+  "scope": "Append newly verified terminal R126 remote checkout timeout without changing candidate, counts, runtime or workflow. Historical pending snapshots retain immutable provenance.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/CI_FAILURE_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/CI_FAILURE_MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/CI_FAILURE_RECEIPT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/CI_MUSIC_CHECKOUT.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/CI_PROBE_CHECKOUT.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/CI_TERMINAL_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/CI_TERMINAL_RUN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/VALIDATION_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "change_record": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#chg-132--r126-painted-melody-note-source-only-production",
+  "validation": [
+    {
+      "command": "Exact source remote CI run41505326571 terminal observation",
+      "result": "FAIL",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/CI_TERMINAL_RUN.json; CI_TERMINAL_RESULT.json; CI_MUSIC_CHECKOUT.log; CI_PROBE_CHECKOUT.log; Both checkouts timed out before product checks"
+    },
+    {
+      "command": "Canonical document authority/development gates and exact unchanged production counts",
+      "result": "PENDING",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/CI_FAILURE_GATES.json"
+    },
+    {
+      "command": "Engine rerun for metadata-only terminal CI observation",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Runtime/source7f21934d unchanged; prior local82/static/analyzer/2D and native evidence retained immutably."
+    },
+    {
+      "command": "FormalQA11/device/child/owner",
+      "result": "PENDING",
+      "evidence": "Unchanged separate acceptance gaps; no new creative/removal credit"
+    }
+  ],
+  "acceptance_gaps": "Remote CI checkout failed before product checks. Prior local82/native342 evidence retains its scope; formalQA11, natural-route/state, device, child, owner and whole-game gaps remain open. Dev/master frozen;0newartwork/frame/removal credit."
+}

@@ -1,0 +1,98 @@
+﻿2026-11-02T18:56:55.9832420Z Current runner version: '2.338.2'
+2026-11-02T18:56:55.9859533Z ##[group]Runner Image Provisioner
+2026-11-02T18:56:55.9860441Z Hosted Compute Agent
+2026-11-02T18:56:55.9860926Z Version: 20261021.618
+2026-11-02T18:56:55.9861460Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-11-02T18:56:55.9862105Z Build Date: 2026-10-21T00:45:21Z
+2026-11-02T18:56:55.9862914Z Worker ID: {03e8e5e6-b713-4842-b486-31b4753748a4}
+2026-11-02T18:56:55.9863551Z Region: westus3
+2026-11-02T18:56:55.9864025Z Cloud: Azure
+2026-11-02T18:56:55.9864464Z ##[endgroup]
+2026-11-02T18:56:55.9865890Z ##[group]Operating System
+2026-11-02T18:56:55.9866479Z Microsoft Windows Server 2025
+2026-11-02T18:56:55.9867040Z 10.0.26100
+2026-11-02T18:56:55.9867516Z Datacenter
+2026-11-02T18:56:55.9867933Z ##[endgroup]
+2026-11-02T18:56:55.9868424Z ##[group]Runner Image
+2026-11-02T18:56:55.9868926Z Image: windows-2025-vs2026
+2026-11-02T18:56:55.9869455Z Version: 20261030.294.1
+2026-11-02T18:56:55.9870837Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261030.294/images/windows/Windows2025-VS2026-Readme.md
+2026-11-02T18:56:55.9872324Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261030.294
+2026-11-02T18:56:55.9873188Z ##[endgroup]
+2026-11-02T18:56:55.9874210Z ##[group]GITHUB_TOKEN Permissions
+2026-11-02T18:56:55.9876049Z Contents: read
+2026-11-02T18:56:55.9876593Z Metadata: read
+2026-11-02T18:56:55.9877070Z ##[endgroup]
+2026-11-02T18:56:55.9879099Z Secret source: Actions
+2026-11-02T18:56:55.9880241Z Cache mode: write
+2026-11-02T18:56:55.9880867Z Prepare workflow directory
+2026-11-02T18:56:56.0356124Z Prepare all required actions
+2026-11-02T18:56:56.0405810Z Getting action download info
+2026-11-02T18:56:56.3665042Z Download action repository 'actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-11-02T18:56:56.5762791Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+2026-11-02T18:56:56.8810048Z Complete job name: area-music-provenance
+2026-11-02T18:56:57.1676797Z ##[group]Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+2026-11-02T18:56:57.1678534Z with:
+2026-11-02T18:56:57.1678981Z   persist-credentials: false
+2026-11-02T18:56:57.1679564Z   repository: Ebonyks/mermaid-roshan-reef
+2026-11-02T18:56:57.1683239Z   token: ***
+2026-11-02T18:56:57.1683636Z   ssh-strict: true
+2026-11-02T18:56:57.1684098Z   ssh-user: git
+2026-11-02T18:56:57.1684537Z   clean: true
+2026-11-02T18:56:57.1684976Z   sparse-checkout-cone-mode: true
+2026-11-02T18:56:57.1685480Z   fetch-depth: 1
+2026-11-02T18:56:57.1685904Z   fetch-tags: false
+2026-11-02T18:56:57.1686377Z   show-progress: true
+2026-11-02T18:56:57.1686809Z   lfs: false
+2026-11-02T18:56:57.1687222Z   submodules: false
+2026-11-02T18:56:57.1687914Z   set-safe-directory: true
+2026-11-02T18:56:57.1688986Z env:
+2026-11-02T18:56:57.1689454Z   GODOT_RELEASE: 4.7.2-stable
+2026-11-02T18:56:57.1690742Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+2026-11-02T18:56:57.1691985Z ##[endgroup]
+2026-11-02T18:56:57.3317119Z Syncing repository: Ebonyks/mermaid-roshan-reef
+2026-11-02T18:56:57.3318840Z ##[group]Getting Git version info
+2026-11-02T18:56:57.3319483Z Working directory is 'D:\a\mermaid-roshan-reef\mermaid-roshan-reef'
+2026-11-02T18:56:57.4835017Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-02T18:56:59.7231355Z git version 2.56.0.windows.4
+2026-11-02T18:56:59.7288987Z ##[endgroup]
+2026-11-02T18:56:59.7309123Z Temporarily overriding HOME='D:\a\_temp\13516171-bab1-4b8c-8e5e-174600c22afa' before making global git config changes
+2026-11-02T18:56:59.7311785Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-02T18:56:59.7320316Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+2026-11-02T18:56:59.8426512Z Deleting the contents of 'D:\a\mermaid-roshan-reef\mermaid-roshan-reef'
+2026-11-02T18:56:59.8432415Z ##[group]Initializing the repository
+2026-11-02T18:56:59.8441506Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+2026-11-02T18:57:00.8242585Z Initialized empty Git repository in D:/a/mermaid-roshan-reef/mermaid-roshan-reef/.git/
+2026-11-02T18:57:00.8314083Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/Ebonyks/mermaid-roshan-reef
+2026-11-02T18:57:00.9704334Z ##[endgroup]
+2026-11-02T18:57:00.9705260Z ##[group]Disabling automatic garbage collection
+2026-11-02T18:57:00.9718366Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-02T18:57:01.0152346Z ##[endgroup]
+2026-11-02T18:57:01.0153068Z ##[group]Setting up auth
+2026-11-02T18:57:01.0166060Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-02T18:57:01.0587125Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-02T18:57:05.0821628Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-02T18:57:05.1221924Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-02T18:57:05.6924281Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-02T18:57:05.7318875Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-02T18:57:06.2880434Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-02T18:57:06.3285865Z ##[endgroup]
+2026-11-02T18:57:06.3286357Z ##[group]Fetching the repository
+2026-11-02T18:57:06.3298874Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7f21934d20f9d1abdb78b8c1b5869586efd0cd79:refs/remotes/origin/codex/flat-vector-melody-note-20261102
+2026-11-02T19:11:56.4135395Z ##[error]The operation was canceled.
+2026-11-02T19:11:56.5866611Z Post job cleanup.
+2026-11-02T19:11:57.0747349Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-02T19:11:57.1127961Z git version 2.56.0.windows.4
+2026-11-02T19:11:57.1201007Z Temporarily overriding HOME='D:\a\_temp\f06a8510-8364-493f-b744-bb70e7969599' before making global git config changes
+2026-11-02T19:11:57.1202474Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-02T19:11:57.1211526Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+2026-11-02T19:11:57.1620881Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-02T19:11:57.2022532Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-02T19:11:57.8260519Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-02T19:11:57.8607090Z http.https://github.com/.extraheader
+2026-11-02T19:11:57.8664055Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-11-02T19:11:57.9062045Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-02T19:11:58.4651793Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-02T19:11:58.5029627Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-02T19:11:59.1118531Z Cleaning up orphan processes
+2026-11-02T19:11:59.1338808Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

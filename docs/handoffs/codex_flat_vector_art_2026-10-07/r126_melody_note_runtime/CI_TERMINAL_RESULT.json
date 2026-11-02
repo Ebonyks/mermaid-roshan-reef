@@ -1,0 +1,60 @@
+{
+  "state": "REMOTE_CI_CHECKOUT_TIMEOUT_BEFORE_ALL_PRODUCT_CHECKS",
+  "source_revision": "7f21934d20f9d1abdb78b8c1b5869586efd0cd79",
+  "run_id": 41505326571,
+  "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41505326571",
+  "status": "completed",
+  "conclusion": "cancelled",
+  "updated_at": "2026-11-02T20:27:24Z",
+  "jobs": [
+    {
+      "id": 125483033522,
+      "name": "area-music-provenance",
+      "conclusion": "cancelled",
+      "checkout_started_at": "2026-11-02T18:56:56Z",
+      "checkout_completed_at": "2026-11-02T19:11:56Z",
+      "actual_product_checks_run": false
+    },
+    {
+      "id": 125483033789,
+      "name": "probes",
+      "conclusion": "cancelled",
+      "checkout_started_at": "2026-11-02T18:56:56Z",
+      "checkout_completed_at": "2026-11-02T20:27:15Z",
+      "actual_product_checks_run": false
+    }
+  ],
+  "timeout_minutes": {
+    "area_music": 15,
+    "probes": 90
+  },
+  "observed_fetch_scope": {
+    "area_music": "Depth1 exact source branch",
+    "probes": "Full branch/tag history retained for immutable2D ceiling guard"
+  },
+  "diagnosis": "Both repository fetches ran until their existing job timeouts. Logs report cancellation; underlying network/storage/server cause is not established. No game, art or music test assertion ran remotely.",
+  "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+  "native_configured_checks": {
+    "source": 171,
+    "candidate": 171,
+    "effective": 342
+  },
+  "historical_pending_snapshots_preserved_at": "9c7824a3c222106f3706c70e429af8b89ec6e7b0",
+  "source_candidate_unchanged": true,
+  "remote_rerun_requested": false,
+  "workflow_edited": false,
+  "observer_session_terminal": {
+    "session_id": 69848,
+    "exit_code": 0,
+    "scope": "Observer completed; exit0 is not a CI pass"
+  },
+  "new_artwork_credit": 0,
+  "new_frame_events": 0,
+  "Dev_integrated": false,
+  "accepted_removed": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "mission_complete": false
+}

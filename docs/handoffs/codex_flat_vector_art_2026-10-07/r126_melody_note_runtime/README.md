@@ -17,3 +17,9 @@ Canonical totals:29 published bounded source artifacts / 20 partial Dev;7,027 bo
 R125 exact-source CI 41484922684 succeeded at e4166d1b; [new verified observation](R125_EXACT_CI_SUCCESS.json) preserves historical pending snapshots with0artwork credit. R126 exact-source CI is separately tracked in [SOURCE_CI_HANDLES.json](SOURCE_CI_HANDLES.json).
 
 [Current delivery manifest](MANIFEST.json) · [Anonymous immutable receipt](REMOTE_VERIFICATION.json) · [Payload revision](PAYLOAD_PIN.json). Null manifest revisions resolve against the payload revision, not the later receipt-only commit.
+
+## Terminal CI checkout observation
+
+Exact source `7f21934d20f9d1abdb78b8c1b5869586efd0cd79`, run `41505326571`, completed **cancelled** at `2026-11-02T20:27:24Z`. Music checkout reached its existing 15-minute timeout; full-history game checkout reached its existing 90-minute timeout. Both stopped before product checks. The downloaded job logs show repository fetch and cancellation, without a proven network/storage/server cause. This is no remote test pass and no demonstrated artwork regression. The exact local 82-probe/static/analyzer/2D pass and 171 source + 171 candidate configured scene checks retain their scope.
+
+[Terminal run](CI_TERMINAL_RUN.json) · [Scoped result](CI_TERMINAL_RESULT.json) · [Music checkout log](CI_MUSIC_CHECKOUT.log) · [Game checkout log](CI_PROBE_CHECKOUT.log) · [This bounded observation manifest](CI_FAILURE_MANIFEST.json) · [Anonymous verification](CI_FAILURE_RECEIPT.json). Earlier pending snapshots and the original source/candidate delivery remain immutable at their recorded revisions. No workflow edit, gate reduction, automatic rerun, Dev/master change, new art/frame credit or creative acceptance.
