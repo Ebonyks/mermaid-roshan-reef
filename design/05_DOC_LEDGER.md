@@ -1166,3 +1166,13 @@ Owner-requested demo priorities, analysis and Codex work order for the November 
 | `docs/handoffs/codex_demo_readiness_2026-10-31/README.md` | 🟣 | `PROPOSED / CANDIDATE` owner-requested Codex work order prepared by Claude (written specification; no game change, no images) at dev `218ae766`: demo definition, feature freeze, priorities and packages DR0-DR7, schedule and owner answers Q1-Q8 (defaults accepted 2026-10-31, `ODR-DEMO-*-20261031`). Grants no release authority or acceptance. |
 | `docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md` | 🔵 | `SUPPORTING_CURRENT` code-anchored demo-readiness review at dev `218ae766`: release state, six finished repairs stranded off dev, Day One and Part 2 findings (opens `MA-VIS-011` and `MA-SAVE-002`), release, save and performance risks, and post-demo improvement areas. Static reading only; no runtime, device or child evidence. |
 | `docs/handoffs/codex_demo_readiness_2026-10-31/DEMO_RUNBOOK.md` | 🟣 | `PROPOSED / CANDIDATE` release-candidate, save-rehearsal, install-over, device-rehearsal, promotion, rollback and demo-day procedure for Codex and the owner under `DL-SAVE-05`; adds no approval checkpoint and grants no release authority. |
+
+## Boxer engine evaluation and Codex handoff (2026-11-01)
+
+Owner-requested evaluation of the Boxer contact engine on `codex/boxer-contact-engine-20261031` at `22df5b75`, and a written Codex work order for Editions 1-2 and the engine foundation (`MA-OPERA-015`).
+
+| Doc | | Note |
+|---|---|---|
+| `docs/handoffs/codex_boxer_engine_2026-11-01/README.md` | 🟣 | `PROPOSED / CANDIDATE` owner-requested Codex work order prepared by Claude (written specification; no game change, no images): owner decisions `ODR-BOXER-*-20261101`, work packages BX0-BX9, acceptance AC-1 to AC-10, art described in words, harness instructions. Implementation starts after the 7 November demo. |
+| `docs/handoffs/codex_boxer_engine_2026-11-01/EVALUATION.md` | 🔵 | `SUPPORTING_CURRENT` numbers-only evaluation at `22df5b75`: contact maths, held and moving guard, rule checks C1-C9, 900 playthroughs and timing against cited child norms. Claims no rule authority. |
+| `docs/handoffs/codex_boxer_engine_2026-11-01/ROADMAP.md` | 🟣 | `PROPOSED / CANDIDATE` edition ladder for the Boxer's return visits (Editions 3-5 and a boss toolkit), move set, verbs, engine features and gates; edition order and defaults accepted by the owner on 2026-11-01. |

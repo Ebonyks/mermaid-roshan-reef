@@ -893,6 +893,138 @@
         "scripts/probe_opera_2d.gd"
       ],
       "checkable": true
+    },
+    {
+      "id": "ODR-BOXER-WARNING-20261101",
+      "date": "2026-11-01",
+      "subject": "Boxer pre-punch warning",
+      "question": "How should the Boxer warn of an incoming punch?",
+      "decision": "Owner 2026-11-01: \"Flashing animation before a punch that show the direction of the upcoming punch would be ideal\" and \"Don't re-use from puff, new for boxing game.\" The Boxer gets its own flashing direction warning; it does not reuse Grand Puff's warning or its code.",
+      "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "cycle": "boxer-warning-20261101"
+    },
+    {
+      "id": "ODR-BOXER-HOOKS-20261101",
+      "date": "2026-11-01",
+      "subject": "Boxer hooks",
+      "question": "Review decision 2: spread the punch paths, or add side hooks?",
+      "decision": "Owner 2026-11-01: \"Hooks should also be a part of the game, which adds variation and disrupts the simple Punch block.\" Hooks are part of the Boxer; the jab lanes are spread as well.",
+      "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "cycle": "boxer-review-20261101"
+    },
+    {
+      "id": "ODR-BOXER-COUNTER-GATE-20261101",
+      "date": "2026-11-01",
+      "subject": "Boxer Title Imp counter gate",
+      "question": "Review decision 1: should Title Imp's counter open only after a block?",
+      "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: a block opens the star; after two unblocked punches in a row the imp tires and opens anyway, so she is never stuck.",
+      "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "cycle": "boxer-review-20261101"
+    },
+    {
+      "id": "ODR-BOXER-COUNTER-WINDOW-20261101",
+      "date": "2026-11-01",
+      "subject": "Boxer counter window",
+      "question": "Review decision 3: counter window fixed or open-ended?",
+      "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: 2.4 s, never below 2.0 s; when help is on, it stays open until she punches.",
+      "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "cycle": "boxer-review-20261101"
+    },
+    {
+      "id": "ODR-BOXER-SOUNDS-20261101",
+      "date": "2026-11-01",
+      "subject": "Boxer sound cues",
+      "question": "Review decision 4: reuse existing sound effects or record new ones?",
+      "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: reuse existing sound effects for the launch, the \"now\" moment and the count-in ticks; no new voice recordings.",
+      "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "cycle": "boxer-review-20261101"
+    },
+    {
+      "id": "ODR-BOXER-SCHEDULE-20261101",
+      "date": "2026-11-01",
+      "subject": "Boxer engine work start",
+      "question": "Review decision 5: when should Codex start?",
+      "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: after the 7 November demo; Codex builds on top of codex/boxer-contact-engine-20261031, which passes CI but is not merged into dev while dev is in its demo freeze.",
+      "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "cycle": "boxer-review-20261101"
+    },
+    {
+      "id": "ODR-BOXER-EDITIONS-20261101",
+      "date": "2026-11-01",
+      "subject": "Boxer as a recurring engine",
+      "question": "What should the Boxer become across the adventure?",
+      "decision": "Owner 2026-11-01: the minigame will \"reoccur a minimum of four to five times, with new additions\", complexity grows with each, \"We are building the engine that is allowing these next steps to come into place\", and \"Using this engine is a part of the final boss. Battle is likely.\" The owner asked to focus on the engine and gameplay additions rather than plot placement.",
+      "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "cycle": "boxer-roadmap-20261101"
+    },
+    {
+      "id": "ODR-BOXER-EDITION-ORDER-20261101",
+      "date": "2026-11-01",
+      "subject": "Boxer edition order",
+      "question": "Roadmap decision 1: is the edition order right (hooks, then rhythm, then reading the guard, then two at once)?",
+      "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: yes; each step needs the one before it.",
+      "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "cycle": "boxer-roadmap-20261101"
+    },
+    {
+      "id": "ODR-BOXER-FAMILY-SPARRING-20261101",
+      "date": "2026-11-01",
+      "subject": "Boxer Family Sparring",
+      "question": "Roadmap decision 2: include optional Family Sparring?",
+      "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: yes, in Edition 3, as a parent-started mode outside the required path.",
+      "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "cycle": "boxer-roadmap-20261101"
+    },
+    {
+      "id": "ODR-BOXER-NO-DODGE-20261101",
+      "date": "2026-11-01",
+      "subject": "Boxer ducking and dodging",
+      "question": "Roadmap decision 3: keep ducking and dodging out?",
+      "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: yes; revisit only if the gloves stop being enough.",
+      "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "cycle": "boxer-roadmap-20261101"
+    },
+    {
+      "id": "ODR-BOXER-FLOATING-GLOVES-20261101",
+      "date": "2026-11-01",
+      "subject": "Boxer opponent representation",
+      "question": "Roadmap decision 4: keep the opponent as floating gloves for now?",
+      "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: yes; a face or body behind the gloves can come later without changing the engine.",
+      "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "cycle": "boxer-roadmap-20261101"
     }
   ]
 }

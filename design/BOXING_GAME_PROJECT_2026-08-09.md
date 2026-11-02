@@ -48,6 +48,10 @@ phone/tablet, child and owner evidence. Earlier sections retain historical resou
 and integration details except where this scoped revision explicitly supersedes
 the fixed endpoint, whole-opponent display and endpoint-only hit tests.
 
+## 2026-11-01 evaluation and Codex handoff
+
+Claude's [evaluation](../docs/handoffs/codex_boxer_engine_2026-11-01/EVALUATION.md) of the contact engine at `22df5b75` confirms the contact maths and the held guard anywhere on the flight, and records Title Imp rule, timing and random-play defects as [`MA-OPERA-015`](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-015). The owner's 2026-11-01 decisions (`ODR-BOXER-*-20261101`) add a new boxing-only flashing direction warning, hooks, a block-gated counter with a tired-imp mercy, a 2.4 s counter window and a series of returning editions. The [Codex work order](../docs/handoffs/codex_boxer_engine_2026-11-01/README.md) commissions Editions 1-2 and the engine foundation; [the roadmap](../docs/handoffs/codex_boxer_engine_2026-11-01/ROADMAP.md) plans later editions. This section points to proposed work; the runtime contract above stays authoritative until that work lands.
+
 ## 1. Scope
 
 Rebuild the existing **Boxer** Opera career as a dedicated touch game. This is
