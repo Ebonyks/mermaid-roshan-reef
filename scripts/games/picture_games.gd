@@ -410,7 +410,7 @@ func _mg_snow_face_phase() -> void:
 	var carrot := _mg_artbtn("res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png", Vector2(360, 600), Vector2(150, 110))
 	carrot.pressed.connect(func(): _mg_snow_face("carrot", carrot))
 	for i in range(2):
-		var coal := _mg_artbtn("res://assets/mg/coal.png",
+		var coal := _mg_artbtn("res://assets/mg/snowman_coal_painted.png",
 			Vector2(220 + float(i) * 280, 600), StorybookUI.MIN_TOUCH)
 		var idx := i
 		coal.pressed.connect(func(): _mg_snow_face("coal" + str(idx), coal))
@@ -431,9 +431,9 @@ func _mg_snow_face(_part: String, b: Button) -> void:
 		bit.set_meta("snowman_authored_rotation", bit.rotation)
 		m.mg["carrot_bit"] = bit
 	elif _part == "coal0":
-		bit = _mg_sprite("res://assets/mg/coal.png", head + Vector2(-24, -18), Vector2(42, 42))
+		bit = _mg_sprite("res://assets/mg/snowman_coal_painted.png", head + Vector2(-24, -18), Vector2(42, 42))
 	else:
-		bit = _mg_sprite("res://assets/mg/coal.png", head + Vector2(24, -18), Vector2(42, 42))
+		bit = _mg_sprite("res://assets/mg/snowman_coal_painted.png", head + Vector2(24, -18), Vector2(42, 42))
 	if not m.mg.has("face_bits"):
 		m.mg["face_bits"] = []
 	(m.mg["face_bits"] as Array).append(bit)
