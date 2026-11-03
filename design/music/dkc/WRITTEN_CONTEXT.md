@@ -72,7 +72,9 @@ For every part add a source ID and label the conclusion **documented**, **listen
 
 The FACT interview is useful for Wise’s broader view of mood, collaboration and technology. Its Stickerbrush Symphony discussion concerns DKC2, and its studio equipment list describes 2014. Neither identifies the 1994 DKC1 recording setup. [Ryan Hemsworth interview](https://www.factmag.com/2014/03/18/double-trouble-ryan-hemsworth-interviews-donkey-kong-country-composer-david-wise/)
 
-Still open: exact sample-source/patch provenance; channel-level assignments and envelopes; contemporary production notes or surviving project files; full listening and native A/B evidence. No original DKC1 session project or comprehensive sample map was obtained in this pass.
+The [interpretive review](INTERPRETIVE_REVIEW.md) now supplies adopted working choices and MIDI/audio stress evidence; missing historical identities do not hold up arranging.
+
+Still open as historical/final-verification work: exact sample-source/patch provenance; channel-level assignments and envelopes; contemporary production notes or surviving project files; full listening and native A/B evidence. No original DKC1 session project or comprehensive sample map was obtained in this pass.
 
 The source register also preserves the KORG original-manual reference for deeper parameter study and a Fanbyte Novakovic interview whose retrieved legacy shell omitted the body. Neither supplies unreviewed factual claims here.
 

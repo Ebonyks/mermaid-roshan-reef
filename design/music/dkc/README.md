@@ -2,9 +2,13 @@
 
 This separate study covers the original 1994 SNES Donkey Kong Country soundtrack. The original in-game sound is the authority. Performer profiles, Bonobo production preferences, General MIDI program labels and available libraries are resources for finding a match; they never require changing the original instrument. Add a patch, articulation, technique or performer capability when the source requires it.
 
-## Current coverage
+## Adopted working interpretations
 
-Research intake dated November 2, 2026, with machine receipts in UTC on November 3. There are 30 review rows: the 29-entry SPC catalog plus Game Over as a coverage reconciliation item. Metadata searches found original-recording candidates for all 30, downloadable MIDI candidates for 24, and possible MIDI videos for 21. None of these counts establishes a faithful backing or accepted instrument match. All listening and fidelity fields remain open.
+The [interpretive MIDI review](INTERPRETIVE_REVIEW.md) now adopts a practical direction for every entry, supported by 52 original-audio excerpt opinions, 105 parsed MIDI URL inputs representing 75 distinct files, controlled tonal/timing comparisons and later-section checks. The [working register](working_interpretations.json) supplies instrument roles, selected scaffolds and revision triggers. Ambiguity leads to a supported choice that can change; missing historical identity or MIDI does not block design.
+
+## Initial discovery coverage
+
+Research intake dated November 2, 2026, with machine receipts in UTC on November 3. There are 30 review rows: the 29-entry SPC catalog plus Game Over as a coverage reconciliation item. Metadata searches found original-recording candidates for all 30, downloadable MIDI candidates for 24, and possible MIDI videos for 21. None of these counts establishes a faithful backing or accepted instrument match. This paragraph records the initial discovery snapshot. The adopted working interpretations above supersede its blanket unreviewed status; full native timbre and owner acceptance remain separate.
 
 The [SPC catalog](https://snesmusic.org/v2/profile.php?selected=711&set=) provides the 29-entry spine. The [Nintendo Music catalog description](https://www.mariowiki.com/Donkey_Kong_Country_(Nintendo_Music)) uses 26 album entries and different short-cue groupings. Keep aliases rather than treating album order as the complete runtime inventory. Game Over, opening fanfare, level/bonus outcomes and other short cues remain explicit; death/game-over cues are reference analysis and do not commission fail states for Roshan.
 
@@ -98,12 +102,12 @@ The four-track prototype elsewhere already has original-listening reports in its
 | Source-specific sound gaps | Moving synth/pad surfaces; nonverbal voices/FX; reed/brass/string/mallet distinctions; source drum strokes; electric versus synth bass; worn keys | Identify the sound first, then inventory/add the required patch or technique. No purchase is implied. |
 | Original phrase nuances | Every mapped part | Checked controllers, register, articulations, phrase endings and groove; no generic expressive substitution. |
 
-Prioritize the four existing study pieces—Simian Segue, Aquatic Ambiance, DK Island Swing and Fear Factory—then finish all remaining full cues and short events. The listening-source milestone remains OPEN until originals and complete backings are reviewed or their exact missing-source blockers are recorded. Instrument mapping and stress-test milestones remain OPEN.
+Prioritize the four existing study pieces—Simian Segue, Aquatic Ambiance, DK Island Swing and Fear Factory—then finish all remaining full cues and short events. The interpretive review supplies a working direction for every entry and executed MIDI/original stress comparisons for the covered set. Six downloadable MIDI gaps remain resource tasks, with an ear-led construction route already chosen. Native patch auditions, remaining full-form checks and final musical acceptance continue from these decisions.
 
 ## Audit and acceptance
 
 Scope: source research and planning only. Applicable rules are DL-AUTH-05 through DL-AUTH-07, DL-SND-04, DL-SND-09, DL-SND-12, DL-SND-15 and DL-SND-18. The owner’s scoped DKC instruction resolves roster conflicts in favor of the original; Roshan original composition, protected media, runtime formats and release gates retain their existing scopes.
 
-The [impact](../../audit_impacts/dkc-soundtrack-profile-20261102.json) records exact baseline and verification. MA-AUDIO-001 remains FIXED_PENDING_VERIFICATION: this reference study repairs no runtime finding. The master remains UNSATISFIED. Human instrument identity/fidelity, native A/B stress tests, full listening and owner disposition are outstanding; runtime/device/child gates apply if a later authorized change enters the game.
+The [impact](../../audit_impacts/dkc-soundtrack-profile-20261102.json) records exact baseline and verification. MA-AUDIO-001 remains FIXED_PENDING_VERIFICATION: this reference study repairs no runtime finding. The master remains UNSATISFIED. Working roles and bounded MIDI/audio diagnostics are now recorded in the interpretive review. Native preset A/B tests, complete-form listening and final owner disposition remain separate; runtime/device/child gates apply if a later authorized change enters the game.
 
 References are for listening and analysis. Archive availability does not establish permission to redistribute reference audio or MIDI, sample original recordings, upload audio to a service or ship DKC material in Roshan. This packet contains metadata and links, with no reference audio or MIDI payload.

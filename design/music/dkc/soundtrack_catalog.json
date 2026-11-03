@@ -12,8 +12,8 @@
       "id": "DKC-01",
       "title": "Theme",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Theme original soundtrack",
         "entries": [
@@ -150,9 +150,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -167,14 +167,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Keep the contrast between the small retro opening and the full sampled groove.",
+        "selected_midi_url": "https://themushroomkingdom.net/sounds/mid/dkcountry_theme.mid",
+        "revision_trigger": "Replace the lead family only if a matched-register audition loses the source attack or the opening/full-groove contrast."
       }
     },
     {
       "id": "DKC-02",
       "title": "Simian Segue",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Simian Segue original soundtrack",
         "entries": [
@@ -325,9 +333,9 @@
       "midi_video_candidates": [],
       "midi_video_status": "FULL_BACKING_VIDEO_GAP",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -343,14 +351,22 @@
           "SRC-NOVAKOVIC-TIMEEXT-2023"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Lead with a dry, slightly worn acoustic-piano attack and a bouncing low bass; keep the clipped string/reed replies.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Map-KM.mid",
+        "revision_trigger": "If piano cannot retain the original crisp contour without an EP-like ring, use a piano/sampled-pluck hybrid. Remove doubled echo channels before adding players."
       }
     },
     {
       "id": "DKC-03",
       "title": "DK Island Swing",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES DK Island Swing original soundtrack",
         "entries": [
@@ -605,9 +621,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -624,6 +640,14 @@
           "SRC-WISE-VGMO"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Let hand percussion establish the place, then open into a breathy pipe/bottle-like hook over low bass and sustained backing.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_DK_Island_Swing-1.mid",
+        "revision_trigger": "Revise the lead toward a blown-bottle synth when a natural flute becomes too lyrical. Preserve the section contrast rather than one unchanging groove."
       }
     },
     {
@@ -632,8 +656,8 @@
       "aliases": [
         "cranky's cabin"
       ],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Cranky's Theme original soundtrack",
         "entries": [
@@ -739,9 +763,9 @@
       "midi_video_candidates": [],
       "midi_video_status": "FULL_BACKING_VIDEO_GAP",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -756,14 +780,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use a playful wooden-mallet foreground, clipped bass and bright high replies.",
+        "selected_midi_url": "https://themushroomkingdom.net/sounds/mid/dkcountry_cranky_cabin.mid",
+        "revision_trigger": "Change mallet toward a sampled-key hybrid if the original attack cannot be matched; do not default to honky-tonk piano from character association."
       }
     },
     {
       "id": "DKC-05",
       "title": "Cave Dweller Concert",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Cave Dweller Concert original soundtrack",
         "entries": [
@@ -886,9 +918,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -903,6 +935,14 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Treat tuned percussion, echoes and dark sustained space as the arrangement’s core.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Cave_Dweller_Concert.mid",
+        "revision_trigger": "Swap low mallet for tuned-drum synthesis if sustain or pitch behavior demands it; keep the sparse space."
       }
     },
     {
@@ -911,8 +951,8 @@
       "aliases": [
         "bonus stage"
       ],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Bonus Room Blitz original soundtrack",
         "entries": [
@@ -1105,9 +1145,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -1122,14 +1162,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Make a dry mallet/kalimba-like hook bounce against pizzicato bass and compact percussion.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC1-BonusRoomBlitz.mid",
+        "revision_trigger": "Drop either doubled mallet layer when it only duplicates attack; preserve the hook’s readable edge."
       }
     },
     {
       "id": "DKC-07",
       "title": "Aquatic Ambiance",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Aquatic Ambiance original soundtrack",
         "entries": [
@@ -1541,9 +1589,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -1561,14 +1609,22 @@
           "SRC-KORG-WAVESTATION"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Build a moving synth environment; the melody floats over a real low synth foundation and small bright figures.",
+        "selected_midi_url": "https://themushroomkingdom.net/sounds/mid/dkcountry_aquatic_ambiance[2].mid",
+        "revision_trigger": "A static pad is revised if held-note timbre stops moving. Preserve purposeful control/bend behavior instead of flattening to note-ons."
       }
     },
     {
       "id": "DKC-08",
       "title": "Candy's Love Song",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Candy's Love Song original soundtrack",
         "entries": [
@@ -1640,9 +1696,9 @@
       "midi_video_candidates": [],
       "midi_video_status": "FULL_BACKING_VIDEO_GAP",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "EAR_LED_CONSTRUCTION_ROUTE",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -1658,14 +1714,22 @@
           "SRC-NOVAKOVIC-TIMEEXT-2023"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use clipped brassy/workstation chord colors and a plucky, syncopated bass rather than assuming a soft piano ballad.",
+        "selected_midi_url": null,
+        "revision_trigger": "If the brassy interpretation is too hard, test a muted-reed/key blend; keep the source syncopation. Transcribe a short source phrase instead of waiting for a downloadable score."
       }
     },
     {
       "id": "DKC-09",
       "title": "Bad Boss Boogie",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Bad Boss Boogie original soundtrack",
         "entries": [
@@ -1790,9 +1854,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -1807,14 +1871,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Keep the sharp electric/synthetic edge and pulsing accompaniment.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Bad_Boss_Boogie.mid",
+        "revision_trigger": "Change lead synthesis versus guitar balance to match the attack; do not soften it into a generic lo-fi ensemble."
       }
     },
     {
       "id": "DKC-10",
       "title": "Mine Cart Madness",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Mine Cart Madness original soundtrack",
         "entries": [
@@ -1944,9 +2016,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -1961,14 +2033,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Keep a driving low pulse and bright lead/answer layers with sustained harmonic backing.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/Mine_Cart_Madness.mid",
+        "revision_trigger": "Treat duplicated bass colors as reinforcement until distinct notes are demonstrated; retain the original drive."
       }
     },
     {
       "id": "DKC-11",
       "title": "Life in the Mines",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Life in the Mines original soundtrack",
         "entries": [
@@ -2348,9 +2428,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -2365,6 +2445,14 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use a breathy bottle/flute-like foreground against sustained synth strings, rounded picked bass and small rhythmic accents.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Mines-KM.mid",
+        "revision_trigger": "If a literal flute sounds too acoustic, use a breathy synthetic voice. Echo copies are space, not extra performers."
       }
     },
     {
@@ -2373,8 +2461,8 @@
       "aliases": [
         "temple tempest"
       ],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Voices of the Temple original soundtrack",
         "entries": [
@@ -2500,9 +2588,9 @@
       "midi_video_candidates": [],
       "midi_video_status": "FULL_BACKING_VIDEO_GAP",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -2518,14 +2606,22 @@
           "SRC-NOVAKOVIC-TIMEEXT-2023"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Choose a choir-like atmospheric center with low resonance, sparse melodic gestures and a defined percussive pulse.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Voices_of_the_Temple.mid",
+        "revision_trigger": "Use the simpler named Voices transcription as the working scaffold if the denser Temple Tempest copy obscures entrances; tonal ranking is non-discriminating here."
       }
     },
     {
       "id": "DKC-13",
       "title": "Forest Frenzy",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Forest Frenzy original soundtrack",
         "entries": [
@@ -2675,9 +2771,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -2693,6 +2789,14 @@
           "SRC-NOVAKOVIC-TIMEEXT-2023"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Orchestrate the pulse as playful natural-sounding gestures: rattles, feet, birds and ripples translated into distinct musical voices.",
+        "selected_midi_url": "https://themushroomkingdom.net/sounds/mid/dkcountry_forest_frenzy.mid",
+        "revision_trigger": "These are role metaphors supported by the fan track names, not zoological sample claims; change any voice that loses the original rhythmic function."
       }
     },
     {
@@ -2701,8 +2805,8 @@
       "aliases": [
         "tree top town"
       ],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Treetop Rock original soundtrack",
         "entries": [
@@ -2812,9 +2916,9 @@
       "midi_video_candidates": [],
       "midi_video_status": "FULL_BACKING_VIDEO_GAP",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -2830,6 +2934,14 @@
           "SRC-NOVAKOVIC-TIMEEXT-2023"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use a bright mallet/pipe/pluck exchange over short bass rather than assigning one guitar as the whole identity.",
+        "selected_midi_url": "https://themushroomkingdom.net/sounds/mid/dkcountry_tree_top_town.mid",
+        "revision_trigger": "Use synthetic rather than fully natural winds if acoustic phrasing blunts the original clipped articulation."
       }
     },
     {
@@ -2838,8 +2950,8 @@
       "aliases": [
         "funky's flights"
       ],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Funky's Fugue original soundtrack",
         "entries": [
@@ -3021,9 +3133,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -3040,14 +3152,22 @@
           "SRC-WISE-VGMO"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Center the funk bass and short clean/muted guitar-like chops, with orchestral/vocal-like hits as punctuation.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Funkys_Flights-KM.mid",
+        "revision_trigger": "Do not substitute nylon or steel acoustic guitar because it is installed. Synthetic chops are the fallback when no clean electric patch is suitable."
       }
     },
     {
       "id": "DKC-16",
       "title": "Misty Menace",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Misty Menace original soundtrack",
         "entries": [
@@ -3175,9 +3295,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -3192,14 +3312,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Treat this as an authored soundscape with a loose pulse, not a melody waiting for a fuller band.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Mist-KM.mid",
+        "revision_trigger": "Retain the GS MIDI as an event guide only. Revise event timing by audio; weak pitch matching does not require inventing a tune."
       }
     },
     {
       "id": "DKC-17",
       "title": "Northern Hemispheres",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Northern Hemispheres original soundtrack",
         "entries": [
@@ -3333,9 +3461,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -3351,14 +3479,22 @@
           "SRC-NOVAKOVIC-TIMEEXT-2023"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Keep the dark wind/drone opening and the later bright repeated keys or arpeggio as a deliberate change of scale.",
+        "selected_midi_url": "https://themushroomkingdom.net/sounds/mid/dkcountry_northern_hemispheres.mid",
+        "revision_trigger": "Test a sampled-key blend before an acoustic piano alone. Preserve the exposed arpeggio instead of filling every gap."
       }
     },
     {
       "id": "DKC-18",
       "title": "Ice Cave Chant",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Ice Cave Chant original soundtrack",
         "entries": [
@@ -3523,9 +3659,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -3541,14 +3677,22 @@
           "SRC-NOVAKOVIC-TIMEEXT-2023"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use a glassy mallet/harp weave with warm plucked bass and soft breathy sustained color.",
+        "selected_midi_url": "https://themushroomkingdom.net/sounds/mid/dkcountry_ice_cave_chant[2].mid",
+        "revision_trigger": "Let the source attack decide between harp and mallet; the MIDI’s old composer credit is not used as authority."
       }
     },
     {
       "id": "DKC-19",
       "title": "Fear Factory",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Fear Factory original soundtrack",
         "entries": [
@@ -3972,9 +4116,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -3989,14 +4133,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Keep a mechanical electronic rhythm section with distinct bass, ostinato and lead functions.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC1_FearFactory.mid",
+        "revision_trigger": "Soul Bass or Soul Drums is optional here. Replace an acoustic default when it weakens the original electronic identity."
       }
     },
     {
       "id": "DKC-20",
       "title": "Gang-Plank Galleon",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Gang-Plank Galleon original soundtrack",
         "entries": [
@@ -4277,9 +4429,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -4294,14 +4446,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use a reed/accordion-like opening, then let the harder sustained lead and rhythm section take over.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_-_Gang-Plank_Galleon.mid",
+        "revision_trigger": "Do not preserve the MIDI’s string label when the audible attack is reed-like. Keep the later escalation rather than one uniform band texture."
       }
     },
     {
       "id": "DKC-21",
       "title": "K. Rool's Cacophony",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES K. Rool's Cacophony original soundtrack",
         "entries": [
@@ -4392,9 +4552,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "EAR_LED_CONSTRUCTION_ROUTE",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -4409,6 +4569,14 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use a sparse, subdued synthetic phrase with gentle plucked accents, low support and a lingering tail.",
+        "selected_midi_url": null,
+        "revision_trigger": "A simple ear-led phrase sketch is the working route; the unavailable sequencer file is not a reason to leave orchestration undecided."
       }
     },
     {
@@ -4417,8 +4585,8 @@
       "aliases": [
         "end credits"
       ],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES The Credits Concerto original soundtrack",
         "entries": [
@@ -4564,9 +4732,9 @@
       "midi_video_candidates": [],
       "midi_video_status": "FULL_BACKING_VIDEO_GAP",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -4581,14 +4749,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use buoyant keys and pipe-like lead exchanges over a firm plucked bass and concise kit.",
+        "selected_midi_url": "https://themushroomkingdom.net/sounds/mid/dkcountry_end_credits.mid",
+        "revision_trigger": "Treat high doubled keyboard tracks and echo leads as one musical gesture until separate counterlines are audible."
       }
     },
     {
       "id": "DKC-23",
       "title": "Fanfare",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Fanfare original soundtrack",
         "entries": [
@@ -4679,9 +4855,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "EAR_LED_CONSTRUCTION_ROUTE",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -4694,6 +4870,14 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Make a short coordinated brass-like statement with low reinforcement and a clean release.",
+        "selected_midi_url": null,
+        "revision_trigger": "Use the corrected retail reference, not the beta intake. Fit the phrase by ear rather than borrowing DKC2’s fanfare."
       }
     },
     {
@@ -4702,8 +4886,8 @@
       "aliases": [
         "level clear"
       ],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Level Goal original soundtrack",
         "entries": [
@@ -4824,9 +5008,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -4839,6 +5023,14 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use a compact bright fanfare: lead/harmony and bass land together, followed by a small tail.",
+        "selected_midi_url": "https://themushroomkingdom.net/sounds/mid/dkcountry_level_clear(XG).mid",
+        "revision_trigger": "Simplify the XG duplicate/echo channels into musical roles. Short-cue pitch scores do not decide articulation."
       }
     },
     {
@@ -4847,8 +5039,8 @@
       "aliases": [
         "bonus and boss victory"
       ],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Bonus Win original soundtrack",
         "entries": [
@@ -5026,9 +5218,9 @@
       "midi_video_candidates": [],
       "midi_video_status": "FULL_BACKING_VIDEO_GAP",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -5041,14 +5233,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use an expanded version of the success vocabulary with a distinct concluding phrase.",
+        "selected_midi_url": "https://themushroomkingdom.net/sounds/mid/dkcountry_bonus_boss_victory(XG).mid",
+        "revision_trigger": "Keep its phrase distinct from Level Goal; collapse XG echoes before balancing the lead."
       }
     },
     {
       "id": "DKC-26",
       "title": "Bonus Lose",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Bonus Lose original soundtrack",
         "entries": [
@@ -5174,9 +5374,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -5189,14 +5389,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Keep a short descending/comic mallet phrase, bass punctuation and airy high reply.",
+        "selected_midi_url": "https://themushroomkingdom.net/sounds/mid/dkcountry_bonus_lose.mid",
+        "revision_trigger": "Match the contour and stop rather than imposing a standard “sad” orchestration. Reference study only; no Roshan fail-state commission."
       }
     },
     {
       "id": "DKC-27",
       "title": "Lost Life",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Lost Life original soundtrack",
         "entries": [
@@ -5717,9 +5925,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "DIAGNOSTIC_COMPLETED_WITH_LIMITS",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -5732,14 +5940,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use the short fall/turn as a complete gesture, including its bent low voice and stop.",
+        "selected_midi_url": "https://www.vgmusic.com/music/console/nintendo/snes/DKC_Death-KM.mid",
+        "revision_trigger": "Use the parsed MIDI as a phrase sketch despite unavailable tonal fit; audition the fall and endpoint directly."
       }
     },
     {
       "id": "DKC-28",
       "title": "Bonus Room Opened!",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Bonus Room Opened! original soundtrack",
         "entries": [
@@ -5818,9 +6034,9 @@
       ],
       "midi_video_status": "CANDIDATE_NOT_VERIFIED_FULL_BACKING",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "EAR_LED_CONSTRUCTION_ROUTE",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -5833,14 +6049,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Treat this as a tiny reveal gesture whose attack and tail carry the meaning.",
+        "selected_midi_url": null,
+        "revision_trigger": "Choose the bright attack that best matches the clip, then adjust pitch contour by ear. A full-song transcription is unnecessary."
       }
     },
     {
       "id": "DKC-29",
       "title": "Extra Life Balloon",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Extra Life Balloon original soundtrack",
         "entries": [
@@ -5899,9 +6123,9 @@
       "midi_video_candidates": [],
       "midi_video_status": "FULL_BACKING_VIDEO_GAP",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "EAR_LED_CONSTRUCTION_ROUTE",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -5914,14 +6138,22 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Use a light, compact upward reward gesture with a crisp finish.",
+        "selected_midi_url": null,
+        "revision_trigger": "Keep the sound short; revise its contour from a direct A/B rather than inventing a long arrangement."
       }
     },
     {
       "id": "DKC-30",
       "title": "Game Over",
       "aliases": [],
-      "instrument_status": "UNREVIEWED",
-      "listen_status": "PENDING",
+      "instrument_status": "WORKING_ROLES_ADOPTED",
+      "listen_status": "BOUNDED_EXCERPTS_INTERPRETED",
       "original": {
         "query": "Donkey Kong Country SNES Game Over original soundtrack",
         "entries": [
@@ -6005,9 +6237,9 @@
       "midi_video_candidates": [],
       "midi_video_status": "FULL_BACKING_VIDEO_GAP",
       "review": {
-        "source_listen": "PENDING",
-        "midi_alignment": "PENDING",
-        "instrument_identification": "PENDING",
+        "source_listen": "BOUNDED_EXCERPT_OPINIONS",
+        "midi_alignment": "EAR_LED_CONSTRUCTION_ROUTE",
+        "instrument_identification": "PROVISIONAL_INTERPRETATION_ADOPTED",
         "native_comparison": "PENDING",
         "human_acceptance": "PENDING"
       },
@@ -6020,6 +6252,14 @@
           "SRC-WISE-COMICBOOK-2020"
         ],
         "instrument_identity": "No exact in-game instrument/sample or modern preset established by written context."
+      },
+      "working_interpretation": {
+        "revision": 1,
+        "status": "ADOPTED_WORKING_INTERPRETATION",
+        "path": "working_interpretations.json",
+        "direction": "Preserve a slow, sparse final-state gesture and its silence/tail; do not assume it is identical to K. Rool’s cue.",
+        "selected_midi_url": null,
+        "revision_trigger": "Use the exact screen clip as the timeline and compare it to K. Rool’s cue. Shared names in fan sites do not merge the two automatically."
       }
     }
   ],

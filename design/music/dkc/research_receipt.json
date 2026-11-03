@@ -10,39 +10,84 @@
   },
   "files": [
     {
-      "file": "soundtrack_catalog.json",
-      "sha256": "2035b5164edb0e92e0c7f2a4cf7b2378a4ff4326933b0686a3aa74895b8d234b",
-      "size": 203452
-    },
-    {
-      "file": "midi_catalog.json",
-      "sha256": "f8df9ab58db4c221430d5b7a7d5c3ab021bdaa8229f8817dd14f2c8f8eeb18d3",
-      "size": 8554
-    },
-    {
-      "file": "vgmusic_catalog.json",
-      "sha256": "ccec38e4dd4961d1fa14f2303fd85fd6ef7e344e83e864d24678b0b4300ee956",
-      "size": 69178
-    },
-    {
-      "file": "instrument_candidates.json",
-      "sha256": "ac6fe89a4ad85b981733fdf30676cdc7d7929e99164fe580e9d0f0d58c006bd4",
-      "size": 11573
-    },
-    {
-      "file": "written_sources.json",
-      "sha256": "eaf7fc477f4ade30beb9eea4a145c6e95b720db0557846fb8fa26cee95745f34",
-      "size": 7971
+      "file": "README.md",
+      "size": 18368,
+      "sha256": "d0c484327ed09ac0df89e49f1e775f76d305b87ce583c370c8bf02aae047b27b"
     },
     {
       "file": "WRITTEN_CONTEXT.md",
-      "sha256": "a77cd0461ee9387cb965764ef50aadd8d2e122b12ebe3d140029fb6b718a85c0",
-      "size": 9480
+      "size": 9694,
+      "sha256": "48ef893529b68adf8e57ba093049856c9c4ef9cfc68539456c97db001070f812"
     },
     {
-      "file": "README.md",
-      "sha256": "06a75b6af858fc0413eb802ea7b74737cb92c3d5752b956a74431fe0fe8ebd28",
-      "size": 17448
+      "file": "INTERPRETIVE_REVIEW.md",
+      "size": 12977,
+      "sha256": "b43f83c70e6bfb75fe6b2fbfd51f8a6a11df363062442ece608b7533108e7a23"
+    },
+    {
+      "file": "soundtrack_catalog.json",
+      "size": 222529,
+      "sha256": "1877801a6b11c3770dcec324971388004f38bb1689ac19581e215bbc2fea3bc2"
+    },
+    {
+      "file": "midi_catalog.json",
+      "size": 8554,
+      "sha256": "f8df9ab58db4c221430d5b7a7d5c3ab021bdaa8229f8817dd14f2c8f8eeb18d3"
+    },
+    {
+      "file": "vgmusic_catalog.json",
+      "size": 69178,
+      "sha256": "ccec38e4dd4961d1fa14f2303fd85fd6ef7e344e83e864d24678b0b4300ee956"
+    },
+    {
+      "file": "instrument_candidates.json",
+      "size": 11573,
+      "sha256": "ac6fe89a4ad85b981733fdf30676cdc7d7929e99164fe580e9d0f0d58c006bd4"
+    },
+    {
+      "file": "written_sources.json",
+      "size": 7971,
+      "sha256": "eaf7fc477f4ade30beb9eea4a145c6e95b720db0557846fb8fa26cee95745f34"
+    },
+    {
+      "file": "working_interpretations.json",
+      "size": 78302,
+      "sha256": "afe3821f050f26633ad93cc5889442ca619cb6c3c0169826bc38579148f9a918"
+    },
+    {
+      "file": "evidence/expanded_search_receipt.json",
+      "size": 22812,
+      "sha256": "30cb3b74f86dc46b7afb5576b45c94d4f086cd031a46cfd678055656c669d9da"
+    },
+    {
+      "file": "evidence/listening_summary.json",
+      "size": 33982,
+      "sha256": "33b6d0a9e0acef390374d2028843d7ddf3532feef92f04f086e0a7bf1ab67251"
+    },
+    {
+      "file": "evidence/midi_audio_comparisons.json",
+      "size": 64838,
+      "sha256": "d58f34822d419dae20422dcc0cae76b2b373bbb9a0b336d40583c378a8ded258"
+    },
+    {
+      "file": "evidence/midi_event_summaries.json",
+      "size": 794026,
+      "sha256": "364231e363d33e7d98eff4f319098c4a19571927c16f08cb4d648a65544bdff3"
+    },
+    {
+      "file": "evidence/original_reference_manifest.json",
+      "size": 21589,
+      "sha256": "a901a82fa21015725270805a820612b390f2d88f8501e4c8304bbd803f39a932"
+    },
+    {
+      "file": "evidence/rejected_reference_intake.json",
+      "size": 471,
+      "sha256": "33763324c506556588f2b8c7c848fa2e75952d79beab132e7c41e4fb7d1a40f1"
+    },
+    {
+      "file": "evidence/reproduction_receipt.json",
+      "size": 189,
+      "sha256": "fa237291458d0cc3f345aa782e9971e48bbe6fa972bfe4bc885cd7155b3a9092"
     }
   ],
   "written_context_revision": {
@@ -53,5 +98,20 @@
     "unassigned_short_cue_rows": 8,
     "claim_status": "DOCUMENTARY_CONTEXT_NOT_PATCH_ACCEPTANCE",
     "source_id_references": "PASS"
+  },
+  "interpretive_revision": {
+    "checked_utc": "2026-11-03T05:17:00.142Z",
+    "input_urls": 106,
+    "parsed_urls": 105,
+    "unique_midi_hashes": 75,
+    "additional_archive_duplicate_entries": 33,
+    "original_references": 30,
+    "excerpt_opinions": 52,
+    "adopted_working_directions": 30,
+    "midi_covered_entries": 24,
+    "confidence": "Working interpretation with alternatives/revision triggers; no native timbre or human acceptance claimed.",
+    "reproduced_unique_candidate_comparisons": 54,
+    "method_source": "tools/studies/dkc_midi_stress.py",
+    "method_sha256": "4b7ddd0c633d3ed4028022a79c145cad15bd9986a67875d5961720778b808cfe"
   }
 }
