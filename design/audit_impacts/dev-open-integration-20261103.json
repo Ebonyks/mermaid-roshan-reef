@@ -1,0 +1,79 @@
+{
+  "id": "dev-open-integration-20261103",
+  "scope": "Record the November 3 owner correction that dev remains open for completed, probes-green authorized updates. Remove the October 31 demo-packet integration freeze and parking instructions, retain demo priorities and separate release gates, refresh packet hashes and publication evidence, and synchronize the master task index and document ledger. Documentation and owner-decision records only; no game or workflow changes. The runbook preserves pre-release candidate evidence by monitoring the selected SHA and cancelling/rechecking if promotion follows an unreviewed new head; it does not accept post-release checks as pre-release evidence or claim a new workflow guarantee.",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SAVE-05",
+    "DL-QA-02",
+    "DL-QA-01",
+    "DL-QA-04",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-RELEASE-001"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/cycles/dev-open-integration-20261103/owner_answers.json",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/README.md",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/DEMO_RUNBOOK.md",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/MANIFEST.json",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json"
+  ],
+  "validation": [
+    {
+      "command": "Review master planning entry/task index, design rules, ledger, active findings, branching rules and demo packet",
+      "result": "PASS",
+      "evidence": "Baseline 27c88288bf6e39582072811443df79919e7bbb89; DL-AUTH-01 gives the later direct owner correction precedence. The original ODR-DEMO-FREEZE-20261031 is preserved unchanged and superseded by a newly appended decision."
+    },
+    {
+      "command": "GitHub branches/dev and actions/runs?branch=dev; read promote.yml and android.yml",
+      "result": "PASS",
+      "evidence": "2026-11-03 read: dev 27c88288bf6e39582072811443df79919e7bbb89 is unprotected and Probe Suite 41335509771 succeeded. The freeze is documentary, not a branch lock. Existing promotion follows changed dev heads while waiting for probes, requires an unchanged head before fast-forwarding, and verifies the matching dev APK; no workflow edits or release dispatch are part of this task."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B tools/record_owner_decision.py --check --base HEAD; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development tools.tests.test_record_owner_decision",
+      "result": "PASS",
+      "evidence": "Initial local candidate at baseline 27c88288bf6e39582072811443df79919e7bbb89: DOCAUTH INVENTORY=752 LEDGER=752 ACTIVE=74 RECORDS=77, RESULT ALL OK; AUDITDEV BASE 27c88288bf6e39582072811443df79919e7bbb89, RESULT ALL OK; DECISIONS COUNT 73, RESULT ALL OK; 63 tests pass in 70.937 seconds, stress 6/6. The subsequent heading correction preserves existing sections 8 and 9 and places the new correction in section 10; generated decision-view/append-only check passes again. Final mandatory gates remain required before each commit/push."
+    },
+    {
+      "command": "Full validation and exact published-head Probe Suite",
+      "result": "PENDING",
+      "evidence": "Publication checkpoint: full local validation passed as recorded below; exact published-head remote Probe Suite remains required before dev integration. No production scripts, assets, imports, probes or CI definitions change. This early remote PENDING state is retained as a checkpoint; later exact-head completion is reported independently."
+    },
+    {
+      "command": "Review release-evidence wording against DL-SAVE-05, DL-QA-01, DL-QA-04, DL-QA-07 and MA-RELEASE-001",
+      "result": "PASS",
+      "evidence": "Review before publication: dev remains open; promotion operators monitor the selected SHA and cancel/recheck an unreviewed new candidate before release. An unexpected promoted mismatch is a release incident; later checks cannot be described as pre-release evidence. Existing workflow behavior is unchanged and no new automatic race-prevention guarantee is claimed. Finding facts/lifecycle/history remain unchanged. Final document/change gates are still required after this wording update."
+    },
+    {
+      "command": "Full local scripts/ci.sh, all ordered trusted probes and unchanged existing static/import gates",
+      "result": "PASS",
+      "evidence": "{\"baseline\": \"27c88288bf6e39582072811443df79919e7bbb89\", \"command\": \"bash --noprofile --norc ../dev_open_integration_ci.sh (unchanged scripts/ci.sh, exact resolver-validated Godot 4.7.2-stable)\", \"exit_code\": 0, \"expected_probe_count\": 82, \"observed_probe_count\": 82, \"ordered_probe_coverage_matches\": true, \"nonzero_process_exits\": [], \"ci_recipe_sha256\": \"99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c\", \"log\": \"tmp/dev-open-integration-full-ci.log\", \"log_sha256\": \"2c7dd90d15fd4e4e186722e1a0ede8b5d37b4e1b8c37f3c19e323eea96924ea4\", \"finished_utc\": \"2026-11-03T16:21:31.134243+00:00\", \"changed_and_new_paths_at_verification\": [\"audit/MASTER_AUDIT_2026-08-09.md\", \"audit/cycles/dev-open-integration-20261103/owner_answers.json\", \"design/05_DOC_LEDGER.md\", \"design/audit_impacts/dev-open-integration-20261103.json\", \"design/reference/OWNER_DECISIONS.md\", \"design/reference/owner_decisions.json\", \"docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md\", \"docs/handoffs/codex_demo_readiness_2026-10-31/DEMO_RUNBOOK.md\", \"docs/handoffs/codex_demo_readiness_2026-10-31/MANIFEST.json\", \"docs/handoffs/codex_demo_readiness_2026-10-31/README.md\"], \"scope_check\": \"PASS: only the declared documentation and owner-decision paths differ; no script, scene, asset, import, project setting, probe or workflow changed\", \"acceptance_limit\": \"Required machine regression only; advisory visual inventory remains UNSATISFIED. No new product, visual, device, child, creative or release acceptance.\"}"
+    },
+    {
+      "command": "Anonymous immutable-commit fetch of packet manifest and every payload file; bytes and SHA-256 comparison",
+      "result": "PENDING",
+      "evidence": "docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json will retain earlier verification history and record the published revision-3 payload."
+    }
+  ],
+  "acceptance_gaps": "No new runtime, visual, device, child, creative or release acceptance is claimed. Those lanes do not apply to this policy-text correction and retain their existing blocking scope for product acceptance and release. No promotion to master is authorized by this request. Exact work-branch CI is still required before integration.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-DEV-OPEN-INTEGRATION-20261103",
+      "evidence": "Owner, 2026-11-03: \"I'm told dev is frozen, why? We should still be pushing updates to dev!\"",
+      "write_back": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#10-owner-correction-2026-11-03; design/reference/owner_decisions.json; audit/MASTER_AUDIT_2026-08-09.md#development-task-index"
+    }
+  ],
+  "finding_scope_note": "MA-RELEASE-001 is related solely because the integration-policy correction must preserve exact-candidate and external release requirements. Its facts, source history, severity, verification and lifecycle do not change; no finding closure or workflow-race repair is claimed. No unchanged canonical finding is rewritten merely to satisfy paperwork."
+}
