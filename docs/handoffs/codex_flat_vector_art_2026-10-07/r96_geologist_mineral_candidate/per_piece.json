@@ -19671,7 +19671,14 @@
         "FVF-CFB3F02098DE",
         "FVF-DA74517277FC"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        {
+          "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "path": "scripts/games/melody.gd",
+          "node": "PointerCanvas/VisualPointer:PointerArrowPainted,PointerBeamPainted,PointerRingPainted",
+          "scope": "Source branch only, Dev frozen"
+        }
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
         "coverage_state": "COVERAGE_GAP",
@@ -19701,8 +19708,8 @@
       "context_brief_id": "BRIEF-MELODY",
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
-      "named_gap": null,
-      "status": "IDENTIFIED",
+      "named_gap": "The Melody guidance arrow/connector and double rings used flat primitives beside painted scenery. R129 supplies authored painted arrow/head/shaft and whole double ring, preserving original target/path/width/pulse/occlusion.",
+      "status": "SOURCE_CANDIDATE",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -19711,12 +19718,130 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r129_source_candidate": {
+          "stable_ids": [
+            "FV-0091F4E1BC9C"
+          ],
+          "state": "SOURCE_BOUND_PAINTED_MELODY_GUIDE_CANDIDATE_DEV_FROZEN",
+          "new_bounded_source_artifacts": 1,
+          "existing_named_roles": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "new_runtime_PNG": 3,
+          "native_generated_samples": 2,
+          "authored_component_pictures": 3,
+          "generation_calls": 2,
+          "native_rejects": 0,
+          "technical_exports": 3,
+          "backend": "Built-in image_gen.imagegen; no model selector/version returned",
+          "model_version": "NOT_EXPOSED",
+          "animation_calls": 0,
+          "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+          "native_effective_checks": {
+            "reused_exact_baseline_source": 171,
+            "new_original_full_travel": 126,
+            "current_candidate": 213,
+            "effective": 510
+          },
+          "check_count_unit": "Configured checks;82local programs includes one headless display skip, not82assertive requirements/formalQA11.",
+          "new_native_frame_events": {
+            "bounded": 48,
+            "excluded": 0,
+            "retained": 48
+          },
+          "reused_historical_context_frames": 21,
+          "reused_historical_context_new_credit": 0,
+          "acceptance_scope": "Local selected-role ten-axis comparison:33current candidate native frames,15new original full-travel source frames and48whole-HUD phone previews; historical original21frames reused immutably. Full natural-route/formalQA11/device/child/owner remain open.",
+          "invisible_geometry": "Original functional hit/scoring Rect2 and120pxnote envelope retained. Nonfunctional target diamond was fully occluded by unchanged opaque note and retires without accepted-removal credit. Original direction/endpoints/Canvas transforms retained separately.",
+          "original_controller_other_methods_LF_exact": 67,
+          "full_game_probe_unchanged": true,
+          "original_texture_ceilings_unchanged": {
+            "decoded_bytes": 24117248,
+            "declared_upload_bytes": 12582912
+          },
+          "total_resident_texture_count": 9,
+          "Dev_integrated": false,
+          "new_partial_Dev_artifacts": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "whole_role_closed": false,
+          "accepted_removed": 0,
+          "mission_complete": false,
+          "static_item_call_cap": 2,
+          "calls_remaining": 0,
+          "technical_runtime_targets": 3,
+          "technical_reexports": 0,
+          "technical_export_count_unit": "Three exact-crop/uniform Aseprite runtime exports from two native generated designs; native/crop/runtime editable masters retained. No alpha painting or technical retry.",
+          "configured_instance_topology": {
+            "arrow": "Whole authored head crop registered by declared staticUIaspect mapping to original46x34envelope/decoded tip; note-relative direction including epsilon fallback retained.",
+            "beam": "Authored straight shaft crop; original9pxalpha width,zone+82/note-38 endpoints,>14distance suppression and reversed direction retained; CanvasSprite transform, no primitive fill.",
+            "ring": "Whole hollow painted cream/gold double ring; uniform original79..99outer diameter/6rad/s pulse, source z32behind z35note; small phase naturally occluded.",
+            "natural_progress_contexts": 7,
+            "full_travel_original_and_candidate_positions": 5,
+            "aspects": [
+              "1280x720",
+              "1600x720",
+              "1280x800"
+            ]
+          },
+          "runtime_base_RGBA_bytes": 349472,
+          "excluded_capture_runs": 0,
+          "failed_zero_frame_launches": 1,
+          "static_evidence_mode": "Fresh complete current static prefix, exact4.7.2analyzer/2Dregression guard and all82existing local programs. Only this actual candidate healthy imports/captures reused.",
+          "phone_size_review": {
+            "candidate": 33,
+            "source": 15,
+            "review_derivative_PNG": 48,
+            "whole_HUD_scale": 0.3,
+            "local_readability": "PROVISIONAL_PASS",
+            "new_native_frame_events": 0,
+            "formal_QA11": null,
+            "device": null,
+            "child": null,
+            "owner": null,
+            "evidence": "PHONE_SQUINT_REVIEW.json"
+          },
+          "initial_native_launch": {
+            "status": "STALE_FIXTURE_PATH_NO_FRAMES",
+            "diagnosis": "Corrected only launcher r128path to existing exactR129fixture; both healthy imports/current5068inputs reused, no production reexport/generation repeat.",
+            "evidence": "NATIVE_LAUNCH_RECOVERY.json",
+            "assertions_removed": 0,
+            "art_or_original_behavior_changed": false
+          },
+          "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "source_branch": "codex/flat-vector-melody-guide-20261102",
+          "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r129_melody_guide_runtime/MANIFEST.json",
+          "source_required_files": 282,
+          "source_all_required_anonymous_exact": true,
+          "source_CI_snapshot": [
+            {
+              "conclusion": "",
+              "databaseId": 41575308718,
+              "headSha": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+              "status": "in_progress",
+              "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41575308718",
+              "workflowName": "Probe suite (graphics fork)"
+            }
+          ],
+          "owner_scope": {
+            "state": "OWNER_AUTHORIZED_SOURCE_ART_CANDIDATES_DEV_FROZEN",
+            "owner_reply": "Resume art candidates; keep Dev frozen",
+            "question": "You resumed the art goal, but the owner-approved demo plan still says \u201cNo new art\u201d until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
+            "source_chat": "01a119cc-74b1-7d23-b956-126129405418",
+            "scope": "Source work branches, painted candidates and established public GitHub source/canonical delivery authorized. No Dev/master writes, integration, promotion, release, automation resume or other-chat messages.",
+            "quality": "Polished painted2Dstory-book quality; reuse optional; no failed-reuse-proof gate; no generation-version claim absent exposed backend version.",
+            "static_item_cap": 2,
+            "animation_calls": 0
+          }
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Exact source-bound scene/material references; quality-based reuse or ImageGen, no failed-reuse prerequisite",
+        "Applicable provenance/license/import/geometry/passive/save/teardown/resource gates",
+        "Formal QA11/current natural-route/device/child/owner acceptance remains separately open"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -19731,8 +19856,15 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Review Melody guide arrow/rings during Melody guide arrow/rings active/rest/changed/payoff/settle states on Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261102-R129-SOURCE",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r129_melody_guide_runtime/FRAME_REVIEW.json",
+          "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "status": "SOURCE_CANDIDATE_NOT_FORMAL_QA11"
+        }
+      ],
+      "proposed_update": "Review the actual painted guide in five travel/seven note contexts at three aspects; resolve natural-route/state/formal/external gates. Keep Dev frozen.",
       "route_refs": [
         "minigame.melody",
         "game.melody"
@@ -19740,7 +19872,49 @@
       "route_evidence": "Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE)",
       "context_action": "Melody guide arrow/rings active/rest/changed/payoff/settle states",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-0091F4E1BC9C"
+      "individual_brief_id": "PIECE-FV-0091F4E1BC9C",
+      "r129_prior_status": "IDENTIFIED",
+      "source_candidate_outputs": [
+        {
+          "revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "path": "assets/melody/guide_arrow_head_painted.png",
+          "sha256": "102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87",
+          "dimensions": [
+            110,
+            124
+          ]
+        },
+        {
+          "revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "path": "assets/melody/guide_beam_painted.png",
+          "sha256": "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0",
+          "dimensions": [
+            128,
+            64
+          ]
+        },
+        {
+          "revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+          "path": "assets/melody/guide_double_ring_painted.png",
+          "sha256": "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878",
+          "dimensions": [
+            256,
+            256
+          ]
+        }
+      ],
+      "configured_source_instance_topology": {
+        "arrow": "Whole authored head crop registered by declared staticUIaspect mapping to original46x34envelope/decoded tip; note-relative direction including epsilon fallback retained.",
+        "beam": "Authored straight shaft crop; original9pxalpha width,zone+82/note-38 endpoints,>14distance suppression and reversed direction retained; CanvasSprite transform, no primitive fill.",
+        "ring": "Whole hollow painted cream/gold double ring; uniform original79..99outer diameter/6rad/s pulse, source z32behind z35note; small phase naturally occluded.",
+        "natural_progress_contexts": 7,
+        "full_travel_original_and_candidate_positions": 5,
+        "aspects": [
+          "1280x720",
+          "1600x720",
+          "1280x800"
+        ]
+      }
     },
     {
       "id": "FV-E6549378F626",
@@ -27116,7 +27290,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261102-R128-CI-SUCCESS",
+  "revision": "FV-AUDIT-20261102-R129-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -42552,5 +42726,124 @@
     "Dev_integrated": false,
     "accepted_removed": 0,
     "mission_complete": false
+  },
+  "r129_parent_receipt_revision": "4de821644410681bc883f0579f298d285e63dd61",
+  "r129_melody_guide_runtime": {
+    "stable_ids": [
+      "FV-0091F4E1BC9C"
+    ],
+    "state": "SOURCE_BOUND_PAINTED_MELODY_GUIDE_CANDIDATE_DEV_FROZEN",
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "new_runtime_PNG": 3,
+    "native_generated_samples": 2,
+    "authored_component_pictures": 3,
+    "generation_calls": 2,
+    "native_rejects": 0,
+    "technical_exports": 3,
+    "backend": "Built-in image_gen.imagegen; no model selector/version returned",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "native_effective_checks": {
+      "reused_exact_baseline_source": 171,
+      "new_original_full_travel": 126,
+      "current_candidate": 213,
+      "effective": 510
+    },
+    "check_count_unit": "Configured checks;82local programs includes one headless display skip, not82assertive requirements/formalQA11.",
+    "new_native_frame_events": {
+      "bounded": 48,
+      "excluded": 0,
+      "retained": 48
+    },
+    "reused_historical_context_frames": 21,
+    "reused_historical_context_new_credit": 0,
+    "acceptance_scope": "Local selected-role ten-axis comparison:33current candidate native frames,15new original full-travel source frames and48whole-HUD phone previews; historical original21frames reused immutably. Full natural-route/formalQA11/device/child/owner remain open.",
+    "invisible_geometry": "Original functional hit/scoring Rect2 and120pxnote envelope retained. Nonfunctional target diamond was fully occluded by unchanged opaque note and retires without accepted-removal credit. Original direction/endpoints/Canvas transforms retained separately.",
+    "original_controller_other_methods_LF_exact": 67,
+    "full_game_probe_unchanged": true,
+    "original_texture_ceilings_unchanged": {
+      "decoded_bytes": 24117248,
+      "declared_upload_bytes": 12582912
+    },
+    "total_resident_texture_count": 9,
+    "Dev_integrated": false,
+    "new_partial_Dev_artifacts": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_role_closed": false,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "static_item_call_cap": 2,
+    "calls_remaining": 0,
+    "technical_runtime_targets": 3,
+    "technical_reexports": 0,
+    "technical_export_count_unit": "Three exact-crop/uniform Aseprite runtime exports from two native generated designs; native/crop/runtime editable masters retained. No alpha painting or technical retry.",
+    "configured_instance_topology": {
+      "arrow": "Whole authored head crop registered by declared staticUIaspect mapping to original46x34envelope/decoded tip; note-relative direction including epsilon fallback retained.",
+      "beam": "Authored straight shaft crop; original9pxalpha width,zone+82/note-38 endpoints,>14distance suppression and reversed direction retained; CanvasSprite transform, no primitive fill.",
+      "ring": "Whole hollow painted cream/gold double ring; uniform original79..99outer diameter/6rad/s pulse, source z32behind z35note; small phase naturally occluded.",
+      "natural_progress_contexts": 7,
+      "full_travel_original_and_candidate_positions": 5,
+      "aspects": [
+        "1280x720",
+        "1600x720",
+        "1280x800"
+      ]
+    },
+    "runtime_base_RGBA_bytes": 349472,
+    "excluded_capture_runs": 0,
+    "failed_zero_frame_launches": 1,
+    "static_evidence_mode": "Fresh complete current static prefix, exact4.7.2analyzer/2Dregression guard and all82existing local programs. Only this actual candidate healthy imports/captures reused.",
+    "phone_size_review": {
+      "candidate": 33,
+      "source": 15,
+      "review_derivative_PNG": 48,
+      "whole_HUD_scale": 0.3,
+      "local_readability": "PROVISIONAL_PASS",
+      "new_native_frame_events": 0,
+      "formal_QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "evidence": "PHONE_SQUINT_REVIEW.json"
+    },
+    "initial_native_launch": {
+      "status": "STALE_FIXTURE_PATH_NO_FRAMES",
+      "diagnosis": "Corrected only launcher r128path to existing exactR129fixture; both healthy imports/current5068inputs reused, no production reexport/generation repeat.",
+      "evidence": "NATIVE_LAUNCH_RECOVERY.json",
+      "assertions_removed": 0,
+      "art_or_original_behavior_changed": false
+    },
+    "source_revision": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+    "source_branch": "codex/flat-vector-melody-guide-20261102",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r129_melody_guide_runtime/MANIFEST.json",
+    "source_required_files": 282,
+    "source_all_required_anonymous_exact": true,
+    "source_CI_snapshot": [
+      {
+        "conclusion": "",
+        "databaseId": 41575308718,
+        "headSha": "75ea903d5d5679e90273fbb8faa80acba5ec5a65",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41575308718",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "owner_scope": {
+      "state": "OWNER_AUTHORIZED_SOURCE_ART_CANDIDATES_DEV_FROZEN",
+      "owner_reply": "Resume art candidates; keep Dev frozen",
+      "question": "You resumed the art goal, but the owner-approved demo plan still says \u201cNo new art\u201d until demo promotion. Does this resume authorize new art candidates on the work branch while keeping Dev frozen?",
+      "source_chat": "01a119cc-74b1-7d23-b956-126129405418",
+      "scope": "Source work branches, painted candidates and established public GitHub source/canonical delivery authorized. No Dev/master writes, integration, promotion, release, automation resume or other-chat messages.",
+      "quality": "Polished painted2Dstory-book quality; reuse optional; no failed-reuse-proof gate; no generation-version claim absent exposed backend version.",
+      "static_item_cap": 2,
+      "animation_calls": 0
+    }
   }
 }
