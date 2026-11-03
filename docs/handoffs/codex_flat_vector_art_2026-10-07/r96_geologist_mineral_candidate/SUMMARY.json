@@ -20,7 +20,7 @@
   "dev_integrated": 20,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261103-R132-SOURCE",
+  "revision": "FV-AUDIT-20261103-R132-CI-SUCCESS",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
@@ -4865,5 +4865,183 @@
     "complete_contact_motion_acceptance": null,
     "failed_zero_frame_setup_attempts": 2,
     "original_source_strict_precision_failures_retained": 3
+  },
+  "r132_terminal_CI_observation": {
+    "state": "FULL_EXACT_SOURCE_CI_SUCCESS_MAIN_AND_MUSIC",
+    "source_revision": "8336662539411e251871b2c86718ef75c615c60e",
+    "run_id": 41636586716,
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41636586716",
+    "status": "completed",
+    "overall_conclusion": "success",
+    "main_job": {
+      "id": 125919208194,
+      "conclusion": "success",
+      "started_at": "2026-11-03T12:32:35Z",
+      "completed_at": "2026-11-03T13:31:22Z",
+      "verified_success_steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "conclusion": "success"
+        },
+        {
+          "number": 3,
+          "name": "Download Godot (checksum-verified)",
+          "conclusion": "success"
+        },
+        {
+          "number": 4,
+          "name": "Static gates (parse + Variant-inference lint)",
+          "conclusion": "success"
+        },
+        {
+          "number": 5,
+          "name": "Import (deadlock-guarded)",
+          "conclusion": "success"
+        },
+        {
+          "number": 6,
+          "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+          "conclusion": "success"
+        },
+        {
+          "number": 7,
+          "name": "Run trusted probes",
+          "conclusion": "success"
+        },
+        {
+          "number": 8,
+          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "conclusion": "success"
+        },
+        {
+          "number": 9,
+          "name": "Dust boss balance playtest (advisory)",
+          "conclusion": "success"
+        },
+        {
+          "number": 10,
+          "name": "Opera balance playtest (advisory)",
+          "conclusion": "success"
+        },
+        {
+          "number": 11,
+          "name": "Publish opera art manifest (advisory)",
+          "conclusion": "success"
+        },
+        {
+          "number": 12,
+          "name": "Upload opera art manifest",
+          "conclusion": "success"
+        },
+        {
+          "number": 13,
+          "name": "Capture first-world visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 14,
+          "name": "Capture legacy human-art diagnostic",
+          "conclusion": "success"
+        },
+        {
+          "number": 15,
+          "name": "Upload legacy human-art diagnostic",
+          "conclusion": "success"
+        },
+        {
+          "number": 16,
+          "name": "Capture Sky Lagoon visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 17,
+          "name": "Upload Sky Lagoon visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 18,
+          "name": "Capture northern-world visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 19,
+          "name": "Upload northern-world visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 20,
+          "name": "Capture dust-boss arena review",
+          "conclusion": "success"
+        },
+        {
+          "number": 21,
+          "name": "Upload dust-boss arena review",
+          "conclusion": "success"
+        },
+        {
+          "number": 22,
+          "name": "Capture pearl-castle visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 23,
+          "name": "Upload pearl-castle visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 24,
+          "name": "Upload advisory sensor receipts",
+          "conclusion": "success"
+        }
+      ],
+      "remote_assertive_headless_programs": 81,
+      "separate_legacy_display_diagnostic": true,
+      "coverage": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_VERIFIED_PROBE_COVERAGE.json",
+      "log_sha256": "7d24df11942c22136621b285f1c724827e212a25b7823739bc9bdcd5ceb23d7b"
+    },
+    "music_job": {
+      "id": 125919208043,
+      "conclusion": "success",
+      "completed_at": "2026-11-03T12:40:01Z",
+      "deterministic_verification_ran": true,
+      "log_sha256": "914a0b1b9cccb553ee7d268bf9b6aa9cf770efeb524d9e9aea18a05b11c7a03c"
+    },
+    "full_run_pass": true,
+    "local_trusted_programs_executed": 82,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "local_program_scope_note": "The local82-program list includes the display-only human-art program, which reports HEADLESS SKIP without assertions. CI intentionally runs81 assertive headless programs and a separate legacy display diagnostic. Neither grants formalQA11.",
+    "candidate_native_checks": 702,
+    "new_source_native_assertions": 0,
+    "source_frames_reused": 54,
+    "reused_source_new_frame_credit": 0,
+    "prior_source_precision_history": "Original R131 precision/setup history remains immutable, no newsource attempts or assertions",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "source_candidate_unchanged": true,
+    "historical_art_delivery": {
+      "source_revision": "8336662539411e251871b2c86718ef75c615c60e",
+      "canonical_payload": "fa07849cdb9c744a1914ca91c8d54b52820f20ff",
+      "canonical_receipt": "4df8ccc6ad4643dfcdf8781b003744071234568b"
+    },
+    "CI_visual_artifacts": "Unchanged-world diagnostic artifacts outside the selected coal material review; not ingested or credited here as coal frames, accepted artwork or formalQA11.",
+    "observer_terminal": {
+      "pid": 60744,
+      "exit_code": 0
+    },
+    "remote_rerun_requested": false,
+    "workflow_edited": false,
+    "new_artwork_credit": 0,
+    "new_frame_events": 0,
+    "Dev_integrated": false,
+    "accepted_removed": 0,
+    "mission_complete": false
   }
 }

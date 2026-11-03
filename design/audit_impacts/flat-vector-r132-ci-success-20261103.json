@@ -1,0 +1,55 @@
+{
+  "id": "flat-vector-r132-ci-success-20261103",
+  "baseline": "4df8ccc6ad4643dfcdf8781b003744071234568b",
+  "scope": "Bounded exact-source R132 terminal CI success reconciliation; source/artwork, counts and all formal/external/global acceptance gaps unchanged. No runtime/workflow/Dev change.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_MAIN_JOB.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_MUSIC_JOB.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_RESULT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_RESULT_MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_RESULT_RECEIPT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_TERMINAL_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_TERMINAL_RUN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_VERIFIED_PROBE_COVERAGE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/VALIDATION_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "change_record": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#chg-138--r132-painted-coal-source-candidate",
+  "validation": [
+    {
+      "command": "Exact-source full CI run41636586716; main job125919208194,81ordered headless programs, separate legacy display diagnostic and music job125919208043",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_TERMINAL_RUN.json; CI_VERIFIED_PROBE_COVERAGE.json; CI_MAIN_JOB.log; CI_MUSIC_JOB.log"
+    },
+    {
+      "command": "Metadata authority/development, unchanged root5/counts, anonymous immutable manifest/every-file verification",
+      "result": "PENDING",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_RESULT_GATES.json; CI_RESULT_RECEIPT.json"
+    },
+    {
+      "command": "Repeat engine suite for unchanged runtime",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Exact source8336662539411e251871b2c86718ef75c615c60e unchanged; local82 and remote scoped evidence preserved immutably."
+    }
+  ],
+  "acceptance_gaps": "FormalQA11, physical device/performance, child, owner, all natural-route/state/action and whole-game inventory/coverage remain open; Dev frozen and accepted removals0."
+}
