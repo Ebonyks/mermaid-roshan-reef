@@ -1,0 +1,564 @@
+area-music-provenance	Set up job	﻿2026-11-03T03:58:16.2215640Z Current runner version: '2.338.2'
+area-music-provenance	Set up job	2026-11-03T03:58:16.2623941Z ##[group]Runner Image Provisioner
+area-music-provenance	Set up job	2026-11-03T03:58:16.2624959Z Hosted Compute Agent
+area-music-provenance	Set up job	2026-11-03T03:58:16.2625565Z Version: 20261021.618
+area-music-provenance	Set up job	2026-11-03T03:58:16.2626202Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+area-music-provenance	Set up job	2026-11-03T03:58:16.2626930Z Build Date: 2026-10-21T00:45:21Z
+area-music-provenance	Set up job	2026-11-03T03:58:16.2627570Z Worker ID: {01b183a2-ec61-4e2b-bed2-5588b5b60fa7}
+area-music-provenance	Set up job	2026-11-03T03:58:16.2628227Z Region: eastus
+area-music-provenance	Set up job	2026-11-03T03:58:16.2628726Z Cloud: Azure
+area-music-provenance	Set up job	2026-11-03T03:58:16.2629220Z ##[endgroup]
+area-music-provenance	Set up job	2026-11-03T03:58:16.2630738Z ##[group]Operating System
+area-music-provenance	Set up job	2026-11-03T03:58:16.2631398Z Microsoft Windows Server 2025
+area-music-provenance	Set up job	2026-11-03T03:58:16.2631961Z 10.0.26100
+area-music-provenance	Set up job	2026-11-03T03:58:16.2632438Z Datacenter
+area-music-provenance	Set up job	2026-11-03T03:58:16.2632913Z ##[endgroup]
+area-music-provenance	Set up job	2026-11-03T03:58:16.2633386Z ##[group]Runner Image
+area-music-provenance	Set up job	2026-11-03T03:58:16.2633953Z Image: windows-2025-vs2026
+area-music-provenance	Set up job	2026-11-03T03:58:16.2634538Z Version: 20261030.294.1
+area-music-provenance	Set up job	2026-11-03T03:58:16.2635677Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261030.294/images/windows/Windows2025-VS2026-Readme.md
+area-music-provenance	Set up job	2026-11-03T03:58:16.2638076Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261030.294
+area-music-provenance	Set up job	2026-11-03T03:58:16.2639078Z ##[endgroup]
+area-music-provenance	Set up job	2026-11-03T03:58:16.2640151Z ##[group]GITHUB_TOKEN Permissions
+area-music-provenance	Set up job	2026-11-03T03:58:16.2642540Z Contents: read
+area-music-provenance	Set up job	2026-11-03T03:58:16.2643163Z Metadata: read
+area-music-provenance	Set up job	2026-11-03T03:58:16.2643750Z ##[endgroup]
+area-music-provenance	Set up job	2026-11-03T03:58:16.2645976Z Secret source: Actions
+area-music-provenance	Set up job	2026-11-03T03:58:16.2646921Z Cache mode: write
+area-music-provenance	Set up job	2026-11-03T03:58:16.2647663Z Prepare workflow directory
+area-music-provenance	Set up job	2026-11-03T03:58:16.3947229Z Prepare all required actions
+area-music-provenance	Set up job	2026-11-03T03:58:16.3999493Z Getting action download info
+area-music-provenance	Set up job	2026-11-03T03:58:16.5624239Z Download action repository 'actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+area-music-provenance	Set up job	2026-11-03T03:58:16.7587332Z Download action repository 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97' (SHA:5fda3b95a4ea91299a34e894583c3862153e4b97)
+area-music-provenance	Set up job	2026-11-03T03:58:17.3986788Z Complete job name: area-music-provenance
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	﻿2026-11-03T03:58:18.2349556Z ##[group]Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2350987Z with:
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2351465Z   persist-credentials: false
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2352018Z   repository: Ebonyks/mermaid-roshan-reef
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2356270Z   token: ***
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2356755Z   ssh-strict: true
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2357173Z   ssh-user: git
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2357579Z   clean: true
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2358005Z   sparse-checkout-cone-mode: true
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2358519Z   fetch-depth: 1
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2358933Z   fetch-tags: false
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2359371Z   show-progress: true
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2359800Z   lfs: false
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2360193Z   submodules: false
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2360643Z   set-safe-directory: true
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2361319Z env:
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2361734Z   GODOT_RELEASE: 4.7.2-stable
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2362973Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.2364252Z ##[endgroup]
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.4540036Z Syncing repository: Ebonyks/mermaid-roshan-reef
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.4542150Z ##[group]Getting Git version info
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.4542940Z Working directory is 'D:\a\mermaid-roshan-reef\mermaid-roshan-reef'
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.5516422Z [command]"C:\Program Files\Git\bin\git.exe" version
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.8622540Z git version 2.56.0.windows.4
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.8678233Z ##[endgroup]
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.8726691Z Temporarily overriding HOME='D:\a\_temp\1d97afba-f88f-4820-a048-6d90c6e2d72f' before making global git config changes
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.8728677Z Adding repository directory to the temporary git global config as a safe directory
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.8730578Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.9341879Z Deleting the contents of 'D:\a\mermaid-roshan-reef\mermaid-roshan-reef'
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.9348452Z ##[group]Initializing the repository
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:18.9357866Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:19.0335605Z Initialized empty Git repository in D:/a/mermaid-roshan-reef/mermaid-roshan-reef/.git/
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:19.0392393Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/Ebonyks/mermaid-roshan-reef
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:19.1090238Z ##[endgroup]
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:19.1091772Z ##[group]Disabling automatic garbage collection
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:19.1100328Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:19.1590069Z ##[endgroup]
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:19.1593192Z ##[group]Setting up auth
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:19.1596244Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:19.2084002Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:20.7449049Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:20.7900389Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:21.4147094Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:21.4566603Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:22.0824917Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:22.1278894Z ##[endgroup]
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:22.1279825Z ##[group]Fetching the repository
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T03:58:22.1294164Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +75ea903d5d5679e90273fbb8faa80acba5ec5a65:refs/remotes/origin/codex/flat-vector-melody-guide-20261102
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:23.0818105Z From https://github.com/Ebonyks/mermaid-roshan-reef
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:23.0822508Z  * [new ref]           75ea903d5d5679e90273fbb8faa80acba5ec5a65 -> origin/codex/flat-vector-melody-guide-20261102
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:23.0870906Z ##[endgroup]
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:23.0874585Z ##[group]Determining the checkout info
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:23.0877084Z ##[endgroup]
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:23.0892014Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:23.1598786Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:23.2071888Z ##[group]Checking out the ref
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:23.2084245Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B codex/flat-vector-melody-guide-20261102 refs/remotes/origin/codex/flat-vector-melody-guide-20261102
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:24.3666348Z Updating files:   1% (632/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:24.5628372Z Updating files:   2% (682/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:24.7071198Z Updating files:   3% (1023/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:25.3361948Z Updating files:   4% (1363/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:25.6562269Z Updating files:   4% (1680/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:26.2428483Z Updating files:   5% (1704/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:26.3450562Z Updating files:   6% (2045/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:26.5572018Z Updating files:   6% (2211/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:27.3461927Z Updating files:   7% (2385/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:27.3857812Z Updating files:   7% (2708/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:27.9532222Z Updating files:   8% (2726/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:28.3557188Z Updating files:   9% (3067/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:28.3677944Z Updating files:   9% (3391/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:28.9417118Z Updating files:  10% (3407/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:29.2642344Z Updating files:  11% (3748/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:29.3711890Z Updating files:  12% (4089/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:29.5849921Z Updating files:  12% (4201/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:29.9629068Z Updating files:  13% (4429/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:30.3714528Z Updating files:  14% (4770/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:30.5922567Z Updating files:  14% (5019/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:31.2496265Z Updating files:  15% (5111/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:31.3817753Z Updating files:  16% (5452/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:31.8222909Z Updating files:  16% (5562/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:32.3615732Z Updating files:  17% (5792/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:32.3823810Z Updating files:  18% (6133/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:32.8667726Z Updating files:  18% (6180/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:33.4649509Z Updating files:  19% (6474/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:34.1843406Z Updating files:  19% (6620/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:34.4075872Z Updating files:  20% (6814/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:34.4859405Z Updating files:  20% (7026/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:34.9834610Z Updating files:  21% (7155/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:35.4082094Z Updating files:  22% (7496/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:35.9102703Z Updating files:  22% (7656/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:36.4320008Z Updating files:  23% (7836/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:37.4323291Z Updating files:  23% (7918/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:37.9206265Z Updating files:  23% (8035/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:38.4365573Z Updating files:  24% (8177/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:39.4406683Z Updating files:  24% (8243/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:39.5073889Z Updating files:  24% (8481/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:39.7365571Z Updating files:  25% (8518/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:40.4448262Z Updating files:  26% (8858/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:41.1543047Z Updating files:  26% (9004/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:41.4412207Z Updating files:  27% (9199/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:42.4915754Z Updating files:  27% (9274/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:43.4687329Z Updating files:  27% (9454/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:44.2914635Z Updating files:  27% (9468/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:44.4554910Z Updating files:  28% (9540/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:45.4671841Z Updating files:  28% (9550/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:45.8501789Z Updating files:  28% (9678/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:46.4585751Z Updating files:  29% (9881/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:46.7277382Z Updating files:  29% (10043/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:47.7824829Z Updating files:  30% (10221/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:48.3562008Z Updating files:  30% (10402/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:48.4774975Z Updating files:  31% (10562/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:49.4756124Z Updating files:  31% (10582/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:49.8588735Z Updating files:  31% (10814/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:50.4816742Z Updating files:  32% (10903/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:50.7966363Z Updating files:  32% (11126/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:51.5469744Z Updating files:  33% (11243/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:52.4089421Z Updating files:  33% (11337/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:52.5233617Z Updating files:  34% (11584/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:53.5033368Z Updating files:  34% (11587/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:53.7211620Z Updating files:  34% (11831/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:54.8411451Z Updating files:  35% (11925/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:55.5295786Z Updating files:  35% (12073/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:55.5357474Z Updating files:  35% (12250/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:56.3847016Z Updating files:  36% (12265/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:56.5083599Z Updating files:  37% (12606/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:57.5179087Z Updating files:  37% (12709/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:57.5230367Z Updating files:  37% (12942/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:58.1511715Z Updating files:  38% (12947/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:58.8333046Z Updating files:  39% (13287/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:58.8765796Z Updating files:  39% (13589/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:01:59.5426349Z Updating files:  40% (13628/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:00.6598022Z Updating files:  40% (13792/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:00.9387975Z Updating files:  40% (13906/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:01.6385207Z Updating files:  41% (13969/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:01.9299623Z Updating files:  41% (14140/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:02.6307101Z Updating files:  42% (14309/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:03.6291743Z Updating files:  42% (14555/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:03.8184708Z Updating files:  42% (14572/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:04.8983264Z Updating files:  43% (14650/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:05.0562519Z Updating files:  43% (14886/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:05.5774363Z Updating files:  44% (14991/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:06.6024679Z Updating files:  44% (15076/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:07.0616569Z Updating files:  44% (15143/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:07.6904072Z Updating files:  45% (15332/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:08.6031446Z Updating files:  45% (15382/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:09.2137425Z Updating files:  45% (15590/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:09.6170056Z Updating files:  46% (15672/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:10.6171223Z Updating files:  46% (15784/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:10.8596743Z Updating files:  46% (15968/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:11.7962009Z Updating files:  47% (16013/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:12.6330645Z Updating files:  47% (16110/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:13.3077156Z Updating files:  47% (16271/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:13.6255087Z Updating files:  48% (16354/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:14.7014895Z Updating files:  48% (16450/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:14.7668561Z Updating files:  48% (16686/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:15.8853214Z Updating files:  49% (16694/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:16.6437490Z Updating files:  49% (16776/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:17.4048439Z Updating files:  49% (16886/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:17.6587849Z Updating files:  50% (17035/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:18.6974234Z Updating files:  50% (17092/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:18.9433991Z Updating files:  50% (17288/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:19.4293788Z Updating files:  51% (17376/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:19.6674090Z Updating files:  52% (17716/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:20.1891045Z Updating files:  52% (17882/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:20.6886048Z Updating files:  53% (18057/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:21.6851817Z Updating files:  53% (18307/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:21.8067199Z Updating files:  53% (18381/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:22.9332902Z Updating files:  54% (18398/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:23.6918983Z Updating files:  54% (18522/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:24.5779019Z Updating files:  54% (18665/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:24.7072576Z Updating files:  55% (18738/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:25.7069254Z Updating files:  55% (18756/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:26.7235650Z Updating files:  55% (18835/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:27.7260978Z Updating files:  55% (18908/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:28.7329552Z Updating files:  55% (18966/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:29.1497480Z Updating files:  55% (19063/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:29.7370424Z Updating files:  56% (19079/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:30.7597652Z Updating files:  56% (19136/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:31.7541592Z Updating files:  56% (19210/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:32.4270148Z Updating files:  56% (19370/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:32.7728589Z Updating files:  57% (19420/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:33.7757849Z Updating files:  57% (19476/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:34.9419165Z Updating files:  57% (19572/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:35.5348855Z Updating files:  57% (19685/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:35.7955756Z Updating files:  58% (19761/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:36.8104317Z Updating files:  58% (19803/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:37.2404231Z Updating files:  58% (20022/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:37.8223535Z Updating files:  59% (20101/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:39.1270900Z Updating files:  59% (20155/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:39.8286969Z Updating files:  59% (20279/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:40.8307921Z Updating files:  59% (20352/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:40.9663535Z Updating files:  59% (20427/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:41.8735888Z Updating files:  60% (20442/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:42.8561600Z Updating files:  60% (20518/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:43.8567006Z Updating files:  60% (20628/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:44.4247161Z Updating files:  60% (20714/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:44.8726850Z Updating files:  61% (20783/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:45.8893496Z Updating files:  61% (20801/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:46.6148592Z Updating files:  61% (21054/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:46.8880991Z Updating files:  62% (21123/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:47.8880912Z Updating files:  62% (21180/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:49.1304965Z Updating files:  62% (21275/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:49.9217173Z Updating files:  62% (21348/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:50.5721862Z Updating files:  62% (21381/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:50.9199263Z Updating files:  63% (21464/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:51.9203087Z Updating files:  63% (21493/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:52.9539958Z Updating files:  63% (21618/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:53.9336076Z Updating files:  63% (21695/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:54.7675062Z Updating files:  63% (21750/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:54.9277205Z Updating files:  64% (21805/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:55.9355504Z Updating files:  64% (21826/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:56.9384514Z Updating files:  64% (21939/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:57.8604374Z Updating files:  64% (22047/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:57.9373208Z Updating files:  65% (22145/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:58.9935995Z Updating files:  65% (22157/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:02:59.9373536Z Updating files:  65% (22253/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:00.3148996Z Updating files:  65% (22465/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:00.9500928Z Updating files:  66% (22486/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:01.9494976Z Updating files:  66% (22590/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:02.4811816Z Updating files:  66% (22695/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:02.9523914Z Updating files:  67% (22827/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:04.4769115Z Updating files:  67% (22978/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:04.6182662Z Updating files:  67% (23160/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:04.9515928Z Updating files:  68% (23167/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:05.9890840Z Updating files:  68% (23223/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:06.5350638Z Updating files:  68% (23411/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:06.9387088Z Updating files:  69% (23508/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:06.9819528Z Updating files:  70% (23849/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:07.3829613Z Updating files:  70% (23880/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:07.7311184Z Updating files:  71% (24189/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:08.0073882Z Updating files:  72% (24530/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:08.1628873Z Updating files:  72% (24759/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:08.3370060Z Updating files:  73% (24871/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:08.6629354Z Updating files:  74% (25212/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:08.9927824Z Updating files:  75% (25552/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:09.3738790Z Updating files:  75% (25714/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:10.0051229Z Updating files:  76% (25893/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:10.0467467Z Updating files:  76% (26196/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:10.7435279Z Updating files:  77% (26234/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:11.0048113Z Updating files:  78% (26574/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:13.5198738Z Updating files:  78% (26643/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:13.5206956Z Updating files:  78% (26740/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:13.9232229Z Updating files:  78% (26881/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:14.0511609Z Updating files:  79% (26915/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:14.0741732Z Updating files:  79% (27242/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:14.7272491Z Updating files:  80% (27256/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:15.1343142Z Updating files:  81% (27596/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:15.5482179Z Updating files:  81% (27631/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:16.5694227Z Updating files:  82% (27937/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:17.2150083Z Updating files:  82% (28188/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:17.2151164Z Updating files:  83% (28278/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:17.8986128Z Updating files:  83% (28355/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:18.0609917Z Updating files:  84% (28618/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:18.8388729Z Updating files:  84% (28671/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:19.0618664Z Updating files:  85% (28959/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:19.8815132Z Updating files:  85% (28998/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:20.0934646Z Updating files:  86% (29300/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:20.8808259Z Updating files:  86% (29352/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:21.0665176Z Updating files:  87% (29641/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:22.0664524Z Updating files:  87% (29664/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:23.0647891Z Updating files:  87% (29825/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:23.2095938Z Updating files:  87% (29954/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:24.0691055Z Updating files:  88% (29981/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:25.2592210Z Updating files:  88% (30205/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:26.6331060Z Updating files:  89% (30322/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:26.6331802Z Updating files:  89% (30454/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:26.6332367Z Updating files:  90% (30663/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:26.6332920Z Updating files:  91% (31003/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:26.6333933Z Updating files:  91% (31120/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:26.6543829Z Updating files:  92% (31344/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:27.2032598Z Updating files:  93% (31685/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:28.1128310Z Updating files:  93% (31876/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:28.2386721Z Updating files:  93% (32018/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:29.0777879Z Updating files:  94% (32025/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:30.0861622Z Updating files:  94% (32078/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:30.9021380Z Updating files:  94% (32164/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:31.0758154Z Updating files:  95% (32366/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:31.1242008Z Updating files:  95% (32611/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:31.6288184Z Updating files:  96% (32707/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:31.9502205Z Updating files:  97% (33047/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:32.0757189Z Updating files:  98% (33388/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:32.2231502Z Updating files:  98% (33479/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:32.8587500Z Updating files:  99% (33729/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:32.8840415Z Updating files: 100% (34069/34069)
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:32.8841404Z Updating files: 100% (34069/34069), done.
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:32.9854156Z Switched to a new branch 'codex/flat-vector-melody-guide-20261102'
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:33.0074314Z branch 'codex/flat-vector-melody-guide-20261102' set up to track 'origin/codex/flat-vector-melody-guide-20261102'.
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:34.8741166Z ##[endgroup]
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:35.0015171Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:35.0503003Z 75ea903d5d5679e90273fbb8faa80acba5ec5a65
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:35.0787264Z ##[group]Removing auth
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:35.0824746Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:35.1361017Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:35.8961319Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:35.9423002Z http.https://github.com/.extraheader
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:35.9458676Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:36.0233919Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:36.7044235Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:36.7545059Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+area-music-provenance	Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:03:37.4092932Z ##[endgroup]
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	﻿2026-11-03T04:03:37.7316551Z ##[group]Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:37.7319964Z with:
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:37.7320288Z   python-version: 3.13.14
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:37.7322938Z   check-latest: false
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:37.7327449Z   token: ***
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:37.7327773Z   update-environment: true
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:37.7330313Z   allow-prereleases: false
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:37.7330956Z   freethreaded: false
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:37.7333322Z env:
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:37.7333652Z   GODOT_RELEASE: 4.7.2-stable
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:37.7334545Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:37.7337506Z ##[endgroup]
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:38.1773527Z ##[group]Installed versions
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:38.1797571Z Version 3.13.14 was not found in the local cache
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:38.8485799Z Version 3.13.14 is available for downloading
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:38.8487447Z Download from "https://github.com/actions/python-versions/releases/download/3.13.14-27320626148/python-3.13.14-win32-x64.zip"
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:39.2779115Z Extract downloaded archive
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:39.4276484Z [command]"C:\Program Files\PowerShell\7\pwsh.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command "$ErrorActionPreference = 'Stop' ; try { Add-Type -AssemblyName System.IO.Compression.ZipFile } catch { } ; try { [System.IO.Compression.ZipFile]::ExtractToDirectory('D:\a\_temp\python-3.13.14-win32-x64.zip', 'D:\a\_temp\5b2d77a9-7eab-406d-b192-86d1c1b2fb9e', $true) } catch { if (($_.Exception.GetType().FullName -eq 'System.Management.Automation.MethodException') -or ($_.Exception.GetType().FullName -eq 'System.Management.Automation.RuntimeException') ){ Expand-Archive -LiteralPath 'D:\a\_temp\python-3.13.14-win32-x64.zip' -DestinationPath 'D:\a\_temp\5b2d77a9-7eab-406d-b192-86d1c1b2fb9e' -Force } else { throw $_ } } ;"
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:41.2666621Z Execute installation script
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:44.5352839Z Check if Python hostedtoolcache folder exist...
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:44.5353407Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:44.5485905Z Check if current Python version is installed...
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:44.5486734Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:44.5748096Z Python3.13 (x64) was found in C:\hostedtoolcache\windows\Python...
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:44.5751611Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:44.6122617Z Deleting C:\hostedtoolcache\windows\Python\3.13.17\x64...
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:44.6123396Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:49.5166928Z VERBOSE: Performing the operation "Remove File" on target "C:\hostedtoolcache\windows\Python\3.13.17\x64.complete".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:49.5167883Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:49.5179247Z Remove registry entries for Python 3.13(x64)...
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:49.5180837Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3306710Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3308660Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\1FC4C8558E2824C4CB19F
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3309640Z 5E1699E9CC9".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3313174Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3344965Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3346255Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\366311F089C88AA468D6F
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3350128Z 4E47934DCB4".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3350459Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3366496Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3367811Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\4347178E0C3EC3B41823D
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3371637Z FB16CA5A09C".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3371810Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3392434Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3396288Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\54503CADFE0E4174EB980
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3396951Z 58ABBA662AB".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3397116Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3414130Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3421437Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\5AA347F7FB474E241BBE5
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3422081Z 0B1F5500420".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3422215Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3440103Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3442183Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\5E26C8E7D76BE2D40B658
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3443230Z 816B37397E3".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3446562Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3466774Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3468464Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\A5F354F24E328EA43A337
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3472372Z C4D5E20A686".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3472565Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3490056Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3491411Z HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\C7EC587A0B7DD144E9206
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3495211Z 263E4692BC7".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3495400Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3906017Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3910871Z HKEY_CLASSES_ROOT\Installer\Products\1FC4C8558E2824C4CB19F5E1699E9CC9".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.3911545Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4033661Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4034772Z HKEY_CLASSES_ROOT\Installer\Products\366311F089C88AA468D6F4E47934DCB4".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4055640Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4173391Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4174470Z HKEY_CLASSES_ROOT\Installer\Products\4347178E0C3EC3B41823DFB16CA5A09C".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4175092Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4323347Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4324409Z HKEY_CLASSES_ROOT\Installer\Products\54503CADFE0E4174EB98058ABBA662AB".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4325000Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4367118Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4371118Z HKEY_CLASSES_ROOT\Installer\Products\5AA347F7FB474E241BBE50B1F5500420".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4371749Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4415439Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4420569Z HKEY_CLASSES_ROOT\Installer\Products\5E26C8E7D76BE2D40B658816B37397E3".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4421173Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4877142Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4880307Z HKEY_CLASSES_ROOT\Installer\Products\A5F354F24E328EA43A337C4D5E20A686".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.4880768Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.5059937Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.5061016Z HKEY_CLASSES_ROOT\Installer\Products\C7EC587A0B7DD144E9206263E4692BC7".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.5064096Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.5888518Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.5889375Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{0F113663-8C98-4AA8-866D-4F4E9743CD4B}".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.5889863Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.5961583Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.5962507Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{2F453F5A-23E4-4AE8-A333-C7D4E5026A68}".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.5963024Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6056776Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6060733Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{558C4CF1-82E8-4C42-BC91-5F1E96E9C99C}".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6061231Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6146445Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6151039Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{7E8C62E5-B67D-4D2E-B056-88613B37793E}".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6153306Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6165960Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6167273Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{7F743AA5-74BF-42E4-B1EB-051B5F054002}".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6171512Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6262178Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6263932Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{A785CE7C-D7B0-441D-9E02-26364E96B27C}".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6264848Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6386779Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6387664Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{DAC30545-E0EF-4714-BE89-50A8BB6A26BA}".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6388142Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6430125Z VERBOSE: Performing the operation "Remove Key" on target "Item: 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6433828Z HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall\{E8717434-E3C0-4B3C-8132-FD1BC65A0AC9}".
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6434377Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6965676Z Create Python 3.13.14 folder in C:\hostedtoolcache\windows\Python
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.6967123Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.7035001Z Copy Python binaries to C:\hostedtoolcache\windows\Python\3.13.14\x64
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.7035541Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.7196067Z Install Python 3.13.14 in C:\hostedtoolcache\windows\Python...
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:03:50.7196735Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.5675855Z Create python3 symlink
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.5676907Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.6238188Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.6239562Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.6245423Z Directory: C:\hostedtoolcache\windows\Python\3.13.14\x64
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.6246512Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.6246530Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.6261734Z Mode                 LastWriteTime         Length Name
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.6265918Z ----                 -------------         ------ ----
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.6278849Z -a---l         11/3/2026   4:04 AM              0 python3.exe
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.6289215Z Install and upgrade Pip
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:25.6291238Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:27.5349556Z Collecting pip
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:27.9482703Z Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:28.0429596Z Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:28.4470544Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:28.4472780Z ---------------------------------------- 2.0/2.0 MB 9.8 MB/s  0:00:00
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:28.4474819Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:28.4858903Z Installing collected packages: pip
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:28.4859564Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:28.4859936Z Attempting uninstall: pip
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:28.4902532Z Found existing installation: pip 26.1.2
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:28.5735466Z Uninstalling pip-26.1.2:
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:28.5965412Z Successfully uninstalled pip-26.1.2
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:31.2277555Z Successfully installed pip-26.3
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:31.3059360Z Create complete file
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:31.3059903Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:31.3079009Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:31.3092852Z 
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:31.3776859Z Successfully set up CPython (3.13.14)
+area-music-provenance	Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	2026-11-03T04:04:31.3777746Z ##[endgroup]
+area-music-provenance	Verify deterministic area-music delivery	﻿2026-11-03T04:04:31.4469854Z ##[group]Run python -m pip install --disable-pip-version-check --quiet numpy==2.5.1 scipy==1.18.0
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4473245Z ^[[36;1mpython -m pip install --disable-pip-version-check --quiet numpy==2.5.1 scipy==1.18.0^[[0m
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4473857Z ^[[36;1m& ./tools/setup_video_tools.ps1^[[0m
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4476971Z ^[[36;1mpython -B tools/build_area_music.py --check^[[0m
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4657717Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4658466Z env:
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4661432Z   GODOT_RELEASE: 4.7.2-stable
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4662766Z   GODOT_ZIP_SHA512: 9aa00f7a605200940bce3027a567b782f49bd8e940dd06ae9e987bd65aee1b1467edd56ed84fcdcbdd44354bf613bdbb4e5d2913e925850368e150c59ed54c65
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4663841Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.14\x64
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4666952Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.14\x64/lib/pkgconfig
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4667667Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.14\x64
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4670852Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.14\x64
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4671463Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.14\x64
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:31.4675492Z ##[endgroup]
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:51.6238633Z Downloading pinned FFmpeg 8.1.2 essentials build...
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:53.5801830Z Extracting FFmpeg into .video-tools...
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:55.1178147Z 
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:55.1187874Z Local video tools are ready:
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:55.1192799Z   D:\a\mermaid-roshan-reef\mermaid-roshan-reef\.video-tools\ffmpeg-8.1.2-essentials_build\bin\ffmpeg.exe
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:55.1200998Z   D:\a\mermaid-roshan-reef\mermaid-roshan-reef\.video-tools\ffmpeg-8.1.2-essentials_build\bin\ffprobe.exe
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:55.1207234Z 
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:55.1213388Z Next:
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:55.1225832Z   tools\encode_cartoon.cmd <frames> build/cartoons/cartoon.ogv -ReviewMp4
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:55.6321500Z MUSIC|check 01/44|castle_opera_hall
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:56.9995732Z MUSIC|check 02/44|castle_kitchen
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:58.0853100Z MUSIC|check 03/44|castle_library
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:04:59.1630415Z MUSIC|check 04/44|castle_playroom
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:00.2449334Z MUSIC|check 05/44|castle_craft_room
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:01.3055692Z MUSIC|check 06/44|castle_mermaid_pool
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:02.6752067Z MUSIC|check 07/44|castle_bubble_bath
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:03.7430214Z MUSIC|check 08/44|castle_dining_room
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:04.7247684Z MUSIC|check 09/44|castle_royal_bedroom
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:05.9474957Z MUSIC|check 10/44|castle_sleepover_bedroom
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:07.4063314Z MUSIC|check 11/44|castle_movie_lounge
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:08.5509209Z MUSIC|check 12/44|castle_family_gallery
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:09.6004950Z MUSIC|check 13/44|opera_lobby
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:10.7577675Z MUSIC|check 14/44|opera_chef
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:11.9792614Z MUSIC|check 15/44|opera_detective
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:13.2508036Z MUSIC|check 16/44|opera_ballerina
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:14.2702074Z MUSIC|check 17/44|opera_candymaker
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:15.2811986Z MUSIC|check 18/44|opera_doctor
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:16.6050990Z MUSIC|check 19/44|opera_farmer
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:17.6683892Z MUSIC|check 20/44|opera_boxer
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:18.6183285Z MUSIC|check 21/44|opera_magician
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:19.8064632Z MUSIC|check 22/44|opera_painter
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:21.0417871Z MUSIC|check 23/44|opera_astronaut
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:22.0629140Z MUSIC|check 24/44|opera_racer
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:23.2333142Z MUSIC|check 25/44|opera_popstar
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:24.1997091Z MUSIC|check 26/44|opera_nursery
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:25.5822920Z MUSIC|check 27/44|opera_teacher
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:26.7214195Z MUSIC|check 28/44|opera_boss_dragon
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:27.7513365Z MUSIC|check 29/44|opera_boss_phantom
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:28.8845685Z MUSIC|check 30/44|opera_boss_maestro
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:30.0794486Z MUSIC|check 31/44|northern
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:31.3904731Z MUSIC|check 32/44|galaxy
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:32.5420963Z MUSIC|check 33/44|ember
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:33.6190112Z MUSIC|check 34/44|dungeon_ice
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:34.8337842Z MUSIC|check 35/44|dungeon_ember
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:36.0237140Z MUSIC|check 36/44|combat_ice
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:37.2864675Z MUSIC|check 37/44|combat_fire
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:38.4885773Z MUSIC|check 38/44|combat_tutorial
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:39.6052570Z MUSIC|check 39/44|stuffie_battle
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:40.6642847Z MUSIC|check 40/44|dustboss
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:41.9016842Z MUSIC|check 41/44|picture_snowman
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:42.9855036Z MUSIC|check 42/44|picture_garden
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:44.2401800Z MUSIC|check 43/44|picture_trampoline
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:45.2218663Z MUSIC|check 44/44|picture_xmas
+area-music-provenance	Verify deterministic area-music delivery	2026-11-03T04:05:46.5726827Z MUSIC|result ALL OK|assets/audio/music/area_music_manifest.json
+area-music-provenance	Post Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97	﻿2026-11-03T04:05:46.7312534Z Post job cleanup.
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	﻿2026-11-03T04:05:46.9429662Z Post job cleanup.
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:05:47.1953876Z [command]"C:\Program Files\Git\bin\git.exe" version
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:05:47.2383627Z git version 2.56.0.windows.4
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:05:47.2546909Z Temporarily overriding HOME='D:\a\_temp\383610ba-75b7-4023-b401-c2c568d483a0' before making global git config changes
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:05:47.2548177Z Adding repository directory to the temporary git global config as a safe directory
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:05:47.2562468Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\mermaid-roshan-reef\mermaid-roshan-reef
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:05:47.3037034Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:05:47.3497994Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:05:48.0695472Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:05:48.1139705Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:05:48.7560756Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+area-music-provenance	Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5	2026-11-03T04:05:48.8011566Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+area-music-provenance	Complete job	﻿2026-11-03T04:05:49.4644744Z Cleaning up orphan processes
+area-music-provenance	Complete job	2026-11-03T04:05:49.6247286Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
