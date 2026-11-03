@@ -1476,3 +1476,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r126_melody_note_runtime/README.md` | 🟣 | `PROPOSED / CANDIDATE` R126 painted note token source-only production,29 source20 partialDev artifacts; Dev frozen, formal/external/global acceptance open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime/README.md` | 🟣 | PROPOSED / CANDIDATE; R127 painted progress pips,21whole state/color pictures;30source/20partialDev artifacts, Dev frozen, formal/external/global gaps open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/README.md` | 🟣 | PROPOSED / CANDIDATE; R128 painted timing window,two whole authored pictures;31source/20partialDev artifacts, Dev frozen, formal/external/global gaps open. |

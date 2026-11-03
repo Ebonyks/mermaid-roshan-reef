@@ -19235,7 +19235,14 @@
         "FVF-CFB3F02098DE",
         "FVF-DA74517277FC"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        {
+          "source_revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+          "path": "scripts/games/melody.gd",
+          "node": "TimingZoneCanvas/TimingZone:PaintedTimingMedallion and PaintedTimingAura",
+          "scope": "Source branch only, Dev frozen"
+        }
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
         "coverage_state": "COVERAGE_GAP",
@@ -19265,8 +19272,8 @@
       "context_brief_id": "BRIEF-MELODY",
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
-      "named_gap": null,
-      "status": "IDENTIFIED",
+      "named_gap": "The large green Melody timing window used flat primitives beside painted scenery. R128 supplies two whole painted pictures at the original scoring box,center,layering and pulse.",
+      "status": "SOURCE_CANDIDATE",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -19275,12 +19282,126 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r128_source_candidate": {
+          "stable_ids": [
+            "FV-B276AD0A51E5"
+          ],
+          "state": "SOURCE_BOUND_PAINTED_TIMING_WINDOW_CANDIDATE_DEV_FROZEN",
+          "new_bounded_source_artifacts": 1,
+          "existing_named_roles": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "new_runtime_PNG": 2,
+          "native_generated_samples": 2,
+          "authored_component_pictures": 2,
+          "generation_calls": 2,
+          "native_rejects": 0,
+          "technical_exports": 2,
+          "backend": "Built-in image_gen; no model selector or model/version returned",
+          "model_version": "NOT_EXPOSED",
+          "animation_calls": 0,
+          "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+          "native_effective_checks": {
+            "reused_exact_baseline_source": 171,
+            "current_candidate": 192,
+            "effective": 363
+          },
+          "check_count_unit": "Configured checks, not unique requirements or formalQA11.",
+          "new_native_frame_events": {
+            "bounded": 21,
+            "excluded": 0,
+            "retained": 21
+          },
+          "reused_historical_context_frames": 21,
+          "reused_historical_context_new_credit": 0,
+          "acceptance_scope": "Local selected-role ten-axis comparison;21configured candidate frames and24phone-size whole-HUD previews, original source21frames reused immutably. Original scoring/input/lifecycle preserved. Full natural-route/formalQA11/device/child/owner remain open.",
+          "invisible_geometry": "Original functional scoring Rect2 and120pxnote envelope retained separately; only visible TimingZoneCanvas primitives retire.",
+          "original_controller_other_methods_LF_exact": 66,
+          "original_probe_other_methods_LF_exact": 83,
+          "full_game_probe_unchanged": true,
+          "original_texture_ceilings_unchanged": {
+            "decoded_bytes": 24117248,
+            "declared_upload_bytes": 12582912
+          },
+          "total_resident_texture_count": 8,
+          "Dev_integrated": false,
+          "new_partial_Dev_artifacts": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "whole_role_closed": false,
+          "accepted_removed": 0,
+          "mission_complete": false,
+          "static_item_call_cap": 2,
+          "calls_remaining": 0,
+          "technical_runtime_targets": 2,
+          "technical_reexports": 0,
+          "technical_export_count_unit": "Two whole256pxRGBA component pictures, from two preserved native outputs; one export each. No animation or reexport.",
+          "configured_instance_topology": {
+            "logical_size": "clamp(height*0.25,160,190); actual180/190native cases",
+            "center": "viewport*(0.705,0.515)",
+            "medallion": "Whole fixed Sprite2D; alpha3body width registered exactly to original Control size",
+            "aura": "Whole Sprite2D at original0.24uniform opacity, original5rad/s0..6pxpulse, centered by measured alpha3bounds",
+            "z": {
+              "aura": 27,
+              "body": 28
+            },
+            "natural_progress_contexts": 7
+          },
+          "runtime_base_RGBA_bytes": 524288,
+          "excluded_capture_runs": 0,
+          "static_evidence_mode": "Complete healthy global static prefix reused with33905other tested index entries unchanged; one new verifier alpha API call corrected, fresh current changed parser/inference/authority/development,realengineanalyzer/2D and all82trusted programs.",
+          "phone_size_review": {
+            "candidate": 21,
+            "source": 3,
+            "review_derivative_PNG": 24,
+            "whole_HUD_scale": 0.3,
+            "local_readability": "PROVISIONAL_PASS",
+            "new_native_frame_events": 0,
+            "formal_QA11": null,
+            "device": null,
+            "child": null,
+            "owner": null,
+            "evidence": "PHONE_SQUINT_REVIEW.json"
+          },
+          "initial_focused_verifier": {
+            "status": "SCRIPT_ERROR_UNSUPPORTED_NEW_Image.has_alpha",
+            "diagnosis": "Both actual unchanged PNGs report Image.ALPHA_BLEND via supported Image.detect_alpha on exact approved engine.",
+            "evidence": "ALPHA_VERIFIER_RECOVERY.json",
+            "assertions_removed": 0,
+            "art_or_original_behavior_changed": false
+          },
+          "source_revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+          "source_branch": "codex/flat-vector-melody-timing-window-20261102",
+          "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/MANIFEST.json",
+          "source_required_files": 226,
+          "source_all_required_anonymous_exact": true,
+          "source_CI_snapshot": [
+            {
+              "conclusion": "",
+              "databaseId": 41558112080,
+              "headSha": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+              "status": "in_progress",
+              "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41558112080",
+              "workflowName": "Probe suite (graphics fork)"
+            }
+          ],
+          "owner_scope": {
+            "owner_answer": "Resume art candidates; keep Dev frozen",
+            "scope": "Source branch art integration and established public GitHub delivery only; no Dev/master/promotion or other-chat actions.",
+            "quality_first": "Oct17 owner correction supersedes former July28 failed-reuse gate; generation chosen for painted material and readability. No suitable exact-role painted input found in relevant current asset paths; reuse was optional, not a proof gate.",
+            "item": "R128",
+            "stable_id": "FV-B276AD0A51E5",
+            "separate_animation_caps_untouched": true
+          }
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Exact source-bound scene/material references; quality-based reuse or ImageGen, no failed-reuse prerequisite",
+        "Applicable provenance/license/import/geometry/passive/save/teardown/resource gates",
+        "Formal QA11/current natural-route/device/child/owner acceptance remains separately open"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -19295,8 +19416,15 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Review Melody start button during Melody start button active/rest/changed/payoff/settle states on Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261102-R128-SOURCE",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/FRAME_REVIEW.json",
+          "source_revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+          "status": "SOURCE_CANDIDATE_NOT_FORMAL_QA11"
+        }
+      ],
+      "proposed_update": "Review the two whole painted timing-window pictures and three-aspect original progress contexts; resolve natural-route/state/formal/external gates. Keep Dev frozen.",
       "route_refs": [
         "minigame.melody",
         "game.melody"
@@ -19304,7 +19432,39 @@
       "route_evidence": "Current melody consumer from scripts/games/melody.gd:1 (FILE_SCOPE)",
       "context_action": "Melody start button active/rest/changed/payoff/settle states",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-B276AD0A51E5"
+      "individual_brief_id": "PIECE-FV-B276AD0A51E5",
+      "r128_prior_status": "IDENTIFIED",
+      "source_candidate_outputs": [
+        {
+          "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+          "path": "assets/melody/timing_window_medallion_painted.png",
+          "sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        {
+          "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+          "path": "assets/melody/timing_window_aura_painted.png",
+          "sha256": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+          "dimensions": [
+            256,
+            256
+          ]
+        }
+      ],
+      "configured_source_instance_topology": {
+        "logical_size": "clamp(height*0.25,160,190); actual180/190native cases",
+        "center": "viewport*(0.705,0.515)",
+        "medallion": "Whole fixed Sprite2D; alpha3body width registered exactly to original Control size",
+        "aura": "Whole Sprite2D at original0.24uniform opacity, original5rad/s0..6pxpulse, centered by measured alpha3bounds",
+        "z": {
+          "aura": 27,
+          "body": 28
+        },
+        "natural_progress_contexts": 7
+      }
     },
     {
       "id": "FV-0091F4E1BC9C",
@@ -26781,7 +26941,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261102-R127-CI-MAIN-PASS-MUSIC-TIMEOUT",
+  "revision": "FV-AUDIT-20261102-R128-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -41927,5 +42087,120 @@
     "Dev_integrated": false,
     "accepted_removed": 0,
     "mission_complete": false
+  },
+  "r128_parent_receipt_revision": "33012397422215677355e23c834c369e03077bb9",
+  "r128_melody_timing_window_runtime": {
+    "stable_ids": [
+      "FV-B276AD0A51E5"
+    ],
+    "state": "SOURCE_BOUND_PAINTED_TIMING_WINDOW_CANDIDATE_DEV_FROZEN",
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "new_runtime_PNG": 2,
+    "native_generated_samples": 2,
+    "authored_component_pictures": 2,
+    "generation_calls": 2,
+    "native_rejects": 0,
+    "technical_exports": 2,
+    "backend": "Built-in image_gen; no model selector or model/version returned",
+    "model_version": "NOT_EXPOSED",
+    "animation_calls": 0,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "native_effective_checks": {
+      "reused_exact_baseline_source": 171,
+      "current_candidate": 192,
+      "effective": 363
+    },
+    "check_count_unit": "Configured checks, not unique requirements or formalQA11.",
+    "new_native_frame_events": {
+      "bounded": 21,
+      "excluded": 0,
+      "retained": 21
+    },
+    "reused_historical_context_frames": 21,
+    "reused_historical_context_new_credit": 0,
+    "acceptance_scope": "Local selected-role ten-axis comparison;21configured candidate frames and24phone-size whole-HUD previews, original source21frames reused immutably. Original scoring/input/lifecycle preserved. Full natural-route/formalQA11/device/child/owner remain open.",
+    "invisible_geometry": "Original functional scoring Rect2 and120pxnote envelope retained separately; only visible TimingZoneCanvas primitives retire.",
+    "original_controller_other_methods_LF_exact": 66,
+    "original_probe_other_methods_LF_exact": 83,
+    "full_game_probe_unchanged": true,
+    "original_texture_ceilings_unchanged": {
+      "decoded_bytes": 24117248,
+      "declared_upload_bytes": 12582912
+    },
+    "total_resident_texture_count": 8,
+    "Dev_integrated": false,
+    "new_partial_Dev_artifacts": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_role_closed": false,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "static_item_call_cap": 2,
+    "calls_remaining": 0,
+    "technical_runtime_targets": 2,
+    "technical_reexports": 0,
+    "technical_export_count_unit": "Two whole256pxRGBA component pictures, from two preserved native outputs; one export each. No animation or reexport.",
+    "configured_instance_topology": {
+      "logical_size": "clamp(height*0.25,160,190); actual180/190native cases",
+      "center": "viewport*(0.705,0.515)",
+      "medallion": "Whole fixed Sprite2D; alpha3body width registered exactly to original Control size",
+      "aura": "Whole Sprite2D at original0.24uniform opacity, original5rad/s0..6pxpulse, centered by measured alpha3bounds",
+      "z": {
+        "aura": 27,
+        "body": 28
+      },
+      "natural_progress_contexts": 7
+    },
+    "runtime_base_RGBA_bytes": 524288,
+    "excluded_capture_runs": 0,
+    "static_evidence_mode": "Complete healthy global static prefix reused with33905other tested index entries unchanged; one new verifier alpha API call corrected, fresh current changed parser/inference/authority/development,realengineanalyzer/2D and all82trusted programs.",
+    "phone_size_review": {
+      "candidate": 21,
+      "source": 3,
+      "review_derivative_PNG": 24,
+      "whole_HUD_scale": 0.3,
+      "local_readability": "PROVISIONAL_PASS",
+      "new_native_frame_events": 0,
+      "formal_QA11": null,
+      "device": null,
+      "child": null,
+      "owner": null,
+      "evidence": "PHONE_SQUINT_REVIEW.json"
+    },
+    "initial_focused_verifier": {
+      "status": "SCRIPT_ERROR_UNSUPPORTED_NEW_Image.has_alpha",
+      "diagnosis": "Both actual unchanged PNGs report Image.ALPHA_BLEND via supported Image.detect_alpha on exact approved engine.",
+      "evidence": "ALPHA_VERIFIER_RECOVERY.json",
+      "assertions_removed": 0,
+      "art_or_original_behavior_changed": false
+    },
+    "source_revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+    "source_branch": "codex/flat-vector-melody-timing-window-20261102",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/MANIFEST.json",
+    "source_required_files": 226,
+    "source_all_required_anonymous_exact": true,
+    "source_CI_snapshot": [
+      {
+        "conclusion": "",
+        "databaseId": 41558112080,
+        "headSha": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41558112080",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "owner_scope": {
+      "owner_answer": "Resume art candidates; keep Dev frozen",
+      "scope": "Source branch art integration and established public GitHub delivery only; no Dev/master/promotion or other-chat actions.",
+      "quality_first": "Oct17 owner correction supersedes former July28 failed-reuse gate; generation chosen for painted material and readability. No suitable exact-role painted input found in relevant current asset paths; reuse was optional, not a proof gate.",
+      "item": "R128",
+      "stable_id": "FV-B276AD0A51E5",
+      "separate_animation_caps_untouched": true
+    }
   }
 }
