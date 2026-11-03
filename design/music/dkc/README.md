@@ -10,6 +10,10 @@ The [SPC catalog](https://snesmusic.org/v2/profile.php?selected=711&set=) provid
 
 The [track register](soundtrack_catalog.json) preserves both rounds of YouTube search results, queries, titles, channels and durations. The [TMK source receipt](midi_catalog.json) and [VGMusic source receipt](vgmusic_catalog.json) preserve actual resolved URLs, bytes and SHA-256; VGMusic also records sequencer, MIDI track names, note counts, declared programs and percussion-channel presence. A successful MIDI parse proves a usable file, not transcription accuracy. Remixes, orchestral arrangements and piano reductions require classification before use.
 
+## Written production context
+
+The [written-source study](WRITTEN_CONTEXT.md) connects eight read interviews/developer/manufacturer sources to authorship, evolving synthesis, environmental rhythm and comparison questions. The [source register](written_sources.json) preserves evidence limits and two additional leads. Composer context is linked per track; exact sample identities remain unresolved.
+
 ## Listening index
 
 Original links below are selected from OST metadata for review. They have not passed content, pitch/speed, game-version or full-playback confirmation. MIDI videos are title-screened candidates and may be remixes; they have not been confirmed as complete multichannel backings. “Gap” means a suitable candidate was not located in these searches. A downloadable score is separate from a YouTube performance.
