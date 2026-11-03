@@ -573,6 +573,7 @@ func _check_rendered_stage_contract(surface: Node2D) -> void:
 	var note_id_before: int = melody.active_note_id()
 	var standard_viewport := Rect2(Vector2.ZERO,
 		get_root().get_visible_rect().size)
+	_check_painted_pointer_motion_matrix(surface)
 	var standard: Dictionary = _layout_geometry_contract(surface,
 		standard_viewport)
 	print("MELODY|LAYOUT_FACTS|standard=", standard)
@@ -582,9 +583,9 @@ func _check_rendered_stage_contract(surface: Node2D) -> void:
 		bool(standard.get("actors_readable", false)))
 	_check("actual note, hit envelope, green zone, and pointer are readable at 1280x720",
 		bool(standard.get("note_readable", false)))
-	_check("pointer is exactly one attached arrow, line, target, and two rings with no custom-draw duplicate",
+	_check("pointer is exactly one painted arrow, authored shaft, and whole double ring with no primitive fallback",
 		bool(standard.get("pointer_geometry_unique", false))
-		and _pointer_source_is_geometry_only())
+		and _pointer_source_is_painted_only())
 	_check("actual four-tile Canvas transforms cover 1280x720 seam-free",
 		bool(standard.get("backdrop_covers", false)))
 
@@ -673,7 +674,7 @@ func _layout_geometry_contract(surface: Node2D,
 		pointer_target_distance = (pointer_target as Vector2).distance_to(note_center)
 	var arrow_tip_distance: float = _nearest_named_geometry_point(
 		pointer, "Arrow", note_center)
-	var pointer_geometry_unique: bool = _pointer_geometry_contract(
+	var pointer_geometry_unique: bool = _pointer_painted_contract(
 		pointer, note_center)
 	var expected_note_color: Color = EXPECTED_COLORS[note_id] \
 		if note_id >= 0 and note_id < EXPECTED_COLORS.size() else Color.BLACK
@@ -875,6 +876,9 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 	var expected_paths: Array[String] = TILE_PATHS.duplicate()
 	expected_paths.append(DADDY_PATH)
 	expected_paths.append(ROSHAN_PATH)
+	expected_paths.append("res://assets/melody/guide_arrow_head_painted.png")
+	expected_paths.append("res://assets/melody/guide_beam_painted.png")
+	expected_paths.append("res://assets/melody/guide_double_ring_painted.png")
 	var exact_once := counts.size() == expected_paths.size()
 	var decoded_bytes := 0
 	var declared_upload_bytes := 0
@@ -889,7 +893,11 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 		var import_text := FileAccess.get_file_as_string(path + ".import")
 		declared_upload_bytes += pixels if import_text.contains(
 			"compress/mode=2") else pixels * 4
-	_check("live Canvas binds only four tiles, Daddy, and Roshan exactly once each",
+		if import_text.contains("mipmaps/generate=true") and path.begins_with("res://assets/melody/guide_"):
+			decoded_bytes += ceili(float(pixels * 4) / 3.0)
+			declared_upload_bytes += ceili(float(pixels * 4) / 3.0)
+
+	_check("live Canvas binds the original six textures and three painted guide textures exactly once each",
 		exact_once)
 	_check("unique live texture census stays within conservative decoded and declared-upload bounds",
 		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024
@@ -952,12 +960,7 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 				star, ["StageStarGeometry"], []) \
 			or not _exact_typed_geometry_children(
 				zone, ["GreenWindowGeometry"], []) \
-			or not _exact_typed_geometry_children(pointer, [
-				"PointerTargetGeometry", "PointerArrowGeometry",
-			], [
-				"PointerLineGeometry", "PointerInnerRingGeometry",
-				"PointerOuterRingGeometry",
-			]):
+			or not _exact_pointer_children(pointer):
 		return false
 	for index in range(7):
 		var note: Node = _stage_node(surface, "RainbowNote%d" % index)
@@ -1267,6 +1270,9 @@ func _nearest_named_geometry_point(node: Node, name_token: String,
 			var line_xform := line.get_global_transform_with_canvas()
 			for point: Vector2 in line.points:
 				points.append(line_xform * point)
+		if node is Sprite2D and String(node.name) == "PointerArrowPainted":
+			var sprite := node as Sprite2D
+			points.append(sprite.get_global_transform_with_canvas() * (sprite.offset + Vector2(106.5, 62.5)))
 		for point: Vector2 in points:
 			best = minf(best, point.distance_to(target))
 	for child_value: Variant in node.get_children():
@@ -1275,57 +1281,36 @@ func _nearest_named_geometry_point(node: Node, name_token: String,
 	return best
 
 
-func _pointer_geometry_contract(pointer: Node, note_center: Vector2) -> bool:
+func _pointer_painted_contract(pointer: Node, note_center: Vector2) -> bool:
 	if not (pointer is Control) or not pointer.is_visible_in_tree() \
-			or _effective_canvas_alpha(pointer as CanvasItem) <= 0.85:
+			or _effective_canvas_alpha(pointer as CanvasItem) <= 0.85 \
+			or not _exact_pointer_children(pointer):
 		return false
-	var target_geometry: Node = _stage_node(pointer, "PointerTargetGeometry")
-	var arrow_geometry: Node = _stage_node(pointer, "PointerArrowGeometry")
-	var line_geometry: Node = _stage_node(pointer, "PointerLineGeometry")
-	var inner_geometry: Node = _stage_node(pointer, "PointerInnerRingGeometry")
-	var outer_geometry: Node = _stage_node(pointer, "PointerOuterRingGeometry")
-	var expected_nodes: Array[Node] = [
-		target_geometry, arrow_geometry, line_geometry,
-		inner_geometry, outer_geometry,
-	]
-	var expected_names: Array[String] = [
-		"PointerTargetGeometry", "PointerArrowGeometry", "PointerLineGeometry",
-		"PointerInnerRingGeometry", "PointerOuterRingGeometry",
-	]
-	if _count_geometry_descendants(pointer) != expected_nodes.size():
-		return false
-	for index in range(expected_nodes.size()):
-		var geometry: Node = expected_nodes[index]
-		if geometry == null or geometry.get_parent() != pointer \
-				or _count_nodes_named(pointer, expected_names[index]) != 1 \
-				or not geometry.is_visible_in_tree() \
-				or _effective_canvas_alpha(geometry as CanvasItem) <= 0.10:
-			return false
-	if not (target_geometry is Polygon2D) \
-			or not (arrow_geometry is Polygon2D) \
-			or not (line_geometry is Line2D) \
-			or not (inner_geometry is Line2D) \
-			or not (outer_geometry is Line2D):
-		return false
-	var target_polygon := target_geometry as Polygon2D
-	var arrow_polygon := arrow_geometry as Polygon2D
-	var pointer_line := line_geometry as Line2D
-	var inner_ring := inner_geometry as Line2D
-	var outer_ring := outer_geometry as Line2D
-	return target_polygon.polygon.size() == 4 \
-		and _points_rect(target_polygon.polygon).has_area() \
-		and target_polygon.color.a >= 0.15 \
-		and arrow_polygon.polygon.size() == 3 \
-		and _points_rect(arrow_polygon.polygon).has_area() \
-		and arrow_polygon.color.a >= 0.85 \
-		and _nearest_named_geometry_point(pointer, "Arrow", note_center) <= 4.0 \
-		and pointer_line.points.size() >= 2 and pointer_line.width >= 7.0 \
-		and pointer_line.default_color.a >= 0.85 \
-		and inner_ring.points.size() >= 24 and inner_ring.width >= 7.0 \
-		and inner_ring.default_color.a >= 0.85 \
-		and outer_ring.points.size() >= 24 and outer_ring.width >= 4.0 \
-		and outer_ring.default_color.a >= 0.75
-
+	var arrow := pointer.get_node("PointerArrowPainted") as Sprite2D
+	var beam := pointer.get_node("PointerBeamPainted") as Sprite2D
+	var ring := pointer.get_node("PointerRingPainted") as Sprite2D
+	var zone: Vector2 = pointer.get("zone_center")
+	var direction: Vector2 = note_center - zone
+	direction = Vector2.RIGHT if direction.length_squared() <= 0.001 else direction.normalized()
+	var start: Vector2 = zone + direction * 82.0
+	var end: Vector2 = note_center - direction * 38.0
+	var length: float = start.distance_to(end)
+	var radius: float = 34.0 + sin(float(pointer.get("pulse")) * 6.0) * 5.0
+	var arrow_tip: Vector2 = arrow.get_global_transform_with_canvas() * (arrow.offset + Vector2(106.5, 62.5))
+	var beam_start: Vector2 = beam.get_global_transform_with_canvas() * Vector2(-64.0, 0.0)
+	var beam_end: Vector2 = beam.get_global_transform_with_canvas() * Vector2(64.0, 0.0)
+	return arrow.texture.resource_path == "res://assets/melody/guide_arrow_head_painted.png" \
+		and beam.texture.resource_path == "res://assets/melody/guide_beam_painted.png" \
+		and ring.texture.resource_path == "res://assets/melody/guide_double_ring_painted.png" \
+		and arrow_tip.distance_to(note_center) <= 0.01 \
+		and arrow.scale.is_equal_approx(Vector2(46.0 / 108.0, 34.0 / 118.0)) \
+		and absf(angle_difference(arrow.rotation, direction.angle())) < 0.001 \
+		and beam_start.distance_to(start) < 0.01 and beam_end.distance_to(end) < 0.01 \
+		and is_equal_approx(beam.scale.y * 36.0, 9.0) \
+		and beam.visible == (length > 14.0) \
+		and ring.position.distance_to(note_center) < 0.01 \
+		and ring.scale.is_equal_approx(Vector2.ONE * ((radius + 8.0) * 2.0 + 5.0) / 253.0) \
+		and arrow.visible and ring.visible
 
 func _count_geometry_descendants(node: Node) -> int:
 	if node == null:
@@ -1345,22 +1330,18 @@ func _count_nodes_named(node: Node, exact_name: String) -> int:
 	return count
 
 
-func _pointer_source_is_geometry_only() -> bool:
+func _pointer_source_is_painted_only() -> bool:
 	var source := FileAccess.get_file_as_string("res://scripts/games/melody.gd")
-	var block_start: int = source.find("class PointerCanvas extends Control:")
-	var block_end: int = source.find("class RainbowNoteCanvas extends Control:",
-		block_start + 1)
-	if block_start < 0 or block_end <= block_start:
+	var a: int = source.find("class PointerCanvas extends Control:")
+	var b: int = source.find("class RainbowNoteCanvas extends Control:", a + 1)
+	if a < 0 or b <= a:
 		return false
-	var block: String = source.substr(block_start, block_end - block_start)
-	return block.count("PointerTargetGeometry") == 1 \
-		and block.count("PointerArrowGeometry") == 1 \
-		and block.count("PointerLineGeometry") == 1 \
-		and block.count("PointerInnerRingGeometry") == 1 \
-		and block.count("PointerOuterRingGeometry") == 1 \
-		and not block.contains("func _draw") \
-		and not block.contains("draw_")
-
+	var block: String = source.substr(a, b - a)
+	return block.count('"PointerArrowPainted"') == 1 \
+		and block.count('"PointerBeamPainted"') == 1 \
+		and block.count('"PointerRingPainted"') == 1 \
+		and not block.contains("func _draw") and not block.contains("draw_") \
+		and not block.contains("Polygon2D") and not block.contains("Line2D")
 
 func _note_source_binds_geometry_color() -> bool:
 	var source := FileAccess.get_file_as_string("res://scripts/games/melody.gd")
@@ -1507,7 +1488,7 @@ func _check_opening_objective_delivery(surface: Node2D) -> void:
 			Rect2(Vector2.ZERO, get_root().get_visible_rect().size)))
 	_check("opening non-reader objective is carried by the sole live attached visual pointer",
 		note_rect.has_area()
-		and _pointer_geometry_contract(pointer, note_rect.get_center()))
+		and _pointer_painted_contract(pointer, note_rect.get_center()))
 
 
 func _check_tick_and_stage_motion() -> void:
@@ -2676,3 +2657,53 @@ func _finish() -> void:
 	else:
 		print("MELODY|result: %d FAIL" % bad)
 		quit(1)
+
+
+func _exact_pointer_children(pointer: Node) -> bool:
+	var names: Array[String] = ["PointerArrowPainted", "PointerBeamPainted", "PointerRingPainted"]
+	if not _exact_direct_child_names(pointer, names) or _count_geometry_descendants(pointer) != 0:
+		return false
+	var expected_hashes: Array[String] = ["102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87", "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0", "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878"]
+	for index in range(names.size()):
+		var sprite := pointer.get_child(index) as Sprite2D
+		if sprite == null or sprite.texture == null or sprite.material != null \
+				or sprite.self_modulate.a <= 0.85 or sprite.modulate != Color.WHITE or sprite.self_modulate.r != 1.0 \
+				or sprite.self_modulate.g != 1.0 or sprite.self_modulate.b != 1.0:
+			return false
+		var path: String = sprite.texture.resource_path
+		if FileAccess.get_sha256(path) != expected_hashes[index]:
+			return false
+		var image := Image.load_from_file(path)
+		var settings: String = FileAccess.get_file_as_string(path + ".import")
+		if image == null or image.detect_alpha() != Image.ALPHA_BLEND \
+				or not settings.contains("compress/mode=0") \
+				or not settings.contains("mipmaps/generate=true"):
+			return false
+		if index == 2 and (image.get_pixel(128, 128).a != 0.0 or image.get_pixel(0, 0).a != 0.0):
+			return false
+	return true
+
+
+func _check_painted_pointer_motion_matrix(surface: Node2D) -> void:
+	var pointer: Node = _stage_node(surface, "VisualPointer")
+	var saved_target: Vector2 = pointer.get("target")
+	var saved_zone: Vector2 = pointer.get("zone_center")
+	var saved_id: int = int(pointer.get("target_id"))
+	var saved_pulse: float = float(pointer.get("pulse"))
+	var progress: int = melody.progress_count()
+	var zone := Vector2(700.0, 350.0)
+	for distance: float in [-500.0, -134.0, -120.0, -106.0, 0.0, 0.01, 80.0, 106.0, 120.0, 134.0, 500.0]:
+		for elapsed: float in [0.0, PI / 12.0, PI / 4.0]:
+			var point: Vector2 = zone + Vector2(distance, 0.0)
+			pointer.call("point_at", point, zone, saved_id, elapsed)
+			_check("painted guide retains endpoint/width/direction/suppression/pulse d=%s t=%s" % [distance, elapsed],
+				_pointer_painted_contract(pointer, point))
+	pointer.call("point_at", saved_target, saved_zone, -1, saved_pulse)
+	_check("inactive guide hides all three pictures", not (pointer.get_child(0) as Sprite2D).visible
+		and not (pointer.get_child(1) as Sprite2D).visible
+		and not (pointer.get_child(2) as Sprite2D).visible)
+	pointer.call("point_at", saved_target, saved_zone, saved_id, saved_pulse)
+	_check("guide matrix restores exact live target and cannot change note/progress",
+		(pointer.get("target") as Vector2).is_equal_approx(saved_target)
+		and int(pointer.get("target_id")) == saved_id and melody.progress_count() == progress
+		and melody.active_note_id() == saved_id)

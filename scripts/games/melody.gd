@@ -44,6 +44,9 @@ const TILE_SOURCE_RECTS: Array[Rect2i] = [
 ]
 const DADDY_PATH := "res://assets/characters/stickers/daddy.png"
 const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
+const GUIDE_HEAD_PATH := "res://assets/melody/guide_arrow_head_painted.png"
+const GUIDE_BEAM_PATH := "res://assets/melody/guide_beam_painted.png"
+const GUIDE_RING_PATH := "res://assets/melody/guide_double_ring_painted.png"
 const OBJECTIVE := "Tap each rainbow note in the green!"
 const OBJECTIVE_VOICE := "op_popstar_rhythm"
 
@@ -319,52 +322,37 @@ class TimingZoneCanvas extends Control:
 
 
 class PointerCanvas extends Control:
-	const GOLD := MelodyGame.GOLD
-	const PAPER := MelodyGame.PAPER
-	const POINTER_SIZE := MelodyGame.POINTER_SIZE
+	# Authored raster artwork; Canvas transforms retain the original guide path.
+	# The old32pxdiamond is fully hidden by the opaque note's40.64pxinradius.
+	# It had no input/physics function and is retired rather than made a fallback.
+	const HEAD_TIP := Vector2(106.5, 62.5)
+	const HEAD_ALPHA_SIZE := Vector2(108.0, 118.0)
+	const BEAM_ALPHA_HEIGHT := 36.0
+	const RING_ALPHA_DIAMETER := 253.0
 
 	var target := Vector2.ZERO
 	var zone_center := Vector2.ZERO
 	var pulse := 0.0
 	var target_id := -1
-	var target_geometry: Polygon2D = null
-	var arrow_geometry: Polygon2D = null
-	var line_geometry: Line2D = null
-	var inner_ring_geometry: Line2D = null
-	var outer_ring_geometry: Line2D = null
+	var arrow_painted: Sprite2D = null
+	var beam_painted: Sprite2D = null
+	var ring_painted: Sprite2D = null
 
 
 	func setup() -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 32
-		target_geometry = Polygon2D.new()
-		target_geometry.name = "PointerTargetGeometry"
-		target_geometry.color = Color(GOLD.r, GOLD.g, GOLD.b, 0.18)
-		target_geometry.z_index = -1
-		add_child(target_geometry)
-		arrow_geometry = Polygon2D.new()
-		arrow_geometry.name = "PointerArrowGeometry"
-		arrow_geometry.color = GOLD
-		add_child(arrow_geometry)
-		line_geometry = Line2D.new()
-		line_geometry.name = "PointerLineGeometry"
-		line_geometry.default_color = Color(1.0, 0.94, 0.54, 0.94)
-		line_geometry.width = 9.0
-		line_geometry.antialiased = true
-		add_child(line_geometry)
-		inner_ring_geometry = Line2D.new()
-		inner_ring_geometry.name = "PointerInnerRingGeometry"
-		inner_ring_geometry.default_color = PAPER
-		inner_ring_geometry.width = 8.0
-		inner_ring_geometry.antialiased = true
-		add_child(inner_ring_geometry)
-		outer_ring_geometry = Line2D.new()
-		outer_ring_geometry.name = "PointerOuterRingGeometry"
-		outer_ring_geometry.default_color = Color(GOLD.r, GOLD.g, GOLD.b, 0.82)
-		outer_ring_geometry.width = 5.0
-		outer_ring_geometry.antialiased = true
-		add_child(outer_ring_geometry)
+		arrow_painted = _painted("PointerArrowPainted", MelodyGame.GUIDE_HEAD_PATH)
+		arrow_painted.centered = false
+		arrow_painted.offset = -HEAD_TIP
+		# Declared static-UI aspect registration to the old46x34arrow envelope.
+		# Preserve the authored paint; no visible polygon or code-drawn fallback.
+		arrow_painted.scale = Vector2(46.0, 34.0) / HEAD_ALPHA_SIZE
+		beam_painted = _painted("PointerBeamPainted", MelodyGame.GUIDE_BEAM_PATH)
+		beam_painted.self_modulate.a = 0.94
+		ring_painted = _painted("PointerRingPainted", MelodyGame.GUIDE_RING_PATH)
+		ring_painted.offset = Vector2(-0.5, -0.5)
 
 
 	func layout(viewport_size: Vector2) -> void:
@@ -378,47 +366,39 @@ class PointerCanvas extends Control:
 		zone_center = next_zone_center
 		target_id = next_target_id
 		pulse = elapsed
-		target_geometry.visible = target_id >= 0
-		arrow_geometry.visible = target_id >= 0
-		line_geometry.visible = target_id >= 0
-		inner_ring_geometry.visible = target_id >= 0
-		outer_ring_geometry.visible = target_id >= 0
-		if target_geometry.visible:
-			var radius: float = POINTER_SIZE * 0.5
-			target_geometry.polygon = PackedVector2Array([
-				target + Vector2(0.0, -radius),
-				target + Vector2(radius, 0.0),
-				target + Vector2(0.0, radius),
-				target + Vector2(-radius, 0.0),
-			])
-			var direction: Vector2 = target - zone_center
-			if direction.length_squared() <= 0.001:
-				direction = Vector2.RIGHT
-			else:
-				direction = direction.normalized()
-			var normal := Vector2(-direction.y, direction.x)
-			arrow_geometry.polygon = PackedVector2Array([
-				target,
-				target - direction * 46.0 + normal * 17.0,
-				target - direction * 46.0 - normal * 17.0,
-			])
-			var line_start: Vector2 = zone_center + direction * 82.0
-			var line_end: Vector2 = target - direction * 38.0
-			if line_start.distance_to(line_end) > 14.0:
-				line_geometry.points = PackedVector2Array([line_start, line_end])
-			else:
-				line_geometry.points = PackedVector2Array()
-			var ring_radius: float = 34.0 + sin(pulse * 6.0) * 5.0
-			inner_ring_geometry.points = _ring_points(target, ring_radius)
-			outer_ring_geometry.points = _ring_points(target, ring_radius + 8.0)
+		arrow_painted.visible = target_id >= 0
+		beam_painted.visible = target_id >= 0
+		ring_painted.visible = target_id >= 0
+		if target_id < 0:
+			return
+		var direction: Vector2 = target - zone_center
+		if direction.length_squared() <= 0.001:
+			direction = Vector2.RIGHT
+		else:
+			direction = direction.normalized()
+		arrow_painted.position = target
+		arrow_painted.rotation = direction.angle()
+		var line_start: Vector2 = zone_center + direction * 82.0
+		var line_end: Vector2 = target - direction * 38.0
+		var length: float = line_start.distance_to(line_end)
+		beam_painted.visible = length > 14.0
+		beam_painted.position = (line_start + line_end) * 0.5
+		beam_painted.rotation = (line_end - line_start).angle()
+		beam_painted.scale = Vector2(length / 128.0, 9.0 / BEAM_ALPHA_HEIGHT)
+		var ring_radius: float = 34.0 + sin(pulse * 6.0) * 5.0
+		var outer_diameter: float = (ring_radius + 8.0) * 2.0 + 5.0
+		ring_painted.position = target
+		# One complete painted double ring scales uniformly; its bands scale too.
+		ring_painted.scale = Vector2.ONE * outer_diameter / RING_ALPHA_DIAMETER
 
 
-	func _ring_points(center: Vector2, radius: float) -> PackedVector2Array:
-		var points := PackedVector2Array()
-		for index in range(33):
-			var angle: float = TAU * float(index) / 32.0
-			points.append(center + Vector2(cos(angle), sin(angle)) * radius)
-		return points
+	func _painted(node_name: String, path: String) -> Sprite2D:
+		var sprite := Sprite2D.new()
+		sprite.name = node_name
+		sprite.texture = load(path) as Texture2D
+		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		add_child(sprite)
+		return sprite
 
 
 class RainbowNoteCanvas extends Control:
@@ -587,6 +567,9 @@ static func runtime_art_paths() -> Array[String]:
 		paths.append(tile_path)
 	paths.append(DADDY_PATH)
 	paths.append(ROSHAN_PATH)
+	paths.append(GUIDE_HEAD_PATH)
+	paths.append(GUIDE_BEAM_PATH)
+	paths.append(GUIDE_RING_PATH)
 	return paths
 
 

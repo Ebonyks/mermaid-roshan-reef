@@ -1,0 +1,42 @@
+{
+  "state": "BUILTIN_IMAGEGEN_ARROW_CALL1_LAUNCH",
+  "at_utc": "2026-11-03T02:31:22.942899+00:00",
+  "static_item_cap": 2,
+  "calls_attempted": 1,
+  "animation_calls": 0,
+  "backend": "Built-in image_gen.imagegen; model selector/version/seed/cost/requestID not exposed",
+  "prompt_sha256": "cf9ac2c60c2a607aaae30298b6858c88778f97f4f709db8dc1eae974daa8c191",
+  "references": [
+    {
+      "path": "assets_src/imagegen/melody_guide_20261102/references/painted_pip_material.png",
+      "sha256": "4cc2cce86e3c76ef2ca14a059af7e6db2330973cac29d2556cca184039ac9e2c",
+      "role": "R127 source-candidate painted gouache material/cream/plum/rainbow palette atf348ec44; not owner-approved. Style only; no old picture pixels copied.",
+      "viewed_before_generation": true,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "assets_src/imagegen/melody_guide_20261102/references/source_left.png",
+      "sha256": "408104124e719f372d6809e0de465d0b74092bafa2c3ca9d463ecd379c5b801f",
+      "role": "Actual original selected guide far-left scene: long cream/yellow connector and tiny arrow tip relationship; layout/semantic context only, no screenshot pixels in delivery.",
+      "viewed_before_generation": true,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "assets_src/imagegen/melody_guide_20261102/references/source_window.png",
+      "sha256": "4369b3898aff80c376667549a6c0aad94b0385d24786d627eab0ddcb3494737e",
+      "role": "Actual original overlap/short/reversed connector scene: preserve original relation and lifecycle; context only, no screenshot pixels in delivery.",
+      "viewed_before_generation": true,
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "assets_src/imagegen/melody_guide_20261102/references/source_right_wide.png",
+      "sha256": "2424a9395306f89dfa0b0bd4ed199d45d04b8ebeb3836a2f1affbed2acd1a884",
+      "role": "Actual original wide scene past window: note and arrow direction flip relative to zone; context only, no screenshot/characters/background pixels in delivery.",
+      "viewed_before_generation": true,
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "source_context_checks": 126,
+  "source_context_native_frames": 15,
+  "candidate_outputs": 0
+}
