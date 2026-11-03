@@ -63,8 +63,8 @@
     },
     {
       "command": "Anonymous immutable-commit fetch of packet manifest and every payload file; bytes and SHA-256 comparison",
-      "result": "PENDING",
-      "evidence": "docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json will retain earlier verification history and record the published revision-3 payload."
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json: 1d700b3cf27e9f0dd5f82526317f0fae18733ee4; manifest SHA-256 3c4483749cd2c4f0f410d1ce7e3d412bd1558d2adeba099a7adbf46f95c617a1; 4/4 payloads and 6/6 related records; anonymous HTTPS GET to raw.githubusercontent.com with no token or cookie; public recipient access; checked 2026-11-03T16:25:13.332283+00:00. Prior receipts retained."
     }
   ],
   "acceptance_gaps": "No new runtime, visual, device, child, creative or release acceptance is claimed. Those lanes do not apply to this policy-text correction and retain their existing blocking scope for product acceptance and release. No promotion to master is authorized by this request. Exact work-branch CI is still required before integration.",
