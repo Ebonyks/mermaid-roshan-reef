@@ -11,8 +11,8 @@
   "files": [
     {
       "file": "README.md",
-      "size": 18368,
-      "sha256": "d0c484327ed09ac0df89e49f1e775f76d305b87ce583c370c8bf02aae047b27b"
+      "size": 19189,
+      "sha256": "a5f4f22f95c9cd62d6104a2643cc1e5afa9a6c70143a36e5a812430caf385929"
     },
     {
       "file": "WRITTEN_CONTEXT.md",
@@ -41,8 +41,8 @@
     },
     {
       "file": "instrument_candidates.json",
-      "size": 11573,
-      "sha256": "ac6fe89a4ad85b981733fdf30676cdc7d7929e99164fe580e9d0f0d58c006bd4"
+      "size": 11842,
+      "sha256": "8029454a94512e784549f7e8c190b6b36da20493c8080a436ce5c24824c176c7"
     },
     {
       "file": "written_sources.json",
@@ -88,6 +88,31 @@
       "file": "evidence/reproduction_receipt.json",
       "size": 189,
       "sha256": "fa237291458d0cc3f345aa782e9971e48bbe6fa972bfe4bc885cd7155b3a9092"
+    },
+    {
+      "file": "SOUNDTRACK_REVISION_GUIDE_V2.md",
+      "size": 90177,
+      "sha256": "8c61ea1d27e3c061b48a5f0b7a56fab02043f780ac12a6f5925b44beb9b1c8cc"
+    },
+    {
+      "file": "revision_call_sheets_v2.json",
+      "size": 405829,
+      "sha256": "0564fc3c71cc68a6134891a178be8fd5f8ed930da0487bcf893a6339d52c5675"
+    },
+    {
+      "file": "performance_references_v2.json",
+      "size": 5770,
+      "sha256": "95a4ddd65525d0fa7c29704c24cacbb1a3b458d443f78a016256eae3f7b4724c"
+    },
+    {
+      "file": "revision_owner_direction_20261102.json",
+      "size": 975,
+      "sha256": "fe46e699cece597b2465bc6b372b3af6fc19b63a90dd8a7aac1192abcc52920b"
+    },
+    {
+      "file": "evidence/revision_guide_validation_v2.json",
+      "size": 3200,
+      "sha256": "ca538fe0547c6ac6ca592e46e26fdb7b92a879545961bbc00c56265ed67c9748"
     }
   ],
   "written_context_revision": {
@@ -113,5 +138,15 @@
     "reproduced_unique_candidate_comparisons": 54,
     "method_source": "tools/studies/dkc_midi_stress.py",
     "method_sha256": "4b7ddd0c633d3ed4028022a79c145cad15bd9986a67875d5961720778b808cfe"
+  },
+  "performance_revision": {
+    "checked_utc": "2026-11-03T05:40:06.074Z",
+    "revision": 2,
+    "complete_two_layer_plans": 30,
+    "individual_player_calls": 117,
+    "primary_influence_context_sources": 6,
+    "profile_revision_hash_checks": "15/15 PASS",
+    "native_source_matched_programs_accepted": 0,
+    "status": "WRITTEN_OUTLINE_COMPLETE_NATIVE_AND_HUMAN_ACCEPTANCE_OPEN"
   }
 }

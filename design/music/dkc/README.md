@@ -2,6 +2,10 @@
 
 This separate study covers the original 1994 SNES Donkey Kong Country soundtrack. The original in-game sound is the authority. Performer profiles, Bonobo production preferences, General MIDI program labels and available libraries are resources for finding a match; they never require changing the original instrument. Add a patch, articulation, technique or performer capability when the source requires it.
 
+## Detailed revision guide
+
+The [soundtrack revision guide](SOUNDTRACK_REVISION_GUIDE_V2.md) is the current complete outline: all 30 cues first by theme, melody, harmony, instruments and tone, then by cast, section roles, handoffs, rests and performance. It incorporates owner-authorized mild liberties, selective swing, phrase-level irregularity and named Cuban/African popular-music studies. The [117 player calls](revision_call_sheets_v2.json) retain exact profile revisions and honest program/articulation readiness; the [influence register](performance_references_v2.json) separates documented context from chosen transfer principles. Full native timbre matches and rendered musical acceptance remain work to do.
+
 ## Adopted working interpretations
 
 The [interpretive MIDI review](INTERPRETIVE_REVIEW.md) now adopts a practical direction for every entry, supported by 52 original-audio excerpt opinions, 105 parsed MIDI URL inputs representing 75 distinct files, controlled tonal/timing comparisons and later-section checks. The [working register](working_interpretations.json) supplies instrument roles, selected scaffolds and revision triggers. Ambiguity leads to a supported choice that can change; missing historical identity or MIDI does not block design.
@@ -20,7 +24,7 @@ The [written-source study](WRITTEN_CONTEXT.md) connects eight read interviews/de
 
 ## Listening index
 
-Original links below are selected from OST metadata for review. They have not passed content, pitch/speed, game-version or full-playback confirmation. MIDI videos are title-screened candidates and may be remixes; they have not been confirmed as complete multichannel backings. “Gap” means a suitable candidate was not located in these searches. A downloadable score is separate from a YouTube performance.
+Original links below preserve the discovery index. The selected original references in the adopted interpretations have bounded excerpt review and version screening; full-track, pitch/speed and native-timbre acceptance are not established by that work. MIDI videos are title-screened candidates and may be remixes; they have not been confirmed as complete multichannel backings. “Gap” means a suitable candidate was not located in these searches. A downloadable score is separate from a YouTube performance.
 
 | ID | Track | Original candidate | MIDI video candidate | MIDI files |
 |---|---|---|---|---|
