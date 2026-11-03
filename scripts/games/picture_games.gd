@@ -350,7 +350,18 @@ func _mg_build_snowman() -> void:
 
 func _mg_snow_new_ball() -> void:
 	var done: int = int(m.mg["balls"])                      # balls finished so far
-	var ball = _mg_circle(m.SNOW_ROLL_C, 26.0, Color(0.97, 0.99, 1.0))
+	# Keep the original Panel as invisible growth/stack/chase geometry.
+	var ball := Panel.new()
+	ball.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
+	var art := TextureRect.new()
+	art.name = "SnowballPainted"
+	art.texture = load("res://assets/mg/snowball_painted.png") as Texture2D
+	art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ball.add_child(art)
+	m.mg2d_stage.add_child(ball)
+	_mg_snow_ball_size(ball, 26.0, m.SNOW_ROLL_C)
 	m.mg["roll_ball"] = ball
 	m.mg["final_r"] = 150.0 - float(done + 1) * 26.0        # 124, 98, 72
 	m.mg["rot_need"] = (3.0 - float(done) * 0.5) * TAU      # 3 / 2.5 / 2 full circles
@@ -364,18 +375,11 @@ func _mg_snow_new_ball() -> void:
 func _mg_snow_ball_size(ball: Panel, r: float, center: Vector2) -> void:
 	ball.size = Vector2(r * 2.0, r * 2.0)
 	ball.position = center - Vector2(r, r)
-	var sb = ball.get_theme_stylebox("panel") as StyleBoxFlat
-	if sb != null:
-		sb.set_corner_radius_all(int(r))
-		sb.set_border_width_all(maxi(2, int(r * 0.05)))
-	if ball.get_child_count() > 0:
-		var hl = ball.get_child(0) as Panel
-		if hl != null:
-			hl.size = Vector2(r * 0.85, r * 0.6)
-			hl.position = Vector2(r * 0.32, r * 0.22)
-			var hsb = hl.get_theme_stylebox("panel") as StyleBoxFlat
-			if hsb != null:
-				hsb.set_corner_radius_all(int(r * 0.5))
+	var art := ball.get_node("SnowballPainted") as TextureRect
+	# Register inside the old shadow footprint: x +/-8, y -3/+13.
+	# Painted snow surfaces meet at the unchanged upper stack centers.
+	art.position = Vector2(-6, -3)
+	art.size = ball.size + Vector2(12, 12)
 
 
 func _mg_snow_ball_done() -> void:

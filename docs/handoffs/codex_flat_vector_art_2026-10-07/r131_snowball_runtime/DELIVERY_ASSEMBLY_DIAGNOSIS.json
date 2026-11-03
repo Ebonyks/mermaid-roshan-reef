@@ -1,0 +1,38 @@
+{
+  "state": "METADATA_ASSEMBLY_FIXED_RESUME_EXACT_STAGED_CANDIDATE_NO_ENGINE_RESTART",
+  "failure": "Source publisher assumed both unchanged neighboring PNGs had tracked .import sidecars. Farmer carrot sidecar is generated locally and absent from the immutable source base/index; source publication stopped before commit/push.",
+  "original_source_operation": 18451,
+  "original_source_worker_stop": {
+    "state": "STOPPED_INSPECT_EXACT_HANDLE_NO_AUTOMATIC_RETRY",
+    "error": "'assets/opera/worlds/widgets/widget_target_farmer_piece_0.png.import'",
+    "at_utc": "2026-11-03T09:55:18.808000+00:00"
+  },
+  "source_HEAD_unchanged": "27c88288bf6e39582072811443df79919e7bbb89",
+  "references": [
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+      "tracked_at_immutable_base": true,
+      "local_exists": true
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png.import",
+      "tracked_at_immutable_base": false,
+      "local_exists": true
+    },
+    {
+      "path": "assets/mg/coal.png",
+      "tracked_at_immutable_base": true,
+      "local_exists": true
+    },
+    {
+      "path": "assets/mg/coal.png.import",
+      "tracked_at_immutable_base": true,
+      "local_exists": true
+    }
+  ],
+  "fix": "Required native reference images stay in manifest at exact baseline. Include only sidecars actually tracked at that immutable baseline; declare generated untracked sidecar as non-delivery engine cache, not a missing source image. Do not add untested runtime files or change tested5064closure.",
+  "runtime_or_art_pixels_changed": false,
+  "all82_static_analyzer_2D_healthy_preserved": true,
+  "new_art_or_frame_credit": 0,
+  "Dev_integrated": false
+}

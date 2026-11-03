@@ -339,6 +339,8 @@ un-earned once Chapter 2 starts. No existing finding is closed.
 
 ## MA-VIS-006
 
+R131 source production2026-11-03: [painted Snowball static candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r131_snowball_runtime/README.md), source baseline27c88288bf6e39582072811443df79919e7bbb89. One native/one512runtimePNG replaces snowball body/gloss;453candidate assertions and54candidate/54source nativeframes, all108phone views inspected. Source exact-float/setup failures preserved with scoped diagnosis. All82/current static/analyzer/2D pass; exact-headCI pending. Dev frozen, whole-action contact/formal/device/child/owner/global coverage still open; lifecycle CONFIRMED_OPEN and accepted removals0.
+
 [Same painted-pan R100 current-source machine checks and source-bound retained context do not establish new formalQA11 or physical acceptance; lifecycle remains CONFIRMED_OPEN.](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/README.md)
 
 R99 current-Dev follow-up2026-10-18: [painted pan reconciliation](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/README.md) passes82unique trusted checks and two-aspect native context, preserving original premature console failure and exact source/save guards. New sourceCI/Dev/formal/device/child/owner are separate. Lifecycle remains `CONFIRMED_OPEN`.
@@ -391,6 +393,8 @@ R95 production update2026-10-17: [Geologist painted pan](../../docs/handoffs/cod
 | history | 2026-08-29: repeated owner report reproduced. Root causes include an abandoned topic branch, removal of only one of two false foreground cards, two baked/blurred background footprints, regeneration tooling that could restore the defect, node-only probes, a runtime route allow-list that rejected the repaired route, and cwd-relative review tooling that could inspect stale branches or composite against an obsolete plate. Both bathroom footprints were repaired and exact 4.7.2 dirty/clean captures passed. Three parallel scrubs dispositioned the game, drove full-frame regeneration of seven Castle plates plus Opera Detective and Nursery, retired the incomplete duplicate tent-flap card, repaired the cupboard's incomplete rest frame, and independently reviewed all 96 retained V4 frames against exact worktree/runtime paths. The complete exact-4.7.2 local suite exits zero; lifecycle advances to `FIXED_PENDING_VERIFICATION` while exact `dev` and external acceptance remain open. |
 
 ## MA-VIS-008
+
+R131 source production2026-11-03: [painted Snowball static candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r131_snowball_runtime/README.md), source baseline27c88288bf6e39582072811443df79919e7bbb89. One native/one512runtimePNG replaces snowball body/gloss;453candidate assertions and54candidate/54source nativeframes, all108phone views inspected. Source exact-float/setup failures preserved with scoped diagnosis. All82/current static/analyzer/2D pass; exact-headCI pending. Dev frozen, whole-action contact/formal/device/child/owner/global coverage still open; lifecycle CONFIRMED_OPEN and accepted removals0.
 
 | Field | Value |
 |---|---|

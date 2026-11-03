@@ -1,0 +1,73 @@
+{
+  "stable_id": "FV-C99F706798D3",
+  "source_baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "review": "docs/handoffs/codex_flat_vector_art_2026-10-07/r131_snowball_runtime/FRAME_REVIEW.json",
+  "axes": [
+    {
+      "axis": "contour",
+      "source_local_score": 3.0,
+      "candidate_local_score": 4.6,
+      "observation": "Uniform procedural circles become one lightly handmade plum-outlined snow mass. No separated glossy panel/halo. Edge reads at initial26radius and all three larger sizes."
+    },
+    {
+      "axis": "palette",
+      "source_local_score": 3.8,
+      "candidate_local_score": 4.6,
+      "observation": "White identity retained with calm creamy-blue/aqua/lavender brush bands, keeping coal/carrot readable against cool actual scene. Carrot is the actual style-only neighbor, not replacement pixels."
+    },
+    {
+      "axis": "light",
+      "source_local_score": 2.3,
+      "candidate_local_score": 4.6,
+      "observation": "Upper-left painted light and curved cool lower shadow replace uniform fill/white-panel gloss/neutral drop shadow. No runtime relighting."
+    },
+    {
+      "axis": "perspective",
+      "source_local_score": 3.0,
+      "candidate_local_score": 4.6,
+      "observation": "Straight-on near-spherical 2D snow volume stays consistent through growth and three stacked sizes; no faceted render/PBR or code-colored substitute."
+    },
+    {
+      "axis": "scale",
+      "source_local_score": 4.0,
+      "candidate_local_score": 4.5,
+      "observation": "Logical52small and248/196/144final Panel sizes/stack centers remain. Painted child(-6,-3),root+12 fits old shadow footprint x[-8,+8],y[-3,+13].3px painted center bias does not move logical roots or face sockets. Smallest phone sphere remains discernible."
+    },
+    {
+      "axis": "contact",
+      "source_local_score": null,
+      "candidate_local_score": null,
+      "static_stack_local_score": 4.5,
+      "observation": "Initial three painted masses visibly meet at unchanged centers; upper source has a small pale gap/shadow bridge. Original chase leaves remaining upper masses floating after lower bites, and Roshan contact is not an authored eating performance. Static join improvement cannot accept that whole action; complete motion/support/contact axis stays OPEN."
+    },
+    {
+      "axis": "occlusion",
+      "source_local_score": 3.5,
+      "candidate_local_score": 4.5,
+      "observation": "One whole TextureRect per invisible Panel retains draw order; original coal and carrot remain above pale head center. New painting stays inside prior shadow envelope. Original right-edge first-bite clipping and global reward/header/reentry overlays persist and do not earn scene-wide approval."
+    },
+    {
+      "axis": "readability",
+      "source_local_score": 3.5,
+      "candidate_local_score": 4.5,
+      "observation": "All108 whole-HUD phone views (18states x3aspects x2lanes) inspected. Snow material remains distinct at small/growing/stacked sizes and all bite removals; no new reading-dependent objective or touch interface. Configured virtual-stick state drive and real face taps are not physical-device evidence."
+    },
+    {
+      "axis": "identity_topology",
+      "source_local_score": 4.0,
+      "candidate_local_score": 4.6,
+      "observation": "Same faceless snowball role, one shared static design for all3sizes. No invented face/limbs/decorations. Existing Roshan/face art,28other PictureGames functions,shared_circle and main input/clock/save/reward paths retained."
+    },
+    {
+      "axis": "painted_material_coherence",
+      "source_local_score": 2.0,
+      "candidate_local_score": 4.7,
+      "observation": "Visible broad chalky gouache bands/handmade paint follow the actual carrot reference; whole surfaces replace generic fill/gloss, with one retained1254native/three editable Aseprite masters/one512runtimePNG."
+    }
+  ],
+  "whole_action_contact_open": true,
+  "all_ten_axis_floor_met": false,
+  "minimum_candidate_axis": null,
+  "source_and_candidate_same_scene": true,
+  "acceptance": "PROVISIONAL_STATIC_CANDIDATE_ONLY"
+}
