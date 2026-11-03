@@ -26806,7 +26806,7 @@
       "runtime_consumers": [],
       "screen_coverage": {
         "measured_current_bounds": null,
-        "coverage_state": "COVERAGE_GAP",
+        "coverage_state": "CONFIGURED_COMBINED_CURRENT_CONTEXT_PARTIAL",
         "geometry_expressions": [
           "_mg_circle(Vector2(640, 980), 700.0, Color(0.95, 0.97, 1.0, 0.5))",
           "var fl := _mg_label(\"ROLL UP THE SNOWBALLS!\", 52, Vector2(255, 146))",
@@ -26815,17 +26815,18 @@
           "var ar := _mg_label(\"\u21bb\", 84, Vector2(0, 0))",
           "ar.size = Vector2(110, 110)"
         ],
-        "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        "note": "Expressions are scope evidence, not measured per-piece screen bounds.",
+        "r133_measured_context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/context/FRAME_INDEX.json"
       },
-      "evidence_level": "SOURCE_INSPECTION",
+      "evidence_level": "SOURCE_BOUND_COMBINED_NATIVE_CONTEXT_AND_AGENT_PHONE_REVIEW",
       "observed_weakness": "Source-bound candidate Snowman ground snow field uses or delegates visible primitive/material construction in _mg_build_snowman. No current phone-context quality verdict is claimed.",
       "priority": "P1",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
       "context_brief_id": "BRIEF-PICTURE_SNOWMAN",
       "reuse_candidates": [],
-      "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
+      "reuse_inspection": "Reuse optional under owner2026-10-17; namedflatgroundgap received paintednativeImageGen candidate while existing neighbors retainidentity.",
       "named_gap": null,
-      "status": "IDENTIFIED",
+      "status": "SOURCE_CANDIDATE",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -26834,12 +26835,78 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r133_source_candidate": {
+          "stable_ids": [
+            "FV-55B5EF60A12C"
+          ],
+          "state": "PUBLISHED_SOURCE_BOUND_PAINTED_GROUND_CANDIDATE_REMOTE_CI_PENDING",
+          "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "source_branch": "codex/recent-updates-dev-20261103",
+          "source_baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+          "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/README.md",
+          "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/MANIFEST.json",
+          "source_manifest_sha256": "82f607af7c6d259d1cc15d694295dda725fb5cd2e52a0b4d44cf4eb8d2061f29",
+          "new_bounded_source_artifacts": 1,
+          "existing_named_roles": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "native_master": {
+            "size": [
+              2048,
+              2048
+            ],
+            "sha256": "a2a84f689de75f6e52c10ee358ae5b27ec2e71ed04a0732923f49c35f6acc094",
+            "source": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/assets_src/imagegen/snowfield_20261103/snowfield_master_native.png",
+            "region_count": 4,
+            "assembly": "Declared1to1fourregionalnativeoutputs;460pxanchors; no reference-only/guide pixels"
+          },
+          "new_runtime_PNG": 4,
+          "runtime_card_size": [
+            1024,
+            1024
+          ],
+          "runtime_decoded_and_mips_bytes": 22369616,
+          "item_cap_bytes": 22400000,
+          "generation_calls": 5,
+          "item_generation_call_cap": 8,
+          "unused_calls": 3,
+          "backend": "builtin image_gen.imagegen; no model/version selector exposed or returned",
+          "model_version": null,
+          "animation_calls": 0,
+          "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "Dev_integrated": false,
+          "accepted_removed": 0,
+          "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/TEN_AXIS_COMPARISON.json",
+          "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/context/FRAME_INDEX.json",
+          "comparison": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/context/phone_comparisons/snowfield/01_small.png",
+          "current_combined_geometry": {
+            "logical_painted_rect": [
+              -60,
+              220,
+              1400,
+              1000
+            ],
+            "functional_panel_rect": [
+              -60,
+              280,
+              1400,
+              1400
+            ],
+            "classification": "FUNCTIONAL_INVISIBLE_NOT_ART",
+            "original_mouse_filter": "STOP",
+            "painted_card_mouse_filter": "IGNORE"
+          },
+          "scope": "Oneexistinggroundrole. Completeactivity/contact/chaseclipping/HUD/reentry/natural-route/formal/device/child/owner remainopen."
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Currentcandidate identity/provenance/license/import/geometry/onefinger/passive/save/teardown gates",
+        "Remainingnatural-route/contact/fullaction/formalQA11/device/child/owneracceptance"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -26854,8 +26921,16 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Review Snowman ground snow field during Snowman ground snow field active/rest/changed/payoff/settle states on Current picture_snowman consumer from scripts/games/picture_games.gd:327 (_mg_build_snowman). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261103-R133-SOURCE-PUBLISHED",
+          "source": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "scope": "Actualpaintednative2048ground withR131body/R132coal inthreerecordedaspets; allformal/external/globalacceptanceopen",
+          "evidence": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/context/FRAME_INDEX.json",
+          "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/TEN_AXIS_COMPARISON.json"
+        }
+      ],
+      "proposed_update": "Reviewpublishedpaintedground and continue unresolvedactivity/contact/HUD/natural-route/externalwork; noacceptedremoval.",
       "route_refs": [
         "picture.snowman",
         "game.pic_snowman"
@@ -26881,6 +26956,37 @@
         "status": "PARTIAL_ACTION_WEAKNESS_CONTEXT_REVIEW",
         "device_child_owner_acceptance": false,
         "replacement_acceptance": false
+      },
+      "r133_historical_source_inspection": {
+        "source": {
+          "path": "scripts/games/picture_games.gd",
+          "function": "_mg_build_snowman",
+          "start_line": 327,
+          "end_line": 350,
+          "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+          "hash_mode": "LF-canonical text"
+        },
+        "observed_weakness": "Source-bound candidate Snowman ground snow field uses or delegates visible primitive/material construction in _mg_build_snowman. No current phone-context quality verdict is claimed.",
+        "status": "IDENTIFIED",
+        "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
+        "dependencies": [
+          "Current route/phase capture and source-pixel ownership",
+          "Inspected suitable reuse or recorded exact missing gap",
+          "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        ],
+        "screen_coverage": {
+          "measured_current_bounds": null,
+          "coverage_state": "COVERAGE_GAP",
+          "geometry_expressions": [
+            "_mg_circle(Vector2(640, 980), 700.0, Color(0.95, 0.97, 1.0, 0.5))",
+            "var fl := _mg_label(\"ROLL UP THE SNOWBALLS!\", 52, Vector2(255, 146))",
+            "fl.size = Vector2(770, 80)",
+            "fl.pivot_offset = Vector2(385, 40)",
+            "var ar := _mg_label(\"\u21bb\", 84, Vector2(0, 0))",
+            "ar.size = Vector2(110, 110)"
+          ],
+          "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        }
       }
     },
     {
@@ -28340,7 +28446,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261103-R132-CI-SUCCESS",
+  "revision": "FV-AUDIT-20261103-R133-SOURCE-PUBLISHED",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -39039,7 +39145,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json; R118whole painted legacyDolls cradle in exactgreenDev; one implementation foroneexistingrole, otherart/formal/external/global open.",
+  "current_effective_summary": "SUMMARY.json;36published bounded source/20partialDev artifacts.263knownroles35familieslowerbound;unknownwholegame denominators;0acceptedremovals.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -44865,5 +44971,73 @@
     "release_or_master_promotion": false,
     "creative_acceptance": false,
     "separate_caps_export_protected_boundaries_unchanged": true
-  }
+  },
+  "r133_snowfield_runtime": {
+    "stable_ids": [
+      "FV-55B5EF60A12C"
+    ],
+    "state": "PUBLISHED_SOURCE_BOUND_PAINTED_GROUND_CANDIDATE_REMOTE_CI_PENDING",
+    "source_revision": "fe0660adced29fac3ae50737c0f829f400c856ab",
+    "source_branch": "codex/recent-updates-dev-20261103",
+    "source_baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/MANIFEST.json",
+    "source_manifest_sha256": "82f607af7c6d259d1cc15d694295dda725fb5cd2e52a0b4d44cf4eb8d2061f29",
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "native_master": {
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "a2a84f689de75f6e52c10ee358ae5b27ec2e71ed04a0732923f49c35f6acc094",
+      "source": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/assets_src/imagegen/snowfield_20261103/snowfield_master_native.png",
+      "region_count": 4,
+      "assembly": "Declared1to1fourregionalnativeoutputs;460pxanchors; no reference-only/guide pixels"
+    },
+    "new_runtime_PNG": 4,
+    "runtime_card_size": [
+      1024,
+      1024
+    ],
+    "runtime_decoded_and_mips_bytes": 22369616,
+    "item_cap_bytes": 22400000,
+    "generation_calls": 5,
+    "item_generation_call_cap": 8,
+    "unused_calls": 3,
+    "backend": "builtin image_gen.imagegen; no model/version selector exposed or returned",
+    "model_version": null,
+    "animation_calls": 0,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "Dev_integrated": false,
+    "accepted_removed": 0,
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/TEN_AXIS_COMPARISON.json",
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/context/FRAME_INDEX.json",
+    "comparison": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/fe0660adced29fac3ae50737c0f829f400c856ab/docs/handoffs/codex_recent_updates_dev_2026-11-03/context/phone_comparisons/snowfield/01_small.png",
+    "current_combined_geometry": {
+      "logical_painted_rect": [
+        -60,
+        220,
+        1400,
+        1000
+      ],
+      "functional_panel_rect": [
+        -60,
+        280,
+        1400,
+        1400
+      ],
+      "classification": "FUNCTIONAL_INVISIBLE_NOT_ART",
+      "original_mouse_filter": "STOP",
+      "painted_card_mouse_filter": "IGNORE"
+    },
+    "scope": "Oneexistinggroundrole. Completeactivity/contact/chaseclipping/HUD/reentry/natural-route/formal/device/child/owner remainopen."
+  },
+  "r133_prior_canonical_revision": "9104a4788e0036468d517c812d86d592300d4513"
 }

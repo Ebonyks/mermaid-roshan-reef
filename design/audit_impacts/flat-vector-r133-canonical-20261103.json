@@ -1,0 +1,66 @@
+{
+  "id": "flat-vector-r133-canonical-20261103",
+  "baseline": "9104a4788e0036468d517c812d86d592300d4513",
+  "scope": "One verified newpaintedground candidate/currentcanonicalregistry+coverage+tally and exactsourceA anonymousdeliveryreceipt. Source36/Dev20 untilactualgreenDev integration. Retainallhistory,rejects,root5frozen, unknownwholegame denominators and externalacceptance. ThinimmutableA references instead ofcopyingarchives. CHG139namesactualimplementationA andsourceboundcontext. No Rruntime changes or healthyengine rerun.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/PRODUCTION_DELTA.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/SOURCE_CI_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/SOURCE_COMMIT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/SOURCE_DELIVERY_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/SOURCE_VERIFIED_FILES.jsonl",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/metadata_gates/AUTHORITY.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/metadata_gates/DEVELOPMENT_AUTO.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/metadata_gates/DEVELOPMENT_HEAD.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/metadata_gates/RESULTS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "SourceA fullcurrent82/static/5analyzers/2D and all1343anonymousfiles",
+      "result": "PASS",
+      "evidence": "r133_snowfield_runtime/SOURCE_DELIVERY_VERIFICATION.json; immutableA productionmanifest andvalidation"
+    },
+    {
+      "command": "ExactsourceHEAD remoteCI and greenDevintegration",
+      "result": "PENDING",
+      "evidence": "Source41713877577healthy; Devunchanged27c,20partialartifacts"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto and --base HEAD",
+      "result": "PASS",
+      "evidence": "r133_snowfield_runtime/metadata_gates/RESULTS.json; no runtime changes"
+    }
+  ],
+  "acceptance_gaps": "FormalQA11/device/child/owner/full-action/natural-route/globalinventory remainopen. Source36/Dev20, acceptedremovals0; no masterpromotion."
+}
