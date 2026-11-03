@@ -1,0 +1,260 @@
+{
+  "schema": "dkc-instrument-candidates/1",
+  "authority": "Original in-game sound always wins over roster, General MIDI program names and installed libraries.",
+  "status": "HYPOTHESIS_AND_TEST_QUEUE_NO_FIDELITY_ACCEPTANCE",
+  "installed_inventory_source": "design/music/INSTALLED_PALETTE_2026-11-01.json",
+  "audition_source": "design/music/INSTRUMENT_AUDITIONS_2026-11-01.json",
+  "families": [
+    {
+      "id": "acoustic_keys",
+      "source_question": "Acoustic piano versus EP, organ or reed-like sampled key; compare attack, detuning and decay",
+      "candidates": [
+        {
+          "audition_id": "world_nordic_upright_1_full",
+          "program": "Nordic Upright Piano 1 Full",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Keyboards/Nordic Upright Piano/Nordic Upright Piano 1 Full.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "keysuite_acoustic_tdr_mellow_dark",
+          "program": "TDR Mellow Dark",
+          "program_path": "$Key Suite Acoustic.ufs/Presets/2 Upright Pianos/Tender Upright/TDR Mellow Dark.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "keysuite_electric_w200_basic_dry",
+          "program": "W 200 Basic Dry",
+          "program_path": "$Key Suite Electric-002.ufs/Presets/2 Reeds/W 200/W 200 Basic Dry.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "castle_ep",
+          "program": "The Electric Piano Smokey",
+          "program_path": "$LoFi Dreams.ufs/Presets/Keys/The Electric Piano Smokey.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        }
+      ],
+      "profiles": [
+        "keys"
+      ],
+      "gap": "Exact worn piano or sampled-key identity may remain unmatched; do not call an EP a piano."
+    },
+    {
+      "id": "bass",
+      "source_question": "Electric, acoustic, synth or layered low voice; preserve original register, note length and slides",
+      "candidates": [
+        {
+          "audition_id": "sky_lagoon_bass",
+          "program": "Cuba Bass",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Fretted/Electric Bass/Cuba Bass.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "castle_bass",
+          "program": "Jazzistic Double Bass",
+          "program_path": "$Jazzistic.ufs/Presets/03 Instruments/02 Jazz Double Bass/Jazzistic Double Bass.M5p",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        }
+      ],
+      "profiles": [
+        "bass",
+        "producer"
+      ],
+      "gap": "Soul Bass owner-reported available; exact recall/articulation test still required. Use synthesis if the game has synth bass."
+    },
+    {
+      "id": "hand_percussion",
+      "source_question": "Separate pitched drum strokes, skin/rim hits, muted/open strokes and small percussion",
+      "candidates": [
+        {
+          "audition_id": "opera_house_congas",
+          "program": "Congas",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "sky_lagoon_udu",
+          "program": "Udu Large",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/African Percussions/Udu Large.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "world_african_large_drums",
+          "program": "African Large Drums Menu",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/African Large Drums/African Large Drums Menu.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "world_modern_tabla",
+          "program": "Modern Tabla",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Tabla/Modern Tabla.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "sky_lagoon_bongos",
+          "program": "Congas",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "sky_lagoon_guiro",
+          "program": "Congas",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        }
+      ],
+      "profiles": [
+        "traditional_percussion"
+      ],
+      "gap": "Kit menus may hide multiple instruments. Map each sounding note and stroke; no generic conga replacement."
+    },
+    {
+      "id": "kit_electronic",
+      "source_question": "Source kick/snare/hat transients, electronic versus acoustic kit and exact groove",
+      "candidates": [
+        {
+          "audition_id": "lofi_dreams_lofi_kit",
+          "program": "LoFi",
+          "program_path": "$LoFi Dreams.ufs/Presets/Drums/LoFi.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "lofi_dreams_jazz_kit",
+          "program": "Jazz Kit",
+          "program_path": "$LoFi Dreams.ufs/Presets/Drums/Jazz Kit.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "bba2_classic_r78",
+          "program": "BeatBox Anthology 2",
+          "program_path": "$BeatBox Anthology 2.ufs/Presets/BeatBox Anthology 2.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "castle_kit",
+          "program": "Jazz Brushed Kit 1",
+          "program_path": "$Jazzistic.ufs/Presets/03 Instruments/01 Drum kits/Jazz Brushed Kit 1.M5p",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        }
+      ],
+      "profiles": [
+        "acoustic_drums",
+        "producer"
+      ],
+      "gap": "Soul Drums owner-reported available; exact playback proof and source matching pending. A lo-fi or brushed kit is optional, never compulsory."
+    },
+    {
+      "id": "pads_synthesis",
+      "source_question": "Moving sampled/synth surfaces, filter motion, pitch envelopes, choir-like layers and stereo depth",
+      "candidates": [
+        {
+          "audition_id": "atmospherics_warmth",
+          "program": "Warmth",
+          "program_path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "ether_fields_castle_texture",
+          "program": "FM Harp",
+          "program_path": "$Ether Fields.ufs/Presets/Bells - Plucks/FM Harp.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        }
+      ],
+      "profiles": [
+        "producer",
+        "keys"
+      ],
+      "gap": "Warmth and FM Harp prove recall only; wave-sequence-like motion and exact source timbres need new patch trials."
+    },
+    {
+      "id": "wind_reed",
+      "source_question": "Determine whether apparent wind/reed voices are sampled acoustic instruments or synthetic voices",
+      "candidates": [
+        {
+          "audition_id": "sky_lagoon_flute",
+          "program": "Djafe Flute Sustain",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Woodwinds/African Flutes/Djafe Flute Sustain.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        }
+      ],
+      "profiles": [
+        "winds"
+      ],
+      "gap": "Djafe flute does not establish any reed, brass or other flute match. Add instruments or extend profiles as required."
+    },
+    {
+      "id": "mallet_bell",
+      "source_question": "Distinguish mallets, bells, metal percussion, plucked keys and sampled synth attacks",
+      "candidates": [
+        {
+          "audition_id": "opera_house_pan",
+          "program": "Steel Pan Main",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Metal & Gong/Steel Pan/Steel Pan Main.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "ether_fields_castle_texture",
+          "program": "FM Harp",
+          "program_path": "$Ether Fields.ufs/Presets/Bells - Plucks/FM Harp.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        }
+      ],
+      "profiles": [
+        "pitched_percussion",
+        "keys"
+      ],
+      "gap": "Do not substitute steel pan or FM harp for an unrelated mallet just to use a band member."
+    },
+    {
+      "id": "guitar_strings",
+      "source_question": "Distinguish acoustic/electric/plucked/sustained strings and synthesized string-like voices",
+      "candidates": [
+        {
+          "audition_id": "castle_sunbird",
+          "program": "Sunbird",
+          "program_path": "$Sunbird.ufs/Presets/Sunbird.M5p",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "castle_guitar_comp",
+          "program": "Tchad Nylon Guitar",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Fretted/African Guitars/Tchad Nylon Guitar.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "sky_lagoon_valiha",
+          "program": "Kora 1",
+          "program_path": "$World Suite 3.ufs/Presets/01 Types/Strings/Kora/Kora 1.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        }
+      ],
+      "profiles": [
+        "strings_a",
+        "strings_b"
+      ],
+      "gap": "Nylon, steel acoustic and kora candidates do not cover distorted guitar, orchestral strings or every pluck."
+    },
+    {
+      "id": "voice_ambience_fx",
+      "source_question": "Map nonverbal vocal/choir sounds, environmental textures, hits and deliberate silence",
+      "candidates": [
+        {
+          "audition_id": "lofi_dreams_foley_kit",
+          "program": "Foley Kit",
+          "program_path": "$LoFi Dreams.ufs/Presets/Drums/Foley Kit.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        },
+        {
+          "audition_id": "atmospherics_warmth",
+          "program": "Warmth",
+          "program_path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip",
+          "readiness": "PRIOR_NATIVE_RECALL_ONLY_SOURCE_MATCH_PENDING"
+        }
+      ],
+      "profiles": [
+        "producer"
+      ],
+      "gap": "Exact vocal/FX and ambient sound sources unresolved. Family voices are protected and cannot fill these gaps."
+    }
+  ]
+}
