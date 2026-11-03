@@ -1,0 +1,112 @@
+{
+  "schema": "reef.runtime_trial_delivery/1",
+  "revision": "R132_RECEIPT_COVERAGE_AND_OWNER_DEV_RESUME_20261103",
+  "baseline": "d0b37c377e31182fee9ad9d391bca2bd854fd65a",
+  "files": [
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297745,
+      "sha256": "88ba8c8b64d6a7b65d960f721fcc2dab17313c7723a83267d4e84a2b9cd474b7",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 316807,
+      "sha256": "2a8bf89fa360ba205e6fc864b5cae3d846684ca345298492330a4a23166aa31a",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 348042,
+      "sha256": "3fb334e2c3860678a5318f440651596c12bd25b1354a6ede01e24537cc04730d",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 278047,
+      "sha256": "8eef3da4b447996904583cf12e5c1286d7d1aa29f845430430c32dd95633b9c9",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "design/audit_impacts/flat-vector-r132-ci-success-20261103.json",
+      "bytes": 4438,
+      "sha256": "84db7a46f0f85cd1eab29be1bf0eba0c241f8e97da27ee6768483c88b2382772",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 281915,
+      "sha256": "612bc5a22e2b0d6bae0303c1b94bb3285817ef84a2eeafea29cf5ec6cd9d056e",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_COVERAGE_REPAIR.json",
+      "bytes": 2245,
+      "sha256": "999afaf9850cb4a412f752e9ebab62a908276574576d5dc5d1f134e40ae0ed37",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/README.md",
+      "bytes": 10043,
+      "sha256": "2cd3cb330d1158abc1dad775e6b5fd38e57f81f20188f0f1f19c43c7da0f51ba",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 209660,
+      "sha256": "70516dd8d8624e54e52a8bbf98d3f685e57b94101f3c9699944a126f307c7dbd",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 2135485,
+      "sha256": "316630a935dcef22572dcd28d2498c6554fcabd63f79466ba1f0f69beb71f99d",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1514250,
+      "sha256": "e6af2d6a25bb29fe7e09ec6f98f5783111f5551768d0092c5ef7616319c1f055",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 657263,
+      "sha256": "95e73fd05eb7bd51515981048c3066a16819c077f9f3f328db0763c242d9f80b",
+      "role": "R133 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "d0b37c377e31182fee9ad9d391bca2bd854fd65a",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_RESULT_RECEIPT.json",
+      "bytes": 7636,
+      "sha256": "2ce89d2498a7c8ee066b92046856a0dcec272067c86cf1fc4298b1ca6968a722",
+      "role": "Unchanged exact historical source-CI receipt; no archive recursion"
+    }
+  ],
+  "required_files": 13,
+  "required_bytes": 6063576,
+  "new_artifacts": 0,
+  "new_frame_events": 0,
+  "owner_scope": {
+    "instruction": "Insure all updates of last several days are pushed to dev, and continue",
+    "source": "Direct owner message in chat01a119cc-74b1-7d23-b956-126129405418 on2026-11-03",
+    "Dev_integration_authorized": true,
+    "prior_Dev_freeze_superseded": true,
+    "release_or_master_promotion": false,
+    "creative_acceptance": false,
+    "separate_caps_export_protected_boundaries_unchanged": true
+  },
+  "creative_acceptance": false
+}

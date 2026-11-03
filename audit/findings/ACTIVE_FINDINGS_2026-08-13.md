@@ -330,6 +330,8 @@ poses as broken motion.
 
 ## MA-VIS-006
 
+R132 metadata follow-up2026-11-03: canonical receipt commit d0b37c37 failed narrow change coverage. [Bounded coverage repair](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_COVERAGE_REPAIR.json) preserves successful exact runtime-source CI and all visual/formal/external acceptance gaps. Latest owner authorizes completed green Dev integration; no finding closure or accepted-removal credit.
+
 R132 terminal source-CI observation2026-11-03T13:31:22Z: [both main and deterministic music jobs passed](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_TERMINAL_RESULT.json), exact source8336662539411e251871b2c86718ef75c615c60e/run41636586716.81ordered remote assertive headless programs plus separate legacy display diagnostic retain their scopes; no formalQA11/device/child/owner/artwork or complete contact/motion acceptance. Lifecycle remains CONFIRMED_OPEN, Dev frozen, counts unchanged.
 
 R132 source production2026-11-03: [painted Snowman coal candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/README.md), source 8336662539411e251871b2c86718ef75c615c60e. Three texture paths in2functions replace faceted coal in two choices/two eyes with one shared256PNG. 702candidate assertions/all82/current static/analyzer/2D pass; exact-headCI separate.54new candidate nativeframes,54source frames reused,108phone views. Original source precision/setup failures retain immutable scope. Complete activity/contact/formal/device/child/owner/global open; lifecycle CONFIRMED_OPEN, Dev frozen, accepted removals0.

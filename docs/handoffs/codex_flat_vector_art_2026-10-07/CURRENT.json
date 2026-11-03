@@ -1461,7 +1461,7 @@
     "receipt": "r92_dev_ci_timeout/REMOTE_VERIFICATION.json",
     "own_metadata_scope": "Final receipt metadata checked separately at final commit; no recursive self hash"
   },
-  "production_phase": "ITEM_BY_ITEM_ART_CANDIDATES_RESUMED_DEV_FROZEN",
+  "production_phase": "ITEM_BY_ITEM_ART_PRODUCTION_DEV_INTEGRATION_RESUMED",
   "production_workflow": "PRODUCTION_WORKFLOW.md",
   "production_queue": "PRODUCTION_QUEUE.json",
   "workflow_correction": "workflow_phase2_20261017/DIAGNOSIS.json",
@@ -6411,5 +6411,15 @@
     "Dev_integrated": false,
     "accepted_removed": 0,
     "mission_complete": false
-  }
+  },
+  "current_owner_integration_authority_20261103": {
+    "instruction": "Insure all updates of last several days are pushed to dev, and continue",
+    "source": "Direct owner message in chat01a119cc-74b1-7d23-b956-126129405418 on2026-11-03",
+    "Dev_integration_authorized": true,
+    "prior_Dev_freeze_superseded": true,
+    "release_or_master_promotion": false,
+    "creative_acceptance": false,
+    "separate_caps_export_protected_boundaries_unchanged": true
+  },
+  "r132_receipt_coverage_repair": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_COVERAGE_REPAIR.json"
 }

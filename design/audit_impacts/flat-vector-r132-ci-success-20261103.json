@@ -1,7 +1,7 @@
 {
   "id": "flat-vector-r132-ci-success-20261103",
   "baseline": "4df8ccc6ad4643dfcdf8781b003744071234568b",
-  "scope": "Bounded exact-source R132 terminal CI success reconciliation; source/artwork, counts and all formal/external/global acceptance gaps unchanged. No runtime/workflow/Dev change.",
+  "scope": "Bounded exact-source R132 terminal CI success reconciliation; source/artwork, counts and all formal/external/global acceptance gaps unchanged. No runtime/workflow/Dev change. Follow-up: fix actual receipt-only CI coverage and record latest direct owner Dev integration authorization; preserve historical source evidence.",
   "rules": [
     "DL-AUTH-05",
     "DL-AUTH-06",
@@ -15,9 +15,14 @@
     "MA-VIS-008"
   ],
   "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
     "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
     "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_COVERAGE_MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_COVERAGE_REMOTE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_COVERAGE_REPAIR.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_MAIN_JOB.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_MUSIC_JOB.log",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_RESULT_GATES.json",
@@ -49,6 +54,16 @@
       "command": "Repeat engine suite for unchanged runtime",
       "result": "NOT_APPLICABLE",
       "evidence": "Exact source8336662539411e251871b2c86718ef75c615c60e unchanged; local82 and remote scoped evidence preserved immutably."
+    },
+    {
+      "command": "R132canonical receipt-only CI41645464791",
+      "result": "FAIL",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_COVERAGE_REPAIR.json; original sourceCI is separate success"
+    },
+    {
+      "command": "Current auto and exact HEAD diff metadata gates; no runtime changes",
+      "result": "PENDING",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_COVERAGE_REPAIR.json; CI_COVERAGE_REMOTE_VERIFICATION.json"
     }
   ],
   "acceptance_gaps": "FormalQA11, physical device/performance, child, owner, all natural-route/state/action and whole-game inventory/coverage remain open; Dev frozen and accepted removals0."
