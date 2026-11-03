@@ -979,6 +979,20 @@ speaker/semantic identity, complete provenance, and the same routing, child,
 device, mono, and protected-asset gates. Codec, loudness, bitrate, or sample
 rate improvement alone does not grant acceptance.
 
+`DL-SND-18` — New soundtrack authoring uses the individual performer profiles
+logged in the master audit. Before constructing a full song, record each
+selected profile ID/revision, exact instrument and active articulation/readiness,
+reference principle, playable phrase/dynamic plan, section roles, handoffs,
+rests and physical/overdub limits in the cue call sheet. Profiles describe
+proposed creative capabilities; their references and native tests retain
+separate evidence limits. Bonobo is the owner-selected single primary producer
+identity, with contextual pop/dance/chip techniques. The current three revised
+cue plans require owner review before new full arrangements. This authoring
+rule does not retroactively accept old studies or change runtime delivery,
+protected voices, device/child or release gates. See the
+[performer workflow](music/performers/README.md).
+The subsequent owner direction authorizes expanded-palette **private test tracks** while final-arrangement review remains pending; see the [scoped test commission](music/expanded_palette_test_tracks_owner_direction_20261101.json).
+
 ---
 
 ## 11. Cinematic exception

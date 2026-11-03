@@ -1,0 +1,80 @@
+{
+  "id": "dkc-interpretive-midi-stress-20261102",
+  "scope": "Owner prioritizes rational revisable musical interpretation over unresolved documentation. Broaden MIDI search, inspect event/control/part logs and stress-test note/form hypotheses against original YouTube audio; adopt usable per-track working decisions with revision triggers.",
+  "baseline": "35c69282cec434b3ae78eadf2c42aabdbfd64b81",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-09",
+    "DL-SND-12",
+    "DL-SND-15",
+    "DL-SND-18"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "finding_effect": "Private interpretive reference study; no runtime finding closed.",
+  "files": [
+    "design/music/dkc/README.md",
+    "design/music/dkc/WRITTEN_CONTEXT.md",
+    "design/music/dkc/INTERPRETIVE_REVIEW.md",
+    "design/music/dkc/working_interpretations.json",
+    "design/music/dkc/soundtrack_catalog.json",
+    "design/music/dkc/research_receipt.json",
+    "design/music/dkc/interpretation_owner_direction_20261102.json",
+    "design/music/dkc/evidence/midi_event_summaries.json",
+    "design/music/dkc/evidence/midi_audio_comparisons.json",
+    "design/music/dkc/evidence/expanded_search_receipt.json",
+    "design/music/dkc/evidence/rejected_reference_intake.json",
+    "design/music/dkc/evidence/listening_summary.json",
+    "design/music/dkc/evidence/original_reference_manifest.json",
+    "tools/studies/dkc_midi_stress.py",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/cycles/dkc-interpretive-midi-stress-20261102/owner_answers.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/music/dkc/evidence/reproduction_receipt.json"
+  ],
+  "validation": [
+    {
+      "command": "Expanded archive/source search and MIDI parser/event audit",
+      "result": "PASS",
+      "evidence": "106 indexed URLs: 105 parsed, 75 unique SHA-256; 33 additional archive entries all duplicate existing hashes. Additional score/sequencer sites and exact missing-title searches recorded in evidence/expanded_search_receipt.json. One malformed MIDI alternate retained as rejected."
+    },
+    {
+      "command": "Original reference acquisition and bounded automated listening",
+      "result": "PASS",
+      "evidence": "30 bounded original-version references; 52 excerpt calls with returned opinions preserved in evidence/listening_summary.json. Arranged Forest Frenzy and beta Fanfare rejected and replaced before final inputs. Numeric mood/mix diagnoses and stereo claims from mono are not adopted."
+    },
+    {
+      "command": "MIDI pitch/timing diagnostic, wrong-original/order/transposition controls and frozen-fit later-section check",
+      "result": "PASS",
+      "evidence": "evidence/midi_audio_comparisons.json: 24 MIDI-covered rows, duplicate mirror hashes removed, short unavailable alignments null. Synthetic known-sequence controls pass. Voices of the Temple and Level Goal negative controls expose non-discrimination; no fidelity percentage inferred. Initial metadata-helper error and empty 0-log run were rejected; all final MIDI logs are from populated corrected inputs."
+    },
+    {
+      "command": "Saved analysis-tool reproduction and exact result comparison",
+      "result": "PASS",
+      "evidence": "evidence/reproduction_receipt.json: all 54 unique candidate comparisons across 30 rows reproduce exactly, including frozen later-section values; synthetic known-sequence/transposition controls pass. NumPy 2.5.1 / SciPy 1.18.0 / soundfile 0.14.0; existing isolated mido 1.3.3."
+    },
+    {
+      "command": "Owner correction intake / authority / actual-diff coverage / contract tests",
+      "result": "PASS",
+      "evidence": "DOCAUTH inventory=776 ledger=776 active=74 records=77 ALL OK; AUDITDEV ALL OK at actual auto base 93166ab1828ab9857227d038f8833b92dfb2f9f1; 54 tests in 44.040s OK, stress 6/6; append-only decisions 83 ALL OK; git diff --check passes."
+    },
+    {
+      "command": "Native preset stress, runtime/device/child/owner musical acceptance",
+      "result": "NOT_APPLICABLE",
+      "evidence": "This increment adopts interpretation and compares existing MIDI data with reference audio; no native preset performance or runtime audio is changed. Those final acceptance claims are not supplied by the study."
+    }
+  ],
+  "acceptance_gaps": "Interpretations may proceed with stated evidence and revision triggers. Final owner musical acceptance and any later runtime/device/child acceptance remain separate.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-DKC-REVISABLE-INTERPRETATION-20261102",
+      "evidence": "design/music/dkc/interpretation_owner_direction_20261102.json",
+      "write_back": "design/music/dkc/INTERPRETIVE_REVIEW.md"
+    }
+  ]
+}

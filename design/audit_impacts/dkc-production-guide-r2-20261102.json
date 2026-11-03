@@ -1,0 +1,79 @@
+{
+  "id": "dkc-production-guide-r2-20261102",
+  "scope": "Create a full two-layer DKC revision outline: source melody/theme/form/timbre readings followed by cast-specific arranging and live performance plans. Apply owner-authorized mild artistic liberties, Cuban/African popular-music references, selective swing and coherent expressive timing. Design and performance notes only; no audio render/runtime replacement.",
+  "baseline": "bc4bedfe965b99b5d498b43ce72cb2d77c46a600",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-09",
+    "DL-SND-12",
+    "DL-SND-15",
+    "DL-SND-18"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "finding_effect": "Guide advances interpretation/authoring; no runtime finding closure.",
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/music/dkc/README.md",
+    "design/music/dkc/instrument_candidates.json",
+    "design/music/dkc/research_receipt.json",
+    "design/music/dkc/SOUNDTRACK_REVISION_GUIDE_V2.md",
+    "design/music/dkc/performance_references_v2.json",
+    "design/music/dkc/revision_call_sheets_v2.json",
+    "design/music/dkc/revision_owner_direction_20261102.json",
+    "design/music/dkc/evidence/revision_guide_validation_v2.json",
+    "audit/cycles/dkc-production-guide-r2-20261102/owner_answers.json",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md"
+  ],
+  "validation": [
+    {
+      "command": "Thirty-track two-layer guide coverage, cast/profile identity and local-link review",
+      "result": "PASS",
+      "evidence": "design/music/dkc/evidence/revision_guide_validation_v2.json: 30 entries, 117 player calls, all 15 normalized profile hashes/revisions match; 72 local links resolve; 12,144-word guide. Readiness is explicit for all 27 source-role program routes; no native match is accepted."
+    },
+    {
+      "command": "Primary Cuban/African performance-context review",
+      "result": "PASS",
+      "evidence": "performance_references_v2.json: six read primary context sources, named listening targets and transferable practices. New influences are not claimed as completed transcriptions or direct historical DKC influences; the 52 original-DKC excerpt opinions retain their original scope."
+    },
+    {
+      "command": "Owner correction intake / authority / actual-diff coverage / contract tests / performer authority",
+      "result": "PASS",
+      "evidence": "DOCAUTH inventory=777 ledger=777 active=74 records=77 ALL OK; AUDITDEV ALL OK at auto base 93166ab1828ab9857227d038f8833b92dfb2f9f1; 54 tests in 29.002s OK and stress 6/6; 84 decisions append-only check ALL OK against bc4bedfe965b99b5d498b43ce72cb2d77c46a600; MUSIC_PROFILES ALL OK; git diff --check passes."
+    },
+    {
+      "command": "Native render and runtime/owner musical acceptance",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Written revision outline and source/cast performance plans only. Exact new programs/articulations and rendered source comparisons are named production tasks; runtime/owner musical acceptance is not claimed."
+    }
+  ],
+  "acceptance_gaps": "Working revision guide ready for construction; exact presets/articulations, rendered musical improvements, human listening and owner acceptance are not established by written plans. Any later runtime/device/child/release work retains its separate scope.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-DKC-LIVELY-REVISION-20261102",
+      "evidence": "design/music/dkc/revision_owner_direction_20261102.json",
+      "write_back": "design/music/dkc/SOUNDTRACK_REVISION_GUIDE_V2.md"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "design/music/performers/registry.json",
+      "purpose": "Exact profile revision/hash and physical instrument boundaries for each cast call."
+    },
+    {
+      "path": "design/music/dkc/working_interpretations.json",
+      "purpose": "Preserve adopted source instruments, selected MIDI, confidence and revision triggers."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "A native preset name may conceal another active instrument: the Sky Valiha state uses Valiha D1 selector 3 inside Kora 1. Verify active selector and tuning before casting kora.",
+      "write_back": "design/music/dkc/instrument_candidates.json"
+    }
+  ]
+}
