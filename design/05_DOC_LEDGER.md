@@ -1480,3 +1480,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/README.md` | 🟣 | PROPOSED / CANDIDATE; R128 painted timing window,two whole authored pictures;31source/20partialDev artifacts, Dev frozen, formal/external/global gaps open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r129_melody_guide_runtime/README.md` | 🟣 | PROPOSED / SOURCE CANDIDATE; R129 painted guide, two native designs/three runtimePNG, Dev frozen; formal/external/global gaps open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/README.md` | 🟣 | PROPOSED / SOURCE CANDIDATE; R130 whole painted trampoline, exact source285a0e6ee45aa1eccaca549fc5e94b1c2a2cce37;1native/1runtimePNG,all82/165candidate checks; Dev frozen and formal/external/global acceptance open. |

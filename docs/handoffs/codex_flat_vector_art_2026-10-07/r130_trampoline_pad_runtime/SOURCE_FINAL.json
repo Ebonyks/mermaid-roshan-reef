@@ -1,0 +1,72 @@
+{
+  "state": "R130_SOURCE_PUBLISHED_EVERY_REQUIRED_FILE_ANONYMOUSLY_VERIFIED",
+  "source_revision": "285a0e6ee45aa1eccaca549fc5e94b1c2a2cce37",
+  "source_branch": "codex/flat-vector-trampoline-pad-20261102",
+  "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/MANIFEST.json",
+  "required_files": 219,
+  "required_bytes": 40522890,
+  "source_clean": true,
+  "all82_local_pass": true,
+  "source_CI": [
+    {
+      "conclusion": "",
+      "databaseId": 41594434462,
+      "headSha": "285a0e6ee45aa1eccaca549fc5e94b1c2a2cce37",
+      "status": "in_progress",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41594434462",
+      "workflowName": "Probe suite (graphics fork)"
+    }
+  ],
+  "precommit_metadata_gates": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "3a043484566184d4a0a85facaeaf286d398594f5415b384bf651fd50182010b1"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "bfdebdcdf9b9fe6339c10a3e217412a82484429cf183c3865a29b7ead7bf2936"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/capture_trampoline.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source_capture_trampoline.gd",
+        "scripts/games/picture_games.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/capture_trampoline.gd",
+        "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source_capture_trampoline.gd",
+        "scripts/games/picture_games.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "original_program_scope": "82local programs includes the headless display skip; no formalQA11 claim",
+  "Dev_integrated": false,
+  "new_Dev_credits": 0,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "completed_at_utc": "2026-11-03T07:09:43.714769+00:00"
+}
