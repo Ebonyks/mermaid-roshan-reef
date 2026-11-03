@@ -64,7 +64,18 @@
       "command": "Current auto and exact HEAD diff metadata gates; no runtime changes",
       "result": "PENDING",
       "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_COVERAGE_REPAIR.json; CI_COVERAGE_REMOTE_VERIFICATION.json"
+    },
+    {
+      "command": "Anonymous immutable payload manifest/every-required-file verification plus changed-impact coverage for this receipt-only push",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_COVERAGE_REMOTE_VERIFICATION.json; payload b630c187b24cb944e1f10fd07ff0f1c9bf417414; original source83366625 unchanged"
     }
   ],
-  "acceptance_gaps": "FormalQA11, physical device/performance, child, owner, all natural-route/state/action and whole-game inventory/coverage remain open; Dev frozen and accepted removals0."
+  "acceptance_gaps": "FormalQA11, physical device/performance, child, owner, all natural-route/state/action and whole-game inventory/coverage remain open; Dev frozen and accepted removals0.",
+  "receipt_diff_coverage_repair": {
+    "payload_revision": "b630c187b24cb944e1f10fd07ff0f1c9bf417414",
+    "verified_files": 13,
+    "verified_at_utc": "2026-11-03T16:01:45.872957+00:00",
+    "receipt_changed_with_impact": true
+  }
 }
