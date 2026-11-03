@@ -1,0 +1,33 @@
+{
+  "state": "PASS_METADATA_GATES_COUNTS_UNCHANGED",
+  "gates": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "c6cd7dafe8fb3e00997792a852db1da6d9c1146865bc62c9207e08e4f6535e26"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    }
+  ],
+  "counts_unchanged": {
+    "existing_sample_work_branch_implemented": 31,
+    "retained_bounded": 7069,
+    "retained_excluded": 4206,
+    "retained_native_events": 11275,
+    "accepted_removed": 0
+  },
+  "no_engine_restart": true
+}

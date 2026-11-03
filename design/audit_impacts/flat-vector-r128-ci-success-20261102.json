@@ -1,0 +1,56 @@
+{
+  "id": "flat-vector-r128-ci-success-20261102",
+  "baseline": "e09e7297c941d28fbaa0a447334b9c4eb1961250",
+  "scope": "Bounded exact-source R128 terminal CI success reconciliation; source/artwork, counts and all formal/external/global acceptance gaps unchanged. No runtime/workflow/Dev change.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CI_MAIN_JOB.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CI_MUSIC_JOB.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CI_RESULT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CI_RESULT_MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CI_RESULT_RECEIPT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CI_TERMINAL_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CI_TERMINAL_RUN.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CI_VERIFIED_PROBE_COVERAGE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/VALIDATION_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "change_record": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#chg-134--r128-painted-melody-timing-window-source-only-production",
+  "validation": [
+    {
+      "command": "Exact-source full CI run41558112080; main job125661864799,81ordered headless programs, separate legacy display diagnostic and music job125661864408",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CI_TERMINAL_RUN.json; CI_VERIFIED_PROBE_COVERAGE.json; CI_MAIN_JOB.log; CI_MUSIC_JOB.log"
+    },
+    {
+      "command": "Metadata authority/development, unchanged root5/counts, anonymous immutable manifest/every-file verification",
+      "result": "PENDING",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CI_RESULT_GATES.json; CI_RESULT_RECEIPT.json"
+    },
+    {
+      "command": "Repeat engine suite for unchanged runtime",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Exact source7b931bd8 unchanged; local82 and remote scoped evidence preserved immutably."
+    }
+  ],
+  "acceptance_gaps": "FormalQA11, physical device/performance, child, owner, all natural-route/state/action and whole-game inventory/coverage remain open; Dev frozen and accepted removals0."
+}
