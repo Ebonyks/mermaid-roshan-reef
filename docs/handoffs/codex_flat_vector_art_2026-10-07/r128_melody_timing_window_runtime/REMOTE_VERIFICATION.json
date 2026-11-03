@@ -1,3 +1,2339 @@
 {
-  "state": "PENDING_PAYLOAD_PUBLICATION"
+  "schema": "reef.remote_delivery_verification/1",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+  "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/MANIFEST.json",
+  "manifest_sha256": "ac2f68bbcabae860bb6dc5089ae1103e402eca2b9811027c361b36640537ad52",
+  "manifest_bytes": 102085,
+  "required_files": 258,
+  "required_bytes": 80681848,
+  "files": [
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 297584,
+      "sha256": "2b346a26f66851a05fe0dc269fe02bc9298365fd17b986cef1c45cab35c42376",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 306972,
+      "sha256": "c554fb8de750d039499754d94243d63a9ec2ebc3675309e6cba80140688722c4",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 337832,
+      "sha256": "6d737bc8b55afdd4111004ce7eb4c08fef65a00e1d8230e95a3d3c7f02d6f71f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 276303,
+      "sha256": "fae21b1f1a06feafa27206db422cf09abf8223232dd8598c0f8816a68472b9bb",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "design/audit_impacts/flat-vector-r128-melody-timing-window-20261102.json",
+      "bytes": 4867,
+      "sha256": "13077d3285887c9afc581b944a5e3c2d59e82ba92218be66ee17e11ea62b6c4a",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 233074,
+      "sha256": "474ce762035307d7c35d5338f424b587cceee2f1c5db61a1a94ecc1eb98c330a",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/ALPHA_VERIFIER_RECOVERY.json",
+      "bytes": 1941,
+      "sha256": "5a2cc4de4a553c7fde1a92706f607c07d44233ea519bf66340cf58d88ef9d0be",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CANONICAL_GATES.json",
+      "bytes": 681,
+      "sha256": "824b92e6f6b672118540ef66dcbb652ae5aeee5aebfaff8689ba65bd229049ab",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/FRAME_INDEX.json",
+      "bytes": 14726,
+      "sha256": "339a0bd2379428bcb230873fbf9aaf4c8f64ccb478de0f8ecffc96d8059de5e7",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/FRAME_REVIEW.json",
+      "bytes": 4318,
+      "sha256": "276b2c1ce3d90e77811947e5c2f732f7f80eab09390936b8766d8d2dd25cc986",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/GENERATION_ACCOUNTING.json",
+      "bytes": 2863,
+      "sha256": "a71fa107f2977fa8a77c9548c68a4c532b69d51ba76b54c1a89f830bf577588b",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/IMPLEMENTATION_SCOPE.json",
+      "bytes": 7298,
+      "sha256": "23ce57af398c1d9c5f869ac71e264b00e03620901c1746f5dc7b368df7a4b6c9",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/LOCAL_82_RESULT.json",
+      "bytes": 88888,
+      "sha256": "0485352526c74329ef94af22160f20a4a31e8137dfcee0697054f3b6e450dd4c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/NATIVE_RESULT.json",
+      "bytes": 77823,
+      "sha256": "d61597753a8f9d11b9b298821da85d73ca9ce139eaacb3927b2e335ec4cc1e6e",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/NATIVE_REUSE.json",
+      "bytes": 785,
+      "sha256": "2832ff8fd9138c0840c01be7cc2cf25e2ff4cc80f0df9645e55eadee1cc187b2",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/OWNER_RESUME.json",
+      "bytes": 555,
+      "sha256": "b94c9e80a483073ec4973eabfc5b65f57286ae7922b32935c9c97af977489d92",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/PHONE_SQUINT_PLAN.json",
+      "bytes": 16953,
+      "sha256": "9a0d4a04d0e9fffe8fcee9bf19625404cf2425908889ac2aed0d7f98c8bc5208",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/PHONE_SQUINT_REVIEW.json",
+      "bytes": 871,
+      "sha256": "a4d883948ff51eed59bdb8185b3f0158b7d1f8f9331a2685ee9c33696b53f62f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/PLAN.json",
+      "bytes": 2842,
+      "sha256": "4638672b2c30fc6525b2cab855864077ca45f05f098ca5e8e7d7621579343e6c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/PRODUCTION.json",
+      "bytes": 4935,
+      "sha256": "b8aba5bbb737d28ad66935dcd358268ec1f6d084e77d020e309b0de15424d952",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/README.md",
+      "bytes": 6255,
+      "sha256": "9587c3d99a6b0fc980fde26684a92bd8c19acb20b13e48691e03943a17df9dcd",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/SOURCE_CI_HANDLES.json",
+      "bytes": 289,
+      "sha256": "48d9cbfd31fb6e531acdda284cdea3df69ecf062c73bc9500c30ed6848021159",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/SOURCE_FINAL.json",
+      "bytes": 920,
+      "sha256": "5f975d27d19c1989875cb444cd191252012722cc3bb0993e4ebcdf79372381de",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/SOURCE_REMOTE_VERIFICATION.json",
+      "bytes": 102512,
+      "sha256": "d123b347272eebaa8963c614c217a88c6dc5ddef2e7968b3b7a6767100d0b5e8",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/STATIC_RESULT.json",
+      "bytes": 3062,
+      "sha256": "559bf58bcdb1f01dc63e14d3b448f7438220f29e3d3647900a47a598a581054f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/VALIDATION_STATUS.json",
+      "bytes": 469,
+      "sha256": "9435106f45a4720ef55a51a1da5fb7e67921110d034c6d74e045e7277ac3ca8a",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 153088,
+      "sha256": "cf40e760fea774d0f432494d57c04ae1d1c87232d19c80a26236f9b561a65a42",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 2023532,
+      "sha256": "13f1ca3fae9d3a33347955e6b1b38de8c22cd6e1aa9130800b4b70af5dd7f0d7",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1424063,
+      "sha256": "2787c4167669ae4d771ac5c0b254f8523fb1e20a289206ddd836c57517575ccb",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7ce5a8038d17c9d52fbfe6ee741a5bea0d247e05",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 607458,
+      "sha256": "388cb6997c9f2c216999c179c2fca2c62ee455bea492cceaa311e003aa869cf8",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "ASSET_LICENSES.md",
+      "bytes": 6195949,
+      "sha256": "e7bbe14c70a95a0f46cf7596ac468f4af5a17f5f8675f15a02440b5957f9665b",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets/melody/timing_window_aura_painted.png",
+      "bytes": 87641,
+      "sha256": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets/melody/timing_window_aura_painted.png.import",
+      "bytes": 997,
+      "sha256": "efbfaae9edb5d0294ba5929cb77fde0dccbe542152aa14c567d395ed714b1ae5",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets/melody/timing_window_medallion_painted.png",
+      "bytes": 110185,
+      "sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets/melody/timing_window_medallion_painted.png.import",
+      "bytes": 1013,
+      "sha256": "9247c791a90d9113fe3964b054f2ae13189c0c6b1bc679e63906337190f37804",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/EXPORT.json",
+      "bytes": 2391,
+      "sha256": "9d626475eedf4d0149e191bb67e84d5ee1c8dc7584f47aa031ea40035a54f1b3",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/EXPORT.lua",
+      "bytes": 2580,
+      "sha256": "8dcf92d29191a85e5a3fb3db3d0a7f3663d69131a40c5b1e673ae0a2870f31fa",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/EXTRACTION_PLAN.json",
+      "bytes": 1389,
+      "sha256": "c610f8db1edc72a8c4dc462ca4be12a3a86ea7bd8827b8b724c2b39c18e676c2",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/PROMPT_AURA.txt",
+      "bytes": 1740,
+      "sha256": "2b41c291d7a3ee13c3c006b33beb5378092ec8b68232abb85b52732edce917a0",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/PROMPT_MEDALLION.txt",
+      "bytes": 2572,
+      "sha256": "0af6204ad7fce71c3c4894fa9870312b3e97deba173d03668f652f67176af238",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/PROVENANCE.json",
+      "bytes": 2863,
+      "sha256": "a71fa107f2977fa8a77c9548c68a4c532b69d51ba76b54c1a89f830bf577588b",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/REFERENCE_BINDING.json",
+      "bytes": 2749,
+      "sha256": "0328e42d971b830814f2077cf45596f02217a1292f268a2534e39a45e6054485",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/exports/aura_crop_roundtrip.png",
+      "bytes": 716653,
+      "sha256": "dcb16fc4811736b3d2dd5c7b23d7d627e0fc5b53c1a24a49d6091a051afc43b5",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/exports/aura_runtime.png",
+      "bytes": 87641,
+      "sha256": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/exports/medallion_crop_roundtrip.png",
+      "bytes": 1580174,
+      "sha256": "ba4576f1768c168f0db9e98fd637629be8f17099f6674a28a33361f0ba817246",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/exports/medallion_runtime.png",
+      "bytes": 110185,
+      "sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/masters/aura_crop_native.aseprite",
+      "bytes": 2061339,
+      "sha256": "cb9b1f50bd1a539e20907b10cfa2c2b525e8ed5f20871c4581375f693d2fd47d",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/masters/aura_native.aseprite",
+      "bytes": 2061339,
+      "sha256": "f08128356698f4eac43a05415247c59c4c7fccdb9b86aaeb9c55288045240437",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/masters/aura_runtime.aseprite",
+      "bytes": 227991,
+      "sha256": "92ba76f0203972d6a45696903c620eaab2e20395d657bd1808576de1d24efe8f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/masters/medallion_crop_native.aseprite",
+      "bytes": 2348650,
+      "sha256": "9a84b6edb8d7372b1904914e13c82f00f7a2132a3237f269932b7c6532cd8a07",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/masters/medallion_native.aseprite",
+      "bytes": 2348650,
+      "sha256": "7fe4de32885252c888224c7e6912c97b52f8b58c9aa9a9b5daed129eec907eaf",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/masters/medallion_runtime.aseprite",
+      "bytes": 152654,
+      "sha256": "b71f8cd1bb4921270c0aeb33ec019c8141c8414cec7ca8b952cdb0f4da4f35f0",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/native/aura_original.png",
+      "bytes": 1277213,
+      "sha256": "e5a6ac30fae4ff0b7900f34078030f55b6259a9b2e5ac523c1ed6ad927f41eec",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/native/medallion_original.png",
+      "bytes": 1766943,
+      "sha256": "fc1fd7e7b29468fe27533ed784a54f3f239b47599add85fe8d05d569cf856ed5",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/references/r127_painted_pip_material.png",
+      "bytes": 2051090,
+      "sha256": "4cc2cce86e3c76ef2ca14a059af7e6db2330973cac29d2556cca184039ac9e2c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/references/source_01_red_active.png",
+      "bytes": 814157,
+      "sha256": "aef58b512dbd4f52cf3a83b9218a0e58a5611f33204e1291fa7b4eaa128f2f38",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/references/source_04_green_active.png",
+      "bytes": 815501,
+      "sha256": "853b3bef527b699409c6efab77c0eaf86cf9c2f2303b7daf44ad6480e3fe0e51",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "assets_src/imagegen/melody_timing_window_20261102/references/source_07_violet_active.png",
+      "bytes": 817343,
+      "sha256": "3254a4b857d8e48fe2f243cd32670d0dd562b344b88c92dc46a62e1f0b9c0be2",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 337569,
+      "sha256": "c59d964598a6abe568100b9eff2d32ec7a4ee2ee4159d6be92dea97f0c176b58",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 219538,
+      "sha256": "e1349c644904a34db8da96f96ac31f6b0d82ca681b09070a4e055efacd00ca79",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 318783,
+      "sha256": "18037e0ac270978d634e1511e0e3e0acf08c7924c3137b7c42d4bbbcb40ce860",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 241951,
+      "sha256": "8a0c6bd77252caf9a7fdc42750761ef4819f44049ed014ffb7f8acad88223e73",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "design/audit_impacts/flat-vector-melody-timing-window-20261102.json",
+      "bytes": 27393,
+      "sha256": "c4bbbe3c2d56115a88a6fe0e610699b25ebb13bc7df56dd0bbac044c2580950c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/ALPHA_VERIFIER_RECOVERY.json",
+      "bytes": 1941,
+      "sha256": "5a2cc4de4a553c7fde1a92706f607c07d44233ea519bf66340cf58d88ef9d0be",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/API_DIAGNOSTIC.log",
+      "bytes": 1223,
+      "sha256": "cf79d36a7dd9abe6d8dce2b822e7b66cf1f00e6fb7ad2238199cdee4c4bbbd12",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CHANGED_PROBE_ANALYZER.log",
+      "bytes": 73,
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/CURRENT_CI_STATIC_PREFIX.sh",
+      "bytes": 10887,
+      "sha256": "a3947e8cb9863b814c7eb75dcc136fac9265f5238b34c1e53c6772b95f122fe3",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/DELIVERY_SOURCE_BINDING.json",
+      "bytes": 2090278,
+      "sha256": "7a5aba2b8fb04565a40bed41c85f0fe48af9e6b9445ecd5778a6fc18a29abfac",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/FRAME_INDEX.json",
+      "bytes": 14726,
+      "sha256": "339a0bd2379428bcb230873fbf9aaf4c8f64ccb478de0f8ecffc96d8059de5e7",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/FRAME_REVIEW.json",
+      "bytes": 4318,
+      "sha256": "276b2c1ce3d90e77811947e5c2f732f7f80eab09390936b8766d8d2dd25cc986",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/GAME2D.log",
+      "bytes": 411,
+      "sha256": "cd9caf9b33d75e4bef2367ab3eaf08685a07073d3e472062c1110bd000d4e731",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/GENERATION_ACCOUNTING.json",
+      "bytes": 2863,
+      "sha256": "a71fa107f2977fa8a77c9548c68a4c532b69d51ba76b54c1a89f830bf577588b",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/IMPLEMENTATION_SCOPE.json",
+      "bytes": 7298,
+      "sha256": "23ce57af398c1d9c5f869ac71e264b00e03620901c1746f5dc7b368df7a4b6c9",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/IMPORT_CAPTURE_RUNNER.py",
+      "bytes": 6401,
+      "sha256": "4f48cc70d8fc50d0a5da626d3684de96b11ab29e281e6e457382e1057097099a",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/INITIAL_PLAN.json",
+      "bytes": 2787,
+      "sha256": "54c7f5ba8fd8276fd0f87530a931a374327de6aa4e092b7d2220193a4bda59fb",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/LOCAL_82_LAUNCH.json",
+      "bytes": 6171,
+      "sha256": "1166e19452de620859fa2d6df0e053e43d5c766ac02a6d7bd7cd889e09afd450",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/LOCAL_82_RESULT.json",
+      "bytes": 88888,
+      "sha256": "0485352526c74329ef94af22160f20a4a31e8137dfcee0697054f3b6e450dd4c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/NATIVE_RESULT.json",
+      "bytes": 77823,
+      "sha256": "d61597753a8f9d11b9b298821da85d73ca9ce139eaacb3927b2e335ec4cc1e6e",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/NATIVE_REUSE.json",
+      "bytes": 785,
+      "sha256": "2832ff8fd9138c0840c01be7cc2cf25e2ff4cc80f0df9645e55eadee1cc187b2",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/NATIVE_SOURCE_PIN.json",
+      "bytes": 659538,
+      "sha256": "6f1a020bc8a40f9e294702b556edb72cb5561c0992d5f9e77d251b63b4123d0a",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/OWNER_RESUME.json",
+      "bytes": 555,
+      "sha256": "b94c9e80a483073ec4973eabfc5b65f57286ae7922b32935c9c97af977489d92",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/PHONE_SQUINT_PLAN.json",
+      "bytes": 16953,
+      "sha256": "9a0d4a04d0e9fffe8fcee9bf19625404cf2425908889ac2aed0d7f98c8bc5208",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/PHONE_SQUINT_REVIEW.json",
+      "bytes": 871,
+      "sha256": "a4d883948ff51eed59bdb8185b3f0158b7d1f8f9331a2685ee9c33696b53f62f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/PLAN.json",
+      "bytes": 2842,
+      "sha256": "4638672b2c30fc6525b2cab855864077ca45f05f098ca5e8e7d7621579343e6c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/README.md",
+      "bytes": 3799,
+      "sha256": "6dbe317c13054f43491e0967b9439bae895cc99f64149b1f215a2affaaaedf7d",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/REFERENCE_BINDING.json",
+      "bytes": 2749,
+      "sha256": "0328e42d971b830814f2077cf45596f02217a1292f268a2534e39a45e6054485",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/SOURCE_BASELINE_PIN.json",
+      "bytes": 659256,
+      "sha256": "6bf6b8b15b81b975d95bc75abfc126cdb2a9255eba46b44682c699832d02f810",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/SOURCE_PIN.json",
+      "bytes": 660098,
+      "sha256": "d93de052dfe770240b20eb0d8af0cdce935e7efec8ec7bb05b0f1667b48c68a2",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/STATIC_FRESH_AUTHORITY.log",
+      "bytes": 76,
+      "sha256": "37af2bd5d5ef2400efb1c4b353f85272e55103669daba692748a345a549e3a81",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/STATIC_FRESH_DEVELOPMENT.log",
+      "bytes": 78,
+      "sha256": "b0dde6f0bc9fc51ddef25e63a8a1c8b8a62a67e79c4b41065a895cc20ad7482f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/STATIC_FRESH_INFERENCE.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/STATIC_FRESH_PARSER.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/STATIC_PREFIX.log",
+      "bytes": 57053,
+      "sha256": "4c9c05b8709288ec09b94b910413689a4ded80a4461065181cecb37a96c07d45",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/STATIC_RESULT.json",
+      "bytes": 3062,
+      "sha256": "559bf58bcdb1f01dc63e14d3b448f7438220f29e3d3647900a47a598a581054f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/VALIDATION_RUNNER.py",
+      "bytes": 10509,
+      "sha256": "9701b8db61d1f3eeb55721256ddeca77e4ad4873cde030eb8fa6f97c53544ad2",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/VALIDATION_STATUS.json",
+      "bytes": 469,
+      "sha256": "9435106f45a4720ef55a51a1da5fb7e67921110d034c6d74e045e7277ac3ca8a",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x720/01_red_active.png",
+      "bytes": 843438,
+      "sha256": "043f03ce4b76e6081692c8cf6ce37eb778dc38e9f92a937c5e9585f080bbb6b3",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x720/02_orange_active.png",
+      "bytes": 843423,
+      "sha256": "c52149cfb185049818b3a995f10296217ca9bce88bf6c47ece9be705a7112204",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x720/03_yellow_active.png",
+      "bytes": 844031,
+      "sha256": "b6df6d6db2ef740549e82e4c72da6a3590c972bd6b4dd460a3531d8c133370f3",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x720/04_green_active.png",
+      "bytes": 844876,
+      "sha256": "d353c877ed7d02f97619f05b1ed8132c7fc93ff822011f34acc71ae3e4c22eab",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x720/05_blue_active.png",
+      "bytes": 845176,
+      "sha256": "952a3b1ae6461b868796957c8e640ef07cfecb3e285d616cbc93a474a3fc6bd4",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x720/06_indigo_active.png",
+      "bytes": 845781,
+      "sha256": "2c6e038aba2d86f4b87e12f251a11bdb2fe8b2cd1359e52fb39507d1f078f8ea",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x720/07_violet_active.png",
+      "bytes": 846893,
+      "sha256": "e526d3425e64be6baf188192ee4116b2e936776bdd1ffe516f9ce3f68fcd1c6f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x720/LAUNCH.json",
+      "bytes": 584,
+      "sha256": "f858d754b3d1cc861768e0823aa2b12180921ffc60fd797f81cd2b9dc460e04a",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x720/RESULT.json",
+      "bytes": 26276,
+      "sha256": "b7689ed22731022a6bc27dfc27bbf7fd7131208500790237a8a997a12c48cf2a",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x720/engine.log",
+      "bytes": 195,
+      "sha256": "44de08a64073181b7bf5ac7cb4d267c5f6c7711652ea6ab0eee076c5156bb2f1",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x800/01_red_active.png",
+      "bytes": 944085,
+      "sha256": "1ad3ca48240daccc7cab489285ab3ea7b606e34a6ef43b9e0e4fe281008be619",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x800/02_orange_active.png",
+      "bytes": 943688,
+      "sha256": "d87a6d21dc4c1a9996e3c9d3f2b96e16b3c835dce2265698452558c76ca774b7",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x800/03_yellow_active.png",
+      "bytes": 945171,
+      "sha256": "d2effdd2cf1a88e863c78a121ee94f7a1be5603f7afc948c0ffc6a2d46370816",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x800/04_green_active.png",
+      "bytes": 946249,
+      "sha256": "8d7df4b38a9b8c5de83c0f8c56a8c3c531cefee86684680ff3fe17e12cb845e9",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x800/05_blue_active.png",
+      "bytes": 945821,
+      "sha256": "0c471e800f2d4e7a981d19c75758decc54eeb2f47141d9a174655884793d2c57",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x800/06_indigo_active.png",
+      "bytes": 947175,
+      "sha256": "f5fdd8e5fab4f4508c9aee8357590a1b440922675f4bbd0c493d3fdcfb68d97c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x800/07_violet_active.png",
+      "bytes": 948403,
+      "sha256": "00c66d23bf7feb8acbebe85a5f61394a17a794bf0f3f868bdd29240466112861",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x800/LAUNCH.json",
+      "bytes": 584,
+      "sha256": "8570bff1b02e8f3a935142ca2214dd84272af633ce2d048e6aad32b3c8ff4507",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x800/RESULT.json",
+      "bytes": 26363,
+      "sha256": "ee547b0939904940ac4dba11fb64c0586b5df9afd97fcba3ee8812250ed8e4bc",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1280x800/engine.log",
+      "bytes": 195,
+      "sha256": "44de08a64073181b7bf5ac7cb4d267c5f6c7711652ea6ab0eee076c5156bb2f1",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1600x720/01_red_active.png",
+      "bytes": 1012705,
+      "sha256": "9b7db620320c0ffe14fe84dc8fba5301750c63744ab3c1693bded9e6e7c4aab3",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1600x720/02_orange_active.png",
+      "bytes": 1012344,
+      "sha256": "64badc6373e25eab157aaa5ea82a35fbd03f3f9deafca71239fd94608e89c3fe",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1600x720/03_yellow_active.png",
+      "bytes": 1014216,
+      "sha256": "fc37e7ddf80db3cf9e4e7f5fa3ea65c3b054e25f9419f3d388b2f89b0d791217",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1600x720/04_green_active.png",
+      "bytes": 1015424,
+      "sha256": "54b4813422e062c5d4d028fa83a05f1c2a1561ba742372791ddbfad90c815ac5",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1600x720/05_blue_active.png",
+      "bytes": 1014955,
+      "sha256": "f60df612ccafcaf19364f7c09da94ffa138300ce611f784a2caff0124bbb9c84",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1600x720/06_indigo_active.png",
+      "bytes": 1016403,
+      "sha256": "27915e746d77960d8c0bb0138bcc00e8d0554325409107e0f718b28f979310f5",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1600x720/07_violet_active.png",
+      "bytes": 1017239,
+      "sha256": "dcf26ea0f52701afec9e120ef2d63027e0072a78243dc41dd9bfeb2908a24044",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1600x720/LAUNCH.json",
+      "bytes": 584,
+      "sha256": "cbf77556ae38daa9cc4da0fd4af6ba4a43b9c1024c40e5b9e7b13ae6415bd4a7",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1600x720/RESULT.json",
+      "bytes": 26292,
+      "sha256": "96a900ca74462ae0a38d693c72b960f85b4a9a7376de66825c6b814e7496e110",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/candidate/1600x720/engine.log",
+      "bytes": 195,
+      "sha256": "44de08a64073181b7bf5ac7cb4d267c5f6c7711652ea6ab0eee076c5156bb2f1",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/capture_timing_window.gd",
+      "bytes": 10449,
+      "sha256": "eb61dbcf2bcc79b803d78a21c4b4bd8b0c2db817c3c9e1fddb54927d0a3933a9",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/initial_alpha_verifier_failure/DIAGNOSIS.json",
+      "bytes": 1144,
+      "sha256": "dd191693029ce1a01350f01f9af0e1798f66749ac8d53e48e57d350401c340d3",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/initial_alpha_verifier_failure/LOCAL_RESULT.json",
+      "bytes": 2998,
+      "sha256": "9d2139cac11fd62f3f65ff620c3ed3b8fbb5b0b0d9a0635efbd3e585db999f3b",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/initial_alpha_verifier_failure/SOURCE_PIN.json",
+      "bytes": 659921,
+      "sha256": "fcd849bfa1056d889df2707741b935b74f34434b253e0f059b7562e26d27a55e",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/initial_alpha_verifier_failure/STATIC_RESULT.json",
+      "bytes": 294,
+      "sha256": "cc749a9724c070924b7b1148d6efc6623d63ae631a032ef4e34c1f970aebaf08",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/initial_alpha_verifier_failure/VALIDATION_RUNNER.py",
+      "bytes": 8708,
+      "sha256": "d0576427334e17072e280a043f8a74b2d56262f000ce3fdff079f7036e7c8edb",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/initial_alpha_verifier_failure/probe_melody.log",
+      "bytes": 89293,
+      "sha256": "a4c461a747d5e29d6e2704f3f0bbb3266daca818cb8c185376659cbdd827152f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/initial_alpha_verifier_failure/probe_melody_initial.gd.txt",
+      "bytes": 118646,
+      "sha256": "3ecb3f3dbaef2a177980a8db91fa5ae329fbd074533f215a103a405df6849050",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x720_01_red_active.png",
+      "bytes": 98722,
+      "sha256": "7a413613dc9f48daa3789e4e47791175751f1cbc4803705a277a85d916562273",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x720_02_orange_active.png",
+      "bytes": 98725,
+      "sha256": "cda1ce4ecf71384881bd67e0187209ba00fcbb23b7c0698917adedb0c9f333b8",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x720_03_yellow_active.png",
+      "bytes": 98854,
+      "sha256": "cafeb93bd19bf9df4aad7bb3cd0083fe71005f385f4f43ae99c8d36c254f5cb1",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x720_04_green_active.png",
+      "bytes": 99065,
+      "sha256": "b1b7f5dcad5bd648b456bd3d2be5d22e1fe4d4cc32a93ec4fd576c8e26aa5b1b",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x720_05_blue_active.png",
+      "bytes": 99213,
+      "sha256": "e729500391f96103e66464b239fb7723e598c104566855268e64592815a374b9",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x720_06_indigo_active.png",
+      "bytes": 99327,
+      "sha256": "674706bfc74bba7e0d50ae22c1944fa076a52ea1dac01179de56da20db75b215",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x720_07_violet_active.png",
+      "bytes": 99474,
+      "sha256": "e263747b5e1d39b68124f8929001438d62d9f77a64a51859ebe6243a449c2aca",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x800_01_red_active.png",
+      "bytes": 108392,
+      "sha256": "97fe38f533a8b2bc73e1a0400959e6e9b0edbde6b617724dc42b9a564d0e0222",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x800_02_orange_active.png",
+      "bytes": 108214,
+      "sha256": "10f4990efc7121b7abb6590251953f9177e22bc843bc67eb32badf225ead4a06",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x800_03_yellow_active.png",
+      "bytes": 108459,
+      "sha256": "f9f3cbb642bff7088bfca3c3ab6a3f36e69441ccd613f69425cce565429c21bb",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x800_04_green_active.png",
+      "bytes": 108600,
+      "sha256": "d0341b0cd05de241ed2e66d90106c6286c92e413deca0a1c707a89ac48ba3c47",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x800_05_blue_active.png",
+      "bytes": 108559,
+      "sha256": "98897649baf5dbadfa1cc4c62eb241b77422dbcfedffed43ac4b179eb09bd23a",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x800_06_indigo_active.png",
+      "bytes": 108874,
+      "sha256": "0c47a8d89cfbbfed293b1e237480f8fc17a76e2ce9c0d43c3d6989aef125a196",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1280x800_07_violet_active.png",
+      "bytes": 108970,
+      "sha256": "4bc2d6120160fc0cbfb543540644c49c43395511d8a273a63440ff2fe26fe67b",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1600x720_01_red_active.png",
+      "bytes": 121227,
+      "sha256": "cd9168fe4c0e5ad9843151791056640317e968ebb28d4862b3b5af65afe1cd9b",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1600x720_02_orange_active.png",
+      "bytes": 121165,
+      "sha256": "c1eac3d0bc16d9f7cc95f896cfd9713948442cbe3cb238f8bca2eac3c0a400bb",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1600x720_03_yellow_active.png",
+      "bytes": 121202,
+      "sha256": "3a4be88b5a64f506bcb96b841041cc93ec996799e9e8a87bdc2b63dbfc84397d",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1600x720_04_green_active.png",
+      "bytes": 121522,
+      "sha256": "ea34e982e954e8d16699d43f9281cf1cb56a570dc1fe86e0898f5e945dbd69c1",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1600x720_05_blue_active.png",
+      "bytes": 121386,
+      "sha256": "0e41caa433fa546e7a2463a4486a5bebd7b8224feb112e8430a9109878cdcdc7",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1600x720_06_indigo_active.png",
+      "bytes": 121550,
+      "sha256": "756478ece3bd4b2a285e0431c3b5a04ee6e9afc04d3b8be6d8cd1028ab988b0a",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/candidate_1600x720_07_violet_active.png",
+      "bytes": 121872,
+      "sha256": "0383088920143578f26740715f271524d1e55b828f1d4ac07d305098999e5371",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/source_1280x720_01_red_active.png",
+      "bytes": 96764,
+      "sha256": "0b2fca6099514c5078a5d91d654dc2b50e1703100769df54e75a77459af3d890",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/source_1280x720_04_green_active.png",
+      "bytes": 97177,
+      "sha256": "d83e3b8c3e574dc4a2cbd6330d9c2f113bf03f58f8e6f35b7a4125a33f2b7327",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/phone_size/source_1280x720_07_violet_active.png",
+      "bytes": 97400,
+      "sha256": "ca138aca286181c7978b1bd440f0777f28bee7a9579877b1b4ea13eb31470642",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_alpha_milestone_save.log",
+      "bytes": 53107,
+      "sha256": "225a4f8a72b18e3338eb82a622c1997ca348329421c1f1e197504cfb07703aeb",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_audio.log",
+      "bytes": 67864,
+      "sha256": "ed97261e3f3ce09ed9d8252f04afbd2d541786ccb42f26ab3179ed7420f65258",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_audit.log",
+      "bytes": 198131,
+      "sha256": "722f5d07f3cdcf08681ad21d7103fb5a1399865ab97193dc44fd23b05388fbcc",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_bathroom_integration.log",
+      "bytes": 143041,
+      "sha256": "fecd9d6676c13eca401a8a04ceee1f265188213aebee0ebd8dc7b7fc9330ad55",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_bathroom_props.log",
+      "bytes": 7886,
+      "sha256": "af19dfe34bfb2de0e1561501660a521b470c66d9d133fd9dbf3c34867484745c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_castle_door_language.log",
+      "bytes": 102571,
+      "sha256": "5249445f12d09dcfdafbd7cd38d9e7676d8831cc7c22988af599ddab68442a20",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_castle_pearl_art.log",
+      "bytes": 186138,
+      "sha256": "6bcf1b8550b86108a24ba6df440d2fdeb6f3d848edabeac8c02d8399124cbc05",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_castle_pool_life_2d.log",
+      "bytes": 37203,
+      "sha256": "26bc29864be1c929bb622da4fbbc2f2f47d0c43c59d6e3ea68f54dc3898201fa",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_chapter2.log",
+      "bytes": 1669220,
+      "sha256": "4c07b0a7c1355ee27f1bb8ecab725ee8ae88f390448df0efb349b13c73748f82",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_chapter2_farmer_resume.log",
+      "bytes": 601406,
+      "sha256": "e8982d4bb70499aa723606d94bc7e28916965e0d8386ddb7935f8cdfb41cd9a3",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_chapter2_lawn.log",
+      "bytes": 146490,
+      "sha256": "0e54263cef4da59d7c271aa7a968a7634f395468c6920d27d29cb554333216b4",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_collection.log",
+      "bytes": 42000,
+      "sha256": "2e17fbbc345ea68195f3bc4e009f1393029000b03c91963915ca8ca95612c5e5",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_combat.log",
+      "bytes": 65265,
+      "sha256": "97f4cae2d6a8848b04d71406c224f213f75c8f2a5062341e860927caceb08221",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_combat_tutorial.log",
+      "bytes": 93185,
+      "sha256": "cfc6360c6d0a2a2c6ac3fd591c7304866944256b539b6b340c75de7127c45d6e",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_crown.log",
+      "bytes": 252766,
+      "sha256": "d03a627095c96a77a81032441a16021fa3d1d87f736fc226b92a83e943fca6ee",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_dance.log",
+      "bytes": 54316,
+      "sha256": "5b1971593e3e297d3823f704d095cec7507bdd300adc2f0b429ce8b4bc268f0f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_art_attack_state.log",
+      "bytes": 49977,
+      "sha256": "ec7b889781ce52498a5779daab03261954b0ecddc80da23527690febc116f60a",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_bathroom_bunny.log",
+      "bytes": 41914,
+      "sha256": "fa3fd9813bcd0951d7ca0c8ac97aad42b7cabb3664db19c8fa4531853cb49cce",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_bathroom_cleanup.log",
+      "bytes": 57744,
+      "sha256": "b05910dff7eaf700ce128914c042381d3b0a1ba33cb47bb5d975e12cb8159c07",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_bathroom_movie_handoff.log",
+      "bytes": 37630,
+      "sha256": "e1faa89cd90c0a1a4e38a9a1364a26db80370e1197341fd5c390ed23920bd219",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_castle_dressing.log",
+      "bytes": 2942,
+      "sha256": "928e9d45f997a1450a7e38064e9de7ad83a20bf38fa897c3f340a4bc2f4144d5",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_d8_revisits.log",
+      "bytes": 1685,
+      "sha256": "6911849de7cc0c035563aa7ffb6ba1e98dffe69e5e0b7d90e551a3bc5acd877f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_director.log",
+      "bytes": 37661,
+      "sha256": "35b733ba8613e85b470974496a03f4e42a6b812bd02da3ba7be54d8381ed752d",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_handoffs.log",
+      "bytes": 43667,
+      "sha256": "2ded170a816f49f1b6c8fffaf01c10830308b93532b46092a36fa7e965e99bb7",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_integration.log",
+      "bytes": 39269,
+      "sha256": "24d0065961f30aa8a361d059eb728f0f650767a9d6a1f8cb43dd9e5163279629",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_pool_cleanup.log",
+      "bytes": 62081,
+      "sha256": "a69818efc50231492c583eb5962fc86de054985295ac86df0c6b2d3221f8867f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_story_clips.log",
+      "bytes": 282476,
+      "sha256": "1f09383180829675795f1c4014a19410d81832f5779c41fd738e40f50b2684c8",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_day_one_voice.log",
+      "bytes": 45966,
+      "sha256": "aa639f703410b0a5d5e41eef3efedae19f41256b5c6557268de1ddb9dde9f566",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_dolls.log",
+      "bytes": 68524,
+      "sha256": "3d6321c089a8024c97b7aadc29c6f84c298baa4c7df17da457da7edab3efb200",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_dungeon.log",
+      "bytes": 181137,
+      "sha256": "3940662500f0fd48eda4ba12b03e36f83072a3b93c03a9ed68e0bb76e14dd4dc",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_dust_boss.log",
+      "bytes": 174014,
+      "sha256": "bc3ee2ded529441991dd7b9acdce77bdc43a95631038d6ab2fbdbf2cdf48177f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_dust_boss_balance.log",
+      "bytes": 543660,
+      "sha256": "4c79e0bef3714d99632c3f2a536706b35d0cf3cbf55fd2b52d5e393c54902e00",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_dust_bunny.log",
+      "bytes": 3041,
+      "sha256": "dc1dc00e40d3c1baf941484ec96b84a1c2ee0092a4be5f7b988829131b19e599",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_dust_bunny_boss.log",
+      "bytes": 14903,
+      "sha256": "7043e655a25900837afa093d567f24d43a9d61c4a5bf44ad25aefe2249b1182c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_ember.log",
+      "bytes": 167795,
+      "sha256": "ff5a261b31e9762f82640d548d4443e05177cd627858ec2fccb052820cf8231f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_fairy_art.log",
+      "bytes": 1904,
+      "sha256": "30e8c0430731b77c0e88b6f5a7f265a29419ae4cb8e2323463eff352b7602ef1",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_fetch.log",
+      "bytes": 47623,
+      "sha256": "a523fa8c599b9fb16c82c8ace6eef152b0fc9f13534dcbb3c35d1bf1cbd2515c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_galaxy_state.log",
+      "bytes": 98279,
+      "sha256": "f916854db88d86fb50ec0b636f3c1e910d35cbd0aeada699145fe5762f103ad7",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_hit.log",
+      "bytes": 54548,
+      "sha256": "5bbcdf345039ab2ee4f502d4568ae7fbb718a728bbbd1ce598b3f45d898809f9",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_human_art_audit.log",
+      "bytes": 36597,
+      "sha256": "a1d2842f48dbda3103b77b7529d8e6c154c81ead32ae85dfeda8a88924516446",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_imp_ai.log",
+      "bytes": 2485,
+      "sha256": "ca4b1dff264394e2937afdb4c08907fa6a90d061aaac5768c72b536c5fc80469",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_interaction.log",
+      "bytes": 427469,
+      "sha256": "17f744e55ded6deb78f9ba3eea6043fc0df731f4e8b837f2cb13d55a3f82b29d",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_kart_feel.log",
+      "bytes": 80339,
+      "sha256": "79fa475f6d3b391dfeb5dd51e34e1ece7e14b7dfefd2a727240fe866f3634540",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_kitchen_props.log",
+      "bytes": 19450,
+      "sha256": "7a863819fb120bdef65251ad34ea4d9dbd86d66fdde9647c2a4bd70dfb02d9c8",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_l2.log",
+      "bytes": 139025,
+      "sha256": "feddebf91865d42085623f1ae59e35fc86cf4f291c42e62127ab0e3a64c7261f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_l2_living_cards.log",
+      "bytes": 78087,
+      "sha256": "a78ac5d63c374ed51b39575b9bc55874b0e613f8cb2b9a1062eccd2d584f5d79",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_l2_reenter.log",
+      "bytes": 65222,
+      "sha256": "f575c01e5e1b3613a95bb2dbfaf66480b63b6ea0ce6275a9df3ff752c130586c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_living_world.log",
+      "bytes": 226713,
+      "sha256": "068b2852f416801f33b817f1cbcfb37046792ac69d1439e38b5011b9a0e8fa1b",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_load.log",
+      "bytes": 127669,
+      "sha256": "acb7c95441b0d01fdc10dd814c6628a266dca6202d0e49bc9611bb76356fd484",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_melody.log",
+      "bytes": 90309,
+      "sha256": "776ec9d0b3a7ac32e9840ca487e04ec0ef83e0c6fc6e02b925b806a4ed0a24ae",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_mg2d.log",
+      "bytes": 66618,
+      "sha256": "c0e2c4d458fde2180a46b7005a4cfa5dc3a9ffb23a54bbca4faaf28b7868c07d",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_mic.log",
+      "bytes": 45812,
+      "sha256": "e2c241493a1676e7c74680ad7e399d1a89041adb57f71b4c92218c5ebf0632a3",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_northern.log",
+      "bytes": 73639,
+      "sha256": "31fbcc3481136ba424e62da2acf50f19d3d2ac160dfb59d658c15a26dcbbf27c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_ocean_kingdoms.log",
+      "bytes": 160775,
+      "sha256": "2d2462416b83af35d66cb11f0884768640ad12b5e5d348ee7fd0f8a7002e2af7",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_opera.log",
+      "bytes": 1460967,
+      "sha256": "b8f63340af8b460de5df5244f7f52c178b1c2ded04e4517c7befb53dccfafef6",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_opera_2d.log",
+      "bytes": 1478415,
+      "sha256": "7f1b1b1b2093fd8ec7d17bcec8668a99bddcfc1371f4f5d8174fc6cdd09f9ffc",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_opera_detective.log",
+      "bytes": 73696,
+      "sha256": "03b5f3f22bd3210d46a67e9ce76af6f9c8de59a5eabd768f74cb55c1fc5f4390",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_opera_diegetic_paths.log",
+      "bytes": 1122,
+      "sha256": "12cd1b05b12b709df848d97b1eb706b1d676741ccd62982d4f3fd3e3dd48e4c5",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_opera_gesture_quality.log",
+      "bytes": 160952,
+      "sha256": "e280be40c81e317f4e014f9fc06c375a3e9ab2a4bc9dec1fbeb4841cb48f38a4",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_opera_nursery.log",
+      "bytes": 74318,
+      "sha256": "b359a25880a080a928aabd9ab6ea784db09e0813ea74c19359e818bdc51a8bf9",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_opera_pipe.log",
+      "bytes": 10886,
+      "sha256": "3c5d450dac6071428bd0a868d3533b93528d83a3c9a577d39d36f96c4e00bb7c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_partner.log",
+      "bytes": 76334,
+      "sha256": "941c2c9c0dc26ca7a1feb26f5cafabc33834edd2d30ce6cd361f8d76f74693fb",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_passive.log",
+      "bytes": 104177,
+      "sha256": "183549edfb0503b5d49322bdbd105e41d0f56c8c95aa20509da11762bcde8a8f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_props.log",
+      "bytes": 45036,
+      "sha256": "3f79d263b7fe76a0976dda33c9b98c0c7554936fd03d056afa71e4b9c46761c3",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_rank.log",
+      "bytes": 47540,
+      "sha256": "fac50d8308f6d0117e95a2ecb0a45fe107a0d6231b3dae2bba1138e6aff84f3d",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_reef_districts.log",
+      "bytes": 38191,
+      "sha256": "a4fb007d0dccc527ba8d239516b3d61e8f94e60dae05a8aa35e9bfdc56a46576",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_save_recovery.log",
+      "bytes": 42396,
+      "sha256": "796848ab9e80b88e9d8cb77f53dde2bca9f57d45d53b3e860001fbb3cf41e060",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_seek.log",
+      "bytes": 64158,
+      "sha256": "85493ec1a92d3c754584687d1dce4651c1c2b8666e34290f60574e8cd3182ebe",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_skins.log",
+      "bytes": 42718,
+      "sha256": "a449aeca7029f8f08ff368845962d66c14dc80c79f7da385d9d8ac6a63d3408f",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_sky_lagoon_animals.log",
+      "bytes": 156474,
+      "sha256": "c15c3fcde8804bbf792a89c85e8159f959c80d5692df01796dd0e5b35ed951ff",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_start_menu_new_game.log",
+      "bytes": 61588,
+      "sha256": "edb7d6e30c6c363db00df46b34fcb1c15bbb1b6276c2ad46d7a90d15bce4ee04",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_start_menu_routing.log",
+      "bytes": 38587,
+      "sha256": "a0d89d05f13b234122f24a0f913da5844f8a54952adba7868e39c7afed332acc",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_stuffie.log",
+      "bytes": 155573,
+      "sha256": "56444ca420757556771eb180f11fca4341f7fa335513040b6446fc5b3f649871",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_throne.log",
+      "bytes": 209039,
+      "sha256": "3bfb177d5be5e77863c2fc5a5af216a682ca3b1d1284b155a561acc6541f2212",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_touch_adversary.log",
+      "bytes": 712111,
+      "sha256": "a52f67196038113ccdfd93944dc42b068a3a1c9dce60c74fbd1430d6f249cdc4",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_touch_look.log",
+      "bytes": 50899,
+      "sha256": "32068e302aa0fdaf2fa746e6f332f8b3b88f18943065dd706bfcab93846ff5c9",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_touch_router.log",
+      "bytes": 42517,
+      "sha256": "9c923da5e42a58154f914ade669f81acf485d67ec04c7e27bbb0cf9cabbe2b84",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_touch_stress.log",
+      "bytes": 70642,
+      "sha256": "40d09710e2d2a7c805cd7e7d773e030f200806d660c686683c55bbb596210fb5",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_train.log",
+      "bytes": 89418,
+      "sha256": "2283bb358b3e7c5d188f43f90a57c20c049a9c46917cbee8f5407cf9f64cd227",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_ui_system.log",
+      "bytes": 334309,
+      "sha256": "eff0cb99f12c082cf90e877cf361a5f76ef73a35d3bad6763bafb04bb096d6ba",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_verbs.log",
+      "bytes": 41591,
+      "sha256": "a77aaec497a1cf5ba72a9851d14d9bd9e9aa5942f1ada738400f2fe5ccf8908c",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/trusted_logs/probe_voice.log",
+      "bytes": 96290,
+      "sha256": "b156e4f024eeea7f9793a59e86b69409395dfaab21dcfe31d7722f4d80c884f9",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "scripts/games/melody.gd",
+      "bytes": 43041,
+      "sha256": "1c9321c573d9c07983fcb1a413a97c210c2e28c39bb15b35680d2f16f9972cb9",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "scripts/probe_melody.gd",
+      "bytes": 118670,
+      "sha256": "12cb888b54550ee73148bd80b11046e32fb8468cbdb385bc42878b8007ae8832",
+      "role": "R128 current candidate, derivation, scene evidence or bounded registry delivery",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/characters/stickers/daddy.png",
+      "bytes": 850745,
+      "sha256": "402024ac72c5365aae8562d422b9f888a6f5cdef7b6539409747e8f965cd0122",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/characters/stickers/daddy.png.import",
+      "bytes": 946,
+      "sha256": "dcf8d3a42423aee64a9465275bf854b343a6478dabf64632620cbaaadf190232",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
+      "bytes": 1119885,
+      "sha256": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png.import",
+      "bytes": 1365,
+      "sha256": "e329f8247a9c3f30abbbf72f564acdb2413b7065cb344d4254c29f92a7ba057b",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
+      "bytes": 1235978,
+      "sha256": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png.import",
+      "bytes": 1365,
+      "sha256": "cb2c97cfdaf35b96fc6b203431b0b941c942452e1bcd2c6aea30e518f865759d",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png",
+      "bytes": 1758075,
+      "sha256": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png.import",
+      "bytes": 1365,
+      "sha256": "29032aeaaeaa9a5bb8892a78741ebaa711f7bfd622c72347499ae400e111f7ef",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png",
+      "bytes": 1608993,
+      "sha256": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png.import",
+      "bytes": 1365,
+      "sha256": "42492f764d1f8f0b7836879506275bc7b959f80c4ebcd2d57dfea6e7c84a72ab",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/opera/worlds/actors/roshan_popstar.png",
+      "bytes": 258084,
+      "sha256": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/opera/worlds/actors/roshan_popstar.png.import",
+      "bytes": 1218,
+      "sha256": "794a4b6318907a71cd2a843e47a9c78cfe99a85588aa33717eff21bd131b36a1",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency",
+      "http_status": 200,
+      "verified": true
+    },
+    {
+      "revision": "7b931bd88506890ab042e8c3abaef5536acf8fee",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r128_melody_timing_window_runtime/MANIFEST.json",
+      "bytes": 83275,
+      "sha256": "b8f68c2003d5df9da812b886b658da7c5e0a20587f66677e6b746b2e9ecdc0cb",
+      "role": "Actual bounded R128 source delivery manifest",
+      "http_status": 200,
+      "verified": true
+    }
+  ],
+  "state": "ALL_REQUIRED_FILES_ANONYMOUSLY_BYTE_VERIFIED_SOURCE_ONLY",
+  "access_mode": "Anonymous immutable HTTPS GET without Authorization or cookies; exact bytes/SHA-256 of manifest and every required file.",
+  "checked_at_utc": "2026-11-03T01:13:53.859318+00:00",
+  "Dev_integrated": false,
+  "creative_acceptance": false
 }
