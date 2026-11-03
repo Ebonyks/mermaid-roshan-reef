@@ -20,3 +20,11 @@ All82existing local programs, fresh complete static gates, exact4.7.2analyzer an
 Canonical envelope:33published bounded source artifacts /20partialDev;7,171bounded +4,206excluded =11,377retained native PNG events. No accepted-removal or complete-role closure credit. Lower263known roles/35families and unknown whole-game denominators remain.
 
 [Immutable source tree](https://github.com/Ebonyks/mermaid-roshan-reef/tree/285a0e6ee45aa1eccaca549fc5e94b1c2a2cce37) · [Anonymous source verification](SOURCE_REMOTE_VERIFICATION.json) · [Canonical delivery manifest](MANIFEST.json) · [Canonical anonymous immutable receipt](REMOTE_VERIFICATION.json) · [Payload revision](PAYLOAD_PIN.json). Null manifest revisions resolve against that payload revision, not the later receipt-only commit.
+
+### Terminal R130 CI observation
+
+Exact source285a0e6ee45aa1eccaca549fc5e94b1c2a2cce37, run41594434462, completed2026-11-03T08:07:02Z. Both main probes and deterministic music-provenance jobs succeeded. Main workflow steps include checksum-bound approved-engine download, static gates, import, full real analyzer,81ordered assertive headless programs, real-viewport boot, advisory checks and diagnostic uploads. The local82-program list additionally contains the display-only human-art program, whose headless skip is not an assertion pass. CI intentionally runs it separately as a legacy display diagnostic; no diagnostic establishes formalQA11 or artwork acceptance.
+
+The immutable source candidate, preserved Aseprite dimension-expectation history,165candidate-native checks and27scene frames remain unchanged. No engine rerun, workflow edit, Dev action, new artwork/frame credit or accepted-removal credit. Physical device/performance, child, owner, formalQA11 and whole-game inventory/natural-route coverage remain open.
+
+[Terminal run](CI_TERMINAL_RUN.json) · [Scoped result](CI_TERMINAL_RESULT.json) · [Exact program coverage](CI_VERIFIED_PROBE_COVERAGE.json) · [Main-job log](CI_MAIN_JOB.log) · [Music-job log](CI_MUSIC_JOB.log) · [Bounded CI manifest](CI_RESULT_MANIFEST.json) · [Anonymous immutable receipt](CI_RESULT_RECEIPT.json). Historical source/art manifests remain immutable at their recorded revisions.
