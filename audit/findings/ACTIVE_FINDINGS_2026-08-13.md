@@ -339,6 +339,8 @@ un-earned once Chapter 2 starts. No existing finding is closed.
 
 ## MA-VIS-006
 
+R130source candidate2026-11-02: [painted trampoline](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/README.md), work branchcodex/flat-vector-trampoline-pad-20261102 from27c88288bf6e39582072811443df79919e7bbb89. One native design/one runtimePNG,165candidate/144source configured checks,54new native frames. All27candidate native/15source native/54phone views inspected;29other methods unchanged. All82/current static/analyzer/2D pass; exact published-headCI pending. Dev frozen, lifecycle CONFIRMED_OPEN, accepted removals0; formal/external/global gaps remain.
+
 [Same painted-pan R100 current-source machine checks and source-bound retained context do not establish new formalQA11 or physical acceptance; lifecycle remains CONFIRMED_OPEN.](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r100_geologist_pan_ci_recovery/README.md)
 
 R99 current-Dev follow-up2026-10-18: [painted pan reconciliation](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r99_geologist_pan_dev_integration/README.md) passes82unique trusted checks and two-aspect native context, preserving original premature console failure and exact source/save guards. New sourceCI/Dev/formal/device/child/owner are separate. Lifecycle remains `CONFIRMED_OPEN`.
@@ -391,6 +393,8 @@ R95 production update2026-10-17: [Geologist painted pan](../../docs/handoffs/cod
 | history | 2026-08-29: repeated owner report reproduced. Root causes include an abandoned topic branch, removal of only one of two false foreground cards, two baked/blurred background footprints, regeneration tooling that could restore the defect, node-only probes, a runtime route allow-list that rejected the repaired route, and cwd-relative review tooling that could inspect stale branches or composite against an obsolete plate. Both bathroom footprints were repaired and exact 4.7.2 dirty/clean captures passed. Three parallel scrubs dispositioned the game, drove full-frame regeneration of seven Castle plates plus Opera Detective and Nursery, retired the incomplete duplicate tent-flap card, repaired the cupboard's incomplete rest frame, and independently reviewed all 96 retained V4 frames against exact worktree/runtime paths. The complete exact-4.7.2 local suite exits zero; lifecycle advances to `FIXED_PENDING_VERIFICATION` while exact `dev` and external acceptance remain open. |
 
 ## MA-VIS-008
+
+R130source candidate2026-11-02: [painted trampoline](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/README.md), work branchcodex/flat-vector-trampoline-pad-20261102 from27c88288bf6e39582072811443df79919e7bbb89. One native design/one runtimePNG,165candidate/144source configured checks,54new native frames. All27candidate native/15source native/54phone views inspected;29other methods unchanged. All82/current static/analyzer/2D pass; exact published-headCI pending. Dev frozen, lifecycle CONFIRMED_OPEN, accepted removals0; formal/external/global gaps remain.
 
 | Field | Value |
 |---|---|

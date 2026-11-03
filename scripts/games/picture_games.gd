@@ -662,9 +662,10 @@ func _mg_build_trampoline() -> void:
 	(m.mg["hud"] as Label).text = "Tap the trampoline to bounce up and TOUCH the star!"
 	m.mg["star"] = _mg_sprite("res://assets/mg/star.png", Vector2(640, 90), Vector2(140, 140))
 	# trampoline (kept high enough for a clear 1280x720 landscape silhouette)
-	var tramp := _mg_circle(Vector2(640, 520), 200.0, Color(0.25, 0.5, 0.85))
-	tramp.size.y = 56.0
-	tramp.position = Vector2(640 - 200, 492)
+	# One whole painted prop; the original target and bounce choreography stay fixed.
+	var tramp := _mg_sprite("res://assets/mg/trampoline_pad_painted.png",
+		Vector2(640, 534), Vector2(403, 129))
+	tramp.name = "TrampolinePainted"
 	tramp.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	m.mg["rest_y"] = 430.0
 	m.mg["roshan"] = _mg_sprite(m.skin_sprite_path(), Vector2(640, 430), Vector2(150, 190))

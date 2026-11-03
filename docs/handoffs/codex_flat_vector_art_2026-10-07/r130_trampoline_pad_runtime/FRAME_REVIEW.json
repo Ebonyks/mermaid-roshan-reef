@@ -1,0 +1,133 @@
+{
+  "stable_id": "FV-C6F64FAA2F32",
+  "status": "LOCAL_AI_PROVISIONAL_SAME_SCENE_CANDIDATE_ONLY",
+  "reviewer": "Codex AI visual inspection; no independent human/owner acceptance inferred",
+  "scope": "Only the trampoline pad/frame. Current gradient background, header/crest, ambience, actor acting, star placement and reward UI are not approved by this local prop review.",
+  "all27_candidate_frames_inspected": true,
+  "all15_current_source_frames_inspected": true,
+  "all54_phone_views_inspected": true,
+  "actual_viewed_files": {
+    "candidate_native": [
+      "1280x720/01_rest.png",
+      "1280x720/02_wrong_passive.png",
+      "1280x720/03_apex_1.png",
+      "1280x720/04_landing_1.png",
+      "1280x720/05_apex_2.png",
+      "1280x720/06_landing_2.png",
+      "1280x720/07_apex_3.png",
+      "1280x720/08_landing_3.png",
+      "1280x720/09_fresh_reentry.png",
+      "1600x720/01_rest.png",
+      "1600x720/02_wrong_passive.png",
+      "1600x720/03_apex_1.png",
+      "1600x720/04_landing_1.png",
+      "1600x720/05_apex_2.png",
+      "1600x720/06_landing_2.png",
+      "1600x720/07_apex_3.png",
+      "1600x720/08_landing_3.png",
+      "1600x720/09_fresh_reentry.png",
+      "1280x800/01_rest.png",
+      "1280x800/02_wrong_passive.png",
+      "1280x800/03_apex_1.png",
+      "1280x800/04_landing_1.png",
+      "1280x800/05_apex_2.png",
+      "1280x800/06_landing_2.png",
+      "1280x800/07_apex_3.png",
+      "1280x800/08_landing_3.png",
+      "1280x800/09_fresh_reentry.png"
+    ],
+    "source_native": [
+      "1280x720/01_rest.png",
+      "1280x720/03_apex_1.png",
+      "1280x720/04_landing_1.png",
+      "1280x720/05_apex_2.png",
+      "1280x720/06_landing_2.png",
+      "1280x720/07_apex_3.png",
+      "1280x720/08_landing_3.png",
+      "1280x720/09_fresh_reentry.png",
+      "1280x720/02_wrong_passive.png",
+      "1600x720/01_rest.png",
+      "1600x720/07_apex_3.png",
+      "1600x720/08_landing_3.png",
+      "1280x800/01_rest.png",
+      "1280x800/07_apex_3.png",
+      "1280x800/08_landing_3.png"
+    ],
+    "phone_boards": 9
+  },
+  "axes": [
+    {
+      "axis": "contour",
+      "source_local_score": 3.0,
+      "candidate_local_score": 4.7,
+      "observation": "Plain uniform capsule and detached oval become a continuous plum-outlined attached rim/four-leg silhouette; painted edge remains legible at30percent."
+    },
+    {
+      "axis": "palette",
+      "source_local_score": 3.3,
+      "candidate_local_score": 4.7,
+      "observation": "Retains blue identity, adds calm aqua/lavender bands and small ochre accents matching actual neighboring painted gold star."
+    },
+    {
+      "axis": "light",
+      "source_local_score": 2.2,
+      "candidate_local_score": 4.6,
+      "observation": "Detached white highlight replaced by coherent upper-left authored paint on rim and legs; no new runtime lighting."
+    },
+    {
+      "axis": "perspective",
+      "source_local_score": 2.3,
+      "candidate_local_score": 4.6,
+      "observation": "Foreshortened oval mat and short front/rear legs form one coherent low object rather than compressed circle with unchanged glossy child."
+    },
+    {
+      "axis": "scale",
+      "source_local_score": 3.4,
+      "candidate_local_score": 4.6,
+      "observation": "About400px visible width retained; whole403x129 registration leaves all legs visible and the generous original400x140 touch target unchanged."
+    },
+    {
+      "axis": "contact",
+      "source_local_score": 2.6,
+      "candidate_local_score": 4.5,
+      "observation": "Unchanged mermaid tail meets the back rim on rest and landing; clean release at three apex heights. Mat stays still as before; no new compression/acting claim."
+    },
+    {
+      "axis": "occlusion",
+      "source_local_score": 3.3,
+      "candidate_local_score": 4.6,
+      "observation": "The object remains behind the original actor; no halo or detached highlight covers lower field. Existing reward/header overlaps remain outside this prop verdict."
+    },
+    {
+      "axis": "readability",
+      "source_local_score": 2.8,
+      "candidate_local_score": 4.6,
+      "observation": "Four supports and open blue jumping surface read as a trampoline in complete-HUD phone views; actual touch at its center works. Decorative feet extend below original target."
+    },
+    {
+      "axis": "identity_topology",
+      "source_local_score": 2.6,
+      "candidate_local_score": 4.7,
+      "observation": "One whole blue trampoline with all four connected legs; Roshan/star pixels and all29other PictureGames method bodies unchanged."
+    },
+    {
+      "axis": "painted_material_coherence",
+      "source_local_score": 2.0,
+      "candidate_local_score": 4.7,
+      "observation": "Broad brushed fabric/padding bands and ochre fittings match actual painted star; no procedural/vertex substitute or part collage."
+    }
+  ],
+  "minimum_candidate_axis": 4.5,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "limitations": [
+    "Configured direct picture-game entry after actual Continue; natural Castle route not evidenced.",
+    "Native stills sample original three bounce tweens; full motion/acting acceptance not established.",
+    "Immediate quick reentry retains preexisting global reward card in both source and candidate; fresh stage/bounce reset checked, no clean-global-overlay claim.",
+    "Existing star/header overlap remains in both builds; whole scene is not scored4.5."
+  ],
+  "candidate_status": "SOURCE_CANDIDATE_LOCAL_MACHINE_VERIFIED_FORMAL_OPEN",
+  "complete_machine_validation": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/LOCAL_82_RESULT.json"
+}
