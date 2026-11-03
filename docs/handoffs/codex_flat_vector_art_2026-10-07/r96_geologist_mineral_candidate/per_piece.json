@@ -27280,25 +27280,37 @@
         "hash_mode": "LF-canonical text"
       },
       "source_scope_ids": [],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        {
+          "source_revision": "8336662539411e251871b2c86718ef75c615c60e",
+          "path": "scripts/games/picture_games.gd",
+          "node": "_mg_snow_face_phase two choices; _mg_snow_face two42square eyes",
+          "scope": "Work branch only; Dev frozen"
+        }
+      ],
       "screen_coverage": {
-        "measured_current_bounds": null,
-        "coverage_state": "COVERAGE_GAP",
+        "measured_current_bounds": {
+          "source_revision": "8336662539411e251871b2c86718ef75c615c60e",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/COAL_CONTEXT_BOUNDS.json",
+          "records": 54,
+          "scope": "Actual configured button/eye/clear states at3aspects; natural routes/allstates still open"
+        },
+        "coverage_state": "CONFIGURED_3ASPECT_CONTEXT_NATURAL_ROUTE_COVERAGE_OPEN",
         "geometry_expressions": [
           "var carrot := _mg_artbtn(\"res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png\", Vector2(360, 600), Vector2(150, 110))",
           "Vector2(220 + float(i) * 280, 600), StorybookUI.MIN_TOUCH)"
         ],
         "note": "Expressions are scope evidence, not measured per-piece screen bounds."
       },
-      "evidence_level": "SOURCE_INSPECTION",
+      "evidence_level": "CONFIGURED_SOURCE_CANDIDATE_NATIVE_CONTEXT_AND_AI_PHONE_REVIEW",
       "observed_weakness": "Source-bound candidate Snowman coal eye token uses or delegates visible primitive/material construction in _mg_snow_face_phase. No current phone-context quality verdict is claimed.",
       "priority": "P1",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
       "context_brief_id": "BRIEF-PICTURE_SNOWMAN",
       "reuse_candidates": [],
-      "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
-      "named_gap": null,
-      "status": "NEEDS_CONTEXT_REVIEW",
+      "reuse_inspection": "Current sources and actual neighbor inspected, named material gap observed. Quality-first builtinImageGen chosen; reuse optional, no failed-reuse gate.",
+      "named_gap": "Current source coal token/eyes use hard broad polygon planes and gem-like highlights beside curved painted carrot. R132 supplies one whole softly painted navy/plum coal shared in original choices/42pxeyes; only3texture paths change, all geometry/input/mechanics/originalassets retained. Full action acceptance open.",
+      "status": "SOURCE_CANDIDATE",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -27307,12 +27319,97 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r132_source_candidate": {
+          "stable_ids": [
+            "FV-0FCB49F07274"
+          ],
+          "state": "SOURCE_BRANCH_PAINTED_COAL_STATIC_CANDIDATE_FULL_ACTION_OPEN",
+          "new_bounded_source_artifacts": 1,
+          "existing_named_roles": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "new_runtime_PNG": 1,
+          "native_generated_samples": 1,
+          "authored_component_pictures": 1,
+          "generation_calls": 1,
+          "native_rejects": 0,
+          "technical_exports": 1,
+          "technical_runtime_targets": 1,
+          "technical_reexports": 0,
+          "backend": "builtin image_gen.imagegen; no model/version selector exposed or returned",
+          "model_version": null,
+          "animation_calls": 0,
+          "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+          "check_count_unit": "702candidatePASS,0newsource assertions; original source291assertions/3strict-float failures with separate precision receipt retain immutable historical scope. Configured repeated assertions, not unique requirements/formalQA11.",
+          "new_native_frame_events": {
+            "bounded": 54,
+            "excluded": 0,
+            "retained": 54
+          },
+          "reused_historical_context_frames": 54,
+          "current_source_frames_reused_without_recapture": 54,
+          "reused_source_new_frame_credit": 0,
+          "acceptance_scope": "AI provisional static coal material review after4candidate/2source full-native and108phone views. Complete action/contact/motion/formal/device/child/owner/global gates open, no full10axisfloor.",
+          "invisible_geometry": "Every original MIN_TOUCH choice bound, mouse-ignore icon and42square eye root/socket/pivot retained,0newnodes or geometry. Only3texture paths in2functions change.",
+          "original_controller_other_methods_LF_exact": 28,
+          "full_game_probe_unchanged": true,
+          "Dev_integrated": false,
+          "new_partial_Dev_artifacts": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "whole_role_closed": false,
+          "accepted_removed": 0,
+          "mission_complete": false,
+          "static_item_call_cap": 2,
+          "calls_remaining": 1,
+          "configured_instance_topology": "One shared256square painted texture, max2visible coal cards across choices/eye transfer/chase/cleanup; originalcarrot/body/ground/controls unchanged. No newacting.",
+          "runtime_base_RGBA_bytes": 262144,
+          "actual_decoded_mips_bytes": 349524,
+          "mip_budget_ceiling_bytes": 350000,
+          "excluded_capture_runs": 0,
+          "failed_zero_frame_launches": 0,
+          "source_capture_history": "OriginalR131setup/strictprecisionfailures unchanged immutable,0newfailedsourceattempts here.",
+          "static_evidence_mode": "Exact frozenDev27c88288same-scene source reuse; original virtualstick vectors/manualtick and actualsingleindex0taps, no physicaltouch/naturalroute/formalQA11.",
+          "phone_size_review": "108wholeHUD views at30percent in18Aseprite boards, all inspected;54sourcephone bytes reused,54newcandidate derivatives,0extra nativecredit.",
+          "export_dimension_expectation": "Actual native1254square, exact transparent1280canvas padding retaining everyRGBA pixel, uniform256Aseprite runtime; no reexport.",
+          "raw_native_assertions": 702,
+          "candidate_native_assertions_pass": 702,
+          "new_source_native_assertions": 0,
+          "full_ten_axis_floor_met": false,
+          "complete_contact_motion_acceptance": null,
+          "source_revision": "8336662539411e251871b2c86718ef75c615c60e",
+          "source_branch": "codex/flat-vector-snowman-coal-20261103",
+          "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/MANIFEST.json",
+          "source_required_files": 386,
+          "source_all_required_anonymous_exact": true,
+          "source_CI_snapshot": [
+            {
+              "conclusion": "",
+              "databaseId": 41636586716,
+              "headSha": "8336662539411e251871b2c86718ef75c615c60e",
+              "status": "in_progress",
+              "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41636586716",
+              "workflowName": "Probe suite (graphics fork)"
+            }
+          ],
+          "owner_scope": {
+            "owner_text": "Resume art candidates; keep Dev frozen",
+            "evidence": "Latest direct owner reply to request_user_input_async call_bcb54db8e54645f0bdf33f9786a3ad04; chat01a119cc-74b1-7d23-b956-126129405418",
+            "decision_timestamp": "Not supplied in reply; observation time separate",
+            "observed_at_utc": "2026-11-03T09:15:58.715532+00:00",
+            "scope": "New static candidates/work-branch integration and mandatory public source/canonical GitHub delivery. No Dev/master write, promotion/release, automation resume or other-chat messaging.",
+            "prior_automation_paused": true,
+            "current_item": "R132 FV-0FCB49F07274 painted coal static candidate; Dev/master frozen"
+          }
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Actual same-scene/native/source/neighbor provenance; quality-based reuse or ImageGen without failed-reuse prerequisite",
+        "Applicable source import/analyzer/static/2D/input/passive/save/resource/teardown gates",
+        "FormalQA11/natural-route/device/child/owner/full activity/global acceptance remains separately open"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -27327,15 +27424,28 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Review Snowman coal eye token during Snowman coal eye token active/rest/changed/payoff/settle states on Current picture_snowman consumer from scripts/games/picture_games.gd:407 (_mg_snow_face_phase). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261103-R132-SOURCE",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/FRAME_REVIEW.json",
+          "source_revision": "8336662539411e251871b2c86718ef75c615c60e",
+          "status": "SOURCE_CANDIDATE_NOT_FORMAL_QA11"
+        }
+      ],
+      "proposed_update": "Review one static painted coal in actual twochoice/partialtransfer/twoeyes/chase/clear/reentry at3aspects; resolve complete action/formal/device/child/owner/global separately; Dev frozen.",
       "route_refs": [
         "picture.snowman",
         "game.pic_snowman"
       ],
       "route_evidence": "Current picture_snowman consumer from scripts/games/picture_games.gd:407 (_mg_snow_face_phase)",
       "context_action": "Snowman coal eye token active/rest/changed/payoff/settle states",
-      "source_image_reviews": [],
+      "source_image_reviews": [
+        {
+          "source_revision": "8336662539411e251871b2c86718ef75c615c60e",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/REFERENCE_BINDING.json",
+          "roles": "Actual coal identity/palette and actual carrot style-only; screenshots context text only; native/prompt hashes preserved"
+        }
+      ],
       "individual_brief_id": "PIECE-FV-0FCB49F07274",
       "independent_action_partial_context_review": {
         "evidence": "root_picture_actions_review_20261012/review.json",
@@ -27345,7 +27455,20 @@
         "status": "PARTIAL_ACTION_WEAKNESS_CONTEXT_REVIEW",
         "device_child_owner_acceptance": false,
         "replacement_acceptance": false
-      }
+      },
+      "r132_prior_status": "NEEDS_CONTEXT_REVIEW",
+      "source_candidate_outputs": [
+        {
+          "revision": "8336662539411e251871b2c86718ef75c615c60e",
+          "path": "assets/mg/snowman_coal_painted.png",
+          "sha256": "279dffbe48bf8e42c195bd118b50e6fc71ae1e9179c2f182ed81572853448612",
+          "dimensions": [
+            256,
+            256
+          ]
+        }
+      ],
+      "configured_source_instance_topology": "One shared256square painted texture, max2visible coal cards across choices/eye transfer/chase/cleanup; originalcarrot/body/ground/controls unchanged. No newacting."
     },
     {
       "id": "FV-C6F64FAA2F32",
@@ -28039,7 +28162,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261103-R131-CI-SUCCESS",
+  "revision": "FV-AUDIT-20261103-R132-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -44291,5 +44414,91 @@
     "Dev_integrated": false,
     "accepted_removed": 0,
     "mission_complete": false
+  },
+  "r132_parent_receipt_revision": "958ae3f0bde02e3c546e56c8f5e86ed73a3719c3",
+  "r132_snowman_coal_runtime": {
+    "stable_ids": [
+      "FV-0FCB49F07274"
+    ],
+    "state": "SOURCE_BRANCH_PAINTED_COAL_STATIC_CANDIDATE_FULL_ACTION_OPEN",
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "new_runtime_PNG": 1,
+    "native_generated_samples": 1,
+    "authored_component_pictures": 1,
+    "generation_calls": 1,
+    "native_rejects": 0,
+    "technical_exports": 1,
+    "technical_runtime_targets": 1,
+    "technical_reexports": 0,
+    "backend": "builtin image_gen.imagegen; no model/version selector exposed or returned",
+    "model_version": null,
+    "animation_calls": 0,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "check_count_unit": "702candidatePASS,0newsource assertions; original source291assertions/3strict-float failures with separate precision receipt retain immutable historical scope. Configured repeated assertions, not unique requirements/formalQA11.",
+    "new_native_frame_events": {
+      "bounded": 54,
+      "excluded": 0,
+      "retained": 54
+    },
+    "reused_historical_context_frames": 54,
+    "current_source_frames_reused_without_recapture": 54,
+    "reused_source_new_frame_credit": 0,
+    "acceptance_scope": "AI provisional static coal material review after4candidate/2source full-native and108phone views. Complete action/contact/motion/formal/device/child/owner/global gates open, no full10axisfloor.",
+    "invisible_geometry": "Every original MIN_TOUCH choice bound, mouse-ignore icon and42square eye root/socket/pivot retained,0newnodes or geometry. Only3texture paths in2functions change.",
+    "original_controller_other_methods_LF_exact": 28,
+    "full_game_probe_unchanged": true,
+    "Dev_integrated": false,
+    "new_partial_Dev_artifacts": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_role_closed": false,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "static_item_call_cap": 2,
+    "calls_remaining": 1,
+    "configured_instance_topology": "One shared256square painted texture, max2visible coal cards across choices/eye transfer/chase/cleanup; originalcarrot/body/ground/controls unchanged. No newacting.",
+    "runtime_base_RGBA_bytes": 262144,
+    "actual_decoded_mips_bytes": 349524,
+    "mip_budget_ceiling_bytes": 350000,
+    "excluded_capture_runs": 0,
+    "failed_zero_frame_launches": 0,
+    "source_capture_history": "OriginalR131setup/strictprecisionfailures unchanged immutable,0newfailedsourceattempts here.",
+    "static_evidence_mode": "Exact frozenDev27c88288same-scene source reuse; original virtualstick vectors/manualtick and actualsingleindex0taps, no physicaltouch/naturalroute/formalQA11.",
+    "phone_size_review": "108wholeHUD views at30percent in18Aseprite boards, all inspected;54sourcephone bytes reused,54newcandidate derivatives,0extra nativecredit.",
+    "export_dimension_expectation": "Actual native1254square, exact transparent1280canvas padding retaining everyRGBA pixel, uniform256Aseprite runtime; no reexport.",
+    "raw_native_assertions": 702,
+    "candidate_native_assertions_pass": 702,
+    "new_source_native_assertions": 0,
+    "full_ten_axis_floor_met": false,
+    "complete_contact_motion_acceptance": null,
+    "source_revision": "8336662539411e251871b2c86718ef75c615c60e",
+    "source_branch": "codex/flat-vector-snowman-coal-20261103",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/MANIFEST.json",
+    "source_required_files": 386,
+    "source_all_required_anonymous_exact": true,
+    "source_CI_snapshot": [
+      {
+        "conclusion": "",
+        "databaseId": 41636586716,
+        "headSha": "8336662539411e251871b2c86718ef75c615c60e",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41636586716",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "owner_scope": {
+      "owner_text": "Resume art candidates; keep Dev frozen",
+      "evidence": "Latest direct owner reply to request_user_input_async call_bcb54db8e54645f0bdf33f9786a3ad04; chat01a119cc-74b1-7d23-b956-126129405418",
+      "decision_timestamp": "Not supplied in reply; observation time separate",
+      "observed_at_utc": "2026-11-03T09:15:58.715532+00:00",
+      "scope": "New static candidates/work-branch integration and mandatory public source/canonical GitHub delivery. No Dev/master write, promotion/release, automation resume or other-chat messaging.",
+      "prior_automation_paused": true,
+      "current_item": "R132 FV-0FCB49F07274 painted coal static candidate; Dev/master frozen"
+    }
   }
 }
