@@ -1,0 +1,32 @@
+{
+  "state": "SINGLE_NEW_VERIFIER_API_CALL_CORRECTED_NO_PRODUCTION_CHANGE",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "initial_probe_sha256": "3ecb3f3dbaef2a177980a8db91fa5ae329fbd074533f215a103a405df6849050",
+  "initial_source_pin_sha256": "fcd849bfa1056d889df2707741b935b74f34434b253e0f059b7562e26d27a55e",
+  "healthy_complete_static_sha256": "72ab4edae69bd0f81f40a7d25118f4d8794ee732155503a14c9c0f1ac72e8ed4",
+  "failed_suite_sha256": "9d2139cac11fd62f3f65ff620c3ed3b8fbb5b0b0d9a0635efbd3e585db999f3b",
+  "pre_fix_index_sha256": "47606a5e9d7bdab15ea186ce901f85877b36ba6fe5b938e90959d82f3d255e41",
+  "actual_error": "Invalid call. Nonexistent function 'has_alpha' in base 'Image'.",
+  "actual_supported_diagnostic_log_sha256": "567f43c37c595815a5782786bc6514c93ebf68568adb9bcfabe65f99753564a9",
+  "new_api": "Image.detect_alpha() == Image.ALPHA_BLEND; exact approved engine confirms both PNGs have blended alpha.",
+  "generation_repeated": false,
+  "export_repeated": false,
+  "import_repeated": false,
+  "native_capture_repeated": false,
+  "normal_save_artifacts_unchanged": true,
+  "corrected_probe_sha256": "12cb888b54550ee73148bd80b11046e32fb8468cbdb385bc42878b8007ae8832",
+  "pre_fix_index_entries": 33906,
+  "unchanged_other_index_entries": 33905,
+  "changed_index_entries": [
+    "scripts/probe_melody.gd"
+  ],
+  "old_good_static_reused": true,
+  "current_parser_inference_authority_development_analyzer_2D_and_all82_required": true,
+  "old_probe_OK_lines": 200,
+  "old_probe_FAIL_lines": 0,
+  "old_script_error_lines": [
+    "SCRIPT ERROR: Invalid call. Nonexistent function 'has_alpha' in base 'Image'."
+  ],
+  "new_test": "Both exact256pxRGBAartwork files must report Image.ALPHA_BLEND via supported Image.detect_alpha(), while original exacthash/import/size checks remain. No assertion, floor, timeout or originalgame test removed.",
+  "old_api_diagnostic": "API_DIAGNOSTIC.log"
+}

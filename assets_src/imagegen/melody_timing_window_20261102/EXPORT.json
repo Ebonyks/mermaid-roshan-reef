@@ -1,0 +1,93 @@
+{
+  "engine_textures": [
+    {
+      "name": "medallion",
+      "native_path": "assets_src/imagegen/melody_timing_window_20261102/native/medallion_original.png",
+      "native_sha256": "fc1fd7e7b29468fe27533ed784a54f3f239b47599add85fe8d05d569cf856ed5",
+      "crop_rect_xywh": [
+        97,
+        101,
+        1056,
+        1056
+      ],
+      "all_alpha_above3_preserved": true,
+      "max_discarded_alpha": 1,
+      "uniform_resample": "Aseprite bilinear square crop to256x256; no masks,repainting,recoloring,independent symbol edits or guide pixels.",
+      "runtime_path": "assets/melody/timing_window_medallion_painted.png",
+      "path": "assets/melody/timing_window_medallion_painted.png",
+      "sha256": "efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833",
+      "size": [
+        256,
+        256
+      ],
+      "alpha_bounds": {
+        "0": [
+          1,
+          3,
+          255,
+          253
+        ],
+        "3": [
+          3,
+          4,
+          254,
+          252
+        ],
+        "31": [
+          3,
+          5,
+          254,
+          252
+        ]
+      },
+      "lossless_crop_roundtrip": true
+    },
+    {
+      "name": "aura",
+      "native_path": "assets_src/imagegen/melody_timing_window_20261102/native/aura_original.png",
+      "native_sha256": "e5a6ac30fae4ff0b7900f34078030f55b6259a9b2e5ac523c1ed6ad927f41eec",
+      "crop_rect_xywh": [
+        345,
+        84,
+        824,
+        824
+      ],
+      "all_alpha_above3_preserved": true,
+      "max_discarded_alpha": 1,
+      "uniform_resample": "Aseprite bilinear square crop to256x256; no masks,repainting,recoloring,independent symbol edits or guide pixels.",
+      "runtime_path": "assets/melody/timing_window_aura_painted.png",
+      "path": "assets/melody/timing_window_aura_painted.png",
+      "sha256": "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e",
+      "size": [
+        256,
+        256
+      ],
+      "alpha_bounds": {
+        "0": [
+          1,
+          0,
+          256,
+          252
+        ],
+        "3": [
+          6,
+          6,
+          251,
+          250
+        ],
+        "31": [
+          11,
+          11,
+          246,
+          245
+        ]
+      },
+      "lossless_crop_roundtrip": true
+    }
+  ],
+  "technical_exports": 2,
+  "reexports": 0,
+  "aseprite_exit": 0,
+  "exact_crop_roundtrips": 2,
+  "python_pixel_edits": 0
+}

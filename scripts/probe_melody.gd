@@ -450,6 +450,7 @@ func _run() -> void:
 
 
 func _check_asset_contract() -> void:
+	_check_timing_window_assets()
 	var master := Image.load_from_file(MASTER_PATH)
 	_check("approved Sky Lagoon v5 master is exact native 6144x2048",
 		master != null and master.get_size() == Vector2i(6144, 2048)
@@ -567,6 +568,7 @@ func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
 
 
 func _check_rendered_stage_contract(surface: Node2D) -> void:
+	_check_painted_timing_window(surface)
 	_check_runtime_texture_census(surface)
 	var layer_id: int = melody.active_layer().get_instance_id()
 	var progress_before: int = melody.progress_count()
@@ -875,6 +877,8 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 	var expected_paths: Array[String] = TILE_PATHS.duplicate()
 	expected_paths.append(DADDY_PATH)
 	expected_paths.append(ROSHAN_PATH)
+	expected_paths.append("res://assets/melody/timing_window_medallion_painted.png")
+	expected_paths.append("res://assets/melody/timing_window_aura_painted.png")
 	var exact_once := counts.size() == expected_paths.size()
 	var decoded_bytes := 0
 	var declared_upload_bytes := 0
@@ -887,9 +891,19 @@ func _check_runtime_texture_census(surface: Node2D) -> void:
 		var pixels: int = image.get_width() * image.get_height()
 		decoded_bytes += pixels * 4
 		var import_text := FileAccess.get_file_as_string(path + ".import")
-		declared_upload_bytes += pixels if import_text.contains(
+		var upload: int = pixels if import_text.contains(
 			"compress/mode=2") else pixels * 4
-	_check("live Canvas binds only four tiles, Daddy, and Roshan exactly once each",
+		# Account for resident mip levels without increasing the original ceilings.
+		if import_text.contains("mipmaps/generate=true"):
+			var mip_width: int = image.get_width()
+			var mip_height: int = image.get_height()
+			while mip_width > 1 or mip_height > 1:
+				mip_width = maxi(1, mip_width / 2)
+				mip_height = maxi(1, mip_height / 2)
+				decoded_bytes += mip_width * mip_height * 4
+				upload += mip_width * mip_height * 4
+		declared_upload_bytes += upload
+	_check("live Canvas binds four tiles, Daddy, Roshan and two complete timing paintings exactly once each",
 		exact_once)
 	_check("unique live texture census stays within conservative decoded and declared-upload bounds",
 		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024
@@ -950,8 +964,8 @@ func _surface_structure_exact(surface: Node2D) -> bool:
 				footlights, [], ["FootlightRailGeometry"]) \
 			or not _exact_typed_geometry_children(
 				star, ["StageStarGeometry"], []) \
-			or not _exact_typed_geometry_children(
-				zone, ["GreenWindowGeometry"], []) \
+			or not _exact_direct_child_names(
+				zone, ["PaintedTimingAura", "PaintedTimingMedallion"]) \
 			or not _exact_typed_geometry_children(pointer, [
 				"PointerTargetGeometry", "PointerArrowGeometry",
 			], [
@@ -1419,6 +1433,19 @@ func _collect_polygons(node: Node,
 
 
 func _subtree_has_green(node: Node) -> bool:
+	if node != null and String(node.name) == "TimingZone":
+		var card := node.get_node_or_null("PaintedTimingMedallion") as Sprite2D
+		if card == null or card.texture == null:
+			return false
+		var image := Image.load_from_file(card.texture.resource_path)
+		if image == null:
+			return false
+		for y in range(0, image.get_height(), 4):
+			for x in range(0, image.get_width(), 4):
+				var color: Color = image.get_pixel(x, y) * card.modulate
+				if color.a > 0.25 and color.g >= 0.45 and color.g > color.r * 1.12 and color.g > color.b * 1.05:
+					return true
+		return false
 	return _subtree_has_color_predicate(node, func(color: Color) -> bool:
 		return color.a > 0.25 and color.g >= 0.45 \
 			and color.g > color.r * 1.12 and color.g > color.b * 1.05)
@@ -2676,3 +2703,49 @@ func _finish() -> void:
 	else:
 		print("MELODY|result: %d FAIL" % bad)
 		quit(1)
+
+
+func _check_timing_window_assets() -> void:
+	var paths: Array[String] = ["res://assets/melody/timing_window_medallion_painted.png", "res://assets/melody/timing_window_aura_painted.png"]
+	var hashes: Array[String] = ["efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833", "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e"]
+	var good := true
+	for i in range(paths.size()):
+		var image := Image.load_from_file(paths[i])
+		var import_text := FileAccess.get_file_as_string(paths[i] + ".import")
+		good = good and image != null and image.get_size() == Vector2i(256, 256) and image.detect_alpha() == Image.ALPHA_BLEND and FileAccess.get_sha256(paths[i]) == hashes[i] and import_text.contains("compress/mode=0") and import_text.contains("mipmaps/generate=true") and import_text.contains("process/size_limit=1024")
+	_check("two exact authored timing paintings retain alpha, POT lossless imports and bounded mipmaps", good)
+
+
+func _check_painted_timing_window(surface: Node2D) -> void:
+	var zone := surface.get_node("TimingZone") as Control
+	var body := zone.get_node_or_null("PaintedTimingMedallion") as Sprite2D
+	var aura := zone.get_node_or_null("PaintedTimingAura") as Sprite2D
+	var whole := body != null and aura != null and zone.get_child_count() == 2 and zone.get_node_or_null("GreenWindowGeometry") == null
+	_check("visible timing primitive fallback is retired in favor of two whole authored Sprite2D pictures", whole)
+	if not whole:
+		return
+	var source := FileAccess.get_file_as_string("res://scripts/games/melody.gd")
+	var section: String = source.split("class TimingZoneCanvas")[1].split("class PointerCanvas")[0]
+	_check("timing artwork has no custom-draw/polygon fallback", not section.contains("draw_") and not section.contains("Polygon2D"))
+	var valid := zone.z_index == 28 and zone.mouse_filter == Control.MOUSE_FILTER_IGNORE and zone.focus_mode == Control.FOCUS_NONE and body.texture.resource_path == "res://assets/melody/timing_window_medallion_painted.png" and aura.texture.resource_path == "res://assets/melody/timing_window_aura_painted.png"
+	for card: Sprite2D in [body, aura]:
+		valid = valid and card.centered and not card.region_enabled and card.hframes == 1 and card.vframes == 1 and card.rotation == 0.0 and card.material == null and card.self_modulate == Color.WHITE and is_equal_approx(card.scale.x, card.scale.y) and card.get_child_count() == 0
+	valid = valid and body.modulate == Color.WHITE and aura.modulate.is_equal_approx(Color(1.0, 1.0, 1.0, 0.24)) and body.z_index == 0 and aura.z_index == -1
+	_check("whole pictures keep original z/input/opacity and have no materials, tint or independent symbol pieces", valid)
+	var original_position: Vector2 = zone.position
+	var original_size: Vector2 = zone.size
+	var original_pulse: float = float(zone.get("pulse"))
+	var invariant := true
+	for side: float in [160.0, 180.0, 190.0]:
+		zone.call("layout", Rect2(Vector2(20.0, 30.0), Vector2.ONE * side))
+		var fixed_body_position: Vector2 = body.position
+		var fixed_body_scale: Vector2 = body.scale
+		for phase: float in [0.0, PI / 10.0, 3.0 * PI / 10.0]:
+			zone.call("advance", phase)
+			var expected_diameter: float = (side * 0.43 + 18.0 + 3.0 + sin(phase * 5.0) * 3.0) * 2.0
+			var body_center: Vector2 = body.position + Vector2(0.5, 0.0) * body.scale
+			var aura_center: Vector2 = aura.position + Vector2(0.5, 0.0) * aura.scale
+			invariant = invariant and body.position.is_equal_approx(fixed_body_position) and body.scale.is_equal_approx(fixed_body_scale) and body_center.is_equal_approx(Vector2.ONE * side * 0.5) and aura_center.is_equal_approx(Vector2.ONE * side * 0.5) and is_equal_approx(body.scale.x * 251.0, side) and is_equal_approx(aura.scale.x * 245.0, expected_diameter) and zone.position.is_equal_approx(Vector2(20.0, 30.0)) and zone.size.is_equal_approx(Vector2.ONE * side)
+	zone.call("layout", Rect2(original_position, original_size))
+	zone.call("advance", original_pulse)
+	_check("160/180/190px logical boxes retain centered fixed medallion and original5rad/s0..6px aura breath at min/mid/max phases", invariant)

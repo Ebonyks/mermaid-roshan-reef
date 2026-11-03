@@ -261,61 +261,57 @@ class StageStarCanvas extends Control:
 
 
 class TimingZoneCanvas extends Control:
-	const NAVY := MelodyGame.NAVY
-	const MINT := MelodyGame.MINT
-	const PAPER := MelodyGame.PAPER
+	# Complete authored pictures; the functional scoring Rect2 stays on the game.
+	const BODY := preload("res://assets/melody/timing_window_medallion_painted.png")
+	const AURA := preload("res://assets/melody/timing_window_aura_painted.png")
+	# Native-alpha>3 export bounds, measured before import; no generated masks.
+	const BODY_BOUNDS := Rect2(3.0, 4.0, 251.0, 248.0)
+	const AURA_BOUNDS := Rect2(6.0, 6.0, 245.0, 244.0)
 
 	var pulse := 0.0
-	var green_geometry: Polygon2D = null
+	var medallion: Sprite2D = null
+	var aura: Sprite2D = null
 
 
 	func setup() -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 28
-		green_geometry = Polygon2D.new()
-		green_geometry.name = "GreenWindowGeometry"
-		green_geometry.color = Color(0.16, 0.78, 0.38, 0.92)
-		green_geometry.z_index = -1
-		add_child(green_geometry)
+		aura = Sprite2D.new()
+		aura.name = "PaintedTimingAura"
+		aura.texture = AURA
+		aura.z_index = -1
+		# Retain the original aura's uniform opacity; authored RGB is untinted.
+		aura.modulate.a = 0.24
+		add_child(aura)
+		medallion = Sprite2D.new()
+		medallion.name = "PaintedTimingMedallion"
+		medallion.texture = BODY
+		add_child(medallion)
 
 
 	func layout(rect: Rect2) -> void:
 		position = rect.position
 		size = rect.size
-		var bevel: float = minf(size.x, size.y) * 0.20
-		green_geometry.polygon = PackedVector2Array([
-			Vector2(bevel, 0.0), Vector2(size.x - bevel, 0.0),
-			Vector2(size.x, bevel), Vector2(size.x, size.y - bevel),
-			Vector2(size.x - bevel, size.y), Vector2(bevel, size.y),
-			Vector2(0.0, size.y - bevel), Vector2(0.0, bevel),
-		])
-		queue_redraw()
+		var body_scale: float = minf(size.x, size.y) / BODY_BOUNDS.size.x
+		medallion.scale = Vector2.ONE * body_scale
+		medallion.position = size * 0.5 - (
+			BODY_BOUNDS.get_center() - BODY.get_size() * 0.5) * body_scale
+		_layout_aura()
 
 
 	func advance(elapsed: float) -> void:
 		pulse = elapsed
-		queue_redraw()
+		_layout_aura()
 
 
-	func _draw() -> void:
-		var center := size * 0.5
+	func _layout_aura() -> void:
 		var radius: float = minf(size.x, size.y) * 0.43
 		var breathe: float = 3.0 + sin(pulse * 5.0) * 3.0
-		draw_circle(center, radius + 18.0 + breathe,
-			Color(MINT.r, MINT.g, MINT.b, 0.24), true, -1.0, true)
-		draw_circle(center, radius + 9.0, NAVY, true, -1.0, true)
-		draw_circle(center, radius, Color(0.16, 0.78, 0.38, 0.92),
-			true, -1.0, true)
-		draw_arc(center, radius - 10.0, 0.0, TAU, 48, PAPER, 7.0, true)
-		# A simple play triangle is readable without words and distinguishes the
-		# green timing window from scenery.
-		var triangle := PackedVector2Array([
-			center + Vector2(-18.0, -26.0),
-			center + Vector2(31.0, 0.0),
-			center + Vector2(-18.0, 26.0),
-		])
-		draw_colored_polygon(triangle, Color.WHITE)
+		var aura_scale: float = (radius + 18.0 + breathe) * 2.0 / AURA_BOUNDS.size.x
+		aura.scale = Vector2.ONE * aura_scale
+		aura.position = size * 0.5 - (
+			AURA_BOUNDS.get_center() - AURA.get_size() * 0.5) * aura_scale
 
 
 class PointerCanvas extends Control:
@@ -587,6 +583,8 @@ static func runtime_art_paths() -> Array[String]:
 		paths.append(tile_path)
 	paths.append(DADDY_PATH)
 	paths.append(ROSHAN_PATH)
+	paths.append(TimingZoneCanvas.BODY.resource_path)
+	paths.append(TimingZoneCanvas.AURA.resource_path)
 	return paths
 
 

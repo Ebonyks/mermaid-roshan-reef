@@ -1,0 +1,67 @@
+{
+  "state": "PASS",
+  "original_complete_static": {
+    "state": "PASS",
+    "exit_code": 0,
+    "log_sha256": "72ab4edae69bd0f81f40a7d25118f4d8794ee732155503a14c9c0f1ac72e8ed4",
+    "prefix_sha256": "a3947e8cb9863b814c7eb75dcc136fac9265f5238b34c1e53c6772b95f122fe3",
+    "ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e"
+  },
+  "original_static_source_pin_sha256": "fcd849bfa1056d889df2707741b935b74f34434b253e0f059b7562e26d27a55e",
+  "api_recovery_sha256": "5a2cc4de4a553c7fde1a92706f607c07d44233ea519bf66340cf58d88ef9d0be",
+  "unchanged_other_index_entries": 33905,
+  "scope": "Only the newly added alpha verifier API call changed. All other tested index entries/production assets/controller remain unchanged; no original gate lowered or suppressed. Fresh actual changed parser/inference and metadata authority/development gates accompany complete healthy global static reuse.",
+  "fresh_changed_gates": [
+    {
+      "label": "PARSER",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/games/melody.gd",
+        "scripts/probe_melody.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r128_melody_timing_window_runtime\\capture_timing_window.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "INFERENCE",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/games/melody.gd",
+        "scripts/probe_melody.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r128_melody_timing_window_runtime\\capture_timing_window.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "AUTHORITY",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "3a043484566184d4a0a85facaeaf286d398594f5415b384bf651fd50182010b1"
+    },
+    {
+      "label": "DEVELOPMENT",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "bfdebdcdf9b9fe6339c10a3e217412a82484429cf183c3865a29b7ead7bf2936"
+    }
+  ],
+  "log_sha256": "72ab4edae69bd0f81f40a7d25118f4d8794ee732155503a14c9c0f1ac72e8ed4",
+  "prefix_sha256": "a3947e8cb9863b814c7eb75dcc136fac9265f5238b34c1e53c6772b95f122fe3",
+  "ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e"
+}
