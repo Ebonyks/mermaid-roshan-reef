@@ -1,6 +1,6 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261103-R131-SOURCE",
+  "revision": "FV-AUDIT-20261103-R131-CI-SUCCESS",
   "current_entry": "r131_snowball_runtime/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
@@ -5969,5 +5969,184 @@
       "scope": "New static candidates/work-branch integration and mandatory public source/canonical GitHub delivery. No Dev/master write, promotion/release, automation resume or other-chat messaging.",
       "prior_automation_paused": true
     }
+  },
+  "r131_terminal_CI_observation": {
+    "state": "FULL_EXACT_SOURCE_CI_SUCCESS_MAIN_AND_MUSIC",
+    "source_revision": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+    "run_id": 41615479207,
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41615479207",
+    "status": "completed",
+    "overall_conclusion": "success",
+    "main_job": {
+      "id": 125847759811,
+      "conclusion": "success",
+      "started_at": "2026-11-03T09:59:36Z",
+      "completed_at": "2026-11-03T11:08:17Z",
+      "verified_success_steps": [
+        {
+          "number": 1,
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "number": 2,
+          "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "conclusion": "success"
+        },
+        {
+          "number": 3,
+          "name": "Download Godot (checksum-verified)",
+          "conclusion": "success"
+        },
+        {
+          "number": 4,
+          "name": "Static gates (parse + Variant-inference lint)",
+          "conclusion": "success"
+        },
+        {
+          "number": 5,
+          "name": "Import (deadlock-guarded)",
+          "conclusion": "success"
+        },
+        {
+          "number": 6,
+          "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+          "conclusion": "success"
+        },
+        {
+          "number": 7,
+          "name": "Run trusted probes",
+          "conclusion": "success"
+        },
+        {
+          "number": 8,
+          "name": "Boot gate (real viewport \u2014 the area the phone opens in)",
+          "conclusion": "success"
+        },
+        {
+          "number": 9,
+          "name": "Dust boss balance playtest (advisory)",
+          "conclusion": "success"
+        },
+        {
+          "number": 10,
+          "name": "Opera balance playtest (advisory)",
+          "conclusion": "success"
+        },
+        {
+          "number": 11,
+          "name": "Publish opera art manifest (advisory)",
+          "conclusion": "success"
+        },
+        {
+          "number": 12,
+          "name": "Upload opera art manifest",
+          "conclusion": "success"
+        },
+        {
+          "number": 13,
+          "name": "Capture first-world visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 14,
+          "name": "Capture legacy human-art diagnostic",
+          "conclusion": "success"
+        },
+        {
+          "number": 15,
+          "name": "Upload legacy human-art diagnostic",
+          "conclusion": "success"
+        },
+        {
+          "number": 16,
+          "name": "Capture Sky Lagoon visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 17,
+          "name": "Upload Sky Lagoon visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 18,
+          "name": "Capture northern-world visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 19,
+          "name": "Upload northern-world visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 20,
+          "name": "Capture dust-boss arena review",
+          "conclusion": "success"
+        },
+        {
+          "number": 21,
+          "name": "Upload dust-boss arena review",
+          "conclusion": "success"
+        },
+        {
+          "number": 22,
+          "name": "Capture pearl-castle visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 23,
+          "name": "Upload pearl-castle visual review",
+          "conclusion": "success"
+        },
+        {
+          "number": 24,
+          "name": "Upload advisory sensor receipts",
+          "conclusion": "success"
+        }
+      ],
+      "remote_assertive_headless_programs": 81,
+      "separate_legacy_display_diagnostic": true,
+      "coverage": "docs/handoffs/codex_flat_vector_art_2026-10-07/r131_snowball_runtime/CI_VERIFIED_PROBE_COVERAGE.json",
+      "log_sha256": "82baa81c48e2e4c335de1f32110014b8d26bd1c2ca93516e02dffcd9f870d41a"
+    },
+    "music_job": {
+      "id": 125847759475,
+      "conclusion": "success",
+      "completed_at": "2026-11-03T10:09:58Z",
+      "deterministic_verification_ran": true,
+      "log_sha256": "d2445ad1ddb18387a06d81d61971951299c19e8f8e43134b977583b89a0da322"
+    },
+    "full_run_pass": true,
+    "local_trusted_programs_executed": 82,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "local_program_scope_note": "The local82-program list includes the display-only human-art program, which reports HEADLESS SKIP without assertions. CI intentionally runs81 assertive headless programs and a separate legacy display diagnostic. Neither grants formalQA11.",
+    "candidate_native_checks": 453,
+    "original_source_native_assertions": 291,
+    "original_source_native_pass": 288,
+    "original_source_exact_float_failures_retained": 3,
+    "narrow_geometry_measurement_receipt": 3,
+    "successful_configured_preflight_assertions": 16,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "source_candidate_unchanged": true,
+    "historical_art_delivery": {
+      "source_revision": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+      "canonical_payload": "812730c4e111f63ac7737829325ed0fa3d11f068",
+      "canonical_receipt": "71ad93c6fa2f965c1fe97431c4ec19e9a270d92c"
+    },
+    "CI_visual_artifacts": "Unchanged-world diagnostic artifacts outside the selected Snowball material review; not ingested or credited here as Snowball frames, accepted artwork or formalQA11.",
+    "observer_terminal": {
+      "pid": 93872,
+      "exit_code": 0
+    },
+    "remote_rerun_requested": false,
+    "workflow_edited": false,
+    "new_artwork_credit": 0,
+    "new_frame_events": 0,
+    "Dev_integrated": false,
+    "accepted_removed": 0,
+    "mission_complete": false
   }
 }
