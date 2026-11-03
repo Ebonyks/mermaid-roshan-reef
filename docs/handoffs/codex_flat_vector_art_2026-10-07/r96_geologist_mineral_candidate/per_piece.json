@@ -26898,7 +26898,14 @@
         "hash_mode": "LF-canonical text"
       },
       "source_scope_ids": [],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        {
+          "source_revision": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+          "path": "scripts/games/picture_games.gd",
+          "node": "_mg_snow_new_ball/SnowballPainted; _mg_snow_ball_size",
+          "scope": "Work branch only; Dev frozen"
+        }
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
         "coverage_state": "COVERAGE_GAP",
@@ -26912,8 +26919,8 @@
       "context_brief_id": "BRIEF-PICTURE_SNOWMAN",
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
-      "named_gap": null,
-      "status": "IDENTIFIED",
+      "named_gap": "Current Snowman rolling/stacked family used flat circle/gloss bodies. R131 supplies one whole painted sphere shared across three sizes and original action; invisible Panel/controller/face/input unchanged, complete contact/motion acceptance open.",
+      "status": "SOURCE_CANDIDATE",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -26922,12 +26929,98 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r131_source_candidate": {
+          "stable_ids": [
+            "FV-C99F706798D3"
+          ],
+          "state": "SOURCE_BRANCH_PAINTED_SNOWBALL_STATIC_CANDIDATE_CONTACT_OPEN",
+          "new_bounded_source_artifacts": 1,
+          "existing_named_roles": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "new_runtime_PNG": 1,
+          "native_generated_samples": 1,
+          "authored_component_pictures": 1,
+          "generation_calls": 1,
+          "native_rejects": 0,
+          "technical_exports": 1,
+          "backend": "builtin image_gen; no model/version selector exposed",
+          "model_version": null,
+          "animation_calls": 0,
+          "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+          "native_effective_checks": null,
+          "check_count_unit": "453candidatePASS +288/291sourcePASS,3strict-float failures kept with narrow0.002px measurement receipt; configured repeated assertions, not unique requirements/formalQA11.",
+          "new_native_frame_events": {
+            "bounded": 108,
+            "excluded": 0,
+            "retained": 108
+          },
+          "reused_historical_context_frames": 0,
+          "acceptance_scope": "AI local static material axes provisional after10candidate/3source fullsize and108phone views. Complete contact/motion axis null: inherited floating upper masses/clipping/eating performance and whole scene unaccepted. No full10axisfloor/formal/device/child/owner/global claim.",
+          "invisible_geometry": "Original typed Panel remains only invisible size2r/center-r/pivot/defaultmouse geometry; one whole mouse-ignore TextureRect(-6,-3),root+12 inside old shadow footprint.",
+          "original_controller_other_methods_LF_exact": 28,
+          "full_game_probe_unchanged": true,
+          "Dev_integrated": false,
+          "new_partial_Dev_artifacts": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "whole_role_closed": false,
+          "accepted_removed": 0,
+          "mission_complete": false,
+          "static_item_call_cap": 2,
+          "calls_remaining": 1,
+          "technical_runtime_targets": 1,
+          "technical_reexports": 0,
+          "configured_instance_topology": "One shared512square painted texture, max3live whole cards for growth/stack/chase/bite; no visible circle/gloss fallback in selected functions, shared_circle/ground callers unchanged.",
+          "runtime_base_RGBA_bytes": 1048576,
+          "mip_budget_ceiling_bytes": 1500000,
+          "excluded_capture_runs": 0,
+          "failed_zero_frame_launches": 2,
+          "static_evidence_mode": "Same frozenDev27c88288before/after. Original trusted virtualstick vector branch/manual controller tick and real screen face taps; no physical-touch/natural-route/formalQA11 claim.",
+          "phone_size_review": "108whole-HUD views at30percent in18Aseprite boards, all inspected; no new nativeframe credit.",
+          "export_dimension_expectation": "Actual native1254square->exact980square crop->512square uniform Aseprite export, no runtime reexport.",
+          "raw_native_assertions": 744,
+          "candidate_native_assertions_pass": 453,
+          "source_native_assertions": 291,
+          "source_native_pass": 288,
+          "source_strict_precision_failures_retained": 3,
+          "narrow_precision_supplement_checks": 3,
+          "actual_decoded_mips_bytes": 1398100,
+          "full_ten_axis_floor_met": false,
+          "complete_contact_motion_acceptance": null,
+          "current_source_frames_reused_without_recapture": 18,
+          "source_revision": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+          "source_branch": "codex/flat-vector-snowballs-20261103",
+          "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r131_snowball_runtime/MANIFEST.json",
+          "source_required_files": 409,
+          "source_all_required_anonymous_exact": true,
+          "source_CI_snapshot": [
+            {
+              "conclusion": "",
+              "databaseId": 41615479207,
+              "headSha": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+              "status": "in_progress",
+              "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41615479207",
+              "workflowName": "Probe suite (graphics fork)"
+            }
+          ],
+          "owner_scope": {
+            "owner_text": "Resume art candidates; keep Dev frozen",
+            "evidence": "Latest direct owner reply to request_user_input_async call_bcb54db8e54645f0bdf33f9786a3ad04; chat01a119cc-74b1-7d23-b956-126129405418",
+            "decision_timestamp": "Not supplied in reply; observation time separate",
+            "observed_at_utc": "2026-11-03T09:15:58.715532+00:00",
+            "scope": "New static candidates/work-branch integration and mandatory public source/canonical GitHub delivery. No Dev/master write, promotion/release, automation resume or other-chat messaging.",
+            "prior_automation_paused": true
+          }
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Actual same-scene/native/source/neighbor provenance; quality-based reuse or ImageGen without failed-reuse prerequisite",
+        "Applicable source import/analyzer/static/2D/input/passive/save/resource/teardown gates",
+        "FormalQA11/natural-route/device/child/owner acceptance remains separately open"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -26942,8 +27035,15 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Review Snowball rolling/stacked family during Snowball rolling/stacked family active/rest/changed/payoff/settle states on Current picture_snowman consumer from scripts/games/picture_games.gd:351 (_mg_snow_new_ball). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261103-R131-SOURCE",
+          "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r131_snowball_runtime/FRAME_REVIEW.json",
+          "source_revision": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+          "status": "SOURCE_CANDIDATE_NOT_FORMAL_QA11"
+        }
+      ],
+      "proposed_update": "Review one static painted sphere across growth/three stacks/face/chase/three bites/carrot/win/reentry at3aspects; resolve whole contact/motion/formal/device/child/owner/global gates separately; keep Dev frozen.",
       "route_refs": [
         "picture.snowman",
         "game.pic_snowman"
@@ -26971,7 +27071,20 @@
         "status": "PARTIAL_ACTION_WEAKNESS_CONTEXT_REVIEW",
         "device_child_owner_acceptance": false,
         "replacement_acceptance": false
-      }
+      },
+      "r131_prior_status": "IDENTIFIED",
+      "source_candidate_outputs": [
+        {
+          "revision": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+          "path": "assets/mg/snowball_painted.png",
+          "sha256": "07eac348486145d2c32c6da7c645b4099679aabbbe938263dbf612def779be11",
+          "dimensions": [
+            512,
+            512
+          ]
+        }
+      ],
+      "configured_source_instance_topology": "One shared512square painted texture, max3live whole cards for growth/stack/chase/bite; no visible circle/gloss fallback in selected functions, shared_circle/ground callers unchanged."
     },
     {
       "id": "FV-0FCB49F07274",
@@ -27747,7 +27860,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261103-R130-CI-SUCCESS",
+  "revision": "FV-AUDIT-20261103-R131-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -43733,5 +43846,92 @@
     "Dev_integrated": false,
     "accepted_removed": 0,
     "mission_complete": false
+  },
+  "r131_parent_receipt_revision": "11dfe8f887f5db58c06cc4e8e74b572e6096b399",
+  "r131_snowball_runtime": {
+    "stable_ids": [
+      "FV-C99F706798D3"
+    ],
+    "state": "SOURCE_BRANCH_PAINTED_SNOWBALL_STATIC_CANDIDATE_CONTACT_OPEN",
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "new_runtime_PNG": 1,
+    "native_generated_samples": 1,
+    "authored_component_pictures": 1,
+    "generation_calls": 1,
+    "native_rejects": 0,
+    "technical_exports": 1,
+    "backend": "builtin image_gen; no model/version selector exposed",
+    "model_version": null,
+    "animation_calls": 0,
+    "local82": "PASS_ALL82_CURRENT_STATIC_ANALYZER_2D",
+    "native_effective_checks": null,
+    "check_count_unit": "453candidatePASS +288/291sourcePASS,3strict-float failures kept with narrow0.002px measurement receipt; configured repeated assertions, not unique requirements/formalQA11.",
+    "new_native_frame_events": {
+      "bounded": 108,
+      "excluded": 0,
+      "retained": 108
+    },
+    "reused_historical_context_frames": 0,
+    "acceptance_scope": "AI local static material axes provisional after10candidate/3source fullsize and108phone views. Complete contact/motion axis null: inherited floating upper masses/clipping/eating performance and whole scene unaccepted. No full10axisfloor/formal/device/child/owner/global claim.",
+    "invisible_geometry": "Original typed Panel remains only invisible size2r/center-r/pivot/defaultmouse geometry; one whole mouse-ignore TextureRect(-6,-3),root+12 inside old shadow footprint.",
+    "original_controller_other_methods_LF_exact": 28,
+    "full_game_probe_unchanged": true,
+    "Dev_integrated": false,
+    "new_partial_Dev_artifacts": 0,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "whole_role_closed": false,
+    "accepted_removed": 0,
+    "mission_complete": false,
+    "static_item_call_cap": 2,
+    "calls_remaining": 1,
+    "technical_runtime_targets": 1,
+    "technical_reexports": 0,
+    "configured_instance_topology": "One shared512square painted texture, max3live whole cards for growth/stack/chase/bite; no visible circle/gloss fallback in selected functions, shared_circle/ground callers unchanged.",
+    "runtime_base_RGBA_bytes": 1048576,
+    "mip_budget_ceiling_bytes": 1500000,
+    "excluded_capture_runs": 0,
+    "failed_zero_frame_launches": 2,
+    "static_evidence_mode": "Same frozenDev27c88288before/after. Original trusted virtualstick vector branch/manual controller tick and real screen face taps; no physical-touch/natural-route/formalQA11 claim.",
+    "phone_size_review": "108whole-HUD views at30percent in18Aseprite boards, all inspected; no new nativeframe credit.",
+    "export_dimension_expectation": "Actual native1254square->exact980square crop->512square uniform Aseprite export, no runtime reexport.",
+    "raw_native_assertions": 744,
+    "candidate_native_assertions_pass": 453,
+    "source_native_assertions": 291,
+    "source_native_pass": 288,
+    "source_strict_precision_failures_retained": 3,
+    "narrow_precision_supplement_checks": 3,
+    "actual_decoded_mips_bytes": 1398100,
+    "full_ten_axis_floor_met": false,
+    "complete_contact_motion_acceptance": null,
+    "current_source_frames_reused_without_recapture": 18,
+    "source_revision": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+    "source_branch": "codex/flat-vector-snowballs-20261103",
+    "source_manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r131_snowball_runtime/MANIFEST.json",
+    "source_required_files": 409,
+    "source_all_required_anonymous_exact": true,
+    "source_CI_snapshot": [
+      {
+        "conclusion": "",
+        "databaseId": 41615479207,
+        "headSha": "8864c00a19208e356aacb7845a9fb9e1909ffac4",
+        "status": "in_progress",
+        "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41615479207",
+        "workflowName": "Probe suite (graphics fork)"
+      }
+    ],
+    "owner_scope": {
+      "owner_text": "Resume art candidates; keep Dev frozen",
+      "evidence": "Latest direct owner reply to request_user_input_async call_bcb54db8e54645f0bdf33f9786a3ad04; chat01a119cc-74b1-7d23-b956-126129405418",
+      "decision_timestamp": "Not supplied in reply; observation time separate",
+      "observed_at_utc": "2026-11-03T09:15:58.715532+00:00",
+      "scope": "New static candidates/work-branch integration and mandatory public source/canonical GitHub delivery. No Dev/master write, promotion/release, automation resume or other-chat messaging.",
+      "prior_automation_paused": true
+    }
   }
 }

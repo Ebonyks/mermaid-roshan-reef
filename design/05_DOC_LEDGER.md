@@ -1482,3 +1482,5 @@ release/device/child/owner authority retain precedence.
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r129_melody_guide_runtime/README.md` | 🟣 | PROPOSED / SOURCE CANDIDATE; R129 painted guide, two native designs/three runtimePNG, Dev frozen; formal/external/global gaps open. |
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/README.md` | 🟣 | PROPOSED / SOURCE CANDIDATE; R130 whole painted trampoline, exact source285a0e6ee45aa1eccaca549fc5e94b1c2a2cce37;1native/1runtimePNG,all82/165candidate checks; Dev frozen and formal/external/global acceptance open. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r131_snowball_runtime/README.md` | 🟣 | PROPOSED / SOURCE STATIC CANDIDATE; R131 one painted Snowball/one512runtimePNG, exact source8864c00a19208e356aacb7845a9fb9e1909ffac4;453candidate assertions,108phone views and all82/current static/analyzer/2D; whole contact/formal/external/global open, Dev frozen. |
