@@ -1,0 +1,219 @@
+{
+  "rows": [
+    {
+      "name": "native_parser",
+      "args": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo\\actions.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo\\base.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo\\capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo\\render_legacy.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo\\seed_study.gd"
+      ],
+      "exit": 0,
+      "seconds": 12.878621500000008,
+      "pass": true,
+      "log": "native_parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "native_lint",
+      "args": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo\\actions.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo\\base.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo\\capture.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo\\render_legacy.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo\\seed_study.gd"
+      ],
+      "exit": 0,
+      "seconds": 2.539940800000295,
+      "pass": true,
+      "log": "native_lint.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "legacy_render_boxer",
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo",
+        "--rendering-method",
+        "mobile",
+        "--resolution",
+        "1280x720",
+        "--position",
+        "10000,10000",
+        "-s",
+        "render_legacy.gd",
+        "--",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\legacy_raw\\boxer",
+        "boxer"
+      ],
+      "exit": 0,
+      "seconds": 68.9219949999997,
+      "pass": true,
+      "log": "legacy_render_boxer.log",
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "name": "legacy_geometry_boxer",
+      "args": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\tools\\audit_study.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\legacy_raw\\boxer",
+        "--rig",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\rig_boxer.json"
+      ],
+      "exit": 0,
+      "seconds": 343.3564357000005,
+      "pass": true,
+      "log": "legacy_geometry_boxer.log",
+      "sha256": "d97647cb8503b258e458c396c2798b92d544ba096640002f9a1a28f84f3eb7c8"
+    },
+    {
+      "name": "legacy_motion_boxer",
+      "args": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\tools\\audit_motion.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\legacy_raw\\boxer"
+      ],
+      "exit": 0,
+      "seconds": 15.85772629999974,
+      "pass": true,
+      "log": "legacy_motion_boxer.log",
+      "sha256": "321df08a4ca3efb6741fa6774f8dd3a6e4c392cdd040ac5286b703bbb541c98e"
+    },
+    {
+      "name": "legacy_render_racer",
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo",
+        "--rendering-method",
+        "mobile",
+        "--resolution",
+        "1280x720",
+        "--position",
+        "10000,10000",
+        "-s",
+        "render_legacy.gd",
+        "--",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\legacy_raw\\racer",
+        "racer"
+      ],
+      "exit": 0,
+      "seconds": 66.18515620000016,
+      "pass": true,
+      "log": "legacy_render_racer.log",
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "name": "legacy_geometry_racer",
+      "args": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\tools\\audit_study.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\legacy_raw\\racer",
+        "--rig",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\rig_racer.json"
+      ],
+      "exit": 1,
+      "seconds": 204.02579849999984,
+      "pass": false,
+      "log": "legacy_geometry_racer.log",
+      "sha256": "bc8bbc301f9f3bab4124e820dfcde14250d8ccfcb28c02b6c3c7a6fe6d62deab"
+    },
+    {
+      "name": "legacy_motion_racer",
+      "args": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\tools\\audit_motion.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\legacy_raw\\racer"
+      ],
+      "exit": 0,
+      "seconds": 18.244133300000613,
+      "pass": true,
+      "log": "legacy_motion_racer.log",
+      "sha256": "321df08a4ca3efb6741fa6774f8dd3a6e4c392cdd040ac5286b703bbb541c98e"
+    },
+    {
+      "name": "legacy_render_popstar",
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo",
+        "--rendering-method",
+        "mobile",
+        "--resolution",
+        "1280x720",
+        "--position",
+        "10000,10000",
+        "-s",
+        "render_legacy.gd",
+        "--",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\legacy_raw\\popstar",
+        "popstar"
+      ],
+      "exit": 0,
+      "seconds": 59.214283799999976,
+      "pass": true,
+      "log": "legacy_render_popstar.log",
+      "sha256": "8261ac4b2dd86fe3c51771da1ae78638ef4e3c9178eed96b3cd9b582dc6f4f3a"
+    },
+    {
+      "name": "legacy_geometry_popstar",
+      "args": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\tools\\audit_study.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\legacy_raw\\popstar",
+        "--rig",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\rig_popstar.json"
+      ],
+      "exit": 1,
+      "seconds": 239.59105230000023,
+      "pass": false,
+      "log": "legacy_geometry_popstar.log",
+      "sha256": "1736c255feee4c6b86b03700ce1e3f4136a9fc43a63c5bd814f02163933babb4"
+    },
+    {
+      "name": "legacy_motion_popstar",
+      "args": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\tools\\audit_motion.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\legacy_raw\\popstar"
+      ],
+      "exit": 0,
+      "seconds": 16.133334000000104,
+      "pass": true,
+      "log": "legacy_motion_popstar.log",
+      "sha256": "321df08a4ca3efb6741fa6774f8dd3a6e4c392cdd040ac5286b703bbb541c98e"
+    },
+    {
+      "name": "full_action_capture",
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\demo",
+        "--rendering-method",
+        "mobile",
+        "--resolution",
+        "1280x720",
+        "--position",
+        "10000,10000",
+        "-s",
+        "capture.gd",
+        "--",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef\\assets_src\\animation\\roshan_job_rig_sport_stage_20261101\\evidence\\action_raw",
+        "full"
+      ],
+      "exit": 0,
+      "seconds": 119.41508760000033,
+      "pass": true,
+      "log": "full_action_capture.log",
+      "sha256": "7d08904fa3e7586cf87a7abaaeb456d84adb6b46c702ab0008afd325e2e50b45"
+    }
+  ]
+}

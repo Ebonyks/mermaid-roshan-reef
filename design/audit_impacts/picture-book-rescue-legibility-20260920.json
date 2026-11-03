@@ -1,0 +1,75 @@
+{
+  "id": "picture-book-rescue-legibility-20260920",
+  "baseline": "ff10c98d3d84cd817670a586e9b0f857fd52d962",
+  "scope": "Move rescue-spread captions off chandeliers to clear floor, preserving two-bunny rescue and reassurance; audit goal requirements without granting final acceptance.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book readability; no game finding closed.",
+  "files": [
+    "books/chapter_one/README.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/goal_requirements_audit.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/stress_review.json",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Full-size visual review of17/18 and goal requirement audit",
+      "result": "PASS",
+      "evidence": "goal_requirements_audit.json; captions clear artwork and fixtures, rescue count/reassurance retained. Completion remains unproven."
+    },
+    {
+      "command": "audit_book.py --proof v19_rescue_legibility/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 pages,79 text lines,63 image operations; zero issues."
+    },
+    {
+      "command": "Regression against v18 and PDF font inspection",
+      "result": "PASS",
+      "evidence": "Only17/18 JPEGs changed; all63 image draw operations identical; Sniglet embedded."
+    },
+    {
+      "command": "Portable manifest validation and independent render",
+      "result": "PASS",
+      "evidence": "87 payloads verified;34 byte-identical page JPEGs. ZIP4afeaa8f31dd16500acf3cdb6713de410f40a94a66f6bb8601bab8fe713edd4e."
+    },
+    {
+      "command": "Headless Edge review1400/760",
+      "result": "PASS",
+      "evidence": "2 cards/images; no broken images or overflow."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK;579 ledger/inventory entries."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV ALL OK;base5920c673305989ee29d91876480ff445dba9fc8b."
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS",
+      "evidence": "No whitespace errors."
+    },
+    {
+      "command": "Godot runtime probes",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Book captions, provenance and docs only; runtime unchanged."
+    }
+  ],
+  "acceptance_gaps": "Rough remains subject to visual/child/owner acceptance and higher-resolution reviewed-source refinement."
+}

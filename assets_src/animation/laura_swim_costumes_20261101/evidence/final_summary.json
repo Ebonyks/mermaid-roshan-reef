@@ -1,0 +1,233 @@
+{
+  "status": "OWNER_REJECTED_MULTI_BUILDER_ARCHITECTURE",
+  "costumes": 16,
+  "native_frames": 4352,
+  "shared_bone_rest_definitions": 1,
+  "independent_character_builders": 7,
+  "base_body_weight_configurations": 4,
+  "native_state_seeks": 21792,
+  "max_state_matrix_error": 0.0,
+  "lossless_native_archive": {
+    "pass": true,
+    "clips": 32,
+    "frames": 4352,
+    "receipts": [
+      "archives/original/loop_receipt.json",
+      "archives/ballet/loop_receipt.json",
+      "archives/original/travel_receipt.json",
+      "archives/magician/loop_receipt.json",
+      "archives/ballet/travel_receipt.json",
+      "archives/chef/loop_receipt.json",
+      "archives/magician/travel_receipt.json",
+      "archives/farmer/loop_receipt.json",
+      "archives/chef/travel_receipt.json",
+      "archives/doctor/loop_receipt.json",
+      "archives/farmer/travel_receipt.json",
+      "archives/teacher/loop_receipt.json",
+      "archives/doctor/travel_receipt.json",
+      "archives/painter/loop_receipt.json",
+      "archives/teacher/travel_receipt.json",
+      "archives/astronaut/loop_receipt.json",
+      "archives/painter/travel_receipt.json",
+      "archives/detective/loop_receipt.json",
+      "archives/astronaut/travel_receipt.json",
+      "archives/geologist/loop_receipt.json",
+      "archives/detective/travel_receipt.json",
+      "archives/candymaker/loop_receipt.json",
+      "archives/geologist/travel_receipt.json",
+      "archives/nursery/loop_receipt.json",
+      "archives/candymaker/travel_receipt.json",
+      "archives/boxer/loop_receipt.json",
+      "archives/nursery/travel_receipt.json",
+      "archives/racer/loop_receipt.json",
+      "archives/boxer/travel_receipt.json",
+      "archives/popstar/loop_receipt.json",
+      "archives/racer/travel_receipt.json",
+      "archives/popstar/travel_receipt.json"
+    ]
+  },
+  "aseprite_frames_reopened": 864,
+  "current_test_numerical_pass": false,
+  "details": {
+    "legacy_loop_pass": [
+      "ballet",
+      "boxer",
+      "chef",
+      "farmer",
+      "popstar"
+    ],
+    "all_travel_motion_checks_pass": false,
+    "travel_pose_endpoint_metric": "All travel clips fail the unchanged1e-5 matrix tolerance; example ballet has6.103515698896445e-05 from actor-relative matrices at different world translations. This is a recorded metric failure, not proof of visually unnatural acceleration.",
+    "source_fit_failures": {
+      "astronaut": {
+        "loop": {
+          "outline_frames": 1,
+          "strain_frames": 13
+        },
+        "travel": {
+          "outline_frames": 1,
+          "strain_frames": 39
+        }
+      },
+      "ballet": {
+        "loop": {
+          "outline_frames": 0,
+          "strain_frames": 0
+        },
+        "travel": {
+          "outline_frames": 0,
+          "strain_frames": 0
+        }
+      },
+      "boxer": {
+        "loop": {
+          "outline_frames": 0,
+          "strain_frames": 0
+        },
+        "travel": {
+          "outline_frames": 0,
+          "strain_frames": 0
+        }
+      },
+      "candymaker": {
+        "loop": {
+          "outline_frames": 20,
+          "strain_frames": 0
+        },
+        "travel": {
+          "outline_frames": 4,
+          "strain_frames": 0
+        }
+      },
+      "chef": {
+        "loop": {
+          "outline_frames": 0,
+          "strain_frames": 0
+        },
+        "travel": {
+          "outline_frames": 0,
+          "strain_frames": 0
+        }
+      },
+      "detective": {
+        "loop": {
+          "outline_frames": 11,
+          "strain_frames": 31
+        },
+        "travel": {
+          "outline_frames": 58,
+          "strain_frames": 96
+        }
+      },
+      "doctor": {
+        "loop": {
+          "outline_frames": 0,
+          "strain_frames": 17
+        },
+        "travel": {
+          "outline_frames": 0,
+          "strain_frames": 51
+        }
+      },
+      "farmer": {
+        "loop": {
+          "outline_frames": 0,
+          "strain_frames": 0
+        },
+        "travel": {
+          "outline_frames": 0,
+          "strain_frames": 0
+        }
+      },
+      "geologist": {
+        "loop": {
+          "outline_frames": 2,
+          "strain_frames": 30
+        },
+        "travel": {
+          "outline_frames": 18,
+          "strain_frames": 93
+        }
+      },
+      "magician": {
+        "loop": {
+          "outline_frames": 1,
+          "strain_frames": 0
+        },
+        "travel": {
+          "outline_frames": 0,
+          "strain_frames": 0
+        }
+      },
+      "nursery": {
+        "loop": {
+          "outline_frames": 55,
+          "strain_frames": 0
+        },
+        "travel": {
+          "outline_frames": 217,
+          "strain_frames": 0
+        }
+      },
+      "original": {
+        "loop": {
+          "outline_frames": 0,
+          "strain_frames": 7
+        },
+        "travel": {
+          "outline_frames": 0,
+          "strain_frames": 21
+        }
+      },
+      "painter": {
+        "loop": {
+          "outline_frames": 19,
+          "strain_frames": 7
+        },
+        "travel": {
+          "outline_frames": 47,
+          "strain_frames": 21
+        }
+      },
+      "popstar": {
+        "loop": {
+          "outline_frames": 0,
+          "strain_frames": 0
+        },
+        "travel": {
+          "outline_frames": 0,
+          "strain_frames": 0
+        }
+      },
+      "racer": {
+        "loop": {
+          "outline_frames": 55,
+          "strain_frames": 0
+        },
+        "travel": {
+          "outline_frames": 217,
+          "strain_frames": 0
+        }
+      },
+      "teacher": {
+        "loop": {
+          "outline_frames": 0,
+          "strain_frames": 17
+        },
+        "travel": {
+          "outline_frames": 1,
+          "strain_frames": 51
+        }
+      }
+    },
+    "initial_auditor_correction": "Full-figure alpha polluted individual mesh visibility, and added RightHand origin occupancy fails even at rest. Initial report retained; final material audit uses isolated native per-mesh alpha and unchanged original three left-joint probes. Right hand grip/socket remains unverified."
+  },
+  "new_skin_runtime_implemented": false,
+  "corrected_workflow": "SKIN_BINDING_WORKFLOW.md",
+  "production_changes": false,
+  "normal_speed_review": "Computer Use stopped because Windows browser URL could not be confidently determined. No UI input followed; no full-speed acceptance claimed.",
+  "device_child_owner": "PENDING; positive visual feedback is not acceptance of the architecture or final performance.",
+  "generation_calls": 0,
+  "review_media": "review/costume_comparison.mp4",
+  "utc": "2026-11-01T23:27:30.056554+00:00"
+}

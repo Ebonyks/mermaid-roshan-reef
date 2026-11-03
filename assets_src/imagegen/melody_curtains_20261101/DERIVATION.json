@@ -1,0 +1,138 @@
+{
+  "state": "WHOLE_NATIVE_RGBA_EDITABLE_AND_UNIFORM_EXPORTS_READY_RUNTIME_REVIEW_PENDING",
+  "exports": [
+    {
+      "variant": "left_pink",
+      "native_path": "assets_src/imagegen/melody_curtains_20261101/left_pink_take1_native.png",
+      "native_sha256": "04514c0cb26cb30425032b5ed23b130dbdbea73346a45e5fdde611acd7e480d9",
+      "native_dimensions": [
+        887,
+        1774
+      ],
+      "native_roundtrip_RGBA_exact": true,
+      "native_master": "assets_src/imagegen/melody_curtains_20261101/left_pink_native.aseprite",
+      "native_master_sha256": "6a73ed9499b52712a64151e1423c1feb9008f91ba3c8b5e700faac5af37abcae",
+      "runtime_path": "assets/melody/curtain_left_painted.png",
+      "runtime_sha256": "e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8",
+      "runtime_dimensions": [
+        384,
+        768
+      ],
+      "runtime_alpha_bounds": {
+        "1": [
+          0,
+          8,
+          302,
+          759
+        ],
+        "8": [
+          84,
+          9,
+          300,
+          758
+        ],
+        "16": [
+          84,
+          9,
+          300,
+          758
+        ],
+        "128": [
+          84,
+          10,
+          300,
+          758
+        ]
+      },
+      "export_master": "assets_src/imagegen/melody_curtains_20261101/left_pink_384x768_master.aseprite",
+      "export_master_sha256": "be7f93f688d20ee1732b9910f4a5c5faff16b17c4de6774cf5a1384dbc79110f",
+      "uniform_scale": 0.43291995490417134,
+      "cropped": false,
+      "warped": false,
+      "method": "Native exactRGBA editable master -> whole uniform bilinear384x768 derivative -> runtime. Earlier512x1024 intermediate retained outside runtime. No crop/warp/alpha edit.",
+      "aseprite_version": "Aseprite 1.3.18.4-x64",
+      "preserved_512x1024_intermediate": {
+        "path": "assets_src/imagegen/melody_curtains_20261101/left_pink_512x1024_export.png",
+        "sha256": "bff31bbbed46c6d88632ea5a363e5eb1648c530369703924c38925b9a4ddd6c2",
+        "runtime": false
+      }
+    },
+    {
+      "variant": "right_lavender",
+      "native_path": "assets_src/imagegen/melody_curtains_20261101/right_lavender_take1_native.png",
+      "native_sha256": "5a447f31bda91332b640203c7ffa920e2dabb51a4294c92eed28d13ea69626ea",
+      "native_dimensions": [
+        887,
+        1774
+      ],
+      "native_roundtrip_RGBA_exact": true,
+      "native_master": "assets_src/imagegen/melody_curtains_20261101/right_lavender_native.aseprite",
+      "native_master_sha256": "6b364b9c96941d828a0fcd1f593ff9122e7e2820da6e0438c577bf805eba8ca9",
+      "runtime_path": "assets/melody/curtain_right_painted.png",
+      "runtime_sha256": "4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e",
+      "runtime_dimensions": [
+        384,
+        768
+      ],
+      "runtime_alpha_bounds": {
+        "1": [
+          88,
+          13,
+          301,
+          757
+        ],
+        "8": [
+          88,
+          14,
+          300,
+          756
+        ],
+        "16": [
+          89,
+          14,
+          300,
+          755
+        ],
+        "128": [
+          89,
+          14,
+          300,
+          755
+        ]
+      },
+      "export_master": "assets_src/imagegen/melody_curtains_20261101/right_lavender_384x768_master.aseprite",
+      "export_master_sha256": "669a6bcf14b88341247484a9d1a06486e8315f69c9583a04fd0d01dced9c4d6c",
+      "uniform_scale": 0.43291995490417134,
+      "cropped": false,
+      "warped": false,
+      "method": "Native exactRGBA editable master -> whole uniform bilinear384x768 derivative -> runtime. Earlier512x1024 intermediate retained outside runtime. No crop/warp/alpha edit.",
+      "aseprite_version": "Aseprite 1.3.18.4-x64",
+      "preserved_512x1024_intermediate": {
+        "path": "assets_src/imagegen/melody_curtains_20261101/right_lavender_512x1024_export.png",
+        "sha256": "ef50a0e41b38f6c6f12904e7ecc7c5c50de6dc09734d2727536773d30ef629f9",
+        "runtime": false
+      }
+    }
+  ],
+  "static_calls": 2,
+  "rejected_takes": 0,
+  "animation_calls": 0,
+  "backend": "Built-in image_gen",
+  "model_version": "NOT_EXPOSED",
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "at_utc": "2026-11-01T23:47:46.017627+00:00",
+  "technical_exports": 4,
+  "runtime_budget": {
+    "original_probe_decoded_limit_bytes": 24117248,
+    "original_probe_upload_limit_bytes": 12582912,
+    "decoded_bytes_existing_six_textures": 20897792,
+    "curtain_decoded_bytes": 2359296,
+    "combined_decoded_bytes": 23257088,
+    "unchanged_existing_limits": true,
+    "runtime_import": "NPOT384x768: lossless mode0, mipmaps enabled, no NPOT VRAM compression"
+  }
+}

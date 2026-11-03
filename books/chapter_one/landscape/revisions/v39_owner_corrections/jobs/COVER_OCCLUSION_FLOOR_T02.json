@@ -1,0 +1,9 @@
+{
+  "id": "COVER_OCCLUSION_FLOOR_T02",
+  "attempt": 2,
+  "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact 315x115 cover-crop layout. Produce a CLEAN BACKGROUND PLATE for compositing: completely REMOVE the rainbow mermaid fin crossing the LOWER RIGHT foreground, including its pink leading tip, and completely REMOVE the separate rainbow tail entering from the FAR LEFT edge. Fill their former footprints with continuous blue/lilac painted marble floor, matching the existing floor perspective lines and reflections. Keep ONLY Rumi's central purple scaled tail ending in its TWO PINK LOBES; preserve that central tail and forked fin exactly, same position, dimensions, colours, contours, fin rays, and polished storybook shading. Do not turn the removed foreground rainbow fin into another tail, purple strip, object, sticker or white panel. Do not move, stretch or redesign the retained pink fin. This is a local clean plate; the two removed characters will be restored from exact original artwork during compositing. Same exact crop and framing. No text, no new objects, no background redesign.",
+  "references": [
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/art/rumi_caudal_focused_attempt3.png"
+  ],
+  "delivery_scope": "Clean-floor plate only; original Daddy and Roshan restored separately from exact source artwork. Only floor/remnant gap masks may expose this output; Rumi remains original selected native through declared fin masks. Second bounded take changes input method to remove foreground occluders rather than ask model to retain missing-floor occlusion."
+}

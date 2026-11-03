@@ -1,0 +1,32 @@
+[
+  {
+    "id": "dirty_pool_floor",
+    "attempt": 1,
+    "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact existing full-art book page. Refine ONLY the lower-center floor area below the pool rim, leaving every character, tail, coral, shell, pool, fountain, gunk, architecture and fixture completely unchanged. In that lower-center floor neighborhood, keep the same continuous curved mosaic paving, but simplify its tiny high-frequency tile flecks and competing reflections into a quiet naturally lit pale pearl-lavender mosaic with broader gentle shapes and clean painted texture. It must remain the same floor, with no rectangular caption panel, no opaque strip, no blank white area, no lettering, no blur or digital noise. This is a small caption-space texture repair; do not redesign the scene. Return the same1484x1060 canvas, all other source artwork unchanged.",
+    "prompt_sha256": "bc7d98fc68e3a9b63adc5a44c9ec37b2238c6c200bb4817f22d7deb607e22b82",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_11_art.png",
+        "sha256": "0717f2ff843be399dbf00c031f96336ec14cdb952d68ec95054473ffe65fa2e7",
+        "role": "edit_target"
+      }
+    ],
+    "method": "built-in image_gen",
+    "transparent_background": false
+  },
+  {
+    "id": "clean_pool_floor",
+    "attempt": 1,
+    "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact existing full-art book page. Refine ONLY the lower-center floor area below the pool rim, leaving every character, tail, coral, shell, pool, fountain, gunk, architecture and fixture completely unchanged. In that lower-center floor neighborhood, keep the same continuous curved mosaic paving, but simplify its tiny high-frequency tile flecks and competing reflections into a quiet naturally lit pale pearl-lavender mosaic with broader gentle shapes and clean painted texture. It must remain the same floor, with no rectangular caption panel, no opaque strip, no blank white area, no lettering, no blur or digital noise. This is a small caption-space texture repair; do not redesign the scene. Return the same1484x1060 canvas, all other source artwork unchanged.",
+    "prompt_sha256": "bc7d98fc68e3a9b63adc5a44c9ec37b2238c6c200bb4817f22d7deb607e22b82",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/art/language_v26/rumi_free.png",
+        "sha256": "c1f864bed9bcf443a326fdef85536f9b60592f104f873559a3e315101f06ba59",
+        "role": "edit_target"
+      }
+    ],
+    "method": "built-in image_gen",
+    "transparent_background": false
+  }
+]

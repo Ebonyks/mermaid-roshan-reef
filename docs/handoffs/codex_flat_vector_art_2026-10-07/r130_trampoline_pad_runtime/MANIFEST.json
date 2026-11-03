@@ -1,0 +1,1571 @@
+{
+  "schema": "reef.runtime_trial_delivery/1",
+  "revision": "FV-AUDIT-20261102-R130-SOURCE",
+  "source_baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "state": "PAINTED_TRAMPOLINE_SOURCE_CANDIDATE_DEV_FROZEN",
+  "files": [
+    {
+      "revision": null,
+      "path": "ASSET_LICENSES.md",
+      "bytes": 6198348,
+      "sha256": "a352882cdd9b33079a92628918d6e66e984507cd04818e036e3f4fefecf9579f",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "assets/mg/trampoline_pad_painted.png",
+      "bytes": 116228,
+      "sha256": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "assets/mg/trampoline_pad_painted.png.import",
+      "bytes": 983,
+      "sha256": "a2eb78f9ba117fb6c1175a1196cefc8e9e77b21cca1ed55b06feb33e981c90ee",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/trampoline_pad_20261102/aseprite/crop_01.aseprite",
+      "bytes": 1841123,
+      "sha256": "296ec456d2aa4c5bc59dacc1207741c8882f7485e4bd9aff4660180fbc79cf0d",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/trampoline_pad_20261102/aseprite/crop_roundtrip_01.png",
+      "bytes": 1187561,
+      "sha256": "1a23af3c711f04f6f640f016272223304a840f8f1367ff561321d4dea059cdcc",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/trampoline_pad_20261102/aseprite/native_01.aseprite",
+      "bytes": 1841123,
+      "sha256": "d84b984ef557d5e65e4b20143ae73ac3516c0cd176d493a96fa0693ba3ca076f",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/trampoline_pad_20261102/aseprite/runtime_512x164.aseprite",
+      "bytes": 162620,
+      "sha256": "3c4997ad658fae719f7e748ab9cb5493c9f60f27603d38055d397fd14205b7ab",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/trampoline_pad_20261102/derivation_01.json",
+      "bytes": 2192,
+      "sha256": "3ba3015ef6b793aa29e2e64a656e5b56b5104ef1f23226c7f591e552e8f91b9f",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/trampoline_pad_20261102/derive_01.lua",
+      "bytes": 1185,
+      "sha256": "1493a432b9d793f3aef85b6859f78d79b4f8fa90c59618318aa6ecf48a1fbb22",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/trampoline_pad_20261102/native/trampoline_01.png",
+      "bytes": 1270643,
+      "sha256": "ee0b92112c4162b2be7d8d469a77cc82c69764f714222fabbb185b194038d67a",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/trampoline_pad_20261102/prompt_01.txt",
+      "bytes": 2780,
+      "sha256": "4a7597f1869071f0d47b66d6d0d73fd8520a3c7417197dcff54bdadc4111cdda",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "assets_src/imagegen/trampoline_pad_20261102/request_01.json",
+      "bytes": 2207,
+      "sha256": "2642bd68932a2d5e454444b03c6ebba88d3ac6a34cafeccbaa324b51994c6ff1",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 337519,
+      "sha256": "c248a34b7a8292c688b04da5924cde485f69abddc855c8d20e7b085beb194567",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "bytes": 219424,
+      "sha256": "661814240f378c2320137fe8145a2ef84e8bc0ab3593e206fa8eb97c9a49fa7f",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 318965,
+      "sha256": "72d26409e5bf77973f0cb3530334dc30214a45951aa5a64668ebcdc85155c534",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 241997,
+      "sha256": "c1dd2cbce0e6644db945230b5e6622f390bb9ccf11b0f87aabe23c759e7716b7",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "design/audit_impacts/flat-vector-r130-trampoline-pad-20261102.json",
+      "bytes": 25840,
+      "sha256": "b0d8c476ca3f3e5284aefeef256d0baebd0ebc4bed3c96f8cc14fd1210174337",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/.gdignore",
+      "bytes": 71,
+      "sha256": "e4d365053230ff25100c0c1387a11b7913009d01187259737b86cddaf43af2d9",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/ACTUAL_VIEWED_FILES.json",
+      "bytes": 1193,
+      "sha256": "7a5f585ecbb21598db6c072519fb1f5347acd369b592fc3c92d778d1356966e5",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/ASEPRITE_DIMENSION_DIAGNOSIS.json",
+      "bytes": 392,
+      "sha256": "b82aace49221dea8fd3eba1907e17c9dcfb6e31a4a3b64fc3a9e25e1425bdf29",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/CANDIDATE_CAPTURE_PIN.json",
+      "bytes": 660292,
+      "sha256": "49a17df4f3982a2ebfc8d7523335e8395222fe72b9e8a5124d11deb7a51a66dd",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/CANDIDATE_CAPTURE_RUNNER.py",
+      "bytes": 5548,
+      "sha256": "f7edb7cbadfd5f0b2ef56057d153fd5e71dc5d6addc4e2f3a3fba3aebb585e9b",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/CANDIDATE_FRAME_INDEX.json",
+      "bytes": 11370,
+      "sha256": "8dedcfb3c6cb89fc1468afb3d98408b126d1f58adca75962e551fe9281f1a5e7",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/CANDIDATE_IMPORT.log",
+      "bytes": 2035,
+      "sha256": "190570065f1a8f4bb536158b1eceb1e59eba5959c6cd4ad3257801804c79bc19",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/CANDIDATE_RUNTIME_RESULT.json",
+      "bytes": 19137,
+      "sha256": "191f1d7e31e9874fc7340d38c23837134deb8048bce56aba9bdb5b86ee19d86a",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/CHANGED_PROBE_ANALYZER.log",
+      "bytes": 73,
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/CURRENT_CI_STATIC_PREFIX.sh",
+      "bytes": 10887,
+      "sha256": "854be64eb63361b761ad3d49ad27096f25234a0977530a37af8dfe0934316701",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/DELIVERY_SOURCE_BINDING.json",
+      "bytes": 2089453,
+      "sha256": "256b5f32e131e48f6bbc88880d980cb5b113a67a3b8f46bf0cdb76447c0cdb44",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/FRAME_REVIEW.json",
+      "bytes": 5628,
+      "sha256": "15f4b352b0d7cb27f45266c094834fc73e1472cdd94ff5c43f3aa97e3e494148",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/FUNCTION_PRESERVATION.json",
+      "bytes": 620,
+      "sha256": "53cc4fce700ebeecddbf74e5fbf1602d2a23a7f16b350572fa7ae9df2cd19d64",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/GAME2D.log",
+      "bytes": 411,
+      "sha256": "cd9caf9b33d75e4bef2367ab3eaf08685a07073d3e472062c1110bd000d4e731",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/GENERATION_ACCOUNTING.json",
+      "bytes": 773,
+      "sha256": "f9c81cedb17717e96d62778912e0103727b168d570c83ac321274dd9cc3f94b7",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/IMPLEMENTATION_SCOPE.json",
+      "bytes": 1346,
+      "sha256": "7b52dd5d8d3e50533f6a258ba1feaab390529d2b411d379788158487d2c6d485",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/LOCAL_82_LAUNCH.json",
+      "bytes": 6171,
+      "sha256": "f96d5f247e8ba5234c825fbb8405c0e3bb0b6b3ecc7c760dd586c98f54d80944",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/LOCAL_82_RESULT.json",
+      "bytes": 86358,
+      "sha256": "2edf46d5a08aa6e8ab76b7a70b9bbd64c963deed51d38b39cd8d71b8bf17fe1a",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/NON_RUNTIME_BOUNDARY.json",
+      "bytes": 744,
+      "sha256": "2f183f4a97160bd4963a5642a8d7dbf75e0d37e2414aa80f36d1d2d7760e6509",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/OWNER_RESUME.json",
+      "bytes": 832,
+      "sha256": "2aa84452c3c0298ae31d7e87f0690aacb1c4aa3a891c4d95d3e126a96595fa32",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/PHONE_BOARDS.lua",
+      "bytes": 19108,
+      "sha256": "3834735f2281e7659c99770ca8ce0b8cda8a00c0dffe2537dda4454018e0900c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/PHONE_DERIVATION.json",
+      "bytes": 28263,
+      "sha256": "ca9f6ccd1a0529d50512df9b20017eeefd1b65afc6ef326c53ecc8fa52e80257",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/PHONE_SQUINT_REVIEW.json",
+      "bytes": 557,
+      "sha256": "2b2946893eef782c2452734bb01adc6b90a467b03f536e2fbfe111878602ec16",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/PLAN.json",
+      "bytes": 4165,
+      "sha256": "8340ef4493a2318e158cea356636874e9bb34048e357a6c53f22952b5be1c34c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/README.md",
+      "bytes": 3451,
+      "sha256": "5d3e852839686a6e819a92bbf58b2fa01c95d155e5bc09b788842b42850a07b9",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/REFERENCE_BINDING.json",
+      "bytes": 2207,
+      "sha256": "2642bd68932a2d5e454444b03c6ebba88d3ac6a34cafeccbaa324b51994c6ff1",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/SOURCE_CAPTURE_PIN.json",
+      "bytes": 659815,
+      "sha256": "3a5a74a072acf3fc12620a335bf49684aeb611ee384f66fa3cd3f8cb7ad78a66",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/SOURCE_CAPTURE_RUNNER.py",
+      "bytes": 5043,
+      "sha256": "74837b6f0fdefa5aac6bf1c14ccdffbc45bb18c2fabad46d232bc49af8dc49ca",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/SOURCE_FRAME_INDEX.json",
+      "bytes": 11205,
+      "sha256": "78e1318fa07cae663fcba5fe7a553b70216b5848520377fda9b95256bf075a03",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/SOURCE_IMPORT.log",
+      "bytes": 1468,
+      "sha256": "d8faa8a02256581475687b3c200c58c673142cf1faa69159256a6a06e3bda78e",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/SOURCE_PIN.json",
+      "bytes": 659697,
+      "sha256": "c9a53e01ff4633d17fd8e2f409e36a150428170a81297cbfffec8d068817e4aa",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/SOURCE_RUNTIME_RESULT.json",
+      "bytes": 19070,
+      "sha256": "1c6d84c0e3595adf5997003c59b4c27aa937064bdc4d5f79f5d18e407e7b42df",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/STATIC_PREFIX.log",
+      "bytes": 57092,
+      "sha256": "c42ff3879107246a1dd67a41a10de51e6c92e526910dd0f60139504d4bf3be66",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/STATIC_RESULT.json",
+      "bytes": 294,
+      "sha256": "2c58ffa9ecf210eac8880c38eb067ef22dc0851e22400ba398746716687ba5e4",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/VALIDATION_RUNNER.py",
+      "bytes": 8953,
+      "sha256": "4cba7ae518f3fa54ab992c4cd1ee24b30e59aa28effce15059e72586ccf04fd2",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/VALIDATION_STATUS.json",
+      "bytes": 838,
+      "sha256": "7e83f2de3d4bfe625406ff533ec32bac73ba6f9fcfe5673a4134e98b8e400c7a",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x720/01_rest.png",
+      "bytes": 143626,
+      "sha256": "3a6933b063a2793b5911d082165ad112c42f806532bccfa7770c5abd38a16e32",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x720/02_wrong_passive.png",
+      "bytes": 143624,
+      "sha256": "69cd834669d8b09d3612c28b1490c705a685b3c930fce6f0c48da96da9770c84",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x720/03_apex_1.png",
+      "bytes": 144896,
+      "sha256": "53a5e732e989c83538d54f6050f492f6664b55ce248ebf09a5494062d79c74d4",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x720/04_landing_1.png",
+      "bytes": 143677,
+      "sha256": "8f2b55bd672bf1742e9031ce5b06d65ecc28caf571ba0c70f731550d69874a7f",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x720/05_apex_2.png",
+      "bytes": 144850,
+      "sha256": "4f4997adae0e22b6c031f079ad5d87f59518371d525f5296c755e3f66495b259",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x720/06_landing_2.png",
+      "bytes": 143707,
+      "sha256": "4d5e05956ab3c7a8171898d09e890456e234f684e6ed8f478bf3ceefa4d2ce35",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x720/07_apex_3.png",
+      "bytes": 144061,
+      "sha256": "daa7cf9526108e054598691980d1299b60d1865ea72ca381454f2805e9ee74f4",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x720/08_landing_3.png",
+      "bytes": 152628,
+      "sha256": "a15dcb19e7432ac680015455f4a66ddafd7b7f7ed9434ef149aabd41f70bde03",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x720/09_fresh_reentry.png",
+      "bytes": 158324,
+      "sha256": "f0196d89ee19c76a6b7bec300bb88b3e10c991f756db277e1934f3179e3c4611",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x720/RESULT.json",
+      "bytes": 8997,
+      "sha256": "f31421241ad1a004c96352ee823b49fee5fd929078179fe8b33f2bbc882153ee",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x720/engine.log",
+      "bytes": 195,
+      "sha256": "48f825690ac96c1f7d37d038a9e532fe0fca95c2bb6df5dd8e09833580999278",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x800/01_rest.png",
+      "bytes": 145604,
+      "sha256": "5890f9120c0f3c06a12f73637f7b7ff6087b35d601ef04458dca83780266f507",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x800/02_wrong_passive.png",
+      "bytes": 145752,
+      "sha256": "d7159a15c7dc3694b8882cda6dbc8813958cb5a2ed3c30a9ecede67a19805717",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x800/03_apex_1.png",
+      "bytes": 147673,
+      "sha256": "02886d7d450d6f54385f8e01b970574ce2ab393e5f911f5ef1cd581f2696336f",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x800/04_landing_1.png",
+      "bytes": 145780,
+      "sha256": "4284686a007c9c979cf6dc08a864a770070d76a3823a691faa347663babdc438",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x800/05_apex_2.png",
+      "bytes": 147648,
+      "sha256": "6188f1a980f0dda33a450cc1817ce2fc7b08514567b18d437d867fc2289cbb1c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x800/06_landing_2.png",
+      "bytes": 145847,
+      "sha256": "4b026a28f8f3af424f7eb17b3474f32d35cd6b1f07a1f23957e86ae676c54a42",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x800/07_apex_3.png",
+      "bytes": 146934,
+      "sha256": "52bafcad04e0905ad285bce8b64e02e4fbd17cf906b29bcfed800d3e37eaf5f0",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x800/08_landing_3.png",
+      "bytes": 150628,
+      "sha256": "bfb615e220d433e1524c4217386b04accc6770280d60bb2a72106fc9feb22376",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x800/09_fresh_reentry.png",
+      "bytes": 154628,
+      "sha256": "042486203f812cd3ecf9891583682d1399f1c7dfe173e3c6c315a0308dbf208a",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x800/RESULT.json",
+      "bytes": 8997,
+      "sha256": "8610d7b5566fa53623fea4e77c77ca5c14fe413d48096202d78f914ac111c889",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1280x800/engine.log",
+      "bytes": 195,
+      "sha256": "48f825690ac96c1f7d37d038a9e532fe0fca95c2bb6df5dd8e09833580999278",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1600x720/01_rest.png",
+      "bytes": 152779,
+      "sha256": "bf8e0c7571cfa5895b95e7b19ac4d97f54ff15b55a9848d93d2ff025969cff39",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1600x720/02_wrong_passive.png",
+      "bytes": 152856,
+      "sha256": "d5b652cc47d5f2fa40267f01a17304c4f6739e0d3f2f7a990793aea210410864",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1600x720/03_apex_1.png",
+      "bytes": 154706,
+      "sha256": "fdc662e647acc565d830d806d3b28c7f8cc3323c62ed91df60b5af9195c59ac5",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1600x720/04_landing_1.png",
+      "bytes": 152860,
+      "sha256": "0ca69a4b4b258fda601d53bc1163df2c0f8a97d737f092e3e6627793a057cef0",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1600x720/05_apex_2.png",
+      "bytes": 154556,
+      "sha256": "4517d10bdf1ecdd608439655c1b8d4c49267b63e6bd012e2ee9089b242e8ec12",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1600x720/06_landing_2.png",
+      "bytes": 152951,
+      "sha256": "ef9e15c3d704ef3867502a3df35e4dab807c061406dbd533c72e9600c3145a19",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1600x720/07_apex_3.png",
+      "bytes": 154398,
+      "sha256": "06f91b6729b96cec5e38d025839f45986ffaa3d67f4c9eb4076d32e4ca971fc0",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1600x720/08_landing_3.png",
+      "bytes": 162940,
+      "sha256": "391e305c17f300569797e5c6a4cd2a97f38e3cdd50ecf2fdf2bcc2cc2518b884",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1600x720/09_fresh_reentry.png",
+      "bytes": 168131,
+      "sha256": "4bd660dda920e6bed9b854060634cc06ce2f274124f9c73c6d1bff6f43b1c5a1",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1600x720/RESULT.json",
+      "bytes": 9006,
+      "sha256": "9490f4b9502d9dbdf6c2a31be4914ffdcaa65b68f27980a03f470c3c0d19599b",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/candidate/1600x720/engine.log",
+      "bytes": 195,
+      "sha256": "48f825690ac96c1f7d37d038a9e532fe0fca95c2bb6df5dd8e09833580999278",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/capture_trampoline.gd",
+      "bytes": 7243,
+      "sha256": "a076e7f671ec1a3d4d142883bbbeadc825c93372f666e7abe41ba05faa253757",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/capture_trampoline.gd.uid",
+      "bytes": 20,
+      "sha256": "e6d765e78bcb8ac8380fc7d46b2502cf970589812d9593ea1f15c06996169da9",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/01_rest.png",
+      "bytes": 107486,
+      "sha256": "2fc676f5f576e42dfbc87845d7225bbaf226ebb12215a11dbf67d9d83f9f0039",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/02_wrong_passive.png",
+      "bytes": 107611,
+      "sha256": "4953ebde9258c647c5eac3f5d191fdabf7d264a8e626fac23b0af56d3ef03ccd",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/03_apex_1.png",
+      "bytes": 108919,
+      "sha256": "9b43fbeabba672afeb330bb03752aea5198d3a59da58d104d5a05d7fcc8013f8",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/04_landing_1.png",
+      "bytes": 107566,
+      "sha256": "2a51222faaae24f4960950db07882a07fdedddadb7815239f9490c20347ce49e",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/05_apex_2.png",
+      "bytes": 109737,
+      "sha256": "3142731c8f1fcf3bd4cd8f67be66e95bece41fd2ee0e558f998f3549a5e57098",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/06_landing_2.png",
+      "bytes": 107607,
+      "sha256": "30afce06858ce370b3336ca3c237a64418fee5ba3cb0f0a1459ee8601fdd7988",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/07_apex_3.png",
+      "bytes": 108967,
+      "sha256": "2107ce76b8eb8ab55ae8c52579b9b500390583125448cec91fa3f10e44f3bb75",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/08_landing_3.png",
+      "bytes": 123848,
+      "sha256": "1a17dbb3d662f8c1b3d9efe1c373d8dad3019cb07039fcaea410464d6fd14efa",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/09_fresh_reentry.png",
+      "bytes": 129184,
+      "sha256": "d9ccb20870ca376c5ee5857f8eb17cfcc536b20b3e0f4b63bea15c80240a9098",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x720/01_rest.png",
+      "bytes": 89167,
+      "sha256": "6e0b82dc544372203364ca0bb102d6bd5cbdfd561a2daf1d0307b8c1436369dd",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x720/02_wrong_passive.png",
+      "bytes": 89215,
+      "sha256": "539fb107b66a4b8143c144ad8bd581ef43fe9b4a2d38dbef88765bb81e6c942e",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x720/03_apex_1.png",
+      "bytes": 89418,
+      "sha256": "97bb5e4bcf3852f160ee225acc2ec09ee10bbc6dcbbd802df955d22ca2f26a06",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x720/04_landing_1.png",
+      "bytes": 89272,
+      "sha256": "3cdb4b7ef06b5662ba5cff565a4b62c222022ef9605dbf5f73dfa4c9b86b59db",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x720/05_apex_2.png",
+      "bytes": 89150,
+      "sha256": "50ac2133bb63312174d15daef36131c1a022ee49a2cbc38f938302ed3186f56c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x720/06_landing_2.png",
+      "bytes": 89350,
+      "sha256": "7f223671bca55fe711217f6d662fd0f913c3685c1300dcd95757abd14d27b953",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x720/07_apex_3.png",
+      "bytes": 88441,
+      "sha256": "e36b1bb185fa624516afd4076aee90a0582e65415a7919792835c92c64990139",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x720/08_landing_3.png",
+      "bytes": 98520,
+      "sha256": "836be6e380c9f4f414058666a7b4c4020b77301ac7aa08c8600eb343e689828e",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x720/09_fresh_reentry.png",
+      "bytes": 104136,
+      "sha256": "2c1440b9381737c571e05ed8a43c3d52c36b2bb276f5ddc8b84904c41d7b613a",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x720/RESULT.json",
+      "bytes": 8433,
+      "sha256": "c9876aa6651b0bcb6739d3c3cd3eae9645a97f694e104f19980d5ee608241444",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x720/engine.log",
+      "bytes": 192,
+      "sha256": "f6148f823e5d801d608abec951bba60c745027e2c21e24f8662d9425b7b3c021",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x800/01_rest.png",
+      "bytes": 91778,
+      "sha256": "f94300c4aa60a76cec0ade4e9d905487bd77459be78d2a63cc671ec72eff7a4d",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x800/02_wrong_passive.png",
+      "bytes": 91882,
+      "sha256": "b247282965410415af0640ad38c7515030d83b8584abf5d3f77eeb8cc1446239",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x800/03_apex_1.png",
+      "bytes": 92080,
+      "sha256": "5a323f28bc4ba49383d2f5807a8ccc3af8ab8bbd5e3e72ce8b7bf376cabe3d75",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x800/04_landing_1.png",
+      "bytes": 91923,
+      "sha256": "76b15778f933d7cacab2a4aac0a7d422e84b39ac6f651f8e4d91069e40a69721",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x800/05_apex_2.png",
+      "bytes": 91952,
+      "sha256": "455d8d134e642560c3e5e261c7f4d426b43294ab3f7c5098e6e91d3421ec8b86",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x800/06_landing_2.png",
+      "bytes": 91989,
+      "sha256": "64d0b60730b54118a8d558911fef8498103505644cf009ad8f3e2f0821adc716",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x800/07_apex_3.png",
+      "bytes": 91200,
+      "sha256": "7824d6ebf894ff8de8e6ba58696c4e353cae1948245c5a46e3f6d4b210db6f1c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x800/08_landing_3.png",
+      "bytes": 96795,
+      "sha256": "1f6a4e36f3521072dd70baa22ba0e2627dba2319ecd1e380160c527bd6af2399",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x800/09_fresh_reentry.png",
+      "bytes": 100776,
+      "sha256": "d151086297f737b3402756a871ede8044ce1f3d1b68b9ee215b849f55700522a",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x800/RESULT.json",
+      "bytes": 8433,
+      "sha256": "fc74ce72dd9c9a896ac83e9f75dd24612099597af87304f6c3d0a61768c5c556",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1280x800/engine.log",
+      "bytes": 192,
+      "sha256": "f6148f823e5d801d608abec951bba60c745027e2c21e24f8662d9425b7b3c021",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1600x720/01_rest.png",
+      "bytes": 98444,
+      "sha256": "0e428019b8680e90b7c2af9ea72cacd3629919fc38426ec43a6df5f6e1fbeaac",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1600x720/02_wrong_passive.png",
+      "bytes": 98632,
+      "sha256": "9279269881be3a08dcb807e79149e1b5cc6665187fb2356caf3c7742878f2e4f",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1600x720/03_apex_1.png",
+      "bytes": 98225,
+      "sha256": "eae91bbc53455de214ba91fd35e15af7e84e912ee4798956423105cb249c21b5",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1600x720/04_landing_1.png",
+      "bytes": 98540,
+      "sha256": "d984d72f71fc386706349a834ec61c7e60287972575b51ca10eb5afd7ffe4126",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1600x720/05_apex_2.png",
+      "bytes": 97715,
+      "sha256": "24e2962dad56396c6cc3cb6d63882eff07d1ff20f19e1a146a0325f6f56813c2",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1600x720/06_landing_2.png",
+      "bytes": 98639,
+      "sha256": "5df72b0571a25b61282a03118652ef87aab585154aaad688d168eaca2215c33a",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1600x720/07_apex_3.png",
+      "bytes": 97584,
+      "sha256": "54eb8082fdd79cd1097dd9d97f7ed8b69eeeb66b54b05fe4d46f5aab337fd295",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1600x720/08_landing_3.png",
+      "bytes": 108729,
+      "sha256": "d454836ee07fe4839a91851f27f7023c3f1a3d14537225b27d091d10b21c3bf1",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1600x720/09_fresh_reentry.png",
+      "bytes": 114003,
+      "sha256": "ab4d0e6aa1fd962a8bdc4709a6d35b6a25ca982bdc5779f9d9f69d671a80ad7e",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1600x720/RESULT.json",
+      "bytes": 8448,
+      "sha256": "69a85fb235bde9b8a38e9c46282bde2f3dbc09216fb15edb3a9cd69fb97305b4",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source/1600x720/engine.log",
+      "bytes": 192,
+      "sha256": "f6148f823e5d801d608abec951bba60c745027e2c21e24f8662d9425b7b3c021",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/source_capture_trampoline.gd",
+      "bytes": 5927,
+      "sha256": "e87cd1714779ce552eea4d8fedfea97f12971082bb156619697235afa676114b",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_alpha_milestone_save.log",
+      "bytes": 52101,
+      "sha256": "72e810efbd50e8a2fb435a01189a5545adc1a89e7fcc855a1369b9bc1c76f7ac",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_audio.log",
+      "bytes": 67744,
+      "sha256": "a9036ea431e97f8fd0c403cc1713a054b0798347c4d032fa5f843c63103f0be4",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_audit.log",
+      "bytes": 197125,
+      "sha256": "0660360d6bf239d7c102aea650f68b490e7fcde88c5d20b0318fa917fa2387d4",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_bathroom_integration.log",
+      "bytes": 142035,
+      "sha256": "19899753c1cc6162fafa71e26161079b7a40b16d21e2bc44d56ca4a2834b7330",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_bathroom_props.log",
+      "bytes": 7886,
+      "sha256": "af19dfe34bfb2de0e1561501660a521b470c66d9d133fd9dbf3c34867484745c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_castle_door_language.log",
+      "bytes": 101565,
+      "sha256": "ba2cd1d675152feb4f2e2eb79ce9ac52507bee06440d783431d33db97b1472fd",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_castle_pearl_art.log",
+      "bytes": 185132,
+      "sha256": "1aafb29700a27d4d6770a71ab19fb9076e3106e273827ecb041c63bb210bc343",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_castle_pool_life_2d.log",
+      "bytes": 36197,
+      "sha256": "279807f267e6027feb0f586d19503f92ea2e94c5e0c7d02f879b3432abbc3110",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_chapter2.log",
+      "bytes": 1667178,
+      "sha256": "cd4cd3499f8463f348203ae948e5db486c8a2aae6f985187120f67224b364c5f",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_chapter2_farmer_resume.log",
+      "bytes": 600400,
+      "sha256": "b918c64a9a74c7d4caacabafffac210d37369924f3d8dba0000129eca1b61ae4",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_chapter2_lawn.log",
+      "bytes": 145484,
+      "sha256": "62c265141882e30835fd35c2f2efb20623e6ba023553ab7327f9c72305481dcf",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_collection.log",
+      "bytes": 40994,
+      "sha256": "88ae1d5e05a901996b649923e4a4ef1768e5d9f885fa0b5f49cda7aaff425c1c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_combat.log",
+      "bytes": 64277,
+      "sha256": "08876b7816c75b041a75231aa00e319ac546a4e91a9fd68584456d44bf4561fb",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_combat_tutorial.log",
+      "bytes": 92179,
+      "sha256": "e6b345e806692a05812dfaad8b2c85af8c0a5a053abeaa434d2ddda5532f1c90",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_crown.log",
+      "bytes": 251759,
+      "sha256": "3e4a2cb81df458b30cc27ee67f987b482853d8e2de16d5bd905124797a799939",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_dance.log",
+      "bytes": 53310,
+      "sha256": "376aea5ee6709f4344865531ac32a32ec3838b65b6c9d50ba4883e37f8301f37",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_art_attack_state.log",
+      "bytes": 48971,
+      "sha256": "a72507da12c567b6b26c138f0a4406def69eea856a95609ef2180861569e71ee",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_bathroom_bunny.log",
+      "bytes": 40908,
+      "sha256": "0094cd08617481c4f42aec0a7e6bb7b72fa365a3a3667d4634b6cb0b2421d0fe",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_bathroom_cleanup.log",
+      "bytes": 56738,
+      "sha256": "dd274b2ad049f5771796de7f8225da315c90c445fdbe3be2570231c183efc148",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_bathroom_movie_handoff.log",
+      "bytes": 36624,
+      "sha256": "4dd813d79cfa1b92f43a9b01f352d7db6dcc14d7632abf3ea55e9270613ea1bc",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_castle_dressing.log",
+      "bytes": 2942,
+      "sha256": "928e9d45f997a1450a7e38064e9de7ad83a20bf38fa897c3f340a4bc2f4144d5",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_d8_revisits.log",
+      "bytes": 1685,
+      "sha256": "6911849de7cc0c035563aa7ffb6ba1e98dffe69e5e0b7d90e551a3bc5acd877f",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_director.log",
+      "bytes": 36655,
+      "sha256": "b3b795632a106e3aa0c9c5b114151e88011f240268efd542d6bdd5b1303714fe",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_handoffs.log",
+      "bytes": 42661,
+      "sha256": "893db9b81820d934d00ec80d25410ff2a31326ecbd0a5b9bffd01f9388cf74be",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_integration.log",
+      "bytes": 38263,
+      "sha256": "f4521cf6cf7ccb2754d58b48f349540212845568522142ccf17246f26cc6784d",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_pool_cleanup.log",
+      "bytes": 61059,
+      "sha256": "b16bb80ba24759cdac1b6e26e46670ef7f681a05a000fbe55fb6e15410f2376d",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_story_clips.log",
+      "bytes": 283958,
+      "sha256": "5b3b046f411a182831282c85414db63c9f25e5daf412cfbb1fcd194ccff87ca7",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_day_one_voice.log",
+      "bytes": 44960,
+      "sha256": "dbc444c9116d7242d165893eb3dc2a3290fd587ff0d47a5cf4b5fdee2488f77c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_dolls.log",
+      "bytes": 67518,
+      "sha256": "95042ceade4fd5909a444a14fe26cb1c26b731895a4eff65111d15f769c21d65",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_dungeon.log",
+      "bytes": 178695,
+      "sha256": "d09d8abbc0217bd4e633de099c3b0442c0dd3bdb830c243a121dbf78157ef256",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_dust_boss.log",
+      "bytes": 173008,
+      "sha256": "9350da45ca9c3e38acec2fa007bdad96724db99162b7e1558ae308d549428271",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_dust_boss_balance.log",
+      "bytes": 542655,
+      "sha256": "b69a58f3086fb7d317407494dacab3aea0e58129904b674a52345c85ba0222dd",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_dust_bunny.log",
+      "bytes": 3041,
+      "sha256": "dc1dc00e40d3c1baf941484ec96b84a1c2ee0092a4be5f7b988829131b19e599",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_dust_bunny_boss.log",
+      "bytes": 14903,
+      "sha256": "7043e655a25900837afa093d567f24d43a9d61c4a5bf44ad25aefe2249b1182c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_ember.log",
+      "bytes": 167351,
+      "sha256": "92120d64b2037e895fae3457863f2092f113d32ffe2d98989d0a9814915794b7",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_fairy_art.log",
+      "bytes": 1904,
+      "sha256": "30e8c0430731b77c0e88b6f5a7f265a29419ae4cb8e2323463eff352b7602ef1",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_fetch.log",
+      "bytes": 46622,
+      "sha256": "0b18eaa860886e85548138fd4c453bee00267eac8e47dd02a2db09b0df849619",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_galaxy_state.log",
+      "bytes": 97273,
+      "sha256": "2311466c03e4b452b458eb80f1e8e2d8e440425cd304cdca3a1bb44762f6b8f2",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_hit.log",
+      "bytes": 54132,
+      "sha256": "bc3fd878e2082741ec861d9b9c57775624130a81c3e9ae27cf2d4ebec63a977c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_human_art_audit.log",
+      "bytes": 35591,
+      "sha256": "9aa892921e69b324fadb99f6694f109480d8a2a3e29291057e79c319af17db75",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_imp_ai.log",
+      "bytes": 2485,
+      "sha256": "ca4b1dff264394e2937afdb4c08907fa6a90d061aaac5768c72b536c5fc80469",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_interaction.log",
+      "bytes": 429365,
+      "sha256": "bef7082372512626b1aedee5370e4c49ae8d23d5d3beffb9758ca55c963cb763",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_kart_feel.log",
+      "bytes": 78953,
+      "sha256": "b95aeef966971f0c76974dc949d0c6d0d05ae4d777f978aa12d468b117f44335",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_kitchen_props.log",
+      "bytes": 19450,
+      "sha256": "7a863819fb120bdef65251ad34ea4d9dbd86d66fdde9647c2a4bd70dfb02d9c8",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_l2.log",
+      "bytes": 138030,
+      "sha256": "8c5c249e6fddf73e1185e56e8098da22a216c825cf71d798f73cf7e64af1c2b1",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_l2_living_cards.log",
+      "bytes": 77081,
+      "sha256": "dbe459f8ae1bf82dcc902d6b8971dd600aa9c78c4ab1e3f2e05fc6a6991b6829",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_l2_reenter.log",
+      "bytes": 64216,
+      "sha256": "2778180c29e28cf4b5e199c8a236373d84f7946bfaf5a62b2425236e43506a25",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_living_world.log",
+      "bytes": 225707,
+      "sha256": "ced39bcc8f22c3952bb277c0f40a53200f95849a08235bca9015dd1e28970b50",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_load.log",
+      "bytes": 126663,
+      "sha256": "eb26ff85c00832cebc19c174836cfe148909fa3cd71dc5437217d23cb7e7dea3",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_melody.log",
+      "bytes": 85383,
+      "sha256": "fe75bf804321c867b81c92201bf65adcc03cf4e9e568cd0b353bee039c0dac46",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_mg2d.log",
+      "bytes": 66494,
+      "sha256": "585b2e9bead86a5a96ff23a98cf8ad5dc816a6c2c549d7a167c8eff7b3d80e57",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_mic.log",
+      "bytes": 44806,
+      "sha256": "fa66d5a64eabc0288b70c595a6ab65924304c7e6bea99f1b74d393a8cee7fafd",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_northern.log",
+      "bytes": 72633,
+      "sha256": "515b4fc128018e6eda87b7c56898b6064c6934ffd5cf9aa08dfebc0bf9d7edda",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_ocean_kingdoms.log",
+      "bytes": 159769,
+      "sha256": "6fe8f88ecd9e0b6805edf6b8b430fb39193a99e8114ee5165d89f948f5225a01",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_opera.log",
+      "bytes": 1459961,
+      "sha256": "45150c70810e9a5b1c1a770b7daa640a40a5f566d42cc9a9674a4a11e9906b19",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_opera_2d.log",
+      "bytes": 1478007,
+      "sha256": "8a0dc8ff8bc95cad268e018aac56d41e179b78c4a45e3f165a4194ff29a88f1c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_opera_detective.log",
+      "bytes": 72690,
+      "sha256": "bdbda36d26443e33230dbea7e1db0f77a2a65acbebb040081727342274a7205d",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_opera_diegetic_paths.log",
+      "bytes": 1122,
+      "sha256": "12cd1b05b12b709df848d97b1eb706b1d676741ccd62982d4f3fd3e3dd48e4c5",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_opera_gesture_quality.log",
+      "bytes": 160952,
+      "sha256": "dda153b76198ebf0346b713f8c1926eedd949adeff055ac16cfefcfe0c7c0130",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_opera_nursery.log",
+      "bytes": 73312,
+      "sha256": "d0c4db8c1726f0bc4b047d3b03d448f9dcd038b73088ff33bfaeda0aa6748f0b",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_opera_pipe.log",
+      "bytes": 10886,
+      "sha256": "3c5d450dac6071428bd0a868d3533b93528d83a3c9a577d39d36f96c4e00bb7c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_partner.log",
+      "bytes": 75328,
+      "sha256": "20597031e2ee66d39b29711005e49108c7b2cdbf64eca603842bf0b87d5e394a",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_passive.log",
+      "bytes": 103171,
+      "sha256": "0df292b6806a66d781141956b6250eb24012791ec33ef376a1fad6d1333b0435",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_props.log",
+      "bytes": 45024,
+      "sha256": "b513ba859886c2d08f50c842fb4ecef77023e23cb2dd3fac7b3ce9acf35fad68",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_rank.log",
+      "bytes": 46534,
+      "sha256": "3032957d877596a775b14f1fc07edbca68ed7706d9dc6b37600631e3dd186401",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_reef_districts.log",
+      "bytes": 37185,
+      "sha256": "b5153d5a6896dd991af61e4bc0b119c8b73c409430d1970812084a88823d2963",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_save_recovery.log",
+      "bytes": 41390,
+      "sha256": "cef97b4ed3870f140914b796f342407dcd0e32af546ac119608533e2d7403551",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_seek.log",
+      "bytes": 63612,
+      "sha256": "d167653ed57863e230bf86cd732206ccbbcf21fa24f6787843d5ca6de084e38a",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_skins.log",
+      "bytes": 41712,
+      "sha256": "f5bb8017d6d6f10b9729b2347e24ec3b5dab9580176bd88c572b9585757c224c",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_sky_lagoon_animals.log",
+      "bytes": 155468,
+      "sha256": "2333cd9924351e58dc13471ea0f24f8f91f9a89bf1acbdcd8efa5886cf03a2b8",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_start_menu_new_game.log",
+      "bytes": 60550,
+      "sha256": "e504f46a5494f391bce6da1abc936d752d5ffca737b69977118f24fdf7e05d94",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_start_menu_routing.log",
+      "bytes": 37581,
+      "sha256": "d8707cc6478d14c4d2a9110f7f70fefadfe0b6f304869f043d072e70deed0e94",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_stuffie.log",
+      "bytes": 156457,
+      "sha256": "b91acc4866ccf59737d34991df5ec1c45ee5cb11d15215c2c3a027d243bbe5e5",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_throne.log",
+      "bytes": 208033,
+      "sha256": "6644076b9f9f8e2b6c31eea812ed8cdbe3e534f04f9d240f6614d6dc248661fc",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_touch_adversary.log",
+      "bytes": 711105,
+      "sha256": "e6cba9dee7a74430c817251f2188a677ac481b715789dcb3b8a4caffbd2103e2",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_touch_look.log",
+      "bytes": 49893,
+      "sha256": "d75e8d603f11ca4f1e99b3d1cacce7e5f546469209f588da21f4896100f29a85",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_touch_router.log",
+      "bytes": 41511,
+      "sha256": "9c1301e63be073067bfef295a55cba2d82672d1b354700c21f42cf3397e9e9e7",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_touch_stress.log",
+      "bytes": 69636,
+      "sha256": "0f9996391e9a74818b360c078db8f858964f6bd58c649a9f765ce8452c7a8ec3",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_train.log",
+      "bytes": 88412,
+      "sha256": "4ba819ec361ce8e2de5d63050a6145064ae26a8e3321ca8967990d00e048d437",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_ui_system.log",
+      "bytes": 333701,
+      "sha256": "9b297040a3405cc45a3227b8ebfed500dc2b0c70eb2a25fc18edc370f40cb172",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_verbs.log",
+      "bytes": 40585,
+      "sha256": "349cf94412c6f0c11811080b298f858f5ed9d71b7ae67dfcb225ff3abbbfd304",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/trusted_logs/probe_voice.log",
+      "bytes": 95284,
+      "sha256": "2054a2593cadd900ba44c80b0b0c3e3b4d5daeeffe410f73bf34fe2725203f79",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": null,
+      "path": "scripts/games/picture_games.gd",
+      "bytes": 32635,
+      "sha256": "24c9a18504a16689a33103601a240b8083abf9f48ed525b7519e66ce816294ce",
+      "role": "R130 current candidate, derivation, scene evidence or bounded registry delivery"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "bytes": 50051,
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/characters/roshan_25d/roshan_base.png.import",
+      "bytes": 1205,
+      "sha256": "a1c40e6fb5747751c31bd124b1145e1178514674df5dad84ffd43eb698a29c04",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/mg/star.png",
+      "bytes": 868379,
+      "sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "assets/mg/star.png.import",
+      "bytes": 926,
+      "sha256": "7993dcc919193a1acafc46dd8a73a5592200376524879920846f12bf3d43e56e",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    },
+    {
+      "revision": "27c88288bf6e39582072811443df79919e7bbb89",
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/CANDIDATE_SOURCE_PIN.json",
+      "bytes": 569567,
+      "sha256": "4403586c8ef2682154eeae8270b7551d95af53f375ba2656e9f0104c841251f8",
+      "role": "Unchanged bounded actual stage/actor source or import; no past archive dependency"
+    }
+  ],
+  "required_files": 219,
+  "required_bytes": 40522890,
+  "owner_scope": "Resume art candidates; keep Dev frozen",
+  "stable_ids": [
+    "FV-C6F64FAA2F32"
+  ],
+  "new_bounded_source_artifacts": 1,
+  "existing_named_roles": 1,
+  "new_roles": 0,
+  "new_families": 0,
+  "generation_calls": 1,
+  "native_generated_designs": 1,
+  "authored_component_pictures": 1,
+  "new_runtime_PNG": 1,
+  "technical_exports": 1,
+  "technical_export_retries": 0,
+  "nonselected_native_takes": 0,
+  "animation_calls": 0,
+  "new_frame_events": {
+    "bounded": 54,
+    "excluded": 0,
+    "retained": 54
+  },
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

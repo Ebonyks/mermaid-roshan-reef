@@ -1,0 +1,96 @@
+{
+  "stable_id": "FV-8E1550C50601",
+  "reviewer": "Local Codex visual review only; not independent formalQA11 or owner acceptance",
+  "all6_source_frames_inspected": true,
+  "source_review_basis": "Same exact six baseline frames directly inspected for the preceding Melody production; R122 reuses their hashes with5062 raw-exact source proof and freshly views all three entry aspects for this star.",
+  "all6_candidate_frames_inspected": true,
+  "effective_direct_views": 12,
+  "axes": [
+    {
+      "axis": "contour",
+      "candidate_score_out_of5": 4.6,
+      "applicable": true,
+      "observation": "Source had sharp navy/gold polygon layers. Candidate keeps five clear points with soft painted edges and a restrained plum/brown contour at actual104\u2013116px sizes."
+    },
+    {
+      "axis": "palette",
+      "candidate_score_out_of5": 4.6,
+      "applicable": true,
+      "observation": "Warm honey-yellow identity remains, with ivory light and amber depth replacing a uniform fill. Scene and actors retain their exact source art."
+    },
+    {
+      "axis": "light",
+      "candidate_score_out_of5": 4.5,
+      "applicable": true,
+      "observation": "Broad painted warm light/glint replaces the code-drawn white dot. No runtime light, glow field or shader is added."
+    },
+    {
+      "axis": "perspective",
+      "candidate_score_out_of5": 4.7,
+      "applicable": true,
+      "observation": "One frontal2D emblem stays on the original Canvas plane; no extrusion,3D stage or perspective deformation."
+    },
+    {
+      "axis": "scale",
+      "candidate_score_out_of5": 4.6,
+      "applicable": true,
+      "observation": "Whole square asset is uniformly letterboxed within the original104*actor_scale Control. Original center/z are measured at all three aspects; a0.000023px Control arithmetic mismatch is documented without changing pixels."
+    },
+    {
+      "axis": "contact",
+      "candidate_score_out_of5": null,
+      "applicable": false,
+      "observation": "Not applicable: this existing decorative emblem floats in the crown area and has no physical support/contact action. Original stage registration is retained; no hanging hardware or fake contact is invented."
+    },
+    {
+      "axis": "occlusion",
+      "candidate_score_out_of5": 4.6,
+      "applicable": true,
+      "observation": "Back control, seven progress pips, original bulbs, actors and touch targets remain clear in entry and one-note states at all three aspects. Star is one whole card above the same header/scenic opening."
+    },
+    {
+      "axis": "phone_readability",
+      "candidate_score_out_of5": 4.5,
+      "applicable": true,
+      "observation": "Upright five-point silhouette and warm gold contrast remain clear at actual native scene scale. Broad tonal changes survive downsampling; physical phone/child reading remains unverified."
+    },
+    {
+      "axis": "identity_topology",
+      "candidate_score_out_of5": 4.7,
+      "applicable": true,
+      "observation": "One existing gold five-point star replaces the same named role, with one upright point, no face, ribbon, text, new props or behavior. All actor identities and state/save logic remain unchanged."
+    },
+    {
+      "axis": "painted_material_coherence",
+      "candidate_score_out_of5": 4.6,
+      "applicable": true,
+      "observation": "Soft hand-painted gold/amber value transitions and brush texture replace flat polygon fills beside the detailed painted landscape and actors. Other flat theatre roles remain separately open."
+    }
+  ],
+  "applicable_object_review_floor": 4.5,
+  "applicable_axes_at_or_above_floor": true,
+  "review_scope": "Same actual Melody stage at1280x720,1600x720,1280x800; entry and one deliberate note; static star has no separate animation or action-state hooks. No whole-scene, natural-route or global acceptance.",
+  "candidate_status": "SOURCE_CANDIDATE_LOCAL_MACHINE_VERIFIED_FORMAL_OPEN",
+  "native_effective_checks": 90,
+  "native_original_failed_check_preserved": 1,
+  "diagnostic_no_image_events": true,
+  "new_frame_events": {
+    "bounded": 6,
+    "excluded": 2,
+    "retained": 8
+  },
+  "static_calls": 1,
+  "nonselected_native_takes": 0,
+  "new_runtime_PNG": 1,
+  "animation_calls": 0,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "whole_role_closed": false,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "reviewed_at_utc": "2026-11-02T08:32:22.067878+00:00",
+  "complete_machine_validation": "docs/handoffs/codex_flat_vector_art_2026-10-07/r122_melody_star_runtime/LOCAL_82_RESULT.json"
+}

@@ -1,0 +1,85 @@
+{
+  "checked_at_utc": "2026-11-02T01:23:23.416516+00:00",
+  "checks": [
+    {
+      "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B books/chapter_one/landscape/audit_book.py --proof books\\chapter_one\\landscape\\revisions\\v45_story_language_r02_review\\complete --baseline books/chapter_one/landscape/revisions/v44_door_and_consistency/complete",
+      "exit_code": 0,
+      "seconds": 76.234,
+      "stdout": "34/34 art-only and outside-caption pixels exact;11 unchanged entries exact\nV44 contrast {'PASS': 77, 'OUTLINE_REQUIRED': 7, 'FAIL': 0} V45 {'PASS': 99, 'OUTLINE_REQUIRED': 9, 'FAIL': 0}\nWords/art/contrast/insets ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B tools/audit_document_authority.py",
+      "exit_code": 0,
+      "seconds": 21.75,
+      "stdout": "DOCAUTH|INVENTORY=630|LEDGER=630|ACTIVE=56|RECORDS=58\nDOCAUTH|RESULT|ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "seconds": 24.906,
+      "stdout": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "exit_code": 0,
+      "seconds": 61.172,
+      "stdout": "DOCAUTH|STRESS|6/6\n",
+      "stderr": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 57.471s\n\nOK\n"
+    }
+  ],
+  "pre_reconciliation": {
+    "checked_at_utc": "2026-11-02T00:33:39.705049+00:00",
+    "checks": [
+      {
+        "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B tools/audit_document_authority.py",
+        "exit_code": 0,
+        "seconds": 61.703,
+        "stdout": "DOCAUTH|INVENTORY=628|LEDGER=628|ACTIVE=56|RECORDS=58\nDOCAUTH|RESULT|ALL OK\n",
+        "stderr": ""
+      },
+      {
+        "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B tools/audit_development.py --base auto",
+        "exit_code": 0,
+        "seconds": 129.156,
+        "stdout": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n",
+        "stderr": ""
+      },
+      {
+        "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+        "exit_code": 0,
+        "seconds": 60.922,
+        "stdout": "DOCAUTH|STRESS|6/6\n",
+        "stderr": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 57.162s\n\nOK\n"
+      }
+    ],
+    "provisional_before_final_candidate_existed": {
+      "checked_at_utc": "2026-11-02T00:06:50.097374+00:00",
+      "checks": [
+        {
+          "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B tools/audit_document_authority.py",
+          "exit_code": 1,
+          "seconds": 63.312,
+          "stdout": "DOCAUTH|INVENTORY=628|LEDGER=628|ACTIVE=56|RECORDS=58\nDOCAUTH|FAIL|DOC072|books\\chapter_one\\landscape\\revisions\\v45_story_language\\peer_review\\README.md|line 3: local link target is missing: final_candidate_review.json\nDOCAUTH|RESULT|1 ISSUE(S)\n",
+          "stderr": ""
+        },
+        {
+          "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B tools/audit_development.py --base auto",
+          "exit_code": 0,
+          "seconds": 40.922,
+          "stdout": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n",
+          "stderr": ""
+        },
+        {
+          "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+          "exit_code": 0,
+          "seconds": 60.922,
+          "stdout": "DOCAUTH|STRESS|6/6\n",
+          "stderr": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 57.162s\n\nOK\n"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "stable_id": "FV-0091F4E1BC9C",
+  "source_baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "files": [
+    "scripts/games/melody.gd",
+    "scripts/probe_melody.gd"
+  ],
+  "retired_visible_primitives": [
+    "PointerTargetGeometry",
+    "PointerArrowGeometry",
+    "PointerLineGeometry",
+    "PointerInnerRingGeometry",
+    "PointerOuterRingGeometry"
+  ],
+  "replacement": "PointerCanvas: three authored painted rasterSprite2Dchildren; head/beam from one complete painted arrow and one complete double-ring.",
+  "original_controller_methods_unchanged": 67,
+  "full_game_probe_unchanged": true,
+  "behavior": "Original targetID/target/zone, epsilon direction,46x34head envelope,9pxconnector/zone+82/note-38 endpoints,>14short-distance suppression,6rad/s pulse and79..99outer envelope. Onefinger input/scoring/120pxhit/goal7/save/audio/teardown methods unchanged.",
+  "visible_mapping_limits": "StaticUIarrowhead aspect registration declared; complete ring scales uniformly, so its band thickness scales. Note is above guide and naturally occludes its small-radius phase.",
+  "invisible_geometry": "Original functional Rect2hit/scoring semantics retained separately. Old target diamond had no function and was fully occluded by opaque note; retire without artwork-removal credit. Recheck if note candidate changes.",
+  "resources": "Three small lossless/mipmapped nonVRAMtextures, one resident binding each; original23MiBdecoded/12MiBdeclared-upload ceilings unchanged and mip overhead counted.",
+  "other_Melody_roles": "Original frozenDevscene remains beside this source candidate; earlier painted candidates remain preserved on their own branches, no implicit merge or acceptance.",
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

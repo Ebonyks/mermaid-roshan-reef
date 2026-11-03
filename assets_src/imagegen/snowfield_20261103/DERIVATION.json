@@ -1,0 +1,134 @@
+{
+  "state": "ACTUAL_NATIVE_MASTER_EXACT_RUNTIME_SLICES_SOURCE_INTEGRATED_CONTEXT_PENDING",
+  "stable_id": "FV-55B5EF60A12C",
+  "native_master_path": "assets_src/imagegen/snowfield_20261103/snowfield_master_native.png",
+  "native_master_sha256": "a2a84f689de75f6e52c10ee358ae5b27ec2e71ed04a0732923f49c35f6acc094",
+  "native_master_dimensions": [
+    2048,
+    2048
+  ],
+  "native_master_alpha_bbox_gt3": [
+    34,
+    51,
+    2039,
+    2015
+  ],
+  "native_region_outputs": 4,
+  "whole_reference_output_used_as_delivery": false,
+  "position_guide_pixels_used": false,
+  "delivery_spatial_resampling": false,
+  "assembly": "Aseprite native1:1 four-region registration, source-alpha contour ownership and declared460px colour overlaps; disconnected matte cleanup only, originals untouched",
+  "master": "assets_src/imagegen/snowfield_20261103/masters/snowfield_native_2048.aseprite",
+  "master_RGBA_roundtrip_exact": true,
+  "runtime_slices": [
+    {
+      "path": "assets/mg/snowfield_painted_00.png",
+      "sha256": "833fc86408da6544c49a108e4c23ba77f17cec39e7442906ed45c2722fad1174",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "native_source_crop": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "exact_RGBA_crop": true
+    },
+    {
+      "path": "assets/mg/snowfield_painted_01.png",
+      "sha256": "b1d92f665f29427d06b5f7c907f58872983af266ca92a530ccc031539a0958ef",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "native_source_crop": [
+        1024,
+        0,
+        1024,
+        1024
+      ],
+      "exact_RGBA_crop": true
+    },
+    {
+      "path": "assets/mg/snowfield_painted_10.png",
+      "sha256": "c90415293b8e4d189512e859438e2dafb7e24069daa54a32f7e059d45c08151c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "native_source_crop": [
+        0,
+        1024,
+        1024,
+        1024
+      ],
+      "exact_RGBA_crop": true
+    },
+    {
+      "path": "assets/mg/snowfield_painted_11.png",
+      "sha256": "9492cca5957854c995e82e6050fa63c1feaa2cbba38fbb32269c7b46718adc61",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "native_source_crop": [
+        1024,
+        1024,
+        1024,
+        1024
+      ],
+      "exact_RGBA_crop": true
+    }
+  ],
+  "runtime_resampling": false,
+  "technical_runtime_exports": 4,
+  "technical_reexports": 0,
+  "static_imagegen_calls": 5,
+  "static_call_cap": 8,
+  "animation_calls": 0,
+  "paid_CLI_calls": 0,
+  "original_methods_unchanged": 29,
+  "changed_method": "_mg_build_snowman",
+  "added_art_helper": "_mg_snow_ground",
+  "shared_circle_unchanged": true,
+  "functional_geometry": "OriginalPanel1400square at(-60,280),defaultpivot/defaultmouse retained invisible;4input-ignore700square TextureRects. No other game logic/input/state/save/audio/reward or originals change.",
+  "decoded_base_RGBA_bytes": 16777216,
+  "decoded_full_mips_bytes": 22369616,
+  "decoded_mip_budget_ceiling_bytes": 22400000,
+  "runtime_export_wall_seconds": 6.109436099999584,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "Dev_integrated": false,
+  "accepted_removed": 0,
+  "full_scene_native_detail_satisfaction": null,
+  "runtime_visual_mapping": {
+    "master_size": [
+      2048,
+      2048
+    ],
+    "display_size": [
+      1400,
+      1000
+    ],
+    "field_origin": [
+      -60,
+      220
+    ],
+    "tile_size": [
+      700,
+      500
+    ],
+    "child_offset": [
+      0,
+      -60
+    ],
+    "x_scale": 0.68359375,
+    "y_scale": 0.48828125,
+    "scope": "Declared static ground-plane presentation, no native pixel reexport/enlargement/acting/identity change; functional1400square Panel(-60,280)unchanged"
+  },
+  "registration_trial": "First1400squaremount passed1326checks but54frames retained as excluded due actor/ground gap; actual visual repair requires new54changedcandidate captures"
+}

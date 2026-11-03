@@ -1,0 +1,203 @@
+extends Node
+## Explicit private-review integration probe. Never runs from normal gameplay.
+## The successful callback leg is a presentation fixture, not a played win.
+
+const OUTPUT := "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/opera-four-screen-v1-20261031/assets_src/review/opera_exploration_v1/verification/"
+var venue: Node
+var rows: Array[Dictionary] = []
+var done := false
+var phase := "starting"
+var results: Dictionary = {}
+var samples := 0
+var island_clear := true
+
+func _ready() -> void:
+	call_deferred("_run")
+
+func _record(name: String, passed: bool, evidence: Variant = null) -> void:
+	rows.append({"check":name,"result":"PASS" if passed else "FAIL","evidence":evidence})
+	print("OPERA_TRANSLATION_PROBE|%s|%s" % [name,"PASS" if passed else "FAIL"])
+
+func _wait(condition: Callable) -> bool:
+	for index: int in range(1200):
+		await get_tree().process_frame
+		var point: Vector2 = venue.player_root.position
+		island_clear = island_clear and not Rect2(1120,1085,315,255).has_point(point)
+		samples += 1
+		if bool(condition.call()):
+			return true
+	return false
+
+func _travel(point: Vector2) -> bool:
+	venue.request_destination(point)
+	return await _wait(func() -> bool: return venue.route.is_empty() and venue.job==null and not venue.busy)
+
+func _capture(name: String) -> void:
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var image: Image = get_viewport().get_texture().get_image()
+	image.save_png(OUTPUT+name+".png")
+
+func _run() -> void:
+	if str(ProjectSettings.get_setting("application/config/custom_user_dir_name",""))!="MermaidReef-OperaRemovalReview-20261017":
+		push_error("Refusing Opera review probe outside the isolated profile")
+		return
+	venue = get_tree().current_scene.find_child("OperaExplorationV1",true,false)
+	if venue==null:
+		push_error("Opera review is not open")
+		return
+	if venue.paused:
+		venue._set_paused(false)
+	var baseline_mask: int = venue.completed_mask
+	var baseline_save_hash: int = venue.m.save_data.hash()
+	var baseline_stars: int = venue.m.opera_stars
+	var baseline_pearls: int = venue.m.pearl_count
+	var initial_launches: int = venue.launches
+	phase = "pause and focus"
+	venue.cancel_travel()
+	venue._set_paused(true)
+	var paused_phase: float = venue.ambience.phase
+	var paused_position: Vector2 = venue.player_root.position
+	for index: int in range(12):
+		await get_tree().process_frame
+	_record("pause freezes travel and ambient time",venue.ambience.phase==paused_phase and venue.player_root.position==paused_position)
+	venue._set_paused(false)
+	venue.notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+	var focus_stopped: bool = venue.paused and venue.focus_paused
+	venue.notification(NOTIFICATION_APPLICATION_FOCUS_IN)
+	_record("focus notification resumes only automatic pause",focus_stopped and not venue.paused and not venue.focus_paused)
+	_record("passive no award",venue.completed_mask==baseline_mask and venue.m.opera_stars==baseline_stars)
+	phase = "routed native input"
+	var motion := InputEventMouseMotion.new()
+	motion.position = Vector2(500,500)
+	motion.global_position = motion.position
+	Input.parse_input_event(motion)
+	await get_tree().process_frame
+	var press := InputEventMouseButton.new()
+	press.button_index = MOUSE_BUTTON_LEFT
+	press.position = motion.position
+	press.global_position = motion.position
+	press.pressed = true
+	Input.parse_input_event(press)
+	await get_tree().process_frame
+	_record("routed mouse press responds within two frames",venue.marker.visible and venue.pointer_owner==-1)
+	var release := InputEventMouseButton.new()
+	release.button_index = MOUSE_BUTTON_LEFT
+	release.position = motion.position
+	release.global_position = motion.position
+	release.pressed = false
+	Input.parse_input_event(release)
+	await get_tree().process_frame
+	_record("routed mouse release commits a destination",not venue.route.is_empty())
+	venue.cancel_travel()
+	var touch := InputEventScreenTouch.new()
+	touch.index = 0
+	touch.position = Vector2(500,500)
+	touch.pressed = true
+	Input.parse_input_event(touch)
+	await get_tree().process_frame
+	var drag := InputEventScreenDrag.new()
+	drag.index = 0
+	drag.position = Vector2(800,430)
+	drag.relative = Vector2(300,-70)
+	Input.parse_input_event(drag)
+	await get_tree().process_frame
+	var lifted := InputEventScreenTouch.new()
+	lifted.index = 0
+	lifted.position = drag.position
+	lifted.pressed = false
+	Input.parse_input_event(lifted)
+	await get_tree().process_frame
+	_record("routed one-finger drag commits a destination",not venue.route.is_empty() and venue.pointer_owner==-2)
+	venue.cancel_travel()
+	phase = "four-screen traversal"
+	await _travel(Vector2(1280,1380))
+	var left_top: bool = await _travel(Vector2(438,340))
+	_record("left lift reaches original upper gallery",left_top and venue.player_root.position.distance_to(Vector2(438,342))<1.0)
+	await _capture("operative_upper_left")
+	# A lift stop is an action target. Choose gallery floor beside it when
+	# testing horizontal travel, then tap the lift itself for the ride leg.
+	venue.request_destination(Vector2(2030,342))
+	for index: int in range(12):
+		await get_tree().process_frame
+	var frame_a: int = venue.animator.get("_displayed_frame")
+	await _capture("authored_swim_a")
+	for index: int in range(13):
+		await get_tree().process_frame
+	var frame_b: int = venue.animator.get("_displayed_frame")
+	await _capture("authored_swim_b")
+	_record("authored swim advances during travel",frame_a!=frame_b and venue.animator.animation_state()=="swim",[frame_a,frame_b])
+	var right_top: bool = await _wait(func() -> bool: return venue.route.is_empty())
+	_record("upper gallery connects across screen boundary",right_top and venue.player_root.position.distance_to(Vector2(2030,342))<1.0)
+	await _capture("operative_upper_right")
+	var right_ground: bool = await _travel(Vector2(2120,1015))
+	_record("right lift reaches original foyer",right_ground and venue.player_root.position.distance_to(Vector2(2120,1015))<1.0)
+	await _capture("operative_lower_right")
+	var left_ground: bool = await _travel(Vector2(800,1015))
+	_record("foyer connects across screen boundary",left_ground and venue.player_root.position.distance_to(Vector2(800,1015))<1.0)
+	await _capture("operative_lower_left")
+	phase = "cancellation"
+	venue.request_destination(Vector2(1412,900))
+	for index: int in range(5):
+		await get_tree().process_frame
+	venue.cancel_travel()
+	var cancelled_position: Vector2 = venue.player_root.position
+	for index: int in range(12):
+		await get_tree().process_frame
+	_record("cancel stops travel and queued door",venue.player_root.position==cancelled_position and venue.launches==initial_launches and venue.completed_mask==baseline_mask)
+	phase = "interactive original props"
+	var prior_responses: int = venue.prop_responses
+	var counter: bool = await _travel(Vector2(630,940))
+	_record("ticket counter responds after approach",counter and venue.prop_responses==prior_responses+1 and venue.ambience.bell_burst>0)
+	await _capture("operative_counter_response")
+	var tea: bool = await _travel(Vector2(2360,1150))
+	_record("refreshment cart responds after approach",tea and venue.prop_responses==prior_responses+2 and venue.ambience.tea_burst>0)
+	await _capture("operative_cart_response")
+	phase = "activity cancellation and exact return"
+	venue.request_destination(Vector2(1412,900))
+	var launched: bool = await _wait(func() -> bool: return venue.job!=null)
+	_record("physical doorway starts shipping private practice",launched and venue.running_act==2 and venue.job.dev_playtest)
+	if launched:
+		var source_position: Vector2 = venue.return_position
+		var source_camera: Vector2 = venue.return_camera
+		venue.job._leave_early()
+		await get_tree().process_frame
+		_record("cancel returns to exact source position and camera",venue.job==null and venue.player_root.position==source_position and venue.camera_position==source_camera and venue.completed_mask==baseline_mask)
+	phase = "successful callback presentation fixture"
+	venue.request_destination(Vector2(1412,900))
+	var fixture_started: bool = await _wait(func() -> bool: return venue.job!=null)
+	if fixture_started:
+		var house: OperaHouse = venue.job
+		if house.act!=null:
+			house.act.cancel()
+			house.act = null
+		house.act_index = -1
+		house._finish(true)
+		await get_tree().process_frame
+		_record("successful callback marks corresponding physical crest",venue.completed_mask==(baseline_mask|(1<<2)) and venue.badges[2].visible)
+		await _capture("completion_callback_fixture")
+		var completed_mask: int = venue.completed_mask
+		venue._job_finished(true)
+		_record("stale callback cannot award again",venue.completed_mask==completed_mask and venue.running_act==-1)
+		venue.completed_mask = baseline_mask
+		venue._refresh_badges()
+	else:
+		_record("successful callback fixture could start",false)
+	_record("normal progress and practice saves unchanged",venue.m.opera_stars==baseline_stars and venue.m.pearl_count==baseline_pearls and venue.m.save_data.hash()==baseline_save_hash)
+	_record("routes avoid central seating footprint",island_clear,{"samples":samples})
+	phase = "restore exploration starting point"
+	await _travel(Vector2(1280,1380))
+	await _capture("operative_final_foyer")
+	var failures := 0
+	for row: Dictionary in rows:
+		if row["result"]=="FAIL":
+			failures += 1
+	results = {"engine":Engine.get_version_info(),"renderer":RenderingServer.get_current_rendering_method(),
+		"profile":ProjectSettings.get_setting("application/config/custom_user_dir_name"),
+		"scope":"Private runtime integration; successful completion is a declared callback fixture, not an end-to-end played win",
+		"checks":rows,"failed":failures,"final":venue.review_snapshot(),"baseline_save_hash":baseline_save_hash,"final_save_hash":venue.m.save_data.hash()}
+	var file: FileAccess = FileAccess.open(OUTPUT+"focused_runtime.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(results,"\t")+"\n")
+	done = true
+	phase = "finished"
+	print("OPERA_TRANSLATION_PROBE|RESULT|%s" % ("ALL OK" if failures==0 else "FAIL"))

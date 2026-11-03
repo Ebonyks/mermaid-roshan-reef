@@ -1,0 +1,53 @@
+{
+  "schema": "ANIMATION_JOB_CARD_V1 structured equivalent",
+  "date": "2026-10-31",
+  "source_commit": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "id": "blink",
+  "clip": "blink",
+  "intention": "Roshan makes one relaxed blink and reopens her eyes without changing expression.",
+  "duration": 2.4,
+  "fixed": "Entire figure and eye corners fixed; no root, head, gaze or brow animation.",
+  "motion": "Discrete authored half/closed/half eyelid patches; whole figure fixed.",
+  "gap": "Matched half-closed and closed eyelid drawings preserving the neutral source.",
+  "output_lane": "reference-only native Godot 2D rig study",
+  "method": "ImageGen native source and local eye repairs, non-destructive source preparation, connected Polygon2D mesh, Skeleton2D/Bone2D, authored AnimationPlayer tracks; no frame generation or 3D resources",
+  "owner_authorization": "Current chat: native Godot test run, all three shoulder/arm, blink, tail bend studies, extensive Codex stress loop, liberal ImageGen source/segment repairs. Scoped exception to old no-rig/whole-drawing restrictions for this study; no production policy change.",
+  "entry_exit": "Same neutral painted pose, fixed 1024x1024 canvas and pivots. Zero end velocity and acceleration by authored ease5; rendered endpoint comparison required.",
+  "tolerances": {
+    "inverted_visible_triangles": 0,
+    "visible_singular_value_range": [
+      0.8,
+      1.2
+    ],
+    "bone_scale_error_max": 1e-05,
+    "rigid_head_distance_error_px": 0.01,
+    "frame_edge_alpha_pixels": 0,
+    "repeat_seek_matrix_error_max": 1e-05,
+    "endpoint_changed_pixels": 0
+  },
+  "limits": {
+    "aggregate_imagegen_calls": 10,
+    "per_named_gap_takes": 2,
+    "local_iteration_minutes": 120,
+    "cleanup_minutes": 90,
+    "separate_paid_API_budget": 0,
+    "billing": "built-in usage not exposed; call count retained"
+  },
+  "stop_fallback": "Retain rejects. Diagnose/change weights, source art, rig or method when a named defect repeats; do not lower thresholds or begin per-frame generation. Report any unresolved defect explicitly.",
+  "provenance": "provenance.json; provenance_shoulder.json; evidence/art_preparation.json",
+  "aseprite": "1.3.18.4; all291 reopened RGBA frames exact; integer-ms review cadence declared",
+  "reviews": {
+    "machine": "Final named geometry, motion/contact, archive and master checks PASS; full game gates tracked separately",
+    "agent_visual": "All291 final frames on chronological sheets plus representative full-resolution poses inspected; no visible seam/halo/pop found",
+    "human_motion": "PENDING owner normal-speed judgement",
+    "device": "PENDING Lenovo Tab M11 Mobile/Speedy",
+    "child": "PENDING",
+    "owner": "PENDING"
+  },
+  "acceptance": {
+    "runtime_integration": false,
+    "DELIVERY_ACCEPTED": false,
+    "ARCHIVE_COMPLETE": false,
+    "GENERATION_READY": "not an external generation job"
+  }
+}

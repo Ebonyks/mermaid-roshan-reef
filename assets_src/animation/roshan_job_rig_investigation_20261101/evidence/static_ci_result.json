@@ -1,0 +1,18 @@
+{
+  "pass": true,
+  "scope": "All required repository static commands have passing evidence; source wardrobe quality remains FAIL.",
+  "monolithic_full_run_zero_exit": false,
+  "source_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "evidence": {
+    "prefix_through_audio_replacement": "initial_stdin_static_ci.log; all prefix commands completed until stdin-plumbing interruption at audio_quality; unchanged production files",
+    "remaining_unchanged_tail": "static_tail.log; static_tail_result.json; exit0",
+    "authority": "document_authority_final.log; ALL OK",
+    "coverage": "development_coverage.log; ALL OK",
+    "initial_failures_retained": [
+      "initial_stdin_static_ci_result.json",
+      "inflight_coverage_static_ci_result.json"
+    ]
+  },
+  "advisory_visual_state": "UNSATISFIED;15 FAIL,17 REVIEW_OPEN,2 MANUAL_OPEN,87 COVERAGE_GAP; not a master-audit pass",
+  "source_quality": "Strict continuity remains FAIL;65/250 mixed snapshots fail; no acceptance/integration"
+}

@@ -1,0 +1,17 @@
+{
+  "candidate": "render_v8",
+  "rejected_publication_revision": "4c19341b6c0f9650cfba51dfc661f95b258ac434",
+  "result": "INITIAL_REQUIRED_PACKET_VERIFICATION_FAILED",
+  "detected_by": "Anonymous immutable raw GitHub byte/SHA-256 verification",
+  "file": "ASSET_LICENSES.md",
+  "local_expected_sha256": "614b83bc83ba02eda09759b58daf97b4013e6b252f1904e18ca7bfd54b88d4da",
+  "local_expected_bytes": 6363991,
+  "published_sha256": "3277e1baad374429faa693056c35041efb8f6bf01ba6c1b6521f8cc29190f57f",
+  "published_bytes": 6348661,
+  "cause": "Root license ledger normalized CRLF to LF at Git add; previous required seed recorded pre-normalization working-tree bytes. Text content is identical. Study paths have -text and were unaffected.",
+  "repair": "Write the root license ledger with explicit LF, refresh seed/manifests and verify every required staged Git blob against local bytes before publishing a corrected revision. Then repeat all anonymous remote fetches.",
+  "art_rig_motion_or_threshold_changes": false,
+  "ARCHIVE_COMPLETE": false,
+  "DELIVERY_ACCEPTED": false,
+  "utc": "2026-11-01T11:30:57.587689+00:00"
+}

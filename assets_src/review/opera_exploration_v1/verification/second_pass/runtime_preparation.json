@@ -1,0 +1,3948 @@
+{
+  "baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "review_runtime": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-ai-playtest-20261017-101103\\runtime",
+  "private_profile": "MermaidReef-OperaRemovalReview-20261017",
+  "scope": "all scripts/scenes copied byte-exact from baseline plus new review; changed assets since prior review baseline copied; private config/addon overrides",
+  "files": [
+    {
+      "path": "assets/dolls/cradle_sling_painted.png",
+      "sha256": "837b1dbf53908e9bcdfc2a57c93ad96c7d90a369a87c4e1192c198abedb3e1ca"
+    },
+    {
+      "path": "assets/dolls/cradle_sling_painted.png.import",
+      "sha256": "7488517c54e532833e66018e18d44257105bef4844f8e6762327b7fec062a370"
+    },
+    {
+      "path": "assets/dolls/safety_mat_painted.png",
+      "sha256": "da27e6f70b2ecbe34f62408ee5b6ce716110e9066a71656399154392c7ede8b7"
+    },
+    {
+      "path": "assets/dolls/safety_mat_painted.png.import",
+      "sha256": "6cbe520ff997e5894e73dfa96d03aaa096c86d468993b4eb7b3a786cd550ca13"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/catalog.tres",
+      "sha256": "1a86e5c3066f173023d32534fef75207652ade3efea450a1343816402c650f7c"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/astronaut_body.png",
+      "sha256": "0a5143eb9c25d1f2e93c6efb384a4b4cef7998996dfb5b592fb07f3895a0c496"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/astronaut_head.png",
+      "sha256": "373bb950af6fc3c660cb0b4db7f9d338ef1fbb6d9c352b61841378a4d4fdd3d4"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/astronaut_tail.png",
+      "sha256": "f702466a6a06163858f74c9d676d857d82bd812bdb05405a9ed1ec467058ab31"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/ballet_body.png",
+      "sha256": "d6e4babe63614eaccbb5e49344f57f636b93e2448cb807aab2347ed95f314f8e"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/ballet_head.png",
+      "sha256": "4516a2631d47c928a20cbefc2059922471cf59958450716cf3ca023186395f4b"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/ballet_tail.png",
+      "sha256": "485bbf4b526e1ad47c50abeb70e3cb3e57b2139f47cc9e751e2e4a3d914d3a5f"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/candy_body.png",
+      "sha256": "acb6b4154481f0fbb7302571c264f6959446cffcd1721e4d47a17f5e9c3408ed"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/candy_head.png",
+      "sha256": "e81b4c5af7a5339e5661baffae4ea363ace5e5676d031cbd9fdc088989a8021e"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/candy_tail.png",
+      "sha256": "fcae311dd2c86e9ec5cc048b70179db2ada7f9e8941a4b420c9c527879275918"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/magician_body.png",
+      "sha256": "deb7caf0b35579021e9469696bd056132e63682d06b902905ed0c8d0d43343b1"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/magician_head.png",
+      "sha256": "161f7c9177d5a145091b3da42786a29982662bb472322e9eaced09d9b23d9ea7"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/items/magician_tail.png",
+      "sha256": "fde532c6d5411fe382eb0121afc892585629ab500e130ac70e3fdbe4028dfaf4"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_astronaut_v1.png",
+      "sha256": "7d2ce9d51511af01ae87cab6e05a2dc2255b4fe4840ad8364d33cbbcc4b84ddc"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_ballet_v1.png",
+      "sha256": "3a376b0058be6c6d710350bf1ba32c43b7d50bc26a2532adde072a62aad33284"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_candy_v1.png",
+      "sha256": "2873595c9cd0b90bafe3e706f9724cca624b1979e7d02fb7599eafbb1f2ca32b"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_body_magician_v1.png",
+      "sha256": "4d53a0bddffa4a47589df8fac75c9b72d9e272dbd2af6da85f04191b6802a058"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_astronaut_v1.png",
+      "sha256": "236716a59ccdb7d23128571251a8af13216d0bc71b30affe526fd0bd4b468a6a"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_ballet_v1.png",
+      "sha256": "bbcf85f66ca7b49ba1c7c9f4150f82e20d2a008258d8f7fda9af45925a2ae9a2"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_candy_v1.png",
+      "sha256": "7bd8334a3d17830b8cd56fc7f156ae5e4d9dbe9528ebf50fa343845f3face2c1"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_head_magician_v1.png",
+      "sha256": "b7b90eed7cca82fc3ef1c1c700b048a3e6ce583c6f001f99464a60c8cd8d63da"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_astronaut_v1.png",
+      "sha256": "a5f62cba09262250905cf701b12e03848f95f439dc0b591e6a0484fcad32db16"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_ballet_v1.png",
+      "sha256": "8faffaa1a2d31959f148a70d0782b5364f6260d0cd525a772bccb5821c9f8999"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_candy_v1.png",
+      "sha256": "101ddc0b59c9bf98accef93b2329bfa8774d9087978b3ccb94a04fc242256093"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/daddy_tail_magician_v1.png",
+      "sha256": "845eb98ffa266afb612dfaf5d85497000bcd12c6883317bf45ebf815ede9bda0"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_astronaut_v1.png",
+      "sha256": "27944703de987521c5e3dfae04e14010ceb119e24fc9581d60dd50ceb8c9bc72"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_ballet_v1.png",
+      "sha256": "428a2696f4c0e1b50c40a7191400e8aee62122f31c471f80c5d1f013c1983cdb"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_candy_v1.png",
+      "sha256": "4c341bf1eb27e8c8b2bf58857a83f4ca4733e1183c8343ba913874899fd63f31"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_body_magician_v1.png",
+      "sha256": "79c35c20febab6467d137f9fed01ce88ea04a31ffdd818d5e394b096e6b5b6cb"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_astronaut_v1.png",
+      "sha256": "06cf65c3406d5ad7324794c5e6b698ddebb76e1461987aa25b8150b63e3fad55"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_ballet_v1.png",
+      "sha256": "211fdc2b5d03728c76a5aca46ef68f50bd82f83e5689fd507b7fdff6c2a04056"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_candy_v1.png",
+      "sha256": "76ae8e5ed8f114e2b25372b629182e80f919fc3c30f1d6dd6b56c0e6a06caf48"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_head_magician_v1.png",
+      "sha256": "702ad933d9d49d6f04a3ac69af810a6e6484f5c69c4ffca2aed30be3148c5ead"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_astronaut_v1.png",
+      "sha256": "bf521dd6aa3166c56e36d56b3ccdb2f843799a9aa5108e02c7b2a266c7ae9030"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_ballet_v1.png",
+      "sha256": "bece38f882625f34f167f6aee024ce94790648e905710e4421bbd5998731e961"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_candy_v1.png",
+      "sha256": "2760226659705494a2525e7714ee5ec6ef23f358dd0680d28339214dda5b5223"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_base_tail_magician_v1.png",
+      "sha256": "027601c9d9f1e3eefc8176e8e17fc7a55ce9fe0bcc9c2a43838bfea277990c0f"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_astronaut_v1.png",
+      "sha256": "8e96587a87c3cc14bcfa7814a63330012d6067c6dbefc9aa6d51ac5da2ba0eb1"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_ballet_v1.png",
+      "sha256": "3215abf70edfeddc394041a4d5b17b12d835ba4b434feb4b68235d9116387ac7"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_candy_v1.png",
+      "sha256": "b45e56071d65e9160f38722891fb077ad3fda592dca7a42b2cf5ba9ccfa04035"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_body_magician_v1.png",
+      "sha256": "42503e1563c3a3a5e6fcf487b5524387f0537e1a1c825f170efb4fd27bf0cd8f"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_astronaut_v1.png",
+      "sha256": "35d85be27d56b8b937e375d5e80b009c73e962e4342b5159dd71e5382bfd05ae"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_ballet_v1.png",
+      "sha256": "47bd11ad704a3f2c11299be3f0a9df4b27a80204ef30331b335be8d461568957"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_candy_v1.png",
+      "sha256": "f0bd09b197ce4187d5cd1d243c7d7585b77a5a07078ede4c8a976d1b04a6a520"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_head_magician_v1.png",
+      "sha256": "64ede7a05e4eb670bf445d9ad80ed1da32c99006b56b6b3af015bed755a545d1"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_astronaut_v1.png",
+      "sha256": "74e09c09a3c77fe17a268ebf9ba1b33f25ca978af9bc8a7fd990fa8c60f5637e"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_ballet_v1.png",
+      "sha256": "423daec1020e3e69742a9d7ca537cefe9dc5684bfae082ab3f405c212453fb9b"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_candy_v1.png",
+      "sha256": "b6a65da7a64aa16727267f2adaa64e7769e0ef2f9664b1c72c33ab58f90e1920"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_directional_tail_magician_v1.png",
+      "sha256": "77f23e74c9298db98b5e5896eada18ac264e93a65386bbb12b390aec3b1637b3"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_astronaut_v1.png",
+      "sha256": "078ec94ce5ff90e6761baf77e244c193ec908465efda5c80116512fd11811057"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_ballet_v1.png",
+      "sha256": "ce3a1f8480f97a1b75512911134f9764ca0b40453c4cb1e6dd7cd24b8e4cef38"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_candy_v1.png",
+      "sha256": "f7a213bd2763dbd7ddf223867fa83156c1aab3f6e7761c7ed97ef9ee51146573"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_body_magician_v1.png",
+      "sha256": "d6497cd50e48e02e2c16146822c2fba47938f26978e7f03b13609c06e233f564"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_astronaut_v1.png",
+      "sha256": "4cce33cbd9e749c0b43eb86197d1293d22acfe02221944a46a57ca787622e6d9"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_ballet_v1.png",
+      "sha256": "fe59a3dd711bcad35734ac0e8e41a2d93f58c76721869f17fac17eadafa95047"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_candy_v1.png",
+      "sha256": "72ffc210a64b9213c5d76dd9c7887ef833b9d453917dfc427561b207b60650ff"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_head_magician_v1.png",
+      "sha256": "aa8bc96309c795fd672369bee9d34a9bf8e43c61ade28aa6611b597692e3929f"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_astronaut_v1.png",
+      "sha256": "5eb63a78d1c613013f76da66e00d45171f274885cf0ba897377e291399aea08d"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_ballet_v1.png",
+      "sha256": "219f6d5fdd183ae5b6907079ed9f08554576580591a87592985f7a1b55ac66be"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_candy_v1.png",
+      "sha256": "b93c8647c62588e76c0359fdb2bc9ba8571f015155f2025c94a37dbe3baf83b1"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_a_tail_magician_v1.png",
+      "sha256": "26f05f301a92d0e79b1b06720a56f26dd9b027c3de43a215b79b750b7bf89ebb"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_astronaut_v1.png",
+      "sha256": "9938972ae30667f4520cf7515d0057dba3534ca640c229819ecb6110b69e63e4"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_ballet_v1.png",
+      "sha256": "ab62613e84ddb3eca64193607617b1d5b1cbe7b323f010c81ddf7fb5692a4988"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_candy_v1.png",
+      "sha256": "ec89f34e391cbb7efba61c0add54edbf6bf6fabbac7f751eef20d4ff6a73075f"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_body_magician_v1.png",
+      "sha256": "dca61d63bfd4aadef2f818a152ac095cb3ddabbd752c2587662a128df2139076"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_astronaut_v1.png",
+      "sha256": "b06811f5123d68686206b281aefd9bb9bb1ee42c664a490ec57c5c1a8dab48ee"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_ballet_v1.png",
+      "sha256": "2632a2ca92ad165b1933f7ecbe45de244852cdfffc5cb16669d8bdea5fae2341"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_candy_v1.png",
+      "sha256": "26f3be50036b42b3589b0e1e6fa6179ef194bafc423544b9355904d4e55f5287"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_head_magician_v1.png",
+      "sha256": "8e7b1509a56a258c6d2578261956633c55eaa1990231d4c3dc81a6ae9a6b1732"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_astronaut_v1.png",
+      "sha256": "284a83c9881d9b28b8b6b0cf20114164823f7be6721ed535deb82012e0068e88"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_ballet_v1.png",
+      "sha256": "0a53f3d062c5c1ce895d9cd17966221d015fb99b9fdb8bab863f25a64f4bc67a"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_candy_v1.png",
+      "sha256": "f4886cb5d5fe818a43420ede4e58b4d07b9a276570bc0bd63c6efe402029b420"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_b_tail_magician_v1.png",
+      "sha256": "6ce35a9a293a719afd7e8e73f5b9f805128cbd3b7605664cb2bb88ba48028e08"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_astronaut_v1.png",
+      "sha256": "53b3a347d2d71facc4ec9d08f737f6a4e6fcdfb86ea97a492b9b8fa27126493a"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_ballet_v1.png",
+      "sha256": "edda8ec9219b2b102ee9130d3327650649ed2b2257198aeb023a8edd16c394f4"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_candy_v1.png",
+      "sha256": "316a3e7ea27ddc447da4d564ac9f67ddacb24ba42cc2af84185bc3ed88c8b4e4"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_body_magician_v1.png",
+      "sha256": "921e50af59c30c3eb6c98a438ddb898bc8c5c5b7633f687f2a70f07d8ca6ea14"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_astronaut_v1.png",
+      "sha256": "c2277647ddd17402bfd32b95b5cd417836c813eee17e7a1b436d82bcab98fe83"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_ballet_v1.png",
+      "sha256": "ea33b4c0873f940e833468bf5d0b66d43232572d6ff33e941a26a36771e02337"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_candy_v1.png",
+      "sha256": "598f2462408047cc3008214d9bff635520e8913faca903cad233c640c87a6294"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_head_magician_v1.png",
+      "sha256": "eb6ce09bda7ffa43ade409b73fe0cc2b2d3dcbe2bc82993f2ebf977bfc6b3eda"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_astronaut_v1.png",
+      "sha256": "212899ccbc211030ea0180c8e073a93398cba785840fffe0fe3ed047ef6af7f4"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_ballet_v1.png",
+      "sha256": "81f3dd6b8f7bf3e468bf0b18a8079ff3c37489874fbd507894577690d63ced51"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_candy_v1.png",
+      "sha256": "d5322e9288c3f895ad8492a8415d7b27abeef9154db7092ab6bfab78af5199d3"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_c_tail_magician_v1.png",
+      "sha256": "cf615861305dd750580819732ef029727a53be7331b0a99246eaa9f6ef40ea2f"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_astronaut_v1.png",
+      "sha256": "fe0eda7791c9ff20df314d6e87682b285bf70aada91b19383ee3e1a459b8ecd8"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_ballet_v1.png",
+      "sha256": "56eb86f96a534d8f02e70207c0bc400eb7834447bb3d4d6834ba259a0151938d"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_candy_v1.png",
+      "sha256": "a02bfcd97dfd69bf64203c7ec5c1ef80c5a35e34b1d114016b45ad0170488a05"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_body_magician_v1.png",
+      "sha256": "4f0c0609b0c7698c813c2e5082209f2edea03549401d7dd90d1db8eaf34ad7fc"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_astronaut_v1.png",
+      "sha256": "caae91b0b3ede57007b4996f7603c64dab5f7dd2ae6efdf95bfdeb4924d485fa"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_ballet_v1.png",
+      "sha256": "d20ab91bb21c31ba39ed8fc34fa36418dda65bd62a41cb7d3957a8442d0a561e"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_candy_v1.png",
+      "sha256": "053e784ad4d1ec2e07d1994e3890c1f32dd9e292f4dd3b597878ca8986c628f5"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_head_magician_v1.png",
+      "sha256": "f7f37280b7e4956d946eb9b13a89a9e8e01895e1d0cbada2adb0943174cbff19"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_astronaut_v1.png",
+      "sha256": "4d3e6f19a2be3955ab944f47c2337a91eb15d304b022f2690480b46840d4e4c1"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_ballet_v1.png",
+      "sha256": "35a307668b79cbf1c6936203d25cfc81e24421170e419c8dde105972c78df1c2"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_candy_v1.png",
+      "sha256": "89d5d56411ef09fa31c1c1d9575139e3a58b945878d767dc4533b6e83dd85885"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_gesture_d_tail_magician_v1.png",
+      "sha256": "bb8abc3add2f6fd5d8809f6212c2d64e0d2ccde74ae006f3f6946e6acc2f54d7"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_astronaut_v1.png",
+      "sha256": "fdad01205b37870516ead9ca10d7c90986220d4e70180528e416c1920f983cd7"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_ballet_v1.png",
+      "sha256": "6ba375889c44f03537bb60b306ec071461eaf87f81a626078f73265561e34bed"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_candy_v1.png",
+      "sha256": "1c5288be487f8a0c379442310d298b5157ff620b2e14eda6932e2dc57cfefc3d"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_body_magician_v1.png",
+      "sha256": "c87efb0aaa766a479884cd6b96d604b5ce31547de2d17490bc08dada11077771"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_astronaut_v1.png",
+      "sha256": "5d7b75777fbb3856f42a5b1f120f655f579785430456bfeaf92efce5390a3f9f"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_ballet_v1.png",
+      "sha256": "5e322e621df34cd1b8be5eb01f34d401e57229de533654f2cef1de00e6d03b57"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_candy_v1.png",
+      "sha256": "a3de948423cbad8fd7d3c8fabd9cc12296aafd04a54601625385a463aa3e3cc9"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_head_magician_v1.png",
+      "sha256": "f3ef73fec6c75248d25cfecd67f5f512b8b0625279d8eff3289363be0f48089e"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_astronaut_v1.png",
+      "sha256": "0d64af3fe4111aa316cb47fe42b6f71e92ef1d3cc3668a8330b68a2d22515819"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_ballet_v1.png",
+      "sha256": "c786c1eec580b4bb363f25fdd137e15e67a867bf8c5b96da27a1a29ebea62d5a"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_candy_v1.png",
+      "sha256": "9b34cf3540b8089b57b58d7216d7eb6fe8b5e1988b5eb1a990ad6364e1149a4e"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_a_tail_magician_v1.png",
+      "sha256": "05917e8226e43a29e8493df37dc23bd5130cd4c98117e5376b45ed12f8994654"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_astronaut_v1.png",
+      "sha256": "38ce86f077bfcc02326ed3f0fe83ef5ce3d5c5df9158520baf1c0773a2cbb8fc"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_ballet_v1.png",
+      "sha256": "d3c50f7b29ebd55e7acfabc8ddbc9a785d0ae02e884e9c50ab5967481c3923c0"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_candy_v1.png",
+      "sha256": "433ec645b68d22289a7f4ebbbc57cb0d7e54757fa75d48085ace8e7758989fff"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_body_magician_v1.png",
+      "sha256": "f5378718a857eec11985b31fdd79a1ea77e91eec028046c705f26a37afcbf957"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_astronaut_v1.png",
+      "sha256": "7021f4bedf3999f92cab30c722d11871bfcf65f2420f17974f9e3439fb0d5a1b"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_ballet_v1.png",
+      "sha256": "89948135b49d19071668815f41bf2eeecb2291732960fec655765dd571bb83e6"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_candy_v1.png",
+      "sha256": "0d4128aeaac61ce4196d0045afd952181873031c2cadade7787eb9f9b4abf078"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_head_magician_v1.png",
+      "sha256": "234ef187a277210d95ef3727728cb82d426e777e53d08b1456afdbac982888b7"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_astronaut_v1.png",
+      "sha256": "8d337eaf3b43bbbd79b81dbc4fde776dff9a9d7e25521e6e6860608914f86300"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_ballet_v1.png",
+      "sha256": "87e8b71ff2163043ec56846a00fbf971a98004b758247ce0ed10dfe096655a1d"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_candy_v1.png",
+      "sha256": "6b2dbaf847b8cc1ef891ea08544bb04ad67e381c130bcf27640d9589e4ed4ca2"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_play_b_tail_magician_v1.png",
+      "sha256": "9edbfa51a17c4f89a2d5d21d5c1f83df8f1c10332526165d6af3d5250ca6f302"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_astronaut_v1.png",
+      "sha256": "32b994eee6a3bc2cb7e1feda7a4d14ed24bf5cdd512b75890fef8d4d1515eca7"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_ballet_v1.png",
+      "sha256": "f7db586635e7d63787d8ff3ba8fe399313d7fcda585737a24e230adf119c306d"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_candy_v1.png",
+      "sha256": "7f5e21d424f35983b047e81c618f2af1b1844ba6b76d61d587db2069927ec1e4"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_body_magician_v1.png",
+      "sha256": "3b3e1ce7c34624549eba994244449d6b0baec4647abac8e095d1860653f70646"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_astronaut_v1.png",
+      "sha256": "b1ce87ef35eda4611cec4832bad77514f4efbdb4855478d14f46ec8c2d3e802d"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_ballet_v1.png",
+      "sha256": "0422d76bf3a2dd53134baef3b9665da5837cfe640788747be735851fdbb39ef0"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_candy_v1.png",
+      "sha256": "4e8c468ea9f1ff118ee13330edb63175786b9f02aa1d447dfc0ce34c6d8b538b"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_head_magician_v1.png",
+      "sha256": "4fde139aa550d4c08e469a62cb8af330ea7861394abb95f8229620bac8a09eea"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_astronaut_v1.png",
+      "sha256": "fd94105b67b67379eeb141f7bfcb45b5ce34d131c63d8ea81c140b90b29bf7e1"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_ballet_v1.png",
+      "sha256": "cf70b60ca1cc4f2ea322eef08aaa4a6b702da405dfe3e1b63ff8a731b34b0e3f"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_candy_v1.png",
+      "sha256": "56c5a2e856f332b86690e2d1423958fe6f361d4d0c5253fad74065fa46aa8faf"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_back_tail_magician_v1.png",
+      "sha256": "11e87c281d9e99174873ab233ec96ecca59cdb3f475c545957bbb89b8fdc26eb"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_astronaut_v1.png",
+      "sha256": "d7850b351b9aae9094b34cd3e4a6af6c62705706287cbdf24a92faef9e81c485"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_ballet_v1.png",
+      "sha256": "ab7cb897683ca48315fe2944b91bb73a9cca09398d8fe75faed2074cff758c8a"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_candy_v1.png",
+      "sha256": "63d8c28c3682b8a8c882380fd40fa1776cb9b87ccc80559a3dcb5ba575560c72"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_body_magician_v1.png",
+      "sha256": "ad1e89aaee7dba13941783c1aa02f4e15763abaa22fe15ab9317cc52ba8f112c"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_astronaut_v1.png",
+      "sha256": "8b405bc386ade539461d770560aa83c80afaa5c145c2bc34067aa88ba9a40203"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_ballet_v1.png",
+      "sha256": "a5f3d480393666d3d18088173468c5712797b721ce3ff79cab69d3b0974a5448"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_candy_v1.png",
+      "sha256": "ab3b0ce239d9279cd5339d855f0fc86788859fbea60683cdfd2c534ef4001ba1"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_head_magician_v1.png",
+      "sha256": "2c280a1dc4cb5ea481ed0aa2711129736de610a57e2be1f3e08f2741aa657032"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_astronaut_v1.png",
+      "sha256": "0a4842b340522e891c9e9657c20181be9331a03555f918fd0b7522e5cf93db30"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_ballet_v1.png",
+      "sha256": "4a3d58991a7dad51e16e856b223cf39f5fe554d969faee41c4d8235ae1f8a3ec"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_candy_v1.png",
+      "sha256": "bff8e45c57fa0b5aff156cd276caaab55d018a7f469df31f0ef1f7891997c884"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/roshan_swim_front_tail_magician_v1.png",
+      "sha256": "15945a6d65ef0eb1c5a2ed15a0f6a6c3edabaa01a38933267aa9c6ece7184684"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_astronaut_v1.png",
+      "sha256": "82ddd94bb5fc6d58d597d18fb9888ea5e0ffed6a20f99ffba32a1ed1b06ed613"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_ballet_v1.png",
+      "sha256": "1cfbe3f712e89b93ed18b2351bd7ebbfcb99c1a6c01dbbbe96aa759b2b21949e"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_candy_v1.png",
+      "sha256": "a87430a2b0c307763833a18aab3082f50fe840d71885e87ddbb61fccf82f2bee"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_body_magician_v1.png",
+      "sha256": "a943586df89a3b5bc628737327fd5ee5fcad07254d996f1aee2045a30954622f"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_astronaut_v1.png",
+      "sha256": "a7fc40fcbbb94c856673067def6f74158ca02c4a60ed48ea723d3bd5d4059ce8"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_ballet_v1.png",
+      "sha256": "1a171b5bece79bcb0bd5d3a48825e529819ae68c4bf02889c5c89524d1cec6b7"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_candy_v1.png",
+      "sha256": "8ba5f9d0d2b9886cca225dc5a68ee48e629bfc98531ab9dc3f8579cd0fbaa7b9"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_head_magician_v1.png",
+      "sha256": "d72e8d40403c61806446385be483509ff10a0a562ce17bda299d4ff85de9d37a"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_astronaut_v1.png",
+      "sha256": "4174f5616cf3617b26ec919bafef049e0496ea2b006321357979f6c1805dbff1"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_ballet_v1.png",
+      "sha256": "90583cd0a7f60e2dd597f84450b343315b4a0471ba69882558835b1d55a50ce5"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_candy_v1.png",
+      "sha256": "bf37c8fc05ed88e2afb34d98c488147854fd10466ea4f305224b8f2d8002ef29"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_eight_pose_runtime_tail_magician_v1.png",
+      "sha256": "71754184eba9be749f024ea8013c87f194e29a17d5f800527704d8f1e01a760c"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_astronaut_v1.png",
+      "sha256": "9ddd4fa4017ba9c07e6ff4116cfc888cc2ea3585096f8c454c464770984044ff"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_ballet_v1.png",
+      "sha256": "516f6daf127cb5c65fadfc431271e50aed8897ef1c6e8f2cf41e82a976dd50c0"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_candy_v1.png",
+      "sha256": "db94af18df91e000c44b09cdea30595b4c542980e32a879f753f1e4089c76efb"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_body_magician_v1.png",
+      "sha256": "06a84c23c6e144ac2a8e709dc5f86e8535320650432b07de8e12e89455ec96fa"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_astronaut_v1.png",
+      "sha256": "da434caeac3ef61d1d1ce667a00f729019e014fb556e05b1e7edb2b18cf90697"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_ballet_v1.png",
+      "sha256": "aa2ec7c5600c5b7d6b5762d22595d1a7af8db4d30f2d30c476d7c81ea09eb4fa"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_candy_v1.png",
+      "sha256": "b90e832b81e21da45d8115b67bbebe7ff2b6e981d01a5ceaa111db4775bc180b"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_head_magician_v1.png",
+      "sha256": "c96d97f4a49b45bb11aee2985614719b22ffb42f3f3c30eb1aadf13c611978b9"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_astronaut_v1.png",
+      "sha256": "0914315fa4164e6828a48fb35b6805138bd8a2c5f1311da2e18800818cd5ccfc"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_ballet_v1.png",
+      "sha256": "99f930e14547fb47b839ed24de58fef7933119577a4407064748ee18e4ed9e27"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_candy_v1.png",
+      "sha256": "e196c45a79e3102f6f92388c19fc77c9a994335f20bbef1a51de6b2a9242c438"
+    },
+    {
+      "path": "assets/fashion/beta_20261025/layers/rumi_pool_idle_swim_atlas_tail_magician_v1.png",
+      "sha256": "6d33865c1479b013821879dc829096cddeee5bc2131281a3b780737739febe98"
+    },
+    {
+      "path": "assets/flats/castle/rooms/merfolk_embrace_painting.png",
+      "sha256": "b5c367b86043840accc1f47ac00e9cc5646687d34cd07f51c79e717fbca49c3c"
+    },
+    {
+      "path": "assets/flats/castle/rooms/merfolk_embrace_painting.png.import",
+      "sha256": "7684640288818f706ea1945d6c87b9e7faf6270d49f5e1795c8c95a91159596b"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/flower.png",
+      "sha256": "6aeb216477914115306c16a51a97c394c2ed77ddd78a6099c524c7a47e7239b8"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/flower.png.import",
+      "sha256": "ea841aef2b94a585b6c3d687632711c44363180286b99f428b0f4a82683033de"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/flower2.png",
+      "sha256": "358dadd51e1b2297eabf49f03ddddd96677e99d952a4d7bd473ea1daa2715818"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/flower2.png.import",
+      "sha256": "a81c28884736e7b5e851edc3c6bbc44fc79b11541e6a39ab2774491a47ebef62"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/flower3.png",
+      "sha256": "9e970a124c89cb5260d7e8aaa1d069cc30f8abe097f349d54d7ed9ede87b909d"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/flower3.png.import",
+      "sha256": "3b3e57bbd4b38cc8cd96822a51e268af7d7d126f3678f3f5e930c47ffb2ad5a3"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/k_flower1.png",
+      "sha256": "cf15cc96a451918a030ef3215d7a23d900ce95e161b372fcf3f40905c076e4dd"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/k_flower1.png.import",
+      "sha256": "4b6731481462b3a47a516e174543da6d97e52b47b6a61142198febc1fec7e022"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/k_flower2.png",
+      "sha256": "34242c43a7e1ff4eda7e0581e6e2f57c2ecb0c8067c5923cdbade3170ef01aa5"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/k_flower2.png.import",
+      "sha256": "e9b01bacb5e58710a92969b1f59080aafa6f7326e0d79ae3ae616426e64dee56"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/k_sprout.png",
+      "sha256": "f93c89e7ef5e5f18cf2ae334b985f66f3afb99c1fe26bbd6721531fb7599ac4e"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/k_sprout.png.import",
+      "sha256": "c2cb2867553e63d5ce173d669496eb9aa1aa7cb1a2115d878d5de2afcc632deb"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/pot.png",
+      "sha256": "aa5d66904669175431d8d68e9c803f231668768cc66bc406243943acd7549f5e"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/pot.png.import",
+      "sha256": "2b8db3b610a21da12667d10848b92bdd424f084e4f8eaa9ece598936b61ab91d"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/wateringcan.png",
+      "sha256": "1f41c5e5fad2918f72842bf123d4173afde2d6fff385214853eacc5e08ec74fb"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/wateringcan.png.import",
+      "sha256": "c69ae148f16ac7aea3a2e51ac3ff3cc3be038fc27351d49893ddac71550e7d5d"
+    },
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/focus_mitt.png",
+      "sha256": "7e992937b342b9c30d064e4e7b4d33bc6ed19c0df31b08e8a59603fd570b32d2"
+    },
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/focus_mitt.png.import",
+      "sha256": "8afcb19d14bddc210fd5a1d67ff617e90659464afc7858a931e290319024d98f"
+    },
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/glove_left.png",
+      "sha256": "05404e12d2b5d57435de2772cf416622929cbaf1b2a516ca570b8c1b4e704033"
+    },
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/glove_left.png.import",
+      "sha256": "97e0edeb9c1b20ebcaac740df97f854bf7fd9bfd4e3f2547be1f1d244cdebb87"
+    },
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/glove_right.png",
+      "sha256": "ec18be3560ffcf9b88f62282da2dc7bd52b162ec4e81c6ea6b9d22105a40248f"
+    },
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/glove_right.png.import",
+      "sha256": "53eb01463241d0757da919d8e4537bb26cae19f4ad06d099f06bf5f59401e3eb"
+    },
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/impact_puff.png",
+      "sha256": "459d5f4ed6f11d51540fd31611056b739c2c7113f7a55d72ff78ec0445bb96ea"
+    },
+    {
+      "path": "assets/opera/worlds/boxer_quality_20261019/impact_puff.png.import",
+      "sha256": "75d17828dadcd376e1f2829c20215944072bf1b3da5476eda63f231ab67e36d5"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/batter_drop.png",
+      "sha256": "676d7ea71d8cb645fc67409c55eb02c7d850ea403150849398a83637c16b7ab3"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/batter_drop.png.import",
+      "sha256": "94ff1296cfa2f454dc89128d4e4cf62f8eaa409e6c3a993719ecfe2fbdf19adf"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/batter_splash.png",
+      "sha256": "9a1b12c8a54f4bc2786d3d17033fc44b43c97d9256253f959bea21933d11df0d"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/batter_splash.png.import",
+      "sha256": "cc0384b1a25f89dc9702e60861ae82c87aaea83ee4ccdaf6cf2660c09972d88e"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/batter_stream.png",
+      "sha256": "fa1f6dc254fd719c4f4c85e45e5690bedec1873683289453fbf268d65caf1d61"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/batter_stream.png.import",
+      "sha256": "e6e0d065c70d0eaa482b756b0a2d631343426a97689fe50ed4aa2ac573e1a2f0"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/bowl_empty.png",
+      "sha256": "32e3024d3835b53a1a5b1f8a1f33177d7dcd3c48ab5fc07d9db93407cc53d70e"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/bowl_empty.png.import",
+      "sha256": "c533b8fe2624a051d129c0ed24008e0d878128c4f4aa1c691d43a0f42cce9a94"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/bowl_stirred.png",
+      "sha256": "a7e1020447c213295994ea091eb6f02884b9f8e789d0762a7ebfcba9067e4bab"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/bowl_stirred.png.import",
+      "sha256": "708356d95e828c1116a10ec7c066e31fc29322759b79655cf09ccb6cc0d40380"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/bowl_unstirred.png",
+      "sha256": "064e696b789346670501afeb480a55171bb2510e6e58971f985b722e8c8078b7"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/bowl_unstirred.png.import",
+      "sha256": "b08f39656a6f381a3f5fd05ed89b5083dfed2d5ddd6c28d3bc8cb1477b2c02c1"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/cake_frosted.png",
+      "sha256": "4841085d46cb6da574a43eac388bd54730454ffed41b5f3897bf37b1705a2ea7"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/cake_frosted.png.import",
+      "sha256": "9626090c5c8cfbe76f9169bf18e27abda6959a505186f5ae181018ed2498d776"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/cake_unfrosted.png",
+      "sha256": "dc5f832ad721d89979c57d4d118ede49c05b08b607130ebb33faca439da84161"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/cake_unfrosted.png.import",
+      "sha256": "083b65c773c43cb9960f2feb02a37e4fa59a33a074d3934a947bb06293d288f7"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/frosting_cap_end.png",
+      "sha256": "b88b2d754e0c55243104cc86d1d4106c116ad752928b5a629cb77deaf7138672"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/frosting_cap_end.png.import",
+      "sha256": "797b179d9c05231afebe7b5c7a59ec60c2decd680069f4ecd31a6e8f39838c23"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/frosting_cap_start.png",
+      "sha256": "c7ce2c35b40c6269a42f9087585f2c3c444727417374df49d4e1e2c7953f713e"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/frosting_cap_start.png.import",
+      "sha256": "42315a4683899f7cf2a47476a1d9b3d1873425ca6a42f7bd4ceb7f3f44e8be95"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/frosting_segment.png",
+      "sha256": "9e362bb82e34151a5cc17f6d6aed91b1cc2b68535de9cc43d4f5de47ee80490c"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/frosting_segment.png.import",
+      "sha256": "937b07586f718b7f0e8d9d7745a8ee98808c61d268411e7686e44aad9d81e573"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/guide_hand.png",
+      "sha256": "5b18d1aed74aa7804560abe702d14a3d4fc01cbc974a65583eacb9452610a383"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/guide_hand.png.import",
+      "sha256": "3ee9d685f63a430ecb45a040b9ea72d0b0ee3c4573bb2658ac0a1256c3a26476"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/oven_cool.png",
+      "sha256": "19c4d2625cc80ca3cf3322656dabc2f624434be8d172f6736668df02526d2256"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/oven_cool.png.import",
+      "sha256": "d89445a233a7cf343668c657d79f1eeb5e807bc0dc62f953a7f0db0c21939c17"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/oven_open.png",
+      "sha256": "95c2e841ae63e617cb31f9423fcc4c7c697d05702882ae75472a839fa1c2bddb"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/oven_open.png.import",
+      "sha256": "baa4137c8d1cb1dada51e8e1dd13ede69e433ca3ea63e1927dc41920c1794626"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/oven_warm.png",
+      "sha256": "421a0bb0121956c5017a11aa5c0cf72eda822321c78a9139d949b273596d6cd6"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/oven_warm.png.import",
+      "sha256": "bb91be562bb8fe234e9201af50e7cb669d0db248ee4b782bd8181bdc96a62129"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/piping_bag.png",
+      "sha256": "9ab076f96ba6441b8b68a4b663b2aa45554a85aca3bb1107b26534f9a8fe09c5"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/piping_bag.png.import",
+      "sha256": "a78324123407e7abe78aa707899c8ff3a1bd7308ae217b9a74c1577948d51688"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/pitcher_empty.png",
+      "sha256": "b6b8cee0d896334488a6b818bb8ee924ac9e521c12b3f06417a0c4d7471616b0"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/pitcher_empty.png.import",
+      "sha256": "e9786f612ed09d31b76ea61a1598006ee1befec386b0053515a11dc90c88c438"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/stack_four.png",
+      "sha256": "145a4cd01c504132ef482ee40ad5ab5eee85df2189566098ef7a1253aff34418"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/stack_four.png.import",
+      "sha256": "2bf3539fa050f3f6bfbec5639a5854ae6cad2340b59d6af585ca528a887aa70d"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/stack_two.png",
+      "sha256": "a2db19a4514af2f68858d31022081308335b44551d9cdd9c763ba8e8fbd518fb"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/stack_two.png.import",
+      "sha256": "0572ab6d27f201ae181b1f36950767a5f8e203484702c07f4b79b5b19bf1d338"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/thermometer_empty.png",
+      "sha256": "85b69ff23e83a6b4cc254aa8abbbfd23f14c3d007da4c3bcb6c6be245abdbd2a"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/thermometer_empty.png.import",
+      "sha256": "ac0d4f5558f3dfaf9cbf2ee446b28d3b1e0a74e25c597516ce469e43f639758d"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/thermometer_full.png",
+      "sha256": "50d31f79212b17953fb84ce183d18ea2fcc8df94f02d373b942c352328b80873"
+    },
+    {
+      "path": "assets/opera/worlds/chef_quality_20261019/thermometer_full.png.import",
+      "sha256": "aa4484c78403ac7899333503c1c4afb0251b64c3e826bac963a5affd9b9dcf34"
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_layered_rock_painted.png",
+      "sha256": "bbd5315020a266ede11c2337229b0f49ff5a9ceb7ee2c3184b63400464838687"
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_layered_rock_painted.png.import",
+      "sha256": "10700ea0d08dcf15d70da27c8d2ebdf519b2e3e54ec621c96d8466e1ca66c141"
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/teacher_lesson_board.png",
+      "sha256": "c4a100dca2cea447564a01e2faa30640c93f84a5e44fd777ac1e54536a21776e"
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/teacher_lesson_board.png.import",
+      "sha256": "b41b45d551a212057c9999b52417f32764b55346e1c40e88e3339f83297cb739"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/bottle_empty.png",
+      "sha256": "8f9c6563c24ecd0950097c8bf2f5d71de39198dfa819b9c3129da0e14df28d30"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/bottle_empty.png.import",
+      "sha256": "75979d66f80604ec545bd200c8a4d1dc0f4f0a96b3f4b2c86589aa119495a6bb"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_00.png",
+      "sha256": "3af164a76b617cd66f2351c55c05ac6a0b7004924c8d5ace855c13680f63fa40"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_00.png.import",
+      "sha256": "80f5ef3c2182f6a92cb49c90eba9e8742244a61fa70f24e5a0d887088ebb3446"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_01.png",
+      "sha256": "f75ebef743b99a4411cc81adc296f852db19b25bb445257c3920cbabfa2ebac7"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_01.png.import",
+      "sha256": "d11646ae66e86a916ace56eac49e196be2f7e99bc6a187fbdd9221653b00d1ba"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_02.png",
+      "sha256": "0cb213591fe572cf65b0d3a693a339aef16a947734bd022eecdf5efdd02dfbef"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_02.png.import",
+      "sha256": "5ab64f6d2c60d5b7e7296fbadb959422869a38c9dd43dd8b73db57942b01fc73"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_03.png",
+      "sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_03.png.import",
+      "sha256": "cd34d7d12629fb13093545f90d646487d86139a6189ce34ef7d7dc6a202006b1"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_04.png",
+      "sha256": "d2ed0cd68b4dcec66f197d4d327e6aa779957b95737d5abc2cd47e086981452d"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_04.png.import",
+      "sha256": "5cd7532060b7aad0a38ddccb859ff050b77ada1a7a018ead7d7f1bfe8eb5c2bb"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_05.png",
+      "sha256": "be6f72ec39952f056ff2f41373280e45b48ec6cae81f2e12536ab06943a1f302"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_05.png.import",
+      "sha256": "6a77d9e7fd1e4519274b8a792675b6009f74f6019631688776f5885c98134c71"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_06.png",
+      "sha256": "d03413a6df8bc4356058daabb996ae03ae520eede0bdaa645d8c4646cede9297"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_06.png.import",
+      "sha256": "585e70f0eca31410640908efc7109a9b8a49083529ce73bc5702780039ca443f"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_07.png",
+      "sha256": "dc85f634f827020f61f52c3fccba4566f37bff566640ba486aee3606343a302c"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/care_07.png.import",
+      "sha256": "b487954e84538133791e398302d682e58d8f96e8885216588cfaa4174ed9dfab"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/cradle.png",
+      "sha256": "a25eea6fa6d7e2233a4c6248807e15322f1c8b759d61aeb526fb69736e28ecbb"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/cradle.png.import",
+      "sha256": "dc2c426c87646a95686b05bbe3c71c303efd78a1a7d7e06e1de1b169811cf793"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/crib.png",
+      "sha256": "ffc0efb1f122a5c8b7113552da695a14927f465f8e319a91a32eb3bda82b127f"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/crib.png.import",
+      "sha256": "c1fd35deca2decf44040d8a58df3b5277602bff71e0426d128f5fe358172387d"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/guide_hand.png",
+      "sha256": "5b18d1aed74aa7804560abe702d14a3d4fc01cbc974a65583eacb9452610a383"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/guide_hand.png.import",
+      "sha256": "42f52026f55d41c3d91f820fb522028dad7afffadc4a4d629c0804550125636f"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/mobile.png",
+      "sha256": "c58df88e291debe5251d412d24a7c651e534943af19922cf14d35a457491f86c"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/mobile.png.import",
+      "sha256": "1098c5a6ce2b9eee6118676a60e8e67ec6718bbb501df8e0ce3a752e1617f339"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/pat_hand.png",
+      "sha256": "e43837980b9efeaed4b5778c0cc60e31c2f6943bac7b58f125c2d53359b19827"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/pat_hand.png.import",
+      "sha256": "8b90135e20ad9f2144cee66b25b1aa1d296b0ab74bb73fe76998dafaab68798d"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/pillows.png",
+      "sha256": "fd0ed069f23a993823595beea9a4f840cfdd5560c2c6ba3d6dc78dc788f449e4"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/pillows.png.import",
+      "sha256": "6442072d7f6b33100c600c4e6935610dc72f15ae903031990614de63e5bfa263"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/quilt_folded.png",
+      "sha256": "cc586046b7505d529c7d51f55fb90752d657a53da17d46eb04736db30c23fceb"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/quilt_folded.png.import",
+      "sha256": "563ea9e565b3b2bb1755740282e363fe24c2b704fb646b2617c723528c70fd4a"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/quilt_half.png",
+      "sha256": "a566369f30221128d729f0539fdaf59ac99c67e08efb10c1773dd8522ec38980"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/quilt_half.png.import",
+      "sha256": "a8bc62c0636950fb4f304444f6adad9cfe471a1ab3dfafaed91ecb68c87426de"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/quilt_tucked.png",
+      "sha256": "afc84661d83415aa377658bfa289aff91a5396006622e9f06089ce40fadbda05"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/quilt_tucked.png.import",
+      "sha256": "a4b7317617844cab250daf73e78a87ea3c870615f414c024425ea877f443af93"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_clean.png",
+      "sha256": "b5dfdf213100fabdf46a54f33f5b1c9bd23d24fac10e977e138dee4d4ecd9740"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_clean.png.import",
+      "sha256": "10a9e27966dd763fa5052bdcb20967fe89df06e1515f5aba1046cc3e63974617"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_ready.png",
+      "sha256": "a5c2448befdd22d4e6b854499b6776686baff2e7ec1117402e0ed3d8c7f351c9"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_ready.png.import",
+      "sha256": "9f2c7b65728aed24a9e6b9c5ddc80ba1afb461ca23785a535ab1ea5c99f05f0d"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_rinse.png",
+      "sha256": "78439e671a55eea9f128bc1c0bcefe43473746f4f73a97cba1af2f9586304dba"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_rinse.png.import",
+      "sha256": "56aca4fad73d94ff0deff6bbf94854b046f23445db0e1dc308d18b7bb7317e44"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_rub_back.png",
+      "sha256": "b34dc8a60e7f1274f53668d6322e470ccf4f02198d4433d47edcd56eac00239c"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_rub_back.png.import",
+      "sha256": "1af1fae9e381f98287ceba8f9026692876972b5040253dfaa7869de20351d062"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_rub_palm.png",
+      "sha256": "259200621a951d26e9f46ca62b0198c5472cb8d35f477fb5887459d231f585fc"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_rub_palm.png.import",
+      "sha256": "42c79ee949acd264a36baa76f698589fd90ae6f36831ba0ac88d4a33458e62a3"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_rub_palm02.png",
+      "sha256": "315b9e395c77b6c524174b98a11b59dcaf054649c406754efc4f755dcfe0f666"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_rub_palm02.png.import",
+      "sha256": "f708cf4e079464e8caf40f8b70c7309c9cb65d9ffcccc46d097f1564b3fd7b36"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_wet.png",
+      "sha256": "347020d01445e390b4b460b19f0bd34ec8e975ed55b0682fffd37d42c5e43714"
+    },
+    {
+      "path": "assets/opera/worlds/nursery_quality_20261019/wash_wet.png.import",
+      "sha256": "b0be158ca58eca01cc453ad7d06abe0e6da0653fcec09cbb6e0e7872786603ed"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_open.png",
+      "sha256": "99090440d832ee2c25d22287cf9be8d034ff35c1f682d9c61553fc07cb006177"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_open.png.import",
+      "sha256": "0153975776c4891994eb2a56adaeac84ce9a4c087ab7470357710232feed1996"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_0.png",
+      "sha256": "0faae3a7742be217e8dcd0840b17237a117194dbae8d4da04bf2053052a65d36"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_0.png.import",
+      "sha256": "515f71d1a10837036ed3f8577c113456e4b99b7c8a14268840fe76cc3ead7820"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_1.png",
+      "sha256": "20edd1a194f95291745c92e9981d6cf619bebcb96ac71ac04efea27352401016"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_1.png.import",
+      "sha256": "b8cbd6ff4be64fe40dd2b0176a048a11b96461cfcd7ca7b3b4b6b428375a2897"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_2.png",
+      "sha256": "ce1e485beaf8a2d6fc7a8a41aec9a6792d776a500461ad9f7fa92e57c51b0636"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_2.png.import",
+      "sha256": "f9bb170a9697ba29a852e091d9b7a720b3c50f9d4dad1b9a9bceefcd291f6033"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_3.png",
+      "sha256": "20edd1a194f95291745c92e9981d6cf619bebcb96ac71ac04efea27352401016"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_invite_ring_3.png.import",
+      "sha256": "698f5262031d9a8deefbd8aa7e94bdaaa724bcbd937a85610df87f67f429748c"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_crystal_gallery_painted.png",
+      "sha256": "6eae2e93fdafdfb3a059d3968de1ec39d92174035d7f6a211d1d9b828024c900"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_crystal_gallery_painted.png.import",
+      "sha256": "dd1f51c8347591066bcd42ba133f9e85ef4fcc1b1b710c1412af80118d94a9c2"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_painted.png",
+      "sha256": "f7b5272f5d73cbd3de012eeffb4603104cc3053a534022a0dafda9e331408acf"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_painted.png.import",
+      "sha256": "74cf491b7fdc44ad47d2100a2e9830995252a0698471d1fc8c87e9245b602839"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_piece_0_painted.png",
+      "sha256": "60774f99239dec9b6a3ee2d7e9f60ed5f0c34f6051379da13f7687ce6302f7a5"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_piece_0_painted.png.import",
+      "sha256": "325415f9d6860c1c3e64fc8658b0ad1349729f06b7cdfbe323f46f07c647550d"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_piece_1_painted.png",
+      "sha256": "5b4711ab21c5994cc7b6abf3ddd6747e71bca651cd77fb20daaa9e1715d4a0dd"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_piece_1_painted.png.import",
+      "sha256": "d7457bf30f35fbbb953f516b9efa34759f81b0992286b8de0ceefb0d7128d7d6"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_piece_2_painted.png",
+      "sha256": "182d85783dae6d4f9aaba7e682aea3d115340e3f5253b9647c3d720397b0ce13"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_piece_2_painted.png.import",
+      "sha256": "9805515b73ea218aa45a8915ec91d9080afdf05e5aa258789fa6e220203a11f3"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_soil_painted.png",
+      "sha256": "e0f664a1685abe470333f624406340415208aa234db534b2e94ccfe575825058"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_fossil_soil_painted.png.import",
+      "sha256": "058ad87ce4b981e5e66e503bd69c30a1261ae26ef5b4e676454ed41149b7d2b2"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_geode_seam_closed_painted.png",
+      "sha256": "5e0525f398d306e3e3b4e99d6a6e97036f0a6fdd0d5d05d6390388e31be9aea3"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_geode_seam_closed_painted.png.import",
+      "sha256": "a4cff129cc03d30c54c760a97da721f8fc9b1c1a9241202714be8b7136e4e248"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_geode_seam_done_painted.png",
+      "sha256": "c8c83d5a1504cf777f98174fa94ae409e9a1a32c0127132d4d59af0c213e41f7"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_geode_seam_done_painted.png.import",
+      "sha256": "719d6c3fdbcbcf760708931dfafc96d38fe71ffa9e8b2157b9f72423c4e214be"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_geode_shell_left_painted.png",
+      "sha256": "f3f2733609165062e1d1c780185742dcb2da27d6879025bc7b884e23668c9e79"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_geode_shell_left_painted.png.import",
+      "sha256": "bb82e349d7bf03c73e274d29b509a5ac7c0b37a323049d353ad4b0e99f25bb6d"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_geode_shell_painted.png",
+      "sha256": "b6c9693794cde8ef372fe457ffde659556043778459ddfa913ca61b2773219c7"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_geode_shell_painted.png.import",
+      "sha256": "4687fc32e1ddfd5d8ce65ee61accc176f580ef12bf8d6b28653b5045c9f50b67"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_geode_shell_right_painted.png",
+      "sha256": "568fb19e0dbefb8345f4ff1a265cec2c0a2bc3657884cd0055f629977bcea894"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_geode_shell_right_painted.png.import",
+      "sha256": "b987c444c9efdf8a9dcbf549b66d724f71a47df9037b496f3d1f91fea6b91072"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_mineral_blue_painted.png",
+      "sha256": "44dc6cbe03143b0f89ec1bc57ce7e737a68752bd40ad8a37ebe471bf49d7b190"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_mineral_blue_painted.png.import",
+      "sha256": "2f88b5017cc18cf4391f88f6f1c901d7a1f01d844cf2799b52dd1f688c98f39c"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_mineral_lavender_painted.png",
+      "sha256": "cea8f66b34e657f8216f0038adefee38624a1e2900e365b55aa15169be60b20f"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_mineral_lavender_painted.png.import",
+      "sha256": "b243829f688b0b3550c46df1b1f68b950f5725d38659189bdd194b8a19b8371c"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_mineral_mint_painted.png",
+      "sha256": "ccfff113ae678e150e2b0ba0d54bfda3071c7102f0e05cd0c850044f19dcc390"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_mineral_mint_painted.png.import",
+      "sha256": "4817465952d29dea5673f81608883553fdd0f56c3f081ad059c1dc80804908d2"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_pan_grain_painted.png",
+      "sha256": "40be8dd96da1de49bf326c96bfc9d7292616549733089aad713308b447938d02"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_pan_grain_painted.png.import",
+      "sha256": "1d00efa0cffde88e5a7a9dc437eff9c8cb3f795f2151de9058fa23d3bf1c5024"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_river_sink_dry_painted.png",
+      "sha256": "566bc325e2ab9554166446a47a586a57c010080b54c075e7a8eb1f83ca925d25"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_river_sink_dry_painted.png.import",
+      "sha256": "5df69cc45e7e0b3a33be893ce9741ecb131c8dfaa75c06d5b1d5e2e064cc56e0"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_river_sink_full_painted.png",
+      "sha256": "9d860b290b1b8e4128c1ca0325eb0d62585abc302173de252b66f5240468e652"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_river_sink_full_painted.png.import",
+      "sha256": "dec1b1a7e370c62b52148357af730f1381514200fcabc67622659ecec56d5b9d"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_river_source_painted.png",
+      "sha256": "0186849e77e9445c942eae5b1eb07936a1f6312e5c4693ad7ccc8c979ae0bb80"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_river_source_painted.png.import",
+      "sha256": "02f7650fd5b2d5ca785225ab08e07245959284fb6ddc481d1983177264c006a9"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_station_tray_blue_painted.png",
+      "sha256": "c5fdc521b2d3ab733a43285d7b69faf2d854ddd7590ffabae94f9f31e26ac557"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_station_tray_blue_painted.png.import",
+      "sha256": "3d1d0eb7ed752e310153ff5e965148434c531b4c73737cda5235c4ecda66f0fe"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_station_tray_lavender_painted.png",
+      "sha256": "06fd46d4fd1e5a6fc294331a5b2b7d16ad126de70541e8f478d386d7d0f2e2ab"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_station_tray_lavender_painted.png.import",
+      "sha256": "0f3076ce3088e7a94e96c0744292d008a4e14024c94b70cc45b171708ae52ab8"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_station_tray_mint_painted.png",
+      "sha256": "bdc6c12570c08fa030474e2eda15e69ad301d35cb2f6024718c5e93d6cdef71a"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_station_tray_mint_painted.png.import",
+      "sha256": "cd23f60ef0f56616d036c9b51cfab13a165b27cb4e68a37520a6ee3c4c5f4309"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_washing_pan_painted.png",
+      "sha256": "df6ec1df1c59a20d427cb50835ae04915b07de0cbe1b470e99d43c55518ff5ab"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_washing_pan_painted.png.import",
+      "sha256": "fb32cbc813e31bfb47c5f218cb48fca11a1f8763ace4bcbe3276ccb667562565"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_work_slab_painted.png",
+      "sha256": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4"
+    },
+    {
+      "path": "assets/opera/worlds/props/geologist_work_slab_painted.png.import",
+      "sha256": "200064a2f366570e392ed105ea6b3f2ec1ec45cfc005aa712694d3f2d7703ac4"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_geologist.tres",
+      "sha256": "9042ff5430e160a48f4852cc226636c507ef166e263bbc78276e3414f2519a19"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_bandage_doctor_0.png",
+      "sha256": "660f20b03168354e80f9bd8bbd0194212715675859887498cf401093f11c70cc"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_bandage_doctor_0.png.import",
+      "sha256": "307b3b8240c0ca67552bf8e63c81d70e84b37d95feb859d3fcb85bafffa964b8"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_bandage_doctor_1.png",
+      "sha256": "0770d666424519ae2142691b214b9d885b24506b11749a31dfacc084ddbe90e5"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_bandage_doctor_1.png.import",
+      "sha256": "8451867c80abb205d5d28fa2a28f347b85cc97acaeef9f74bf0cbbe799e81e28"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_bandage_doctor_2.png",
+      "sha256": "5c56cbf08bf9007be567c551809e31512d6766b6d826d885d6f23582ddca8102"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_bandage_doctor_2.png.import",
+      "sha256": "99cc85a666abead73872e196e2407bef23b66f11933a3e3cc8420565c8d41cbb"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_bandage_doctor_3.png",
+      "sha256": "4e3a3612ca53352515a16eedb5121ba9d8b9b549b135c7fb8840b303787c0adc"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_bandage_doctor_3.png.import",
+      "sha256": "4c294bd66198c9c2e0c368523612a560b8b5ad36574777fd424fc3aba5ac288b"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_barn_gate_closed.png",
+      "sha256": "ab12a4cb3e99d4108f9ece6e810d49368f3fca6b4328163bf597acdc7747eaca"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_barn_gate_closed.png.import",
+      "sha256": "18a59e35ca89d5eb021cbfb98c382dcabe6209365bfddbc79261478af862892c"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_barn_gate_open.png",
+      "sha256": "7fba591d9e990bb21fc380a90f2348abe5dd6dfde722011a1dc6299846101bd8"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_barn_gate_open.png.import",
+      "sha256": "6d9954f0421ac93cd4bb95965a46be3c129590a3e10d6dd917d4f58f635011f9"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_basin_doctor_foamy.png",
+      "sha256": "ff0b585085a712eb342a40dd2a918840c5f93066d37ce11735fc7595719e37de"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_basin_doctor_foamy.png.import",
+      "sha256": "1e751a856699d9c90ff4b5e4474cfbaaf36c33a249f503e1e08de50cd9552dfb"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_basin_doctor_off.png",
+      "sha256": "95ed6bb724864dc4ed90135d59de6e3b2bc263c25782a1df736ca84b9d05324f"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_basin_doctor_off.png.import",
+      "sha256": "c5df8109eaea920e264ad28f0c74fbd1be0525511b3c1cc20cac60a9c5740c04"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_basin_doctor_running.png",
+      "sha256": "9290d0c9cf9ce1ec190c32e2aa839592600bd07d2dd8c502c2e711dc927b6852"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_basin_doctor_running.png.import",
+      "sha256": "19dbd12afb5e9f4500dea3b96e50effe3735194e99ca6ef513e3903d41cddf8f"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_cabinet_magician_reveal.png",
+      "sha256": "d6bb2c7e17a9644e6f51cac6c9457dddedc8bef0504554c25006edc3d833bfaf"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_cabinet_magician_reveal.png.import",
+      "sha256": "2f3da51f8e507ad8159384d363c3282e90282b8a06503410d9980ba145dc97ce"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_cast_doctor_0.png",
+      "sha256": "660f20b03168354e80f9bd8bbd0194212715675859887498cf401093f11c70cc"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_cast_doctor_0.png.import",
+      "sha256": "6a6e2d59407f3ae50a08d6b6a05d9566c39acff92c67da39bd425e73e2d9de6c"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_cast_doctor_1.png",
+      "sha256": "41e997fba66e64f6cd3af9d5acb6baaee942f4336ceadd049565771b5f60d2ac"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_cast_doctor_1.png.import",
+      "sha256": "8dd7e2c68578204830aa8b1eb2cdfb963a96fca96bdaec96e2a559457d36fcf1"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_cast_doctor_2.png",
+      "sha256": "e372436594fcf70050c9070acfc4a62b273da34ac06e78a1c26fc1c304c3b6d0"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_cast_doctor_2.png.import",
+      "sha256": "85c52af6f8e79e3a65fe36ab69a48ffc82524de2546c1deb2d47d58b65d03d3d"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_cast_doctor_3.png",
+      "sha256": "13a4c2f106621eff4221754ab02eb18b2301ca3aee2b9ecb92710e6781e44bef"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_cast_doctor_3.png.import",
+      "sha256": "e25f7e84d3f20c5f7b87c61dedd685cb1d145bc3c1a1ec34b5015bb5a4e4372a"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_find_doctor_concerned.png",
+      "sha256": "450d5703eddb8ac76c1e2ab5219db287703544a3ae491e269da08c692efe2478"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_find_doctor_concerned.png.import",
+      "sha256": "1c003d8cf1341b4c90900d0283ceaec31a2b309219d73675e317ae8c964f36ec"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_find_doctor_happy_cap.png",
+      "sha256": "059fbf9526d6ef6b4d57661b076e4b1b19e1c1975ecd7dea9974ad5fd288861d"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_find_doctor_happy_cap.png.import",
+      "sha256": "a48df11007405284ba74c6bf53a8733c643a9d4dc7570d4833a257e254fc454d"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_find_doctor_sleepy.png",
+      "sha256": "d6c41c9b0c1c4146ef931318c9ce167cad6b76502d636b4f04d3b82fdb7372ef"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_find_doctor_sleepy.png.import",
+      "sha256": "37f49940b3497b15f3ac468d2be9ed88378ada78615f50db162819bf35631680"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hands_doctor_0.png",
+      "sha256": "86270c7b0cddb48c4b8575b2a8f192587e515b7fe69f30ea4c78eeddc2f4c7e4"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hands_doctor_0.png.import",
+      "sha256": "f8581ea815618233e8df7776bee6804809ff205af31b8b59cf80291dda4469c9"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hands_doctor_1.png",
+      "sha256": "9870989aa9da865bdedf439b97afb59a457c3151f1bbec3ae0163686a94780b9"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hands_doctor_1.png.import",
+      "sha256": "33e4730be51bf7eaf22ab646c92cb64ea590e133679a2df9afce59d6e8a99179"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hands_doctor_2.png",
+      "sha256": "063051c4dc6c324c8483ac8696180d6117ab13dd323376c7e7b64a10113a064a"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hands_doctor_2.png.import",
+      "sha256": "44b82a77a64b3e9fef48daf7369dfe5765f0c9713383023701f239a93323d1dd"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hands_doctor_3.png",
+      "sha256": "ef80773d16767ac2cc90b82ef50a1365b8e6d5ec4355aab996a55da4c8f7079f"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hands_doctor_3.png.import",
+      "sha256": "d926adc51bb33c8919d8be4770c99da1041697e0e2404ae1fe71f0b56845da3f"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hat_magician_0.png",
+      "sha256": "1f9691eb584bcb203aa7b34739b8dcffa5656805247e86d70d0d329d46ddd9a9"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hat_magician_0.png.import",
+      "sha256": "0a80973f0b035cd9814b48b7f4fc3bd43c434c5661612694d929c629a68e40a2"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hat_magician_1.png",
+      "sha256": "41bea4d37c3ec1d9945a15b6f12dd851f13759fcf41b945904b219a74f4eb377"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hat_magician_1.png.import",
+      "sha256": "55b84b57bd2917c61eb5c056f184ceb44fb37a8bcd3537026deda712e9dfcb0b"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hat_magician_2.png",
+      "sha256": "1ec70c0b02e18fd4ff5cb4a2403903a0b2eb620cc289f65254095faf2eed10fe"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_hat_magician_2.png.import",
+      "sha256": "2298ff6e887646198d2398530f38de9d54461016111b98999e0c49314a614d4a"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_herd_farmer_a.png",
+      "sha256": "e84f08e7e73d77d0e27ae2e0b6526cb2b6d37965d15be119591b65142f756269"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_herd_farmer_a.png.import",
+      "sha256": "573b2ab9208504e5fbf20d2e1f405411fe5c77845e1ef391f01c4a77c3f1e11e"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_herd_farmer_b.png",
+      "sha256": "429a506e190275507aecae74ec403d76d36ede870245b458e555beea6f69c7d2"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_herd_farmer_b.png.import",
+      "sha256": "2490c6ac606cca129c68a739178b512d94c5c23b65db6a56601c6b7bc681cb09"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_lamba_magician.png",
+      "sha256": "937d22677f461f025d27d674dbf45751b2eb5f66a862d0b61e0e643c547f1831"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_lamba_magician.png.import",
+      "sha256": "bf330975c05152e7d282e4a5ed725781f47cfbda5cea6916d115cff73116a732"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_0.png",
+      "sha256": "babd091c7df9679eb4635d24340b70bd79f073a03dc1f7afaafdf7cc5d07d32a"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_0.png.import",
+      "sha256": "b1d12b6360b9a513e519ad11244e1ca19318fc4d5d953e76216087d153c702ac"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_1.png",
+      "sha256": "0f31327329ceb92b7e079a3adaa3f12ed1113a3a9ab5833e309c980c36795683"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_1.png.import",
+      "sha256": "d8da78bf67fdd239d5994033fe3a88dfca95ebc7bbf0e97972f7f3bd9d676b71"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_2.png",
+      "sha256": "0516f6d2650784ce067edae394e2796c948a7779408ff9432a519c292f6c69ae"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_2.png.import",
+      "sha256": "d8b660d47b36675cf87d3e56bff48a2710c5a82c1f251e2f11a5e3716bcb258b"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_3.png",
+      "sha256": "af62b7c9feed13ba332692b16be7b38c8a764a235143741258306424add3b1ec"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_3.png.import",
+      "sha256": "90f96100d244354b17f7a47a31fc75cdcc84449eee621d45b998d3cbd2181816"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_4.png",
+      "sha256": "44da56e7cc4bf20946a70326a68f0a74accebb37528674e668e840e654b215d6"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_4.png.import",
+      "sha256": "f35c3465a1a1e8c194d038d851d4178fbe87e836b7729e423c9bab79b76173b8"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_5.png",
+      "sha256": "a5d869f0e50819f21415179c07efcfc61057a9153c1f1b7e3ed1aa876e3a771a"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_paint_cloud_5.png.import",
+      "sha256": "53c0b959341ecbbafe101776026c771f5ae65f30e9ef9b4914b81fec4a659142"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_portal_magician_overlay.png",
+      "sha256": "953d651e169daa860157f69eb8783dc64101663d825ff1c9233e8863a81a0175"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_portal_magician_overlay.png.import",
+      "sha256": "4042d77dee73e449b1b104012e470ed5e6a3568ad1b1999f3af3049fd3f1e49d"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_portal_magician_ring_0.png",
+      "sha256": "ba7f1906bb59564ed5209869d331a95668863ac7d6c66834b58c3a78686866b2"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_portal_magician_ring_0.png.import",
+      "sha256": "ef6f2be85c711268287adc6bccf7582d0333cbe3e7636433b40209e172eb1d2e"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_portal_magician_ring_1.png",
+      "sha256": "426147da251cea8ca68d81c4cdb36478982da837ab65f2a31b9bcb16af233654"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_portal_magician_ring_1.png.import",
+      "sha256": "db441daaf25d25a4e52d883d4a6ba46e2ebf2f1ca4fd94b034c0c53ae127acfc"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_portal_magician_ring_2.png",
+      "sha256": "66389082599e2460c4bd8805e740cdd028eeeea60df4688aa3c8faf625fc3f4e"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_portal_magician_ring_2.png.import",
+      "sha256": "bddc6a211626c3494c1a4c1a2419ea4149fe6751423879f789f2748d725a8946"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_portal_magician_ring_3.png",
+      "sha256": "43fa5be6f18b5184d8ce295ac103fcd9c6db64e9b17bb8d2a6e1409394a1507d"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_portal_magician_ring_3.png.import",
+      "sha256": "7584eda1a58651aa28fa1ed91bafe5e01dc963ae1486cfc855b7ae5a29e578ce"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_rope_magician_0.png",
+      "sha256": "b52a6f5ecaf01745005a470718e61c5a2db195e5a66d5e2dce40f01c0d23236a"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_rope_magician_0.png.import",
+      "sha256": "2bb6d789861fb007624a0d3abafec79e4f2da3e3c3fedca5f1f208209de74bd2"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_rope_magician_1.png",
+      "sha256": "590e8b42fc043bb8e070b465e70cbf46d3985d0a00b71485150e07fe49c9c3a9"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_rope_magician_1.png.import",
+      "sha256": "655352e194a8fa8e58f59d022203343443f94a824b853aab5e14b19799cc57af"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_rope_magician_2.png",
+      "sha256": "b2a3a1a223fcf051b04e4e7561320181071537db0b53ac6b7b6a8caad3c525b7"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_rope_magician_2.png.import",
+      "sha256": "1b08b83f742a519f89cac6148698c8e71c0f2853f3a3614ea7f8065ee5d2953d"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_seed_bed.png",
+      "sha256": "bded62d528a69b197207173ef8da77ab101954be4f3659839c04bab3817f6a82"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_seed_bed.png.import",
+      "sha256": "b14f8fb578d5367e00a30140ce77924f339e3110084bf4830ea42d26289503ef"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_soil_hole.png",
+      "sha256": "c40720ee91644c26044c4faf0600a98ac1cc2b4e4a44d544788c22c9a53bcabc"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_soil_hole.png.import",
+      "sha256": "7d793710f63a54ccaf17cb30040a259ac741624724b14d7c21d8ba7a85a63129"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_flower_0.png",
+      "sha256": "ae2e934abdc0f126a0d717627571c7109961e45512cc47cf2334745d1a31459d"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_flower_0.png.import",
+      "sha256": "b69d8a82413d351f7eb9236ebacb810c6e9f136a9d2ea3ad8350f294549453ee"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_flower_1.png",
+      "sha256": "189c7d5dd07b691b6d8d92f10459ecce049bd224351d9cd4dbfcd1173c253c0a"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_flower_1.png.import",
+      "sha256": "8942f301159cab3d0dabd11e729d57dad10c96c5956c73703735beb69e3c5119"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_flower_2.png",
+      "sha256": "82a947a448817cbbfeaae7313c7744acc2608e71b344cbd317b98df4046c65f9"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_flower_2.png.import",
+      "sha256": "5210cf51042617e42c39aa19157ebc5e038a891c26849fb6a5de14a9d1f2f085"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_flower_3.png",
+      "sha256": "37ab56d9efd00a5926f4d98e70f705476389f5ec54b900af9b888639771a1f3f"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_flower_3.png.import",
+      "sha256": "fee8167b89310cbd0f495a75506387a280df5f024d97d6173f984cb000d10678"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_flower_4.png",
+      "sha256": "9895da6a63cecc2683c140a6a21e79f72c7e08e66ebd3b1ba56feb683c568af8"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_flower_4.png.import",
+      "sha256": "eae132712fa58a417d0c92b6308f2826f8b33c9433b6cf7e4202698cc5ab4456"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_seed.png",
+      "sha256": "75e04a8426144126d9245c88160aec75608890a04ebd149253534522c7bd2e6f"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_seed.png.import",
+      "sha256": "324e269b1e40c328226520810a20b76a71460be15c3403d448d6dfe6171fff60"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_sprout.png",
+      "sha256": "8b86d7ce81bd9fc3d3d99dd195736434b2585bfda8720de695d274c71da97941"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_sprout_sprout.png.import",
+      "sha256": "7a3b65965f4cc76d704106a7bc8b71c58acafaec5d5817127952d79d61fc3757"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_stamp_painter.png",
+      "sha256": "44c5a31377ddf82a1b86cdf0076722620a4b1ae1c645276d20d27258c883db77"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_stamp_painter.png.import",
+      "sha256": "d0e663021e5ed435bd56ad008f84bbe97253dd95b24339e75c19f456e8772509"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_target_farmer_mover_catch.png",
+      "sha256": "6908357731bb1d9a83675665f63af5ac3d559a6ea03fbe46f253a81a001974a1"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_target_farmer_mover_catch.png.import",
+      "sha256": "8866ef2ecb20452088c5313baeee45597c36626c74e0be077d3906bb8c3e6ca8"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_target_farmer_mover_chew.png",
+      "sha256": "0ca3b5c5bef25d135cad064e915ea3b1ec9a4e6ddbd2823a537a6db668e04111"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_target_farmer_mover_chew.png.import",
+      "sha256": "5e920c5210aa7ccd612678daf719d879a665af5af90c70c3da6fd3902d55486e"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_target_farmer_mover_happy.png",
+      "sha256": "a32c0c713bf5dc5c9e7d3c04d47be699249bbe958a9d75218b127995bb622893"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_target_farmer_mover_happy.png.import",
+      "sha256": "9d8cd8392d4f10d36fe48d16cc68d374b64abc7778af8972823c6223711981ea"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_xray_scanner_found.png",
+      "sha256": "a04d7d0f57b5e9edcf25c585a3261226f0c60a7586ba0310f10c65eb83fdf99c"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_xray_scanner_found.png.import",
+      "sha256": "9a1c0aae30778349961d19015782278783e71d91060f648b7179e177ad4d25cc"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_xray_scanner_idle.png",
+      "sha256": "8e4440180a5ee96bfbba279c32300494cbefcaa96e48af708e7249228fcabe80"
+    },
+    {
+      "path": "assets/opera/worlds/support_quality_20261019/widget_xray_scanner_idle.png.import",
+      "sha256": "6daa23739abec3ac78e5fcf446c9841bd65e40a89f36310061922c033ae25012"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/answer_card_chosen.png",
+      "sha256": "c655aadc9b9bf721e536c2cbeaadc1f3aff93e67eaecdb80aaab479946d0d7f5"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/answer_card_chosen.png.import",
+      "sha256": "8b89940071517c29d79974164ec7b52de01193bac1d7be941838f380827c1d1d"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/answer_card_rest.png",
+      "sha256": "9f2a221d19deeac52172acb99f38513c617774213a1372d50922a65fa06ecb71"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/answer_card_rest.png.import",
+      "sha256": "a072744b9690bd4c0d8b8e3475067637ac8135d568bfe3949544d2daedecf658"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/answer_card_right.png",
+      "sha256": "77415d451dbdbe7568f74fd821dad4c9b3cc28a38f54619d6b815e2a17fffd9f"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/answer_card_right.png.import",
+      "sha256": "6be2c25bacadd7f34bcd13ca50c78cda0e07d7468cea8c5505700d5e80c4bb2f"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/guide_hand.png",
+      "sha256": "5b18d1aed74aa7804560abe702d14a3d4fc01cbc974a65583eacb9452610a383"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/guide_hand.png.import",
+      "sha256": "c101934436e292ad999117429cfd01f86b1bf7f9d7056a2f4d3a9cfdec764eb2"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/invitation_ring.png",
+      "sha256": "95e719b4734fbace8010e4678054b10b788f1b1f577e21d46f634ce903224c53"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/invitation_ring.png.import",
+      "sha256": "4c3504a7ab58450203a5a067c9a08b66d6ce8ead40b1f9a02e5150c4478c615a"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/join_shell.png",
+      "sha256": "013f45f0cbc2c8a3d5177bcc2029591f01d094d324c66df629db0af9cddd585d"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/join_shell.png.import",
+      "sha256": "ebadaa0221746463eec8e8029613db714b0804c714d0344b2a00b6b15e621ac1"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/lesson_board.png",
+      "sha256": "e05d4d50c504de8bac18fa6067f8a763746f6e938a096bfce4ae431e0a8a8681"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/lesson_board.png.import",
+      "sha256": "8c6f9579b47406c34ae790a32449a87f5e1d32ca7d4ea0c0cdf438a05c1ba09e"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/pearl_counted.png",
+      "sha256": "f2c0f43e6ad4a5602a4627da1a968fad7247a72369f62cc1b2edd7232abbbc02"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/pearl_counted.png.import",
+      "sha256": "170a4f60d0d80562592a1314e2b343d05b1195c110358282ad112bec157a737f"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/pearl_uncounted.png",
+      "sha256": "4f71a7beff48024df5eb89a5cbd760148576ada6bf05fe784bd8d2828dba4037"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/pearl_uncounted.png.import",
+      "sha256": "ffab871c26269970a867c40bcd141d343472bd9dc4f4562f34d01e289be96882"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_circle_lit.png",
+      "sha256": "8d052628fedb7bc8fba55e8dafa5ecb9c63f0271d911be81b6ed757a58b14415"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_circle_lit.png.import",
+      "sha256": "e6ecc32d104972fd4558a6cd74c281cf51a80d2145c821123fcdeb4a016f0af2"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_circle_rest.png",
+      "sha256": "5d06961d19c78b444983e70dd9cf09f7ecda012a8c5750c1c3c0a6906e52e432"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_circle_rest.png.import",
+      "sha256": "bed2e272e041b90371e82de45f7f1ed4a06bc0d84f4c7c6b344027ac0d82a36d"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_heart_lit.png",
+      "sha256": "570a1ef53cb9e5587963ba9eb9f521cfc756af97075d72668b8d74782024e391"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_heart_lit.png.import",
+      "sha256": "725fd57fdee1b382a839a613fc6ac667be54bd2e06d00ecd770ce2014cf3781e"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_heart_rest.png",
+      "sha256": "26908a8da938689b44bf1b776344695b04f781ba2f2464710f25351114ee508b"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_heart_rest.png.import",
+      "sha256": "a563da6d37dbc3761479abb4c00d223f1584bdb4ebc39ebde4ebfad195b227e6"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_slot.png",
+      "sha256": "a589f837f17b0308a7e4aaeb9499d5ea2042c764f9e23368373fec851304d38e"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_slot.png.import",
+      "sha256": "22f9191def14bf0524afad081f3edaa712bd5ae881520401966e79cf36259094"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_square_lit.png",
+      "sha256": "b2391bcf070e7da805dd0348ff503e6d0472f885e85019cf925a8344c83a540c"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_square_lit.png.import",
+      "sha256": "ba55b3493729ba139cddc90abecdd76b677caf85fb2f4c941ff2fa8d00c53aa7"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_square_rest.png",
+      "sha256": "ca58049c3561d91b18606ba9a782d842b9fe1d3a0f4c726a978c0b80779e11da"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_square_rest.png.import",
+      "sha256": "caacd8c7bd14e01c81ebfc9ffb53844e4a70bb32e02e147eaa60a27d765bdb37"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_star_lit.png",
+      "sha256": "ad322536b7e2678d3b652ef617a4462946a1b5dda137751ce34fd8e9867a0e46"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_star_lit.png.import",
+      "sha256": "5e257e5843cab3430b0a7d72b36127cbf91e9d3c1d7708629d2339077da126d9"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_star_rest.png",
+      "sha256": "2028e58e3ea6f9129568efa333296c25af4fd87c1a0fcbb2bab504d639b3c3bb"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_star_rest.png.import",
+      "sha256": "1ab2b4971ac8b70a8c9e5c48d6df432844efa86a13a3b761e1ec394a587d5aab"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_triangle_lit.png",
+      "sha256": "48cacf5c689c934b4f93ee2f43684c9eea20b4600e7dcc688c1d1e8067e47f47"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_triangle_lit.png.import",
+      "sha256": "a8daa9cd8a596b183e22718ea80bc52db9d7ce16d4b891ea194ff2902aca81d3"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_triangle_rest.png",
+      "sha256": "05e980de3ec1cdcadd6ce65505fabf03bc5ed5d9fb3a95794797e5efb27efa49"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/shape_triangle_rest.png.import",
+      "sha256": "cd6ea3eabe12c716a8f5f1fd03a2822abaa29ed83dba92090492f9180ba8bbbf"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/tray_aqua.png",
+      "sha256": "576e7d4f4364e377fd65c422f389b6c041f392bc68543e7c9a30f4d1f530e6ef"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/tray_aqua.png.import",
+      "sha256": "a1ca8f7f9d98ea3db124a1f4e14896536d7e173d00ae6c238c31e5c51f8c5c61"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/tray_pink.png",
+      "sha256": "1eca9bb6bf30cb09ff65e2ce79aad7776d61ba6ce2c58a4a8af1614247c1089c"
+    },
+    {
+      "path": "assets/opera/worlds/teacher/tray_pink.png.import",
+      "sha256": "7001fe2f4665a73831c513b931557a7b5ba5eceaf649df2aad5000cd9e8b20a2"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.png",
+      "sha256": "bd9812cf9dd0c58743ef5a0625ea0493bf7b1a96ecf346f83ba6027b2a61b969"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.png.import",
+      "sha256": "8e19043cb7498d5c9604ca2233871fdd746fc4da8fc468c5120fe9aaef4737e7"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_teacher.png",
+      "sha256": "99a75d7a9f6e634ebd44f6775986cf1e8c23211a8fae20b71524c1549c3d9894"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_teacher.png.import",
+      "sha256": "d6aac72605209fe0e60aa4ce41be75236fe9149fa42bb218773c7e7a58366c8e"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_launch_cloud.png",
+      "sha256": "179d091f780efe77c5d3d7fe0f1062dd1a513d649eca6559f9b0777df4725917"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_launch_cloud.png.import",
+      "sha256": "c8432231ef067e702687f9da5631dfeca538e7c404aa73d3118fa43a71b718c1"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_launch_flame_0.png",
+      "sha256": "3640f44b4227bbdbda38421b55a438e943b4049131c7888d5d4334b791bb03ab"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_launch_flame_0.png.import",
+      "sha256": "675269e0239c005c677df2db62d511b348225b18adb12aebce95385067d9637a"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_launch_flame_1.png",
+      "sha256": "fe0e5794a215a4a5333a6bc90548ad89b698727006fb90c7ea653799c81d99a3"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_launch_flame_1.png.import",
+      "sha256": "940599c653edf47018f7ef8ec731e64c95ad8f28780398899dca9f6fca69e316"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_launch_flame_2.png",
+      "sha256": "8f69d9e5644e5a5bbffd17eb0a91ddf74d7f8ca3efdb95f53287bbb2d557d2a6"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_launch_flame_2.png.import",
+      "sha256": "a7622fe0a10fd1581117dbc7041c146342120a358efbf332f41c532359eca4bf"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_launch_flame_3.png",
+      "sha256": "56cb801eef65fd7dcd4699cb339e0b73a7c6c564079adf41c1ece26586d606b9"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_launch_flame_3.png.import",
+      "sha256": "ba653f966b2ced4b153e1242f379802f22913e043454975ad2b8f1f173bc4513"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_ne.png",
+      "sha256": "6f9923c778533f753663888430310bbef20a769e4e22e3bf502f10ec71dad9aa"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_ne.png.import",
+      "sha256": "1b72aa5eafd4a583abef8cb477580d2138d79d5822a71a2f216196a173a042d8"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_ne_fueled.png",
+      "sha256": "5edf0b71ca5b7e7b52c221b5f0def876968a93ce74d7f3ebc642d5d316fbe026"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_ne_fueled.png.import",
+      "sha256": "7b44f6d2a42fe25ba8810b6c301e4709ad85f43c3958b0597b78734ae9773d1d"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_nw.png",
+      "sha256": "df4c4680df8d2a397ddbcb2c5747a31670b07153e0622ceba85a064a2d00b80d"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_nw.png.import",
+      "sha256": "cb9dccda2f033d075c127a99e4f479551f3c6f26258f3cbe9f15cf9007a67a53"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_nw_fueled.png",
+      "sha256": "848dfcd4a8ccf9d7ce737debc287db9dd468bc5ae494a55a0611cb0b570063a6"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_nw_fueled.png.import",
+      "sha256": "0214f4e86920f86489ebc516001bf003e9a72013938a0cfdfa908853efb0694b"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_se.png",
+      "sha256": "a77676ba3e25d969e8e35b88511bec1efda9ae4b21dbda4cf300e5f41ec99e0c"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_se.png.import",
+      "sha256": "fef841621547a9f12c06bcab0355b7a42f3528ddf1fb4712011f30823c445398"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_se_fueled.png",
+      "sha256": "3d12a96b7ad13d2292140e6e10eeea6aae66cd72334283351b9eec8d3702db8e"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_se_fueled.png.import",
+      "sha256": "389590aad6ff817237bb0d2981a700eab252b1ef1221866febfdfa471b6431e6"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_sw.png",
+      "sha256": "eaaeeaf8c0fb14b6d32519a54417f3541154995a9643dc8bcc7f02084ef9dc07"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_sw.png.import",
+      "sha256": "8cea4aed50a2b00fe4af89416e7a4b8348d5648292314402d636bb5f6112cf99"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_sw_fueled.png",
+      "sha256": "ae6e4f9fd253f69cb08649842ce6f3b6b076d2e7e1517967700101968b111f51"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_elbow_sw_fueled.png.import",
+      "sha256": "4e27bca6dbc61eb689749054b7cb188750e11e39e83aa846cd511ea3a14a7359"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_guide_hand.png",
+      "sha256": "5b18d1aed74aa7804560abe702d14a3d4fc01cbc974a65583eacb9452610a383"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_guide_hand.png.import",
+      "sha256": "697777f3f914aea7140ede03224705cb3603e699834787cdc16e663e92f0a529"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_intake.png",
+      "sha256": "6727c6cbc3badbd3b7b5d1b28940f12ff3a1b82a5fed59c03b102962b98524ee"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_intake.png.import",
+      "sha256": "a1877f30e2ec5b303942df0c4f12a2c34d14025d68a974137cf025825a3b8fae"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_intake_fueled.png",
+      "sha256": "5c4abac77e8a4c781bdc418ba476d515ffcde74732e1176e0e4b83d6397993fa"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_intake_fueled.png.import",
+      "sha256": "e15efa5481c30bc0653ed554ce851efd7d420081cc507901eca10eaa2c78e38a"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_napping_imp.png",
+      "sha256": "267a1c52cd0f69700d4552e861c67c687a9d0124bc03bfff71d91ee5a01c7289"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_napping_imp.png.import",
+      "sha256": "e3a33ba2b8138eb85ceeff36f0fb291cde9aaafc4db3e5b4cc8be6ab12202561"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_plate.png",
+      "sha256": "5b7fd462afe6464d729fb97f15716c6c7df9036475bc02be4e94ae82753db669"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_plate.png.import",
+      "sha256": "dd5487022c732c314dbc080c99fc7e991f2fb3a723fbe0f9953391e85735f09d"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_plate_selected.png",
+      "sha256": "d952844b8b7c29067e3f225243608c39410eea4204a8c4e4370fce96bc18a856"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_plate_selected.png.import",
+      "sha256": "53d53d969e51e35089307c10e2c22344df86035227e75c176c75642755da178f"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_tank.png",
+      "sha256": "51be671da10ed9b005173177a447249a28ab2c0afd6c975c16c5d835816406f0"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_tank.png.import",
+      "sha256": "668950f1a1c3cb0ec60f95b806e4ce7774f37dd61eef054bc4b369e332745961"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_tile_h.png",
+      "sha256": "0538f237150e9347e5000a81b3dc6ed5e45c10d0d472dd4a16980c83593cc51e"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_tile_h.png.import",
+      "sha256": "aa9500080f903386b4a3b69f1e11a9dba268b3f0eba6015ffe5d16c5edda34c6"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_tile_h_fueled.png",
+      "sha256": "8cc06f1f033ea7c2d5649225802d3e261d21f9ee8d26d216c9a1b0b693bd535a"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_tile_h_fueled.png.import",
+      "sha256": "097f2017ca07d8b324eedba3f54ee2a54ee34cb21d5f35656df2a81d710585ed"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_tile_v.png",
+      "sha256": "e8a1ede9b9fc98b79fd71f12d5e1f3f0b0a252b887e36983c3643b93ac017d2e"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_tile_v.png.import",
+      "sha256": "a682c11276f82e3a0c10e5a0608bd3ed6619f1cc61649fc90d531bdf2bbd1726"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_tile_v_fueled.png",
+      "sha256": "08ede0fda96ac7e581bfccb604bd54688a7a8e802a0bb3865a25b2743f0a37dd"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_tile_v_fueled.png.import",
+      "sha256": "f8576a7e1a7702d579937fad4182d88196ef30f62a10714c4dc9639885508500"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_mark.png",
+      "sha256": "2ee840a5a0da0ac414dbcb8f2e990f168bc12bc97ee65a649cd08f359b4e1e56"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png",
+      "sha256": "afde07c8f741ec04e4de341f535902f56ce4b23dbe9503c2f00986d1431e017e"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png.import",
+      "sha256": "e11f20bb229664d16350a26544f31ccb4433ac8b7548c68d9963f79f86c983ef"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png",
+      "sha256": "65a64cd72c82edaf39f47d721a5dd89b69ac26073f62f277240b425bc3db5f9f"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png.import",
+      "sha256": "cb5e629c2e9f5fafdd94c3cc3981d125906ab9d4eac5040b9483d0fb4f6569f7"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png",
+      "sha256": "edd9d498339311be35a8f1d883d7cefc819dba1a8658c82b7ac7a2c173caf511"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png.import",
+      "sha256": "9e088e2948ff3cd29baf4a7791fdf80c8eea2fe6cd69e79955e05d9332078c07"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_chef_piece_2.png",
+      "sha256": "4124b0240f7b87ef4dc7d0d5546c7fc3c7850655def271d3003bae86eb57d40f"
+    },
+    {
+      "path": "assets/review/opera_exploration_v1/arrival_0.png",
+      "sha256": "91c30d2247826c5ad105944b1f27db64b27bda28b40494dce77aa7d742a3877b"
+    },
+    {
+      "path": "assets/review/opera_exploration_v1/arrival_1.png",
+      "sha256": "8815399f27182ee2dbb8607ac5809b83854ef1462b93777bb522e8f6c8ac73d0"
+    },
+    {
+      "path": "assets/review/opera_exploration_v1/costume_0.png",
+      "sha256": "d7128acc87bbeb64a760bd43adab924ab9049635d99dc6e9eb88593b7249819b"
+    },
+    {
+      "path": "assets/review/opera_exploration_v1/costume_1.png",
+      "sha256": "b1c086ced0007c1717d5598ac877314916614ea2ffabfaf910b479d7a56f30d8"
+    },
+    {
+      "path": "assets/review/opera_exploration_v1/doorway.png",
+      "sha256": "ff227d212cac3f93560c123739775b7725976f3586f1940a5489e58f2fd5658c"
+    },
+    {
+      "path": "assets/review/opera_exploration_v1/layout.json",
+      "sha256": "ca7e2d8e3f1198ad6258fea29b019e2f34355d7a238da875c6afa0ff2d2c221a"
+    },
+    {
+      "path": "assets/review/opera_exploration_v1/music_0.png",
+      "sha256": "1beaaa40a5838f266755cdae319dd521ff1de8c96b5198d12b0a005f7b9d5452"
+    },
+    {
+      "path": "assets/review/opera_exploration_v1/music_1.png",
+      "sha256": "f92d936b78cc3f6302a0f881031762b0d8e338aa7f90c5c1de911db34a4aaa4c"
+    },
+    {
+      "path": "assets/review/opera_exploration_v1/rehearsal_0.png",
+      "sha256": "502ff5d8b501e5bb02be1081fee640f60817bc9cc753e7c6db05bc13c52cfa98"
+    },
+    {
+      "path": "assets/review/opera_exploration_v1/rehearsal_1.png",
+      "sha256": "e5c50b9abcd33059dffcccb5c3a3c93de0d4113d8566643fd1a8bf98603c37ce"
+    },
+    {
+      "path": "assets/shaders/sky_lagoon_alive_painting.gdshader",
+      "sha256": "2147c55d8e1008e81cce3e722b8963403147c91cf6a32fed18460e292e309ceb"
+    },
+    {
+      "path": "assets/ui/pearl_empty.png",
+      "sha256": "8c0307da6cbf0838715875a749b8cd6fef77adb9b1dbd4115f272f5cb4bf3976"
+    },
+    {
+      "path": "assets/ui/pearl_empty.png.import",
+      "sha256": "d728711a3bc8975e1bc91398bf1ac35d18c618e9397cec909ff8eff9d03200a6"
+    },
+    {
+      "path": "assets/ui/pearl_filling.png",
+      "sha256": "3134fee17b574903a6dcee86ad447b77a9da1f05e36f2741fc6e7eddd32f6f79"
+    },
+    {
+      "path": "assets/ui/pearl_filling.png.import",
+      "sha256": "178c337a6b74899d2f1e262e888c23b1ed4da96802c1f9960ec5f4fb3ffa293b"
+    },
+    {
+      "path": "assets/ui/pearl_full.png",
+      "sha256": "9a0e76dd56e32efbb201d77901d0147b99be0d002ff36430f4a656c64060e2d5"
+    },
+    {
+      "path": "assets/ui/pearl_full.png.import",
+      "sha256": "21353ee28f027a879d4e6511e66b458c59021175df5f7a521a83157d674107ca"
+    },
+    {
+      "path": "scenes/arborist_tree_book_test.tscn",
+      "sha256": "ccaca23c4beb776a1ed4dde171901dd3901f6acd417f744cea8e2133a42f03bf"
+    },
+    {
+      "path": "scenes/demo/sky_lagoon_alive.tscn",
+      "sha256": "eab05f44cf47bf5bdcdb2867841096bc4b04de23af1c5fcd895286d90631d025"
+    },
+    {
+      "path": "scenes/fairy_restoration_prototype.tscn",
+      "sha256": "c955c205be76edc4632aeeeb6e4c28b2c8e2a67e033ae978bf8a00c99fa56d1d"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "sha256": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7"
+    },
+    {
+      "path": "scenes/painter_prototype.tscn",
+      "sha256": "a35f6c93999db540b4e3f5b3c4fb5fe3db926d44521d9f5a007a30c24670c270"
+    },
+    {
+      "path": "scenes/review/opera_exploration_v1.tscn",
+      "sha256": "905af61a55c9442d55476893fa676854922ebac6eed89cd1e600890989277b41"
+    },
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "sha256": "c0efa70a5a00ba5c6204b5c960ce6de4ea702971dc7554cda23b32bf42f895e1"
+    },
+    {
+      "path": "scripts/arena/castle_hall.gd.uid",
+      "sha256": "f92b70e658bcee415fe95dd4ab8fa4c11a00083f430c62a4a2b87b211b215938"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "sha256": "c6835aba5369ffea2672bca02c75221f5b5aeb993667577c986c06a2bdbfa856"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd",
+      "sha256": "99a8ff0f4cb1969fa95eb207c3545811d1ddb18eb1d14cd941529de71abdb415"
+    },
+    {
+      "path": "scripts/arena/courtyard_train.gd.uid",
+      "sha256": "ce6b25c3eb653381c62b036d94111fc4856f5aee747b4eec572dba5859c08671"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "sha256": "cd21c1552bed9486c01da62cc6117fab00c82b7c31eae2f1e2062e56ca48aefe"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_grime.gd",
+      "sha256": "fceb9531f6868bc5967090a5023b547f3f0609a2a632cb8c10e0974de2a9d35f"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+      "sha256": "0efc76accefd3ca8b2fdffceec99bb66768ff827d9f9fdb059c9dad7fb4c0bc3"
+    },
+    {
+      "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+      "sha256": "f0137cd6a80b6652c4130f8850f097c6cb4d3729f491b9dbdb42806af5e3bfb0"
+    },
+    {
+      "path": "scripts/arena/northern_kingdom.gd",
+      "sha256": "3aa327e624f4d8701750d094662da1c643a5751465d092e8b880666aef30349c"
+    },
+    {
+      "path": "scripts/arena/northern_kingdom.gd.uid",
+      "sha256": "45e64b579f179d2d7662a66f5d79b3946ed0a3c11da247ed2a47eb85ada3b1b2"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd",
+      "sha256": "848591d5a4b3dc0e15bae3c2e30bfb27102cee2eaaf2a6ec208aae607c046dba"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon.gd.uid",
+      "sha256": "8fb0fc340444e8ba05ecafe8f36614a98614820a788aa9c7490fff80dea6be4b"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_layout.json",
+      "sha256": "babc895dfef256541d3bbf378c4ed3b81babcdc35a0801a4054faf5222033a99"
+    },
+    {
+      "path": "scripts/arena/sky_lagoon_promenade.gd",
+      "sha256": "839c849488a657a3f0ed977be013e4f9ae6c3c27fc48aa8610ac987558cb5d5e"
+    },
+    {
+      "path": "scripts/attack_customizer.gd",
+      "sha256": "768d7f410b4d0af59f140a8f86ca0262d795fbb614d9bd0326ebc56c4befba6f"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "sha256": "c2010e40d3e3e0ebb6928d1fab1efe9b997416c8a72a9ab8c547df5589552886"
+    },
+    {
+      "path": "scripts/audio_director.gd.uid",
+      "sha256": "eec7ab0941d90c7aff8b05c72524cd305b1ed3473e4ca787aefe5a03dadc4e35"
+    },
+    {
+      "path": "scripts/boot_splash_overlay.gd",
+      "sha256": "af84a160a07c5244c4aec6ee3a575ded905b9eb418525f1da0dd6dc36b41b647"
+    },
+    {
+      "path": "scripts/boss_encounter_2d.gd",
+      "sha256": "73785962bbddf9d33f71cc5007d5048ac9e3f5a26f8a85bd237d1fd5cba77831"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "sha256": "62e9c65d87ff2a25f384fe16db444257326fea98ad72358f744103a3138ae141"
+    },
+    {
+      "path": "scripts/camera_kit.gd",
+      "sha256": "84d200f80fe84aea65ee999d512465f5c3ef5c9730a7a3459b8baf96d2bada33"
+    },
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "sha256": "cd4a1ac69407644f2e4e97f813b480ed461746e236375ca2f6de1509b4d3bd12"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "sha256": "5c984ebed3a2a4789d6a2471b0db1356de7804ef2ca436bb449689717a716b89"
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "sha256": "20e166175a30e267899716108aade2315784ee07ff6cbee70821ea4f2909bac8"
+    },
+    {
+      "path": "scripts/castle_logo_studio.gd",
+      "sha256": "ca9867cc2cbdad56a8b37090de08835755474eabc6f8da168f7e8cf809052988"
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "sha256": "4706748be96d7234a3959229071e6cd9a3e7ec270ea02fca0188fe68f24c9bae"
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "sha256": "41be997e2e367343a85106bcf30f619be497baa59052eece81889e302b20ca71"
+    },
+    {
+      "path": "scripts/chapter_two_ember_encounter.gd",
+      "sha256": "5ba372295472500b5d0d552202c9e257ee1be1027446eb7ecc9b460d590177ae"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "sha256": "79909f7dc44cc9c89ad6f506a2173ab2d80d4c05be8abf74118db86c5fca4128"
+    },
+    {
+      "path": "scripts/chapter_two_lawn_finale_2d.gd",
+      "sha256": "e0e814ebc49d9f40cc59dc4453c7c72cdd7cbb5e2447f54168e1ae8d57abb777"
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa"
+    },
+    {
+      "path": "scripts/chapter_two_party_table_2d.gd",
+      "sha256": "afc04626075f6a6be6747e2d8b2da2c1cb22640e202d01da7a06b766c6631f11"
+    },
+    {
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "sha256": "42daa1d7b4ae97372bb7869defb39dce850c91a779c5bfb35ece7fa985212fa6"
+    },
+    {
+      "path": "scripts/chapter_two_room_plot.gd",
+      "sha256": "bdae21ffe3236f331906b2b16600c7bcaedfe6926195e6dbfaa5cd76f0ed1235"
+    },
+    {
+      "path": "scripts/chapter_two_voice_catalog.gd",
+      "sha256": "af71bc090ccfd1f76dd7714768cf97f11e46c3ff858d8503b2ec5f75a52a0f06"
+    },
+    {
+      "path": "scripts/chapter_two_voice_catalog.gd.uid",
+      "sha256": "1e42ffeac8efaadc432acb59c7c2686abace95a0d762a1190bf4442b6bf776ea"
+    },
+    {
+      "path": "scripts/chef_painted_art.gd",
+      "sha256": "e64a3c78223fbcc06e62b2928d5af889515af209a2c51ea6e26a20e1f1601e81"
+    },
+    {
+      "path": "scripts/chef_painted_art.gd.uid",
+      "sha256": "1683e48fe6c630a4e578caaa8a55332420cfc8f887f8953e7c1330d57a67a3f8"
+    },
+    {
+      "path": "scripts/ci.sh",
+      "sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e"
+    },
+    {
+      "path": "scripts/collection_system.gd",
+      "sha256": "0e335e22bf874d2cc893e25d76af7202dc13020cdffe0cad487f6b4817f3f030"
+    },
+    {
+      "path": "scripts/combat_arena.gd",
+      "sha256": "7783ac57ff3f79a8ca9e6a690b5a4896f349c58bfc963e844b63f29f92386783"
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "sha256": "5463696830349d424ac578e4f219a25294b7ea5b932cd45a564ab84495e4814e"
+    },
+    {
+      "path": "scripts/comfy_games.gd",
+      "sha256": "2cce63f238b78f7c548948b2c26d689cb4dce913b0ba07b6c14d7f2fb42c55c6"
+    },
+    {
+      "path": "scripts/companion.gd",
+      "sha256": "dc8622d6ae0a8c2802357ad46cab7b5b6fe9939ccd0c5b01abe49eba7126af72"
+    },
+    {
+      "path": "scripts/craft_studio.gd",
+      "sha256": "e07c6b99b46e399f6025738309843875b9fb827f5b15aa239347771f945604b3"
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "sha256": "a807cdcd8003ff368ebb6c8f85e19597eb9d60e2ed5e759bc1de0300f6a0ab1c"
+    },
+    {
+      "path": "scripts/day_one_bathroom_movie_handoff.gd",
+      "sha256": "8ee098f7079e5f6c700cdfd7707650e5e907f9b42a5698a28023e8b77fa70c21"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "sha256": "2ff093343b5b9d744695f7ca3261a0be659b9498fd4f525d749a41e55aca89e2"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd.uid",
+      "sha256": "8309c9d31a2b31079519229c007f5af70b78bf8ff8524c135abba883e76d707f"
+    },
+    {
+      "path": "scripts/day_one_contextual_voice_catalog.gd",
+      "sha256": "09582aeda0b067a451d652f1e387fd4e651f31a6af06c2fabaf4618a641b434b"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "sha256": "1f26f9136d1b9eca6699dd91ffd17c0d36c04797d29ec9f858b1476f8aa87804"
+    },
+    {
+      "path": "scripts/day_one_flow.gd",
+      "sha256": "2fbe1025e2e0b13b57edd48bd6f79599ff2d783f1e166ba34115bfa6cc4b0578"
+    },
+    {
+      "path": "scripts/day_one_story_clips.gd",
+      "sha256": "73ae2716febaf09819b4198c0498990171459f224e42271b7893091b11988934"
+    },
+    {
+      "path": "scripts/day_two_transition_2d.gd",
+      "sha256": "0c02701ca3aed6c299aea78bb12ba49a41e230a06e5e68cafa3ae711bcec8804"
+    },
+    {
+      "path": "scripts/debug_export_stage_pathfinding.gd",
+      "sha256": "bddb3ed5d87b3aae646dd9b9b51a131bced28e8959992166fdda31b3ffa7fc4f"
+    },
+    {
+      "path": "scripts/demo/sky_lagoon_alive.gd",
+      "sha256": "a543a17b6e59453fada69c494a66e1a04b4a685a8f863c1160d97712f2b0b959"
+    },
+    {
+      "path": "scripts/dev_mode.gd",
+      "sha256": "444ec444f3d64780c03e35074ac68b33d4c4203dfdd2925b8808ff98ab8c7921"
+    },
+    {
+      "path": "scripts/dev_mode.gd.uid",
+      "sha256": "798f60ed4397b08a072ffa74972c3307bb7156fe0d057740a018121d8e602df0"
+    },
+    {
+      "path": "scripts/dungeon_art.gd",
+      "sha256": "16998ece30cc0115c83ceb2f47bf7da23a8e27507a65aaa248f34bfacd765128"
+    },
+    {
+      "path": "scripts/dungeon_level.gd",
+      "sha256": "bf2645396f993cf13418eaee16854dcb1c3874bd4fcbdfd71eabb11365b8cadf"
+    },
+    {
+      "path": "scripts/dungeon_puzzle_room.gd",
+      "sha256": "18e8cf88c99b95fcf1ddebc64cf944bc7fcde9f293b4000395a6211d688a4ae2"
+    },
+    {
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "sha256": "50fd0897b2a78381c76ddba995622552d91e5d3b41a3f6b971581b1d9d6a2ba0"
+    },
+    {
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "sha256": "69ee774976c8fe338356c6e0fac4e4c5acad5d24156c6a9f324febf1dd02feed"
+    },
+    {
+      "path": "scripts/dust_bunny_ai.gd",
+      "sha256": "2b913421f051dcafabfd492779eee4e33089deda1f950616c2df7d62e52f9826"
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "sha256": "3b97476eed2103256e3d6b1c5b6699b60b2081d4f5566aa53e5faeb3ae7f184a"
+    },
+    {
+      "path": "scripts/dust_bunny_sprite.gd",
+      "sha256": "e103d0402cea68429d7af2d2e44f161aaafd84df91e227d31ca6549db5d9a1f5"
+    },
+    {
+      "path": "scripts/ember_fortress.gd",
+      "sha256": "5d2b6c92e56df5b44bc07c38fa48ae21a784b51af2f866262de262b9d5262ec6"
+    },
+    {
+      "path": "scripts/encounter_attack_2d.gd",
+      "sha256": "dce5638e06baaed6589435b2cb935395b8a9ce7e28d0ca57eec49749233fec4b"
+    },
+    {
+      "path": "scripts/encounter_contract_checks.gd",
+      "sha256": "a1f8d8ab436f8b8256929a70f53e873ef05e95e9bc0be52a9e3ea047b2856469"
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "sha256": "18bf9b3e416e833f1f1430b73d6621cc42b79525fe7dd43ec9f420219fd33fe7"
+    },
+    {
+      "path": "scripts/encounter_navigation_2d.gd",
+      "sha256": "551fd4a8e8f0811500d19443df65e41a1ad76a7b0c84ed1e0db841f3bdb192d9"
+    },
+    {
+      "path": "scripts/encounter_patterns_2d.gd",
+      "sha256": "44fa3744bd037141b2978e563c6af923660f94f06aed9029d24c066128c91752"
+    },
+    {
+      "path": "scripts/encounter_phase_2d.gd",
+      "sha256": "8fbe1ade522d651661f427265230994e0fa2df19f8c4e088580ebfbd3780c086"
+    },
+    {
+      "path": "scripts/encounter_profile_2d.gd",
+      "sha256": "69d887329c44b54ca5b534ccc2d86c4817dd2eea6697469b7c7b0ae7d658e78d"
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "sha256": "b816b8a4f9ee94f3dcb2d008a2978eca95dc0ccdd65c9dbd4b380f0b4929c822"
+    },
+    {
+      "path": "scripts/encounter_warning_cue_2d.gd",
+      "sha256": "89f86ca80f367da2b5f8b07e7dbbfd8ea969a8741369a857ebc416ae74196a93"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe"
+    },
+    {
+      "path": "scripts/fashion_beta_test_case.gd",
+      "sha256": "f09fab3a55ad484640e2b971c1706ecc2ecbdf0fe691b2ae7d8fe9a9c2bd5d70"
+    },
+    {
+      "path": "scripts/fashion_designer.gd",
+      "sha256": "3c58920d570f9c9776d888101bc36c490d970918fb56994614f55b6f9eeb431c"
+    },
+    {
+      "path": "scripts/fashion_designer_test_case.gd",
+      "sha256": "81c9cfaee5b802dd9b2c5e8969b3d8282e2abb09612382f457587c694681a83d"
+    },
+    {
+      "path": "scripts/fashion_dressing_input.gd",
+      "sha256": "70e668b9cd31358cdd9bdbffa0128ff44339e3b6094baf21c043c3391f961a74"
+    },
+    {
+      "path": "scripts/fashion_outfit_renderer.gd",
+      "sha256": "2c2bfedf1fc3b3e1e0b4dd78d12908929c963b52eefccacaaf358f9ade3d96f0"
+    },
+    {
+      "path": "scripts/fashion_parts.gd",
+      "sha256": "80208c6352bbb8702b0f4b1df2459340bf90a642313e6350969c3cf64f8b7907"
+    },
+    {
+      "path": "scripts/fashion_parts_test_case.gd",
+      "sha256": "b28443cbcf7fd1073e238b5b6b118544c21a1e4a38fa14d02324f9e9a0f7ee7f"
+    },
+    {
+      "path": "scripts/fashion_skin_catalog.gd",
+      "sha256": "162615d544259e58b24a7f7f599fd2b2e7077535e919b95abea38e93f5710127"
+    },
+    {
+      "path": "scripts/fashion_skin_engine.gd",
+      "sha256": "e566e5c56698272523baf278bada941d2b28f3737183bf63065235a6ef9cb0fc"
+    },
+    {
+      "path": "scripts/fashion_skin_engine_test_case.gd",
+      "sha256": "d44c521b78e987d1020217b8676feb957739f2c5dcd1b08233040ccdd2758ce1"
+    },
+    {
+      "path": "scripts/fashion_wardrobe.gd",
+      "sha256": "3ecc6582aadfa25aebc63a72b04b9fb1f0482fdd04e1d183571c89599d52000a"
+    },
+    {
+      "path": "scripts/fx_water.gd",
+      "sha256": "175bde804a3e39ece8c0fe8ecfeb30afff0696ff75e67258a6689bed7e7a7f89"
+    },
+    {
+      "path": "scripts/galaxy.gd",
+      "sha256": "f16fec1d4e4d00ce43abdef9b700e4d1ff37bf7f2a8be20177aa85b64aecd4ad"
+    },
+    {
+      "path": "scripts/galaxy.gd.uid",
+      "sha256": "8e532943bf7fb49f600c6d7a559b0b2533534de1e5a2d85bd04762c03c3c1936"
+    },
+    {
+      "path": "scripts/games/brawl.gd",
+      "sha256": "4ba85f2e62557b38d587510b684e0330adb01985a8144fef65df1fe1b55e77a4"
+    },
+    {
+      "path": "scripts/games/dance_engine.gd",
+      "sha256": "ea46eaa4c25d95bf5b1a74ffc4cc65909c85d349710c3fe7d5e76cd870b72506"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "sha256": "a009afcf60278ae8671c003faf2b771fe3033e1234d9148a2f4b090ddff58c56"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "sha256": "093286d7a75b6786163559b8a03b319eb9ec5048ae1b9507bc819df9817c8d6c"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "sha256": "98de0dd564df398805485e664d6f808db367450780b0455d716d9069fbd16643"
+    },
+    {
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "sha256": "fd95b806ed3bd4f749bf7726bc1b15feeb2e25a33807bb2321e473a621f654f3"
+    },
+    {
+      "path": "scripts/games/day_one_fixture_scrub.gd",
+      "sha256": "8aa20264b8bc6599037992acf1c12335b80f28d6ed01e51a46062692a891e529"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "sha256": "72822a07c64e4985ed61dd5b435b35505720991eda594ee1255d100ace473215"
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "sha256": "32c89305798ba2b89f64decfc6687dce0669b2afef432d34e5b3a0fd8272afb3"
+    },
+    {
+      "path": "scripts/games/dolls.gd.uid",
+      "sha256": "b06a4d5b605e5de033f76eedac8ad40aed806003740aaf4ee07115770ffa62a5"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "sha256": "0d6f2acbbeaccb13d751ca3e10d5422f0ee33be372d83bb90827836ae9b85917"
+    },
+    {
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "sha256": "52a5b26bf77ddc07805c063c0b1a733169ae04330a3083b100dcbd7e821af655"
+    },
+    {
+      "path": "scripts/games/fairy.gd",
+      "sha256": "ea527d241143008f72032a66f4293ec17976dc35e5763b5b3ab61e2029bd60c3"
+    },
+    {
+      "path": "scripts/games/fairy.gd.uid",
+      "sha256": "387a6afeb39c3283c6d5f8dd3c04921e0f34236feeab01e414e11e924a4a2e1f"
+    },
+    {
+      "path": "scripts/games/fetch.gd",
+      "sha256": "21f958f1312c100fa051615e3db0c7935e1b98478a0a335d925c74f191bec760"
+    },
+    {
+      "path": "scripts/games/fetch.gd.uid",
+      "sha256": "ef3955b1d299cf182eecfa8f13fc8b8f25dce1103279f0f3180e87561758152a"
+    },
+    {
+      "path": "scripts/games/melody.gd",
+      "sha256": "72e2322c3d1e87132a1cc3e16091a4f61364a2af70a2ea9dab78b2f285254fca"
+    },
+    {
+      "path": "scripts/games/melody.gd.uid",
+      "sha256": "64dfd3de15825839771f58c4734661371e3967e20cc9503888c29a0d80f2bc3f"
+    },
+    {
+      "path": "scripts/games/octagon_stage.gd",
+      "sha256": "dc6d0362d8478bb3e11445c0c7ed4189abc58023ca375ccbcf81871f0e91f7c6"
+    },
+    {
+      "path": "scripts/games/picture_games.gd",
+      "sha256": "b2ebf2616a83b1944652c6d777f2558053ba6d8d203b19ae644e24c4b152f5de"
+    },
+    {
+      "path": "scripts/games/picture_games.gd.uid",
+      "sha256": "0b1f5fa7b7c57d3a0dfa7fa6d922d6bce5331f2e4f35db56425ce2fd6ae36254"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "sha256": "eb7dfad344d0f9a3a30abc2f7fe293267de0d899088e59b596a9df5ce17da60c"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "sha256": "c448fe28536b321bc8d9a665a208f49c7a956c933dfa6c78c9371152466aeb42"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "sha256": "bd31d50392c44e518198ab0c6a51be203d10e94e33c98817604f5c851978a5e2"
+    },
+    {
+      "path": "scripts/games/seek.gd",
+      "sha256": "3218ae0d3f134b97b48161ff830981b8b1ed52d71cda174b0fa81654e60fffd4"
+    },
+    {
+      "path": "scripts/games/seek.gd.uid",
+      "sha256": "3515a8ce1e1495967e957db144020d43adc03642212687caef075226a9d1a45f"
+    },
+    {
+      "path": "scripts/games/shop.gd",
+      "sha256": "c8451c9150a721e3c5b1a172bbf977657a0fd01bcb3681525232a597c5b04a39"
+    },
+    {
+      "path": "scripts/games/shop.gd.uid",
+      "sha256": "f32e84a7060908640d09f63973313820d045da6f357bfa09e6a4bea3c27e2cf0"
+    },
+    {
+      "path": "scripts/games/side_scroll.gd",
+      "sha256": "e6b3fd1568d918c4160a6857662604b72eecb02cf4fc6769b18939ee31bcddc7"
+    },
+    {
+      "path": "scripts/games/slide_race.gd",
+      "sha256": "2886cc3d0720e293af303f23b8b8935cc31e79613c7e0e68f0db45521fbb580b"
+    },
+    {
+      "path": "scripts/games/slide_race.gd.uid",
+      "sha256": "f729ea7409ab1a80623d81f046caaece3497a6a4b385f66cbd44a6ca6c0fae8d"
+    },
+    {
+      "path": "scripts/games/treasure.gd",
+      "sha256": "62a1b398d371d6e1a2dbd865ef1a4a31b1cb1d0380b49e7fb23d182c38be79af"
+    },
+    {
+      "path": "scripts/games/treasure.gd.uid",
+      "sha256": "74f46d104a206967ea9eaedef301f6c7320534c1e1a7b19dd751ec982a9eb514"
+    },
+    {
+      "path": "scripts/hit_engine.gd",
+      "sha256": "fe04f1f0d4e11fb22ebc4d62ef2887ff7a9a83a94674121f2a4f7c64340b41e1"
+    },
+    {
+      "path": "scripts/imp_ai.gd",
+      "sha256": "1ef3cb4bb83cc42c75dcf931916f1b09501f59262fe6731a8eeed35f103bc0fd"
+    },
+    {
+      "path": "scripts/interaction_affordance.gd",
+      "sha256": "c6191e6ffc25c40423e5b11b46971485c2476d07f30ce91b4b863d96024fc73d"
+    },
+    {
+      "path": "scripts/interaction_director.gd",
+      "sha256": "c44643ffe1a3489df213eb00971465bcafeaf112bde23e4a1582432a36c3928c"
+    },
+    {
+      "path": "scripts/intro_overlay.gd",
+      "sha256": "815101b7727f7caf3f89bc1ab221fb2eae733ce4df62c4b47fe256392cf983d2"
+    },
+    {
+      "path": "scripts/juice.gd",
+      "sha256": "7c09e11af50a0af4c999e59f41f4e7c9541139e678c29e4e85ab599c0750b598"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "sha256": "2be58780a3caab0e72f8006f21ab1564d49bd82851fbb75cb35f27e289e16d28"
+    },
+    {
+      "path": "scripts/kart.gd.uid",
+      "sha256": "82b9e4de9165a5491b28f1a94e4b8e8060ca11da814fc5183a6e79ee9c2d1c8e"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "sha256": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa"
+    },
+    {
+      "path": "scripts/landmark_art.gd",
+      "sha256": "ffd747d9634f4d9b8802974143f1e27279f68170ec93cefb519aaa0c3defbe13"
+    },
+    {
+      "path": "scripts/light_rig.gd",
+      "sha256": "2b18ae0f4c391e06467b911eb1dedea2a06a7789c2c87dd53cd1d550b253b04e"
+    },
+    {
+      "path": "scripts/living_world.gd",
+      "sha256": "1bcddb315971b88ccc01381463ebf545a5e00940c7654ebcf80fd29e27bf2e4c"
+    },
+    {
+      "path": "scripts/living_world_canvas.gd",
+      "sha256": "80b0e4ed487dfd84bed69418d8943291384f4a9c5173fa68ec3fc2062ec6f7f4"
+    },
+    {
+      "path": "scripts/living_world_catalog.gd",
+      "sha256": "f2181b96dac04dc398b9c49b1d519ec1f8c7474a59b0c2a8ba8af95708bbafdb"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "b7141748c9664fa4023d254495fd61ae4e80d6e536c3ada3972c2ea0104696c7"
+    },
+    {
+      "path": "scripts/main.gd.uid",
+      "sha256": "3386bac60d1b4234e3fd77e98d81f18bae8ebbb9efaca7c0fd16dd6816ba55c6"
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "sha256": "73283aa72639210cb42f14c9d7445cd661cef37560ccb9a7aa3c635477e68584"
+    },
+    {
+      "path": "scripts/mic_input.gd",
+      "sha256": "a334a612f5ffad67f5e9f0518cf490a3961ef4cfd44a03ec7a0abf6315ff267d"
+    },
+    {
+      "path": "scripts/navigation_controller.gd",
+      "sha256": "0b8247af0522eaa7d017f74923e50abf054adcc7e9ba6620349def37e03057b0"
+    },
+    {
+      "path": "scripts/nursery_painted_art.gd",
+      "sha256": "d23c5f665e69092eaedbd3e5e94946bc0a20a2b7e536da623f6a488d39f8c20a"
+    },
+    {
+      "path": "scripts/nursery_painted_art.gd.uid",
+      "sha256": "2ee9d6876c702bf1fd8e758b9bc0c1a38c1cb9d35511b09cd1933c3f7cb37265"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "sha256": "859df1ba7f344a14391f7b9855d1aca5e9299bb3e33733fe8bf3776a4258a305"
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "sha256": "0603f780b841b0c4833ae863d797345f7e20bb731bafb294159d64beab4b4dd9"
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "sha256": "ee087759240e78b6ec49786e247c272573590d6b381d992928d8fd8e63348241"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "3a7b0810faed76d10255330fd23893a78b111a4f93b53a7d0effab01035d87ae"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd",
+      "sha256": "6c6eda3625cc49f7e93a8d2e385c0dbebe2baff3063fb7fefef6607b3fa4f97b"
+    },
+    {
+      "path": "scripts/opera_chef_surface.gd.uid",
+      "sha256": "d7de2b37ed8576ea15cd7b5b95e86c8d6d8c87a6c3ebfc5a53230be2aac51ec1"
+    },
+    {
+      "path": "scripts/opera_competition.gd",
+      "sha256": "f69b4922f734272e8e0682d0c5e302f34538cc4cf9792dac474454bd96efb1b8"
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "sha256": "791559fe8ea17e87d34d39551532371ee593a8106effec23e6879652c0939d2a"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "5d055e7b8842a4ed72d2a555d1e78e7e460a56010f3b5c705c8ec20322011e8b"
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "sha256": "90f7a83c7f12670210b9f7a7b9cb3a69458892672ebe48b58e48fecf998d3298"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "sha256": "45efa470ee23378d66ab575cc3df1d1d9559ef012c3d33cdddbf6e1a4fad5f00"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "sha256": "c8e66c290ae720ff6eaae2284566043ed5abd83c348241a38df149904dc872d9"
+    },
+    {
+      "path": "scripts/opera_imp_clips.gd",
+      "sha256": "393eaf8e1cf03e9800abb9e1cefb044850d3e1b6bd2215d65092d6ab16ea7c4a"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "sha256": "836d71b493cea9e63c4e398234752adb0e59a1c7c6f791c88c68dfccb5ee2a3b"
+    },
+    {
+      "path": "scripts/opera_mastery.gd",
+      "sha256": "5dbc2687e47488e9335e4d3079bb3189f2cd6b454102eae6bed7b34de7dd8809"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "sha256": "12d82b0febc1b1505ec329e15bf227a5f3f2126829e16e3b056330ac49a5b09c"
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "sha256": "1d41aa693d6d2fde851b4c612c2af210c79ae328e517f84c85f639edaf4c1e38"
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "sha256": "25517580638edcc8f63375ec6b14fd0de89287ed08af00111fec1d467cce6da3"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "sha256": "5c95c6e09338f6acf6fc5630a7c2e2f7c29e5f311a1def618de8c9595cc597e2"
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "e64855906ea24fd5e50da2ffd045baab3c3eea0a8098eb0ca797c023158cfd12"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "sha256": "c7d6c94df382d14fa75cb18416647f1f540ae912756b8bba0c2962ae07b6867e"
+    },
+    {
+      "path": "scripts/opera_stage_paths.gd",
+      "sha256": "80ff76e38eaf9f544f45474195541c0ffb2d59ac08718cb43105b616a0bed40f"
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "sha256": "2ec33fa5b5e54389055774d79965abdc979fa12f81568c345727634da982dd38"
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "sha256": "18d6cf737d542ee911015f4d0461c09e4df161f5b6502f2199f6a96cb4298878"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "sha256": "401d83df5bc25851a26e8a5d5abb6319a66bc05059510de65c48381aeed0ba25"
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "sha256": "477087546f05e2423fb866907a12f3d65dee1c793133cbe64b3ef290c09d28c5"
+    },
+    {
+      "path": "scripts/painted_feedback_art.gd",
+      "sha256": "b991a322b061900c453d833ae404959a9cc6dc9773d262d903dff2ab635b2d71"
+    },
+    {
+      "path": "scripts/painted_feedback_art.gd.uid",
+      "sha256": "1004ec9956ef669a2788c84a4fc5b92731f9601000f5e3ae8e800521af27b7d1"
+    },
+    {
+      "path": "scripts/painter/painter_document.gd",
+      "sha256": "510f012f3fdf67f1e9d4b85a3b5ed08937ccb7603a29753cabd691a203317754"
+    },
+    {
+      "path": "scripts/painter/painter_guided_probe.gd",
+      "sha256": "22ec8d6fa99477800b951854ee6339b731e6259e48286e355e3aa24713ac72e6"
+    },
+    {
+      "path": "scripts/painter/painter_probe.gd",
+      "sha256": "db37dd5f813390ab65cc403d2a0fe18275f7fce6c2fe882552f515698c5ded87"
+    },
+    {
+      "path": "scripts/painter/painter_studio.gd",
+      "sha256": "2ef459b6da1a0e040dfbbcd92ccd83046e2ab12cdd65f8f2266f7381023994be"
+    },
+    {
+      "path": "scripts/painter/painter_template.gd",
+      "sha256": "122c695968719d876afecbd726f3ec7c3c65825b20e2d32e359c27a440c96e86"
+    },
+    {
+      "path": "scripts/painter/vendor/FloodFillObject.upstream.txt",
+      "sha256": "e2f5aca17ca3dce826dafe026c61dab25d57f9e68640dd9ff3bf8977156633cd"
+    },
+    {
+      "path": "scripts/painter/vendor/LICENSE.txt",
+      "sha256": "c41ab6daf72f4cd2da64066dd3951c7199ea4cab8cd1e25aa169719c63df9894"
+    },
+    {
+      "path": "scripts/painter/vendor/painter_flood_fill.gd",
+      "sha256": "b3dac8946c5336cf38e4c72be9b66261ea3335280aeeffd7af3dfea27f7e852d"
+    },
+    {
+      "path": "scripts/painter/vendor/provenance.json",
+      "sha256": "0c0581f32b423a51dffd6312491bde7622018ab88c333229b98b8e4feb51182d"
+    },
+    {
+      "path": "scripts/partner_assist.gd",
+      "sha256": "eff1ddd3447bb1ea65eef86de694b448ec053d9a983b2107efa9231b1cc6ff89"
+    },
+    {
+      "path": "scripts/pause_menu.gd",
+      "sha256": "8da69ec27a287b17897e757fb133f61ea1ad40a2570c1a64e14e676faffc58f7"
+    },
+    {
+      "path": "scripts/physics.gd",
+      "sha256": "c625e48a1315033b90e44e9d4418ca05b4625c4868e82f9dd12cb39680a5bada"
+    },
+    {
+      "path": "scripts/physics.gd.uid",
+      "sha256": "77bb587cbf8af345235ebc745f1e4608735dfae68fb4896eb82c5fcffccea549"
+    },
+    {
+      "path": "scripts/player.gd",
+      "sha256": "93f6e37528f24184f2d6f98da557f4d6e8317452fb7ceddf4951341e9704a528"
+    },
+    {
+      "path": "scripts/player.gd.uid",
+      "sha256": "26b58980d6af4d91fa0560b6035d5c583ea77b92835018a77fbf6438f95b489a"
+    },
+    {
+      "path": "scripts/probe.gd",
+      "sha256": "6c0ed9b4560a521885ec49a607c4245fd3eb15fc8a15af205f8a7fd9969c6e7e"
+    },
+    {
+      "path": "scripts/probe.gd.uid",
+      "sha256": "c26f33d43d0348b533f2f4518f3b2decc53c5e89fce063979d7defa49f344b67"
+    },
+    {
+      "path": "scripts/probe_alpha_milestone_save.gd",
+      "sha256": "04aff5486af934c7a554da70920d8fc08306003a63feae6d6c388ffb8b896326"
+    },
+    {
+      "path": "scripts/probe_alpha_milestone_save.gd.uid",
+      "sha256": "4a98555951803d31eaef0ee072bb47cbd6899a8059f747c2969c9401f2d9016b"
+    },
+    {
+      "path": "scripts/probe_anim_lab.gd",
+      "sha256": "4adcf86b0a5f089540fa8e3aaa062eb75cd60aa7156221bf27c17b4488642d10"
+    },
+    {
+      "path": "scripts/probe_anim_lab.gd.uid",
+      "sha256": "520c3f2a32324bb5ed7dcaee95e91455255a6e485fcc84525bb646dd0931101b"
+    },
+    {
+      "path": "scripts/probe_aq_ref.gd",
+      "sha256": "437ba78187e8dea7b6fe540b2478dd38b3928bbce35fafa0e1bf3575fc32767c"
+    },
+    {
+      "path": "scripts/probe_aq_ref.gd.uid",
+      "sha256": "9991275e083dba4bc44d405dc3dd6e0978e4494956e308b139cce0a813008e0b"
+    },
+    {
+      "path": "scripts/probe_aquatic2.gd",
+      "sha256": "dd36dc7c728c35d47b72a95fa6201390732dc3f0f6d0a6a1e2d6b1cd44d08912"
+    },
+    {
+      "path": "scripts/probe_aquatic2.gd.uid",
+      "sha256": "b2b3da25c19554a1c4783831526764953d1bfb14379f5a75427084b98568aee6"
+    },
+    {
+      "path": "scripts/probe_art_audit_35.gd",
+      "sha256": "16330fdfe4ac2204d433f96bb38ec7a8e4772905282608da2300e32da439158f"
+    },
+    {
+      "path": "scripts/probe_art_manifest.gd",
+      "sha256": "ed7ee9c383b12e6f5893f1140d063b18767ea403b3d1ef440198f69e06c68dd8"
+    },
+    {
+      "path": "scripts/probe_audio.gd",
+      "sha256": "89cb2a394a627090060e3819072eddca384c27e774a5d02405dfb56e93d39170"
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "sha256": "092c2c5cec5f5d87ab2a06c2c91ea65b204c51340b8d262b021c104f48a7975f"
+    },
+    {
+      "path": "scripts/probe_audit.gd.uid",
+      "sha256": "6c62c8d8040248e0abc1fedde5569ea9f6dc2c92b04fea7bd37c1dce17840185"
+    },
+    {
+      "path": "scripts/probe_basement.gd",
+      "sha256": "1a4623edf143b498a1edb543fe9fd98b0ffa02bc520095f466c8f6fb3137ca67"
+    },
+    {
+      "path": "scripts/probe_basement.gd.uid",
+      "sha256": "c1942d50297987185a4d966f4e24d9dc665710c669f6895229e369cab346db4c"
+    },
+    {
+      "path": "scripts/probe_bathroom_integration.gd",
+      "sha256": "907291590f2f853b7c5dbbc75688cd03b5ad705f89fb4b6d4f47ad31d7378004"
+    },
+    {
+      "path": "scripts/probe_bathroom_props.gd",
+      "sha256": "400136dc16f34866d777d479f6137aebeecbceceddc1c58bf4e89155f680b467"
+    },
+    {
+      "path": "scripts/probe_boot_display.gd",
+      "sha256": "af0f83883d6241456ee87fd308d8c1eca842feed2383151fc25db82775b1764a"
+    },
+    {
+      "path": "scripts/probe_camera.gd",
+      "sha256": "aeacec921a4ffc67944ba4689079e3c9019b7ad05116d2ec9a174194acb0bffd"
+    },
+    {
+      "path": "scripts/probe_castle_cam.gd",
+      "sha256": "d8cc52e641ca7816202bad59b13bdbb6077cd34afd2890b50b0cd0e1f2947541"
+    },
+    {
+      "path": "scripts/probe_castle_canvas2d.gd",
+      "sha256": "a59961abb634461d9619ff4985b03bd34fb4828ecd821f16dadd6d5086d0b85c"
+    },
+    {
+      "path": "scripts/probe_castle_door_language.gd",
+      "sha256": "affccdc17ea40bdb2c290a93b6eaf99f224bf8d248555f33bde49ca823715380"
+    },
+    {
+      "path": "scripts/probe_castle_door_visual_capture.gd",
+      "sha256": "209faf874ddb9257e8ec731efcda00fece69b2cd6e749a7f87b02f752c80c17f"
+    },
+    {
+      "path": "scripts/probe_castle_mobile_capture.gd",
+      "sha256": "22b1edc8c392a15b00cef97c924b939da566758aff809adebe2de1a87b0075a3"
+    },
+    {
+      "path": "scripts/probe_castle_pearl_art.gd",
+      "sha256": "922b2fc62780615b0c96bb85ce93fffb538949fbf953d41e73d679105925ed9e"
+    },
+    {
+      "path": "scripts/probe_castle_pool_life_2d.gd",
+      "sha256": "44d2ba9bab9ad968f3ab8dbac5254b1393b93ec4bf0d5b806ff933a76046f0c9"
+    },
+    {
+      "path": "scripts/probe_castle_shots.gd",
+      "sha256": "a5969fdd1bebbfae8b01756a51b769cf25f54e2376f93a380a60271f9dff04a0"
+    },
+    {
+      "path": "scripts/probe_castle_shots.gd.uid",
+      "sha256": "67773d4eb8f4e1045e30ca2bce6dea04435be8379af2bf594914c9a3e318e210"
+    },
+    {
+      "path": "scripts/probe_castle_shots_2d.gd",
+      "sha256": "4aca12b85953a4c47f969712c5e9450c42d084e4488c5de9d6ffec8572d2f078"
+    },
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "sha256": "0276b386e1a8f4432fc88a533dec6723d77791fa518f15f37960112c5155d6ff"
+    },
+    {
+      "path": "scripts/probe_chapter2_farmer_resume.gd",
+      "sha256": "53e253594c69ee5e5a5797dc1038550fb878a0fa18356ff346b18be7d60dc74f"
+    },
+    {
+      "path": "scripts/probe_chapter2_lawn.gd",
+      "sha256": "1e1c7686972eb030b0603d23abd2dd5d2b730480e8eb11db346df18a10ee77ca"
+    },
+    {
+      "path": "scripts/probe_chuck.gd",
+      "sha256": "92db00621103a7faa888923cd29bbd8f8efc31b2d2cf7988a9f98d1fa29c35b7"
+    },
+    {
+      "path": "scripts/probe_chuck.gd.uid",
+      "sha256": "92bac0f4c5eff99a9f11acc37a50640a798a7c46a1b93a9ab7921cdba4a45d76"
+    },
+    {
+      "path": "scripts/probe_collection.gd",
+      "sha256": "91446b5f3ebea649fe2c4a3ebdc0effcc0f20fcd1519044a40410a2f1a4046ba"
+    },
+    {
+      "path": "scripts/probe_combat.gd",
+      "sha256": "b926698673b1af136dfeb5b299dfdbcb7c8cca1af7b981ad7357da75106c149a"
+    },
+    {
+      "path": "scripts/probe_combat_tutorial.gd",
+      "sha256": "b8efbf1592be2ff993189839efc7bc92844fa318de0dae80f95098f24fc87b17"
+    },
+    {
+      "path": "scripts/probe_creatures.gd",
+      "sha256": "068a4aba4cf8f86a3717f98cc9399fc588b29cfdfd6523895969cb1d848f0b07"
+    },
+    {
+      "path": "scripts/probe_creatures.gd.uid",
+      "sha256": "c3aedf6c4a5c9a31b8f68318cd92706aad9bb99e6952e545f02800f7a43fa56e"
+    },
+    {
+      "path": "scripts/probe_crown.gd",
+      "sha256": "d86893ea6f773371899ae26868d9e1632ebbb9638ffbc2f73cb068a6862c39af"
+    },
+    {
+      "path": "scripts/probe_crown.gd.uid",
+      "sha256": "714db3e7e6ad840a45a2aa2e284dee88b39ebd106b514e3ac19abdb958588f1b"
+    },
+    {
+      "path": "scripts/probe_dance.gd",
+      "sha256": "6d23bba9d63734e7a39765eaf342c256939bd483e612bf305e1eaeb3427c1ff5"
+    },
+    {
+      "path": "scripts/probe_day_one_art_attack_state.gd",
+      "sha256": "df61e16de2ee8cfb5f9913e4c1dcbf78d9339f22b3efc4957a07708b59daf4f2"
+    },
+    {
+      "path": "scripts/probe_day_one_art_studio_shots.gd",
+      "sha256": "9493883ede1373e0a8dad72b7fe2b64484e4cfa217f83501002524594563c5fd"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_bunny.gd",
+      "sha256": "86281b834d5a1716c6b744c113c68fa7eb89cbd37f4ac47b8eefecd847591cfa"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+      "sha256": "b02f97e4a11739785a2fc902edf555b8de76bc3b847a77530cca1d655db7ba80"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_integration.gd",
+      "sha256": "ff8398c16a559c27c4eff2a2b29cd66be9eeb50b26a3704b7b555b1cd368d777"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_movie_handoff.gd",
+      "sha256": "9217e4a68e22c22804384c81f1546ad8291903a536dabc02dd33dcb76e689f58"
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_shots.gd",
+      "sha256": "060bb34967737d91f3a944b88eefdf9054dca6b96224c655d663b185b6203694"
+    },
+    {
+      "path": "scripts/probe_day_one_castle_dressing.gd",
+      "sha256": "6619bb92184fe4d0abc31b5f7cf0e22ea70de37ce1462dd754863e0fc76ceef8"
+    },
+    {
+      "path": "scripts/probe_day_one_contextual_voice.gd",
+      "sha256": "2cc09dfb547cf60c4b7f600f8cbb9cd87c5a0c3096c833b7f59e67f03b87edf0"
+    },
+    {
+      "path": "scripts/probe_day_one_d8_revisits.gd",
+      "sha256": "6a4495a79652d3940a4d541192c845b9600a168d379cfd654f3900f2b2c560ff"
+    },
+    {
+      "path": "scripts/probe_day_one_director.gd",
+      "sha256": "36c1cb1fdbd1f054ae9aa029dfe07c1abe8bc48877cb41c244276ac494f907f5"
+    },
+    {
+      "path": "scripts/probe_day_one_handoffs.gd",
+      "sha256": "7f2d0710ffd5fb486ea1e7d76b85ed08e3bf7529b287ed9ba3019d11c6fc21c9"
+    },
+    {
+      "path": "scripts/probe_day_one_integration.gd",
+      "sha256": "cfcb6e34b6b3bd8435ee3514c1530c81f5676677c0abff31aeef792c4c620821"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_cleanup.gd",
+      "sha256": "5ca97a191d0e3eef9610e664fba15d507a76632b4c3538f35f6efa12ea9a35bf"
+    },
+    {
+      "path": "scripts/probe_day_one_pool_shots.gd",
+      "sha256": "6c591c328b517b71528d9129d11339888fd95abda23846a20068ca8047be98e6"
+    },
+    {
+      "path": "scripts/probe_day_one_story_clips.gd",
+      "sha256": "8e1d3559af371156ea6a358d25a2968fe812f7c11b22f336750461eb112ba72f"
+    },
+    {
+      "path": "scripts/probe_day_one_voice.gd",
+      "sha256": "b4887cc66c94fa6b7dc1bc5eaaac47c064e554a09e74d933e90a0fd199326d23"
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "sha256": "42fae7d77c7bce35a4b343f9566b542733879b6a6b82d14032d6018e929b0dce"
+    },
+    {
+      "path": "scripts/probe_dungeon.gd",
+      "sha256": "7429dbc6653f78189c13ff8453633f7ac10d7e575d907987803ee06def734ff2"
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "sha256": "d1e86eebf6167ca50ba611ef1a8ea0a801fc9f5dfb653f74f67540f0a78f0be3"
+    },
+    {
+      "path": "scripts/probe_dust_boss_balance.gd",
+      "sha256": "f7279a775cd2bfcdb10b2fc25a1c40c72c9f7d23dc414bc89360ecaa0b980a93"
+    },
+    {
+      "path": "scripts/probe_dust_boss_shots.gd",
+      "sha256": "484fb710cd658957e89fe28523c926967a837f9b4dd2e163d7f220f5f6059453"
+    },
+    {
+      "path": "scripts/probe_dust_bunny.gd",
+      "sha256": "019691e71989673cd7163a1d479f14c904822d56f82a075b5acbab6eb2e82dcf"
+    },
+    {
+      "path": "scripts/probe_dust_bunny_boss.gd",
+      "sha256": "06508026c180cf416dc0b3428df9b2e39f8192be909f1ecef49dfeaad3accd47"
+    },
+    {
+      "path": "scripts/probe_ember.gd",
+      "sha256": "a1759b9d89a50c4645a1d73c52c668a9c5b2622082ead5720f0853675ee08aeb"
+    },
+    {
+      "path": "scripts/probe_ember_art.gd",
+      "sha256": "6b11fcde6abffde51a5166e5ef6ebaa4313fc5578bf9e0e4cb0ab23f7436823a"
+    },
+    {
+      "path": "scripts/probe_fable_audit.gd",
+      "sha256": "d13f6e3ac36f82e1e067d0bf85d3f5c0b87d587be060d459134c6c25b01a1f76"
+    },
+    {
+      "path": "scripts/probe_fable_kit.gd",
+      "sha256": "d2a4d19c623959da22b9c8b121c7ee3dff10404ee71d6553c0f741b8c7c75431"
+    },
+    {
+      "path": "scripts/probe_fairy_art.gd",
+      "sha256": "10d4bfcbf973652c83947e74a0e9e708eda471ade3cf2641aac63e160c7b30a3"
+    },
+    {
+      "path": "scripts/probe_fairy_conservatory_handoff.gd",
+      "sha256": "d46d915ee8f69811f751052b480d863afd000e4267f92a2ab72fe5c247b443de"
+    },
+    {
+      "path": "scripts/probe_fairy_conservatory_route.gd",
+      "sha256": "969f9f34464b681397f26408ceabc68620b99b30dbe9b4f5812c1199fb7f16ed"
+    },
+    {
+      "path": "scripts/probe_fairy_restoration.gd",
+      "sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a"
+    },
+    {
+      "path": "scripts/probe_fetch.gd",
+      "sha256": "d317de0e7e75a14f1b4e8f9a5bfcc82b7614a3f349d39b1598e5cf9edcf61233"
+    },
+    {
+      "path": "scripts/probe_fetch.gd.uid",
+      "sha256": "d32b3f17381c11fa5bc9208d738d6bca1188219bab42a8d2f56578f32790055d"
+    },
+    {
+      "path": "scripts/probe_galaxy_peek.gd",
+      "sha256": "5bb6461143fb24a73cab4d413e3a594e89a24fcf4b0fc727bbae4d9151948dc8"
+    },
+    {
+      "path": "scripts/probe_galaxy_peek.gd.uid",
+      "sha256": "0e4987cffc5e87c200cc3b192a2cc50686822948a4f789fa5be90e9e156d88e6"
+    },
+    {
+      "path": "scripts/probe_galaxy_state.gd",
+      "sha256": "2f0c0bcb5afd65ce6de549712395e09518fe2392d7000e2f083fd7a2a70d446c"
+    },
+    {
+      "path": "scripts/probe_garden_shots.gd",
+      "sha256": "ec705a0d79d37b35d541f22c8fb26554730bc4c1dbc7020e71812b9af940e942"
+    },
+    {
+      "path": "scripts/probe_heading.gd",
+      "sha256": "ec301830455e4a0b3c7612d1a5b0b93edf54e4a4cdeb4e1d3a93a5692d0a2539"
+    },
+    {
+      "path": "scripts/probe_heading.gd.uid",
+      "sha256": "9c7624c9da900492731930f779ed06d6d5a0af8d80350af46da8bf98cc0d0269"
+    },
+    {
+      "path": "scripts/probe_hit.gd",
+      "sha256": "2c23b4a96d9e7b33edef32b3581b432f789589a4d2ec91048d57487997ed392e"
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "sha256": "d92547ea6b66f1f99a720935dd2fa4b3c30a835c095d6b88a3e58591f6f9e39f"
+    },
+    {
+      "path": "scripts/probe_imp_ai.gd",
+      "sha256": "b07f89684baedf0f1917858f73c464473b0710ab610cb0f0044370209a4438b8"
+    },
+    {
+      "path": "scripts/probe_imp_animation_art.gd",
+      "sha256": "6a14e33d9be22744f1c1bc80c28a7397b444a56b3573af0388e981e34a0a94cc"
+    },
+    {
+      "path": "scripts/probe_interaction.gd",
+      "sha256": "a1562135afa18d98ea87e566e53cbfea2bd94b52897eee5f5b10a5e13cae939e"
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "sha256": "67f7d125c4f8543e765301abde9f517e852b748288148327d065852230caa214"
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd.uid",
+      "sha256": "4b736f325cdf82465aa87f4202091481ec5c86d7ffaae934e4f7e9aa5f487543"
+    },
+    {
+      "path": "scripts/probe_kitchen_props.gd",
+      "sha256": "d7c318c867fa281416c5a038da3f3179c0cae6932deaa7deea6ddd3464ee2527"
+    },
+    {
+      "path": "scripts/probe_l2.gd",
+      "sha256": "719422f5f394210255f19c29670b48c563f7eb2bf01bad76c932b06ec5072a58"
+    },
+    {
+      "path": "scripts/probe_l2.gd.uid",
+      "sha256": "f81b6737773287a0ed5fe04c07088d48f8af824394b523c49c2b0941eb17daa3"
+    },
+    {
+      "path": "scripts/probe_l2_living_cards.gd",
+      "sha256": "30be04d818f8983276ff36341e566285fb480c391a1e06ab85c51e5bc66ed2c7"
+    },
+    {
+      "path": "scripts/probe_l2_reenter.gd",
+      "sha256": "4801003677cc50128df1a66e3b9ce2d77c58782d574e200d3cef2a860b14f0d0"
+    },
+    {
+      "path": "scripts/probe_l2_reenter.gd.uid",
+      "sha256": "d68f76f94d545e5eef8cedcd2e05f852ce0e6525b2d6b3f8b5d21befeb603674"
+    },
+    {
+      "path": "scripts/probe_living_world.gd",
+      "sha256": "32948b6603eb53d982f0d873c0eb7d0e8ab381b920d8ba6326d1bd8646f50900"
+    },
+    {
+      "path": "scripts/probe_load.gd",
+      "sha256": "b14c80e4119b9287e6c147e3d542f05e727ba8911c565021c648e0a207f5fc40"
+    },
+    {
+      "path": "scripts/probe_load.gd.uid",
+      "sha256": "10ab444c776762c9a3dc1f99b4416197dd53c64c522bb4c0ccde2dabf8c77d52"
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "sha256": "27195d2f943b4b71d74225cd5ac743e4bf209557a861bb43b43156b7dda01f02"
+    },
+    {
+      "path": "scripts/probe_mg2d.gd",
+      "sha256": "15b4e22b580424c53f5c6b0dd9569f4f20877a28def41c8f4cdc0032c37cfd83"
+    },
+    {
+      "path": "scripts/probe_mg2d.gd.uid",
+      "sha256": "4f85413a8da344103e69e659e37409b41256f677f5d388f466a13ae8ef91998f"
+    },
+    {
+      "path": "scripts/probe_mic.gd",
+      "sha256": "17b75eb8d230320caff168487a7372464caf8d89091b5fab428c747aadb9ad59"
+    },
+    {
+      "path": "scripts/probe_mouselook.gd",
+      "sha256": "3f4d1302aaa6de29222339bbea4dbe9651af57f691fe25dbbf13f493e7c5369a"
+    },
+    {
+      "path": "scripts/probe_mouselook.gd.uid",
+      "sha256": "f17a415adbecf51735a2debc5e5d7a9f77d6d44cf4cd677748e575114c55c30a"
+    },
+    {
+      "path": "scripts/probe_northern.gd",
+      "sha256": "ed0b22b73862bcff2b68c1e9883011717ac7dc5dfdc3c1562b3d24015288c2fa"
+    },
+    {
+      "path": "scripts/probe_northern_art_audit.gd",
+      "sha256": "33a7efe04f20f1b55b001ad96ee339257ea7698147de066c906d0520a3887b19"
+    },
+    {
+      "path": "scripts/probe_ocean_kingdoms.gd",
+      "sha256": "1ad9e08b691702eae80422d38525ddc3a1d656da5b4f3dfd47274e9433606072"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "sha256": "4298aa4b5847a2ab94e65612037aa49cafa5820c110bc074b6a2b227327e0dc0"
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "sha256": "9bdcab20c13a03a5fdb90a30bb855086d9cb83cb7aba703b3bfec77960ecd7d3"
+    },
+    {
+      "path": "scripts/probe_opera_2d_balance.gd",
+      "sha256": "777e03343a520aa893af3ed9925d5fc93633c299ee96c09b92cdc8d52d2cc82c"
+    },
+    {
+      "path": "scripts/probe_opera_art.gd",
+      "sha256": "d6c23429c70ff6c845f0702c1895011ee13c25d5643862a55be4df310dc9fe8c"
+    },
+    {
+      "path": "scripts/probe_opera_balance.gd",
+      "sha256": "860811b994b8ff38294a6382078986dfefd0eb6ba133c4ecc540e60ce177724b"
+    },
+    {
+      "path": "scripts/probe_opera_detective.gd",
+      "sha256": "e515878b2f542d87b74c3b371003eb723821411af3b7cd47b9d57287388c6369"
+    },
+    {
+      "path": "scripts/probe_opera_diegetic_paths.gd",
+      "sha256": "29c9ccf43ed2b308bb5e6aed154bdac9aff0d65c3ab146e0fc1bbc0b1a75eed5"
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "486cfec86ace754832ad211e0a672e9e2a60e94ce9dba681a3342864f9d87a64"
+    },
+    {
+      "path": "scripts/probe_opera_mastery.gd",
+      "sha256": "fc85b89b0318ee36f1f9ebbba1dcced2955cee047016f8b64ae6cc01ecec48f9"
+    },
+    {
+      "path": "scripts/probe_opera_nursery.gd",
+      "sha256": "f3d5422ff395c33245979f719cc8f8fa954b7e2403681363996dfd98142e4cfa"
+    },
+    {
+      "path": "scripts/probe_opera_performance.gd",
+      "sha256": "ef7f3a905f4018b520b7cc47bc486e44ec5b47d566f58f4d997719f0d0c970e7"
+    },
+    {
+      "path": "scripts/probe_opera_pipe.gd",
+      "sha256": "46b9839080731fb33d8262953ebe40f87bd1d32537c97fec9861311a318ae977"
+    },
+    {
+      "path": "scripts/probe_overdraw.gd",
+      "sha256": "17d3a68bd20bc1b2644f18e84a4508549265265ebe2f705829f23835d2fd93ac"
+    },
+    {
+      "path": "scripts/probe_painter.gd",
+      "sha256": "d46a71d6745e417a54bebeba394bc2786cccf3891862b985d9d7836bf63a2e5d"
+    },
+    {
+      "path": "scripts/probe_partner.gd",
+      "sha256": "5e3e734372a6842c6192d2a9406d648eb46f6ad2a7c9f3f382db0ec8b734a605"
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "sha256": "3a83d7bd13a5fc5d2489a1a3164dbe9b309611730baaca4426f0d424ef2aec51"
+    },
+    {
+      "path": "scripts/probe_passive.gd.uid",
+      "sha256": "66aceddb67a05be55e220d81aefd2d344bb8a05c989c3021a9d3085676a6bafe"
+    },
+    {
+      "path": "scripts/probe_peng_pal.gd",
+      "sha256": "7781863b61fecef0352d5653be3d25f8f65c505d4e9b0a1820e49f1140a57008"
+    },
+    {
+      "path": "scripts/probe_peng_pal.gd.uid",
+      "sha256": "7873f87a9a0396e23ec42a53fb3a3294969e1d96549b544cb866ec9b38be600e"
+    },
+    {
+      "path": "scripts/probe_penguin_beak.gd",
+      "sha256": "3178b8ded6cfb2059c8b68b3f0a039936d2128b8c304a170da91b38854ca3d7e"
+    },
+    {
+      "path": "scripts/probe_penguin_beak.gd.uid",
+      "sha256": "afe7ae759bc18905834be5fffe964a52f2e3eb1249bfe58fb3dd84e1c01edd77"
+    },
+    {
+      "path": "scripts/probe_penguin_face.gd",
+      "sha256": "5a471cab56ea36722b6eab7c2c176c40b9f50d67f323d6bff30b6ca0fd9c299c"
+    },
+    {
+      "path": "scripts/probe_penguin_face.gd.uid",
+      "sha256": "968d738fb6bf64b91773b1b806cb1303e8db352648b8c9ef112698acb5423ffe"
+    },
+    {
+      "path": "scripts/probe_pg_water.gd",
+      "sha256": "615a3d914df4e8c238d63afa765c06d858b8090cfd4e35a6bb66f46ef647229a"
+    },
+    {
+      "path": "scripts/probe_pg_water.gd.uid",
+      "sha256": "32c768f936365618c3b87e9ba242c97e04c5d41dbc35674355aefd9e357f4191"
+    },
+    {
+      "path": "scripts/probe_pg_wide.gd",
+      "sha256": "f3f4d57ffe24fe71fe79c0986aacc9036d0cbbb0a3d589afaffe8a1b24045879"
+    },
+    {
+      "path": "scripts/probe_pg_wide.gd.uid",
+      "sha256": "e27a64c3ccf16124ceb5cc39f8ad59bd205e7c984edd0ffc5c046ce7d98286c1"
+    },
+    {
+      "path": "scripts/probe_playground_hands.gd.uid",
+      "sha256": "54dc6583d15c10d3cea33aef872f7cab78abc53d3aa26a7e5c135702c4a68d08"
+    },
+    {
+      "path": "scripts/probe_playground_shots.gd",
+      "sha256": "edc20a7480df0454f6e3d39a7e884950bac13a898b8acb3b3e94e679521c2f9e"
+    },
+    {
+      "path": "scripts/probe_playground_shots.gd.uid",
+      "sha256": "e516f801f8261a705fa8d35e6dbe02c44edb5d2bc8bbbee9f6855c2fb36def99"
+    },
+    {
+      "path": "scripts/probe_props.gd",
+      "sha256": "3096e78f8108439bdb730a9302d259fdd86ac7bbded032621fda82f0155c8b37"
+    },
+    {
+      "path": "scripts/probe_race_feel.gd",
+      "sha256": "accd6869a2cd106ebd703b7b4a64bf75860e69ce83d0906f45f36197caf00333"
+    },
+    {
+      "path": "scripts/probe_race_feel.gd.uid",
+      "sha256": "04cfa7cdc8f42d7eae762cb0a71ccd1e3b3a8884c2fb0e5e1f60e4a4332e1dc4"
+    },
+    {
+      "path": "scripts/probe_rank.gd",
+      "sha256": "d726356d0806d713ddf10434a715732a9c26ca0a784a7d15cc7e04e7728304d5"
+    },
+    {
+      "path": "scripts/probe_reef_districts.gd",
+      "sha256": "dc508930e4f6e8332cfbec9317b3149fa73f687f5f8b02a3c0d41d1d7ad6be43"
+    },
+    {
+      "path": "scripts/probe_reef_shots.gd",
+      "sha256": "6a5095126d85d6ff223993e21b43728dff62fabe79629c1617d940fc1a74eb55"
+    },
+    {
+      "path": "scripts/probe_river_profile.gd",
+      "sha256": "cc0ada97ed2733dd6ed4ce65dfdb554fda78bc6d72cafbed7aa0f52aff9f94be"
+    },
+    {
+      "path": "scripts/probe_river_profile.gd.uid",
+      "sha256": "ebc09681a53602f21f2c63912615f221ea7d97dd5baae20ced7f057c4102fc90"
+    },
+    {
+      "path": "scripts/probe_save_recovery.gd",
+      "sha256": "6a85d25701cfc8b125ff3189192bf088efb7e9792fe0693f9529d1d7b58bf991"
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "sha256": "0a191136979859343139b068ce0c67966d89fc1792d985a1d420a315611937c4"
+    },
+    {
+      "path": "scripts/probe_skins.gd",
+      "sha256": "bbc0e95703afaf38c0d4362406af64034a14c3b6ccc8eea5abb5ec739d167cf5"
+    },
+    {
+      "path": "scripts/probe_skins.gd.uid",
+      "sha256": "7fa14484d269c6f73b01c12fc4f8497151a97c836b6719c912ea9d53a79d2602"
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_alive.gd",
+      "sha256": "91a36f0cf4f2f8a29e5b1dde855671c34fedb2e160225818757c1a70455b2758"
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_animals.gd",
+      "sha256": "777535dec44ed5dd1285a7219f5b85f275e79265769c7b80ace120313f3b4c35"
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_art.gd",
+      "sha256": "bc7f6c1d8efa5b3d6911f3dfbb2928ae0dc1a9e8640fc68a10ad4e375e0d1a13"
+    },
+    {
+      "path": "scripts/probe_stage_navigation_2d.gd",
+      "sha256": "0bf3dd3b183b1c53eb0d41e02af51fcad90668ba6d2f2e55a34896d598b752e6"
+    },
+    {
+      "path": "scripts/probe_start_menu_new_game.gd",
+      "sha256": "92a271fde35876d4595a33ceca3471eb728bed799cb85b51d01c7bf31c65fef3"
+    },
+    {
+      "path": "scripts/probe_start_menu_routing.gd",
+      "sha256": "a155f579c9038830924d5583e64aea6c88798723c46843b0807d8e5bd00bfb26"
+    },
+    {
+      "path": "scripts/probe_stuffie.gd",
+      "sha256": "b40ea5b8b14ddb5dd9ac9e28c59b020a9cfe28701663a649277421d93dc0cc39"
+    },
+    {
+      "path": "scripts/probe_texture_seams.gd",
+      "sha256": "d82f91916ac24524dc7c68249d14a0c24f39f6395600d0f8b5c1f64c75a89e79"
+    },
+    {
+      "path": "scripts/probe_texture_seams.gd.uid",
+      "sha256": "702d261bb5008cfb5d9e40b586236ade82c294edba5ff31cb88fe12fe4b839ff"
+    },
+    {
+      "path": "scripts/probe_throne.gd",
+      "sha256": "ffbb85dae31091c1aca4b5d1e4be44a7d14b9b867dfad74e67b266b01c0a1002"
+    },
+    {
+      "path": "scripts/probe_throne_shots.gd",
+      "sha256": "b2d6b283c6fca40c036aca8dd4ef2a4003b041e0bffb77d6a108d1a838cd40b8"
+    },
+    {
+      "path": "scripts/probe_touch_adversary.gd",
+      "sha256": "72aae12811c597a32e929ab9ee62a1bd30297a87cc6e7072c212174cf91df2f1"
+    },
+    {
+      "path": "scripts/probe_touch_look.gd",
+      "sha256": "bf28b403aabb95c795572f561b35ec32466c60cdc37ff8980092015176e505ef"
+    },
+    {
+      "path": "scripts/probe_touch_router.gd",
+      "sha256": "3c597f87de48a15dc513e271e17531f9188d76a788e185aee49a29df629377c2"
+    },
+    {
+      "path": "scripts/probe_touch_stress.gd",
+      "sha256": "eb3370ebc25ac4c3d1fc358a51aff191d78ba007ee07e17a858534ef1d3bdcb5"
+    },
+    {
+      "path": "scripts/probe_toy_anim.gd",
+      "sha256": "5a5017e32d3e92bf59050219a89b879e79b98cfae8bbc2a4b41e3bf40a1806e0"
+    },
+    {
+      "path": "scripts/probe_train.gd",
+      "sha256": "8af47d91fe0564f9873a8fb06189d5b3103254d0c8674957241f1fac70e4db26"
+    },
+    {
+      "path": "scripts/probe_train.gd.uid",
+      "sha256": "677e164c1cb8cca05dcab07984f62aef387a53d3484e92b5b068d240e13e2713"
+    },
+    {
+      "path": "scripts/probe_tree_book_test.gd",
+      "sha256": "74b2cb2b54b93bea383c3f559acdbac356cc277452d99dbac9c9a714b6f79cbd"
+    },
+    {
+      "path": "scripts/probe_ui.gd",
+      "sha256": "c54446e020f8cadcfe0f2f34563c9a495428a960c8535310d903818d969e115b"
+    },
+    {
+      "path": "scripts/probe_ui_system.gd",
+      "sha256": "8761bb1b89b8fe6bfe8028da4faaaab43671193466883263c2f9a5d2ba1e7915"
+    },
+    {
+      "path": "scripts/probe_upstairs.gd",
+      "sha256": "c39cf63eb8445a27f5e41a85738dc87dc5d50be8e9c0c6f975ff3ce9ee6b0e26"
+    },
+    {
+      "path": "scripts/probe_upstairs.gd.uid",
+      "sha256": "62ff220c0acf32b8106c10e951a424eb9435677577ecf8705ac3eb8f6047665b"
+    },
+    {
+      "path": "scripts/probe_verbs.gd",
+      "sha256": "99d4f4c35d45fb1704e072cdddadfbee8a4d7f131ec7d176b8a7f71018ee55d5"
+    },
+    {
+      "path": "scripts/probe_verbs.gd.uid",
+      "sha256": "c7049d70918846bbdf75f9f64bdd17e4a13186103891ce5f424d84938070ad70"
+    },
+    {
+      "path": "scripts/probe_visual_audit.gd",
+      "sha256": "49950269fca6ee3c5227104b53a3ab4c634d5ed8ecda28baaa9d800bce94708e"
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "sha256": "e0735639ec9b8006005197b377c21b14b164b3f52c6f891e87f7e9be558bab23"
+    },
+    {
+      "path": "scripts/probe_voice.gd.uid",
+      "sha256": "343be157f5c867f551446102908a1ec1b91825667dce4bbdd4232722ce91fa6f"
+    },
+    {
+      "path": "scripts/rainbow_friend_follower.gd",
+      "sha256": "3b0dc1ab7edaecb1bea9cadfd8e10e7afb3c418b260721625671703c46f548e0"
+    },
+    {
+      "path": "scripts/reef_districts.gd",
+      "sha256": "a8153df351ab91e0c08552a8f457d159a3d1cd265ffc6226a22f453c0460f6ed"
+    },
+    {
+      "path": "scripts/review/opera_ambience_v1.gd",
+      "sha256": "7eddf65c65f45bc0a040fa2ce174b129284bd083557297cc0b81144f040b18ac"
+    },
+    {
+      "path": "scripts/review/opera_exploration_v1.gd",
+      "sha256": "b0a4dbbbe09dc22e54fd4eb8d6d096b2b3689acf5d523139f179bbba6666079f"
+    },
+    {
+      "path": "scripts/review/opera_review_boot.gd",
+      "sha256": "9873d49508940738e877f6ffe73c84a245b6ab6796ca81ec8052eb546d070587"
+    },
+    {
+      "path": "scripts/roshan_sprite_anchors.gd",
+      "sha256": "db1b235b6420fd0d29814411c49b47b901239a9f6cf28c62c074ac37026e09cc"
+    },
+    {
+      "path": "scripts/roshan_sprite_frames.gd",
+      "sha256": "ae237be824d5c7a365009ac36a4d10fd2786665ee3bfd9b5c8eaea014d653e8c"
+    },
+    {
+      "path": "scripts/roshan_sprite_loop.gd",
+      "sha256": "9bee574db538d7bcb17fc3a58a46c12dfcb5b027f9d263e5e565e620bd60e743"
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "sha256": "34ed8239321ee3f2362b3718d4d0e6f9467e7c500e54b7dec78333ccbf90c884"
+    },
+    {
+      "path": "scripts/save_state.gd.uid",
+      "sha256": "7a0ccdb68b6e09c8106a97dc0bbf1a05396ac2bcfd89bd056b0417a631633d05"
+    },
+    {
+      "path": "scripts/shell_ornament.gd",
+      "sha256": "47ffb51bca717b0e362fdf7b90279f83c8d73fbab2dac55c869c117cd4c13638"
+    },
+    {
+      "path": "scripts/sprite_transition_2d.gd",
+      "sha256": "b2591c20ae4fe1ef95cb72e8854087f42556abd916c7b721e84c37bdf8cc2bff"
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "sha256": "8fa2ae5b11da88b10b79f9d2b9d710452814062ec0165bd53b910a62f87f187e"
+    },
+    {
+      "path": "scripts/start_menu.gd",
+      "sha256": "c00fe34a6f4218d790a3f23d768800fed93210cd886b297adb62552964ec5bfb"
+    },
+    {
+      "path": "scripts/story_art.gd",
+      "sha256": "d552545dc294ebfa60404f1121483833d6c0824af2723387d82dfb9d8de377f8"
+    },
+    {
+      "path": "scripts/storybook_ui.gd",
+      "sha256": "c7d0ce4c9f651c7eacf8e7ccb314086b0908d7b82a22d6c8df6a09bf26462b98"
+    },
+    {
+      "path": "scripts/stuffie_battle.gd",
+      "sha256": "483fb2b1832a3baa5d14fcf1667bc1bb5bdc9071e2fffb4178fd024932fee67d"
+    },
+    {
+      "path": "scripts/support_career_painted_art.gd",
+      "sha256": "ccc0c13d0a59aa0ee875e666847a55e4cc611682a561ce148af797ada1dd3e25"
+    },
+    {
+      "path": "scripts/support_career_painted_art.gd.uid",
+      "sha256": "5f8129c6141601b9d55251f456e0c27e520cc2eb289609524aadd3aa8bfcfbc3"
+    },
+    {
+      "path": "scripts/tap_move_director.gd",
+      "sha256": "1abe6dc90df717be2e54b0282668b9e556b1a3030f273baf415d83f0ed61dfb8"
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "sha256": "ef0274e758fc078e567d10ffbb178f91f752d753bda972fc6cefd2d6fb8a43bf"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "sha256": "c25d51407589b841126f872172b7f628805259e6d2190e1a8347ec863378ef04"
+    },
+    {
+      "path": "scripts/touch_ui.gd.uid",
+      "sha256": "fcf04a7c36829eddc23233546a7567d5be1ef479f93d02a008e4735ad494bab9"
+    },
+    {
+      "path": "scripts/tree_book_test_checks.gd",
+      "sha256": "c2a7fdb85a979f92c7b6b2dd1b2ce986bf4af9177aea7f62b531d9299ea33caf"
+    },
+    {
+      "path": "scripts/wardrobe_ui.gd",
+      "sha256": "c347d851000a66a7069c262babf26658fe85b983d6179c6e1f33ac033acf1e29"
+    },
+    {
+      "path": "tools/build_opera_exploration_v1.gd",
+      "sha256": "cc7e356e66325659cac2212c3ea87d070cbc11e8911361a795b9ee756008bb43"
+    }
+  ]
+}

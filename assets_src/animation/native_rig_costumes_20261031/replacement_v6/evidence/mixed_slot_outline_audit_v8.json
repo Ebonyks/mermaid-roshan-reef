@@ -1,0 +1,632 @@
+{
+  "pass": false,
+  "candidate": "render_v8",
+  "cases": 81,
+  "failed_cases": 27,
+  "rows": [
+    {
+      "file": "ballet_ballet_ballet_arm_bend.png",
+      "png_sha256": "f67385bc008868c6eb67c5f276d8fcaf655836a054dba53f11ee17fd251565e6",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_ballet_ballet_blink.png",
+      "png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_ballet_ballet_tail_bend.png",
+      "png_sha256": "b3ad28a49e34bfc12b3531de5c1410d4d97556c3687bd28532251f1a1cb10c2f",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_ballet_magician_arm_bend.png",
+      "png_sha256": "08e70a65828a33b09528b4c734823ea52ee2e404b60202b72d62d6cb85712b12",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65682
+      ],
+      "pass": false
+    },
+    {
+      "file": "ballet_ballet_magician_blink.png",
+      "png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65597
+      ],
+      "pass": false
+    },
+    {
+      "file": "ballet_ballet_magician_tail_bend.png",
+      "png_sha256": "5520f6d96c9d46c4e2eab53c9cc398b59ebde78e42ff2969bf28f6e32b064dff",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65702
+      ],
+      "pass": false
+    },
+    {
+      "file": "ballet_ballet_original_arm_bend.png",
+      "png_sha256": "d41af3bf24082b0e531f6e762a50c354ad972953d4fa7364579814c3e56b5d9a",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        75324
+      ],
+      "pass": false
+    },
+    {
+      "file": "ballet_ballet_original_blink.png",
+      "png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        75250
+      ],
+      "pass": false
+    },
+    {
+      "file": "ballet_ballet_original_tail_bend.png",
+      "png_sha256": "029c90cde9537df1664dd4be3e4196e74d69dfbce490de0756d75f2fc17cb171",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        75344
+      ],
+      "pass": false
+    },
+    {
+      "file": "ballet_magician_ballet_arm_bend.png",
+      "png_sha256": "3e8027c9f8b975de76dd38f90ab4554f8aada2e062517e42eaccf8b2199440dc",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_magician_ballet_blink.png",
+      "png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_magician_ballet_tail_bend.png",
+      "png_sha256": "0ad8e47f8cc18ac0b0cf7ec610bb0ba0b833c96b710715eece687f7ef37b5007",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_magician_magician_arm_bend.png",
+      "png_sha256": "1ab280677e51213600e1fcc0dbff010a38dcd79a9b47bc6280a9b346a528e43b",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_magician_magician_blink.png",
+      "png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_magician_magician_tail_bend.png",
+      "png_sha256": "3ab7b6cf364733f81806231b4e0899fb4be78b86bd92af238571bd7e6d9ac9ca",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_magician_original_arm_bend.png",
+      "png_sha256": "4a4a796d263b8f889b43eb1358755850fc61e8b09ef3d7fa8a8683df0a160666",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_magician_original_blink.png",
+      "png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_magician_original_tail_bend.png",
+      "png_sha256": "3e434057110e5efbd573f79bcc9b45ddc1406c79372ec0457b9eab2f4f78754c",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_original_ballet_arm_bend.png",
+      "png_sha256": "e642826633893e878fd9b638491e9547f8c226c895c2b517463548b08b4c997e",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_original_ballet_blink.png",
+      "png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_original_ballet_tail_bend.png",
+      "png_sha256": "bc101cbfbe3876cf5c409443992b585abb58a8e6368113266e6ab38d7446ee12",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_original_magician_arm_bend.png",
+      "png_sha256": "4e79faaf3c75890209e69874696c642c06884e86f64c769dbeeb4fef992829aa",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65682
+      ],
+      "pass": false
+    },
+    {
+      "file": "ballet_original_magician_blink.png",
+      "png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65597
+      ],
+      "pass": false
+    },
+    {
+      "file": "ballet_original_magician_tail_bend.png",
+      "png_sha256": "6fda72227d4d501e812d4bfa9d1dfcdd26a8069ccf4b9644e16a7d5d93871c00",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65702
+      ],
+      "pass": false
+    },
+    {
+      "file": "ballet_original_original_arm_bend.png",
+      "png_sha256": "55f99407d49b7e63c03bb2be7f93f0c7f4d9c5d483257484698f373c06224a63",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_original_original_blink.png",
+      "png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "ballet_original_original_tail_bend.png",
+      "png_sha256": "4a6c9910ce886a17f32ce41c232f73750292d57d14ca37cc891668ca90d826a6",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_ballet_ballet_arm_bend.png",
+      "png_sha256": "a5959d5938a8ca3e6f16fa47151aaeefb337c092358a8c2bb4d1b61325457309",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_ballet_ballet_blink.png",
+      "png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_ballet_ballet_tail_bend.png",
+      "png_sha256": "9cb7ccf1fa7fdaa03316f9ec4d7839bc0ac94ff68e961ea12d97fc577c883aab",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_ballet_magician_arm_bend.png",
+      "png_sha256": "c8b1fc691f0b1792f04b54827a2ffdb39820d9e705e2f02f0b141113f3a4f40a",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65682
+      ],
+      "pass": false
+    },
+    {
+      "file": "magician_ballet_magician_blink.png",
+      "png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65597
+      ],
+      "pass": false
+    },
+    {
+      "file": "magician_ballet_magician_tail_bend.png",
+      "png_sha256": "16be3e8059eb4213fc3ec0a7688733a17e94919421374d403bc80d995303ea92",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65702
+      ],
+      "pass": false
+    },
+    {
+      "file": "magician_ballet_original_arm_bend.png",
+      "png_sha256": "f2b0b5d887e6d20e598003bfd987f5d570cf4fab77ae20bfa6f8425a448307bc",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        75324
+      ],
+      "pass": false
+    },
+    {
+      "file": "magician_ballet_original_blink.png",
+      "png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        75250
+      ],
+      "pass": false
+    },
+    {
+      "file": "magician_ballet_original_tail_bend.png",
+      "png_sha256": "87d905e74fd6b5292a0d798050fc5f0ca47fdff63046fbaecd275813d7daa56d",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        75344
+      ],
+      "pass": false
+    },
+    {
+      "file": "magician_magician_ballet_arm_bend.png",
+      "png_sha256": "082cc9d1808c13a7ec2d8df3f3dbb6ef04918d3956332270f15f518d3d70ded4",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_magician_ballet_blink.png",
+      "png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_magician_ballet_tail_bend.png",
+      "png_sha256": "58092d0c3c45f435a630f029a4eb6579f749989dec88bec1dd5246b2c5dd4e35",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_magician_magician_arm_bend.png",
+      "png_sha256": "87c54cc386ea9c0904803bafb172e5ff723fecfd5246a1c15a5eccaa0b6368e2",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_magician_magician_blink.png",
+      "png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_magician_magician_tail_bend.png",
+      "png_sha256": "492f9862feddf61e51559450f91ca8035c37c04128441b52f8354ca36bc2a541",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_magician_original_arm_bend.png",
+      "png_sha256": "985b8a7ed54df309a4e813e00dd3bfcab5a18f1ca83b8cae4ff346640b0c797b",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_magician_original_blink.png",
+      "png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_magician_original_tail_bend.png",
+      "png_sha256": "f04b40a1e8c436ef655df46097b9be64b1af7f738cf10405da7925cd12a529bb",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_original_ballet_arm_bend.png",
+      "png_sha256": "5754085c3c823e6ed19636171cae953eef3bec4c00df4e7708e527065789b01a",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_original_ballet_blink.png",
+      "png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_original_ballet_tail_bend.png",
+      "png_sha256": "85aa4f0338bff12a7815c09ccfc2f8e34f0df1b769ea58999035214a4783bc4a",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_original_magician_arm_bend.png",
+      "png_sha256": "67d702c4da86baa1e92f9b6ee6c22eec04590fa89c045016923cda590daf894e",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65682
+      ],
+      "pass": false
+    },
+    {
+      "file": "magician_original_magician_blink.png",
+      "png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65597
+      ],
+      "pass": false
+    },
+    {
+      "file": "magician_original_magician_tail_bend.png",
+      "png_sha256": "d2719321ffa75f2546ce96a0af6ae6cfeb0183e3cff88efc54d388632fce1353",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65702
+      ],
+      "pass": false
+    },
+    {
+      "file": "magician_original_original_arm_bend.png",
+      "png_sha256": "94791ae8a2a74c082949f40eef4ea81fdf2885a8d55bdca43cbbd83be0148935",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_original_original_blink.png",
+      "png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "magician_original_original_tail_bend.png",
+      "png_sha256": "329a9fe1974395c5676b2f232ec7a7f7ddbb67b0b85873342094b4013871e5e6",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_ballet_ballet_arm_bend.png",
+      "png_sha256": "0e5edf30640ea3c689a39855ba6635c7afa7e06733c3b8e0ebefbdcd37ac756d",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_ballet_ballet_blink.png",
+      "png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_ballet_ballet_tail_bend.png",
+      "png_sha256": "935a9587ecb6e4727c849b8f002359e8c463bd805ab45f296a41f4717ca472f3",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_ballet_magician_arm_bend.png",
+      "png_sha256": "ea487aef44d78043aada1b93509cf50d9fc06a251ae2b9e80a4e24f716a81800",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65682
+      ],
+      "pass": false
+    },
+    {
+      "file": "original_ballet_magician_blink.png",
+      "png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65597
+      ],
+      "pass": false
+    },
+    {
+      "file": "original_ballet_magician_tail_bend.png",
+      "png_sha256": "452e2561dcde6c79385df567f9fc64cec8c7ec56aeca93f7bdcf1a99028fb6bb",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65702
+      ],
+      "pass": false
+    },
+    {
+      "file": "original_ballet_original_arm_bend.png",
+      "png_sha256": "c75055589f291ffedffcaea22a04634014735c62f40ca8ce0080858531d9578b",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        75324
+      ],
+      "pass": false
+    },
+    {
+      "file": "original_ballet_original_blink.png",
+      "png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        75250
+      ],
+      "pass": false
+    },
+    {
+      "file": "original_ballet_original_tail_bend.png",
+      "png_sha256": "25854d3cb2078edc18bdad65d2543bae82bcd3156df11d43cf0f0690591cbd4f",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        75344
+      ],
+      "pass": false
+    },
+    {
+      "file": "original_magician_ballet_arm_bend.png",
+      "png_sha256": "cb816bb2399c8f740c9d6fccf76be8ca5882d489ef8fa8616099545ce256d44b",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_magician_ballet_blink.png",
+      "png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_magician_ballet_tail_bend.png",
+      "png_sha256": "4284e57a9c97c54621d7277d256179d6e5ebb8bb260319bfc513abe04ca04d33",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_magician_magician_arm_bend.png",
+      "png_sha256": "7461561b31d9c790453652bcd41d006905b87f29d2a223a2c3fb5dd39707d253",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_magician_magician_blink.png",
+      "png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_magician_magician_tail_bend.png",
+      "png_sha256": "065052789fbf1e9afff14273038d4feee31eb934411edc5860e36c1689f9a64a",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_magician_original_arm_bend.png",
+      "png_sha256": "348187654be151bb60676cd61bd06d46a01f1dcc4c65ab5dbf6a84c57f42ac36",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_magician_original_blink.png",
+      "png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_magician_original_tail_bend.png",
+      "png_sha256": "5f33d5c5465ccdd1210acbfd8942a8ee870200c2bac17cdc30fbd52fc13dccbc",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_original_ballet_arm_bend.png",
+      "png_sha256": "d6a3181738f6d4292e3d69983873c8017e791aefc1ba0a9e6e6025517cc26935",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_original_ballet_blink.png",
+      "png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_original_ballet_tail_bend.png",
+      "png_sha256": "b5e4acebd32b2f8e7f31efb0965d2d4ae4230333688577fcffb919dac82dd727",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_original_magician_arm_bend.png",
+      "png_sha256": "47b5b6b6b5693ca946bdeb631979887bd685b820d59c61cac57b79808218fbc6",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65682
+      ],
+      "pass": false
+    },
+    {
+      "file": "original_original_magician_blink.png",
+      "png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65597
+      ],
+      "pass": false
+    },
+    {
+      "file": "original_original_magician_tail_bend.png",
+      "png_sha256": "2c42b974d43247696da75b7d05a0b421f6bf333db851b6d41db05f354656ace3",
+      "large_components": 2,
+      "secondary_component_pixels": [
+        65702
+      ],
+      "pass": false
+    },
+    {
+      "file": "original_original_original_arm_bend.png",
+      "png_sha256": "f572c039092b2a22c3ba25b16c9f4db9ab6f2720be842a1527587a769637d1a3",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_original_original_blink.png",
+      "png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    },
+    {
+      "file": "original_original_original_tail_bend.png",
+      "png_sha256": "4eed1295d6e5ee38fe6743ff299d283cee0ddd4cf7e3feffa34a4640c7e4bd4c",
+      "large_components": 1,
+      "secondary_component_pixels": [],
+      "pass": true
+    }
+  ],
+  "thresholds": "Unmodified original pixel_checks: alpha>96, connected components>12pixels, exactly one figure and no edge alpha.",
+  "diagnosis": "Some mixed body/tail combinations leave waist gaps. Equality with a fresh instance does not establish outline coverage. Complete same-theme sets remain separately passed; shared join/ownership correction and all-mix re-audit required before wardrobe compatibility.",
+  "limits": "Snapshots at1.5s for27mixes x3clips; not every-frame mixed geometry or human/device acceptance."
+}

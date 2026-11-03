@@ -1,0 +1,22 @@
+{
+  "initial_validation": "FAIL_EXPECTED74_SHORT_EDGE_ACTUAL73",
+  "original_plan_preserved": "EXTRACTION_PLAN_INITIAL_ROUNDED_TARGET.json",
+  "resolution": [
+    {
+      "name": "apron_body",
+      "initial_rounded_plan": [
+        1024,
+        74
+      ],
+      "actual_uniform_Aseprite": [
+        1024,
+        73
+      ],
+      "reason": "Aseprite width-driven lockRatio floors the derived short edge. Preserve its uniform resampling; both targets are within the1024 runtime limit. No pixel/export regeneration or lower resource/quality floor."
+    }
+  ],
+  "pixels_changed": false,
+  "exports_retried": 0,
+  "generation_calls_added": 0,
+  "actual_candidate_not_engine_tested_yet": true
+}

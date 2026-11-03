@@ -1,0 +1,190 @@
+{
+  "stage": "FULL_ARRANGEMENT_FROM_APPROVED_MELODIES",
+  "owner_request": "These melodies sound good. Build the full arrangements from the approved plans, keeping the melodies clear and giving each song room to develop. Be sure to include proper EQ, balancing and mastering.",
+  "approval_scope": "The prior three lead recordings and A/B melodies are accepted. New complete arrangements and mixes still require owner listening.",
+  "instrument_policy": "UVI soundkits only, including explicitly selected UVI-powered Acousticsamples Sunbird; one pan in Opera, no pan in Sky or Castle.",
+  "no_runtime_integration": true,
+  "external_ai_audio_upload": false,
+  "native_programs_private": true,
+  "forms": [
+    {
+      "id": "opera_house",
+      "title": "The Curtain Opens",
+      "bars": 100,
+      "bpm": 108,
+      "meter": [
+        4,
+        4
+      ],
+      "duration_seconds": 228.63888888888889,
+      "sections": [
+        {
+          "name": "Curtain glimmer",
+          "start_bar": 1,
+          "bars": 4,
+          "kind": "intro",
+          "lead_gain_db": -3
+        },
+        {
+          "name": "A - invitation",
+          "start_bar": 5,
+          "bars": 16,
+          "kind": "A",
+          "lead_gain_db": -1
+        },
+        {
+          "name": "B - another doorway",
+          "start_bar": 21,
+          "bars": 16,
+          "kind": "B",
+          "lead_gain_db": -1.7
+        },
+        {
+          "name": "A - the room opens",
+          "start_bar": 37,
+          "bars": 16,
+          "kind": "A",
+          "lead_gain_db": 0
+        },
+        {
+          "name": "Bridge - flute statement",
+          "start_bar": 53,
+          "bars": 8,
+          "kind": "bridge",
+          "lead_gain_db": -2
+        },
+        {
+          "name": "B - gathering light",
+          "start_bar": 61,
+          "bars": 16,
+          "kind": "B",
+          "lead_gain_db": -0.7
+        },
+        {
+          "name": "Final A - celebration",
+          "start_bar": 77,
+          "bars": 16,
+          "kind": "A",
+          "lead_gain_db": 0.6
+        },
+        {
+          "name": "Coda - curtain close",
+          "start_bar": 93,
+          "bars": 8,
+          "kind": "coda",
+          "lead_gain_db": -3
+        }
+      ]
+    },
+    {
+      "id": "sky_lagoon",
+      "title": "Cloudwater Crossing",
+      "bars": 96,
+      "bpm": 90,
+      "meter": [
+        6,
+        8
+      ],
+      "duration_seconds": 198.16666666666666,
+      "sections": [
+        {
+          "name": "Cloudwater introduction",
+          "start_bar": 1,
+          "bars": 8,
+          "kind": "intro",
+          "lead_gain_db": -3
+        },
+        {
+          "name": "A - open water",
+          "start_bar": 9,
+          "bars": 16,
+          "kind": "A",
+          "lead_gain_db": -1
+        },
+        {
+          "name": "B - discovering the horizon",
+          "start_bar": 25,
+          "bars": 16,
+          "kind": "B",
+          "lead_gain_db": 0
+        },
+        {
+          "name": "A - floating homeward",
+          "start_bar": 41,
+          "bars": 16,
+          "kind": "A",
+          "lead_gain_db": -1.5
+        },
+        {
+          "name": "Development - reflected sky",
+          "start_bar": 57,
+          "bars": 16,
+          "kind": "C",
+          "lead_gain_db": -2.5
+        },
+        {
+          "name": "Final A - broad horizon",
+          "start_bar": 73,
+          "bars": 16,
+          "kind": "A",
+          "lead_gain_db": 0.6
+        },
+        {
+          "name": "Coda - settling light",
+          "start_bar": 89,
+          "bars": 8,
+          "kind": "coda",
+          "lead_gain_db": -3
+        }
+      ]
+    },
+    {
+      "id": "castle",
+      "title": "Welcome Home",
+      "bars": 96,
+      "bpm": 84,
+      "meter": [
+        3,
+        4
+      ],
+      "duration_seconds": 211.89285714285714,
+      "sections": [
+        {
+          "name": "Guitar welcome",
+          "start_bar": 1,
+          "bars": 8,
+          "kind": "intro",
+          "lead_gain_db": -3
+        },
+        {
+          "name": "A - a place to belong",
+          "start_bar": 9,
+          "bars": 24,
+          "kind": "A",
+          "lead_gain_db": -1
+        },
+        {
+          "name": "B - through the rooms",
+          "start_bar": 33,
+          "bars": 24,
+          "kind": "B",
+          "lead_gain_db": -1.3
+        },
+        {
+          "name": "A return - everyone is home",
+          "start_bar": 57,
+          "bars": 32,
+          "kind": "A",
+          "lead_gain_db": 0.5
+        },
+        {
+          "name": "Coda - home at rest",
+          "start_bar": 89,
+          "bars": 8,
+          "kind": "coda",
+          "lead_gain_db": -3.4
+        }
+      ]
+    }
+  ]
+}

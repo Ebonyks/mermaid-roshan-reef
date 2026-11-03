@@ -1,0 +1,62 @@
+{
+  "id": "R121",
+  "stable_id": "FV-0671240CDB11",
+  "name": "Theatre crown header",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "branch": "codex/flat-vector-melody-header-20261101",
+  "scope": "Replace the visible flat crown-header panel and its seven-band rainbow arch with one whole painted2D asset; retain other curtain/apron/bulb/note/actor roles, stage opening, one-finger controls and save behavior.",
+  "owner_scope": "Resume art candidates; keep Dev frozen",
+  "method": "Builtin image_gen static illustration, editable Aseprite native/trim/whole-uniform technical export; trueCanvas2D whole asset, no procedural substitute or new animation.",
+  "static_take_cap": 2,
+  "calls_used": 2,
+  "animation_calls": 0,
+  "backend": "image_gen builtin; no model selector exposed; record actual returned model/version only if exposed",
+  "protected_originals_modified": false,
+  "Dev_integrated": false,
+  "artifacts": 1,
+  "new_roles": 0,
+  "new_families": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "required_evidence": [
+    "Source-bound actual same-scene and neighbor references before generation",
+    "Exact nativeRGBA/prompt/reference roles/request ID/master/export/license/import provenance",
+    "Ten-axis same-scene comparison at1280x720,1600x720,1280x800",
+    "Original gameplay/input/save/actor functions preserved; strict art contract adapted only to explicit replacement",
+    "ExactGodot4.7.2Mobile/Speedy applicable current checks and full trusted suite; reuse healthy evidence only when source remains applicable",
+    "Source-only GitHub delivery and anonymous immutable manifest/everyrequiredfile verification; canonical per-piece/coverage/counts updated once"
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-MED-05",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-READ-02",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "R120_exact_CI_success": {
+    "run_id": 41383041660,
+    "revision": "0e8095e656aaae795076b98b202cc453c3234e06",
+    "conclusion": "success",
+    "new_Dev_credit": 0
+  },
+  "created_at_utc": "2026-11-02T04:28:20.051842+00:00",
+  "selected_take": 2,
+  "remaining_static_takes": 0
+}

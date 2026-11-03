@@ -1,0 +1,6 @@
+{
+  "status": "FAILED_HARNESS_CONTEXT",
+  "reason": "The bounded resume wrapper omitted the canonical FAILURE_RE/RUNTIME_ERROR_RE definitions. The first process exited zero, but its result cannot count as a trusted probe pass because classification aborted. Restore the original literal definitions, then rerun the gate and every probe.",
+  "old_receipt_classifier_flag_valid": false,
+  "production_ci_script_changed": false
+}

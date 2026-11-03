@@ -1,0 +1,1165 @@
+[
+  {
+    "name": "import",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\roshan-creative-space-20261101\\mermaid-roshan-reef",
+      "--import"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 34.19
+  },
+  {
+    "name": "game_2d",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_game_2d.py",
+      "--regression-gate"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 460.933
+  },
+  {
+    "name": "probe_reef_districts",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_reef_districts.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 19.035
+  },
+  {
+    "name": "probe_ocean_kingdoms",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_ocean_kingdoms.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 23.746
+  },
+  {
+    "name": "probe_audit",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_audit.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 62.914
+  },
+  {
+    "name": "probe_passive",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_passive.gd",
+      "--",
+      "--touch",
+      "--hybrid-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 83.911
+  },
+  {
+    "name": "probe_living_world",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_living_world.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 32.399
+  },
+  {
+    "name": "probe_load",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_load.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 26.027
+  },
+  {
+    "name": "probe_rank",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_rank.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 23.706
+  },
+  {
+    "name": "probe_save_recovery",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_save_recovery.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 20.184
+  },
+  {
+    "name": "probe_galaxy_state",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_galaxy_state.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 26.107
+  },
+  {
+    "name": "probe_collection",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_collection.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 18.341
+  },
+  {
+    "name": "probe_mg2d",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_mg2d.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 40.6
+  },
+  {
+    "name": "probe_fetch",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_fetch.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 20.349
+  },
+  {
+    "name": "probe_melody",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_melody.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 45.601
+  },
+  {
+    "name": "probe_dolls",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_dolls.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 28.79
+  },
+  {
+    "name": "probe_seek",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_seek.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 22.11
+  },
+  {
+    "name": "probe_audio",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_audio.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 22.961
+  },
+  {
+    "name": "probe_dance",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_dance.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 19.589
+  },
+  {
+    "name": "probe_l2",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_l2.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 24.597
+  },
+  {
+    "name": "probe_l2_living_cards",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_l2_living_cards.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 21.209
+  },
+  {
+    "name": "probe_sky_lagoon_animals",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_sky_lagoon_animals.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 25.388
+  },
+  {
+    "name": "probe_l2_reenter",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_l2_reenter.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 25.808
+  },
+  {
+    "name": "probe_crown",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_crown.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 42.764
+  },
+  {
+    "name": "probe_throne",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_throne.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 48.003
+  },
+  {
+    "name": "probe_northern",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_northern.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 23.079
+  },
+  {
+    "name": "probe_human_art_audit",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_human_art_audit.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 22.733
+  },
+  {
+    "name": "probe_train",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_train.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 29.507
+  },
+  {
+    "name": "probe_verbs",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_verbs.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 66.141
+  },
+  {
+    "name": "probe_skins",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_skins.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 20.512
+  },
+  {
+    "name": "probe_touch_router",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_touch_router.gd",
+      "--",
+      "--touch",
+      "--hybrid-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 22.56
+  },
+  {
+    "name": "probe_touch_stress",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_touch_stress.gd",
+      "--",
+      "--touch",
+      "--hybrid-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 34.471
+  },
+  {
+    "name": "probe_interaction",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_interaction.gd",
+      "--",
+      "--touch",
+      "--hybrid-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 46.626
+  },
+  {
+    "name": "probe_touch_adversary",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_touch_adversary.gd",
+      "--",
+      "--touch",
+      "--hybrid-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 114.454
+  },
+  {
+    "name": "probe_touch_look",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_touch_look.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 31.753
+  },
+  {
+    "name": "probe_ui_system",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_ui_system.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 70.026
+  },
+  {
+    "name": "probe_voice",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_voice.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 22.136
+  },
+  {
+    "name": "probe_day_one_voice",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_voice.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 25.727
+  },
+  {
+    "name": "probe_day_one_d8_revisits",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_d8_revisits.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 0.953
+  },
+  {
+    "name": "probe_day_one_handoffs",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_handoffs.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 24.95
+  },
+  {
+    "name": "probe_kart_feel",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_kart_feel.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 82.608
+  },
+  {
+    "name": "probe_combat",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_combat.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 23.62
+  },
+  {
+    "name": "probe_dust_bunny",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_dust_bunny.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 0.907
+  },
+  {
+    "name": "probe_dust_bunny_boss",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_dust_bunny_boss.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 1.348
+  },
+  {
+    "name": "probe_dust_boss",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_dust_boss.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 68.978
+  },
+  {
+    "name": "probe_hit",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_hit.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 30.429
+  },
+  {
+    "name": "probe_partner",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_partner.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 26.077
+  },
+  {
+    "name": "probe_combat_tutorial",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_combat_tutorial.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 33.21
+  },
+  {
+    "name": "probe_imp_ai",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_imp_ai.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 3.446
+  },
+  {
+    "name": "probe_mic",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_mic.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 23.696
+  },
+  {
+    "name": "probe_stuffie",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_stuffie.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 39.274
+  },
+  {
+    "name": "probe_dungeon",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_dungeon.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 41.68
+  },
+  {
+    "name": "probe_ember",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_ember.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 27.783
+  },
+  {
+    "name": "probe_opera",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_opera.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 109.56
+  },
+  {
+    "name": "probe_opera_2d",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_opera_2d.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 95.358
+  },
+  {
+    "name": "probe_opera_diegetic_paths",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_opera_diegetic_paths.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 5.583
+  },
+  {
+    "name": "probe_opera_detective",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_opera_detective.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 20.002
+  },
+  {
+    "name": "probe_opera_pipe",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_opera_pipe.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 1.803
+  },
+  {
+    "name": "probe_opera_nursery",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_opera_nursery.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 20.862
+  },
+  {
+    "name": "probe_opera_gesture_quality",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_opera_gesture_quality.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 6.93
+  },
+  {
+    "name": "probe_kitchen_props",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_kitchen_props.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 2.042
+  },
+  {
+    "name": "probe_bathroom_props",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_bathroom_props.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 1.286
+  },
+  {
+    "name": "probe_castle_door_language",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_castle_door_language.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 23.777
+  },
+  {
+    "name": "probe_bathroom_integration",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_bathroom_integration.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 45.303
+  },
+  {
+    "name": "probe_day_one_bathroom_bunny",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_bathroom_bunny.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 25.36
+  },
+  {
+    "name": "probe_day_one_bathroom_cleanup",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_bathroom_cleanup.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 25.894
+  },
+  {
+    "name": "probe_day_one_bathroom_movie_handoff",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_bathroom_movie_handoff.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 18.661
+  },
+  {
+    "name": "probe_day_one_director",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_director.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 26.352
+  },
+  {
+    "name": "probe_day_one_integration",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_integration.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 17.203
+  },
+  {
+    "name": "probe_day_one_pool_cleanup",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_pool_cleanup.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 27.938
+  },
+  {
+    "name": "probe_day_one_art_attack_state",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_art_attack_state.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 20.482
+  },
+  {
+    "name": "probe_day_one_castle_dressing",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_castle_dressing.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 1.174
+  },
+  {
+    "name": "probe_day_one_story_clips",
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+      "--headless",
+      "-s",
+      "scripts/probe_day_one_story_clips.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "exit": 0,
+    "passed": true,
+    "advisory": false,
+    "seconds": 39.101
+  }
+]

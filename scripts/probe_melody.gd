@@ -43,12 +43,20 @@ const TILE_SHA256: Array[String] = [
 	"2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28",
 	"1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7",
 ]
-const DADDY_PATH := "res://assets/characters/stickers/daddy.png"
+const DADDY_PATH := "res://assets/melody/mobile/daddy.png"
 const DADDY_SHA256 := \
-	"402024ac72c5365aae8562d422b9f888a6f5cdef7b6539409747e8f965cd0122"
-const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
+	"817b9ce280a31344436c2a8fc800d5dec893f2541ec5ad5581e656922e014887"
+const ROSHAN_PATH := "res://assets/melody/mobile/roshan_popstar.png"
 const ROSHAN_SHA256 := \
-	"2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523"
+	"a53faa148653ea1988e1ceea711d243323412ddc46e2c4037aa671136d2e0cd1"
+const CURTAIN_PATHS: Array[String] = [
+	"res://assets/melody/mobile/curtain_left_painted.png",
+	"res://assets/melody/mobile/curtain_right_painted.png",
+]
+const CURTAIN_SHA256: Array[String] = [
+	"5adf76d1d59b3966b1586f4bd202a4a3f5a3ed62a930433d974cd7e3cff74f30",
+	"0840554754b88d944dd1fe8529a38eac877165c70c708e017e5ab045cca0ff8f",
+]
 const VOICE_PATH := "res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg"
 const VOICE_SHA256 := \
 	"e2d819527d370aff926302dbfecd6beb9e6c2165024d7abad131a28d90cac4ed"
@@ -105,6 +113,172 @@ var first_note_point := Vector2.ZERO
 var chime_tuning_before: Dictionary = {}
 var texture_alpha_cache: Dictionary = {}
 
+
+const HEADER_PATH := "res://assets/melody/crown_header_painted.png"
+
+const HEADER_SHA256 := \
+	"3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e"
+
+const STAGE_STAR_PATH := "res://assets/melody/mobile/star_painted.png"
+
+const STAGE_STAR_SHA256 := "927f3d10440f93fcfac2123a4e1e51cd3caeb94713262400f6257934707ce103"
+
+const FOOTLIGHT_RAIL_PATH := "res://assets/melody/footlight_rail_painted.png"
+
+const FOOTLIGHT_GLOBE_PATHS: Array[String] = [
+	"res://assets/melody/mobile/footlight_red.png",
+	"res://assets/melody/mobile/footlight_orange.png",
+	"res://assets/melody/mobile/footlight_yellow.png",
+	"res://assets/melody/mobile/footlight_green.png",
+	"res://assets/melody/mobile/footlight_sky_blue.png",
+	"res://assets/melody/mobile/footlight_periwinkle.png",
+	"res://assets/melody/mobile/footlight_purple.png",
+]
+
+const FOOTLIGHT_SHA256: Array[String] = [
+	"7bd75dc8783c1ef80ea6fd8e7c3295906824e0e27426f335398095b16f4ea3a0",
+	"bbfe599ea0f4dfd8bbefe1c05948e15c2b7c2b4dd2be7cab91a1fdf06430463a",
+	"e3fd6e28d52558031cf39e5cadfbf2a7b105a46ebc5fa83629cc1bd928e0f341",
+	"0a9c33bb3c5f767504408c2333cdca6a9d5b3f5b0d6e3ef0683b7bd94b03def2",
+	"5e49ea7b473d4f7e50fe4e8210866e590f15eb5d8fd232131760cce1804ef00f",
+	"03cbca2fdb701edfdc2c9672f5147ff13539f25ea40abb859f90e7575e420c58",
+	"0574142f21ef6f81f624287806e4513d161a8215bbdd94859035eeb4b6347059",
+	"50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+]
+
+const APRON_BODY_PATH := "res://assets/melody/stage_apron_painted.png"
+
+const APRON_BODY_SHA256 := "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee"
+
+const APRON_RAINBOW_PATH := "res://assets/melody/stage_apron_rainbow_painted.png"
+
+const APRON_RAINBOW_SHA256 := "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c"
+
+const BULB_PATHS: Array[String] = [
+	"res://assets/melody/theatre_bulb_cream_painted.png",
+	"res://assets/melody/theatre_bulb_gold_painted.png",
+]
+
+const BULB_HASHES: Array[String] = [
+	"6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d",
+	"6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2",
+]
+
+const NOTE_PATHS: Array[String] = [
+	"res://assets/melody/mobile/rainbow_note_red_painted.png",
+	"res://assets/melody/mobile/rainbow_note_orange_painted.png",
+	"res://assets/melody/mobile/rainbow_note_yellow_painted.png",
+	"res://assets/melody/mobile/rainbow_note_green_painted.png",
+	"res://assets/melody/mobile/rainbow_note_blue_painted.png",
+	"res://assets/melody/mobile/rainbow_note_indigo_painted.png",
+	"res://assets/melody/mobile/rainbow_note_violet_painted.png",
+]
+
+const NOTE_HASHES: Array[String] = [
+	"8cc34e6ae22dad44ae602613788ceaea629a0b8199c8eed9795cb9932dec091b",
+	"1717e195d81072d4c935275d7bd980d087ee4a1b20634640df73a69947e0aade",
+	"d61c552c051d0f5ce376bd91387591ba2a9804030d36703c471efaf499d098b4",
+	"e5eefee584b30816d1ce367d3d1f511760725233a9f1e5be7424a9c9457b83a5",
+	"e7a362f1574b67d5b49b23539aa1dd9b2745d782e0a36bcc595d1415401e006a",
+	"1c833f698b766f70da8c4f131e2a8f6bd1c7801ffd68d265cfa6c34b2d626fc5",
+	"eed74ab7c8305feac0ef6b6e5df62ba44c31bee38c67b26da5c1f5e38683e8ba",
+]
+
+const NOTE_HUE_RANGES: Array[Vector2] = [
+	Vector2(0.0, 0.06), Vector2(0.06, 0.12), Vector2(0.12, 0.20),
+	Vector2(0.20, 0.44), Vector2(0.48, 0.61), Vector2(0.61, 0.73),
+	Vector2(0.73, 0.88),
+]
+
+const PIP_ASSETS := [
+	{"path": "res://assets/melody/mobile/progress_pip_idle_red_painted.png", "sha256": "359dc047cf4ac1139fb3c7b30a5ae9839a99e697139ccd94dddb20095870b2d1",
+		"alpha_bounds": Rect2i(2, 1, 61, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_idle_orange_painted.png", "sha256": "5742f6e0794a6b32140d602589843673ce946634ee52ff500975e2e2728f7f69",
+		"alpha_bounds": Rect2i(2, 1, 61, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_idle_yellow_painted.png", "sha256": "e3abef716c5b3b0504178ac2c411a6f77b2dcbc2a6d659155e9715ff6c0ea699",
+		"alpha_bounds": Rect2i(2, 1, 60, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_idle_green_painted.png", "sha256": "823a5cb5a8d0d26578bfdf4ccf9c554776c609e717680a108d41c2ef580076e2",
+		"alpha_bounds": Rect2i(2, 1, 60, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_idle_blue_painted.png", "sha256": "d219aa00d0ea77cc8c0e0178797dda74de6468eb31c9821c0f53bbf096b10e07",
+		"alpha_bounds": Rect2i(2, 2, 60, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_idle_indigo_painted.png", "sha256": "1ab4e45121bda1b18d4308d719ebd845cca376078336cfec3cb399e773c6c49d",
+		"alpha_bounds": Rect2i(2, 1, 60, 63)},
+	{"path": "res://assets/melody/mobile/progress_pip_idle_violet_painted.png", "sha256": "e94bdf73ea6cf052c3e23604ba723ac64ba56eb19a5c9eee853eef8c8da3e3d2",
+		"alpha_bounds": Rect2i(1, 1, 61, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_current_red_painted.png", "sha256": "8c602d8644de697945e71fb7571cd9a73dfe3ff235a576d2546e4941b064952c",
+		"alpha_bounds": Rect2i(2, 1, 61, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_current_orange_painted.png", "sha256": "f53c71fecf55f09ac4b9b39f585ddb1687519825c3d130e7d449a9b9d319cd77",
+		"alpha_bounds": Rect2i(2, 1, 60, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_current_yellow_painted.png", "sha256": "87d6a9a62933e554f02629fe733e4c4852433b5d128473f0a226a24ece1c66ae",
+		"alpha_bounds": Rect2i(2, 1, 60, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_current_green_painted.png", "sha256": "ff371611699d41819217d26d4bf7beb4af0901f59f68ec9fbd95aa1116f4ddec",
+		"alpha_bounds": Rect2i(2, 1, 60, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_current_blue_painted.png", "sha256": "f6ee7ab463b8523cb8c3dd6f3f160b65581937423cf8b3e0f05d2c79d0805fa4",
+		"alpha_bounds": Rect2i(2, 1, 60, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_current_indigo_painted.png", "sha256": "31ceb443be056a459ed78994bb9875381231ad3fb6a34bfc35e116b68e44976a",
+		"alpha_bounds": Rect2i(2, 1, 60, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_current_violet_painted.png", "sha256": "7a494556cd92daa74b38f4da00e9cb50b0f83e5e1dc91476ddf11bb95b0ebd81",
+		"alpha_bounds": Rect2i(1, 1, 61, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_filled_red_painted.png", "sha256": "c38df6fedfe896772679fd71269a02c36ef996a87e294512e9694d0c073b3ce8",
+		"alpha_bounds": Rect2i(1, 1, 62, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_filled_orange_painted.png", "sha256": "d357e20ad1f81f522eff3bce33adde97bfc14f303e317d8d1a662be7b23e4fd9",
+		"alpha_bounds": Rect2i(2, 1, 61, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_filled_yellow_painted.png", "sha256": "a63c267bc7460f4488980ec1e82574915312d252b0e202e7b4694a17985c88eb",
+		"alpha_bounds": Rect2i(2, 1, 60, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_filled_green_painted.png", "sha256": "ce4ccbee30c0439c1124bd2c754b41f336eb012baeb3ca9f3e0094a8f60574cd",
+		"alpha_bounds": Rect2i(1, 1, 61, 62)},
+	{"path": "res://assets/melody/mobile/progress_pip_filled_blue_painted.png", "sha256": "ee7cd4d27686fd4272a0ccc6de7928f61b6f47ec9f15d2067cad827f237f736a",
+		"alpha_bounds": Rect2i(1, 0, 61, 63)},
+	{"path": "res://assets/melody/mobile/progress_pip_filled_indigo_painted.png", "sha256": "a57c2671f088b6602ca740109eeff34efb5bd340e961c9c21c9fb519383fe955",
+		"alpha_bounds": Rect2i(1, 0, 61, 63)},
+	{"path": "res://assets/melody/mobile/progress_pip_filled_violet_painted.png", "sha256": "a89694f33d1e6d8ee84abdcd21ad0464ec50463ce5a76d39d2cd35539d3440ed",
+		"alpha_bounds": Rect2i(1, 0, 62, 63)},
+]
+
+const CURTAIN_NATIVE_SIZES: Array[Vector2i] = [Vector2i(302, 751), Vector2i(213, 744)]
+
+const MOBILE_DERIVATIVES := [
+	{"source": "res://assets/characters/stickers/daddy.png", "source_sha": "402024ac72c5365aae8562d422b9f888a6f5cdef7b6539409747e8f965cd0122", "target": "res://assets/melody/mobile/daddy.png", "target_sha": "817b9ce280a31344436c2a8fc800d5dec893f2541ec5ad5581e656922e014887"},
+	{"source": "res://assets/melody/curtain_left_painted.png", "source_sha": "e9c0c4c107c16b51508109781ce2e39aa8b61289a1db545676648085bd9c43c8", "target": "res://assets/melody/mobile/curtain_left_painted.png", "target_sha": "5adf76d1d59b3966b1586f4bd202a4a3f5a3ed62a930433d974cd7e3cff74f30"},
+	{"source": "res://assets/melody/curtain_right_painted.png", "source_sha": "4dfe744ce24b4d536256ae783edb2cff508268c8e7dd0e4b1b16c2f7821f2d4e", "target": "res://assets/melody/mobile/curtain_right_painted.png", "target_sha": "0840554754b88d944dd1fe8529a38eac877165c70c708e017e5ab045cca0ff8f"},
+	{"source": "res://assets/melody/footlight_green.png", "source_sha": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd", "target": "res://assets/melody/mobile/footlight_green.png", "target_sha": "0a9c33bb3c5f767504408c2333cdca6a9d5b3f5b0d6e3ef0683b7bd94b03def2"},
+	{"source": "res://assets/melody/footlight_orange.png", "source_sha": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16", "target": "res://assets/melody/mobile/footlight_orange.png", "target_sha": "bbfe599ea0f4dfd8bbefe1c05948e15c2b7c2b4dd2be7cab91a1fdf06430463a"},
+	{"source": "res://assets/melody/footlight_periwinkle.png", "source_sha": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3", "target": "res://assets/melody/mobile/footlight_periwinkle.png", "target_sha": "03cbca2fdb701edfdc2c9672f5147ff13539f25ea40abb859f90e7575e420c58"},
+	{"source": "res://assets/melody/footlight_purple.png", "source_sha": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7", "target": "res://assets/melody/mobile/footlight_purple.png", "target_sha": "0574142f21ef6f81f624287806e4513d161a8215bbdd94859035eeb4b6347059"},
+	{"source": "res://assets/melody/footlight_red.png", "source_sha": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e", "target": "res://assets/melody/mobile/footlight_red.png", "target_sha": "7bd75dc8783c1ef80ea6fd8e7c3295906824e0e27426f335398095b16f4ea3a0"},
+	{"source": "res://assets/melody/footlight_sky_blue.png", "source_sha": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6", "target": "res://assets/melody/mobile/footlight_sky_blue.png", "target_sha": "5e49ea7b473d4f7e50fe4e8210866e590f15eb5d8fd232131760cce1804ef00f"},
+	{"source": "res://assets/melody/footlight_yellow.png", "source_sha": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53", "target": "res://assets/melody/mobile/footlight_yellow.png", "target_sha": "e3fd6e28d52558031cf39e5cadfbf2a7b105a46ebc5fa83629cc1bd928e0f341"},
+	{"source": "res://assets/melody/progress_pip_current_blue_painted.png", "source_sha": "9315090d77bd38d3c37e5a51cf8422b8c408d04cd4413fa099b899fcd06f9b11", "target": "res://assets/melody/mobile/progress_pip_current_blue_painted.png", "target_sha": "f6ee7ab463b8523cb8c3dd6f3f160b65581937423cf8b3e0f05d2c79d0805fa4"},
+	{"source": "res://assets/melody/progress_pip_current_green_painted.png", "source_sha": "83481cdaf3f8e3665228e432d90be009eae87be31f8edb728b60b00903fc5e28", "target": "res://assets/melody/mobile/progress_pip_current_green_painted.png", "target_sha": "ff371611699d41819217d26d4bf7beb4af0901f59f68ec9fbd95aa1116f4ddec"},
+	{"source": "res://assets/melody/progress_pip_current_indigo_painted.png", "source_sha": "4a06f82e29d492f6130574e0d203fa3ca7797f1d8d1b81b73e88b112d11d9b77", "target": "res://assets/melody/mobile/progress_pip_current_indigo_painted.png", "target_sha": "31ceb443be056a459ed78994bb9875381231ad3fb6a34bfc35e116b68e44976a"},
+	{"source": "res://assets/melody/progress_pip_current_orange_painted.png", "source_sha": "d7770b7601cd3891ce1d614bc22065808a660298617cc82082642bf0b4ad2a1b", "target": "res://assets/melody/mobile/progress_pip_current_orange_painted.png", "target_sha": "f53c71fecf55f09ac4b9b39f585ddb1687519825c3d130e7d449a9b9d319cd77"},
+	{"source": "res://assets/melody/progress_pip_current_red_painted.png", "source_sha": "e9a12bfd56934a9a7c5787398dbfe9568d3d2f1381acbf0f126e997ef4a9e494", "target": "res://assets/melody/mobile/progress_pip_current_red_painted.png", "target_sha": "8c602d8644de697945e71fb7571cd9a73dfe3ff235a576d2546e4941b064952c"},
+	{"source": "res://assets/melody/progress_pip_current_violet_painted.png", "source_sha": "1d9cfa232e530e9c4e14ab0f2690f1101cb609a8506074395e388128fb9a0cc2", "target": "res://assets/melody/mobile/progress_pip_current_violet_painted.png", "target_sha": "7a494556cd92daa74b38f4da00e9cb50b0f83e5e1dc91476ddf11bb95b0ebd81"},
+	{"source": "res://assets/melody/progress_pip_current_yellow_painted.png", "source_sha": "167b573580690da9d23a181a3490d6a26d27a140eb5efbcdcec27cbbc274a109", "target": "res://assets/melody/mobile/progress_pip_current_yellow_painted.png", "target_sha": "87d6a9a62933e554f02629fe733e4c4852433b5d128473f0a226a24ece1c66ae"},
+	{"source": "res://assets/melody/progress_pip_filled_blue_painted.png", "source_sha": "f9961374ffe822af8eb2f8a087ee8637265c792caee539f9da0a1ac945de5421", "target": "res://assets/melody/mobile/progress_pip_filled_blue_painted.png", "target_sha": "ee7cd4d27686fd4272a0ccc6de7928f61b6f47ec9f15d2067cad827f237f736a"},
+	{"source": "res://assets/melody/progress_pip_filled_green_painted.png", "source_sha": "8b8f065b358e28deb320ce23f0ce1a00f20e006ea4602d241efd4204371316a0", "target": "res://assets/melody/mobile/progress_pip_filled_green_painted.png", "target_sha": "ce4ccbee30c0439c1124bd2c754b41f336eb012baeb3ca9f3e0094a8f60574cd"},
+	{"source": "res://assets/melody/progress_pip_filled_indigo_painted.png", "source_sha": "ff5ca08c3237ffc32d31ef90ca92eb6b991ff87ce1a3ea2e11a5c48edfd5c78e", "target": "res://assets/melody/mobile/progress_pip_filled_indigo_painted.png", "target_sha": "a57c2671f088b6602ca740109eeff34efb5bd340e961c9c21c9fb519383fe955"},
+	{"source": "res://assets/melody/progress_pip_filled_orange_painted.png", "source_sha": "3ef0627f259720318e7d1f0ba9770b96464ef7d4adb5c497c412943b01f12508", "target": "res://assets/melody/mobile/progress_pip_filled_orange_painted.png", "target_sha": "d357e20ad1f81f522eff3bce33adde97bfc14f303e317d8d1a662be7b23e4fd9"},
+	{"source": "res://assets/melody/progress_pip_filled_red_painted.png", "source_sha": "9b4ba704beabfcf5e3f33d5da6f856ab50c0c3283593be307000b942650fe92a", "target": "res://assets/melody/mobile/progress_pip_filled_red_painted.png", "target_sha": "c38df6fedfe896772679fd71269a02c36ef996a87e294512e9694d0c073b3ce8"},
+	{"source": "res://assets/melody/progress_pip_filled_violet_painted.png", "source_sha": "3839641ac6b8c11d7619df92e566da9fe8022f19f10e2fe5335f21175106d5d5", "target": "res://assets/melody/mobile/progress_pip_filled_violet_painted.png", "target_sha": "a89694f33d1e6d8ee84abdcd21ad0464ec50463ce5a76d39d2cd35539d3440ed"},
+	{"source": "res://assets/melody/progress_pip_filled_yellow_painted.png", "source_sha": "2511f899af13ada340fb34cd0a51e180cfe2daac82283a9b2d3b8f00a771dfc8", "target": "res://assets/melody/mobile/progress_pip_filled_yellow_painted.png", "target_sha": "a63c267bc7460f4488980ec1e82574915312d252b0e202e7b4694a17985c88eb"},
+	{"source": "res://assets/melody/progress_pip_idle_blue_painted.png", "source_sha": "bf334cb5b7b4b61926b83cf6ecd20d7fa5005db0cc2e4755050b11a8b3671fe4", "target": "res://assets/melody/mobile/progress_pip_idle_blue_painted.png", "target_sha": "d219aa00d0ea77cc8c0e0178797dda74de6468eb31c9821c0f53bbf096b10e07"},
+	{"source": "res://assets/melody/progress_pip_idle_green_painted.png", "source_sha": "08e6b0b89b062ac98755c163c5d22c1d9c1855126b585c1d0b14590ea31a52fd", "target": "res://assets/melody/mobile/progress_pip_idle_green_painted.png", "target_sha": "823a5cb5a8d0d26578bfdf4ccf9c554776c609e717680a108d41c2ef580076e2"},
+	{"source": "res://assets/melody/progress_pip_idle_indigo_painted.png", "source_sha": "dc4afb1485f1492060d22d1014f6c65c33e99063d326aab9d0c37c5b49c6ddd0", "target": "res://assets/melody/mobile/progress_pip_idle_indigo_painted.png", "target_sha": "1ab4e45121bda1b18d4308d719ebd845cca376078336cfec3cb399e773c6c49d"},
+	{"source": "res://assets/melody/progress_pip_idle_orange_painted.png", "source_sha": "17733b77a4fd8e497738ed541b845c39ed83135096749b3043dd835631179b1b", "target": "res://assets/melody/mobile/progress_pip_idle_orange_painted.png", "target_sha": "5742f6e0794a6b32140d602589843673ce946634ee52ff500975e2e2728f7f69"},
+	{"source": "res://assets/melody/progress_pip_idle_red_painted.png", "source_sha": "d0917d181d9890eefb93f15ee14e92c2da766d4c202230512494684d3c332f3f", "target": "res://assets/melody/mobile/progress_pip_idle_red_painted.png", "target_sha": "359dc047cf4ac1139fb3c7b30a5ae9839a99e697139ccd94dddb20095870b2d1"},
+	{"source": "res://assets/melody/progress_pip_idle_violet_painted.png", "source_sha": "301798f5bd6ea2dcfd714345d2619a59d1a9b8c6779e159d48d20e2fe7d8a40e", "target": "res://assets/melody/mobile/progress_pip_idle_violet_painted.png", "target_sha": "e94bdf73ea6cf052c3e23604ba723ac64ba56eb19a5c9eee853eef8c8da3e3d2"},
+	{"source": "res://assets/melody/progress_pip_idle_yellow_painted.png", "source_sha": "175d3bbaab4232f7193afd9810bcd1f86cbee7553604cd12ba029add6ee71da6", "target": "res://assets/melody/mobile/progress_pip_idle_yellow_painted.png", "target_sha": "e3abef716c5b3b0504178ac2c411a6f77b2dcbc2a6d659155e9715ff6c0ea699"},
+	{"source": "res://assets/melody/rainbow_note_blue_painted.png", "source_sha": "6fa514888498221dfd0727fd5c70c5362a8ed63bfcb5d15f728949ef7d8b70c1", "target": "res://assets/melody/mobile/rainbow_note_blue_painted.png", "target_sha": "e7a362f1574b67d5b49b23539aa1dd9b2745d782e0a36bcc595d1415401e006a"},
+	{"source": "res://assets/melody/rainbow_note_green_painted.png", "source_sha": "1ae079c7d022ebe03a06809094521f02ef524df546a007315e302cf843437429", "target": "res://assets/melody/mobile/rainbow_note_green_painted.png", "target_sha": "e5eefee584b30816d1ce367d3d1f511760725233a9f1e5be7424a9c9457b83a5"},
+	{"source": "res://assets/melody/rainbow_note_indigo_painted.png", "source_sha": "14d78588224523486f01611a18d6a10e87ff1d2c263d9865b29a7b7f94fae7e2", "target": "res://assets/melody/mobile/rainbow_note_indigo_painted.png", "target_sha": "1c833f698b766f70da8c4f131e2a8f6bd1c7801ffd68d265cfa6c34b2d626fc5"},
+	{"source": "res://assets/melody/rainbow_note_orange_painted.png", "source_sha": "83cf5aba818c6f7101dfd319f5d355d09119efd5d8e21e45b957300f2c134567", "target": "res://assets/melody/mobile/rainbow_note_orange_painted.png", "target_sha": "1717e195d81072d4c935275d7bd980d087ee4a1b20634640df73a69947e0aade"},
+	{"source": "res://assets/melody/rainbow_note_red_painted.png", "source_sha": "8e31e25551ba1af58467581c924460edcbb4940e4724b4c122dabae404196aa6", "target": "res://assets/melody/mobile/rainbow_note_red_painted.png", "target_sha": "8cc34e6ae22dad44ae602613788ceaea629a0b8199c8eed9795cb9932dec091b"},
+	{"source": "res://assets/melody/rainbow_note_violet_painted.png", "source_sha": "3dfa929249a8c829b9b5d118197420144a3d2ae5367ba81c12b0abc4e7c20593", "target": "res://assets/melody/mobile/rainbow_note_violet_painted.png", "target_sha": "eed74ab7c8305feac0ef6b6e5df62ba44c31bee38c67b26da5c1f5e38683e8ba"},
+	{"source": "res://assets/melody/rainbow_note_yellow_painted.png", "source_sha": "a7a5ee15af599870188d4c95b5f95795373d90c6741c3c13605926625dfe14ba", "target": "res://assets/melody/mobile/rainbow_note_yellow_painted.png", "target_sha": "d61c552c051d0f5ce376bd91387591ba2a9804030d36703c471efaf499d098b4"},
+	{"source": "res://assets/melody/star_painted.png", "source_sha": "44a7b3a8351778b5912ac3a9c54085b20a990967e2b036aeff88f2b388a93e8e", "target": "res://assets/melody/mobile/star_painted.png", "target_sha": "927f3d10440f93fcfac2123a4e1e51cd3caeb94713262400f6257934707ce103"},
+	{"source": "res://assets/opera/worlds/actors/roshan_popstar.png", "source_sha": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523", "target": "res://assets/melody/mobile/roshan_popstar.png", "target_sha": "a53faa148653ea1988e1ceea711d243323412ddc46e2c4037aa671136d2e0cd1"},
+]
 
 func _init() -> void:
 	call_deferred("_run")
@@ -450,6 +624,8 @@ func _run() -> void:
 
 
 func _check_asset_contract() -> void:
+	_check_timing_window_assets()
+	_check_mobile_derivation_sources()
 	var master := Image.load_from_file(MASTER_PATH)
 	_check("approved Sky Lagoon v5 master is exact native 6144x2048",
 		master != null and master.get_size() == Vector2i(6144, 2048)
@@ -480,11 +656,11 @@ func _check_asset_contract() -> void:
 		tile_imports_ok)
 	var daddy := Image.load_from_file(DADDY_PATH)
 	var roshan := Image.load_from_file(ROSHAN_PATH)
-	_check("approved Daddy sticker remains exact protected 750x1024 art",
-		daddy != null and daddy.get_size() == Vector2i(750, 1024)
+	_check("Daddy runtime derivative is exact281x384 while original identity pixels remain preserved",
+		daddy != null and daddy.get_size() == Vector2i(281, 384)
 		and FileAccess.get_sha256(DADDY_PATH) == DADDY_SHA256)
-	_check("approved Opera popstar Roshan remains exact 512x512 art",
-		roshan != null and roshan.get_size() == Vector2i(512, 512)
+	_check("Opera popstar Roshan runtime derivative is exact256-square while source remains preserved",
+		roshan != null and roshan.get_size() == Vector2i(256, 256)
 		and FileAccess.get_sha256(ROSHAN_PATH) == ROSHAN_SHA256)
 	var daddy_import := FileAccess.get_file_as_string(DADDY_PATH + ".import")
 	var roshan_import := FileAccess.get_file_as_string(ROSHAN_PATH + ".import")
@@ -493,6 +669,32 @@ func _check_asset_contract() -> void:
 		and daddy_import.contains("\"vram_texture\": false")
 		and roshan_import.contains("compress/mode=2")
 		and roshan_import.contains("\"vram_texture\": true"))
+	var curtains_ok := true
+	var curtain_imports_ok := true
+	for index in range(CURTAIN_PATHS.size()):
+		var path: String = CURTAIN_PATHS[index]
+		var curtain := Image.load_from_file(path)
+		curtains_ok = curtains_ok and curtain != null \
+			and curtain.get_size() == CURTAIN_NATIVE_SIZES[index] \
+			and curtain.get_format() == Image.FORMAT_RGBA8 \
+			and curtain.detect_alpha() != Image.ALPHA_NONE \
+			and FileAccess.get_sha256(path) == CURTAIN_SHA256[index]
+		var settings := FileAccess.get_file_as_string(path + ".import")
+		curtain_imports_ok = curtain_imports_ok \
+			and settings.contains("compress/mode=0") \
+			and settings.contains("\"vram_texture\": false") \
+			and settings.contains("mipmaps/generate=true")
+	_check("two exact painted curtain sources retain real RGBA alpha and exact transparent-crop dimensions", curtains_ok)
+	_check("NPOT painted curtains retain lossless mipmapped imports without forbidden VRAM mode", curtain_imports_ok)
+	var header := Image.load_from_file(HEADER_PATH)
+	var header_import := FileAccess.get_file_as_string(HEADER_PATH + ".import")
+	_check("painted whole crown header is exact RGBA with safe lossless NPOT import",
+		header != null and header.get_size() == Vector2i(1024, 148)
+		and header.get_format() == Image.FORMAT_RGBA8
+		and FileAccess.get_sha256(HEADER_PATH) == HEADER_SHA256
+		and header_import.contains("compress/mode=0")
+		and header_import.contains("\"vram_texture\": false")
+		and header_import.contains("mipmaps/generate=true"))
 	var licenses := FileAccess.get_file_as_string("res://ASSET_LICENSES.md")
 	_check("all reused background/actor/voice families retain repository provenance",
 		licenses.contains("sky_lagoon_panorama_master_v5_hd_3x1.png")
@@ -502,6 +704,80 @@ func _check_asset_contract() -> void:
 	_check("exact non-reader objective voice is present and immutable",
 		ResourceLoader.exists(VOICE_PATH)
 		and FileAccess.get_sha256(VOICE_PATH) == VOICE_SHA256)
+	_check_painted_pip_assets()
+	var painted_assets_ok := true
+	for i in range(NOTE_PATHS.size()):
+		var image := Image.load_from_file(NOTE_PATHS[i])
+		var import_text := FileAccess.get_file_as_string(NOTE_PATHS[i] + ".import")
+		painted_assets_ok = painted_assets_ok and image != null and image.get_size() == Vector2i(128, 128) and FileAccess.get_sha256(NOTE_PATHS[i]) == NOTE_HASHES[i] and import_text.contains("compress/mode=0") and import_text.contains("\"vram_texture\": false") and import_text.contains("mipmaps/generate=true") and licenses.contains(NOTE_PATHS[i].trim_prefix("res://"))
+		if image != null and image.get_size() == Vector2i(128, 128):
+			var sample: Color = image.get_pixel(32, 57)
+			painted_assets_ok = painted_assets_ok and sample.a > 0.95 and sample.s > 0.30 and sample.v > 0.35 and sample.h >= NOTE_HUE_RANGES[i].x and sample.h <= NOTE_HUE_RANGES[i].y
+	_check("seven exact whole painted token states preserve ordered distinct hues with lossless mipmapped imports and license rows", painted_assets_ok)
+	for index in range(BULB_PATHS.size()):
+		var path: String = BULB_PATHS[index]
+		var bulb := Image.load_from_file(path)
+		var import_text := FileAccess.get_file_as_string(path + ".import")
+		_check("painted theatre bulb%d exact RGBA128 square/hash" % index,
+			bulb != null and bulb.get_size() == Vector2i(128, 128)
+			and bulb.get_format() == Image.FORMAT_RGBA8
+			and FileAccess.get_sha256(path) == BULB_HASHES[index])
+		_check("painted theatre bulb%d lossless mipmapped mobile import/provenance" % index,
+			import_text.contains("compress/mode=0")
+			and import_text.contains("\"vram_texture\": false")
+			and import_text.contains("mipmaps/generate=true")
+			and import_text.contains("process/size_limit=1024")
+			and licenses.contains(path.trim_prefix("res://")))
+	for item: Dictionary in [
+		{"path": APRON_BODY_PATH, "sha": APRON_BODY_SHA256, "size": Vector2i(1024, 73)},
+		{"path": APRON_RAINBOW_PATH, "sha": APRON_RAINBOW_SHA256, "size": Vector2i(522, 60)},
+	]:
+		var path: String = item["path"]
+		var image := Image.load_from_file(path)
+		var import_text := FileAccess.get_file_as_string(path + ".import")
+		_check("painted apron exact whole asset/hash/size/import/license " + path,
+			image != null and image.get_size() == item["size"]
+			and FileAccess.get_sha256(path) == item["sha"]
+			and import_text.contains("compress/mode=0")
+			and import_text.contains("mipmaps/generate=true")
+			and import_text.contains("\"vram_texture\": false")
+			and licenses.contains(path.trim_prefix("res://")))
+
+
+	var footlight_paths: Array[String] = FOOTLIGHT_GLOBE_PATHS.duplicate()
+	footlight_paths.append(FOOTLIGHT_RAIL_PATH)
+	var footlights_exact := true
+	var footlights_imported := true
+	for index in range(footlight_paths.size()):
+		var path: String = footlight_paths[index]
+		var image := Image.load_from_file(path)
+		var dimensions := Vector2i(64, 64) if index < 7 else Vector2i(674, 36)
+		footlights_exact = footlights_exact and image != null \
+			and image.get_size() == dimensions and image.get_format() == Image.FORMAT_RGBA8 \
+			and FileAccess.get_sha256(path) == FOOTLIGHT_SHA256[index]
+		var imports := FileAccess.get_file_as_string(path + ".import")
+		footlights_imported = footlights_imported and imports.contains("compress/mode=0") \
+			and imports.contains("\"vram_texture\": false") \
+			and imports.contains("mipmaps/generate=true")
+	_check("painted footlights bind all eight exact whole-source RGBA exports", footlights_exact)
+	_check("painted globe/rail imports are lossless mipmapped without VRAM", footlights_imported)
+	_check("painted globe/rail source and editable provenance are licensed",
+		licenses.contains("assets/melody/footlight_")
+		and licenses.contains("assets_src/imagegen/melody_footlights_20261102/"))
+	var star_image := Image.load_from_file(STAGE_STAR_PATH)
+	var star_import := FileAccess.get_file_as_string(STAGE_STAR_PATH + ".import")
+	_check("painted stage star is the exact whole128-square RGBA candidate",
+		star_image != null and star_image.get_size() == Vector2i(128, 128)
+		and star_image.get_format() == Image.FORMAT_RGBA8
+		and FileAccess.get_sha256(STAGE_STAR_PATH) == STAGE_STAR_SHA256)
+	_check("painted stage star is lossless mipmapped with no VRAM or oversize import",
+		star_import.contains("compress/mode=0")
+		and star_import.contains("\"vram_texture\": false")
+		and star_import.contains("mipmaps/generate=true")
+		and star_import.contains("process/size_limit=256"))
+	_check("painted stage-star native and editable-master provenance is licensed",
+		licenses.contains("assets/melody/star_painted.png")
+		and licenses.contains("assets_src/imagegen/melody_star_20261102/"))
 
 
 func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
@@ -545,11 +821,13 @@ func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
 	_check("runtime four-tile transforms are seam-free and cover the phone viewport",
 		bool(tile_contract.get("seam_free", false))
 		and bool(tile_contract.get("covers_viewport", false)))
-	_check("attached note geometry exposes all seven ordered colors and the draw path binds the same source color",
+	_check("whole authored note textures expose all seven ordered colors and bind the matching painted state",
 		_colors_equal(_actual_note_colors(surface), EXPECTED_COLORS)
-		and _note_source_binds_geometry_color()
+		and _note_source_binds_painted_states()
 		and melody.note_count() == 7 and melody.active_note_id() == 0
 		and melody.progress_count() == 0)
+	_check("painted pips preserve all21 whole-image state mappings and restore the live progress state",
+		_all_pip_states_contract(surface))
 	_check("stage has no failure state, countdown, or passive completion path",
 		bool(snapshot.get("no_fail_state", false))
 		and not bool(snapshot.get("has_timer", true))
@@ -566,25 +844,29 @@ func _check_entry_contract(layer: CanvasLayer, surface: Node2D,
 		and not main.touch_ui.world_controls_enabled)
 
 
+
 func _check_rendered_stage_contract(surface: Node2D) -> void:
+	_check_painted_timing_window(surface)
 	_check_runtime_texture_census(surface)
 	var layer_id: int = melody.active_layer().get_instance_id()
 	var progress_before: int = melody.progress_count()
 	var note_id_before: int = melody.active_note_id()
 	var standard_viewport := Rect2(Vector2.ZERO,
 		get_root().get_visible_rect().size)
+	_check_painted_pointer_motion_matrix(surface)
 	var standard: Dictionary = _layout_geometry_contract(surface,
 		standard_viewport)
 	print("MELODY|LAYOUT_FACTS|standard=", standard)
-	_check("actual proscenium polygons visibly dominate the 1280x720 stage",
+	_check_header_alpha_metric_controls(surface, standard_viewport)
+	_check("actual decoded painted proscenium alpha visibly dominates the 1280x720 stage",
 		bool(standard.get("proscenium_dominant", false)))
 	_check("actual Daddy and Roshan alpha bounds are readable at 1280x720",
 		bool(standard.get("actors_readable", false)))
 	_check("actual note, hit envelope, green zone, and pointer are readable at 1280x720",
 		bool(standard.get("note_readable", false)))
-	_check("pointer is exactly one attached arrow, line, target, and two rings with no custom-draw duplicate",
+	_check("pointer is exactly one painted arrow, authored shaft, and whole double ring with no primitive fallback",
 		bool(standard.get("pointer_geometry_unique", false))
-		and _pointer_source_is_geometry_only())
+		and _pointer_source_is_painted_only())
 	_check("actual four-tile Canvas transforms cover 1280x720 seam-free",
 		bool(standard.get("backdrop_covers", false)))
 
@@ -673,7 +955,7 @@ func _layout_geometry_contract(surface: Node2D,
 		pointer_target_distance = (pointer_target as Vector2).distance_to(note_center)
 	var arrow_tip_distance: float = _nearest_named_geometry_point(
 		pointer, "Arrow", note_center)
-	var pointer_geometry_unique: bool = _pointer_geometry_contract(
+	var pointer_geometry_unique: bool = _pointer_painted_contract(
 		pointer, note_center)
 	var expected_note_color: Color = EXPECTED_COLORS[note_id] \
 		if note_id >= 0 and note_id < EXPECTED_COLORS.size() else Color.BLACK
@@ -737,7 +1019,7 @@ func _layout_geometry_contract(surface: Node2D,
 		and arrow_tip_distance <= 4.0 \
 		and pointer_geometry_unique \
 		and _subtree_has_green(zone) \
-		and _subtree_has_color(note, expected_note_color) \
+		and _note_authored_color(note, true).is_equal_approx(expected_note_color) \
 		and int(pointer.get("target_id")) == note_id \
 		and progress_clear and actors_clear and decorations_clear \
 		and z_order_valid
@@ -872,29 +1154,64 @@ func _runtime_tile_contract(surface: Node2D,
 func _check_runtime_texture_census(surface: Node2D) -> void:
 	var counts: Dictionary = {}
 	_collect_runtime_texture_paths(surface, counts)
-	var expected_paths: Array[String] = TILE_PATHS.duplicate()
-	expected_paths.append(DADDY_PATH)
-	expected_paths.append(ROSHAN_PATH)
-	var exact_once := counts.size() == expected_paths.size()
-	var decoded_bytes := 0
-	var declared_upload_bytes := 0
-	for path: String in expected_paths:
-		exact_once = exact_once and int(counts.get(path, 0)) == 1
+	var expected: Dictionary = {}
+	for path: String in TILE_PATHS + [DADDY_PATH, ROSHAN_PATH] + CURTAIN_PATHS \
+			+ [HEADER_PATH, STAGE_STAR_PATH, FOOTLIGHT_RAIL_PATH, APRON_BODY_PATH, APRON_RAINBOW_PATH] \
+			+ NOTE_PATHS + [
+				"res://assets/melody/timing_window_medallion_painted.png",
+				"res://assets/melody/timing_window_aura_painted.png",
+				"res://assets/melody/guide_arrow_head_painted.png",
+				"res://assets/melody/guide_beam_painted.png",
+				"res://assets/melody/guide_double_ring_painted.png",
+			]:
+		expected[path] = 1
+	for index in range(13):
+		var path: String = FOOTLIGHT_GLOBE_PATHS[index % 7]
+		expected[path] = int(expected.get(path, 0)) + 1
+	var frame := _stage_node(surface, "OperaProscenium") as Control
+	var bulb_count: int = maxi(12, int(frame.size.x / 66.0))
+	for path: String in BULB_PATHS:
+		expected[path] = bulb_count
+	for index in range(7):
+		var state: int = 2 if index < melody.progress_count() else (1 if index == melody.active_note_id() else 0)
+		expected[_pip_asset_path(state, index)] = 1
+	var exact: bool = counts.size() == expected.size()
+	for path: String in expected:
+		exact = exact and int(counts.get(path, 0)) == int(expected[path])
+	var resident: Array[String] = []
+	for path: String in expected:
+		resident.append(path)
+	for record: Dictionary in PIP_ASSETS:
+		var path: String = String(record["path"])
+		if not resident.has(path):
+			resident.append(path)
+	var decoded_bytes: int = 0
+	var declared_upload_bytes: int = 0
+	for path: String in resident:
 		var image := Image.load_from_file(path)
 		if image == null:
-			exact_once = false
+			exact = false
 			continue
-		var pixels: int = image.get_width() * image.get_height()
-		decoded_bytes += pixels * 4
-		var import_text := FileAccess.get_file_as_string(path + ".import")
-		declared_upload_bytes += pixels if import_text.contains(
-			"compress/mode=2") else pixels * 4
-	_check("live Canvas binds only four tiles, Daddy, and Roshan exactly once each",
-		exact_once)
-	_check("unique live texture census stays within conservative decoded and declared-upload bounds",
-		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024
-		and declared_upload_bytes > 0
-		and declared_upload_bytes <= 12 * 1024 * 1024)
+		var settings: String = FileAccess.get_file_as_string(path + ".import")
+		var vram: bool = settings.contains("compress/mode=2")
+		var mipmaps: bool = settings.contains("mipmaps/generate=true")
+		var width: int = image.get_width()
+		var height: int = image.get_height()
+		while true:
+			decoded_bytes += width * height * 4
+			declared_upload_bytes += ceili(float(width) / 4.0) * ceili(float(height) / 4.0) * 16 \
+				if vram else width * height * 4
+			if not mipmaps or (width == 1 and height == 1):
+				break
+			width = maxi(1, width / 2)
+			height = maxi(1, height / 2)
+	print("MELODY|COMBINED_TEXTURE_CENSUS|live_unique=", counts.size(),
+		"|resident_unique=", resident.size(), "|decoded_bytes=", decoded_bytes,
+		"|conservative_upload_bytes=", declared_upload_bytes)
+	_check("combined Canvas binds every exact painted role with declared repeated globe/bulb counts and no fallback texture", exact)
+	_check("all resident states including21 pip preloads retain original23MiB decoded and12MiB upload ceilings",
+		decoded_bytes > 0 and decoded_bytes <= 23 * 1024 * 1024 \
+		and declared_upload_bytes > 0 and declared_upload_bytes <= 12 * 1024 * 1024)
 
 
 func _collect_runtime_texture_paths(node: Node, counts: Dictionary) -> void:
@@ -918,55 +1235,64 @@ func _stage_node(surface: Node, node_name: String) -> Node:
 func _surface_structure_exact(surface: Node2D) -> bool:
 	if surface == null:
 		return false
-	var surface_names: Array[String] = [
+	var names: Array[String] = [
 		"OpaqueTheaterFill", "ScenicBackcloth", "OperaProscenium",
 		"StageFootlights", "StageStar", "DaddyGuide", "PopstarRoshan",
 		"TimingZone", "VisualPointer",
 	]
 	for index in range(7):
-		surface_names.append("RainbowNote%d" % index)
-		surface_names.append("ProgressPip%d" % index)
-	if not _exact_direct_child_names(surface, surface_names):
+		names.append("RainbowNote%d" % index)
+		names.append("ProgressPip%d" % index)
+	if not _exact_direct_child_names(surface, names):
 		return false
 	var fill: Node = _stage_node(surface, "OpaqueTheaterFill")
 	var scenic: Node = _stage_node(surface, "ScenicBackcloth")
-	var proscenium: Node = _stage_node(surface, "OperaProscenium")
-	var footlights: Node = _stage_node(surface, "StageFootlights")
-	var star: Node = _stage_node(surface, "StageStar")
 	var zone: Node = _stage_node(surface, "TimingZone")
-	var pointer: Node = _stage_node(surface, "VisualPointer")
-	if not (fill is ColorRect) or fill.get_child_count() != 0 \
-			or not (scenic is ColorRect) \
-			or not (proscenium is Control) \
-			or not (footlights is Control) or not (star is Control) \
-			or not (zone is Control) or not (pointer is Control):
+	if not (fill is ColorRect) or fill.get_child_count() != 0 or not (scenic is ColorRect) \
+			or not _exact_direct_child_names(scenic, TILE_NODE_NAMES) \
+			or not _combined_proscenium_contract(_stage_node(surface, "OperaProscenium")) \
+			or not _painted_footlights_contract(_stage_node(surface, "StageFootlights")) \
+			or not _painted_stage_star_contract(_stage_node(surface, "StageStar")) \
+			or not (zone is Control) or not _exact_direct_child_names(zone, [
+				"PaintedTimingAura", "PaintedTimingMedallion"]) \
+			or not _exact_pointer_children(_stage_node(surface, "VisualPointer")):
 		return false
-	if not _exact_direct_child_names(scenic, TILE_NODE_NAMES) \
-			or not _exact_typed_geometry_children(proscenium, [
-				"LeftCurtainGeometry", "RightCurtainGeometry",
-				"CrownHeaderGeometry", "StageApronGeometry",
-			], []) \
-			or not _exact_typed_geometry_children(
-				footlights, [], ["FootlightRailGeometry"]) \
-			or not _exact_typed_geometry_children(
-				star, ["StageStarGeometry"], []) \
-			or not _exact_typed_geometry_children(
-				zone, ["GreenWindowGeometry"], []) \
-			or not _exact_typed_geometry_children(pointer, [
-				"PointerTargetGeometry", "PointerArrowGeometry",
-			], [
-				"PointerLineGeometry", "PointerInnerRingGeometry",
-				"PointerOuterRingGeometry",
-			]):
+	if not (zone.get_node("PaintedTimingAura") is Sprite2D) \
+			or not (zone.get_node("PaintedTimingMedallion") is Sprite2D):
 		return false
 	for index in range(7):
 		var note: Node = _stage_node(surface, "RainbowNote%d" % index)
-		var pip: Node = _stage_node(surface, "ProgressPip%d" % index)
-		if not (note is Control) or not (pip is Control) \
-				or not _exact_typed_geometry_children(
-				note, ["NoteColorGeometry"], []) \
-				or not _exact_typed_geometry_children(
-				pip, ["ProgressPipGeometry"], []):
+		if not _painted_note_contract(note, index == melody.active_note_id()):
+			return false
+	return _all_pip_states_contract(surface)
+
+
+func _painted_proscenium_structure(node: Node) -> bool:
+	if not _combined_proscenium_child_names(node):
+		return false
+	var names: Array[String] = ["LeftPaintedCurtain", "RightPaintedCurtain"]
+	for index in range(names.size()):
+		var clip := node.get_node(names[index]) as Control
+		if clip == null or not clip.clip_contents \
+				or not clip.is_visible_in_tree() \
+				or clip.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+				or not _exact_direct_child_names(clip, ["PaintedCloth"]) \
+				or _has_geometry_descendant(clip):
+			return false
+		var cloth := clip.get_node("PaintedCloth") as TextureRect
+		if cloth == null or cloth.texture == null \
+				or not cloth.is_visible_in_tree() \
+				or _effective_canvas_alpha(cloth) < 0.98 \
+				or cloth.texture.resource_path != CURTAIN_PATHS[index] \
+				or cloth.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+				or cloth.get_child_count() != 0:
+			return false
+		var texture_size: Vector2 = cloth.texture.get_size()
+		if texture_size != Vector2(CURTAIN_NATIVE_SIZES[index]) \
+				or absf(cloth.size.x / texture_size.x \
+					- cloth.size.y / texture_size.y) > 0.00001 \
+				or cloth.rotation != 0.0 \
+				or not (node as Control).get_global_rect().encloses(clip.get_global_rect()):
 			return false
 	return true
 
@@ -1073,7 +1399,8 @@ func _node_visual_rect(node: Node) -> Rect2:
 	var merged: Rect2 = rects[0]
 	for index in range(1, rects.size()):
 		merged = merged.merge(rects[index])
-	if node is Control and _has_geometry_descendant(node):
+	if node is Control and (_has_geometry_descendant(node) \
+			or String(node.name).begins_with("ProgressPip")):
 		var control := node as Control
 		var control_rect := _transform_rect(
 			Rect2(Vector2.ZERO, control.size),
@@ -1125,6 +1452,10 @@ func _collect_visual_rects(node: Node, rects: Array[Rect2]) -> void:
 			var alpha_rect: Rect2 = _texture_rect_alpha_rect(texture_rect)
 			if alpha_rect.has_area():
 				rects.append(alpha_rect)
+	elif node is NinePatchRect:
+		var alpha_rect: Rect2 = _nine_patch_alpha_rect(node as NinePatchRect)
+		if alpha_rect.has_area():
+			rects.append(alpha_rect)
 	elif node is ColorRect:
 		var color_rect := node as ColorRect
 		if color_rect.color.a > 0.02:
@@ -1267,64 +1598,15 @@ func _nearest_named_geometry_point(node: Node, name_token: String,
 			var line_xform := line.get_global_transform_with_canvas()
 			for point: Vector2 in line.points:
 				points.append(line_xform * point)
+		if node is Sprite2D and String(node.name) == "PointerArrowPainted":
+			var sprite := node as Sprite2D
+			points.append(sprite.get_global_transform_with_canvas() * (sprite.offset + Vector2(106.5, 62.5)))
 		for point: Vector2 in points:
 			best = minf(best, point.distance_to(target))
 	for child_value: Variant in node.get_children():
 		best = minf(best, _nearest_named_geometry_point(
 			child_value as Node, name_token, target))
 	return best
-
-
-func _pointer_geometry_contract(pointer: Node, note_center: Vector2) -> bool:
-	if not (pointer is Control) or not pointer.is_visible_in_tree() \
-			or _effective_canvas_alpha(pointer as CanvasItem) <= 0.85:
-		return false
-	var target_geometry: Node = _stage_node(pointer, "PointerTargetGeometry")
-	var arrow_geometry: Node = _stage_node(pointer, "PointerArrowGeometry")
-	var line_geometry: Node = _stage_node(pointer, "PointerLineGeometry")
-	var inner_geometry: Node = _stage_node(pointer, "PointerInnerRingGeometry")
-	var outer_geometry: Node = _stage_node(pointer, "PointerOuterRingGeometry")
-	var expected_nodes: Array[Node] = [
-		target_geometry, arrow_geometry, line_geometry,
-		inner_geometry, outer_geometry,
-	]
-	var expected_names: Array[String] = [
-		"PointerTargetGeometry", "PointerArrowGeometry", "PointerLineGeometry",
-		"PointerInnerRingGeometry", "PointerOuterRingGeometry",
-	]
-	if _count_geometry_descendants(pointer) != expected_nodes.size():
-		return false
-	for index in range(expected_nodes.size()):
-		var geometry: Node = expected_nodes[index]
-		if geometry == null or geometry.get_parent() != pointer \
-				or _count_nodes_named(pointer, expected_names[index]) != 1 \
-				or not geometry.is_visible_in_tree() \
-				or _effective_canvas_alpha(geometry as CanvasItem) <= 0.10:
-			return false
-	if not (target_geometry is Polygon2D) \
-			or not (arrow_geometry is Polygon2D) \
-			or not (line_geometry is Line2D) \
-			or not (inner_geometry is Line2D) \
-			or not (outer_geometry is Line2D):
-		return false
-	var target_polygon := target_geometry as Polygon2D
-	var arrow_polygon := arrow_geometry as Polygon2D
-	var pointer_line := line_geometry as Line2D
-	var inner_ring := inner_geometry as Line2D
-	var outer_ring := outer_geometry as Line2D
-	return target_polygon.polygon.size() == 4 \
-		and _points_rect(target_polygon.polygon).has_area() \
-		and target_polygon.color.a >= 0.15 \
-		and arrow_polygon.polygon.size() == 3 \
-		and _points_rect(arrow_polygon.polygon).has_area() \
-		and arrow_polygon.color.a >= 0.85 \
-		and _nearest_named_geometry_point(pointer, "Arrow", note_center) <= 4.0 \
-		and pointer_line.points.size() >= 2 and pointer_line.width >= 7.0 \
-		and pointer_line.default_color.a >= 0.85 \
-		and inner_ring.points.size() >= 24 and inner_ring.width >= 7.0 \
-		and inner_ring.default_color.a >= 0.85 \
-		and outer_ring.points.size() >= 24 and outer_ring.width >= 4.0 \
-		and outer_ring.default_color.a >= 0.75
 
 
 func _count_geometry_descendants(node: Node) -> int:
@@ -1345,59 +1627,10 @@ func _count_nodes_named(node: Node, exact_name: String) -> int:
 	return count
 
 
-func _pointer_source_is_geometry_only() -> bool:
-	var source := FileAccess.get_file_as_string("res://scripts/games/melody.gd")
-	var block_start: int = source.find("class PointerCanvas extends Control:")
-	var block_end: int = source.find("class RainbowNoteCanvas extends Control:",
-		block_start + 1)
-	if block_start < 0 or block_end <= block_start:
-		return false
-	var block: String = source.substr(block_start, block_end - block_start)
-	return block.count("PointerTargetGeometry") == 1 \
-		and block.count("PointerArrowGeometry") == 1 \
-		and block.count("PointerLineGeometry") == 1 \
-		and block.count("PointerInnerRingGeometry") == 1 \
-		and block.count("PointerOuterRingGeometry") == 1 \
-		and not block.contains("func _draw") \
-		and not block.contains("draw_")
-
-
-func _note_source_binds_geometry_color() -> bool:
-	var source := FileAccess.get_file_as_string("res://scripts/games/melody.gd")
-	var block_start: int = source.find("class RainbowNoteCanvas extends Control:")
-	var block_end: int = source.find("class ProgressPipCanvas extends Control:",
-		block_start + 1)
-	if block_start < 0 or block_end <= block_start:
-		return false
-	var block: String = source.substr(block_start, block_end - block_start)
-	return block.count("color_geometry.color = note_color") == 1 \
-		and block.count("draw_circle(center, 35.0, note_color") == 1
-
-
 func _polygon_union_metrics(node: Node, viewport_rect: Rect2) -> Dictionary:
-	var polygons: Array[PackedVector2Array] = []
-	_collect_polygons(node, polygons)
-	if polygons.is_empty():
+	if not _combined_proscenium_contract(node):
 		return {}
-	var union_rect: Rect2 = _points_rect(polygons[0])
-	for index in range(1, polygons.size()):
-		union_rect = union_rect.merge(_points_rect(polygons[index]))
-	var columns := 200
-	var rows := 90
-	var covered := 0
-	for row in range(rows):
-		for column in range(columns):
-			var point := viewport_rect.position + Vector2(
-				(float(column) + 0.5) * viewport_rect.size.x / float(columns),
-				(float(row) + 0.5) * viewport_rect.size.y / float(rows))
-			for polygon: PackedVector2Array in polygons:
-				if Geometry2D.is_point_in_polygon(point, polygon):
-					covered += 1
-					break
-	return {
-		"rect": union_rect.intersection(viewport_rect),
-		"coverage": float(covered) / float(columns * rows),
-	}
+	return _painted_alpha_union_metrics(node, viewport_rect)
 
 
 func _collect_polygons(node: Node,
@@ -1419,6 +1652,19 @@ func _collect_polygons(node: Node,
 
 
 func _subtree_has_green(node: Node) -> bool:
+	if node != null and String(node.name) == "TimingZone":
+		var card := node.get_node_or_null("PaintedTimingMedallion") as Sprite2D
+		if card == null or card.texture == null:
+			return false
+		var image := Image.load_from_file(card.texture.resource_path)
+		if image == null:
+			return false
+		for y in range(0, image.get_height(), 4):
+			for x in range(0, image.get_width(), 4):
+				var color: Color = image.get_pixel(x, y) * card.modulate
+				if color.a > 0.25 and color.g >= 0.45 and color.g > color.r * 1.12 and color.g > color.b * 1.05:
+					return true
+		return false
 	return _subtree_has_color_predicate(node, func(color: Color) -> bool:
 		return color.a > 0.25 and color.g >= 0.45 \
 			and color.g > color.r * 1.12 and color.g > color.b * 1.05)
@@ -1507,7 +1753,7 @@ func _check_opening_objective_delivery(surface: Node2D) -> void:
 			Rect2(Vector2.ZERO, get_root().get_visible_rect().size)))
 	_check("opening non-reader objective is carried by the sole live attached visual pointer",
 		note_rect.has_area()
-		and _pointer_geometry_contract(pointer, note_rect.get_center()))
+		and _pointer_painted_contract(pointer, note_rect.get_center()))
 
 
 func _check_tick_and_stage_motion() -> void:
@@ -2558,7 +2804,7 @@ func _actual_note_colors(surface: Node) -> Array:
 	var colors: Array = []
 	for note_index in range(7):
 		var note: Node = _stage_node(surface, "RainbowNote%d" % note_index)
-		colors.append(_note_geometry_color(note,
+		colors.append(_note_authored_color(note,
 			note_index == melody.active_note_id()))
 	return colors
 
@@ -2567,27 +2813,7 @@ func _active_note_actual_color() -> Color:
 	var surface: Node2D = melody.surface()
 	var note: Node = _stage_node(surface,
 		"RainbowNote%d" % melody.active_note_id())
-	return _note_geometry_color(note, true)
-
-
-func _note_geometry_color(note: Node, expected_visible: bool) -> Color:
-	if not (note is CanvasItem):
-		return Color.BLACK
-	var note_item := note as CanvasItem
-	var geometry: Node = _stage_node(note, "NoteColorGeometry")
-	if not (geometry is Polygon2D) \
-			or geometry.get_parent() != note \
-			or _count_nodes_named(note, "NoteColorGeometry") != 1:
-		return Color.BLACK
-	var polygon := geometry as Polygon2D
-	if note_item.visible != expected_visible \
-			or polygon.visible == false \
-			or polygon.is_visible_in_tree() != expected_visible \
-			or polygon.polygon.size() < 20 \
-			or not _points_rect(polygon.polygon).has_area() \
-			or polygon.color.a <= 0.85:
-		return Color.BLACK
-	return polygon.color
+	return _note_authored_color(note, true)
 
 
 func _read_probe_save() -> Dictionary:
@@ -2676,3 +2902,637 @@ func _finish() -> void:
 	else:
 		print("MELODY|result: %d FAIL" % bad)
 		quit(1)
+
+func _proscenium_structure_exact(node: Node) -> bool:
+	if not _combined_proscenium_child_names(node):
+		return false
+	var header := node.get_node_or_null("PaintedCrownHeader") as TextureRect
+	if header == null or header.texture == null or header.texture is AtlasTexture:
+		return false
+	var source_size: Vector2 = header.texture.get_size()
+	return header.texture.resource_path == HEADER_PATH \
+		and source_size == Vector2(1024, 148) \
+		and header.get_child_count() == 0 and header.material == null \
+		and header.modulate == Color.WHITE and header.self_modulate == Color.WHITE \
+		and header.expand_mode == TextureRect.EXPAND_IGNORE_SIZE \
+		and header.stretch_mode == TextureRect.STRETCH_KEEP_ASPECT_CENTERED \
+		and header.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+		and header.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and header.focus_mode == Control.FOCUS_NONE and header.z_index == -1 \
+		and header.rotation == 0.0 and header.scale == Vector2.ONE \
+		and absf(header.size.x / source_size.x - header.size.y / source_size.y) < 0.00001
+
+
+func _check_header_alpha_metric_controls(surface: Node2D,
+		viewport_rect: Rect2) -> void:
+	var header := _stage_node(surface, "PaintedCrownHeader") as TextureRect
+	if header == null:
+		_check("painted-header alpha controls have the live header", false)
+		return
+	var visible_coverage: float = float(_painted_alpha_union_metrics(
+		_stage_node(surface, "OperaProscenium"), viewport_rect)["coverage"])
+	var original_modulate: Color = header.modulate
+	var original_texture: Texture2D = header.texture
+	header.modulate.a = 0.0
+	var hidden_coverage: float = float(_painted_alpha_union_metrics(
+		_stage_node(surface, "OperaProscenium"), viewport_rect)["coverage"])
+	_check("decoded alpha measurement independently loses the hidden header contribution",
+		visible_coverage - hidden_coverage > 0.02)
+	_check("fully transparent header cannot inflate measured stage bounds",
+		not bool(_layout_geometry_contract(surface, viewport_rect).get(
+			"proscenium_dominant", true)))
+	header.modulate = original_modulate
+	header.texture = null
+	_check("empty header control cannot count as visible painted coverage",
+		not bool(_layout_geometry_contract(surface, viewport_rect).get(
+			"proscenium_dominant", true)))
+	header.texture = original_texture
+	_check("restored exact painted header retains original dominance floors",
+		bool(_layout_geometry_contract(surface, viewport_rect).get(
+			"proscenium_dominant", false)))
+
+
+func _painted_stage_star_contract(star: Node) -> bool:
+	if not (star is Control) or not _exact_direct_child_names(
+			star, ["StageStarPaintedCard"]):
+		return false
+	var control := star as Control
+	var card := star.get_node("StageStarPaintedCard") as TextureRect
+	return card != null and card.get_child_count() == 0 \
+		and card.get_script() == null and card.texture != null \
+		and card.texture.resource_path == STAGE_STAR_PATH \
+		and card.texture.get_size() == Vector2(128, 128) \
+		and card.expand_mode == TextureRect.EXPAND_IGNORE_SIZE \
+		and card.stretch_mode == TextureRect.STRETCH_KEEP_ASPECT_CENTERED \
+		and card.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+		and card.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and card.focus_mode == Control.FOCUS_NONE \
+		and control.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and control.focus_mode == Control.FOCUS_NONE \
+		and control.z_index == 18 and card.z_index == 0 \
+		and card.position.is_zero_approx() and card.size.is_equal_approx(control.size) \
+		and card.scale == Vector2.ONE and is_zero_approx(card.rotation) \
+		and not card.flip_h and not card.flip_v \
+		and card.modulate == Color.WHITE and card.self_modulate == Color.WHITE \
+		and card.visible and _texture_rect_alpha_rect(card).has_area()
+
+
+func _painted_footlights_contract(node: Node) -> bool:
+	if not (node is Control):
+		return false
+	var parent := node as Control
+	var names: Array[String] = ["PaintedFootlightRail"]
+	for index in range(13):
+		names.append("PaintedFootlightGlobe%d" % index)
+	if not _exact_direct_child_names(parent, names):
+		return false
+	var rail := parent.get_node("PaintedFootlightRail") as NinePatchRect
+	if rail == null or rail.texture == null or rail.get_child_count() != 0 \
+			or rail.get_script() != null or rail.texture.resource_path != FOOTLIGHT_RAIL_PATH \
+			or rail.texture.get_size() != Vector2(674, 36) \
+			or rail.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+			or rail.focus_mode != Control.FOCUS_NONE or rail.z_index != -1 \
+			or rail.patch_margin_left != 18 or rail.patch_margin_right != 18 \
+			or rail.patch_margin_top != 0 or rail.patch_margin_bottom != 0 \
+			or not rail.draw_center or rail.axis_stretch_horizontal != NinePatchRect.AXIS_STRETCH_MODE_STRETCH \
+			or rail.texture_filter != CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+			or rail.modulate != Color.WHITE or rail.self_modulate != Color.WHITE \
+			or not rail.position.is_equal_approx(Vector2(18.0, parent.size.y * 0.5 - 18.0)) \
+			or not rail.size.is_equal_approx(Vector2(maxf(36.0, parent.size.x - 36.0), 36.0)) \
+			or not rail.scale.is_equal_approx(Vector2.ONE) or not is_zero_approx(rail.rotation) \
+			or not _nine_patch_alpha_rect(rail).has_area():
+		return false
+	for index in range(13):
+		var globe := parent.get_node("PaintedFootlightGlobe%d" % index) as Sprite2D
+		var center := Vector2((float(index) + 0.5) * parent.size.x / 13.0, parent.size.y * 0.5)
+		if globe == null or globe.texture == null or globe.get_child_count() != 0 \
+				or globe.get_script() != null or globe.texture.resource_path != FOOTLIGHT_GLOBE_PATHS[index % 7] \
+				or globe.texture.get_size() != Vector2(64, 64) \
+				or not globe.centered or globe.region_enabled or globe.flip_h or globe.flip_v \
+				or globe.hframes != 1 or globe.vframes != 1 or globe.frame != 0 \
+				or not globe.offset.is_zero_approx() or not globe.position.is_equal_approx(center) \
+				or not globe.scale.is_equal_approx(Vector2.ONE * (30.0 / 64.0)) \
+				or not is_zero_approx(globe.rotation) or globe.z_index != 0 \
+				or globe.modulate != Color.WHITE or globe.self_modulate != Color.WHITE \
+				or globe.texture_filter != CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+				or not globe.visible or not _sprite_alpha_rect(globe).has_area():
+			return false
+	return parent.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and parent.focus_mode == Control.FOCUS_NONE and parent.z_index == 16 and rail.visible
+
+
+func _nine_patch_alpha_rect(item: NinePatchRect) -> Rect2:
+	var source: Texture2D = _source_texture(item.texture)
+	if source == null:
+		return Rect2()
+	var used: Rect2i = _texture_alpha_used_rect(source)
+	if used.size == Vector2i.ZERO:
+		return Rect2()
+	var source_size: Vector2 = source.get_size()
+	var rect: Rect2 = item.get_global_rect()
+	var left: float = _nine_patch_axis(float(used.position.x), source_size.x, rect.size.x,
+		float(item.patch_margin_left), float(item.patch_margin_right))
+	var right: float = _nine_patch_axis(float(used.end.x), source_size.x, rect.size.x,
+		float(item.patch_margin_left), float(item.patch_margin_right))
+	var top: float = _nine_patch_axis(float(used.position.y), source_size.y, rect.size.y,
+		float(item.patch_margin_top), float(item.patch_margin_bottom))
+	var bottom: float = _nine_patch_axis(float(used.end.y), source_size.y, rect.size.y,
+		float(item.patch_margin_top), float(item.patch_margin_bottom))
+	return Rect2(rect.position + Vector2(left, top), Vector2(right - left, bottom - top))
+
+
+func _nine_patch_axis(value: float, native_size: float, target_size: float,
+		begin: float, end: float) -> float:
+	if value <= begin:
+		return value
+	if value >= native_size - end:
+		return target_size - (native_size - value)
+	return begin + (value - begin) * (target_size - begin - end) \
+		/ maxf(native_size - begin - end, 1.0)
+
+
+func _painted_apron_contract(node: Node) -> bool:
+	if not (node is Control):
+		return false
+	var frame := node as Control
+	if not _combined_proscenium_child_names(frame) or frame.z_index != 10 \
+			or frame.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+			or frame.focus_mode != Control.FOCUS_NONE:
+		return false
+	var apron_height: float = clampf(frame.size.y * 0.145, 92.0, 106.0)
+	var side_width: float = clampf(frame.size.x * 0.15, 176.0, 230.0)
+	var lower_y: float = frame.size.y - apron_height
+	for spec: Dictionary in [
+		{"name": "PaintedStageApronBody", "path": APRON_BODY_PATH,
+			"position": Vector2(0.0, lower_y), "size": Vector2(frame.size.x, apron_height),
+			"source_size": Vector2(1024.0, 73.0), "z": -1, "side": 16, "top": 8},
+		{"name": "PaintedStageApronRainbow", "path": APRON_RAINBOW_PATH,
+			"position": Vector2(side_width * 0.72, lower_y + 11.0),
+			"size": Vector2(frame.size.x - side_width * 1.44, 60.0),
+			"source_size": Vector2(522.0, 60.0), "z": 0, "side": 12, "top": 0},
+	]:
+		var part: Node = frame.get_node_or_null(String(spec["name"]))
+		if not (part is NinePatchRect):
+			return false
+		var card := part as NinePatchRect
+		if card.texture == null or card.texture.resource_path != String(spec["path"]) \
+				or card.texture.get_size() != spec["source_size"] \
+				or card.position.distance_to(spec["position"]) > 0.001 \
+				or card.size.distance_to(spec["size"]) > 0.001 \
+				or card.z_index != int(spec["z"]) or card.get_child_count() != 0 \
+				or card.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+				or card.focus_mode != Control.FOCUS_NONE or card.modulate != Color.WHITE \
+				or card.self_modulate != Color.WHITE or card.scale != Vector2.ONE \
+				or card.rotation != 0.0 or card.material != null \
+				or card.texture_filter != CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+				or card.region_rect != Rect2() or not card.draw_center \
+				or card.patch_margin_left != int(spec["side"]) \
+				or card.patch_margin_right != int(spec["side"]) \
+				or card.patch_margin_top != int(spec["top"]) \
+				or card.patch_margin_bottom != int(spec["top"]):
+			return false
+	return true
+
+
+func _painted_bulbs_contract(frame: Control) -> bool:
+	var count: int = maxi(12, int(frame.size.x / 66.0))
+	if not _combined_proscenium_child_names(frame):
+		return false
+	for index in range(count):
+		var x: float = 24.0 + float(index) * (frame.size.x - 48.0) / float(maxi(count - 1, 1))
+		for row in range(2):
+			var name: String = ("UpperPaintedBulb%02d" if row == 0 else "LowerPaintedBulb%02d") % index
+			var bulb := frame.get_node_or_null(name) as Sprite2D
+			var diameter: float = 15.0 if row == 0 else 14.0
+			var y: float = 22.0 if row == 0 else frame.size.y - 19.0
+			if bulb == null or bulb.texture == null or bulb.texture.resource_path != BULB_PATHS[row] \
+					or bulb.texture.get_size() != Vector2(128, 128) \
+					or not bulb.position.is_equal_approx(Vector2(x, y)) \
+					or not bulb.scale.is_equal_approx(Vector2.ONE * diameter / 128.0) \
+					or bulb.modulate != Color.WHITE or bulb.self_modulate != Color.WHITE \
+					or not is_zero_approx(bulb.rotation) or bulb.material != null \
+					or bulb.region_enabled or not bulb.centered or bulb.offset != Vector2.ZERO \
+					or bulb.flip_h or bulb.flip_v or bulb.hframes != 1 or bulb.vframes != 1 \
+					or bulb.z_index != 0 or not bulb.z_as_relative or bulb.show_behind_parent \
+					or bulb.get_child_count() != 0 or not bulb.visible \
+					or bulb.texture_filter != CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS:
+				return false
+	return true
+
+
+func _note_source_binds_painted_states() -> bool:
+	var source := FileAccess.get_file_as_string("res://scripts/games/melody.gd")
+	var block_start: int = source.find("class RainbowNoteCanvas extends Control:")
+	var block_end: int = source.find("class ProgressPipCanvas extends Control:", block_start + 1)
+	if block_start < 0 or block_end <= block_start:
+		return false
+	var block: String = source.substr(block_start, block_end - block_start)
+	return block.count("painted_note.texture = MelodyGame.NOTE_TEXTURES[note_id]") == 1 and not block.contains("func _draw(") and not block.contains("Polygon2D") and not block.contains("draw_circle(") and not block.contains(".modulate =")
+
+
+func _note_authored_color(note: Node, expected_visible: bool) -> Color:
+	if not _painted_note_contract(note, expected_visible):
+		return Color.BLACK
+	return EXPECTED_COLORS[int(note.get("note_id"))]
+
+
+func _painted_note_contract(note: Node, expected_visible: bool) -> bool:
+	if not (note is Control):
+		return false
+	var state: int = int(note.get("note_id"))
+	if state < 0 or state >= NOTE_PATHS.size():
+		return false
+	var control := note as Control
+	var card := note.get_node_or_null("PaintedNote") as Sprite2D
+	var state_color: Color = note.get("note_color")
+	return card != null and note.get_child_count() == 1 and card.get_child_count() == 0 and card.get_parent() == note and control.size == Vector2.ONE * 84.0 and control.z_index == 35 and control.mouse_filter == Control.MOUSE_FILTER_IGNORE and control.visible == expected_visible and card.visible and card.is_visible_in_tree() == expected_visible and card.texture != null and card.texture.resource_path == NOTE_PATHS[state] and card.texture.get_size() == Vector2(128, 128) and not card.region_enabled and card.hframes == 1 and card.vframes == 1 and card.centered and card.offset.is_equal_approx(Vector2.ONE * 64.0 - (Vector2(_texture_alpha_used_rect(card.texture).position) + Vector2(_texture_alpha_used_rect(card.texture).size) * 0.5)) and card.position == Vector2.ONE * 42.0 and card.scale.is_equal_approx(Vector2.ONE * 84.0 / 128.0) and card.modulate == Color.WHITE and card.self_modulate == Color.WHITE and card.material == null and is_zero_approx(card.rotation) and not card.flip_h and not card.flip_v and card.z_index == 0 and card.z_as_relative and not card.show_behind_parent and card.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS and state_color.is_equal_approx(EXPECTED_COLORS[state])
+
+
+func _pip_asset_path(state_index: int, color_index: int) -> String:
+	return String(PIP_ASSETS[state_index * 7 + color_index]["path"])
+
+
+
+func _pip_image_alpha_bounds(image: Image) -> Rect2i:
+	var first := Vector2i(image.get_width(), image.get_height())
+	var last := Vector2i(-1, -1)
+	for y in range(image.get_height()):
+		for x in range(image.get_width()):
+			if roundi(image.get_pixel(x, y).a * 255.0) >= 32:
+				first = Vector2i(mini(first.x, x), mini(first.y, y))
+				last = Vector2i(maxi(last.x, x), maxi(last.y, y))
+	return Rect2i(first, last - first + Vector2i.ONE)
+
+
+
+func _check_painted_pip_assets() -> void:
+	var exact_assets: bool = PIP_ASSETS.size() == 21
+	var palette_ok: bool = true
+	var registered_bounds: bool = true
+	var licensed: bool = true
+	var licenses: String = FileAccess.get_file_as_string("res://ASSET_LICENSES.md")
+	for index in range(PIP_ASSETS.size()):
+		var asset: Dictionary = PIP_ASSETS[index]
+		var path: String = String(asset["path"])
+		var image: Image = Image.load_from_file(path)
+		var import_text: String = FileAccess.get_file_as_string(path + ".import")
+		exact_assets = exact_assets and image != null \
+			and FileAccess.get_sha256(path) == String(asset["sha256"]) \
+			and import_text.contains("compress/mode=0") \
+			and import_text.contains("\"vram_texture\": false") \
+			and import_text.contains("mipmaps/generate=true") \
+			and import_text.contains("process/size_limit=1024")
+		if image == null:
+			palette_ok = false
+			registered_bounds = false
+			continue
+		exact_assets = exact_assets and image.get_size() == Vector2i(64, 64) \
+			and image.get_format() == Image.FORMAT_RGBA8
+		registered_bounds = registered_bounds \
+			and _pip_image_alpha_bounds(image) == asset["alpha_bounds"] \
+			and image.get_pixel(0, 0).a < 0.02
+		var sample: Color = image.get_pixel(32, 16)
+		var hue: float = sample.h
+		var color_index: int = index % 7
+		var hue_ok: bool = false
+		match color_index:
+			0: hue_ok = hue <= 0.06 or hue >= 0.96
+			1: hue_ok = hue > 0.06 and hue < 0.11
+			2: hue_ok = hue >= 0.11 and hue < 0.20
+			3: hue_ok = hue >= 0.20 and hue < 0.44
+			4: hue_ok = hue >= 0.48 and hue < 0.61
+			5: hue_ok = hue >= 0.61 and hue < 0.73
+			6: hue_ok = hue >= 0.73 and hue < 0.88
+		palette_ok = palette_ok and hue_ok and sample.s > 0.25 \
+			and sample.a > 0.95
+		licensed = licensed and licenses.contains(path.trim_prefix("res://"))
+	_check("all21 painted pip images have exact64RGBA hashes and lossless Mobile mip imports",
+		exact_assets)
+	_check("all three authored states preserve the seven distinct ordered color identities",
+		palette_ok)
+	_check("painted pip registration follows actual alpha32 bounds and transparent corners",
+		registered_bounds)
+	_check("every painted pip and native derivation retains its own license/provenance entry",
+		licensed and licenses.contains("melody_progress_pips_20261102/PROVENANCE.json"))
+
+
+
+func _whole_painted_pip(pip: Node, color_index: int, state_index: int) -> bool:
+	if not (pip is Control) or pip.get_child_count() != 1 \
+			or not (pip.get_child(0) is Sprite2D):
+		return false
+	var control := pip as Control
+	var sprite := pip.get_child(0) as Sprite2D
+	var bounds: Rect2i = PIP_ASSETS[state_index * 7 + color_index]["alpha_bounds"]
+	var diameter: float = 46.0 if state_index == 1 else 38.0
+	var body_rect := Rect2(Vector2(bounds.position) - Vector2.ONE * 32.0 \
+		+ sprite.offset, Vector2(bounds.size))
+	var projected: Rect2 = _transform_rect(body_rect, sprite.transform)
+	return sprite.name == &"PaintedProgressPip" and sprite.get_child_count() == 0 \
+		and sprite.texture is Texture2D and not (sprite.texture is AtlasTexture) \
+		and sprite.texture.resource_path == _pip_asset_path(state_index, color_index) \
+		and sprite.texture.get_size() == Vector2(64.0, 64.0) \
+		and sprite.centered and not sprite.region_enabled \
+		and sprite.hframes == 1 and sprite.vframes == 1 \
+		and not sprite.flip_h and not sprite.flip_v \
+		and sprite.material == null and not sprite.use_parent_material \
+		and sprite.modulate == Color.WHITE and sprite.self_modulate == Color.WHITE \
+		and is_zero_approx(sprite.rotation) and sprite.skew == 0.0 \
+		and is_equal_approx(sprite.scale.x, sprite.scale.y) \
+		and sprite.scale.x > 0.0 and sprite.z_index == 0 and sprite.z_as_relative \
+		and sprite.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS \
+		and sprite.position.is_equal_approx(Vector2.ONE * 24.0) \
+		and control.size.is_equal_approx(Vector2.ONE * 48.0) \
+		and control.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and control.focus_mode == Control.FOCUS_NONE and control.z_index == 40 \
+		and control.modulate == Color.WHITE and control.self_modulate == Color.WHITE \
+		and control.material == null and control.scale.is_equal_approx(Vector2.ONE * clampf(
+			control.get_viewport().get_visible_rect().size.y / 720.0, 0.78, 1.15)) \
+		and is_zero_approx(control.rotation) \
+		and projected.get_center().is_equal_approx(Vector2.ONE * 24.0) \
+		and is_equal_approx(maxf(projected.size.x, projected.size.y), diameter) \
+		and Rect2(Vector2.ZERO, control.size).encloses(projected)
+
+
+
+func _all_pip_states_contract(surface: Node2D) -> bool:
+	var all_ok: bool = true
+	for color_index in range(7):
+		var pip: Node = _stage_node(surface, "ProgressPip%d" % color_index)
+		if pip == null:
+			return false
+		var was_filled: bool = bool(pip.get("filled"))
+		var was_current: bool = bool(pip.get("current"))
+		all_ok = all_ok and was_filled == (color_index < melody.progress_count()) \
+			and was_current == (color_index == melody.active_note_id())
+		for state_index in range(3):
+			pip.call("set_state", state_index == 2, state_index == 1)
+			all_ok = _whole_painted_pip(pip, color_index, state_index) and all_ok
+		pip.call("set_state", was_filled, was_current)
+		var restored_state: int = 2 if was_filled else (1 if was_current else 0)
+		all_ok = _whole_painted_pip(pip, color_index, restored_state) and all_ok
+	return all_ok
+
+
+
+func _check_timing_window_assets() -> void:
+	var paths: Array[String] = ["res://assets/melody/timing_window_medallion_painted.png", "res://assets/melody/timing_window_aura_painted.png"]
+	var hashes: Array[String] = ["efc3dfd123a1c193c7fa9195689c66d5d16e0238341b6b636168d3592b8ab833", "af8491e4b87e670983c3c035453acec2ce5bf8349b83fd02c8466ad8bdce213e"]
+	var good := true
+	for i in range(paths.size()):
+		var image := Image.load_from_file(paths[i])
+		var import_text := FileAccess.get_file_as_string(paths[i] + ".import")
+		good = good and image != null and image.get_size() == Vector2i(256, 256) and image.detect_alpha() == Image.ALPHA_BLEND and FileAccess.get_sha256(paths[i]) == hashes[i] and import_text.contains("compress/mode=0") and import_text.contains("mipmaps/generate=true") and import_text.contains("process/size_limit=1024")
+	_check("two exact authored timing paintings retain alpha, POT lossless imports and bounded mipmaps", good)
+
+
+func _check_painted_timing_window(surface: Node2D) -> void:
+	var zone := surface.get_node("TimingZone") as Control
+	var body := zone.get_node_or_null("PaintedTimingMedallion") as Sprite2D
+	var aura := zone.get_node_or_null("PaintedTimingAura") as Sprite2D
+	var whole := body != null and aura != null and zone.get_child_count() == 2 and zone.get_node_or_null("GreenWindowGeometry") == null
+	_check("visible timing primitive fallback is retired in favor of two whole authored Sprite2D pictures", whole)
+	if not whole:
+		return
+	var source := FileAccess.get_file_as_string("res://scripts/games/melody.gd")
+	var section: String = source.split("class TimingZoneCanvas")[1].split("class PointerCanvas")[0]
+	_check("timing artwork has no custom-draw/polygon fallback", not section.contains("draw_") and not section.contains("Polygon2D"))
+	var valid := zone.z_index == 28 and zone.mouse_filter == Control.MOUSE_FILTER_IGNORE and zone.focus_mode == Control.FOCUS_NONE and body.texture.resource_path == "res://assets/melody/timing_window_medallion_painted.png" and aura.texture.resource_path == "res://assets/melody/timing_window_aura_painted.png"
+	for card: Sprite2D in [body, aura]:
+		valid = valid and card.centered and not card.region_enabled and card.hframes == 1 and card.vframes == 1 and card.rotation == 0.0 and card.material == null and card.self_modulate == Color.WHITE and is_equal_approx(card.scale.x, card.scale.y) and card.get_child_count() == 0
+	valid = valid and body.modulate == Color.WHITE and aura.modulate.is_equal_approx(Color(1.0, 1.0, 1.0, 0.24)) and body.z_index == 0 and aura.z_index == -1
+	_check("whole pictures keep original z/input/opacity and have no materials, tint or independent symbol pieces", valid)
+	var original_position: Vector2 = zone.position
+	var original_size: Vector2 = zone.size
+	var original_pulse: float = float(zone.get("pulse"))
+	var invariant := true
+	for side: float in [160.0, 180.0, 190.0]:
+		zone.call("layout", Rect2(Vector2(20.0, 30.0), Vector2.ONE * side))
+		var fixed_body_position: Vector2 = body.position
+		var fixed_body_scale: Vector2 = body.scale
+		for phase: float in [0.0, PI / 10.0, 3.0 * PI / 10.0]:
+			zone.call("advance", phase)
+			var expected_diameter: float = (side * 0.43 + 18.0 + 3.0 + sin(phase * 5.0) * 3.0) * 2.0
+			var body_center: Vector2 = body.position + Vector2(0.5, 0.0) * body.scale
+			var aura_center: Vector2 = aura.position + Vector2(0.5, 0.0) * aura.scale
+			invariant = invariant and body.position.is_equal_approx(fixed_body_position) and body.scale.is_equal_approx(fixed_body_scale) and body_center.is_equal_approx(Vector2.ONE * side * 0.5) and aura_center.is_equal_approx(Vector2.ONE * side * 0.5) and is_equal_approx(body.scale.x * 251.0, side) and is_equal_approx(aura.scale.x * 245.0, expected_diameter) and zone.position.is_equal_approx(Vector2(20.0, 30.0)) and zone.size.is_equal_approx(Vector2.ONE * side)
+	zone.call("layout", Rect2(original_position, original_size))
+	zone.call("advance", original_pulse)
+	_check("160/180/190px logical boxes retain centered fixed medallion and original5rad/s0..6px aura breath at min/mid/max phases", invariant)
+func _pointer_painted_contract(pointer: Node, note_center: Vector2) -> bool:
+	if not (pointer is Control) or not pointer.is_visible_in_tree() \
+			or _effective_canvas_alpha(pointer as CanvasItem) <= 0.85 \
+			or not _exact_pointer_children(pointer):
+		return false
+	var arrow := pointer.get_node("PointerArrowPainted") as Sprite2D
+	var beam := pointer.get_node("PointerBeamPainted") as Sprite2D
+	var ring := pointer.get_node("PointerRingPainted") as Sprite2D
+	var zone: Vector2 = pointer.get("zone_center")
+	var direction: Vector2 = note_center - zone
+	direction = Vector2.RIGHT if direction.length_squared() <= 0.001 else direction.normalized()
+	var start: Vector2 = zone + direction * 82.0
+	var end: Vector2 = note_center - direction * 38.0
+	var length: float = start.distance_to(end)
+	var radius: float = 34.0 + sin(float(pointer.get("pulse")) * 6.0) * 5.0
+	var arrow_tip: Vector2 = arrow.get_global_transform_with_canvas() * (arrow.offset + Vector2(106.5, 62.5))
+	var beam_start: Vector2 = beam.get_global_transform_with_canvas() * Vector2(-64.0, 0.0)
+	var beam_end: Vector2 = beam.get_global_transform_with_canvas() * Vector2(64.0, 0.0)
+	return arrow.texture.resource_path == "res://assets/melody/guide_arrow_head_painted.png" \
+		and beam.texture.resource_path == "res://assets/melody/guide_beam_painted.png" \
+		and ring.texture.resource_path == "res://assets/melody/guide_double_ring_painted.png" \
+		and arrow_tip.distance_to(note_center) <= 0.01 \
+		and arrow.scale.is_equal_approx(Vector2(46.0 / 108.0, 34.0 / 118.0)) \
+		and absf(angle_difference(arrow.rotation, direction.angle())) < 0.001 \
+		and beam_start.distance_to(start) < 0.01 and beam_end.distance_to(end) < 0.01 \
+		and is_equal_approx(beam.scale.y * 36.0, 9.0) \
+		and beam.visible == (length > 14.0) \
+		and ring.position.distance_to(note_center) < 0.01 \
+		and ring.scale.is_equal_approx(Vector2.ONE * ((radius + 8.0) * 2.0 + 5.0) / 253.0) \
+		and arrow.visible and ring.visible
+
+func _pointer_source_is_painted_only() -> bool:
+	var source := FileAccess.get_file_as_string("res://scripts/games/melody.gd")
+	var a: int = source.find("class PointerCanvas extends Control:")
+	var b: int = source.find("class RainbowNoteCanvas extends Control:", a + 1)
+	if a < 0 or b <= a:
+		return false
+	var block: String = source.substr(a, b - a)
+	return block.count('"PointerArrowPainted"') == 1 \
+		and block.count('"PointerBeamPainted"') == 1 \
+		and block.count('"PointerRingPainted"') == 1 \
+		and not block.contains("func _draw") and not block.contains("draw_") \
+		and not block.contains("Polygon2D") and not block.contains("Line2D")
+
+func _exact_pointer_children(pointer: Node) -> bool:
+	var names: Array[String] = ["PointerArrowPainted", "PointerBeamPainted", "PointerRingPainted"]
+	if not _exact_direct_child_names(pointer, names) or _count_geometry_descendants(pointer) != 0:
+		return false
+	var expected_hashes: Array[String] = ["102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87", "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0", "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878"]
+	for index in range(names.size()):
+		var sprite := pointer.get_child(index) as Sprite2D
+		if sprite == null or sprite.texture == null or sprite.material != null \
+				or sprite.self_modulate.a <= 0.85 or sprite.modulate != Color.WHITE or sprite.self_modulate.r != 1.0 \
+				or sprite.self_modulate.g != 1.0 or sprite.self_modulate.b != 1.0:
+			return false
+		var path: String = sprite.texture.resource_path
+		if FileAccess.get_sha256(path) != expected_hashes[index]:
+			return false
+		var image := Image.load_from_file(path)
+		var settings: String = FileAccess.get_file_as_string(path + ".import")
+		if image == null or image.detect_alpha() != Image.ALPHA_BLEND \
+				or not settings.contains("compress/mode=0") \
+				or not settings.contains("mipmaps/generate=true"):
+			return false
+		if index == 2 and (image.get_pixel(128, 128).a != 0.0 or image.get_pixel(0, 0).a != 0.0):
+			return false
+	return true
+
+
+func _check_painted_pointer_motion_matrix(surface: Node2D) -> void:
+	var pointer: Node = _stage_node(surface, "VisualPointer")
+	var saved_target: Vector2 = pointer.get("target")
+	var saved_zone: Vector2 = pointer.get("zone_center")
+	var saved_id: int = int(pointer.get("target_id"))
+	var saved_pulse: float = float(pointer.get("pulse"))
+	var progress: int = melody.progress_count()
+	var zone := Vector2(700.0, 350.0)
+	for distance: float in [-500.0, -134.0, -120.0, -106.0, 0.0, 0.01, 80.0, 106.0, 120.0, 134.0, 500.0]:
+		for elapsed: float in [0.0, PI / 12.0, PI / 4.0]:
+			var point: Vector2 = zone + Vector2(distance, 0.0)
+			pointer.call("point_at", point, zone, saved_id, elapsed)
+			_check("painted guide retains endpoint/width/direction/suppression/pulse d=%s t=%s" % [distance, elapsed],
+				_pointer_painted_contract(pointer, point))
+	pointer.call("point_at", saved_target, saved_zone, -1, saved_pulse)
+	_check("inactive guide hides all three pictures", not (pointer.get_child(0) as Sprite2D).visible
+		and not (pointer.get_child(1) as Sprite2D).visible
+		and not (pointer.get_child(2) as Sprite2D).visible)
+	pointer.call("point_at", saved_target, saved_zone, saved_id, saved_pulse)
+	_check("guide matrix restores exact live target and cannot change note/progress",
+		(pointer.get("target") as Vector2).is_equal_approx(saved_target)
+		and int(pointer.get("target_id")) == saved_id and melody.progress_count() == progress
+		and melody.active_note_id() == saved_id)
+func _combined_proscenium_child_names(node: Node) -> bool:
+	if not (node is Control) or _count_geometry_descendants(node) != 0:
+		return false
+	var frame := node as Control
+	var names: Array[String] = [
+		"LeftPaintedCurtain", "RightPaintedCurtain", "PaintedCrownHeader",
+		"PaintedStageApronBody", "PaintedStageApronRainbow",
+	]
+	var count: int = maxi(12, int(frame.size.x / 66.0))
+	for index in range(count):
+		names.append("UpperPaintedBulb%02d" % index)
+		names.append("LowerPaintedBulb%02d" % index)
+	return _exact_direct_child_names(frame, names)
+
+
+func _combined_proscenium_contract(node: Node) -> bool:
+	return node is Control and _painted_proscenium_structure(node) \
+		and _proscenium_structure_exact(node) and _painted_apron_contract(node) \
+		and _painted_bulbs_contract(node as Control)
+
+
+func _check_mobile_derivation_sources() -> void:
+	var exact: bool = MOBILE_DERIVATIVES.size() == 40
+	var licensed: bool = true
+	var licenses: String = FileAccess.get_file_as_string("res://ASSET_LICENSES.md")
+	for record: Dictionary in MOBILE_DERIVATIVES:
+		exact = exact and FileAccess.get_sha256(String(record["source"])) == String(record["source_sha"]) \
+			and FileAccess.get_sha256(String(record["target"])) == String(record["target_sha"])
+		licensed = licensed and licenses.contains(String(record["target"]).trim_prefix("res://"))
+	_check("all40 runtime derivatives bind exact hashes and preserve every immutable source PNG", exact)
+	_check("all40 deterministic runtime exports retain individual source and license rows", licensed)
+
+
+func _painted_alpha_union_metrics(node: Node, viewport_rect: Rect2) -> Dictionary:
+	# Original200x90 grid, decoded alpha0.5 threshold and caller floor0.28.
+	# Empty functional controls never supply coverage or bounds.
+	var cards: Array[Dictionary] = []
+	var images: Dictionary = {}
+	_collect_painted_metric_cards(node, cards, images)
+	var columns: int = 200
+	var rows: int = 90
+	var cell_size := viewport_rect.size / Vector2(columns, rows)
+	var covered: int = 0
+	var union_rect := Rect2()
+	for row in range(rows):
+		for column in range(columns):
+			var point := viewport_rect.position + Vector2(column + 0.5, row + 0.5) * cell_size
+			for card: Dictionary in cards:
+				if _painted_metric_card_covers(card, point):
+					var cell := Rect2(point - cell_size * 0.5, cell_size)
+					union_rect = cell if covered == 0 else union_rect.merge(cell)
+					covered += 1
+					break
+	return {"rect": union_rect.intersection(viewport_rect),
+		"coverage": float(covered) / float(columns * rows)}
+
+
+func _collect_painted_metric_cards(node: Node, cards: Array[Dictionary],
+		images: Dictionary) -> void:
+	if node == null or (node is CanvasItem and not (node as CanvasItem).is_visible_in_tree()):
+		return
+	var texture: Texture2D = _node_texture(node)
+	if texture != null and node is CanvasItem and _effective_canvas_alpha(node as CanvasItem) >= 0.5:
+		var key: String = texture.resource_path
+		if not images.has(key):
+			var image: Image = texture.get_image()
+			if image != null and image.is_compressed():
+				image = image.duplicate()
+				if image.decompress() != OK:
+					image = null
+			images[key] = image
+		var image: Image = images[key]
+		if image != null:
+			var draw_rect := Rect2()
+			if node is Sprite2D:
+				draw_rect = (node as Sprite2D).get_rect()
+			elif node is Control:
+				draw_rect = Rect2(Vector2.ZERO, (node as Control).size)
+				if node is TextureRect and (node as TextureRect).stretch_mode == TextureRect.STRETCH_KEEP_ASPECT_CENTERED:
+					var factor: float = minf(draw_rect.size.x / image.get_width(), draw_rect.size.y / image.get_height())
+					var extent := Vector2(image.get_size()) * factor
+					draw_rect = Rect2((draw_rect.size - extent) * 0.5, extent)
+			var clips: Array[Dictionary] = []
+			var ancestor: Node = node.get_parent()
+			while ancestor != null:
+				if ancestor is Control and (ancestor as Control).clip_contents:
+					var control := ancestor as Control
+					clips.append({"inverse": control.get_global_transform_with_canvas().affine_inverse(),
+						"rect": Rect2(Vector2.ZERO, control.size)})
+				ancestor = ancestor.get_parent()
+			var margins := Vector4.ZERO
+			if node is NinePatchRect:
+				var patch := node as NinePatchRect
+				margins = Vector4(patch.patch_margin_left, patch.patch_margin_top,
+					patch.patch_margin_right, patch.patch_margin_bottom)
+			cards.append({"image": image, "inverse": (node as CanvasItem).get_global_transform_with_canvas().affine_inverse(),
+				"rect": draw_rect, "clips": clips, "nine_patch": node is NinePatchRect,
+				"margins": margins, "alpha": _effective_canvas_alpha(node as CanvasItem)})
+	for child_value: Variant in node.get_children():
+		_collect_painted_metric_cards(child_value as Node, cards, images)
+
+
+func _painted_metric_card_covers(card: Dictionary, point: Vector2) -> bool:
+	for clip: Dictionary in card["clips"]:
+		var clip_inverse: Transform2D = clip["inverse"]
+		var clip_rect: Rect2 = clip["rect"]
+		if not clip_rect.has_point(clip_inverse * point):
+			return false
+	var inverse: Transform2D = card["inverse"]
+	var draw_rect: Rect2 = card["rect"]
+	var local: Vector2 = inverse * point - draw_rect.position
+	if not Rect2(Vector2.ZERO, draw_rect.size).has_point(local):
+		return false
+	var image: Image = card["image"]
+	var source := Vector2(local.x * image.get_width() / draw_rect.size.x,
+		local.y * image.get_height() / draw_rect.size.y)
+	if bool(card["nine_patch"]):
+		var margins: Vector4 = card["margins"]
+		source = Vector2(
+			_nine_patch_axis(local.x, draw_rect.size.x, image.get_width(), margins.x, margins.z),
+			_nine_patch_axis(local.y, draw_rect.size.y, image.get_height(), margins.y, margins.w))
+	return image.get_pixel(clampi(int(source.x), 0, image.get_width() - 1),
+		clampi(int(source.y), 0, image.get_height() - 1)).a * float(card["alpha"]) >= 0.5
+
+

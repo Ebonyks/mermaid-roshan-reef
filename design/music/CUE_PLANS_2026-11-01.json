@@ -1,0 +1,1245 @@
+{
+  "schema": "roshan_profiled_cue_plans/1",
+  "status": "PRIVATE_TEST_CONSTRUCTION_AUTHORIZED_FINAL_OWNER_REVIEW_PENDING",
+  "producer_identity": "Bonobo / Simon Green",
+  "cues": [
+    {
+      "id": "opera_house",
+      "title": "The Curtain Opens",
+      "key": "D major",
+      "bpm": 112,
+      "bpm_unit": "quarter_note",
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 96,
+      "tail_seconds": 6,
+      "duration_seconds": 211.714,
+      "steel_pan_parts": 1,
+      "owner_review": {
+        "status": "PENDING",
+        "evidence": ""
+      },
+      "hook": {
+        "source": "assets_src/audio/music/arranged_main_themes_20261101/approved_melodies/opera_house.json",
+        "recognition": "A4–B4–D5, then B4–A4; the following F#4–A4–B4–A4 answer",
+        "preserve": "Current principal hook pitches and recognizable refrain; no borrowed reference melody."
+      },
+      "performers": [
+        {
+          "profile_id": "pitched_percussion",
+          "revision": 1,
+          "sha256": "f40e736a550ba695b9bac264b8fc3710c4f0710539f0b74f5c184a27264adecf",
+          "audition_ids": [
+            "opera_house_pan"
+          ],
+          "sources": [
+            {
+              "audition_id": "opera_house_pan",
+              "program": "Steel Pan Main",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Metal & Gong/Steel Pan/Steel Pan Main.uvip",
+              "active_articulation": null
+            }
+          ],
+          "purpose": "One principal steel-pan melody, with complete statements and deliberate rests.",
+          "reference_principle": "Andy Narell: lyrical pan/band interaction; Greenidge and Provost: phrase-shaped roll studies.",
+          "performance": "Retain the current C1 hook. Shape single-strike attacks and releases; reserve alternating-hand double-time rolls for selected sustained cadences, not every long note. Vary stroke emphasis and check repeated-sample artifacts.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Keep the source maximizer bypassed and generous transient headroom. Review upper-mid pan edge against the actual mix before further cuts."
+        },
+        {
+          "profile_id": "strings_b",
+          "revision": 1,
+          "sha256": "8bfc1bce5f621ca25acf9f6b56dcdef8763f4bdbca2e960b4db8986a83a5e106",
+          "audition_ids": [
+            "castle_guitar_comp"
+          ],
+          "sources": [
+            {
+              "audition_id": "castle_guitar_comp",
+              "program": "Tchad Nylon Guitar",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Fretted/African Guitars/Tchad Nylon Guitar.uvip",
+              "active_articulation": "Tchad Nylon Guitar C#1"
+            }
+          ],
+          "purpose": "Warm offbeat chords and a written answer; foreground dialogue only when pan rests.",
+          "reference_principle": "Nocentelli: economical interlocking cell; Ranglin: warm complementary chord/lead vocabulary.",
+          "performance": "Use playable small voicings and believable staggered strokes. Leave the pan phrase ending open; change comping density between verse and refrain.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "keys",
+          "revision": 1,
+          "sha256": "fa42d342ad275c9fd181bbe9590bc3d7a0c8eb6e9f9294a256f6adc8cc0601db",
+          "audition_ids": [
+            "keysuite_electric_w200_basic_dry"
+          ],
+          "sources": [
+            {
+              "audition_id": "keysuite_electric_w200_basic_dry",
+              "program": "W 200 Basic Dry",
+              "program_path": "$Key Suite Electric-002.ufs/Presets/2 Reeds/W 200/W 200 Basic Dry.uvip",
+              "active_articulation": null
+            }
+          ],
+          "purpose": "Harmonic movement and a complete bridge phrase derived from the established hook.",
+          "reference_principle": "Monty Alexander: responsive trio conversation; Bonobo: a recognizable phrase survives changes in layers.",
+          "performance": "Use mid-register voicings, fewer sustained tones under the pan, and a written bridge statement rather than ongoing fills.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared. Produced layers are declared overdubs; one physical keyboard/guitar never comps and plays its lead simultaneously.",
+          "tone_review": "The EP audition loses about 4.84 dB RMS on mono fold-down. Essential harmony must survive mono; adjust spatial processing or choose a safer voicing/source after comparison."
+        },
+        {
+          "profile_id": "bass",
+          "revision": 1,
+          "sha256": "6606c86a014c4d97ac2be64204b466a20a8e67d2d3892e3469f2425efa3ecb7d",
+          "audition_ids": [
+            "sky_lagoon_bass"
+          ],
+          "sources": [
+            {
+              "audition_id": "sky_lagoon_bass",
+              "program": "Cuba Bass",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Fretted/Electric Bass/Cuba Bass.uvip",
+              "active_articulation": "Cuba Bass C0"
+            }
+          ],
+          "purpose": "A memorable two-bar bass relationship supporting the chorus and percussion.",
+          "reference_principle": "George Porter Jr.: economical bass/guitar/drum interaction.",
+          "performance": "Control attack and note endings, anchor the harmonic arrivals, and use one explicit turnaround instead of a fill every bar.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "afro_caribbean_percussion",
+          "revision": 1,
+          "sha256": "09b6ead457ed5b65c77bb84623994030b0739556f22ad2def99b365306e2ca40",
+          "audition_ids": [
+            "opera_house_congas",
+            "opera_house_maracas"
+          ],
+          "sources": [
+            {
+              "audition_id": "opera_house_congas",
+              "program": "Congas",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+              "active_articulation": "Congas F#0"
+            },
+            {
+              "audition_id": "opera_house_maracas",
+              "program": "Congas",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+              "active_articulation": "Maracas A#0"
+            }
+          ],
+          "purpose": "Congas lead the living rhythm; maraca is an alternative texture.",
+          "reference_principle": "Mongo Santamaria: conga articulation and ensemble conversation.",
+          "performance": "Distinguish open, closed, slap and quiet connecting strokes where supported. Write one identifiable cycle and meaningful phrase variants.",
+          "physical_model": "Congas and maracas alternate in the live model; any simultaneous shaker pass is a declared studio overdub.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "producer",
+          "revision": 2,
+          "sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "audition_ids": [
+            "bba2_ace_t1",
+            "percussion_factory_mambo_night_100"
+          ],
+          "sources": [
+            {
+              "audition_id": "bba2_ace_t1",
+              "program": "BeatBox Anthology 2",
+              "program_path": "$BeatBox Anthology 2.ufs/Presets/BeatBox Anthology 2.uvip",
+              "active_articulation": null
+            },
+            {
+              "audition_id": "percussion_factory_mambo_night_100",
+              "program": "Mambo Night 100BPM",
+              "program_path": "$Percussion Factory.ufs/Presets/00 World Tour/Caribbean/Mambo Night 100BPM.uvip",
+              "active_articulation": null
+            }
+          ],
+          "purpose": "A compact warm electronic anchor and controlled transitions, supporting the hand drums.",
+          "reference_principle": "Bonobo: deliberate bass/percussion relationships and entries/withdrawals; Cirrus is a repeated-figure study.",
+          "performance": "Use selected rounded kick/rim/hat events and change density by section. No continuous eight-layer beat; no automatic hiss or bit reduction.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared. Produced layers are declared overdubs; one physical keyboard/guitar never comps and plays its lead simultaneously.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "aux_percussion",
+          "revision": 1,
+          "sha256": "230c15916457499ecb3449e1685d008ce792fcb42fd6532e74352e96c4244a3a",
+          "audition_ids": [
+            "opera_house_timbales",
+            "opera_house_cowbell"
+          ],
+          "sources": [
+            {
+              "audition_id": "opera_house_timbales",
+              "program": "Congas",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+              "active_articulation": "Timbales D1"
+            },
+            {
+              "audition_id": "opera_house_cowbell",
+              "program": "Congas",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Latin Percussions/Congas.uvip",
+              "active_articulation": "Cowbells G0"
+            }
+          ],
+          "purpose": "A separate player supplies short timbales/bell punctuation in chosen refrains.",
+          "reference_principle": "Willie Bobo: a distinct timbales role alongside Mongo’s congas.",
+          "performance": "Reserve bell time and fills for named passages; leave space at the principal melody entrance.",
+          "physical_model": "Separate guest from conga player; timbales and bell share a plausible two-stick setup.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        }
+      ],
+      "sections": [
+        {
+          "name": "Curtain hook",
+          "start_bar": 1,
+          "bars": 4,
+          "start_seconds": 0.0,
+          "foreground": "pitched_percussion",
+          "groove_leader": "bass",
+          "roles": {
+            "pitched_percussion": "lead",
+            "strings_b": "harmony",
+            "keys": "rest",
+            "bass": "bass",
+            "afro_caribbean_percussion": "rest",
+            "producer": "rest",
+            "aux_percussion": "rest"
+          },
+          "development": "State a short recognizable pan opening with bass; do not start with a long percussion intro.",
+          "handoff": "Pan completes its pickup; congas enter at the verse."
+        },
+        {
+          "name": "Verse 1",
+          "start_bar": 5,
+          "bars": 16,
+          "start_seconds": 8.571,
+          "foreground": "pitched_percussion",
+          "groove_leader": "afro_caribbean_percussion",
+          "roles": {
+            "pitched_percussion": "lead",
+            "strings_b": "groove",
+            "keys": "rest",
+            "bass": "bass",
+            "afro_caribbean_percussion": "groove",
+            "producer": "texture",
+            "aux_percussion": "rest"
+          },
+          "development": "Two written eight-bar sentences: plain theme, then a guitar/conga answer. Keys and guest rest.",
+          "handoff": "Leave the final phrase ending open for the pre-chorus."
+        },
+        {
+          "name": "Pre-chorus 1",
+          "start_bar": 21,
+          "bars": 4,
+          "start_seconds": 42.857,
+          "foreground": "keys",
+          "groove_leader": "bass",
+          "roles": {
+            "pitched_percussion": "response",
+            "strings_b": "harmony",
+            "keys": "lead",
+            "bass": "bass",
+            "afro_caribbean_percussion": "rest",
+            "producer": "texture",
+            "aux_percussion": "rest"
+          },
+          "development": "Harmonic lift and reduced percussion make the chorus arrival clear.",
+          "handoff": "Keys release before the pan refrain; no overlapping fill."
+        },
+        {
+          "name": "Chorus 1",
+          "start_bar": 25,
+          "bars": 8,
+          "start_seconds": 51.429,
+          "foreground": "pitched_percussion",
+          "groove_leader": "afro_caribbean_percussion",
+          "roles": {
+            "pitched_percussion": "lead",
+            "strings_b": "harmony",
+            "keys": "harmony",
+            "bass": "bass",
+            "afro_caribbean_percussion": "groove",
+            "producer": "groove",
+            "aux_percussion": "rest"
+          },
+          "development": "Full hook, wider chord body and a clear bass answer; preserve a single foreground.",
+          "handoff": "Reduce the producer layer and keys before Verse 2."
+        },
+        {
+          "name": "Verse 2",
+          "start_bar": 33,
+          "bars": 16,
+          "start_seconds": 68.571,
+          "foreground": "pitched_percussion",
+          "groove_leader": "bass",
+          "roles": {
+            "pitched_percussion": "lead",
+            "strings_b": "response",
+            "keys": "harmony",
+            "bass": "bass",
+            "afro_caribbean_percussion": "response",
+            "producer": "rest",
+            "aux_percussion": "rest"
+          },
+          "development": "Change bass movement and exchange the answer between guitar and keys. The electronic kit rests.",
+          "handoff": "A short conga punctuation leads to the lift."
+        },
+        {
+          "name": "Pre-chorus 2",
+          "start_bar": 49,
+          "bars": 4,
+          "start_seconds": 102.857,
+          "foreground": "keys",
+          "groove_leader": "bass",
+          "roles": {
+            "pitched_percussion": "response",
+            "strings_b": "rest",
+            "keys": "lead",
+            "bass": "bass",
+            "afro_caribbean_percussion": "rest",
+            "producer": "texture",
+            "aux_percussion": "rest"
+          },
+          "development": "Repeat the recognizable lift with a different register and more space.",
+          "handoff": "Pan returns clearly on the next downbeat."
+        },
+        {
+          "name": "Chorus 2",
+          "start_bar": 53,
+          "bars": 8,
+          "start_seconds": 111.429,
+          "foreground": "pitched_percussion",
+          "groove_leader": "afro_caribbean_percussion",
+          "roles": {
+            "pitched_percussion": "lead",
+            "strings_b": "harmony",
+            "keys": "harmony",
+            "bass": "bass",
+            "afro_caribbean_percussion": "groove",
+            "producer": "groove",
+            "aux_percussion": "response"
+          },
+          "development": "Guest timbales supplies one written response; remove another subdivision so the song does not simply become louder.",
+          "handoff": "Pan finishes and rests for the bridge."
+        },
+        {
+          "name": "Keys bridge",
+          "start_bar": 61,
+          "bars": 8,
+          "start_seconds": 128.571,
+          "foreground": "keys",
+          "groove_leader": "bass",
+          "roles": {
+            "pitched_percussion": "rest",
+            "strings_b": "harmony",
+            "keys": "lead",
+            "bass": "bass",
+            "afro_caribbean_percussion": "rest",
+            "producer": "texture",
+            "aux_percussion": "rest"
+          },
+          "development": "A complete quieter keyboard sentence uses established material. Hand drums and pan rest.",
+          "handoff": "Keys end the sentence; guitar receives the next foreground."
+        },
+        {
+          "name": "Band dialogue",
+          "start_bar": 69,
+          "bars": 8,
+          "start_seconds": 145.714,
+          "foreground": "strings_b",
+          "groove_leader": "afro_caribbean_percussion",
+          "roles": {
+            "pitched_percussion": "response",
+            "strings_b": "lead",
+            "keys": "rest",
+            "bass": "bass",
+            "afro_caribbean_percussion": "groove",
+            "producer": "rest",
+            "aux_percussion": "rest"
+          },
+          "development": "Guitar carries a written answer; pan returns only in its reserved reply. No open-ended solo.",
+          "handoff": "A clear cadence and short rest announce the final hook."
+        },
+        {
+          "name": "Final chorus",
+          "start_bar": 77,
+          "bars": 16,
+          "start_seconds": 162.857,
+          "foreground": "pitched_percussion",
+          "groove_leader": "afro_caribbean_percussion",
+          "roles": {
+            "pitched_percussion": "lead",
+            "strings_b": "harmony",
+            "keys": "response",
+            "bass": "bass",
+            "afro_caribbean_percussion": "groove",
+            "producer": "groove",
+            "aux_percussion": "response"
+          },
+          "development": "First eight bars state the hook plainly; the second eight develop response/register and a selected shaped pan roll.",
+          "handoff": "Thin the accompaniment before the final phrase resolves."
+        },
+        {
+          "name": "Curtain close",
+          "start_bar": 93,
+          "bars": 4,
+          "start_seconds": 197.143,
+          "foreground": "pitched_percussion",
+          "groove_leader": "bass",
+          "roles": {
+            "pitched_percussion": "lead",
+            "strings_b": "rest",
+            "keys": "harmony",
+            "bass": "bass",
+            "afro_caribbean_percussion": "rest",
+            "producer": "rest",
+            "aux_percussion": "rest"
+          },
+          "development": "A written cadence and natural ring end the song.",
+          "handoff": "All rhythmic layers stop intentionally; preserve the tail."
+        }
+      ],
+      "references": [
+        "Harry Belafonte — Jump in the Line: revue/call-and-response formal context",
+        "Bonobo — Cirrus: repeated-figure/entry-withdrawal study",
+        "DKC1 — DK Island Swing: contrasting episodes and a strong return",
+        "Andy Narell — Coffee Street: pan/band phrasing"
+      ],
+      "proposed_change": "Replace the meandering C1/verse/C2 chain with clearly named verse, preparation, chorus, bridge and written dialogue. One pan, more harmonic/rhythmic weight elsewhere.",
+      "review_before_construction_required": true,
+      "test_construction_authorization": {
+        "status": "AUTHORIZED_PRIVATE_REVIEW_TESTS",
+        "scope": "private_test_tracks_only",
+        "evidence": "design/music/expanded_palette_test_tracks_owner_direction_20261101.json"
+      }
+    },
+    {
+      "id": "sky_lagoon",
+      "title": "Cloudwater Crossing",
+      "key": "G major",
+      "bpm": 100,
+      "bpm_unit": "quarter_note",
+      "meter": [
+        4,
+        4
+      ],
+      "bars": 88,
+      "tail_seconds": 8,
+      "duration_seconds": 219.2,
+      "steel_pan_parts": 0,
+      "owner_review": {
+        "status": "PENDING",
+        "evidence": ""
+      },
+      "hook": {
+        "source": "assets_src/audio/music/arranged_main_themes_20261101/approved_melodies/sky_lagoon.json",
+        "recognition": "G4–D5–E5, then D5–B4; A4–B4–D5–G4 answer",
+        "preserve": "Current flute pitch contour and refrain; slower proposed tempo and clearer breaths require review."
+      },
+      "performers": [
+        {
+          "profile_id": "winds",
+          "revision": 1,
+          "sha256": "418aced2b9586f096bb570c6bc7689f46a2d791973fc98384090ac19be5a423c",
+          "audition_ids": [
+            "sky_lagoon_flute"
+          ],
+          "sources": [
+            {
+              "audition_id": "sky_lagoon_flute",
+              "program": "Djafe Flute Sustain",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Woodwinds/African Flutes/Djafe Flute Sustain.uvip",
+              "active_articulation": "Djafe Sustain F2"
+            }
+          ],
+          "purpose": "Principal flute hook and expressive, breathable statements.",
+          "reference_principle": "Herbie Mann: clear flute phrasing over groove; DKC Aquatic Ambience: spacious scene identity.",
+          "performance": "Retain G4–D5–E5–D5–B4 recognition, its answering phrase and breathing points. Shape dynamics rather than keeping every attack equally strong.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "keys",
+          "revision": 1,
+          "sha256": "fa42d342ad275c9fd181bbe9590bc3d7a0c8eb6e9f9294a256f6adc8cc0601db",
+          "audition_ids": [
+            "castle_ep"
+          ],
+          "sources": [
+            {
+              "audition_id": "castle_ep",
+              "program": "The Electric Piano Smokey",
+              "program_path": "$LoFi Dreams.ufs/Presets/Keys/The Electric Piano Smokey.uvip",
+              "active_articulation": null
+            }
+          ],
+          "purpose": "Sparse harmonic color; a feature only in the reduced bridge.",
+          "reference_principle": "Bonobo Break Apart: stages of harmonic/rhythmic development; Monty: purposeful voicing.",
+          "performance": "Hold fewer chord tones, change register at the bridge, and release before flute returns.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Keep essential harmonic information audible in mono; the tested EP spatial setting needs a mono comparison before full construction."
+        },
+        {
+          "profile_id": "bass",
+          "revision": 1,
+          "sha256": "6606c86a014c4d97ac2be64204b466a20a8e67d2d3892e3469f2425efa3ecb7d",
+          "audition_ids": [
+            "sky_lagoon_bass"
+          ],
+          "sources": [
+            {
+              "audition_id": "sky_lagoon_bass",
+              "program": "Cuba Bass",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Fretted/Electric Bass/Cuba Bass.uvip",
+              "active_articulation": "Cuba Bass C0"
+            }
+          ],
+          "purpose": "A buoyant recurring bass figure with space.",
+          "reference_principle": "George Porter: relationship rather than constant doubling.",
+          "performance": "Use short and sustained notes intentionally; let the lower tabla/udu resonance finish.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "kora",
+          "revision": 1,
+          "sha256": "301368241188f52454fb6a384106028d2e741388cd21f6cf95d474eb8178974d",
+          "audition_ids": [
+            "sky_lagoon_valiha"
+          ],
+          "sources": [
+            {
+              "audition_id": "sky_lagoon_valiha",
+              "program": "Kora 1",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Strings/Kora/Kora 1.uvip",
+              "active_articulation": "Valiha D1"
+            }
+          ],
+          "purpose": "Valiha ostinato and one complete plucked dialogue, using the guest’s separate related-string study lane.",
+          "reference_principle": "The plucked guest contributes counterpoint; Valiha requires its own technique study rather than being called a kora performance.",
+          "performance": "Use the verified Valiha D1 selector 3. Separate accompaniment and foreground registers; a two-hand plucked figure remains readable.",
+          "physical_model": "One selected Valiha performance. Kora is not simultaneously added; it remains a separate auditioned option.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "traditional_percussion",
+          "revision": 1,
+          "sha256": "8d4edf806452c94c30b6dc0feb3295374f8506930bb1a21e7ec82e4fbe26b956",
+          "audition_ids": [
+            "world_modern_tabla",
+            "sky_lagoon_udu"
+          ],
+          "sources": [
+            {
+              "audition_id": "world_modern_tabla",
+              "program": "Modern Tabla",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Tabla/Modern Tabla.uvip",
+              "active_articulation": "Modern Tabla D1"
+            },
+            {
+              "audition_id": "sky_lagoon_udu",
+              "program": "Udu Large",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/African Percussions/Udu Large.uvip",
+              "active_articulation": "Large Udu C1"
+            }
+          ],
+          "purpose": "Tabla leads selected rhythmic sections; udu provides a contrasting spacious bridge.",
+          "reference_principle": "Zakir Hussain: articulated ensemble dialogue; the udu needs its own touch, not a transferred tabla pattern.",
+          "performance": "Modern Tabla note48 is a low tone, note60 a G-labelled stroke and note55 a D-labelled stroke. Verify sounding tuning against G major. Write rests and phrase variants; udu replaces tabla in the bridge.",
+          "physical_model": "Tabla and udu alternate complete sections; any simultaneous extra take must be declared.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "producer",
+          "revision": 2,
+          "sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "audition_ids": [
+            "lofi_dreams_foley_kit",
+            "atmospherics_warmth"
+          ],
+          "sources": [
+            {
+              "audition_id": "lofi_dreams_foley_kit",
+              "program": "Foley Kit",
+              "program_path": "$LoFi Dreams.ufs/Presets/Drums/Foley Kit.uvip",
+              "active_articulation": null
+            },
+            {
+              "audition_id": "atmospherics_warmth",
+              "program": "Warmth",
+              "program_path": "$Atmospherics.ufs/Presets/Pure Pads/Warmth.uvip",
+              "active_articulation": null
+            }
+          ],
+          "purpose": "Light foley subdivision and original processed-band atmosphere.",
+          "reference_principle": "Bonobo Kiara/Break Apart: a hook with changing surroundings; acoustic subtraction remains meaningful.",
+          "performance": "Use the actual Foley kick/wood/shaker map selectively. Texture has a destination and exit; it does not mask the flute or become a permanent backbeat.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared. Produced layers are declared overdubs; one physical keyboard/guitar never comps and plays its lead simultaneously.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "strings_b",
+          "revision": 1,
+          "sha256": "8bfc1bce5f621ca25acf9f6b56dcdef8763f4bdbca2e960b4db8986a83a5e106",
+          "audition_ids": [
+            "castle_guitar_comp"
+          ],
+          "sources": [
+            {
+              "audition_id": "castle_guitar_comp",
+              "program": "Tchad Nylon Guitar",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Fretted/African Guitars/Tchad Nylon Guitar.uvip",
+              "active_articulation": "Tchad Nylon Guitar C#1"
+            }
+          ],
+          "purpose": "A small number of warm chord answers.",
+          "reference_principle": "Ranglin/Nocentelli contextual chord placement, adapted to the air/discovery scene.",
+          "performance": "Use fewer strokes than Opera; guitar rests for most of the airy passages.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        }
+      ],
+      "sections": [
+        {
+          "name": "Cloudwater opening",
+          "start_bar": 1,
+          "bars": 4,
+          "start_seconds": 0.0,
+          "foreground": "kora",
+          "groove_leader": "bass",
+          "roles": {
+            "winds": "response",
+            "keys": "rest",
+            "bass": "bass",
+            "kora": "lead",
+            "traditional_percussion": "rest",
+            "producer": "texture",
+            "strings_b": "rest"
+          },
+          "development": "Valiha opens a short landscape; flute gives a recognizable pickup before the first refrain.",
+          "handoff": "Valiha reduces to accompaniment when flute enters."
+        },
+        {
+          "name": "Refrain 1",
+          "start_bar": 5,
+          "bars": 8,
+          "start_seconds": 9.6,
+          "foreground": "winds",
+          "groove_leader": "traditional_percussion",
+          "roles": {
+            "winds": "lead",
+            "keys": "rest",
+            "bass": "bass",
+            "kora": "harmony",
+            "traditional_percussion": "groove",
+            "producer": "texture",
+            "strings_b": "rest"
+          },
+          "development": "State the approved hook clearly with a small tabla conversation and no full kit.",
+          "handoff": "Flute breath ends before the verse response."
+        },
+        {
+          "name": "Verse 1",
+          "start_bar": 13,
+          "bars": 8,
+          "start_seconds": 28.8,
+          "foreground": "winds",
+          "groove_leader": "bass",
+          "roles": {
+            "winds": "lead",
+            "keys": "harmony",
+            "bass": "bass",
+            "kora": "rest",
+            "traditional_percussion": "rest",
+            "producer": "rest",
+            "strings_b": "response"
+          },
+          "development": "Reduce to flute, bass and selected warm answers. The tabla and foley layers rest.",
+          "handoff": "Keys prepare the next four-bar lift."
+        },
+        {
+          "name": "Pre-refrain 1",
+          "start_bar": 21,
+          "bars": 4,
+          "start_seconds": 48.0,
+          "foreground": "keys",
+          "groove_leader": "bass",
+          "roles": {
+            "winds": "response",
+            "keys": "lead",
+            "bass": "bass",
+            "kora": "rest",
+            "traditional_percussion": "rest",
+            "producer": "texture",
+            "strings_b": "rest"
+          },
+          "development": "Use harmonic/register lift rather than a loud riser.",
+          "handoff": "Flute receives the downbeat; keys move behind it."
+        },
+        {
+          "name": "Refrain 2",
+          "start_bar": 25,
+          "bars": 8,
+          "start_seconds": 57.6,
+          "foreground": "winds",
+          "groove_leader": "traditional_percussion",
+          "roles": {
+            "winds": "lead",
+            "keys": "harmony",
+            "bass": "bass",
+            "kora": "harmony",
+            "traditional_percussion": "groove",
+            "producer": "texture",
+            "strings_b": "rest"
+          },
+          "development": "Return the hook with one added harmonic layer and one fewer plucked subdivision.",
+          "handoff": "Flute completes the phrase and rests."
+        },
+        {
+          "name": "Plucked dialogue",
+          "start_bar": 33,
+          "bars": 8,
+          "start_seconds": 76.8,
+          "foreground": "kora",
+          "groove_leader": "traditional_percussion",
+          "roles": {
+            "winds": "rest",
+            "keys": "rest",
+            "bass": "bass",
+            "kora": "lead",
+            "traditional_percussion": "response",
+            "producer": "rest",
+            "strings_b": "rest"
+          },
+          "development": "A complete Valiha answer develops existing material; no aimless new tune.",
+          "handoff": "The plucked sentence ends before the next flute entrance."
+        },
+        {
+          "name": "Verse 2",
+          "start_bar": 41,
+          "bars": 8,
+          "start_seconds": 96.0,
+          "foreground": "winds",
+          "groove_leader": "bass",
+          "roles": {
+            "winds": "lead",
+            "keys": "harmony",
+            "bass": "bass",
+            "kora": "rest",
+            "traditional_percussion": "rest",
+            "producer": "texture",
+            "strings_b": "response"
+          },
+          "development": "A second quiet verse changes register and bass relationship, preserving the hook family.",
+          "handoff": "A deliberate breath prepares the lift."
+        },
+        {
+          "name": "Pre-refrain 2",
+          "start_bar": 49,
+          "bars": 4,
+          "start_seconds": 115.2,
+          "foreground": "keys",
+          "groove_leader": "bass",
+          "roles": {
+            "winds": "response",
+            "keys": "lead",
+            "bass": "bass",
+            "kora": "rest",
+            "traditional_percussion": "rest",
+            "producer": "texture",
+            "strings_b": "rest"
+          },
+          "development": "Recognizable harmonic preparation with a sparse electronic answer.",
+          "handoff": "Remove the electronic answer before the hook."
+        },
+        {
+          "name": "Refrain 3",
+          "start_bar": 53,
+          "bars": 8,
+          "start_seconds": 124.8,
+          "foreground": "winds",
+          "groove_leader": "traditional_percussion",
+          "roles": {
+            "winds": "lead",
+            "keys": "rest",
+            "bass": "bass",
+            "kora": "harmony",
+            "traditional_percussion": "groove",
+            "producer": "groove",
+            "strings_b": "rest"
+          },
+          "development": "A confident return; the foley pulse adds motion without an acoustic kit.",
+          "handoff": "Percussion thins into the udu bridge."
+        },
+        {
+          "name": "Udu bridge",
+          "start_bar": 61,
+          "bars": 8,
+          "start_seconds": 144.0,
+          "foreground": "keys",
+          "groove_leader": "traditional_percussion",
+          "roles": {
+            "winds": "rest",
+            "keys": "lead",
+            "bass": "bass",
+            "kora": "rest",
+            "traditional_percussion": "groove",
+            "producer": "texture",
+            "strings_b": "rest"
+          },
+          "development": "Switch from tabla to udu; exposed harmony and atmosphere create real contrast.",
+          "handoff": "Flute resumes after a complete keyboard phrase and brief space."
+        },
+        {
+          "name": "Final refrain",
+          "start_bar": 69,
+          "bars": 16,
+          "start_seconds": 163.2,
+          "foreground": "winds",
+          "groove_leader": "traditional_percussion",
+          "roles": {
+            "winds": "lead",
+            "keys": "harmony",
+            "bass": "bass",
+            "kora": "response",
+            "traditional_percussion": "groove",
+            "producer": "texture",
+            "strings_b": "rest"
+          },
+          "development": "First statement remains plain; second uses a changed plucked answer and register. Keep breaths and foreground intact.",
+          "handoff": "Remove rhythmic layers in a written order."
+        },
+        {
+          "name": "Sky settle",
+          "start_bar": 85,
+          "bars": 4,
+          "start_seconds": 201.6,
+          "foreground": "winds",
+          "groove_leader": "bass",
+          "roles": {
+            "winds": "lead",
+            "keys": "harmony",
+            "bass": "bass",
+            "kora": "response",
+            "traditional_percussion": "rest",
+            "producer": "rest",
+            "strings_b": "rest"
+          },
+          "development": "A quiet written cadence preserves air and natural decay.",
+          "handoff": "Finish with a clear endpoint and tail."
+        }
+      ],
+      "references": [
+        "Miriam Makeba — Pata Pata: concise recognizable refrain/contrasting episodes",
+        "Bonobo — Kiara / Break Apart: foreground identity and staged accompaniment",
+        "DKC1 — Aquatic Ambience / Treetop Rock: spacious setting with forward motion",
+        "Zakir Hussain — Making Music: specific ensemble/stroke dialogue"
+      ],
+      "proposed_change": "Slow the current 112 BPM surface to 100; give tabla/udu different whole-section roles and replace constant kit/guitar coverage with selected entrances. No steel pan.",
+      "review_before_construction_required": true,
+      "test_construction_authorization": {
+        "status": "AUTHORIZED_PRIVATE_REVIEW_TESTS",
+        "scope": "private_test_tracks_only",
+        "evidence": "design/music/expanded_palette_test_tracks_owner_direction_20261101.json"
+      }
+    },
+    {
+      "id": "castle",
+      "title": "Welcome Home",
+      "key": "B-flat major",
+      "bpm": 84,
+      "bpm_unit": "quarter_note",
+      "meter": [
+        3,
+        4
+      ],
+      "bars": 96,
+      "tail_seconds": 6,
+      "duration_seconds": 211.714,
+      "steel_pan_parts": 0,
+      "owner_review": {
+        "status": "PENDING",
+        "evidence": ""
+      },
+      "hook": {
+        "source": "assets_src/audio/music/arranged_main_themes_20261101/approved_melodies/castle.json",
+        "recognition": "Original approved 3/4 theme: D4–C4–Bb3, then F4 into G4; descending home gesture and complete eight-bar answer.",
+        "preserve": "Return to the original owner-approved 3/4 A/B melody; the later 4/4 warm-ensemble study remains historical."
+      },
+      "performers": [
+        {
+          "profile_id": "strings_a",
+          "revision": 1,
+          "sha256": "4abe1de6b19014b9def73373e026c89278135c3cb04bdef01c4539cb8366ce4f",
+          "audition_ids": [
+            "castle_sunbird"
+          ],
+          "sources": [
+            {
+              "audition_id": "castle_sunbird",
+              "program": "Sunbird",
+              "program_path": "$Sunbird.ufs/Presets/Sunbird.M5p",
+              "active_articulation": null
+            }
+          ],
+          "purpose": "Principal warm steel-string guitar home theme.",
+          "reference_principle": "Ranglin: melodic economy and warm phrasing; Bonobo Black Sands: a three-beat landscape and growing return.",
+          "performance": "Keep the current theme’s pitch contour; propose a 3/4 phrasing adaptation for owner review. Use playable positions, soft attacks and intentional releases.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Sunbird is steel-string. Retain warmth through touch and the tested corrective EQ, not by relabelling it nylon or removing all articulation."
+        },
+        {
+          "profile_id": "strings_b",
+          "revision": 1,
+          "sha256": "8bfc1bce5f621ca25acf9f6b56dcdef8763f4bdbca2e960b4db8986a83a5e106",
+          "audition_ids": [
+            "castle_guitar_comp"
+          ],
+          "sources": [
+            {
+              "audition_id": "castle_guitar_comp",
+              "program": "Tchad Nylon Guitar",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Fretted/African Guitars/Tchad Nylon Guitar.uvip",
+              "active_articulation": "Tchad Nylon Guitar C#1"
+            }
+          ],
+          "purpose": "Selected nylon chord support and an answering phrase.",
+          "reference_principle": "Nocentelli/Ranglin: complementary rhythmic voicings rather than constant full strumming.",
+          "performance": "Use small chord shapes; withdraw when piano supplies full harmony. No continuous two-guitar blanket.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "keys",
+          "revision": 1,
+          "sha256": "fa42d342ad275c9fd181bbe9590bc3d7a0c8eb6e9f9294a256f6adc8cc0601db",
+          "audition_ids": [
+            "keysuite_acoustic_tdr_mellow_dark"
+          ],
+          "sources": [
+            {
+              "audition_id": "keysuite_acoustic_tdr_mellow_dark",
+              "program": "TDR Mellow Dark",
+              "program_path": "$Key Suite Acoustic.ufs/Presets/2 Upright Pianos/Tender Upright/TDR Mellow Dark.uvip",
+              "active_articulation": null
+            }
+          ],
+          "purpose": "Key Suite Acoustic TDR Mellow Dark supplies warm chord body, a distinct piano bridge and an answering phrase.",
+          "reference_principle": "Monty: lyrical/harmonic contribution; Bonobo: acoustic development and meaningful subtraction.",
+          "performance": "Use the tested piano voice in a restrained middle register; let releases and a complete phrase distinguish the bridge.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared. Produced layers are declared overdubs; one physical keyboard/guitar never comps and plays its lead simultaneously.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "bass",
+          "revision": 1,
+          "sha256": "6606c86a014c4d97ac2be64204b466a20a8e67d2d3892e3469f2425efa3ecb7d",
+          "audition_ids": [
+            "castle_bass"
+          ],
+          "sources": [
+            {
+              "audition_id": "castle_bass",
+              "program": "Jazzistic Double Bass",
+              "program_path": "$Jazzistic.ufs/Presets/03 Instruments/02 Jazz Double Bass/Jazzistic Double Bass.M5p",
+              "active_articulation": null
+            }
+          ],
+          "purpose": "Upright bass anchors the home pulse and adds a short returning answer.",
+          "reference_principle": "John Clayton contextual acoustic ensemble study, alongside Porter’s economy.",
+          "performance": "Let note endings support the proposed waltz. Do not automatically walk continuously or double every guitar attack.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "acoustic_drums",
+          "revision": 1,
+          "sha256": "23ebfd3f9ced8851a7deabab415939c44b92994f27fc2f37438e0fb8823448c3",
+          "audition_ids": [
+            "lofi_dreams_jazz_kit"
+          ],
+          "sources": [
+            {
+              "audition_id": "lofi_dreams_jazz_kit",
+              "program": "Jazz Kit",
+              "program_path": "$LoFi Dreams.ufs/Presets/Drums/Jazz Kit.uvip",
+              "active_articulation": null
+            }
+          ],
+          "purpose": "Discrete brush/rim support in selected returns.",
+          "reference_principle": "Jeff Hamilton: serving the phrase, with brush technique distinct from sticks.",
+          "performance": "Use only supported discrete brush articulations initially; continuous sweeps are not demonstrated by the current test. Rest during the bodhran-led verses.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "traditional_percussion",
+          "revision": 1,
+          "sha256": "8d4edf806452c94c30b6dc0feb3295374f8506930bb1a21e7ec82e4fbe26b956",
+          "audition_ids": [
+            "world_bodhran_hits"
+          ],
+          "sources": [
+            {
+              "audition_id": "world_bodhran_hits",
+              "program": "Bodhran Hits",
+              "program_path": "$World Suite 3.ufs/Presets/01 Types/Percussions/Celtic Percussions/Bodhran Hits.uvip",
+              "active_articulation": "Bodhran Hits C1"
+            }
+          ],
+          "purpose": "A soft frame-drum conversation gives the verses a wood/skin identity.",
+          "reference_principle": "John Joe Kelly with Flook: separate body, strokes and ensemble role; no transplanted tabla vocabulary.",
+          "performance": "Choose documented hit identities by a focused audition, then write a restrained three-beat part. Do not fake continuous hand-pressure pitch movement with an unverified control.",
+          "physical_model": "One performer on the selected instrument; additional simultaneous studio layers are declared.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        },
+        {
+          "profile_id": "producer",
+          "revision": 2,
+          "sha256": "55bcee6815a9fe84c9286c7391b5288afe67eba8d1b2287f6fa0603ab9d7d509",
+          "audition_ids": [
+            "lofi_dreams_foley_kit",
+            "ether_fields_castle_texture"
+          ],
+          "sources": [
+            {
+              "audition_id": "lofi_dreams_foley_kit",
+              "program": "Foley Kit",
+              "program_path": "$LoFi Dreams.ufs/Presets/Drums/Foley Kit.uvip",
+              "active_articulation": null
+            },
+            {
+              "audition_id": "ether_fields_castle_texture",
+              "program": "FM Harp",
+              "program_path": "$Ether Fields.ufs/Presets/Bells - Plucks/FM Harp.uvip",
+              "active_articulation": null
+            }
+          ],
+          "purpose": "Subtle original texture, selected wood accents and a warm transition.",
+          "reference_principle": "Bonobo Black Sands/Polyghost: acoustic center, gradual arrival and useful subtraction.",
+          "performance": "Use foley only where the physical players leave a space; no permanent kick/snare loop. An original processed guitar/piano tail may answer a phrase.",
+          "physical_model": "Programmed texture and foley are declared studio parts, distinct from the physical drum players. Produced layers are declared overdubs; one physical keyboard/guitar never comps and plays its lead simultaneously.",
+          "tone_review": "Choose touch/register and balance first; review EQ at matched level, mono and speech space."
+        }
+      ],
+      "sections": [
+        {
+          "name": "Home threshold",
+          "start_bar": 1,
+          "bars": 4,
+          "start_seconds": 0.0,
+          "foreground": "strings_a",
+          "groove_leader": "bass",
+          "roles": {
+            "strings_a": "lead",
+            "strings_b": "rest",
+            "keys": "harmony",
+            "bass": "bass",
+            "acoustic_drums": "rest",
+            "traditional_percussion": "rest",
+            "producer": "rest"
+          },
+          "development": "Introduce the guitar contour immediately; piano gives only a small harmonic frame.",
+          "handoff": "Guitar continues into the first full refrain."
+        },
+        {
+          "name": "Home refrain 1",
+          "start_bar": 5,
+          "bars": 8,
+          "start_seconds": 8.571,
+          "foreground": "strings_a",
+          "groove_leader": "acoustic_drums",
+          "roles": {
+            "strings_a": "lead",
+            "strings_b": "rest",
+            "keys": "harmony",
+            "bass": "bass",
+            "acoustic_drums": "groove",
+            "traditional_percussion": "rest",
+            "producer": "rest"
+          },
+          "development": "Plain full melody over a small brush pulse; nylon and producer rest.",
+          "handoff": "Brushes withdraw for the verse’s frame-drum identity."
+        },
+        {
+          "name": "Verse 1",
+          "start_bar": 13,
+          "bars": 16,
+          "start_seconds": 25.714,
+          "foreground": "strings_a",
+          "groove_leader": "traditional_percussion",
+          "roles": {
+            "strings_a": "lead",
+            "strings_b": "harmony",
+            "keys": "rest",
+            "bass": "bass",
+            "acoustic_drums": "rest",
+            "traditional_percussion": "groove",
+            "producer": "rest"
+          },
+          "development": "Two written eight-bar sentences, with a lighter second answer. Piano rests so the guitar chords have room.",
+          "handoff": "The frame drum ends its response before the refrain pickup."
+        },
+        {
+          "name": "Home refrain 2",
+          "start_bar": 29,
+          "bars": 8,
+          "start_seconds": 60.0,
+          "foreground": "strings_a",
+          "groove_leader": "acoustic_drums",
+          "roles": {
+            "strings_a": "lead",
+            "strings_b": "rest",
+            "keys": "harmony",
+            "bass": "bass",
+            "acoustic_drums": "groove",
+            "traditional_percussion": "rest",
+            "producer": "texture"
+          },
+          "development": "The familiar hook returns with piano body and a restrained electronic tail.",
+          "handoff": "Guitar finishes and hands the bridge to piano."
+        },
+        {
+          "name": "Piano bridge",
+          "start_bar": 37,
+          "bars": 8,
+          "start_seconds": 77.143,
+          "foreground": "keys",
+          "groove_leader": "bass",
+          "roles": {
+            "strings_a": "response",
+            "strings_b": "rest",
+            "keys": "lead",
+            "bass": "bass",
+            "acoustic_drums": "rest",
+            "traditional_percussion": "rest",
+            "producer": "rest"
+          },
+          "development": "A complete lyrical keyboard statement with bass; all drum layers rest.",
+          "handoff": "Piano leaves the next phrase to nylon."
+        },
+        {
+          "name": "Guitar room dialogue",
+          "start_bar": 45,
+          "bars": 8,
+          "start_seconds": 94.286,
+          "foreground": "strings_b",
+          "groove_leader": "bass",
+          "roles": {
+            "strings_a": "rest",
+            "strings_b": "lead",
+            "keys": "response",
+            "bass": "bass",
+            "acoustic_drums": "rest",
+            "traditional_percussion": "rest",
+            "producer": "texture"
+          },
+          "development": "A written nylon answer and sparse piano response develop the home material.",
+          "handoff": "Sunbird returns after the dialogue resolves."
+        },
+        {
+          "name": "Verse 2",
+          "start_bar": 53,
+          "bars": 16,
+          "start_seconds": 111.429,
+          "foreground": "strings_a",
+          "groove_leader": "traditional_percussion",
+          "roles": {
+            "strings_a": "lead",
+            "strings_b": "harmony",
+            "keys": "response",
+            "bass": "bass",
+            "acoustic_drums": "rest",
+            "traditional_percussion": "groove",
+            "producer": "rest"
+          },
+          "development": "Change voicing and phrase endings; piano enters only in the second half’s gaps.",
+          "handoff": "A four-bar preparation thins the texture."
+        },
+        {
+          "name": "Homecoming preparation",
+          "start_bar": 69,
+          "bars": 4,
+          "start_seconds": 145.714,
+          "foreground": "keys",
+          "groove_leader": "bass",
+          "roles": {
+            "strings_a": "response",
+            "strings_b": "rest",
+            "keys": "lead",
+            "bass": "bass",
+            "acoustic_drums": "rest",
+            "traditional_percussion": "rest",
+            "producer": "texture"
+          },
+          "development": "An intimate harmonic lift preserves the home feeling.",
+          "handoff": "Piano releases before the guitar hook."
+        },
+        {
+          "name": "Final home refrain",
+          "start_bar": 73,
+          "bars": 16,
+          "start_seconds": 154.286,
+          "foreground": "strings_a",
+          "groove_leader": "acoustic_drums",
+          "roles": {
+            "strings_a": "lead",
+            "strings_b": "harmony",
+            "keys": "response",
+            "bass": "bass",
+            "acoustic_drums": "groove",
+            "traditional_percussion": "rest",
+            "producer": "texture"
+          },
+          "development": "First eight bars are familiar; second eight develop the answer and final cadence, with one chord player thinning at each guitar phrase.",
+          "handoff": "Brushes and electronic accents leave before the coda."
+        },
+        {
+          "name": "Home coda",
+          "start_bar": 89,
+          "bars": 8,
+          "start_seconds": 188.571,
+          "foreground": "strings_a",
+          "groove_leader": "bass",
+          "roles": {
+            "strings_a": "lead",
+            "strings_b": "rest",
+            "keys": "harmony",
+            "bass": "bass",
+            "acoustic_drums": "rest",
+            "traditional_percussion": "rest",
+            "producer": "rest"
+          },
+          "development": "A deliberate resolving phrase, gentle bass ending and natural room decay.",
+          "handoff": "A completed song ending; a future runtime loop edit is separate."
+        }
+      ],
+      "references": [
+        "Bonobo — Black Sands: three-beat acoustic development and growing return",
+        "DKC1 — Candy’s Love Song / Simian Segue: welcoming, immediately legible home identity",
+        "Ernest Ranglin — Surfin’: warm guitar phrasing and complementary chords",
+        "Flook / John Joe Kelly: frame-drum interaction; Montreux Alexander: responsive acoustic keys/bass"
+      ],
+      "proposed_change": "Private test returns to the original approved 3/4 home theme at 84 BPM. Key Suite Acoustic TDR Mellow Dark is the contrasting second voice; bodhran verses and soft lo-fi kit refrains alternate. No steel pan.",
+      "review_before_construction_required": true,
+      "test_construction_authorization": {
+        "status": "AUTHORIZED_PRIVATE_REVIEW_TESTS",
+        "scope": "private_test_tracks_only",
+        "evidence": "design/music/expanded_palette_test_tracks_owner_direction_20261101.json"
+      },
+      "mix_balance_adjustment_db": {
+        "foreground": 1.2,
+        "harmony": -1.5,
+        "bass": -0.5
+      }
+    }
+  ]
+}

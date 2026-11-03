@@ -1,0 +1,54 @@
+{
+  "pass": true,
+  "scope": "After all processes finish, normalize review shell helpers to LF for Linux portability. Exact executed Windows helper bytes are retained; original copied Python auditors and frozen native inputs are untouched.",
+  "helpers": [
+    {
+      "path": "scripts/focused_melody_gate.sh",
+      "executed_copy": "evidence/executed_helpers/focused_melody_gate.sh.txt",
+      "executed_sha256": "1eb38425dac8e2b7ce80ec063565c3f611a3c83049893992fc016f30d445c147",
+      "portable_lf_sha256": "65f4f88a296c83b14ca34fb4a7028edd73ec8c6d1cd644022810536f83ebd19b",
+      "crlf_count_before": 61,
+      "text_unchanged": true
+    },
+    {
+      "path": "scripts/focused_opera_gate.sh",
+      "executed_copy": "evidence/executed_helpers/focused_opera_gate.sh.txt",
+      "executed_sha256": "eae6b65c7b60178c33b2f4fc084cdf99e751129e9940a59b173bcb7bd0cd8cf1",
+      "portable_lf_sha256": "a7bdf5ea6d290009392d3b46417ee4de7e3249d7ae630cd3dc88b1bd01af6b53",
+      "crlf_count_before": 61,
+      "text_unchanged": true
+    },
+    {
+      "path": "scripts/project_gates.sh",
+      "executed_copy": "evidence/executed_helpers/project_gates.sh.txt",
+      "executed_sha256": "78d9981087b9b38ed95e263bb4798cbe77003cc79e45b115b2f4a93ba387988f",
+      "portable_lf_sha256": "78d9981087b9b38ed95e263bb4798cbe77003cc79e45b115b2f4a93ba387988f",
+      "crlf_count_before": 0,
+      "text_unchanged": true
+    },
+    {
+      "path": "scripts/project_probe_rerun.sh",
+      "executed_copy": "evidence/executed_helpers/project_probe_rerun.sh.txt",
+      "executed_sha256": "5422d8ad338864934137f546731ca768c34671d03f9706c264e1facdc9ffb9cf",
+      "portable_lf_sha256": "4ab1a14a818f349a2af85fdcdb3ae78ec25c6244c77eb5c2ebc77a6085b06e51",
+      "crlf_count_before": 61,
+      "text_unchanged": true
+    },
+    {
+      "path": "scripts/trace_melody_gate.sh",
+      "executed_copy": "evidence/executed_helpers/trace_melody_gate.sh.txt",
+      "executed_sha256": "54e81a08fb0f679ab0366b698c214e791e9540f7182784d887034ac73ad1c6dc",
+      "portable_lf_sha256": "8a8122f995efd1352dc8399b0db9ac1a9e113a6546b899e39c1210775e25e429",
+      "crlf_count_before": 61,
+      "text_unchanged": true
+    },
+    {
+      "path": "scripts/trace_opera_gate.sh",
+      "executed_copy": "evidence/executed_helpers/trace_opera_gate.sh.txt",
+      "executed_sha256": "069f35aebe82ee1a204186d7720b7dc3624517e0afdf87090fb8c1b6d435bfbc",
+      "portable_lf_sha256": "e31312a27150e8a6b8c41fc40a597a42c1f26a6cd0cb6d2d6b500a02c5cbaf12",
+      "crlf_count_before": 61,
+      "text_unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "reason": "The unchanged game-wide scanner fails closed above its 4 MiB JSON inspection cap. Native 2D data is compacted below that cap; no scanner or debt manifest changes.",
+  "path": "evidence/render_v6/rig.json",
+  "original_bytes": 5396485,
+  "original_sha256": "57a87f8eff760b09362e29e3908a8ee9b201c9f7caccb08e68a011d479a0ce50",
+  "compact_bytes": 1564011,
+  "compact_sha256": "ce4b945cd113f0b2fb564d7dd96ff2cd78799990158b66d55b6d50dd97684267",
+  "json_data_identical": true,
+  "original_bytes_reconstruct_exact": true,
+  "reconstruction_python": "(json.dumps(json.loads(compact_bytes), indent=2) + '\\n').replace('\\n', '\\r\\n').encode('utf-8')",
+  "python_version": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+  "unchanged_scanner": {
+    "coverage_debt": false,
+    "model_signature": false,
+    "complete_bytes_inspected": 1564011
+  },
+  "published_recipe_reverified_exact": true
+}

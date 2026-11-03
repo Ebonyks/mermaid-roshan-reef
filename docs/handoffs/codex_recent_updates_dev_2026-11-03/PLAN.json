@@ -1,0 +1,49 @@
+{
+  "state": "OWNER_AUTHORIZED_RECENT_UPDATES_INTEGRATION_STARTED",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "scope": "Reconcile exact recent published completed gameupdates and source-only reviewrecords into one combined tested candidate. Preserve rejected/prototype/book/music acceptance statuses, sourceprovenance and all protected/export/funding boundaries. CurrentR133ground joins only after actualcombined context/validation. No masterpromotion.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-03",
+    "DL-MED-04",
+    "DL-MED-09",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-ASSET-08",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-09",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-SAVE-03",
+    "DL-SAVE-05",
+    "DL-SAVE-06",
+    "DL-SND-05",
+    "DL-SND-09",
+    "DL-SND-10",
+    "DL-SND-11",
+    "DL-SND-15"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "related_source_findings": "Original imported impactrecords retain their applicable findings and scope; new MA-OPERA-015 is read from incomingBoxerhandoff, no closureclaimed.",
+  "required_evidence": [
+    "Per-source immutable revision/diff/CI status and explicit failed/cancelled scope",
+    "Resolved combined code/resource provenance, unchanged protectedoriginals/savekeys/onefinger/2D gates",
+    "Exact4.7.2Mobile/Speedy import/all82/newBoxer/context/analyzer/static checks on frozenactualcombined inputs",
+    "Exact-head workbranchCI green, latestDev reconciliation, GitHubpublication andanonymous immutable actualmanifest/everyrequiredfile verification",
+    "Separate visual/runtime/formalQA11/device/child/owner/unknown inventory status"
+  ],
+  "owner_instruction": "Insure all updates of last several days are pushed to dev, and continue",
+  "created_at_utc": "2026-11-03T15:58:35.574770+00:00"
+}

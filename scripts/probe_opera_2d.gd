@@ -1203,6 +1203,7 @@ func _init() -> void:
 		var saw_finale_imp := _finale_partner_present(world, career)
 		var rival_hidden_before_finale := true
 		var finale_cast_separated := career in ["ballerina", "boxer", "teacher"]
+		var finale_cast_samples: int = 0
 		var racer_finale_exercised := false
 		var teacher_connected_help := career != "teacher"
 		if career == "teacher" and world.task_open \
@@ -1238,8 +1239,11 @@ func _init() -> void:
 			await process_frame
 			guard += 1
 			saw_finale_imp = saw_finale_imp or _finale_partner_present(world, career)
-			if world.task_open and world.in_competition_finale() \
+			# Geologist closes its dedicated task before its visible gallery finale.
+			# Inspect that real presentation state; retain every geometry condition.
+			if (world.task_open or career == "geologist") and world.in_competition_finale() \
 					and world.player_actor.visible and world.rival_actor.visible:
+				finale_cast_samples += 1
 				var player_rect := _actor_visual_rect(world.player_actor)
 				var rival_rect := _actor_visual_rect(world.rival_actor)
 				var activity_rect := Rect2(world.action_panel.position,
@@ -1275,6 +1279,9 @@ func _init() -> void:
 			_check("%s brings in its dressed finale partner" % career, saw_finale_imp)
 			_check("%s stages the room-finale partner clear of Roshan and the activity" % career,
 				finale_cast_separated)
+		if career == "geologist":
+			_check("geologist visible finale geometry is actually sampled",
+				finale_cast_samples > 0)
 		if career == "racer":
 			_check("racer finale was completed only through the real steering surface",
 				racer_finale_exercised)
@@ -1380,6 +1387,13 @@ func _init() -> void:
 			var hall_key := "magician/%s/%s" % [hall_part, hall_phase]
 			_check("Hall semantic pose coverage: %s" % hall_key,
 				hall_pose_coverage.has(hall_key))
+	# Keep synthetic viewports/stress clocks after the original career census.
+	# Window is in-tree here, and these fixtures cannot perturb sibling checks.
+	var boxing_engine_checks := preload("res://scripts/probe_boxing_contact_cases.gd").new()
+	for result: Dictionary in boxing_engine_checks.run(get_root()):
+		_check("boxing engine: " + String(result["label"]), bool(result["passed"]))
+	for result: Dictionary in await boxing_engine_checks.run_routed(get_root()):
+		_check("boxing screen edges: " + String(result["label"]), bool(result["passed"]))
 	if bad == 0:
 		print("OPERA2D|result: ALL OK")
 		quit()

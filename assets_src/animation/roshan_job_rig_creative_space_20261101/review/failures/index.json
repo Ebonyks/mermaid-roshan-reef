@@ -1,0 +1,365 @@
+{
+  "rows": [
+    {
+      "theme": "painter",
+      "clip": "tail_bend",
+      "isolated_actor": false,
+      "frames": 121,
+      "failing_seam_frames": 7,
+      "failure_indices": [
+        28,
+        29,
+        30,
+        41,
+        43,
+        61,
+        88
+      ],
+      "reference": {
+        "large_components": 1,
+        "secondary_component_pixels": [],
+        "max_interior_hole_pixels": 258,
+        "interior_hole_pixels": 829,
+        "interior_hole_components": 7,
+        "edge_alpha_pixels": 0
+      },
+      "selected_exact_captures": [
+        {
+          "path": "review/failures/painter_tail_bend_0000.png",
+          "source_build_path": "evidence/raw/painter/tail_bend/0000.png",
+          "sha256": "9f2393f0a3624d389a0422542d7939253c0a08fbfcc98f9a05b4775132e9725f",
+          "frame": 0,
+          "time_s": 0.0,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 258,
+            "interior_hole_pixels": 829,
+            "interior_hole_components": 7,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/painter_tail_bend_0028.png",
+          "source_build_path": "evidence/raw/painter/tail_bend/0028.png",
+          "sha256": "b742bcb80707a65c56a170e23bc7bd953c142c7e9dea353b3a23f85e3c534fe7",
+          "frame": 28,
+          "time_s": 0.9333333333333333,
+          "pixel_metrics": {
+            "large_components": 2,
+            "secondary_component_pixels": [
+              13
+            ],
+            "max_interior_hole_pixels": 260,
+            "interior_hole_pixels": 823,
+            "interior_hole_components": 7,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/painter_tail_bend_0033.png",
+          "source_build_path": "evidence/raw/painter/tail_bend/0033.png",
+          "sha256": "59cde68dcd754228a9a350e40fdc66de19ebac8b4abbc0b39be8e5b3da86fed4",
+          "frame": 33,
+          "time_s": 1.1,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 257,
+            "interior_hole_pixels": 818,
+            "interior_hole_components": 7,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/painter_tail_bend_0088.png",
+          "source_build_path": "evidence/raw/painter/tail_bend/0088.png",
+          "sha256": "739e344b96a8e0520bdf2d3cfb7d6f9093253dc430e1472758cf0a66d3b08aa8",
+          "frame": 88,
+          "time_s": 2.933333333333333,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 253,
+            "interior_hole_pixels": 814,
+            "interior_hole_components": 8,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/painter_tail_bend_0120.png",
+          "source_build_path": "evidence/raw/painter/tail_bend/0120.png",
+          "sha256": "9f2393f0a3624d389a0422542d7939253c0a08fbfcc98f9a05b4775132e9725f",
+          "frame": 120,
+          "time_s": 4.0,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 258,
+            "interior_hole_pixels": 829,
+            "interior_hole_components": 7,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "theme": "astronaut",
+      "clip": "tail_bend",
+      "isolated_actor": false,
+      "frames": 121,
+      "failing_seam_frames": 1,
+      "failure_indices": [
+        94
+      ],
+      "reference": {
+        "large_components": 1,
+        "secondary_component_pixels": [],
+        "max_interior_hole_pixels": 168,
+        "interior_hole_pixels": 445,
+        "interior_hole_components": 4,
+        "edge_alpha_pixels": 0
+      },
+      "selected_exact_captures": [
+        {
+          "path": "review/failures/astronaut_tail_bend_0000.png",
+          "source_build_path": "evidence/raw/astronaut/tail_bend/0000.png",
+          "sha256": "a90f8e5cd02be0c004ca40a6ed204cf0a4a1f04fe7cc19008e90b78471333735",
+          "frame": 0,
+          "time_s": 0.0,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 168,
+            "interior_hole_pixels": 445,
+            "interior_hole_components": 4,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/astronaut_tail_bend_0033.png",
+          "source_build_path": "evidence/raw/astronaut/tail_bend/0033.png",
+          "sha256": "4e01d9a279e596670f60d034250370b1b449ecae5834bccd58c8a2ff618c21a8",
+          "frame": 33,
+          "time_s": 1.1,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 164,
+            "interior_hole_pixels": 433,
+            "interior_hole_components": 4,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/astronaut_tail_bend_0094.png",
+          "source_build_path": "evidence/raw/astronaut/tail_bend/0094.png",
+          "sha256": "fb835e5c53aba7a3955ca1f70d471fe166a49320695aead765662760b4fe5b81",
+          "frame": 94,
+          "time_s": 3.1333333333333333,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 162,
+            "interior_hole_pixels": 432,
+            "interior_hole_components": 5,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/astronaut_tail_bend_0120.png",
+          "source_build_path": "evidence/raw/astronaut/tail_bend/0120.png",
+          "sha256": "a90f8e5cd02be0c004ca40a6ed204cf0a4a1f04fe7cc19008e90b78471333735",
+          "frame": 120,
+          "time_s": 4.0,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 168,
+            "interior_hole_pixels": 445,
+            "interior_hole_components": 4,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "theme": "painter",
+      "clip": "paint_banner",
+      "isolated_actor": true,
+      "frames": 151,
+      "failing_seam_frames": 2,
+      "failure_indices": [
+        118,
+        125
+      ],
+      "reference": {
+        "large_components": 1,
+        "secondary_component_pixels": [],
+        "max_interior_hole_pixels": 258,
+        "interior_hole_pixels": 833,
+        "interior_hole_components": 7,
+        "edge_alpha_pixels": 0
+      },
+      "selected_exact_captures": [
+        {
+          "path": "review/failures/painter_paint_banner_0000.png",
+          "source_build_path": "evidence/raw/jobs_isolated/painter/paint_banner/0000.png",
+          "sha256": "9412f4225a2f158349899167446ecc24a68b98a6e31420bacc90f6a326124135",
+          "frame": 0,
+          "time_s": 0.0,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 258,
+            "interior_hole_pixels": 833,
+            "interior_hole_components": 7,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/painter_paint_banner_0033.png",
+          "source_build_path": "evidence/raw/jobs_isolated/painter/paint_banner/0033.png",
+          "sha256": "432345d6513122569632c13c13b727ca6744898228e836f82697a62e5d1edb7a",
+          "frame": 33,
+          "time_s": 1.1,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 259,
+            "interior_hole_pixels": 812,
+            "interior_hole_components": 7,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/painter_paint_banner_0118.png",
+          "source_build_path": "evidence/raw/jobs_isolated/painter/paint_banner/0118.png",
+          "sha256": "9cbd98f2218900bf95b8e916f26f355924b99933dabd4f6a8c94bd575b377219",
+          "frame": 118,
+          "time_s": 3.933333333333333,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 258,
+            "interior_hole_pixels": 859,
+            "interior_hole_components": 7,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/painter_paint_banner_0125.png",
+          "source_build_path": "evidence/raw/jobs_isolated/painter/paint_banner/0125.png",
+          "sha256": "780d6788015e5c303eff38091522e94342f197bd380c914718963ae2b02bd971",
+          "frame": 125,
+          "time_s": 4.166666666666667,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 258,
+            "interior_hole_pixels": 823,
+            "interior_hole_components": 8,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/painter_paint_banner_0150.png",
+          "source_build_path": "evidence/raw/jobs_isolated/painter/paint_banner/0150.png",
+          "sha256": "9412f4225a2f158349899167446ecc24a68b98a6e31420bacc90f6a326124135",
+          "frame": 150,
+          "time_s": 5.0,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 258,
+            "interior_hole_pixels": 833,
+            "interior_hole_components": 7,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    },
+    {
+      "theme": "astronaut",
+      "clip": "turn_valve",
+      "isolated_actor": true,
+      "frames": 151,
+      "failing_seam_frames": 1,
+      "failure_indices": [
+        118
+      ],
+      "reference": {
+        "large_components": 1,
+        "secondary_component_pixels": [],
+        "max_interior_hole_pixels": 168,
+        "interior_hole_pixels": 445,
+        "interior_hole_components": 4,
+        "edge_alpha_pixels": 0
+      },
+      "selected_exact_captures": [
+        {
+          "path": "review/failures/astronaut_turn_valve_0000.png",
+          "source_build_path": "evidence/raw/jobs_isolated/astronaut/turn_valve/0000.png",
+          "sha256": "1076ee9ae776a9a85cb231119e6a76e495edce27b41a0b26d7347817280d6796",
+          "frame": 0,
+          "time_s": 0.0,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 168,
+            "interior_hole_pixels": 445,
+            "interior_hole_components": 4,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/astronaut_turn_valve_0033.png",
+          "source_build_path": "evidence/raw/jobs_isolated/astronaut/turn_valve/0033.png",
+          "sha256": "ad1679bc0f850a9a99572de43c57bace6911c56dfd80c2ef00afa6ef2111c2ef",
+          "frame": 33,
+          "time_s": 1.1,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 163,
+            "interior_hole_pixels": 426,
+            "interior_hole_components": 4,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/astronaut_turn_valve_0118.png",
+          "source_build_path": "evidence/raw/jobs_isolated/astronaut/turn_valve/0118.png",
+          "sha256": "505ec7eaa5e2bab0c62efec071d3afb6a6cc0ad68550281e544c60b173d364b8",
+          "frame": 118,
+          "time_s": 3.933333333333333,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 167,
+            "interior_hole_pixels": 478,
+            "interior_hole_components": 4,
+            "edge_alpha_pixels": 0
+          }
+        },
+        {
+          "path": "review/failures/astronaut_turn_valve_0150.png",
+          "source_build_path": "evidence/raw/jobs_isolated/astronaut/turn_valve/0150.png",
+          "sha256": "1076ee9ae776a9a85cb231119e6a76e495edce27b41a0b26d7347817280d6796",
+          "frame": 150,
+          "time_s": 5.0,
+          "pixel_metrics": {
+            "large_components": 1,
+            "secondary_component_pixels": [],
+            "max_interior_hole_pixels": 168,
+            "interior_hole_pixels": 445,
+            "interior_hole_components": 4,
+            "edge_alpha_pixels": 0
+          }
+        }
+      ]
+    }
+  ],
+  "method": "Unchanged audit_study pixel_checks/seam_pass; native PNG copies, no resizing, repair or recompression",
+  "limits": "Selected diagnostic frames and complete failure-index lists; no full-speed or acceptance claim."
+}

@@ -1,0 +1,67 @@
+{
+  "id": "picture-book-bunny-cameos-20260920",
+  "baseline": "fc654286d895330518db27bab796daac4cb98d75",
+  "scope": "Owner-requested border artistic vision and comprehension self-audit, varied zero/object-only or one-to-three bunny counts, preserve seven unaccepted drawing studies; no book render or story asset changes.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book backgrounds only; no game finding repaired.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/README.md",
+    "books/chapter_one/landscape/BORDER_ART_DIRECTION.md",
+    "books/chapter_one/landscape/BORDER_DIRECTION.html",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/border_studies/manifest.json",
+    "books/chapter_one/landscape/border_studies/page_04_study.png",
+    "books/chapter_one/landscape/border_studies/page_19_study.png",
+    "books/chapter_one/landscape/border_studies/page_20_study.png",
+    "books/chapter_one/landscape/border_studies/page_24_study.png",
+    "books/chapter_one/landscape/border_studies/page_25_study.png",
+    "books/chapter_one/landscape/border_studies/page_26_study.png",
+    "books/chapter_one/landscape/border_studies/page_31_study.png",
+    "books/chapter_one/landscape/bunny_border_jobs.json",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Inventory bunny masters and inspect original book page 28",
+      "result": "PASS",
+      "evidence": "Lavender family/hop/shell-hide identities inspected; sleeping Eagle lower-bank story echo confirmed."
+    },
+    {
+      "command": "Editorial comprehension self-audit and revision",
+      "result": "PASS",
+      "evidence": "BORDER_ART_DIRECTION.md records eight failures of the first proposal and corresponding revisions. This passes planning review only; revised art and child/owner comprehension not verified."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK; 578 inventory and ledger entries"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV ALL OK; base 5920c673305989ee29d91876480ff445dba9fc8b"
+    },
+    {
+      "command": "Headless Edge review at widths 1400,760,390",
+      "result": "PASS",
+      "evidence": "7 study images decoded, 7 review cards, zero broken images or page overflow at each viewport"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS",
+      "evidence": "No whitespace errors"
+    }
+  ],
+  "acceptance_gaps": "All revised border execution pending; seven drawings retained as unaccepted studies. Actual print-size action comprehension and owner/child review remain open. Current v13 PDF unchanged."
+}

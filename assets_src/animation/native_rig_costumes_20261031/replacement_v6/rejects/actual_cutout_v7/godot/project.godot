@@ -1,0 +1,17 @@
+config_version=5
+
+[application]
+config/name="Roshan native 2D rig stress study"
+run/main_scene="res://study.tscn"
+config/features=PackedStringArray("4.7", "Mobile")
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[rendering]
+renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="mobile"
+textures/default_filters/use_nearest_mipmap_filter=false
+environment/defaults/default_clear_color=Color(0.08,0.12,0.19,1)

@@ -1,0 +1,35 @@
+{
+  "state": "TERMINAL_COMBINED_MELODY_FOCUSED_FAIL",
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+    "--verbose",
+    "--log-file",
+    "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\melody_combined_smoke01\\native_engine.log",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\recent-updates-dev-20261103\\mermaid-roshan-reef",
+    "-s",
+    "scripts/probe_melody.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "pins": {
+    "scripts/probe_melody.gd": "c2b5e0c1379f422749434ec774dd3d2122a61f325e62907918f86c3e439e3859",
+    "scripts/games/melody.gd": "976c0e2fa53fdfd5cf9c2fdb1f5e6c658552a7c27d3c02666a806c234dd10091",
+    "scripts/games/picture_games.gd": "e3f2e187d4a4f74c73714c0e36f2588472df326db8a40976dd0448f1e37e60a1"
+  },
+  "started_at_utc": "2026-11-03T17:08:15.583365+00:00",
+  "pid": 70616,
+  "exit_code": 1,
+  "failure_lines": [
+    "MELODY|FAIL|opening non-reader objective is carried by the sole live attached visual pointer",
+    "MELODY|FAIL|actual note, hit envelope, green zone, and pointer are readable at 1280x720",
+    "MELODY|FAIL|pointer is exactly one painted arrow, authored shaft, and whole double ring with no primitive fallback",
+    "MELODY|FAIL|Canvas reflows to the target 1280x800 M11 phone aspect",
+    "MELODY|FAIL|1280x720 restore needs no rebuild and retains readable geometry",
+    "MELODY|result: 5 FAIL"
+  ],
+  "source_drift": [],
+  "completed_at_utc": "2026-11-03T17:08:59.417625+00:00"
+}

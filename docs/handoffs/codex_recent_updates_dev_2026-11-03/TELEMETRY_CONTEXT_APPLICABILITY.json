@@ -1,0 +1,19 @@
+{
+  "state": "SOURCE_BOUND_CAPTURE_REMAINS_APPLICABLE_DIAGNOSTICS_ONLY_UPDATE",
+  "captured_controller_sha256": "3b07a47fe282e168a21970dc9fb35827c8771dbcfe853aff46d95677c4454495",
+  "current_controller_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+  "changed_functions": [
+    "audit_snapshot"
+  ],
+  "other_function_count": 46,
+  "all_other_functions_LF_exact": true,
+  "prefix_LF_exact": true,
+  "PNG_bytes_changed": false,
+  "render_input_layout_clock_scoring_methods_changed": false,
+  "scope": "Old captured snapshots preserve their exact raw source hash and stale diagnostic labels. Their actual pixels, touch traces and independently inspected node/texture contracts remain applicable. Current diagnostic labels now enumerate actual scene children, and full validation uses the new exact current hash. The layout-estimate coverage field remains explicitly an estimate; no removal/acceptance credit.",
+  "context_result_sha256": "0f43b25d3031b8aff01867519095c235dfb833e9eb690a499e09eaf30d6c8be4",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

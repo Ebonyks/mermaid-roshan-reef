@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\native-rig-stress-20261031\mermaid-roshan-reef\assets_src\animation\native_rig_costumes_20261031\replacement_v6/scripts/audit_motion.py", line 54, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "C:\Users\Peter\.codex\worktrees\native-rig-stress-20261031\mermaid-roshan-reef\assets_src\animation\native_rig_costumes_20261031\replacement_v6/scripts/audit_motion.py", line 23, in main
+    samples=json.loads((folder/'samples.json').read_text());report={}
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\pathlib\_local.py", line 546, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\pathlib\_abc.py", line 632, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\replacement_v6\\evidence\\render_magician_v1\\samples.json'

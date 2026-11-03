@@ -1,0 +1,145 @@
+{
+  "native_whole_roundtrips_pixel_exact": true,
+  "whole_object_crop_roundtrips_pixel_exact": true,
+  "engine_textures": [
+    {
+      "name": "red",
+      "path": "assets/melody/footlight_red.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "sha256": "2038c40b6546a6f2a62af9a1e28d24252f8381381fa22a240814bb074387d61e",
+      "whole_source_crop": [
+        8,
+        11,
+        423,
+        423
+      ],
+      "native_crop_pixel_exact": true
+    },
+    {
+      "name": "orange",
+      "path": "assets/melody/footlight_orange.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "sha256": "4de72f443c95b9916b1f3bde03a1a121c02e3f5bd2eacd517d8e455c75228b16",
+      "whole_source_crop": [
+        451,
+        11,
+        424,
+        424
+      ],
+      "native_crop_pixel_exact": true
+    },
+    {
+      "name": "yellow",
+      "path": "assets/melody/footlight_yellow.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "sha256": "e2e950b8dfca5f6fac8ece0f439bb32ff0b64794b03e8c8678a9f5f1405b2a53",
+      "whole_source_crop": [
+        894,
+        11,
+        425,
+        425
+      ],
+      "native_crop_pixel_exact": true
+    },
+    {
+      "name": "green",
+      "path": "assets/melody/footlight_green.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "sha256": "89573cd0da3fa3c12c0ef3637e179f1e8724f0bf2ade95c42f6a76d44666ffcd",
+      "whole_source_crop": [
+        1338,
+        11,
+        425,
+        425
+      ],
+      "native_crop_pixel_exact": true
+    },
+    {
+      "name": "sky_blue",
+      "path": "assets/melody/footlight_sky_blue.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "sha256": "10da6826c6c18cef931664be8977c1e8080a99a875aa3de86c6da0990d6e9bd6",
+      "whole_source_crop": [
+        8,
+        452,
+        425,
+        425
+      ],
+      "native_crop_pixel_exact": true
+    },
+    {
+      "name": "periwinkle",
+      "path": "assets/melody/footlight_periwinkle.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "sha256": "55e40d08fc49dd481cf47618e257ffb48181bc07644f130b8380b819e6625eb3",
+      "whole_source_crop": [
+        452,
+        453,
+        424,
+        424
+      ],
+      "native_crop_pixel_exact": true
+    },
+    {
+      "name": "purple",
+      "path": "assets/melody/footlight_purple.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "sha256": "e0a23b4ca38a7d9f8c4c7184d378cd3efe5568fc79bb5dee03b10891beeb0ce7",
+      "whole_source_crop": [
+        896,
+        452,
+        425,
+        425
+      ],
+      "native_crop_pixel_exact": true
+    },
+    {
+      "name": "rail",
+      "path": "assets/melody/footlight_rail_painted.png",
+      "dimensions": [
+        674,
+        36
+      ],
+      "sha256": "50018caeaa9ceb61fb7dedb53343b19cd7d16d413df2a595459e4abffd42b813",
+      "whole_source_crop": [
+        28,
+        306,
+        2117,
+        113
+      ],
+      "native_crop_pixel_exact": true
+    }
+  ],
+  "aseprite_version": "Aseprite1.3.18.4-x64",
+  "method": "Aseprite whole-object crops and uniform bilinear resize. Seven128px square whole globes, one674x36 whole painted support. Four127px scale-rounding exports retained as nonselected technical derivatives and corrected with explicit128x128 dimensions; original PNGs, all editable masters and actual scripts retained. No Python image edits.",
+  "base_rgba8_bytes": 555808,
+  "planned_instances": "13 complete globes + one support; eight unique textures; no runtime tint/relight.",
+  "static_item_call_cap": 2,
+  "static_calls": 2,
+  "animation_calls": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

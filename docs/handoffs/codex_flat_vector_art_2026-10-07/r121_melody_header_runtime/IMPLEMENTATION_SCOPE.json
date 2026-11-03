@@ -1,0 +1,39 @@
+{
+  "base": "27c88288bf6e39582072811443df79919e7bbb89",
+  "files": {
+    "scripts/games/melody.gd": {
+      "original_methods": 71,
+      "unchanged_original_methods": 68,
+      "changed_methods": [
+        "ProsceniumCanvas._draw",
+        "ProsceniumCanvas.layout",
+        "ProsceniumCanvas.setup"
+      ],
+      "new_methods": [],
+      "removed_methods": [],
+      "sha256": "117b59e96c26be2936587d04812434100942f490495b0c39720d1731963a2a22"
+    },
+    "scripts/probe_melody.gd": {
+      "original_methods": 88,
+      "unchanged_original_methods": 83,
+      "changed_methods": [
+        "_check_asset_contract",
+        "_check_rendered_stage_contract",
+        "_check_runtime_texture_census",
+        "_polygon_union_metrics",
+        "_surface_structure_exact"
+      ],
+      "new_methods": [
+        "_check_header_alpha_metric_controls",
+        "_proscenium_structure_exact"
+      ],
+      "removed_methods": [],
+      "sha256": "3aa0ea07bdfa6f681d68119096ac461dd35e281f8e8f33db0a58d2350bc1a7a5"
+    }
+  },
+  "unchanged_gameplay_methods": true,
+  "unchanged_probe_limits": true,
+  "probe_audit_unchanged": true,
+  "Dev_integrated": false,
+  "bounded_metric_correction": "Actual decoded header alpha on original200x90 grid; all original coverage/width/height and resource limits unchanged. Empty/transparent controls must fail. First original probe failure retained."
+}

@@ -4,6 +4,10 @@ extends RefCounted
 ## Shared progress and ranking state remain on ReefMain; this controller owns
 ## only the activity's presentation, deliberate input, and synchronous cleanup.
 
+const GUIDE_HEAD_PATH := "res://assets/melody/guide_arrow_head_painted.png"
+const GUIDE_BEAM_PATH := "res://assets/melody/guide_beam_painted.png"
+const GUIDE_RING_PATH := "res://assets/melody/guide_double_ring_painted.png"
+
 const NOTE_COUNT := 7
 const CANVAS_LAYER := 7
 const NOTE_CYCLE_SECONDS := 4.2
@@ -30,6 +34,65 @@ const NOTE_COLORS := [
 	Color(0.72, 0.40, 0.90),
 ]
 
+const PIP_TEXTURES := [
+	[
+		preload("res://assets/melody/mobile/progress_pip_idle_red_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_idle_orange_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_idle_yellow_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_idle_green_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_idle_blue_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_idle_indigo_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_idle_violet_painted.png"),
+	],
+	[
+		preload("res://assets/melody/mobile/progress_pip_current_red_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_current_orange_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_current_yellow_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_current_green_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_current_blue_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_current_indigo_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_current_violet_painted.png"),
+	],
+	[
+		preload("res://assets/melody/mobile/progress_pip_filled_red_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_filled_orange_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_filled_yellow_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_filled_green_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_filled_blue_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_filled_indigo_painted.png"),
+		preload("res://assets/melody/mobile/progress_pip_filled_violet_painted.png"),
+	],
+]
+const PIP_ALPHA_RECTS := [
+	[
+		Rect2i(2, 1, 61, 62),
+		Rect2i(2, 1, 61, 62),
+		Rect2i(2, 1, 60, 62),
+		Rect2i(2, 1, 60, 62),
+		Rect2i(2, 2, 60, 62),
+		Rect2i(2, 1, 60, 63),
+		Rect2i(1, 1, 61, 62),
+	],
+	[
+		Rect2i(2, 1, 61, 62),
+		Rect2i(2, 1, 60, 62),
+		Rect2i(2, 1, 60, 62),
+		Rect2i(2, 1, 60, 62),
+		Rect2i(2, 1, 60, 62),
+		Rect2i(2, 1, 60, 62),
+		Rect2i(1, 1, 61, 62),
+	],
+	[
+		Rect2i(1, 1, 62, 62),
+		Rect2i(2, 1, 61, 62),
+		Rect2i(2, 1, 60, 62),
+		Rect2i(1, 1, 61, 62),
+		Rect2i(1, 0, 61, 63),
+		Rect2i(1, 0, 61, 63),
+		Rect2i(1, 0, 62, 63),
+	],
+]
+
 const TILE_PATHS: Array[String] = [
 	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png",
 	"res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png",
@@ -42,11 +105,44 @@ const TILE_SOURCE_RECTS: Array[Rect2i] = [
 	Rect2i(0, 1024, 1024, 1024),
 	Rect2i(1024, 1024, 1024, 1024),
 ]
-const DADDY_PATH := "res://assets/characters/stickers/daddy.png"
-const ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
+const CURTAIN_LEFT_PATH := "res://assets/melody/mobile/curtain_left_painted.png"
+const CURTAIN_RIGHT_PATH := "res://assets/melody/mobile/curtain_right_painted.png"
+# Alpha >=8 bounds identify the authored cloth, ignoring invisible low-alpha
+# PNG margin noise. The complete source image is scaled uniformly.
+const CURTAIN_VISIBLE_RECTS: Array[Rect2] = [
+	Rect2(84, 1, 216, 749), Rect2(0, 1, 212, 742),
+]
+const DADDY_PATH := "res://assets/melody/mobile/daddy.png"
+const ROSHAN_PATH := "res://assets/melody/mobile/roshan_popstar.png"
+const HEADER_PATH := "res://assets/melody/crown_header_painted.png"
+const STAGE_STAR_PATH := "res://assets/melody/mobile/star_painted.png"
+const FOOTLIGHT_RAIL_PATH := "res://assets/melody/footlight_rail_painted.png"
+const FOOTLIGHT_GLOBE_PATHS: Array[String] = [
+	"res://assets/melody/mobile/footlight_red.png",
+	"res://assets/melody/mobile/footlight_orange.png",
+	"res://assets/melody/mobile/footlight_yellow.png",
+	"res://assets/melody/mobile/footlight_green.png",
+	"res://assets/melody/mobile/footlight_sky_blue.png",
+	"res://assets/melody/mobile/footlight_periwinkle.png",
+	"res://assets/melody/mobile/footlight_purple.png",
+]
 const OBJECTIVE := "Tap each rainbow note in the green!"
 const OBJECTIVE_VOICE := "op_popstar_rhythm"
 
+
+const APRON_BODY_PATH := "res://assets/melody/stage_apron_painted.png"
+const APRON_RAINBOW_PATH := "res://assets/melody/stage_apron_rainbow_painted.png"
+
+
+const NOTE_TEXTURES: Array[Texture2D] = [
+	preload("res://assets/melody/mobile/rainbow_note_red_painted.png"),
+	preload("res://assets/melody/mobile/rainbow_note_orange_painted.png"),
+	preload("res://assets/melody/mobile/rainbow_note_yellow_painted.png"),
+	preload("res://assets/melody/mobile/rainbow_note_green_painted.png"),
+	preload("res://assets/melody/mobile/rainbow_note_blue_painted.png"),
+	preload("res://assets/melody/mobile/rainbow_note_indigo_painted.png"),
+	preload("res://assets/melody/mobile/rainbow_note_violet_painted.png"),
+]
 
 class ProsceniumCanvas extends Control:
 	const NAVY := MelodyGame.NAVY
@@ -59,10 +155,16 @@ class ProsceniumCanvas extends Control:
 	const NOTE_COUNT := MelodyGame.NOTE_COUNT
 	const NOTE_COLORS := MelodyGame.NOTE_COLORS
 
-	var left_curtain: Polygon2D = null
-	var right_curtain: Polygon2D = null
-	var crown_header: Polygon2D = null
-	var stage_apron: Polygon2D = null
+	const CREAM_BULB: Texture2D = preload("res://assets/melody/theatre_bulb_cream_painted.png")
+	const GOLD_BULB: Texture2D = preload("res://assets/melody/theatre_bulb_gold_painted.png")
+	var upper_bulbs: Array[Sprite2D] = []
+	var lower_bulbs: Array[Sprite2D] = []
+
+	var left_curtain: Control = null
+	var right_curtain: Control = null
+	var crown_header: TextureRect = null
+	var stage_apron: NinePatchRect = null
+	var apron_rainbow: NinePatchRect = null
 	var coverage_ratio := 0.0
 
 
@@ -70,10 +172,42 @@ class ProsceniumCanvas extends Control:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 10
-		left_curtain = _polygon("LeftCurtainGeometry", PINK.darkened(0.17))
-		right_curtain = _polygon("RightCurtainGeometry", LAVENDER.darkened(0.20))
-		crown_header = _polygon("CrownHeaderGeometry", INK)
-		stage_apron = _polygon("StageApronGeometry", INK_SOFT)
+		left_curtain = _curtain("LeftPaintedCurtain", MelodyGame.CURTAIN_LEFT_PATH)
+		right_curtain = _curtain("RightPaintedCurtain", MelodyGame.CURTAIN_RIGHT_PATH)
+		crown_header = TextureRect.new()
+		crown_header.name = "PaintedCrownHeader"
+		crown_header.texture = load(MelodyGame.HEADER_PATH) as Texture2D
+		crown_header.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		crown_header.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		crown_header.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		crown_header.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		crown_header.focus_mode = Control.FOCUS_NONE
+		crown_header.z_index = -1
+		add_child(crown_header)
+		stage_apron = NinePatchRect.new()
+		stage_apron.name = "PaintedStageApronBody"
+		stage_apron.texture = load(MelodyGame.APRON_BODY_PATH) as Texture2D
+		stage_apron.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		stage_apron.patch_margin_left = 16
+		stage_apron.patch_margin_right = 16
+		stage_apron.patch_margin_top = 8
+		stage_apron.patch_margin_bottom = 8
+		stage_apron.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		stage_apron.focus_mode = Control.FOCUS_NONE
+		stage_apron.z_index = -1
+		add_child(stage_apron)
+		apron_rainbow = NinePatchRect.new()
+		apron_rainbow.name = "PaintedStageApronRainbow"
+		apron_rainbow.texture = load(MelodyGame.APRON_RAINBOW_PATH) as Texture2D
+		apron_rainbow.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		apron_rainbow.patch_margin_left = 12
+		apron_rainbow.patch_margin_right = 12
+		apron_rainbow.patch_margin_top = 0
+		apron_rainbow.patch_margin_bottom = 0
+		apron_rainbow.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		apron_rainbow.focus_mode = Control.FOCUS_NONE
+		apron_rainbow.z_index = 0
+		add_child(apron_rainbow)
 
 
 	func layout(rect: Rect2, viewport_size: Vector2) -> void:
@@ -83,40 +217,29 @@ class ProsceniumCanvas extends Control:
 		var header_height: float = clampf(size.y * 0.17, 104.0, 120.0)
 		var apron_height: float = clampf(size.y * 0.145, 92.0, 106.0)
 		var lower_y: float = size.y - apron_height
-		left_curtain.polygon = PackedVector2Array([
-			Vector2(0.0, header_height * 0.62),
-			Vector2(side_width * 0.72, header_height * 0.78),
-			Vector2(side_width, lower_y * 0.48),
-			Vector2(side_width * 0.82, lower_y),
-			Vector2(0.0, size.y),
-		])
-		right_curtain.polygon = PackedVector2Array([
-			Vector2(size.x, header_height * 0.62),
-			Vector2(size.x - side_width * 0.72, header_height * 0.78),
-			Vector2(size.x - side_width, lower_y * 0.48),
-			Vector2(size.x - side_width * 0.82, lower_y),
-			Vector2(size.x, size.y),
-		])
-		crown_header.polygon = PackedVector2Array([
-			Vector2.ZERO,
-			Vector2(size.x, 0.0),
-			Vector2(size.x, header_height * 0.78),
-			Vector2(size.x * 0.80, header_height),
-			Vector2(size.x * 0.68, header_height * 0.63),
-			Vector2(size.x * 0.50, header_height),
-			Vector2(size.x * 0.32, header_height * 0.63),
-			Vector2(size.x * 0.20, header_height),
-			Vector2(0.0, header_height * 0.78),
-		])
-		stage_apron.polygon = PackedVector2Array([
-			Vector2(0.0, lower_y),
-			Vector2(size.x, lower_y),
-			Vector2(size.x, size.y),
-			Vector2.ZERO + Vector2(0.0, size.y),
-		])
+		_layout_curtain(left_curtain, side_width, header_height,
+			0.0, MelodyGame.CURTAIN_VISIBLE_RECTS[0])
+		_layout_curtain(right_curtain, side_width, header_height,
+			size.x - side_width, MelodyGame.CURTAIN_VISIBLE_RECTS[1])
+		# One whole painted header, uniformly scaled and bottom-aligned to the
+		# original opening. The viewport clips its raised rainbow as before.
+		var header_source_size: Vector2 = crown_header.texture.get_size()
+		crown_header.size = header_source_size * (size.x / header_source_size.x)
+		crown_header.position = Vector2(0.0, header_height - crown_header.size.y)
+		stage_apron.position = Vector2(0.0, lower_y)
+		stage_apron.size = Vector2(size.x, apron_height)
+		apron_rainbow.position = Vector2(side_width * 0.72, lower_y + 11.0)
+		apron_rainbow.size = Vector2(size.x - side_width * 1.44, 60.0)
 		var covered_area: float = size.x * (header_height + apron_height) \
 			+ side_width * 2.0 * (size.y - header_height - apron_height)
 		coverage_ratio = covered_area / maxf(viewport_size.x * viewport_size.y, 1.0)
+		var bulb_count: int = maxi(12, int(size.x / 66.0))
+		_ensure_bulb_count(bulb_count)
+		for bulb_index in range(bulb_count):
+			var bulb_x: float = 24.0 + float(bulb_index) \
+				* (size.x - 48.0) / float(maxi(bulb_count - 1, 1))
+			upper_bulbs[bulb_index].position = Vector2(bulb_x, 22.0)
+			lower_bulbs[bulb_index].position = Vector2(bulb_x, size.y - 19.0)
 		queue_redraw()
 
 
@@ -126,40 +249,66 @@ class ProsceniumCanvas extends Control:
 		var side_width: float = clampf(size.x * 0.15, 176.0, 230.0)
 		var header_height: float = clampf(size.y * 0.17, 104.0, 120.0)
 		var apron_height: float = clampf(size.y * 0.145, 92.0, 106.0)
-		# Navy and pearl outlines keep the authored meadow visibly inside a
-		# theatrical object rather than reading as the activity itself.
-		draw_line(Vector2(side_width, header_height * 0.88),
-			Vector2(side_width * 0.82, size.y - apron_height), NAVY, 18.0, true)
-		draw_line(Vector2(size.x - side_width, header_height * 0.88),
-			Vector2(size.x - side_width * 0.82, size.y - apron_height), NAVY, 18.0, true)
-		for fold_index in range(4):
-			var fold_offset: float = 28.0 + float(fold_index) * 31.0
-			draw_line(Vector2(fold_offset, header_height),
-				Vector2(fold_offset * 0.78, size.y - apron_height),
-				Color(1.0, 0.72, 0.88, 0.38), 9.0, true)
-			draw_line(Vector2(size.x - fold_offset, header_height),
-				Vector2(size.x - fold_offset * 0.78, size.y - apron_height),
-				Color(0.84, 0.75, 1.0, 0.38), 9.0, true)
-		# A seven-band crown rainbow is the visual identity of Daddy's theater.
-		var crown_center := Vector2(size.x * 0.5, header_height * 0.96)
-		for color_index in range(NOTE_COUNT):
-			var radius: float = 150.0 - float(color_index) * 10.0
-			draw_arc(crown_center, radius, PI + 0.20, TAU - 0.20, 40,
-				NOTE_COLORS[color_index], 8.0, true)
-		# Foot-level rainbow rails turn the lower frame into a runway.
-		for color_index in range(NOTE_COUNT):
-			var rail_y: float = size.y - apron_height + 14.0 + float(color_index) * 9.0
-			draw_line(Vector2(side_width * 0.72, rail_y),
-				Vector2(size.x - side_width * 0.72, rail_y),
-				NOTE_COLORS[color_index], 6.0, true)
-		# Warm bulbs make the proscenium instantly legible even at arm's length.
-		var bulb_count: int = maxi(12, int(size.x / 66.0))
-		for bulb_index in range(bulb_count):
-			var bulb_x: float = 24.0 + float(bulb_index) \
-				* (size.x - 48.0) / float(maxi(bulb_count - 1, 1))
-			draw_circle(Vector2(bulb_x, 22.0), 7.5, PAPER, true, -1.0, true)
-			draw_circle(Vector2(bulb_x, size.y - 19.0), 7.0,
-				GOLD.lightened(0.28), true, -1.0, true)
+
+
+
+	func _ensure_bulb_count(count: int) -> void:
+		if upper_bulbs.size() == count:
+			return
+		for bulb: Sprite2D in upper_bulbs + lower_bulbs:
+			remove_child(bulb)
+			bulb.queue_free()
+		upper_bulbs.clear()
+		lower_bulbs.clear()
+		for index in range(count):
+			upper_bulbs.append(_painted_bulb(
+				"UpperPaintedBulb%02d" % index, CREAM_BULB, 15.0))
+			lower_bulbs.append(_painted_bulb(
+				"LowerPaintedBulb%02d" % index, GOLD_BULB, 14.0))
+
+
+	func _painted_bulb(node_name: String, source: Texture2D,
+			diameter: float) -> Sprite2D:
+		var bulb := Sprite2D.new()
+		bulb.name = node_name
+		bulb.texture = source
+		bulb.scale = Vector2.ONE * diameter / 128.0
+		bulb.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		add_child(bulb)
+		return bulb
+
+
+	func _curtain(node_name: String, path: String) -> Control:
+		# These two invisible rectangles only clip cloth at the stage boundary;
+		# they supply no appearance pixels and do not mask the authored contour.
+		var clip := Control.new()
+		clip.name = node_name
+		clip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		clip.focus_mode = Control.FOCUS_NONE
+		clip.clip_contents = true
+		clip.z_index = -1
+		add_child(clip)
+		var cloth := TextureRect.new()
+		cloth.name = "PaintedCloth"
+		cloth.texture = load(path) as Texture2D
+		cloth.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		cloth.stretch_mode = TextureRect.STRETCH_SCALE
+		cloth.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		cloth.focus_mode = Control.FOCUS_NONE
+		clip.add_child(cloth)
+		return clip
+
+
+	func _layout_curtain(clip: Control, side_width: float,
+			header_height: float, x: float, visible_rect: Rect2) -> void:
+		clip.position = Vector2(x, 0.0)
+		clip.size = Vector2(side_width, size.y)
+		var cloth := clip.get_node("PaintedCloth") as TextureRect
+		var painted_scale: float = side_width / visible_rect.size.x
+		cloth.size = cloth.texture.get_size() * painted_scale
+		cloth.position = Vector2(0.0, header_height * 0.62) 			- visible_rect.position * painted_scale
+		# The original crown and apron still occlude the top/hem. A wider
+		# viewport scales the whole cloth uniformly behind that same apron.
 
 
 	func _polygon(node_name: String, color: Color) -> Polygon2D:
@@ -172,199 +321,157 @@ class ProsceniumCanvas extends Control:
 
 
 class FootlightsCanvas extends Control:
-	const NAVY := MelodyGame.NAVY
-	const NOTE_COUNT := MelodyGame.NOTE_COUNT
-	const NOTE_COLORS := MelodyGame.NOTE_COLORS
-	var rail_geometry: Line2D = null
+	var painted_rail: NinePatchRect = null
+	var painted_globes: Array[Sprite2D] = []
 
 	func setup() -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 16
-		rail_geometry = Line2D.new()
-		rail_geometry.name = "FootlightRailGeometry"
-		rail_geometry.default_color = NAVY
-		rail_geometry.width = 36.0
-		rail_geometry.antialiased = true
-		rail_geometry.z_index = -1
-		add_child(rail_geometry)
+		painted_rail = NinePatchRect.new()
+		painted_rail.name = "PaintedFootlightRail"
+		painted_rail.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		painted_rail.focus_mode = Control.FOCUS_NONE
+		painted_rail.texture = load(MelodyGame.FOOTLIGHT_RAIL_PATH) as Texture2D
+		painted_rail.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		painted_rail.patch_margin_left = 18
+		painted_rail.patch_margin_right = 18
+		painted_rail.patch_margin_top = 0
+		painted_rail.patch_margin_bottom = 0
+		painted_rail.z_index = -1
+		add_child(painted_rail)
+		for index in range(13):
+			var globe := Sprite2D.new()
+			globe.name = "PaintedFootlightGlobe%d" % index
+			globe.texture = load(MelodyGame.FOOTLIGHT_GLOBE_PATHS[
+				index % MelodyGame.NOTE_COUNT]) as Texture2D
+			globe.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+			globe.scale = Vector2.ONE * (30.0 / 64.0)
+			add_child(globe)
+			painted_globes.append(globe)
 
 
 	func layout(rect: Rect2) -> void:
 		position = rect.position
 		size = rect.size
-		rail_geometry.points = PackedVector2Array([
-			Vector2(18.0, size.y * 0.5),
-			Vector2(maxf(18.0, size.x - 18.0), size.y * 0.5),
-		])
-		queue_redraw()
-
-
-	func _draw() -> void:
-		if size.x <= 0.0:
-			return
-		var count := 13
-		for index in range(count):
-			var center := Vector2((float(index) + 0.5) * size.x / float(count),
-				size.y * 0.5)
-			var color: Color = NOTE_COLORS[index % NOTE_COUNT]
-			draw_circle(center, 15.0, NAVY, true, -1.0, true)
-			draw_circle(center, 10.5, color.lightened(0.24), true, -1.0, true)
-			draw_circle(center - Vector2(3.0, 3.0), 3.0, Color.WHITE,
-				true, -1.0, true)
+		painted_rail.position = Vector2(18.0, size.y * 0.5 - 18.0)
+		painted_rail.size = Vector2(maxf(36.0, size.x - 36.0), 36.0)
+		for index in range(painted_globes.size()):
+			painted_globes[index].position = Vector2(
+				(float(index) + 0.5) * size.x / 13.0, size.y * 0.5)
 
 
 class StageStarCanvas extends Control:
-	const NAVY := MelodyGame.NAVY
-	const GOLD := MelodyGame.GOLD
-	var star_geometry: Polygon2D = null
+	var painted_star: TextureRect = null
 
 	func setup() -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 18
-		star_geometry = Polygon2D.new()
-		star_geometry.name = "StageStarGeometry"
-		star_geometry.color = GOLD
-		star_geometry.z_index = -1
-		add_child(star_geometry)
+		painted_star = TextureRect.new()
+		painted_star.name = "StageStarPaintedCard"
+		painted_star.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		painted_star.focus_mode = Control.FOCUS_NONE
+		painted_star.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		painted_star.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		painted_star.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		painted_star.texture = load(MelodyGame.STAGE_STAR_PATH) as Texture2D
+		add_child(painted_star)
 
 
 	func layout(center: Vector2, diameter: float) -> void:
 		size = Vector2.ONE * diameter
 		position = center - size * 0.5
-		star_geometry.polygon = _star_points(size * 0.5,
-			minf(size.x, size.y) * 0.39, minf(size.x, size.y) * 0.18)
-		queue_redraw()
-
-
-	func _draw() -> void:
-		var center := size * 0.5
-		var outer: PackedVector2Array = _star_points(center,
-			minf(size.x, size.y) * 0.48, minf(size.x, size.y) * 0.22)
-		draw_colored_polygon(outer, NAVY)
-		var inner: PackedVector2Array = _star_points(center,
-			minf(size.x, size.y) * 0.39, minf(size.x, size.y) * 0.18)
-		draw_colored_polygon(inner, GOLD)
-		draw_circle(center - size * 0.08, size.x * 0.055, Color.WHITE,
-			true, -1.0, true)
-
-
-	func _star_points(center: Vector2, outer_radius: float,
-			inner_radius: float) -> PackedVector2Array:
-		var points := PackedVector2Array()
-		for index in range(10):
-			var radius: float = outer_radius if index % 2 == 0 else inner_radius
-			var angle: float = -PI * 0.5 + float(index) * PI / 5.0
-			points.append(center + Vector2(cos(angle), sin(angle)) * radius)
-		return points
+		painted_star.position = Vector2.ZERO
+		painted_star.size = size
 
 
 class TimingZoneCanvas extends Control:
-	const NAVY := MelodyGame.NAVY
-	const MINT := MelodyGame.MINT
-	const PAPER := MelodyGame.PAPER
+	# Complete authored pictures; the functional scoring Rect2 stays on the game.
+	const BODY := preload("res://assets/melody/timing_window_medallion_painted.png")
+	const AURA := preload("res://assets/melody/timing_window_aura_painted.png")
+	# Native-alpha>3 export bounds, measured before import; no generated masks.
+	const BODY_BOUNDS := Rect2(3.0, 4.0, 251.0, 248.0)
+	const AURA_BOUNDS := Rect2(6.0, 6.0, 245.0, 244.0)
 
 	var pulse := 0.0
-	var green_geometry: Polygon2D = null
+	var medallion: Sprite2D = null
+	var aura: Sprite2D = null
 
 
 	func setup() -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 28
-		green_geometry = Polygon2D.new()
-		green_geometry.name = "GreenWindowGeometry"
-		green_geometry.color = Color(0.16, 0.78, 0.38, 0.92)
-		green_geometry.z_index = -1
-		add_child(green_geometry)
+		aura = Sprite2D.new()
+		aura.name = "PaintedTimingAura"
+		aura.texture = AURA
+		aura.z_index = -1
+		# Retain the original aura's uniform opacity; authored RGB is untinted.
+		aura.modulate.a = 0.24
+		add_child(aura)
+		medallion = Sprite2D.new()
+		medallion.name = "PaintedTimingMedallion"
+		medallion.texture = BODY
+		add_child(medallion)
 
 
 	func layout(rect: Rect2) -> void:
 		position = rect.position
 		size = rect.size
-		var bevel: float = minf(size.x, size.y) * 0.20
-		green_geometry.polygon = PackedVector2Array([
-			Vector2(bevel, 0.0), Vector2(size.x - bevel, 0.0),
-			Vector2(size.x, bevel), Vector2(size.x, size.y - bevel),
-			Vector2(size.x - bevel, size.y), Vector2(bevel, size.y),
-			Vector2(0.0, size.y - bevel), Vector2(0.0, bevel),
-		])
-		queue_redraw()
+		var body_scale: float = minf(size.x, size.y) / BODY_BOUNDS.size.x
+		medallion.scale = Vector2.ONE * body_scale
+		medallion.position = size * 0.5 - (
+			BODY_BOUNDS.get_center() - BODY.get_size() * 0.5) * body_scale
+		_layout_aura()
 
 
 	func advance(elapsed: float) -> void:
 		pulse = elapsed
-		queue_redraw()
+		_layout_aura()
 
 
-	func _draw() -> void:
-		var center := size * 0.5
+	func _layout_aura() -> void:
 		var radius: float = minf(size.x, size.y) * 0.43
 		var breathe: float = 3.0 + sin(pulse * 5.0) * 3.0
-		draw_circle(center, radius + 18.0 + breathe,
-			Color(MINT.r, MINT.g, MINT.b, 0.24), true, -1.0, true)
-		draw_circle(center, radius + 9.0, NAVY, true, -1.0, true)
-		draw_circle(center, radius, Color(0.16, 0.78, 0.38, 0.92),
-			true, -1.0, true)
-		draw_arc(center, radius - 10.0, 0.0, TAU, 48, PAPER, 7.0, true)
-		# A simple play triangle is readable without words and distinguishes the
-		# green timing window from scenery.
-		var triangle := PackedVector2Array([
-			center + Vector2(-18.0, -26.0),
-			center + Vector2(31.0, 0.0),
-			center + Vector2(-18.0, 26.0),
-		])
-		draw_colored_polygon(triangle, Color.WHITE)
+		var aura_scale: float = (radius + 18.0 + breathe) * 2.0 / AURA_BOUNDS.size.x
+		aura.scale = Vector2.ONE * aura_scale
+		aura.position = size * 0.5 - (
+			AURA_BOUNDS.get_center() - AURA.get_size() * 0.5) * aura_scale
 
 
 class PointerCanvas extends Control:
-	const GOLD := MelodyGame.GOLD
-	const PAPER := MelodyGame.PAPER
-	const POINTER_SIZE := MelodyGame.POINTER_SIZE
+	# Authored raster artwork; Canvas transforms retain the original guide path.
+	# The old32pxdiamond is fully hidden by the opaque note's40.64pxinradius.
+	# It had no input/physics function and is retired rather than made a fallback.
+	const HEAD_TIP := Vector2(106.5, 62.5)
+	const HEAD_ALPHA_SIZE := Vector2(108.0, 118.0)
+	const BEAM_ALPHA_HEIGHT := 36.0
+	const RING_ALPHA_DIAMETER := 253.0
 
 	var target := Vector2.ZERO
 	var zone_center := Vector2.ZERO
 	var pulse := 0.0
 	var target_id := -1
-	var target_geometry: Polygon2D = null
-	var arrow_geometry: Polygon2D = null
-	var line_geometry: Line2D = null
-	var inner_ring_geometry: Line2D = null
-	var outer_ring_geometry: Line2D = null
+	var arrow_painted: Sprite2D = null
+	var beam_painted: Sprite2D = null
+	var ring_painted: Sprite2D = null
 
 
 	func setup() -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 32
-		target_geometry = Polygon2D.new()
-		target_geometry.name = "PointerTargetGeometry"
-		target_geometry.color = Color(GOLD.r, GOLD.g, GOLD.b, 0.18)
-		target_geometry.z_index = -1
-		add_child(target_geometry)
-		arrow_geometry = Polygon2D.new()
-		arrow_geometry.name = "PointerArrowGeometry"
-		arrow_geometry.color = GOLD
-		add_child(arrow_geometry)
-		line_geometry = Line2D.new()
-		line_geometry.name = "PointerLineGeometry"
-		line_geometry.default_color = Color(1.0, 0.94, 0.54, 0.94)
-		line_geometry.width = 9.0
-		line_geometry.antialiased = true
-		add_child(line_geometry)
-		inner_ring_geometry = Line2D.new()
-		inner_ring_geometry.name = "PointerInnerRingGeometry"
-		inner_ring_geometry.default_color = PAPER
-		inner_ring_geometry.width = 8.0
-		inner_ring_geometry.antialiased = true
-		add_child(inner_ring_geometry)
-		outer_ring_geometry = Line2D.new()
-		outer_ring_geometry.name = "PointerOuterRingGeometry"
-		outer_ring_geometry.default_color = Color(GOLD.r, GOLD.g, GOLD.b, 0.82)
-		outer_ring_geometry.width = 5.0
-		outer_ring_geometry.antialiased = true
-		add_child(outer_ring_geometry)
+		arrow_painted = _painted("PointerArrowPainted", MelodyGame.GUIDE_HEAD_PATH)
+		arrow_painted.centered = false
+		arrow_painted.offset = -HEAD_TIP
+		# Declared static-UI aspect registration to the old46x34arrow envelope.
+		# Preserve the authored paint; no visible polygon or code-drawn fallback.
+		arrow_painted.scale = Vector2(46.0, 34.0) / HEAD_ALPHA_SIZE
+		beam_painted = _painted("PointerBeamPainted", MelodyGame.GUIDE_BEAM_PATH)
+		beam_painted.self_modulate.a = 0.94
+		ring_painted = _painted("PointerRingPainted", MelodyGame.GUIDE_RING_PATH)
+		ring_painted.offset = Vector2(-0.5, -0.5)
 
 
 	func layout(viewport_size: Vector2) -> void:
@@ -378,47 +485,50 @@ class PointerCanvas extends Control:
 		zone_center = next_zone_center
 		target_id = next_target_id
 		pulse = elapsed
-		target_geometry.visible = target_id >= 0
-		arrow_geometry.visible = target_id >= 0
-		line_geometry.visible = target_id >= 0
-		inner_ring_geometry.visible = target_id >= 0
-		outer_ring_geometry.visible = target_id >= 0
-		if target_geometry.visible:
-			var radius: float = POINTER_SIZE * 0.5
-			target_geometry.polygon = PackedVector2Array([
-				target + Vector2(0.0, -radius),
-				target + Vector2(radius, 0.0),
-				target + Vector2(0.0, radius),
-				target + Vector2(-radius, 0.0),
-			])
-			var direction: Vector2 = target - zone_center
-			if direction.length_squared() <= 0.001:
-				direction = Vector2.RIGHT
-			else:
-				direction = direction.normalized()
-			var normal := Vector2(-direction.y, direction.x)
-			arrow_geometry.polygon = PackedVector2Array([
-				target,
-				target - direction * 46.0 + normal * 17.0,
-				target - direction * 46.0 - normal * 17.0,
-			])
-			var line_start: Vector2 = zone_center + direction * 82.0
-			var line_end: Vector2 = target - direction * 38.0
-			if line_start.distance_to(line_end) > 14.0:
-				line_geometry.points = PackedVector2Array([line_start, line_end])
-			else:
-				line_geometry.points = PackedVector2Array()
-			var ring_radius: float = 34.0 + sin(pulse * 6.0) * 5.0
-			inner_ring_geometry.points = _ring_points(target, ring_radius)
-			outer_ring_geometry.points = _ring_points(target, ring_radius + 8.0)
+		arrow_painted.visible = target_id >= 0
+		beam_painted.visible = target_id >= 0
+		ring_painted.visible = target_id >= 0
+		if target_id < 0:
+			return
+		var direction: Vector2 = target - zone_center
+		if direction.length_squared() <= 0.001:
+			direction = Vector2.RIGHT
+		else:
+			direction = direction.normalized()
+		arrow_painted.position = target
+		arrow_painted.rotation = direction.angle()
+		var line_start: Vector2 = zone_center + direction * 82.0
+		var line_end: Vector2 = target - direction * 38.0
+		var length: float = line_start.distance_to(line_end)
+		beam_painted.visible = length > 14.0
+		beam_painted.position = (line_start + line_end) * 0.5
+		beam_painted.rotation = (line_end - line_start).angle()
+		beam_painted.scale = Vector2(length / 128.0, 9.0 / BEAM_ALPHA_HEIGHT)
+		var ring_radius: float = 34.0 + sin(pulse * 6.0) * 5.0
+		var outer_diameter: float = (ring_radius + 8.0) * 2.0 + 5.0
+		ring_painted.position = target
+		# One complete painted double ring scales uniformly; its bands scale too.
+		ring_painted.scale = Vector2.ONE * outer_diameter / RING_ALPHA_DIAMETER
 
 
-	func _ring_points(center: Vector2, radius: float) -> PackedVector2Array:
-		var points := PackedVector2Array()
-		for index in range(33):
-			var angle: float = TAU * float(index) / 32.0
-			points.append(center + Vector2(cos(angle), sin(angle)) * radius)
-		return points
+	func _painted(node_name: String, path: String) -> Sprite2D:
+		var sprite := Sprite2D.new()
+		sprite.name = node_name
+		sprite.texture = load(path) as Texture2D
+		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		add_child(sprite)
+		return sprite
+
+
+const NOTE_ALPHA_CENTERS: Array[Vector2] = [
+	Vector2(64.0, 63.5),
+	Vector2(64.0, 63.5),
+	Vector2(64.0, 63.5),
+	Vector2(64.0, 63.5),
+	Vector2(64.0, 63.5),
+	Vector2(64.0, 63.5),
+	Vector2(64.0, 63.5),
+]
 
 
 class RainbowNoteCanvas extends Control:
@@ -428,7 +538,7 @@ class RainbowNoteCanvas extends Control:
 
 	var note_color := Color.WHITE
 	var note_id := -1
-	var color_geometry: Polygon2D = null
+	var painted_note: Sprite2D = null
 
 
 	func setup(next_id: int, color: Color) -> void:
@@ -438,16 +548,15 @@ class RainbowNoteCanvas extends Control:
 		focus_mode = Control.FOCUS_NONE
 		z_index = 35
 		size = Vector2.ONE * NOTE_VISIBLE_SIZE
-		color_geometry = Polygon2D.new()
-		color_geometry.name = "NoteColorGeometry"
-		color_geometry.color = note_color
-		color_geometry.z_index = -1
-		var points := PackedVector2Array()
-		for point_index in range(24):
-			var angle: float = float(point_index) * TAU / 24.0
-			points.append(size * 0.5 + Vector2(cos(angle), sin(angle)) * 41.0)
-		color_geometry.polygon = points
-		add_child(color_geometry)
+		painted_note = Sprite2D.new()
+		painted_note.name = "PaintedNote"
+		painted_note.texture = MelodyGame.NOTE_TEXTURES[note_id]
+		# Center authored alpha on the unchanged note/pointer/hit anchor.
+		painted_note.offset = Vector2.ONE * 64.0 - MelodyGame.NOTE_ALPHA_CENTERS[note_id]
+		painted_note.position = size * 0.5
+		painted_note.scale = Vector2.ONE * NOTE_VISIBLE_SIZE / 128.0
+		painted_note.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		add_child(painted_note)
 		queue_redraw()
 
 
@@ -458,72 +567,45 @@ class RainbowNoteCanvas extends Control:
 		queue_redraw()
 
 
-	func _draw() -> void:
-		var center := size * 0.5
-		draw_circle(center, 41.0, Color(NAVY.r, NAVY.g, NAVY.b, 0.94),
-			true, -1.0, true)
-		draw_circle(center, 35.0, note_color, true, -1.0, true)
-		draw_circle(center - Vector2(8.0, 9.0), 7.0,
-			Color(1.0, 1.0, 1.0, 0.78), true, -1.0, true)
-		# One large eighth note, built from broad shapes for preschool legibility.
-		draw_circle(Vector2(35.0, 55.0), 11.5, PAPER, true, -1.0, true)
-		draw_line(Vector2(44.0, 54.0), Vector2(44.0, 22.0), PAPER, 9.0, true)
-		var flag := PackedVector2Array([
-			Vector2(44.0, 19.0), Vector2(66.0, 25.0),
-			Vector2(59.0, 38.0), Vector2(44.0, 32.0),
-		])
-		draw_colored_polygon(flag, PAPER)
-
-
 class ProgressPipCanvas extends Control:
-	const NAVY := MelodyGame.NAVY
-	const PAPER := MelodyGame.PAPER
+	const NOTE_COLORS := MelodyGame.NOTE_COLORS
+	const PIP_TEXTURES := MelodyGame.PIP_TEXTURES
+	const PIP_ALPHA_RECTS := MelodyGame.PIP_ALPHA_RECTS
 
 	var pip_color := Color.WHITE
 	var filled := false
 	var current := false
-	var pip_geometry: Polygon2D = null
+	var pip_id: int = 0
+	var painted_pip: Sprite2D = null
 
 
 	func setup(color: Color) -> void:
 		pip_color = color
+		pip_id = NOTE_COLORS.find(color)
+		assert(pip_id >= 0)
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		focus_mode = Control.FOCUS_NONE
 		z_index = 40
 		size = Vector2.ONE * 48.0
-		pip_geometry = Polygon2D.new()
-		pip_geometry.name = "ProgressPipGeometry"
-		pip_geometry.z_index = -1
-		var points := PackedVector2Array()
-		for point_index in range(20):
-			var angle: float = float(point_index) * TAU / 20.0
-			points.append(size * 0.5 + Vector2(cos(angle), sin(angle)) * 19.0)
-		pip_geometry.polygon = points
-		add_child(pip_geometry)
+		painted_pip = Sprite2D.new()
+		painted_pip.name = "PaintedProgressPip"
+		painted_pip.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		add_child(painted_pip)
+		set_state(filled, current)
 
 
 	func set_state(next_filled: bool, next_current: bool) -> void:
 		filled = next_filled
 		current = next_current
-		pip_geometry.color = pip_color if filled or current \
-			else Color(pip_color.r, pip_color.g, pip_color.b, 0.32)
-		queue_redraw()
-
-
-	func _draw() -> void:
-		var center := size * 0.5
-		if current:
-			draw_circle(center, 23.0, Color(1.0, 1.0, 1.0, 0.92),
-				true, -1.0, true)
-		draw_circle(center, 19.0, NAVY, true, -1.0, true)
-		draw_circle(center, 14.5,
-			pip_color if filled else Color(pip_color.r, pip_color.g, pip_color.b, 0.32),
-			true, -1.0, true)
-		if filled:
-			draw_line(center + Vector2(-7.0, 0.0), center + Vector2(-1.0, 7.0),
-				PAPER, 4.5, true)
-			draw_line(center + Vector2(-1.0, 7.0), center + Vector2(9.0, -8.0),
-				PAPER, 4.5, true)
+		var state_index: int = 2 if filled else (1 if current else 0)
+		painted_pip.texture = PIP_TEXTURES[state_index][pip_id] as Texture2D
+		var bounds: Rect2i = PIP_ALPHA_RECTS[state_index][pip_id]
+		var bounds_center: Vector2 = Vector2(bounds.position) + Vector2(bounds.size) * 0.5
+		painted_pip.position = size * 0.5
+		painted_pip.offset = Vector2.ONE * 32.0 - bounds_center
+		var diameter: float = 46.0 if current and not filled else 38.0
+		var native_diameter: float = maxf(float(bounds.size.x), float(bounds.size.y))
+		painted_pip.scale = Vector2.ONE * diameter / native_diameter
 
 
 var m: ReefMain
@@ -587,6 +669,13 @@ static func runtime_art_paths() -> Array[String]:
 		paths.append(tile_path)
 	paths.append(DADDY_PATH)
 	paths.append(ROSHAN_PATH)
+	paths.append(CURTAIN_LEFT_PATH)
+	paths.append(CURTAIN_RIGHT_PATH)
+	paths.append(TimingZoneCanvas.BODY.resource_path)
+	paths.append(TimingZoneCanvas.AURA.resource_path)
+	paths.append(GUIDE_HEAD_PATH)
+	paths.append(GUIDE_BEAM_PATH)
+	paths.append(GUIDE_RING_PATH)
 	return paths
 
 
@@ -972,6 +1061,18 @@ func note_count() -> int:
 func audit_snapshot() -> Dictionary:
 	if active_layer() == null or surface() == null:
 		return {}
+	var geometry_nodes: Array[String] = []
+	var painted_nodes: Array[String] = []
+	for child: Node in _proscenium.get_children():
+		if child is Polygon2D or child is Line2D:
+			geometry_nodes.append(String(child.name))
+		elif child is Sprite2D or child is TextureRect or child is NinePatchRect:
+			painted_nodes.append(String(child.name))
+		elif child is Control:
+			for part: Node in child.get_children():
+				if part is Sprite2D or part is TextureRect or part is NinePatchRect:
+					painted_nodes.append(String(child.name))
+					break
 	var pointer_rect := Rect2(_note_point - Vector2.ONE * POINTER_SIZE * 0.5,
 		Vector2.ONE * POINTER_SIZE)
 	return {
@@ -979,10 +1080,10 @@ func audit_snapshot() -> Dictionary:
 		"tile_source_rects": TILE_SOURCE_RECTS.duplicate(),
 		"proscenium_rect": _proscenium_rect,
 		"proscenium_coverage": _proscenium.coverage_ratio,
-		"proscenium_geometry_nodes": [
-			"LeftCurtainGeometry", "RightCurtainGeometry",
-			"CrownHeaderGeometry", "StageApronGeometry",
-		],
+		"proscenium_geometry_nodes": geometry_nodes,
+		"proscenium_painted_nodes": painted_nodes,
+		"curtain_paths": [CURTAIN_LEFT_PATH, CURTAIN_RIGHT_PATH],
+		"coverage_basis": "Layout estimate; the trusted probe checks actual source alpha.",
 		"footlights_visible": _footlights != null and _footlights.visible,
 		"stage_star_visible": _stage_star != null and _stage_star.visible,
 		"daddy_path": DADDY_PATH,

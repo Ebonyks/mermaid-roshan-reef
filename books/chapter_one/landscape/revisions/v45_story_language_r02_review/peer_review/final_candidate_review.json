@@ -1,0 +1,1453 @@
+{
+  "schema": "mermaid_roshan.independent_text_candidate_review.v1",
+  "reviewer": "Independent second AI /root/v38_peer_critic",
+  "reviewed_at_utc": "2026-11-02T00:10:55.831077+00:00",
+  "revision": "V45r02 strict story-language review",
+  "task_source_revision": "550a0b86216dee020d5070428ab4ddcfe0da4dc1",
+  "art_source_revision": "49a199846c61a39a3735e162214706b3687f12d3",
+  "verdict": "SATISFIED_FOR_IMPLEMENTED_23_OF_25_WITH_DECLARED_HOLDS",
+  "complete_manuscript_implementation": false,
+  "implemented_requested_caption_pages": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    14,
+    16,
+    17,
+    18,
+    19,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    29,
+    30,
+    31,
+    32
+  ],
+  "held_requested_caption_pages": [
+    11,
+    15
+  ],
+  "scope": "Exact text-only23-caption implementation and page21 bubbles; unchanged artwork/type sizes, final placement and contrast. Not a25of25 claim, complete read-aloud result, new story-fact acceptance or whole-book art/print pass.",
+  "rules": {
+    "applicable": [
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "DL-ASSET-08"
+    ],
+    "authority": "Owner-directed V45 work order, exact MANUSCRIPT.json and CRITIQUE at550a0b86216dee020d5070428ab4ddcfe0da4dc1; local critical inputs equal those pinned bytes.",
+    "constraint": "No art generation, scene changes, source replacement, font/type-size reduction or reviewer wording changes. Hold/report pages that cannot fit exact supplied words."
+  },
+  "artifacts": [
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/BOOK_BASELINE.json",
+      "sha256": "4b06dd726702eb45c5424bd47290c0ea22dac421b881c1f749bb0e0fdcb4c80f",
+      "bytes": 392722
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/BOOK_CURRENT.json",
+      "sha256": "e8b3689cf26c47b4595992199fa142aa88f6dd5cd6366a8d9c2b449be7e81208",
+      "bytes": 393361
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/build_revision.py",
+      "sha256": "a80a20cc6ee702bf95e055a986fda7e54b901a29b73cf1085706cf46c7eb269c",
+      "bytes": 4770
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/verify_revision.py",
+      "sha256": "d8741719ffab2510a3c347cb9284dea1762730d9c8c44564a25622146208c4d4",
+      "bytes": 9232
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/revision_scope.json",
+      "sha256": "099f273c80c8ec0cbc9c7a3873de676a0cb6631584c0741ba81492787a4a218f",
+      "bytes": 1533
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/README.md",
+      "sha256": "745f78bc0e4c50607ab11b283ff0c9dba4f3b6169c8ad7208db7fc423c8ffad8",
+      "bytes": 6066
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/HELD_PAGES.md",
+      "sha256": "381e8eefffdb71678271b14fb852b39fda87b5284c565d21d2b25c639ae866a2",
+      "bytes": 2296
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/page_status.json",
+      "sha256": "ffac71709a04db88251bf93278fe0e59322451cdccc125681155a1c9c142384b",
+      "bytes": 8265
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/read_aloud_review.json",
+      "sha256": "ffe9637090595bbefb8a7e80da9f333af9bf2df573d931e681e954801074a399",
+      "bytes": 1599
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/question_card_anchor_map.json",
+      "sha256": "f45a842060d37b3d5d15bbaee371e919ad9f132196077b6f853770d68ed616cf",
+      "bytes": 13449
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/composed_caption_contrast.json",
+      "sha256": "114ef7da289fc65c29b9c5e781a7fa1c74716b0b624331c098690cdebd647421",
+      "bytes": 76003
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/verification.json",
+      "sha256": "2fafec8c56212800547f9d6c4a4f1a9a5e57f58e3ac8dfea1383a0a3e79afed7",
+      "bytes": 8854
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/export_record.json",
+      "sha256": "1dec21d95c2d3d69ad5037a35f29ad80dfaad6b7d7be10625b37192e69cf91e9",
+      "bytes": 581
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/caption_provenance.json",
+      "sha256": "ee7f512a251eb59a526fcc91c2fa3851a9e299b104bc593cf098c7a4838e0e5e",
+      "bytes": 25156
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/Mermaid_Roshan_Book_V45.pdf",
+      "sha256": "f4ad9b97dac5bde49a08de4c19f9447e32000562d5b100abeb17af8a47d8071a",
+      "bytes": 24783122
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/Mermaid_Roshan_Book_V45_Email.pdf",
+      "sha256": "f4ad9b97dac5bde49a08de4c19f9447e32000562d5b100abeb17af8a47d8071a",
+      "bytes": 24783122
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_04.png",
+      "sha256": "427e038188822dfda961cbba32df4881ed1cd1a12f63c82492b70e01e67d28cc"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_05.png",
+      "sha256": "b6759209df41ef6162db34208267ff13cc34b06e234d41820efe1268cf0029a2"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_06.png",
+      "sha256": "2410e4a9264645da3bc472fc9fce09750b5895b483d54c5509f8207368b240b8"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_07.png",
+      "sha256": "d7794a7d7f970e1497393c611cc4c02fe62e2c8606555a73255f72d0ea1275d3"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_08.png",
+      "sha256": "bd9eca15febd1db23e8aeb00649f5a6f03dd30c3a6d59c263fd64f49cd415291"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_09.png",
+      "sha256": "ebad41467ecb604d05116de65a87358d295598f9b802461b46763aa3a84a9e7e"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_10.png",
+      "sha256": "cfbcba7ba8f7dc268d5665581a3dd8411186d768854f441739782cda2bb544bf"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_11.png",
+      "sha256": "786020b272c360183240caa11c5c47537d60fba0cea41263662c504abf3a3263"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_14.png",
+      "sha256": "4e31c1c0947696f4d72531800e9e5105882a44e74e845cbdebd957a929c10a4b"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_15.png",
+      "sha256": "03c2d98a7e116e08394c9b536c13b67a38fb991c1cd97ac686712c32c71ce4da"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_16.png",
+      "sha256": "7a608bcac91fe5ca64bde166cba0e4350b97c8660043fa3d2ed07897da855d3d"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_17.png",
+      "sha256": "54f8b68872429d6856e2a917c36214f5871037152891ba398894719d1b201dc3"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_18.png",
+      "sha256": "b72553d062eab196d2bdd982ae42c84365e73e7699756ad01400a58b00f00432"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_19.png",
+      "sha256": "95d81b22ab0dca4f5168aa016cbac2332e745ddfbb22928f6a97881f8b7c55c9"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_21.png",
+      "sha256": "16e0153403398888d5ec6e1d05507846598c8f633f190e35b58c565cd47837b2"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_22.png",
+      "sha256": "c80618feedffe25b242da4c4eff2b934384aedffac78c98cc91026f3e88f6e8e"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_23.png",
+      "sha256": "dd08ba8a693b0b85f0b9b96e39006a029e2b4242a4cc36c2cdf9929175f89dd0"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_24.png",
+      "sha256": "59713e74d67766338e20d096d31cb76bbc44f707d9f19b40c44f2a4cc32f9513"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_25.png",
+      "sha256": "0f98b2a2b8f246aa0d78c5dd8b601600087b117cba7603e376c7fe7f106ea6c5"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_26.png",
+      "sha256": "462b4af60e56c4eb8cb22d0031633c3ee5adc520386d187adbc3fe28944a4028"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_27.png",
+      "sha256": "84b03ffa31d8968d0940694f815563cff67fff384685bfd77d80c9c1f970744e"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_29.png",
+      "sha256": "2bd29dc3b90c8b72326331e64a4890d5fdb4943d155def0dbccb846d6a0c75e7"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_30.png",
+      "sha256": "5d153e1c538c45c89bc0bdd04152eec74a8017b84493fb89c5b24392f97f0674"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_31.png",
+      "sha256": "594bcbb551f1519c090ace114b4ab96dac38fa6584e614c576c6f09052fb5723"
+    },
+    {
+      "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_32.png",
+      "sha256": "2422a38b77aa8b300192ac55a18624c0ea240e3966a5f2fcd4dcc02c04ad00f2"
+    },
+    {
+      "file": "books/chapter_one/handoffs/2026-10-31_v45_story_language/README.md",
+      "sha256": "03f1da2188abb644e694099ea02b288c4705f3c77c6a95a080a16d37960bacdc",
+      "bytes": 5588,
+      "pinned_revision": "550a0b86216dee020d5070428ab4ddcfe0da4dc1"
+    },
+    {
+      "file": "books/chapter_one/handoffs/2026-10-31_v45_story_language/MANUSCRIPT.json",
+      "sha256": "2fde6916084b911bdf6904b6487124664935c3ac874a5213b68e6180977338bc",
+      "bytes": 12363,
+      "pinned_revision": "550a0b86216dee020d5070428ab4ddcfe0da4dc1"
+    },
+    {
+      "file": "books/chapter_one/handoffs/2026-10-31_v45_story_language/CRITIQUE.md",
+      "sha256": "ec2189c1adaf0f7ebff6230ac3321b5035b32afe6e37ce822cfb5cc3ef90ba7e",
+      "bytes": 18463,
+      "pinned_revision": "550a0b86216dee020d5070428ab4ddcfe0da4dc1"
+    },
+    {
+      "file": "books/chapter_one/handoffs/2026-10-31_v45_story_language/MANIFEST.json",
+      "sha256": "78507c33b108cfdbd0f9c69cffdae37f51657cb9024fe44df6c9aa9d69bd5ebd",
+      "bytes": 14363,
+      "pinned_revision": "550a0b86216dee020d5070428ab4ddcfe0da4dc1"
+    }
+  ],
+  "visual_method": {
+    "individual_requested_pages_reviewed": 25,
+    "implemented_pages_individually_reviewed": 23,
+    "held_pages_also_viewed": [
+      11,
+      15
+    ],
+    "final_reinspections": [
+      9,
+      15,
+      22
+    ],
+    "method": "Opened each proposed changed/held proof individually, inspected actual actor faces/hands/tails/tool contacts and caption ink rather than treating the blanket artwork focal boxes as literal occupied shapes. Revisited final corrected9/22 and exact held15. Actual proof PNGs independently verified against delivered PDF renders.",
+    "unchanged_scope": "Cover, rear and other unchanged pages were verified as exact carried PDF renders/content rather than newly rejudged for creative acceptance."
+  },
+  "page_reviews": [
+    {
+      "page": 4,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Three lines lie on open right floor, clear of Roshan/Daddy faces, hands and terminal fins. Outlined fill remains readable; quoted worry/question cadence preserved.",
+      "pdf_page_one_based": 5,
+      "proof_binding": {
+        "entry": 4,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_04.png",
+        "proof_sha256": "427e038188822dfda961cbba32df4881ed1cd1a12f63c82492b70e01e67d28cc",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 5,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Longer promise caption wraps in the open left column without touching closed door, dust wisps, low bunny or dotted border. 'She promised' wraps but remains one grammatical sentence.",
+      "pdf_page_one_based": 6,
+      "proof_binding": {
+        "entry": 5,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_05.png",
+        "proof_sha256": "b6759209df41ef6162db34208267ff13cc34b06e234d41820efe1268cf0029a2",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 3,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 6,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Two top lines clear the duster and both sponges and keep a visible gap below decorative top arc.",
+      "pdf_page_one_based": 7,
+      "proof_binding": {
+        "entry": 6,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_06.png",
+        "proof_sha256": "2410e4a9264645da3bc472fc9fce09750b5895b483d54c5509f8207368b240b8",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 4,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 7,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Three lower lines clear the bunny face/ears/pearl hands and splashing action. Caption overlays existing base/floor detail but no essential actor/action; outlined treatment is legible.",
+      "pdf_page_one_based": 8,
+      "proof_binding": {
+        "entry": 7,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_07.png",
+        "proof_sha256": "d7794a7d7f970e1497393c611cc4c02fe62e2c8606555a73255f72d0ea1275d3",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 3,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 8,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Two top lines clear tiara, face, hands/sponge, sink and tail; clean stationery gap remains.",
+      "pdf_page_one_based": 9,
+      "proof_binding": {
+        "entry": 8,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_08.png",
+        "proof_sha256": "bd9eca15febd1db23e8aeb00649f5a6f03dd30c3a6d59c263fd64f49cd415291",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 9,
+      "decision": "FIT_ACCEPTED_AFTER_REPAIR",
+      "observations": "Finalx46 left sidebar plus manual Out went the / dirty water! clears the border bubble at plug descender and stays clear of faucet/tub. Initial contact was rejected and corrected without changing words/type/art.",
+      "pdf_page_one_based": 10,
+      "proof_binding": {
+        "entry": 9,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_09.png",
+        "proof_sha256": "ebad41467ecb604d05116de65a87358d295598f9b802461b46763aa3a84a9e7e",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 3,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 10,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Three lower lines remain below the face/hands/tail action; floor and marginal basket are existing background detail, not a new actor collision. Main silhouette edge and caption have a narrow visible gap.",
+      "pdf_page_one_based": 11,
+      "proof_binding": {
+        "entry": 10,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_10.png",
+        "proof_sha256": "cfbcba7ba8f7dc268d5665581a3dd8411186d768854f441739782cda2bb544bf",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 5,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 11,
+      "decision": "HELD",
+      "observations": "Exact V44 caption/layout restored; proposed longer V45 wording is not implemented. Hold follows explicit order after no compliant fit at unchanged20pt and exact contrast threshold.",
+      "pdf_page_one_based": 12,
+      "proof_binding": {
+        "entry": 11,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_11.png",
+        "proof_sha256": "786020b272c360183240caa11c5c47537d60fba0cea41263662c504abf3a3263",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 6,
+        "unchanged_pdf_entry": true
+      },
+      "manuscript_status": "HELD_EXACT_V44"
+    },
+    {
+      "page": 14,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Three lower lines overlay pool water/reflection, below the rainbow waterfall flow and clear of actor/action shapes. Mixed white/navy fill remains legible; source water/reflection is not a character focal box.",
+      "pdf_page_one_based": 15,
+      "proof_binding": {
+        "entry": 14,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_14.png",
+        "proof_sha256": "4e31c1c0947696f4d72531800e9e5105882a44e74e845cbdebd957a929c10a4b",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 3,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 15,
+      "decision": "HELD_EXACT_V44",
+      "observations": "Final restored V44 page is unchanged. Requested V45 longer caption is not implemented; its rejected first row covered lower tail scales/fin root. No quiet compliant replacement was confirmed, so exact old words remain under authorized hold.",
+      "pdf_page_one_based": 16,
+      "proof_binding": {
+        "entry": 15,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_15.png",
+        "proof_sha256": "03c2d98a7e116e08394c9b536c13b67a38fb991c1cd97ac686712c32c71ce4da",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 9,
+        "unchanged_pdf_entry": true
+      },
+      "manuscript_status": "HELD_EXACT_V44"
+    },
+    {
+      "page": 16,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Three lower outlined lines stay below Rumi's tail/splash endpoint, above page edge; no face/hand/fountain action covered.",
+      "pdf_page_one_based": 17,
+      "proof_binding": {
+        "entry": 16,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_16.png",
+        "proof_sha256": "7a608bcac91fe5ca64bde166cba0e4350b97c8660043fa3d2ed07897da855d3d",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 1,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 17,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Existing left column holds six wrapped lines in quiet blue space with visible gaps from border, Rumi braid/terminal fin and the hugging faces/hands. No widening or artwork change was needed.",
+      "pdf_page_one_based": 18,
+      "proof_binding": {
+        "entry": 17,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_17.png",
+        "proof_sha256": "54f8b68872429d6856e2a917c36214f5871037152891ba398894719d1b201dc3",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 5,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 18,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Four lines on the lower-right floor clear Roshan's listening hand, face and tail and the little bunny. Text overlays scenery/toy-bin base only, not a character face or rescue action.",
+      "pdf_page_one_based": 19,
+      "proof_binding": {
+        "entry": 18,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_18.png",
+        "proof_sha256": "b72553d062eab196d2bdd982ae42c84365e73e7699756ad01400a58b00f00432",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 19,
+      "decision": "FIT_ACCEPTED_WITH_INHERITED_FIRST_LINE_GEOMETRY",
+      "observations": "Three outlined floor lines clear rescue faces/hands/duster. First line remains close to Eagle feet, but its wording and all caption controls are exactly V44; no new first-line placement regression is introduced.",
+      "pdf_page_one_based": 20,
+      "proof_binding": {
+        "entry": 19,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_19.png",
+        "proof_sha256": "95d81b22ab0dca4f5168aa016cbac2332e745ddfbb22928f6a97881f8b7c55c9",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 21,
+      "decision": "AUTHORIZED_FALLBACK_ACCEPTED",
+      "observations": "All three main lines fit above Eagle crest with a clear gap; bubble text fits both white shapes at18pt. Literal visual order is main caption first, then bubbles, rather than the preferred interleaved sequence. Single-top-caption fallback is explicitly authorized; no new renderer required.",
+      "pdf_page_one_based": 22,
+      "proof_binding": {
+        "entry": 21,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_21.png",
+        "proof_sha256": "16e0153403398888d5ec6e1d05507846598c8f633f190e35b58c565cd47837b2",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 2,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 22,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Final manual three-line wrap keeps the entire One little job at a time quote on the third line and clears Roshan tiara/crown. No table/paint-hand/tail overlap.",
+      "pdf_page_one_based": 23,
+      "proof_binding": {
+        "entry": 22,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_22.png",
+        "proof_sha256": "c80618feedffe25b242da4c4eff2b934384aedffac78c98cc91026f3e88f6e8e",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 5,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 23,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Three upper outlined lines remain well above Roshan and the shell-door/sparkle-route action. They cross existing architectural gold/lamp detail, not faces/hands/tails; exact new click/promise story facts remain owner-review items.",
+      "pdf_page_one_based": 24,
+      "proof_binding": {
+        "entry": 23,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_23.png",
+        "proof_sha256": "dd08ba8a693b0b85f0b9b96e39006a029e2b4242a4cc36c2cdf9929175f89dd0",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 6,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 24,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Six left-column lines fit quiet stationery, clear of Puff curls/face/pearl hands, small side dust clouds, border and care vignette. 'All!' isolated by wrap retains exact emphasis.",
+      "pdf_page_one_based": 25,
+      "proof_binding": {
+        "entry": 24,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_24.png",
+        "proof_sha256": "59713e74d67766338e20d096d31cb76bbc44f707d9f19b40c44f2a4cc32f9513",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 4,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 25,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Three top lines clear Roshan's tiara/ponytail by visible gap, with no offered-sponge/hand/tail overlap. Big-job/help request reads in order.",
+      "pdf_page_one_based": 26,
+      "proof_binding": {
+        "entry": 25,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_25.png",
+        "proof_sha256": "0f98b2a2b8f246aa0d78c5dd8b601600087b117cba7603e376c7fe7f106ea6c5",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 6,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 26,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Three compact ceiling lines clear Daddy's crown, Puff ears and all washing hands/tools. Last line crosses chandelier detail but no actor/action; tighter20pt leading does not merge adjacent text lines.",
+      "pdf_page_one_based": 27,
+      "proof_binding": {
+        "entry": 26,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_26.png",
+        "proof_sha256": "462b4af60e56c4eb8cb22d0031633c3ee5adc520386d187adbc3fe28944a4028",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 4,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 27,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Two ceiling lines clear Daddy crown, Rumi hair and washing/foam action. New refrain remains legible on existing architecture.",
+      "pdf_page_one_based": 28,
+      "proof_binding": {
+        "entry": 27,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_27.png",
+        "proof_sha256": "84b03ffa31d8968d0940694f815563cff67fff384685bfd77d80c9c1f970744e",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 29,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Two upper lines remain on ceiling above all figures, preserving clear separation and exact short spoken-resolution wording.",
+      "pdf_page_one_based": 30,
+      "proof_binding": {
+        "entry": 29,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_29.png",
+        "proof_sha256": "2bd29dc3b90c8b72326331e64a4890d5fdb4943d155def0dbccb846d6a0c75e7",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 30,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Four floor lines occupy the central lower scene. First row is close to front-cart bases but does not cover tabletop supplies or a depicted actor/action. Big-job moral remains complete and prominent.",
+      "pdf_page_one_based": 31,
+      "proof_binding": {
+        "entry": 30,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_30.png",
+        "proof_sha256": "5d153e1c538c45c89bc0bdd04152eec74a8017b84493fb89c5b24392f97f0674",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 3,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 31,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Four upper lines fit stationery. Lower isolated 'sometimes!' line is horizontally clear of Roshan tiara despite similar vertical level; Puff ears and both open hands/tails remain clear.",
+      "pdf_page_one_based": 32,
+      "proof_binding": {
+        "entry": 31,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_31.png",
+        "proof_sha256": "594bcbb551f1519c090ace114b4ab96dac38fa6584e614c576c6f09052fb5723",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 8,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    },
+    {
+      "page": 32,
+      "decision": "FIT_ACCEPTED",
+      "observations": "Three compact upper lines clear Daddy's crown by a visible gap and do not cover sleeping faces or hands. Exact invitation/belonging sequence fits without smaller type.",
+      "pdf_page_one_based": 33,
+      "proof_binding": {
+        "entry": 32,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_32.png",
+        "proof_sha256": "2422a38b77aa8b300192ac55a18624c0ea240e3966a5f2fcd4dcc02c04ad00f2",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 4,
+        "unchanged_pdf_entry": false
+      },
+      "manuscript_status": "EXACT_V45_IMPLEMENTED"
+    }
+  ],
+  "editorial_cadence": {
+    "method": "Independent text cadence simulation of the entire supplied manuscript, with final implemented wording checked afterward; no audible human or child session claimed.",
+    "assessment": "The supplied progression is coherent: Roshan feels overwhelmed, starts one small job, helps friends, asks for help, joins a shared cleanup and welcomes the bunnies. The apologies plus future gentleness promise support responsibility without changing the dust bunnies into villains. No unauthorized wording substitutions are recommended.",
+    "delivered_draft_limit": "The full proposed manuscript is not delivered: story11 lacks the requested Rumi introduction/help question, so the intended exact verbal echo into25 is not yet present. Story15 lacks the requested pulled-and-pulled effort/cup-out-water-out explanation. Both await shorter supplied wording.",
+    "pause_notes": [
+      {
+        "page": 5,
+        "note": "Pause after the stuck-door sentence before the promise; sidebar line wraps do not change words."
+      },
+      {
+        "page": 17,
+        "note": "Give the hug sentence and returned-help offer separate breaths; both fit the existing column."
+      },
+      {
+        "page": 23,
+        "note": "Keep a distinct pause at Click! and before AH-CHOO, even where wrapping places them in longer lines."
+      },
+      {
+        "page": 31,
+        "note": "Pause after That's okay and before Everyone needs help sometimes."
+      }
+    ],
+    "read_aloud_evidence": "Primary record describes offline synthetic speech plus editorial rehearsal and explicitly leaves actual human/child/SLP listening open. I did not listen to the temporary QA WAV; no audible read-aloud acceptance is inferred from a generated file or its hash.",
+    "word_changes_by_this_reviewer": 0
+  },
+  "page21_fallback": {
+    "result": "ACCEPTED_AUTHORIZED_FALLBACK",
+    "literal_visual_order": "All three main caption lines are above Eagle, so a literal top-to-bottom scan encounters the happy chirp/Roshan gentleness line before the two lower apology/promise bubbles.",
+    "preferred_order_not_fully_realized": true,
+    "reason_not_a_new_renderer_blocker": "The work order explicitly permits one top caption when splitting would require renderer work. Exact main/bubble words fit, both bubbles retain their original geometry, and the text clears Eagle's crest.",
+    "bubble_text": [
+      "Sorry!",
+      "We’ll be gentle!"
+    ],
+    "caption_size_logical_points": 20,
+    "bubble_size_logical_points": 18
+  },
+  "iteration_findings": [
+    {
+      "id": "V45-F01",
+      "page": 9,
+      "state": "CLOSED_IN_FINAL_PROOF",
+      "observation": "Rejected sidebar placed the plug p-descender on a native border bubble. Finalx46 plus deliberate Out went the / dirty water! wrap creates clear border/faucet/tub separation without changing words or type.",
+      "evidence_scope": "Native enlarged rejected crop and final page09 were visually inspected. Rejected snapshot retained under audit/rejected_r04."
+    },
+    {
+      "id": "V45-F02",
+      "page": 15,
+      "state": "HELD_EXACT_V44_NOT_CLOSED_AS_NEW_CAPTION",
+      "observation": "The longer caption's added upper row covered Roshan lower scales/fin root. Contrast passing did not make that placement acceptable. No sufficiently large quiet replacement was confirmed at20pt; exact V44 page restored under the explicit hold instruction.",
+      "required_next_input": "Shorter supplied effort/cause wording; do not cut words, shrink font or modify art."
+    },
+    {
+      "id": "V45-H11",
+      "page": 11,
+      "state": "HELD_EXACT_V44",
+      "observation": "Longer caption failed the unchanged fill-only contrast gate at tested quiet placements. Top candidate crossed mixed gold/waterfall architecture; larger bottom block encroached on rim/rescue imagery. No confirmed compliant alternative was found after independent visual review.",
+      "required_next_input": "Shorter supplied Rumi introduction/help-request wording."
+    },
+    {
+      "id": "V45-P22",
+      "page": 22,
+      "state": "FINAL_REWRAP_ACCEPTED",
+      "observation": "Final three-line wrap keeps the complete One little job at a time quote together and leaves visible clearance above Roshan tiara. No art/type reduction."
+    }
+  ],
+  "independent_machine_checks": {
+    "pdfs": {
+      "reading": {
+        "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/Mermaid_Roshan_Book_V45.pdf",
+        "sha256": "f4ad9b97dac5bde49a08de4c19f9447e32000562d5b100abeb17af8a47d8071a",
+        "bytes": 24783122
+      },
+      "email": {
+        "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/Mermaid_Roshan_Book_V45_Email.pdf",
+        "sha256": "f4ad9b97dac5bde49a08de4c19f9447e32000562d5b100abeb17af8a47d8071a",
+        "bytes": 24783122
+      },
+      "byte_identical": true,
+      "under25000000bytes": true,
+      "entries": 34
+    },
+    "exact_words_and_type": [
+      {
+        "page": 4,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 5,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 6,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 7,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 8,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 9,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 10,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 14,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 16,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 17,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 18,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 19,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 21,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": 18
+      },
+      {
+        "page": 22,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 23,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 24,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 25,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 26,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 27,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 29,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 30,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 31,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      },
+      {
+        "page": 32,
+        "exact_v45_words_punctuation": true,
+        "caption_size": 20,
+        "bubble_size": null
+      }
+    ],
+    "manuscript_comparison": "Implemented visible lines and actual PDF text draws were compared with exact supplied words/capitalization/curly punctuation. Only whitespace line rewrap was normalized. Existing halo stroke/fill draw duplication is accounted for explicitly, not mistaken for extra visual captions.",
+    "all34_art_and_proofs": [
+      {
+        "entry": 0,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_00.png",
+        "proof_sha256": "b04b981c4025a72356f40e7b0ec8325e244cfea5964c806da51316d55e860267",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 17,
+        "unchanged_pdf_entry": true
+      },
+      {
+        "entry": 1,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_01.png",
+        "proof_sha256": "a10ff01984780a309105e4e3804f27850d9985e583443a207f8144b2c0ee7a2c",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 5,
+        "unchanged_pdf_entry": true
+      },
+      {
+        "entry": 2,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_02.png",
+        "proof_sha256": "6ac9f1f6e3cd25d418409f9b8a56499371cf2affc255f54f0539ba16844c08d1",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 1,
+        "unchanged_pdf_entry": true
+      },
+      {
+        "entry": 3,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_03.png",
+        "proof_sha256": "e2984f0aed24d0995a7b1368475e02d4a894d53493eaef9ef91bcc85df9833af",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 6,
+        "unchanged_pdf_entry": true
+      },
+      {
+        "entry": 4,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_04.png",
+        "proof_sha256": "427e038188822dfda961cbba32df4881ed1cd1a12f63c82492b70e01e67d28cc",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 5,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_05.png",
+        "proof_sha256": "b6759209df41ef6162db34208267ff13cc34b06e234d41820efe1268cf0029a2",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 3,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 6,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_06.png",
+        "proof_sha256": "2410e4a9264645da3bc472fc9fce09750b5895b483d54c5509f8207368b240b8",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 4,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 7,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_07.png",
+        "proof_sha256": "d7794a7d7f970e1497393c611cc4c02fe62e2c8606555a73255f72d0ea1275d3",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 3,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 8,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_08.png",
+        "proof_sha256": "bd9eca15febd1db23e8aeb00649f5a6f03dd30c3a6d59c263fd64f49cd415291",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 9,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_09.png",
+        "proof_sha256": "ebad41467ecb604d05116de65a87358d295598f9b802461b46763aa3a84a9e7e",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 3,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 10,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_10.png",
+        "proof_sha256": "cfbcba7ba8f7dc268d5665581a3dd8411186d768854f441739782cda2bb544bf",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 5,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 11,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_11.png",
+        "proof_sha256": "786020b272c360183240caa11c5c47537d60fba0cea41263662c504abf3a3263",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 6,
+        "unchanged_pdf_entry": true
+      },
+      {
+        "entry": 12,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_12.png",
+        "proof_sha256": "d6d61a7cbad52a989b54772b8e03f00495033d323d1ab99361f577f3ced0c478",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 2,
+        "unchanged_pdf_entry": true
+      },
+      {
+        "entry": 13,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_13.png",
+        "proof_sha256": "8c17e7bfa8271f753c6907c925b0aee90fc67b38967091e0e4342b5ee4166887",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 1,
+        "unchanged_pdf_entry": true
+      },
+      {
+        "entry": 14,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_14.png",
+        "proof_sha256": "4e31c1c0947696f4d72531800e9e5105882a44e74e845cbdebd957a929c10a4b",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 3,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 15,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_15.png",
+        "proof_sha256": "03c2d98a7e116e08394c9b536c13b67a38fb991c1cd97ac686712c32c71ce4da",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 9,
+        "unchanged_pdf_entry": true
+      },
+      {
+        "entry": 16,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_16.png",
+        "proof_sha256": "7a608bcac91fe5ca64bde166cba0e4350b97c8660043fa3d2ed07897da855d3d",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 1,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 17,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_17.png",
+        "proof_sha256": "54f8b68872429d6856e2a917c36214f5871037152891ba398894719d1b201dc3",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 5,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 18,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_18.png",
+        "proof_sha256": "b72553d062eab196d2bdd982ae42c84365e73e7699756ad01400a58b00f00432",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 19,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_19.png",
+        "proof_sha256": "95d81b22ab0dca4f5168aa016cbac2332e745ddfbb22928f6a97881f8b7c55c9",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 20,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_20.png",
+        "proof_sha256": "ba915b567470a19e9fe55c0991e39aded0866688ea7d44a602cac742733ea685",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 10,
+        "unchanged_pdf_entry": true
+      },
+      {
+        "entry": 21,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_21.png",
+        "proof_sha256": "16e0153403398888d5ec6e1d05507846598c8f633f190e35b58c565cd47837b2",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 2,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 22,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_22.png",
+        "proof_sha256": "c80618feedffe25b242da4c4eff2b934384aedffac78c98cc91026f3e88f6e8e",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 5,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 23,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_23.png",
+        "proof_sha256": "dd08ba8a693b0b85f0b9b96e39006a029e2b4242a4cc36c2cdf9929175f89dd0",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 6,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 24,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_24.png",
+        "proof_sha256": "59713e74d67766338e20d096d31cb76bbc44f707d9f19b40c44f2a4cc32f9513",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 4,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 25,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_25.png",
+        "proof_sha256": "0f98b2a2b8f246aa0d78c5dd8b601600087b117cba7603e376c7fe7f106ea6c5",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 6,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 26,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_26.png",
+        "proof_sha256": "462b4af60e56c4eb8cb22d0031633c3ee5adc520386d187adbc3fe28944a4028",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 4,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 27,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_27.png",
+        "proof_sha256": "84b03ffa31d8968d0940694f815563cff67fff384685bfd77d80c9c1f970744e",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 28,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_28.png",
+        "proof_sha256": "e8a6d85d01ebd28d61651297cff09b639bada9f9b7f5ea178dea01559b8c7aa2",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 6,
+        "unchanged_pdf_entry": true
+      },
+      {
+        "entry": 29,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_29.png",
+        "proof_sha256": "2bd29dc3b90c8b72326331e64a4890d5fdb4943d155def0dbccb846d6a0c75e7",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 7,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 30,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_30.png",
+        "proof_sha256": "5d153e1c538c45c89bc0bdd04152eec74a8017b84493fb89c5b24392f97f0674",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 3,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 31,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_31.png",
+        "proof_sha256": "594bcbb551f1519c090ace114b4ab96dac38fa6584e614c576c6f09052fb5723",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 8,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 32,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_32.png",
+        "proof_sha256": "2422a38b77aa8b300192ac55a18624c0ea240e3966a5f2fcd4dcc02c04ad00f2",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 4,
+        "unchanged_pdf_entry": false
+      },
+      {
+        "entry": 33,
+        "proof_file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/complete/page_33.png",
+        "proof_sha256": "eb9d323ac03fccf41fca1045f2792876d9dba746e063dc42a0fac3ac2509b498",
+        "actual_render_matches_png": true,
+        "caption_free_rgb_exact": true,
+        "native_images_alpha_exact": true,
+        "image_count": 8,
+        "unchanged_pdf_entry": true
+      }
+    ],
+    "unchanged_entry_count": 11,
+    "source_sources_cover_rear_font_controls_exact": true,
+    "art_method": "Independently removed text objects from actual baseline/current PDFs in memory and compared all34caption-free RGB renders; compared every original native image payload/dimensions and alpha stream. No image re-encoding or new art was detected.",
+    "unchanged_method": "All11unchanged entries, including held11/15 and both covers, have exact V44 rendered pixels, extracted text and page content bytes. Every delivered proof PNG equals its actual current PDF render.",
+    "contrast": {
+      "method": "Independent in-memory actual delivery text removal and unchangedV37 fill-only median/worst-decile recomputation; stroke excluded.",
+      "thresholds": {
+        "FAIL": "worst<3",
+        "OUTLINE_REQUIRED": "worst>=3 and typical<4.5",
+        "PASS": "typical>=4.5"
+      },
+      "results": {
+        "v44": {
+          "counts": {
+            "PASS": 77,
+            "OUTLINE_REQUIRED": 7,
+            "FAIL": 0
+          },
+          "min_worst_decile_ratio": 3.00571394620777,
+          "outline_required_lines": [
+            {
+              "page": 16,
+              "text": "Now she was free!",
+              "outline": 1,
+              "halo": true
+            },
+            {
+              "page": 20,
+              "text": "then the other.",
+              "outline": 1,
+              "halo": true
+            },
+            {
+              "page": 27,
+              "text": "Soft bubbles covered Grand Puff.",
+              "outline": 1,
+              "halo": false
+            },
+            {
+              "page": 28,
+              "text": "The dust fell away.",
+              "outline": 1,
+              "halo": false
+            },
+            {
+              "page": 29,
+              "text": "He felt like himself again.",
+              "outline": 1,
+              "halo": false
+            },
+            {
+              "page": "back_cover",
+              "text": "Pearl Castle needs help.",
+              "outline": 1.1,
+              "halo": true
+            },
+            {
+              "page": "back_cover",
+              "text": "Where will Roshan begin?",
+              "outline": 1.1,
+              "halo": true
+            }
+          ]
+        },
+        "v45": {
+          "counts": {
+            "PASS": 99,
+            "OUTLINE_REQUIRED": 9,
+            "FAIL": 0
+          },
+          "min_worst_decile_ratio": 3.00571394620777,
+          "outline_required_lines": [
+            {
+              "page": 20,
+              "text": "then the other.",
+              "outline": 1,
+              "halo": true
+            },
+            {
+              "page": 28,
+              "text": "The dust fell away.",
+              "outline": 1,
+              "halo": false
+            },
+            {
+              "page": "back_cover",
+              "text": "Pearl Castle needs help.",
+              "outline": 1.1,
+              "halo": true
+            },
+            {
+              "page": "back_cover",
+              "text": "Where will Roshan begin?",
+              "outline": 1.1,
+              "halo": true
+            },
+            {
+              "page": 16,
+              "text": "Now she was free!",
+              "outline": 1,
+              "halo": true
+            },
+            {
+              "page": 26,
+              "text": "“We’ll help!” said Daddy and Rumi.",
+              "outline": 1,
+              "halo": false
+            },
+            {
+              "page": 26,
+              "text": "“Chirp, chirp!” said Baby Eagle.",
+              "outline": 1,
+              "halo": false
+            },
+            {
+              "page": 27,
+              "text": "Soft bubbles covered Grand Puff.",
+              "outline": 1,
+              "halo": false
+            },
+            {
+              "page": 29,
+              "text": "“I feel all better!” he said.",
+              "outline": 1,
+              "halo": false
+            }
+          ]
+        }
+      }
+    },
+    "contrast_scope": "Objective same-method measurements only; not an aesthetic score, child/SLP test or physical print claim.",
+    "primary_strict_receipt": {
+      "status": "PASS_IMPLEMENTED_SCOPE_WITH_DECLARED_HELD_PAGE",
+      "reading_sha256": "f4ad9b97dac5bde49a08de4c19f9447e32000562d5b100abeb17af8a47d8071a",
+      "email_sha256": "f4ad9b97dac5bde49a08de4c19f9447e32000562d5b100abeb17af8a47d8071a",
+      "bytes": 24783122,
+      "exact_changed_captions": 23,
+      "held_words_pages": [
+        11,
+        15
+      ],
+      "held": [
+        "Stories11and15 longer captions await shorter supplied words",
+        "Owner new story facts/illustrations",
+        "Child spoken read-aloud/qualified SLP",
+        "V44 geography/fountain",
+        "Physical print,arrival imposition/gutter and V41printPart2"
+      ],
+      "issues": [],
+      "source_count_reported_by_parent": 327,
+      "execution_scope": "Read completed frozen receipt; did not rerun the full source/archive or project test suite."
+    }
+  },
+  "documentation_review": {
+    "README": "Accurately reports23of25, both exact held pages, per-page caption controls, identical reading/email files, same contrast thresholds and separate owner/print/read-aloud holds.",
+    "held_pages": "Explicitly requests shorter supplied words for11and15 and preserves their intended goals; does not present old words as the new manuscript.",
+    "question_card": "Delivered quote-anchor map distinguishes requested versus actual held strings. It does not claim the question card on the separate learning-sessions branch has been updated.",
+    "status_and_reading": "page_status entries bind the final proofs; synthetic rehearsal is labeled a proxy, with actual human/child/SLP review open.",
+    "primary_verification_wording": "The final receipt now names both11and15 in its human-readable hold list, as well as held_words_pages."
+  },
+  "remaining_holds": [
+    "Stories11and15 require shorter supplied captions; full25caption manuscript implementation remains incomplete.",
+    "Owner review of the new story facts: Puff biggest/sneeze dust/apology, clean-room sparkles unsticking door and Rumi returned-help offer.",
+    "Actual spoken human/child read-aloud and qualified SLP review; simulated cadence and synthetic speech do not close these.",
+    "V44 inherited geography1↔2 and seahorse forehead11/15/16 findings and illustration acceptance.",
+    "Physical print/trim/resolution/bleed/colour proof, arrival imposition/parity/fold/swing-gutter and V41 printPart2.",
+    "Question-card branch quote-anchor update remains separate; delivered map is not that branch change.",
+    "Final project authority/development/test and pinned anonymous publication verification remain a later evidence lane."
+  ],
+  "required_additional_artwork": [],
+  "relocation_revalidation": {
+    "scope": "Paths/control revision label/download route and exact bindings only; no new creative performance review.",
+    "reviewed_pdf_sha256": "f4ad9b97dac5bde49a08de4c19f9447e32000562d5b100abeb17af8a47d8071a",
+    "reading_and_email_bytes": 24783122,
+    "all34_reviewed_proof_hashes_unchanged": true,
+    "all45_artifact_paths_revalidated": true,
+    "changed_bound_metadata_files": [
+      "books/chapter_one/landscape/revisions/v45_story_language_r02_review/BOOK_CURRENT.json",
+      "books/chapter_one/landscape/revisions/v45_story_language_r02_review/revision_scope.json",
+      "books/chapter_one/landscape/revisions/v45_story_language_r02_review/README.md"
+    ],
+    "parallel_publication_revision": "01004e37ff00e51cb9048906fa64d019923541c3",
+    "parallel_note": "A separately published V45 package occupies revisions/v45_story_language at01004e37ff00e51cb9048906fa64d019923541c3. The strict23of25 candidate is isolated here so that parallel package and its history are preserved. Its declared page11adaptation is not inferred to be owner-accepted. This peer update edits no parallel or production file; parent reconciles both histories on the established branch.",
+    "verdict_unchanged": "SATISFIED_FOR_IMPLEMENTED_23_OF_25_WITH_DECLARED_HOLDS",
+    "limits": "Same23caption placements/words and exact held11/15; owner/read-aloud/SLP/print/art-finding holds unchanged."
+  },
+  "reviewer_writes": [
+    "books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/final_candidate_review.json"
+  ],
+  "conclusion": "The exact implemented23captions and authorized page21fallback are suitable for this draft review. Two captions are honestly held, with exact V44 pages preserved. This verdict must not be presented as25of25 completion, owner/child/SLP acceptance or a new art/print approval."
+}

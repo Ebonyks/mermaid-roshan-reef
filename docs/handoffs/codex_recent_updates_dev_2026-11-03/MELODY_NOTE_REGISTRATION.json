@@ -1,0 +1,145 @@
+{
+  "state": "ACTUAL_COMBINED_POINTER_FAILURE_REPAIRED_PENDING_RECHECK",
+  "cause": "Independent painted-note and painted-guide updates meet at an unchanged logical anchor; the new note alpha is asymmetric by at most a fraction of a screen pixel, while the guide endpoint contract remains0.01px. Whole-picture offset now registers actual alpha center to that same anchor.",
+  "prior_failure": "melody_combined_smoke01/engine.log",
+  "note_size": 84,
+  "hit_size": 120,
+  "timing_and_logical_target_unchanged": true,
+  "pointer_endpoint_tolerance": 0.01,
+  "pixels_modified": false,
+  "notes": [
+    {
+      "color": "red",
+      "alpha_threshold_gt": 0.05,
+      "bounds": [
+        3,
+        2,
+        122,
+        123
+      ],
+      "alpha_center": [
+        64.0,
+        63.5
+      ],
+      "offset": [
+        0.0,
+        0.5
+      ],
+      "max_screen_shift_px": 0.328125
+    },
+    {
+      "color": "orange",
+      "alpha_threshold_gt": 0.05,
+      "bounds": [
+        3,
+        2,
+        122,
+        123
+      ],
+      "alpha_center": [
+        64.0,
+        63.5
+      ],
+      "offset": [
+        0.0,
+        0.5
+      ],
+      "max_screen_shift_px": 0.328125
+    },
+    {
+      "color": "yellow",
+      "alpha_threshold_gt": 0.05,
+      "bounds": [
+        3,
+        2,
+        122,
+        123
+      ],
+      "alpha_center": [
+        64.0,
+        63.5
+      ],
+      "offset": [
+        0.0,
+        0.5
+      ],
+      "max_screen_shift_px": 0.328125
+    },
+    {
+      "color": "green",
+      "alpha_threshold_gt": 0.05,
+      "bounds": [
+        3,
+        2,
+        122,
+        123
+      ],
+      "alpha_center": [
+        64.0,
+        63.5
+      ],
+      "offset": [
+        0.0,
+        0.5
+      ],
+      "max_screen_shift_px": 0.328125
+    },
+    {
+      "color": "blue",
+      "alpha_threshold_gt": 0.05,
+      "bounds": [
+        3,
+        2,
+        122,
+        123
+      ],
+      "alpha_center": [
+        64.0,
+        63.5
+      ],
+      "offset": [
+        0.0,
+        0.5
+      ],
+      "max_screen_shift_px": 0.328125
+    },
+    {
+      "color": "indigo",
+      "alpha_threshold_gt": 0.05,
+      "bounds": [
+        3,
+        2,
+        122,
+        123
+      ],
+      "alpha_center": [
+        64.0,
+        63.5
+      ],
+      "offset": [
+        0.0,
+        0.5
+      ],
+      "max_screen_shift_px": 0.328125
+    },
+    {
+      "color": "violet",
+      "alpha_threshold_gt": 0.05,
+      "bounds": [
+        3,
+        2,
+        122,
+        123
+      ],
+      "alpha_center": [
+        64.0,
+        63.5
+      ],
+      "offset": [
+        0.0,
+        0.5
+      ],
+      "max_screen_shift_px": 0.328125
+    }
+  ]
+}

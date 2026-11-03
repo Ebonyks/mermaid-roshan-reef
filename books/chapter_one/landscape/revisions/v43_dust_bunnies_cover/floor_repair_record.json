@@ -1,0 +1,22 @@
+{
+  "method": "Built-in imagegen bounded floor continuity repair",
+  "attempts": 1,
+  "provider_revision": "Not exposed",
+  "request_id": "Not exposed",
+  "reported_cost": "Not exposed; one call",
+  "source": "references/floor_repair_input.png",
+  "source_sha256": "6285aa148afa221908f146f90f60760453f0115912c32d4c7a53a603b251d784",
+  "source_parent": "references/existing_cover_without_type_or_lamma.png",
+  "source_crop": [
+    1128,
+    850,
+    1512,
+    1080
+  ],
+  "native_output": "art/floor_repair_native.png",
+  "native_sha256": "551799ed475ce6c27746988e5b7afcfec2629e62d9c716122ebc58872d269b38",
+  "prompt": "floor_repair_prompt.txt",
+  "prompt_sha256": "0d0f82812bddbfde2197fab880b8efc3de3b4c8755527b119f307f03a6a837c0",
+  "delivery": "Only declared 120x170sourcepixel floor window, with8px inset/3.5px feather; bunnies drawn afterward. No generated bird pixel selected. Original source/native output preserved.",
+  "cleanup_minutes": 0
+}

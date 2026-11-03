@@ -1,0 +1,20 @@
+{
+  "classification": "DIAGNOSIS_ONLY_NOT_REPAIR",
+  "neck": {
+    "observed": "Native neck_source.png contains a continuous painted neck/shoulder connection; the final derivative has a straight hard boundary.",
+    "source": "native/neck_source.png",
+    "sha256": "b99f0751da2966f1919f503aa6706c7db0d8412a69ab8e0f266654afe582e954",
+    "derivation": "scripts/isolate.lua maps a 63x35 source skin window over roughly 155x74 destination pixels inside a hand-drawn fill_polygon. This preserves local colour rather than the source anatomical silhouette.",
+    "next": "Prefer precise non-destructive reuse of the existing painted source neck/shoulder contours in a new bounded cleanup window. Preserve original face/hair, complete original-clothing erasure, registration and native head/shoulder joins. No new generation is currently authorized by the exhausted four-call card."
+  },
+  "tail": {
+    "evidence": "evidence/numeric/astronaut_geometry_audit_Body.json",
+    "observed": "Minimum visible stretch .788 at the demanding tail bend; worst reported source triangle centre [490,596], time1.1s. Painter tail has an extra connected component.",
+    "next": "Submit these exact cloth/fin cases to shared outline/waist-join ownership. Do not edit common weights, old fixtures, bone rests or original three curves. Any garment-coverage/extension hypothesis must preserve those locks and pass the same original floors."
+  },
+  "valve": {
+    "observed": "142.22 deg/s and856.73 deg/s2 exceed140/650; contact passes independently.",
+    "next": "A future bounded action revision needs slower/smoother approach/release derivatives while preserving fixed wheel support, palm contact, loop endpoints and original three clips. Do not relax thresholds."
+  },
+  "stop": "Current art/action candidate remains frozen and rejected. This read-only diagnosis adds no take, cleanup or acceptance; task caps do not reset through method changes."
+}

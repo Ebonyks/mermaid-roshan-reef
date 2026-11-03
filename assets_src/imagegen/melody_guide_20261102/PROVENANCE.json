@@ -1,0 +1,217 @@
+{
+  "stable_id": "FV-0091F4E1BC9C",
+  "backend": "Built-in image_gen.imagegen",
+  "requested_owner_version": "ImageGen2.5when available",
+  "actual_model_version": "NOT_EXPOSED; no model selector",
+  "seed": "NOT_EXPOSED",
+  "cost": "NOT_EXPOSED",
+  "animation_calls": 0,
+  "static_calls": 2,
+  "static_cap": 2,
+  "native_outputs": [
+    {
+      "call": 1,
+      "native_path": "assets_src/imagegen/melody_guide_20261102/native/arrow_original.png",
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-66fc8939-96d1-49d6-81b6-917b4190cd4e.png",
+      "sha256": "cf985e177abd008fe6652e984c7d13bd3cd94f99a12c80ba6ea169e3b3774b77",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "backend": "Built-in image_gen.imagegen",
+      "model_version": "NOT_EXPOSED",
+      "request_id": "NOT_EXPOSED;execution output filename retained separately",
+      "seed": "NOT_EXPOSED",
+      "cost": "NOT_EXPOSED",
+      "native_review": "Complete continuous painted gold/cream arrow viewed. Usable authored head/shaft material. Native head aspect differs from the original46x34glyph; preserve native and declare a bounded non-destructive static-UI shape rectification to original target geometry if used, never character/acting distortion.",
+      "planned_derivation": "Head and shaft come from this single complete authored arrow. Use exact Aseprite crop/masters; retain source contour pixels. Register the staticUIhead to original46x34boundingbox/tip and the painted shaft material to original9pxfunctional line width/endpoints. Explicit resampling/mapping record required; no code-drawn visible fill."
+    },
+    {
+      "call": 2,
+      "native_path": "assets_src/imagegen/melody_guide_20261102/native/ring_original.png",
+      "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-1c2245df-2f12-4e1c-82fb-252731954cf0.png",
+      "sha256": "158da429c7d10b9c3fbbce5f5191a5c45afc83b482fdd63df930fd50c82cbe31",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "backend": "Built-in image_gen.imagegen",
+      "model_version": "NOT_EXPOSED",
+      "native_review": "Actual RGBA measurement confirms zero-alpha center and outside; broad glow seen in RGB-only tool previews is hidden RGB, not an accepted visible aura. Opaque double bands and separated gap exist. Preserve original generated alpha with no matte painting or thresholding; validate actual Godot rendering after exact crop and uniform resampling.",
+      "alpha_check": "center(768,512) alpha0; outside RGB glow samples alpha0; alpha>3bounds309,59,1212,966; opaque cross-section intervals retained in derivation."
+    }
+  ],
+  "edits": {
+    "state": "ASEPRITE_EXACT_CROPS_AND_UNIFORM_EXPORTS_COMPLETE",
+    "backend": "Built-in image_gen.imagegen; actual model/version/seed/cost not exposed",
+    "calls": 2,
+    "static_cap": 2,
+    "animation_calls": 0,
+    "aseprite": "C:\\Program Files\\Aseprite\\Aseprite.exe",
+    "aseprite_version": "1.3.18.4-x64",
+    "native_rejects": 0,
+    "engine_textures": [
+      {
+        "name": "arrow_head",
+        "source": "arrow",
+        "crop": [
+          1680,
+          112,
+          440,
+          496
+        ],
+        "size": [
+          110,
+          124
+        ],
+        "path": "assets/melody/guide_arrow_head_painted.png",
+        "sha256": "102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87",
+        "alpha3_bbox": [
+          0,
+          3,
+          108,
+          121
+        ],
+        "alpha_extrema": [
+          0,
+          254
+        ],
+        "alpha128_tip": [
+          106.5,
+          62.5
+        ],
+        "exact_native_crop_RGBA": true,
+        "filter": "Aseprite bilinear uniform resampling; retained native/crop/runtime editable masters; no painted pixels/alpha-mask editing"
+      },
+      {
+        "name": "beam",
+        "source": "arrow",
+        "crop": [
+          600,
+          232,
+          512,
+          256
+        ],
+        "size": [
+          128,
+          64
+        ],
+        "path": "assets/melody/guide_beam_painted.png",
+        "sha256": "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0",
+        "alpha3_bbox": [
+          0,
+          14,
+          128,
+          50
+        ],
+        "alpha_extrema": [
+          0,
+          254
+        ],
+        "alpha128_tip": [
+          127.5,
+          32.0
+        ],
+        "exact_native_crop_RGBA": true,
+        "filter": "Aseprite bilinear uniform resampling; retained native/crop/runtime editable masters; no painted pixels/alpha-mask editing"
+      },
+      {
+        "name": "double_ring",
+        "source": "ring",
+        "crop": [
+          304,
+          56,
+          912,
+          912
+        ],
+        "size": [
+          256,
+          256
+        ],
+        "path": "assets/melody/guide_double_ring_painted.png",
+        "sha256": "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878",
+        "alpha3_bbox": [
+          2,
+          2,
+          255,
+          255
+        ],
+        "alpha_extrema": [
+          0,
+          254
+        ],
+        "alpha128_tip": [
+          253.5,
+          129.5
+        ],
+        "exact_native_crop_RGBA": true,
+        "filter": "Aseprite bilinear uniform resampling; retained native/crop/runtime editable masters; no painted pixels/alpha-mask editing"
+      }
+    ],
+    "ring_alpha_note": "RGB-only previews expose hidden RGB. Alpha center/outside zero; preserve generated alpha. Actual Godot composition still requires review.",
+    "runtime_mapping_note": "Static UI arrowhead is registered with per-axis Canvas scaling to the exact original46x34head envelope/tip; this is declared glyph aspect rectification, not character deformation. Beam preserves original dynamic endpoints and9pxwidth with authored painted shaft pixels. Double ring uniformly scales as a whole to original outer diameter79..99 and6rad/s pulse; band thickness scales with whole picture."
+  },
+  "reference_binding": {
+    "inputs": [
+      {
+        "path": "assets_src/imagegen/melody_guide_20261102/references/painted_pip_material.png",
+        "sha256": "4cc2cce86e3c76ef2ca14a059af7e6db2330973cac29d2556cca184039ac9e2c",
+        "role": "R127 source-candidate painted gouache material/cream/plum/rainbow palette atf348ec44; not owner-approved. Style only; no old picture pixels copied.",
+        "viewed_before_generation": true,
+        "used_as_delivery_pixels": false
+      },
+      {
+        "path": "assets_src/imagegen/melody_guide_20261102/references/source_left.png",
+        "sha256": "408104124e719f372d6809e0de465d0b74092bafa2c3ca9d463ecd379c5b801f",
+        "role": "Actual original selected guide far-left scene: long cream/yellow connector and tiny arrow tip relationship; layout/semantic context only, no screenshot pixels in delivery.",
+        "viewed_before_generation": true,
+        "used_as_delivery_pixels": false
+      },
+      {
+        "path": "assets_src/imagegen/melody_guide_20261102/references/source_window.png",
+        "sha256": "4369b3898aff80c376667549a6c0aad94b0385d24786d627eab0ddcb3494737e",
+        "role": "Actual original overlap/short/reversed connector scene: preserve original relation and lifecycle; context only, no screenshot pixels in delivery.",
+        "viewed_before_generation": true,
+        "used_as_delivery_pixels": false
+      },
+      {
+        "path": "assets_src/imagegen/melody_guide_20261102/references/source_right_wide.png",
+        "sha256": "2424a9395306f89dfa0b0bd4ed199d45d04b8ebeb3836a2f1affbed2acd1a884",
+        "role": "Actual original wide scene past window: note and arrow direction flip relative to zone; context only, no screenshot/characters/background pixels in delivery.",
+        "viewed_before_generation": true,
+        "used_as_delivery_pixels": false
+      }
+    ]
+  },
+  "ring_call_reference_roles": [
+    {
+      "path": "assets_src/imagegen/melody_guide_20261102/native/arrow_original.png",
+      "role": "painted material only; candidate,not owner approved"
+    },
+    {
+      "path": "assets_src/imagegen/melody_guide_20261102/references/source_left.png",
+      "role": "original Melody full-travel screenshot,context only,no delivery pixels"
+    },
+    {
+      "path": "assets_src/imagegen/melody_guide_20261102/references/source_window.png",
+      "role": "original Melody green-window screenshot,context only,no delivery pixels"
+    }
+  ],
+  "no_Python_pixel_writes": true,
+  "protected_originals_unchanged": true,
+  "source_acceptance_scope": "New work-branch candidate; no inherited creative/owner/child acceptance. Existing reference art retains its actual provenance and scope.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

@@ -246,6 +246,37 @@ class DevelopmentAuditTests(unittest.TestCase):
 			with contextlib.redirect_stdout(io.StringIO()):
 				self.assertEqual(1, development.main(["--root", str(root), "--base", "f" * 40]))
 
+	def test_pending_octopus_merge_accepts_all_parents_but_not_unrelated_history(self):
+		with tempfile.TemporaryDirectory() as directory:
+			root = Path(directory)
+			base = self.init_repo(root)
+			heads = []
+			for name in ("side_a", "side_b", "side_c", "unrelated"):
+				development.git(root, "checkout", "-qb", name, base)
+				(root / ("scripts/" + name + ".gd")).write_text(name + "\n", encoding="utf-8")
+				development.git(root, "add", ".")
+				development.git(root, "commit", "-qm", name)
+				heads.append(development.git(root, "rev-parse", "HEAD"))
+			development.git(root, "checkout", "-qb", "task", base)
+			development.git(root, "merge", "--no-ff", "--no-commit", "side_a", "side_b", "side_c")
+			self.assertEqual(tuple(heads[:3]), development.pending_merge_heads(root))
+			for head in heads[:3]:
+				development.validate_ancestor(root, head)
+			with self.assertRaises(subprocess.CalledProcessError):
+				development.validate_ancestor(root, heads[3])
+			with self.assertRaises(subprocess.CalledProcessError):
+				development.validate_ancestor(root, "f" * 40)
+
+	def test_pending_merge_parent_metadata_is_fail_closed(self):
+		with tempfile.TemporaryDirectory() as directory:
+			root = Path(directory)
+			self.init_repo(root)
+			merge_path = root / ".git/MERGE_HEAD"
+			for payload in ("HEAD\n", "f" * 40 + "\n"):
+				merge_path.write_text(payload, encoding="ascii")
+				with self.assertRaises((ValueError, subprocess.CalledProcessError)):
+					development.pending_merge_heads(root)
+
 	def test_renames_require_old_and_new_path_coverage(self):
 		with tempfile.TemporaryDirectory() as directory:
 			root = Path(directory)

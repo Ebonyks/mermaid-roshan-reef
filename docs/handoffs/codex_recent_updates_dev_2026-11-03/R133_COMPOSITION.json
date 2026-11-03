@@ -1,0 +1,1215 @@
+{
+  "state": "R133_MATERIAL_TRANSFERRED_EXACTLY_COMBINED_NEIGHBOR_CONTEXT_PENDING",
+  "source_work_branch": "codex/flat-vector-snowfield-native-20261103",
+  "source_worktree_head": "27c88288bf6e39582072811443df79919e7bbb89",
+  "source_controller_sha256": "afe465a155fc8c6047e0dc4ce15028d83821e6b8b23eb608eecf4858fa725297",
+  "before_composed_controller_sha256": "babf867236ca9e586b507b0510cf0e193abd50fd6837b716095b82d63d3d0411",
+  "combined_controller_sha256": "e3f2e187d4a4f74c73714c0e36f2588472df326db8a40976dd0448f1e37e60a1",
+  "copied_files": [
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/ASEPRITE_NATIVE_ASSEMBLY_RESULT.json",
+      "sha256": "6f635983b29b08f1b78ff431fc0c963706f2db213d609b1548f07c33f09e290c"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/ASSEMBLE_NATIVE_MASTER.LUA",
+      "sha256": "c74076ea706175f51adaca96d534eddefb7e56d7aa40a2ce807d219ae4f29ef9"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/DERIVATION.json",
+      "sha256": "328d6bd68a7f334431940c8d674781a2f0edb049f221ccbf7de4dbf5055bf3d0"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/EXPORT_NATIVE_RUNTIME.LUA",
+      "sha256": "c62ceb6b015948534e0c72b88b24cb887821e50406bcd24c43a6ffddd1b319c7"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/GENERATION_REQUEST_01.json",
+      "sha256": "c9dd3c79f5d8899e511dba5997d03645b44480d26be31e1e875171d4e33a0af3"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/GENERATION_REQUEST_02_tl.json",
+      "sha256": "18515c21e50c4d1f2003b9f635c6b8b4876b42fa42e6c98da3a05769ef97a43b"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/GENERATION_REQUEST_03_tr.json",
+      "sha256": "be331827f4db6f8e905d589c01176cb1876b36776782a99c314501e588e92806"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/GENERATION_REQUEST_04_bl.json",
+      "sha256": "de9e10945b81421a44c35914fa91f93a9c1b355430ed179f044a940a9f7df9f3"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/GENERATION_REQUEST_05_br.json",
+      "sha256": "72bcebe0c9ddf6c9b814165815d6539f5ebf72cb0e68469ee41c68c7b9695b24"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/masters/snowfield_native_2048.aseprite",
+      "sha256": "5c1d5ad19fd1bdd85dcd9b36042def9a60cdaa5d20306be0ff383576879ab1a0"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_01.png",
+      "sha256": "b879a94848a456b6d25bb07d4d68f68759889bbdc48b641216353acaf9d60ed0"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_02_tl.png",
+      "sha256": "4a1729f3d56c488ecc3afe22f8088f9c54a455d80bb4cca7b16904218d7f8209"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_03_tr.png",
+      "sha256": "d02235ac96f71d2777b3ebff9ca4c7722b28936326c26637a5cbd9d99081d893"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_04_bl.png",
+      "sha256": "15bf4b9edd4eb3aecaf026bb190a13c71db66a168c505c275f1ec69030690289"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_05_br.png",
+      "sha256": "208829462d6f1000767a570fb0169f92e4cdc4bdc17f10cde594f1150cdc2353"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/NATIVE_01.json",
+      "sha256": "e64fffb3cadf12b6590cba728f6a3874e7b77d92a301f38242f2472f0c0a424a"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/NATIVE_02_tl.json",
+      "sha256": "e39123f72005af12ddcd7d4b074bc912d02849f066f4da9cbede4a725a847f23"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/NATIVE_03_tr.json",
+      "sha256": "951ccfbcb245bd82829c060b9e3acc3a7fb305017586198de65ce16955852c89"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/NATIVE_04_bl.json",
+      "sha256": "372f54098e1d0a92d500630e57917d569fa8e81d4cd7a16b4601eea35c5df872"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/NATIVE_05_br.json",
+      "sha256": "44beb4a7ff9b0a5946d5986209a18341053a9e6b192e4f322d22c066282c3a9e"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/NATIVE_FOUR_REGION_ASSEMBLY.json",
+      "sha256": "f5e7cdd75808e5db85c54fa333c3394e028b72397b91f5e9ae1376774cd730fe"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/NATIVE_REGISTRATION_TRIAL.json",
+      "sha256": "a5d5cb04204fb14852c15637ac439300b67cff1f87c0959b0be2c5034a253026"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/POSITION_GUIDE.json",
+      "sha256": "9f543eef1bb7154a936277afa66e04effb8b9f46eca0daa79391afba599fc691"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/PROMPT_01.txt",
+      "sha256": "5e0a46dbf164fdee61d143c35d56ab551b19cf0a9f798b7c9141be9f816338f8"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/PROMPT_02_tl.txt",
+      "sha256": "72aba62923060e58096807d0a17f886f9b96c010a3d960f359ece03731328d5c"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/PROMPT_03_tr.txt",
+      "sha256": "f4abdf3dbe352a3214c7c85c5b10ddf61ca54d7310cdad4b02728b04cb60afd2"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/PROMPT_04_bl.txt",
+      "sha256": "a5813f0c63e3ff320d08120f0d176a704b6edf293bf1008620ea11dd9d825e67"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/PROMPT_05_br.txt",
+      "sha256": "c6beb277707adfdbbde648b22bb7c2f3bc2eb218889c5ace1cee947c92ca7887"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/REGIONAL_POSITION_GUIDES.json",
+      "sha256": "489e284f25e8418c122980646505489b27a11d08aa5878899da678cad1f6c309"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/snowfield_master_native.png",
+      "sha256": "a2a84f689de75f6e52c10ee358ae5b27ec2e71ed04a0732923f49c35f6acc094"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/snowfield_master_native_untrimmed.png",
+      "sha256": "fa6a99c520e913295c864a117df844ad995cee5d8e5c95eafbd546dd6b56d36f"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/TOP_NATIVE_SEAM_ANALYSIS.json",
+      "sha256": "98460c92e4aba342b7b142213c43279e8c99d849b78ac686d4a052291fc7ce9b"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/trials/top_row_native_contour_trial.png",
+      "sha256": "17de8eafed4b52cf597b752ab9c377ae9cdbcf9516245a37f91fec5038da7302"
+    },
+    {
+      "path": "assets_src/imagegen/snowfield_20261103/trials/top_row_native_registration_trial.png",
+      "sha256": "a4f8bbfd43b99ef21c4a1579b97b425cc73ab32b865d93be0990d77d504b9457"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/.gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/01_small.png",
+      "sha256": "d4966346d742d4672bd67ad940dc4f63873b191a06237cc5cfcf3304e153b0d9"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/02_wrong_passive.png",
+      "sha256": "417572a0ce127744a4ec4c23b746cc8d71d53ad81c2bb8463f05b446b7d5a79a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/03_growing_lower.png",
+      "sha256": "ca46dbc2d6a3fc0ebfb34e20db3415bc1195248e597b8c64326af2941f3c2cce"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/04_lower_settled.png",
+      "sha256": "642f1ee59f962c93d077acf0d431d7365aa3a653fa323efbac4e26f556958635"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/05_growing_middle.png",
+      "sha256": "44b64a3f83fa35e657bb042f64766efa1468961be9ba87001c717a327bef0221"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/06_two_settled.png",
+      "sha256": "5d6d383dd411c76a272fe58040921baf02c6f41acc30428ee143f01973b4969b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/07_growing_head.png",
+      "sha256": "a478e0e838e8e698ed53a3106f561ca8147076251438dbd27eaf6ed82c1caa1c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/08_three_stack_face.png",
+      "sha256": "cca7f72eff64a1c10c0b643035a4dafbb750a70c7601b75ce18bb11fffd9eacc"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/09_partial_face.png",
+      "sha256": "9012bb10c24cdf2e1132f5b764cdef001a12d1b683f8fbc08512a0f88499f258"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/10_chase_full.png",
+      "sha256": "36f39401496234d18aa8ed217629b444c72d278619d4f319cbdc814ee0bc060f"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/11_lower_bite_squash.png",
+      "sha256": "4feb7699240203f6cb87de8d4e34d6d3b6967d886e9cdfb19cfbc571c08f7a29"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/12_remaining_two.png",
+      "sha256": "8ad89315b847554e4fff37e8260c69783fe70d82f15eff42120baa4d109777f6"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/13_middle_bite_squash.png",
+      "sha256": "e5f8e02af297c6c9eb2d51799a2979421f8e6e05d32f62dbe987cdd3fe0c1e3e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/14_remaining_head.png",
+      "sha256": "ce97a3cffcc0a268a98de5f3e0d1137a069731cc648f01d760dbb5cc32260c7d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/15_head_bite_squash.png",
+      "sha256": "732cb91495809124894e920ff0c511dc0e84d03e25341557f7f0c518c1ede4b0"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/16_carrot_only.png",
+      "sha256": "9ab34f87cbce5745df364c78081fb557897418872356ff7e006fedba38081ce6"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/17_original_win.png",
+      "sha256": "a0101dcefa42fa9f39a3f63ebd09944d3b7456823599c297e10ee79e3f3f7659"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/18_fresh_reentry.png",
+      "sha256": "395b26605aeb3e361cb5987e8c367e107d3db9b1c20f8bdee2acead5a1b81b12"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/engine.log",
+      "sha256": "f2cf9d616ffbf57bd00385afc8103c8eb2433c575b4c8a64e6ebbc3e4f075189"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/LAUNCH.json",
+      "sha256": "a24515d90f3c73b341fb0dd22a4854363739e990f6a6cdeaf6a1bb84d173c83d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/01_small.png",
+      "sha256": "5c56ab3166b3cacac3108dad8fad0b14d786ae5db7d16fbfc939b07976066420"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/02_wrong_passive.png",
+      "sha256": "20bee7c0751b7cfb923dfabe7b186fb281dc9ce9de354b5611b6fe713468f5b6"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/03_growing_lower.png",
+      "sha256": "111ee1dfddef035fd24593ceb2c8bea00361880d6dc70a169f07112bde860f3c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/04_lower_settled.png",
+      "sha256": "ff58ee7219042e8a8b232fb44399e952a3e9cdb0b9f4b46636e40339d84342a5"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/05_growing_middle.png",
+      "sha256": "e19c9a683738ae9af82bdddce8de4a695e0b59b49e089b4e276ed298825c6da7"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/06_two_settled.png",
+      "sha256": "4ca624990144ba25fb4647cb1a7cf3bcc0851309a6fd254de8eaf099060a400b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/07_growing_head.png",
+      "sha256": "a690b4e6e938cbb5336f007ed6cc0b96c55061a457ceb5f24bf3ca5430511219"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/08_three_stack_face.png",
+      "sha256": "e403a96e2664614c46c6485bdacefb2d2eba7d2de526d65d1e864d87acf2437d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/09_partial_face.png",
+      "sha256": "13b90519c1d3c18ae96a2e12d33d1644ed2d1169cafbad98fae4cb296a1f73c0"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/10_chase_full.png",
+      "sha256": "146f2c2363eb9a8de4b527910e366ab8ac6865092699c6fa141f740ed8621ffa"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/11_lower_bite_squash.png",
+      "sha256": "beab5d5801f14cd88283293e4fc6f502a489990949b6c1507e75617c62791a1a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/12_remaining_two.png",
+      "sha256": "4c391b99cf69255d7d0a6978ac78d2e29ab043b13b5a32e4a232cf6adfc30438"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/13_middle_bite_squash.png",
+      "sha256": "ed013365a3de33ce7afffd8431f88f9a7c555a08fdef4c55c726231606e2949d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/14_remaining_head.png",
+      "sha256": "59e14f3e916225ed62ea7c199ecddd700ab48c91296f0bc55334b6f66c1e3542"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/15_head_bite_squash.png",
+      "sha256": "ef75f784b453bc695036cda1e98b046b5eb92c7668e41e0dbe44f65f348014c5"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/16_carrot_only.png",
+      "sha256": "fdb2666004da60a1a7c2acb1bc626fae081a0eeaaad37eaa430e97891ab071ee"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/17_original_win.png",
+      "sha256": "fa8b7e850ec1c3ef0282af660830c051f969430491234c091cd70b17c0be41cf"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/phone/18_fresh_reentry.png",
+      "sha256": "b897c0dc8a2970d5b41a5674b9c554f793f0874fb1e5c0ae386d8dc3eb3b5595"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x720/RESULT.json",
+      "sha256": "8578f2ef35591b117ade732fd88d1b705d0dc8f642f9af6832fdef61f69a81d6"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/01_small.png",
+      "sha256": "7a55b4dcbd27b989e8dd9916dd5853e5f3370c860d378db560f8d72a850a1649"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/02_wrong_passive.png",
+      "sha256": "a52ba07fd8b968aa3494454db16da0f3d17dcbe4867a8c346018a505dcbe5c18"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/03_growing_lower.png",
+      "sha256": "baf30574241d7a3499c2fd20168a70d3c98e075951bb6fecd7d383db68c30619"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/04_lower_settled.png",
+      "sha256": "dacfc61c8bd50f59f53db17d5685572e08e85309211e110c11c17d2c1f70e394"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/05_growing_middle.png",
+      "sha256": "a0874c5aa7cf1455655506ea99befe95823b891e981760d7a50e3ef715588a14"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/06_two_settled.png",
+      "sha256": "3c1abc58d01b8e98cf7e57055d05a7b444749605b84193691b2a6835def0d416"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/07_growing_head.png",
+      "sha256": "1d38c7674c41cc42152db8d888ac895a4ca07865d76cb2e91f687fa5f4ec289e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/08_three_stack_face.png",
+      "sha256": "abb82e823473fe2a14df8456ec873d0f02441140b3b1eb1814875821c68e4644"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/09_partial_face.png",
+      "sha256": "75673137c24f32929822e93e58d240bcd02df4672a0ef51eddad0415a6776e81"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/10_chase_full.png",
+      "sha256": "a8c4a864b719c8f2ef7438ebfcb2ced50e34c0d2856f5a10716c980a1efd9045"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/11_lower_bite_squash.png",
+      "sha256": "2dfc8c98ae5e50c045a74566f31873a94c42215f110f1733da51052fed77a0b5"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/12_remaining_two.png",
+      "sha256": "e3b38c9f08cb952f86ecda1a9ede79c3d32a7d3bfa8e0a3a79573364b2f2c79d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/13_middle_bite_squash.png",
+      "sha256": "38d89717cbb2be21a63db1e07ed16f49a4e701dff7273befb07880e712c15c21"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/14_remaining_head.png",
+      "sha256": "4d79dfd3ab723decef8a84d935d7e22f3ef4990af43aa14d81bd9da55cfbf2f4"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/15_head_bite_squash.png",
+      "sha256": "0aa7709385c60f4153d063bf96e12c86d999ce54dbdc122730bfbb393c9ec134"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/16_carrot_only.png",
+      "sha256": "91d52110a257bc18f46208d92d5085cb143aef146cce39dd870fad0dd8c615be"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/17_original_win.png",
+      "sha256": "49c2ab9e0341bae65546c5448693d4795d2712791efa610a6de031c5f45b5ba6"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/18_fresh_reentry.png",
+      "sha256": "43d02c525e557decab58e6930e4e7592c5f7714bd401c5fa8916227e4716335c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/engine.log",
+      "sha256": "f2cf9d616ffbf57bd00385afc8103c8eb2433c575b4c8a64e6ebbc3e4f075189"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/LAUNCH.json",
+      "sha256": "61a381b1fee45b0cedf6cda025602e389add99080322730e7e87048aa4e01b61"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/01_small.png",
+      "sha256": "989998cd82c1238bbbc9ea9756f3cf3931bb4af7bedddaa13c2b465cf03afaec"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/02_wrong_passive.png",
+      "sha256": "8211d923920031ab18dc680e9f9a8e3ea4d5126da99731c7a39f9ca5bd4346de"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/03_growing_lower.png",
+      "sha256": "dde3de4470d2c215d05a829d9a62e93e97d5e9227d177adb10a15884a695e4c2"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/04_lower_settled.png",
+      "sha256": "5128cbc9f7a574d7357a25ed828b673d6fc54ea1a4e045a6e592a3466048277e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/05_growing_middle.png",
+      "sha256": "274bbc97e1db91548492ef9924d4560800bb03d4eb15b776e43f9e1d5afe1c29"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/06_two_settled.png",
+      "sha256": "b880cd6506445a55ade0a8246d7dff4d72ffb7c7bac81388108d078ec78b2329"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/07_growing_head.png",
+      "sha256": "3c543e53d49987ed2c81639b3db4d3488d425e3f8ffd40a4dbd5bb275272c062"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/08_three_stack_face.png",
+      "sha256": "44ead52547435496e43e5c4b2185916fb8cfb2d60d207e5f7e52546231778a59"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/09_partial_face.png",
+      "sha256": "170c48935f1e8680bb837e225c969010d1c0eb1b9a129ae32f3500ed2bc9ba3c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/10_chase_full.png",
+      "sha256": "75d04a66852cc5b5d0c021af272d46e5cf8c2125ef324214e0b3c693c6f82922"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/11_lower_bite_squash.png",
+      "sha256": "541778a4fe592c9180fe44a974b93a31555c8ea50e0177eea2e6833fbb6594ba"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/12_remaining_two.png",
+      "sha256": "701b3855001317ad0f188fe1c67c52208f116a1aee3d789ccc1a1860ec01db52"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/13_middle_bite_squash.png",
+      "sha256": "d8bc850f950b98187b3b276624544a82222a3689dc2f45dd2a0559a4d915f67e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/14_remaining_head.png",
+      "sha256": "6094507a6148bc0df642be0ea7e55de6fedf29d55a7b6b754697a64addafe8e6"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/15_head_bite_squash.png",
+      "sha256": "2306ae53594a291a984774c4b40a05f4c7878a807d6a6124c13b7cd96a1c1317"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/16_carrot_only.png",
+      "sha256": "7a0800298fc90b050cca775b5a70bd2379e92105f4c4c3fc0d698b184d03f72a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/17_original_win.png",
+      "sha256": "2b22e2f5a7a60978560d9deb51d8eeeb44399414c03ef6b5edc0cbb7febf353c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/phone/18_fresh_reentry.png",
+      "sha256": "26712befabba9d37bdfe64b0b41ede2cf9bc2e08618c44b4ab25ec23aa34b29b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1280x800/RESULT.json",
+      "sha256": "d4bfb38a6c26b90752c7521c85d2e542e24d2c5695600110563b4ec2c81f687b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/01_small.png",
+      "sha256": "8db20f77caddf6ecd9d9d4d82a7b4f77ded3c13f7129cb85578928cb2f571f98"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/02_wrong_passive.png",
+      "sha256": "aae5a7d9609d8c941656b2b2fef2957320d6b553711b3f4c0a293b0c70f38000"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/03_growing_lower.png",
+      "sha256": "6d2d027d05101902c96e31b3a3743fa49383134c151ca3f3498f399193f2e629"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/04_lower_settled.png",
+      "sha256": "6a6a78f47350bd75578c4faa2271bff7912cfed78e9d9cdefab60883e25bdf8c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/05_growing_middle.png",
+      "sha256": "e5799081aedc7c791548d07ea3e9b96f551cd111255eb099de1ffa03a4c893b3"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/06_two_settled.png",
+      "sha256": "1dadff75c11e5fa8c3e55708729ed216d460ff9f33862ff903713042eb3268f9"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/07_growing_head.png",
+      "sha256": "f5acd9e73cbbc96ace687e4eb4b28c02d80ecb4f892921157a193837872e4cdb"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/08_three_stack_face.png",
+      "sha256": "63da12e24bbe4eafadd4432c686865dc8dfc4d4ebac9c7466cf74888e295da15"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/09_partial_face.png",
+      "sha256": "d470bdc2b2949cabff704b7524a78bf3a6f0036f925a17cff5faadd6f38bc792"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/10_chase_full.png",
+      "sha256": "afe5b336a3b7011e7fec88e6ab4cb95e204e1dc251f440b716b013e6b615d136"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/11_lower_bite_squash.png",
+      "sha256": "9351ba4606e038b9260895ad147edff1db07df57c1955e81b4f19079401b2a48"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/12_remaining_two.png",
+      "sha256": "e9489ab5a6193d9c91a666080a253fcb8a0b031c240a973efaacd357f100c0a0"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/13_middle_bite_squash.png",
+      "sha256": "f6fdeda6ca1160492bdbccf64293da2a4f6d52dfd3e1332700793f9f7fdd4dcc"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/14_remaining_head.png",
+      "sha256": "8362c9b2ab3260e17b5c559369e660bb65d492cb483cb69d0075ce7ae20d7963"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/15_head_bite_squash.png",
+      "sha256": "5c102738c159b93ea78aa2f44aee0061b90786fb4e50699a6f20358eece0968b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/16_carrot_only.png",
+      "sha256": "369bca879b7372fb6edfe730d7c7b5e891e9441df07fb6025b161ad23579925c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/17_original_win.png",
+      "sha256": "d6503b5e725a20a70fe608cc6cf507cdaf646b6a80944ac0f2c158f5065979d7"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/18_fresh_reentry.png",
+      "sha256": "1ed973178c28801f3eb9118d0f5abc60582132147c7ccf17124d9247e126a3c2"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/engine.log",
+      "sha256": "f2cf9d616ffbf57bd00385afc8103c8eb2433c575b4c8a64e6ebbc3e4f075189"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/LAUNCH.json",
+      "sha256": "8084202e381183d5b4d724add779c058781a46c43813f7ef25b832bc49110fcb"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/01_small.png",
+      "sha256": "6e61fb434ef7e0416b4e265752658c453efe2968d04020ba8f356c5249dabf57"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/02_wrong_passive.png",
+      "sha256": "b0a908a2349cabad4a25180937f071dd6f64e6fd536ee25017522aa5e99e2cd9"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/03_growing_lower.png",
+      "sha256": "9774a036cf3b9e542820083bb8f186f59deceb788ad86694bf4cb99d556cc314"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/04_lower_settled.png",
+      "sha256": "5bbd2cb3af79eb1c3062690a3561c7940f1caa341c0bab18f2f0f1b5de0f5fdd"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/05_growing_middle.png",
+      "sha256": "a228f5e22fc0e6a9836dcc4a58d63e047e32daab908a4966139edee93c534155"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/06_two_settled.png",
+      "sha256": "a52ccea840a57bbd8c283c3692f73e94b5fc1e483e184a44b1a8e2c751418e0d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/07_growing_head.png",
+      "sha256": "8b346fa9a7ead4bbdb6c47167581040520667a93247f293d05593a57cdd25da5"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/08_three_stack_face.png",
+      "sha256": "05b5796344e94c1b2249b873d2afd9ca51e5f6df58fd78e79669772648d0177f"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/09_partial_face.png",
+      "sha256": "3c7010bb6241bff8f84bfd526b0bfc3d82fcb433824770a562d9d6363097e3f4"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/10_chase_full.png",
+      "sha256": "81ae8c0c635655a472372bb5d938151ad45400936d2b6665fb00a22afc3cec02"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/11_lower_bite_squash.png",
+      "sha256": "1473cf4fbe02ac894a248ced9226e45ff1d3d8f25e4ce37342b59d6e0a71315e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/12_remaining_two.png",
+      "sha256": "92ab5bff1718e22d8b9610bec9519219389a9b2675d934bc8d83cf173100d2ae"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/13_middle_bite_squash.png",
+      "sha256": "6f08fc6b9c3a177389c07dc107326a18249af928fbc3878b13762b59a62e04c2"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/14_remaining_head.png",
+      "sha256": "b7e44b5c7761c2eeddb13228206827159372214d9aed9923507a26f8c2cf8d8c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/15_head_bite_squash.png",
+      "sha256": "7fc37b184e78fc89b5b2e45aa50c61bb115ecc918381709dc477d09594dfe22d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/16_carrot_only.png",
+      "sha256": "054b3da035749bf6314c6d0960f2c0aee7d2a73c1265b121d8c1da4ff12591d1"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/17_original_win.png",
+      "sha256": "8a90091c45d6d33b48412089daba07e26014018ef145106df1a3a02e213bce2d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/phone/18_fresh_reentry.png",
+      "sha256": "26d8c0c0317660bdf39aeefb42c90d5f6fa684a441783e11abf66dc824c971e2"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/1600x720/RESULT.json",
+      "sha256": "bc277da2bae42910f410e34d34c71f22b4ff1522b2f6e2f96b2103c05ae2565c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/FINAL_RESULT.json",
+      "sha256": "60a34b8555f813690085b5f4015551f13778c84d7fdccebe4d73c33254f90c22"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/FIXTURE_ANALYZER.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/candidate_native/SOURCE_PIN.json",
+      "sha256": "9952ec8e4d85f8548f6ae493af0e04f986195df88aeae548430b348975306762"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/capture_snowfield.gd",
+      "sha256": "606e2d10de4fbb5b816e16a717000ba705db2643e77fa4f662dbcb6f87d79cf1"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/CODE_DIFF_VERIFICATION.json",
+      "sha256": "0de1c1b2e05d60fd4c3e0e71853dc7b27c1ae945f6492e0147ce5441d3da7b0c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/CONTEXT_INPUT_FAILURE02.json",
+      "sha256": "e2aad6d5d9690052d5417525d9d33e5ad37682a90d5a9b190d9105030617a04b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/CONTEXT_SETUP_FAILURE01.json",
+      "sha256": "2df441f87033f8861ade2c76491e7393baa1623f40c4ebb6c3c0b1651c5bb98e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/engine.log",
+      "sha256": "f6d3db35bd6c0f1dc8a3c9bc777b8ac98f1a3fba6ccb84e41097f585848f933c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/LAUNCH.json",
+      "sha256": "048d00e256b396e1f6a346acd3f1778387949f59d7d620ca3da239ba90cf7ab7"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/output/01_small.png",
+      "sha256": "be5d19f4d96256a3e82f10119529924f0001bd567ad43283d3f9e985d56cb76c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/output/02_wrong_passive.png",
+      "sha256": "c41ab9ad095cd1abb652e1b82b12902521409880ab2f12de67e069ad7e90a8c5"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/output/03_growing_lower.png",
+      "sha256": "8a813916a8c422ce60efbf7fd98afad8ee312b8597c6c2dfdd0f22121755e148"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/output/04_lower_settled.png",
+      "sha256": "72df5c2468f6aaed71914781abfa0659152b1e036ebebc0fb4b0065a5038cb92"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/output/05_growing_middle.png",
+      "sha256": "c69d5a945dea31cb79a6c326e2bcadc13e34dcd24f39ab343d8450252002a9de"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/output/06_two_settled.png",
+      "sha256": "940962e0cc7957ec7e5000d63a66bd969f5ced83d1fae30dd32fc46aea6475cc"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/output/07_growing_head.png",
+      "sha256": "6eaab27ae1fed409105da7f92f7a6829fb1ea14e87285623fbf5a4a7b634f39d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/output/08_three_stack_face.png",
+      "sha256": "224ee5868048e14e011b3e741e5ec7bab6a565adef4cd953152022ee9227a349"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/output/09_partial_face.png",
+      "sha256": "224ee5868048e14e011b3e741e5ec7bab6a565adef4cd953152022ee9227a349"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/1280x720/output/10_chase_full.png",
+      "sha256": "224ee5868048e14e011b3e741e5ec7bab6a565adef4cd953152022ee9227a349"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/FIXTURE_ANALYZER.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/import/engine.log",
+      "sha256": "913417f1234acc641f4949b1dd7c5fdfd5357f91e19dac95193225524eca6990"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/import/LAUNCH.json",
+      "sha256": "8c02a8d1b43f7edabf6148347e92236d36e0931ab12467a0c7e88925bafa03cd"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/import/REUSE.json",
+      "sha256": "93d642de69078ed1fd078be547d5a711d85f6b1706bd72ef3bcd4e4caaacbc04"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/input_failure02/SOURCE_PIN.json",
+      "sha256": "660f35cce32dd4c1af2fc9567a9b0e405a63cc5465ec65faea94285075dc7ccb"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/engine.log",
+      "sha256": "f2cf9d616ffbf57bd00385afc8103c8eb2433c575b4c8a64e6ebbc3e4f075189"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/LAUNCH.json",
+      "sha256": "51cd842c64f8bd9e1d4891aa323fe1b1c4716cc34733b6d56f1a166f55a24df3"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/01_small.png",
+      "sha256": "be5d19f4d96256a3e82f10119529924f0001bd567ad43283d3f9e985d56cb76c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/02_wrong_passive.png",
+      "sha256": "c41ab9ad095cd1abb652e1b82b12902521409880ab2f12de67e069ad7e90a8c5"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/03_growing_lower.png",
+      "sha256": "8a813916a8c422ce60efbf7fd98afad8ee312b8597c6c2dfdd0f22121755e148"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/04_lower_settled.png",
+      "sha256": "72df5c2468f6aaed71914781abfa0659152b1e036ebebc0fb4b0065a5038cb92"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/05_growing_middle.png",
+      "sha256": "c69d5a945dea31cb79a6c326e2bcadc13e34dcd24f39ab343d8450252002a9de"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/06_two_settled.png",
+      "sha256": "940962e0cc7957ec7e5000d63a66bd969f5ced83d1fae30dd32fc46aea6475cc"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/07_growing_head.png",
+      "sha256": "6eaab27ae1fed409105da7f92f7a6829fb1ea14e87285623fbf5a4a7b634f39d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/08_three_stack_face.png",
+      "sha256": "224ee5868048e14e011b3e741e5ec7bab6a565adef4cd953152022ee9227a349"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/09_partial_face.png",
+      "sha256": "f4070a069dee7ef20068817cdfc35a39271ddbb5a39ef4190cfbda0505a309c0"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/10_chase_full.png",
+      "sha256": "a6a9ed4549e7916922cd41d9083aaa6027733c4d18ca5c3bc9656d7caae92c56"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/11_lower_bite_squash.png",
+      "sha256": "eb1d74e116b4d6a24d26fda2b30ec4249843677c36c4dcd4372aa6891a9009a6"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/12_remaining_two.png",
+      "sha256": "dda53f65bf1949530125c45db1d1a28ab07385a2bd8b6e729dac4b852409e2ea"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/13_middle_bite_squash.png",
+      "sha256": "b6623d29031fc0b756e705a1c0283fa58ec3055a3ddf43bb0fb6fd4f4a59742f"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/14_remaining_head.png",
+      "sha256": "91096ee780340dda30b6bd5682ed504bc849f149b552f73816f548a3871b490e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/15_head_bite_squash.png",
+      "sha256": "fe24e9e3a1bfb1ff2072e63822528bd687fa90ddcb116dc9d6d1c8c1a6936914"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/16_carrot_only.png",
+      "sha256": "8055fec8cca1db44840292d089d7313d3ce0356c59e8dcb6b3a9734f8e5f4632"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/17_original_win.png",
+      "sha256": "176eca1fabd57ce8184aa3aaacb87d1b5186f8bea8cd3a44335f480332dcf69d"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/18_fresh_reentry.png",
+      "sha256": "089f0c82350d08baba93f94375d940aa9daf46d9a1b11abaedbc7f22c8eacef1"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x720/output/RESULT.json",
+      "sha256": "d1ab335066a82fe5e70bd6ee4cf90b1a56ba18bc993fab8f1e40257dccdb864f"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/engine.log",
+      "sha256": "f2cf9d616ffbf57bd00385afc8103c8eb2433c575b4c8a64e6ebbc3e4f075189"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/LAUNCH.json",
+      "sha256": "89c18f16421dc443df51760f24ab9472d496833477e2c2cad166196896f57d99"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/01_small.png",
+      "sha256": "4df2fd382796a6c587e5be0ce69404575b6f5a8e5acbad7231cbc9060165fb00"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/02_wrong_passive.png",
+      "sha256": "39549f10c8659800723958d2e6b672ac253e499ef11fe767af85d697eb172bdf"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/03_growing_lower.png",
+      "sha256": "b0e3a452deb15e9189e04cb82d6df6c2c7bfcf0d5135423aae29823f09dbba0c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/04_lower_settled.png",
+      "sha256": "a2e0ddbbb7b759b1e0f5c130af5269965a4bfc6e4d83b09f6f87aaf7c6131c55"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/05_growing_middle.png",
+      "sha256": "a55ac3dd54a897113ab0a721d35ff0a3663fa2dd043c07c2a22dbf82e4d1f43a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/06_two_settled.png",
+      "sha256": "116ecb37146abe241c7eea2ca72030810bc2e202ca6de6472135a489de6e9e05"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/07_growing_head.png",
+      "sha256": "e4083b9fd6d810308e46410c4470d1dd85826830f723ed55587d7b1fc04e1168"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/08_three_stack_face.png",
+      "sha256": "8dc4da9fd54b6926e72ede5052997c493dc897a58e826475fc0045c0a9445fe2"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/09_partial_face.png",
+      "sha256": "575e82335142c4228df6b22d558f2cc323614d49ece709c10e778393ae60b701"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/10_chase_full.png",
+      "sha256": "979561580ec31f44c697d4d7d6430b402804da1379256e969e481259f0ec1fdf"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/11_lower_bite_squash.png",
+      "sha256": "5422222b9ea01c59654f450f0b5fe42826291129fafca879107f9f83ff2817ce"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/12_remaining_two.png",
+      "sha256": "84b171ae042223f17887bac766cfbc87df3abc159288c8a2d1f9e41c86f2c462"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/13_middle_bite_squash.png",
+      "sha256": "83c0e1bf2da368082630e49c14e359f77d406046cf3e7a5eb7edde345cd4a7fa"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/14_remaining_head.png",
+      "sha256": "052d23bac628d952ace54b671485dcb9479a61b2812b4841e8425003fa2cae0b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/15_head_bite_squash.png",
+      "sha256": "bc120823c374c2390fb965e7388103f435efcbef71f039fb5be5f21d30d62b79"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/16_carrot_only.png",
+      "sha256": "eedefa3a5286c2c5686cd13113474425ae45b2fefcda343ceb290783a44eb56c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/17_original_win.png",
+      "sha256": "1ada9ffed203421fa1b6da677b38e3056e7b819ef364e73068b1fdf5a09fdbe1"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/18_fresh_reentry.png",
+      "sha256": "0466aac01b1ed7762549e8d3c51a978e2d8c29391b497e412e553ffe1123cf49"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1280x800/output/RESULT.json",
+      "sha256": "6821bebb9a81b3a1fbd635c19cd2b97d8596d54be9b5be0622053f0c8679f029"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/engine.log",
+      "sha256": "f2cf9d616ffbf57bd00385afc8103c8eb2433c575b4c8a64e6ebbc3e4f075189"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/LAUNCH.json",
+      "sha256": "f9afdbe1d68a6d9111eddf278747dbad9e28bf64a31197afbac1ed1f861c36f4"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/01_small.png",
+      "sha256": "0f6efa335671f215c885f5a26e5cd141cbe6288ce5050d43d72191ae68a22402"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/02_wrong_passive.png",
+      "sha256": "1ec33d1c6ed6f66ab87b78992e2bcd5428def33fd56796aeea2b118224c23899"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/03_growing_lower.png",
+      "sha256": "2989718a6438308a6e790967dc52576c41db979fdd27f5fbe349ef909ac60459"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/04_lower_settled.png",
+      "sha256": "fd545822e6b79575f8d8da45a4874cfd16cb6643d41002c8808dbfa7ce079a11"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/05_growing_middle.png",
+      "sha256": "3ae0e5868f87f831f7fbc1680c56cfadb97ba19cf820ca09eaca28c68cb1bda4"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/06_two_settled.png",
+      "sha256": "a0d1c999122786258ba00665b3a4cf770b0a1d8289b76b34f2911a69d7ce7729"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/07_growing_head.png",
+      "sha256": "22b0bed81f5cb753c913fac8c744c967f4d3d0e9579b097f32714c88a8b65508"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/08_three_stack_face.png",
+      "sha256": "7777fde5961de56ea6a519bd3bead3c64552a8ef0a491e01dadae05610f39631"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/09_partial_face.png",
+      "sha256": "94da83e72d2b6e0a97347ee68608ec840d367a7c4d6a4f52acb9031e719b21ba"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/10_chase_full.png",
+      "sha256": "8e7ba317c285728407fc39e8592db03cc5457ac4778fd3376c53833cd4f11219"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/11_lower_bite_squash.png",
+      "sha256": "32ee9d74fa5fb45a9a8c01ebeb7a9cd0558b53c2336e2a09471517f27a4376d8"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/12_remaining_two.png",
+      "sha256": "61a632f2ca6304ecba490523dcc7db41ce0e6a4ee54cbe96d7c73493ff5fbf51"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/13_middle_bite_squash.png",
+      "sha256": "7d3f977630f12d3cc1720781ebdde663bb2a3b997bc35559afdbbd2dd8592020"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/14_remaining_head.png",
+      "sha256": "9cfd1701a0d01cc3f040fc6e939dde514d1628e193f2c7fd58610b7bbf3c8c81"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/15_head_bite_squash.png",
+      "sha256": "ede9de46116e1b8292a6db0543ac731033ff0bb0a208838c5024955a95224896"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/16_carrot_only.png",
+      "sha256": "5ce6ff8e8080f86666efb409dc769a2cd7ecbc42e6d48a2fe520438adcf14d95"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/17_original_win.png",
+      "sha256": "2215977b0a7a846eaa682e017803efb99b331a3cca69a4566023ac0a6f729130"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/18_fresh_reentry.png",
+      "sha256": "1661be69bf6550c2a793ac5418c3e34929f63ddd2aca000858a19b40306153a2"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/1600x720/output/RESULT.json",
+      "sha256": "b39a313ca0f1bdf5aeaebde4122dfd3b4badae6320461bea842acbb528cca86a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/FINAL_RESULT.json",
+      "sha256": "074e3c62350f16b29810b2fd3679822d1d946b06dd7b7abb9b57ffa8596eeeb1"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/FIXTURE_ANALYZER.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/import/engine.log",
+      "sha256": "913417f1234acc641f4949b1dd7c5fdfd5357f91e19dac95193225524eca6990"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/import/LAUNCH.json",
+      "sha256": "8c02a8d1b43f7edabf6148347e92236d36e0931ab12467a0c7e88925bafa03cd"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/import/REUSE.json",
+      "sha256": "93d642de69078ed1fd078be547d5a711d85f6b1706bd72ef3bcd4e4caaacbc04"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/registration_trial01/SOURCE_PIN.json",
+      "sha256": "f7958b4f3da1f91b1179f4057e24882a26419a2bdd1ec7661069d6ff52ce7b41"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/REGISTRATION_TRIAL01_REVIEW.json",
+      "sha256": "6e76e93896ff2cb648b6bfc1ab3e5808f4a21193a2f9d5e6f94d9e3739caf91b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/setup_failure01/1280x720/engine.log",
+      "sha256": "8b5d9be07c6c1d617ba30f8f75aa5481b7a2db63c18e6408e627bfe95c9aad2e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/setup_failure01/1280x720/LAUNCH.json",
+      "sha256": "2b17778ce738fe20034e7002c8dc7392a65e22605d4fb0c5ab2dca0e4efa95ad"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/setup_failure01/import/engine.log",
+      "sha256": "913417f1234acc641f4949b1dd7c5fdfd5357f91e19dac95193225524eca6990"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/setup_failure01/import/LAUNCH.json",
+      "sha256": "8c02a8d1b43f7edabf6148347e92236d36e0931ab12467a0c7e88925bafa03cd"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/excluded_context/setup_failure01/SOURCE_PIN.json",
+      "sha256": "be1b73c409e2612abb744abcd05a7a8dc3b462cbfe4de71bce43c1b746847af7"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/FRAME_REVIEW.json",
+      "sha256": "0db86dfef6d704740bd2b1f44010551ed5b0a2817ec320f5937fd3cfeaa71539"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/FUNCTIONAL_GEOMETRY.json",
+      "sha256": "cf7ddd67de32479c4b7b1c232e44debbc64cfcab860da24de3295977e4491474"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/GENERATION_ACCOUNTING.json",
+      "sha256": "4f9c41349da39a29d4d03b79e40cea6e7a990844db5f0ff014393e29dee67f9e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/GENERATION_REQUEST_01.json",
+      "sha256": "c9dd3c79f5d8899e511dba5997d03645b44480d26be31e1e875171d4e33a0af3"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/GENERATION_REQUEST_02_tl.json",
+      "sha256": "18515c21e50c4d1f2003b9f635c6b8b4876b42fa42e6c98da3a05769ef97a43b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/GENERATION_REQUEST_03_tr.json",
+      "sha256": "be331827f4db6f8e905d589c01176cb1876b36776782a99c314501e588e92806"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/GENERATION_REQUEST_04_bl.json",
+      "sha256": "de9e10945b81421a44c35914fa91f93a9c1b355430ed179f044a940a9f7df9f3"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/GENERATION_REQUEST_05_br.json",
+      "sha256": "72bcebe0c9ddf6c9b814165815d6539f5ebf72cb0e68469ee41c68c7b9695b24"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/NATIVE_01.json",
+      "sha256": "e64fffb3cadf12b6590cba728f6a3874e7b77d92a301f38242f2472f0c0a424a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/NATIVE_02_tl.json",
+      "sha256": "e39123f72005af12ddcd7d4b074bc912d02849f066f4da9cbede4a725a847f23"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/NATIVE_03_tr.json",
+      "sha256": "951ccfbcb245bd82829c060b9e3acc3a7fb305017586198de65ce16955852c89"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/NATIVE_04_bl.json",
+      "sha256": "372f54098e1d0a92d500630e57917d569fa8e81d4cd7a16b4601eea35c5df872"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/NATIVE_05_br.json",
+      "sha256": "44beb4a7ff9b0a5946d5986209a18341053a9e6b192e4f322d22c066282c3a9e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/NATIVE_SIDE_CONTOUR_MEASUREMENTS.json",
+      "sha256": "ef35312b5189278c18a0ed60bbb0826065db0d8224aa6204114c1c26998c8824"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/OWNER_RESUME.json",
+      "sha256": "7c9f17c84af9c860007c7286272e312d64e6bbfe259975b92d49b1a17def75bf"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/01_small.png",
+      "sha256": "b0537d36dc542954a3f9cd21991c5b40ced696b37e5e5a13f24815a06c3e3352"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/02_wrong_passive.png",
+      "sha256": "afa796461a915518e3ee2a76f88817e416eb36c627d0c51679d3d54afa3d2ed9"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/03_growing_lower.png",
+      "sha256": "c31f5f9762b646a38471ef697b7a3c1db01d394bd384616376bd48c0f6b64e7c"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/04_lower_settled.png",
+      "sha256": "00ebdcc687a9bb3ac8b11e995c7792894e6d717d1d750a4ce11116fd61893955"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/05_growing_middle.png",
+      "sha256": "ff82f65366adc4e2f8c5e0ab4034aa35f893ea46396d2fec0e0ab1ca6452c1a9"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/06_two_settled.png",
+      "sha256": "3f5d2b6dabd3a1b1acf584ca0907faa7d368b2fdb5c972acba019d1529307126"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/07_growing_head.png",
+      "sha256": "37a3d05641e36a5ca641d667ee166badda7b868aad6847ed6b62c0c0dd588853"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/08_three_stack_face.png",
+      "sha256": "cda276c0ac640cd63cc002611c248cd411a909d41428312932db6ed76ff811dd"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/09_partial_face.png",
+      "sha256": "c538a2cce88a32f0013da54a0d2d8d18a6d654215197f1d77b65047ce65ca584"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/10_chase_full.png",
+      "sha256": "02358db7661be752b589f8e678632752727c9782b6497b3c9110d442d7656261"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/11_lower_bite_squash.png",
+      "sha256": "771d6a89c70b9e8a51f1b01ac4db7fd0598c0fd2aee15aa11ebf4a65a5b76478"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/12_remaining_two.png",
+      "sha256": "05b999e9b5c2337c0aec9c544db667f61a680f44d856d28be43b2270fcc73c65"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/13_middle_bite_squash.png",
+      "sha256": "2edb8e75d1e658a872388c38ff87c690ebf8dbd535439cfaf317affeef1a35d4"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/14_remaining_head.png",
+      "sha256": "5bc78d046147c6227f449b3a243b84eb1bb1a11872af8e5ef2a8edd162cfece8"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/15_head_bite_squash.png",
+      "sha256": "b7539776a2d11336d0800553c3fa3aa60abe0ab10961f5a281f939f239ca4e29"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/16_carrot_only.png",
+      "sha256": "fd38583d50f6df0e1742e77e1453025ac228442185e886ff876966711d60784b"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/17_original_win.png",
+      "sha256": "6f7f61773743581132e96934360006e2bcd4cc170cab2a97daa55fa002eff77a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/phone_comparisons/18_fresh_reentry.png",
+      "sha256": "7b8e15c31bca585904455e9ec470a5862f30cc0d4c72e86947bd98939fce8147"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/PHONE_SQUINT_REVIEW.json",
+      "sha256": "18bc619c6e0f688c42abd66e8d78624b9d7e89bc8370e67748c933b2bbf9f8ff"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/PLAN.json",
+      "sha256": "e2adc4a41ca07df39c1850037d8bf35c0874cc2efebbc13275cd4996b2188e03"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/REUSED_SOURCE_FRAME_INDEX.json",
+      "sha256": "3b7dae5ec74687ed3cd7cf000fbc4d4a2b4810bb2d5c144ad59e90a31013208e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/SOURCE_CONTEXT_REUSE.json",
+      "sha256": "d1a2b211337c201540f785efcfd98bc54ad4b4f13388c4aaf16fe86b1cefe064"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/STATIC_ART_CARD.json",
+      "sha256": "9ff7e9f221e40512e083d366e96e75d50ad590b13a72194d39fc4ad935da7a7a"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/TEN_AXIS_COMPARISON.json",
+      "sha256": "ed56cdf4645233ceff2eccdacdfa080ec88425ad66700fc678a25a109281bb8f"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_00.png",
+      "sha256": "833fc86408da6544c49a108e4c23ba77f17cec39e7442906ed45c2722fad1174"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_00.png.import",
+      "sha256": "270d67a8338947471d611dd1f5c3fcbe3b426f5c229ced921f3a4cfb522c9dc9"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_01.png",
+      "sha256": "b1d92f665f29427d06b5f7c907f58872983af266ca92a530ccc031539a0958ef"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_01.png.import",
+      "sha256": "002b6892104fabfe0bc952c835e595b3311ff083e561cd738ae0cd6cff8de184"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_10.png",
+      "sha256": "c90415293b8e4d189512e859438e2dafb7e24069daa54a32f7e059d45c08151c"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_10.png.import",
+      "sha256": "212d6d1ddb9c9f50590262a53668fbece91859d81a9febdbe2b0b182808076c5"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_11.png",
+      "sha256": "9492cca5957854c995e82e6050fa63c1feaa2cbba38fbb32269c7b46718adc61"
+    },
+    {
+      "path": "assets/mg/snowfield_painted_11.png.import",
+      "sha256": "1f99196894d8a18be8aca43160bac265a6a9047c66cdf6e909443108ad456dcc"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-snowfield-native-20261103.json",
+      "sha256": "eb1767c7194e9fec4876631ff9efe0f4a83e4f13b65ddaf3b3280127ecc4ff98"
+    }
+  ],
+  "history_preserved": true,
+  "prior_context_scope": "Original54candidate frames remain bounded evidence at original source closure; current R131/R132neighbors require new paired context",
+  "new_owner_instruction": "Insure all updates of last several days are pushed to dev, and continue",
+  "master_promotion_authorized": false,
+  "accepted_removed_delta": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

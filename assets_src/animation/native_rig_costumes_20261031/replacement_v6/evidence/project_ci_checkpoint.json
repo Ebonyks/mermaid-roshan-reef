@@ -1,0 +1,12 @@
+{
+  "reason": "Canonical prefix passed through131 development-contract selftests and stopped only at missing coverage for receipt_controls.json. Correct that coverage and repeat this failed gate plus every following canonical command.",
+  "source_ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "prefix_log_sha256": "719f03546ec58ca09f558aa1725565c4c7ec92cd8e2b3dcfc893e69fcf701b8b",
+  "prefix_stderr_sha256": "2e14f705721caee2b618d89617a920df2b6490e306210eaa6573c08f7eb0a0cc",
+  "prefix_exit": 1,
+  "resumed_at": "python3 tools/audit_development.py --base auto",
+  "resume_helper_sha256": "c9e9a6b6b86bf49f9543b4bd37fb3723799e8e15bbf54b394397e3f86fb5a14c",
+  "all_prior_successes_preserved": true,
+  "single_uninterrupted_full_run_pass": false,
+  "launcher_marker_error": "Incorrect -B marker produced a preparation error; accidental duplicate full run was stopped, partial logs retained. No gate was lowered."
+}

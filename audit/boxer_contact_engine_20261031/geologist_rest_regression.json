@@ -1,0 +1,106 @@
+{
+  "baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "runs": [
+    {
+      "name": "opera-focused",
+      "sha256": "fb461604a6ac93b25bd44fd8ad2b13f02c5fbde25afae21cf1a1650cfc703e16",
+      "bytes": 100482,
+      "result": "FAIL",
+      "failures": [
+        "ERROR: Parameter \"data.tree\" is null.",
+        "SCRIPT ERROR: Invalid access to property or key 'process_frame' on a base object of type 'null instance'.",
+        "OPERA2D|FAIL|geologist stages the room-finale partner clear of Roshan and the activity"
+      ],
+      "geometry": []
+    },
+    {
+      "name": "opera-baseline-probe",
+      "sha256": "2d0b1769fb55694de090d6cfedf83b0c66f16cc0e06bb8b087c60afec19d1965",
+      "bytes": 95901,
+      "result": "FAIL",
+      "failures": [
+        "OPERA2D|FAIL|geologist stages the room-finale partner clear of Roshan and the activity"
+      ],
+      "geometry": []
+    },
+    {
+      "name": "opera-focused-02",
+      "sha256": "a319a2a9bb51b11a9d8d59f6a6fe6c5745600949d9f00d93649fc2dc068db571",
+      "bytes": 101694,
+      "result": "FAIL",
+      "failures": [
+        "OPERA2D|FAIL|geologist stages the room-finale partner clear of Roshan and the activity"
+      ],
+      "geometry": []
+    },
+    {
+      "name": "opera-baseline-classic",
+      "sha256": "2d0b1769fb55694de090d6cfedf83b0c66f16cc0e06bb8b087c60afec19d1965",
+      "bytes": 95901,
+      "result": "FAIL",
+      "failures": [
+        "OPERA2D|FAIL|geologist stages the room-finale partner clear of Roshan and the activity"
+      ],
+      "geometry": []
+    },
+    {
+      "name": "opera-focused-03-classic",
+      "sha256": "a319a2a9bb51b11a9d8d59f6a6fe6c5745600949d9f00d93649fc2dc068db571",
+      "bytes": 101694,
+      "result": "FAIL",
+      "failures": [
+        "OPERA2D|FAIL|geologist stages the room-finale partner clear of Roshan and the activity"
+      ],
+      "geometry": []
+    },
+    {
+      "name": "geo-diagnostic",
+      "sha256": "c7dd2d3f59365d6d347833bf8bba577667966cbc3daf4778e5a2600378d0eb73",
+      "bytes": 96296,
+      "result": "FAIL",
+      "failures": [
+        "OPERA2D|FAIL|geologist stages the room-finale partner clear of Roshan and the activity"
+      ],
+      "geometry": [
+        "GEO_DIAG|phase=3|progress=0.0|hero=[P: (30.0, 422.0), S: (250.0, 250.0001)]|rival=[P: (78.0, 218.0), S: (176.0, 176.0)]|inside_hero=true|inside_rival=true|overlap=false|actor_scale=(1.0, 1.0)",
+        "GEO_DIAG|phase=3|progress=1.0|hero=[P: (106.0709, 374.9034), S: (249.9814, 249.9814)]|rival=[P: (78.0, 218.0), S: (176.0, 176.0)]|inside_hero=true|inside_rival=true|overlap=true|actor_scale=(1.0, 1.0)"
+      ]
+    },
+    {
+      "name": "opera-focused-04-rest",
+      "sha256": "0c3f0fa01e3d17ec7ff6fd3a54f82f977871bb992b807384137cd797deafdd54",
+      "bytes": 101692,
+      "result": "PASS",
+      "failures": [],
+      "geometry": []
+    }
+  ],
+  "observed": "The unchanged original Opera probe also reports the Geologist overlap with the candidate engine. A diagnostic copy retaining all assertions measures the hero drifting from staged(30,422) toward an earlier room rest after a valid gallery action.",
+  "cause": "_stage_room_finale_partner sets Geologist actor transforms but returns without recording them. _bounce_actor targets actor_rests captured before this stage.",
+  "repair": "Record the player and rival rest immediately after the existing Geologist stage assignments. No source artwork, position, size, objective or threshold changes.",
+  "source_files": {
+    "scripts/opera_career_world_2d.gd": "489ecf55aaf4a2c84bba38807c9fefb327a1479060334c2e4ce24d4efd5d276c"
+  },
+  "scope_limits": "This is a measured shared lifecycle prerequisite for the Boxer regression. No claim that every baseline platform fails; original dev a0 has successful remote run41235568813. Windows local evidence and every failed diagnostic are retained.",
+  "coordination": "A cross-chat coordination message was rejected because that destination was not explicitly human-authorized. No message delivered or retried. The reversible two-line candidate stays in this owned topic branch and current-chat/Git review.",
+  "acceptance": {
+    "machine_focused": "PASS",
+    "full_suite": "PASS: complete frozen-source native suite; final document and script gates",
+    "visual": "PENDING",
+    "device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING"
+  },
+  "final_suite": {
+    "path": ".tmp/boxer-contact-20261031/native-final.log",
+    "sha256": "e76dcd6e7a35dd7616c285d7cffa088caa00f99cd09dbd43fb64d7f0eba548d9",
+    "bytes": 481585,
+    "source": {
+      "raw_sha256": "489ecf55aaf4a2c84bba38807c9fefb327a1479060334c2e4ce24d4efd5d276c",
+      "lf_sha256": "5ad06f19eba86ca94b6a06a093bac79a909895fb188f0d477d8193fb8fbd8700",
+      "bytes": 248385
+    },
+    "result": "PASS"
+  }
+}

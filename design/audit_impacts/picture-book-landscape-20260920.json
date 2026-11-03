@@ -1,0 +1,61 @@
+{
+  "id": "picture-book-landscape-20260920",
+  "scope": "Build 7x5 landscape rough, 32 story pages plus covers, from existing scenes and alpha cutouts; bounded peripheral extensions and source-preserving page composition.",
+  "baseline": "81a3ab0f0e11b65c4aed9b71162d73464bbb634c",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book commission, no game findings repaired or closed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/README.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/art/R09_open_wide.png",
+    "books/chapter_one/landscape/art/R09_suds_wide.png",
+    "books/chapter_one/landscape/art/R10_jump_wide.png",
+    "books/chapter_one/landscape/art/R11_land_wide.png",
+    "books/chapter_one/landscape/art/landscape_base.png",
+    "books/chapter_one/landscape/art/net_cut.png",
+    "books/chapter_one/landscape/art/release_cut.png",
+    "books/chapter_one/landscape/art/window_wide.png",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/image_edit_provenance.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/render_book.py",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Landscape PDF render and visual inspection",
+      "result": "PASS",
+      "evidence": "34 pages at 504x360 points; every page rendered and contact-sheet reviewed; seahorse changed to full art to avoid torso cutoff; caption legibility corrected. Print-resolution, extraction edge and peripheral extension seam refinement remain."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "576 inventory / 576 ledger; ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "ALL OK against 5920c673305989ee29d91876480ff445dba9fc8b."
+    },
+    {
+      "command": "PDF structural and text verification",
+      "result": "PASS",
+      "evidence": "34 pages, all 504x360 points; Sniglet embedded; two-bunny rescue and rainbow payoff text verified; all page proofs generated."
+    }
+  ],
+  "acceptance_gaps": "Rough book; final print resolution and owner acceptance remain. No full-scene replacement or cinematic delivery claim."
+}

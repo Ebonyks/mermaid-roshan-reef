@@ -1,0 +1,110 @@
+{
+  "format": "roshan.skin/1",
+  "skin_id": "magician",
+  "rig": {
+    "id": "roshan.canvas.shared.swim",
+    "version": "0.1.0",
+    "contract_sha256": "01ef35d911f6ab14e7711eca947dbc026ac54c2c44c958060c2b97540f432f44"
+  },
+  "views": [
+    "swim_right_quarter"
+  ],
+  "attachments": [
+    {
+      "id": "magician_body_front",
+      "view": "swim_right_quarter",
+      "slot": "body_front",
+      "mode": "weighted",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/magician_body.png",
+        "sha256": "b794c93cdd17e37b794b8c04ceb2f4ead99beb942dd813b97fe818b28a4ded4a"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/magician_body.json",
+        "sha256": "42fd0e439577b846849082b901761e523e7fef7b18fb0e3153701b63f62b421b"
+      }
+    },
+    {
+      "id": "magician_tail_cover",
+      "view": "swim_right_quarter",
+      "slot": "tail_cover",
+      "mode": "weighted",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/magician_tail.png",
+        "sha256": "1a2777db291f9a23f7c77825b8f2d9f9b80f873683815abaf352b8409542ad75"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/magician_tail.json",
+        "sha256": "bd8faef6d8607daeabb2aaf44018b9e7a25aeaac85d5924dd2aa4e2120e21594"
+      }
+    },
+    {
+      "id": "magician_sleeve_left",
+      "view": "swim_right_quarter",
+      "slot": "sleeve_left",
+      "mode": "weighted",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/magician_sleeve_far.png",
+        "sha256": "c714026498c4ff74924c7697e68c10047d10b99cb5ec7293bb6c81b6919fac69"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/magician_sleeve_far.json",
+        "sha256": "2d089dcd376a22eb933027000d04faf3afb2a80d7348d0d8df63ae4413f2e9ce"
+      }
+    },
+    {
+      "id": "magician_sleeve_right",
+      "view": "swim_right_quarter",
+      "slot": "sleeve_right",
+      "mode": "weighted",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/magician_sleeve_near.png",
+        "sha256": "27ba501fbd17026d015303e0d07b1fada0cc5e95cd3fa00ebf8aaf884b883a41"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/magician_sleeve_near.json",
+        "sha256": "77fc0ff2efeaba0490dd3308fc4c87e292d9e31e23d958fda4aa376696943a63"
+      }
+    },
+    {
+      "id": "magician_headwear_front",
+      "view": "swim_right_quarter",
+      "slot": "headwear_front",
+      "mode": "weighted",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/garments/magician_headwear.png",
+        "sha256": "db79c5f11aff777dd8547b7062d635189b58779b8dfbfe756271d0d3c20d65bf"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/magician_headwear.json",
+        "sha256": "bbf928495e1cad2b6d5f8b4160b024714dc788fcc2665c71c9f8a1629c8ea9fb"
+      }
+    }
+  ],
+  "coverage": {
+    "swim_right_quarter": {
+      "body_front": "magician_body_front",
+      "tail_cover": "magician_tail_cover",
+      "sleeve_left": "magician_sleeve_left",
+      "sleeve_right": "magician_sleeve_right",
+      "headwear_front": "magician_headwear_front"
+    }
+  },
+  "provenance": {
+    "sources": [
+      {
+        "asset": {
+          "path": "assets_src/animation/roshan_shared_swim_20261101/art_source/magician_parts_take01.png",
+          "sha256": "3af074f1299c2822d4b7bb9a9c96542acbe07cfaf0a34111cc9d8374dc30a236"
+        },
+        "license": "Project-commissioned built-in image_gen derivative of existing project Fashion Designer costume art; provider revision/seed unexposed",
+        "role": "garment_source",
+        "acceptance_scope": "New source view candidate only; no visual, runtime, device, child or owner acceptance"
+      }
+    ],
+    "edits": [
+      "Named garment-only perspective view; Aseprite component isolation and matte cleanup; explicit recorded uniform registration; shared canonical bone field binding"
+    ],
+    "generator_calls": 1
+  }
+}

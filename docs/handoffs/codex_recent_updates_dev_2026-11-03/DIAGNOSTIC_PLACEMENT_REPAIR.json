@@ -1,0 +1,24 @@
+{
+  "state": "DISPOSABLE_EXECUTABLE_FIXTURE_MOVED_OUTSIDE_PROJECT_EXACT_BYTES_PRESERVED",
+  "at_utc": "2026-11-03T19:59:36.345461+00:00",
+  "initial_failure": {
+    "rule": "G2D101",
+    "path": "export/recent_updates_dev_20261103/broad_theater_diagnostic.gd",
+    "log": "validation/GAME2D_attempt03_diagnostic_placement.log",
+    "reason": "An exact diagnostic copy of the preexisting mixed-medium broad probe added temporary 3D API inventory under an executable project path. The validator correctly rejected it."
+  },
+  "diagnostic_sha256": "3cd51150c6208a65191122e1178fc8f3ed4e3906d980ff78fd2cb122954d1a78",
+  "preserved_required_evidence": "diagnostics/theater_diagnostic.gd.txt",
+  "preserved_working_archive": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\broad_theater_diagnostic_archived.gd.txt",
+  "production_inputs_changed": [],
+  "all7748_pinned_inputs_unchanged": true,
+  "gate_rules_changed": false,
+  "ceilings_changed": false,
+  "ignore_rules_changed": false,
+  "all82_probes_retained": true,
+  "all5_analyzers_retained": true,
+  "next": "Rerun only the failed 2D regression check on the cleaned project; no healthy engine/static suite repeats.",
+  "final_inventory_gate": "PASS_NO_REGRESSION_GLOBAL_2D_CONTRACT_STILL_UNSATISFIED",
+  "final_log": "validation/GAME2D.log",
+  "final_log_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac"
+}

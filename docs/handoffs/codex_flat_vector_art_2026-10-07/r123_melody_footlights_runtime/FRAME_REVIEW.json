@@ -1,0 +1,91 @@
+{
+  "stable_id": "FV-864287E0D0F3",
+  "runtime_role": "StageFootlights",
+  "reviewer": "Local Codex visual review only; not formalQA11, independent human/owner or device acceptance",
+  "all6_source_frames_inspected": true,
+  "source_review_basis": "Same exact six baseline source stills retain prior direct review; all three source entry aspects freshly inspected for the selected rail, with5062 raw-exact pre-edit file proof.",
+  "all6_candidate_frames_inspected": true,
+  "effective_direct_views": 12,
+  "axes": [
+    {
+      "axis": "contour",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Source flat line and nested circular fills become one rounded painted support and thirteen whole round painted globes; all seven source color roles remain distinguishable."
+    },
+    {
+      "axis": "palette",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Coral/orange/yellow/green/sky-blue/periwinkle/purple repeat in the exact original13-instance order. Broad brighter painted centers replace uniform pastel circles; deep-plum rims/support fit illustrated scenery and stage colors."
+    },
+    {
+      "axis": "light",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Soft ivory upper-left glints and calm colored value bands replace code-drawn white dots. Rail light is baked into painted pixels; no runtime light, glow field, tint or relighting."
+    },
+    {
+      "axis": "perspective",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Frontal2D whole globes stay on the original stage plane; support is a painted strip, not a spatial/PBR extrusion."
+    },
+    {
+      "axis": "scale",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Original parent position/size/z16,30px globe diameter,36px rail height and13 centers are measured in all three aspects. Only the straight painted middle changes length;18px authored end contours and every globe remain undistorted."
+    },
+    {
+      "axis": "contact",
+      "candidate_score_out_of5": 4.5,
+      "observation": "Globes sit centrally on the same supporting rail face. Painted rail spans the original line segment x18 to width-minus18 and all globes remain registered; no new physical support/action is implied."
+    },
+    {
+      "axis": "occlusion",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Actor hands/tails, moving note, timing target, pointer, progress pips and back control remain clear in entry and intentional-score stills at all three aspects. Other flat theatre roles remain separately open."
+    },
+    {
+      "axis": "phone_readability",
+      "candidate_score_out_of5": 4.5,
+      "observation": "All thirteen bulbs retain clear small round silhouettes and seven distinct hues at actual30px scene size; glints/tonal bands remain visible without new text. Physical phone/child reading remains unverified."
+    },
+    {
+      "axis": "identity_topology",
+      "candidate_score_out_of5": 4.7,
+      "observation": "One existing rainbow note-rail role remains thirteen globes in seven colors, one straight support and the same noninteractive behavior. No actor, story, progression, voice, target or save change."
+    },
+    {
+      "axis": "painted_material_coherence",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Soft painted enamel/gouache surfaces and handmade contours replace flat fills and line rendering. Quiet plum support fits the existing theatrical palette while the scenic/actor pixels remain unchanged."
+    }
+  ],
+  "applicable_object_review_floor": 4.5,
+  "applicable_axes_at_or_above_floor": true,
+  "review_scope": "Actual configured Melody stage at1280x720,1600x720,1280x800; entry and one deliberate note. Rail/globes have no action-state/animation hooks; natural-route/global coverage remains open.",
+  "candidate_status": "SOURCE_CANDIDATE_LOCAL_MACHINE_VERIFIED_FORMAL_OPEN",
+  "native_current_checks": 99,
+  "source_reused_checks": 69,
+  "effective_configured_checks": 168,
+  "new_frame_events": {
+    "bounded": 6,
+    "excluded": 0,
+    "retained": 6
+  },
+  "static_calls": 2,
+  "native_designs": 2,
+  "rejected_native_takes": 0,
+  "nonselected_technical127_exports": 4,
+  "runtime_PNGs": 8,
+  "unique_globe_color_sources": 7,
+  "rendered_globe_instances": 13,
+  "animation_calls": 0,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "whole_role_closed": false,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "reviewed_at_utc": "2026-11-02T11:17:04.500657+00:00",
+  "complete_machine_validation": "docs/handoffs/codex_flat_vector_art_2026-10-07/r123_melody_footlights_runtime/LOCAL_82_RESULT.json"
+}

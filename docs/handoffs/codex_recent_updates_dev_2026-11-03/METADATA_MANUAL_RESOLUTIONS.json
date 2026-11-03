@@ -1,0 +1,26 @@
+{
+  "records": [
+    {
+      "path": ".gitattributes",
+      "resolution": "Union of both independent literal-evidence rules; no source/line-ending policy removed"
+    },
+    {
+      "path": "audit/audio_quality_summary_2026-08-24.json",
+      "resolution": "Preserve currentDev actual audio summary: all selected updates add zero runtimeaudio paths; incoming older review-branch regenerated summary is not current audio evidence"
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "resolution": "Stable-ID recursive source union; no decision deletion or automatic acceptance",
+      "scalar_conflicts": []
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "resolution": "Preserve IN_PROGRESS MA-OPERA014/currentchapter guide and creative rig rows; addLaura references, Boxer/Geologist rows, MA-OPERA015 and scopedbook paragraphs; taskindex marker stays unique"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "resolution": "Addbounded Geologist stagedrest evidence tocurrentrow; preserveRacerintegration andallotherrows"
+    }
+  ],
+  "unresolved_decision_scalars": []
+}

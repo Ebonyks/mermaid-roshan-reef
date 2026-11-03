@@ -1,0 +1,18 @@
+{
+  "call": 9,
+  "item": "A8",
+  "overall_attempt": 4,
+  "correction_attempt": 2,
+  "prompt": "Extract ONLY the four pale lavender-grey dust wisps from IMAGE_1 onto genuine transparent RGBA. Keep their exact relative sizes, positions and irregular soft textured forms. This is a DUST-ONLY overlay: remove ALL door, gold, purple panels, horizontal moulding lines, red carpet, step edges and background pixels. No architecture color or line may remain. Preserve the full1669:942 canvas framing of the reference, including large empty transparent areas: four wisps stay in the narrow horizontal zone around y90–150 on a620x350 equivalent canvas, spread from x90to540. Do not crop tightly, center, rearrange or enlarge them. Each individual cloud remains roughly95–115px wide and45–55px tall at620x350scale, separated by a small natural gap. Render the dust itself neutral light grey with a muted lavender tint, semi-transparent to show the original door underneath when composited: soft cores about35–50percent opacity, wispy fringes fading to alpha0, fine watercolor powder grain. No red/gold/purple background residue, no baked checkerboard, black/white background, rectangle, halo, solid outlined cartoon cloud, coiling, spiral, face, eyes, pearl or sparkle. Keep exactly four quiet ordinary dust wisps and nothing else. Return clean true-alpha dust layer only.",
+  "references": [
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt3.png"
+  ],
+  "native_location": "C:\\Users\\Peter\\.codex\\generated_images\\01a0886d-a150-7c83-9b37-81e6a547f234\\exec-f0ee40f0-c36e-4126-82c1-8c923c319998.png",
+  "output": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt4_rgba.png",
+  "selected": true,
+  "review": "Dust-only trueRGBA eliminates generated architecture. Uniform document placement from alpha>=8 content width430 source pixels, top810; document opacity0.7. Earlier0.4 placement was too faint and was retired without another generation. Native untouched. Local final peer review passed in r03_critique.json. Owner/child/print and publication acceptance remain separate.",
+  "provider": "Built-in image_gen; model/revision/seed/monetary usage not exposed",
+  "transparent_background": true,
+  "date": "2026-10-25",
+  "output_sha256": "030c42fa1b9ffcd1b484be543f694f7666a6297c5bd1f70960174af15df89de6"
+}

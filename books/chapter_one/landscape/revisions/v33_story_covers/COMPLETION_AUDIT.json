@@ -1,0 +1,47 @@
+{
+  "status": "REQUESTED_COVER_REPAIRS_COMPLETE_LOCALLY; REMOTE_BYTES_TO_VERIFY_AFTER_PUSH",
+  "baseline": "2719d2fcf66afe4cb73b8445087e09dd52319849",
+  "requirements": [
+    {
+      "id": "front-promises-current-story",
+      "result": "PASS",
+      "evidence": {
+        "path": "books/chapter_one/landscape/revisions/v33_story_covers/visual_review.json",
+        "sha256": "10db3781e17245b5032cc43ee142a069be11c91e8977524329d7965dec441e23"
+      }
+    },
+    {
+      "id": "rear-actual-cooperative-washing",
+      "result": "PASS",
+      "evidence": {
+        "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/verification.json",
+        "sha256": "15ae291aae0aa4a3c0e0fd56eb43f2ee2822baeb8e1734c0e5ed52a6ccd64be7"
+      }
+    },
+    {
+      "id": "retain32interiors-and34total",
+      "result": "PASS",
+      "evidence": {
+        "path": "books/chapter_one/landscape/revisions/v33_story_covers/complete/verification.json",
+        "sha256": "15ae291aae0aa4a3c0e0fd56eb43f2ee2822baeb8e1734c0e5ed52a6ccd64be7"
+      }
+    },
+    {
+      "id": "preserve-source-art-and-targeted-edit-scope",
+      "result": "PASS",
+      "evidence": {
+        "path": "books/chapter_one/landscape/revisions/v33_story_covers/generation_evidence.json",
+        "sha256": "6e0852d1277351e1bfe3cb257385bffe102b05ed434659d68d9e15346a7643cf"
+      }
+    }
+  ],
+  "open_findings": [
+    {
+      "id": "OWNER_PAGE04_REPLACEMENT",
+      "pages": [
+        4
+      ],
+      "issue": "Owner rejected the V32 dusty-object insert. A quiet help-request page before the Puff reveal was recommended on2026-10-02 but has not been commissioned for implementation. This cover-only revision deliberately preserves all32 current interiors; that editorial item remains open."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "purpose": "Independent fresh-process native action replay determinism under different verification load. Both capture.gd invocations start fresh. This is not warm state-leak coverage.",
+  "input_count": 189,
+  "input_mismatches": [],
+  "media_source": "fresh-process replay, frozenv3",
+  "second_capture": "Main verifier raw/actions, a separate fresh process after legacy checks and before mixed capture. Warm mixed-part state is separately sampled in mixed-action and legacy swap tests."
+}

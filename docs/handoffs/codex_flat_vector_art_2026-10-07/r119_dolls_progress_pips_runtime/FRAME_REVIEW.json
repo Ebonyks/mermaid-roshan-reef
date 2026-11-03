@@ -1,0 +1,86 @@
+{
+  "stable_id": "FV-12A0922A07E6",
+  "reviewer": "Codex direct static inspection; qualified provisional agent judgment, never formal human/owner scores",
+  "same_scene_baseline": "16source-bound R118 actualMain/Faron frames delivered at exact218 source with SOURCE_PIN and DELIVERY_SOURCE_BINDING; reused without new frame credit",
+  "prior_baseline_frames_reused": 16,
+  "prior_baseline_frames_reinspected_this_turn": 1,
+  "all20_candidate_frames_inspected": true,
+  "candidate_direct_views": 20,
+  "excluded_direct_views": 2,
+  "total_native_direct_views": 22,
+  "axes": [
+    {
+      "axis": "contour",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Two concentric flat dots become a whole soft cloth ring and a distinct recessed/raised heart; rounded handmade silhouette stays clean at36px."
+    },
+    {
+      "axis": "palette",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Lavender and cream match quilt/cradle and room details; warm pink communicates filled progress while the empty center remains deep plum."
+    },
+    {
+      "axis": "light",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Authored upper-left highlight and lavender/plum shading retain padded volume; no runtime relighting or glow."
+    },
+    {
+      "axis": "perspective",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Forward-facing cloth medallions read as quiet HUD markers, with identical plane and registration across both states."
+    },
+    {
+      "axis": "scale",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Whole images fit original36px maximum diameter,48px spacing and y34 centres. No overlap, cropping or panel escape at either aspect."
+    },
+    {
+      "axis": "contact",
+      "candidate_score_out_of5": 4.6,
+      "observation": "UI placement stays anchored to original counter positions;18other functions and all cradle/baby/support/input geometry exact. Corrected full3 review explicitly synchronizes original actor layout while Main polling is held."
+    },
+    {
+      "axis": "occlusion",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Markers remain separate above the activity and clear of moon/mobile, babies and selected skin. No new layers or node occlusion."
+    },
+    {
+      "axis": "phone_readability",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Empty dark and filled warm-pink centers remain distinct at native36px in0/1/2/3 states, confirmed by actual rendered-pixel count checks. Physical device/child recognition still unverified."
+    },
+    {
+      "axis": "identity_topology",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Same three-slot count and index threshold, one heart inset per complete marker; no new character art or narrative change. Bounds drift below0.1px at36px."
+    },
+    {
+      "axis": "painted_material_coherence",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Broad padded cloth values and restrained stitches join the delivered nursery quilt/cradle finish; no flat-colour procedural substitute or baked halo."
+    }
+  ],
+  "applicable_object_review_floor": 4.6,
+  "applicable_axes_at_or_above_floor": true,
+  "new_frames": {
+    "bounded": 20,
+    "excluded": 2,
+    "retained": 22
+  },
+  "new_baseline_frame_credit": 0,
+  "new_generated_samples": 2,
+  "rejected_takes": 0,
+  "technical_exports": 2,
+  "original_functions_unchanged": 18,
+  "candidate_status": "USABLE_WHOLE_PAINTED_PROGRESS_STATES_NATIVE_PASS_FULL_GATES_PENDING",
+  "fixture_limit": "Full3 is an actual owned catch held for configured review by pausing Main polling and synchronizing original card-layout helper, then restoring Main to original immediate win/teardown. It is not natural full3 display-duration evidence. Two initial stale-card frames excluded; helper-name script error generated0frames.",
+  "remaining": "Focus/safe-ring/room approval/other artwork and natural allroutes remainopen; no whole-role acceptance.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "whole_role_closed": false,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "reviewed_at_utc": "2026-10-31T16:39:44.942024+00:00"
+}

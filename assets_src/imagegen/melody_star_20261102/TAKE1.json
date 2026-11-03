@@ -1,0 +1,66 @@
+{
+  "id": "R122_TAKE1",
+  "request_id": "exec-da4e3417-6d3c-42ad-a33c-67f872bc73b4",
+  "backend": "builtin image_gen",
+  "requested_model": "owner requested ImageGen2.5 where available; no selector exposed",
+  "returned_fields": [
+    "image_url",
+    "output_hint"
+  ],
+  "model_version": "NOT_EXPOSED",
+  "seed": "NOT_EXPOSED",
+  "cost": "NOT_EXPOSED",
+  "native_path": "assets_src/imagegen/melody_star_20261102/native/take1_original.png",
+  "native_sha256": "0365d7a8846ebaa6cafbbb20fe3ecf140cf8e54f43bb3ed8994f64ec40ad1bca",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_threshold_counts": {
+    "1": 577429,
+    "2": 571850,
+    "16": 566245,
+    "128": 562536,
+    "255": 209
+  },
+  "alpha_threshold_bounds": {
+    "1": [
+      0,
+      35,
+      1230,
+      1254
+    ],
+    "2": [
+      38,
+      81,
+      1215,
+      1176
+    ],
+    "16": [
+      41,
+      83,
+      1213,
+      1174
+    ],
+    "128": [
+      41,
+      84,
+      1212,
+      1173
+    ],
+    "255": [
+      49,
+      97,
+      1198,
+      1172
+    ]
+  },
+  "prompt_sha256": "a3a710dcdbaa85725931e34e5966eae6be5e467bc2ba9a9c0ae99432acd16218",
+  "reference_binding_sha256": "8fc4e605916c7a391a67d71522f88245c34fab040b40df2200b38196767249b6",
+  "native_inspected": true,
+  "local_native_review": "Five complete upright points, broad golden/amber/ivory painted values and deep-plum contour; usable static candidate, pending exact in-scene comparison. No source scene/actor/UI or hanging/background pixels.",
+  "selection": "SELECTED_FOR_SAME_SCENE_RUNTIME_REVIEW",
+  "owner_accepted": false,
+  "protected_originals_modified": false
+}

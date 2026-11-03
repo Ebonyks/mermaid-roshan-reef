@@ -1,0 +1,66 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/review/opera_translation_v1.gd",
+        "scripts/review/probe_opera_translation_v1.gd"
+      ],
+      "exit_code": 0,
+      "log": "parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/review/opera_translation_v1.gd",
+        "scripts/review/probe_opera_translation_v1.gd"
+      ],
+      "exit_code": 0,
+      "log": "inference.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "opera_translation_v1_analyzer",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera-four-screen-v1-20261031",
+        "--check-only",
+        "--script",
+        "scripts/review/opera_translation_v1.gd"
+      ],
+      "exit_code": 0,
+      "log": "opera_translation_v1_analyzer.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "name": "probe_opera_translation_v1_analyzer",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera-four-screen-v1-20261031",
+        "--check-only",
+        "--script",
+        "scripts/review/probe_opera_translation_v1.gd"
+      ],
+      "exit_code": 0,
+      "log": "probe_opera_translation_v1_analyzer.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    }
+  ],
+  "source_pins": {
+    "scripts/review/opera_translation_v1.gd": "49c3c36ec70f2e4ddf1c7b1b3a5fdd55decb522097653fac6aaf9235fa2d32e0",
+    "scripts/review/probe_opera_translation_v1.gd": "3212b62ac1a0cc9bfade778eb7c4f52e4277f89ad3c08088fe4cf1dbc692a491"
+  }
+}

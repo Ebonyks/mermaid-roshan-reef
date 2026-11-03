@@ -331,7 +331,7 @@ func _mg_build_snowman() -> void:
 	m.mg["motor_assist"] = false
 	(m.mg["hud"] as Label).text = "Spin the stick - or draw circles with your finger!"
 	# ground
-	_mg_circle(Vector2(640, 980), 700.0, Color(0.95, 0.97, 1.0, 0.5))
+	_mg_snow_ground()
 	m.mg["body"] = []   # stacked balls (centre-right)
 	# the big flashing call-to-action
 	var fl := _mg_label("ROLL UP THE SNOWBALLS!", 52, Vector2(255, 146))
@@ -350,7 +350,18 @@ func _mg_build_snowman() -> void:
 
 func _mg_snow_new_ball() -> void:
 	var done: int = int(m.mg["balls"])                      # balls finished so far
-	var ball = _mg_circle(m.SNOW_ROLL_C, 26.0, Color(0.97, 0.99, 1.0))
+	# Keep the original Panel as invisible growth/stack/chase geometry.
+	var ball := Panel.new()
+	ball.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
+	var art := TextureRect.new()
+	art.name = "SnowballPainted"
+	art.texture = load("res://assets/mg/snowball_painted.png") as Texture2D
+	art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ball.add_child(art)
+	m.mg2d_stage.add_child(ball)
+	_mg_snow_ball_size(ball, 26.0, m.SNOW_ROLL_C)
 	m.mg["roll_ball"] = ball
 	m.mg["final_r"] = 150.0 - float(done + 1) * 26.0        # 124, 98, 72
 	m.mg["rot_need"] = (3.0 - float(done) * 0.5) * TAU      # 3 / 2.5 / 2 full circles
@@ -364,18 +375,11 @@ func _mg_snow_new_ball() -> void:
 func _mg_snow_ball_size(ball: Panel, r: float, center: Vector2) -> void:
 	ball.size = Vector2(r * 2.0, r * 2.0)
 	ball.position = center - Vector2(r, r)
-	var sb = ball.get_theme_stylebox("panel") as StyleBoxFlat
-	if sb != null:
-		sb.set_corner_radius_all(int(r))
-		sb.set_border_width_all(maxi(2, int(r * 0.05)))
-	if ball.get_child_count() > 0:
-		var hl = ball.get_child(0) as Panel
-		if hl != null:
-			hl.size = Vector2(r * 0.85, r * 0.6)
-			hl.position = Vector2(r * 0.32, r * 0.22)
-			var hsb = hl.get_theme_stylebox("panel") as StyleBoxFlat
-			if hsb != null:
-				hsb.set_corner_radius_all(int(r * 0.5))
+	var art := ball.get_node("SnowballPainted") as TextureRect
+	# Register inside the old shadow footprint: x +/-8, y -3/+13.
+	# Painted snow surfaces meet at the unchanged upper stack centers.
+	art.position = Vector2(-6, -3)
+	art.size = ball.size + Vector2(12, 12)
 
 
 func _mg_snow_ball_done() -> void:
@@ -410,7 +414,7 @@ func _mg_snow_face_phase() -> void:
 	var carrot := _mg_artbtn("res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png", Vector2(360, 600), Vector2(150, 110))
 	carrot.pressed.connect(func(): _mg_snow_face("carrot", carrot))
 	for i in range(2):
-		var coal := _mg_artbtn("res://assets/mg/coal.png",
+		var coal := _mg_artbtn("res://assets/mg/snowman_coal_painted.png",
 			Vector2(220 + float(i) * 280, 600), StorybookUI.MIN_TOUCH)
 		var idx := i
 		coal.pressed.connect(func(): _mg_snow_face("coal" + str(idx), coal))
@@ -431,9 +435,9 @@ func _mg_snow_face(_part: String, b: Button) -> void:
 		bit.set_meta("snowman_authored_rotation", bit.rotation)
 		m.mg["carrot_bit"] = bit
 	elif _part == "coal0":
-		bit = _mg_sprite("res://assets/mg/coal.png", head + Vector2(-24, -18), Vector2(42, 42))
+		bit = _mg_sprite("res://assets/mg/snowman_coal_painted.png", head + Vector2(-24, -18), Vector2(42, 42))
 	else:
-		bit = _mg_sprite("res://assets/mg/coal.png", head + Vector2(24, -18), Vector2(42, 42))
+		bit = _mg_sprite("res://assets/mg/snowman_coal_painted.png", head + Vector2(24, -18), Vector2(42, 42))
 	if not m.mg.has("face_bits"):
 		m.mg["face_bits"] = []
 	(m.mg["face_bits"] as Array).append(bit)
@@ -662,9 +666,10 @@ func _mg_build_trampoline() -> void:
 	(m.mg["hud"] as Label).text = "Tap the trampoline to bounce up and TOUCH the star!"
 	m.mg["star"] = _mg_sprite("res://assets/mg/star.png", Vector2(640, 90), Vector2(140, 140))
 	# trampoline (kept high enough for a clear 1280x720 landscape silhouette)
-	var tramp := _mg_circle(Vector2(640, 520), 200.0, Color(0.25, 0.5, 0.85))
-	tramp.size.y = 56.0
-	tramp.position = Vector2(640 - 200, 492)
+	# One whole painted prop; the original target and bounce choreography stay fixed.
+	var tramp := _mg_sprite("res://assets/mg/trampoline_pad_painted.png",
+		Vector2(640, 534), Vector2(403, 129))
+	tramp.name = "TrampolinePainted"
 	tramp.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	m.mg["rest_y"] = 430.0
 	m.mg["roshan"] = _mg_sprite(m.skin_sprite_path(), Vector2(640, 430), Vector2(150, 190))
@@ -793,3 +798,29 @@ func _mg_xmas_flower() -> void:
 		return
 	_mg_sprite("res://assets/book/friendship_flower.png", Vector2(640, 200), Vector2(140, 130))
 	_mg2d_win("The friendship flower on top! It is beautiful!")
+func _mg_snow_ground() -> void:
+	# Retain the functional Control; a shallower painted field supports the chase.
+	var p := Panel.new()
+	p.name = "SnowfieldGeometry"
+	p.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
+	p.size = Vector2(1400, 1400)
+	p.position = Vector2(-60, 280)
+	m.mg2d_stage.add_child(p)
+	var paths: PackedStringArray = PackedStringArray([
+		"res://assets/mg/snowfield_painted_00.png",
+		"res://assets/mg/snowfield_painted_01.png",
+		"res://assets/mg/snowfield_painted_10.png",
+		"res://assets/mg/snowfield_painted_11.png",
+	])
+	for i in range(4):
+		var card := TextureRect.new()
+		card.name = "SnowfieldCard%d" % i
+		card.texture = load(paths[i]) as Texture2D
+		card.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		card.stretch_mode = TextureRect.STRETCH_SCALE
+		card.position = Vector2(float(i % 2) * 700.0, float(i >> 1) * 500.0 - 60.0)
+		card.size = Vector2(700, 500)
+		card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		p.add_child(card)
+
+

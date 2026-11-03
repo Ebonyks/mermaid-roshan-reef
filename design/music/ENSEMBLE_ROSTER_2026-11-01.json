@@ -1,0 +1,778 @@
+{
+  "status": "OWNER_DIRECTED_COLLECTIVE_LOFI_FOUNDATION_PROPOSED_CAPABILITIES",
+  "mission_statement": "Owner endorses the overall sonic direction; this roster operationalizes it. Specific personnel/reference choices, programs and cue casts remain proposals.",
+  "concept": "A context-led studio collective of multi-instrumentalist co-composers. Ten core creative members and five guest families choose related instruments and shifting musical roles per song/section; original DKC guides the whole-score architecture.",
+  "director": {
+    "role": "Musical direction and score architecture",
+    "reference": "David Wise and Eveline Fischer / original Donkey Kong Country (1994)",
+    "source": "https://vgmonline.net/davidwiseinterview/",
+    "responsibility": "Theme, emotional role, genre contrast, section arc and ownership of the current musical foreground.",
+    "working_method": "Direct context, theme, form and review; invite melodic, harmonic, rhythmic and arranging ideas from all members. Selectively orchestrate their contributions into written songs."
+  },
+  "core": [
+    {
+      "id": "strings_a",
+      "chair": "Fretted-strings collaborator A",
+      "artist": "Ernest Ranglin",
+      "recording": "Surfin', Below the Bassline (1996)",
+      "reference": "https://music.apple.com/us/album/surfin/1444023621?i=1444023735",
+      "function": "Context-selected composition and performance roles: foreground hook, chord body, picked ostinato, rhythmic answer.",
+      "habit": "Choose the string instrument and touch that give this cue its emotional center. A picked hook can become a chord figure or a sparse response when another musician takes the theme.",
+      "uncertainty": "If a line wanders, simplify its written hook. If guitar is only background, consider a complete featured phrase or a different register before adding tracks.",
+      "tone": "Rounded string attack and wood/body, with an articulate melodic center.",
+      "uvi": [
+        "sunbird_solo",
+        "tchad_nylon_warm"
+      ],
+      "partner": "strings_b",
+      "rest": "When pan, flute or keys owns the melody, contribute a brief response or leave space.",
+      "instrument_family": "Fretted and plucked strings",
+      "instruments": [
+        "steel-string acoustic guitar",
+        "nylon-string guitar",
+        "ukulele"
+      ],
+      "roles": [
+        "foreground hook",
+        "chord body",
+        "picked ostinato",
+        "rhythmic answer"
+      ],
+      "capability_status": "Proposed conceptual instrument range. Previously rendered programs listed in uvi; other exact programs/articulations need audition.",
+      "candidate": "Select the exact installed-bank program, instrument-specific articulation and contextual reference for any new instrument or role. Existing verified program evidence is retained in the palette map.",
+      "role_shift_example": {
+        "from": "foreground hook",
+        "to": "picked ostinato",
+        "trigger": "The section changes emotional purpose or foreground musician."
+      },
+      "profile": "design/music/performers/strings_a.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "strings_b",
+      "chair": "Fretted-strings collaborator B",
+      "artist": "Leo Nocentelli with The Meters",
+      "recording": "Cissy Strut (1969)",
+      "reference": "https://www.georgeporterjr.com/bio",
+      "function": "Context-selected composition and performance roles: groove figure, foreground melody, chord movement, counterline.",
+      "habit": "Bring interlocking chord/riff ideas to the writing session, and trade melodic and harmonic responsibility with the other guitarist or keys.",
+      "uncertainty": "Choose a repeatable rhythmic cell and playable voicing; when the cue asks for melody, consult the melodic guitar context and write a complete sentence.",
+      "tone": "Soft transient, clear chord body, controlled upper-mid bite.",
+      "uvi": [
+        "tchad_nylon_warm",
+        "sunbird_solo"
+      ],
+      "partner": "bass",
+      "rest": "Thin to a dyad, single rhythmic note or silence during a featured guitar or keyboard phrase.",
+      "instrument_family": "Fretted and plucked strings",
+      "instruments": [
+        "nylon-string guitar",
+        "steel-string guitar",
+        "mandolin",
+        "tres"
+      ],
+      "roles": [
+        "groove figure",
+        "foreground melody",
+        "chord movement",
+        "counterline"
+      ],
+      "capability_status": "Proposed conceptual instrument range. Previously rendered programs listed in uvi; other exact programs/articulations need audition.",
+      "candidate": "Select the exact installed-bank program, instrument-specific articulation and contextual reference for any new instrument or role. Existing verified program evidence is retained in the palette map.",
+      "role_shift_example": {
+        "from": "groove figure",
+        "to": "chord movement",
+        "trigger": "The section changes emotional purpose or foreground musician."
+      },
+      "profile": "design/music/performers/strings_b.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "keys",
+      "chair": "Keyboard collaborator",
+      "artist": "Monty Alexander",
+      "recording": "Montreux Alexander, 1976 performance (released 1977)",
+      "reference": "https://www.mps-music.com/releases/montreux-alexander-live/",
+      "function": "Context-selected composition and performance roles: melody, harmonic movement, ostinato, bass register, atmosphere.",
+      "habit": "Develop a harmonic or melodic idea in the keyboard voice the scene needs. The same player can open with an EP pulse and return later with the main tune.",
+      "uncertainty": "Change register, voicing or instrument when the emotional job changes; choose a clear foreground and leave another harmonic player a reply.",
+      "tone": "Warm core with selective bell-like detail and an expressive attack.",
+      "uvi": [
+        "lofi_electric_piano_smokey"
+      ],
+      "candidate": "Select the exact installed-bank program, instrument-specific articulation and contextual reference for any new instrument or role. Existing verified program evidence is retained in the palette map.",
+      "partner": "strings_a",
+      "rest": "Leave a clear hole when another chord instrument makes its response.",
+      "instrument_family": "Keyboard instruments",
+      "instruments": [
+        "acoustic piano",
+        "electric piano",
+        "organ",
+        "keyboard synths"
+      ],
+      "roles": [
+        "melody",
+        "harmonic movement",
+        "ostinato",
+        "bass register",
+        "atmosphere"
+      ],
+      "capability_status": "Proposed conceptual instrument range. Previously rendered programs listed in uvi; other exact programs/articulations need audition.",
+      "role_shift_example": {
+        "from": "melody",
+        "to": "ostinato",
+        "trigger": "The section changes emotional purpose or foreground musician."
+      },
+      "profile": "design/music/performers/keys.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "bass",
+      "chair": "Low-strings collaborator",
+      "artist": "George Porter Jr.",
+      "recording": "The Meters, Cissy Strut (1969)",
+      "reference": "https://www.georgeporterjr.com/bio",
+      "function": "Context-selected composition and performance roles: foundation, bass hook, countermelody, sparse pedal, transition lead.",
+      "habit": "Suggest a short low figure that can become part of the composition. Trade between a melodic bass role, an anchoring pedal and a full rest.",
+      "uncertainty": "Strengthen the bass idea before adding percussion. Choose electric/upright articulation and note length for the song’s context, using the named ensemble reference.",
+      "tone": "Rounded weight with enough note identity for a small speaker.",
+      "uvi": [
+        "cuba_bass",
+        "jazzistic_double_bass"
+      ],
+      "partner": "acoustic_drums",
+      "rest": "Sustain or simplify under a busy foreground phrase; a bass-only transition can have its own spotlight.",
+      "instrument_family": "Low plucked strings",
+      "instruments": [
+        "electric bass",
+        "upright bass",
+        "low plucked-string programs"
+      ],
+      "roles": [
+        "foundation",
+        "bass hook",
+        "countermelody",
+        "sparse pedal",
+        "transition lead"
+      ],
+      "capability_status": "Proposed conceptual instrument range. Previously rendered programs listed in uvi; other exact programs/articulations need audition.",
+      "candidate": "Select the exact installed-bank program, instrument-specific articulation and contextual reference for any new instrument or role. Existing verified program evidence is retained in the palette map.",
+      "role_shift_example": {
+        "from": "foundation",
+        "to": "countermelody",
+        "trigger": "The section changes emotional purpose or foreground musician."
+      },
+      "profile": "design/music/performers/bass.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "acoustic_drums",
+      "chair": "Acoustic-drum and groove collaborator",
+      "artist": "Joseph Zigaboo Modeliste",
+      "recording": "The Meters, Cissy Strut (1969)",
+      "reference": "https://www.georgeporterjr.com/bio",
+      "function": "Context-selected composition and performance roles: groove lead, producer-beat response, textural pulse, phrase punctuation, rest.",
+      "habit": "Co-write the feel with the producer and percussion members. Use a compact coherent kit, and allow a world drum, bass figure or electronic beat to lead instead.",
+      "uncertainty": "Begin from rounded kick, dry rim/snare, brushes or restrained toms. Change density and placement before adding heavy cymbals; the current baseline is lo-fi, with metal-style kit production excluded.",
+      "tone": "A selected coherent kit with rounded kick, controlled cymbals and believable brush or stick articulation.",
+      "uvi": [
+        "jazz_brushed_kit_1"
+      ],
+      "candidate": "Select the exact installed-bank program, instrument-specific articulation and contextual reference for any new instrument or role. Existing verified program evidence is retained in the palette map.",
+      "partner": "bass",
+      "rest": "Allow a duo, hand-percussion or producer-led section to carry the pulse.",
+      "instrument_family": "Acoustic drums and related small percussion",
+      "instruments": [
+        "brushed acoustic kit",
+        "damped stick kit",
+        "rim and tom setups",
+        "small acoustic percussion"
+      ],
+      "roles": [
+        "groove lead",
+        "producer-beat response",
+        "textural pulse",
+        "phrase punctuation",
+        "rest"
+      ],
+      "capability_status": "Proposed conceptual instrument range. Previously rendered programs listed in uvi; other exact programs/articulations need audition.",
+      "role_shift_example": {
+        "from": "groove lead",
+        "to": "textural pulse",
+        "trigger": "The section changes emotional purpose or foreground musician."
+      },
+      "profile": "design/music/performers/acoustic_drums.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "afro_caribbean_percussion",
+      "chair": "Afro-Caribbean percussion collaborator",
+      "artist": "Mongo Santamaria",
+      "recording": "Afro-Blue, Mongo (recorded 1959)",
+      "reference": "https://folkways-media.si.edu/docs/folkways/artwork/SFW40802.pdf",
+      "function": "Context-selected composition and performance roles: groove lead, rhythmic hook, call and response, section accent, sparse texture.",
+      "habit": "Offer a rhythmic cell, call or turnaround that can shape the written form. Select a complementary instrument set and share space with the traditional percussion member.",
+      "uncertainty": "Name the low/open/closed strokes and interaction with bass. Keep a recognizable part instead of running every available percussion instrument continuously.",
+      "tone": "Skin, body and natural decay, with useful dynamics between strokes.",
+      "uvi": [
+        "latin_congas",
+        "latin_bongos",
+        "latin_guiro",
+        "latin_maracas",
+        "latin_cowbell",
+        "latin_timbales"
+      ],
+      "partner": "acoustic_drums",
+      "rest": "A held melodic statement may need only a small response; remove continuous ornament when the groove already reads.",
+      "instrument_family": "Latin and Caribbean hand/auxiliary percussion",
+      "instruments": [
+        "congas",
+        "bongos",
+        "timbales",
+        "guiro and shakers",
+        "cowbell"
+      ],
+      "roles": [
+        "groove lead",
+        "rhythmic hook",
+        "call and response",
+        "section accent",
+        "sparse texture"
+      ],
+      "capability_status": "Proposed conceptual instrument range. Previously rendered programs listed in uvi; other exact programs/articulations need audition.",
+      "candidate": "Select the exact installed-bank program, instrument-specific articulation and contextual reference for any new instrument or role. Existing verified program evidence is retained in the palette map.",
+      "role_shift_example": {
+        "from": "groove lead",
+        "to": "call and response",
+        "trigger": "The section changes emotional purpose or foreground musician."
+      },
+      "profile": "design/music/performers/afro_caribbean_percussion.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "traditional_percussion",
+      "chair": "Traditional/world percussion collaborator",
+      "instrument_family": "Traditional hand drums and regional percussion sets",
+      "instruments": [
+        "tabla",
+        "dholak",
+        "djembe",
+        "udu",
+        "frame and regional drum sets"
+      ],
+      "roles": [
+        "groove lead",
+        "pitched-stroke motif",
+        "call and response",
+        "textural pulse",
+        "section transition"
+      ],
+      "artist": "Zakir Hussain",
+      "recording": "Making Music (original release 1987)",
+      "reference": "https://ecmrecords.com/product/making-music-zakir-hussain/",
+      "contextual_reference": "https://www.ttmda.com/accreditation/mamady-keita/global-presence.php",
+      "function": "A distinct co-composer whose traditional drum vocabulary can originate the pulse, foreground motif or musical conversation.",
+      "habit": "Choose a particular drum family and idiom, articulate its strokes and develop an intentional phrase with bass, winds, strings or the producer. The percussion idea may be the seed of the cue.",
+      "uncertainty": "Consult Zakir for tabla and ensemble conversation, Mamady for djembe/dunun context, and a dedicated reference for another selected tradition. A mapped world kit still needs a physically readable part and appropriate articulations.",
+      "tone": "Audible skin/body, useful pitched-stroke contrast and controlled transients, fitted to the current warm lo-fi foundation.",
+      "uvi": [
+        "udu_large_restored"
+      ],
+      "candidate": "Owner reports world drum kits in the installed configuration. UVI lists regional drums and Indian percussion; exact kit/preset/articulation selections await native audition.",
+      "capability_status": "Udu already rendered. Conga/bongo/timbales verified under the related collaborator. Broader world-kit availability owner-reported, catalogue breadth verified, individual new presets not yet auditioned.",
+      "partner": "producer",
+      "rest": "A selected drum may lead a whole section, answer a melody or rest while another groove carries the cue.",
+      "role_shift_example": {
+        "from": "textural pulse",
+        "to": "groove lead",
+        "trigger": "A drum phrase becomes the central musical idea."
+      },
+      "contextual_artist": "Mamady Keita",
+      "contextual_recording": "Mogobalu (1998 concert-film context)",
+      "profile": "design/music/performers/traditional_percussion.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "winds",
+      "chair": "Wind collaborator",
+      "artist": "Herbie Mann",
+      "recording": "Memphis Underground (1969)",
+      "reference": "https://music.apple.com/us/album/memphis-underground/76153610",
+      "function": "Context-selected composition and performance roles: foreground tune, answer, sustained harmonic color, rhythmic motif, atmosphere.",
+      "habit": "Choose a wind color for the emotional job, then shape breaths, register and articulation. The player can carry a refrain or become a small returning color.",
+      "uncertainty": "Use instrument-specific range and breath. If the melodic job passes to another player, change the wind’s contribution or leave a complete phrase of space.",
+      "tone": "Breath-shaped onset and rounded center with controlled edge.",
+      "uvi": [
+        "djafe_flute_sustain"
+      ],
+      "partner": "strings_a",
+      "rest": "During another solo, contribute an answering fragment or rest for a full phrase.",
+      "instrument_family": "Flute-family winds",
+      "instruments": [
+        "flute",
+        "low whistle",
+        "recorder",
+        "related breathy wind programs"
+      ],
+      "roles": [
+        "foreground tune",
+        "answer",
+        "sustained harmonic color",
+        "rhythmic motif",
+        "atmosphere"
+      ],
+      "capability_status": "Proposed conceptual instrument range. Previously rendered programs listed in uvi; other exact programs/articulations need audition.",
+      "candidate": "Select the exact installed-bank program, instrument-specific articulation and contextual reference for any new instrument or role. Existing verified program evidence is retained in the palette map.",
+      "role_shift_example": {
+        "from": "foreground tune",
+        "to": "sustained harmonic color",
+        "trigger": "The section changes emotional purpose or foreground musician."
+      },
+      "profile": "design/music/performers/winds.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "pitched_percussion",
+      "chair": "Pitched-percussion collaborator",
+      "artist": "Andy Narell",
+      "recording": "Coffee Street, The Passage (pan-jazz ensemble reference)",
+      "reference": "https://music.apple.com/us/album/coffee-street-feat-calypsociation/1622052143?i=1622052150",
+      "function": "Context-selected composition and performance roles: foreground tune, harmonic ostinato, counterline, rhythmic hook, color accent.",
+      "habit": "Choose metal, wood or bell resonance to suit the cue. The same musical mind can lead on pan, sketch a balafon groove or answer on a mallet instrument.",
+      "uncertainty": "Choose the actual instrument’s technique and reference. Pan rolls do not automatically become wood-mallet articulation. Keep Opera’s single pan part and principal pan identity; other casts remain cue-plan choices.",
+      "tone": "A resonant body behind the strike, with clean source headroom.",
+      "uvi": [
+        "steel_pan_open"
+      ],
+      "partner": "winds",
+      "rest": "Keep one pan part in Opera; leave other sections and cues to their chosen voices.",
+      "instrument_family": "Struck melodic percussion",
+      "instruments": [
+        "steel pan",
+        "balafon",
+        "marimba",
+        "vibraphone",
+        "small struck bells"
+      ],
+      "roles": [
+        "foreground tune",
+        "harmonic ostinato",
+        "counterline",
+        "rhythmic hook",
+        "color accent"
+      ],
+      "capability_status": "Proposed conceptual instrument range. Previously rendered programs listed in uvi; other exact programs/articulations need audition.",
+      "candidate": "Select the exact installed-bank program, instrument-specific articulation and contextual reference for any new instrument or role. Existing verified program evidence is retained in the palette map.",
+      "role_shift_example": {
+        "from": "foreground tune",
+        "to": "counterline",
+        "trigger": "The section changes emotional purpose or foreground musician."
+      },
+      "profile": "design/music/performers/pitched_percussion.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "producer",
+      "chair": "Electronic-production collaborator",
+      "artist": "Bonobo / Simon Green",
+      "recording": "Kiara; Black Sands; Cirrus; Break Apart; Kerala",
+      "reference": "https://www.ableton.com/en/blog/bonobo-path-to-migration/",
+      "function": "Context-selected composition and performance roles: beat lead, foreground hook, harmonic bed, motif development, soundscape, transition.",
+      "habit": "Develop an original song through deliberate bass/percussion relationships, acoustic/electronic dialogue, transformed original band material, meaningful entrances/withdrawals and clear melodic returns.",
+      "uncertainty": "Use Bonobo as the coherent primary identity; select a supplemental pop, dance or chip principle only for a named cue need. Preserve the approved hook and a clear section leader.",
+      "tone": "A warm, full modern mix with selected bright or retro voices. Chip timbres are deliberate instruments, with controlled edge and audible bass identity.",
+      "uvi": [
+        "lofi_electric_piano_smokey"
+      ],
+      "candidate": "Select the exact installed-bank program, instrument-specific articulation and contextual reference for any new instrument or role. Existing verified program evidence is retained in the palette map.",
+      "partner": "acoustic_drums",
+      "rest": "An acoustic-led section can give the producer a small texture or no active part; featured electronic sections give the producer a clear phrase to lead.",
+      "reference_lanes": [
+        {
+          "id": "lofi_foundation",
+          "reference_artists": "Nujabes; J Dilla",
+          "recordings": [
+            "Reflection Eternal (2005)",
+            "Last Donut of the Night, Donuts (2006)"
+          ],
+          "source": "https://music.apple.com/us/song/1445812716",
+          "additional_source": "https://www.stonesthrow.com/store/donuts/",
+          "job": "Current underlying warm beat language: a clear bass figure, compact soft drums, spacious placement and melodic/harmonic interest.",
+          "uncertainty": "Choose one rhythmic identity and useful space; vary touch, register, density and arrangement. Optional texture must preserve full-bodied instruments and a clear tune.",
+          "applications": [
+            "current general rhythmic foundation; adapted to cue purpose"
+          ],
+          "status": "OWNER_DIRECTED_LOFI_FOUNDATION_PROPOSED_REFERENCE_TRACKS",
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
+        },
+        {
+          "id": "pop_architecture",
+          "reference_artists": "KPop Demon Hunters production team: 24, IDO, TEDDY and Ian Eisendrath on the selected songs",
+          "recordings": [
+            "Golden",
+            "How It’s Done"
+          ],
+          "source": "https://www.netflix.com/tudum/articles/kpop-demon-hunters-soundtrack",
+          "job": "Strong instrumental topline, distinct verse/pre-chorus/chorus identities and a purposeful contrasting bridge.",
+          "uncertainty": "If the section lacks focus, identify its hook and the instrument delivering it; make the chorus arrival clear through register, harmony and orchestration.",
+          "applications": [
+            "Pop Star",
+            "Theatre",
+            "celebration"
+          ],
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
+        },
+        {
+          "id": "bright_dance",
+          "reference_artists": "Madeon",
+          "recordings": [
+            "Pay No Mind (feat. Passion Pit), 2015"
+          ],
+          "source": "https://www.youtube.com/watch?v=BC_Ya4cY8RQ",
+          "job": "Bright harmonic lift, a buoyant pulse, melodic synth/band exchange and a satisfying return.",
+          "uncertainty": "If energy feels flat, change harmonic rhythm, bass movement or sectional texture before simply increasing loudness.",
+          "applications": [
+            "Racer",
+            "playful motion",
+            "celebration"
+          ],
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
+        },
+        {
+          "id": "retro_chip_beats",
+          "reference_artists": "Condard",
+          "recordings": [
+            "boombox.sav",
+            "new_saga.sav"
+          ],
+          "release": "Goes Hard, vol. 4 (Harder not Smarter instrumentals), 2026",
+          "source": "https://condard.bandcamp.com/album/goes-hard-vol-4-harder-not-smarter-instrumentals",
+          "job": "Distinctive chip-bass and lead figures, deliberate rhythmic cuts, compact voice economy and sparse breaks.",
+          "uncertainty": "If chip parts feel decorative, give one a recognizable bass, rhythmic or melodic job; a glitch must land back on the phrase.",
+          "applications": [
+            "Racer",
+            "Galaxy",
+            "Astronaut",
+            "mechanism play",
+            "Ember King - owner-directed chiptune identity"
+          ],
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
+        },
+        {
+          "id": "console_color",
+          "reference_artists": "Condard for Game Boy performance; original Donkey Kong Country composers for SNES scene/form context",
+          "recordings": [
+            "boombox.sav",
+            "Aquatic Ambience",
+            "Fear Factory"
+          ],
+          "source": "https://condard.bandcamp.com/album/goes-hard-vol-4-harder-not-smarter-instrumentals",
+          "additional_source": "https://vgmonline.net/davidwiseinterview/",
+          "job": "Choose a named Game Boy-like, NES-like or SNES-style palette per cue; keep those sound-design targets distinct.",
+          "uncertainty": "Specify the intended voice and musical function first. SNES-style sampled color and space do not require turning the entire mix into a chip synth.",
+          "applications": [
+            "selected electronic/discovery cues only"
+          ],
+          "readiness": "Owner-authorized RetroPlug/LSDJ installed for authentic Game Boy. This does not establish NES/SNES production-cart or UVI patch readiness.",
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
+        },
+        {
+          "id": "organic_bridge_optional",
+          "reference_artists": "Quantic / Will Holland",
+          "recordings": [
+            "Time Is The Enemy, The 5th Exotic (2001)"
+          ],
+          "source": "https://quanticmusic.bandcamp.com/album/the-5th-exotic",
+          "job": "Optional organic beat/band integration for a cue that actually calls for it.",
+          "uncertainty": "Consult only when the cue chooses an organic downtempo context. It is no longer the global producer default.",
+          "applications": [
+            "selected warm downtempo contexts"
+          ],
+          "status": "OPTIONAL_REFERENCE_PENDING_FIT_REVIEW",
+          "identity_weight": "SUPPLEMENTAL_CONTEXT"
+        }
+      ],
+      "authorized_exception": {
+        "tools": [
+          "RetroPlug 0.7.4",
+          "LSDJ 9.4.2 stable"
+        ],
+        "character": "Ember King",
+        "direction": "CHIPTUNE_OWNER_DIRECTED",
+        "source": "design/music/retroplug_owner_direction_20261101.json",
+        "setup": "design/music/RETROPLUG_LSDJ_SETUP_2026-11-01.md"
+      },
+      "instrument_family": "Electronic instruments, samplers and production systems",
+      "instruments": [
+        "UVI electronic drum programs",
+        "sampler and keyboard-synth voices",
+        "processed original band stems",
+        "authorized RetroPlug/LSDJ Game Boy"
+      ],
+      "roles": [
+        "beat lead",
+        "foreground hook",
+        "harmonic bed",
+        "motif development",
+        "soundscape",
+        "transition"
+      ],
+      "capability_status": "Detailed profile proposed; five electronic/lo-fi kit configurations have native audition evidence. Exact additional instruments and performances retain their own readiness checks.",
+      "role_shift_example": {
+        "from": "beat lead",
+        "to": "harmonic bed",
+        "trigger": "The section changes emotional purpose or foreground musician."
+      },
+      "primary_identity_status": "OWNER_SELECTED",
+      "profile": "design/music/performers/producer.md",
+      "profile_revision": 2
+    }
+  ],
+  "guests": [
+    {
+      "id": "kora",
+      "chair": "Harp-lute and plucked-string guest",
+      "artist": "Toumani Diabate",
+      "recording": "Kaira (1988)",
+      "reference": "https://music.apple.com/us/song/kaira/1629109828",
+      "function": "Independent plucked pattern and melodic counterpoint.",
+      "rule": "Keep the pattern and melody intelligible as a physical plucked performance. Roles can rotate by section, with instrument-specific technique and intentional rests.",
+      "readiness": "Native kora state available; focused audition still needed.",
+      "instruments": [
+        "kora",
+        "ngoni and related plucked lutes"
+      ],
+      "roles": [
+        "foreground phrase",
+        "counterpart or rhythmic/harmonic pattern",
+        "atmospheric support"
+      ],
+      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition.",
+      "profile": "design/music/performers/kora.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "harp",
+      "chair": "Harp-family guest",
+      "artist": "Alan Stivell",
+      "recording": "Ys, Renaissance of the Celtic Harp (1971)",
+      "reference": "https://music.apple.com/us/song/1667401645",
+      "function": "Atmospheric folk color, arpeggiated space and lyrical harp statements.",
+      "rule": "Use register, decay and deliberate pacing to create an arc. Roles can rotate by section, with instrument-specific technique and intentional rests.",
+      "readiness": "World Suite catalogue candidate; select exact program and audition.",
+      "instruments": [
+        "Celtic harp",
+        "small folk harps"
+      ],
+      "roles": [
+        "foreground phrase",
+        "counterpart or rhythmic/harmonic pattern",
+        "atmospheric support"
+      ],
+      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition.",
+      "profile": "design/music/performers/harp.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "fiddle",
+      "chair": "Bowed-string guest",
+      "artist": "Stephane Grappelli",
+      "recording": "Minor Swing with Django Reinhardt, 1937 recording",
+      "reference": "https://music.apple.com/us/song/691546774",
+      "function": "Singing bowed lines, light chamber dance and acoustic jazz responses.",
+      "rule": "Write bow-length phrases and select supported articulations. Roles can rotate by section, with instrument-specific technique and intentional rests.",
+      "readiness": "World Suite catalogue candidate; select exact program and audition.",
+      "instruments": [
+        "violin/fiddle",
+        "viola da gamba"
+      ],
+      "roles": [
+        "foreground phrase",
+        "counterpart or rhythmic/harmonic pattern",
+        "atmospheric support"
+      ],
+      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition.",
+      "profile": "design/music/performers/fiddle.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "duduk",
+      "chair": "Reed-family guest",
+      "artist": "Djivan Gasparyan",
+      "recording": "Black Rock with Michael Brook (1998)",
+      "reference": "https://realworldrecords.com/releases/black-rock/",
+      "function": "A distinct reed voice for reflective discovery and night colors.",
+      "rule": "Use a dedicated duduk performance reference rather than transplanting the flute's vocabulary. Roles can rotate by section, with instrument-specific technique and intentional rests.",
+      "readiness": "World Suite catalogue candidate; select exact program and audition.",
+      "instruments": [
+        "duduk",
+        "clarinet-family reed voices"
+      ],
+      "roles": [
+        "foreground phrase",
+        "counterpart or rhythmic/harmonic pattern",
+        "atmospheric support"
+      ],
+      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition.",
+      "profile": "design/music/performers/duduk.md",
+      "profile_revision": 1
+    },
+    {
+      "id": "aux_percussion",
+      "chair": "Additional Latin-percussion guest",
+      "artist": "Willie Bobo",
+      "recording": "Timbales on Mongo Santamaria's Afro-Blue (1959)",
+      "reference": "https://folkways-media.si.edu/docs/folkways/artwork/SFW40802.pdf",
+      "function": "A separate player for timbales or auxiliary figures alongside the conga part.",
+      "rule": "Assign simultaneous parts to a real additional player or a declared studio overdub. Roles can rotate by section, with instrument-specific technique and intentional rests.",
+      "readiness": "Selected Latin timbales/percussion programs already rendered in studies.",
+      "instruments": [
+        "timbales",
+        "bongos",
+        "small auxiliary percussion"
+      ],
+      "roles": [
+        "foreground phrase",
+        "counterpart or rhythmic/harmonic pattern",
+        "atmospheric support"
+      ],
+      "capability_status": "Conceptual related-instrument range; select exact available programs and a reference appropriate to the chosen instrument before composition.",
+      "profile": "design/music/performers/aux_percussion.md",
+      "profile_revision": 1
+    }
+  ],
+  "family_seating_options": {
+    "tide": [
+      "strings_a",
+      "keys",
+      "bass",
+      "afro_caribbean_percussion",
+      "producer",
+      "duduk",
+      "traditional_percussion"
+    ],
+    "grove": [
+      "strings_b",
+      "bass",
+      "acoustic_drums",
+      "afro_caribbean_percussion",
+      "strings_a",
+      "pitched_percussion",
+      "kora",
+      "producer",
+      "traditional_percussion"
+    ],
+    "home": [
+      "strings_a",
+      "strings_b",
+      "keys",
+      "bass",
+      "acoustic_drums",
+      "harp",
+      "producer",
+      "traditional_percussion"
+    ],
+    "stage": [
+      "pitched_percussion",
+      "winds",
+      "keys",
+      "strings_b",
+      "bass",
+      "acoustic_drums",
+      "afro_caribbean_percussion",
+      "aux_percussion",
+      "producer",
+      "traditional_percussion"
+    ],
+    "wonder": [
+      "winds",
+      "keys",
+      "producer",
+      "bass",
+      "kora",
+      "harp",
+      "duduk",
+      "traditional_percussion"
+    ],
+    "motion": [
+      "producer",
+      "bass",
+      "strings_b",
+      "keys",
+      "acoustic_drums",
+      "afro_caribbean_percussion",
+      "traditional_percussion"
+    ],
+    "wilderness": [
+      "winds",
+      "strings_b",
+      "bass",
+      "afro_caribbean_percussion",
+      "harp",
+      "fiddle",
+      "duduk",
+      "producer",
+      "traditional_percussion"
+    ],
+    "friends": [
+      "strings_a",
+      "keys",
+      "bass",
+      "acoustic_drums",
+      "afro_caribbean_percussion",
+      "pitched_percussion",
+      "winds",
+      "producer",
+      "traditional_percussion"
+    ]
+  },
+  "seating_limit": "Ten core members are capabilities to cast from. Most sections use a selected subset; foreground, groove leadership, supporting functions and rests can rotate. Existing family lists are options, not requirements.",
+  "reference_policy": "Per-member anchors provide creative vocabulary; choose the instrument- and context-appropriate reference for each decision. Multiple references are allowed for every member. Proposed goals do not assert real artist participation or completed listening/transcription.",
+  "program_policy": "UVI soundkits and explicitly requested Sunbird remain the general instrument family. Owner explicitly authorizes RetroPlug/LSDJ as the exception for the authentic Game Boy/chiptune lane; Ember King’s theme is chiptune. New program choices still require audition; no other non-UVI instruments are authorized by this exception.",
+  "producer_material": "Original performances on licensed UVI instruments, including dedicated electronic lead/bass/chord parts and our own band stems. Preserve dry source, edit and processed part separately. Reference recordings and ROM/sample rips do not become soundtrack material. The owner-authorized RetroPlug/LSDJ lane adds original Game Boy performances and editable song/stem sources; software/ROMs remain private.",
+  "runtime_scope": "Studio composition and flattened cue delivery; no new runtime DJ or adaptive audio system.",
+  "release_scope": "Studies/proposals only; demo freeze, human, voice, phone, child and release acceptance remain separate.",
+  "producer_call_sheet_fields": [
+    "primary_mode",
+    "anchor_recording",
+    "secondary_reference_and_reason",
+    "foreground_hook_voice",
+    "groove_leader",
+    "console_color_if_any",
+    "exact_uvi_program_and_audition_status",
+    "section_handoffs",
+    "electronic_function",
+    "source_material",
+    "member_instrument_choices",
+    "section_role_rotation",
+    "traditional_percussion_idiom",
+    "lofi_groove_design"
+  ],
+  "legacy_proposed_member_id_map": {
+    "lead_guitar": "strings_a",
+    "rhythm_guitar": "strings_b",
+    "drum_kit": "acoustic_drums",
+    "hand_percussion": "afro_caribbean_percussion",
+    "flute": "winds",
+    "pan": "pitched_percussion"
+  },
+  "collaboration_policy": "Members can originate hooks, grooves, harmony proposals and formal ideas. Instrument choice and audible function are selected for the cue; no member is locked to melody, accompaniment or texture.",
+  "physical_policy": "Name the instrument and player active in a section. Simultaneous incompatible instruments require another player or declared studio overdub; playing idioms remain instrument-specific.",
+  "rhythmic_foundation": {
+    "owner_direction": "Lo-fi beats are the underlying theme for the current time; add traditional/world percussion, with metal-style drum kits excluded from the current default palette.",
+    "reference_status": "Nujabes / J Dilla track choices proposed for review.",
+    "beat_palette": [
+      "rounded kick",
+      "dry snare or rim",
+      "brush/shaker detail",
+      "short controlled toms",
+      "traditional pitched/body drum strokes"
+    ],
+    "orchestration": "Producer, acoustic drummer or either percussion member may lead the groove; the others take complementary roles or rest.",
+    "groove": "Choose intentional placement and swing where it serves the song; acoustic and ambient cues can express this through sparse pulse or space.",
+    "fidelity": "Preserve warm body, note identity and clean masters. Hiss, pitch drift and bit reduction are optional designed colors; exact treatments require audition.",
+    "kit_readiness": "Existing brushed Jazzistic and UVI percussion programs verified. Owner reports world kits; select exact world/BBA programs before production use."
+  },
+  "performer_profiles": "design/music/performers/registry.json",
+  "construction_workflow": "design/music/performers/README.md"
+}

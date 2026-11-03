@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "name": "apron_body",
+      "native_png": "native/apron_body_original.png",
+      "crop": [
+        28,
+        309,
+        2112,
+        152
+      ],
+      "crop_rgba_sha256": "c9b7b79bc9469560a1f0b7260ce1aec2a5b29c55c5d65b8beb77a244accd7095",
+      "runtime_size": [
+        1024,
+        73
+      ],
+      "runtime_path": "assets/melody/stage_apron_painted.png"
+    },
+    {
+      "name": "rainbow_inset",
+      "native_png": "native/rainbow_inset_original.png",
+      "crop": [
+        42,
+        262,
+        2088,
+        240
+      ],
+      "crop_rgba_sha256": "47e365b5e83a927b589c6ea9cfc3a7c0cc0b2762a845c2f44a8ce2501e39703a",
+      "runtime_size": [
+        522,
+        60
+      ],
+      "runtime_path": "assets/melody/stage_apron_rainbow_painted.png"
+    }
+  ],
+  "method": "Aseprite whole-native editable save/roundtrip, rectangular isolation of all alpha>1 appearance with2px safety padding, exact crop master/roundtrip, uniform bilinear downscale with integer-pixel rounding to bounded runtime targets. Native source originals retained. No pixel painting/masking/recoloring or Python image edits.",
+  "excluded_padding": "Low-alpha<=1 canvas specks outside the whole-object crop are transparent-padding history, preserved in both native originals and whole editable masters.",
+  "aseprite_version": "1.3.18.4-x64"
+}

@@ -1,0 +1,241 @@
+{
+  "review_id": "V39-PEER-R04",
+  "reviewer": "Independent second Codex AI /root/v38_peer_critic",
+  "recorded_at_utc": "2026-10-26T05:57:36.528Z",
+  "verdict": "SATISFIED_WITH_DECLARED_HOLDS",
+  "scope": "Independent formal local-candidate review of the exact completed V39 R04 static-book artwork, native derivation, source/scope preservation, final master/email and actual evidence/helper records. No owner/child/SLP/print/runtime/release acceptance.",
+  "baseline": "cb3e2995df8fdf82e308352eb850b3e285f2c6c4",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08",
+    "Owner V39 named illustration corrections",
+    "Current book design language and 2026-10-19 owner/character standards"
+  ],
+  "local_in_scope_blockers_remaining": [],
+  "publication_verdict": "PENDING_REMOTE_PUBLICATION_REVIEW",
+  "reviewed_bindings": {
+    "artifacts": {
+      "complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf": "12e1f9b08f2ac91bfc83217315cf6ced0d3a2266a3c25a1c014e38758e773b26",
+      "complete/Mermaid_Roshan_Book_V39_Email.pdf": "4fd297013bf2235fee8e272a4957763d82632d043b9652833ffa7b6ed75f50c3",
+      "complete/master_parts/parts.json": "1af5d83a162621c8ff8440b2667c48e7cdafa46fcb1fb2e484fa7ce902283be5",
+      "BOOK_CURRENT.json": "d1a26d22a32f4f685f4503cf6c3ce83c0fa68ff95cec2d97cfc2328ee05d3693",
+      "BOOK_BASELINE.json": "fc57a52fede891d5412cafb71121d6cefe3c9c24a157e35b908bbef6a3c90e7c",
+      "complete/page_provenance.json": "37d0e67807a5ed0e1c8d2f81b1f9f3e17756afed234634c9a22150481dc76ad7",
+      "generation_evidence.json": "2c41cf6acaa303f19aace0cef743c28ec42d8e67c004e9a59fa8fe945954d1e6",
+      "input_provenance.json": "307a4c2179abb25301a7f62b8d088f62853ae0a0b37ca6859fbfbf35e20617ae",
+      "occlusion_input_provenance.json": "b76b0f78530e23bf11ac05a506607f37344a260b81be22836573568c2938c1bb",
+      "revision_scope.json": "5e6f048077183f0bbc32f0c2c1dbb1c56ad19f90f9ea7638c233b42b59fe9638",
+      "visual_audits.json": "8ee8a54c4e214e3667f84c281c1ac53759b8b7496ca7c98738287402cfe52c05",
+      "complete/verification.json": "def12a8fa6702c1f9785008d52eaaec29a3f49008911ccdb3c481b65cf07cc53",
+      "complete/email_verification.json": "01ddc7818520dee79a4791477d81089e853a00582e8cc1f053322ca040a145a3",
+      "complete/stress_results.json": "32ca2842c8d2c3d23fc1125df6170a539250d0b298f1f457fd3137d2ae7803ee",
+      "validation_results.json": "1c44878612225e868b4c692d93cbc9dbd07328bc4e8cd926708fb566748d2640",
+      "peer_review/review_guard_negative_check.json": "5759b7d9865357960c5877399d8ba06a5730e1f15908c07e85511ca9ea485b6c",
+      "peer_review/r03_response.json": "a613517a78d3546f00236b86861746256f192efe4d191b2f98e9d72f8378b790",
+      "details/cover_tails.png": "94094c6b67e6e5230b9cc3b0117d18e1535aa644124329a32f838192fdec182a",
+      "details/cover_lamma.png": "5e9a447e306decc6db43da03304a61db2750bb6ef3e14de48a20810fa8c490cf",
+      "details/email_export_review.png": "eda51fad3ed38dfe9795e85c8fbd70d20ae6966f43976e684fe511eb4402f851",
+      "art/occlusion_floor_cleanplate_attempt2.png": "ccdde449c184f3dec9235e7af348494ea30991775b363e885c3d52f2d1c79320",
+      "README.md": "261c37c32895c81dca7e7aeacf0af50f4820d6430ac4424eadbf2f29567bf7d0",
+      "BUILD_REPORT.md": "1116daa53ae549d322333876ec5813b4e8d808ab646dee0269cec4f3eb72c618"
+    },
+    "helpers": {
+      "build_manifest.py": "051caa99e3268d260ecb79c775ec227022235cbf9096c69796426e38fb83f69b",
+      "build_review.py": "37e6e3b9a4828b974650c9e8670db7409d56af74a5a6220e632e7e6c82578ad1",
+      "email_export.py": "ace9e59d2f419a76578daf08f0f2975ba9c9cb301d3743956b1a9c6552d53c29",
+      "local_validation.py": "9076339b2918b01d476713d8ba952841e1c8a8c16965eb4f0509544b2db66f9d",
+      "prepare_inputs.py": "2256bcd6813b0360dc351b0a7178c08fc9a3a1b449756dcc5e29867f6e1d273f",
+      "prepare_revision.py": "7598c0b371d349ca149622706dac4b7c01f083ffd382594166a69b3b61c534b1",
+      "reassemble_master.py": "7cb187b256b947ec2773f8b524f6645be5aefa1d190acb4c69389c752278e1f7",
+      "record_generation.py": "5c79c67b1cadd82985de9ba67ea3c08e2fde281a9e46e051a59adf5428bc87cb",
+      "record_review.py": "74c80a2baed42e552ce7ea2153d3c55e9abea89d6de7784be606160570117112",
+      "verify_remote.py": "be4bfe9c4427645490981cb681ad18d15db2741af5d97a114003bda22f0a2636",
+      "verify_revision.py": "a4cce166103f887364c3564a1b9aa564da422e3c9c6210b87c85993eea789302"
+    },
+    "proofs": {
+      "page_00.png": "9304bccfe16d0f1b5d9f5f5fa5cc269b8b27bfd32ee09e02041e83ee4ba071a1",
+      "page_01.png": "e2f7f009d784fdcb5e831f50ed7ed1f9a7cdd10f67a81a76ced4a361e5354c6c",
+      "page_02.png": "46d7f08e2fe656a75eb120102ceed39e7cfd491997a08a96f075276219a81cfb",
+      "page_03.png": "84e971ab04e50fa5888472dc504d97ba634af1b9111f4cf4e5bbf596e6dd5954",
+      "page_04.png": "68befbd229750de53024a04a8ce06f1a9edc89591bc4943dcbd4c47305749e4d",
+      "page_05.png": "41c1001afa3a1876ef550ef1653d773a8d3d85a3022703fd5d3034af6e587113",
+      "page_06.png": "4b6aa0941e91e211dcbd01f77424cc870e0fec4ecbdb46ed1c526df2fad7973f",
+      "page_07.png": "96ccc3e78a0848fadfb771065a8d039e307daafcf46eaeb74cc4ffcb0091538e",
+      "page_08.png": "093208805ed0b9ba71708866815273a7b72e2bd32d55836112bcaed13e23873b",
+      "page_09.png": "0eaffc362e484c2adc04c72c4d1bf30767fdb4d729491f2bee6eb13a5a4e1389",
+      "page_10.png": "9b7e61c0a26ed6d438556157777e9307e5e9bbbad0e568a6427022ab5d30af0c",
+      "page_11.png": "a45e9dc274348f81757c6820ae0acc5867ca288c745ed0634e811e1d504ad940",
+      "page_12.png": "5e435d5d33588d48997acb5a1121428756eacada3c4d6c3b5510bbf86662711c",
+      "page_13.png": "5a148e336eb671a48b7df538c437f33f95d82e0bba994b12eefb06302ab9b458",
+      "page_14.png": "61d14b848f0c0e697ff4e84426bcdbf3eb50289317db809a70cf676001177403",
+      "page_15.png": "e4e26ead2e517e6ee690ffb90414388ab1c4aaa46db4eb4aca73ebb15dcc2b79",
+      "page_16.png": "91056d37e98f13b744ebb5da264891ed6acf69b0529411d69e81850d7c163bf3",
+      "page_17.png": "fdad58ee33bb8b6e5f630275487d95f47ac7bbcf428e576a79996d52593b454d",
+      "page_18.png": "efc9290c601561f6e95c1900d9699e3596885527571806d7b178c5baeb6da3ee",
+      "page_19.png": "f50dc0bca5cb2120fdcd0f3f05357ee85c37d260849ec55bc338e29cfd5bb5c7",
+      "page_20.png": "4cf5e86598ad2dbd1d8fde803df0590bc935038dbc84d3d17bd5e97bf8627997",
+      "page_21.png": "07b7a2f3681f7a1e8c702aadac74b1123721186ac962e47db67ecf6626e63d5c",
+      "page_22.png": "9452a6cc0ace54a2c13b5c06cc0a88ad4f9b764ca93db74bf1499aa83e286a5a",
+      "page_23.png": "44937445e36254b61c48c6502652454dcfbbe5eb7de39428e2d6059a199c85a9",
+      "page_24.png": "45a75f4ec6f96b423481ca85714c116184cec35d42a5452ab9be05a32f099400",
+      "page_25.png": "f5b2f23f6a0a4a1166dd94cebdcd5bb941ec558e1eb21bfca54255c1c2327b39",
+      "page_26.png": "af2c2d8e7ff67003669fe888115787dbdbe1d7d42c397f5d9fbe68f93ed5a193",
+      "page_27.png": "6e4cd51db0cbdb6d4b87d0778f58620155547f4a7134dbc856fa47351eb013a2",
+      "page_28.png": "f505f2dd01da20ae7b1aaec3f888de0281b67707de9de6a495a73023ce295945",
+      "page_29.png": "58253dccb6d0b45464ca6a928570c297fa6c8aad8bd81b153646ab3f8425adbd",
+      "page_30.png": "9e7b44f88a160a220466f20605c74253c943513e8881d52ef49cc45da670feb9",
+      "page_31.png": "ad52a8896363afa4b8dea4172581bad80b83e7926a811f2e1a1be3efd752ce66",
+      "page_32.png": "0a7489a7bec9e13577800dc4e9779b6cbea8f57ce7954aef0ae4ce198b9442ac",
+      "page_33.png": "a3d91bdd255152df45b57ece3c8edf6f311c4dbf4f8de9de9b775e6bfccf1e50"
+    }
+  },
+  "preserved_R03_history_hashes": {
+    "r03_BOOK_CURRENT.json": "5b2be74e4cc38467177ccab007fb2968a24adc2ea26df17a0e76dd9b448442c5",
+    "r03_cover_tails.png": "30f9936879d59cb4c124f10f4a1bb847240704351edf35de678ff709f541fa51",
+    "r03_critique.json": "826490aaa3a58a7daf0cab0261f62763306569d31bd08c7142322679c0510ebc",
+    "r03_email_verification.json": "b190a5dfa0dabe7a0616bca44253a75d4f34639c2f199c8237450966638a4e85",
+    "r03_generation_evidence.json": "9128005c5354c09c9801a65fe6fb98149d2e1063792695645721f1af9323a8fe",
+    "r03_page_00.png": "82cce441567884d80eb001c522503b353c654705a7eec361e4825f4134169621",
+    "r03_response.json": "a613517a78d3546f00236b86861746256f192efe4d191b2f98e9d72f8378b790",
+    "r03_validation_results.json": "dddcfffa19b09be6a7cdf75501c62b65c6f725def4f43dea24f8950df8742cbe",
+    "r03_verification.json": "5220932aef6cdba13b1d613232b1a07a214834818e3e1b9dbb8b67181407a30e",
+    "r03_visual_audits.json": "22e6abc84b0448e7fde7500e0817172b616527e5cc5dc1427c60468e906b5ecb"
+  },
+  "finding_dispositions": [
+    {
+      "id": "V39-PEER-01",
+      "status": "RESOLVED",
+      "notes": "The old orange/pink tail curve below Daddy is removed. The composed floor and Daddy/Rumi gap are continuous; no disconnected old tail edge remains."
+    },
+    {
+      "id": "V39-PEER-02",
+      "status": "RESOLVED",
+      "notes": "The last yellow cheer dash is gone; the old blue cloth footprint under the right tissue box is also gone. The same corrected page 25 proof is byte-identical to the independently reviewed R03 proof."
+    },
+    {
+      "id": "V39-PEER-03",
+      "status": "RESOLVED",
+      "notes": "The shifted native foreground fin is excluded; a tiny declared upper root/remnant gap uses cleanplate take 2, and the exact original Roshan foreground is restored last. Her contour is continuous, with no rectangular ledge, old-purple wedge or floor swatch. Both 5,268-pixel and more conservative 4,823-pixel eroded foreground guards independently match V38 exactly."
+    }
+  ],
+  "criteria": [
+    {
+      "item": "Cover Daddy",
+      "result": "PASS_LOCAL_REVIEW",
+      "notes": "A coherent scaled stem ends at one terminal crescent caudal fin with two tips, rather than enlarged lateral ribbons and a third scaled red spike. Original upper body/identity is retained; all exposed contours and the lower floor gap were inspected."
+    },
+    {
+      "item": "Cover Rumi",
+      "result": "PASS_LOCAL_REVIEW",
+      "notes": "Two pink terminal lobes share a narrow root and readable floor cleft, with canonical colour, painted rays and separate upper hip fin. The entire crossover with foreground Roshan was inspected, including the formerly clipped lower contour. No new concrete join defect identified."
+    },
+    {
+      "item": "Retained foreground Roshan",
+      "result": "PASS_VISUAL_AND_EXACT_GUARD",
+      "notes": "Complete visible edge is smooth and continuous in the final full cover and enlargement. The exact final cover hash equals the independently inspected viable pilot. Original foreground guard pixels match V38 with zero RGB difference; adjacent local floor looks integrated."
+    },
+    {
+      "item": "Cover Lamma",
+      "result": "PASS_LOCAL_REVIEW",
+      "notes": "Exact existing painted atlas frame has recognizable white plush wool, pale face, lashes, cheeks, paws and feet without the unrelated egg. Subordinate scale and restrained contact shadow integrate it with the floor. No conspicuous extracted-edge defect identified; existing interior/rear cameos remain."
+    },
+    {
+      "item": "Story 1 stained glass",
+      "result": "PASS_LOCAL_REVIEW",
+      "notes": "Actual approved Roshan stained glass is restored in the existing castle arch, with retained border/architecture and no visible rectangular seam. Proof is unchanged from the independently inspected prior round."
+    },
+    {
+      "item": "Story 2 ground landing",
+      "result": "PASS_SOURCE_TRUTH_WITH_PRINT_HOLD",
+      "notes": "Exact owner-directed demo frame 408 shows the plane on wheels on land by the slide/swings. The input was independently decoded from the original video and checked pixel-exact in R02; its hash is unchanged. Page crop retains plane/otter; far swing support is merely cropped at the edge. Native 720p is not a final-print-resolution pass."
+    },
+    {
+      "item": "Stories 24/25 care vignettes",
+      "result": "PASS_LOCAL_REVIEW",
+      "notes": "Aqua rectangular tissue boxes, protruding white tissues and tired/sneezing expressions read as gentle illness. Existing ears, ear pearls, hand identity/occlusion, water flask and sofa/contact remain. No old cloth lump or cheer mark remains. Both proofs are exact prior-reviewed bytes."
+    },
+    {
+      "item": "Whole-book continuity and retained V38 work",
+      "result": "PASS_PRESERVATION_REVIEW",
+      "notes": "All 29 unnamed proofs, including the rear and held bath, remain exact V38 bytes. The other 33 R03 proofs are unchanged; source truth and local observations carry only because those bytes match. Manuscript/manual breaks, caption geometry and accepted V38 A1–A8/A10 work remain intact; cover additions do not overlap title/subtitle."
+    },
+    {
+      "item": "Provenance and method",
+      "result": "PASS_SCOPED_DERIVATION_REVIEW",
+      "notes": "Eight actual calls and five selected local candidates are bound to native output/reference hashes. Broad tail failures, first floor take and failed reuse pilots remain rejected. Two floor takes follow an explicit failed-reuse diagnosis; only the small permitted clean-plate gap is exposed. Original Roshan/source masters remain intact; no full-scene redraw or hidden reconstructed character surface is accepted."
+    },
+    {
+      "item": "Evidence and rebuild helpers",
+      "result": "PASS_MECHANICAL_REVIEW",
+      "notes": "The strict gate retains source/scope/text/contrast checks and adds an exact foreground guard. Actual observed contract results are recorded; read-only review binding and both changed-artifact negative guards remain intact. Fresh five-pass R04 observations bind current master/email rather than inheriting rejected R03 notes. README now explains reconstruction of both ignored V38 and V39 masters; the alpha-count documentation was corrected to 97."
+    }
+  ],
+  "independent_read_only_checks": {
+    "source_seals_rehashed_and_git_blob_verified": 311,
+    "old_source_key_records_unchanged": 335,
+    "parts_reconstruct_exact_master": true,
+    "parts_bytes": 129035789,
+    "unchanged_V38_proofs": 29,
+    "unchanged_R03_proofs": 33,
+    "foreground_guards": [
+      {
+        "erosion_reference_pixels": 1,
+        "pixels": 5268,
+        "max_rgb_difference": 0
+      },
+      {
+        "erosion_reference_pixels": 2,
+        "pixels": 4823,
+        "max_rgb_difference": 0
+      }
+    ],
+    "occlusion_input_hash_crop_and_local_scope_checks": true,
+    "native_calls_bound": 8,
+    "selected": 5,
+    "observed_contract_receipt_valid": true,
+    "observed_contract_run_checked_at": "2026-10-26T05:46:53.503394+00:00",
+    "observed_unittest_output": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 15.668s\n\nOK\nDOCAUTH|STRESS|6/6\n",
+    "all34_final_PDF_proofs_freshly_rendered_pixel_exact": true,
+    "render_method": "pypdfium2 scale 1.5 from exact final master bytes; every RGB pixel and dimensions compared with all 34 final proofs.",
+    "final_master_bytes": 129035789,
+    "final_email_bytes": 24992564,
+    "final_cover_equals_viable_pilot": true,
+    "native_demo_frame_check": "Exact original-video frame decode and RGB comparison performed in R02; unchanged input hash and story-2 proof carried forward by exact bytes.",
+    "occlusion_derivation_check": "All three occlusion input/source hashes matched; both target/reference crops were reproduced in memory pixel-exact. The rejected/trial input-composed source differs from R03 only inside its declared [80,630,395,745] local crop.",
+    "historical_integrity": "Preserved rejected R03 control/proof/detail/generation/visual/gate/email/validation receipts match the hashes recorded during that round. Supersession did not rewrite the failed evidence.",
+    "strict_receipt_reviewed": {
+      "status": "PASS_WITH_DECLARED_A9_HOLD",
+      "issues": 0,
+      "source_seals": 311,
+      "old_source_key_records": 335,
+      "contrast": {
+        "PASS": 79,
+        "OUTLINE_REQUIRED": 7,
+        "FAIL": 0
+      },
+      "lines": 86
+    },
+    "email_receipt_reviewed": "97 alpha placements byte-exact; native image sizes, vector text and geometry retained; minimum reported render PSNR 40.230438 dB. Actual final email comparison image was independently viewed.",
+    "visual_views_actually_inspected_for_current_cover": [
+      "Complete R04 viable-pilot cover and join/tail views, confirmed byte-identical to final cover",
+      "Final details/cover_tails.png",
+      "Final details/email_export_review.png"
+    ],
+    "evidence_limit": "The second AI reviewed the complete actual authority/development/unittest receipt rather than claiming another execution of those same subprocesses. Source Git blobs, original key records, exact parts, unchanged proofs, all-page PDF renders, foreground guards and occlusion input derivation were independently checked read-only."
+  },
+  "declared_holds": [
+    "A9 native bath-resolution target remains held under the existing two-take stop; exact V38 drawing retained.",
+    "Native 1280×720 demo still and the book’s final trim/PPI require separate print-resolution decisions.",
+    "Owner illustration acceptance, child reading, qualified SLP and physical print acceptance remain open.",
+    "No game/runtime/device/dev/master/release promotion acceptance or master-audit finding closure is granted."
+  ],
+  "publication_review": {
+    "status": "PENDING",
+    "required": "Include this exact critique in the staged payload, commit/push to the established codex/mermaid-roshan-picture-book branch, anonymously verify the immutable manifest and every required file, then return the pinned manifest and complete remote receipt for separate final publication review.",
+    "boundary": "Current honest NOT_YET_SEALED/NOT_YET_PUBLISHED placeholders are not delivery evidence. Local satisfaction is not a claim that the corrected packet has already been delivered.",
+    "freeze_note": "Do not change any hash-bound reviewed production/evidence/helper artifact without declaring and rechecking the change. Publication-only status/receipt metadata must remain distinct from the sealed payload."
+  },
+  "conclusion": "All identified local V39 artwork and evidence defects are resolved on the exact R04 candidate. I am satisfied with this scoped implementation and local handback, with the declared holds. No further generation or scene redesign is requested. Final external handoff satisfaction awaits verified publication."
+}

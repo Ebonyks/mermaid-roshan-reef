@@ -1,0 +1,48 @@
+{
+  "contract_id": "roshan.canvas.shared",
+  "contract_version": "1.0.0",
+  "view": "front",
+  "skin": "geologist",
+  "prop": {
+    "path": "demo/art/brush.png",
+    "native_size": [
+      936,
+      1024
+    ],
+    "grips": [
+      {
+        "socket": "grip.screen_left",
+        "prop_px": [
+          660,
+          400
+        ]
+      }
+    ],
+    "orientation": "Authored front view; rigid in-plane turn follows hand; no perspective squash or body-facing turn.",
+    "scale": 0.18,
+    "support_point_px": [
+      234,
+      799
+    ],
+    "occlusion": {
+      "tool_body_z": 5,
+      "fingers_z": 6,
+      "fixed_target_z": -4
+    },
+    "release_timing_seconds": {
+      "work": []
+    },
+    "perspective": "front only; back grip source retained but not bound. quarter/profile action missing, rejects until authored.",
+    "hold_interval_seconds": [
+      0,
+      6.4
+    ],
+    "contact_interval_seconds": [
+      1.6,
+      4.1
+    ],
+    "ownership": "Roshan work hand from entry through settle; no transfer/release; explicit reset begins another demonstration."
+  },
+  "view_status": "SOURCE_PROTOTYPE_FRONT_ONLY",
+  "waist_compatibility": "Pending shared owner concrete seam/partition and per-mix raster checks; no compatibility signoff from state equality."
+}

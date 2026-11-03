@@ -1,0 +1,50 @@
+from pathlib import Path
+import json,hashlib,subprocess,os,re,time,datetime
+U=Path.cwd();S=Path(__file__).parent;P=U/'docs/handoffs/codex_flat_vector_art_2026-10-07/r127_melody_progress_pips_runtime';W=S/'full_validation_recovery1';BASE='27c88288bf6e39582072811443df79919e7bbb89';BR='codex/flat-vector-melody-progress-pips-20261102';E=Path(r'C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot.exe')
+def rd(p):return json.loads(p.read_text(encoding='utf-8-sig'))
+def wr(p,x):p.write_text(json.dumps(x,indent=2)+'\n',encoding='utf-8',newline='\n')
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def now():return datetime.datetime.now(datetime.timezone.utc).isoformat()
+def state(n,**kw):wr(S/'VALIDATION_RECOVERY_STATE.json',dict(state=n,at_utc=now(),**kw))
+assert not W.exists(),'Never duplicate an existing validation operation';assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==BASE and subprocess.check_output(['git','branch','--show-current'],text=True).strip()==BR;assert sha(E)=='ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424';W.mkdir();state('FREEZING_ACTUAL_CURRENT_CANDIDATE_SOURCE_NO_ENGINE_RESTART')
+native=rd(S/'candidate_native_recovery/FINAL_RESULT.json');oldpin=rd(S/'candidate_native_recovery/SOURCE_PIN.json');assert native['checks']==192 and native['normal_unchanged']and not native['source_drift'];assert rd(P/'FRAME_REVIEW.json')['all21_candidate_frames_inspected']and rd(P/'FRAME_REVIEW.json')['all21_source_frames_inspected'];assert rd(S/'candidate_import/FINAL_RESULT.json')['state']=='PASS_NEW_PROGRESS_PIPS_LOSSLESS_MIPMAPS_NO_VRAM'
+hashes={p:sha(U/p)for p in sorted(oldpin['runtime_hashes'])};delta=[p for p,h in oldpin['runtime_hashes'].items()if hashes[p]!=h];assert delta==['scripts/probe_melody.gd'],delta;assert sha(U/'scripts/probe_melody.gd')==rd(S/'COLOR_VERIFIER_RECOVERY.json')['new_probe_sha256']
+normal=Path(rd(U/'docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/CANDIDATE_SOURCE_PIN.json')['normal_base'])
+def normals():return{n:sha(Path(str(normal)+n))if Path(str(normal)+n).is_file()else'absent'for n in oldpin['normal_before']}
+def drift():return[p for p,h in hashes.items()if not(U/p).is_file()or sha(U/p)!=h]
+assert normals()==oldpin['normal_before'];pin=dict(baseline=BASE,runtime_hashes=hashes,runtime_deletions=[],engine=str(E),engine_sha256=sha(E),normal_before=normals(),fixture_sha256=sha(P/'capture_pips.gd'),native_capture_pin_sha256=sha(S/'candidate_native_recovery/SOURCE_PIN.json'),native_reuse='Verifier-only two numeric category boundaries calibrated; production and all192 native checks/21qualified frames unchanged. All5104 runtime inputs frozen after192 current configured checks/21qualified candidate frames. Original5062 baseline proof reuses171historical source checks/21frames at immutable R126. Seven initial tall-fixture frames retained excluded; only tall recaptured. No formalQA11 claim.');wr(S/'SOURCE_PIN_RECOVERY.json',pin)
+ci=(U/'scripts/ci.sh').read_text(encoding='utf-8-sig');names=re.search(r'for p in (.*?); do',ci).group(1).split();assert len(names)==82 and 'probe_melody'in names;order=['probe_melody']+[n for n in names if n!='probe_melody'];failure=re.search(r"^FAILURE_RE='(.*?)'",ci,re.M).group(1);runtime=re.search(r"^RUNTIME_ERROR_RE='(.*?)'",ci,re.M).group(1);assert sha(U/'scripts/ci.sh')=='5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e';env=dict(os.environ,PYTHONUTF8='1',PYTHONIOENCODING='utf-8',GODOT=str(E));start=now();clock=time.monotonic();results=[]
+wr(W/'LAUNCH.json',dict(baseline=BASE,branch=BR,source_pin_sha256=sha(S/'SOURCE_PIN_RECOVERY.json'),ci_sha256=sha(U/'scripts/ci.sh'),engine=str(E),engine_sha256=sha(E),original_trusted_probes=names,execution_order=order,order_reason='Changed Melody consumer/probe first, followed by the remaining81 in originalci.sh relativeorder. Each has isolateduserdata; no originalprobe skipped or duplicated,flags/classifiers/memory/coverage limits unchanged.',import_reused=dict(path='candidate_import/FINAL_RESULT.json',sha256=sha(S/'candidate_import/FINAL_RESULT.json')),native_reused=dict(checks=192,frames=21,all_runtime_inputs_unchanged=True),normal_before=normals(),failure_regex=failure,runtime_error_regex=runtime,started_at_utc=start,Dev_integrated=False))
+def sandbox(d):
+ e=env.copy()
+ for k,n in[('APPDATA','appdata'),('LOCALAPPDATA','local'),('XDG_DATA_HOME','data'),('XDG_CONFIG_HOME','config')]:p=d/n;p.mkdir();e[k]=str(p)
+ return e
+try:
+ state('RUNNING_FRESH_CHANGED_STATIC_WITH_PROVEN_COMPLETE_GLOBAL_REUSE')
+ old_static=rd(S/'full_validation/STATIC_RESULT.json');assert old_static['state']=='PASS'and sha(S/'full_validation/STATIC_PREFIX.log')==rd(S/'COLOR_VERIFIER_RECOVERY.json')['old_static_prefix_pass_sha256']
+ checks=[]
+ for label,cmd in[
+  ('PARSER',[os.sys.executable,'-m','gdtoolkit.parser','scripts/games/melody.gd','scripts/probe_melody.gd',str(P/'capture_pips.gd')]),
+  ('INFERENCE',[os.sys.executable,'-B','tools/lint_inference.py','scripts/games/melody.gd','scripts/probe_melody.gd']),
+  ('AUTHORITY',[os.sys.executable,'-B','tools/audit_document_authority.py']),
+  ('DEVELOPMENT',[os.sys.executable,'-B','tools/audit_development.py','--base','auto'])]:
+  with(W/(label+'.log')).open('wb')as log:q=subprocess.run(cmd,cwd=U,env=env,stdout=log,stderr=subprocess.STDOUT,timeout=600,creationflags=0x08000000)
+  assert q.returncode==0,(W/(label+'.log')).read_text(encoding='utf-8',errors='replace')[-3000:]
+  checks.append(dict(command=cmd,exit_code=q.returncode,log_sha256=sha(W/(label+'.log'))))
+ (W/'STATIC_PREFIX.log').write_bytes((S/'full_validation/STATIC_PREFIX.log').read_bytes())
+ wr(W/'STATIC_RESULT.json',dict(state='PASS',mode='Complete prior source-independent static prefix reused with frozen34013-entry proof; only verifier numeric bins changed, other34012 original entries unchanged. Fresh current parser/inference/authority/development above; current real analyzer/2D/all82 below. No assertion/floor removal.',source_bound_prior_static_result=old_static,original_prefix_log_sha256=sha(W/'STATIC_PREFIX.log'),recovery_record_sha256=sha(P/'COLOR_VERIFIER_RECOVERY.json'),fresh_changed_static_checks=checks))
+ print('R127_COMPLETE_STATIC_SET_SOURCE_BOUND_REUSE_PLUS_FRESH_CHANGED_GATES_PASS',flush=True)
+ state('RUNNING_CHANGED_PROBE_REAL_GODOT_ANALYZER');d=W/'analyzer';d.mkdir();e=sandbox(d);cmd=[str(E),'--headless','--path',str(U),'--check-only','--script','res://scripts/probe_melody.gd']
+ with(d/'engine.log').open('wb')as log:q=subprocess.run(cmd,cwd=U,env=e,stdout=log,stderr=subprocess.STDOUT,timeout=180,creationflags=0x08000000)
+ text=(d/'engine.log').read_text(encoding='utf-8',errors='replace');assert q.returncode==0 and not re.search(r'SCRIPT ERROR|Parse Error|Compile Error',text),text[-3000:]
+ state('RUNNING_CURRENT_2D_NO_REGRESSION_SCAN');q=subprocess.run([os.sys.executable,'-B','tools/audit_game_2d.py','--regression-gate'],cwd=U,env=env,capture_output=True,timeout=1800);(W/'GAME2D.log').write_bytes(q.stdout+q.stderr);assert q.returncode==0,(q.stdout+q.stderr).decode(errors='replace')[-2000:]
+ for i,name in enumerate(order):
+  d=W/name;d.mkdir();e=sandbox(d);touch='--hybrid-touch-test'if name in['probe_passive','probe_touch_router','probe_touch_stress','probe_interaction','probe_touch_adversary']else'--classic-touch-test';cmd=[str(E),'--verbose','--log-file',str(d/'native_engine.log'),'--headless','--path',str(U),'-s','scripts/'+name+'.gd','--','--touch',touch];beg=time.monotonic();timed=False
+  with(d/'engine.log').open('wb')as log:
+   proc=subprocess.Popen(cmd,cwd=U,env=e,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,creationflags=0x08000000);state('RUNNING_TRUSTED_ORIGINAL_SCRIPTS',probe=name,index=i+1,count=len(order),pid=proc.pid,log=str(d/'engine.log'));wr(W/'RUNNING.json',dict(probe=name,index=i+1,count=len(order),pid=proc.pid,started_at_utc=now(),command=cmd,log=str(d/'engine.log')))
+   try:rc=proc.wait(timeout=480)
+   except subprocess.TimeoutExpired:proc.kill();rc=proc.wait();timed=True
+  text=(d/'engine.log').read_text(encoding='utf-8',errors='replace');bad=[l for l in text.splitlines()if re.search(failure+'|'+runtime,l)];row=dict(probe=name,command=cmd,exit_code=rc,timed_out=timed,elapsed_seconds=round(time.monotonic()-beg,3),failure_lines=bad,output_nonempty=bool(text.strip()),passed=rc==0 and not timed and not bad and bool(text.strip()),log=str(d/'engine.log'),log_sha256=sha(d/'engine.log'));results.append(row);wr(W/'RESULTS_PROGRESS.json',dict(completed=len(results),passed=sum(x['passed']for x in results),results=results));print('R127_PROBE',i+1,name,'PASS'if row['passed']else'FAIL',row['elapsed_seconds'],flush=True)
+  if not row['passed']:break
+ changed=drift();after=normals();passed=len(results)==82 and all(x['passed']for x in results)and not changed and after==pin['normal_before'];out=dict(status='PASS_ALL82_CURRENT_STATIC_ANALYZER_2D'if passed else'FAIL',source_baseline=BASE,source_pin_sha256=sha(S/'SOURCE_PIN_RECOVERY.json'),started_at_utc=start,completed_at_utc=now(),elapsed_seconds=round(time.monotonic()-clock,3),probe_count=len(results),passed_count=sum(x['passed']for x in results),results=results,runtime_changes=changed,normal_before=pin['normal_before'],normal_after=after,normal_unchanged=after==pin['normal_before'],native_reused=True,effective_native_checks=363,current_candidate_native_checks=192,reused_baseline_source_checks=171,excluded_fixture_checks=64,all42_effective_context_frames_reviewed=True,new_frame_events=dict(bounded=21,excluded=7,retained=28),formal_QA11=None,device=None,child=None,owner=None,Dev_integrated=False,accepted_removed=0,mission_complete=False);wr(W/'FINAL_RESULT.json',out);state('TERMINAL_FULL_VALIDATION_PASS'if passed else'TERMINAL_FULL_VALIDATION_FAIL',probes=len(results));print('R127_ALL_OK'if passed else'R127_FAIL',flush=True);assert passed
+except Exception as exc:wr(S/'VALIDATION_RECOVERY_STOP.json',dict(state='STOPPED_INSPECT_EXACT_HANDLE_NO_AUTOMATIC_RESTART',error=str(exc),at_utc=now(),healthy_results_preserved=True));state('STOPPED_NO_AUTOMATIC_RETRY',error=str(exc));raise

@@ -84,21 +84,39 @@ def git(root: Path, *args: str) -> str:
 	).strip()
 
 
-def pending_merge_head(root: Path) -> str | None:
+def pending_merge_heads(root: Path) -> tuple[str, ...]:
+	"""Read every parent of a real pending merge, including linked worktrees."""
+	merge_path = Path(git(root, "rev-parse", "--git-path", "MERGE_HEAD"))
+	if not merge_path.is_absolute():
+		merge_path = root / merge_path
 	try:
-		return git(root, "rev-parse", "--verify", "MERGE_HEAD")
-	except subprocess.CalledProcessError:
-		return None
+		heads = tuple(line.strip() for line in merge_path.read_text(
+			encoding="ascii").splitlines() if line.strip())
+	except FileNotFoundError:
+		return ()
+	for head in heads:
+		if not re.fullmatch(r"[0-9a-f]{40}", head):
+			raise ValueError("invalid pending merge parent")
+		git(root, "rev-parse", "--verify", head + "^{commit}")
+	return heads
+
+
+def pending_merge_head(root: Path) -> str | None:
+	heads = pending_merge_heads(root)
+	return heads[0] if heads else None
 
 
 def validate_ancestor(root: Path, revision: str) -> None:
 	try:
 		git(root, "merge-base", "--is-ancestor", revision, "HEAD")
-	except subprocess.CalledProcessError:
-		merge_head = pending_merge_head(root)
-		if not merge_head:
-			raise
-		git(root, "merge-base", "--is-ancestor", revision, merge_head)
+	except subprocess.CalledProcessError as original:
+		for merge_head in pending_merge_heads(root):
+			try:
+				git(root, "merge-base", "--is-ancestor", revision, merge_head)
+				return
+			except subprocess.CalledProcessError:
+				continue
+		raise original
 
 
 def heading_anchors(text: str) -> set[str]:

@@ -1,0 +1,224 @@
+{
+  "schema": "mermaid_roshan_independent_preliminary_review_v1",
+  "revision": "V43 dust-bunnies cover",
+  "reviewer": "Independent second AI, /root/v38_peer_critic",
+  "baseline": "5fbdc77157341686d5db5ca70fce597e9ab8e7b3",
+  "verdict_for_preserved_R01": "NOT_SATISFIED",
+  "current_final_candidate_verdict": "PENDING_EXACT_FINAL_HAND_BACK",
+  "scope": "Owner-directed cover/title redesign only; no legacy cover-freeze requirement is imposed against the new instruction. Existing family/anatomy/source identities, all 33 other PDF entries and V42 arrival/print holds remain protected. This preliminary record is not final export, owner or publication acceptance.",
+  "owner_requirements": [
+    "Exact selected title: Mermaid Roshan and the Dust Bunnies",
+    "Dust bunnies should be major cover characters",
+    "Lamma should be hidden, with head barely poking from behind the bucket"
+  ],
+  "applicable_authorities": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08",
+    "Current Chapter One design language and 2026-10-19 canonical character standards, with latest owner cover instruction controlling composition/title"
+  ],
+  "no_game_finding_claim": "Static book cover task; no MA game finding closure, runtime or release satisfaction is inferred.",
+  "method": {
+    "actual_art_review": "Viewed the preserved R01 actual cover PDF render at full cover scale, an enlarged Lamma/bucket crop and an enlarged bunny/trim/contact crop, plus native generated pair and canonical source. Independently rendered the one-page PDF with PDFium and matched proof pixels. Later viewed current curved-rim proof and bucket detail as an explicitly provisional repair observation.",
+    "R01_actual_pdf_check": {
+      "actual_pdf_proof_exact": true,
+      "media_box": [
+        0,
+        0,
+        1008,
+        720
+      ],
+      "text": "Mermaid Roshan\nand the\nDust Bunnies\n"
+    },
+    "scope_limit": "R01 is a cover-only PDF, not the final complete book. Unchanged interior/rear proof and source seals, final reading export, five fresh primary passes, strict gate and actual contract receipt still require exact final handback.",
+    "binding_limit": "Shared controls were already changing during inspection. The captured controls hash c084056d... is preserved as R02 controls, not falsely described as the original R01 controls. Preserved R01 proof/provenance are the visual authority for rejection."
+  },
+  "review_criteria": [
+    {
+      "id": "V43-C1",
+      "check": "Selected title is exact, editable/vector and legible at cover and thumbnail sizes; clean leading, contrast, trim inset and no contact with Roshan's tiara or other focal art. Updated PDF/HTML metadata uses the selected title while default historical rebuilds remain compatible."
+    },
+    {
+      "id": "V43-C2",
+      "check": "Two prominent canonical lavender puffs read immediately with the title. Each retains two tall spiral ears with pearl studs, one forehead curl, two pearl hands and a complete cloud body; no invented limbs, extra beads, star/crown or rainbow transformation. Distinct expressions and mutual overlap keep both faces and ear sets legible."
+    },
+    {
+      "id": "V43-C3",
+      "check": "Lamma is a small unprompted discovery behind the original bucket. Only the intended upper head/ears/eyes show; no torso/feet or old lower-right Lamma survives. Occlusion follows the actual curved bucket rim, without a floating head, rectangular floor plate or foreground seam."
+    },
+    {
+      "id": "V43-C4",
+      "check": "Family, Eagle, Puff-door scene, contact, contours and restored caudal/foreground-fin anatomy remain source-led and intact. No new clipping, double anatomy, figure collision, distracting matting halo or hard compositing join."
+    },
+    {
+      "id": "V43-C5",
+      "check": "All 33 non-cover PDF entries, exact manuscript/manual breaks, V42 doublewide geography/crop/caption/geometry, rear and stronger B1 dust retain exact expected pixels/source records. Owner print/child/SLP and unresolved arrival page assignment/gutter/parity remain separate."
+    },
+    {
+      "id": "V43-C6",
+      "check": "Native output, canonical/style references, exact prompt and honest attempt/provider/edit evidence are preserved at durable packet paths. Final master parts and reading export match final proofs, final five-pass review hashes and observed machine/contract gates; immutable remote delivery gets its separate review."
+    }
+  ],
+  "R01_findings": [
+    {
+      "id": "V43-R01-F1",
+      "priority": "P1",
+      "status": "REJECTED_R01_REPAIR_REQUIRED",
+      "title": "Lamma is guillotined by the floor rectangle rather than hidden behind the bucket",
+      "artifact": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/review_iterations/r01_cover.png",
+      "region_proof_pixels": [
+        90,
+        710,
+        210,
+        775
+      ],
+      "evidence": "The lower face stops along a straight horizontal gold floor line at about y753. The true blue back rim curves below at approximately y760..775, leaving a floor strip between the clipped head and bucket. Enlarged inspection makes the head look cut off/floating. Original operations use foreground source crop [0,739,360,1060], which explains the straight edge.",
+      "required_correction": "Redraw only exact original bucket foreground pixels through a contour matching its actual back rim; do not restore a rectangular floor plate above the rim. Keep Lamma tiny, body concealed, and the source identity unchanged. No new generation needed."
+    },
+    {
+      "id": "V43-R01-F2",
+      "priority": "P2",
+      "status": "POLISH_RECOMMENDATION",
+      "title": "Title conjunction leading is uneven",
+      "artifact": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/review_iterations/r01_cover.png",
+      "evidence": "The small 'and the' line is considerably closer to 'Dust Bunnies' than to 'Mermaid Roshan'. It remains legible and does not overlap, but the block looks bottom-crowded.",
+      "recommended_correction": "Move conjunction baseline from logical y304 toward310, retaining main-title and Dust Bunnies baselines. This increases the narrow lower gap without pushing Dust Bunnies into Roshan's tiara."
+    }
+  ],
+  "additional_title_inset_finding": {
+  "id": "V43-R01-F3",
+  "priority": "P1",
+  "status": "REPAIR_REQUIRED_IN_CURRENT_TITLE_LAYOUT",
+  "title": "Top title violates the existing 18pt logical cover inset",
+  "evidence": "Actual Sniglet glyph ink for the y330/27pt Mermaid Roshan line reaches logical y350.601, leaving only9.399pt to the top trim; conservative line-box top355.812 also fails. This is an actual-ink failure, not merely unused font accent metrics. The cover's separate18pt logical trim inset remains applicable.",
+  "required_correction": "Reflow/reduce title within the cover safe zone while retaining exact words and clearance from Roshan's tiara. Do not simply lower the entire three-line block into her crown. Parent now proposes a two-line y318/24pt and y284/28pt arrangement; final actual glyph and PDF review still required."
+},
+  "actual_title_ink_diagnosis": [
+  {
+    "text": "Mermaid Roshan",
+    "baseline": 330,
+    "font_size": 27,
+    "actual_glyph_top_logical": 350.601,
+    "actual_glyph_bottom_logical": 329.541,
+    "actual_top_trim_inset_logical": 9.399000000000001,
+    "required_cover_inset": 18
+  },
+  {
+    "text": "and the",
+    "baseline": 310,
+    "font_size": 17,
+    "actual_glyph_top_logical": 322.971,
+    "actual_glyph_bottom_logical": 309.847,
+    "actual_top_trim_inset_logical": 37.028999999999996,
+    "required_cover_inset": 18
+  },
+  {
+    "text": "Dust Bunnies",
+    "baseline": 278,
+    "font_size": 34,
+    "actual_glyph_top_logical": 302.31,
+    "actual_glyph_bottom_logical": 277.422,
+    "actual_top_trim_inset_logical": 57.69,
+    "required_cover_inset": 18
+  }
+],
+  "positive_R01_observations": [
+    "The selected title is visibly exact and PDF-extracted as Mermaid Roshan / and the / Dust Bunnies.",
+    "The foreground bunny pair is prominent and reads as part of the cover cast. Roshan remains the dominant central protagonist.",
+    "Compared directly with canonical dust_bunny_curl_ears.png, the new pair retains the two-ear/two-hand/forehead-curl lavender cloud identity. Both faces and complete silhouettes remain visible; no new invented anatomy was found.",
+    "No broad family pose or identity redesign is visible; restored Daddy/Rumi/Roshan tails retain their established relationship.",
+    "Lamma is small and the old full-body right-hand Lamma has been removed; the intended idea is correct, but R01's mask makes the integration fail."
+  ],
+  "additional_inherited_join_observation": {
+    "id": "V43-FLOOR-JOIN",
+    "status": "PRIMARY_LOCAL_BLEND_CHECK_REQUESTED",
+    "region_proof_pixels": [
+      1168,
+      929,
+      1190,
+      989
+    ],
+    "origin": "Visible in both the frozen V42 cover and R01; inherited from the existing v33 floor-cleanup patch, not caused by the new transparent bunny pair.",
+    "evidence": "A hard pale-blue plate edge is visible just right of Eagle's foot/below-left of the smaller bunny, around x1178,y940..984. Before/after inspection confirms that this is an older patch boundary rather than a new pose/anatomy or alpha-background error.",
+    "request": "Inspect whether a small source-preserving feather/blend at that polygon edge removes the visible join. Do not regenerate the puffs or redesign the floor. Final scoped assessment will distinguish any remaining visible seam from authored reflective tile texture."
+  },
+  "provisional_post_R01_repair_observation": {
+    "proof_path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/complete/page_00.png",
+    "proof_sha256_at_inspection": "238adf20eadde114ef14f487989ca5712857cc491d288f3819901c3d89ec3ac3",
+    "observation": "The current curved original back-rim redraw makes Lamma disappear behind the actual blue arc; no torso or feet show. The head/eyes/ears are a tiny unprompted peek. Conjunction y310 balances the title. These two specific repairs look resolved in this proof.",
+    "limit": "This does not certify final complete PDFs, machine evidence or the inherited floor blend. Current artwork/controls may change before formal handback."
+  },
+  "source_evidence_notes": {
+    "native_pair_sha256": "68f817bc11295926c7b9297603482e153c0d5c5c2782ce27cb124070d5efc0a9",
+    "canonical_sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+    "prompt_sha256": "87fc2f7a5e41b51c38d99a605a96ae0d66aea12a142ff84d821a7edcd2a36072",
+    "prompt_scope": "Exactly two transparent cover-only canonical puffs, existing cover as style context; no scene/text/family generation. One actual call, unavailable provider revision/request ID/cost explicit.",
+    "reference_delivery": "Canonical source and title-free layered cover style-context copies now exist under references/ with matching hashes; the historical tmp path is not the recipient's sole reference."
+  },
+  "exact_bound_files": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/review_iterations/r01_cover.png",
+      "sha256": "2a0065a35570b432181498fffa01b9973ebb23d1a46e78e3adaeb45336b5e5c4",
+      "bytes": 2353713
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/review_iterations/r01_cover.pdf",
+      "sha256": "07368f0599db43d8643e49928dabe86d0ab25983bc097d455b1e2b2ae7157cbd",
+      "bytes": 18361226
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/review_iterations/r01_provenance.json",
+      "sha256": "e971966d2125ca39e462e5de0f364ca2188eb9f5936efde5ca36252dea8dd16e",
+      "bytes": 22816
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/review_iterations/r02_controls.json",
+      "sha256": "c084056dfc4f20b9ef3d032ea772e84731ed523ba502a588754429548674cc1f",
+      "bytes": 389705
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/review_iterations/r02_page_00.png",
+      "sha256": "b353fe2465fd0f96a602edeab8f85f1d8cad604cd35f5f83b2040b46a25379ba",
+      "bytes": 2359299
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/art/bunny_pair_native.png",
+      "sha256": "68f817bc11295926c7b9297603482e153c0d5c5c2782ce27cb124070d5efc0a9",
+      "bytes": 1157436
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/references/canonical_dust_bunny.png",
+      "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+      "bytes": 230768
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/references/existing_cover_without_type_or_lamma.png",
+      "sha256": "4ed80af22d04f608bc269e57d6e71a330298de93f8e4500a7f7ec32ff2f37815",
+      "bytes": 2319382
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/generation_prompt.txt",
+      "sha256": "87fc2f7a5e41b51c38d99a605a96ae0d66aea12a142ff84d821a7edcd2a36072",
+      "bytes": 1286
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/generation_record.json",
+      "sha256": "ec1b6c0aade8bd391eb1a58f6c27243131c0997934823bf04f4f88a02d711e60",
+      "bytes": 1400
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/complete/page_00.png",
+      "sha256": "238adf20eadde114ef14f487989ca5712857cc491d288f3819901c3d89ec3ac3",
+      "bytes": 2359457
+    }
+  ],
+  "remaining_holds": [
+    "Owner approval of this exact new cover/title treatment",
+    "Actual complete-book/export/source/evidence final review",
+    "Anonymous immutable publication acceptance",
+    "Physical arrival page assignment, 33 interior units if split, later reveal parity and swing gutter solution",
+    "Print P1-P8, final PPI/enlargement/physical proof, child/unprompted-reader and qualified-SLP acceptance"
+  ],
+  "independent_write_scope": "Only this preliminary review JSON is written. No art, source, controls, renderer, helper, root document or evidence is edited."
+}

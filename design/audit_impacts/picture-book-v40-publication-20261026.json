@@ -1,0 +1,30 @@
+{
+  "id": "picture-book-v40-publication-20261026",
+  "baseline": "ba410238d492cf035987eb5a468f5919dd099fb3",
+  "scope": "Publication-only metadata: anonymous exact-revision V40 manifest/all505payload verification and independent final publication handback. No sealed payload, artwork, controls, source, PDF, game, release or canonical authority changed.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "Publication verification for a static book, no game audit finding closed.",
+  "files": [
+    "books/chapter_one/landscape/revisions/v40_wide_arrival/remote_verification.json",
+    "books/chapter_one/landscape/revisions/v40_wide_arrival/peer_review/final_publication_acceptance.json",
+    "design/audit_impacts/picture-book-v40-publication-20261026.json"
+  ],
+  "validation": [
+    {
+      "command": "Anonymous exact-revision manifest and every required file fetch/byte/SHA256 verification",
+      "result": "PASS",
+      "evidence": "ba410238d492cf035987eb5a468f5919dd099fb3:505files/1,065,211,996bytes;payloadc9ac3bb58bfcf22157bbcdb70feb86adc9c973647bea43fd014b070c2d0181d7;receipt SHA256b0882fc08de329853133044a8035dcbefe75c85098c632ba45789c02ca4bcbab;2026-10-27T02:54:57.908301+00:00; no credentials/cookies. Manifest and all rows verified remotely."
+    },
+    {
+      "command": "Independent pinned publication-only handback",
+      "result": "PASS",
+      "evidence": "peer_review/final_publication_acceptance.json SHA256499a156e1b10edd6132293ce8a8c7f999eeec6f99770f75d01559038598c42a8:SATISFIED_WITH_DECLARED_HOLDS. All505 manifest/receipt/Git blob rows reviewed;28 independent anonymous objects including manifest/27 payload files,38,980,498bytes; exact unchanged R03 candidate and source renderer CRLF/LF mapping. This metadata commit verified separately after push."
+    }
+  ],
+  "acceptance_gaps": "V40 scoped candidate is independently satisfied with declared A9/native plane-resolution holds. Owner creative approval, child/qualified SLP, final trim/PPI/physical print remain open. Device/game/probe gates not applicable to publication-only static-book metadata. No print edition or runtime/release work."
+}

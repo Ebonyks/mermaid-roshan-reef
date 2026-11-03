@@ -1,0 +1,141 @@
+FAIRYHANDOFF|OK|moonflower_door_closed.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|moonflower_door_closed.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|moonflower_door_closed.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|moonflower_door_closed.png has a visible subject
+FAIRYHANDOFF|OK|butterfly_gate_available.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|butterfly_gate_available.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|butterfly_gate_available.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|butterfly_gate_available.png has a visible subject
+FAIRYHANDOFF|OK|rainbow_walkway.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|rainbow_walkway.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|rainbow_walkway.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|rainbow_walkway.png has a visible subject
+FAIRYHANDOFF|OK|butterfly_house.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|butterfly_house.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|butterfly_house.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|butterfly_house.png has a visible subject
+FAIRYHANDOFF|OK|door states share the same horizontal pivot (closed=511.5 open=512.0)
+FAIRYHANDOFF|OK|door states share the same castle-floor foot (closed=992 open=992)
+FAIRYHANDOFF|OK|background master meets per-screen runtime coverage ((3640, 2048))
+FAIRYHANDOFF|OK|background master preserves 16:9 stage crop ((3640, 2048))
+FAIRYHANDOFF|OK|background r0c0 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r0c1 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r0c2 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r0c3 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c0 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c1 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c2 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c3 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background tiles reconstruct the continuous master exactly
+FAIRYHANDOFF|OK|background builder authors the target master without ImageOps.fit
+FAIRYHANDOFF|OK|generated background panels are never resized
+FAIRYHANDOFF|OK|manifest exists: assets_src/fairy_conservatory_handoff_2026-08-30/asset_manifest.json
+FAIRYHANDOFF|OK|manifest exists: assets_src/castle/fairy_conservatory_gate_available_2026-08-30/asset_manifest.json
+FAIRYHANDOFF|OK|handoff manifest records built-in ImageGen
+FAIRYHANDOFF|OK|handoff background is the generated upright Fairy Pond
+FAIRYHANDOFF|OK|handoff records all six native generated panels
+FAIRYHANDOFF|OK|native panel dimensions match: top_left.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: top_left.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: top_left.png
+FAIRYHANDOFF|OK|native panel dimensions match: top_center.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: top_center.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: top_center.png
+FAIRYHANDOFF|OK|native panel dimensions match: top_right.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: top_right.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: top_right.png
+FAIRYHANDOFF|OK|native panel dimensions match: bottom_left.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: bottom_left.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: bottom_left.png
+FAIRYHANDOFF|OK|native panel dimensions match: bottom_center.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: bottom_center.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: bottom_center.png
+FAIRYHANDOFF|OK|native panel dimensions match: bottom_right.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: bottom_right.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: bottom_right.png
+FAIRYHANDOFF|OK|background master is authored at target native dimensions
+FAIRYHANDOFF|OK|background master forbids source-pixel enlargement
+FAIRYHANDOFF|OK|native panel geometry reconstructs the exact master
+FAIRYHANDOFF|OK|generated panel horizon remains above the 50% line
+FAIRYHANDOFF|OK|approved Fairy Pond panorama is the primary background reference
+FAIRYHANDOFF|OK|handoff background excludes Sky Lagoon reference authority
+FAIRYHANDOFF|OK|handoff manifest records exactly two generated foreground gaps
+FAIRYHANDOFF|OK|runtime hash matches manifest: rainbow_walkway.png
+FAIRYHANDOFF|OK|runtime hash matches manifest: butterfly_house.png
+FAIRYHANDOFF|OK|placement composite is explicitly non-delivery
+FAIRYHANDOFF|OK|dormant state remains the approved minimal relief
+FAIRYHANDOFF|OK|plot reveal transforms into the available Butterfly Gate
+FAIRYHANDOFF|OK|gate portal horizon is at or below the 50% line (fraction=0.3797)
+FAIRYHANDOFF|OK|gate portal uses the Lily-Pad Fairy World authority
+FAIRYHANDOFF|OK|approved lily art begins at the exact gate threshold (lily=944 aperture=944)
+FAIRYHANDOFF|OK|castle gate excludes rainbow-walkway delivery pixels
+FAIRYHANDOFF|OK|castle gate excludes the old greenhouse-interior pixels
+FAIRYHANDOFF|OK|gate manifest combines the approved facade, sunrise pond, and lily threshold
+FAIRYHANDOFF|OK|gate input hash matches: moonflower_door_closed.png
+FAIRYHANDOFF|OK|gate input hash matches: butterfly_house.png
+FAIRYHANDOFF|OK|gate input hash matches: handoff_background_master_3640x2048.png
+FAIRYHANDOFF|OK|gate input hash matches: ornament_lily_cluster.png
+FAIRYHANDOFF|OK|corrected gate builder exists
+FAIRYHANDOFF|OK|corrected gate builder excludes the rainbow walkway
+FAIRYHANDOFF|OK|corrected gate builder preserves facade pixels outside the aperture
+FAIRYHANDOFF|OK|available Butterfly Gate hash matches manifest
+FAIRYHANDOFF|OK|gate dormant Hall review is explicitly non-delivery
+FAIRYHANDOFF|OK|gate dormant Hall review hash matches manifest
+FAIRYHANDOFF|OK|gate available Hall review is explicitly non-delivery
+FAIRYHANDOFF|OK|gate available Hall review hash matches manifest
+FAIRYHANDOFF|OK|runtime source exists: scripts/arena/fairy_conservatory_handoff_2d.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/main.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/save_state.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/arena/castle_rooms_25d.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/arena/fairy_conservatory_door_2d.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/pause_menu.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/probe_fairy_conservatory_route.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/probe_fairy_conservatory_handoff.gd
+FAIRYHANDOFF|OK|new stage excludes Node3D
+FAIRYHANDOFF|OK|new stage excludes Sprite3D
+FAIRYHANDOFF|OK|new stage excludes Camera3D
+FAIRYHANDOFF|OK|new stage excludes MeshInstance3D
+FAIRYHANDOFF|OK|new stage excludes Vector3
+FAIRYHANDOFF|OK|new stage excludes Transform3D
+FAIRYHANDOFF|OK|new stage excludes StandardMaterial3D
+FAIRYHANDOFF|OK|stage contract contains Vector2(910.0, 1024.0)
+FAIRYHANDOFF|OK|stage contract contains Vector2(640.0, 600.0)
+FAIRYHANDOFF|OK|stage contract contains Vector2(640.0, 500.0)
+FAIRYHANDOFF|OK|stage contract contains Vector2(640.0, 375.0)
+FAIRYHANDOFF|OK|stage contract contains "no_fail_state": true
+FAIRYHANDOFF|OK|stage contract contains "has_timer": false
+FAIRYHANDOFF|OK|stage contract contains "butterfly_house"
+FAIRYHANDOFF|OK|save schema includes chapter3_fairy_door_revealed
+FAIRYHANDOFF|OK|main owns chapter3_fairy_door_revealed
+FAIRYHANDOFF|OK|save schema includes chapter3_fairy_door_opened
+FAIRYHANDOFF|OK|main owns chapter3_fairy_door_opened
+FAIRYHANDOFF|OK|save schema includes chapter3_fairy_mission_started
+FAIRYHANDOFF|OK|main owns chapter3_fairy_mission_started
+FAIRYHANDOFF|OK|Main Hall owns one whole door card
+FAIRYHANDOFF|OK|revealed and entered states use the available Butterfly Gate
+FAIRYHANDOFF|OK|castle runtime no longer references the superseded rainbow inset
+FAIRYHANDOFF|OK|Main Hall route bypasses fake room portal list
+FAIRYHANDOFF|OK|approved Castle V4 payload stays independent
+FAIRYHANDOFF|OK|Main ticks the independent doorway overlay
+FAIRYHANDOFF|OK|Galaxy return recognizes the handoff
+FAIRYHANDOFF|OK|active stage receives an explicit tick
+FAIRYHANDOFF|OK|Main leave wrapper does not duplicate Galaxy scheduling
+FAIRYHANDOFF|OK|PauseMenu owns exactly one Fairy Pond Galaxy restart
+FAIRYHANDOFF|OK|Opera completion waits for the in-Hall reveal before persisting
+FAIRYHANDOFF|OK|isolated handoff probe covers the guided reverse walk
+FAIRYHANDOFF|OK|route probe covers fresh door is dormant
+FAIRYHANDOFF|OK|route probe covers plot reveal transforms into the available Butterfly Gate
+FAIRYHANDOFF|OK|route probe covers reveal creates exactly one hotspot
+FAIRYHANDOFF|OK|route probe covers open route removes the reveal pointer
+FAIRYHANDOFF|OK|route probe covers Hall suspend/resume preserves camera offset
+FAIRYHANDOFF|OK|license ledger covers moonflower_door_closed.png
+FAIRYHANDOFF|OK|license ledger covers butterfly_gate_available.png
+FAIRYHANDOFF|OK|license ledger covers fairy_conservatory_{dormant,available}_hall_1280x720.png
+FAIRYHANDOFF|OK|license ledger covers rainbow_walkway.png
+FAIRYHANDOFF|OK|license ledger covers butterfly_house.png
+FAIRYHANDOFF|OK|license ledger covers fairy_pond_horizon_openai_raw.png
+FAIRYHANDOFF|OK|license ledger covers fairy_pond_native_center_openai_raw.png
+FAIRYHANDOFF|OK|license ledger covers background_panels/{top_left,top_center,top_right,bottom_left,bottom_center,bottom_right}.png
+FAIRYHANDOFF|OK|license ledger covers handoff_background_master_3640x2048.png
+FAIRYHANDOFF|OK|license ledger covers handoff_background_r{0..1}_c{0..3}.png
+FAIRYHANDOFF|OK|license ledger covers rainbow_stage_composite_1280x720.png
+FAIRYHANDOFF|RESULT=OK|failures=0

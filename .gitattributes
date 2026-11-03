@@ -121,3 +121,8 @@ audit/opera_foyer_movement_20261017/** -text whitespace=-blank-at-eol,-blank-at-
 audit/remove_opera_anteroom_20261017/** -text whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab,cr-at-eol
 audit/opera_foyer_movement_20261017/**/*.log -diff
 audit/remove_opera_anteroom_20261017/**/*.log -diff
+
+assets_src/review/opera_exploration_v1/verification/**/*.log -text -diff
+docs/handoffs/codex_recent_updates_dev_2026-11-03/** -text -diff
+docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/** -text -diff
+assets_src/imagegen/snowfield_20261103/** -text -diff

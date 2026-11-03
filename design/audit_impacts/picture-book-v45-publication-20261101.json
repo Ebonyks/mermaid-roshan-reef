@@ -1,0 +1,36 @@
+{
+  "id": "picture-book-v45-publication-20261101",
+  "baseline": "c1cde3b61a5933b3b82f05a78cb118a618a19902",
+  "scope": "Publish the r02 full anonymous verification receipt and bounded independent publication acceptance. All 93 output members and 48 pinned input dependencies verified; the parallel V45 package remains preserved. No sealed payload or art changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book publication metadata only; no game finding closure.",
+  "files": [
+    "books/chapter_one/landscape/revisions/v45_story_language_r02_review/remote_verification.json",
+    "books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/final_publication_acceptance.json",
+    "design/audit_impacts/picture-book-v45-publication-20261101.json"
+  ],
+  "validation": [
+    {
+      "command": "Anonymous exact-revision manifest/every required output and pinned input",
+      "result": "PASS",
+      "evidence": "93 output files + 48 pinned inputs; 264,334,406 bytes;2026-11-02T01:35:20.540222+00:00;manifestSHA a36f28bbf28774a12787ff13f616e2bb498fe51339fa7fa253addd0d873cbfcd;receiptSHA fcf1b3a92c9fb9beaa9c3d1512f4a4819eb66d11ed9e2313a6e0c53d30c0fff8"
+    },
+    {
+      "command": "Bounded independent publication review",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/final_publication_acceptance.json; SHA-256 02fc5317c5a1448c0b234d4c42b86f2e19874bfc39301d782766e125bf1fccfa; four anonymous remote objects, exact 141-entry receipt and both digests, 45 candidate bindings and 71 preserved parallel files verified. Draft with held stories 11 and 15."
+    },
+    {
+      "command": "Authority/development pre-commit gates",
+      "result": "PASS",
+      "evidence": "audit_document_authority.py: INVENTORY=630, LEDGER=630, ALL OK. audit_development.py --base auto: ALL OK, exact base 5920c673305989ee29d91876480ff445dba9fc8b. Source payload retained the earlier 52 passing unit tests and six stress tests; metadata-only followup requires no repeated book export."
+    }
+  ],
+  "acceptance_gaps": "23 of 25 captions implemented; stories 11 and 15 held. Synthetic voiced/editorial review is not human, child or speech-language acceptance. Owner facts/illustrations, inherited V44 art findings, physical print, arrival gutter/imposition and V41 print Part 2 remain open. No game, dev, master or release change."
+}

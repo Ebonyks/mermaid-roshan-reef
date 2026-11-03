@@ -1,0 +1,26 @@
+[
+  {
+    "job": "detective",
+    "candidate": "v6",
+    "sha256": "1f26dff765db7e69101a506d0988eb13fb26a807e124d95e7f48fa75e65ac860",
+    "dimensions": [
+      1280,
+      720
+    ],
+    "fps": 30,
+    "source": "evidence/raw_frames_v6/detective/%04d.png",
+    "derivation": "Native RGBA uniformly720/1024 scaled, centered; silent diagnostic; no retiming or artificial acting."
+  },
+  {
+    "job": "geologist",
+    "candidate": "v6",
+    "sha256": "ed7fbcc20b9fce63d4bb0830066a074a6c30610957e6d3ce4cd4ee411dbca443",
+    "dimensions": [
+      1280,
+      720
+    ],
+    "fps": 30,
+    "source": "evidence/raw_frames_v6/geologist/%04d.png",
+    "derivation": "Native RGBA uniformly720/1024 scaled, centered; silent diagnostic; no retiming or artificial acting."
+  }
+]

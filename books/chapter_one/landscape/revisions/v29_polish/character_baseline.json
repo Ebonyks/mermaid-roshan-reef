@@ -1,0 +1,1572 @@
+{
+  "schema_version": 1,
+  "status": "INDEPENDENT_V28_VISUAL_BASELINE; NOT_ACCEPTANCE",
+  "reviewer": "character_audit subagent",
+  "created_utc": "2026-10-01T00:44:49.276070+00:00",
+  "baseline_revision": "5da33b22c9b95358d98defe8e340a901d5470991",
+  "scope": "All34V28 pages: characters, props, resolution, seams, binary image treatment and marginal identity. No art edited. This JSON is sole authored artifact.",
+  "rubric": {
+    "type": "Internal editorial visual-craft judgment1–5, subordinate to actual acceptance. Decimals prioritize repairs, not clinical measurement.",
+    "1": "Unusable/conflicting identity or scene.",
+    "2": "Major narrative/art failure.",
+    "3": "Readable rough with substantial repair.",
+    "4": "Good review art with visible correctable defects.",
+    "4.9": "Near-final visual craft after independent reinspection; external acceptance separate.",
+    "5": "No observed defect under inspection; never inferred from machine checks."
+  },
+  "limitations": [
+    "No physical print dummy, child test or SLP signoff.",
+    "Native art commonly~212ppi at7x5, not automatically300ppi press-ready.",
+    "Accepted source pose/costume differences do not authorize arbitrary redraws.",
+    "No score assigned to uninspected future candidates."
+  ],
+  "canonical_references": [
+    {
+      "id": "roshan",
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+    },
+    {
+      "id": "daddy",
+      "path": "assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1/handoff_art/characters/daddy_daddy_master.png",
+      "sha256": "2eda6f76760b85984692dd35bf9ce69b631f6d9db4c8b7b8c013bb92cb632b77"
+    },
+    {
+      "id": "rumi",
+      "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "sha256": "d5e0bff392a22c341c313ab94db5cea7a3cb6bb682b9ea8af2bc190a810c3f66"
+    },
+    {
+      "id": "eagle_original",
+      "path": "assets/book/baby_eagle.png",
+      "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b"
+    },
+    {
+      "id": "eagle_large",
+      "path": "books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png",
+      "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9"
+    },
+    {
+      "id": "bunny_idle",
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+      "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f"
+    },
+    {
+      "id": "bunny_hop",
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_hop.png",
+      "sha256": "677cda8c5de1d3aaf1d8960b089d48fab27106429bc221b4c26c14775b382752"
+    },
+    {
+      "id": "bunny_swim",
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+    },
+    {
+      "id": "lamma",
+      "path": "assets/sprites/stuffie_studio/lamma.png",
+      "sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268"
+    },
+    {
+      "id": "rainbow_landing",
+      "path": "books/chapter_one/plan/source_art/R11_land.png",
+      "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a"
+    },
+    {
+      "id": "pink_sponge",
+      "path": "books/chapter_one/archive/rough_v5/art/sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
+    }
+  ],
+  "priority_repairs": [
+    {
+      "pages": [
+        18,
+        19
+      ],
+      "issue": "Dirty-room continuity",
+      "priority": "HIGH"
+    },
+    {
+      "pages": [
+        3
+      ],
+      "issue": "Source softness",
+      "priority": "HIGH"
+    },
+    {
+      "pages": [
+        27,
+        28,
+        29
+      ],
+      "issue": "Ceiling resolution/join",
+      "priority": "HIGH"
+    },
+    {
+      "pages": [
+        32
+      ],
+      "issue": "Two sleeping bunny topology",
+      "priority": "HIGH"
+    },
+    {
+      "pages": [
+        14,
+        16
+      ],
+      "issue": "Added pearl costume details",
+      "priority": "MEDIUM"
+    },
+    {
+      "pages": [
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "issue": "Sponge continuity; exact29 protected",
+      "priority": "MEDIUM"
+    },
+    {
+      "pages": [
+        20
+      ],
+      "issue": "Sharp speech tails touch ears",
+      "priority": "MEDIUM"
+    },
+    {
+      "pages": [
+        9,
+        31
+      ],
+      "issue": "Hidden Lamma not recognizable",
+      "priority": "MEDIUM"
+    },
+    {
+      "pages": [
+        22
+      ],
+      "issue": "Paint remains after clean caption",
+      "priority": "MEDIUM"
+    },
+    {
+      "pages": [
+        17
+      ],
+      "issue": "No listening gesture",
+      "priority": "MEDIUM"
+    }
+  ],
+  "pages": [
+    {
+      "page_index": 0,
+      "label": "front cover",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_00.png",
+      "sources": [
+        {
+          "id": "cover_rendered",
+          "path": "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+          "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.8
+        },
+        {
+          "object": "Daddy",
+          "score": 4.8
+        },
+        {
+          "object": "Rumi",
+          "score": 4.7
+        },
+        {
+          "object": "Baby Eagle",
+          "score": 4.8
+        },
+        {
+          "object": "peeking Puff",
+          "score": 4.7
+        },
+        {
+          "object": "story props",
+          "score": 4.8
+        }
+      ],
+      "strengths": "Unified physical cover, recognizable child/adult cast and Pearl Castle palette.",
+      "observed_concerns": "Rumi softer/younger than runtime atlas; cover shell brooch/waist ruffle differ from some interiors but are accepted cover-family treatment.",
+      "repair_brief": "KEEP accepted cover; use as style anchor, no novelty redraw.",
+      "canonical_reference_ids": [
+        "rumi"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 1,
+      "label": "story page 1",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_01.png",
+      "sources": [
+        {
+          "id": "v22_scene_01",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_01.png",
+          "sha256": "e0a084746a0ef0bd935b7689df778c76d2f3489afd63279280ef19d180a3265b"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.7,
+      "objects": [
+        {
+          "object": "Roshan profile",
+          "score": 4.8
+        },
+        {
+          "object": "castle",
+          "score": 4.7
+        },
+        {
+          "object": "plane window",
+          "score": 4.8
+        }
+      ],
+      "strengths": "Clear gaze and real hand/window contact, rainbow hair and blue-jewel tiara.",
+      "observed_concerns": "Crown taller than later scenes but recognizable. Dark caption fill with white halo weaker optically than one color.",
+      "repair_brief": "Keep art; improve native caption contrast.",
+      "canonical_reference_ids": [
+        "roshan"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 2,
+      "label": "story page 2",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_02.png",
+      "sources": [
+        {
+          "id": "v22_scene_02",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_02.png",
+          "sha256": "e4a2b560ff1cd8e0baf350521170ca38c389e688d836e3bb5d51aec597691da5"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "plane",
+          "score": 4.8
+        },
+        {
+          "object": "castle",
+          "score": 4.8
+        },
+        {
+          "object": "pier",
+          "score": 4.8
+        }
+      ],
+      "strengths": "Strong crisp full-art arrival. Scene crop preserves setting/action.",
+      "observed_concerns": "No anatomy or seam failure. Caption halo over clouds.",
+      "repair_brief": "Keep art; text only.",
+      "canonical_reference_ids": [],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 3,
+      "label": "story page 3",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_03.png",
+      "sources": [
+        {
+          "id": "v28_castle_entry_source",
+          "path": "books/chapter_one/landscape/revisions/v28_kindness/art/castle_entry_source.png",
+          "sha256": "f3814133804ddafa8fb52f8f523036302c7567d3633a059b7886a74df7dc3c8c"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 3.8,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.2
+        },
+        {
+          "object": "Daddy",
+          "score": 4.3
+        },
+        {
+          "object": "doors and threshold",
+          "score": 4.0
+        }
+      ],
+      "strengths": "Open-door entry now clearly establishes dirty castle. No double window above Daddy in this current version.",
+      "observed_concerns": "1264x720 source softer than adjacent art; profile Roshan sharper elf ear/longer torso. Door hardware soft.",
+      "repair_brief": "Source-conditioned resolution restoration of exact staging, preserve open doors and interior. No new architecture.",
+      "canonical_reference_ids": [
+        "roshan",
+        "daddy"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 4,
+      "label": "story page 4",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_04.png",
+      "sources": [
+        {
+          "id": "v23_castle_repair",
+          "path": "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+          "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.3,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.4
+        },
+        {
+          "object": "Daddy",
+          "score": 4.6
+        },
+        {
+          "object": "dirty floor and hall",
+          "score": 4.4
+        }
+      ],
+      "strengths": "Cobwebs, dull floor and dust piles show dirty room. Core character colors stable.",
+      "observed_concerns": "Small rigid Roshan less crisp than3; possible hand connection unclear at small size. Caption over chandelier trim busy.",
+      "repair_brief": "Text first; optional bounded hand/contact resolution review preserving exact figure positions.",
+      "canonical_reference_ids": [
+        "roshan",
+        "daddy"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 5,
+      "label": "story page 5",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_05.png",
+      "sources": [
+        {
+          "id": "brush",
+          "path": "books/chapter_one/archive/rough_v5/art/brush.png",
+          "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
+        },
+        {
+          "id": "sponge",
+          "path": "books/chapter_one/archive/rough_v5/art/sponge.png",
+          "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
+        },
+        {
+          "id": "v22_bg_04_final",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_04_final.png",
+          "sha256": "f8937921cb9f66a7835b220ad4f454fd53293c9390ceb848a1c98049587e60ce"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "brush",
+          "score": 4.8
+        },
+        {
+          "object": "star sponge",
+          "score": 4.8
+        },
+        {
+          "object": "bucket bunny",
+          "score": 4.7
+        },
+        {
+          "object": "cloth",
+          "score": 4.7
+        }
+      ],
+      "strengths": "Crisp real contour objects, grounded relevant bank motifs, clear navy text.",
+      "observed_concerns": "Star sponge introduced here/offered25 changes to yellow rectangle7/26-29. Fan brush differs from later oval household scrub brushes.",
+      "repair_brief": "Keep art; primary sponge continuity intentional. Do not force every brush into one design if different tools plausible.",
+      "canonical_reference_ids": [
+        "pink_sponge",
+        "bunny_idle"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 6,
+      "label": "story page 6",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_06.png",
+      "sources": [
+        {
+          "id": "v22_scene_05",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_05.png",
+          "sha256": "0fe4964494794d1112d9829feadd96d418c712f5215b8201abe2270875ccfd96"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.7,
+      "objects": [
+        {
+          "object": "swimming bunny",
+          "score": 4.8
+        },
+        {
+          "object": "dirty bath",
+          "score": 4.7
+        },
+        {
+          "object": "sink",
+          "score": 4.7
+        }
+      ],
+      "strengths": "Bunny matches swimming reference: spiral ears, curled forehead, pearl hands, broad cloud. Real splash contact.",
+      "observed_concerns": "Dirty-surface texture competes mildly with bunny; caption on busy floor.",
+      "repair_brief": "Keep good splash shot; caption polish, not regeneration for filler.",
+      "canonical_reference_ids": [
+        "bunny_swim"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 7,
+      "label": "story page 7",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_07.png",
+      "sources": [
+        {
+          "id": "approved_sink_action",
+          "path": "books/chapter_one/previews/2026-09-30/art/sink_action.png",
+          "sha256": "873d1cd6ecd508564404e77d25c0f33e6630b4446fd5bad422c2d50a2b778b52"
+        },
+        {
+          "id": "v22_bg_06_ground",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_06_ground.png",
+          "sha256": "d1f34eebf81910bd17825afaf7e07214dd9376efb0f5667e825a617f43e62b7f"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.8
+        },
+        {
+          "object": "sink and sponge contact",
+          "score": 4.8
+        },
+        {
+          "object": "bunny with dish",
+          "score": 4.7
+        },
+        {
+          "object": "shell soap cloth",
+          "score": 4.7
+        }
+      ],
+      "strengths": "Connected action cutout preserves hands on sponge/rim, authentic alpha silhouette.",
+      "observed_concerns": "Yellow sponge differs from5. Lower-right purple soap cloth detail slightly amorphous at thumbnail.",
+      "repair_brief": "Optional bounded sponge correction; improve tiny prop only if canonical readability increases.",
+      "canonical_reference_ids": [
+        "roshan",
+        "pink_sponge",
+        "bunny_idle"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 8,
+      "label": "story page 8",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_08.png",
+      "sources": [
+        {
+          "id": "bath_drained_local",
+          "path": "books/chapter_one/archive/rough_v5/art/bath_drained_local.png",
+          "sha256": "b33c3d90158d0618680803b1c9a3c9b2f61fee1bfd7db55fc57c138c14316dc3"
+        },
+        {
+          "id": "v22_bg_07_objects",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_07_objects.png",
+          "sha256": "372c29b109b068c362c70844915efcd18da0464fc80acbe38e5d85167bcdddd4"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.7,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.8
+        },
+        {
+          "object": "tub and brush contact",
+          "score": 4.8
+        },
+        {
+          "object": "duck",
+          "score": 4.7
+        },
+        {
+          "object": "towel",
+          "score": 4.7
+        }
+      ],
+      "strengths": "Real bristle/tub contact and whole action contour.",
+      "observed_concerns": "Brush differs from5 but may be distinct implement. Duck/towel bank details static relative to scrubbing action.",
+      "repair_brief": "Keep main; one tiny curious bunny with duck/towel could add humor within bounds, no brush/suds repeat.",
+      "canonical_reference_ids": [
+        "bunny_idle",
+        "bunny_hop"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 9,
+      "label": "story page 9",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_09.png",
+      "sources": [
+        {
+          "id": "v22_scene_08",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_08.png",
+          "sha256": "ac7d2590df67923b3e2cc47dd05fe44d0cc2fcd74396b622a6f44e3bba03ecc1"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.6,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.8
+        },
+        {
+          "object": "bath bunny",
+          "score": 4.8
+        },
+        {
+          "object": "clean room",
+          "score": 4.8
+        },
+        {
+          "object": "hidden white visitor",
+          "score": 4.2
+        }
+      ],
+      "strengths": "Strong clean-bath payoff, convincing hand contact and water drops.",
+      "observed_concerns": "Hidden visitor only generic white face; horizontal Lamma plush ears and muzzle not clear. May read as regular bath toy.",
+      "repair_brief": "Replace only tiny visitor patch with recognizable occluded Lamma head/ears. Preserve all room/main art.",
+      "canonical_reference_ids": [
+        "lamma"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 10,
+      "label": "story page 10",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_10.png",
+      "sources": [
+        {
+          "id": "v26_rumi_trapped",
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_trapped.png",
+          "sha256": "dd7f716c7f470cef0361e339e281fc662558f88915448c42a25bcdaeb509d2d0"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.6,
+      "objects": [
+        {
+          "object": "Roshan net",
+          "score": 4.7
+        },
+        {
+          "object": "trapped Rumi",
+          "score": 4.6
+        },
+        {
+          "object": "gunk rubbish",
+          "score": 4.7
+        },
+        {
+          "object": "blocked seahorse",
+          "score": 4.7
+        }
+      ],
+      "strengths": "Net present, Rumi visibly stuck under gunk with raised hands.",
+      "observed_concerns": "Rumi face rounder/softer than atlas but braid/coat/tail colors stable; arm/water overlay slightly translucent, plausibly trapped state.",
+      "repair_brief": "Retain composition/action, canonical atlas for any bounded face repair, no new face. Caption polish.",
+      "canonical_reference_ids": [
+        "rumi"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 11,
+      "label": "story page 11",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_11.png",
+      "sources": [
+        {
+          "id": "net_cut",
+          "path": "books/chapter_one/landscape/art/net_cut.png",
+          "sha256": "5320644cfe21ad99828f0b2d4ecbcfd20041e8b6bb90623d08d821a7960cc206"
+        },
+        {
+          "id": "v22_bg_10_objects",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_10_objects.png",
+          "sha256": "f1b8b463ea413c024558b700ed5ea55832bcf14df839f0534f3ee20b091debff"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "rubbish net",
+          "score": 4.8
+        },
+        {
+          "object": "wrapper",
+          "score": 4.8
+        },
+        {
+          "object": "dirty cup",
+          "score": 4.8
+        },
+        {
+          "object": "blue brush/lid detail",
+          "score": 4.6
+        }
+      ],
+      "strengths": "Strong whole contour net and rubbish motifs accurately support scooping.",
+      "observed_concerns": "Right blue object could read as clean brush despite green coating.",
+      "repair_brief": "Keep net. Tiny bunny balancing grubby cup can add humor, without net duplication.",
+      "canonical_reference_ids": [
+        "bunny_idle"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 12,
+      "label": "story page 12",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_12.png",
+      "sources": [
+        {
+          "id": "v22_scene_11",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_11.png",
+          "sha256": "17c6330b1faa8667ddb49769713589681f708ad65377f24f240d4c2f4441c5d3"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.4,
+      "objects": [
+        {
+          "object": "part-cleared waterfall",
+          "score": 4.6
+        },
+        {
+          "object": "embedded rubbish",
+          "score": 4.7
+        }
+      ],
+      "strengths": "Left orange/red lane IS clear; pours while remaining width green.",
+      "observed_concerns": "Three individual streams not visually discrete at this close view, clearing gesture absent so process narrated. Earlier all-blocked impression withdrawn.",
+      "repair_brief": "Bounded water-state repair only if discrete remaining lanes need clarity. Missing actual clearing action stays declared, no invented scene.",
+      "canonical_reference_ids": [],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 13,
+      "label": "story page 13",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_13.png",
+      "sources": [
+        {
+          "id": "v22_scene_12_fit",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_12_fit.png",
+          "sha256": "8b95e7b809aa38f0c939ab2f776321bfdeea7c638b5ed95ac624b84074c1e7b6"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.5,
+      "objects": [
+        {
+          "object": "rainbow waterfall",
+          "score": 4.8
+        },
+        {
+          "object": "water residual objects",
+          "score": 4.3
+        }
+      ],
+      "strengths": "Vivid payoff follows part-cleared closeup.",
+      "observed_concerns": "Floating rubbish still prominent after scooping; text says streams clear rather than pool, so not absolute contradiction but weak clean-state progression.",
+      "repair_brief": "Local removal of residual floating rubbish if cleanup payoff intended; retain waterfall/room.",
+      "canonical_reference_ids": [],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 14,
+      "label": "story page 14",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_14.png",
+      "sources": [
+        {
+          "id": "approved_fountain_clear_v2",
+          "path": "books/chapter_one/previews/2026-09-30/art/fountain_clear_v2.png",
+          "sha256": "e64ef03256642ec1eac68e0ae856d917879c011bd9c9a61645fcd34a501ea2c9"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.4,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.6
+        },
+        {
+          "object": "cup grip",
+          "score": 4.8
+        },
+        {
+          "object": "seahorse",
+          "score": 4.8
+        }
+      ],
+      "strengths": "Cup gripped by both hands, mouth clear, flowing water.",
+      "observed_concerns": "New pearl neckline/bracelet absent from canonical simple pink blouse. Tail lighter/glossier but recognizable.",
+      "repair_brief": "Bounded removal of pearl collar and bracelet, same blouse as7/8/17. Preserve face/hands/cup/fountain.",
+      "canonical_reference_ids": [
+        "roshan"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 15,
+      "label": "story page 15",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_15.png",
+      "sources": [
+        {
+          "id": "v26_rumi_free",
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_free.png",
+          "sha256": "c1f864bed9bcf443a326fdef85536f9b60592f104f873559a3e315101f06ba59"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.7,
+      "objects": [
+        {
+          "object": "Rumi",
+          "score": 4.8
+        },
+        {
+          "object": "restored room",
+          "score": 4.8
+        },
+        {
+          "object": "seahorse",
+          "score": 4.7
+        }
+      ],
+      "strengths": "Purple braid, embroidered jacket and turquoise-lavender tail match atlas.",
+      "observed_concerns": "Jewel-glossy floor cohesive but caption dark on dark vignette.",
+      "repair_brief": "Keep main art, text in quiet field.",
+      "canonical_reference_ids": [
+        "rumi"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 16,
+      "label": "story page 16",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_16.png",
+      "sources": [
+        {
+          "id": "approved_hug_cutout_v2",
+          "path": "books/chapter_one/previews/2026-09-30/art/hug_cutout_v2.png",
+          "sha256": "7e9a7f111bc7bb31391ea33e66f5ccc3260cb80d6ac7a202c7124f495405dcd3"
+        },
+        {
+          "id": "approved_hug_stationery_v2",
+          "path": "books/chapter_one/previews/2026-09-30/art/hug_stationery_v2.png",
+          "sha256": "0432335fe6c435aadf43785118a32a2d0e650569b3cc59ff2ee2d2de5de41aa6"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.5,
+      "objects": [
+        {
+          "object": "hugging Rumi",
+          "score": 4.7
+        },
+        {
+          "object": "hugging Roshan",
+          "score": 4.7
+        },
+        {
+          "object": "mini fountain",
+          "score": 4.3
+        }
+      ],
+      "strengths": "Convincing two-arm connected hug and continuous tails, genuine contour cutout.",
+      "observed_concerns": "More finely glossy than canonical base. Roshan pearl bracelet follows14 drift. Mini fountain top crosses85% boundary.",
+      "repair_brief": "Bounded bracelet removal if14 harmonized; lower/reduce fountain. Relevant small bunny offering shell flower could replace rather than duplicate motif.",
+      "canonical_reference_ids": [
+        "roshan",
+        "rumi",
+        "bunny_idle"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 17,
+      "label": "story page 17",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_17.png",
+      "sources": [
+        {
+          "id": "v22_scene_16",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_16.png",
+          "sha256": "de334d67ba6a345cc46b9e0cab3488fbc6dd8596a66d88b9dce01f2d1ae2c3fc"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.1,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.2
+        },
+        {
+          "object": "storage bunny",
+          "score": 4.6
+        },
+        {
+          "object": "dirty toy room",
+          "score": 4.6
+        }
+      ],
+      "strengths": "Dirty stone room/toys support chirp discovery. Roshan restored at crisp size.",
+      "observed_concerns": "Facing-reader smile/idle arms do not convey hearing/searching. Abruptly switches to clean grand play hall18-19.",
+      "repair_brief": "Bounded listening head/hand gesture in same position; preserve room. Dirty-state continuity with18-19.",
+      "canonical_reference_ids": [
+        "roshan",
+        "bunny_idle"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 18,
+      "label": "story page 18",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_18.png",
+      "sources": [
+        {
+          "id": "rescue_trapped",
+          "path": "books/chapter_one/landscape/art/identity_v21/rescue_trapped.png",
+          "sha256": "1a2444c7dbb07f632d1b173a5422b971531fd23621f840e6685bdecf949b1f98"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.0,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.8
+        },
+        {
+          "object": "pinned Eagle",
+          "score": 4.6
+        },
+        {
+          "object": "two bunnies",
+          "score": 4.7
+        },
+        {
+          "object": "toy hall",
+          "score": 3.8
+        }
+      ],
+      "strengths": "Exactly two cloud bunnies on Eagle wings, not blanket. Crest/cheek/black tips/gray legs identifiable; brush away from Eagle face.",
+      "observed_concerns": "Spotless royal toy hall conflicts with dirty stone discovery. Eagle rounder head/plumper than slender original20; action still recognizable.",
+      "repair_brief": "Preserve full foreground, bounded dirt/material continuity on walls/floor/toys. Bind original Eagle identity, no whole-event replacement.",
+      "canonical_reference_ids": [
+        "roshan",
+        "eagle_original",
+        "eagle_large",
+        "bunny_idle",
+        "bunny_hop"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 19,
+      "label": "story page 19",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_19.png",
+      "sources": [
+        {
+          "id": "approved_rescue_release",
+          "path": "books/chapter_one/previews/2026-09-30/art/rescue_release.png",
+          "sha256": "2b70889cc0027aaf039dbb8cdf2bfddfe08d73a9f889c8fbb26d1debe58a30f4"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.1,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.8
+        },
+        {
+          "object": "freed Eagle",
+          "score": 4.7
+        },
+        {
+          "object": "displaced bunnies",
+          "score": 4.7
+        },
+        {
+          "object": "toy hall",
+          "score": 3.8
+        }
+      ],
+      "strengths": "Clear release: wings free, bunnies away, brush on bunny; expressive good action.",
+      "observed_concerns": "Same clean-room mismatch. Round Eagle head but crest/cheek pattern recognizable.",
+      "repair_brief": "Keep two-bunny release foreground, background state consistent with18, caption polish.",
+      "canonical_reference_ids": [
+        "roshan",
+        "eagle_original",
+        "eagle_large",
+        "bunny_idle",
+        "bunny_hop"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 20,
+      "label": "story page 20",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_20.png",
+      "sources": [
+        {
+          "id": "eagle_original_isolated",
+          "path": "books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png",
+          "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9"
+        },
+        {
+          "id": "v23_bunny_apology_canvas",
+          "path": "books/chapter_one/landscape/art/story_detail_v23/bunny_apology_canvas.png",
+          "sha256": "d71a38db2a2b0f1457fdaff29c6d25c81df0c594619bf77d357dc964fce7c6d7"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.4,
+      "objects": [
+        {
+          "object": "Eagle cutout",
+          "score": 4.8
+        },
+        {
+          "object": "left bunny",
+          "score": 4.6
+        },
+        {
+          "object": "right bunny",
+          "score": 4.6
+        },
+        {
+          "object": "speech capsules",
+          "score": 4.2
+        }
+      ],
+      "strengths": "Canonical Eagle retained at sufficient native size, small bunnies secondary.",
+      "observed_concerns": "Balloon tails join top ears and are long/sharp. Both bunny silhouettes samey; pose distinction mostly eyebrows. Top81.9% has explicit owner exception.",
+      "repair_brief": "Keep Eagle/small scale; rounded shorter tails near mouth/side face not ears. Left bowed clasped pearl hands, right gentle raised hand. Ground lower.",
+      "canonical_reference_ids": [
+        "bunny_idle"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 21,
+      "label": "story page 21",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_21.png",
+      "sources": [
+        {
+          "id": "v22_art_sorting",
+          "path": "books/chapter_one/landscape/art/quality_v22/art_sorting.png",
+          "sha256": "e37b46fb56aadf3c66c6f2b6584c8fd145001376a24e9c20420a6292e6eeec66"
+        },
+        {
+          "id": "v22_bg_21_objects",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_21_objects.png",
+          "sha256": "f0b59e414e5802021af20dcdd06a6c7170be9825c61965a60f395681e96e4787"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "sorting Roshan",
+          "score": 4.8
+        },
+        {
+          "object": "messy table",
+          "score": 4.8
+        },
+        {
+          "object": "paint paper borders",
+          "score": 4.8
+        }
+      ],
+      "strengths": "Best coherent messy action, gripping/sorting and relevant borders.",
+      "observed_concerns": "No major anatomy/identity flaw. Tiny chipped top bubble minor.",
+      "repair_brief": "KEEP strong foreground/event banks; no novelty regeneration.",
+      "canonical_reference_ids": [
+        "roshan"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 22,
+      "label": "story page 22",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_22.png",
+      "sources": [
+        {
+          "id": "v22_scene_22_fit",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_22_fit.png",
+          "sha256": "55b50d90819968aa887e5831152071a04cd5ba9cecc5b7b0402ee8a016f57e5a"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.3,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.7
+        },
+        {
+          "object": "brush contact",
+          "score": 4.7
+        },
+        {
+          "object": "craft room",
+          "score": 4.6
+        },
+        {
+          "object": "purple spill",
+          "score": 4.2
+        }
+      ],
+      "strengths": "Stable costume/core colors and contact; orderly room.",
+      "observed_concerns": "Caption table clean but broad purple paint puddle still beside brush. Wide blank wall bland, not plot error.",
+      "repair_brief": "Local puddle removal/nearly gone trace or language last-spot timing. Tiny contextual background reaction optional; room unchanged.",
+      "canonical_reference_ids": [
+        "roshan",
+        "bunny_idle"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 23,
+      "label": "story page 23",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_23.png",
+      "sources": [
+        {
+          "id": "v27_door",
+          "path": "books/chapter_one/landscape/art/door_expression_v27/door.png",
+          "sha256": "e4312cfe20029842ca02cd53916910ca004960e4e96d0c412a715bc742da6394"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.6,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.7
+        },
+        {
+          "object": "shell door",
+          "score": 4.8
+        },
+        {
+          "object": "completed badges",
+          "score": 4.6
+        },
+        {
+          "object": "route lights",
+          "score": 4.7
+        }
+      ],
+      "strengths": "Correct shell door, completed rooms and converging route lights, no opera curtain.",
+      "observed_concerns": "Roshan small softer. Rainbow glow anticipates Puff reveal but accepted image. Caption crosses chandelier cord.",
+      "repair_brief": "Keep door staging, move type quiet. Tiny scared threshold bunny optional, no architecture change.",
+      "canonical_reference_ids": [
+        "bunny_idle",
+        "bunny_hop"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 24,
+      "label": "story page 24",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_24.png",
+      "sources": [
+        {
+          "id": "v26_puff_unwell",
+          "path": "books/chapter_one/landscape/art/language_v26/puff_unwell.png",
+          "sha256": "ac6ecf90d5a024f7bd343a26c7e3cd1600cb906aff3a5749ab89600dae23bb38"
+        },
+        {
+          "id": "v22_bg_25_final",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_25_final.png",
+          "sha256": "2d25a014b69dc46ac0fe9830e3912b1ee8b752bd81d4640174e681bbf92a40ed"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.7,
+      "objects": [
+        {
+          "object": "unwell Puff",
+          "score": 4.8
+        },
+        {
+          "object": "cowering bunny",
+          "score": 4.7
+        },
+        {
+          "object": "shell-hidden bunny",
+          "score": 4.8
+        },
+        {
+          "object": "attic props",
+          "score": 4.6
+        }
+      ],
+      "strengths": "Unwell drooping eyes fit care plot; two scared lower right, one shell hiding. Puff recognizable ears/curl/star/pearl hands.",
+      "observed_concerns": "Attic chest/books clean rather than dusty. Flattened bunny ears intentional pose, not identity loss.",
+      "repair_brief": "Keep main/fear actions; localized contextual dusty chest/book detail, no smudge symbol.",
+      "canonical_reference_ids": [
+        "bunny_idle"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 25,
+      "label": "story page 25",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_25.png",
+      "sources": [
+        {
+          "id": "v28_puff_reassurance",
+          "path": "books/chapter_one/landscape/revisions/v28_kindness/art/puff_reassurance.png",
+          "sha256": "fff3fc0511da753b5f11ccd271d15f8a4444c7d85d5562d90a03c79f713cbb61"
+        },
+        {
+          "id": "v22_bg_26_ground",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_26_ground.png",
+          "sha256": "41e9553c3c4a1cf1766659f91c1ee37c31b83211559758f8d66bdf0abfcdbf9f"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.7,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.8
+        },
+        {
+          "object": "star grip",
+          "score": 4.8
+        },
+        {
+          "object": "unwell Puff",
+          "score": 4.8
+        },
+        {
+          "object": "couch bunnies",
+          "score": 4.6
+        },
+        {
+          "object": "attic props",
+          "score": 4.6
+        }
+      ],
+      "strengths": "Clear care offer, soapy pink star, no attack sparkles; popcorn spectators.",
+      "observed_concerns": "Immediate sponge changes26. Tiny couch bunny curl/pearl topology must survive any border update.",
+      "repair_brief": "KEEP owner offer; harmonize following wash tools rather than this. Bind exact game couch for contextual border.",
+      "canonical_reference_ids": [
+        "roshan",
+        "pink_sponge",
+        "bunny_idle"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 26,
+      "label": "story page 26",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_26.png",
+      "sources": [
+        {
+          "id": "v27_scrub",
+          "path": "books/chapter_one/landscape/art/door_expression_v27/scrub.png",
+          "sha256": "dfa3717a4df2197b82c9730044284899ab0eee9aa86c37ff7c53dd8cddfe1e86"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.4,
+      "objects": [
+        {
+          "object": "Daddy",
+          "score": 4.8
+        },
+        {
+          "object": "Rumi",
+          "score": 4.8
+        },
+        {
+          "object": "Roshan",
+          "score": 4.6
+        },
+        {
+          "object": "Eagle",
+          "score": 4.6
+        },
+        {
+          "object": "happy Puff",
+          "score": 4.8
+        },
+        {
+          "object": "ceiling",
+          "score": 4.3
+        }
+      ],
+      "strengths": "Four helpers contact smiling Puff, adult identity stable.",
+      "observed_concerns": "Roshan yellow rectangle, Rumi pink rectangle. Eagle brush against beak without explicit wing grip, plausible carry. Ceiling join needs scrutiny.",
+      "repair_brief": "Bounded Roshan star tool, keep happy face and cast. Check ceiling and all prop contacts.",
+      "canonical_reference_ids": [
+        "pink_sponge",
+        "eagle_original",
+        "roshan",
+        "rumi",
+        "daddy"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 27,
+      "label": "story page 27",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_27.png",
+      "sources": [
+        {
+          "id": "R09_suds",
+          "path": "books/chapter_one/plan/source_art/R09_suds.png",
+          "sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.2,
+      "objects": [
+        {
+          "object": "four helpers",
+          "score": 4.6
+        },
+        {
+          "object": "covered Puff",
+          "score": 4.6
+        },
+        {
+          "object": "bubbles",
+          "score": 4.5
+        },
+        {
+          "object": "ceiling",
+          "score": 3.9
+        }
+      ],
+      "strengths": "Soap concealment before reveal preserved, clean palette.",
+      "observed_concerns": "Enlarged blurry upper masonry with faint horizontal change~y230, yellow sponge. Dense little froth marks noisy compared with stationery bubbles.",
+      "repair_brief": "Matched higher-density ceiling only, bounded star tool. Preserve covered stage; inspect froth at actual print size.",
+      "canonical_reference_ids": [
+        "pink_sponge",
+        "roshan"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 28,
+      "label": "story page 28",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_28.png",
+      "sources": [
+        {
+          "id": "R10_jump",
+          "path": "books/chapter_one/plan/source_art/R10_jump.png",
+          "sha256": "13ff639019cccadd0675aea4ed9550505c57a84ae666d647df6097bb18793889"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.3,
+      "objects": [
+        {
+          "object": "rainbow jump Puff",
+          "score": 4.8
+        },
+        {
+          "object": "helpers",
+          "score": 4.7
+        },
+        {
+          "object": "soap fountains",
+          "score": 4.5
+        },
+        {
+          "object": "ceiling",
+          "score": 3.9
+        }
+      ],
+      "strengths": "Rainbow body matches landing family, delighted four-helper reveal.",
+      "observed_concerns": "Same low-density ceiling and yellow tool. Bubble burst purposeful though little froth noisy.",
+      "repair_brief": "Ceiling and tool patch only, preserve jumping position and full cast.",
+      "canonical_reference_ids": [
+        "pink_sponge",
+        "rainbow_landing"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 29,
+      "label": "story page 29",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_29.png",
+      "sources": [
+        {
+          "id": "R11_land",
+          "path": "books/chapter_one/plan/source_art/R11_land.png",
+          "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.3,
+      "objects": [
+        {
+          "object": "landed Puff",
+          "score": 4.8
+        },
+        {
+          "object": "helpers",
+          "score": 4.7
+        },
+        {
+          "object": "settled floor",
+          "score": 4.4
+        },
+        {
+          "object": "ceiling",
+          "score": 3.9
+        }
+      ],
+      "strengths": "Exact canonical landing intact; same small rainbow identity.",
+      "observed_concerns": "Same ceiling softness/join. Yellow tool difference must remain if exact landing source preservation requires it.",
+      "repair_brief": "Only extension above untouched canonical scene. Do not alter29 main pixels for sponge uniformity; report remaining difference.",
+      "canonical_reference_ids": [
+        "rainbow_landing"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 30,
+      "label": "story page 30",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_30.png",
+      "sources": [
+        {
+          "id": "roshan_reflect_large",
+          "path": "books/chapter_one/landscape/art/identity_v21/roshan_reflect_large.png",
+          "sha256": "f8b13e20e329c1f07fc284a980c53af512e8596c28a945c2e4976d5eb52c64fb"
+        },
+        {
+          "id": "approved_rainbow_puff_cutout",
+          "path": "books/chapter_one/previews/2026-09-30/art/rainbow_puff_cutout.png",
+          "sha256": "c0d15aa35ab2056566a64c72d2ccfd690e65e8c5fa809c12e66b20ed87353135"
+        },
+        {
+          "id": "v22_bg_31_final",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_31_final.png",
+          "sha256": "6791a8e9f55136d129ef4a6794455724dfd26ab61d02479acabe1ed255af6c71"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.7,
+      "objects": [
+        {
+          "object": "Roshan speaking",
+          "score": 4.8
+        },
+        {
+          "object": "rainbow Puff",
+          "score": 4.8
+        },
+        {
+          "object": "puzzle bunnies",
+          "score": 4.7
+        }
+      ],
+      "strengths": "Clear eyeline, varied pose, rainbow shape/hues match landing, real cutouts.",
+      "observed_concerns": "Puff simplified/glossy vs dusty attic, but identity stable. Empty right bank intentional asymmetry.",
+      "repair_brief": "Keep main; small thematic right object only if meaningful, no arbitrary filler.",
+      "canonical_reference_ids": [
+        "rainbow_landing",
+        "bunny_idle"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 31,
+      "label": "story page 31",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_31.png",
+      "sources": [
+        {
+          "id": "roshan_wave_large",
+          "path": "books/chapter_one/landscape/art/identity_v21/roshan_wave_large.png",
+          "sha256": "ba50ca0bee70762120f7986ee8557654cc6e45be4ab2c006ee5791e2329486fc"
+        },
+        {
+          "id": "eagle_inviting",
+          "path": "books/chapter_one/landscape/art/personality_v20/eagle_inviting.png",
+          "sha256": "fb70f4660ad4a45ccb760c5e5e72dbb8f5f36c43e80e8c9a63a050e5a491b79b"
+        },
+        {
+          "id": "v22_bg_20_final",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_20_final.png",
+          "sha256": "a1bbf4ec53124c820874caaaaaccfab7441581068d1642876b3dc2dca987d1ad"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.5,
+      "objects": [
+        {
+          "object": "Roshan inviting",
+          "score": 4.8
+        },
+        {
+          "object": "stepping Eagle",
+          "score": 4.8
+        },
+        {
+          "object": "play bunnies",
+          "score": 4.7
+        },
+        {
+          "object": "hidden Lamma",
+          "score": 4.2
+        }
+      ],
+      "strengths": "Distinct happy Eagle step and clean Roshan hand anatomy. Toy/bunny interaction relevant.",
+      "observed_concerns": "White tiny visitor head blocked by vertical spindle, weak plush ears/muzzle. Could read as toy face. Left bunny ear84.8% minor exception.",
+      "repair_brief": "Bounded Lamma peek behind different toy/shell with horizontal plush ear and eyelashes, small no clues; preserve strong bunnies/toys.",
+      "canonical_reference_ids": [
+        "lamma",
+        "bunny_idle",
+        "eagle_original"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 32,
+      "label": "story page 32",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_32.png",
+      "sources": [
+        {
+          "id": "bubble_nap",
+          "path": "books/chapter_one/landscape/art/personality_v20/bubble_nap.png",
+          "sha256": "938a33de574edef7bde90ddbe89e7616e1448d26dc33b62f6415f694b0c344df"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.4,
+      "objects": [
+        {
+          "object": "sleep Daddy",
+          "score": 4.8
+        },
+        {
+          "object": "sleep Rumi",
+          "score": 4.8
+        },
+        {
+          "object": "sleep Roshan",
+          "score": 4.8
+        },
+        {
+          "object": "sleep Eagle",
+          "score": 4.7
+        },
+        {
+          "object": "rainbow Puff",
+          "score": 4.8
+        },
+        {
+          "object": "two sleep bunnies",
+          "score": 4.0
+        },
+        {
+          "object": "bubble pile",
+          "score": 4.6
+        }
+      ],
+      "strengths": "All main friends rest together with convincing contact and warm bubble mood.",
+      "observed_concerns": "Little sleeping bunnies lack canonical top spiral ears/forehead curl; irregular sleeping blobs with tiny side spirals. Highest remaining specific bunny drift.",
+      "repair_brief": "Bounded only two lower-corner bunnies: canonical cloud bodies, forehead curl, relaxed spiral ears, pearl hands, closed eyes and bubble occlusion. Main nap unchanged.",
+      "canonical_reference_ids": [
+        "bunny_idle",
+        "bunny_hop"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    },
+    {
+      "page_index": 33,
+      "label": "rear cover",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_33.png",
+      "sources": [
+        {
+          "id": "v23_cover_h",
+          "path": "books/chapter_one/landscape/art/story_detail_v23/cover_h.png",
+          "sha256": "6bb61625f4d052e9d7abd6f3669e692652fc703ef0b64113fea4443f4cdab923"
+        }
+      ],
+      "baseline_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "Roshan",
+          "score": 4.8
+        },
+        {
+          "object": "Daddy",
+          "score": 4.8
+        },
+        {
+          "object": "Rumi",
+          "score": 4.7
+        },
+        {
+          "object": "Eagle",
+          "score": 4.8
+        },
+        {
+          "object": "two bunnies",
+          "score": 4.8
+        },
+        {
+          "object": "tabletop",
+          "score": 4.8
+        }
+      ],
+      "strengths": "H is integrated ensemble, coherent aqua/lavender/pink, canonical bunny ear/curl/pearl topology.",
+      "observed_concerns": "Rumi rounder younger than atlas, Roshan shell brooch differs interiors but accepted cover family.",
+      "repair_brief": "KEEP owner-selected H exact. No cover regeneration.",
+      "canonical_reference_ids": [
+        "rumi"
+      ],
+      "inspection": "Whole rendered page inspected at1512x1080 plus5contact sheets; selected canonical refs inspected. No clinical or owner approval implied."
+    }
+  ],
+  "summary": {
+    "page_count": 34,
+    "minimum_internal_visual_craft": 3.8,
+    "maximum_internal_visual_craft": 4.8,
+    "mean_internal_visual_craft": 4.51,
+    "binary_treatment": "All34presently full art or true contourcutouts; no reduced scenic rectangles found.",
+    "waterfall_correction": "p12left orange/red lane IS clear; previous all-blocked impression withdrawn."
+  }
+}

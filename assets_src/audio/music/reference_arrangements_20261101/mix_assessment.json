@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "cues": [
+    {
+      "id": "opera_house",
+      "loudness": {
+        "input_i": "-19.89",
+        "input_tp": "-3.91",
+        "input_lra": "3.10",
+        "input_thresh": "-30.00",
+        "output_i": "-18.18",
+        "output_tp": "-3.00",
+        "output_lra": "3.20",
+        "output_thresh": "-28.28",
+        "normalization_type": "dynamic",
+        "target_offset": "0.18"
+      },
+      "master_gain_db": 1.64,
+      "predicted_peak_guard_db": 1.53,
+      "compression_median_db": 0.278,
+      "compression_p99_db": 1.064,
+      "raw_sha256": "9eb08e7919f8234416f88a4444c45e642cd4fc78560bb97d47aa1d1ebec62e4d",
+      "glue_sha256": "4f48b499faac93de75da51d73046b137401bd0125feb725155ac61b017dd4087"
+    },
+    {
+      "id": "sky_lagoon",
+      "loudness": {
+        "input_i": "-20.63",
+        "input_tp": "-4.22",
+        "input_lra": "3.10",
+        "input_thresh": "-30.74",
+        "output_i": "-17.53",
+        "output_tp": "-3.00",
+        "output_lra": "3.20",
+        "output_thresh": "-27.60",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.47"
+      },
+      "master_gain_db": 2.38,
+      "predicted_peak_guard_db": 1.96,
+      "compression_median_db": 0.232,
+      "compression_p99_db": 0.996,
+      "raw_sha256": "d71398676f168e4e462c4ffc73b764c87ce5a9993d82deceb2f50f4b33a09824",
+      "glue_sha256": "55e2982019183d8b309db6c66ceb773379fe73c9194d7bffe00ec5b2372aa30a"
+    },
+    {
+      "id": "castle",
+      "loudness": {
+        "input_i": "-20.77",
+        "input_tp": "-2.69",
+        "input_lra": "4.90",
+        "input_thresh": "-30.92",
+        "output_i": "-17.20",
+        "output_tp": "-3.00",
+        "output_lra": "4.30",
+        "output_thresh": "-27.28",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.80"
+      },
+      "master_gain_db": 2.52,
+      "predicted_peak_guard_db": 3.63,
+      "compression_median_db": 0.362,
+      "compression_p99_db": 1.355,
+      "raw_sha256": "d00405a7798f334b51ddbd5ceb0cc0a73f459e6e8ece4a7ca4c8c9a7e9378a41",
+      "glue_sha256": "17147bc574af72fbe10e9e637cf464df35eb1508ac4ff9327aa0cb0e584a1248"
+    }
+  ]
+}

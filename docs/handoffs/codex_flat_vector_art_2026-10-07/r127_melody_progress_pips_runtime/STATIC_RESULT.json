@@ -1,0 +1,58 @@
+{
+  "state": "PASS",
+  "mode": "Complete prior source-independent static prefix reused with frozen34013-entry proof; only verifier numeric bins changed, other34012 original entries unchanged. Fresh current parser/inference/authority/development above; current real analyzer/2D/all82 below. No assertion/floor removal.",
+  "source_bound_prior_static_result": {
+    "state": "PASS",
+    "exit_code": 0,
+    "log_sha256": "a873a0a30a08b41efbbb002c32a8f5899b3e7d7c3452f50f78d32fe02e7a59ed",
+    "prefix_sha256": "ce6aaf22e73ea76062e9a81a208208345889670946ea69d5da3fa1c5a353a243",
+    "ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e"
+  },
+  "original_prefix_log_sha256": "a873a0a30a08b41efbbb002c32a8f5899b3e7d7c3452f50f78d32fe02e7a59ed",
+  "recovery_record_sha256": "0dcb841fd16dd50d9852984518d0867ea54046a1ffe0801a3e17dee7e7f49048",
+  "fresh_changed_static_checks": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/games/melody.gd",
+        "scripts/probe_melody.gd",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\docs\\handoffs\\codex_flat_vector_art_2026-10-07\\r127_melody_progress_pips_runtime\\capture_pips.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/games/melody.gd",
+        "scripts/probe_melody.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "35edd0ae4dfe9bfbcbce50cf3f9a1a482377e435287da0e6d3b2e02bc1a335c3"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "bfdebdcdf9b9fe6339c10a3e217412a82484429cf183c3865a29b7ead7bf2936"
+    }
+  ]
+}

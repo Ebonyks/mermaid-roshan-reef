@@ -1,0 +1,25 @@
+{
+  "stable_id": "FV-8E1550C50601",
+  "source_revision": "27c88288bf6e39582072811443df79919e7bbb89",
+  "intent": "precise-object static edit/extraction; no full-scene redraw",
+  "inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "assets_src/imagegen/melody_star_20261102/references/actual_melody_source_1280.png",
+      "sha256": "affa39bddaf3f04b2d5c168fa76b6e7220a85cba3b823e941ac2826f2c821e3d",
+      "role": "Edit target: only the existing five-point gold star. Actual scene gives shape, scale, palette and context; no other scene pixels in output.",
+      "source": "Exact baseline27c88288 source frame published at0e8095e656aaae795076b98b202cc453c3234e06; SOURCE_CONTEXT_REUSE verifies5062 raw exact."
+    },
+    {
+      "name": "IMAGE_2",
+      "path": "assets_src/imagegen/melody_star_20261102/references/painted_theatre_material.png",
+      "sha256": "32f8f27ec6624aefcd25bd8a67fb43299c6c94fa770edcacc60aa7b4e8bb2297",
+      "role": "Supporting painted material/edge-finish reference only. Retain gold star identity; do not copy valance/rainbow shapes or colors.",
+      "source": "R121 retained take2 exec-3755c832-4e33-4ee0-a13e-42d31cbdf67f; source candidate only, not owner/whole-scene acceptance."
+    }
+  ],
+  "observed_weakness": "Actual source star is a uniform gold polygon with dark polygon outline and white code-drawn glint beside detailed painted scene/actors. Source StageStarCanvas has no action/color/state hooks; existing static placement/diameter/z and noninteraction remain.",
+  "relevant_existing_reference_observation": "assets/terrain/star_detail.png is an opaque orange circular/ring terrain-detail texture, not the five-point stage-star role. This observation is context, not a generation prerequisite.",
+  "protected_originals_modified": false,
+  "Dev_integrated": false
+}

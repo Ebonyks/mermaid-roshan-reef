@@ -1,0 +1,24 @@
+{
+  "stable_id": "FV-864287E0D0F3",
+  "source_revision": "27c88288bf6e39582072811443df79919e7bbb89",
+  "inputs": [
+    {
+      "name": "IMAGE_1",
+      "path": "assets_src/imagegen/melody_footlights_20261102/references/actual_melody_source_1280.png",
+      "sha256": "affa39bddaf3f04b2d5c168fa76b6e7220a85cba3b823e941ac2826f2c821e3d",
+      "role": "Appearance/identity and actual runtime context: only the13 colored footlights beneath the actors. Extract seven palette roles, not other stage pixels.",
+      "source": "Exact current baseline27c88288 frame reused from0e8095e6 with5062 raw-exact file proof."
+    },
+    {
+      "name": "IMAGE_2",
+      "path": "assets_src/imagegen/melody_footlights_20261102/references/painted_theatre_material.png",
+      "sha256": "32f8f27ec6624aefcd25bd8a67fb43299c6c94fa770edcacc60aa7b4e8bb2297",
+      "role": "Painted material/brushwork finish only; no rainbow arch/valance layout or palette substitution.",
+      "source": "R121 source-candidate native take2, exec-3755c832-4e33-4ee0-a13e-42d31cbdf67f; not owner-approved."
+    }
+  ],
+  "observed_weakness": "Actual FootlightsCanvas uses one uniformly navy Line2D plus13 code-drawn navy/color/glint circles beside painted scene/actors. No action hooks exist;13 fixed30px globes and36px support retain original geometry and noninteraction.",
+  "intended_rendering": "Each palette globe is one complete source-authored Sprite2D, repeated in the original13-instance order. Painted rail source supplies a bounded Canvas texture, preserving end contours at current widths. No procedural display pixels or runtime relighting.",
+  "protected_originals_modified": false,
+  "Dev_integrated": false
+}
