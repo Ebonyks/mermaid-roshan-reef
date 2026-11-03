@@ -6,6 +6,10 @@ This separate study covers the original 1994 SNES Donkey Kong Country soundtrack
 
 The [soundtrack revision guide](SOUNDTRACK_REVISION_GUIDE_V2.md) is the current complete outline: all 30 cues first by theme, melody, harmony, instruments and tone, then by cast, section roles, handoffs, rests and performance. It incorporates owner-authorized mild liberties, selective swing, phrase-level irregularity and named Cuban/African popular-music studies. The [117 player calls](revision_call_sheets_v2.json) retain exact profile revisions and honest program/articulation readiness; the [influence register](performance_references_v2.json) separates documented context from chosen transfer principles. Full native timbre matches and rendered musical acceptance remain work to do.
 
+## Six track production
+
+The owner’s actual-production commission is recorded in the [six-track production report](SIX_TRACK_PRODUCTION_2026-11-03.md). It revises Simian Segue, DK Island Swing, Aquatic Ambiance and Fear Factory and adds Life in the Mines and Funky’s Fugue. The pass retains 69 full-song renders, 11–13 per cue, including rejected initial source diagnostics, source-corrected baselines, expressive performances and alternatives. The [production receipt](production_receipt_v1.json), [actual performer calls](production_call_sheets_v3.json), [iteration register](production_iterations_v1.json) and [measurements](production_measurements_v1.json) identify the private owner-review audio and editable material. Subjective source/tone and musical acceptance remain open; no runtime score is replaced.
+
 ## Adopted working interpretations
 
 The [interpretive MIDI review](INTERPRETIVE_REVIEW.md) now adopts a practical direction for every entry, supported by 52 original-audio excerpt opinions, 105 parsed MIDI URL inputs representing 75 distinct files, controlled tonal/timing comparisons and later-section checks. The [working register](working_interpretations.json) supplies instrument roles, selected scaffolds and revision triggers. Ambiguity leads to a supported choice that can change; missing historical identity or MIDI does not block design.
