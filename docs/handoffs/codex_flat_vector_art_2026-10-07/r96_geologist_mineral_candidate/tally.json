@@ -1,7 +1,7 @@
 {
   "schema": "reef.flat_vector_tally/1",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
-  "revision": "FV-AUDIT-20261104-R136-PAINTED-RIVERBED-SOURCE",
+  "revision": "FV-AUDIT-20261104-R136-RIVERBED-DEV",
   "status_lanes": [
     "NEEDS_CONTEXT_REVIEW",
     "IDENTIFIED",
@@ -10375,7 +10375,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 39 published bounded source artifacts, 21 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native events total 7,669 bounded and 4,340 excluded, with 12,009 retained.",
+  "current_effective_summary": "SUMMARY.json. 39 published bounded source artifacts, 22 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,669 bounded and 4,340 excluded, with 12,009 retained.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -11572,7 +11572,7 @@
     "mission_complete": false,
     "recorded_at_utc": "2026-10-29T06:35:35.079787+00:00"
   },
-  "partial_dev_artifacts_current_summary": 21,
+  "partial_dev_artifacts_current_summary": 22,
   "r102_mint_runtime": {
     "stable_id": "FV-66629DC58A20",
     "scope": "First mint PAN specimen only; blue/lavender and shared helper consumers remain open.",
@@ -13683,7 +13683,7 @@
     "excluded": 2,
     "retained": 28
   },
-  "new_partial_Dev_artifacts_this_revision": 0,
+  "new_partial_Dev_artifacts_this_revision": 1,
   "r120_parent_receipt_revision": "3c3b39838b2ceacb13281a83957442662ca2f5b9",
   "r120_melody_curtains_runtime": {
     "stable_ids": [
@@ -16521,7 +16521,7 @@
     },
     "integration": {
       "source_work_branch": true,
-      "Dev": false,
+      "Dev": true,
       "canonical_runtime_changed": false,
       "draw_functions": [
         "_draw_river",
@@ -16535,7 +16535,8 @@
       ],
       "brush_radius": 46,
       "four_neighbor_rules_preserved": true,
-      "old_flat_riverbed_fallback": false
+      "old_flat_riverbed_fallback": false,
+      "Dev_revision": "df6f50e459624562051d61993469a4c5ec663909"
     },
     "runtime_evidence": {
       "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
@@ -16555,7 +16556,10 @@
       "final_2D": "PASS_NO_REGRESSION",
       "full_result": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/checks/full_validation/FINAL_RESULT.json",
       "CI_run": 41807337519,
-      "CI_status_at_snapshot": "in_progress"
+      "CI_status_at_snapshot": "in_progress",
+      "exact_source_CI_result": "success",
+      "Dev_CI_run": 41817822043,
+      "Dev_CI_status_at_snapshot": "in_progress"
     },
     "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/FRAME_INDEX.json",
     "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/VISUAL_REVIEW.json",
@@ -16588,5 +16592,83 @@
     "owner": null,
     "formal_QA11": null,
     "new_counts": 0
+  },
+  "r136_geologist_riverbed_dev_integration": {
+    "state": "RIVERBED_FAST_FORWARDED_TO_DEV",
+    "verified_at": "2026-11-04T11:00:12.365925+00:00",
+    "revision": "df6f50e459624562051d61993469a4c5ec663909",
+    "previous_Dev_head": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+    "remote_ref": "refs/heads/dev",
+    "exact_source_CI": {
+      "id": 41807337519,
+      "head": "df6f50e459624562051d61993469a4c5ec663909",
+      "head_branch": "codex/flat-vector-geologist-riverbed-20261104",
+      "event": "push",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-11-04T10:55:25Z"
+    },
+    "exact_Dev_CI_at_snapshot": {
+      "id": 41817822043,
+      "head_sha": "df6f50e459624562051d61993469a4c5ec663909",
+      "head_branch": "dev",
+      "conclusion": null,
+      "status": "in_progress",
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41817822043",
+      "event": "push",
+      "updated_at": "2026-11-04T10:59:04Z"
+    },
+    "prior_canonical_CI": {
+      "run": 41808195233,
+      "head": "c9985e4dfc0c1592486eb380233326ffb9981c8b",
+      "status": "completed",
+      "conclusion": "success",
+      "attempt": 1,
+      "head_branch": "codex/flat-vector-r6-20261012",
+      "updated_at": "2026-11-04T10:26:05Z"
+    },
+    "source_CI_attempt_1": {
+      "head": "df6f50e459624562051d61993469a4c5ec663909",
+      "run": 41807337519,
+      "attempt": 1,
+      "music_job": 126497533114,
+      "gameplay_job": 126497532840,
+      "failure": "FileNotFoundError from tools/build_area_music.py _find_ffmpeg: FFmpeg was not found. Pass --ffmpeg or set REEF_FFMPEG to the pinned executable.",
+      "music_workflow_input_diff": [],
+      "observed_at_utc": "2026-11-04T09:50:11.5595907+00:00",
+      "next": "Wait for the exact original gameplay job to finish. Only after the run is terminal, retry failed jobs on the same SHA without touching workflow files or repeating healthy gameplay."
+    },
+    "source_CI_attempt_2_jobs": [
+      {
+        "id": 126528625435,
+        "name": "area-music-provenance",
+        "head": "df6f50e459624562051d61993469a4c5ec663909",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 126528635099,
+        "name": "probes",
+        "head": "df6f50e459624562051d61993469a4c5ec663909",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "older_combined_CI": {
+      "run": 41757765879,
+      "head": "9474e440b65445882e2d15f0a41e43827f8551a3",
+      "conclusion": "failure",
+      "Dev_integrated": false,
+      "scope": "Separate earlier combined updates"
+    },
+    "apk_verified": false,
+    "stable_id": "FV-DA16E1E99C6D",
+    "variant": "geologist_river",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
   }
 }

@@ -1,0 +1,52 @@
+{
+  "id": "flat-vector-r136-dev-integration-20261104",
+  "baseline": "c9985e4dfc0c1592486eb380233326ffb9981c8b",
+  "scope": "Record the exact green riverbed source commit now on Dev. Update only canonical evidence, its current pointer, and one bounded Dev artifact count.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-03",
+    "DL-VIS-06",
+    "DL-MED-05",
+    "DL-ASSET-06",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_dev_integration/DEV_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_dev_integration/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_dev_integration/PRIOR_CANONICAL_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_dev_integration/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Verify exact GitHub source CI success and remote Dev fast-forward",
+      "result": "PASS",
+      "evidence": "r136_geologist_riverbed_dev_integration/DEV_VERIFICATION.json at df6f50e459624562051d61993469a4c5ec663909"
+    },
+    {
+      "command": "Canonical document authority and AUTO/HEAD audit coverage",
+      "result": "PASS",
+      "evidence": "Authority, AUTO and HEAD passed on the staged canonical files. Final metadata and coverage gates apply to the completed manifest."
+    }
+  ],
+  "acceptance_gaps": "The painted Geologist riverbed is on Dev. Dev CI and the matching APK are pending. Natural-world and training visual routes, formal QA11, device, child, and owner review remain open. Zero accepted artwork removals."
+}

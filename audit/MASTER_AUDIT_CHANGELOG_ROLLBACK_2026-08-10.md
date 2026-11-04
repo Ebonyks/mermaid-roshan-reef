@@ -2795,3 +2795,5 @@ R135 Garden Dev integration receipt for [CHG-141](#chg-141--painted-garden-backd
 ## CHG-142 — Painted Geologist riverbed
 
 [Exact source rollback](https://github.com/Ebonyks/mermaid-roshan-reef/blob/df6f50e459624562051d61993469a4c5ec663909/audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md#chg-142--painted-geologist-riverbed) restores the river drawing and texture-loading changes to 4af86a105c5b704299a4f750bd18bf00c5f6c00c and removes the named atlas/import after reference verification. Preserve generated masters and the first rejected layout. The canonical delta can be reverted independently from 43827895f49f9eea924dd31ce57be02e9d58f515. Natural-world and training visual routes, formal QA11, physical-device performance, child and owner review remain open.
+
+R136 Geologist Dev integration receipt for [CHG-142](#chg-142--painted-geologist-riverbed). Dev now includes the tested source df6f50e459624562051d61993469a4c5ec663909. The bounded rollback instructions remain in CHG-142. [Integration evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_dev_integration/DEV_VERIFICATION.json).

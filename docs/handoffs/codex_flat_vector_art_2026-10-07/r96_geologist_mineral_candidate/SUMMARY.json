@@ -14,29 +14,29 @@
   "retained_excluded": 4340,
   "retained_native_events": 12009,
   "existing_sample_work_branch_implemented": 39,
-  "known_implementation_count_scope": "39 published bounded source artifacts, 21 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown.",
+  "known_implementation_count_scope": "39 published bounded source artifacts, 22 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown.",
   "samples_awaiting_review_global": null,
   "approved": 0,
-  "dev_integrated": 21,
+  "dev_integrated": 22,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261104-R136-PAINTED-RIVERBED-SOURCE",
+  "revision": "FV-AUDIT-20261104-R136-RIVERBED-DEV",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
   "new_alias_credits": 0,
   "new_partial_role_credit": 0,
-  "new_native_frames": 50,
-  "new_bounded_contexts": 36,
-  "new_excluded_diagnostics": 14,
+  "new_native_frames": 0,
+  "new_bounded_contexts": 0,
+  "new_excluded_diagnostics": 0,
   "source_views_here": 2,
   "existing_context_frames_reinspected_here": 54,
-  "new_samples": 1,
-  "new_runtime_implementations": 1,
-  "new_generation_calls": 2,
+  "new_samples": 0,
+  "new_runtime_implementations": 0,
+  "new_generation_calls": 0,
   "reuse_ready_whole_role": false,
   "drawing_required_global": null,
-  "chosen_next_consumer": "Follow exact source CI 41807337519, then green Dev integration.",
+  "chosen_next_consumer": "Follow exact Dev CI 41817822043 and the matching APK. Continue selected painted replacements when production is idle.",
   "mission_complete": false,
   "dev_integrated_unit": "Partial bounded implementation artifacts, not complete artwork-role replacements or accepted removals.",
   "dev_integrated_complete_named_roles": 0,
@@ -61,7 +61,8 @@
     "r116_geologist_layered_rock_runtime",
     "r117_dolls_mat_runtime",
     "r118_dolls_cradle_runtime",
-    "r135_garden_backdrop_runtime"
+    "r135_garden_backdrop_runtime",
+    "r136_geologist_riverbed_runtime"
   ],
   "r92_dev_ci_timeout": {
     "state": "DEV_ATTEMPT1_CANCELLED_CONFIRMED_55MIN_LIMIT_RETRY_PENDING",
@@ -2164,7 +2165,7 @@
     "mission_complete": false,
     "remaining": "Cavebackground/strata/beams/floor, actorstaging/contact, floating/off-target invitations, riverexcavation/connectedchannel, remaining art and natural/training/allroutes/performance/formalQA11/device/child/owner/global acceptance remain OPEN. Existing whole sources keep provisional scope. No backgroundresolution, actorcontact or acceptedremoval credit."
   },
-  "new_runtime_PNG_this_revision": 1,
+  "new_runtime_PNG_this_revision": 0,
   "r116_parent_receipt_revision": "cd3e905da6404be3d93551cd3ba78564da3a9312",
   "r116_layered_rock_runtime": {
     "stable_id": "FV-192FA763EF56",
@@ -2512,7 +2513,7 @@
     },
     "remaining": "Entire campaign parked afterR118 until owner resumes afterdemo. Future sourceCI/currentDev reconciliation/integration, naturalroutes/formalQA11/device/child/owner/global denominators remainOPEN. No new art or engine suite for preservation bookkeeping."
   },
-  "new_partial_Dev_artifacts": 0,
+  "new_partial_Dev_artifacts": 1,
   "production_hold": "Latest owner authorizes recent completed green updates to Dev and continuing art; prior Devfreeze is historical. No image/QA/device/child/owner acceptance inferred.",
   "r120_parent_receipt_revision": "3c3b39838b2ceacb13281a83957442662ca2f5b9",
   "r120_melody_curtains_runtime": {
@@ -5445,7 +5446,7 @@
     },
     "integration": {
       "source_work_branch": true,
-      "Dev": false,
+      "Dev": true,
       "canonical_runtime_changed": false,
       "draw_functions": [
         "_draw_river",
@@ -5459,7 +5460,8 @@
       ],
       "brush_radius": 46,
       "four_neighbor_rules_preserved": true,
-      "old_flat_riverbed_fallback": false
+      "old_flat_riverbed_fallback": false,
+      "Dev_revision": "df6f50e459624562051d61993469a4c5ec663909"
     },
     "runtime_evidence": {
       "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
@@ -5479,7 +5481,10 @@
       "final_2D": "PASS_NO_REGRESSION",
       "full_result": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/checks/full_validation/FINAL_RESULT.json",
       "CI_run": 41807337519,
-      "CI_status_at_snapshot": "in_progress"
+      "CI_status_at_snapshot": "in_progress",
+      "exact_source_CI_result": "success",
+      "Dev_CI_run": 41817822043,
+      "Dev_CI_status_at_snapshot": "in_progress"
     },
     "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/FRAME_INDEX.json",
     "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/VISUAL_REVIEW.json",
@@ -5507,5 +5512,94 @@
     "owner": null,
     "formal_QA11": null,
     "new_counts": 0
+  },
+  "r136_geologist_riverbed_dev_integration": {
+    "state": "RIVERBED_FAST_FORWARDED_TO_DEV",
+    "verified_at": "2026-11-04T11:00:12.365925+00:00",
+    "revision": "df6f50e459624562051d61993469a4c5ec663909",
+    "previous_Dev_head": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+    "remote_ref": "refs/heads/dev",
+    "exact_source_CI": {
+      "id": 41807337519,
+      "head": "df6f50e459624562051d61993469a4c5ec663909",
+      "head_branch": "codex/flat-vector-geologist-riverbed-20261104",
+      "event": "push",
+      "attempt": 2,
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-11-04T10:55:25Z"
+    },
+    "exact_Dev_CI_at_snapshot": {
+      "id": 41817822043,
+      "head_sha": "df6f50e459624562051d61993469a4c5ec663909",
+      "head_branch": "dev",
+      "conclusion": null,
+      "status": "in_progress",
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41817822043",
+      "event": "push",
+      "updated_at": "2026-11-04T10:59:04Z"
+    },
+    "prior_canonical_CI": {
+      "run": 41808195233,
+      "head": "c9985e4dfc0c1592486eb380233326ffb9981c8b",
+      "status": "completed",
+      "conclusion": "success",
+      "attempt": 1,
+      "head_branch": "codex/flat-vector-r6-20261012",
+      "updated_at": "2026-11-04T10:26:05Z"
+    },
+    "source_CI_attempt_1": {
+      "head": "df6f50e459624562051d61993469a4c5ec663909",
+      "run": 41807337519,
+      "attempt": 1,
+      "music_job": 126497533114,
+      "gameplay_job": 126497532840,
+      "failure": "FileNotFoundError from tools/build_area_music.py _find_ffmpeg: FFmpeg was not found. Pass --ffmpeg or set REEF_FFMPEG to the pinned executable.",
+      "music_workflow_input_diff": [],
+      "observed_at_utc": "2026-11-04T09:50:11.5595907+00:00",
+      "next": "Wait for the exact original gameplay job to finish. Only after the run is terminal, retry failed jobs on the same SHA without touching workflow files or repeating healthy gameplay."
+    },
+    "source_CI_attempt_2_jobs": [
+      {
+        "id": 126528625435,
+        "name": "area-music-provenance",
+        "head": "df6f50e459624562051d61993469a4c5ec663909",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 126528635099,
+        "name": "probes",
+        "head": "df6f50e459624562051d61993469a4c5ec663909",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "older_combined_CI": {
+      "run": 41757765879,
+      "head": "9474e440b65445882e2d15f0a41e43827f8551a3",
+      "conclusion": "failure",
+      "Dev_integrated": false,
+      "scope": "Separate earlier combined updates"
+    },
+    "apk_verified": false,
+    "stable_id": "FV-DA16E1E99C6D",
+    "variant": "geologist_river",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "r136_prior_integration_local_fields": {
+    "revision": "FV-AUDIT-20261104-R136-PAINTED-RIVERBED-SOURCE",
+    "new_native_frames": 50,
+    "new_bounded_contexts": 36,
+    "new_excluded_diagnostics": 14,
+    "new_samples": 1,
+    "new_runtime_implementations": 1,
+    "new_generation_calls": 2,
+    "chosen_next_consumer": "Follow exact source CI 41807337519, then green Dev integration.",
+    "known_implementation_count_scope": "39 published bounded source artifacts, 21 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown."
   }
 }
