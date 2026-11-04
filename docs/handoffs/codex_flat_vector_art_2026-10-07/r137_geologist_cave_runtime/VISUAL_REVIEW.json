@@ -1,0 +1,57 @@
+{
+  "state": "PASS_AGENT_BOUNDED_VISUAL_REVIEW_EXTERNAL_ACCEPTANCE_OPEN",
+  "stable_id": "FV-14664183159D",
+  "baseline": "df6f50e459624562051d61993469a4c5ec663909",
+  "candidate_sha256": "b530d12668ce92208a9dc52b8a13f65bc062e1be4258a877338fa5375759b5e9",
+  "actual_frames_inspected": 36,
+  "configured_cases": 20,
+  "configured_checks": 556,
+  "paired_state_frames": 18,
+  "axes": {
+    "contour": {
+      "before": "Hard-edged zigzag bands and straight spotlight polygons.",
+      "after": "Soft irregular painted rock strata with no hard overlay in the cave backdrop."
+    },
+    "material": {
+      "before": "Flat wall and floor color blocks.",
+      "after": "Brush-modeled limestone depth and distinct stone planes, coherent with the work slab."
+    },
+    "palette": {
+      "before": "Flat navy, lilac and plum.",
+      "after": "The same cool cave family with a warmer floor and restrained mica tones. Bright stations stay distinguishable."
+    },
+    "light": {
+      "before": "Broad colored spotlight polygons.",
+      "after": "Light is painted into the stone. No separate cave beams or brighter competing source."
+    },
+    "perspective": {
+      "before": "Schematic theatre-like walls behind the fixed camera.",
+      "after": "Overhead strata and a continuous back-to-front floor, with the original fixed world geometry."
+    },
+    "scale": {
+      "before": "Wall spans the fixed 1280 by 720 playfield.",
+      "after": "Same field and aspect. Native 1664 by 936 crop exceeds the fixed field without enlargement."
+    },
+    "contact": {
+      "before": "Station objects and existing actors had no distinct floor plane.",
+      "after": "A painted floor supports the station row. The imp's elevated action pose and some pre-existing prop/actor overlap remain separate contact work."
+    },
+    "occlusion": {
+      "before": "Work slab hides room props through the task guard.",
+      "after": "The same guard and props keep exact ownership. The original curtain and foreground play over the painted cave. No duplicate room items are baked in."
+    },
+    "readability": {
+      "before": "Striping and beams cross the figures and invitation.",
+      "after": "Quiet background improves figure/ground separation. The shared invitation ring and wide viewport side fill remain separately scoped."
+    },
+    "action_state": {
+      "before": "Overview, River, Fossil, Pan, Geode and staged result share flat cave geometry.",
+      "after": "The plate is stable across all these states. Activity states, foreground visibility, casts, and result framing retain their existing behavior."
+    }
+  },
+  "single_fixed_native_view_only": true,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "formal_QA11": null
+}

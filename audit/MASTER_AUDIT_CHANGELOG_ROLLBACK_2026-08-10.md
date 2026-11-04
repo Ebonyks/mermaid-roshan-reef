@@ -2324,3 +2324,7 @@ Rollback restores only the exact baseline blocks in _mg2d_open and _mg_build_gar
 ## CHG-142 — Painted Geologist riverbed
 
 [Riverbed candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md) changes the visual representation of existing excavation cells only. Baseline 4af86a105c5b704299a4f750bd18bf00c5f6c00c. To roll back, restore the river drawing and texture-loading changes to that baseline and remove the named atlas/import from runtime after checking references. Preserve both generated sources and the rejected first layout.
+
+## CHG-143 — Painted Geologist cave backdrop
+
+[Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) replaces only the fixed cave background on baseline df6f50e459624562051d61993469a4c5ec663909. To roll back, restore the named backdrop script delta and remove the two cave PNGs and sidecars after checking references. Preserve the full native source, evidence, and approved station props.

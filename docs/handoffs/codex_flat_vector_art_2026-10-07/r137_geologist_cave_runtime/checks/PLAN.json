@@ -1,0 +1,39 @@
+{
+  "stable_id": "FV-14664183159D",
+  "baseline": "df6f50e459624562051d61993469a4c5ec663909",
+  "branch": "codex/flat-vector-geologist-cave-20261104",
+  "scope": "Geologist fixed-camera cave background, including flat wall/floor/strata and broad spotlights. Preserve all painted station props, action overlays, actor identities, staging, click targets and save state.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-LAY-05",
+    "DL-LAY-06",
+    "DL-LAY-09",
+    "DL-MED-05",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-PERF-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "native_resolution": "Single fixed view, no scrolling panorama. Aim full native 16:9 plate with no artificial enlargement, preserved native source and non-overlapping tiles <=1024. Do not claim the 2048x2048 multi-screen rule achieved.",
+  "required_evidence": "Source-bound overview and action at both widths for four phases, same-scene ten-axis review, exact import/parser/analyzer/82/audit/2D, immutable anonymous GitHub delivery. Keep natural/training/formal/device/child/owner evidence independent.",
+  "source_controller_sha256": "401d83df5bc25851a26e8a5d5abb6319a66bc05059510de65c48381aeed0ba25",
+  "source_fixture_revision": "df6f50e459624562051d61993469a4c5ec663909",
+  "source_fixture_sha256": "0843b2b2e55c6b69aa2dacde8f71ec0da9f6c8bca5264a6c8991e0aca860e4ae",
+  "actual_fixture_sha256": "25056dcd598ce0cdc2fb93aea701ed6ea53c55f1e64f732cc95dbaaa4d679065",
+  "neighbor_sha256": {
+    "assets/opera/worlds/props/geologist_work_slab_painted.png": "ed8c46db142198807f16fd4762940cfc03466ff57f8cd6f862f52dc06343afb4",
+    "assets/opera/worlds/props/geologist_crystal_gallery_painted.png": "6eae2e93fdafdfb3a059d3968de1ec39d92174035d7f6a211d1d9b828024c900"
+  }
+}

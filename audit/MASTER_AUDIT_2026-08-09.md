@@ -187,6 +187,7 @@ Owner-directed Racer integration (2026-10-22): [scope and verification](../desig
 
 | Painted Garden backdrop | [R135 candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/README.md) | Existing FV-BBB50149283E Garden variant; six paired configured GUI cases and preserved prop geometry; remaining variants and external acceptance open. |
 | R136 painted Geologist riverbed | [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-geologist-riverbed-20261104.json); riverbed cells and four-neighbor channels only. External acceptance and wider route coverage remain open. |
+| R137 painted Geologist cave backdrop | [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-geologist-cave-20261104.json); one fixed view, two native tiles, current paired room/activity/curtain-call evidence. |
 <!-- AUDIT_TASK_INDEX_END -->
 
 ## Sealed audit snapshot and subsequent round metadata

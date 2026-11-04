@@ -44,6 +44,11 @@ var stage_tiles: Array[Texture2D] = []
 var room_variant_tiles: Array[Texture2D] = []
 var sky_lagoon_tiles: Array[Texture2D] = []
 var farmer_basket_texture: Texture2D = null
+const GEOLOGIST_CAVE_TILE_PATHS: Array[String] = [
+	"res://assets/opera/worlds/backdrops/geologist_cave_painted_c0.png",
+	"res://assets/opera/worlds/backdrops/geologist_cave_painted_c1.png",
+]
+var geologist_cave_tiles: Array[Texture2D] = []
 var geologist_fossil_texture: Texture2D = null
 var geologist_gallery_texture: Texture2D = null
 var geologist_tray_textures: Array[Texture2D] = []
@@ -55,7 +60,15 @@ func setup(id: String, variant: String = "") -> void:
 	geologist_fossil_texture = null
 	geologist_gallery_texture = null
 	geologist_tray_textures.clear()
+	geologist_cave_tiles.clear()
 	if career_id == "geologist":
+		for tile_path in GEOLOGIST_CAVE_TILE_PATHS:
+			var cave_tile := load(tile_path) as Texture2D
+			assert(cave_tile != null, "Geologist painted cave tile is required: " + tile_path)
+			if cave_tile == null:
+				geologist_cave_tiles.clear()
+				break
+			geologist_cave_tiles.append(cave_tile)
 		geologist_fossil_texture = load("res://assets/opera/worlds/props/geologist_fossil_painted.png") as Texture2D
 		geologist_gallery_texture = load("res://assets/opera/worlds/props/geologist_crystal_gallery_painted.png") as Texture2D
 		assert(geologist_fossil_texture != null and geologist_gallery_texture != null,
@@ -300,6 +313,11 @@ func _draw() -> void:
 	if scene_variant == "sky_lagoon_farmer":
 		_draw_sky_lagoon_farmer()
 		return
+	if career_id == "geologist":
+		_draw_geologist()
+		if stage_mode:
+			_draw_stage_frame(Color(PALETTES["geologist"][2]))
+		return
 	var palette: Array = PALETTES.get(career_id, PALETTES["chef"])
 	var sky := Color(palette[0])
 	var mid := Color(palette[1])
@@ -363,8 +381,6 @@ func _draw() -> void:
 			_draw_nursery(mid, accent)
 		"popstar":
 			_draw_popstar(mid, accent)
-		"geologist":
-			_draw_geologist(mid, accent)
 	if stage_mode:
 		# curtains and columns occlude the set — theatrically correct layering
 		_draw_stage_frame(accent)
@@ -638,18 +654,11 @@ func _draw_popstar(mid: Color, accent: Color) -> void:
 	draw_circle(Vector2(640, 250), 72, Color(accent, 0.42))
 
 
-func _draw_geologist(mid: Color, _accent: Color) -> void:
-	# A readable crystal-cave laboratory: layered walls, a fossil table,
-	# specimen trays and one glowing destination cluster. All geometry stays
-	# broad and sparse enough for the Mobile renderer and a four-year-old.
-	for band in range(5):
-		var y := 150.0 + float(band) * 74.0
-		var color := mid.lightened(0.18 - float(band) * 0.055)
-		draw_polyline(PackedVector2Array([
-			Vector2(0, y + 24), Vector2(220, y - 12),
-			Vector2(470, y + 18), Vector2(760, y - 18),
-			Vector2(1040, y + 12), Vector2(1280, y - 10),
-		]), color, 34.0)
+func _draw_geologist() -> void:
+	var tile_size := Vector2(size.x * 0.5, size.y)
+	for index in range(geologist_cave_tiles.size()):
+		draw_texture_rect(geologist_cave_tiles[index],
+			Rect2(Vector2(tile_size.x * float(index), 0.0), tile_size), false)
 	if bool(get_meta("geology_work_open", false)):
 		return
 	# Whole painted station objects share the specialist activity identities.

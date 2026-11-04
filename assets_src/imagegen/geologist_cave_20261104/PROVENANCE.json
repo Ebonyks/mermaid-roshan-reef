@@ -1,0 +1,82 @@
+{
+  "stable_id": "FV-14664183159D",
+  "source_revision": "df6f50e459624562051d61993469a4c5ec663909",
+  "backend": "Built-in image_gen.imagegen",
+  "model_version": null,
+  "request_id": null,
+  "seed": null,
+  "usage": null,
+  "exposed_result_fields": [
+    "image_url",
+    "output_hint"
+  ],
+  "generation_calls": 1,
+  "animation_calls": 0,
+  "prompt": "PROMPT.txt",
+  "references": "GENERATION_REFERENCES.json",
+  "native": {
+    "path": "assets_src/imagegen/geologist_cave_20261104/cave_native.png",
+    "retained_generated_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-a64482ba-9939-4ea4-804a-59afc5cbea3e.png",
+    "sha256": "aeaee13fbbaa7fa50dc4a2e507675bd6962220f8e13c69e1d5c1cf69caea460e",
+    "size": [
+      1672,
+      941
+    ],
+    "mode": "RGB"
+  },
+  "export": {
+    "tool": "Aseprite 1.3.18.4-x64",
+    "script": "EXPORT_ASEPRITE.lua",
+    "method": "Exact non-overlapping crops of one continuous painting, preserved RGB. No resizing, relight or synthetic coverage.",
+    "fixed_16_9_crop_xywh": [
+      4,
+      2,
+      1664,
+      936
+    ],
+    "tiles": [
+      {
+        "path": "assets/opera/worlds/backdrops/geologist_cave_painted_c0.png",
+        "sha256": "e5f7895fb4b70aa10def52f3a76cd0823cbc52100ddc1b69f0ef8979042b8c64",
+        "size": [
+          832,
+          936
+        ],
+        "native_crop_xywh": [
+          4,
+          2,
+          832,
+          936
+        ],
+        "decoded_RGBA_upper_bytes": 3115008
+      },
+      {
+        "path": "assets/opera/worlds/backdrops/geologist_cave_painted_c1.png",
+        "sha256": "6b5e51544503e435ec3f7328f33d002e23838b0bf138df3baab368f794a4d55f",
+        "size": [
+          832,
+          936
+        ],
+        "native_crop_xywh": [
+          836,
+          2,
+          832,
+          936
+        ],
+        "decoded_RGBA_upper_bytes": 3115008
+      }
+    ],
+    "max_decoded_RGBA_bytes": 6230016,
+    "single_fixed_screen": true,
+    "multi_screen_native_2K_claim": false
+  },
+  "acceptance": {
+    "candidate": "BOUNDED_AGENT_TEN_AXIS_PASS",
+    "runtime": "20 exact configured paired and finale cases, full suite pending",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "ten_axes": "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/VISUAL_REVIEW.json"
+  }
+}

@@ -339,6 +339,8 @@ un-earned once Chapter 2 starts. No existing finding is closed.
 
 ## MA-VIS-006
 
+[R137 painted cave candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) replaces the Geologist's broad flat background layers. The broader finding remains open for other surfaces and separate acceptance.
+
 [R136 riverbed candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md) replaces flat excavation circles and links in Geologist river mode. The lifecycle remains open for the broader finding and external verification.
 
 R135 [painted Garden candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/README.md): existing FV-BBB50149283E, Garden variant only, paired configured Mobile/Speedy pointer/scene evidence. Other variants, natural route, QA11, device, child and owner acceptance remain open. Lifecycle unchanged.
@@ -395,6 +397,8 @@ R95 production update2026-10-17: [Geologist painted pan](../../docs/handoffs/cod
 | history | 2026-08-29: repeated owner report reproduced. Root causes include an abandoned topic branch, removal of only one of two false foreground cards, two baked/blurred background footprints, regeneration tooling that could restore the defect, node-only probes, a runtime route allow-list that rejected the repaired route, and cwd-relative review tooling that could inspect stale branches or composite against an obsolete plate. Both bathroom footprints were repaired and exact 4.7.2 dirty/clean captures passed. Three parallel scrubs dispositioned the game, drove full-frame regeneration of seven Castle plates plus Opera Detective and Nursery, retired the incomplete duplicate tent-flap card, repaired the cupboard's incomplete rest frame, and independently reviewed all 96 retained V4 frames against exact worktree/runtime paths. The complete exact-4.7.2 local suite exits zero; lifecycle advances to `FIXED_PENDING_VERIFICATION` while exact `dev` and external acceptance remain open. |
 
 ## MA-VIS-008
+
+[R137 painted cave candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) replaces the Geologist's broad flat background layers. The broader finding remains open for other surfaces and separate acceptance.
 
 [R136 riverbed candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md) replaces flat excavation circles and links in Geologist river mode. The lifecycle remains open for the broader finding and external verification.
 
