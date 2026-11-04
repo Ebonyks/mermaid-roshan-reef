@@ -1,0 +1,45 @@
+{
+  "state": "PASS_CURRENT_AUTHORITY_AUTO_HEAD_AND391_NEW_FILE_MODEL_CLASSIFICATIONS",
+  "native_commands": [
+    {
+      "label": "AUTHORITY",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d63d4b995afbf2cb124f5fc8c11234f78b654774820ae3b38a390122e776d0ca"
+    },
+    {
+      "label": "AUTO",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "bfdebdcdf9b9fe6339c10a3e217412a82484429cf183c3865a29b7ead7bf2936"
+    },
+    {
+      "label": "HEAD",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "log_sha256": "9fca8ccf69833eece1978434e9a164b39a65816ebfce9b2a62774e855aa7cfb2"
+    }
+  ],
+  "model_classifier": "MODEL_METADATA_RESULT.json",
+  "runtime_binding": "../../RECENT_UPDATES_COMPOSITION.json",
+  "source_machine": "../full_validation/FINAL_RESULT.json",
+  "engine_suites_repeated": 0,
+  "scope": "Actual combined current source before final receipt/manifest packaging. Final precommit authority and actual coverage are run again on the final staged bytes; no engine suite is repeated.",
+  "CI_Dev_formal_device_child_owner": "Separate; not established by these checks."
+}

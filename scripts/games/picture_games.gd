@@ -8,6 +8,23 @@ extends RefCounted
 var m: ReefMain
 var open_generation := 0
 
+const PICTURE_REWARD_RAINBOW := ["coral", "amber", "lemon", "leaf", "mint", "sky", "violet", "rose"]
+const PICTURE_REWARD_SCALE := 26.0 / 118.0
+
+
+func _mg2d_feedback_art_variant(col: Color, feedback_kind: String,
+		index: int, count: int) -> String:
+	# Whole painted hues keep their authored light; only opacity is animated.
+	if feedback_kind == "win":
+		var palette_index := mini(int(float(index) * 8.0 / float(count)), 7)
+		return String(PICTURE_REWARD_RAINBOW[palette_index])
+	if feedback_kind == "snowball_settle" or col.s < 0.15:
+		return "ice"
+	if feedback_kind == "garden_growth":
+		return "mint" if col.g > col.b else "sky"
+	return String(PICTURE_REWARD_RAINBOW[roundi(col.h * 8.0) % 8])
+
+
 func _init(main: ReefMain) -> void:
 	m = main
 
@@ -197,25 +214,25 @@ func _mg2d_feedback_burst(at: Vector2, col: Color, feedback_kind: String,
 	burst.set_meta("feedback_kind", feedback_kind)
 	burst.set_meta("visible_elements", count)
 	layer.add_child(burst)
-	var star_points := PackedVector2Array([
-		Vector2(0, -13), Vector2(4, -4), Vector2(13, 0), Vector2(4, 4),
-		Vector2(0, 13), Vector2(-4, 4), Vector2(-13, 0), Vector2(-4, -4)])
 	for i in range(count):
 		var angle := TAU * float(i) / float(count) + 0.12 * float(i % 2)
 		var direction := Vector2(cos(angle), sin(angle))
-		var sparkle := Polygon2D.new()
-		sparkle.polygon = star_points
-		sparkle.color = Color.from_hsv(float(i) / float(count), 0.62, 1.0) \
-			if feedback_kind == "win" else col.lerp(Color.WHITE, 0.14 * float(i % 3))
+		var variant := _mg2d_feedback_art_variant(col, feedback_kind, i, count)
+		var sparkle := Sprite2D.new()
+		sparkle.texture = load("res://assets/mg/picture_feedback/sparkle_" \
+			+ variant + "_painted.png") as Texture2D
+		sparkle.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		sparkle.set_meta("painted_feedback_variant", variant)
+		sparkle.set_meta("painted_feedback_role", "FV-E96CD69662D1")
 		sparkle.position = direction * 8.0
 		sparkle.rotation = angle
-		sparkle.scale = Vector2.ONE * (0.75 + 0.12 * float(i % 3))
+		sparkle.scale = Vector2.ONE * (0.75 + 0.12 * float(i % 3)) * PICTURE_REWARD_SCALE
 		sparkle.set_meta("feedback_endpoint", direction * travel * (0.72 + 0.14 * float(i % 3)))
 		burst.add_child(sparkle)
 	var burst_tween := burst.create_tween()
 	var first_property := true
 	for sparkle_value in burst.get_children():
-		var sparkle := sparkle_value as Polygon2D
+		var sparkle := sparkle_value as Sprite2D
 		if sparkle == null:
 			continue
 		var endpoint: Vector2 = sparkle.get_meta("feedback_endpoint")
@@ -227,7 +244,7 @@ func _mg2d_feedback_burst(at: Vector2, col: Color, feedback_kind: String,
 			burst_tween.parallel().tween_property(sparkle, "position", endpoint, lifetime) \
 				.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		burst_tween.parallel().tween_property(
-			sparkle, "scale", Vector2(0.18, 0.18), lifetime)
+			sparkle, "scale", Vector2(0.18, 0.18) * PICTURE_REWARD_SCALE, lifetime)
 		burst_tween.parallel().tween_property(sparkle, "modulate:a", 0.0, lifetime)
 	burst_tween.tween_callback(burst.queue_free)
 	var tracked: Array = m.mg.get("feedback_tweens", [])

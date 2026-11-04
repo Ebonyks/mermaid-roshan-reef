@@ -1,0 +1,11 @@
+{
+  "state": "TERMINAL_PRIOR_MODEL_SCAN_COVERAGE_FAILURE_LOG_PRESERVED",
+  "original_session": 5309,
+  "log": "GAME2D.log",
+  "log_sha256": "b0b8176d8ea92ef1f9665d0d68816392ad96d2afbc6ccb28152d78da765194f4",
+  "native_exit_code": null,
+  "limit": "Earlier runner asserted on native result but did not persist its numeric exit; exact log records three FAIL findings.",
+  "cause": "Inherited10.8MB SourceA preview crossed unchanged8MiB fail-closed scan bound.",
+  "repair": "../PROVENANCE_SCOPE_REPAIR.json",
+  "probes_or_analyzers_repeated": 0
+}
