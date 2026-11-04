@@ -1,0 +1,101 @@
+{
+  "state": "PASS_AGENT_BOUNDED_VISUAL_REVIEW_EXTERNAL_ACCEPTANCE_OPEN",
+  "stable_id": "FV-BBB50149283E",
+  "variant": "Garden scenic backdrop only",
+  "actual_comparison": "context03; 4 exact previously verified settled cases reused, 2 tall cases re-run with viewport pointer injection.",
+  "direct_native_views": [
+    {
+      "path": "candidate/1280x720/output/04_win.png",
+      "sha256": "169fefe166539699c84f33704ab7cf9432dbbdbd51b9a30ab5f61996ef1c376e"
+    },
+    {
+      "path": "candidate/1280x720/output/03_first_flower.png",
+      "sha256": "c1fadc88433d6ef412d53ecbc78cc1fb9a39d81e8ba45bbe06d71161339d761a"
+    },
+    {
+      "path": "candidate/1600x720/output/04_win.png",
+      "sha256": "87f7de0038e60279937cc4be82d51aed9d3c25667d8895290baa9b02c2f714e8"
+    },
+    {
+      "path": "source/1600x720/output/04_win.png",
+      "sha256": "d76129102431d5da0975b70e9227a6985de62562fbd0da6dddbc051b078d57b9"
+    },
+    {
+      "path": "candidate/1600x720/output/02_sprout.png",
+      "sha256": "6731b7c57922b6ca7231965abcdf0d1269795ca33d461867b3a9f8f60be2a94c"
+    },
+    {
+      "path": "source/1280x800/output/04_win.png",
+      "sha256": "c7ab9b0bad00999831eb48243af63f37cfd638e300fdea8a0be3a00bec563d53"
+    },
+    {
+      "path": "candidate/1280x800/output/04_win.png",
+      "sha256": "1f2fca0c716b3b23ea1f245eab0553504273b31bdbf124d7bc1644856eae11cd"
+    },
+    {
+      "path": "candidate/1280x800/output/05_reentry.png",
+      "sha256": "ccfb338db17cc12c29b2193564dfd2677b02804e56fc751ea5dba9a4cfb39202"
+    }
+  ],
+  "ten_axes": [
+    {
+      "axis": "contour",
+      "original": "Old visibly bounded grass panel and smooth fill.",
+      "candidate": "Soft, brushed horizon and low soft foliage; no replacement plate border or new hard cutout."
+    },
+    {
+      "axis": "material",
+      "original": "Flat grassy band and interpolated sky.",
+      "candidate": "Visible coherent gouache marks and shadowed grass masses, matching the painted surroundings better."
+    },
+    {
+      "axis": "palette",
+      "original": "High-key blue/mint with muted green foreground.",
+      "candidate": "Keeps high-key aqua and green, with warmer light on the grass. Pots and distinct flowers retain color priority."
+    },
+    {
+      "axis": "light",
+      "original": "Uniform fill offered no spatial light cue.",
+      "candidate": "Soft directional grass and cloud highlights complement the nearby warm top-lit pots; no tint applied to props."
+    },
+    {
+      "axis": "perspective",
+      "original": "Decorative foreground slab with no depth separation.",
+      "candidate": "Low meadow horizon, side foliage behind the lawn, diffuse sky. Side features tolerate full-viewport aspect adjustment."
+    },
+    {
+      "axis": "scale",
+      "original": "Viewport gradient and fixed stage footprint.",
+      "candidate": "Same viewport fill and exact stage/prop rectangles in all six cases. Single opaque 1024 x 576 runtime plate."
+    },
+    {
+      "axis": "contact",
+      "original": "Visible pots sat across a rigid graphic band.",
+      "candidate": "All pot feet sit against continuous foreground grass. Existing soil/stem anchor unchanged; no new cast-shadow claim."
+    },
+    {
+      "axis": "occlusion",
+      "original": "Backdrop and mound behind the gameplay layer.",
+      "candidate": "Painting stays behind all hit targets and props. Wide/tall medal overlap is present in both lanes; old medal persists briefly after re-entry and remains separate."
+    },
+    {
+      "axis": "readability",
+      "original": "Open but flat sky separated the five tap objects.",
+      "candidate": "Low-detail sky retains seed/flower separation and contrast. Foliage stays peripheral; proof is desktop-rendered, not physical phone or child evidence."
+    },
+    {
+      "axis": "action_state",
+      "original": "Five identical seed starts, real staged growth, five-flower win and fresh re-entry.",
+      "candidate": "All ten GUI steps, matching settled state geometry, visible win and fresh seeded re-entry verified. No full-world route, physical touch or other state/variant claim."
+    }
+  ],
+  "agent_scope": "Review of actual matched scene frames and visible gameplay affordances. No formal score or physical review.",
+  "current_native_frames": 30,
+  "excluded_diagnostics": 40,
+  "all_normal_save_hashes_unchanged": 11,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0
+}

@@ -1,0 +1,398 @@
+{
+	"captures": [
+		{
+			"height": 800,
+			"label": "01_seeds",
+			"sha256": "cf64c7c1f2da1cb58623735cbad945f0522bbc79f491d8bce205a9df6df62216",
+			"width": 1280
+		},
+		{
+			"height": 800,
+			"label": "02_sprout",
+			"sha256": "cf64c7c1f2da1cb58623735cbad945f0522bbc79f491d8bce205a9df6df62216",
+			"width": 1280
+		},
+		{
+			"height": 800,
+			"label": "03_first_flower",
+			"sha256": "e04efe5e028892b779d2cccaaf20ff9a0b8364281de6e2c129ee1f9c9508e093",
+			"width": 1280
+		},
+		{
+			"height": 800,
+			"label": "04_win",
+			"sha256": "9ccfc0cfcfc340935573110de9c4eda752dc54a3fe770f8d78ae6423b3631648",
+			"width": 1280
+		},
+		{
+			"height": 800,
+			"label": "05_reentry",
+			"sha256": "cf64c7c1f2da1cb58623735cbad945f0522bbc79f491d8bce205a9df6df62216",
+			"width": 1280
+		}
+	],
+	"checks": [
+		{
+			"label": "configured actual title Continue exists",
+			"pass": true
+		},
+		{
+			"label": "actual Mobile renderer",
+			"pass": true
+		},
+		{
+			"label": "actual Garden scene opened",
+			"pass": true
+		},
+		{
+			"label": "first full-rect background fills viewport",
+			"pass": true
+		},
+		{
+			"label": "painted backdrop bound without gradient fallback",
+			"pass": true
+		},
+		{
+			"label": "actual runtime texture size",
+			"pass": true
+		},
+		{
+			"label": "decoded upper bound",
+			"pass": true
+		},
+		{
+			"label": "old flat grassy mound not mounted",
+			"pass": true
+		},
+		{
+			"label": "five original generous targets",
+			"pass": true
+		},
+		{
+			"label": "01_seeds native frame",
+			"pass": true
+		},
+		{
+			"label": "viewport pointer pot 0 stage 1",
+			"pass": false
+		},
+		{
+			"label": "02_sprout native frame",
+			"pass": true
+		},
+		{
+			"label": "viewport pointer pot 0 stage 2",
+			"pass": false
+		},
+		{
+			"label": "03_first_flower native frame",
+			"pass": true
+		},
+		{
+			"label": "viewport pointer pot 1 stage 1",
+			"pass": true
+		},
+		{
+			"label": "viewport pointer pot 1 stage 2",
+			"pass": true
+		},
+		{
+			"label": "viewport pointer pot 2 stage 1",
+			"pass": true
+		},
+		{
+			"label": "viewport pointer pot 2 stage 2",
+			"pass": true
+		},
+		{
+			"label": "viewport pointer pot 3 stage 1",
+			"pass": true
+		},
+		{
+			"label": "viewport pointer pot 3 stage 2",
+			"pass": true
+		},
+		{
+			"label": "viewport pointer pot 4 stage 1",
+			"pass": true
+		},
+		{
+			"label": "viewport pointer pot 4 stage 2",
+			"pass": true
+		},
+		{
+			"label": "all five complete, original win",
+			"pass": false
+		},
+		{
+			"label": "04_win native frame",
+			"pass": true
+		},
+		{
+			"label": "close frees prior overlay",
+			"pass": true
+		},
+		{
+			"label": "first full-rect background fills viewport",
+			"pass": true
+		},
+		{
+			"label": "painted backdrop bound without gradient fallback",
+			"pass": true
+		},
+		{
+			"label": "actual runtime texture size",
+			"pass": true
+		},
+		{
+			"label": "decoded upper bound",
+			"pass": true
+		},
+		{
+			"label": "old flat grassy mound not mounted",
+			"pass": true
+		},
+		{
+			"label": "fresh reentry resets garden",
+			"pass": true
+		},
+		{
+			"label": "05_reentry native frame",
+			"pass": true
+		}
+	],
+	"child": null,
+	"device": null,
+	"formal_QA11": null,
+	"lane": "candidate",
+	"owner": null,
+	"scope": "Configured Garden entry; actual viewport GUI single-pointer taps, growth, win and reentry; physical touch and natural world route not established.",
+	"stages": [
+		{
+			"grown": 0,
+			"label": "01_seeds",
+			"props": [
+				{
+					"disabled": false,
+					"rect": "[P: (110.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 180.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (350.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 420.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (590.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 660.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (830.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 900.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (1070.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 1140.0
+				}
+			],
+			"stage": [
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			"stage_pos": "(0.0, 40.0)",
+			"stage_scale": "(1.0, 1.0)"
+		},
+		{
+			"grown": 0,
+			"label": "02_sprout",
+			"props": [
+				{
+					"disabled": false,
+					"rect": "[P: (110.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 180.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (350.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 420.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (590.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 660.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (830.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 900.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (1070.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 1140.0
+				}
+			],
+			"stage": [
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			"stage_pos": "(0.0, 40.0)",
+			"stage_scale": "(1.0, 1.0)"
+		},
+		{
+			"grown": 0,
+			"label": "03_first_flower",
+			"props": [
+				{
+					"disabled": false,
+					"rect": "[P: (106.0, 524.612), S: (148.0, 148.0)]",
+					"texture": "res://assets/mg/painted_quality_20261018/k_sprout.png",
+					"x": 180.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (350.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 420.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (590.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 660.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (830.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 900.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (1070.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 1140.0
+				}
+			],
+			"stage": [
+				1,
+				0,
+				0,
+				0,
+				0
+			],
+			"stage_pos": "(0.0, 40.0)",
+			"stage_scale": "(1.0, 1.0)"
+		},
+		{
+			"grown": 4,
+			"label": "04_win",
+			"props": [
+				{
+					"disabled": false,
+					"rect": "[P: (106.0, 524.612), S: (148.0, 148.0)]",
+					"texture": "res://assets/mg/painted_quality_20261018/k_sprout.png",
+					"x": 180.0
+				},
+				{
+					"disabled": true,
+					"rect": "[P: (306.0, 454.132), S: (228.0, 228.0)]",
+					"texture": "res://assets/mg/painted_quality_20261018/flower.png",
+					"x": 420.0
+				},
+				{
+					"disabled": true,
+					"rect": "[P: (546.0, 454.132), S: (228.0, 228.0)]",
+					"texture": "res://assets/mg/painted_quality_20261018/flower2.png",
+					"x": 660.0
+				},
+				{
+					"disabled": true,
+					"rect": "[P: (786.0, 454.132), S: (228.0, 228.0)]",
+					"texture": "res://assets/mg/painted_quality_20261018/k_flower2.png",
+					"x": 900.0
+				},
+				{
+					"disabled": true,
+					"rect": "[P: (1026.0, 454.132), S: (228.0, 228.0)]",
+					"texture": "res://assets/mg/painted_quality_20261018/flower3.png",
+					"x": 1140.0
+				}
+			],
+			"stage": [
+				1,
+				2,
+				2,
+				2,
+				2
+			],
+			"stage_pos": "(0.0, 40.0)",
+			"stage_scale": "(1.0, 1.0)"
+		},
+		{
+			"grown": 0,
+			"label": "05_reentry",
+			"props": [
+				{
+					"disabled": false,
+					"rect": "[P: (110.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 180.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (350.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 420.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (590.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 660.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (830.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 900.0
+				},
+				{
+					"disabled": false,
+					"rect": "[P: (1070.0, 570.0), S: (140.0, 140.0)]",
+					"texture": "res://assets/mg/seed.png",
+					"x": 1140.0
+				}
+			],
+			"stage": [
+				0,
+				0,
+				0,
+				0,
+				0
+			],
+			"stage_pos": "(0.0, 40.0)",
+			"stage_scale": "(1.0, 1.0)"
+		}
+	],
+	"status": "FAIL"
+}

@@ -32,24 +32,27 @@ func _mg2d_open(kind: String) -> void:
 	m.mg2d_root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	m.mg2d_layer.add_child(m.mg2d_root)
 	m.mg2d_layer.visible = true
-	# clean themed gradient background (no busy book page behind the toys)
-	var themes := {
-		"snowman": [Color(0.50, 0.66, 0.86), Color(0.88, 0.94, 1.0)],
-		"garden": [Color(0.45, 0.78, 0.95), Color(0.7, 0.92, 0.6)],
-		"trampoline": [Color(0.45, 0.72, 1.0), Color(0.86, 0.95, 1.0)],
-		"slide": [Color(0.55, 0.7, 1.0), Color(1.0, 0.85, 0.92)],
-		"xmas": [Color(0.10, 0.18, 0.30), Color(0.25, 0.40, 0.48)]}
-	var grad := Gradient.new()
-	grad.set_color(0, themes[kind][0])
-	grad.set_color(1, themes[kind][1])
-	var gt := GradientTexture2D.new()
-	gt.gradient = grad
-	gt.fill_from = Vector2(0, 0)
-	gt.fill_to = Vector2(0, 1)
-	gt.width = 64
-	gt.height = 64
 	var bg := TextureRect.new()
-	bg.texture = gt
+	if kind == "garden":
+		bg.name = "GardenPaintedBackdrop"
+		bg.texture = load("res://assets/mg/garden_backdrop_painted.png") as Texture2D
+		bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	else:
+		var themes := {
+			"snowman": [Color(0.50, 0.66, 0.86), Color(0.88, 0.94, 1.0)],
+			"trampoline": [Color(0.45, 0.72, 1.0), Color(0.86, 0.95, 1.0)],
+			"slide": [Color(0.55, 0.7, 1.0), Color(1.0, 0.85, 0.92)],
+			"xmas": [Color(0.10, 0.18, 0.30), Color(0.25, 0.40, 0.48)]}
+		var grad := Gradient.new()
+		grad.set_color(0, themes[kind][0])
+		grad.set_color(1, themes[kind][1])
+		var gt := GradientTexture2D.new()
+		gt.gradient = grad
+		gt.fill_from = Vector2(0, 0)
+		gt.fill_to = Vector2(0, 1)
+		gt.width = 64
+		gt.height = 64
+		bg.texture = gt
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	bg.stretch_mode = TextureRect.STRETCH_SCALE
 	m.mg2d_root.add_child(bg)
@@ -573,10 +576,7 @@ func _mg_build_garden() -> void:
 	m.mg["flowers"] = ["k_flower1", "flower", "flower2", "k_flower2", "flower3"]   # each plant ends as a DIFFERENT flower
 	(m.mg["hud"] as Label).text = "Tap each seed to make it grow into a FLOWER!"
 	_mg_sprite("res://assets/mg/sun.png", Vector2(112, 235), Vector2(144, 144))
-	# a soft grassy mound across the bottom
-	var mound := _mg_circle(Vector2(640, 1050), 760.0, Color(0.5, 0.78, 0.45))
-	mound.size.y = 500.0
-	mound.position = Vector2(-120, 640)
+	# The grass belongs to the same painted plate as the sky.
 	# five clay pots, each starting as a SEED
 	for i in range(5):
 		var x := 180.0 + float(i) * 240.0

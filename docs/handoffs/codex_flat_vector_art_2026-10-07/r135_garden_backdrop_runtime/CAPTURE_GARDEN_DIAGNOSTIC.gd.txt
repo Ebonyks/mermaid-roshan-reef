@@ -1,0 +1,151 @@
+extends SceneTree
+
+var m: ReefMain
+var failed := 0
+var checks: Array[Dictionary] = []
+var captures: Array[Dictionary] = []
+var stages: Array[Dictionary] = []
+var lane := OS.get_environment("R135_LANE")
+var out := OS.get_environment("R135_OUT")
+var width := int(OS.get_environment("R135_WIDTH"))
+var height := int(OS.get_environment("R135_HEIGHT"))
+
+func _init() -> void:
+	call_deferred("run")
+
+func frames(n: int) -> void:
+	for i in range(n):
+		await process_frame
+
+func check(label: String, ok: bool) -> void:
+	checks.append({"label": label, "pass": ok})
+	if not ok:
+		failed += 1
+		print("R135|FAIL|", label)
+
+func background() -> TextureRect:
+	return m.mg2d_root.get_child(0) as TextureRect if m.mg2d_root != null else null
+
+func verify_backdrop() -> void:
+	var bg := background()
+	check("first full-rect background fills viewport", bg != null and bg.visible and bg.size == Vector2(width, height))
+	if bg == null:
+		return
+	if lane == "candidate":
+		var tex := bg.texture
+		check("painted backdrop bound without gradient fallback", bg.name == "GardenPaintedBackdrop" and tex != null and tex.resource_path == "res://assets/mg/garden_backdrop_painted.png")
+		check("actual runtime texture size", tex != null and tex.get_size() == Vector2(1024, 576))
+		check("decoded upper bound", tex != null and tex.get_image().get_data_size() <= 2359296)
+		var panels := 0
+		for node in m.mg2d_stage.get_children():
+			if node is Panel and (node as Panel).position.y == 640.0 and (node as Panel).position.x == -120.0:
+				panels += 1
+		check("old flat grassy mound not mounted", panels == 0)
+	else:
+		check("actual old GradientTexture2D", bg.texture is GradientTexture2D)
+
+func shot(label: String) -> void:
+	await frames(4)
+	await RenderingServer.frame_post_draw
+	var image := get_root().get_texture().get_image()
+	var path := out.path_join(label + ".png")
+	check(label + " native frame", image.get_size() == Vector2i(width, height) and image.save_png(path) == OK)
+	captures.append({"label":label,"sha256":FileAccess.get_sha256(path),"width":width,"height":height})
+	var props: Array[Dictionary] = []
+	for value in m.mg.get("btns", []):
+		var b := value as Button
+		if b == null or not b.has_meta("hx"):
+			continue
+		var tx := b.get_child(0) as TextureRect
+		props.append({"x":b.get_meta("hx"),"rect":str(b.get_global_rect()),"texture":tx.texture.resource_path,"disabled":b.disabled})
+	stages.append({"label":label,"props":props,"stage":(m.mg.get("stage",[]) as Array).duplicate(),"grown":m.mg.get("grown",0),"stage_scale":str(m.mg2d_stage.scale),"stage_pos":str(m.mg2d_stage.position)})
+
+func tap(b: Button) -> void:
+	var point: Vector2 = b.get_global_transform_with_canvas() * (b.size * 0.5)
+	for pressed in [true, false]:
+		var event := InputEventMouseButton.new()
+		event.button_index = MOUSE_BUTTON_LEFT
+		event.position = point
+		event.global_position = point
+		event.pressed = pressed
+		Input.parse_input_event(event)
+		await frames(2)
+
+func run() -> void:
+	seed(20261103)
+	get_root().mode = Window.MODE_WINDOWED
+	get_root().size = Vector2i(width,height)
+	DirAccess.make_dir_recursive_absolute(out)
+	var packed := load("res://scenes/main.tscn") as PackedScene
+	m = packed.instantiate() as ReefMain
+	m._save_state = SaveState.new(m,"user://r135_isolated_context.json")
+	get_root().add_child(m)
+	await frames(20)
+	var button := m.start_menu_layer.find_child("StartMenuContinueButton",true,false) as Button if m.start_menu_layer != null else null
+	check("configured actual title Continue exists",button != null)
+	if button == null:
+		await finish()
+		return
+	var saved: Dictionary = m.save_data.duplicate(true)
+	saved["day_one_active"] = false
+	saved["day_one_completed_rooms"] = ["bathroom","pool","stuffie","art"]
+	m._day_one_ref().restore_state(saved)
+	m.save_data.merge(m._day_one_ref().serialize_state(),true)
+	m.has_saved_game = true
+	button.disabled = false
+	button.pressed.emit()
+	await frames(20)
+	m._set_touch_mode(m.TOUCH_MODE_HYBRID,false)
+	m._apply_quality("speedy")
+	m.set_process(false)
+	m._mg2d_open("garden")
+	await frames(5)
+	check("actual Mobile renderer",RenderingServer.get_current_rendering_method()=="mobile")
+	check("actual Garden scene opened",m.mg_kind=="garden" and m.mg2d_stage!=null and not m.start_menu_active)
+	if m.mg2d_stage==null:
+		await finish()
+		return
+	verify_backdrop()
+	var pots: Array[Button] = []
+	for value in m.mg.get("btns",[]):
+		var b := value as Button
+		if b!=null and b.has_meta("hx"):
+			pots.append(b)
+	check("five original generous targets", pots.size()==5)
+	if pots.size()!=5:
+		await finish()
+		return
+	await shot("01_seeds")
+	for i in range(5):
+		for expected in [1,2]:
+			await tap(pots[i])
+			check("viewport pointer pot %d stage %d" % [i,expected], int((m.mg.get("stage",[]) as Array)[i])==expected)
+			if i==0:
+				await shot("02_sprout" if expected==1 else "03_first_flower")
+	check("all five complete, original win",int(m.mg.get("grown",0))==5 and bool(m.mg.get("won",false)))
+	await shot("04_win")
+	var old := m.mg2d_root
+	m._mg2d_close()
+	await frames(5)
+	check("close frees prior overlay",not is_instance_valid(old) and m.mg_kind=="")
+	m._mg2d_open("garden")
+	await frames(5)
+	verify_backdrop()
+	check("fresh reentry resets garden",m.mg_kind=="garden" and int(m.mg.get("grown",-1))==0)
+	await shot("05_reentry")
+	m._mg2d_close()
+	await frames(5)
+	await finish()
+
+func finish() -> void:
+	if m!=null and is_instance_valid(m):
+		m.process_mode=Node.PROCESS_MODE_DISABLED
+		m.get_parent().remove_child(m)
+		m.free()
+	await process_frame
+	var result := {"status":"PASS" if failed==0 else "FAIL","checks":checks,"captures":captures,"lane":lane,"stages":stages,"scope":"Configured Garden entry; actual viewport GUI single-pointer taps, growth, win and reentry; physical touch and natural world route not established.","formal_QA11":null,"device":null,"child":null,"owner":null}
+	var file := FileAccess.open(out.path_join("RESULT.json"),FileAccess.WRITE)
+	file.store_string(JSON.stringify(result,"\t"))
+	file.close()
+	print("R135|END|",lane,"|bad=",failed,"|frames=",captures.size())
+	quit(0 if failed==0 else 1)

@@ -1,0 +1,7 @@
+# R135 — Painted Garden backdrop
+
+The Garden variant of FV-BBB50149283E uses one opaque painted sky and grassy meadow. This work branch replaces the old gradient and its decorative grass mound together. Snowman, Trampoline and Christmas retain their existing backdrop paths. The same viewport layer, controls, flowers, seeds, pots, watering can, actor, rewards, save behavior and 29 other methods are unchanged.
+
+The [native painting and derivation](../../../../assets_src/imagegen/garden_backdrop_20261103/PROVENANCE.json) record one built-in ImageGen call, three exact public scene/neighbor references and the unmodified native image. No exact backend version was exposed. Aseprite supplies the opaque 1024-by-576 runtime derivative. The first export's black outer column and its diagnostic frames are retained and excluded; the corrected export crops one output-only column without changing the native source.
+
+[Actual Mobile/Speedy comparisons](FRAME_INDEX.json) show the same Garden at entry, first sprout, first mature flower, all five flowers and win, and clean re-entry, at three viewport aspects. Six configured runs used actual GUI pointer events and matched the same settled stage/prop geometry. See the [ten-axis review](VISUAL_REVIEW.json) and focused probe under checks. These do not establish the natural-world route, physical touch, target device performance, formal QA11, child play or owner acceptance. The branch and whole-game inventory remain open; no accepted removal is counted.

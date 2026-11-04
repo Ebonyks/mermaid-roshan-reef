@@ -1,0 +1,107 @@
+{
+  "state": "PAINTED_NATIVE_EDGE_REPAIRED_WARM_IMPORT_AND_PAIRED_REVIEW_PENDING",
+  "item": "R135",
+  "stable_id": "FV-BBB50149283E",
+  "variant": "Garden scenic backdrop only; other picture-game gradient variants remain open",
+  "basis": "27c88288bf6e39582072811443df79919e7bbb89",
+  "ref_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+  "refs": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/garden_mint.png",
+      "role": "Actual live Garden framing and layer/negative-space reference. No actors, UI, props or pixels to copy.",
+      "sha256": "a806fc6cf44aefb2cca70d0791fdcdc889259d949953fcf1e14eb61d9c2e6182",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/candidate/1280x720/garden/garden_mint.png",
+      "access": "anonymous immutable HTTPS"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/pot.png",
+      "role": "Neighboring authored brush treatment and light direction only. No pots in output.",
+      "sha256": "aa5d66904669175431d8d68e9c803f231668768cc66bc406243943acd7549f5e",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/assets/mg/painted_quality_20261018/pot.png",
+      "access": "anonymous immutable HTTPS"
+    },
+    {
+      "path": "assets/mg/painted_quality_20261018/k_flower1.png",
+      "role": "Neighboring cool painted light and edge hierarchy only. No flowers in output.",
+      "sha256": "cf15cc96a451918a030ef3215d7a23d900ce95e161b372fcf3f40905c076e4dd",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/assets/mg/painted_quality_20261018/k_flower1.png",
+      "access": "anonymous immutable HTTPS"
+    }
+  ],
+  "source_relation": "Exact _mg2d_open, _mg_build_garden and _mg_garden_tap bodies, plus neighboring pot/flower/sun/butterfly Git blobs, are identical to Dev. R134 sparkle is a separate undelivered-to-Dev overlay.",
+  "scope": "Replace the Garden gradient and its decorative grassy mound with one opaque painted scene plate. Preserve all living props, UI, growth states, geometry, one-finger behavior, rewards, saves, audio and other variants. No replacement fallback drawing.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-MED-05",
+    "DL-PERF-03",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "backend": "image_gen.imagegen; model selector and exact model version not exposed",
+  "animation_calls": 0,
+  "explicit_item_funded_cap": null,
+  "known_acceptance": "Candidate/integration/runtime/formal/device/child/owner separate; no creative or accepted-removal claim.",
+  "at_utc": "2026-11-04T03:18:18.565147+00:00",
+  "runtime_path": "assets/mg/garden_backdrop_painted.png",
+  "runtime_sha256": "5e54ed3d06629cdac3c3415b5e14b76f9f097fa52aba007779639df1e9ea958e",
+  "native_path": "assets_src/imagegen/garden_backdrop_20261103/garden_backdrop_native.png",
+  "native_sha256": "ec15430864b2f9877e8226400980d342efbc1ecce853eeddae5fa748def1cc2e",
+  "technical_export": "Aseprite bilinear 1672x941 to 1025x576; crop rightmost output-only column to 1024x576. Original RGB pixels untouched. Decoded upper bound 2359296 bytes.",
+  "controller_sha256": "a016517977866d79e963d6119f8314d2d0e568567e2c9826287b0381ec50a2e4",
+  "other_existing_methods_byte_identical": 28,
+  "integration": "Owned topic branch, based on exact Dev; not Dev deployed.",
+  "rejected_export": {
+    "path": "garden_backdrop_export01_rejected.png",
+    "sha256": "669e548f8a840bdd711f24e0178f23c2e353bd860207c7486ecf23d51013f0ab",
+    "reason": "Aseprite produced one black outer column despite entirely opaque clean native RGB edges. All15 old candidate frames excluded from current visual evidence."
+  },
+  "edge_diagnostic": {
+    "native": {
+      "size": [
+        1672,
+        941
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "black_border": 0
+    },
+    "export01": {
+      "size": [
+        1024,
+        576
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "black_border": 576
+    },
+    "current_export": {
+      "size": [
+        1024,
+        576
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "black_border": 0
+    }
+  },
+  "comparison_diagnostic": "Initial six runs passed all individual GUI/runtime checks, but exact paired wrapper compared different frames of the unchanged flower-scale tween; resample both lanes after settle. No game behavior change."
+}
