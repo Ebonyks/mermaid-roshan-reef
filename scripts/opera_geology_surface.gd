@@ -70,10 +70,70 @@ const MINERAL_BLUE_PATH := "res://assets/opera/worlds/props/geologist_mineral_bl
 const MINERAL_LAVENDER_PATH := "res://assets/opera/worlds/props/geologist_mineral_lavender_painted.png"
 const CRYSTALS_PATH := "res://assets/opera/worlds/props/geologist_crystal_gallery_painted.png"
 
+const RIVERBED_PATH := "res://assets/opera/worlds/props/geologist_riverbed_painted.png"
+const RIVERBED_SLOT_SIZE := 128
+
+enum RiverbedShape { CROSS, HORIZONTAL, VERTICAL, CAP, ELBOW, TEE }
+
+const RIVERBED_DRY_OFFSET := 6
+const RIVERBED_INDENT_TILE := 12
+# Mask bits follow north, east, south, west. The second component is the
+# clockwise quarter-turn count for each authored shape's open mouths.
+const RIVERBED_LAYOUTS: Array[Vector2i] = [
+	Vector2i(-1, 0),
+	Vector2i(RiverbedShape.CAP, -1),
+	Vector2i(RiverbedShape.CAP, 0),
+	Vector2i(RiverbedShape.ELBOW, -1),
+	Vector2i(RiverbedShape.CAP, 1),
+	Vector2i(RiverbedShape.VERTICAL, 0),
+	Vector2i(RiverbedShape.ELBOW, 0),
+	Vector2i(RiverbedShape.TEE, -1),
+	Vector2i(RiverbedShape.CAP, 2),
+	Vector2i(RiverbedShape.ELBOW, 2),
+	Vector2i(RiverbedShape.HORIZONTAL, 0),
+	Vector2i(RiverbedShape.TEE, 2),
+	Vector2i(RiverbedShape.ELBOW, 1),
+	Vector2i(RiverbedShape.TEE, 1),
+	Vector2i(RiverbedShape.TEE, 0),
+	Vector2i(RiverbedShape.CROSS, 0),
+]
+# Tight padded source rectangles and authored mouth pivots from the atlas export.
+const RIVERBED_TILE_REGIONS: Array[Rect2] = [
+	Rect2(8, 11, 112, 106),
+	Rect2(136, 35, 112, 58),
+	Rect2(284, 8, 72, 112),
+	Rect2(392, 13, 111, 101),
+	Rect2(8, 139, 111, 106),
+	Rect2(136, 144, 112, 96),
+	Rect2(264, 137, 112, 109),
+	Rect2(392, 163, 112, 57),
+	Rect2(25, 264, 77, 112),
+	Rect2(136, 270, 112, 100),
+	Rect2(264, 266, 111, 107),
+	Rect2(392, 272, 112, 95),
+	Rect2(8, 400, 112, 96),
+]
+const RIVERBED_TILE_PIVOTS: Array[Vector2] = [
+	Vector2(56, 53),
+	Vector2(56, 29),
+	Vector2(36, 56),
+	Vector2(45.0435, 48.8318),
+	Vector2(36.3286, 39.9489),
+	Vector2(56.1474, 36.8098),
+	Vector2(56, 54.5),
+	Vector2(56, 28.5),
+	Vector2(38.5, 56),
+	Vector2(44.6179, 49.2447),
+	Vector2(36.3286, 40.9585),
+	Vector2(56, 37.2844),
+	Vector2(56, 48),
+]
+
 const RIVER_SOURCE_PATH := "res://assets/opera/worlds/props/geologist_river_source_painted.png"
 const RIVER_SINK_DRY_PATH := "res://assets/opera/worlds/props/geologist_river_sink_dry_painted.png"
 const RIVER_SINK_FULL_PATH := "res://assets/opera/worlds/props/geologist_river_sink_full_painted.png"
 
+var riverbed_texture: Texture2D = null
 var river_source_texture: Texture2D = null
 var river_sink_dry_texture: Texture2D = null
 var river_sink_full_texture: Texture2D = null
@@ -295,6 +355,7 @@ func _load_textures() -> void:
 		painted_slab.diffuse_texture = slab_source
 		painted_slab.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 		work_slab_texture = painted_slab
+	riverbed_texture = _required_mineral_texture(RIVERBED_PATH) if mode == "geology_river" else null
 	river_source_texture = _required_mineral_texture(RIVER_SOURCE_PATH)
 	river_sink_dry_texture = _required_mineral_texture(RIVER_SINK_DRY_PATH)
 	river_sink_full_texture = _required_mineral_texture(RIVER_SINK_FULL_PATH)
@@ -708,24 +769,7 @@ func _draw() -> void:
 func _draw_river() -> void:
 	# Any connected excavation is a valid solution. Dry, isolated holes stay
 	# dry until the child joins them to the spring; the suggested path is optional.
-	var flowing := _river_flow_indices()
-	for index in range(RIVER_COLS * RIVER_ROWS):
-		var cell := Vector2i(index % RIVER_COLS, index / RIVER_COLS)
-		var center := river_path_cell_center(cell)
-		if not river_wet[index]:
-			draw_circle(center + Vector2(12, 9), 3.0, Color("#c6a482"))
-			continue
-		var color := Color("#6ed7df") if flowing.has(index) else Color("#a88c91")
-		for step: Vector2i in [Vector2i.RIGHT, Vector2i.DOWN]:
-			var next := cell + step
-			if next.x < RIVER_COLS and next.y < RIVER_ROWS \
-					and river_wet[next.y * RIVER_COLS + next.x]:
-				draw_line(center, river_path_cell_center(next), Color("#675477"), 53.0, true)
-				draw_line(center, river_path_cell_center(next), color, 39.0, true)
-		draw_circle(center, 27.0, Color("#675477"))
-		draw_circle(center, 21.0, color)
-		if flowing.has(index):
-			draw_arc(center, 13.0, PI, TAU, 14, Color("#b6f1ed"), 3.0, true)
+	_draw_riverbed(_river_flow_indices())
 	# Complete authored pool states; original logical endpoints and connectivity
 	# stay authoritative. No procedural pool body or layered water-fill fallback.
 	var source_size := Vector2(106.5, 106.5)
@@ -738,6 +782,71 @@ func _draw_river() -> void:
 	if sink_texture != null:
 		draw_texture_rect(sink_texture,
 			Rect2(finish - sink_size * 0.5, sink_size), false)
+
+func _draw_riverbed(flowing: Dictionary) -> void:
+	if riverbed_texture == null:
+		return
+	# Draw shared links below their registered junctions. Each link is visited
+	# once and contributes opposite mouth bits to its two excavated cells.
+	var mouths := PackedByteArray()
+	mouths.resize(river_wet.size())
+	for index in range(river_wet.size()):
+		if not river_wet[index]:
+			continue
+		var cell := Vector2i(index % RIVER_COLS, index / RIVER_COLS)
+		var center := river_path_cell_center(cell)
+		for step: Vector2i in [Vector2i.RIGHT, Vector2i.DOWN]:
+			var next := cell + step
+			if next.x >= RIVER_COLS or next.y >= RIVER_ROWS:
+				continue
+			var next_index := next.y * RIVER_COLS + next.x
+			if not river_wet[next_index]:
+				continue
+			var horizontal := step == Vector2i.RIGHT
+			mouths[index] |= 2 if horizontal else 4
+			mouths[next_index] |= 8 if horizontal else 1
+			var shape := RiverbedShape.HORIZONTAL if horizontal else RiverbedShape.VERTICAL
+			var tile := shape if flowing.has(index) else shape + RIVERBED_DRY_OFFSET
+			_draw_riverbed_tile(tile, center + Vector2(step) * RIVER_CELL * 0.5,
+				80.0 if horizontal else 74.0)
+
+	for index in range(river_wet.size()):
+		var cell := Vector2i(index % RIVER_COLS, index / RIVER_COLS)
+		var center := river_path_cell_center(cell)
+		if not river_wet[index]:
+			_draw_riverbed_tile(RIVERBED_INDENT_TILE, center + Vector2(12, 9), 11.0)
+			continue
+		var wet := flowing.has(index)
+		var mask := mouths[index]
+		if mask == 0:
+			if not wet:
+				_draw_riverbed_tile(RIVERBED_INDENT_TILE, center, 58.0)
+			# A lone flowing cell is the spring, already drawn as a whole pool.
+			continue
+		var layout := RIVERBED_LAYOUTS[mask]
+		var tile := layout.x if wet else layout.x + RIVERBED_DRY_OFFSET
+		var slot_scale := 68.0
+		if layout.x == RiverbedShape.HORIZONTAL:
+			slot_scale = 80.0
+		elif layout.x == RiverbedShape.VERTICAL:
+			slot_scale = 74.0
+		_draw_riverbed_tile(tile, center, slot_scale, layout.y)
+
+
+func _draw_riverbed_tile(tile: int, center: Vector2, slot_scale: float,
+		quarter_turns: int = 0) -> void:
+	var source := RIVERBED_TILE_REGIONS[tile]
+	var scale_factor := slot_scale / RIVERBED_SLOT_SIZE
+	var local := Rect2(-RIVERBED_TILE_PIVOTS[tile] * scale_factor,
+		source.size * scale_factor)
+	if quarter_turns == 0:
+		draw_texture_rect_region(riverbed_texture,
+			Rect2(center + local.position, local.size), source)
+	else:
+		draw_set_transform(center, float(quarter_turns) * PI * 0.5)
+		draw_texture_rect_region(riverbed_texture, local, source)
+		draw_set_transform(Vector2.ZERO)
+
 
 func _river_flow_indices() -> Dictionary:
 	var start := RIVER_PATH[0]

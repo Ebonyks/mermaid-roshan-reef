@@ -1,0 +1,287 @@
+{
+  "stable_id": "FV-DA16E1E99C6D",
+  "source_revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+  "scope": "Geologist river excavation cells and four-neighbour links; approved pool art remains separately referenced.",
+  "backend": "Built-in image_gen.imagegen",
+  "model_version": null,
+  "request_id": null,
+  "seed": null,
+  "usage": null,
+  "exposed_fields": [
+    "image_url",
+    "output_hint"
+  ],
+  "generation_calls": 2,
+  "animation_calls": 0,
+  "native": {
+    "path": "assets_src/imagegen/geologist_riverbed_20261104/riverbed_native.png",
+    "sha256": "6c811c7b773f0ce3161dee5d27a6f7246a50e8f574765da8ddb65f582c526170",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "retained_generated_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-7e5d7c4d-221f-4730-a8d0-09a01f34e58f.png"
+  },
+  "prompt": "PROMPT.txt",
+  "references": "GENERATION_REFERENCES.json",
+  "technical_export": {
+    "tool": "Aseprite 1.3.18.4-x64",
+    "script": "EXPORT_ASEPRITE.lua",
+    "log": "ATLAS_EXPORT.log",
+    "editable": "riverbed_atlas.aseprite",
+    "editable_sha256": "e53747945c829fb9c328433e7c9273ac2be77e69529e6747e73ccb8a4e5db3fe",
+    "method": "Retain each seed-connected source alpha component; isolate it with two transparent pixels of pad. Uniform bilinear resize into a centered 128-square padded slot. Stray disconnected matte noise excluded. No recoloring, redrawing, nonuniform stretch or changes to source.",
+    "atlas_slots": [
+      "wet_cross",
+      "wet_horizontal",
+      "wet_vertical",
+      "wet_cap",
+      "wet_elbow",
+      "wet_tee",
+      "dry_cross",
+      "dry_horizontal",
+      "dry_vertical",
+      "dry_cap",
+      "dry_elbow",
+      "dry_tee",
+      "dry_indent"
+    ],
+    "atlas_path": "assets/opera/worlds/props/geologist_riverbed_painted.png",
+    "size": [
+      512,
+      512
+    ],
+    "sha256": "6056a72ad9af5146270d26b71bbb61b2ae144d08fe190653ca735a3d0ae84952",
+    "selected_script": "EXPORT_TOPOLOGY_ASEPRITE.lua",
+    "selected_log": "TOPOLOGY_ATLAS_EXPORT.log",
+    "selected_editable": "riverbed_topology_atlas.aseprite",
+    "selected_editable_sha256": "06009b4611013bc4d863aca4bedfc9bfcef7e94493e0e7da00bcffd8ba449e6d",
+    "selected_method": "Repack seven first-sheet painted components. Isolate six complete new cutouts, clear alpha <=4 background haze, uniform bilinear resize, pad and register actual painted mouth pivots. Render authored cells rotated by exact topology. No color change, draw-generated contours, or altered native masters.",
+    "bounds_and_pivots": [
+      {
+        "slot": 0,
+        "art": "wet_cross",
+        "region": [
+          8,
+          11,
+          112,
+          106
+        ],
+        "pivot": [
+          56.0,
+          53.0
+        ]
+      },
+      {
+        "slot": 1,
+        "art": "wet_horizontal",
+        "region": [
+          136,
+          35,
+          112,
+          58
+        ],
+        "pivot": [
+          56.0,
+          29.0
+        ]
+      },
+      {
+        "slot": 2,
+        "art": "wet_vertical",
+        "region": [
+          284,
+          8,
+          72,
+          112
+        ],
+        "pivot": [
+          36.0,
+          56.0
+        ]
+      },
+      {
+        "slot": 3,
+        "art": "wet_cap",
+        "region": [
+          392,
+          13,
+          111,
+          101
+        ],
+        "pivot": [
+          45.0435,
+          48.8318
+        ]
+      },
+      {
+        "slot": 4,
+        "art": "wet_elbow",
+        "region": [
+          8,
+          139,
+          111,
+          106
+        ],
+        "pivot": [
+          36.3286,
+          39.9489
+        ]
+      },
+      {
+        "slot": 5,
+        "art": "wet_tee",
+        "region": [
+          136,
+          144,
+          112,
+          96
+        ],
+        "pivot": [
+          56.1474,
+          36.8098
+        ]
+      },
+      {
+        "slot": 6,
+        "art": "dry_cross",
+        "region": [
+          264,
+          137,
+          112,
+          109
+        ],
+        "pivot": [
+          56.0,
+          54.5
+        ]
+      },
+      {
+        "slot": 7,
+        "art": "dry_horizontal",
+        "region": [
+          392,
+          163,
+          112,
+          57
+        ],
+        "pivot": [
+          56.0,
+          28.5
+        ]
+      },
+      {
+        "slot": 8,
+        "art": "dry_vertical",
+        "region": [
+          25,
+          264,
+          77,
+          112
+        ],
+        "pivot": [
+          38.5,
+          56.0
+        ]
+      },
+      {
+        "slot": 9,
+        "art": "dry_cap",
+        "region": [
+          136,
+          270,
+          112,
+          100
+        ],
+        "pivot": [
+          44.6179,
+          49.2447
+        ]
+      },
+      {
+        "slot": 10,
+        "art": "dry_elbow",
+        "region": [
+          264,
+          266,
+          111,
+          107
+        ],
+        "pivot": [
+          36.3286,
+          40.9585
+        ]
+      },
+      {
+        "slot": 11,
+        "art": "dry_tee",
+        "region": [
+          392,
+          272,
+          112,
+          95
+        ],
+        "pivot": [
+          56.0,
+          37.2844
+        ]
+      },
+      {
+        "slot": 12,
+        "art": "dry_indent",
+        "region": [
+          8,
+          400,
+          112,
+          96
+        ],
+        "pivot": [
+          56.0,
+          48.0
+        ]
+      }
+    ]
+  },
+  "acceptance": {
+    "candidate": "LOCAL_PROTOTYPE",
+    "ten_axis": null,
+    "runtime": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null
+  },
+  "native_topology": {
+    "path": "assets_src/imagegen/geologist_riverbed_20261104/junctions_native.png",
+    "sha256": "d140d57ce1357eefb63a7fbe2af932554f5b97f04c816200eeb4e8e2dd935c41",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "retained_generated_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-01f0c91f-9a76-431f-8fdd-3298e6b52c01.png",
+    "prompt": "PROMPT_TOPOLOGY.txt",
+    "reference_roles": [
+      {
+        "path": "riverbed_atlas01_rejected_layout.png",
+        "sha256": "6937523bad2f1e8cc86ba11d1df3be8a242634adf5e99295721e20826c0db48f",
+        "role": "Earlier painted material/style, no inherited topology approval"
+      },
+      {
+        "path": "reference_river_work_slab_crop.png",
+        "role": "Actual current synthetic work slab crop",
+        "sha256": "d752a8991bea7eaa260e1b4d82dc8c554737c3d4a282f38f90201ca7ab3deab5"
+      }
+    ]
+  },
+  "prototype_01": {
+    "state": "REJECTED_IN_SCENE_FALSE_BRANCHES",
+    "retained_atlas": "riverbed_atlas01_rejected_layout.png",
+    "sha256": "6937523bad2f1e8cc86ba11d1df3be8a242634adf5e99295721e20826c0db48f",
+    "editable": "riverbed_atlas.aseprite",
+    "script_sha256": "8bee89a2948b8afc76c1bb159819837ecd68bd61c204f93aa596645a7a85e487",
+    "reason": "Four mouths in every cell misstate unexcavated neighboring paths, including straight reaches and dead ends.",
+    "qualified_component_reuse": "Exact authored cross and straight materials retained only in compatible topology. Dry indent retained."
+  }
+}

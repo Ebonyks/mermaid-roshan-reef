@@ -1,0 +1,44 @@
+{
+  "stable_id": "FV-DA16E1E99C6D",
+  "baseline": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+  "branch": "codex/flat-vector-geologist-riverbed-20261104",
+  "worktree": "C:\\Users\\Peter\\.codex\\worktrees\\recent-updates-followup-20261103\\mermaid-roshan-reef",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-MED-05",
+    "DL-PERF-03",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "scope": "One riverbed role in Geologist river mode: dry excavation marks, isolated dry dug cells, adjacent dry links, wet connected cells and links. Retain source and receiver art, four-neighbour topology, player touch, saves, progress and routes.",
+  "r110_published_evidence": "51b2e1ef7b32d155786277871fc3f5e941145ea6",
+  "baseline_context_reason": "Geologist world and surface art changed since R110. Refresh only the selected river mode with the prior configured fixture.",
+  "source_script": "scripts/opera_geology_surface.gd",
+  "source_script_sha256": "791559fe8ea17e87d34d39551532371ee593a8106effec23e6879652c0939d2a",
+  "neighbor_hashes": {
+    "assets/opera/worlds/props/geologist_river_source_painted.png": "0186849e77e9445c942eae5b1eb07936a1f6312e5c4693ad7ccc8c979ae0bb80",
+    "assets/opera/worlds/props/geologist_river_sink_dry_painted.png": "566bc325e2ab9554166446a47a586a57c010080b54c075e7a8eb1f83ca925d25",
+    "assets/opera/worlds/props/geologist_river_sink_full_painted.png": "9d860b290b1b8e4128c1ca0325eb0d62585abc302173de252b66f5240468e652"
+  },
+  "validation": [
+    "Exact Godot 4.7.2 Mobile/Speedy current source capture",
+    "Painted modules and bounded RGBA budget",
+    "Same-scene ten-axis comparison, arbitrary disconnected and connected paths",
+    "Exact import/static/analyzer/focused/full trusted/audit/2D",
+    "Anonymous immutable delivery. Formal QA11, device, child, owner separate."
+  ],
+  "new_generation_calls": 0
+}

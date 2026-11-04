@@ -186,6 +186,7 @@ Owner-directed Racer integration (2026-10-22): [scope and verification](../desig
 2026-11-01 speech-publication local verification: the [speech](../design/audit_impacts/roshan-less-chatter-20261031.json), [Geologist](../design/audit_impacts/geologist-feedback-rest-prerequisite-20261031.json), [fresh-process watchdog](../design/audit_impacts/chapter2-resume-startup-watchdog-20261101.json) and [Canvas exit sampler](../design/audit_impacts/slide-fanfare-exit-sampling-20261101.json) have full local82 applicable probe coverage, strict controls and current source/authority/inventory checks. Earlier failed attempts remain preserved. Exact published-head CI is required before dev integration; visual/device/listening/child/owner and global finding/master acceptance remain separate.
 
 | Painted Garden backdrop | [R135 candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/README.md) | Existing FV-BBB50149283E Garden variant; six paired configured GUI cases and preserved prop geometry; remaining variants and external acceptance open. |
+| R136 painted Geologist riverbed | [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-geologist-riverbed-20261104.json); riverbed cells and four-neighbor channels only. External acceptance and wider route coverage remain open. |
 <!-- AUDIT_TASK_INDEX_END -->
 
 ## Sealed audit snapshot and subsequent round metadata

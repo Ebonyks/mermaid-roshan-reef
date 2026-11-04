@@ -1,0 +1,19 @@
+{
+  "baseline": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+  "original_function_count": 58,
+  "other_functions_exact": 56,
+  "changed": [
+    "_draw_river",
+    "_load_textures"
+  ],
+  "added": [
+    "_draw_riverbed",
+    "_draw_riverbed_tile"
+  ],
+  "preserved": [
+    "RIVER_CELL, RIVER_PATH, 9 by 5 grid and 46px brush",
+    "One-finger touch, cancellation, checkpoint, progress and completion",
+    "Pool art, original pool sizing and placement",
+    "No procedural riverbed fallback; required atlas loaded only for river mode"
+  ]
+}

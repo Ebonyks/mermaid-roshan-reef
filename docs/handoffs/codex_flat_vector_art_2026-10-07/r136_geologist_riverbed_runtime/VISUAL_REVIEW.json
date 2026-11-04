@@ -1,0 +1,57 @@
+{
+  "state": "PASS_AGENT_BOUNDED_VISUAL_REVIEW_EXTERNAL_ACCEPTANCE_OPEN",
+  "stable_id": "FV-DA16E1E99C6D",
+  "source_revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+  "candidate_script_sha256": "aa5f4983da762666839e9d77036f72bd26a1b6feffba80aa4af8450f936668a4",
+  "candidate_atlas_sha256": "6056a72ad9af5146270d26b71bbb61b2ae144d08fe190653ca735a3d0ae84952",
+  "actual_frames_inspected": 36,
+  "paired_source_candidate_states": 14,
+  "additional_candidate_branch_frames": 8,
+  "rejected_prototype01_frames_excluded": 14,
+  "axes": {
+    "contour": {
+      "source": "Regular dark circles and thick outlined segments dominate the path.",
+      "candidate": "Open mouths follow the dug neighbors. Closed cap, straight, bend, tee and cross contours are visible without phantom branches."
+    },
+    "material": {
+      "source": "Uniform turquoise or mauve fill reads as flat tokens.",
+      "candidate": "Gouache water, pale rock rims and amber excavated dirt match the authored pool and slab surfaces."
+    },
+    "palette": {
+      "source": "Cyan and dusky purple compete with the painted receiver.",
+      "candidate": "Turquoise means connected and amber means dug but dry, with shared cream and warm plum edges."
+    },
+    "light": {
+      "source": "A repeated semicircle is the only highlight.",
+      "candidate": "Diffuse painted highlights follow the material. Straight components repeat a small glint pattern at native size."
+    },
+    "perspective": {
+      "source": "Top-down schematic paths on a painted slab.",
+      "candidate": "Top-down shallow channels align with the existing slab and pool view. Rotations preserve an overhead presentation."
+    },
+    "scale": {
+      "source": "Wide dark borders dominate each cell.",
+      "candidate": "The bank and water are slimmer and still readable at 1280 and 1600 wide. Touch dimensions are unchanged."
+    },
+    "contact": {
+      "source": "Flat segments collide with circular outlines at joints.",
+      "candidate": "Measured mouth pivots join the approved spring and sink. Slight band repetition at straight overlap is visible at native scale."
+    },
+    "occlusion": {
+      "source": "Pool overlays hide some large endpoint markers.",
+      "candidate": "Pools remain above their channel joins. The actors and controls are outside the painted atlas footprint."
+    },
+    "readability": {
+      "source": "Strong dry/wet color contrast, with graphic shapes that look separate from the scene.",
+      "candidate": "Small dents cue undug locations. Warm excavations and blue water remain distinct. Physical touch and child readability are open."
+    },
+    "action_state": {
+      "source": "Flat dots, isolated dry regions, joined wet route and receiver transition.",
+      "candidate": "Paired snapshots match. Branch states preserve dry/wet connectivity. The receiver fills only on a completed connection."
+    }
+  },
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}
