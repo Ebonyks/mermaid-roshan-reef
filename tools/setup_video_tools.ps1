@@ -16,7 +16,7 @@ trap {
 # installed silently.
 $ffmpegVersion = "8.1.2"
 $archiveName = "ffmpeg-$ffmpegVersion-essentials_build.zip"
-$archiveUrl = "https://www.gyan.dev/ffmpeg/builds/packages/$archiveName"
+$archiveUrl = "https://github.com/GyanD/codexffmpeg/releases/download/$ffmpegVersion/$archiveName"
 $expectedSha256 = "db580001caa24ac104c8cb856cd113a87b0a443f7bdf47d8c12b1d740584a2ec"
 
 $repoRoot = Split-Path -Parent $PSScriptRoot

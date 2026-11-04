@@ -1,0 +1,48 @@
+{
+  "painted_cave_source_revision": "3e09451bcf69bd37a8c37e855559822fbfd0d723",
+  "prior_source_manifest_sha256": "a67487944e12f356547a444a3a8e72223309a4a33c218812a34cf5f2cc38c7d1",
+  "prior_source_verified_files": 204,
+  "source_CI_run": 41838014853,
+  "original_gameplay_job": 126601878199,
+  "original_gameplay_conclusion": "success",
+  "music_download_failures": [
+    {
+      "requested_retry_utc": "2026-11-04T14:35:27.1971306+00:00",
+      "unchanged_music_inputs_and_workflow": true,
+      "failed_job": 126601877878,
+      "head": "3e09451bcf69bd37a8c37e855559822fbfd0d723",
+      "failure": "FileNotFoundError: FFmpeg was not found. Pass --ffmpeg or set REEF_FFMPEG to the pinned executable.",
+      "failed_step": "Verify deterministic area-music delivery",
+      "attempt": 1,
+      "successful_job": 126601878199,
+      "run": 41838014853
+    },
+    {
+      "failure": "Pinned FFmpeg provider download returned HTTP 503 Service Unavailable, so the verifier could not locate the binary.",
+      "failed_job": 126640222928,
+      "observed_at_utc": "2026-11-04T14:47:56.8974079+00:00",
+      "run": 41838014853,
+      "head": "3e09451bcf69bd37a8c37e855559822fbfd0d723",
+      "verified_registry_same_runner_image_success": 126606328245,
+      "attempt": 2
+    },
+    {
+      "attempt": 3,
+      "job": 126647553175,
+      "conclusion": "failure",
+      "exact_provider_response": "HTTP 503 Service Unavailable"
+    }
+  ],
+  "publisher_release": "https://github.com/GyanD/codexffmpeg/releases/tag/8.1.2",
+  "previous_url": "https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-8.1.2-essentials_build.zip",
+  "verified_archive": "https://github.com/GyanD/codexffmpeg/releases/download/8.1.2/ffmpeg-8.1.2-essentials_build.zip",
+  "pinned_and_observed_archive_sha256": "db580001caa24ac104c8cb856cd113a87b0a443f7bdf47d8c12b1d740584a2ec",
+  "archive_bytes": 109728040,
+  "fresh_installer": "PASS",
+  "area_music_verification": "PASS_ALL_44",
+  "runtime_changed": false,
+  "workflow_changed": false,
+  "artifacts_added": 0,
+  "accepted_removed": 0,
+  "exact_new_source_CI": "PENDING_AFTER_PUBLICATION"
+}

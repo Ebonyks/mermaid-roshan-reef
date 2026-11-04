@@ -1,0 +1,48 @@
+{
+  "id": "flat-vector-cave-ffmpeg-availability-20261104",
+  "baseline": "3e09451bcf69bd37a8c37e855559822fbfd0d723",
+  "scope": "Route the existing pinned FFmpeg archive through the same publisher GitHub Release after repeated provider 503 failures. Keep the original runtime and workflow, hash gate, version and verification.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-02",
+    "DL-QA-03"
+  ],
+  "findings": [],
+  "no_findings_reason": "Provider availability is a CI environment failure rather than a gameplay or audio-art finding. Existing cave findings remain open.",
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_cave_ci_ffmpeg_recovery/DEPENDENCY_PROOF.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_cave_ci_ffmpeg_recovery/INSTALL.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_cave_ci_ffmpeg_recovery/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_cave_ci_ffmpeg_recovery/MUSIC.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_cave_ci_ffmpeg_recovery/README.md",
+    "tools/setup_video_tools.ps1"
+  ],
+  "validation": [
+    {
+      "command": "Fresh setup_video_tools.ps1 and SHA-256 validation",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_cave_ci_ffmpeg_recovery/INSTALL.log and DEPENDENCY_PROOF.json"
+    },
+    {
+      "command": "python -B tools/build_area_music.py --ffmpeg <fresh pinned executable> --check",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_cave_ci_ffmpeg_recovery/MUSIC.log, 44 checks."
+    },
+    {
+      "command": "Previous exact unchanged runtime local suite",
+      "result": "PASS",
+      "evidence": "Cave source 3e09451bcf69bd37a8c37e855559822fbfd0d723 retained immutable. No changed game runtime or assets."
+    },
+    {
+      "command": "Exact new GitHub CI",
+      "result": "PENDING",
+      "evidence": "Follow the new source head before Dev integration."
+    }
+  ],
+  "acceptance_gaps": "New source GitHub CI, Dev and APK pending. Formal QA11, device, child, owner and route evidence remain independently open."
+}
