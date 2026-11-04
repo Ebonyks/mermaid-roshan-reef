@@ -1,0 +1,52 @@
+{
+  "id": "flat-vector-r135-dev-integration-20261104",
+  "baseline": "e79f959bdcdbde94a77e9dbe2dd8ae533722edb4",
+  "scope": "Record the exact green Garden source commit now on Dev. Update only canonical evidence, its current pointer, and one bounded Dev artifact count.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-03",
+    "DL-VIS-06",
+    "DL-MED-05",
+    "DL-ASSET-06",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_dev_integration/DEV_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_dev_integration/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_dev_integration/PRIOR_CANONICAL_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_dev_integration/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Verify exact GitHub source CI success and remote Dev fast-forward",
+      "result": "PASS",
+      "evidence": "r135_garden_dev_integration/DEV_VERIFICATION.json at 4af86a105c5b704299a4f750bd18bf00c5f6c00c"
+    },
+    {
+      "command": "Canonical document authority and AUTO/HEAD audit coverage",
+      "result": "PASS",
+      "evidence": "Authority, AUTO and HEAD passed on the staged canonical files. Final metadata and coverage gates apply to the completed manifest."
+    }
+  ],
+  "acceptance_gaps": "The Garden variant is on Dev. Dev workflow and the matching APK are pending. Natural-world route, formal QA11, device, child, owner and other backdrop variants remain open. Zero accepted artwork removals."
+}

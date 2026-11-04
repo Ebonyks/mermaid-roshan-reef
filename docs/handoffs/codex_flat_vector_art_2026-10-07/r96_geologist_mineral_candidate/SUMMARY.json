@@ -14,29 +14,29 @@
   "retained_excluded": 4326,
   "retained_native_events": 11959,
   "existing_sample_work_branch_implemented": 38,
-  "known_implementation_count_scope": "38 published bounded source artifacts, 20 partial Dev artifacts, and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown.",
+  "known_implementation_count_scope": "38 published bounded source artifacts, 21 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown.",
   "samples_awaiting_review_global": null,
   "approved": 0,
-  "dev_integrated": 20,
+  "dev_integrated": 21,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261104-R135-PAINTED-GARDEN-SOURCE",
+  "revision": "FV-AUDIT-20261104-R135-GARDEN-DEV",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
   "new_alias_credits": 0,
   "new_partial_role_credit": 0,
-  "new_native_frames": 70,
-  "new_bounded_contexts": 30,
-  "new_excluded_diagnostics": 40,
+  "new_native_frames": 0,
+  "new_bounded_contexts": 0,
+  "new_excluded_diagnostics": 0,
   "source_views_here": 2,
   "existing_context_frames_reinspected_here": 54,
-  "new_samples": 1,
-  "new_runtime_implementations": 1,
-  "new_generation_calls": 1,
+  "new_samples": 0,
+  "new_runtime_implementations": 0,
+  "new_generation_calls": 0,
   "reuse_ready_whole_role": false,
   "drawing_required_global": null,
-  "chosen_next_consumer": "Follow exact Garden source CI 41778631639 and reconcile green Dev. Preserve the separate combined recent-updates CI failure.",
+  "chosen_next_consumer": "Follow exact Dev CI 41787223133 and the matching APK. Continue selected painted replacements when production is idle.",
   "mission_complete": false,
   "dev_integrated_unit": "Partial bounded implementation artifacts, not complete artwork-role replacements or accepted removals.",
   "dev_integrated_complete_named_roles": 0,
@@ -60,7 +60,8 @@
     "r115_geologist_station_props_runtime",
     "r116_geologist_layered_rock_runtime",
     "r117_dolls_mat_runtime",
-    "r118_dolls_cradle_runtime"
+    "r118_dolls_cradle_runtime",
+    "r135_garden_backdrop_runtime"
   ],
   "r92_dev_ci_timeout": {
     "state": "DEV_ATTEMPT1_CANCELLED_CONFIRMED_55MIN_LIMIT_RETRY_PENDING",
@@ -2163,7 +2164,7 @@
     "mission_complete": false,
     "remaining": "Cavebackground/strata/beams/floor, actorstaging/contact, floating/off-target invitations, riverexcavation/connectedchannel, remaining art and natural/training/allroutes/performance/formalQA11/device/child/owner/global acceptance remain OPEN. Existing whole sources keep provisional scope. No backgroundresolution, actorcontact or acceptedremoval credit."
   },
-  "new_runtime_PNG_this_revision": 1,
+  "new_runtime_PNG_this_revision": 0,
   "r116_parent_receipt_revision": "cd3e905da6404be3d93551cd3ba78564da3a9312",
   "r116_layered_rock_runtime": {
     "stable_id": "FV-192FA763EF56",
@@ -2511,7 +2512,7 @@
     },
     "remaining": "Entire campaign parked afterR118 until owner resumes afterdemo. Future sourceCI/currentDev reconciliation/integration, naturalroutes/formalQA11/device/child/owner/global denominators remainOPEN. No new art or engine suite for preservation bookkeeping."
   },
-  "new_partial_Dev_artifacts": 0,
+  "new_partial_Dev_artifacts": 1,
   "production_hold": "Latest owner authorizes recent completed green updates to Dev and continuing art; prior Devfreeze is historical. No image/QA/device/child/owner acceptance inferred.",
   "r120_parent_receipt_revision": "3c3b39838b2ceacb13281a83957442662ca2f5b9",
   "r120_melody_curtains_runtime": {
@@ -5280,7 +5281,7 @@
     },
     "integration": {
       "work_branch": true,
-      "Dev": false,
+      "Dev": true,
       "canonical_runtime_changed": false,
       "replaced": [
         "Garden gradient backdrop",
@@ -5292,7 +5293,8 @@
       ],
       "other_methods_byte_identical": 29,
       "old_Garden_art_fallback": false,
-      "untested_route": "Natural-world arrival; configured entry, completion and re-entry exercised."
+      "untested_route": "Natural-world arrival; configured entry, completion and re-entry exercised.",
+      "Dev_revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c"
     },
     "runtime_evidence": {
       "local_trusted_probes": 82,
@@ -5310,7 +5312,10 @@
         "retained": 70
       },
       "CI_run": 41778631639,
-      "CI_status_at_snapshot": "in_progress"
+      "CI_status_at_snapshot": "in_progress",
+      "exact_source_CI_result": "success",
+      "Dev_CI_run": 41787223133,
+      "Dev_CI_status_at_snapshot": "in_progress"
     },
     "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/VISUAL_REVIEW.json",
     "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/FRAME_INDEX.json",
@@ -5324,5 +5329,66 @@
       "trampoline",
       "xmas"
     ]
+  },
+  "r135_garden_dev_integration": {
+    "state": "GARDEN_VARIANT_FAST_FORWARDED_TO_DEV",
+    "verified_at": "2026-11-04T06:44:26.758399+00:00",
+    "revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+    "previous_Dev_head": "27c88288bf6e39582072811443df79919e7bbb89",
+    "remote_ref": "refs/heads/dev",
+    "exact_source_CI": {
+      "id": 41778631639,
+      "head": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+      "branch": "codex/flat-vector-garden-backdrop-20261103",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-11-04T06:40:10Z"
+    },
+    "exact_Dev_CI_at_snapshot": {
+      "id": 41787223133,
+      "head_sha": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+      "head_branch": "dev",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41787223133",
+      "path": ".github/workflows/probes.yml",
+      "event": "push",
+      "updated_at": "2026-11-04T06:41:47Z"
+    },
+    "prior_canonical_CI": {
+      "run": 41779251537,
+      "head": "e79f959bdcdbde94a77e9dbe2dd8ae533722edb4",
+      "conclusion": "cancelled",
+      "job": 126406752553,
+      "cancelled_step": "Import (deadlock-guarded)",
+      "cause": null
+    },
+    "older_combined_CI": {
+      "run": 41757765879,
+      "head": "9474e440b65445882e2d15f0a41e43827f8551a3",
+      "conclusion": "failure",
+      "Dev_integrated": false,
+      "scope": "Separate earlier combined updates"
+    },
+    "apk_verified": false,
+    "stable_id": "FV-BBB50149283E",
+    "variant": "garden",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "r135_prior_integration_local_fields": {
+    "revision": "FV-AUDIT-20261104-R135-PAINTED-GARDEN-SOURCE",
+    "new_native_frames": 70,
+    "new_bounded_contexts": 30,
+    "new_excluded_diagnostics": 40,
+    "new_samples": 1,
+    "new_runtime_implementations": 1,
+    "new_generation_calls": 1,
+    "chosen_next_consumer": "Follow exact Garden source CI 41778631639 and reconcile green Dev. Preserve the separate combined recent-updates CI failure.",
+    "known_implementation_count_scope": "38 published bounded source artifacts, 20 partial Dev artifacts, and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown."
   }
 }

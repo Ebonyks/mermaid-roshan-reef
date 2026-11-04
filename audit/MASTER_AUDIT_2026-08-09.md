@@ -103,6 +103,7 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 | R133paintedSnowman ground/currentrecentcomposition | [Publishedcandidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r133_snowfield_runtime/README.md) | SourceA verified1343files/localall82; sourceCI/normalgreenDevpending. CHG-139;36source20partialDev, allformal/external/globalgapsopen. |
 | R134 painted shared picture feedback | [Verified source](../docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-r134-canonical-20261103.json); exact9474e440,397anonymous files,42native events;37source20partialDev. Source CI/green Dev and all external/global gates open;0accepted removals. |
 | R135 painted Garden backdrop | [Verified source](../docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-r135-canonical-20261103.json); Garden variant, 30 bounded and 40 excluded events, 263 source files. Separate source CI, Dev and external review. |
+| R135 Garden on Dev | [Dev verification](../docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_dev_integration/README.md) | [Impact](../design/audit_impacts/flat-vector-r135-dev-integration-20261104.json); exact 4af86a10 on Dev, bounded Garden variant. Dev CI/APK and external review remain separate. |
 <!-- AUDIT_TASK_INDEX_END -->
 
 ## Sealed audit snapshot and subsequent round metadata

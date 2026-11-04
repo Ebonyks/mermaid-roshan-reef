@@ -1,0 +1,50 @@
+{
+  "state": "GARDEN_VARIANT_FAST_FORWARDED_TO_DEV",
+  "verified_at": "2026-11-04T06:44:26.758399+00:00",
+  "revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+  "previous_Dev_head": "27c88288bf6e39582072811443df79919e7bbb89",
+  "remote_ref": "refs/heads/dev",
+  "exact_source_CI": {
+    "id": 41778631639,
+    "head": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+    "branch": "codex/flat-vector-garden-backdrop-20261103",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "updated_at": "2026-11-04T06:40:10Z"
+  },
+  "exact_Dev_CI_at_snapshot": {
+    "id": 41787223133,
+    "head_sha": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+    "head_branch": "dev",
+    "status": "in_progress",
+    "conclusion": null,
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41787223133",
+    "path": ".github/workflows/probes.yml",
+    "event": "push",
+    "updated_at": "2026-11-04T06:41:47Z"
+  },
+  "prior_canonical_CI": {
+    "run": 41779251537,
+    "head": "e79f959bdcdbde94a77e9dbe2dd8ae533722edb4",
+    "conclusion": "cancelled",
+    "job": 126406752553,
+    "cancelled_step": "Import (deadlock-guarded)",
+    "cause": null
+  },
+  "older_combined_CI": {
+    "run": 41757765879,
+    "head": "9474e440b65445882e2d15f0a41e43827f8551a3",
+    "conclusion": "failure",
+    "Dev_integrated": false,
+    "scope": "Separate earlier combined updates"
+  },
+  "apk_verified": false,
+  "stable_id": "FV-BBB50149283E",
+  "variant": "garden",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0
+}

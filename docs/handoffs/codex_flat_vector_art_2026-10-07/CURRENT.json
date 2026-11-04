@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261104-R135-PAINTED-GARDEN-SOURCE",
-  "current_entry": "r135_garden_backdrop_runtime/README.md",
+  "revision": "FV-AUDIT-20261104-R135-GARDEN-DEV",
+  "current_entry": "r135_garden_dev_integration/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r135_garden_backdrop_runtime/MANIFEST.json",
+  "current_manifest": "r135_garden_dev_integration/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r135_garden_backdrop_runtime/SOURCE_CI_STATUS.json",
+  "current_ci_evidence": "r135_garden_dev_integration/DEV_VERIFICATION.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -6431,5 +6431,8 @@
   "immutable_r135_source_revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
   "r135_remote_verification": "r135_garden_backdrop_runtime/SOURCE_DELIVERY_VERIFICATION.json",
   "immutable_r134_payload_revision": "66db37200f2a7685e4ada612d196e950242a5418",
-  "r134_payload_verification": "r135_garden_backdrop_runtime/PRIOR_CANONICAL_R134_VERIFICATION.json"
+  "r134_payload_verification": "r135_garden_backdrop_runtime/PRIOR_CANONICAL_R134_VERIFICATION.json",
+  "r135_garden_dev_revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+  "immutable_r135_canonical_source_revision": "e79f959bdcdbde94a77e9dbe2dd8ae533722edb4",
+  "r135_prior_canonical_verification": "r135_garden_dev_integration/PRIOR_CANONICAL_VERIFICATION.json"
 }

@@ -330,6 +330,8 @@ poses as broken motion.
 
 ## MA-VIS-006
 
+[Garden Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_dev_integration/README.md) verifies 4af86a10 after green source CI. The finding remains open for other variants and required acceptance.
+
 R135 published source evidence for the [painted Garden backdrop](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/README.md), Garden variant of FV-BBB50149283E at 4af86a10. Local runtime and bounded agent review pass. The finding stays open. Snowman, Trampoline and Christmas variants, natural-world route coverage, formal QA11, physical-device, child and owner review remain open.
 
 R134 verified source2026-11-03: [painted shared picture feedback](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/README.md), existing FV-E96CD69662D1, nine whole color appearances.397files anonymously verified at9474e440; local82/4analyzers/final2D and configured context pass.37bounded source/20partialDev; source CI is separate. Lifecycle stays CONFIRMED_OPEN; formal/device/child/owner/route/global gaps open and accepted removals0.
@@ -511,6 +513,8 @@ R126source production2026-11-02: [painted Melody note token](../../docs/handoffs
 | history | 2026-08-29: repeated owner report reproduced. Root causes include an abandoned topic branch, removal of only one of two false foreground cards, two baked/blurred background footprints, regeneration tooling that could restore the defect, node-only probes, a runtime route allow-list that rejected the repaired route, and cwd-relative review tooling that could inspect stale branches or composite against an obsolete plate. Both bathroom footprints were repaired and exact 4.7.2 dirty/clean captures passed. Three parallel scrubs dispositioned the game, drove full-frame regeneration of seven Castle plates plus Opera Detective and Nursery, retired the incomplete duplicate tent-flap card, repaired the cupboard's incomplete rest frame, and independently reviewed all 96 retained V4 frames against exact worktree/runtime paths. The complete exact-4.7.2 local suite exits zero; lifecycle advances to `FIXED_PENDING_VERIFICATION` while exact `dev` and external acceptance remain open.  2026-10-12: [R6 independent audit packet](../../docs/handoffs/codex_flat_vector_art_2026-10-07/README.md) preserves immutable R5 and unchanged origin/dev runtime.980 new/1584 cumulative bounded diagnostic frames,1686 retained including102 excluded diagnostics;76/176 partial,zero complete,18 scope inventory classifications/351 unresolved. Three independent reviews bind44 existing named records with partial context;none establishes acceptance.0 replacements/accepted removals;unique artwork total unknown. Full inventory,QA11,device/child/owner acceptance remain open; lifecycle unchanged. Publication and remote receipt required separately. |
 
 ## MA-VIS-008
+
+[Garden Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_dev_integration/README.md) verifies 4af86a10 after green source CI. The finding remains open for other variants and required acceptance.
 
 R135 published source evidence for the [painted Garden backdrop](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/README.md), Garden variant of FV-BBB50149283E at 4af86a10. Local runtime and bounded agent review pass. The finding stays open. Snowman, Trampoline and Christmas variants, natural-world route coverage, formal QA11, physical-device, child and owner review remain open.
 

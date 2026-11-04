@@ -28254,7 +28254,7 @@
         "r135_garden_context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/FRAME_INDEX.json"
       },
       "evidence_level": "SOURCE_BOUND_NATIVE_PAIRS_AND_BOUNDED_AGENT_REVIEW",
-      "observed_weakness": "The Garden variant has a painted plate on the work branch. The other picture-game variants retain flat gradient art.",
+      "observed_weakness": "The Garden variant uses the painted plate on Dev. Other picture-game variants retain their gradient art.",
       "priority": "P2",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
       "context_brief_id": "BRIEF-PICTURE_GAMES",
@@ -28264,8 +28264,8 @@
       ],
       "reuse_inspection": "Dated audit identifies references only; five distinct complete mature plants and matching sprout/root slots are not proven from these two flowers.",
       "named_gap": null,
-      "status": "SOURCE_CANDIDATE",
-      "integration_sha": null,
+      "status": "DEV_PARTIAL_CANDIDATE",
+      "integration_sha": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
       "acceptance_evidence": {
         "current_mobile_runtime": null,
         "wide_phone_runtime": null,
@@ -28317,7 +28317,7 @@
           },
           "integration": {
             "work_branch": true,
-            "Dev": false,
+            "Dev": true,
             "canonical_runtime_changed": false,
             "replaced": [
               "Garden gradient backdrop",
@@ -28329,7 +28329,8 @@
             ],
             "other_methods_byte_identical": 29,
             "old_Garden_art_fallback": false,
-            "untested_route": "Natural-world arrival; configured entry, completion and re-entry exercised."
+            "untested_route": "Natural-world arrival; configured entry, completion and re-entry exercised.",
+            "Dev_revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c"
           },
           "runtime_evidence": {
             "local_trusted_probes": 82,
@@ -28347,7 +28348,10 @@
               "retained": 70
             },
             "CI_run": 41778631639,
-            "CI_status_at_snapshot": "in_progress"
+            "CI_status_at_snapshot": "in_progress",
+            "exact_source_CI_result": "success",
+            "Dev_CI_run": 41787223133,
+            "Dev_CI_status_at_snapshot": "in_progress"
           },
           "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/VISUAL_REVIEW.json",
           "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/FRAME_INDEX.json",
@@ -28364,8 +28368,9 @@
         }
       },
       "dependencies": [
-        "Exact green source CI and Dev integration",
-        "Snowman, Trampoline and Christmas variants, natural-world route coverage, formal QA11, physical-device, child and owner review remain open."
+        "Exact Dev CI and matching APK evidence",
+        "Garden natural-world route and external review",
+        "Sibling backdrop variants and game-wide coverage"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -28393,6 +28398,17 @@
           "child": null,
           "owner": null,
           "accepted_removed": 0
+        },
+        {
+          "revision": "FV-AUDIT-20261104-R135-GARDEN-DEV",
+          "stable_id": "FV-BBB50149283E",
+          "source": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+          "scope": "Exact published Garden candidate present on Dev. Bounded variant only.",
+          "accepted_removed": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null
         }
       ],
       "proposed_update": "Review the Garden candidate on the natural route and target device. Treat sibling backdrops as separate variants with their own evidence.",
@@ -28722,7 +28738,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261104-R135-PAINTED-GARDEN-SOURCE",
+  "revision": "FV-AUDIT-20261104-R135-GARDEN-DEV",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -39421,7 +39437,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 38 published bounded source artifacts, 20 partial Dev artifacts, and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame events total 7,633 bounded and 4,326 excluded, with 11,959 retained.",
+  "current_effective_summary": "SUMMARY.json. 38 published bounded source artifacts, 21 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,633 bounded and 4,326 excluded, with 11,959 retained.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -45436,7 +45452,7 @@
     },
     "integration": {
       "work_branch": true,
-      "Dev": false,
+      "Dev": true,
       "canonical_runtime_changed": false,
       "replaced": [
         "Garden gradient backdrop",
@@ -45448,7 +45464,8 @@
       ],
       "other_methods_byte_identical": 29,
       "old_Garden_art_fallback": false,
-      "untested_route": "Natural-world arrival; configured entry, completion and re-entry exercised."
+      "untested_route": "Natural-world arrival; configured entry, completion and re-entry exercised.",
+      "Dev_revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c"
     },
     "runtime_evidence": {
       "local_trusted_probes": 82,
@@ -45466,7 +45483,10 @@
         "retained": 70
       },
       "CI_run": 41778631639,
-      "CI_status_at_snapshot": "in_progress"
+      "CI_status_at_snapshot": "in_progress",
+      "exact_source_CI_result": "success",
+      "Dev_CI_run": 41787223133,
+      "Dev_CI_status_at_snapshot": "in_progress"
     },
     "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/VISUAL_REVIEW.json",
     "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/FRAME_INDEX.json",
@@ -45481,5 +45501,55 @@
       "xmas"
     ]
   },
-  "r135_prior_canonical_revision": "66db37200f2a7685e4ada612d196e950242a5418"
+  "r135_prior_canonical_revision": "66db37200f2a7685e4ada612d196e950242a5418",
+  "r135_garden_dev_integration": {
+    "state": "GARDEN_VARIANT_FAST_FORWARDED_TO_DEV",
+    "verified_at": "2026-11-04T06:44:26.758399+00:00",
+    "revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+    "previous_Dev_head": "27c88288bf6e39582072811443df79919e7bbb89",
+    "remote_ref": "refs/heads/dev",
+    "exact_source_CI": {
+      "id": 41778631639,
+      "head": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+      "branch": "codex/flat-vector-garden-backdrop-20261103",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-11-04T06:40:10Z"
+    },
+    "exact_Dev_CI_at_snapshot": {
+      "id": 41787223133,
+      "head_sha": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+      "head_branch": "dev",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41787223133",
+      "path": ".github/workflows/probes.yml",
+      "event": "push",
+      "updated_at": "2026-11-04T06:41:47Z"
+    },
+    "prior_canonical_CI": {
+      "run": 41779251537,
+      "head": "e79f959bdcdbde94a77e9dbe2dd8ae533722edb4",
+      "conclusion": "cancelled",
+      "job": 126406752553,
+      "cancelled_step": "Import (deadlock-guarded)",
+      "cause": null
+    },
+    "older_combined_CI": {
+      "run": 41757765879,
+      "head": "9474e440b65445882e2d15f0a41e43827f8551a3",
+      "conclusion": "failure",
+      "Dev_integrated": false,
+      "scope": "Separate earlier combined updates"
+    },
+    "apk_verified": false,
+    "stable_id": "FV-BBB50149283E",
+    "variant": "garden",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  }
 }

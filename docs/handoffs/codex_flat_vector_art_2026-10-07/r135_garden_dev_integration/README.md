@@ -1,0 +1,7 @@
+# Painted Garden backdrop on Dev
+
+Dev advanced from 27c88288 to 4af86a10 after the exact Garden candidate passed GitHub CI. The Garden variant of FV-BBB50149283E uses the painted sky and meadow. [Dev commit](https://github.com/Ebonyks/mermaid-roshan-reef/commit/4af86a105c5b704299a4f750bd18bf00c5f6c00c), [source CI](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41778631639), [Dev verification](DEV_VERIFICATION.json).
+
+38 published bounded source artifacts, 21 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. This record adds one bounded Dev artifact and zero frame events. The published source still holds the candidate, provenance, ten-axis review and paired scene captures. [Source delivery](https://github.com/Ebonyks/mermaid-roshan-reef/blob/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/README.md), [previous canonical evidence](https://github.com/Ebonyks/mermaid-roshan-reef/blob/e79f959bdcdbde94a77e9dbe2dd8ae533722edb4/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/README.md).
+
+The exact Dev workflow was running at verification. The matching Android APK, natural-world route, formal QA11, device, child and owner review remain open. The previous registry-only workflow was cancelled during import. The older combined update has a separate checkout failure. [Dev CI](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41787223133).

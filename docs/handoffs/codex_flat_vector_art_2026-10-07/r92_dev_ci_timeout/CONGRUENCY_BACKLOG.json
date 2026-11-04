@@ -1061,7 +1061,7 @@
     },
     "R52": "NewpanoramafieldsbesideR52;earlierR51/previousfieldsretaintheirimmutablebases. Frozenrootandpiece/familyarrays/readersunchanged."
   },
-  "revision": "FV-AUDIT-20261016-R82",
+  "revision": "FV-AUDIT-20261104-R135-GARDEN-DEV",
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "geode_addendum": {
     "file": "REVIEW.json",
@@ -9587,7 +9587,7 @@
       "repair": "Review title/decorative heart collision with global Back at1280; retain readable title and110touchminimum. No runtime change."
     }
   ],
-  "current_effective_summary": "../r96_geologist_mineral_candidate/SUMMARY.json. 38 published bounded source artifacts, 20 partial Dev artifacts, and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame events total 7,633 bounded and 4,326 excluded, with 11,959 retained.",
+  "current_effective_summary": "../r96_geologist_mineral_candidate/SUMMARY.json. 38 published bounded source artifacts, 21 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,633 bounded and 4,326 excluded, with 11,959 retained.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -10540,7 +10540,7 @@
     },
     "integration": {
       "work_branch": true,
-      "Dev": false,
+      "Dev": true,
       "canonical_runtime_changed": false,
       "replaced": [
         "Garden gradient backdrop",
@@ -10552,7 +10552,8 @@
       ],
       "other_methods_byte_identical": 29,
       "old_Garden_art_fallback": false,
-      "untested_route": "Natural-world arrival; configured entry, completion and re-entry exercised."
+      "untested_route": "Natural-world arrival; configured entry, completion and re-entry exercised.",
+      "Dev_revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c"
     },
     "runtime_evidence": {
       "local_trusted_probes": 82,
@@ -10570,7 +10571,10 @@
         "retained": 70
       },
       "CI_run": 41778631639,
-      "CI_status_at_snapshot": "in_progress"
+      "CI_status_at_snapshot": "in_progress",
+      "exact_source_CI_result": "success",
+      "Dev_CI_run": 41787223133,
+      "Dev_CI_status_at_snapshot": "in_progress"
     },
     "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/VISUAL_REVIEW.json",
     "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/FRAME_INDEX.json",
@@ -10584,5 +10588,55 @@
       "trampoline",
       "xmas"
     ]
+  },
+  "r135_garden_dev_integration": {
+    "state": "GARDEN_VARIANT_FAST_FORWARDED_TO_DEV",
+    "verified_at": "2026-11-04T06:44:26.758399+00:00",
+    "revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+    "previous_Dev_head": "27c88288bf6e39582072811443df79919e7bbb89",
+    "remote_ref": "refs/heads/dev",
+    "exact_source_CI": {
+      "id": 41778631639,
+      "head": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+      "branch": "codex/flat-vector-garden-backdrop-20261103",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-11-04T06:40:10Z"
+    },
+    "exact_Dev_CI_at_snapshot": {
+      "id": 41787223133,
+      "head_sha": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+      "head_branch": "dev",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41787223133",
+      "path": ".github/workflows/probes.yml",
+      "event": "push",
+      "updated_at": "2026-11-04T06:41:47Z"
+    },
+    "prior_canonical_CI": {
+      "run": 41779251537,
+      "head": "e79f959bdcdbde94a77e9dbe2dd8ae533722edb4",
+      "conclusion": "cancelled",
+      "job": 126406752553,
+      "cancelled_step": "Import (deadlock-guarded)",
+      "cause": null
+    },
+    "older_combined_CI": {
+      "run": 41757765879,
+      "head": "9474e440b65445882e2d15f0a41e43827f8551a3",
+      "conclusion": "failure",
+      "Dev_integrated": false,
+      "scope": "Separate earlier combined updates"
+    },
+    "apk_verified": false,
+    "stable_id": "FV-BBB50149283E",
+    "variant": "garden",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
   }
 }
