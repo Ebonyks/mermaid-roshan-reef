@@ -17822,7 +17822,7 @@
       "runtime_consumers": [],
       "screen_coverage": {
         "measured_current_bounds": null,
-        "coverage_state": "COVERAGE_GAP",
+        "coverage_state": "CONFIGURED_CURRENT_CONTEXT_PARTIAL",
         "geometry_expressions": [
           "var panel := Rect2(Vector2.ZERO, size)",
           "draw_circle(Vector2(pip_x, 34.0), 18.0,",
@@ -17840,17 +17840,18 @@
           "draw_arc(catch_point, catch_radius, 0.0, PI, 40,",
           "draw_arc(catch_point, catch_radius, 0.02, PI - 0.02, 40,"
         ],
-        "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        "note": "Expressions are scope evidence, not measured per-piece screen bounds.",
+        "r138_focus_context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/FOCUSED_RESULT.json"
       },
       "evidence_level": "SOURCE_INSPECTION",
-      "observed_weakness": "Procedural full-circle halo is drawn around safe-landed babies.",
+      "observed_weakness": "The painted ring replaces the flat safe-landing arc in the source candidate.",
       "priority": "P1",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
       "context_brief_id": "BRIEF-DOLLS",
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
       "named_gap": null,
-      "status": "IDENTIFIED",
+      "status": "SOURCE_PAINTED_CANDIDATE_LOCAL_PASS",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -17859,7 +17860,77 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r138_dolls_safe_landing_runtime": {
+          "state": "PUBLISHED_PAINTED_DOLLS_SAFE_LANDING_CANDIDATE_LOCAL_RUNTIME_PASS",
+          "stable_ids": [
+            "FV-2C447ABAAF19"
+          ],
+          "scope": "Passive safe-landing ring in the original Main/Faron Dolls activity",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+          "source_baseline": "9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30",
+          "source_branch": "codex/flat-vector-dolls-safe-landing-20261104",
+          "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md",
+          "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/MANIFEST.json",
+          "source_manifest_sha256": "e26658f02df6312a285a67b41cb5159fe104c2e5e69c05804fbb66d65d9a7eb8",
+          "anonymous_required_files_including_manifest": 137,
+          "candidate": {
+            "path": "assets/dolls/safe_landing_halo_painted.png",
+            "sha256": "83ae11f9b1dfbd8fe82ea35fdde5299b49b4e12a2381e18f85cd765ef338d8f6",
+            "source": "take_02_native.png",
+            "dimensions": [
+              256,
+              256
+            ],
+            "export": "FFmpeg 8.1.2 crop=1110:1110:62:73:exact=1,scale=256:256:flags=lanczos,format=rgba",
+            "alpha16_bbox_xyxy": [
+              3,
+              5,
+              253,
+              251
+            ],
+            "alpha128_bbox_xyxy": [
+              3,
+              5,
+              252,
+              251
+            ],
+            "destination": "Existing 50x50 safe_landing_rect centered on each landing. Existing fade applies to the texture.",
+            "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/assets/dolls/safe_landing_halo_painted.png",
+            "static_calls": 2,
+            "animation_calls": 0,
+            "model_version": null,
+            "backend": "Built-in image_gen.imagegen",
+            "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/assets_src/imagegen/dolls_safe_landing_halo_20261104/PROVENANCE.json"
+          },
+          "integration": {
+            "source_work_branch": true,
+            "Dev": false,
+            "procedural_ring_replaced": true
+          },
+          "runtime_evidence": {
+            "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+            "configured_checks": 104,
+            "candidate_native_frames": 18,
+            "native_frame_events": {
+              "bounded": 18,
+              "excluded": 0,
+              "retained": 18
+            },
+            "probes": 82,
+            "analyzers": 4,
+            "normal_save_hashes_unchanged": 11,
+            "CI_run": 41916799546,
+            "CI_status_at_snapshot": "queued"
+          },
+          "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/FOCUSED_RESULT.json",
+          "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/VISUAL_REVIEW.json",
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "accepted_removed": 0
+        }
       },
       "dependencies": [
         "Current route/phase capture and source-pixel ownership",
@@ -17879,8 +17950,19 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Use a bounded appropriate authored contact accent only if it explains safe landing; otherwise retain baby/mat state without extra decoration.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261104-R138-DOLLS-SAFE-LANDING-SOURCE",
+          "source": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+          "scope": "Passive safe-landing ring in the original Main/Faron Dolls activity",
+          "accepted_removed": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null
+        }
+      ],
+      "proposed_update": "Verify exact source CI, integrate via the normal Dev gate, and complete formal QA11 and external review.",
       "route_refs": [
         "minigame.dolls",
         "game.dolls"
@@ -29114,7 +29196,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261104-R137-CAVE-DEV",
+  "revision": "FV-AUDIT-20261104-R138-DOLLS-SAFE-LANDING-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -39813,7 +39895,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 40 published bounded source artifacts, 23 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,705 bounded and 4,340 excluded, with 12,045 retained.",
+  "current_effective_summary": "SUMMARY.json. 41 published bounded source artifacts, 23 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native events total 7,723 bounded and 4,340 excluded, with 12,063 retained.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -46290,6 +46372,76 @@
     "apk_verified": false,
     "stable_id": "FV-14664183159D",
     "variant": "geologist_cave",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "r138_dolls_safe_landing_runtime": {
+    "state": "PUBLISHED_PAINTED_DOLLS_SAFE_LANDING_CANDIDATE_LOCAL_RUNTIME_PASS",
+    "stable_ids": [
+      "FV-2C447ABAAF19"
+    ],
+    "scope": "Passive safe-landing ring in the original Main/Faron Dolls activity",
+    "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+    "source_baseline": "9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30",
+    "source_branch": "codex/flat-vector-dolls-safe-landing-20261104",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/MANIFEST.json",
+    "source_manifest_sha256": "e26658f02df6312a285a67b41cb5159fe104c2e5e69c05804fbb66d65d9a7eb8",
+    "anonymous_required_files_including_manifest": 137,
+    "candidate": {
+      "path": "assets/dolls/safe_landing_halo_painted.png",
+      "sha256": "83ae11f9b1dfbd8fe82ea35fdde5299b49b4e12a2381e18f85cd765ef338d8f6",
+      "source": "take_02_native.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "export": "FFmpeg 8.1.2 crop=1110:1110:62:73:exact=1,scale=256:256:flags=lanczos,format=rgba",
+      "alpha16_bbox_xyxy": [
+        3,
+        5,
+        253,
+        251
+      ],
+      "alpha128_bbox_xyxy": [
+        3,
+        5,
+        252,
+        251
+      ],
+      "destination": "Existing 50x50 safe_landing_rect centered on each landing. Existing fade applies to the texture.",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/assets/dolls/safe_landing_halo_painted.png",
+      "static_calls": 2,
+      "animation_calls": 0,
+      "model_version": null,
+      "backend": "Built-in image_gen.imagegen",
+      "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/assets_src/imagegen/dolls_safe_landing_halo_20261104/PROVENANCE.json"
+    },
+    "integration": {
+      "source_work_branch": true,
+      "Dev": false,
+      "procedural_ring_replaced": true
+    },
+    "runtime_evidence": {
+      "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+      "configured_checks": 104,
+      "candidate_native_frames": 18,
+      "native_frame_events": {
+        "bounded": 18,
+        "excluded": 0,
+        "retained": 18
+      },
+      "probes": 82,
+      "analyzers": 4,
+      "normal_save_hashes_unchanged": 11,
+      "CI_run": 41916799546,
+      "CI_status_at_snapshot": "queued"
+    },
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/FOCUSED_RESULT.json",
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/VISUAL_REVIEW.json",
     "formal_QA11": null,
     "device": null,
     "child": null,

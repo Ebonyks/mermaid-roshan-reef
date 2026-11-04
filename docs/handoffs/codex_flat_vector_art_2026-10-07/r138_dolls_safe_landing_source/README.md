@@ -1,0 +1,5 @@
+# Painted Dolls safe-landing cue
+
+One painted aqua cue replaces the procedural ring in Main/Faron Dolls on the source branch. The candidate preserves passive non-win, one-finger catches and the same fade. 41 published bounded source artifacts, 23 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Eighteen new bounded events belong to one implementation. The scene alias and prior exact comparison frames add no duplicate credit. [Source and tests](https://github.com/Ebonyks/mermaid-roshan-reef/blob/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md) · [Exact source CI](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41916799546) · [Source receipt](SOURCE_DELIVERY_VERIFICATION.json).
+
+The separate Geologist cave Dev APK passed anonymous verification at `9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30`. Its release and exact Android build are recorded with the checksum. [APK verification](R137_DEV_APK_VERIFICATION.json). Formal QA11, device, child and owner remain open.

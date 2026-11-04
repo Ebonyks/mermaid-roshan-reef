@@ -1,0 +1,146 @@
+{
+  "schema": "reef.bounded-current-canonical-production-reconciliation/1",
+  "state": "R138_SOURCE_AND_R137_APK_VERIFIED",
+  "baseline": "c024fef948b2ab1fa97d787c50ad5bc964c33fa6",
+  "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+  "entry": "docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_source/README.md",
+  "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/MANIFEST.json",
+  "historical_canonical_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c024fef948b2ab1fa97d787c50ad5bc964c33fa6/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_dev_integration/MANIFEST.json",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 14127,
+      "sha256": "28538f415b3aebc34445ae68743613444366eb9a4896d13b8d4f5be1b9831638",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 301415,
+      "sha256": "a9abc7c8df4446a9c4a55a149557991827d6160206a6bc290416a6ea55e80fa4",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 364412,
+      "sha256": "2aabd1776e88b9aac988094ff72ab13f437f299e60399580e112aba53617b45a",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 280888,
+      "sha256": "0719e94ab59364eacbb920d7deb8b9d68ea19b59cdc1b24fe5d0c37c5ad7fc6d",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "design/audit_impacts/flat-vector-r138-source-reconcile-20261104.json",
+      "bytes": 2552,
+      "sha256": "5c86c22c830b8f2e795b7d46a47da7961b23e7c8d9a301b556a8418f61d0dd0a",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+      "bytes": 290315,
+      "sha256": "eb6bc6dabdfbba36253952bca1a0dff1897e0d05d05735fea3edeefc5d0ed19a",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_source/R137_DEV_APK_VERIFICATION.json",
+      "bytes": 2155,
+      "sha256": "5f9946103f5c00094b2bc500f0fc7725a89c0118d541c941c40dd31a9ccea8c9",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_source/README.md",
+      "bytes": 1154,
+      "sha256": "9ffb45b9cbfc75509f7e1cf2165cefd0478c2e4e1626a35ccff4a30a1ae30b3b",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_source/SOURCE_CI_STATUS.json",
+      "bytes": 341,
+      "sha256": "bc0ac9289f9d90a18e6270e35e569803b41a31aec250413b4e4cd3cf29ed429a",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_source/SOURCE_DELIVERY_VERIFICATION.json",
+      "bytes": 57431,
+      "sha256": "a45d79c8662b932844d7d56d253faa82650f249d71f1845c683b9585eeaa1404",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+      "bytes": 499653,
+      "sha256": "184eb4240d9ec106f4e0fecafdb4a978ca1f49a53719d1df0930d594455d1d61",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+      "bytes": 252023,
+      "sha256": "b62942de843aff71ed420fb7e73403e27fb6dbeda9404ee85f2dcc5d9f3a38b6",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+      "bytes": 2217994,
+      "sha256": "27f45e47c50f251f33bb626b6c3d380b5ca5baa1f8df33ac688fa56d85c8a958",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+      "bytes": 1965224,
+      "sha256": "c210e6754555184a95bcbf30cc7fa925eb8848300b9fe029487515713dc5c523",
+      "revision": null,
+      "role": "Canonical production evidence"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json",
+      "bytes": 694099,
+      "sha256": "debf4d047c8990a6c7da054dea1c3e8a07247dd5b2e22a8c9b77c1b71b5e5d95",
+      "revision": null,
+      "role": "Canonical production evidence"
+    }
+  ],
+  "required_file_count_excluding_manifest": 15,
+  "payload_sha256": "00509997149086ba7651a203fa1092d1864ecd4cf2a6d8e95691f482441a83f4",
+  "source_artifacts": 41,
+  "partialDev_artifacts": 23,
+  "new_native_frame_events": {
+    "bounded": 18,
+    "excluded": 0,
+    "retained": 18
+  },
+  "native_event_totals": {
+    "bounded": 7723,
+    "excluded": 4340,
+    "retained": 12063
+  },
+  "accepted_removed": 0,
+  "global_totals": null,
+  "mission_complete": false,
+  "runtime_changes": [],
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "root5_frozen": {
+    "per_piece.json": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9",
+    "per_piece_briefs.json": "6837eddd241896d6c4577ddd1d6763bee1daee167a5d6e056f8afc04fc815d29",
+    "scene_coverage.json": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f",
+    "tally.json": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a",
+    "CONGRUENCY_BACKLOG.json": "b2a64e5e387d7c9451327d0d8f0e9ea5c8e1ae08f7666486e3cb44b0a7a6f500"
+  },
+  "source_open_finding_authority": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-010"
+}

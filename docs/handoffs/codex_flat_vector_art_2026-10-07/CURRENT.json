@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261104-R137-CAVE-DEV",
-  "current_entry": "r137_geologist_cave_dev_integration/README.md",
+  "revision": "FV-AUDIT-20261104-R138-DOLLS-SAFE-LANDING-SOURCE",
+  "current_entry": "r138_dolls_safe_landing_source/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r137_geologist_cave_dev_integration/MANIFEST.json",
+  "current_manifest": "r138_dolls_safe_landing_source/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r137_geologist_cave_dev_integration/DEV_VERIFICATION.json",
+  "current_ci_evidence": "r138_dolls_safe_landing_source/SOURCE_CI_STATUS.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -6476,5 +6476,107 @@
   },
   "r137_cave_dev_revision": "9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30",
   "immutable_r137_canonical_source_revision": "43ebc397e222a82b272123709b9b6c60e89c7a16",
-  "r137_prior_canonical_verification": "r137_geologist_cave_dev_integration/PRIOR_CANONICAL_VERIFICATION.json"
+  "r137_prior_canonical_verification": "r137_geologist_cave_dev_integration/PRIOR_CANONICAL_VERIFICATION.json",
+  "r138_dolls_safe_landing_runtime": {
+    "state": "PUBLISHED_PAINTED_DOLLS_SAFE_LANDING_CANDIDATE_LOCAL_RUNTIME_PASS",
+    "stable_ids": [
+      "FV-2C447ABAAF19"
+    ],
+    "scope": "Passive safe-landing ring in the original Main/Faron Dolls activity",
+    "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+    "source_baseline": "9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30",
+    "source_branch": "codex/flat-vector-dolls-safe-landing-20261104",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/MANIFEST.json",
+    "source_manifest_sha256": "e26658f02df6312a285a67b41cb5159fe104c2e5e69c05804fbb66d65d9a7eb8",
+    "anonymous_required_files_including_manifest": 137,
+    "candidate": {
+      "path": "assets/dolls/safe_landing_halo_painted.png",
+      "sha256": "83ae11f9b1dfbd8fe82ea35fdde5299b49b4e12a2381e18f85cd765ef338d8f6",
+      "source": "take_02_native.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "export": "FFmpeg 8.1.2 crop=1110:1110:62:73:exact=1,scale=256:256:flags=lanczos,format=rgba",
+      "alpha16_bbox_xyxy": [
+        3,
+        5,
+        253,
+        251
+      ],
+      "alpha128_bbox_xyxy": [
+        3,
+        5,
+        252,
+        251
+      ],
+      "destination": "Existing 50x50 safe_landing_rect centered on each landing. Existing fade applies to the texture.",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/assets/dolls/safe_landing_halo_painted.png",
+      "static_calls": 2,
+      "animation_calls": 0,
+      "model_version": null,
+      "backend": "Built-in image_gen.imagegen",
+      "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/assets_src/imagegen/dolls_safe_landing_halo_20261104/PROVENANCE.json"
+    },
+    "integration": {
+      "source_work_branch": true,
+      "Dev": false,
+      "procedural_ring_replaced": true
+    },
+    "runtime_evidence": {
+      "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+      "configured_checks": 104,
+      "candidate_native_frames": 18,
+      "native_frame_events": {
+        "bounded": 18,
+        "excluded": 0,
+        "retained": 18
+      },
+      "probes": 82,
+      "analyzers": 4,
+      "normal_save_hashes_unchanged": 11,
+      "CI_run": 41916799546,
+      "CI_status_at_snapshot": "queued"
+    },
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/FOCUSED_RESULT.json",
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/VISUAL_REVIEW.json",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "immutable_r138_source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+  "r138_remote_verification": "r138_dolls_safe_landing_source/SOURCE_DELIVERY_VERIFICATION.json",
+  "r137_geologist_cave_Dev_APK": {
+    "Dev_revision": "9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30",
+    "apk_bytes": 862436843,
+    "apk_sha256": "de0d7eadcdf721d72ace8518fc8f861c122db1fadef0c0605b4fb704f97f35cc",
+    "verified_at_utc": "2026-11-04T19:26:21.612195+00:00",
+    "access_mode": "Anonymous HTTPS, streamed full release asset and checksum sidecar",
+    "physical_device_install": null,
+    "child": null,
+    "owner": null,
+    "formal_QA11": null,
+    "Dev_CI": 41868023686,
+    "Android_build": 41894429500,
+    "release_assets": {
+      "roshan-reef.apk": {
+        "id": 710641387,
+        "name": "roshan-reef.apk",
+        "digest": "sha256:de0d7eadcdf721d72ace8518fc8f861c122db1fadef0c0605b4fb704f97f35cc",
+        "size": 862436843,
+        "browser_download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk"
+      },
+      "roshan-reef.apk.sha256": {
+        "id": 710641390,
+        "name": "roshan-reef.apk.sha256",
+        "digest": "sha256:7c1ea299f4cbe52ec9ebd42d541feca796ee2c758f47f1895f41f4fbfcb5ed6b",
+        "size": 82,
+        "browser_download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk.sha256"
+      }
+    },
+    "receipt": "r138_dolls_safe_landing_source/R137_DEV_APK_VERIFICATION.json"
+  }
 }
