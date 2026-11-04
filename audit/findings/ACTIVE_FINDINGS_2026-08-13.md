@@ -339,6 +339,8 @@ un-earned once Chapter 2 starts. No existing finding is closed.
 
 ## MA-VIS-006
 
+[Painted Dolls safe-landing cue](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md) addresses the uniform ring after a passive landing. Finding lifecycle remains open.
+
 [R137 painted cave candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) replaces the Geologist's broad flat background layers. The broader finding remains open for other surfaces and separate acceptance.
 
 [R136 riverbed candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md) replaces flat excavation circles and links in Geologist river mode. The lifecycle remains open for the broader finding and external verification.
@@ -398,6 +400,8 @@ R95 production update2026-10-17: [Geologist painted pan](../../docs/handoffs/cod
 
 ## MA-VIS-008
 
+[Painted Dolls safe-landing cue](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md) addresses the uniform ring after a passive landing. Finding lifecycle remains open.
+
 [R137 painted cave candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) replaces the Geologist's broad flat background layers. The broader finding remains open for other surfaces and separate acceptance.
 
 [R136 riverbed candidate](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md) replaces flat excavation circles and links in Geologist river mode. The lifecycle remains open for the broader finding and external verification.
@@ -449,6 +453,8 @@ R135 [painted Garden candidate](../../docs/handoffs/codex_flat_vector_art_2026-1
 | history | 2026-10-04: carved from `MA-VIS-008`, repaired by Claude on the candidate from `a52f545f`, re-measured with the corrected meter; `FIXED_PENDING_VERIFICATION`. 2026-10-05: owner answers QP-1 and QP-3 applied by Claude on `356afeb9`. The castle and its caption stop drawing under story clips, `probe_day_one_story_clips` checks it (shown to fail under two mutations), and the meter was re-run. Lifecycle unchanged. 2026-10-17: owner-requested bounded visual repair from `d5e63a1e` reuses source art for water-contact trash, clear pink-float/star silhouettes, stable missed-item hands, canonical mouth-local seahorse blockage, calm shore/swimming bunnies, a stationary registered Rumi greeting and continuous painted clean water. The [impact](../../design/audit_impacts/pool-visual-repair-20261017.json) separates native Mobile diagnostics, focused/full gates and outstanding device/child/owner acceptance. QP-2a and the selected clip remain unchanged; no lifecycle closure. |
 
 ## MA-VIS-010
+
+[Painted Dolls safe-landing cue](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md) addresses the uniform ring after a passive landing. Finding lifecycle remains open.
 
 | Field | Value |
 |---|---|

@@ -15193,3 +15193,11 @@ Lossless Godot4.7.2 Mobile review renders of existing project art. These files a
 | `assets_src/imagegen/geologist_cave_20261104/cave_native.png` | R137 native Geologist cave background | Project-authorized AI-generated candidate or derivative | Built-in ImageGen, exact references in assets_src/imagegen/geologist_cave_20261104/GENERATION_REFERENCES.json | Unmodified opaque 1672 by 941 native painting. SHA256 aeaee13fbbaa7fa50dc4a2e507675bd6962220f8e13c69e1d5c1cf69caea460e. |
 | `assets/opera/worlds/backdrops/geologist_cave_painted_c0.png` | R137 painted cave native tile | Project-authorized AI-generated candidate or derivative | assets_src/imagegen/geologist_cave_20261104/cave_native.png | Exact Aseprite crop [4, 2, 832, 936]. No resampling or pixel change. SHA256 e5f7895fb4b70aa10def52f3a76cd0823cbc52100ddc1b69f0ef8979042b8c64. |
 | `assets/opera/worlds/backdrops/geologist_cave_painted_c1.png` | R137 painted cave native tile | Project-authorized AI-generated candidate or derivative | assets_src/imagegen/geologist_cave_20261104/cave_native.png | Exact Aseprite crop [836, 2, 832, 936]. No resampling or pixel change. SHA256 6b5e51544503e435ec3f7328f33d002e23838b0bf138df3baab368f794a4d55f. |
+
+### Dolls safe landing halo
+
+| Asset | Source | License | URL | Modifications |
+|---|---|---|---|---|
+| `assets_src/imagegen/dolls_safe_landing_halo_20261104/take_01_native.png` | Built-in ImageGen from the neighboring Dolls mat and sling | Project-authorized AI-generated candidate | [Derivation](assets_src/imagegen/dolls_safe_landing_halo_20261104/PROVENANCE.json) | Native RGBA. Rejected for diffuse opacity inside and outside the ring. Preserved for traceability. |
+| `assets_src/imagegen/dolls_safe_landing_halo_20261104/take_02_native.png` | Built-in ImageGen alpha cleanup of take 01 | Project-authorized AI-generated candidate | [Derivation](assets_src/imagegen/dolls_safe_landing_halo_20261104/PROVENANCE.json) | Native RGBA. Selected for runtime evaluation. |
+| `assets/dolls/safe_landing_halo_painted.png` | Take 02 from the same asset family | Project-authorized AI-generated derivative | [Derivation](assets_src/imagegen/dolls_safe_landing_halo_20261104/PROVENANCE.json) | Uniform crop and Lanczos resampling to a 256 square. Original RGBA retained separately. |

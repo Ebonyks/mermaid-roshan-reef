@@ -189,6 +189,7 @@ Owner-directed Racer integration (2026-10-22): [scope and verification](../desig
 | R136 painted Geologist riverbed | [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-geologist-riverbed-20261104.json); riverbed cells and four-neighbor channels only. External acceptance and wider route coverage remain open. |
 | R137 painted Geologist cave backdrop | [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-geologist-cave-20261104.json); one fixed view, two native tiles, current paired room/activity/curtain-call evidence. |
 | R137 CI dependency delivery | [Fresh installer and music evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_cave_ci_ffmpeg_recovery/README.md) | [Impact](../design/audit_impacts/flat-vector-cave-ffmpeg-availability-20261104.json); byte-identical pinned archive via publisher GitHub Release. Cave runtime preserved. |
+| Dolls painted safe-landing cue | [Production record](../docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-dolls-safe-landing-20261104.json); passive safe-landing feedback only. |
 <!-- AUDIT_TASK_INDEX_END -->
 
 ## Sealed audit snapshot and subsequent round metadata

@@ -1,0 +1,210 @@
+{
+  "state": "IMAGEGEN_CANDIDATE_SELECTED_RUNTIME_PENDING",
+  "stable_id": "FV-2C447ABAAF19",
+  "source_revision": "9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30",
+  "canonical_baseline": "c024fef948b2ab1fa97d787c50ad5bc964c33fa6",
+  "consumer": "DollsNurserySurface._draw passive safe-landing feedback in original Main/Faron Dolls",
+  "scope": "Replace the flat aqua ring only with one quiet painted cue. Existing timing, fixed center, passive safe landing, interaction, actor, quilt, sling, rewards and save semantics continue to govern the route.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "same_scene_frame": {
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/02_passive_safe_landing.png",
+    "sha256": "331aa288d91080349a18675708692243f95b275be41691152ed3838e895df06e",
+    "role": "Local comparison only. Includes actors and protected imagery. Excluded from generator input."
+  },
+  "generation_references": [
+    {
+      "path": "assets/dolls/safety_mat_painted.png",
+      "sha256": "da27e6f70b2ecbe34f62408ee5b6ce716110e9066a71656399154392c7ede8b7",
+      "role": "Game-owned painted quilt, neighboring palette only"
+    },
+    {
+      "path": "assets/dolls/cradle_sling_painted.png",
+      "sha256": "837b1dbf53908e9bcdfc2a57c93ad96c7d90a369a87c4e1192c198abedb3e1ca",
+      "role": "Game-owned painted sling, neighboring pigment and edge work only"
+    }
+  ],
+  "evidence_required": [
+    "Native image and provenance",
+    "Same-scene ten-axis comparison across settled and fading frames",
+    "Configured actual Mobile/Speedy source and paired candidate frames",
+    "Source-bound preservation of one-finger input, passive non-win, owned catches, feedback fade, saved progress and panel clipping",
+    "Exact 4.7.2 local gates and remote CI",
+    "Immutable manifest and anonymous SHA-256 verification",
+    "Separate formal QA11, device, child and owner"
+  ],
+  "static_calls": 2,
+  "animation_calls": 0,
+  "backend": "Built-in image_gen.imagegen",
+  "model": null,
+  "model_reported": false,
+  "takes": [
+    {
+      "name": "take_01_native.png",
+      "source_tool_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-4b89c3ef-96df-4577-8503-4d5e48c33070.png",
+      "tool_event": "exec-4b89c3ef-96df-4577-8503-4d5e48c33070",
+      "sha256": "84ce4ad5332f757e3ba83a89ccbd04f4e57ebb454172c34ccc9586f09d096238",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_boxes": {
+        "1": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "4": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "16": [
+          0,
+          0,
+          1254,
+          1182
+        ],
+        "32": [
+          0,
+          0,
+          1254,
+          1165
+        ],
+        "64": [
+          76,
+          93,
+          1156,
+          1161
+        ],
+        "128": [
+          77,
+          94,
+          1156,
+          1160
+        ],
+        "192": [
+          77,
+          95,
+          1155,
+          1160
+        ]
+      },
+      "prompt": "Use case: illustration-story. Create one isolated transparent RGBA 2D storybook sprite for a children's underwater nursery game, a gentle confirmation halo briefly surrounding a baby after a safe landing on a padded quilt. Both supplied images are style references only: the quilt gives the lavender/cream setting and the sling gives the soft aqua fabric colors and painted edge handling. Paint a single almost circular narrow ring of soft luminous pale mint and seafoam pigment with a few very restrained cream brush highlights, a subtle darker turquoise inner edge, and soft hand-painted antialiasing. View it straight-on, centered. The center aperture is fully transparent and about 80% of outer diameter, so it never paints across the baby; outside is also fully transparent. Keep the contour simple and coherent at a 48 pixel diameter, with no trailing particles and no wide blurry glow. Soft gouache and translucent watercolor edges, dimensional layered pigment, very slight natural irregularity. The ring fills most of the square and has clear transparent margin all around. Keep its outer silhouette circular, without a baseline or perspective ellipse. No figures, baby, hands, fabric cushion, scenery, symbols, letters, shadows, UI button backing, or other objects. The full hollow loop is the only artwork.",
+      "status": "REJECTED_MATTE_HAZE"
+    },
+    {
+      "name": "take_02_native.png",
+      "source_tool_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-e51581b2-2224-4a4e-9c65-c04bc9ba90c9.png",
+      "tool_event": "exec-e51581b2-2224-4a4e-9c65-c04bc9ba90c9",
+      "sha256": "2ab76f92ad990cdae7308047b52b87525bc8653f09bcc435e54aa714df2d6ad0",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_boxes": {
+        "1": [
+          15,
+          21,
+          1236,
+          1238
+        ],
+        "4": [
+          74,
+          92,
+          1160,
+          1164
+        ],
+        "16": [
+          76,
+          94,
+          1158,
+          1162
+        ],
+        "32": [
+          76,
+          95,
+          1157,
+          1162
+        ],
+        "64": [
+          77,
+          95,
+          1157,
+          1162
+        ],
+        "128": [
+          77,
+          95,
+          1157,
+          1161
+        ],
+        "192": [
+          78,
+          96,
+          1156,
+          1161
+        ]
+      },
+      "prompt": "Use case: precise-object-edit. Clean the transparency of this isolated children's storybook game sprite. Preserve the single centered circular seafoam painted brush band, its narrow cream highlights, watercolor pigment, and subtly darker mint inner rim. Remove every trace of atmospheric haze, wash, mist, glow, texture, grain, or white/gray pixels outside the narrow band, and also remove all haze and pigment inside the band. True clean RGBA transparency on both sides, apart from a narrow feather immediately at the inner and outer edges, with zero opacity well beyond those edges. Keep the center open, with about 80% of outer diameter, large enough to see the entire baby below it. No white, gray, black, colored, or checkerboard backdrop and no shadow. At a 48 pixel rendered width the band should be a clean soft four-to-five pixel stroke, the same calm seafoam color and painted quality as the original. Full circular band with all edges intact and generous transparent square margins.",
+      "status": "SELECTED_CANDIDATE"
+    }
+  ],
+  "runtime": {
+    "path": "assets/dolls/safe_landing_halo_painted.png",
+    "sha256": "83ae11f9b1dfbd8fe82ea35fdde5299b49b4e12a2381e18f85cd765ef338d8f6",
+    "source": "take_02_native.png",
+    "dimensions": [
+      256,
+      256
+    ],
+    "export": "FFmpeg 8.1.2 crop=1110:1110:62:73:exact=1,scale=256:256:flags=lanczos,format=rgba",
+    "alpha16_bbox_xyxy": [
+      3,
+      5,
+      253,
+      251
+    ],
+    "alpha128_bbox_xyxy": [
+      3,
+      5,
+      252,
+      251
+    ],
+    "destination": "Existing 50x50 safe_landing_rect centered on each landing. Existing fade applies to the texture."
+  },
+  "source_controller_sha256": "cd897b813eb4ae58d83d37495ae389a53d0b56bd0eac4cd4f016af245b10d95e",
+  "candidate_controller_sha256": "cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

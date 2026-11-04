@@ -23,7 +23,7 @@ class DollsNurserySurface extends OperaNurseryCatch:
 	const FOCUS_PULSE := 2.0
 	const FOCUS_BOB := 4.0
 	const SAFE_BABY_EXTENT := 48.0
-	const SAFE_HALO_RADIUS := 22.0
+	const SAFE_HALO_TEXTURE: Texture2D = preload("res://assets/dolls/safe_landing_halo_painted.png")
 	const SAFE_VISUAL_EXTENT := 50.0
 	const SAFE_Y := 0.956
 
@@ -165,8 +165,8 @@ class DollsNurserySurface extends OperaNurseryCatch:
 		for landing: Dictionary in safe_landings:
 			var landing_point := safe_landing_point(landing)
 			var fade := clampf(float(landing.get("time", 0.0)) / 0.35, 0.0, 1.0)
-			draw_arc(landing_point, SAFE_HALO_RADIUS, 0.0, TAU, 28,
-				Color(0.74, 0.95, 0.93, fade * 0.75), 5.0, true)
+			draw_texture_rect(SAFE_HALO_TEXTURE, safe_landing_rect(landing), false,
+				Color(1.0, 1.0, 1.0, fade * 0.75))
 			_draw_baby(int(landing.get("texture", 0)), landing_point,
 				minf(SAFE_BABY_EXTENT, size.x * 0.21), fade)
 

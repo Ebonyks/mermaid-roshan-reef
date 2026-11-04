@@ -2328,3 +2328,7 @@ Rollback restores only the exact baseline blocks in _mg2d_open and _mg_build_gar
 ## CHG-143 — Painted Geologist cave backdrop
 
 [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) replaces only the fixed cave background on baseline df6f50e459624562051d61993469a4c5ec663909. To roll back, restore the named backdrop script delta and remove the two cave PNGs and sidecars after checking references. Preserve the full native source, evidence, and approved station props.
+
+## CHG-144 — Painted Dolls safe-landing cue
+
+Restore the original three lines in `scripts/games/dolls.gd` from 9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30 to recover the prior aqua arc, then remove the named halo runtime asset and import after checking references. Keep the native takes and production evidence. This bounded rollback affects the passive landing illustration only. [Source evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md).

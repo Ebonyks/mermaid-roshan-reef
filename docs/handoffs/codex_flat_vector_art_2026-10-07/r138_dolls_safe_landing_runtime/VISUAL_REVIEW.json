@@ -1,0 +1,312 @@
+{
+  "state": "PASS_AGENT_BOUNDED_VISUAL_REVIEW_EXTERNAL_ACCEPTANCE_OPEN",
+  "stable_id": "FV-2C447ABAAF19",
+  "source_revision": "9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30",
+  "prior_capture_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "source_game_controller_unchanged_since_prior_integration": true,
+  "runtime_asset_sha256": "83ae11f9b1dfbd8fe82ea35fdde5299b49b4e12a2381e18f85cd765ef338d8f6",
+  "focused_result_sha256": "aafb9edd145c35eedb560c849f45f902164091ce9ff798df97813dae201b8d2a",
+  "compared_frames": [
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "01_falling_mat.png",
+      "candidate_sha256": "4682ef7186a19a733969e1df7d6849bd32d5c22f1cd49b5e7767597d55dc97d4",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/01_falling_mat.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "434ee06837d6d0c4c9181b4cc88af21172b7ae7cf26465e7c013c3a87590d800",
+      "difference_bbox_xyxy": [
+        575,
+        540,
+        705,
+        606
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "02_passive_safe_landing.png",
+      "candidate_sha256": "deafd4e870219691d6dc08232c61af6e376589df912acfc14be0a921c8ffd8b4",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/02_passive_safe_landing.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "331aa288d91080349a18675708692243f95b275be41691152ed3838e895df06e",
+      "difference_bbox_xyxy": [
+        575,
+        541,
+        705,
+        663
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "02b_passive_safe_landing_half_fade.png",
+      "candidate_sha256": "2552e46b7d1f9e57aba71329f135714c1cea469f7a6af393c17bd2ef42d43bd1"
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "03_left_safe_edge.png",
+      "candidate_sha256": "dae0b4ef2d09dde74c657d40fded39e052946f5e298d5445c435a9875f9a41c2",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/03_left_safe_edge.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "5896fab9d8a6c9db037e30982c40124f87d02672faff4d7bd55c329e369613a0",
+      "difference_bbox_xyxy": [
+        185,
+        541,
+        705,
+        663
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "04_right_safe_edge.png",
+      "candidate_sha256": "0ce450c35e37511208be38874a9ec5838a83648fc988ebe5282ddf0a1fe083e1",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/04_right_safe_edge.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "82e3ece644a135adeb62c1bcf8c447bba842fb8e5a911077f10e4e451823a92b",
+      "difference_bbox_xyxy": [
+        575,
+        541,
+        1096,
+        663
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "05_owned_catch_mat_remains.png",
+      "candidate_sha256": "5607c9778f037cd6f8fa5417b800d0554e1b1157accee5869dfb1f4f256945c5",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/05_owned_catch_mat_remains.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "5607c9778f037cd6f8fa5417b800d0554e1b1157accee5869dfb1f4f256945c5",
+      "difference_bbox_xyxy": null
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "06_two_owned_catches.png",
+      "candidate_sha256": "e0c4d0e923eba841de93550633b7b9faa307b326fbbbb52bf5ebc3576698a8f1",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/06_two_owned_catches.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "e0c4d0e923eba841de93550633b7b9faa307b326fbbbb52bf5ebc3576698a8f1",
+      "difference_bbox_xyxy": null
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "07_left_two_baby_catch_region.png",
+      "candidate_sha256": "8b7df9390543c0619314da948c4acbc8255de834b10b0d70ae2d3c8701669564",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/07_left_two_baby_catch_region.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "8b7df9390543c0619314da948c4acbc8255de834b10b0d70ae2d3c8701669564",
+      "difference_bbox_xyxy": null
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "08_right_two_baby_catch_region.png",
+      "candidate_sha256": "dba945e9c84023b3ebbecad008e3b8d62f99e911da6690d34d4d3e5fbf1c3c03",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1280/08_right_two_baby_catch_region.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "dba945e9c84023b3ebbecad008e3b8d62f99e911da6690d34d4d3e5fbf1c3c03",
+      "difference_bbox_xyxy": null
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "01_falling_mat.png",
+      "candidate_sha256": "6aa7abb9c2d88df1ff1acb3bcc6537a9c3311d82c21455aae013221201f51767",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/01_falling_mat.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "d22c856bc5570d67ed70f3c110a2a38e84af537132347f434da07770c8f809fd",
+      "difference_bbox_xyxy": [
+        736,
+        540,
+        864,
+        606
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "02_passive_safe_landing.png",
+      "candidate_sha256": "cd02b18586b0a6c77147ca56cb6176f5d9a93becec311bb5cd6bed489fef298f",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/02_passive_safe_landing.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "f8dc43dc9e993ca7370d3e318951d311819a5f381dc347514d9854e099f0c28e",
+      "difference_bbox_xyxy": [
+        735,
+        541,
+        865,
+        663
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "02b_passive_safe_landing_half_fade.png",
+      "candidate_sha256": "5ce3332b664cd561246be4185412d526bd616450f7efa8b0b9a8f18b97d6fbad"
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "03_left_safe_edge.png",
+      "candidate_sha256": "9044374eb2b0bd95a0a814e73e36ab23f6f872fabab1560b6faf4b8fc226072f",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/03_left_safe_edge.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "2b0b9851aae2243006599a1f4980c288c9da41c70579005de3bbff8eac92d20c",
+      "difference_bbox_xyxy": [
+        345,
+        541,
+        865,
+        663
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "04_right_safe_edge.png",
+      "candidate_sha256": "6d8bfaeca07857af5288f7c1e36ca8f972267822b648547b253cc3e583c4e5bb",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/04_right_safe_edge.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "329258ffcc6b6e8d3690c7bfeb6100b8c8bddd9042a8d9f348e681da5aed233d",
+      "difference_bbox_xyxy": [
+        735,
+        541,
+        1256,
+        663
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "05_owned_catch_mat_remains.png",
+      "candidate_sha256": "f804982ddfd031674206bd66b1d8fb5858c0bff8aa5f4703f5ba2b354500c5fa",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/05_owned_catch_mat_remains.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "f804982ddfd031674206bd66b1d8fb5858c0bff8aa5f4703f5ba2b354500c5fa",
+      "difference_bbox_xyxy": null
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "06_two_owned_catches.png",
+      "candidate_sha256": "7fcf19a8bdabbf00e036811bba7851aaead52584042b0d5164cb7ad4471d4811",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/06_two_owned_catches.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "7fcf19a8bdabbf00e036811bba7851aaead52584042b0d5164cb7ad4471d4811",
+      "difference_bbox_xyxy": null
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "07_left_two_baby_catch_region.png",
+      "candidate_sha256": "b5d2b982223fc76c89d960e25a01abcc4d4f0c287188f0cc99b8b8501affb8fe",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/07_left_two_baby_catch_region.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "b5d2b982223fc76c89d960e25a01abcc4d4f0c287188f0cc99b8b8501affb8fe",
+      "difference_bbox_xyxy": null
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "08_right_two_baby_catch_region.png",
+      "candidate_sha256": "49ffa9d367ce5832d2440bfa6e50dd801397476b9973a7ef1ccd3062b4fc7982",
+      "source_path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r118_dolls_cradle_sling_runtime/candidate/1600/08_right_two_baby_catch_region.png",
+      "source_revision": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "source_sha256": "49ffa9d367ce5832d2440bfa6e50dd801397476b9973a7ef1ccd3062b4fc7982",
+      "difference_bbox_xyxy": null
+    }
+  ],
+  "axes": {
+    "contour": {
+      "before": "Perfect uniform arc approximated by 28 segments.",
+      "after": "Soft painted perimeter remains near-circular, with slight hand-painted variation and no polygon faceting."
+    },
+    "material": {
+      "before": "Solid translucent mint stroke.",
+      "after": "Layered aqua pigment, a darker painted inner edge and restrained cream highlights. The native brushwork resolves into a soft edge at phone size."
+    },
+    "palette": {
+      "before": "Uniform light cyan.",
+      "after": "Seafoam with warm accents relates to the sling and lavender quilt while retaining the cool safe cue."
+    },
+    "light": {
+      "before": "Equal brightness all around.",
+      "after": "Gentle painted highlights. The removed first-take haze would have lit the quilt and the aperture indiscriminately."
+    },
+    "perspective": {
+      "before": "Front-facing screen-space ring.",
+      "after": "Same front-facing cue geometry; no suggestion that the ring is a physical platform."
+    },
+    "scale": {
+      "before": "22 px radius and 5 px stroke.",
+      "after": "50 px canvas contains an approximately 49 by 48 px painted band, centered on the same point."
+    },
+    "contact": {
+      "before": "Aqua ring sits at the baby's safe position along the quilt front.",
+      "after": "Both edge placements and center remain on the same landing surface. No object or actor position is repainted."
+    },
+    "occlusion": {
+      "before": "Baby draws after the ring over the open center.",
+      "after": "Painted opening stays transparent. The baby and face draw above the cue, with no shadow or fog across the aperture."
+    },
+    "readability": {
+      "before": "Strong solid outline is obvious but looks diagrammatic.",
+      "after": "Painted outline still reads at native scale. Less visual weight at the lower edge leaves attention on the baby."
+    },
+    "action_state": {
+      "before": "Ring and baby fade together with the original 0.35 second fade envelope.",
+      "after": "Full and half-fade states are visible. Owned catches compare pixel-identically to prior captures. No progress is awarded for the passive miss."
+    }
+  },
+  "directly_inspected": [
+    "R118 1280 center passive landing and pre-landing",
+    "R138 1280 center full/half fade",
+    "R138 1600 left and right edge landings"
+  ],
+  "comparison_limit": "Idle focus animation phase differs in falling and safe cases. Owned catch regions match pixel-exactly. Prior captures are reused context and receive no new frame credit.",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0
+}
