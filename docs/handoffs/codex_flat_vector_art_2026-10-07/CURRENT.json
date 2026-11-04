@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261104-R137-PAINTED-CAVE-SOURCE",
-  "current_entry": "r137_geologist_cave_runtime/README.md",
+  "revision": "FV-AUDIT-20261104-R137-CAVE-DEV",
+  "current_entry": "r137_geologist_cave_dev_integration/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r137_geologist_cave_runtime/MANIFEST.json",
+  "current_manifest": "r137_geologist_cave_dev_integration/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r137_geologist_cave_runtime/SOURCE_CI_STATUS.json",
+  "current_ci_evidence": "r137_geologist_cave_dev_integration/DEV_VERIFICATION.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -6473,5 +6473,8 @@
     "owner": null,
     "formal_QA11": null,
     "new_counts": 0
-  }
+  },
+  "r137_cave_dev_revision": "9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30",
+  "immutable_r137_canonical_source_revision": "43ebc397e222a82b272123709b9b6c60e89c7a16",
+  "r137_prior_canonical_verification": "r137_geologist_cave_dev_integration/PRIOR_CANONICAL_VERIFICATION.json"
 }
