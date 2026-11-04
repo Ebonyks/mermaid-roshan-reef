@@ -2753,7 +2753,8 @@
         "source": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
         "frame_index": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/FOCUSED_RESULT.json",
         "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/VISUAL_REVIEW.json",
-        "route_complete": false
+        "route_complete": false,
+        "Dev_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220"
       }
     },
     {
@@ -23536,7 +23537,8 @@
         "source": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
         "frame_index": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/FOCUSED_RESULT.json",
         "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/VISUAL_REVIEW.json",
-        "route_complete": false
+        "route_complete": false,
+        "Dev_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220"
       }
     },
     {
@@ -26852,7 +26854,7 @@
     }
   ],
   "coverage_note": "Craft80 guarded API fixture adds game.craft_studio partial alias;77/176partial,0complete,99without. Natural/full states/acceptance and distinct screen total remain unknown.",
-  "revision": "FV-AUDIT-20261104-R138-DOLLS-SAFE-LANDING-SOURCE",
+  "revision": "FV-AUDIT-20261104-R138-DOLLS-SAFE-LANDING-DEV",
   "partial_entries": 78,
   "complete_entries": 0,
   "entries_without_current_slice": 98,
@@ -34767,7 +34769,7 @@
       "other need/growth/action variants"
     ]
   },
-  "current_effective_summary": "SUMMARY.json. 41 published bounded source artifacts, 23 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native events total 7,723 bounded and 4,340 excluded, with 12,063 retained.",
+  "current_effective_summary": "SUMMARY.json. 41 published bounded source artifacts, 24 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,723 bounded and 4,340 excluded, with 12,063 retained.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -41144,8 +41146,9 @@
     },
     "integration": {
       "source_work_branch": true,
-      "Dev": false,
-      "procedural_ring_replaced": true
+      "Dev": true,
+      "procedural_ring_replaced": true,
+      "Dev_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220"
     },
     "runtime_evidence": {
       "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
@@ -41160,7 +41163,12 @@
       "analyzers": 4,
       "normal_save_hashes_unchanged": 11,
       "CI_run": 41916799546,
-      "CI_status_at_snapshot": "queued"
+      "CI_status_at_snapshot": "queued",
+      "exact_source_CI_result": "success",
+      "exact_source_CI_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+      "exact_source_CI_run": 41916799546,
+      "Dev_CI_run": 41925280485,
+      "Dev_CI_status_at_snapshot": "in_progress"
     },
     "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/FOCUSED_RESULT.json",
     "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/58b5f61952b41f6eab29a21d3fdb21ba7c1cc220/docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/VISUAL_REVIEW.json",
@@ -41174,5 +41182,74 @@
     "bounded": 18,
     "excluded": 0,
     "retained": 18
+  },
+  "r138_dolls_safe_landing_dev_integration": {
+    "state": "DOLLS_SAFE_LANDING_FAST_FORWARDED_TO_DEV",
+    "verified_at": "2026-11-04T22:26:57.555349+00:00",
+    "revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+    "art_source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+    "previous_Dev_head": "9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30",
+    "remote_ref": "refs/heads/dev",
+    "exact_source_CI": {
+      "id": 41916799546,
+      "head_sha": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+      "head_branch": "codex/flat-vector-dolls-safe-landing-20261104",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41916799546",
+      "run_attempt": 1,
+      "created_at": "2026-11-04T21:30:56Z",
+      "updated_at": "2026-11-04T22:23:59Z"
+    },
+    "exact_Dev_CI_at_snapshot": {
+      "id": 41925280485,
+      "head_sha": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+      "head_branch": "dev",
+      "status": "in_progress",
+      "conclusion": null,
+      "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41925280485",
+      "run_attempt": 1,
+      "created_at": "2026-11-04T22:26:24Z",
+      "updated_at": "2026-11-04T22:26:27Z"
+    },
+    "exact_source_CI_jobs": [
+      {
+        "id": 126878504210,
+        "name": "area-music-provenance",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41916799546/job/126878504210",
+        "completed_at": "2026-11-04T21:42:54Z"
+      },
+      {
+        "id": 126878504387,
+        "name": "probes",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41916799546/job/126878504387",
+        "completed_at": "2026-11-04T22:23:58Z"
+      }
+    ],
+    "source_manifest": {
+      "revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+      "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/MANIFEST.json",
+      "manifest_sha256": "e26658f02df6312a285a67b41cb5159fe104c2e5e69c05804fbb66d65d9a7eb8",
+      "required_files_including_manifest": 137
+    },
+    "older_combined_CI": {
+      "run": 41757765879,
+      "head": "9474e440b65445882e2d15f0a41e43827f8551a3",
+      "conclusion": "failure",
+      "Dev_integrated": false,
+      "scope": "Separate earlier combined updates"
+    },
+    "apk_verified": false,
+    "stable_id": "FV-2C447ABAAF19",
+    "variant": "Main/Faron Dolls passive safe landing",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
   }
 }

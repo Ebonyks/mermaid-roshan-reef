@@ -1,17 +1,17 @@
 {
   "schema": "reef.flat_vector_current/1",
-  "revision": "FV-AUDIT-20261104-R138-DOLLS-SAFE-LANDING-SOURCE",
-  "current_entry": "r138_dolls_safe_landing_source/README.md",
+  "revision": "FV-AUDIT-20261104-R138-DOLLS-SAFE-LANDING-DEV",
+  "current_entry": "r138_dolls_safe_landing_dev_integration/README.md",
   "current_per_piece": "r96_geologist_mineral_candidate/per_piece.json",
   "current_scene_coverage": "r96_geologist_mineral_candidate/scene_coverage.json",
   "current_tally": "r96_geologist_mineral_candidate/tally.json",
   "current_backlog": "r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
-  "current_manifest": "r138_dolls_safe_landing_source/MANIFEST.json",
+  "current_manifest": "r138_dolls_safe_landing_dev_integration/MANIFEST.json",
   "immutable_r6_payload_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
   "immutable_r6_receipt_revision": "70879a91ddcbba51ba09c7d0be81cc65f340e3b5",
   "old_root_json_scope": "Frozen R6 snapshot; use current canonical paths above; original representation and readers unchanged.",
   "mission_complete": false,
-  "current_ci_evidence": "r138_dolls_safe_landing_source/SOURCE_CI_STATUS.json",
+  "current_ci_evidence": "r138_dolls_safe_landing_dev_integration/DEV_VERIFICATION.json",
   "immutable_r7_receipt_revision": "c1e466a8a9e605f43b4c7a181b3d7b702d7677aa",
   "immutable_r8_receipt_revision": "f4de7b921298b0dac052df408af03bbb2b62132b",
   "immutable_r9_receipt_revision": "0c2732204bec7f882db26d835e2ce32ee12c7471",
@@ -6578,5 +6578,8 @@
       }
     },
     "receipt": "r138_dolls_safe_landing_source/R137_DEV_APK_VERIFICATION.json"
-  }
+  },
+  "r138_dolls_safe_landing_dev_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+  "immutable_r138_canonical_source_revision": "cf7a090f90bd7f88157e13eccace3bb39e07db1c",
+  "r138_prior_canonical_verification": "r138_dolls_safe_landing_dev_integration/PRIOR_CANONICAL_VERIFICATION.json"
 }

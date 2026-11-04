@@ -109,6 +109,7 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 | R137 painted Geologist cave | [Verified source](../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-r137-canonical-20261104.json); one fixed cave view, exact source 3e09451b, 36 bounded frame events. |
 | R137 Geologist cave on Dev | [Dev verification](../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_dev_integration/README.md) | [Impact](../design/audit_impacts/flat-vector-r137-dev-integration-20261104.json); exact 9e02fc2f on Dev, bounded Geologist cave backdrop. Dev CI/APK and external review remain separate. |
 | R138 Dolls painted safe-landing cue | [Canonical receipt](../docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_source/README.md) | [Impact](../design/audit_impacts/flat-vector-r138-source-reconcile-20261104.json); bounded candidate and separate R137 Dev APK evidence. |
+| R138 Dolls safe landing on Dev | [Dev verification](../docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_dev_integration/README.md) | [Impact](../design/audit_impacts/flat-vector-r138-dev-integration-20261104.json); exact 58b5f619 on Dev, bounded passive Dolls cue. Dev CI/APK and external review remain separate. |
 <!-- AUDIT_TASK_INDEX_END -->
 
 ## Sealed audit snapshot and subsequent round metadata
