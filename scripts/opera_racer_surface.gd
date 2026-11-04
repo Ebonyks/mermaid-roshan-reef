@@ -1,21 +1,43 @@
 class_name OperaRacerSurface
 extends OperaGestureSurface
-## The existing full Canvas racer runs inside the owning career surface.
-## World retains phase, rewards, saves, Back and the later curtain call.
+## The Reef Grand Prix runs inside the owning career surface. The world keeps
+## phase, rewards, saves, Back and the later curtain call; this surface owns
+## the touch interface and clocks the engine only while the child is playing.
+##
+## Owner layout (2026-11-03): the left of the screen is a green steering stick
+## (a touch anywhere in STEERING_RECT grabs it where the finger lands); the
+## right has a red brake button and a bubble button that uses the item she is
+## holding (zoom is the boost). The kart drives itself forward. Every control
+## belongs to exactly one finger (DL-UI-04); pause and focus loss cancel all
+## of them (DL-UI-05). After INPUT_GRACE seconds without a held control the
+## whole race freezes, so nothing moves, wins or loses without her.
 
-const EngineResource := preload("res://scripts/racer_game_2d.gd")
-const Driving := preload("res://scripts/kart_driving.gd")
+const EngineScript := preload("res://scripts/racer/reef_kart_race.gd")
 signal race_event(kind: String, value: float)
 
 const LAP_DISTANCE := 800.0
-const LAP_SECONDS := 24.0
-const ROAD_WALL := 8.0
 const INPUT_GRACE := 2.0
-const STEERING_RANGE := 180.0
-const STEERING_RECT := Rect2(175, 430, 830, 250)
-const TURBO_CENTER := Vector2(1120, 635)
-const TURBO_RADIUS := 62.0
-const STOP_SECONDS := 0.9
+## Left steering zone and the floating green stick.
+const STEERING_RECT := Rect2(0, 200, 580, 520)
+const STEERING_RANGE := 96.0
+const STICK_RADIUS := 104.0
+const STICK_HOME := Vector2(230, 560)
+const STICK_BASE_BOUNDS := Rect2(112, 330, 356, 290)
+## Right-hand item/boost bubble and red brake.
+const TURBO_CENTER := Vector2(1010, 505)
+const TURBO_RADIUS := 70.0
+const BRAKE_CENTER := Vector2(1175, 625)
+const BRAKE_RADIUS := 80.0
+const HIT_MARGIN := 16.0
+const MAX_STEP := 1.0 / 60.0
+## Existing recorded lines that fit race moments (no new recordings). None
+## plays in the first VOICE_QUIET seconds so the RACE instruction is heard.
+const VOICE_QUIET := 4.0
+const RACE_VOICES := {
+	"zoom": ["roshan", "op_racer_work", 12.0],
+	"imp_leads": ["imp", "op_racer_steal", 15.0],
+	"imp_spins": ["imp", "op_racer_copy", 10.0],
+}
 
 var kart: Dictionary = {}
 var rival: Dictionary = {}
@@ -25,28 +47,31 @@ var race_clock := 0.0
 var race_input_t := 0.0
 var race_touch_owner := -1
 var race_turbo_owner := -1
+var race_brake_owner := -1
 var race_turbo_held := false
+var race_brake_held := false
 var race_steer := 0.0
 var race_countdown := 0.0
-var race_flash := 0.0
 var race_pearls := 0
 var race_turbo_fires := 0
 var race_wall_bumps := 0
+var race_attempt := 1
 var quality := "speedy"
 var chime: AudioStreamPlayer = null
-var _engine: RacerGame2D = null
+var _engine: ReefKartRace = null
 var _owner_main: Node = null
 var _rival_art: Texture2D = null
 var _turbo_queued := false
-var _drag_origin := Vector2.ZERO
+var _finish_pending := false
+var _stick_base := STICK_HOME
+var _stick_finger := STICK_HOME
+var _controls_state: Dictionary = {}
 var _epoch := 0
 var _career_active := true
 var _application_suspended := false
 var _keyboard_needs_release := false
+var _keyboard_brake := false
 var _fire_previous := false
-var _stop_t := 0.0
-var _stop_speed := 0.0
-var _stop_distance := 0.0
 
 
 func configure(next_mode: String, next_accent: Color, choice: int = 1,
@@ -64,28 +89,24 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1,
 	race_pearls = 0
 	race_turbo_fires = 0
 	race_wall_bumps = 0
-	_stop_t = 0.0
+	race_attempt = 1
+	_finish_pending = false
+	_stick_base = STICK_HOME
+	_stick_finger = STICK_HOME
+	kart = {"s": 0.0, "lat": 0.0, "speed": 0.0, "pearls": 0, "item": "", "lap": 0}
+	rival = {"s": 0.0, "lat": 0.0}
 	_owner_main = _find_main_host()
 	if _owner_main != null:
 		quality = String(_owner_main.get("quality"))
 		chime = _owner_main.get("chime") as AudioStreamPlayer
-	_engine = EngineResource.new()
-	_engine.name = "CastleRacerEngine"
-	var roster: Array = EngineResource.RACERS.duplicate(true)
-	roster[1]["name"] = "Imp Racer"
-	roster[1]["sprite"] = "res://assets/opera/worlds/actors/rival_racer.png"
-	var castle_line: Array = []
-	for point: Vector2 in EngineResource.CTRL:
-		castle_line.append(point * 0.75)
-	_engine.configure({"external_input": true, "external_finish": true,
-		"minimal_hud": true, "pearl_payout": false, "world_route": true,
-		"laps": Driving.LAPS, "lap_target_sec": LAP_SECONDS,
-		"shortcut": false, "racers": roster, "ctrl": castle_line})
+	_engine = EngineScript.new()
+	_engine.name = "ReefGrandPrix"
+	_engine.setup({})
 	add_child(_engine)
-	_engine.start(self, Callable())
-	_engine.set_process(false)
-	_rival_art = load(String(roster[1]["sprite"])) as Texture2D
+	_engine.race_event.connect(_on_engine_event)
+	_rival_art = load("res://assets/opera/worlds/actors/rival_racer.png") as Texture2D
 	_sync_snapshot()
+	_publish_controls()
 	queue_redraw()
 
 
@@ -99,16 +120,24 @@ func _find_main_host() -> Node:
 	return null
 
 
-func _say(who: String, event: String, cooldown: float = 1.0) -> void:
+func _say(who: String, event: String, cooldown: float) -> void:
 	if is_instance_valid(_owner_main) and _owner_main.has_method("_say"):
 		_owner_main.call("_say", who, event, cooldown)
+
+
+func _race_voice(moment: String) -> void:
+	if race_clock < VOICE_QUIET or race_finished:
+		return
+	var line: Array = RACE_VOICES.get(moment, [])
+	if line.size() == 3:
+		_say(String(line[0]), String(line[1]), float(line[2]))
 
 
 func _dispose_engine() -> void:
 	if is_instance_valid(_engine):
 		_engine.process_mode = Node.PROCESS_MODE_DISABLED
-		if _engine._eng != null:
-			_engine._eng.stop()
+		if _engine.race_event.is_connected(_on_engine_event):
+			_engine.race_event.disconnect(_on_engine_event)
 		remove_child(_engine)
 		_engine.queue_free()
 	_engine = null
@@ -123,8 +152,6 @@ func set_career_active(active_now: bool) -> void:
 		var live: bool = active_now and not _application_suspended
 		_engine.process_mode = Node.PROCESS_MODE_INHERIT if live else Node.PROCESS_MODE_DISABLED
 		_engine.set_process(false)
-		if _engine._eng != null:
-			_engine._eng.stream_paused = not live or (not held and race_input_t <= 0.0)
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -139,23 +166,12 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
 		if touch.canceled:
-			if touch.index in [race_touch_owner, race_turbo_owner]:
+			if touch.index in [race_touch_owner, race_turbo_owner, race_brake_owner]:
 				cancel_race_touch()
 		elif touch.pressed:
-			if touch.index not in [race_touch_owner, race_turbo_owner]:
-				if touch.position.distance_to(TURBO_CENTER) <= TURBO_RADIUS and race_turbo_owner == -1:
-					race_turbo_owner = touch.index
-					race_turbo_held = true
-					_turbo_queued = true
-					_touch_race()
-				elif race_touch_owner == -1 and race_turbo_owner == -1:
-					race_touch_owner = touch.index
-					_press(touch.position)
-		elif touch.index == race_turbo_owner:
-			race_turbo_owner = -1
-			race_turbo_held = false
-		elif touch.index == race_touch_owner:
-			_release(touch.position)
+			_claim(touch.index, touch.position)
+		else:
+			_free_finger(touch.index)
 		accept_event()
 	elif event is InputEventScreenDrag:
 		var drag := event as InputEventScreenDrag
@@ -165,34 +181,60 @@ func _gui_input(event: InputEvent) -> void:
 	elif event is InputEventMouseButton:
 		var button := event as InputEventMouseButton
 		if button.button_index == MOUSE_BUTTON_LEFT:
-			if button.pressed and race_touch_owner == -1 and race_turbo_owner == -1:
-				if button.position.distance_to(TURBO_CENTER) <= TURBO_RADIUS:
-					race_turbo_owner = -2
-				else:
-					race_touch_owner = -2
-				_press(button.position)
-			elif not button.pressed and -2 in [race_touch_owner, race_turbo_owner]:
-				_release(button.position)
+			if button.pressed:
+				_claim(-2, button.position)
+			else:
+				_free_finger(-2)
 			accept_event()
 	elif event is InputEventMouseMotion and race_touch_owner == -2:
 		_drag((event as InputEventMouseMotion).position)
 		accept_event()
 
 
+## Route a new finger to the first free control it lands on.
+func _claim(finger: int, at: Vector2) -> void:
+	if finger in [race_touch_owner, race_turbo_owner, race_brake_owner]:
+		return
+	if race_turbo_owner == -1 and at.distance_to(TURBO_CENTER) <= TURBO_RADIUS + HIT_MARGIN:
+		race_turbo_owner = finger
+		race_turbo_held = true
+		_turbo_queued = true
+		_touch_race()
+	elif race_brake_owner == -1 and at.distance_to(BRAKE_CENTER) <= BRAKE_RADIUS + HIT_MARGIN:
+		race_brake_owner = finger
+		race_brake_held = true
+		_touch_race()
+	elif race_touch_owner == -1 and STEERING_RECT.has_point(at):
+		race_touch_owner = finger
+		_press(at)
+
+
+func _free_finger(finger: int) -> void:
+	if finger == race_turbo_owner:
+		race_turbo_owner = -1
+		race_turbo_held = false
+	if finger == race_brake_owner:
+		race_brake_owner = -1
+		race_brake_held = false
+	if finger == race_touch_owner:
+		_release(_stick_finger)
+	_publish_controls()
+
+
+## The stick's ring appears under the finger; steering is the sideways slide.
 func _press(at: Vector2) -> void:
 	if mode != "kart_race":
 		super._press(at)
 		return
 	if armed_only or completion_accepted or race_finished:
 		return
-	if at.distance_to(TURBO_CENTER) <= TURBO_RADIUS:
-		race_turbo_held = true
-		_turbo_queued = true
-	else:
-		held = true
-		_drag_origin = at
-		race_steer = 0.0
+	held = true
+	_stick_base = Vector2(clampf(at.x, STICK_BASE_BOUNDS.position.x, STICK_BASE_BOUNDS.end.x),
+		clampf(at.y, STICK_BASE_BOUNDS.position.y, STICK_BASE_BOUNDS.end.y))
+	_stick_finger = at
+	race_steer = clampf((at.x - _stick_base.x) / STEERING_RANGE, -1.0, 1.0)
 	_touch_race()
+	_publish_controls()
 
 
 func _drag(at: Vector2) -> void:
@@ -201,20 +243,30 @@ func _drag(at: Vector2) -> void:
 		return
 	if not held or armed_only or completion_accepted:
 		return
-	race_steer = clampf((at.x - _drag_origin.x) / STEERING_RANGE, -1.0, 1.0)
+	_stick_finger = at
+	var reach := STEERING_RANGE * 1.25
+	var dx := at.x - _stick_base.x
+	if absf(dx) > reach:
+		# The ring follows a finger that keeps sliding, so steering back the
+		# other way answers at once.
+		_stick_base.x = clampf(at.x - signf(dx) * reach,
+			STICK_BASE_BOUNDS.position.x, STICK_BASE_BOUNDS.end.x)
+		dx = at.x - _stick_base.x
+	race_steer = clampf(dx / STEERING_RANGE, -1.0, 1.0)
 	_touch_race()
+	_publish_controls()
 
 
 func _release(at: Vector2) -> void:
 	if mode != "kart_race":
 		super._release(at)
 		return
-	if race_touch_owner == -2 or race_turbo_owner == -2:
-		race_turbo_owner = -1
-		race_turbo_held = false
 	race_touch_owner = -1
 	held = false
 	race_steer = 0.0
+	_stick_base = STICK_HOME
+	_stick_finger = STICK_HOME
+	_publish_controls()
 
 
 func _touch_race() -> void:
@@ -223,7 +275,9 @@ func _touch_race() -> void:
 	demo_active = false
 	if not race_started:
 		race_started = true
-		race_countdown = 1.5
+		race_countdown = ReefKartRace.COUNTDOWN
+		if is_instance_valid(_engine):
+			_engine.begin()
 		race_event.emit("start", 0.0)
 
 
@@ -231,19 +285,19 @@ func cancel_race_touch() -> void:
 	_epoch += 1
 	held = false
 	race_turbo_held = false
+	race_brake_held = false
 	race_turbo_owner = -1
+	race_brake_owner = -1
 	race_touch_owner = -1
 	race_input_t = 0.0
 	race_steer = 0.0
 	_turbo_queued = false
 	_keyboard_needs_release = true
+	_keyboard_brake = false
 	_fire_previous = false
-	if is_instance_valid(_engine):
-		_engine._canvas_held = false
-		_engine._canvas_steer = 0.0
-		_engine._canvas_fire = false
-		if _engine._eng != null:
-			_engine._eng.stream_paused = true
+	_stick_base = STICK_HOME
+	_stick_finger = STICK_HOME
+	_publish_controls()
 
 
 func _notification(what: int) -> void:
@@ -258,19 +312,24 @@ func _notification(what: int) -> void:
 		cancel_race_touch()
 
 
+## Desktop and controller fallback: arrows/A/D steer, Space/Enter uses the
+## item, Down/S brakes.
 func _keyboard_input() -> void:
 	var left: bool = Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A)
 	var right: bool = Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D)
 	var fire: bool = Input.is_physical_key_pressed(KEY_SPACE) or Input.is_physical_key_pressed(KEY_ENTER)
+	var brake: bool = Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_S)
 	var axis: float = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
 	left = left or Input.is_joy_button_pressed(0, JOY_BUTTON_DPAD_LEFT)
 	right = right or Input.is_joy_button_pressed(0, JOY_BUTTON_DPAD_RIGHT)
-	fire = fire or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_joy_button_pressed(0, JOY_BUTTON_B)
+	fire = fire or Input.is_joy_button_pressed(0, JOY_BUTTON_A)
+	brake = brake or Input.is_joy_button_pressed(0, JOY_BUTTON_B)
 	if _keyboard_needs_release:
-		if not left and not right and not fire and absf(axis) < 0.2:
+		if not left and not right and not fire and not brake and absf(axis) < 0.2:
 			_keyboard_needs_release = false
 		return
-	if left or right or fire or absf(axis) > 0.2:
+	_keyboard_brake = brake
+	if left or right or fire or brake or absf(axis) > 0.2:
 		if race_touch_owner == -1:
 			race_steer = clampf(float(int(right) - int(left)) + (axis if absf(axis) > 0.2 else 0.0), -1.0, 1.0)
 		if fire and not _fire_previous:
@@ -288,117 +347,147 @@ func _process(delta: float) -> void:
 	if not is_instance_valid(_engine) or not _career_active or _application_suspended:
 		return
 	if race_finished:
-		_tick_stop(delta)
+		_tick_finish(delta)
 		return
 	if armed_only or completion_accepted:
 		return
 	_keyboard_input()
 	race_clock += delta
 	demo_t += delta
-	if held or race_turbo_held:
+	if held or race_turbo_held or race_brake_held:
 		race_input_t = INPUT_GRACE
 	else:
 		race_input_t = maxf(0.0, race_input_t - delta)
 	if not race_started or race_input_t <= 0.0:
 		demo_active = true
-		if _engine._eng != null:
-			_engine._eng.stream_paused = true
+		_publish_controls()
 		return
 	var remaining: float = minf(delta, 0.2)
 	while remaining > 0.00001 and not race_finished:
-		var step: float = minf(remaining, 1.0 / 60.0)
-		var current: RacerGame2D = _engine
+		var step: float = minf(remaining, MAX_STEP)
+		var current: ReefKartRace = _engine
 		var epoch: int = _epoch
 		_tick_driving(step)
 		if _engine != current or _epoch != epoch:
 			return
 		remaining -= step
+	_publish_controls()
 
 
 func _tick_driving(delta: float) -> void:
-	var engine: RacerGame2D = _engine
+	var engine: ReefKartRace = _engine
 	var epoch: int = _epoch
 	var before: float = float(kart.get("s", 0.0))
-	var boost_before: float = float(engine._pl["boost_t"])
-	var pearls_before: int = engine._pearls_got
-	var count_before: int = ceili(engine._clock * 2.0) if engine._state == "countdown" else 0
-	engine._canvas_steer = race_steer
-	engine._canvas_held = true
-	engine._canvas_fire = _turbo_queued or race_turbo_held
-	engine._touch_t = 3.0
-	_turbo_queued = false
-	if engine._eng != null:
-		engine._eng.stream_paused = false
-	engine.step_race(delta)
+	var was_racing: bool = engine.state in ["race", "imp_beat", "finished"]
+	engine.step_race(delta, {"steer": race_steer,
+		"brake": race_brake_held or _keyboard_brake, "item_pressed": _turbo_queued})
 	if _engine != engine or _epoch != epoch:
 		return
+	if was_racing:
+		# A bubble pressed during the countdown waits for the start.
+		_turbo_queued = false
 	_sync_snapshot()
-	var count_now: int = ceili(engine._clock * 2.0) if engine._state == "countdown" else 0
-	if count_now < count_before:
-		race_event.emit("countdown", float(3 - count_now))
-		if _engine != engine or _epoch != epoch:
-			return
-	if boost_before <= 0.0 and float(engine._pl["boost_t"]) > 0.0:
-		race_turbo_fires += 1
-		race_event.emit("turbo", float(race_turbo_fires))
-		if _engine != engine or _epoch != epoch:
-			return
-	if engine._pearls_got > pearls_before:
-		race_event.emit("pearl", float(engine._pearls_got))
-		if _engine != engine or _epoch != epoch:
-			return
-	var progress: float = float(kart["s"])
-	var lap_before: int = floori(before / LAP_DISTANCE)
-	var lap_now: int = floori(progress / LAP_DISTANCE)
-	if lap_now > lap_before:
-		race_event.emit("lap", float(lap_now))
-		if _engine != engine or _epoch != epoch:
-			return
-	if engine._state == "external_finish":
+	if _finish_pending:
+		_finish_pending = false
 		race_finished = true
-		_stop_t = STOP_SECONDS
-		_stop_speed = float(engine._pl["speed"])
-		_stop_distance = float(engine._pl["s"])
-		cancel_race_touch()
+	var progress: float = float(kart["s"])
 	if progress > before:
 		gesture.emit("kart_race", (progress - before) / LAP_DISTANCE, 1.0)
+		if _engine != engine or _epoch != epoch:
+			return
+	if race_finished:
+		cancel_race_touch()
+
+
+## After the line the karts coast to a stop under confetti; nothing is scored.
+func _tick_finish(delta: float) -> void:
+	var remaining: float = minf(delta, 0.2)
+	while remaining > 0.00001 and is_instance_valid(_engine):
+		var step: float = minf(remaining, MAX_STEP)
+		_engine.step_race(step, {})
+		remaining -= step
+	_sync_snapshot()
+
+
+func _on_engine_event(kind: String, value: float) -> void:
+	match kind:
+		"turbo":
+			race_turbo_fires = int(value)
+			_race_voice("zoom")
+		"lead":
+			if value > 0.5:
+				_race_voice("imp_leads")
+		"imp_flub":
+			_race_voice("imp_spins")
+		"bonk":
+			if value > 0.5:
+				_race_voice("imp_spins")
+		"pearl":
+			race_pearls = int(value)
+		"bump":
+			race_wall_bumps += 1
+		"restart":
+			race_attempt = int(value)
+		"finish":
+			_finish_pending = true
+	if chime != null and kind in ["pearl", "item_ready", "turbo"]:
+		chime.pitch_scale = 1.3 + 0.04 * clampf(float(race_pearls), 0.0, 10.0) \
+			if kind == "pearl" else (1.7 if kind == "turbo" else 1.05)
+		chime.play()
+	race_event.emit(kind, value)
 
 
 func _sync_snapshot() -> void:
-	if not is_instance_valid(_engine) or _engine._pl == null:
+	if not is_instance_valid(_engine) or _engine._pl.is_empty():
 		return
-	kart = (_engine._pl as Dictionary).duplicate()
-	kart["s"] = clampf(float(_engine._pl["s"]) / _engine._len, 0.0, float(Driving.LAPS)) * LAP_DISTANCE
-	if _engine._karts.size() > 1:
-		rival = (_engine._karts[1] as Dictionary).duplicate()
-		rival["s"] = float(rival["s"]) / _engine._len * LAP_DISTANCE
-	race_countdown = maxf(0.0, _engine._clock) if _engine._state == "countdown" else 0.0
-	race_pearls = _engine._pearls_got
+	var pl: Dictionary = _engine._pl
+	kart["s"] = _engine.player_progress() * LAP_DISTANCE
+	kart["lat"] = float(pl["lat"])
+	kart["speed"] = float(pl["speed"])
+	kart["pearls"] = int(pl["pearls"])
+	kart["item"] = String(pl["item"])
+	kart["lap"] = mini(int(pl["lap"]), ReefKartRace.LAPS)
+	var imp_kart: Dictionary = _engine.imp()
+	rival["s"] = clampf(float(imp_kart["race_s"]) / _engine.track.length, 0.0,
+		float(ReefKartRace.LAPS)) * LAP_DISTANCE
+	rival["lat"] = float(imp_kart["lat"])
+	race_countdown = maxf(0.0, _engine.clock) if _engine.state == "countdown" else 0.0
+	race_pearls = int(pl["pearls"])
 
 
-func _tick_stop(delta: float) -> void:
-	if _stop_t <= 0.0:
+func _publish_controls() -> void:
+	if not is_instance_valid(_engine):
 		return
-	_stop_t = maxf(0.0, _stop_t - delta)
-	var fraction: float = _stop_t / STOP_SECONDS
-	_engine._pl["speed"] = _stop_speed * fraction * fraction
-	_engine._pl["s"] = _stop_distance + _stop_speed * STOP_SECONDS / 3.0 * (1.0 - fraction * fraction * fraction)
-	_engine._place_kart(_engine._pl, delta)
-	_engine._update_camera(delta)
-	if _engine._canvas != null:
-		_engine._canvas.queue_redraw()
+	var knob := STICK_HOME
+	var base := STICK_HOME
+	if held:
+		base = _stick_base
+		knob = _stick_base + Vector2(clampf(_stick_finger.x - _stick_base.x,
+			-STEERING_RANGE, STEERING_RANGE), 0.0)
+	_controls_state["stick_base"] = base
+	_controls_state["stick_knob"] = knob
+	_controls_state["stick_radius"] = STICK_RADIUS
+	_controls_state["stick_held"] = held
+	_controls_state["brake_center"] = BRAKE_CENTER
+	_controls_state["brake_radius"] = BRAKE_RADIUS
+	_controls_state["brake_held"] = race_brake_held or _keyboard_brake
+	_controls_state["bubble_center"] = TURBO_CENTER
+	_controls_state["bubble_radius"] = TURBO_RADIUS
+	_controls_state["bubble_held"] = race_turbo_held
+	_controls_state["guide"] = demo_active and not race_finished and not completion_accepted
+	_engine.set_controls(_controls_state)
 
 
 func road_curvature(distance: float) -> float:
 	if not is_instance_valid(_engine):
 		return 0.0
-	return _engine._curv_at(distance / LAP_DISTANCE * _engine._len)
+	return _engine.track.curvature_at(distance / LAP_DISTANCE * _engine.track.length)
 
 
 func road_point(distance: float, lateral: float = 0.0) -> Vector2:
 	if not is_instance_valid(_engine):
 		return Vector2.ZERO
-	return _engine._frame_at(distance / LAP_DISTANCE * _engine._len, lateral)[0]
+	return _engine.track.point_at(distance / LAP_DISTANCE * _engine.track.length, lateral)
 
 
 func _draw() -> void:
@@ -409,8 +498,8 @@ func _draw() -> void:
 func _demo_finger_pose() -> Dictionary:
 	if mode != "kart_race":
 		return super._demo_finger_pose()
-	return {"position": STEERING_RECT.get_center() + Vector2(sin(demo_t * 2.0) * 90.0, 0.0),
-		"pressed": true}
+	var at := STICK_HOME + Vector2(sin(demo_t * 2.4) * STICK_RADIUS * 0.45, 0.0)
+	return {"at": at, "pressing": true, "position": at, "pressed": true}
 
 
 func _exit_tree() -> void:
