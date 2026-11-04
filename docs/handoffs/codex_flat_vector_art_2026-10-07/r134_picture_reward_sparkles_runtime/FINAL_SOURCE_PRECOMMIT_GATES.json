@@ -1,0 +1,41 @@
+{
+  "state": "PASS",
+  "results": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d63d4b995afbf2cb124f5fc8c11234f78b654774820ae3b38a390122e776d0ca"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "bfdebdcdf9b9fe6339c10a3e217412a82484429cf183c3865a29b7ead7bf2936"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "log_sha256": "9fca8ccf69833eece1978434e9a164b39a65816ebfce9b2a62774e855aa7cfb2"
+    }
+  ],
+  "staged_tree": "96a386ed21d1a678e6b24d531a438a521e7166d7",
+  "files": 397,
+  "all_payload_blobs_match_manifest": true,
+  "engine_suites_repeated": 0,
+  "full_candidate_engine": "All82trusted probes and4analyzers and final2D passed on exact bound source."
+}

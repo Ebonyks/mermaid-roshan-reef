@@ -1,0 +1,79 @@
+{
+  "id": "flat-vector-r134-canonical-20261103",
+  "baseline": "99c7cbd09e258a16f596266d92484622255b21e0",
+  "scope": "Reconcile only newly delivered and anonymously verified R134 painted feedback production into current per-piece registry, four logical scenes and aliases, bounded artifact/frame tally and current pointers. Keep root5/history/unknown denominators and every acceptance lane separate. No canonical runtime or protected-content change.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-06",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-MED-05",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/CANONICAL_AUTHORITY.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/CANONICAL_AUTO.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/CANONICAL_HEAD.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/CANONICAL_METADATA_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/FINAL_MODEL_METADATA_DELTA_RESULT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/FINAL_SOURCE_AUTHORITY.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/FINAL_SOURCE_AUTO.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/FINAL_SOURCE_HEAD.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/FINAL_SOURCE_PRECOMMIT_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/PRIOR_CANONICAL_R133_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/PRODUCTION_DELTA.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/SOURCE_CI_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/SOURCE_COMMIT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/SOURCE_DELIVERY_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Actual published R134 current-delivery manifest and all397 files anonymously verified",
+      "result": "PASS",
+      "evidence": "r134_picture_reward_sparkles_runtime/SOURCE_DELIVERY_VERIFICATION.json; exact9474e440, native sources, scene comparisons, instructions and bytes/SHA256."
+    },
+    {
+      "command": "Source actual82probes,4analyzers, final2D/current metadata gates and exact runtime binding",
+      "result": "PASS",
+      "evidence": "Immutable9474e440 checks and FINAL_SOURCE_PRECOMMIT_GATES.json;5409tracked inputs/19changed runtime files exact,2357generated metadata separate; no engine suite repeated for this metadata-only writeback."
+    },
+    {
+      "command": "Current canonical authority and actual AUTO/HEAD coverage",
+      "result": "PASS",
+      "evidence": "r134_picture_reward_sparkles_runtime/CANONICAL_METADATA_GATES.json; actual canonical metadata files, unchanged root5 and no repeated engine suite. Anonymous current payload verification follows publication."
+    },
+    {
+      "command": "Exact published source CI and normal green Dev integration",
+      "result": "PENDING",
+      "evidence": "Run41757765879 healthy in_progress at9474e440; Dev remains27c88288. Prepared workflow checkout fix authorization remains unanswered."
+    },
+    {
+      "command": "Exact new canonical manifest and every required file anonymously verified",
+      "result": "PENDING",
+      "evidence": "Perform immediately after push at the actual immutable revision; no recursive old archive dependency or self-receipt commit loop."
+    }
+  ],
+  "acceptance_gaps": "Source37bounded artifacts and20partialDev artifacts; lower263roles35families, unknown whole-game denominators. FormalQA11/device/child/owner/natural-route/global closure open.0accepted removals; no master promotion."
+}

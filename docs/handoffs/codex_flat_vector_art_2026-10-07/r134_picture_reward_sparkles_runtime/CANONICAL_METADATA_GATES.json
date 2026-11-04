@@ -1,0 +1,43 @@
+{
+  "state": "PASS",
+  "results": [
+    {
+      "name": "AUTHORITY",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "ca98c4c7b0254092a77593c8cab30af935eb3e5ab9c8885fbd651a421e0733eb"
+    },
+    {
+      "name": "AUTO",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "name": "HEAD",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d1cee5e9affaf5dfb7f341566e414c02af8fe2ddaacad8f871078b03ddf19f5d"
+    }
+  ],
+  "new_metadata_model_classification": "PASS",
+  "files": 23,
+  "engine_suites_repeated": 0,
+  "runtime_changes": []
+}

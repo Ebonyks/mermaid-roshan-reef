@@ -28209,7 +28209,13 @@
       "route_evidence": "Current picture_slide consumer from scripts/games/picture_games.gd:719 (_mg_build_slide)",
       "context_action": "Six-band diagonal rainbow slide active/rest/changed/payoff/settle states",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-5657FC3D7578"
+      "individual_brief_id": "PIECE-FV-5657FC3D7578",
+      "r134_source_entry_guard_disposition": {
+        "evidence": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/assets_src/imagegen/picture_reward_stars_20261103/RETIRED_SLIDE_DISPOSITION.json",
+        "scope": "Actual selected entry delegates before the old six-band card builder. No generation was done for it; complete route/fallback closure not inferred.",
+        "generation_calls": 0,
+        "accepted_removed": 0
+      }
     },
     {
       "id": "FV-BBB50149283E",
@@ -28322,10 +28328,15 @@
       "source_scope_ids": [
         "FVF-F5F7A8DE4736"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        "picture.snowman",
+        "picture.garden",
+        "picture.trampoline",
+        "picture.xmas"
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
-        "coverage_state": "COVERAGE_GAP",
+        "coverage_state": "CONFIGURED_CURRENT_CONTEXT_PARTIAL",
         "geometry_expressions": [
           "element_count: int = 8, radius: float = 90.0,",
           "var travel := clampf(radius, 40.0, 320.0)",
@@ -28334,20 +28345,18 @@
           "var direction := Vector2(cos(angle), sin(angle))",
           "sparkle, \"scale\", Vector2(0.18, 0.18), lifetime)"
         ],
-        "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        "note": "Expressions are scope evidence, not measured per-piece screen bounds.",
+        "r134_context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/FRAME_INDEX.json"
       },
-      "evidence_level": "SOURCE_INSPECTION",
-      "observed_weakness": "Source-bound candidate Picture-game star/sparkle burst uses or delegates visible primitive/material construction in _mg2d_feedback_burst. No current phone-context quality verdict is claimed.",
+      "evidence_level": "SOURCE_BOUND_NATIVE_PAIRS_AND_BOUNDED_AGENT_REVIEW",
+      "observed_weakness": "The original flat polygon cue is replaced on the source work branch by nine painted whole-sparkle appearances. Full external/global acceptance is still open.",
       "priority": "P2",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
       "context_brief_id": "BRIEF-PICTURE_GAMES",
-      "reuse_candidates": [
-        "assets/props/story/flower_coral.png",
-        "assets/props/story/flower_lavender.png"
-      ],
-      "reuse_inspection": "Dated audit identifies references only; five distinct complete mature plants and matching sprout/root slots are not proven from these two flowers.",
-      "named_gap": null,
-      "status": "IDENTIFIED",
+      "reuse_candidates": [],
+      "reuse_inspection": "Reuse is optional under owner2026-10-17. Old unrelated flower references remain historical only. Actual painted shared four-point cue uses scene/neighbor references; no failed-reuse gate.",
+      "named_gap": "Visible polygon reward cues in the shared feedback helper.",
+      "status": "SOURCE_CANDIDATE",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -28356,12 +28365,87 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r134_source_candidate": {
+          "stable_ids": [
+            "FV-E96CD69662D1"
+          ],
+          "state": "PUBLISHED_PAINTED_SHARED_FEEDBACK_CANDIDATE_NATIVE_LOCAL_PASS_REMOTE_CI_PENDING",
+          "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "source_branch": "codex/recent-updates-followup-20261103",
+          "authoring_branch": "codex/flat-vector-picture-reward-stars-20261103",
+          "source_baseline": "fe0660adced29fac3ae50737c0f829f400c856ab",
+          "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/README.md",
+          "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/MANIFEST.json",
+          "source_manifest_sha256": "5879426de53c94a51e5a199e5b915d9175424161b21c8f3b127da02789ff9f03",
+          "anonymous_required_files_including_manifest": 397,
+          "new_bounded_source_artifacts": 1,
+          "existing_named_roles": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "native_color_appearances": 9,
+          "new_runtime_PNG": 9,
+          "native_master": {
+            "size": [
+              1254,
+              1254
+            ],
+            "source": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/assets_src/imagegen/picture_reward_stars_20261103/painted_sparkles_master.png",
+            "sha256": "b18db3d79d3a4a3d95098a477103cbc43ac1971b9cf6607bced2a4f5d14f52e2",
+            "editable_master": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/assets_src/imagegen/picture_reward_stars_20261103/painted_sparkles_master.aseprite",
+            "editable_sha256": "570bdb9a0be1eb1587f73a49e9789eeba4a205dd378765697dba733fe1f791e5",
+            "derivation": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/assets_src/imagegen/picture_reward_stars_20261103/IMPLEMENTATION.json"
+          },
+          "runtime_texture_size": [
+            128,
+            128
+          ],
+          "runtime_decoded_base_bytes": 589824,
+          "runtime_decoded_and_mips_bytes": 786420,
+          "bounded_technical_cap_bytes": 1048576,
+          "generation_calls": 2,
+          "exposed_backend": "builtin image_gen.imagegen; no model selector or version returned",
+          "model_version": null,
+          "animation_calls": 0,
+          "separate_R133_generation_budget": "5of8 unchanged; no cap reset or new R133 calls.",
+          "candidate_evidence": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/assets_src/imagegen/picture_reward_stars_20261103/EXPORT_VERIFICATION.json",
+          "integration": {
+            "source_work_branch": true,
+            "Dev": false,
+            "canonical_runtime_changed": false,
+            "helper": "_mg2d_feedback_burst",
+            "other30methods_byte_identical": true,
+            "preserved": "Counts/caps/endpoints/timing/easing/fade/touch/rewards/audio/saves/lifecycle; functional invisible controls unchanged.",
+            "palette_change": "Nine native appearances; eight authored rainbow hues replace continuous HSV shades; no RGB tint."
+          },
+          "runtime_evidence": {
+            "local_trusted_probes": 82,
+            "analyzers": 4,
+            "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+            "final_2D": "PASS_NO_REGRESSION; global2D remains UNSATISFIED",
+            "current_source_binding": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/RECENT_UPDATES_COMPOSITION.json",
+            "configured_cases": 24,
+            "native_frames": 42,
+            "assertions": 2970,
+            "normal_save_hashes_unchanged": 11,
+            "CI_run": 41757765879,
+            "CI_status_at_snapshot": "in_progress"
+          },
+          "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/VISUAL_REVIEW.json",
+          "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/FRAME_INDEX.json",
+          "comparison": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/paired_phone_1280x720.png",
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "Dev_integrated": false,
+          "accepted_removed": 0,
+          "scope": "One existing shared cue across four logical picture activities; configured source/candidate context and bounded agent review. Other medal/UI artwork, natural-route/full-state/global and external acceptance remain open."
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Exact source CI and normal green Dev integration",
+        "Remaining natural-route/full-state/formalQA11/device/child/owner/global coverage"
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -28376,8 +28460,22 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Review Picture-game star/sparkle burst during Picture-game star/sparkle burst active/rest/changed/payoff/settle states on Current picture_games consumer from scripts/games/picture_games.gd:161 (_mg2d_feedback_burst). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261103-R134-PAINTED-FEEDBACK-SOURCE",
+          "source": "9474e440b65445882e2d15f0a41e43827f8551a3",
+          "stable_id": "FV-E96CD69662D1",
+          "scope": "All42same-scene native frames and phone views;24configured cases across three aspects.21endpoint/rotation pairs exact. Aliases do not multiply credit.",
+          "evidence": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/FRAME_INDEX.json",
+          "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/VISUAL_REVIEW.json",
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "accepted_removed": 0
+        }
+      ],
+      "proposed_update": "Review the actual published candidate and remaining external/route states; continue other documented low-quality artwork after the active source CI/production operation. No accepted removal inferred.",
       "route_refs": [
         "game.comfy_games"
       ],
@@ -28393,6 +28491,42 @@
         "status": "PARTIAL_WEAKNESS_CONTEXT_REVIEW",
         "device_child_owner_acceptance": false,
         "replacement_acceptance": false
+      },
+      "r134_historical_source_inspection": {
+        "source": {
+          "path": "scripts/games/picture_games.gd",
+          "function": "_mg2d_feedback_burst",
+          "start_line": 161,
+          "end_line": 244,
+          "sha256": "5d7202ac46b0ca26752b74b959eb052f2889369932d697b8b8727ad368abc8f0",
+          "hash_mode": "LF-canonical text"
+        },
+        "observed_weakness": "Source-bound candidate Picture-game star/sparkle burst uses or delegates visible primitive/material construction in _mg2d_feedback_burst. No current phone-context quality verdict is claimed.",
+        "status": "IDENTIFIED",
+        "reuse_candidates": [
+          "assets/props/story/flower_coral.png",
+          "assets/props/story/flower_lavender.png"
+        ],
+        "reuse_inspection": "Dated audit identifies references only; five distinct complete mature plants and matching sprout/root slots are not proven from these two flowers.",
+        "dependencies": [
+          "Current route/phase capture and source-pixel ownership",
+          "Inspected suitable reuse or recorded exact missing gap",
+          "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        ],
+        "screen_coverage": {
+          "measured_current_bounds": null,
+          "coverage_state": "COVERAGE_GAP",
+          "geometry_expressions": [
+            "element_count: int = 8, radius: float = 90.0,",
+            "var travel := clampf(radius, 40.0, 320.0)",
+            "Vector2(0, -13), Vector2(4, -4), Vector2(13, 0), Vector2(4, 4),",
+            "Vector2(0, 13), Vector2(-4, 4), Vector2(-13, 0), Vector2(-4, -4)])",
+            "var direction := Vector2(cos(angle), sin(angle))",
+            "sparkle, \"scale\", Vector2(0.18, 0.18), lifetime)"
+          ],
+          "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        },
+        "proposed_update": "Review Picture-game star/sparkle burst during Picture-game star/sparkle burst active/rest/changed/payoff/settle states on Current picture_games consumer from scripts/games/picture_games.gd:161 (_mg2d_feedback_burst). Preserve approved painted inputs. For its visible flat part, first inspect exact-purpose existing art; then author only this context-bound role/state with the same geometry, material and action, or remove a redundant decorative layer."
       }
     }
   ],
@@ -28446,7 +28580,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261103-R133-SOURCE-PUBLISHED",
+  "revision": "FV-AUDIT-20261103-R134-PAINTED-FEEDBACK-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -39145,7 +39279,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json;36published bounded source/20partialDev artifacts.263knownroles35familieslowerbound;unknownwholegame denominators;0acceptedremovals.",
+  "current_effective_summary": "SUMMARY.json;37published bounded source artifacts/20partialDev;263known roles35families lower bounds; unknown whole-game denominators;0accepted removals.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -45039,5 +45173,82 @@
     },
     "scope": "Oneexistinggroundrole. Completeactivity/contact/chaseclipping/HUD/reentry/natural-route/formal/device/child/owner remainopen."
   },
-  "r133_prior_canonical_revision": "9104a4788e0036468d517c812d86d592300d4513"
+  "r133_prior_canonical_revision": "9104a4788e0036468d517c812d86d592300d4513",
+  "r134_picture_feedback_runtime": {
+    "stable_ids": [
+      "FV-E96CD69662D1"
+    ],
+    "state": "PUBLISHED_PAINTED_SHARED_FEEDBACK_CANDIDATE_NATIVE_LOCAL_PASS_REMOTE_CI_PENDING",
+    "source_revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+    "source_branch": "codex/recent-updates-followup-20261103",
+    "authoring_branch": "codex/flat-vector-picture-reward-stars-20261103",
+    "source_baseline": "fe0660adced29fac3ae50737c0f829f400c856ab",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/MANIFEST.json",
+    "source_manifest_sha256": "5879426de53c94a51e5a199e5b915d9175424161b21c8f3b127da02789ff9f03",
+    "anonymous_required_files_including_manifest": 397,
+    "new_bounded_source_artifacts": 1,
+    "existing_named_roles": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "native_color_appearances": 9,
+    "new_runtime_PNG": 9,
+    "native_master": {
+      "size": [
+        1254,
+        1254
+      ],
+      "source": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/assets_src/imagegen/picture_reward_stars_20261103/painted_sparkles_master.png",
+      "sha256": "b18db3d79d3a4a3d95098a477103cbc43ac1971b9cf6607bced2a4f5d14f52e2",
+      "editable_master": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/assets_src/imagegen/picture_reward_stars_20261103/painted_sparkles_master.aseprite",
+      "editable_sha256": "570bdb9a0be1eb1587f73a49e9789eeba4a205dd378765697dba733fe1f791e5",
+      "derivation": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/assets_src/imagegen/picture_reward_stars_20261103/IMPLEMENTATION.json"
+    },
+    "runtime_texture_size": [
+      128,
+      128
+    ],
+    "runtime_decoded_base_bytes": 589824,
+    "runtime_decoded_and_mips_bytes": 786420,
+    "bounded_technical_cap_bytes": 1048576,
+    "generation_calls": 2,
+    "exposed_backend": "builtin image_gen.imagegen; no model selector or version returned",
+    "model_version": null,
+    "animation_calls": 0,
+    "separate_R133_generation_budget": "5of8 unchanged; no cap reset or new R133 calls.",
+    "candidate_evidence": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/assets_src/imagegen/picture_reward_stars_20261103/EXPORT_VERIFICATION.json",
+    "integration": {
+      "source_work_branch": true,
+      "Dev": false,
+      "canonical_runtime_changed": false,
+      "helper": "_mg2d_feedback_burst",
+      "other30methods_byte_identical": true,
+      "preserved": "Counts/caps/endpoints/timing/easing/fade/touch/rewards/audio/saves/lifecycle; functional invisible controls unchanged.",
+      "palette_change": "Nine native appearances; eight authored rainbow hues replace continuous HSV shades; no RGB tint."
+    },
+    "runtime_evidence": {
+      "local_trusted_probes": 82,
+      "analyzers": 4,
+      "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+      "final_2D": "PASS_NO_REGRESSION; global2D remains UNSATISFIED",
+      "current_source_binding": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/RECENT_UPDATES_COMPOSITION.json",
+      "configured_cases": 24,
+      "native_frames": 42,
+      "assertions": 2970,
+      "normal_save_hashes_unchanged": 11,
+      "CI_run": 41757765879,
+      "CI_status_at_snapshot": "in_progress"
+    },
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/VISUAL_REVIEW.json",
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/FRAME_INDEX.json",
+    "comparison": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9474e440b65445882e2d15f0a41e43827f8551a3/docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/context/paired_phone_1280x720.png",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "Dev_integrated": false,
+    "accepted_removed": 0,
+    "scope": "One existing shared cue across four logical picture activities; configured source/candidate context and bounded agent review. Other medal/UI artwork, natural-route/full-state/global and external acceptance remain open."
+  },
+  "r134_prior_canonical_revision": "99c7cbd09e258a16f596266d92484622255b21e0"
 }
