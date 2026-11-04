@@ -1491,3 +1491,5 @@ release/device/child/owner authority retain precedence.
 R132 authority reconciliation2026-11-03: the existing docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/README.md remains SOURCE_CANDIDATE / formal acceptance open. The owner now authorizes completed green updates to Dev. Its CI_COVERAGE_REPAIR.json records the canonical receipt-only coverage failure and bounded repair; original exact runtime-source CI remains successful.
 
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r134_picture_reward_sparkles_runtime/README.md` | 🟣 | SUPPORTING_CURRENT / PUBLISHED_SOURCE_CANDIDATE; R134 shared painted reward cue,397anonymous files, actual82probes/4analyzers/2D/current metadata and24configured cases pass.37source20partialDev; CI/formal/device/child/owner/global remain separate,0accepted removals. |
+
+| `docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/README.md` | 🟣 | SUPPORTING_CURRENT / PUBLISHED_SOURCE_CANDIDATE. R135 Garden backdrop with 263 anonymously verified source files, 82 passing local probes, and six configured Mobile/Speedy cases. See the source CI and acceptance lanes. |

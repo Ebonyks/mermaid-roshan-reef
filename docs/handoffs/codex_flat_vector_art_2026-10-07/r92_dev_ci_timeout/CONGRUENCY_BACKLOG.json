@@ -9587,7 +9587,7 @@
       "repair": "Review title/decorative heart collision with global Back at1280; retain readable title and110touchminimum. No runtime change."
     }
   ],
-  "current_effective_summary": "../r96_geologist_mineral_candidate/SUMMARY.json; actual shared painted cue candidate published. Other medal/UI/full-state/route/device/child/owner/global gaps open.",
+  "current_effective_summary": "../r96_geologist_mineral_candidate/SUMMARY.json. 38 published bounded source artifacts, 20 partial Dev artifacts, and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame events total 7,633 bounded and 4,326 excluded, with 11,959 retained.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -10496,5 +10496,93 @@
     "Dev_integrated": false,
     "accepted_removed": 0,
     "scope": "One existing shared cue across four logical picture activities; configured source/candidate context and bounded agent review. Other medal/UI artwork, natural-route/full-state/global and external acceptance remain open."
+  },
+  "r135_garden_backdrop_runtime": {
+    "stable_ids": [
+      "FV-BBB50149283E"
+    ],
+    "variant": "garden",
+    "state": "PUBLISHED_PAINTED_GARDEN_VARIANT_LOCAL_RUNTIME_PASS",
+    "source_revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+    "source_baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+    "source_branch": "codex/flat-vector-garden-backdrop-20261103",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/MANIFEST.json",
+    "source_manifest_sha256": "e67b7c08191214a67e3b919f880ac9ce98f1072ea21193fa38f9a3acae419688",
+    "anonymous_required_files_including_manifest": 263,
+    "new_bounded_source_artifacts": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "native_master": {
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/assets_src/imagegen/garden_backdrop_20261103/garden_backdrop_native.png",
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "ec15430864b2f9877e8226400980d342efbc1ecce853eeddae5fa748def1cc2e",
+      "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/assets_src/imagegen/garden_backdrop_20261103/PROVENANCE.json",
+      "first_export_rejected": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/assets_src/imagegen/garden_backdrop_20261103/garden_backdrop_export01_rejected.png"
+    },
+    "generation_calls": 1,
+    "exposed_backend": "Built-in image_gen.imagegen",
+    "model_version": null,
+    "animation_calls": 0,
+    "runtime_texture": {
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/assets/mg/garden_backdrop_painted.png",
+      "sha256": "5e54ed3d06629cdac3c3415b5e14b76f9f097fa52aba007779639df1e9ea958e",
+      "size": [
+        1024,
+        576
+      ],
+      "opaque": true,
+      "mips": false,
+      "decoded_rgba_upper_bytes": 2359296
+    },
+    "integration": {
+      "work_branch": true,
+      "Dev": false,
+      "canonical_runtime_changed": false,
+      "replaced": [
+        "Garden gradient backdrop",
+        "Garden decorative grass mound"
+      ],
+      "changed_methods": [
+        "_mg2d_open",
+        "_mg_build_garden"
+      ],
+      "other_methods_byte_identical": 29,
+      "old_Garden_art_fallback": false,
+      "untested_route": "Natural-world arrival; configured entry, completion and re-entry exercised."
+    },
+    "runtime_evidence": {
+      "local_trusted_probes": 82,
+      "analyzers": 4,
+      "focused_picture_probe": "PASS",
+      "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+      "game_wide_2D": "PASS_NO_REGRESSION; global state UNSATISFIED",
+      "full_result": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/checks/full_validation/FINAL_RESULT.json",
+      "configured_cases": 6,
+      "normal_save_hashes_unchanged": 11,
+      "desktop_one_pointer": true,
+      "frame_events": {
+        "bounded": 30,
+        "excluded": 40,
+        "retained": 70
+      },
+      "CI_run": 41778631639,
+      "CI_status_at_snapshot": "in_progress"
+    },
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/VISUAL_REVIEW.json",
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/FRAME_INDEX.json",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0,
+    "remaining_variants": [
+      "snowman",
+      "trampoline",
+      "xmas"
+    ]
   }
 }

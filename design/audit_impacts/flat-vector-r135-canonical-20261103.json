@@ -1,0 +1,78 @@
+{
+  "id": "flat-vector-r135-canonical-20261103",
+  "baseline": "66db37200f2a7685e4ada612d196e950242a5418",
+  "scope": "Reconcile the verified Garden variant source candidate, logical Garden scene and alias, bounded implementation and frame counts, and current evidence pointers. Canonical changes are metadata only.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-MED-05",
+    "DL-PERF-03",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/CANONICAL_AUTHORITY.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/CANONICAL_AUTO.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/CANONICAL_HEAD.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/CANONICAL_METADATA_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/PRIOR_CANONICAL_R134_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/PRODUCTION_DELTA.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/SOURCE_CI_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/SOURCE_COMMIT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/SOURCE_DELIVERY_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Verify source manifest and all 263 required files anonymously",
+      "result": "PASS",
+      "evidence": "r135_garden_backdrop_runtime/SOURCE_DELIVERY_VERIFICATION.json at exact source 4af86a105c5b704299a4f750bd18bf00c5f6c00c"
+    },
+    {
+      "command": "Source Mobile/Speedy validation and ten-axis review",
+      "result": "PASS",
+      "evidence": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/checks/full_validation/FINAL_RESULT.json and https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/4af86a105c5b704299a4f750bd18bf00c5f6c00c/docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_backdrop_runtime/VISUAL_REVIEW.json"
+    },
+    {
+      "command": "Current canonical authority and actual AUTO/HEAD coverage",
+      "result": "PASS",
+      "evidence": "r135_garden_backdrop_runtime/CANONICAL_METADATA_GATES.json; actual canonical metadata files, unchanged root5 and no repeated engine suite. Anonymous current payload verification follows publication."
+    },
+    {
+      "command": "Exact GitHub source CI and green Dev integration",
+      "result": "PENDING",
+      "evidence": "r135_garden_backdrop_runtime/SOURCE_CI_STATUS.json"
+    },
+    {
+      "command": "Exact new canonical manifest and every required file anonymously verified",
+      "result": "PENDING",
+      "evidence": "Perform immediately after push at the actual immutable revision; no recursive old archive dependency or self-receipt commit loop."
+    }
+  ],
+  "acceptance_gaps": "38 published bounded source artifacts, 20 partial Dev artifacts, and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Snowman, Trampoline and Christmas variants, natural-world route coverage, formal QA11, physical-device, child and owner review remain open."
+}
