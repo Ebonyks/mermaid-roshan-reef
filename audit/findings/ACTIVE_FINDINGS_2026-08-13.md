@@ -330,6 +330,8 @@ poses as broken motion.
 
 ## MA-VIS-006
 
+[Verified R137 cave source](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) adds painted cave artwork and exact configured evidence. Finding lifecycle remains open. Natural-world and training visual routes, formal QA11, physical-device performance, child and owner review remain open.
+
 [Geologist riverbed Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_dev_integration/README.md) verifies df6f50e4 after green source CI. The finding remains open for remaining artwork and required acceptance.
 
 [Verified R136 riverbed source](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md) adds topology-aware artwork and exact configured evidence. Finding lifecycle remains open. Natural-world and training visual routes, formal QA11, physical-device performance, child and owner review remain open.
@@ -517,6 +519,8 @@ R126source production2026-11-02: [painted Melody note token](../../docs/handoffs
 | history | 2026-08-29: repeated owner report reproduced. Root causes include an abandoned topic branch, removal of only one of two false foreground cards, two baked/blurred background footprints, regeneration tooling that could restore the defect, node-only probes, a runtime route allow-list that rejected the repaired route, and cwd-relative review tooling that could inspect stale branches or composite against an obsolete plate. Both bathroom footprints were repaired and exact 4.7.2 dirty/clean captures passed. Three parallel scrubs dispositioned the game, drove full-frame regeneration of seven Castle plates plus Opera Detective and Nursery, retired the incomplete duplicate tent-flap card, repaired the cupboard's incomplete rest frame, and independently reviewed all 96 retained V4 frames against exact worktree/runtime paths. The complete exact-4.7.2 local suite exits zero; lifecycle advances to `FIXED_PENDING_VERIFICATION` while exact `dev` and external acceptance remain open.  2026-10-12: [R6 independent audit packet](../../docs/handoffs/codex_flat_vector_art_2026-10-07/README.md) preserves immutable R5 and unchanged origin/dev runtime.980 new/1584 cumulative bounded diagnostic frames,1686 retained including102 excluded diagnostics;76/176 partial,zero complete,18 scope inventory classifications/351 unresolved. Three independent reviews bind44 existing named records with partial context;none establishes acceptance.0 replacements/accepted removals;unique artwork total unknown. Full inventory,QA11,device/child/owner acceptance remain open; lifecycle unchanged. Publication and remote receipt required separately. |
 
 ## MA-VIS-008
+
+[Verified R137 cave source](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) adds painted cave artwork and exact configured evidence. Finding lifecycle remains open. Natural-world and training visual routes, formal QA11, physical-device performance, child and owner review remain open.
 
 [Geologist riverbed Dev integration](../../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_dev_integration/README.md) verifies df6f50e4 after green source CI. The finding remains open for remaining artwork and required acceptance.
 

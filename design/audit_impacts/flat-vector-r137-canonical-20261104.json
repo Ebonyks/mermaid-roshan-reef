@@ -1,0 +1,87 @@
+{
+  "id": "flat-vector-r137-canonical-20261104",
+  "baseline": "bfe6f02c3f5fa1aba45a6fc9766c450cb7599612",
+  "scope": "Reconcile the published cave backdrop, existing Geologist scene and alias, bounded production counts and the verified riverbed APK receipt. Canonical metadata only.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-LAY-05",
+    "DL-LAY-06",
+    "DL-LAY-09",
+    "DL-MED-05",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-PERF-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/CANONICAL_AUTHORITY.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/CANONICAL_AUTO.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/CANONICAL_HEAD.log",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/CANONICAL_METADATA_GATES.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/PRIOR_CANONICAL_R136_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/PRODUCTION_DELTA.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/R136_RIVERBED_APK_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/SOURCE_CI_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/SOURCE_COMMIT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/SOURCE_DELIVERY_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Source manifest and all 204 required files anonymously verified",
+      "result": "PASS",
+      "evidence": "r137_geologist_cave_runtime/SOURCE_DELIVERY_VERIFICATION.json, exact source 3e09451bcf69bd37a8c37e855559822fbfd0d723"
+    },
+    {
+      "command": "Exact cave local static, 82 probes, four analyzers, 2D and ten-axis review",
+      "result": "PASS",
+      "evidence": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/checks/full_validation/FINAL_RESULT.json and https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/VISUAL_REVIEW.json"
+    },
+    {
+      "command": "Verify riverbed Dev Android publication and anonymous full asset checksum",
+      "result": "PASS",
+      "evidence": "r137_geologist_cave_runtime/R136_RIVERBED_APK_VERIFICATION.json"
+    },
+    {
+      "command": "Current canonical authority and actual AUTO/HEAD coverage",
+      "result": "PASS",
+      "evidence": "r137_geologist_cave_runtime/CANONICAL_METADATA_GATES.json; actual canonical metadata files, unchanged root5 and no repeated engine suite. Anonymous current payload verification follows publication."
+    },
+    {
+      "command": "Exact GitHub source CI and green Dev integration",
+      "result": "PENDING",
+      "evidence": "r137_geologist_cave_runtime/SOURCE_CI_STATUS.json"
+    },
+    {
+      "command": "Exact new canonical manifest and every required file anonymously verified",
+      "result": "PENDING",
+      "evidence": "Perform immediately after push at the actual immutable revision; no recursive old archive dependency or self-receipt commit loop."
+    }
+  ],
+  "acceptance_gaps": "40 published bounded source artifacts, 22 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Natural-world and training visual routes, formal QA11, physical-device performance, child and owner review remain open."
+}

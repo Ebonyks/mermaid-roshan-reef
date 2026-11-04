@@ -106,6 +106,7 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 | R135 Garden on Dev | [Dev verification](../docs/handoffs/codex_flat_vector_art_2026-10-07/r135_garden_dev_integration/README.md) | [Impact](../design/audit_impacts/flat-vector-r135-dev-integration-20261104.json); exact 4af86a10 on Dev, bounded Garden variant. Dev CI/APK and external review remain separate. |
 | R136 painted Geologist riverbed | [Verified source](../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-r136-canonical-20261104.json); riverbed cells and channels, exact source df6f50e4, 36 bounded and 14 excluded events. |
 | R136 Geologist riverbed on Dev | [Dev verification](../docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_dev_integration/README.md) | [Impact](../design/audit_impacts/flat-vector-r136-dev-integration-20261104.json); exact df6f50e4 on Dev, bounded Geologist river activity. Dev CI/APK and external review remain separate. |
+| R137 painted Geologist cave | [Verified source](../docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md) | [Impact](../design/audit_impacts/flat-vector-r137-canonical-20261104.json); one fixed cave view, exact source 3e09451b, 36 bounded frame events. |
 <!-- AUDIT_TASK_INDEX_END -->
 
 ## Sealed audit snapshot and subsequent round metadata

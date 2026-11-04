@@ -10,33 +10,33 @@
   "all_game_artwork_total": null,
   "distinct_screen_total": null,
   "regression_total": null,
-  "retained_bounded": 7669,
+  "retained_bounded": 7705,
   "retained_excluded": 4340,
-  "retained_native_events": 12009,
-  "existing_sample_work_branch_implemented": 39,
-  "known_implementation_count_scope": "39 published bounded source artifacts, 22 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown.",
+  "retained_native_events": 12045,
+  "existing_sample_work_branch_implemented": 40,
+  "known_implementation_count_scope": "40 published bounded source artifacts, 22 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown.",
   "samples_awaiting_review_global": null,
   "approved": 0,
   "dev_integrated": 22,
   "runtime_verified_replacements_formal": 0,
   "accepted_removed": 0,
-  "revision": "FV-AUDIT-20261104-R136-RIVERBED-DEV",
+  "revision": "FV-AUDIT-20261104-R137-PAINTED-CAVE-SOURCE",
   "inherited_summary": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/898ab3421a20e4ec876e5eb3a5a6a3ba3b706cda/docs/handoffs/codex_flat_vector_art_2026-10-07/r95_geologist_pan_runtime/SUMMARY.json",
   "new_roles": 0,
   "new_families": 0,
   "new_alias_credits": 0,
   "new_partial_role_credit": 0,
-  "new_native_frames": 0,
-  "new_bounded_contexts": 0,
+  "new_native_frames": 36,
+  "new_bounded_contexts": 36,
   "new_excluded_diagnostics": 0,
   "source_views_here": 2,
   "existing_context_frames_reinspected_here": 54,
-  "new_samples": 0,
-  "new_runtime_implementations": 0,
-  "new_generation_calls": 0,
+  "new_samples": 1,
+  "new_runtime_implementations": 1,
+  "new_generation_calls": 1,
   "reuse_ready_whole_role": false,
   "drawing_required_global": null,
-  "chosen_next_consumer": "Follow exact Dev CI 41817822043 and the matching APK. Continue selected painted replacements when production is idle.",
+  "chosen_next_consumer": "Follow exact source CI 41838014853, then green Dev integration.",
   "mission_complete": false,
   "dev_integrated_unit": "Partial bounded implementation artifacts, not complete artwork-role replacements or accepted removals.",
   "dev_integrated_complete_named_roles": 0,
@@ -2165,7 +2165,7 @@
     "mission_complete": false,
     "remaining": "Cavebackground/strata/beams/floor, actorstaging/contact, floating/off-target invitations, riverexcavation/connectedchannel, remaining art and natural/training/allroutes/performance/formalQA11/device/child/owner/global acceptance remain OPEN. Existing whole sources keep provisional scope. No backgroundresolution, actorcontact or acceptedremoval credit."
   },
-  "new_runtime_PNG_this_revision": 0,
+  "new_runtime_PNG_this_revision": 2,
   "r116_parent_receipt_revision": "cd3e905da6404be3d93551cd3ba78564da3a9312",
   "r116_layered_rock_runtime": {
     "stable_id": "FV-192FA763EF56",
@@ -2513,7 +2513,7 @@
     },
     "remaining": "Entire campaign parked afterR118 until owner resumes afterdemo. Future sourceCI/currentDev reconciliation/integration, naturalroutes/formalQA11/device/child/owner/global denominators remainOPEN. No new art or engine suite for preservation bookkeeping."
   },
-  "new_partial_Dev_artifacts": 1,
+  "new_partial_Dev_artifacts": 0,
   "production_hold": "Latest owner authorizes recent completed green updates to Dev and continuing art; prior Devfreeze is historical. No image/QA/device/child/owner acceptance inferred.",
   "r120_parent_receipt_revision": "3c3b39838b2ceacb13281a83957442662ca2f5b9",
   "r120_melody_curtains_runtime": {
@@ -5601,5 +5601,125 @@
     "new_generation_calls": 2,
     "chosen_next_consumer": "Follow exact source CI 41807337519, then green Dev integration.",
     "known_implementation_count_scope": "39 published bounded source artifacts, 21 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown."
+  },
+  "r137_prior_revision_local_fields": {
+    "revision": "FV-AUDIT-20261104-R136-RIVERBED-DEV",
+    "new_native_frames": 0,
+    "new_bounded_contexts": 0,
+    "new_excluded_diagnostics": 0,
+    "new_samples": 0,
+    "new_runtime_implementations": 0,
+    "new_generation_calls": 0,
+    "chosen_next_consumer": "Follow exact Dev CI 41817822043 and the matching APK. Continue selected painted replacements when production is idle.",
+    "known_implementation_count_scope": "39 published bounded source artifacts, 22 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown.",
+    "new_partial_Dev_artifacts": 1
+  },
+  "r137_geologist_cave_runtime": {
+    "stable_ids": [
+      "FV-14664183159D"
+    ],
+    "scope": "Geologist fixed cave background across configured room and curtain call",
+    "state": "PUBLISHED_PAINTED_CAVE_CANDIDATE_LOCAL_RUNTIME_PASS",
+    "source_revision": "3e09451bcf69bd37a8c37e855559822fbfd0d723",
+    "source_branch": "codex/flat-vector-geologist-cave-20261104",
+    "source_baseline": "df6f50e459624562051d61993469a4c5ec663909",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/MANIFEST.json",
+    "source_manifest_sha256": "a67487944e12f356547a444a3a8e72223309a4a33c218812a34cf5f2cc38c7d1",
+    "anonymous_required_files_including_manifest": 204,
+    "candidate": {
+      "runtime_tiles": [
+        {
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets/opera/worlds/backdrops/geologist_cave_painted_c0.png",
+          "size": [
+            832,
+            936
+          ],
+          "sha256": "e5f7895fb4b70aa10def52f3a76cd0823cbc52100ddc1b69f0ef8979042b8c64"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets/opera/worlds/backdrops/geologist_cave_painted_c1.png",
+          "size": [
+            832,
+            936
+          ],
+          "sha256": "6b5e51544503e435ec3f7328f33d002e23838b0bf138df3baab368f794a4d55f"
+        }
+      ],
+      "fixed_screen_native_crop": [
+        1664,
+        936
+      ],
+      "native_source_size": [
+        1672,
+        941
+      ],
+      "decoded_RGBA_upper_bytes": 6230016,
+      "multi_screen_2K_claim": false,
+      "native_master": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets_src/imagegen/geologist_cave_20261104/cave_native.png",
+      "native_sha256": "aeaee13fbbaa7fa50dc4a2e507675bd6962220f8e13c69e1d5c1cf69caea460e",
+      "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets_src/imagegen/geologist_cave_20261104/PROVENANCE.json",
+      "exposed_backend": "Built-in image_gen.imagegen",
+      "model_version": null,
+      "generation_calls": 1,
+      "animation_calls": 0
+    },
+    "integration": {
+      "source_work_branch": true,
+      "Dev": false,
+      "canonical_runtime_changed": false,
+      "draw_functions": [
+        "_draw",
+        "_draw_geologist",
+        "setup"
+      ],
+      "painted_station_props_preserved": true,
+      "original_curtain_call_overlay_preserved": true,
+      "old_flat_cave_fallback": false
+    },
+    "runtime_evidence": {
+      "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+      "configured_cases": 20,
+      "configured_checks": 556,
+      "paired_state_frames": 18,
+      "native_frame_events": {
+        "bounded": 36,
+        "excluded": 0,
+        "retained": 36
+      },
+      "normal_save_hashes_unchanged": 11,
+      "local_trusted_probes": 82,
+      "analyzers": 4,
+      "final_2D": "PASS_NO_REGRESSION",
+      "full_result": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/checks/full_validation/FINAL_RESULT.json",
+      "CI_run": 41838014853,
+      "CI_status_at_snapshot": "in_progress"
+    },
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/FRAME_INDEX.json",
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/VISUAL_REVIEW.json",
+    "natural_world_route": null,
+    "training_visual_route": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "new_bounded_source_artifacts": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "accepted_removed": 0
+  },
+  "r136_riverbed_apk_verification": {
+    "Dev_revision": "df6f50e459624562051d61993469a4c5ec663909",
+    "state": "DEV_APK_ANONYMOUS_BYTES_AND_PUBLISHED_SHA256_VERIFIED",
+    "apk_sha256": "585c6029bd24d6b2ca5a1caaa27ccedf04d7657c7b274fbb01fa2210616b1e82",
+    "apk_bytes": 860887515,
+    "Android_build": 41825012362,
+    "Dev_CI": 41817822043,
+    "proof": "r137_geologist_cave_runtime/R136_RIVERBED_APK_VERIFICATION.json",
+    "physical_device_install": null,
+    "child": null,
+    "owner": null,
+    "formal_QA11": null,
+    "new_counts": 0
   }
 }

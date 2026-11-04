@@ -5368,13 +5368,8 @@
         "FVF-49B330C0E118"
       ],
       "runtime_consumers": [
-        {
-          "path": "scripts/opera_world_backdrop_2d.gd",
-          "function": "_draw_geologist",
-          "scope": "Actual room overview foreground; original geology_work_open return hides set during all four tasks",
-          "ambiguous": false,
-          "visible": true
-        }
+        "opera.act.16",
+        "game.geologist"
       ],
       "screen_coverage": {
         "measured_current_bounds": {
@@ -5412,7 +5407,7 @@
           ],
           "note": "Uniform whole-image mapping to measured authoredcontour/contact, no crops/deformation. Sourcefixture checks actualtraypositions and hidingguard."
         },
-        "coverage_state": "PARTIAL_CURRENT_FOUR_PHASE_TWO_ASPECT_ROOM_FOREGROUND",
+        "coverage_state": "CONFIGURED_CURRENT_CONTEXT_PARTIAL",
         "geometry_expressions": [
           "Vector2(0, y + 24), Vector2(220, y - 12),",
           "Vector2(470, y + 18), Vector2(760, y - 18),",
@@ -5427,10 +5422,11 @@
           "Vector2(x + 20, base.y),",
           "draw_arc(Vector2(1080, 420), pulse, 0.0, TAU, 36, Color(accent, 0.55), 8.0)"
         ],
-        "note": "1280/1600 phase0..3 source/candidate overview/tasktransition. No native2048background, actorcontact or fullrole acceptance credit."
+        "note": "1280/1600 phase0..3 source/candidate overview/tasktransition. No native2048background, actorcontact or fullrole acceptance credit.",
+        "r137_cave_context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/FRAME_INDEX.json"
       },
-      "evidence_level": "SOURCE_INSPECTION",
-      "observed_weakness": "Flat fallback implementation is present in _draw_geologist; normal-path visibility is unproven.",
+      "evidence_level": "SOURCE_BOUND_NATIVE_PAIRS_AND_BOUNDED_AGENT_REVIEW",
+      "observed_weakness": "The fixed Geologist cave background now uses a painted candidate on the work branch. Approved station props retain their own Dev evidence.",
       "priority": "P1",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
       "context_brief_id": "BRIEF-OPERA_GEOLOGIST",
@@ -5439,9 +5435,9 @@
         "assets_src/geologist_rebuild_2026-09-05/geology_props_alpha_retry.png"
       ],
       "reuse_inspection": "Candidates retained, not approved for runtime; prior checkerboard rejection and current angle/whole-unit state gaps require native inspection.",
-      "named_gap": "All foreground fossil/tray/vertex-crystal drawings retired in actualgreen Dev; cavewall/strata/background and separateactor/invitation/river debt remain.",
-      "status": "PAINTED_FOREGROUND_PARTIAL_DEV_CAVE_BACKGROUND_AND_EXTERNAL_ACCEPTANCE_OPEN",
-      "integration_sha": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "named_gap": "Painted foreground stations remain on Dev. The fixed cave background is a published source candidate. Actor contact, invitations, shared curtain-call art and external evidence remain separate.",
+      "status": "SOURCE_CANDIDATE",
+      "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/0bd538456b4b7abc9220ca09de072e8577a32014/docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1280",
         "wide_phone_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/0bd538456b4b7abc9220ca09de072e8577a32014/docs/handoffs/codex_flat_vector_art_2026-10-07/r115_geologist_station_props_runtime/candidate/1600",
@@ -5453,11 +5449,105 @@
           "source_revision": "0bd538456b4b7abc9220ca09de072e8577a32014",
           "scope": "Foreground fossil rectangle/spiral, three traybody/rims, fivevertexcrystals and decorativeclusterpulse retired. Backgroundstrata still draws.",
           "role_closed": false
+        },
+        "r137_cave_source_candidate": {
+          "stable_ids": [
+            "FV-14664183159D"
+          ],
+          "scope": "Geologist fixed cave background across configured room and curtain call",
+          "state": "PUBLISHED_PAINTED_CAVE_CANDIDATE_LOCAL_RUNTIME_PASS",
+          "source_revision": "3e09451bcf69bd37a8c37e855559822fbfd0d723",
+          "source_branch": "codex/flat-vector-geologist-cave-20261104",
+          "source_baseline": "df6f50e459624562051d61993469a4c5ec663909",
+          "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md",
+          "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/MANIFEST.json",
+          "source_manifest_sha256": "a67487944e12f356547a444a3a8e72223309a4a33c218812a34cf5f2cc38c7d1",
+          "anonymous_required_files_including_manifest": 204,
+          "candidate": {
+            "runtime_tiles": [
+              {
+                "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets/opera/worlds/backdrops/geologist_cave_painted_c0.png",
+                "size": [
+                  832,
+                  936
+                ],
+                "sha256": "e5f7895fb4b70aa10def52f3a76cd0823cbc52100ddc1b69f0ef8979042b8c64"
+              },
+              {
+                "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets/opera/worlds/backdrops/geologist_cave_painted_c1.png",
+                "size": [
+                  832,
+                  936
+                ],
+                "sha256": "6b5e51544503e435ec3f7328f33d002e23838b0bf138df3baab368f794a4d55f"
+              }
+            ],
+            "fixed_screen_native_crop": [
+              1664,
+              936
+            ],
+            "native_source_size": [
+              1672,
+              941
+            ],
+            "decoded_RGBA_upper_bytes": 6230016,
+            "multi_screen_2K_claim": false,
+            "native_master": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets_src/imagegen/geologist_cave_20261104/cave_native.png",
+            "native_sha256": "aeaee13fbbaa7fa50dc4a2e507675bd6962220f8e13c69e1d5c1cf69caea460e",
+            "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets_src/imagegen/geologist_cave_20261104/PROVENANCE.json",
+            "exposed_backend": "Built-in image_gen.imagegen",
+            "model_version": null,
+            "generation_calls": 1,
+            "animation_calls": 0
+          },
+          "integration": {
+            "source_work_branch": true,
+            "Dev": false,
+            "canonical_runtime_changed": false,
+            "draw_functions": [
+              "_draw",
+              "_draw_geologist",
+              "setup"
+            ],
+            "painted_station_props_preserved": true,
+            "original_curtain_call_overlay_preserved": true,
+            "old_flat_cave_fallback": false
+          },
+          "runtime_evidence": {
+            "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+            "configured_cases": 20,
+            "configured_checks": 556,
+            "paired_state_frames": 18,
+            "native_frame_events": {
+              "bounded": 36,
+              "excluded": 0,
+              "retained": 36
+            },
+            "normal_save_hashes_unchanged": 11,
+            "local_trusted_probes": 82,
+            "analyzers": 4,
+            "final_2D": "PASS_NO_REGRESSION",
+            "full_result": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/checks/full_validation/FINAL_RESULT.json",
+            "CI_run": 41838014853,
+            "CI_status_at_snapshot": "in_progress"
+          },
+          "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/FRAME_INDEX.json",
+          "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/VISUAL_REVIEW.json",
+          "natural_world_route": null,
+          "training_visual_route": null,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "new_bounded_source_artifacts": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "accepted_removed": 0
         }
       },
       "dependencies": [
-        "Current actual four-phase roomoverview/task-open context, both aspects",
-        "FormalQA11/device/child/owner/natural/training/allroutes and originalroom/actor/river globalgaps"
+        "Exact green source CI and Dev integration",
+        "Natural-world and training visual routes, formal QA11, physical-device performance, child and owner review remain open."
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -5482,9 +5572,22 @@
           "device": null,
           "child": null,
           "owner": null
+        },
+        {
+          "revision": "FV-AUDIT-20261104-R137-PAINTED-CAVE-SOURCE",
+          "source": "3e09451bcf69bd37a8c37e855559822fbfd0d723",
+          "stable_id": "FV-14664183159D",
+          "scope": "Two aspect ratios and 18 matched candidate frames across the four phases and configured curtain call.",
+          "evidence": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/FRAME_INDEX.json",
+          "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/VISUAL_REVIEW.json",
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "accepted_removed": 0
         }
       ],
-      "proposed_update": "Prove which guard can render Geology cave fallback on its current route. Retain accepted painted inputs; retire this flat recovery path after exact resource/export/lifecycle proof, or record its specific missing authored state.",
+      "proposed_update": "Review the exact source and matching natural-world and training states before formal or external acceptance.",
       "route_refs": [
         "opera.act.16"
       ],
@@ -5755,6 +5858,76 @@
         "accepted_removed": 0,
         "mission_complete": false,
         "remaining": "Cavebackground/strata/beams/floor, actorstaging/contact, floating/off-target invitations, riverexcavation/connectedchannel, remaining art and natural/training/allroutes/performance/formalQA11/device/child/owner/global acceptance remain OPEN. Existing whole sources keep provisional scope. No backgroundresolution, actorcontact or acceptedremoval credit."
+      },
+      "r137_historical_source_inspection": {
+        "status": "PAINTED_FOREGROUND_PARTIAL_DEV_CAVE_BACKGROUND_AND_EXTERNAL_ACCEPTANCE_OPEN",
+        "source": {
+          "path": "scripts/opera_world_backdrop_2d.gd",
+          "function": "_draw_geologist",
+          "start_line": 571,
+          "end_line": 606,
+          "sha256": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+          "hash_mode": "LF-canonical text"
+        },
+        "observed_weakness": "Flat fallback implementation is present in _draw_geologist; normal-path visibility is unproven.",
+        "screen_coverage": {
+          "measured_current_bounds": {
+            "fossil_envelope": [
+              250,
+              398,
+              250,
+              126
+            ],
+            "tray_envelopes": [
+              [
+                550,
+                452,
+                110,
+                74
+              ],
+              [
+                695,
+                452,
+                110,
+                74
+              ],
+              [
+                840,
+                452,
+                110,
+                74
+              ]
+            ],
+            "gallery_envelope": [
+              992,
+              386,
+              176,
+              134
+            ],
+            "note": "Uniform whole-image mapping to measured authoredcontour/contact, no crops/deformation. Sourcefixture checks actualtraypositions and hidingguard."
+          },
+          "coverage_state": "PARTIAL_CURRENT_FOUR_PHASE_TWO_ASPECT_ROOM_FOREGROUND",
+          "geometry_expressions": [
+            "Vector2(0, y + 24), Vector2(220, y - 12),",
+            "Vector2(470, y + 18), Vector2(760, y - 18),",
+            "Vector2(1040, y + 12), Vector2(1280, y - 10),",
+            "draw_rect(Rect2(250, 430, 250, 94), Color(\"#d8bb8b\"), true)",
+            "draw_arc(Vector2(376, 476), 32, -0.3, TAU * 1.65, 38,",
+            "draw_rect(Rect2(tray_x, 452, 110, 74), Color(\"#2f274e\"), true)",
+            "draw_rect(Rect2(tray_x, 452, 110, 74), accent.lightened(float(index) * 0.08), false, 7.0)",
+            "var base := Vector2(1080, 520)",
+            "Vector2(x - 20, base.y), Vector2(x - 14, base.y - height * 0.72),",
+            "Vector2(x, base.y - height), Vector2(x + 15, base.y - height * 0.70),",
+            "Vector2(x + 20, base.y),",
+            "draw_arc(Vector2(1080, 420), pulse, 0.0, TAU, 36, Color(accent, 0.55), 8.0)"
+          ],
+          "note": "1280/1600 phase0..3 source/candidate overview/tasktransition. No native2048background, actorcontact or fullrole acceptance credit."
+        },
+        "dependencies": [
+          "Current actual four-phase roomoverview/task-open context, both aspects",
+          "FormalQA11/device/child/owner/natural/training/allroutes and originalroom/actor/river globalgaps"
+        ],
+        "proposed_update": "Prove which guard can render Geology cave fallback on its current route. Retain accepted painted inputs; retire this flat recovery path after exact resource/export/lifecycle proof, or record its specific missing authored state."
       }
     },
     {
@@ -11860,14 +12033,15 @@
       "runtime_consumers": [],
       "screen_coverage": {
         "measured_current_bounds": null,
-        "coverage_state": "COVERAGE_GAP",
+        "coverage_state": "CONFIGURED_CURRENT_CONTEXT_PARTIAL",
         "geometry_expressions": [
           "draw_circle(center + Vector2(12, 9), 3.0, Color(\"#c6a482\"))"
         ],
-        "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        "note": "Expressions are scope evidence, not measured per-piece screen bounds.",
+        "r136_shared_channel": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/FRAME_INDEX.json"
       },
       "evidence_level": "SOURCE_INSPECTION",
-      "observed_weakness": "Connected water uses uniform thick lines/circles and repeated arc highlights.",
+      "observed_weakness": "The formerly uniform blue connected channel is represented by the R136 painted topology atlas on Dev. Same artifact as the riverbed role.",
       "priority": "P1",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
       "context_brief_id": "BRIEF-OPERA_GEOLOGIST",
@@ -11877,8 +12051,8 @@
       ],
       "reuse_inspection": "Candidates retained, not approved for runtime; prior checkerboard rejection and current angle/whole-unit state gaps require native inspection.",
       "named_gap": null,
-      "status": "IDENTIFIED",
-      "integration_sha": null,
+      "status": "DEV_PARTIAL_CANDIDATE",
+      "integration_sha": "df6f50e459624562051d61993469a4c5ec663909",
       "acceptance_evidence": {
         "current_mobile_runtime": null,
         "wide_phone_runtime": null,
@@ -11886,7 +12060,20 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r136_shared_channel": {
+          "source": "df6f50e459624562051d61993469a4c5ec663909",
+          "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/FRAME_INDEX.json",
+          "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/VISUAL_REVIEW.json",
+          "new_source_artifacts": 0,
+          "new_Dev_artifacts": 0,
+          "new_frames": 0,
+          "accepted_removed": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null
+        }
       },
       "dependencies": [
         "Current route/phase capture and source-pixel ownership",
@@ -11907,14 +12094,34 @@
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
       "review_log": [],
-      "proposed_update": "Derive painted open/connected current bands for every allowed cell junction; retain wet-cell masks as functional clipping. Inspect all four neighbour transitions.",
+      "proposed_update": "Verify natural and training route coverage, physical device, child, owner and formal QA11 on the existing R136 artifact.",
       "route_refs": [
         "opera.act.16"
       ],
       "route_evidence": "Castle room library picture route; temporary Opera painted left elevator -> playtest card also launches same engine without durable rewards",
       "context_action": "RIVER; FOSSIL; PAN; GEODE",
       "source_image_reviews": [],
-      "individual_brief_id": "PIECE-FV-16448353CDDD"
+      "individual_brief_id": "PIECE-FV-16448353CDDD",
+      "r136_prior_channel_observation": {
+        "status": "IDENTIFIED",
+        "source": {
+          "path": "scripts/opera_geology_surface.gd",
+          "function": "_draw_river",
+          "start_line": 631,
+          "end_line": 659,
+          "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+          "hash_mode": "LF-canonical text"
+        },
+        "observed_weakness": "Connected water uses uniform thick lines/circles and repeated arc highlights.",
+        "screen_coverage": {
+          "measured_current_bounds": null,
+          "coverage_state": "COVERAGE_GAP",
+          "geometry_expressions": [
+            "draw_circle(center + Vector2(12, 9), 3.0, Color(\"#c6a482\"))"
+          ],
+          "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        }
+      }
     },
     {
       "id": "FV-4E515D6F7A64",
@@ -28888,7 +29095,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261104-R136-RIVERBED-DEV",
+  "revision": "FV-AUDIT-20261104-R137-PAINTED-CAVE-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -39587,7 +39794,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 39 published bounded source artifacts, 22 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,669 bounded and 4,340 excluded, with 12,009 retained.",
+  "current_effective_summary": "SUMMARY.json. 40 published bounded source artifacts, 22 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native events total 7,705 bounded and 4,340 excluded, with 12,045 retained.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -45873,6 +46080,100 @@
     "device": null,
     "child": null,
     "owner": null,
+    "accepted_removed": 0
+  },
+  "r137_geologist_cave_runtime": {
+    "stable_ids": [
+      "FV-14664183159D"
+    ],
+    "scope": "Geologist fixed cave background across configured room and curtain call",
+    "state": "PUBLISHED_PAINTED_CAVE_CANDIDATE_LOCAL_RUNTIME_PASS",
+    "source_revision": "3e09451bcf69bd37a8c37e855559822fbfd0d723",
+    "source_branch": "codex/flat-vector-geologist-cave-20261104",
+    "source_baseline": "df6f50e459624562051d61993469a4c5ec663909",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/MANIFEST.json",
+    "source_manifest_sha256": "a67487944e12f356547a444a3a8e72223309a4a33c218812a34cf5f2cc38c7d1",
+    "anonymous_required_files_including_manifest": 204,
+    "candidate": {
+      "runtime_tiles": [
+        {
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets/opera/worlds/backdrops/geologist_cave_painted_c0.png",
+          "size": [
+            832,
+            936
+          ],
+          "sha256": "e5f7895fb4b70aa10def52f3a76cd0823cbc52100ddc1b69f0ef8979042b8c64"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets/opera/worlds/backdrops/geologist_cave_painted_c1.png",
+          "size": [
+            832,
+            936
+          ],
+          "sha256": "6b5e51544503e435ec3f7328f33d002e23838b0bf138df3baab368f794a4d55f"
+        }
+      ],
+      "fixed_screen_native_crop": [
+        1664,
+        936
+      ],
+      "native_source_size": [
+        1672,
+        941
+      ],
+      "decoded_RGBA_upper_bytes": 6230016,
+      "multi_screen_2K_claim": false,
+      "native_master": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets_src/imagegen/geologist_cave_20261104/cave_native.png",
+      "native_sha256": "aeaee13fbbaa7fa50dc4a2e507675bd6962220f8e13c69e1d5c1cf69caea460e",
+      "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/assets_src/imagegen/geologist_cave_20261104/PROVENANCE.json",
+      "exposed_backend": "Built-in image_gen.imagegen",
+      "model_version": null,
+      "generation_calls": 1,
+      "animation_calls": 0
+    },
+    "integration": {
+      "source_work_branch": true,
+      "Dev": false,
+      "canonical_runtime_changed": false,
+      "draw_functions": [
+        "_draw",
+        "_draw_geologist",
+        "setup"
+      ],
+      "painted_station_props_preserved": true,
+      "original_curtain_call_overlay_preserved": true,
+      "old_flat_cave_fallback": false
+    },
+    "runtime_evidence": {
+      "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+      "configured_cases": 20,
+      "configured_checks": 556,
+      "paired_state_frames": 18,
+      "native_frame_events": {
+        "bounded": 36,
+        "excluded": 0,
+        "retained": 36
+      },
+      "normal_save_hashes_unchanged": 11,
+      "local_trusted_probes": 82,
+      "analyzers": 4,
+      "final_2D": "PASS_NO_REGRESSION",
+      "full_result": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/checks/full_validation/FINAL_RESULT.json",
+      "CI_run": 41838014853,
+      "CI_status_at_snapshot": "in_progress"
+    },
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/FRAME_INDEX.json",
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/3e09451bcf69bd37a8c37e855559822fbfd0d723/docs/handoffs/codex_flat_vector_art_2026-10-07/r137_geologist_cave_runtime/VISUAL_REVIEW.json",
+    "natural_world_route": null,
+    "training_visual_route": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "new_bounded_source_artifacts": 1,
+    "new_roles": 0,
+    "new_families": 0,
     "accepted_removed": 0
   }
 }

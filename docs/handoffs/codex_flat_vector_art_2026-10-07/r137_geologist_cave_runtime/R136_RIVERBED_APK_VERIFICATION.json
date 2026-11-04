@@ -1,0 +1,75 @@
+{
+  "state": "DEV_APK_ANONYMOUS_BYTES_AND_PUBLISHED_SHA256_VERIFIED",
+  "Dev_revision": "df6f50e459624562051d61993469a4c5ec663909",
+  "Dev_CI": {
+    "id": 41817822043,
+    "head_sha": "df6f50e459624562051d61993469a4c5ec663909",
+    "head_branch": "dev",
+    "status": "completed",
+    "conclusion": "success",
+    "event": "push",
+    "run_attempt": 1,
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41817822043",
+    "path": ".github/workflows/probes.yml",
+    "created_at": "2026-11-04T10:58:58Z",
+    "updated_at": "2026-11-04T11:56:27Z"
+  },
+  "Android_build": {
+    "id": 41825012362,
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41825012362",
+    "updated_at": "2026-11-04T12:10:42Z"
+  },
+  "channel": "android-dev",
+  "release_notes_commit_verified": true,
+  "assets": {
+    "roshan-reef.apk": {
+      "id": 709372613,
+      "name": "roshan-reef.apk",
+      "size": 860887515,
+      "digest": "sha256:585c6029bd24d6b2ca5a1caaa27ccedf04d7657c7b274fbb01fa2210616b1e82",
+      "browser_download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk"
+    },
+    "roshan-reef.apk.sha256": {
+      "id": 709372616,
+      "name": "roshan-reef.apk.sha256",
+      "size": 82,
+      "digest": "sha256:5d11df79d822c7307298830d30772d916374a065cfef8654482226e1114ddcca",
+      "browser_download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk.sha256"
+    }
+  },
+  "apk_bytes": 860887515,
+  "apk_sha256": "585c6029bd24d6b2ca5a1caaa27ccedf04d7657c7b274fbb01fa2210616b1e82",
+  "verified_at_utc": "2026-11-04T04:19:00.822134-08:00",
+  "access_mode": "Anonymous HTTPS, streamed full release asset and checksum sidecar",
+  "physical_device_install": null,
+  "child": null,
+  "owner": null,
+  "formal_QA11": null,
+  "post_stream_release_recheck": {
+    "release": {
+      "tag": "android-dev",
+      "revision": "df6f50e459624562051d61993469a4c5ec663909",
+      "assets": [
+        {
+          "id": 709372613,
+          "name": "roshan-reef.apk",
+          "size": 860887515,
+          "digest": "sha256:585c6029bd24d6b2ca5a1caaa27ccedf04d7657c7b274fbb01fa2210616b1e82"
+        },
+        {
+          "id": 709372616,
+          "name": "roshan-reef.apk.sha256",
+          "size": 82,
+          "digest": "sha256:5d11df79d822c7307298830d30772d916374a065cfef8654482226e1114ddcca"
+        }
+      ]
+    },
+    "ref": {
+      "ref": "refs/heads/dev",
+      "revision": "df6f50e459624562051d61993469a4c5ec663909"
+    }
+  },
+  "verified_session": 23965
+}
