@@ -1,0 +1,20 @@
+{
+  "request": "C1",
+  "status": "CANDIDATE",
+  "output": "assets/racer/icons/zoom.png",
+  "dimensions": [
+    192,
+    192
+  ],
+  "sha256": "7cac7fac83e1e453230447de07ca2ac3d2ab0a12ecb93bdfd454dd300ae3dcd7",
+  "sources": [
+    {
+      "path": "assets/kart/boost_ribbon.png",
+      "sha256": "b2617ce45be09837625bf21e145ef37401a87b9104f576c6093c3e44f912feb5"
+    }
+  ],
+  "license": "Inherited from the source entries in ASSET_LICENSES.md",
+  "operations": [
+    "Crop the complete ribbon tips and bubbles x52\u2013972 y45\u2013224, remove the green fringe with a local alpha mask, compress width and pad to square. Both ends remain visible."
+  ]
+}

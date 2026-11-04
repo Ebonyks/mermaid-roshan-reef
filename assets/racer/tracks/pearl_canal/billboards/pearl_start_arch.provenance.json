@@ -1,0 +1,20 @@
+{
+  "request": "A2",
+  "status": "CANDIDATE",
+  "output": "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.png",
+  "dimensions": [
+    330,
+    250
+  ],
+  "sha256": "605ac3e06868b4ddcc02cee0dc96d7922ae7aa92d8305f4f709ad23a0c3b21b5",
+  "sources": [
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png",
+      "sha256": "d7a7cba283c0f06c7159949d63f1ca345ee4938c63374ec43bebc7c78e13deda"
+    }
+  ],
+  "license": "Inherited from the source entries in ASSET_LICENSES.md",
+  "operations": [
+    "Antialiased isolation of near shell crown and pearl pier (native x45\u2013180 y282\u2013604), mirror on crown axis x179, rescale, then ease the two halves outward below the crown to rectify perspective and set the feet beside the lane. Lower coral occluder stays outside the cut."
+  ]
+}

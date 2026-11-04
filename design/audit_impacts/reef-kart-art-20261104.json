@@ -1,0 +1,117 @@
+{
+  "id": "reef-kart-art-20261104",
+  "scope": "Reorganize existing art for the Pearl Canal Circuit on the demo-frozen Racer engine topic.",
+  "baseline": "ebe87b8457a8612aa2ff84e06a8de2778091b771",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-OPERA-014"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/racer/icons/kelp.png",
+    "assets/racer/icons/kelp.provenance.json",
+    "assets/racer/icons/pearls.png",
+    "assets/racer/icons/pearls.provenance.json",
+    "assets/racer/icons/sparkle.png",
+    "assets/racer/icons/sparkle.provenance.json",
+    "assets/racer/icons/zoom.png",
+    "assets/racer/icons/zoom.provenance.json",
+    "assets/racer/karts/imp_kart_straight.png",
+    "assets/racer/karts/imp_kart_straight.provenance.json",
+    "assets/racer/pickups/dizzy_stars.png",
+    "assets/racer/pickups/dizzy_stars.provenance.json",
+    "assets/racer/pickups/gem_buoy_lavender.png",
+    "assets/racer/pickups/gem_buoy_lavender.provenance.json",
+    "assets/racer/pickups/gem_buoy_pink.png",
+    "assets/racer/pickups/gem_buoy_pink.provenance.json",
+    "assets/racer/pickups/gem_buoy_teal.png",
+    "assets/racer/pickups/gem_buoy_teal.provenance.json",
+    "assets/racer/pickups/item_bubble.png",
+    "assets/racer/pickups/item_bubble.provenance.json",
+    "assets/racer/pickups/kelp_patch.png",
+    "assets/racer/pickups/kelp_patch.provenance.json",
+    "assets/racer/pickups/pearl.png",
+    "assets/racer/pickups/pearl.provenance.json",
+    "assets/racer/pickups/sparkle.png",
+    "assets/racer/pickups/sparkle.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/coral_cluster.png",
+    "assets/racer/tracks/pearl_canal/billboards/coral_cluster.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/pavilion.png",
+    "assets/racer/tracks/pearl_canal/billboards/pavilion.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_arch.png",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_arch.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_clam.png",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_clam.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.png",
+    "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/pennant.png",
+    "assets/racer/tracks/pearl_canal/billboards/pennant.provenance.json",
+    "assets/racer/tracks/pearl_canal/billboards/ribbon_arch.png",
+    "assets/racer/tracks/pearl_canal/billboards/ribbon_arch.provenance.json",
+    "assets/racer/tracks/pearl_canal/floor.png",
+    "assets/racer/tracks/pearl_canal/floor.png.import",
+    "assets/racer/tracks/pearl_canal/floor.provenance.json",
+    "assets/racer/tracks/pearl_canal/skyline.png",
+    "assets/racer/tracks/pearl_canal/skyline.provenance.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/ART_DELIVERY.json",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/MOBILE_ART_REVIEW.jpg"
+  ],
+  "validation": [
+    {
+      "command": "Published input manifest byte verification at ebe87b8457a8612aa2ff84e06a8de2778091b771",
+      "result": "PASS",
+      "evidence": "All six listed Git blobs match byte counts and SHA-256. Authenticated GitHub connector read at exact engine revision."
+    },
+    {
+      "command": "Source and candidate SHA-256 inventory plus full-resolution lane-band projection comparison",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_reef_kart_art_2026-11-03/ART_DELIVERY.json; 22 verified textures; actual Godot field export SHA-256 1924987f9dd18208fe55722731a5ef4bd62343fd9e17150c9d22bdaca628cb29. Maximum interpolated field residual 1.63 world units across the four authored band edges (tolerance 4); mirrored skyline seam columns byte-identical."
+    },
+    {
+      "command": "Godot 4.7.2-stable full-project import and separate final art fixture import",
+      "result": "PASS",
+      "evidence": "Full scripts/ci.sh imported the final candidate and passed all probes; final Mobile fixture separately imported the same PNG bytes. Floor uses POT texture compression mode 2 with mipmaps on."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_racer_integration.gd (isolated APPDATA)",
+      "result": "PASS",
+      "evidence": "42 passed; exit 0; log SHA-256 64d23e87b6d89006a62097381dfeac7094c09963a1c7c9de4bc26857e39903af. Held stick 30.12 s, zero pearls, zero bumps."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_opera_2d.gd without CI touch flags",
+      "result": "FAIL",
+      "evidence": "Initial diagnostic stopped after 725 successful checks with exit -1 and no reported assertion failure. Repeated with the standard touch-test arguments below."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_opera_2d.gd -- --touch --classic-touch-test (isolated APPDATA)",
+      "result": "PASS",
+      "evidence": "1397 OK lines, ALL OK, exit 0; log SHA-256 066720c36b073447fa0ba706f24e740c5c8813580a8ca1aa9b6cbb79566f743f."
+    },
+    {
+      "command": "bash scripts/ci.sh (full candidate regression suite)",
+      "result": "PASS",
+      "evidence": "Godot 4.7.2-stable official ed1daf0bf; full suite exit 0 and all 82 trusted probe process exits 0 after final arch import. Full local log SHA-256 72125dba690727b74cb9eab5b76fef1105e1009545200028dfe89ee082adc39f. OPERA2D: purposeful 26.0 s and 10 pearls versus held 30.12 s and zero pearls. Existing visual audit advisories remain open."
+    },
+    {
+      "command": "Godot 4.7.2 Mobile desktop Racer render fixture",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_reef_kart_art_2026-11-03/MOBILE_ART_REVIEW.jpg; texture-loader assertions and 5/5 configured frames; capture log SHA-256 1fd27d2c4cfb8cb4a933175b644ab92ce0193aa43958226d27e50cfa8628c240. Exact source Racer engine scripts; fixture uses configured station positions and HUD."
+    }
+  ],
+  "acceptance_gaps": "Natural full-lap visual and motion review (including near-gate texture softness and contact on bends), Lenovo Tab M11 frame time and touch, child play and owner fidelity/acceptance. Demo freeze retains a separate art topic."
+}
