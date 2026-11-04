@@ -97,7 +97,7 @@
     {
       "command": "python3 tools/audit_game_2d.py --regression-gate",
       "result": "PASS",
-      "evidence": "GAME2D| RESULT| NO_REGRESSION (exact shrinking baseline; migration debt remains UNSATISFIED): model_files=0, production_3d_files=52, probe_3d_files=61. Standalone run, and again inside the full ci.sh run."
+      "evidence": "GAME2D| RESULT| NO_REGRESSION (exact shrinking baseline; migration debt remains UNSATISFIED): 0 model files, and 52 production and 61 probe files still holding spatial code. Standalone run, and again inside the full ci.sh run, both before this evidence text was written."
     },
     {
       "command": "bash scripts/ci.sh (full trusted suite, Godot 4.7.2 via tools/resolve_godot.py)",
@@ -105,12 +105,37 @@
       "evidence": "Exit 0 in 61 min 13 s: 82 probes, all process exit 0, no failure marker. OPERA2D result ALL OK, with racer policy held 30.12 s/0 pearls and purposeful 26.0 s/10 pearls on attempt 1. Pre-probe advisories are unchanged by this diff: the GOLDSTAR stale Astronaut bindings and the VISUALAUDIT legacy-3D layering rows. Exact-head remote CI on the pushed branch is still pending."
     },
     {
+      "command": "GitHub Actions Probe suite run 41794583064 on 64e7be6d87b8ac7e39d0b2943179cc7d2af5cd88 (exact pushed head)",
+      "result": "FAIL",
+      "evidence": "Retained failure. The Import step's 2D regression gate reported G2D101 on design/audit_impacts/reef-kart-engine-20261103.json: 53 production files with spatial code against the baseline 52, so no probe ran. This record's own 2D-gate evidence had quoted the gate's lower-case output field names, and the gate counts such names as spatial-code markers in Godot-active design data. The local gate runs predate that text. Fixed in the follow-up commit by rewording the evidence in plain words."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate, rerun on the final reworded record",
+      "result": "PASS",
+      "evidence": "GAME2D| RESULT| NO_REGRESSION: 0 model files, and 52 production and 61 probe files with spatial code, matching the baseline. Scanning this record with the gate's own token patterns finds no marker."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto and --base 64e7be6d87b8ac7e39d0b2943179cc7d2af5cd88 (the previous pushed head, as CI checks the push range)",
+      "result": "PASS",
+      "evidence": "DOCAUTH|RESULT|ALL OK and AUDITDEV|RESULT|ALL OK for both bases, on the final follow-up working tree."
+    },
+    {
+      "command": "bash scripts/ci.sh, static section only (every gate before the Godot import), on the follow-up working tree",
+      "result": "PASS",
+      "evidence": "CI_STATIC_SECTION|RESULT|ALL OK in 20 min 12 s; the advisory gold-star and visual-audit rows are unchanged. The full probe suite was not rerun locally for this record-only change; remote CI runs it."
+    },
+    {
+      "command": "GitHub Actions Probe suite on the follow-up head",
+      "result": "PENDING",
+      "evidence": "Starts when the follow-up commit is pushed. The owner's merge approval requires it to pass; the follow-up changes only this record."
+    },
+    {
       "command": "Visual review of the running race on a screen",
       "result": "PENDING",
       "evidence": "Claude makes no captures or images (CLAUDE.md). Codex or the owner must look at the race; nothing visual is accepted."
     }
   ],
-  "acceptance_gaps": "Codex art is requested, not delivered: floor, skyline, arches, landmarks, buoys, pickups, imp kart and icons. Interim code-drawn shapes stand in. Not yet done or checked: a visual review of the race; device frame time and touch feel on the Lenovo Tab M11; an observed child session (stick, bubble, brake, racing the imp); and the owner's verdict on the race and the track's fidelity to the painting. Owner questions Q1-Q4 in the handoff README are open with defaults. Merging to dev waits for the demo freeze to lift and for green CI.",
+  "acceptance_gaps": "Codex art is requested, not delivered: floor, skyline, arches, landmarks, buoys, pickups, imp kart and icons. Interim code-drawn shapes stand in. Not yet done or checked: a visual review of the race; device frame time and touch feel on the Lenovo Tab M11; an observed child session (stick, bubble, brake, racing the imp); and the owner's verdict on the race and the track's fidelity to the painting. Owner questions Q1-Q4 in the handoff README are open with defaults. Merging to dev waits for the demo freeze to lift and for green CI. On 2026-11-04 the owner approved merging into dev after the Saturday 2026-11-07 demo once the branch's GitHub CI is green (\"Yes, after the demo\"). Under ODR-DEMO-FREEZE-20261031 dev takes only the demo-readiness packages until the demo promotion to master.",
   "references_used": [
     {
       "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png",
