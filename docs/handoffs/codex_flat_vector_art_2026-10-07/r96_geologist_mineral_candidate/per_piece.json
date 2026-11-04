@@ -11359,17 +11359,21 @@
       "source_scope_ids": [
         "FVF-D0C553B4CB80"
       ],
-      "runtime_consumers": [],
+      "runtime_consumers": [
+        "opera.act.16",
+        "game.geologist"
+      ],
       "screen_coverage": {
         "measured_current_bounds": null,
-        "coverage_state": "COVERAGE_GAP",
+        "coverage_state": "CONFIGURED_CURRENT_CONTEXT_PARTIAL",
         "geometry_expressions": [
           "draw_circle(center + Vector2(12, 9), 3.0, Color(\"#c6a482\"))"
         ],
-        "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        "note": "Expressions are scope evidence, not measured per-piece screen bounds.",
+        "r136_riverbed_context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/FRAME_INDEX.json"
       },
-      "evidence_level": "SOURCE_INSPECTION",
-      "observed_weakness": "Dry ground uses dots; excavated cells become solid circles joined with thick flat lines.",
+      "evidence_level": "SOURCE_BOUND_NATIVE_PAIRS_AND_BOUNDED_AGENT_REVIEW",
+      "observed_weakness": "The published candidate replaces flat dry marks and schematic channels with a painted, topology-correct atlas. Broader Geologist art is separately scoped.",
       "priority": "P1",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
       "context_brief_id": "BRIEF-OPERA_GEOLOGIST",
@@ -11379,7 +11383,7 @@
       ],
       "reuse_inspection": "Candidates retained, not approved for runtime; prior checkerboard rejection and current angle/whole-unit state gaps require native inspection.",
       "named_gap": null,
-      "status": "IDENTIFIED",
+      "status": "SOURCE_CANDIDATE",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -11388,12 +11392,102 @@
         "child": null,
         "owner": null,
         "machine": null,
-        "old_fallback_retired": null
+        "old_fallback_retired": null,
+        "r136_riverbed_source_candidate": {
+          "stable_ids": [
+            "FV-DA16E1E99C6D"
+          ],
+          "scope": "Geologist river mode excavation cells and channel links",
+          "state": "PUBLISHED_PAINTED_RIVERBED_CANDIDATE_LOCAL_RUNTIME_PASS",
+          "source_revision": "df6f50e459624562051d61993469a4c5ec663909",
+          "source_branch": "codex/flat-vector-geologist-riverbed-20261104",
+          "source_baseline": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+          "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md",
+          "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/MANIFEST.json",
+          "source_manifest_sha256": "0d69fee5fd8674943a1ab0d8bd1a306f51391012fdb7b0056cf92c418f228a59",
+          "anonymous_required_files_including_manifest": 198,
+          "candidate": {
+            "atlas": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets/opera/worlds/props/geologist_riverbed_painted.png",
+            "sha256": "6056a72ad9af5146270d26b71bbb61b2ae144d08fe190653ca735a3d0ae84952",
+            "size": [
+              512,
+              512
+            ],
+            "decoded_RGBA_with_mips_upper_bytes": 1398100,
+            "painted_tiles": 13,
+            "role_credit": 1,
+            "native_sources": [
+              {
+                "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/riverbed_native.png",
+                "sha256": "6c811c7b773f0ce3161dee5d27a6f7246a50e8f574765da8ddb65f582c526170"
+              },
+              {
+                "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/junctions_native.png",
+                "sha256": "d140d57ce1357eefb63a7fbe2af932554f5b97f04c816200eeb4e8e2dd935c41"
+              }
+            ],
+            "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/PROVENANCE.json",
+            "rejected_first_layout": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/riverbed_atlas01_rejected_layout.png",
+            "exposed_backend": "Built-in image_gen.imagegen",
+            "model_version": null,
+            "generation_calls": 2,
+            "animation_calls": 0
+          },
+          "integration": {
+            "source_work_branch": true,
+            "Dev": false,
+            "canonical_runtime_changed": false,
+            "draw_functions": [
+              "_draw_river",
+              "_draw_riverbed",
+              "_draw_riverbed_tile"
+            ],
+            "pool_art_preserved": true,
+            "grid": [
+              9,
+              5
+            ],
+            "brush_radius": 46,
+            "four_neighbor_rules_preserved": true,
+            "old_flat_riverbed_fallback": false
+          },
+          "runtime_evidence": {
+            "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+            "configured_cases": 4,
+            "configured_checks": 244,
+            "paired_state_frames": 14,
+            "extra_branch_frames": 8,
+            "native_frame_events": {
+              "bounded": 36,
+              "excluded": 14,
+              "retained": 50
+            },
+            "topology_masks_checked": 16,
+            "normal_save_hashes_unchanged": 11,
+            "local_trusted_probes": 82,
+            "analyzers": 4,
+            "final_2D": "PASS_NO_REGRESSION",
+            "full_result": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/checks/full_validation/FINAL_RESULT.json",
+            "CI_run": 41807337519,
+            "CI_status_at_snapshot": "in_progress"
+          },
+          "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/FRAME_INDEX.json",
+          "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/VISUAL_REVIEW.json",
+          "natural_world_route": null,
+          "training_visual_route": null,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "new_bounded_source_artifacts": 1,
+          "new_roles": 0,
+          "new_families": 0,
+          "accepted_removed": 0
+        }
       },
       "dependencies": [
-        "Current route/phase capture and source-pixel ownership",
-        "Inspected suitable reuse or recorded exact missing gap",
-        "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        "Exact green source CI and Dev integration",
+        "Natural-world and training visual routes, formal QA11, physical-device performance, child and owner review remain open."
       ],
       "unchanged_contracts": [
         "Visible object/input/socket transforms and generous one-finger targets",
@@ -11408,8 +11502,22 @@
         "master_budget": "Background >=2048x2048 native PER playable screen before non-overlapping runtime tiles",
         "provenance": "Preserved source hash/acceptance scope/license; separate derivatives, edits/state mapping and final hashes; new asset license rows"
       },
-      "review_log": [],
-      "proposed_update": "Prepare one painted riverbed/soil substrate with matching dug/dry cell variants. Any four-neighbour excavation remains valid; do not bake only the suggested path.",
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261104-R136-PAINTED-RIVERBED-SOURCE",
+          "source": "df6f50e459624562051d61993469a4c5ec663909",
+          "stable_id": "FV-DA16E1E99C6D",
+          "scope": "Two aspect ratios, 14 matched candidate frames, eight additional actual dry/wet branch frames and all 16 masks.",
+          "evidence": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/FRAME_INDEX.json",
+          "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/VISUAL_REVIEW.json",
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "accepted_removed": 0
+        }
+      ],
+      "proposed_update": "Review the exact source and matching natural-world and training states before formal or external acceptance.",
       "route_refs": [
         "opera.act.16"
       ],
@@ -11425,6 +11533,32 @@
         "status": "PARTIAL_WEAKNESS_CONTEXT_REVIEW",
         "device_child_owner_acceptance": false,
         "replacement_acceptance": false
+      },
+      "r136_historical_source_inspection": {
+        "status": "IDENTIFIED",
+        "source": {
+          "path": "scripts/opera_geology_surface.gd",
+          "function": "_draw_river",
+          "start_line": 631,
+          "end_line": 659,
+          "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+          "hash_mode": "LF-canonical text"
+        },
+        "observed_weakness": "Dry ground uses dots; excavated cells become solid circles joined with thick flat lines.",
+        "screen_coverage": {
+          "measured_current_bounds": null,
+          "coverage_state": "COVERAGE_GAP",
+          "geometry_expressions": [
+            "draw_circle(center + Vector2(12, 9), 3.0, Color(\"#c6a482\"))"
+          ],
+          "note": "Expressions are scope evidence, not measured per-piece screen bounds."
+        },
+        "dependencies": [
+          "Current route/phase capture and source-pixel ownership",
+          "Inspected suitable reuse or recorded exact missing gap",
+          "Applicable source/provenance/license/import/geometry/passive/save/teardown gates"
+        ],
+        "proposed_update": "Prepare one painted riverbed/soil substrate with matching dug/dry cell variants. Any four-neighbour excavation remains valid; do not bake only the suggested path."
       }
     },
     {
@@ -28738,7 +28872,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261104-R135-GARDEN-DEV",
+  "revision": "FV-AUDIT-20261104-R136-PAINTED-RIVERBED-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -39437,7 +39571,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 38 published bounded source artifacts, 21 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,633 bounded and 4,326 excluded, with 11,959 retained.",
+  "current_effective_summary": "SUMMARY.json. 39 published bounded source artifacts, 21 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native events total 7,669 bounded and 4,340 excluded, with 12,009 retained.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -45550,6 +45684,97 @@
     "device": null,
     "child": null,
     "owner": null,
+    "accepted_removed": 0
+  },
+  "r136_geologist_riverbed_runtime": {
+    "stable_ids": [
+      "FV-DA16E1E99C6D"
+    ],
+    "scope": "Geologist river mode excavation cells and channel links",
+    "state": "PUBLISHED_PAINTED_RIVERBED_CANDIDATE_LOCAL_RUNTIME_PASS",
+    "source_revision": "df6f50e459624562051d61993469a4c5ec663909",
+    "source_branch": "codex/flat-vector-geologist-riverbed-20261104",
+    "source_baseline": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/MANIFEST.json",
+    "source_manifest_sha256": "0d69fee5fd8674943a1ab0d8bd1a306f51391012fdb7b0056cf92c418f228a59",
+    "anonymous_required_files_including_manifest": 198,
+    "candidate": {
+      "atlas": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets/opera/worlds/props/geologist_riverbed_painted.png",
+      "sha256": "6056a72ad9af5146270d26b71bbb61b2ae144d08fe190653ca735a3d0ae84952",
+      "size": [
+        512,
+        512
+      ],
+      "decoded_RGBA_with_mips_upper_bytes": 1398100,
+      "painted_tiles": 13,
+      "role_credit": 1,
+      "native_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/riverbed_native.png",
+          "sha256": "6c811c7b773f0ce3161dee5d27a6f7246a50e8f574765da8ddb65f582c526170"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/junctions_native.png",
+          "sha256": "d140d57ce1357eefb63a7fbe2af932554f5b97f04c816200eeb4e8e2dd935c41"
+        }
+      ],
+      "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/PROVENANCE.json",
+      "rejected_first_layout": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/riverbed_atlas01_rejected_layout.png",
+      "exposed_backend": "Built-in image_gen.imagegen",
+      "model_version": null,
+      "generation_calls": 2,
+      "animation_calls": 0
+    },
+    "integration": {
+      "source_work_branch": true,
+      "Dev": false,
+      "canonical_runtime_changed": false,
+      "draw_functions": [
+        "_draw_river",
+        "_draw_riverbed",
+        "_draw_riverbed_tile"
+      ],
+      "pool_art_preserved": true,
+      "grid": [
+        9,
+        5
+      ],
+      "brush_radius": 46,
+      "four_neighbor_rules_preserved": true,
+      "old_flat_riverbed_fallback": false
+    },
+    "runtime_evidence": {
+      "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+      "configured_cases": 4,
+      "configured_checks": 244,
+      "paired_state_frames": 14,
+      "extra_branch_frames": 8,
+      "native_frame_events": {
+        "bounded": 36,
+        "excluded": 14,
+        "retained": 50
+      },
+      "topology_masks_checked": 16,
+      "normal_save_hashes_unchanged": 11,
+      "local_trusted_probes": 82,
+      "analyzers": 4,
+      "final_2D": "PASS_NO_REGRESSION",
+      "full_result": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/checks/full_validation/FINAL_RESULT.json",
+      "CI_run": 41807337519,
+      "CI_status_at_snapshot": "in_progress"
+    },
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/FRAME_INDEX.json",
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/VISUAL_REVIEW.json",
+    "natural_world_route": null,
+    "training_visual_route": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "new_bounded_source_artifacts": 1,
+    "new_roles": 0,
+    "new_families": 0,
     "accepted_removed": 0
   }
 }

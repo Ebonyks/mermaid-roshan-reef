@@ -1,0 +1,142 @@
+{
+  "revision": "FV-AUDIT-20261104-R136-PAINTED-RIVERBED-SOURCE",
+  "source_revision": "df6f50e459624562051d61993469a4c5ec663909",
+  "artifact": {
+    "stable_ids": [
+      "FV-DA16E1E99C6D"
+    ],
+    "scope": "Geologist river mode excavation cells and channel links",
+    "state": "PUBLISHED_PAINTED_RIVERBED_CANDIDATE_LOCAL_RUNTIME_PASS",
+    "source_revision": "df6f50e459624562051d61993469a4c5ec663909",
+    "source_branch": "codex/flat-vector-geologist-riverbed-20261104",
+    "source_baseline": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/MANIFEST.json",
+    "source_manifest_sha256": "0d69fee5fd8674943a1ab0d8bd1a306f51391012fdb7b0056cf92c418f228a59",
+    "anonymous_required_files_including_manifest": 198,
+    "candidate": {
+      "atlas": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets/opera/worlds/props/geologist_riverbed_painted.png",
+      "sha256": "6056a72ad9af5146270d26b71bbb61b2ae144d08fe190653ca735a3d0ae84952",
+      "size": [
+        512,
+        512
+      ],
+      "decoded_RGBA_with_mips_upper_bytes": 1398100,
+      "painted_tiles": 13,
+      "role_credit": 1,
+      "native_sources": [
+        {
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/riverbed_native.png",
+          "sha256": "6c811c7b773f0ce3161dee5d27a6f7246a50e8f574765da8ddb65f582c526170"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/junctions_native.png",
+          "sha256": "d140d57ce1357eefb63a7fbe2af932554f5b97f04c816200eeb4e8e2dd935c41"
+        }
+      ],
+      "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/PROVENANCE.json",
+      "rejected_first_layout": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/assets_src/imagegen/geologist_riverbed_20261104/riverbed_atlas01_rejected_layout.png",
+      "exposed_backend": "Built-in image_gen.imagegen",
+      "model_version": null,
+      "generation_calls": 2,
+      "animation_calls": 0
+    },
+    "integration": {
+      "source_work_branch": true,
+      "Dev": false,
+      "canonical_runtime_changed": false,
+      "draw_functions": [
+        "_draw_river",
+        "_draw_riverbed",
+        "_draw_riverbed_tile"
+      ],
+      "pool_art_preserved": true,
+      "grid": [
+        9,
+        5
+      ],
+      "brush_radius": 46,
+      "four_neighbor_rules_preserved": true,
+      "old_flat_riverbed_fallback": false
+    },
+    "runtime_evidence": {
+      "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+      "configured_cases": 4,
+      "configured_checks": 244,
+      "paired_state_frames": 14,
+      "extra_branch_frames": 8,
+      "native_frame_events": {
+        "bounded": 36,
+        "excluded": 14,
+        "retained": 50
+      },
+      "topology_masks_checked": 16,
+      "normal_save_hashes_unchanged": 11,
+      "local_trusted_probes": 82,
+      "analyzers": 4,
+      "final_2D": "PASS_NO_REGRESSION",
+      "full_result": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/checks/full_validation/FINAL_RESULT.json",
+      "CI_run": 41807337519,
+      "CI_status_at_snapshot": "in_progress"
+    },
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/FRAME_INDEX.json",
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/df6f50e459624562051d61993469a4c5ec663909/docs/handoffs/codex_flat_vector_art_2026-10-07/r136_geologist_riverbed_runtime/VISUAL_REVIEW.json",
+    "natural_world_route": null,
+    "training_visual_route": null,
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "new_bounded_source_artifacts": 1,
+    "new_roles": 0,
+    "new_families": 0,
+    "accepted_removed": 0
+  },
+  "new_frame_events": {
+    "bounded": 36,
+    "excluded": 14,
+    "retained": 50
+  },
+  "new_totals": {
+    "bounded": 7669,
+    "excluded": 4340,
+    "retained": 12009
+  },
+  "source_artifacts_before": 38,
+  "source_artifacts_after": 39,
+  "Dev_artifacts_before": 21,
+  "Dev_artifacts_after": 21,
+  "known_lower_bound": {
+    "roles": 263,
+    "families": 35
+  },
+  "whole_game_totals": null,
+  "scene_rows": [
+    "game.geologist",
+    "opera.act.16"
+  ],
+  "alias_frame_credit": 0,
+  "Garden_APK_existing_artifact_receipt": {
+    "Dev_revision": "4af86a105c5b704299a4f750bd18bf00c5f6c00c",
+    "state": "DEV_APK_ANONYMOUS_BYTES_AND_PUBLISHED_SHA256_VERIFIED",
+    "apk_sha256": "3664ae2c505b183d7193778adc71516c9c8a542e654316f06bbe74e0d19a8c2f",
+    "apk_bytes": 860584040,
+    "Android_build": 41794376431,
+    "Dev_CI": 41787223133,
+    "proof": "r136_geologist_riverbed_runtime/R135_GARDEN_APK_VERIFICATION.json",
+    "physical_device_install": null,
+    "child": null,
+    "owner": null,
+    "formal_QA11": null,
+    "new_counts": 0
+  },
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "frozen_root5": {
+    "per_piece.json": "5b10e09df85b6d21027435bc64709a6032f5ac6f81bd8f406560221b936996e9",
+    "per_piece_briefs.json": "6837eddd241896d6c4577ddd1d6763bee1daee167a5d6e056f8afc04fc815d29",
+    "scene_coverage.json": "5a2b60e16204949a807a9ea5d0fd5755522c49481a119f637512602245c3fd6f",
+    "tally.json": "fc7c26096d5ccd1e63df0fb89862e91481551a077aa82a1bf1e37aa169b1d66a",
+    "CONGRUENCY_BACKLOG.json": "b2a64e5e387d7c9451327d0d8f0e9ea5c8e1ae08f7666486e3cb44b0a7a6f500"
+  }
+}
