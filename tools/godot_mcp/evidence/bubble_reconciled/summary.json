@@ -1,0 +1,817 @@
+{
+  "recorded_at_utc": "2026-11-05T15:36:36.612472+00:00",
+  "incoming_dev": "6892c5753c75161986b4463c186f8711a0c12870",
+  "published_pre_merge_head": "0b465d0288d7d9b2833bc15b51af4a45f75bd116",
+  "published_pre_merge_ci": {
+    "run": 42036159784,
+    "result": "PASS",
+    "scope": "Exact pre-Bubble topic revision only; both required jobs success. New combined-head CI remains required."
+  },
+  "static_prefix_result": "PASS",
+  "primary_result": "FAIL",
+  "primary_passes": 75,
+  "primary_failures": 7,
+  "isolated_result": "FAIL",
+  "isolated_passes": 6,
+  "isolated_failures": 1,
+  "opera_alone_result": "PASS",
+  "aggregate_result": "PASS_PER_PROBE_WITH_RETAINED_FAILURES",
+  "source_snapshot": {
+    "runtime_art_sha256": {
+      "assets/dolls/progress_empty_painted.png": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+      "assets/dolls/progress_filled_painted.png": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+      "assets/opera/bubble_duel_v2/bubble.png": "eca98a5ca895774d10649bc05c438dfb8be22b8f5a1527a64750b2c516161127",
+      "assets/opera/bubble_duel_v2/items.png": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "assets/opera/bubble_duel_v2/marlo_swim.png": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc"
+    },
+    "algorithm": "sha256_repository_source_candidates_with_protected_path_exclusions_v1",
+    "file_count": 4066,
+    "sha256": "cbada7722d0a48c06ae28314ed667390fe6e465d5e9f4ec33f07a8ad4d274f68",
+    "asset_git_state": {
+      "unstaged": "",
+      "staged": "-\t-\tassets/opera/bubble_duel_v2/bubble.png\n-\t-\tassets/opera/bubble_duel_v2/items.png\n-\t-\tassets/opera/bubble_duel_v2/marlo_swim.png\n"
+    }
+  },
+  "aggregate": {
+    "probe_reef_districts": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_ocean_kingdoms": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_audit": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_passive": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_living_world": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_load": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_rank": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_save_recovery": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_galaxy_state": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_collection": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_mg2d": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_fetch": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_melody": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_dolls": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_seek": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_audio": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_dance": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_l2": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_l2_living_cards": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_sky_lagoon_animals": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_l2_reenter": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_crown": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_throne": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_northern": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_human_art_audit": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_train": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_verbs": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_skins": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_touch_router": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_touch_stress": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_interaction": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_touch_adversary": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_touch_look": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_ui_system": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_voice": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_voice": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_d8_revisits": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_handoffs": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_kart_feel": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_combat": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_dust_bunny": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_dust_bunny_boss": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_dust_boss": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_hit": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_partner": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_imp_ai": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_mic": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_stuffie": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_dungeon": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_opera": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_opera_diegetic_paths": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_opera_detective": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_opera_pipe": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_opera_nursery": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_opera_gesture_quality": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_kitchen_props": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_bathroom_props": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_castle_door_language": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_bathroom_bunny": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_bathroom_cleanup": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_bathroom_movie_handoff": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_director": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_integration": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_pool_cleanup": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_art_attack_state": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_castle_dressing": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_day_one_story_clips": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_chapter2_farmer_resume": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_chapter2_lawn": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_alpha_milestone_save": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_start_menu_new_game": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_castle_pool_life_2d": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_castle_pearl_art": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_fairy_art": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_props": {
+      "lane": "primary",
+      "exit_code": 0
+    },
+    "probe_combat_tutorial": {
+      "lane": "isolated",
+      "exit_code": 0
+    },
+    "probe_ember": {
+      "lane": "isolated",
+      "exit_code": 0
+    },
+    "probe_bathroom_integration": {
+      "lane": "isolated",
+      "exit_code": 0
+    },
+    "probe_chapter2": {
+      "lane": "isolated",
+      "exit_code": 0
+    },
+    "probe_dust_boss_balance": {
+      "lane": "isolated",
+      "exit_code": 0
+    },
+    "probe_start_menu_routing": {
+      "lane": "isolated",
+      "exit_code": 0
+    },
+    "probe_opera_2d": {
+      "lane": "opera_alone",
+      "exit_code": 0
+    }
+  },
+  "limits": "Not a clean single-run82 pass. Seven original Windows exits4294967295 and one repeated Opera2D exit remain unexplained; no assertion/runtime failure marker or timeout. All82 have unchanged-command actual-zero-exit passing results on the exact same4066-source snapshot and five artwork hashes; all prior failed attempts retained. Final Opera2D ran after independent static prefix completed. No guard/assertion/deadline changes. Exact new-head remote CI remains blocking for integration. Device/child/owner/game-wide acceptance unchanged.",
+  "evidence_files": {
+    "tools/godot_mcp/evidence/bubble_reconciled/prefix.json": {
+      "source": "tmp/godot_mcp_bubble_prefix.json",
+      "sha256": "5565fd88a62ee6f40dc3a04776a3c3575d0a9498280449621fe4cd6b2479b59e"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/prefix.txt": {
+      "source": "tmp/godot_mcp_bubble_prefix.log",
+      "sha256": "30c0d60a6a3a52f816c1f3a3c7a0052b04a0db8747f156dabe8e9feb44b429ad"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/prefix_source.txt": {
+      "source": "tmp/godot_mcp_bubble_prefix.sh",
+      "sha256": "9027f7d4d7241f7b201c37f5b8309d695c223402bfc4dccdbce4d32eb6f3eae5"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/import.json": {
+      "source": "tmp/godot_mcp_bubble_import.json",
+      "sha256": "1db997357cc75e8ec4df6925219732012b82605b3786f69336465e8aeb9436a4"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/import.txt": {
+      "source": "tmp/godot_mcp_bubble_import.log",
+      "sha256": "c8e9e1a2e88f61c2e85b73293f982b9783d17d795cc8694a117c31d806452728"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/preservation.json": {
+      "source": "tmp/godot_mcp_bubble_preservation.json",
+      "sha256": "a368c300790ca286c8cb99070ae863c26f9b351ff68c0274169eefa0b6ca9bac"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/implementation.json": {
+      "source": "tmp/godot_mcp_bubble_implementation.json",
+      "sha256": "9fcbd1fc28b564862bffb3fa80033c511786c2ed2a2cc1543283367079a232a3"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/syntax.json": {
+      "source": "tmp/godot_mcp_bubble_syntax.json",
+      "sha256": "1013a50970aac351f87636caba0e0a34e0ebfdec110f2c7ebf03e3d7ea688d9e"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/parser.txt": {
+      "source": "tmp/godot_mcp_bubble_parser.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/inference.txt": {
+      "source": "tmp/godot_mcp_bubble_inference.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary.json": {
+      "source": "tmp/godot_mcp_bubble_native_full_run.json",
+      "sha256": "3512fffbdc8785b9fb729f0d7b314e900287e283b394b6061ee5bee19923798e"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/isolated.json": {
+      "source": "tmp/godot_mcp_bubble_isolated_run.json",
+      "sha256": "755743e566e349d9829ece4f887b232c7848c19c8367aa3e0eac0fead53b6e38"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/opera_alone.json": {
+      "source": "tmp/godot_mcp_bubble_opera_alone_run.json",
+      "sha256": "c056fe0678ce4969f548b8c8c0daa6b99305a82150635955b81a96211a681c56"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary_driver.source.txt": {
+      "source": "tmp/run_godot_mcp_bubble_native_full.py",
+      "sha256": "c8344233fdca5645fc12b982c8045edcf9fa7670c477bf884b63e8ef3e5e72f4"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/isolated_driver.source.txt": {
+      "source": "tmp/run_godot_mcp_bubble_isolated.py",
+      "sha256": "65eec4099daced942d155020bb298083fb2dc511da86f556361eb7c5a2c9a02f"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/opera_alone_driver.source.txt": {
+      "source": "tmp/run_godot_mcp_bubble_opera_alone.py",
+      "sha256": "619cf414fa8483942ee3076629ac6beea7da5f7f3732865ee54690b22e3a6d6d"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_reef_districts.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_reef_districts.log",
+      "sha256": "97a6d8b58ab878973011b9bddb5709bdfdafcc6fd2f58069e7826b2cb095c0bd"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_ocean_kingdoms.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_ocean_kingdoms.log",
+      "sha256": "df234d3d43c3aa502846363ab085a2cdb54b8b65e295a3444595f275951f7b59"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_audit.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_audit.log",
+      "sha256": "f58e96a43aa2dc70bf8f564bf89182b0f91bd2e3f8526e865a136e048bd9cbf2"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_passive.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_passive.log",
+      "sha256": "5946d5388fd2fe27c4d0d930f2a17e9df27da03dc37b8d7fe0a2ffe76fe5395f"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_living_world.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_living_world.log",
+      "sha256": "b18af2adbf40b63615f990dad8d30a8c0168ccd87eefe3c287993cb30d795f98"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_load.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_load.log",
+      "sha256": "d1b64a9cf36f331c655da3d789f62d551d78bca1fff25754445d3daa5c3ed1c8"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_rank.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_rank.log",
+      "sha256": "435e795685cc5cd4b9bbd6442e111d2b46ec44535660a0a13aae8d13f83c5c7d"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_save_recovery.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_save_recovery.log",
+      "sha256": "113bce7f4f4618f7dadfe05c3dfbb527ddb58bc8cc0f915590c473f07c5de38f"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_galaxy_state.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_galaxy_state.log",
+      "sha256": "74dcc089e68d26353056e03e82805e417bdb046e65c8928a296c0a2a46ef3e97"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_collection.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_collection.log",
+      "sha256": "b109f82b958ac2652e4b94d374fb4016f9ca24ac49ed0eb0d2b129d1aadff690"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_mg2d.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_mg2d.log",
+      "sha256": "c0f444184db189e17432224c076a810c27f246c0e5d6b3266821c2c4874e57cd"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_fetch.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_fetch.log",
+      "sha256": "0e4b255891327f9c8fcce225f8b20cf514119da0673ffeb3382f5a9864750bf4"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_melody.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_melody.log",
+      "sha256": "e3d3bf8f3798cab6c5567a859853a4dc4142e78bab4c28bb48d6f43e2105c898"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_dolls.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_dolls.log",
+      "sha256": "d6fe1bf694b8499806f1cb9c4d89e4e1242d6cdcd6da470ea49e401cd4249dbf"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_seek.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_seek.log",
+      "sha256": "ad3d7281a2cfef86bd440a62afc6afd83cadf88ddc2fe62645894b7646f00b14"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_audio.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_audio.log",
+      "sha256": "d6e4cc0d68e8a0c02fdd6beb01ca228bc3516847bc8a46dba833793bc19ed33b"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_dance.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_dance.log",
+      "sha256": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_l2.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_l2.log",
+      "sha256": "d500d8893807cadfb41f316814313adc5961bfa76f9e43210e688a48e6f4bb3b"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_l2_living_cards.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_l2_living_cards.log",
+      "sha256": "921b5cd605a190217e3358549c84c2a1c4c6445892701463b6dc6a7d9924eeb4"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_sky_lagoon_animals.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_sky_lagoon_animals.log",
+      "sha256": "1f403e7dc1d681de9f8ee0f2ffbb4158afc26142f61693fb695760e89c42fc08"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_l2_reenter.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_l2_reenter.log",
+      "sha256": "0836edebc4578a0f6ad00c902b5b9db5457646438bb895b91e769498e18b9b94"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_crown.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_crown.log",
+      "sha256": "e57a291b2a25e3d415ed5aeb2f8b6c403f1f9b37b6b092391af5aea24e69e088"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_throne.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_throne.log",
+      "sha256": "7abfbcbe9b87277892c425eae1bacb335a501710673a2a3e67a08351d192eaa3"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_northern.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_northern.log",
+      "sha256": "fba9e9483c9e24b53dd6437408ab313959bb7968d3a41347a011b6c0fa98013c"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_human_art_audit.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_human_art_audit.log",
+      "sha256": "5b5415d1b810a7a04bf84518731c22c3121478261795d5c89429aeca2c966dc5"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_train.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_train.log",
+      "sha256": "2617369a4b121d48b4e9cb8c9ced9a4fee3e787530afaa463169a19ab224ddb7"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_verbs.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_verbs.log",
+      "sha256": "179a48880c19794517c0dc0733b664bf304a25970560dc0379137747f18a6884"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_skins.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_skins.log",
+      "sha256": "8925983b17113d743ea7d1c6b17a05e8946c83d9b570c1c7f96aa7d35594909d"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_touch_router.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_touch_router.log",
+      "sha256": "c2892f8084bd847bc1ef4669ea66e602741a48571030e21b659066cb38aea07e"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_touch_stress.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_touch_stress.log",
+      "sha256": "3782c6ec5435288d7ebddf3685074b25a0ffc8caf77eae3e51fa70645f3da010"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_interaction.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_interaction.log",
+      "sha256": "75e9425089cda25286cf58484513493b928490e6fa9f0d6971cfab45fcf12a63"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_touch_adversary.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_touch_adversary.log",
+      "sha256": "7dce7b16bedf0a78e23f3951656cebf93faf911ab4ab7ef1e163c81feb2a5643"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_touch_look.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_touch_look.log",
+      "sha256": "60351641e3a32197e818e5df8416233946f40c138599c4ae85a723642cdc25fb"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_ui_system.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_ui_system.log",
+      "sha256": "fd6065e09969b8da7bbeb040707d99c214a6f3a76e5db6e1f245bdd218e6b33b"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_voice.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_voice.log",
+      "sha256": "3238753d67ea37cde8a93ca120333ce20bd07b9a8d2c792f55a569ceb7931453"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_voice.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_voice.log",
+      "sha256": "50a7a84c1ce20b02a158485dab22961bc3b440dc9b823a60f9ef124cdca2dbea"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_d8_revisits.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_d8_revisits.log",
+      "sha256": "8a62f8e03b7bbc051aa7e60d1919e69a59951770d17b526d811fe1d4aa1dc631"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_handoffs.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_handoffs.log",
+      "sha256": "908a3ed2410a386f95ff5d4b1a9190b6b2e049faf6f08be47f7dd399298c1a82"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_kart_feel.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_kart_feel.log",
+      "sha256": "0b64ae3b30630a641b42cb99261cdd9dbbe14f61cb9a9bed98507bad04cd5e53"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_combat.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_combat.log",
+      "sha256": "67aec55ee70333770a4faecb2cfd06051dfd5f0c3522629f4a522650ae60e613"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_dust_bunny.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_dust_bunny.log",
+      "sha256": "4663fb2a0de3512c5d77b0e136a6a59139e23f411d0224912e38b45ebde441dc"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_dust_bunny_boss.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_dust_bunny_boss.log",
+      "sha256": "8fc65c5380675ca971e99523bbe8e17c34f09c503cd2d87029fe79d4b73aed3d"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_dust_boss.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_dust_boss.log",
+      "sha256": "1d05616ae145a7dca0f3e940613bc73c3a1294489cac8053b80fab7a095c3316"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_hit.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_hit.log",
+      "sha256": "785d740aaff6eb57e72a8ecc2fa239cfd66b6f84d956f2ff0bb0ab109e22aaf7"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_partner.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_partner.log",
+      "sha256": "975f35172cb1329e2eb83c9d772ba96fdaf1c79126ba32f7b9a97a6e5a72ba5c"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_combat_tutorial.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_combat_tutorial.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_imp_ai.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_imp_ai.log",
+      "sha256": "9ae03f976731e38ad51ab9e60fa5e43461359f99af606bbb269f3c7c660ab874"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_mic.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_mic.log",
+      "sha256": "4c186e6413f73aacf682d34e95d955e600da20b553d525b7b4d49cf7bdd8dd26"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_stuffie.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_stuffie.log",
+      "sha256": "ce98c5879cc8f528799c7c4a8bcfdb583da7c27f90f837794b913fc5691b7455"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_dungeon.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_dungeon.log",
+      "sha256": "e375bfcd6815b9b8d614c8ce0b555d08c2bc3c1c9daced36bc7bde6c04a5b836"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_ember.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_ember.log",
+      "sha256": "26d7d7cce71fc744a5efc54603316d3000c1054ff5d7f6734d15b547ffba532f"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_opera.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_opera.log",
+      "sha256": "7c75739c6f16c8ed2d89a44c3a3b865a2694b3884c522c9881ec590555e2fab4"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_opera_2d.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_opera_2d.log",
+      "sha256": "554986bc1f0e9d4a8b1bc1458d33531a1310ffa91b9c0c8274841547a84d2d26"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_opera_diegetic_paths.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_opera_diegetic_paths.log",
+      "sha256": "8b4fa69dca1eb815b72a9592ac787d7f7cf9650e94c21745b3a3293da39dfeb8"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_opera_detective.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_opera_detective.log",
+      "sha256": "ada2802f1fd8ddfa452d4ca6d40b560d95e2fe6a0d784f3c5ebc5161755a2498"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_opera_pipe.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_opera_pipe.log",
+      "sha256": "9e37f1451cf963674947e78580377efe684cb07070ef3ded7221671a9cf74efc"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_opera_nursery.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_opera_nursery.log",
+      "sha256": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_opera_gesture_quality.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_opera_gesture_quality.log",
+      "sha256": "a43da324a58611dbc9bf75af931039b7b963e01d25b34da73f4a06aed6f8f7cd"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_kitchen_props.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_kitchen_props.log",
+      "sha256": "085ee788c6a4ea61b380dc094a318f0546223c723a4a06343e564902678217fd"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_bathroom_props.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_bathroom_props.log",
+      "sha256": "f1a9243fa397b4679dd72416d4e7b6fba6d21014c949cf112f3e3c29eefd494f"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_castle_door_language.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_castle_door_language.log",
+      "sha256": "4abaa12c13b1268f31ba2dcbd5a0d01bef5d51f9d72bfae4a3e1289ea6b2240b"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_bathroom_integration.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_bathroom_integration.log",
+      "sha256": "bc2b8c1c55705d52f82a1d744bb1530e2f54ea9687a2f62d770ca3bfd212654c"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_bathroom_bunny.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_bathroom_bunny.log",
+      "sha256": "b2317cefbc14362cdb2509477c136b7ddbf79e88550d370040f165ad452d500c"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_bathroom_cleanup.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_bathroom_cleanup.log",
+      "sha256": "e3ac904c4ddad2ceec6937274324e0f46e845f5bc74095a74bd985a7a25a3d14"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_bathroom_movie_handoff.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_bathroom_movie_handoff.log",
+      "sha256": "3c38263a6313fdfe5cfb49b7378d9e9890d36373f6f014af0411e016529f5f86"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_director.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_director.log",
+      "sha256": "c55a83f10ed8b5e8f241a127a88fdfb1001bbdb65486d44989606a1ece6e1c0e"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_integration.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_integration.log",
+      "sha256": "5d2a85cd038e521120be433551a63bdcaa394be2c493b151f616650805b1ab46"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_pool_cleanup.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_pool_cleanup.log",
+      "sha256": "a4d054e06f4cad3e0e93948476c49904d965732f8153a37467b0190df4fe00d9"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_art_attack_state.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_art_attack_state.log",
+      "sha256": "f60c2a724f4c1d99e78da2e83ed099fad0afd2bd2bbd4ba7e730c3ee1f1b6114"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_castle_dressing.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_castle_dressing.log",
+      "sha256": "17ea5dbf7d18d174c7029081bb94f79ae44f439fb81b7c77093083efceba80a0"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_day_one_story_clips.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_day_one_story_clips.log",
+      "sha256": "811e20c6e97da8efb3aa06e7e0a74e02f822b74ca0ed33a9548abd5e4e8cf1a8"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_chapter2.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_chapter2.log",
+      "sha256": "23b604e3912a48be831c5b30b39a3f3564af97e73caff3834e8e314799118110"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_chapter2_farmer_resume.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_chapter2_farmer_resume.log",
+      "sha256": "2f43fc12adfc92b0ef5bfde77ceba276190604eb8b7471697746afcbe21d942d"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_chapter2_lawn.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_chapter2_lawn.log",
+      "sha256": "b50aaf7aeae0823dcbfb26e58ab58b9b739c7780e04efb36fb554433be6d55e1"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_alpha_milestone_save.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_alpha_milestone_save.log",
+      "sha256": "c8fee9f0a438dd1b2493699c49a5d84994e818e7bd65fb0f6655fbfca08bc584"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_dust_boss_balance.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_dust_boss_balance.log",
+      "sha256": "39d6aebfb464ce93f3270dcd97a195861137471d0d8aae9962d10ba572fa9e8e"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_start_menu_routing.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_start_menu_routing.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_start_menu_new_game.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_start_menu_new_game.log",
+      "sha256": "2d5a6b3ab41b93951e788231a9b45ae2ffd08c8087e20c0146088ff5a0e940e3"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_castle_pool_life_2d.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_castle_pool_life_2d.log",
+      "sha256": "3c743dae2d362340c1369418a95b8feacb00f3f8933ddb78daa109c17bf5b6b9"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_castle_pearl_art.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_castle_pearl_art.log",
+      "sha256": "3dd70ed21fdfbc19922bcfecac318a7459421e7a664a40f976bb1c0ab5a5c5b8"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_fairy_art.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_fairy_art.log",
+      "sha256": "97aa66835cca2cf482d202e46a6119b11319755d18c86c10f76174a009ff34c4"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/primary/probe_props.txt": {
+      "source": "tmp/godot_mcp_bubble_native_full/probe_props.log",
+      "sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/isolated/probe_combat_tutorial.txt": {
+      "source": "tmp/godot_mcp_bubble_isolated/probe_combat_tutorial.log",
+      "sha256": "744b4d5752836b437e1eccd3dc9fa32b0328a8c7383acbaa1f367fb27cba925f"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/isolated/probe_ember.txt": {
+      "source": "tmp/godot_mcp_bubble_isolated/probe_ember.log",
+      "sha256": "bfd3bbf78d4afc8f0be1f7b1b24e83c9e1369694a5ad2ddf6f93502c08621e70"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/isolated/probe_opera_2d.txt": {
+      "source": "tmp/godot_mcp_bubble_isolated/probe_opera_2d.log",
+      "sha256": "b7c0281fe2d2f133eb967eceedf956de8708f2b6a269c139274a993d9d9a5506"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/isolated/probe_bathroom_integration.txt": {
+      "source": "tmp/godot_mcp_bubble_isolated/probe_bathroom_integration.log",
+      "sha256": "0b93b196a5572ccb0f9f76698bce1c3d2aa27084f08b0cca93da8ab561ace330"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/isolated/probe_chapter2.txt": {
+      "source": "tmp/godot_mcp_bubble_isolated/probe_chapter2.log",
+      "sha256": "1b96d272feb91319fe96d526f49487271bf5462e7affd1efd983618252038f9b"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/isolated/probe_dust_boss_balance.txt": {
+      "source": "tmp/godot_mcp_bubble_isolated/probe_dust_boss_balance.log",
+      "sha256": "2bcb359bb6a1f0b26838e11d00e4c17944f57f2fdec24580ab98f98ef75bea5d"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/isolated/probe_start_menu_routing.txt": {
+      "source": "tmp/godot_mcp_bubble_isolated/probe_start_menu_routing.log",
+      "sha256": "c192b57ce2a0672867a9ce4420e32fde1eab6d258fc7e9e200127891e4d0c163"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/opera_alone/probe_opera_2d.txt": {
+      "source": "tmp/godot_mcp_bubble_opera_alone/probe_opera_2d.log",
+      "sha256": "292591189c15fd30ee2a3c99bdb03a75e2a21c15ec64ae32309b4ea15a575391"
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/authority_final.txt": {
+      "source": "final combined candidate gate capture",
+      "sha256": "bdf9cb86c4617c8d14060af05c5ea2e8135049ffd96d4f1f4bb347d3e51f7013",
+      "exit_code": 0
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/coverage_auto_final.txt": {
+      "source": "final combined candidate gate capture",
+      "sha256": "9d7df194a5755b1d7ebef40f3578dd7bcc678d87f9cb61ffbf6b283844bc445f",
+      "exit_code": 0
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/coverage_full_final.txt": {
+      "source": "final combined candidate gate capture",
+      "sha256": "2f284cdec07676878b4170696b8b4ed15ceb1917e24e62ed251ba236f354f527",
+      "exit_code": 0
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/diff_final.txt": {
+      "source": "final combined candidate gate capture",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit_code": 0
+    },
+    "tools/godot_mcp/evidence/bubble_reconciled/game2d_final.txt": {
+      "source": "final combined candidate gate capture",
+      "sha256": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5",
+      "exit_code": 0
+    }
+  }
+}

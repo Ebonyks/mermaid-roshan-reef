@@ -1,0 +1,51 @@
+{
+  "base_commit": "ff0e7b74bae73c8c7b1f66c59c65719e1b94039f",
+  "runtime_patch_sha256": "a09cf9be3370bfce2ea882b36fd44f2f495d1267b287b3300b6b0914d0b7ed9a",
+  "runtime_paths": [
+    "assets/opera/bubble_duel_v2/bubble.png",
+    "assets/opera/bubble_duel_v2/items.png",
+    "assets/opera/bubble_duel_v2/marlo_swim.png",
+    "scripts/bubble_duel_inventory.gd",
+    "scripts/opera_bubble_duel.gd",
+    "scripts/opera_house_venue_2d.gd",
+    "scripts/probe_bubble_duel_capture.gd",
+    "scripts/probe_bubble_duel_stress.gd",
+    "scripts/probe_opera.gd"
+  ],
+  "feature_source_bindings": [
+    {
+      "path": "scripts/opera_bubble_duel.gd",
+      "sha256": "d8bc07d8c642b346f2c898a8ae37a7a5b932e6c37a0a958c0b6d89d169f512b3"
+    },
+    {
+      "path": "scripts/bubble_duel_inventory.gd",
+      "sha256": "747644e479c9004c98df462908deaf892005dc5ac90e44711c79353a096e8e21"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "sha256": "aa15f790b3e7ed639a5a2084229f779b41ff9ea6b50ecdf0e9b859ecf5ba38a2"
+    },
+    {
+      "path": "scripts/probe_bubble_duel_stress.gd",
+      "sha256": "f53db7967bb50f636527eca3fcefa338ef3d626e62ed31b4534dfd4752cbdae8"
+    },
+    {
+      "path": "scripts/probe_bubble_duel_capture.gd",
+      "sha256": "7678a8ecc35b920ee56745630def519ff8344a852de54220fe2d96cabf34de8e"
+    },
+    {
+      "path": "tools/run_bubble_duel_stress.py",
+      "sha256": "d18f3f07f5d763a5a352fbe72704315406fc3d4cbe262b898adc64eacb467f2a"
+    },
+    {
+      "path": "tools/build_bubble_duel_v2_art.py",
+      "sha256": "a9722b2271b238a14a0d6b0785d08b03f33bf52dadf09533b3f9dcce0050e7d5"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "sha256": "7693da59b253e24b4a12f656e47fbf15bb27e75a5204402b4085465a33b563c1"
+    }
+  ],
+  "created_utc": "2026-11-05T08:45:05.472892+00:00",
+  "claim": "Frozen feature/runtime diff before the complete local recheck. This is regression provenance, not QA11 visual-runtime acceptance."
+}

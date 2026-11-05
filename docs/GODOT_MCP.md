@@ -38,7 +38,7 @@ The 2026-11-05 integration at `208a12cf` independently installed the same releas
 
 The combined payload retains bridge removal without a debugger, three explicit type annotations and conditional startup save. Both upstream LICENSE and npm LICENSE.txt remain as attribution. The authenticated addon_manifest.json supersedes tools/third_party_tooling_manifest.json as audit authority; the latter preserves the earlier integration's provenance only. The audit reports approved diagnostics on its TOOLING line. Arbitrary addon prefixes and self-edited manifests cannot grant an exemption.
 
-The painted Dolls progress code and assets are preserved byte-for-byte. MCP is now CHG-147 because dev used CHG-146 for Dolls. Old work-head CI was cancelled as superseded. Dev run42007402685 failed because its MCP delta lacked audit-impact coverage; the combined impact supplies exact path coverage. Fresh combined verification is pending; earlier logs retain their original scope.
+The painted Dolls progress code and assets are preserved byte-for-byte. MCP is now CHG-147 because dev used CHG-146 for Dolls. Old work-head CI was cancelled as superseded. Dev run42007402685 failed because its MCP delta lacked audit-impact coverage; the combined impact supplies exact path coverage. The subsequent cleaned-settings verification is recorded below; earlier logs retain their original scope.
 
 ## Current reconciled local verification
 
@@ -51,3 +51,12 @@ The startup patch avoids automatic settings rewrites. Applying new bind settings
 ## Exported notices
 
 Both export presets explicitly include addons/godot_mcp/LICENSE and LICENSE.txt. An isolated Godot4.7.2 resource-pack test with the real filters found both missing in the baseline and verified both exact original hashes after the include change. The consumer project has no unpacked addon files, so its successful reads come from the pack. See tools/godot_mcp/evidence/export_notices/proof.json. This checks the shared resource-pack inclusion behavior; it is not a full Android/signing/device acceptance claim. No signing material was used. The runtime code remains the source verified by the82-probe matrix; this later change only adds two notice paths to the export include filters.
+
+
+## Bubble Duel reconciliation (2026-11-05)
+
+Incoming dev6892c575 adds Bubble Duel while retaining the same MCP implementation. All17 bound MCP implementation paths, the entire40-file addon payload and11 incoming Bubble Duel runtime/art/tool paths are preserved exactly. The complete static/asset/import prefix passes with the exact Godot4.7.2 engine and NO_REGRESSION. Syntax and type-inference checks pass for incoming scripts.
+
+The combined native82 attempt failed with75 zero-exit passes and seven unexpected Windows exits4294967295 without a failure marker or timeout. A separate unchanged seven-probe replay passed six; Opera2D exited unexpectedly again. After all independent static work finished, unchanged Opera2D passed alone. All82 canonical commands therefore have actual-zero-exit passing receipts on the identical4066-source snapshot and all five Dolls/Bubble artwork hashes. This is source-bound per-probe completion, not a clean one-run82 pass; the unexplained exits remain a platform-validation limit. Raw receipts/logs and mappings are in tools/godot_mcp/evidence/bubble_reconciled/summary.json. No assertion, guard or deadline was changed.
+
+Both required GitHub jobs passed the pre-Bubble MCP revision0b465d02 in run42036159784. The new combined published-head CI remains required before dev integration. The owner-authorized temporary coordination hold on dev updates is observed independently of topic work and validation. Device, child, owner, advanced bridge input/frozen-time and game-wide acceptance remain open.

@@ -1,0 +1,65 @@
+{
+  "policy": "Git may normalize line endings in readable .log files. Gzip archives preserve exact original bytes; raw_sha256 verifies the decompressed archive.",
+  "files": [
+    {
+      "display_log": "capture-guard-negative.log",
+      "raw_archive": "capture-guard-negative.log.gz",
+      "raw_sha256": "5ed1a0b4f6acb82c52046a63468d6d7d787efecf13497a06d4d1a9300c9c715b",
+      "archive_sha256": "4f0f3d17dcb10d4583ec419dc12a6f1358d1f466e8f4d4c9ac24e89cb673949a"
+    },
+    {
+      "display_log": "capture-guard-positive.log",
+      "raw_archive": "capture-guard-positive.log.gz",
+      "raw_sha256": "b9305c92fd9e19af330f1566b5a9755fd1853d136553dba3a7b92590a65a6b1c",
+      "archive_sha256": "20c2bdc2d1f4c58f5535a3c6be11dbb96a3ae78bb56f021c8aa8f9c998ecb817"
+    },
+    {
+      "display_log": "full-ci-first-complete-failed.log",
+      "raw_archive": "full-ci-first-complete-failed.log.gz",
+      "raw_sha256": "e06cac4d99408c2f580e1d6b1f70809ec15ff8619a5eb965e7c6b92b349a2746",
+      "archive_sha256": "8d9037981addd21da18638037793440b44d1250cda60f6e59ba587d156b13d4a"
+    },
+    {
+      "display_log": "full-ci-frozen-pass.log",
+      "raw_archive": "full-ci-frozen-pass.log.gz",
+      "raw_sha256": "c5f609e5ecd47c8ede41527fe8fa1313c9379b46729000146e28066f38fbccd3",
+      "archive_sha256": "679e37a2d9ae3d258826f350d9b28f1ad491169edb81b8a5b0ca351261335156"
+    },
+    {
+      "display_log": "full-ci-initial.log",
+      "raw_archive": "full-ci-initial.log.gz",
+      "raw_sha256": "adbffbe298eb228a1e1294f7b8196cd83aecbacd8550076be97fd8306089dd7a",
+      "archive_sha256": "0eb5f43919609cd2d50d61d16adaca4f72db509a5788b8dd006d7e7d10c475e0"
+    },
+    {
+      "display_log": "opera-corrected.log",
+      "raw_archive": "opera-corrected.log.gz",
+      "raw_sha256": "7c75739c6f16c8ed2d89a44c3a3b865a2694b3884c522c9881ec590555e2fab4",
+      "archive_sha256": "2fb5386c0b05c4c4fcfd7a469ddc75e317d5afe8ef425c20591c219ed793d193"
+    },
+    {
+      "display_log": "opera-initial-hash-diagnostic.log",
+      "raw_archive": "opera-initial-hash-diagnostic.log.gz",
+      "raw_sha256": "1569ed525ff78b891e8a01e6862123901fa6b5ca6eb5bd97d1d7df4d8fc303af",
+      "archive_sha256": "dfe2079d2683d7f66ad5dd448ceedc8309cd8709175069e487c336f3b41573b8"
+    },
+    {
+      "display_log": "physics-100.log",
+      "raw_archive": "physics-100.log.gz",
+      "raw_sha256": "5507310659c276260ac7039fdc762b692d60c2f112bfa496380a48e47c575c7c",
+      "archive_sha256": "e51ae617f77f12756e7e098dd6a15ace790dc28958d9d28562c4d22a32fef733"
+    },
+    {
+      "display_log": "shop-play-100.log",
+      "raw_archive": "shop-play-100.log.gz",
+      "raw_sha256": "6570e183174ee0c693382a5e84b87ac6a0d87aa145722babb14b37e390980dc5",
+      "archive_sha256": "f290e719d43a6c89c02b218535f85b76dd2ae91f10ecd46d52d6952c8d07ba82"
+    },
+    {
+      "display_log": "shop-reload-initial-failed.log",
+      "raw_archive": "shop-reload-initial-failed.log.gz",
+      "raw_sha256": "396f69e81ea52ece5ac49a63fd1df023b09979e0d2c452a2313b0da78615d462",
+      "archive_sha256": "5e56f6bbca4c6abf9e4b8672117d2a33d7bf4f08c9afbe74dc75958c3bc251df"
+    }
+  ]
+}
