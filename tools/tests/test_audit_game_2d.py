@@ -20,6 +20,8 @@ if str(TOOLS) not in sys.path:
 	sys.path.insert(0, str(TOOLS))
 
 import audit_game_2d as game_2d  # noqa: E402
+# Include the exact owner-authorized development-tool controls in the standing CI gate.
+from tools.tests.test_godot_mcp_scope import GodotMCPScopeTests  # noqa: E402,F401
 
 
 class Game2DAuditTests(unittest.TestCase):

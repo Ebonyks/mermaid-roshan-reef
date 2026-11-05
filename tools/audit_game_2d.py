@@ -4,7 +4,9 @@
 This is intentionally not a waiver system.  Every tracked model binary or
 model-import sidecar -- including source masters and backups -- and every
 active project, probe, scene/resource, shader, or configuration file that
-still bears a 3D API is migration debt.  The active/export model subset is
+still bears a 3D API is migration debt, except the exact owner-authorized
+development diagnostic payload identified by EDITOR_TOOL_MANIFEST_SHA256.
+That exception never exempts model binaries or game code. The active/export model subset is
 reported separately only to prioritise runtime migration.  The manifest is an
 exact, shrinking snapshot so a large conversion can land in small reviewable
 slices without allowing the old architecture to grow.
@@ -1852,6 +1854,31 @@ def _active_files(root: Path) -> Iterable[Path]:
 			yield current / filename
 
 
+# Owner decision ODR-GODOT-MCP-DEVTOOLS-20261104: exact development tooling,
+# never a path-wide exemption or a model/resource inventory exemption.
+EDITOR_TOOL_MANIFEST_SHA256 = "d3ea01b7b447aed84d76e2199ca376c3e1228e3a89eacaee2a62c49f74ce9eb6"
+
+
+def _approved_editor_tool_sources(root: Path) -> set[str]:
+	manifest = root / "tools/godot_mcp/addon_manifest.json"
+	try:
+		payload = manifest.read_bytes()
+		if hashlib.sha256(payload).hexdigest() != EDITOR_TOOL_MANIFEST_SHA256:
+			return set()
+		files = json.loads(payload)["files"]
+		folder = root / "addons/godot_mcp"
+		actual = {
+			p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+			for p in folder.rglob("*") if p.is_file()
+			and p.suffix not in {".uid", ".import"}
+		}
+		if actual != files:
+			return set()
+		return {name for name in files if name.endswith(".gd")}
+	except (OSError, ValueError, KeyError, TypeError):
+		return set()
+
+
 def _production_files(root: Path) -> Iterable[Path]:
 	return (
 		path for path in _active_files(root)
@@ -2198,10 +2225,12 @@ def discover(root: Path,
 	)
 	active_models = tuple(sorted(active_model_set))
 
+	approved_editor_tools = _approved_editor_tool_sources(root)
 	production: dict[str, dict[str, int]] = {}
 	for path in (
 			candidate for candidate in active_files
 			if candidate.suffix.lower() in PRODUCTION_SOURCE_EXTENSIONS
+			and _relative(candidate, root) not in approved_editor_tools
 			and not (candidate.suffix.lower() == ".gd"
 				and candidate.name.startswith("probe_"))):
 		counts = _token_counts(_read_text_cached(path, text_cache))

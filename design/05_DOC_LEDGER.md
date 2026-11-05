@@ -1212,3 +1212,5 @@ The bounded 2026-11-01 [Chapter Two startup watchdog prerequisite](audit_impacts
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r137_cave_ci_ffmpeg_recovery/README.md` | 🟣 | SUPPORTING_CURRENT. Pinned FFmpeg installer delivery recovery after the cave CI download outage. Exact checksum and fresh music check. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md` | 🟣 | SUPPORTING_CURRENT / CANDIDATE. Bounded painted feedback after passive safe landing in Dolls. External acceptance remains open. |
 | `docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/README.md` | 🟣 | SUPPORTING_CURRENT / CANDIDATE. Painted idle focus cue for the existing Dolls sling. |
+
+| `docs/GODOT_MCP.md` | 🟢 | Current operational setup and exact owner-authorized development-tool exception ODR-GODOT-MCP-DEVTOOLS-20261104; no gameplay, art, release or acceptance authority. |

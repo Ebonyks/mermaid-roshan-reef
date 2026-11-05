@@ -2,10 +2,10 @@ extends SceneTree
 func _init() -> void:
 	Engine.time_scale = 6.0
 	var ps: PackedScene = load("res://scenes/main.tscn")
-	root.add_child(ps.instantiate())
+	var main: Node = ps.instantiate()
+	root.add_child(main)
 	await process_frame
 	await process_frame
-	var main: Node = root.get_child(root.get_child_count() - 1)
 	if main.has_method("_skip_intro"):
 		main._skip_intro()
 	await process_frame
