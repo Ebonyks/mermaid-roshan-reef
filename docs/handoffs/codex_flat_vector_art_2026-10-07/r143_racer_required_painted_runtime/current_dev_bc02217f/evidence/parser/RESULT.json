@@ -1,0 +1,33 @@
+{
+  "label": "CHANGED_SCRIPT_PARSER",
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+    "-B",
+    "-m",
+    "gdtoolkit.parser",
+    "scripts/opera_racer_surface.gd",
+    "scripts/probe_fetch.gd",
+    "scripts/probe_opera_2d.gd",
+    "scripts/probe_racer_integration.gd",
+    "scripts/probe_reef_kart_handling.gd",
+    "scripts/probe_reef_kart_pc.gd",
+    "scripts/probe_skins.gd",
+    "scripts/probe_verbs.gd",
+    "scripts/racer/reef_kart_catalog.gd",
+    "scripts/racer/reef_kart_courses.gd",
+    "scripts/racer/reef_kart_drive.gd",
+    "scripts/racer/reef_kart_pc.gd",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_track.gd",
+    "scripts/start_menu.gd"
+  ],
+  "exit_code": 0,
+  "pid": 15972,
+  "started_at_utc": "2026-11-05T22:00:21.867684+00:00",
+  "elapsed_seconds": 7.353,
+  "log_path": "parser/engine.log",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "failure_lines": [],
+  "output_nonempty": false,
+  "passed": true
+}

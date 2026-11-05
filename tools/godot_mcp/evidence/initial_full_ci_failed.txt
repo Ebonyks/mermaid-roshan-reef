@@ -1,0 +1,2161 @@
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.806s
+
+OK
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.003s
+
+OK
+FASHION_BETA_AUDIT|ALL OK| {"new_pieces": 12, "new_layers": 156, "cells": 1752, "visual_fit_device_child_owner": "PENDING"}
+........s...............................
+----------------------------------------------------------------------
+Ran 40 tests in 92.287s
+
+OK (skipped=1)
+TYPOGRAPHY_AUDIT status=OPEN
+FONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING
+GLYPHS observed=133 unclassified=0 critical=124 critical_unresolved=124
+LABEL3D current=36 baseline=45 files=11 delta=-9
+LABEL3D_FILE  7 scripts/arena/sky_lagoon.gd
+LABEL3D_FILE  2 scripts/collection_system.gd
+LABEL3D_FILE  1 scripts/combat_arena.gd
+LABEL3D_FILE 11 scripts/companion.gd
+LABEL3D_FILE  1 scripts/dungeon_puzzle_room.gd
+LABEL3D_FILE  2 scripts/galaxy.gd
+LABEL3D_FILE  4 scripts/games/shop.gd
+LABEL3D_FILE  4 scripts/kart.gd
+LABEL3D_FILE  2 scripts/main.gd
+LABEL3D_FILE  1 scripts/reef_districts.gd
+LABEL3D_FILE  1 scripts/stuffie_battle.gd
+OPEN font authority, coverage, and/or device evidence remains unresolved
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.305s
+
+OK
+ROSHAN2D| stress: 8 falsification cases ALL OK
+ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+...........................................................................
+----------------------------------------------------------------------
+Ran 75 tests in 306.022s
+
+OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.257s
+
+OK
+naive 256px grid :      0 px of Roshan clipped,      0 px ghost
+shipped windows  :      0 px of Roshan clipped,      0 px ghost
+                   (0.00% -> 0.00% of her art lost)
+playground poses :     12 whole, single-silhouette 512px frames
+OK: every Roshan frame renders whole
+PROBE_PARITY|stress missing loop: OK
+PROBE_PARITY|stress duplicate probe: OK
+PROBE_PARITY|stress local/remote mismatch: OK
+PROBE_PARITY|stress missing probe file: OK
+PROBE_PARITY|stress missing separate invocation: OK
+PROBE_PARITY|stress missing parity gate: OK
+PROBE_PARITY|stress missing local music verifier: OK
+PROBE_PARITY|stress missing pinned music verifier: OK
+PROBE_PARITY|result: ALL OK
+.........................................
+DOCAUTH|STRESS|6/6
+----------------------------------------------------------------------
+Ran 41 tests in 1.810s
+
+OK
+DOCAUTH|STRESS|6/6
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 35.599s
+
+OK
+...................................................................................................................................
+----------------------------------------------------------------------
+Ran 131 tests in 96.723s
+
+OK
+GOLDSTAR|RENDER|design/reference/GOLD_STAR.md
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE|astronaut|re-assess, then --rebind: scripts/chapter_two_career_scene_adapter.gd::PHASE_SETS[astronaut], scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|ballerina|re-assess, then --rebind: scripts/chapter_two_career_scene_adapter.gd::PHASE_SETS[ballerina], scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations
+GOLDSTAR|STALE|boxer|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_boxing_surface.gd
+GOLDSTAR|STALE|candymaker|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|chapter2_lawn|re-assess, then --rebind: scripts/chapter_two_lawn_finale_2d.gd
+GOLDSTAR|STALE|chapter2_party|re-assess, then --rebind: scripts/chapter_two_director.gd, scripts/chapter_two_career_scene_adapter.gd
+GOLDSTAR|STALE|chef|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_gesture_surface.gd::_draw_pour_scene, scripts/opera_gesture_surface.gd::_draw_chef_crank, scripts/opera_gesture_surface.gd::_draw_oven
+GOLDSTAR|STALE|combat_arena|re-assess, then --rebind: scripts/combat_arena.gd
+GOLDSTAR|STALE|combat_tutorial|re-assess, then --rebind: scripts/combat_tutorial.gd
+GOLDSTAR|STALE|comfy_games|re-assess, then --rebind: scripts/comfy_games.gd
+GOLDSTAR|STALE|companion_care|re-assess, then --rebind: scripts/companion.gd
+GOLDSTAR|STALE|critters|re-assess, then --rebind: scripts/collection_system.gd
+GOLDSTAR|STALE|day_one_bathroom|re-assess, then --rebind: scripts/games/day_one_dust_bunny_swimmer.gd
+GOLDSTAR|STALE|day_one_craft_room|re-assess, then --rebind: scripts/day_one_art_studio.gd
+GOLDSTAR|STALE|day_one_pool|re-assess, then --rebind: scripts/games/pool_skimmer_activity.gd, scripts/games/pool_waterfall_activity.gd, scripts/games/pool_seahorse_rescue_activity.gd, scripts/day_one_contact_action_2d.gd
+GOLDSTAR|STALE|detective|re-assess, then --rebind: scripts/chapter_two_career_scene_adapter.gd::PHASE_SETS[detective], scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|doctor|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_gesture_surface.gd::_draw_doctor_basin_subject
+GOLDSTAR|STALE|dolls|re-assess, then --rebind: scripts/games/dolls.gd
+GOLDSTAR|STALE|dungeon|re-assess, then --rebind: scripts/dungeon_puzzle_room.gd
+GOLDSTAR|STALE|ember|re-assess, then --rebind: scripts/ember_fortress.gd
+GOLDSTAR|STALE|fairy_conservatory|re-assess, then --rebind: scripts/arena/fairy_conservatory_handoff_2d.gd
+GOLDSTAR|STALE|farmer|re-assess, then --rebind: scripts/chapter_two_career_scene_adapter.gd::PHASE_SETS[farmer], scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_gesture_surface.gd::_draw_garden_plant
+GOLDSTAR|STALE|galaxy|re-assess, then --rebind: scripts/galaxy.gd
+GOLDSTAR|STALE|geologist|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_geology_surface.gd, scripts/opera_world_backdrop_2d.gd::_draw_geologist
+GOLDSTAR|STALE|grand_puff|re-assess, then --rebind: scripts/games/dust_boss.gd, scripts/dust_bunny_boss_sprite.gd, scripts/dust_boss_lesson_2d.gd
+GOLDSTAR|STALE|kart|re-assess, then --rebind: scripts/kart.gd
+GOLDSTAR|STALE|magician|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_gesture_surface.gd::_draw_magic_vanish_scene
+GOLDSTAR|STALE|nursery|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_nursery_catch.gd, scripts/opera_gesture_surface.gd::_draw_nursery_feed_scene
+GOLDSTAR|STALE|painter|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_gesture_surface.gd::_draw_paint_reveal
+GOLDSTAR|STALE|pearl_castle|re-assess, then --rebind: scripts/arena/castle_rooms_25d.gd
+GOLDSTAR|STALE|pic_garden|re-assess, then --rebind: scripts/games/picture_games.gd::_mg_build_garden, scripts/games/picture_games.gd::_mg_garden_tap
+GOLDSTAR|STALE|popstar|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations
+GOLDSTAR|STALE|racer|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_racer_surface.gd
+GOLDSTAR|STALE|seek|re-assess, then --rebind: scripts/games/seek.gd
+GOLDSTAR|STALE|sky_lagoon|re-assess, then --rebind: scripts/arena/sky_lagoon_promenade.gd, scripts/arena/sky_lagoon_layout.json
+GOLDSTAR|STALE|teacher|re-assess, then --rebind: scripts/opera_career_world_2d.gd::setup, scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_teacher_surface.gd
+GOLDSTAR|STALE|wardrobe|re-assess, then --rebind: scripts/wardrobe_ui.gd
+GOLDSTAR|STALE_PATTERN|GS-01 scripts/day_one_contact_action_2d.gd
+GOLDSTAR|STALE_PATTERN|GS-04 scripts/games/pool_seahorse_rescue_activity.gd::_update_guide_hand
+GOLDSTAR|STALE_PATTERN|GS-07 scripts/games/pool_waterfall_activity.gd::_build_dirty_slices
+GOLDSTAR|STALE_PATTERN|GS-08 scripts/probe_day_one_pool_cleanup.gd::_probe_contact_action
+GOLDSTAR|STALE_PATTERN|GS-15 scripts/games/pool_seahorse_rescue_activity.gd::_register_tap
+GOLDSTAR|STALE_PATTERN|GS-15 scripts/games/pool_seahorse_rescue_activity.gd::_finish_tug
+GOLDSTAR|STALE_PATTERN|GS-11 scripts/audio_director.gd::DAY_ONE_REQUIRED_EVENTS
+GOLDSTAR|STALE_PATTERN|GS-11 scripts/audio_director.gd::_say
+GOLDSTAR|STALE_DRAWING|scripts/opera_world_backdrop_2d.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_world_hotspot_2d.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_gesture_surface.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_boxing_surface.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_geology_surface.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_racer_surface.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_teacher_surface.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_DRAWING|scripts/opera_career_world_2d.gd|re-read what it draws, update the classification and its sha256
+GOLDSTAR|STALE_OVERDRAW|astronaut|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|ballerina|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|boxer|re-measure: scripts/opera_boxing_surface.gd, scripts/opera_career_world_2d.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|candymaker|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|chef|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|detective|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|doctor|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|farmer|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|geologist|re-measure: scripts/opera_career_world_2d.gd, scripts/opera_geology_surface.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|magician|re-measure: scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|nursery|re-measure: scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_nursery_catch.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|painter|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|popstar|re-measure: scripts/chapter_two_career_scene_adapter.gd, scripts/opera_career_world_2d.gd, scripts/opera_gesture_surface.gd, scripts/opera_world_backdrop_2d.gd
+GOLDSTAR|STALE_OVERDRAW|racer|re-measure: scripts/opera_career_world_2d.gd, scripts/opera_racer_surface.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_OVERDRAW|teacher|re-measure: scripts/opera_career_world_2d.gd, scripts/opera_teacher_surface.gd, scripts/opera_world_backdrop_2d.gd, scripts/opera_world_hotspot_2d.gd
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|OK|60 games, 0 errors, 37 stale
+AUDITDEV|BASE|65c63ae849b091e3fb91cdbeaf1e2837e10778fe
+AUDITDEV|RESULT|ALL OK
+DOCAUTH|INVENTORY=780|LEDGER=780|ACTIVE=74|RECORDS=77
+DOCAUTH|RESULT|ALL OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 3.090s
+
+OK
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\chapter2_lawn_2026-09-06|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\chapter2_lawn_scale_v2_2026-09-06|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c00_opening_flight_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c01_lagoon_landing_castle_approach_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c02_first_dirty_castle_discovery_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c03_bathroom_dirty_entry_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c04_bathroom_restored_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c05_pool_dirty_discovery_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c06_pool_purification_rumi_hug_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c07_stuffie_dirty_discovery_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c08_stuffie_restoration_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c09_art_room_dirty_discovery_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c10_art_room_restored_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c11_grand_puff_reveal_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c12_restored_castle_finale_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\d1_c13_grand_puff_friendship_completion_visual_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_bathroom_cleaned_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_bathroom_entry_v1|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C00\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C01\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C02\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C03\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C04\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C05\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C06\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C07\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C08\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C09\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C10\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C11\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C12\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\day_one_grok_handoff_v3_2026-09-04\scenes\D1-C13\visuals|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\overnight_recut_repairs_2026-09-12|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\roshan_swim_motion_auditions_2026-09-12|PASS
+IMAGINE|PACKET|C:\Users\Peter\Documents\mermaid-roshan-reef\assets_src\cinematics\sky_lagoon_garden_motion_v2_2026-09-16|PASS
+IMAGINE|RESULT|ALL OK
+OK pond_panorama.png: 4096x1024 RGB
+OK bug_jewel.png: 1024x1024 RGBA coverage=0.262
+OK bug_moth.png: 1024x1024 RGBA coverage=0.237
+OK bug_firefly.png: 1024x1024 RGBA coverage=0.255
+OK boss_leaf.png: 1024x1024 RGBA coverage=0.342
+OK boss_seed.png: 1024x1024 RGBA coverage=0.283
+OK boss_sprout.png: 1024x1024 RGBA coverage=0.258
+OK boss_bud.png: 1024x1024 RGBA coverage=0.411
+OK boss_opening.png: 1024x1024 RGBA coverage=0.563
+OK boss_bloom.png: 1024x1024 RGBA coverage=0.598
+OK helpful_flower_gate.png: 1024x1024 RGBA coverage=0.418
+OK danger_thorn_halo.png: 1024x1024 RGBA coverage=0.239
+OK ornament_lily_cluster.png: 1024x1024 RGBA coverage=0.133
+OK ornament_lavender_reeds.png: 1024x1024 RGBA coverage=0.114
+OK panorama_gradient: overall_shift=115.74 max_local_step=47.01 rgb=[(138.9, 194.9, 190.6), (170.1, 222.4, 211.5), (162.0, 219.3, 210.1), (119.4, 199.8, 206.6), (81.0, 182.3, 208.0), (58.2, 159.6, 204.7), (60.4, 134.2, 196.1), (72.2, 107.9, 190.3), (90.6, 97.1, 186.8), (115.5, 93.9, 198.6), (123.4, 88.4, 200.4), (110.5, 83.0, 182.3)]
+contact sheet: C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\fairy_v2\qa_contact_sheet.png
+FAIRYHANDOFF|OK|moonflower_door_closed.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|moonflower_door_closed.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|moonflower_door_closed.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|moonflower_door_closed.png has a visible subject
+FAIRYHANDOFF|OK|butterfly_gate_available.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|butterfly_gate_available.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|butterfly_gate_available.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|butterfly_gate_available.png has a visible subject
+FAIRYHANDOFF|OK|rainbow_walkway.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|rainbow_walkway.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|rainbow_walkway.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|rainbow_walkway.png has a visible subject
+FAIRYHANDOFF|OK|butterfly_house.png is 1024-square ((1024, 1024))
+FAIRYHANDOFF|OK|butterfly_house.png is RGBA (RGBA)
+FAIRYHANDOFF|OK|butterfly_house.png corners are transparent ([0, 0, 0, 0])
+FAIRYHANDOFF|OK|butterfly_house.png has a visible subject
+FAIRYHANDOFF|OK|door states share the same horizontal pivot (closed=511.5 open=512.0)
+FAIRYHANDOFF|OK|door states share the same castle-floor foot (closed=992 open=992)
+FAIRYHANDOFF|OK|background master meets per-screen runtime coverage ((3640, 2048))
+FAIRYHANDOFF|OK|background master preserves 16:9 stage crop ((3640, 2048))
+FAIRYHANDOFF|OK|background r0c0 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r0c1 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r0c2 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r0c3 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c0 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c1 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c2 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background r1c3 is runtime-safe ((910, 1024))
+FAIRYHANDOFF|OK|background tiles reconstruct the continuous master exactly
+FAIRYHANDOFF|OK|background builder authors the target master without ImageOps.fit
+FAIRYHANDOFF|OK|generated background panels are never resized
+FAIRYHANDOFF|OK|manifest exists: assets_src/fairy_conservatory_handoff_2026-08-30/asset_manifest.json
+FAIRYHANDOFF|OK|manifest exists: assets_src/castle/fairy_conservatory_gate_available_2026-08-30/asset_manifest.json
+FAIRYHANDOFF|OK|handoff manifest records built-in ImageGen
+FAIRYHANDOFF|OK|handoff background is the generated upright Fairy Pond
+FAIRYHANDOFF|OK|handoff records all six native generated panels
+FAIRYHANDOFF|OK|native panel dimensions match: top_left.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: top_left.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: top_left.png
+FAIRYHANDOFF|OK|native panel dimensions match: top_center.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: top_center.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: top_center.png
+FAIRYHANDOFF|OK|native panel dimensions match: top_right.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: top_right.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: top_right.png
+FAIRYHANDOFF|OK|native panel dimensions match: bottom_left.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: bottom_left.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: bottom_left.png
+FAIRYHANDOFF|OK|native panel dimensions match: bottom_center.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: bottom_center.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: bottom_center.png
+FAIRYHANDOFF|OK|native panel dimensions match: bottom_right.png ((1254, 1254))
+FAIRYHANDOFF|OK|native panel hash matches: bottom_right.png
+FAIRYHANDOFF|OK|native panel remains at 1:1 scale: bottom_right.png
+FAIRYHANDOFF|OK|background master is authored at target native dimensions
+FAIRYHANDOFF|OK|background master forbids source-pixel enlargement
+FAIRYHANDOFF|OK|native panel geometry reconstructs the exact master
+FAIRYHANDOFF|OK|generated panel horizon remains above the 50% line
+FAIRYHANDOFF|OK|approved Fairy Pond panorama is the primary background reference
+FAIRYHANDOFF|OK|handoff background excludes Sky Lagoon reference authority
+FAIRYHANDOFF|OK|handoff manifest records exactly two generated foreground gaps
+FAIRYHANDOFF|OK|runtime hash matches manifest: rainbow_walkway.png
+FAIRYHANDOFF|OK|runtime hash matches manifest: butterfly_house.png
+FAIRYHANDOFF|OK|placement composite is explicitly non-delivery
+FAIRYHANDOFF|OK|dormant state remains the approved minimal relief
+FAIRYHANDOFF|OK|plot reveal transforms into the available Butterfly Gate
+FAIRYHANDOFF|OK|gate portal horizon is at or below the 50% line (fraction=0.3797)
+FAIRYHANDOFF|OK|gate portal uses the Lily-Pad Fairy World authority
+FAIRYHANDOFF|OK|approved lily art begins at the exact gate threshold (lily=944 aperture=944)
+FAIRYHANDOFF|OK|castle gate excludes rainbow-walkway delivery pixels
+FAIRYHANDOFF|OK|castle gate excludes the old greenhouse-interior pixels
+FAIRYHANDOFF|OK|gate manifest combines the approved facade, sunrise pond, and lily threshold
+FAIRYHANDOFF|OK|gate input hash matches: moonflower_door_closed.png
+FAIRYHANDOFF|OK|gate input hash matches: butterfly_house.png
+FAIRYHANDOFF|OK|gate input hash matches: handoff_background_master_3640x2048.png
+FAIRYHANDOFF|OK|gate input hash matches: ornament_lily_cluster.png
+FAIRYHANDOFF|OK|corrected gate builder exists
+FAIRYHANDOFF|OK|corrected gate builder excludes the rainbow walkway
+FAIRYHANDOFF|OK|corrected gate builder preserves facade pixels outside the aperture
+FAIRYHANDOFF|OK|available Butterfly Gate hash matches manifest
+FAIRYHANDOFF|OK|gate dormant Hall review is explicitly non-delivery
+FAIRYHANDOFF|OK|gate dormant Hall review hash matches manifest
+FAIRYHANDOFF|OK|gate available Hall review is explicitly non-delivery
+FAIRYHANDOFF|OK|gate available Hall review hash matches manifest
+FAIRYHANDOFF|OK|runtime source exists: scripts/arena/fairy_conservatory_handoff_2d.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/main.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/save_state.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/arena/castle_rooms_25d.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/arena/fairy_conservatory_door_2d.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/pause_menu.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/probe_fairy_conservatory_route.gd
+FAIRYHANDOFF|OK|runtime source exists: scripts/probe_fairy_conservatory_handoff.gd
+FAIRYHANDOFF|OK|new stage excludes Node3D
+FAIRYHANDOFF|OK|new stage excludes Sprite3D
+FAIRYHANDOFF|OK|new stage excludes Camera3D
+FAIRYHANDOFF|OK|new stage excludes MeshInstance3D
+FAIRYHANDOFF|OK|new stage excludes Vector3
+FAIRYHANDOFF|OK|new stage excludes Transform3D
+FAIRYHANDOFF|OK|new stage excludes StandardMaterial3D
+FAIRYHANDOFF|OK|stage contract contains Vector2(910.0, 1024.0)
+FAIRYHANDOFF|OK|stage contract contains Vector2(640.0, 600.0)
+FAIRYHANDOFF|OK|stage contract contains Vector2(640.0, 500.0)
+FAIRYHANDOFF|OK|stage contract contains Vector2(640.0, 375.0)
+FAIRYHANDOFF|OK|stage contract contains "no_fail_state": true
+FAIRYHANDOFF|OK|stage contract contains "has_timer": false
+FAIRYHANDOFF|OK|stage contract contains "butterfly_house"
+FAIRYHANDOFF|OK|save schema includes chapter3_fairy_door_revealed
+FAIRYHANDOFF|OK|main owns chapter3_fairy_door_revealed
+FAIRYHANDOFF|OK|save schema includes chapter3_fairy_door_opened
+FAIRYHANDOFF|OK|main owns chapter3_fairy_door_opened
+FAIRYHANDOFF|OK|save schema includes chapter3_fairy_mission_started
+FAIRYHANDOFF|OK|main owns chapter3_fairy_mission_started
+FAIRYHANDOFF|OK|Main Hall owns one whole door card
+FAIRYHANDOFF|OK|revealed and entered states use the available Butterfly Gate
+FAIRYHANDOFF|OK|castle runtime no longer references the superseded rainbow inset
+FAIRYHANDOFF|OK|Main Hall route bypasses fake room portal list
+FAIRYHANDOFF|OK|approved Castle V4 payload stays independent
+FAIRYHANDOFF|OK|Main ticks the independent doorway overlay
+FAIRYHANDOFF|OK|Galaxy return recognizes the handoff
+FAIRYHANDOFF|OK|active stage receives an explicit tick
+FAIRYHANDOFF|OK|Main leave wrapper does not duplicate Galaxy scheduling
+FAIRYHANDOFF|OK|PauseMenu owns exactly one Fairy Pond Galaxy restart
+FAIRYHANDOFF|OK|Opera completion waits for the in-Hall reveal before persisting
+FAIRYHANDOFF|OK|isolated handoff probe covers the guided reverse walk
+FAIRYHANDOFF|OK|route probe covers fresh door is dormant
+FAIRYHANDOFF|OK|route probe covers plot reveal transforms into the available Butterfly Gate
+FAIRYHANDOFF|OK|route probe covers reveal creates exactly one hotspot
+FAIRYHANDOFF|OK|route probe covers open route removes the reveal pointer
+FAIRYHANDOFF|OK|route probe covers Hall suspend/resume preserves camera offset
+FAIRYHANDOFF|OK|license ledger covers moonflower_door_closed.png
+FAIRYHANDOFF|OK|license ledger covers butterfly_gate_available.png
+FAIRYHANDOFF|OK|license ledger covers fairy_conservatory_{dormant,available}_hall_1280x720.png
+FAIRYHANDOFF|OK|license ledger covers rainbow_walkway.png
+FAIRYHANDOFF|OK|license ledger covers butterfly_house.png
+FAIRYHANDOFF|OK|license ledger covers fairy_pond_horizon_openai_raw.png
+FAIRYHANDOFF|OK|license ledger covers fairy_pond_native_center_openai_raw.png
+FAIRYHANDOFF|OK|license ledger covers background_panels/{top_left,top_center,top_right,bottom_left,bottom_center,bottom_right}.png
+FAIRYHANDOFF|OK|license ledger covers handoff_background_master_3640x2048.png
+FAIRYHANDOFF|OK|license ledger covers handoff_background_r{0..1}_c{0..3}.png
+FAIRYHANDOFF|OK|license ledger covers rainbow_stage_composite_1280x720.png
+FAIRYHANDOFF|RESULT=OK|failures=0
+OK assets\opera\worlds\actors\roshan_nursery.png size=512x512 coverage=0.370 key_residue=0
+OK assets\opera\worlds\actors\faron_nursery.png size=512x512 coverage=0.269 key_residue=0
+OK assets\opera\worlds\nursery\baby_0.png size=320x320 coverage=0.318 key_residue=0
+OK assets\opera\worlds\nursery\baby_1.png size=320x320 coverage=0.318 key_residue=0
+OK assets\opera\worlds\nursery\baby_2.png size=320x320 coverage=0.318 key_residue=0
+CHECK OK: 42 deterministic files match
+HOTSPOT_ART|result: ALL OK (4 hashes, 2 alpha states, 1 connected object)
+OPERA_BORDERLESS_ART|result: ALL OK (2 subjects, exact hashes, connected alpha, no chroma spill)
+OPERA_ROSHAN_ART|result: ALL OK (13 careers, 208 reviewed frames)
+STORYCLIPS|RESULT|ALL OK |13 clips
+MUSIC|check 01/44|castle_opera_hall
+MUSIC|check 02/44|castle_kitchen
+MUSIC|check 03/44|castle_library
+MUSIC|check 04/44|castle_playroom
+MUSIC|check 05/44|castle_craft_room
+MUSIC|check 06/44|castle_mermaid_pool
+MUSIC|check 07/44|castle_bubble_bath
+MUSIC|check 08/44|castle_dining_room
+MUSIC|check 09/44|castle_royal_bedroom
+MUSIC|check 10/44|castle_sleepover_bedroom
+MUSIC|check 11/44|castle_movie_lounge
+MUSIC|check 12/44|castle_family_gallery
+MUSIC|check 13/44|opera_lobby
+MUSIC|check 14/44|opera_chef
+MUSIC|check 15/44|opera_detective
+MUSIC|check 16/44|opera_ballerina
+MUSIC|check 17/44|opera_candymaker
+MUSIC|check 18/44|opera_doctor
+MUSIC|check 19/44|opera_farmer
+MUSIC|check 20/44|opera_boxer
+MUSIC|check 21/44|opera_magician
+MUSIC|check 22/44|opera_painter
+MUSIC|check 23/44|opera_astronaut
+MUSIC|check 24/44|opera_racer
+MUSIC|check 25/44|opera_popstar
+MUSIC|check 26/44|opera_nursery
+MUSIC|check 27/44|opera_teacher
+MUSIC|check 28/44|opera_boss_dragon
+MUSIC|check 29/44|opera_boss_phantom
+MUSIC|check 30/44|opera_boss_maestro
+MUSIC|check 31/44|northern
+MUSIC|check 32/44|galaxy
+MUSIC|check 33/44|ember
+MUSIC|check 34/44|dungeon_ice
+MUSIC|check 35/44|dungeon_ember
+MUSIC|check 36/44|combat_ice
+MUSIC|check 37/44|combat_fire
+MUSIC|check 38/44|combat_tutorial
+MUSIC|check 39/44|stuffie_battle
+MUSIC|check 40/44|dustboss
+MUSIC|check 41/44|picture_snowman
+MUSIC|check 42/44|picture_garden
+MUSIC|check 43/44|picture_trampoline
+MUSIC|check 44/44|picture_xmas
+MUSIC|result ALL OK|assets/audio/music/area_music_manifest.json
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 5.695s
+
+OK
+AUDIO_REPLACEMENTS|ui_tap|PASS
+AUDIO_QUALITY|check 862/862|PASS
+...............................................................................................
+VISUALAUDIT| stress: 18 cases, 18 stressable checks, 8 fuzz rounds
+VISUALAUDIT| stress: ALL OK
+----------------------------------------------------------------------
+Ran 95 tests in 1655.091s
+
+OK
+VISUALAUDIT| stress: 18 cases, 18 stressable checks, 24 fuzz rounds
+VISUALAUDIT| stress: ALL OK
+
+-- castle ------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         18/52 PNGs are referenced by no script or scene (6.0 MB of superseded art still shipping in the APK)
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.manual_squint_test
+                         no flat art
+  SKIP/COVERAGE_GAP      layering.standee_alpha
+                         zone declares no standees
+  SKIP/COVERAGE_GAP      overdraw.alpha_layers
+                         zone declares no murals
+  SKIP/COVERAGE_GAP      palette.background_recessive
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      palette.figure_ground_luminance
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- courtyard ---------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         zone declares no asset roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no asset roots
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- ember -------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         no PNGs under the zone roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no PNGs
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- fairy_pond --------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       palette.background_recessive
+                         source-average background saturation 0.512 vs foreground 0.457 (ratio 1.12, cap 0.90) is a review risk. These files may represent mutually exclusive states or transparent decorations, so this heuristic cannot establish an in-game failure
+  WARN/REVIEW_OPEN       palette.figure_ground_luminance
+                         source-average figure/ground luminance delta is 0.039 (review threshold 0.040); only a complete current state-local rendered composite can close or confirm this risk
+  MANUAL/MANUAL_OPEN     hygiene.manual_squint_test
+                         14 flats need the human pass this tool cannot do: no words/letters/digits, nothing scary at child eye level, and the M11 squint test (every socket still findable)
+  SKIP/COVERAGE_GAP      palette.rendered_composite_readability
+                         state 'fairy_intro' remains COVERAGE_GAP: probe_visual_audit does not yet enter and freeze the Fairy intro state or bind its live Canvas targets; an adapter-shaped string is not an implemented state transition; state 'fairy_boss' remains COVERAGE_GAP: probe_visual_audit does not yet enter and freeze the Fairy boss state or bind its live Canvas targets; an adapter-shaped string is not an implemented state transition
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+
+-- galaxy ------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         32/32 PNGs are referenced by no script or scene (11.7 MB of superseded art still shipping in the APK)
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- living_world ------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         zone declares no asset roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no asset roots
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- northern ----------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         no PNGs under the zone roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no PNGs
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- opera -------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         564/754 PNGs are referenced by no script or scene (178.7 MB of superseded art still shipping in the APK)
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.manual_squint_test
+                         no flat art
+  SKIP/COVERAGE_GAP      layering.standee_alpha
+                         zone declares no standees
+  SKIP/COVERAGE_GAP      overdraw.alpha_layers
+                         zone declares no murals
+  SKIP/COVERAGE_GAP      palette.background_recessive
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      palette.figure_ground_luminance
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- picture_games -----------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- reef --------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         no PNGs under the zone roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no PNGs
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- sky_lagoon --------------------------------------------------
+  ERROR/FAIL             layering.depth_spread
+                         builder exposes 3D stage types; 3D depth is rejected rather than credited as Canvas draw-order evidence
+  ERROR/FAIL             layering.engine_layer_api
+                         builder still reaches canonical spatial stage/resource/API debt; it cannot satisfy the Canvas 2D contract
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  ERROR/FAIL             layering.occlusion_band
+                         builder implements occlusion with Node3D/Sprite3D; only Canvas draw-order evidence can satisfy the 2D contract
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         47/90 PNGs are referenced by no script or scene (41.2 MB of superseded art still shipping in the APK)
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_activity_frame' ships 2 generations: sky_lagoon_activity_frame_v2.png, sky_lagoon_activity_frame_v3.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_castle_four_tower' ships 2 generations: sky_lagoon_castle_four_tower_v3.png, sky_lagoon_castle_four_tower_v4.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_castle_gate' ships 2 generations: sky_lagoon_castle_gate.png, sky_lagoon_castle_gate_v3.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_plane' ships 2 generations: sky_lagoon_plane.png, sky_lagoon_plane_v4_audited_360.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_pnw_fir_sway' ships 2 generations: sky_lagoon_pnw_fir_sway.png, sky_lagoon_pnw_fir_sway_v2.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_seesaw' ships 3 generations: sky_lagoon_seesaw.png, sky_lagoon_seesaw_v4.png, sky_lagoon_seesaw_v4_compact.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_slide' ships 3 generations: sky_lagoon_slide.png, sky_lagoon_slide_v3.png, sky_lagoon_slide_v3_compact.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_swing' ships 3 generations: sky_lagoon_swing.png, sky_lagoon_swing_v3.png, sky_lagoon_swing_v3_compact.png
+  WARN/REVIEW_OPEN       palette.background_recessive
+                         source-average background saturation 0.555 vs foreground 0.420 (ratio 1.32, cap 0.90) is a review risk. These files may represent mutually exclusive states or transparent decorations, so this heuristic cannot establish an in-game failure
+  WARN/REVIEW_OPEN       palette.figure_ground_luminance
+                         source-average figure/ground luminance delta is 0.015 (review threshold 0.040); only a complete current state-local rendered composite can close or confirm this risk
+  WARN/REVIEW_OPEN       texture.vram_compressible
+                         9/40 textures are non-power-of-two: 11.2 MB that must ship uncompressed on the Mali GPU
+  MANUAL/MANUAL_OPEN     hygiene.manual_squint_test
+                         19 flats need the human pass this tool cannot do: no words/letters/digits, nothing scary at child eye level, and the M11 squint test (every socket still findable)
+  SKIP/COVERAGE_GAP      layering.mural_is_a_stack
+                         declared layers need runtime Canvas evidence; run scripts/probe_visual_audit.gd
+  SKIP/COVERAGE_GAP      palette.rendered_composite_readability
+                         needs state-local viewport-composite evidence from scripts/probe_visual_audit.gd
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+
+-- storybook_ui ------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         zone declares no asset roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no asset roots
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+==============================================================
+VISUALAUDIT| ERROR=15  WARN=17  MANUAL=2  INFO=126  SKIP=87
+VISUALAUDIT| STATE FAIL=15  REVIEW_OPEN=17  MANUAL_OPEN=2  COVERAGE_GAP=87  WAIVED=0  PASS=32  NOT_APPLICABLE=94  RESULT=UNSATISFIED
+cloud_single_drift       OK                   LabDelta=5.1 keyDelta=94deg density=1.82x
+plane                    OK                   LabDelta=13.2 keyDelta=12deg density=1.86x
+swing                    OK                   LabDelta=7.0 keyDelta=122deg density=3.37x
+slide                    OK                   LabDelta=14.5 keyDelta=153deg density=1.83x
+castle_four_tower        OK                   LabDelta=0.7 keyDelta=5deg density=2.00x
+roshan_idle_directional  OK                   LabDelta=1.8 keyDelta=14deg density=1.47x
+roshan_swim_front        OK                   LabDelta=9.1 keyDelta=76deg density=1.47x
+seesaw                   OK                   LabDelta=2.5 keyDelta=12deg density=1.89x
+pnw_tree_sticker_tall    OK                   LabDelta=2.3 keyDelta=79deg density=2.48x
+SCENE_CONGRUENCY 9/9
+SKY_LAGOON_LAYOUT_AUDIT|ALL OK
+{
+  "cards": 51,
+  "invisible_depth_failures": 0,
+  "contact": "audit/castle_sprite3d/castle_card_alpha_contact.png"
+}
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.004s
+
+OK
+zone                n |    clip% in->out |   crush% in->out | budget
+------------------------------------------------------------------------------
+castle_room        80 |   0.89 ->   0.89   |   1.25 ->   1.25   | clip<=6.0 crush<=2.5
+sky_lagoon         31 |   0.21 ->   0.08   |   0.00 ->   2.33   | clip<=1.0 crush<=4.0
+bright_pastel      80 |   6.08 ->  14.47   |   0.47 ->   2.16   | clip<=18.0 crush<=3.0
+
+GRADE HEADROOM OK
+{
+  "rooms": 8,
+  "unique_atlases": 33,
+  "physical_instances": 38,
+  "average_items_per_room": 4.75,
+  "maximum_depth_coverage": 0.8627,
+  "maximum_background_like_fraction": 0.0586,
+  "minimum_chassis_alpha_iou": 0.2014,
+  "minimum_sampled_roshan_visibility": 0.1583,
+  "minimum_material_changed_fraction": 0.0074,
+  "minimum_source_silhouette_retention": 0.9894,
+  "maximum_audio_sync_error_seconds": 0.0
+}
+CASTLE INTERACTION AUDIT: ALL OK
+CASTLEV2|NORMALIZATION_OK|assets=33|padding=6|unique_min=4|transactional=true
+CASTLEV2|RESULT|OK|assets=29|instances=34|average=4.86|water=5|spring=6|max_room_rgba_mib=16.00
+CASTLE_V4_DELIVERY|RESULT=OK|mode=CHECK|assets=12|native_background_rooms=7
+CASTLE_NATIVE|RESULT=OK|painted_source_ownership=true|duplicates=0
+PIXEL_OWNERSHIP|RESULT|OK|castle_rooms=7|opera_worlds=2
+PIXEL_OWNERSHIP|RESULT|OK|castle_rooms=7|opera_worlds=2
+CASTLE_DEPTH_REFINE|RESULT=OK|cards=16|hidden_rgb=0
+{
+  "active_cards": 12,
+  "error_count": 0,
+  "manifest": "assets_src/castle/depth_cards/static_depth_card_refinement.json",
+  "ok": true,
+  "retired_cards": 5,
+  "runtime_layout": "scripts/arena/castle_rooms_25d.gd",
+  "runtime_pool_mid_references": [],
+  "verified_cards": 12
+}
+................................................................
+----------------------------------------------------------------------
+Ran 64 tests in 15.952s
+
+OK
+CASTLE_INTERACTION_FRAME_REVIEW|CANDIDATE|path=audit/castle_interaction_frame_review_v4/castle_interaction_frame_candidate_v4.json|sha256=6832b5f60b98e0df8973b76c2601f49f8ebfdffe65d4126bef88ba50b273ade0
+CASTLE_INTERACTION_FRAME_REVIEW|RESULT=OK|assets=12|frames=96|reviewer=Luna visual re-review 2026-09-01
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[godot-mcp] Plugin initialized
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[godot-mcp] Server listening on 127.0.0.1:6550 [Localhost]
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (52 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | MCPAnimationCommands[39m[0m
+[   1% ] [90m[1mupdate_scripts_classes[22m | MCPDebugCommands[39m[0m
+[   3% ] [90m[1mupdate_scripts_classes[22m | MCPExecCommands[39m[0m
+[   5% ] [90m[1mupdate_scripts_classes[22m | MCPGameTimeCommands[39m[0m
+[   7% ] [90m[1mupdate_scripts_classes[22m | MCPInputCommands[39m[0m
+[   9% ] [90m[1mupdate_scripts_classes[22m | MCPMeshCommands[39m[0m
+[  11% ] [90m[1mupdate_scripts_classes[22m | MCPNodeCommands[39m[0m
+[  13% ] [90m[1mupdate_scripts_classes[22m | MCPProfilerCommands[39m[0m
+[  15% ] [90m[1mupdate_scripts_classes[22m | MCPProjectCommands[39m[0m
+[  16% ] [90m[1mupdate_scripts_classes[22m | MCPResourceCommands[39m[0m
+[  18% ] [90m[1mupdate_scripts_classes[22m | MCPRuntimeStateCommands[39m[0m
+[  20% ] [90m[1mupdate_scripts_classes[22m | MCPScene3DCommands[39m[0m
+[  22% ] [90m[1mupdate_scripts_classes[22m | MCPSceneCommands[39m[0m
+[  24% ] [90m[1mupdate_scripts_classes[22m | MCPScreenshotCommands[39m[0m
+[  26% ] [90m[1mupdate_scripts_classes[22m | MCPSelectionCommands[39m[0m
+[  28% ] [90m[1mupdate_scripts_classes[22m | MCPSystemCommands[39m[0m
+[  30% ] [90m[1mupdate_scripts_classes[22m | MCPTilemapCommands[39m[0m
+[  32% ] [90m[1mupdate_scripts_classes[22m | MCPBaseCommand[39m[0m
+[  33% ] [90m[1mupdate_scripts_classes[22m | MCPConstants[39m[0m
+[  35% ] [90m[1mupdate_scripts_classes[22m | MCPDebuggerPlugin[39m[0m
+[  37% ] [90m[1mupdate_scripts_classes[22m | MCPEnums[39m[0m
+[  39% ] [90m[1mupdate_scripts_classes[22m | MCPLog[39m[0m
+[  41% ] [90m[1mupdate_scripts_classes[22m | MCPLogger[39m[0m
+[  43% ] [90m[1mupdate_scripts_classes[22m | MCPUtils[39m[0m
+[  45% ] [90m[1mupdate_scripts_classes[22m | MCPJoyNames[39m[0m
+[  47% ] [90m[1mupdate_scripts_classes[22m | MCPKeyNames[39m[0m
+[  49% ] [90m[1mupdate_scripts_classes[22m | MCPExecGuard[39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | MCPFrameProfiler[39m[0m
+[  52% ] [90m[1mupdate_scripts_classes[22m | MCPGameBridge[39m[0m
+[  54% ] [90m[1mupdate_scripts_classes[22m | MCPRuntimeStateSampler[39m[0m
+[  56% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  58% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  60% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  62% ] [90m[1mupdate_scripts_classes[22m | MCPCommandRouter[39m[0m
+[  64% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  66% ] [90m[1mupdate_scripts_classes[22m | MCPWebSocketServer[39m[0m
+[  67% ] [90m[1mupdate_scripts_classes[22m | CastleFixtureRigs[39m[0m
+[  69% ] [90m[1mupdate_scripts_classes[22m | CastleRooms25D[39m[0m
+[  71% ] [90m[1mupdate_scripts_classes[22m | DayOneCastleDressing[39m[0m
+[  73% ] [90m[1mupdate_scripts_classes[22m | DayOneDustBunnySwimmer[39m[0m
+[  75% ] [90m[1mupdate_scripts_classes[22m | DollsGame[39m[0m
+[  77% ] [90m[1mupdate_scripts_classes[22m | PictureGames[39m[0m
+[  79% ] [90m[1mupdate_scripts_classes[22m | PoolSeahorseRescueActivity[39m[0m
+[  81% ] [90m[1mupdate_scripts_classes[22m | PoolSkimmerActivity[39m[0m
+[  83% ] [90m[1mupdate_scripts_classes[22m | PoolWaterfallActivity[39m[0m
+[  84% ] [90m[1mupdate_scripts_classes[22m | ReefMain[39m[0m
+[  86% ] [90m[1mupdate_scripts_classes[22m | OperaGeologySurface[39m[0m
+[  88% ] [90m[1mupdate_scripts_classes[22m | OperaWorldBackdrop2D[39m[0m
+[  90% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  92% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  94% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  96% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (76 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | cradle_focus_painted.png[39m[0m
+[   1% ] [90m[1m_update_scan_actions[22m | safe_landing_halo_painted.png[39m[0m
+[   2% ] [90m[1m_update_scan_actions[22m | garden_backdrop_painted.png[39m[0m
+[   3% ] [90m[1m_update_scan_actions[22m | geologist_cave_painted_c0.png[39m[0m
+[   5% ] [90m[1m_update_scan_actions[22m | geologist_cave_painted_c1.png[39m[0m
+[   6% ] [90m[1m_update_scan_actions[22m | geologist_riverbed_painted.png[39m[0m
+[   7% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[   9% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  10% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  11% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  12% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  14% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  15% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  16% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  18% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  19% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  22% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  23% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  24% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  25% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  27% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  28% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  29% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  31% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  32% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  33% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  35% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  36% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  37% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  38% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  41% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  42% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  44% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  45% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  48% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  49% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  51% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  54% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  55% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  57% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  58% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  59% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  61% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  62% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  63% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  64% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  66% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  67% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  68% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  70% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  71% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  72% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  74% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  75% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  76% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  77% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  79% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  80% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  81% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  83% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  84% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  85% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  87% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  88% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  89% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  90% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[  92% ] [90m[1m_update_scan_actions[22m | 01_seeds.png[39m[0m
+[  93% ] [90m[1m_update_scan_actions[22m | 02_sprout.png[39m[0m
+[  94% ] [90m[1m_update_scan_actions[22m | 03_first_flower.png[39m[0m
+[  96% ] [90m[1m_update_scan_actions[22m | 04_win.png[39m[0m
+[  97% ] [90m[1m_update_scan_actions[22m | 05_reentry.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (76 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   1% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   2% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   3% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   5% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   6% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   7% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   9% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  10% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  11% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  12% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  14% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  15% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  16% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  18% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  19% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  20% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  22% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  23% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  24% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  25% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  27% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  28% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  29% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  31% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  32% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  33% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  35% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  36% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  37% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  38% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  40% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  41% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  42% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  44% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  45% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  46% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  48% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  49% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  50% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  51% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  53% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  54% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  55% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  57% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  58% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  59% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  61% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  62% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  63% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  64% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  66% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  67% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  68% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  70% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  71% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  72% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  74% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  75% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  76% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  77% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  79% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  80% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  81% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  83% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  84% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  85% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  87% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  88% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  89% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  90% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  92% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  93% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  94% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  96% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  97% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[   1% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[   2% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[   3% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[   5% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[   6% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[   7% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[   9% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  10% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  11% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  12% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  14% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  15% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  16% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  18% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  19% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  20% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  22% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  23% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  24% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  25% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  27% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  28% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  29% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  31% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  32% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  33% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  35% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  36% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  37% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  38% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  40% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  41% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  42% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  44% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  45% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  46% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  48% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  49% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  50% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  51% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  53% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  54% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  55% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  57% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  58% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  59% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  61% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  62% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  63% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  64% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  66% ] [90m[1mreimport[22m | geologist_riverbed_painted.png[39m[0m
+[  67% ] [90m[1mreimport[22m | geologist_cave_painted_c1.png[39m[0m
+[  68% ] [90m[1mreimport[22m | geologist_cave_painted_c0.png[39m[0m
+[  70% ] [90m[1mreimport[22m | garden_backdrop_painted.png[39m[0m
+[  71% ] [90m[1mreimport[22m | safe_landing_halo_painted.png[39m[0m
+[  72% ] [90m[1mreimport[22m | cradle_focus_painted.png[39m[0m
+[  74% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  75% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  76% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  77% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  79% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  80% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  81% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  83% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  84% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  85% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  87% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  88% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  89% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  90% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  92% ] [90m[1mreimport[22m | 03_first_flower.png[39m[0m
+[  93% ] [90m[1mreimport[22m | 02_sprout.png[39m[0m
+[  94% ] [90m[1mreimport[22m | 01_seeds.png[39m[0m
+[  96% ] [90m[1mreimport[22m | 05_reentry.png[39m[0m
+[  97% ] [90m[1mreimport[22m | 04_win.png[39m[0m
+[  98% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (76 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | Reopening scenes...[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | Loading central editor layout...[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | Loading plugin window layout...[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | Editor layout ready.[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+[godot-mcp] Plugin disabled
+GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0
+GAME2D| STATUS| UNSATISFIED
+GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED
+=== probe_reef_districts ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+REEFDISTRICT|six district centers|OK
+REEFDISTRICT|authored grove count|OK
+REEFDISTRICT|district centers have neutral buffers|OK
+REEFDISTRICT|Faron is within a short swim|OK
+REEFDISTRICT|friend 0 is reachable|OK
+REEFDISTRICT|friend 1 is reachable|OK
+REEFDISTRICT|friend 2 is reachable|OK
+REEFDISTRICT|friend 3 is reachable|OK
+REEFDISTRICT|friend 4 is reachable|OK
+REEFDISTRICT|six regional object signatures|OK
+REEFDISTRICT|two ocean kingdoms|OK
+REEFDISTRICT|pearl has three object families|OK
+REEFDISTRICT|kelp has three object families|OK
+REEFDISTRICT|wreck has three object families|OK
+REEFDISTRICT|moon has three object families|OK
+REEFDISTRICT|rainbow has three object families|OK
+REEFDISTRICT|ice has three object families|OK
+REEFDISTRICT|all grove identities|OK
+REEFDISTRICT|pearl region|OK
+REEFDISTRICT|kelp region|OK
+REEFDISTRICT|wreck region|OK
+REEFDISTRICT|moon region|OK
+REEFDISTRICT|rainbow region|OK
+REEFDISTRICT|ice region|OK
+REEFDISTRICT|Caribbean owns warm reef districts|OK
+REEFDISTRICT|Norway owns kelp and ice districts|OK
+REEFDISTRICT|kelp scatter stays in kelp district|OK
+REEFDISTRICT|cold-water flora stays in ice district|OK
+REEFDISTRICT|mass warm scatter rejects both Norwegian districts|OK
+REEFDISTRICT|Norwegian benthos excludes tropical tokens|OK
+REEFDISTRICT|species use compatible districts|OK
+REEFDISTRICT|friend and portal gateways stay clear|OK
+REEFDISTRICT|hub flattened|OK
+REEFDISTRICT|Faron approach flattened|OK
+REEFDISTRICT|race flat flattened|OK
+REEFDISTRICT|wreck ravine carved|OK
+REEFDISTRICT|moon bowl carved|OK
+REEFDISTRICT|kelp ridge raised|OK
+REEFDISTRICT|every district center has an object signature|OK
+REEFDISTRICT|RESULT|PASS
+PROBE probe_reef_districts process exit: 0
+=== probe_ocean_kingdoms ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+OCEANKINGDOM|main_scene_loads|OK
+OCEANKINGDOM|main_is_reef_main|OK
+OCEANKINGDOM|display_build_starts_at_castle_gate|OK
+OCEANKINGDOM|castle_gate_hub_is_level2|OK
+OCEANKINGDOM|castle_gate_hub_flag|OK
+OCEANKINGDOM|promenade_screen_one_spawn|OK
+OCEANKINGDOM|castle_gate_hub_uses_promenade|OK
+OCEANKINGDOM|promenade_interactions_present|OK
+OCEANKINGDOM|blocked_water_has_no_active_ocean_gate|OK
+OCEANKINGDOM|retired_entry_stays_on_canvas_caribbean|OK
+OCEANKINGDOM|retired_entry_stays_on_canvas_norwegian|OK
+OCEANKINGDOM|retired_entry_stays_on_canvas_|OK
+OCEANKINGDOM|retired_entry_stays_on_canvas_unknown|OK
+OCEANKINGDOM|retired_entries_preserve_progress|OK
+OCEANKINGDOM|authored_session_recovers_stale_empty_world|OK
+OCEANKINGDOM|root_back_opens_menu_without_ocean|OK
+OCEANKINGDOM|public_ocean_callback_stays_on_canvas_caribbean|OK
+OCEANKINGDOM|public_ocean_callback_stays_on_canvas_norwegian|OK
+OCEANKINGDOM|legacy_back_callback_stays_on_canvas|OK
+OCEANKINGDOM|castle_completion_preserves_canvas_and_reward|OK
+RESULT|PASS
+PROBE probe_ocean_kingdoms process exit: 0
+=== probe_audit ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+AUDIT|Day One lock and progressive room contract: OK
+AUDIT|Storybook UI contract: OK
+AUDIT|boot OK, seed=
+AUDIT|Slide Canvas|approved panorama master remains exact 6144x2048 source: OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:820)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)
+       [2] _init (res://scripts/probe_audit.gd:141)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:820)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)
+       [2] _init (res://scripts/probe_audit.gd:141)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:820)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)
+       [2] _init (res://scripts/probe_audit.gd:141)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:820)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)
+       [2] _init (res://scripts/probe_audit.gd:141)
+AUDIT|Slide Canvas|four lossless center tiles pixel-reconstruct one native screen: OK
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:835)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)
+       [2] _init (res://scripts/probe_audit.gd:141)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/characters/friends/two_friends.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:835)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)
+       [2] _init (res://scripts/probe_audit.gd:141)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/props/gen2/clownfish_side.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:835)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)
+       [2] _init (res://scripts/probe_audit.gd:141)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:835)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)
+       [2] _init (res://scripts/probe_audit.gd:141)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:835)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)
+       [2] _init (res://scripts/probe_audit.gd:141)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:835)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)
+       [2] _init (res://scripts/probe_audit.gd:141)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _slide_check_assets (res://scripts/probe_audit.gd:835)
+       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)
+       [2] _init (res://scripts/probe_audit.gd:141)
+AUDIT|Slide Canvas|slide, protected friends, fish, and four Roshan frames are immutable: OK
+AUDIT|Slide Canvas|controller runtime census names only the approved reused art: OK
+AUDIT|Slide Canvas|all reused art families retain repository provenance: OK
+AUDIT|Slide Canvas|one Harper/Fiona fish route is present and initially unawarded: OK
+AUDIT|Slide Canvas|real nondefault camera peek is live before fish entry: OK
+AUDIT|Slide Canvas|neutral fixture starts from an exact nondefault chime context: OK
+AUDIT|Slide Canvas|living-world layer is genuinely live before fish entry: OK
+AUDIT|Slide Canvas|retired Critter Book corner stays absent before fish entry: OK
+AUDIT|Slide Canvas|unmapped axis and d-pad fallback is genuinely live before Canvas entry: OK
+AUDIT|Slide Canvas|direct launch synchronously enters only fish Canvas: OK
+AUDIT|Slide Canvas|fish entry and real terminal pad events retire every raw fallback: OK
+AUDIT|Slide Canvas|entry owns one stable Canvas layer below pause and above HUD: OK
+AUDIT|Slide Canvas|entry snapshots the exact nondefault lens and clears viewport ownership: OK
+AUDIT|Slide Canvas|entry keeps the retired Critter corner absent with no extra persistent click target: OK
+AUDIT|Slide Canvas|entry snapshots and removes the living-world layer from lower drawing: OK
+AUDIT|Slide Canvas|stage tree contains only the exact backdrop, actors, fish, pips, and dual steer cues: OK
+AUDIT|Slide Canvas|controller route and mercy semantics are exact: OK
+AUDIT|Slide Canvas|post-Canvas census maps every touch, mouse, key, pad, and axis terminal exactly: OK
+AUDIT|Slide Canvas|opening objective is exact voice plus persistent non-reader steer cues: OK
+AUDIT|Slide Canvas|runtime binds exact native tiles through one common transform: OK
+AUDIT|Slide Canvas|runtime binds protected friends, slide, Roshan, five fish and five pips: OK
+AUDIT|Slide Canvas|live Canvas owns exactly eleven reused texture resources within 24 MiB: OK
+AUDIT|Slide Canvas|opening black cover owns the exact 1280x720 viewport above fish Canvas: OK
+AUDIT|Slide Canvas|controller exposes the exact completion-reward chime handoff seam: OK
+AUDIT|Slide Canvas|live fish Canvas can hold unclaimed real raw RIGHT_X and A fallback: OK
+AUDIT|Slide Canvas|entry OS-loss fixture begins before the real fade callback: OK
+AUDIT|Slide Canvas|entry focus-out plus app-paused nests both reasons under black: OK
+AUDIT|Slide Canvas|entry partial restore cannot override remaining focus loss: OK
+AUDIT|Slide Canvas|entry full restore retains a guard while fade still owns input: OK
+AUDIT|Slide Canvas|opening black cover swallows a complete touch neutrally: OK
+AUDIT|Slide Canvas|first restored frame retires only context guard under black: OK
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|opening restore holds ride progress through the fade callback: OK
+AUDIT|Slide Canvas|first active boundary after callback is still source-free at the shell: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|startup becomes ready only after the fade callback boundary: OK
+AUDIT|Slide Canvas|revealed cover remains full-viewport and input-transparent at 1280x720: OK
+AUDIT|Slide Canvas|return poll vocabulary owns Enter, keypad Enter, X, and Y: OK
+AUDIT|Slide Canvas|first live fish Canvas frame disables hidden 3D camera rendering: OK
+AUDIT|Slide Canvas|1280x720 visible sprite texture coverage 1.472 screens; estimated painter coverage 3.472 screens includes exactly two ColorRects; native Mobile fill/FPS capture remains authoritative: OK
+AUDIT|Slide Canvas|actual 1280x720 stage is opaque, readable, and fully contained: OK
+AUDIT|Slide Canvas|1280x800 visible sprite texture coverage 1.422 screens; estimated Canvas painter coverage 3.422 screens: OK
+AUDIT|Slide Canvas|same live stage reflows safely to 1280x800: OK
+AUDIT|Slide Canvas|clear fade cover reflows to the exact 1280x800 viewport without rebuilding: OK
+AUDIT|Slide Canvas|restored 1280x720 visible sprite texture coverage 1.469 screens; estimated Canvas painter coverage 3.469 screens: OK
+AUDIT|Slide Canvas|1280x720 restore needs no rebuild and retains all semantics: OK
+AUDIT|Slide Canvas|clear fade cover restores the exact 1280x720 viewport without rebuilding: OK
+AUDIT|Slide Canvas|viewport resize remains gameplay-frozen while nested OS loss owns input: OK
+AUDIT|Slide Canvas|full resize restore starts with the source-free controller guard: OK
+AUDIT|Slide Canvas|first restored resize boundary is fully laid out at 1280x800 without advancing the course: OK
+AUDIT|Slide Canvas|first post-resize neutral poll retains the independent latch: OK
+AUDIT|Slide Canvas|second post-resize neutral poll retires the independent latch: OK
+AUDIT|Slide Canvas|viewport resize remains gameplay-frozen while nested OS loss owns input: OK
+AUDIT|Slide Canvas|full resize restore starts with the source-free controller guard: OK
+AUDIT|Slide Canvas|first restored resize boundary is fully laid out at 1280x720 without advancing the course: OK
+AUDIT|Slide Canvas|first post-resize neutral poll retains the independent latch: OK
+AUDIT|Slide Canvas|second post-resize neutral poll retires the independent latch: OK
+AUDIT|Slide Canvas|one rendered frame produces exactly one fish controller tick: OK
+AUDIT|Slide Canvas|ranking clock and slide motion consume the same delta once: OK
+AUDIT|Slide Canvas|real Viewport presses at each actual outward tip light only that cue: OK
+AUDIT|Slide Canvas|tip steering moves the lane in its matching direction and releases neutrally: OK
+AUDIT|Slide Canvas|device forget and controller cancel clear active cue pixels immediately: OK
+AUDIT|Slide Canvas|real touch, mouse, key, pad, and axis own distinct sources: OK
+AUDIT|Slide Canvas|wrong-device releases cannot retire any concrete owner: OK
+AUDIT|Slide Canvas|pad disconnect retires only that device's concrete owners: OK
+AUDIT|Slide Canvas|matching releases clear every controller and global owner: OK
+AUDIT|Slide Canvas|fresh distinct input deliberately steers after census cleanup: OK
+AUDIT|Slide Canvas|touch source is live before pause: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|pause converts the exact held source to a neutral latch: OK
+AUDIT|Slide Canvas|wrong paused release cannot clear another finger: OK
+AUDIT|Slide Canvas|matching release clears its latch while the sheet remains open: OK
+AUDIT|Slide Canvas|focused real Resume restores the same live stage neutrally: OK
+AUDIT|Slide Canvas|fresh mouse gesture steers after real Resume: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|pause sheet exposes the visible Sticker doorway: OK
+AUDIT|Slide Canvas|higher Sticker sheet opens without closing or steering the slide: OK
+AUDIT|Slide Canvas|held release clears neutrally through the higher overlay: OK
+AUDIT|Slide Canvas|real Sticker Back returns to the untouched live slide: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|context-order fixture reaches the real Sticker doorway: OK
+AUDIT|Slide Canvas|Sticker context fixture is source-free with collection UI suppressed: OK
+AUDIT|Slide Canvas|Sticker plus nested OS loss arms both reasons in either order: OK
+AUDIT|Slide Canvas|nested OS loss leaves the resumed Sticker stage byte-frozen: OK
+AUDIT|Slide Canvas|partial OS restore cannot unlock the Sticker-backed ride: OK
+AUDIT|Slide Canvas|full OS restore initially retains its source-free guard: OK
+AUDIT|Slide Canvas|overlay housekeeping retires the guard without one ride tick: OK
+AUDIT|Slide Canvas|two trustworthy neutral polls reopen Sticker controls source-free: OK
+AUDIT|Slide Canvas|real Sticker Back remains usable after either OS restore order: OK
+AUDIT|Slide Canvas|fresh source works only after the restored overlay closes: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|context-order fixture reaches the real Sticker doorway: OK
+AUDIT|Slide Canvas|Sticker context fixture is source-free with collection UI suppressed: OK
+AUDIT|Slide Canvas|Sticker plus nested OS loss arms both reasons in either order: OK
+AUDIT|Slide Canvas|nested OS loss leaves the resumed Sticker stage byte-frozen: OK
+AUDIT|Slide Canvas|partial OS restore cannot unlock the Sticker-backed ride: OK
+AUDIT|Slide Canvas|full OS restore initially retains its source-free guard: OK
+AUDIT|Slide Canvas|overlay housekeeping retires the guard without one ride tick: OK
+AUDIT|Slide Canvas|two trustworthy neutral polls reopen Sticker controls source-free: OK
+AUDIT|Slide Canvas|real Sticker Back remains usable after either OS restore order: OK
+AUDIT|Slide Canvas|fresh source works only after the restored overlay closes: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|polled restore fixture owns a real focused Sticker Back control: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|claimed terminal axis and D-pad releases neutralize raw overlay state: OK
+AUDIT|Slide Canvas|lost-context neutral polling cannot retire the axis latch or revive the cursor: OK
+AUDIT|Slide Canvas|partial polling restore cannot close or save the Sticker overlay: OK
+AUDIT|Slide Canvas|neutral full restore initially owns both controller and axis guards: OK
+AUDIT|Slide Canvas|Sticker-owned first restore frame lays out opaque 1280x800 without ride motion: OK
+AUDIT|Slide Canvas|first trustworthy post-guard neutral poll retains the axis latch: OK
+AUDIT|Slide Canvas|second trustworthy post-guard neutral poll clears the axis latch: OK
+AUDIT|Slide Canvas|second lost frame observes neutral axes and re-arms the latch: OK
+AUDIT|Slide Canvas|second partial restore still cannot retire the axis latch: OK
+AUDIT|Slide Canvas|held-high polling restore initially keeps both guards: OK
+AUDIT|Slide Canvas|first source-free restore frame emits no held poll edge, cursor motion, or save: OK
+AUDIT|Slide Canvas|delayed real A press is recorded but cannot activate focused Back during poll wait: OK
+AUDIT|Slide Canvas|held restored axis, buttons, and D-pad remain quarantined until explicit neutral: OK
+AUDIT|Slide Canvas|first real neutral drain sample keeps the two-frame latch armed: OK
+AUDIT|Slide Canvas|fresh overlay shortcut waits through its real grace without ride motion: OK
+AUDIT|Slide Canvas|fresh post-neutral D-pad is a real owned steering source: OK
+AUDIT|Slide Canvas|neutral then fresh axis, B, and D-pad affect only their intended owners: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|paused restore fixture focuses the dangerous real Leave control: OK
+AUDIT|Slide Canvas|paused nested OS loss preserves stage and Leave focus in either order: OK
+AUDIT|Slide Canvas|paused full restore retains controller and two-poll guards: OK
+AUDIT|Slide Canvas|stale A, Enter, and Start cannot activate focused Leave before neutral: OK
+AUDIT|Slide Canvas|first trustworthy paused neutral frame keeps the poll latch: OK
+AUDIT|Slide Canvas|second trustworthy paused neutral frame releases only the poll latch: OK
+AUDIT|Slide Canvas|fresh focused Resume works only after both paused neutral frames: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|paused restore fixture focuses the dangerous real Leave control: OK
+AUDIT|Slide Canvas|paused nested OS loss preserves stage and Leave focus in either order: OK
+AUDIT|Slide Canvas|paused full restore retains controller and two-poll guards: OK
+AUDIT|Slide Canvas|stale A, Enter, and Start cannot activate focused Leave before neutral: OK
+AUDIT|Slide Canvas|first trustworthy paused neutral frame keeps the poll latch: OK
+AUDIT|Slide Canvas|second trustworthy paused neutral frame releases only the poll latch: OK
+AUDIT|Slide Canvas|fresh focused Resume works only after both paused neutral frames: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|child Menu omits the parent-only Developer doorway: OK
+AUDIT|Slide Canvas|focus-out then app-paused nests two loss reasons behind one guard: OK
+AUDIT|Slide Canvas|lost-context traffic cannot pause, steer, advance, or enter a census: OK
+AUDIT|Slide Canvas|partial app restore cannot override remaining focus loss: OK
+AUDIT|Slide Canvas|full restore retains a source-free first-tick guard: OK
+AUDIT|Slide Canvas|pre-tick restored traffic is swallowed without a source: OK
+AUDIT|Slide Canvas|first restored frame clears only the controller guard and preserves motion: OK
+AUDIT|Slide Canvas|first no-overlay neutral poll keeps the restored ride frozen: OK
+AUDIT|Slide Canvas|second no-overlay neutral poll releases the ride to normal ticking: OK
+AUDIT|Slide Canvas|fresh different source works after missing old releases: OK
+AUDIT|Slide Canvas|reverse ordering remains lost until the app reason restores: OK
+AUDIT|Slide Canvas|reverse full restore arms the same first-tick guard: OK
+AUDIT|Slide Canvas|reverse first frame clears only the guard without stale input: OK
+AUDIT|Slide Canvas|reverse first neutral poll remains clock- and source-free: OK
+AUDIT|Slide Canvas|reverse second neutral poll clears the independent latch: OK
+AUDIT|Slide Canvas|claimed, unclaimed, Pause, overlay, and OS traffic preserve living-world bytes: OK
+AUDIT|Slide Canvas|neutral-exit fixture holds unclaimed raw RIGHT_X and A until teardown: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|real pause sheet exposes a neutral visible BACK control: OK
+AUDIT|Slide Canvas|focused real BACK synchronously restores the exact Reef context: OK
+AUDIT|Slide Canvas|neutral BACK changes no reward bytes and preserves held raw levels under guard: OK
+AUDIT|Slide Canvas|neutral stage_close exact-restores pre-entry chime volume and pitch: OK
+AUDIT|Slide Canvas|neutral Leave return guard freezes world through fade and nested context loss: OK
+AUDIT|Slide Canvas|neutral Leave guard terminals retire Melody sources before any context loss: OK
+AUDIT|Slide Canvas|neutral Leave neutral frame two remains Player-frozen until deferred retirement: OK
+AUDIT|Slide Canvas|neutral Leave only a fresh next-frame gesture moves after quarantine: OK
+AUDIT|Slide Canvas|fish Canvas teardown is synchronous, idempotent, and fully freed: OK
+AUDIT|Slide Canvas|Hybrid touch and native mouse stick/action releases retire both entry censuses: OK
+AUDIT|Slide Canvas|bounded return guard is clear before Classic first-win reentry: OK
+AUDIT|Slide Canvas|gold-run unmapped pad fallback is live before exact fish entry: OK
+AUDIT|Slide Canvas|direct re-entry enters the same exact fish Canvas route: OK
+AUDIT|Slide Canvas|Classic entry hides the exact captured living-world layer: OK
+AUDIT|Slide Canvas|gold entry terminal pad events stay Canvas-owned and raw-neutral: OK
+AUDIT|Slide Canvas|gold run holds real unclaimed raw fallback until exact teardown: OK
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|Sticker freeze fixture begins with deliberate real steering: OK
+AUDIT|Slide Canvas|no Pause overlay control competes with global Back: OK
+AUDIT|Slide Canvas|internal pause fixture raises the retained Menu sheet: OK
+AUDIT|Slide Canvas|freeze fixture uses the visible Pause Sticker doorway: OK
+AUDIT|Slide Canvas|resumed higher Sticker sheet retains the exact live slide stage: OK
+AUDIT|Slide Canvas|held source releases neutrally through the resumed Sticker sheet: OK
+AUDIT|Slide Canvas|Sticker stays open beyond a full ride with time, catch, reward, save, and stage frozen: OK
+AUDIT|Slide Canvas|real overlapping Sticker Back returns to the same frozen slide: OK
+AUDIT|Slide Canvas|fresh source resumes the same ride after the overlapping Back: OK
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|near-finish held RIGHT_X and D-pad cannot outlast the remaining ride: OK
+AUDIT|Slide Canvas|release requires one frozen and one retiring neutral poll before resuming: OK
+AUDIT|Slide Canvas|raw ride observes exactly its original Canvas layer exit: OK
+AUDIT|Slide Canvas|5-fish completion return guard freezes world through fade and nested context loss: OK
+AUDIT|Slide Canvas|5-fish completion guard terminals retire Melody sources before any context loss: OK
+AUDIT|Slide Canvas|5-fish completion neutral frame two remains Player-frozen until deferred retirement: OK
+AUDIT|Slide Canvas|5-fish completion only a fresh next-frame gesture moves after quarantine: OK
+AUDIT|Slide Canvas|post-overlay deliberate Classic steering collects five and wins gold: OK
+AUDIT|Slide Canvas|first win persists medal and friend exactly once per write owner: OK
+AUDIT|Slide Canvas|first-win teardown hands chime to the 0.90 fanfare instead of restoring entry tuning: OK
+AUDIT|Slide Canvas|first win restores position, pose, environment, and music: OK
+AUDIT|Slide Canvas|bounded return guard is clear before three-fish replay reentry: OK
+AUDIT|Slide Canvas|already-won replay enters from deliberately nondefault chime tuning: OK
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|raw ride observes exactly its original Canvas layer exit: OK
+AUDIT|Slide Canvas|3-fish completion return guard freezes world through fade and nested context loss: OK
+AUDIT|Slide Canvas|3-fish completion guard terminals retire Melody sources before any context loss: OK
+AUDIT|Slide Canvas|3-fish completion neutral frame two remains Player-frozen until deferred retirement: OK
+AUDIT|Slide Canvas|3-fish completion only a fresh next-frame gesture moves after quarantine: OK
+AUDIT|Slide Canvas|deliberate three-fish replay earns silver without downgrading gold: OK
+AUDIT|Slide Canvas|silver replay handoff survives synchronous stage_close and its next frame: OK
+AUDIT|Slide Canvas|replay writes once, preserves exact save bytes, and restores context: OK
+AUDIT|Slide Canvas|silver celebration volume and pitch remain live across following frames: OK
+AUDIT|Slide Canvas|bounded return guard is clear before zero-fish mercy reentry: OK
+AUDIT|Slide Canvas|zero-fish replay also enters from nondefault chime tuning: OK
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|raw ride observes exactly its original Canvas layer exit: OK
+AUDIT|Slide Canvas|0-fish completion return guard freezes world through fade and nested context loss: OK
+AUDIT|Slide Canvas|0-fish completion guard terminals retire Melody sources before any context loss: OK
+AUDIT|Slide Canvas|0-fish completion neutral frame two remains Player-frozen until deferred retirement: OK
+AUDIT|Slide Canvas|0-fish completion only a fresh next-frame gesture moves after quarantine: OK
+AUDIT|Slide Canvas|deliberate zero-fish mercy ride completes successfully for bronze: OK
+AUDIT|Slide Canvas|bronze replay handoff survives synchronous stage_close and its next frame: OK
+AUDIT|Slide Canvas|zero-fish replay has no fail/timer path and preserves save/context: OK
+AUDIT|Slide Canvas|slide medal thresholds remain exact at zero, three, and five fish: OK
+AUDIT|Slide Canvas|bounded return guard is clear before Penguin and race regressions: OK
+AUDIT|Slide Canvas|Penguin chase remains the non-Canvas shared slide course: OK
+AUDIT|Slide Canvas|Penguin chase retains ordinary raw axis and d-pad bookkeeping: OK
+AUDIT|Slide Canvas|Penguin cleanup restores its captured world context: OK
+AUDIT|Slide Canvas|game equals race still builds only the shared play-place course: OK
+AUDIT|Slide Canvas|game=race retains ordinary raw axis and d-pad bookkeeping: OK
+AUDIT|Slide Canvas|shared race cleanup leaves no fish Canvas or context drift: OK
+AUDIT|Harper/Fiona Canvas trusted suite: OK
+AUDIT|Aquatic patrol terrain clearance: OK
+AUDIT|Seek Canvas authored atlas and v5 meadow art: OK
+AUDIT|Critter Book: OK
+AUDIT|Evie and Lamb-a' [seek]: WON cutaway=true wall_s=1.1
+AUDIT|Slide Canvas|fade reveal restores input only at the real callback boundary: OK
+AUDIT|Slide Canvas|bounded first active tick retires the startup release guard: OK
+AUDIT|Slide Canvas|near-finish held RIGHT_X and D-pad cannot outlast the remaining ride: OK
+AUDIT|Slide Canvas|release requires one frozen and one retiring neutral poll before resuming: OK
+AUDIT|Slide Canvas|raw ride observes exactly its original Canvas layer exit: OK
+AUDIT|Slide Canvas|5-fish completion return guard freezes world through fade and nested context loss: OK
+AUDIT|Slide Canvas|5-fish completion guard terminals retire Melody sources before any context loss: OK
+AUDIT|Slide Canvas|5-fish completion neutral frame two remains Player-frozen until deferred retirement: OK
+AUDIT|Slide Canvas|5-fish completion only a fresh next-frame gesture moves after quarantine: OK
+AUDIT|Harper and Fiona [slide]: WON cutaway=true wall_s=2.6
+AUDIT|Faron [dolls]: WON cutaway=false wall_s=2.2
+AUDIT|Rainbow Canvas theater: OK
+AUDIT|Daddy Mermaid [melody]: WON cutaway=true wall_s=3.1
+AUDIT|Wacky and Chuck [fetch]: WON cutaway=true wall_s=2.5
+AUDIT|Toy Castle [brawl]: WON co-op
+AUDIT|Can of Beans: OK
+AUDIT|Tank idle rig: OK sprite=true swimming=true
+AUDIT|Animal tanks: OK turtle freed and saved
+AUDIT|Level 2 entry: OK
+AUDIT|Level 2 three-screen promenade: OK targets=4
+AUDIT|Level 2 castle Sprite2D stage: OK game=level2 phase=hall mg_kind= stars_got=0 l2_open=false
+AUDIT|retired 3D castle absent: OK
+AUDIT|castle physical doors plus single global Back: OK
+AUDIT|Royal Hall Crown finish: OK
+AUDIT|save file: OK
+AUDIT|retired reef finale stays dormant: OK
+AUDIT|persisted wins: 5/5
+AUDIT|total wall time: 23.4s
+PROBE probe_audit process exit: 0
+=== probe_passive ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PROBE probe_passive process exit: 127
+=== probe_living_world ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+LIVING|complete_stage_count: OK catalog=100 expected=100
+LIVING|exact_stage_inventory: OK
+LIVING|retired Opera boss stages are absent from the living-world catalog: OK
+LIVING|stage_group_coverage: OK {"castle_room":13,"combat":2,"dance":1,"ember":1,"ember_dungeon":6,"entry":1,"galaxy":2,"ice_dungeon":10,"kart":2,"minigame":12,"north":7,"opera_act":15,"overlay":6,"picture_game":4,"reef":6,"sky_legacy":8,"sky_promenade":3,"stuffie":1}
+LIVING|two_ambient_plus_one_idle_contract: OK ambient=200 idle=100
+LIVING|dynamic_builder_tables_covered: OK
+LIVING|a quiet-group activity pauses the ambient layer only while mounted: OK before=false during=true
+LIVING|living-world Castle identity follows every real career room: OK
+LIVING|living-world Opera fixture uses the room-owned production entry: OK
+LIVING|sparse Nursery save slot routes to opera act fifteen: OK
+LIVING|living-world Opera route exits through product teardown: OK
+LIVING|every_stage_enters_and_idles: OK events=100 expected=100 generations=313
+LIVING|passive_idle_never_awards_progress: OK
+LIVING|reentry_node_and_tween_bounds: OK tweens=2 baseline=2
+LIVING|real_input_resets_idle: OK touch=true key=true axis=true stick=true interaction=true button=true
+LIVING|long_idle_bounded_repeats: OK events=7 counts={"canvases":1,"layers":1,"particles":0,"timers":0,"tweens":0}
+LIVING|long_idle_stays_passive: OK
+LIVING|stage_exit_cleanup: OK
+LIVING|setup_idempotent: OK
+LIVING|result: ALL OK
+PROBE probe_living_world process exit: 0
+=== probe_load ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+save debounce cap (>4.0s forced flush): OK
+loaded trophies: 0/5  finale_done: false
+crafted fish data restored: 1
+released tank friend data restored: turtle
+Critter Book restored: coral_clownfish
+castle logo restored: purple puppy
+legacy resting companion recovered intact on first launch
+sparse Opera mask restored intact on first launch
+legacy Butterfly World access grandfathered on first launch
+legacy companion save rewrote only the retired resting flag
+legacy resting companion recovered intact on second launch
+sparse Opera mask restored intact on second launch
+legacy Butterfly World access grandfathered on second launch
+Day One Continue lands in a live bathroom (60/60 world frames, no rebuilds)
+Day One empty-world watchdog converges once (no per-frame rebuild)
+PROBE probe_load process exit: 0
+=== probe_rank ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+RANK|boot OK
+RANK|fresh state: OK no medals
+RANK|tier math: OK 47 threshold cases
+RANK|evaluate purity: OK
+RANK|legacy friend badge: OK detach + free + idempotent cleanup
+RANK|Canvas medal tally: OK exact non-reading glyph counts
+RANK|upgrade-only: OK bronze->gold sticks through a worse replay
+RANK|award feedback: OK bounded Canvas burst + rapid replacement
+RANK|award feedback lifecycle: OK teardown + clean re-entry
+RANK|fetch win medal: OK tier 3
+RANK|hud tally: OK
+RANK|save round trip: OK medals + won intact
+RANK|result: ALL OK
+PROBE probe_rank process exit: 0
+=== probe_save_recovery ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SAVE_RECOVERY|OK: primary created
+SAVE_RECOVERY|OK: backup created on first write
+SAVE_RECOVERY|OK: schema version added
+SAVE_RECOVERY|OK: unknown dictionary preserved
+SAVE_RECOVERY|OK: Classic touch preference serialized
+SAVE_RECOVERY|OK: unknown array preserved
+SAVE_RECOVERY|OK: dungeon checkpoint serialized
+SAVE_RECOVERY|OK: raw sparse Opera mask serialized
+SAVE_RECOVERY|OK: Opera progress counts only live bits
+SAVE_RECOVERY|OK: new primary installed
+SAVE_RECOVERY|OK: backup retains last known-good primary
+SAVE_RECOVERY|OK: Hybrid touch preference serialized
+SAVE_RECOVERY|OK: touch rollback preference survives in backup
+SAVE_RECOVERY|OK: unknown key survives another write
+SAVE_RECOVERY|OK: dungeon completion serialized and clamped
+SAVE_RECOVERY|OK: retired Opera bits survive a rewrite
+SAVE_RECOVERY|OK: complete Opera progress is thirteen live careers
+SAVE_RECOVERY|OK: Opera backup retains prior sparse mask semantics
+SAVE_RECOVERY|OK: fresh reader reloads dungeon completion
+SAVE_RECOVERY|OK: fresh reader reloads effective Opera completion
+SAVE_RECOVERY|OK: fresh reader reloads touch preference
+SAVE_RECOVERY|OK: old save receives additive Teacher learning defaults
+SAVE_RECOVERY|OK: old save receives empty Teacher lesson checkpoint
+SAVE_RECOVERY|OK: Teacher learning progress survives JSON disk round-trip
+SAVE_RECOVERY|OK: Teacher lesson checkpoint survives JSON disk round-trip
+SAVE_RECOVERY|OK: Teacher save normalization preserves unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: truncated primary found a clean recovery copy
+SAVE_RECOVERY|OK: backup selected after truncation
+SAVE_RECOVERY|OK: backup progress recovered
+SAVE_RECOVERY|OK: backup dungeon checkpoint recovered
+SAVE_RECOVERY|OK: primary repaired from backup
+SAVE_RECOVERY|OK: repaired primary is readable
+SAVE_RECOVERY|OK: wrong known type falls back to clean backup
+SAVE_RECOVERY|OK: incomplete primary falls back to complete backup
+SAVE_RECOVERY|OK: noncritical damage keeps newer primary
+SAVE_RECOVERY|OK: noncritical repair preserves newer progress
+SAVE_RECOVERY|OK: invalid touch preference repairs to Hybrid
+SAVE_RECOVERY|OK: future schema recognized
+WARNING: SaveState: writes disabled — the save on disk uses a newer schema than this build; the newer save is preserved and progress stays in memory
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] write_save (res://scripts/save_state.gd:237)
+       [1] _init (res://scripts/probe_save_recovery.gd:176)
+SAVE_RECOVERY|OK: write against a future primary reports failure
+SAVE_RECOVERY|OK: fresh writer leaves future schema byte-for-byte untouched
+SAVE_RECOVERY|OK: future backup outranks older clean temp
+SAVE_RECOVERY|OK: baseline write succeeds
+SAVE_RECOVERY|OK: stale future temp does not disable writes
+SAVE_RECOVERY|OK: write landed despite stale future temp
+SAVE_RECOVERY|OK: stale future temp does not hijack load selection
+SAVE_RECOVERY|OK: core-quartet fixture written
+SAVE_RECOVERY|OK: save missing a newly-added key is still clean
+SAVE_RECOVERY|OK: missing key restored with its default
+SAVE_RECOVERY|OK: pre-Critter-Book save defaults critters without demotion
+SAVE_RECOVERY|OK: pre-touch-mode save defaults to Hybrid
+SAVE_RECOVERY|OK: no demotion: newest progress kept
+SAVE_RECOVERY|OK: pre-Geologist save defaults geology checkpoint to empty
+SAVE_RECOVERY|OK: Geologist checkpoint fixture written
+SAVE_RECOVERY|OK: valid Geologist checkpoint survives JSON disk round-trip
+SAVE_RECOVERY|OK: checkpoint and save preserve unrelated keys
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: archive fixture baseline write succeeds
+SAVE_RECOVERY|OK: New Game installs a fresh save
+SAVE_RECOVERY|OK: before-New-Game archive preserves unknown fields
+SAVE_RECOVERY|OK: before-New-Game archive keeps the prior generation
+SAVE_RECOVERY|OK: fresh New Game backup is newer than the archive
+WARNING: SaveState: no clean before-New-Game archive is available to restore
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] restore_new_game_archive (res://scripts/save_state.gd:389)
+       [1] _init (res://scripts/probe_save_recovery.gd:315)
+SAVE_RECOVERY|OK: corrupt before-New-Game archive is refused
+SAVE_RECOVERY|OK: clean before-New-Game archive restores transactionally
+SAVE_RECOVERY|OK: archive restore keeps progress and unknown fields
+SAVE_RECOVERY|OK: archive restore generation outranks the fresh backup
+SAVE_RECOVERY|RESULT: ALL OK
+PROBE probe_save_recovery process exit: 0
+=== probe_galaxy_state ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+GALAXY_STATE|garden_paths_reject_plants: OK
+GALAXY_STATE|garden_fixtures_rehomed_beside_paths: OK
+GALAXY_STATE|first_reward_paid: OK
+GALAXY_STATE|completed_reward_not_repeated: OK pearls=46 state=play
+GALAXY_STATE|completed_world_has_no_quest_rewards: OK got=7 live=0 grand=<null> active=false
+GALAXY_STATE|partial_rescue_restored: OK got=1 live=6
+GALAXY_STATE|returns_to_ocean_origin: OK distance=0.00
+GALAXY_STATE|ocean_return_state_cleared: OK
+GALAXY_STATE|real_lagoon_departure_captures_and_tears_down: OK game=galaxy from=level2 master=4864.0 root=false galaxy=@Node3D@867:<Node3D#195873999950>
+GALAXY_STATE|real_completed_galaxy_has_no_quest_rewards: OK
+GALAXY_STATE|returns_to_closed_lagoon: OK game=level2 open=false
+GALAXY_STATE|lagoon_master_route_restored: OK master_x=4864.0
+GALAXY_STATE|partial_stars_preserved: OK [true, false, false]
+GALAXY_STATE|lagoon_canvas_restored: OK
+GALAXY_STATE|closed_return_state_cleared: OK
+GALAXY_STATE|returns_to_open_lagoon: OK open=true master_x=1792.0
+GALAXY_STATE|open_return_state_cleared: OK
+GALAXY_STATE|RESULT: ALL OK
+PROBE probe_galaxy_state process exit: 0
+=== probe_collection ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+COLLECTION|OK|catalog has 18 species
+COLLECTION|OK|Ocean Reef roster has three native fish
+COLLECTION|OK|all species ids are unique
+COLLECTION|OK|all species retain 2D-safe definitions
+COLLECTION|OK|passive play earns no critters
+COLLECTION|OK|nearby CATCH tap records species
+COLLECTION|OK|catch count advances exactly once
+COLLECTION|OK|catch is written immediately
+COLLECTION|OK|Critter Book touch overlay opens
+COLLECTION|OK|icon category tabs switch pages
+COLLECTION|OK|Sky Lagoon context activates
+COLLECTION|OK|Lagoon spawns meadow, river and alpine rosters
+COLLECTION|OK|environment-specific habitats are represented
+COLLECTION|RESULT|ALL OK
+PROBE probe_collection process exit: 0
+=== probe_mg2d ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PAINTER|OK|fill task finishes within timeout
+PAINTER|fill_elapsed_ms|24.709
+PAINTER|OK|closed region fills without crossing brush boundary
+PAINTER|OK|fill undo is exact
+PAINTER|OK|fill redo is exact
+PAINTER|OK|stroke undo restores blank
+PAINTER|OK|fill task finishes within timeout
+PAINTER|OK|cancelled background fill never applies
+PAINTER|OK|out of bounds seed rejected
+PAINTER|OK|history bounded at 16 half-megabyte canvases
+PAINTER|OK|imported scanline fill matches independent BFS on 32 seeded maps
+PAINTER|OK|atomic save
+PAINTER|OK|second save keeps previous backup
+PAINTER|OK|reload exact latest pixels
+PAINTER|OK|corrupt primary recovers previous valid canvas
+PAINTER|OK|recovered document repairs primary safely
+PAINTER|OK|passive scene makes no marks or awards
+PAINTER|OK|second finger cannot steal canvas
+PAINTER|OK|real ScreenTouch and drag paint
+PAINTER|OK|pause cancels held input and stale release
+PAINTER|OK|picture resume works
+PAINTER|OK|real undo control
+PAINTER|OK|real redo control
+PAINTER|OK|existing shell stamp via touch
+PAINTER|OK|tool press cannot turn into canvas stroke
+PAINTER|OK|studio applies worker result through live process
+PAINTER|OK|bucket and colour controls fill through real touch
+PAINTER|OK|touch bucket undo preserves prior picture
+PAINTER|OK|neutral exit emits once and releases touch
+PAINTER|RESULT|OK|failures=0
+PAINTER_GUIDED|OK|guided is default; idle cannot fill blanks
+PAINTER_GUIDED|OK|free-paint tools absent from minigame
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|wrong colour kindly cues without progress
+PAINTER_GUIDED|OK|valid contact immediately shows hold feedback before fill completes
+PAINTER_GUIDED|OK|short tap does not bypass hold instruction
+PAINTER_GUIDED|OK|pause cancels held guided action
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 1
+PAINTER_GUIDED|OK|partial guided work persists
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 0
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 2
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 3
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 4
+PAINTER_GUIDED|OK|finished painting matches coloured reference pixel-for-pixel
+PAINTER_GUIDED|OK|completed template validates for reload
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|repeating finished region cannot add progress/history
+PAINTER_GUIDED|OK|undo returns one intentional blank
+PAINTER_GUIDED|OK|redo restores completed layout
+PAINTER_GUIDED|OK|re-entry retains the exact completed picture
+PAINTER_GUIDED|RESULT|OK|failures=0
+=== STAGE 2 MINIGAME STRESS TEST ===
+  snow assist: OK
+  picture feedback has no world sparkle request: OK
+  picture games have no jump/go overlay controls: OK
+  snow face touch targets: OK
+  snowman: WON (27.2s)
+  completed garden retains all five flowers: OK
+  garden: WON (8.0s)
+  trampoline uses direct art tap: OK
+  trampoline: WON (5.3s)
+  xmas: WON (5.3s)
+  snowball settle feedback/progression: OK (3/3)
+  snowman carrot authored angle survives moving chase: OK
+  garden growth + bounded win feedback: OK (10/10)
+  feedback teardown/re-entry: OK (4 closes, 4 fresh)
+MG2D|done: OK
+PROBE probe_mg2d process exit: 0
+=== probe_fetch ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Invalid access to property or key 'player' on a base object of type 'Node (MCPGameBridge)'.
+   at: _init (res://scripts/probe_fetch.gd:12)
+   GDScript backtrace (most recent call first):
+       [0] _init (res://scripts/probe_fetch.gd:12)
+ERROR: BUG: Unreferenced static string to 0: servers
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: .
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _request_gizmo_for_id
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: _enter_world
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_restore
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @warning_ignore_start
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @export_range
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @export_multiline
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @export
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @icon
+   at: unref (core/string/string_name.cpp:118)
+ERROR: BUG: Unreferenced static string to 0: @tool
+   at: unref (core/string/string_name.cpp:118)
+WARNING: A Thread object is being destroyed without its completion having been realized.
+Please call wait_to_finish() on it to ensure correct cleanup.
+   at: ~Thread (core/os/thread.cpp:116)
+ERROR: 7 RID allocations of type '23NavMeshGeometryParser2D' were leaked at exit.
+ERROR: 6 RID allocations of type '23NavMeshGeometryParser3D' were leaked at exit.
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools11BucketLargeE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+PROBE probe_fetch process exit: 124
+PROBE probe_fetch reported a failure or runtime script error
+PROBE probe_fetch reported a resource or property runtime error
+=== probe_melody ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+MELODY|OK|probe save is distinct from the child's normal save
+MELODY|OK|normal primary, backup, and every recovery sidecar are fingerprinted before boot
+MELODY|OK|stale probe-only save artifacts are removed
+MELODY|OK|approved Sky Lagoon v5 master is exact native 6144x2048
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+MELODY|OK|four exact lossless center tiles reconstruct one native 2048x2048 screen
+MELODY|OK|POT background tiles use bounded VRAM import without mip overfetch
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/characters/stickers/daddy.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:481)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/opera/worlds/actors/roshan_popstar.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:482)
+       [1] _run (res://scripts/probe_melody.gd:134)
+MELODY|OK|approved Daddy sticker remains exact protected 750x1024 art
+MELODY|OK|approved Opera popstar Roshan remains exact 512x512 art
+MELODY|OK|NPOT Daddy avoids forbidden VRAM mode and POT Roshan is mobile-compressed
+MELODY|OK|all reused background/actor/voice families retain repository provenance
+MELODY|OK|exact non-reader objective voice is present and immutable
+MELODY|OK|Daddy Mermaid owns the sole Melody friend route at the canonical slot
+MELODY|OK|fresh isolated save starts Daddy and Melody unawarded
+MELODY|OK|shared success chime exposes a restorable volume and pitch baseline
+MELODY|OK|direct Daddy launch synchronously enters Melody
+MELODY|ENTRY_FACTS|active_layers=1|direct_before=28|direct_now=29|only_layer_or_touch_fx_added=true|layer=7|pause_layer=12
+MELODY|OK|entry owns exactly one Canvas layer below the pause sheet
+MELODY|OK|Canvas theater exposes every stable stage, note, and progress node
+MELODY|OK|Canvas theater has the exact typed surface tree with no unknown occluder
+MELODY|OK|Melody adds no spatial descendants or hidden game-node authority
+MELODY|OK|runtime binds the exact four native center tiles once in 2x2 order
+MELODY|OK|runtime four-tile transforms are seam-free and cover the phone viewport
+MELODY|OK|attached note geometry exposes all seven ordered colors and the draw path binds the same source color
+MELODY|OK|stage has no failure state, countdown, or passive completion path
+MELODY|OK|opaque Canvas preserves Reef position/environment while owning controls
+MELODY|OK|Daddy entry sends the exact target+verb objective and voice exactly once
+MELODY|OK|requested voice resolves to the exact immutable OGG
+MELODY|OK|entry starts under the production reveal fade
+MELODY|OK|quick press and release wholly under fade make no progress
+MELODY|OK|shared objective text remains semantic state occluded below the opaque stage
+MELODY|OK|opening non-reader objective is carried by the sole live attached visual pointer
+MELODY|OK|fade tap release clears its neutral latch before fresh input
+MELODY|OK|first fresh green tap after a swallowed fade tap scores exactly once
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/characters/stickers/daddy.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/opera/worlds/actors/roshan_popstar.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+MELODY|OK|live Canvas binds only four tiles, Daddy, and Roshan exactly once each
+MELODY|OK|unique live texture census stays within conservative decoded and declared-upload bounds
+MELODY|LAYOUT_FACTS|standard={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 720.0)], "proscenium_rect": [P: (24.0, 18.0), S: (1232.0, 684.0)], "proscenium_coverage": 0.44455555555556, "footlights_rect": [P: (134.88, 524.4), S: (1010.24, 48.0)], "stage_star_rect": [P: (332.0, 33.0), S: (104.0, 104.0)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|actual proscenium polygons visibly dominate the 1280x720 stage
+MELODY|OK|actual Daddy and Roshan alpha bounds are readable at 1280x720
+MELODY|OK|actual note, hit envelope, green zone, and pointer are readable at 1280x720
+MELODY|OK|pointer is exactly one attached arrow, line, target, and two rings with no custom-draw duplicate
+MELODY|OK|actual four-tile Canvas transforms cover 1280x720 seam-free
+MELODY|LAYOUT_FACTS|tall={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 800.0)], "proscenium_rect": [P: (24.0, 20.0), S: (1232.0, 760.0)], "proscenium_coverage": 0.42933333333333, "footlights_rect": [P: (134.88, 536.0), S: (1010.24, 53.33331)], "stage_star_rect": [P: (326.2222, 36.66666), S: (115.5555, 115.5556)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|Canvas reflows to the target 1280x800 M11 phone aspect
+MELODY|OK|1280x800 reflow preserves the same live stage and note semantics
+MELODY|LAYOUT_FACTS|restored={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 720.0)], "proscenium_rect": [P: (24.0, 18.0), S: (1232.0, 684.0)], "proscenium_coverage": 0.44455555555556, "footlights_rect": [P: (134.88, 524.4), S: (1010.24, 48.0)], "stage_star_rect": [P: (332.0, 33.0), S: (104.0, 104.0)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|1280x720 restore needs no rebuild and retains readable geometry
+MELODY|TICK_FACTS|game_delta=0.00347350002266|elapsed_delta=0.00347350002266|reported_frame_delta=0.17115183331067|tick_delta=1
+MELODY|OK|one rendered frame produces exactly one Melody controller tick
+MELODY|OK|shared ranking clock advances by exactly the one delivered frame delta
+MELODY|OK|runtime motion consumes that same frame delta exactly once
+MELODY|OK|early note tap makes no progress and carries no penalty
+MELODY|OK|wrong-point fixture is outside the active hit and pause zones
+MELODY|OK|wrong-point tap in the green window makes no progress or fail state
+MELODY|OK|one complete passive miss recycles forever without progress or penalty
+MELODY|OK|early held touch is down but never armed
+MELODY|OK|holding from early into green cannot smuggle a hit
+MELODY|OK|touch press reaches the held controller before pause
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held touch neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong sources cannot clear or score the touch held across pause
+MELODY|OK|held touch release after pause cannot score
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|the original source may clear its own neutral latch while still paused
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|first fresh gesture after an in-pause lift scores exactly once
+MELODY|OK|keyboard press reaches the same held controller
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held keyboard neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong key, device, and pad releases cannot clear paused Space
+MELODY|OK|held keyboard release after pause cannot score
+MELODY|OK|only the exact keyboard owner may finish an armed note
+MELODY|OK|fresh keyboard press/release scores exactly one note
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held pad action neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong pad button, device, and key cannot clear paused pad A
+MELODY|OK|held pad release after pause cannot score
+MELODY|OK|only the exact pad owner may finish an armed note
+MELODY|OK|fresh pad press/release scores exactly one note
+MELODY|OK|controller disconnect neutralizes only its unreleasable held source
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|no-held real pause leaves the controller neutral
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|Android-cancelled touch is neutral and clears only its own source
+MELODY|OK|only the exact touch owner may finish an armed note
+MELODY|OK|first fresh tap after no-held pause scores exactly once
+MELODY|OK|touch source is genuinely held before opening the Sticker overlay
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its visible Sticker Book doorway
+MELODY|OK|real Sticker button opens the higher-layer book without touching progress
+MELODY|OK|overlay traffic cannot clear or score another held touch source
+MELODY|OK|held source release clears neutrally through the higher overlay
+MELODY|OK|Sticker Book uses the sole global Back target
+MELODY|OK|TouchUI routes the sole global Back tap to the Sticker Book
+MELODY|OK|cancelled owner mouse is neutral and clears only its own source
+MELODY|OK|mouse ownership distinguishes device and touch source tokens
+MELODY|OK|first fresh green mouse gesture after Sticker Book scores exactly once
+MELODY|OK|standalone focus loss neutrally forgets the held touch owner
+MELODY|OK|lost focus cannot clear its neutral guard on background frames
+MELODY|OK|matching focus restoration retains the guard until an active tick
+MELODY|OK|first active focus-restored tick needs no missing old release
+MELODY|OK|partial deliberate input reaches exactly six notes before leave
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|LEAVE_FACTS|game=|g_empty=true|active_layers=0|direct_match=true|game_nodes_match=true|controls_match=true|world_controls=true|position_match=true|environment_match=true|track=world|expected_track=world|music_match=true|chime_match=true
+MELODY|OK|neutral pause-menu leave synchronously detaches only Melody
+MELODY|OK|neutral leave awards nothing
+MELODY|OK|closed Melody teardown is synchronously idempotent
+MELODY|OK|neutral teardown frees the complete Canvas subtree
+MELODY|OK|ordinary Reef input populates the complete Melody entry-source census
+MELODY|OK|ordinary non-Melody pause suspends Main while TouchUI stays live
+MELODY|OK|paused terminal touch, mouse, key, and pad releases retire the census
+MELODY|OK|ordinary pause resumes without creating a Melody activity
+MELODY|OK|clean census cannot poison the next Melody entry
+MELODY|OK|ordered context-loss fixture holds a concrete touch owner
+MELODY|OK|focus-out then application-paused tracks both reasons behind one guard
+MELODY|OK|lost context consumes the real touch and mouse Pause-corner target
+MELODY|OK|lost-context touch, mouse, key, and pad presses cannot claim census state
+MELODY|OK|lost-context touch, mouse, key, and pad releases are also inert
+MELODY|OK|resumed alone cannot override the still-lost focus reason
+MELODY|OK|partially restored context still rejects every fresh source press
+MELODY|OK|partially restored context still rejects every terminal release
+MELODY|OK|full ordered restoration keeps a source-free guard until its tick
+MELODY|OK|pre-tick restored presses cannot enter Main census, arm Melody, or score
+MELODY|OK|first restored tick clears only the guard, never preserves pre-tick presses
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|OK|unreleased pre-tick sources cannot poison a neutral Melody leave
+MELODY|OK|pre-tick-source recovery teardown frees its first Canvas subtree
+MELODY|OK|recovery relaunch enters Melody through the production start path
+MELODY|OK|reentry after missing releases has no inherited census or exact owner
+MELODY|OK|different fresh gesture scores exactly once after source-clean reentry
+MELODY|OK|reverse-order context-loss fixture holds a concrete pad owner
+MELODY|OK|application-paused then focus-out also retains both exact reasons
+MELODY|OK|reverse loss ordering also ignores all traffic and forgets its owner
+MELODY|OK|reverse-order terminal traffic cannot mutate the empty census
+MELODY|OK|focus-in alone cannot override the still-paused application reason
+MELODY|OK|reverse full restoration also retains its pre-tick guard
+MELODY|OK|reverse restoration clears the guard on its first active tick
+MELODY|OK|reverse-order different-source touch gesture scores exactly once
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|nested fixture starts with a normal exact-source Pause latch
+MELODY|OK|real Pause accessibility keeps Resume focused for lost-input testing
+MELODY|OK|lost-context presses cannot activate real Resume/Leave or focused actions
+MELODY|OK|lost-context releases also leave real Pause GUI and Melody untouched
+MELODY|OK|full OS restore cannot clear the guard while Pause remains open
+MELODY|OK|real focused ui_accept resumes without clearing the restored context guard
+MELODY|OK|first active unpaused nested-restoration tick clears the guard
+MELODY|OK|fresh pad gesture after nested restoration scores exactly once
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|OK|system-loss recovery stage leaves neutrally with no reward or save progress
+MELODY|OK|system-loss recovery teardown frees its complete Canvas subtree
+MELODY|OK|re-entry replaces the closed stage with one fresh 0-of-7 layer
+MELODY|OK|reset key/pad plus wrong finger/mouse cannot clear the held touch
+MELODY|OK|pre-entry held touch cannot become the first note
+MELODY|OK|ordered note 0 scores once on a fresh touch release
+MELODY|OK|ordered note 1 scores once on a fresh touch release
+MELODY|OK|ordered note 2 scores once on a fresh touch release
+MELODY|OK|ordered note 3 scores once on a fresh touch release
+MELODY|OK|ordered note 4 scores once on a fresh touch release
+MELODY|OK|ordered note 5 scores once on a fresh touch release
+MELODY|OK|seventh ordered note completes without a fail/timer branch
+MELODY|OK|seven fresh direct touch gestures complete red through violet
+MELODY|OK|deliberately slow first win awards one bronze medal and one trophy
+MELODY|OK|bronze upgrade and terminal persistence each write exactly once
+MELODY|WIN_RETURN_FACTS|terminal_position_match=true|environment_match=true|track=world|expected_track=world|music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|expected_music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }
+MELODY|OK|first win restores its exact Reef return context while the shared reward owns fanfare audio
+MELODY|OK|first win synchronously clears Canvas and controls
+MELODY|OK|first-win layer is freed after synchronous detach
+MELODY|OK|replay captures the settled shared-fanfare chime tuning exactly
+MELODY|OK|unrelated key and pad releases preserve both pre-entry action owners
+MELODY|OK|releasing one of two pre-entry owners keeps the other owner blocked
+MELODY|OK|pre-entry held keyboard/pad actions release neutrally
+MELODY|OK|ordered note 0 scores once on a fresh key release
+MELODY|OK|ordered note 1 scores once on a fresh pad release
+MELODY|OK|ordered note 2 scores once on a fresh touch release
+MELODY|OK|ordered note 3 scores once on a fresh touch release
+MELODY|OK|ordered note 4 scores once on a fresh touch release
+MELODY|OK|ordered note 5 scores once on a fresh touch release
+MELODY|OK|seventh ordered note completes without a fail/timer branch
+MELODY|OK|fresh keyboard, pad, and touch presses all complete the replay
+MELODY|OK|fast replay upgrades only the medal and never duplicates first-win reward
+MELODY|OK|gold upgrade and terminal persistence each write exactly once
+MELODY|REPLAY_RETURN_FACTS|terminal_position_match=true|environment_match=true|track=world|expected_track=world|music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|expected_music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|chime_match=true|active_layers=0|controls_match=true
+MELODY|OK|replay restores context and synchronously tears down
+MELODY|OK|replay layer is freed after synchronous detach
+MELODY|OK|normal save and all recovery artifacts retain exact hash/mtime
+MELODY|OK|isolated probe save and recovery artifacts clean up exactly
+MELODY|result: ALL OK
+PROBE probe_melody process exit: 0
+=== probe_dolls ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DOLLS|OK|Faron's Dolls friend exists
+DOLLS|OK|fresh isolated save has not pre-won Dolls
+DOLLS|OK|unowned close preserves another control owner's block
+DOLLS|OK|foreign fixture cleanup restores the exact control baseline
+DOLLS|OK|entry adds exactly one direct Dolls Canvas child
+DOLLS|OK|stage is exactly five nodes with no per-baby scene children
+DOLLS|OK|Dolls sits above hidden HUD and below speech and pause
+DOLLS|OK|approved 2x2 nursery world tiles are the only backdrop art
+DOLLS|OK|known P3 widget placeholders are neither loaded nor displayed
+DOLLS|OK|all three approved baby cutouts are active
+DOLLS|OK|goal, no-fail and two-second live-input gate are unchanged
+DOLLS|OK|picture-first pointer remains while the exact goal clip is missing
+DOLLS|OK|cradle focus visibly bobs and pulses without a tween or node
+DOLLS|OK|focus and bowl leave Roshan and the falling target unobscured
+DOLLS|OK|native nursery panel stays centered, bounded and never upscaled
+DOLLS|OK|opaque backing covers the viewport behind the authored panel
+DOLLS|OK|selected skin follows the catcher behind every gameplay draw
+DOLLS|OK|entry neither mutates game_nodes nor constructs a hidden arena
+DOLLS|OK|Dolls exclusively owns and blocks world controls while active
+DOLLS|OK|exact neutral three-doll cue is selected with its live pointer
+DOLLS|OK|passive fixture uses a center-lane falling baby
+DOLLS|OK|center-lane miss rests below every active target and sling
+DOLLS|OK|zero input makes two pillow-safe misses and no catch
+DOLLS|OK|passive play leaves all persistent progress unchanged
+DOLLS|OK|runtime mirrors the exact miss metric and picture pip count
+DOLLS|OK|passive dictionaries stay bounded without child growth
+DOLLS|OK|a safe miss requests the exact Faron cue without masking the Guide
+DOLLS|OK|after two misses the next baby is nearer and slower
+DOLLS|OK|neutral exit synchronously detaches Dolls only
+DOLLS|OK|neutral exit frees the complete five-node subtree
+DOLLS|OK|neutral exit is neither a win nor an award
+DOLLS|OK|rapid rebuild replaces, rather than duplicates, the Canvas layer
+DOLLS|OK|rapidly replaced layer is freed on the next frame
+DOLLS|OK|entry adds exactly one direct Dolls Canvas child
+DOLLS|OK|stage is exactly five nodes with no per-baby scene children
+DOLLS|OK|Dolls sits above hidden HUD and below speech and pause
+DOLLS|OK|approved 2x2 nursery world tiles are the only backdrop art
+DOLLS|OK|known P3 widget placeholders are neither loaded nor displayed
+DOLLS|OK|all three approved baby cutouts are active
+DOLLS|OK|goal, no-fail and two-second live-input gate are unchanged
+DOLLS|OK|picture-first pointer remains while the exact goal clip is missing
+DOLLS|OK|cradle focus visibly bobs and pulses without a tween or node
+DOLLS|OK|focus and bowl leave Roshan and the falling target unobscured
+DOLLS|OK|native nursery panel stays centered, bounded and never upscaled
+DOLLS|OK|opaque backing covers the viewport behind the authored panel
+DOLLS|OK|selected skin follows the catcher behind every gameplay draw
+DOLLS|OK|entry neither mutates game_nodes nor constructs a hidden arena
+DOLLS|OK|Dolls exclusively owns and blocks world controls while active
+DOLLS|OK|real press, drag, and release completes the three-doll verb
+DOLLS|OK|missed count flows into the exact saved medal tier
+DOLLS|OK|first win awards exactly one trophy and persists Faron
+DOLLS|OK|win removes Dolls and restores controls without game-node mutation
+DOLLS|OK|win teardown frees its layer and surface
+DOLLS|OK|post-win re-entry starts one fresh zeroed surface
+DOLLS|OK|fresh one-finger replay catches three with no miss
+DOLLS|OK|better replay upgrades to gold without duplicating the trophy
+DOLLS|OK|replay teardown is clean and leaves no duplicate Dolls layer
+DOLLS|result: ALL OK
+PROBE probe_dolls process exit: 0
+=== probe_seek ===

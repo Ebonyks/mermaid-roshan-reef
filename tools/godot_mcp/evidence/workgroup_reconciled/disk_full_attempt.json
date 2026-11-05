@@ -1,0 +1,13 @@
+{
+  "recorded_at_utc": "2026-11-05T16:56:21.745298+00:00",
+  "result": "FAIL",
+  "scope": "First combined focused-gate attempt before full probe matrix; no canonical gameplay run started.",
+  "audit_tests_exit_code": 120,
+  "audit_tests_log": "tools/godot_mcp/evidence/workgroup_reconciled/audit_tests_disk_full.txt",
+  "owner_register_exit_code": 0,
+  "document_authority_exit_code": 0,
+  "automatic_coverage_exit_code": 0,
+  "outer_exit_code": 1,
+  "outer_error": "OSError: [Errno 28] No space left on device while writing tmp/godot_mcp_workgroup_focused.json",
+  "observation": "C: free bytes observed0; unittest stream contains incomplete E results without final traceback/verdict. Resource failure demonstrated; no game defect inferred. Import independently completed exit0 with project settings unchanged. Retry remains required after cache cleanup."
+}

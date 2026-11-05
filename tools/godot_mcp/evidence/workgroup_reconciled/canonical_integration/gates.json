@@ -1,0 +1,95 @@
+{
+  "authority": {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_document_authority.py"
+    ],
+    "actual_exit": 0,
+    "started_utc": "2026-11-05T19:55:10.806462+00:00",
+    "ended_utc": "2026-11-05T19:57:07.926324+00:00",
+    "log_sha256": "7a20c73053bae121cbac82bc0f7f0f43c8bc2e60c20e9a6057dc5d5ebaa13942",
+    "tail": "DOCAUTH|INVENTORY=919|LEDGER=919|ACTIVE=75|RECORDS=78\r\nDOCAUTH|RESULT|ALL OK\r\n"
+  },
+  "owner": {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/record_owner_decision.py",
+      "--check",
+      "--base",
+      "origin/dev"
+    ],
+    "actual_exit": 0,
+    "started_utc": "2026-11-05T19:55:10.818558+00:00",
+    "ended_utc": "2026-11-05T19:55:13.627325+00:00",
+    "log_sha256": "e91e675b87808c14ea303894497722e3f16a66709aa2377ab7aca55c7e72832e",
+    "tail": "DECISIONS|COUNT|121\r\nDECISIONS|RESULT|ALL OK\r\n"
+  },
+  "coverage_auto": {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_development.py",
+      "--base",
+      "auto"
+    ],
+    "actual_exit": 0,
+    "started_utc": "2026-11-05T19:55:10.825425+00:00",
+    "ended_utc": "2026-11-05T19:55:23.932588+00:00",
+    "log_sha256": "42341de0ab703482dbab043bf40dc04654e2a2f4422a39885d3a28e147de3e17",
+    "tail": "AUDITDEV|BASE|169f6e90faff072affb40874f49566a97c2814ef\r\nAUDITDEV|RESULT|ALL OK\r\n"
+  },
+  "coverage_full": {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_development.py",
+      "--base",
+      "65c63ae849b091e3fb91cdbeaf1e2837e10778fe"
+    ],
+    "actual_exit": 0,
+    "started_utc": "2026-11-05T19:55:13.636101+00:00",
+    "ended_utc": "2026-11-05T19:57:12.318733+00:00",
+    "log_sha256": "2f284cdec07676878b4170696b8b4ed15ceb1917e24e62ed251ba236f354f527",
+    "tail": "AUDITDEV|BASE|65c63ae849b091e3fb91cdbeaf1e2837e10778fe\r\nAUDITDEV|RESULT|ALL OK\r\n"
+  },
+  "contract_tests": {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "tools.tests.test_audit_development",
+      "tools.tests.test_record_owner_decision",
+      "tools.tests.test_run_advisory_sensor",
+      "tools.tests.test_study_game",
+      "tools.tests.test_build_study_roadmap",
+      "tools.tests.test_plan_prompt",
+      "tools.tests.test_resolve_godot",
+      "tools.tests.test_audit_document_authority"
+    ],
+    "actual_exit": 0,
+    "started_utc": "2026-11-05T19:55:23.949064+00:00",
+    "ended_utc": "2026-11-05T20:00:27.717928+00:00",
+    "log_sha256": "488a58ba1728d1551608a7fbe164c7fac661b791ecdbd2d7a4ffe026cb797e08",
+    "tail": "DOCAUTH|STRESS|6/6\r\n......................................................................................................................................................................\r\n----------------------------------------------------------------------\r\nRan 166 tests in 297.512s\r\n\r\nOK\r\n"
+  },
+  "game2d": {
+    "command": [
+      "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+      "-B",
+      "tools/audit_game_2d.py",
+      "--regression-gate"
+    ],
+    "actual_exit": 0,
+    "started_utc": "2026-11-05T19:57:08.037033+00:00",
+    "ended_utc": "2026-11-05T20:08:47.269705+00:00",
+    "log_sha256": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5",
+    "tail": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\r\nGAME2D| TOOLING| reviewed_third_party_tooling_3d_files=14| hash-pinned in tools/godot_mcp/addon_manifest.json; editor/debugger tooling, not migration debt\r\nGAME2D| STATUS| UNSATISFIED\r\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\r\n"
+  },
+  "diff": {
+    "actual_exit": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -274,7 +274,7 @@ static func _read_disk_project_sections() -> Dictionary:
 	key_re.compile("^([A-Za-z_][A-Za-z0-9_]*)=(.*)$")
 
 	for raw in text.split("\n"):
-		var line := raw.strip_edges(false, true)  # trailing only (drops CR / spaces)
+		var line: String = raw.strip_edges(false, true)  # trailing only (drops CR / spaces)
 		if line.begins_with("[") and line.ends_with("]"):
 			section = line.substr(1, line.length() - 2)
 			if section == "autoload":

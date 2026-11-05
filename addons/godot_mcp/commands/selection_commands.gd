@@ -138,8 +138,8 @@ func _get_current_main_screen() -> String:
 
 	for child in main_screen.get_children():
 		if child.visible and child is Control:
-			var cls := child.get_class()
-			var node_name := child.name
+			var cls: String = child.get_class()
+			var node_name: StringName = child.name
 
 			for screen_name in MAIN_SCREEN_PATTERNS:
 				var patterns: Array = MAIN_SCREEN_PATTERNS[screen_name]

@@ -901,7 +901,7 @@
       "subject": "Playable Opera foyer and four-door waves",
       "authority": "recorded_owner",
       "question": "How should movement, games and the next floor work in the pictured foyer?",
-      "decision": "Roshan can\u2019t move freely in this room! Fix this. The games also don\u2019t seem to work at the moment either. When all 4 stages are completed on the bottom, have the next four open Scoped implementation: direct foyer entry to the existing birthday eight, retaining canonical story order, results and contexts. This supersedes the room-only entry restriction only for these pictured career doors; other careers retain their room homes. Exact visual/device/child/owner acceptance remains separate.",
+      "decision": "Roshan can’t move freely in this room! Fix this. The games also don’t seem to work at the moment either. When all 4 stages are completed on the bottom, have the next four open Scoped implementation: direct foyer entry to the existing birthday eight, retaining canonical story order, results and contexts. This supersedes the room-only entry restriction only for these pictured career doors; other careers retain their room homes. Exact visual/device/child/owner acceptance remains separate.",
       "source": "audit/opera_foyer_movement_20261017/owner_request.json",
       "checks": [
         "scripts/probe_opera.gd",
@@ -1285,7 +1285,7 @@
       "authority": "recorded_owner",
       "subject": "Electronic producer genre range and console-era colors",
       "question": "Owner-initiated correction to the proposed single producer reference",
-      "decision": "The DJ/producer needs several reference lanes because no one artist supplies the full genre range. Quantic\u2019s suitability is uncertain. Include qualities from the KPop Demon Hunters soundtrack, bright dance music, Condard-like retro glitch-hop and selected Game Boy/NES/SNES-era colors. New proposed tracks, patches and library purchases are not automatically accepted by this direction.",
+      "decision": "The DJ/producer needs several reference lanes because no one artist supplies the full genre range. Quantic’s suitability is uncertain. Include qualities from the KPop Demon Hunters soundtrack, bright dance music, Condard-like retro glitch-hop and selected Game Boy/NES/SNES-era colors. New proposed tracks, patches and library purchases are not automatically accepted by this direction.",
       "source": "design/music/producer_owner_direction_20261101.json",
       "checks": [],
       "checkable": false,
@@ -1407,7 +1407,7 @@
       "authority": "recorded_owner",
       "subject": "Six-track iterative DKC soundtrack production",
       "question": "Is actual source-led and expressive soundtrack production commissioned?",
-      "decision": "Revise the four existing DKC studies and make two additional tracks. First compare instrument selection and tonality against the reference documents and originals, then develop live-instrument-style performances iteratively toward subjectively high quality, with an estimated 10\u201325 revisions as useful. Retain and assess valuable alternate inspirations/takes and finish with the critical artistic decisions as guidance for the remaining production. This directly authorizes these private arrangements; final owner/runtime acceptance is separate.",
+      "decision": "Revise the four existing DKC studies and make two additional tracks. First compare instrument selection and tonality against the reference documents and originals, then develop live-instrument-style performances iteratively toward subjectively high quality, with an estimated 10–25 revisions as useful. Retain and assess valuable alternate inspirations/takes and finish with the critical artistic decisions as guidance for the remaining production. This directly authorizes these private arrangements; final owner/runtime acceptance is separate.",
       "source": "design/music/dkc/production_owner_direction_20261103.json",
       "checks": [],
       "checkable": false,
@@ -1504,6 +1504,19 @@
       "date": "2026-09-23",
       "authority": "recorded_owner",
       "cycle": "story-backfill-20261031"
+    },
+    {
+      "id": "ODR-GODOT-MCP-DEVTOOLS-20261104",
+      "date": "2026-11-04",
+      "subject": "Godot MCP exact development-tool exception",
+      "decision": "Use the full add-on with a narrowly documented exception for development tools only",
+      "source": "docs/GODOT_MCP.md#owner-decision-and-scope",
+      "authority": "recorded_owner",
+      "question": "The add-on loads successfully, but its general-purpose 3D inspection helpers conflict with this project’s audit rule against adding any 3D code. Which integration do you want?",
+      "checks": [
+        "tools/tests/test_godot_mcp_scope.py"
+      ],
+      "cycle": "godot-mcp-20261104"
     },
     {
       "id": "ODR-RACER-ENGINE-20261103",

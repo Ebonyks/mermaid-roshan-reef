@@ -1,0 +1,59 @@
+from pathlib import Path
+import subprocess,os,json,hashlib,datetime,re,tempfile
+root=Path.cwd()
+def safe_source_snapshot():
+ names=set()
+ for args in [['--cached'],['--others','--exclude-standard']]:
+  raw=subprocess.check_output(['git','ls-files','-z',*args])
+  names.update(raw.decode('utf-8').split('\0'))
+ suffixes={'.gd','.tscn','.tres','.gdshader','.gdshaderinc','.gdextension','.cs','.json','.cfg','.godot'}
+ entries={}
+ for name in sorted(names):
+  if not name:continue
+  path=Path(name)
+  if any(part.lower() in {'.secrets','.aws','.ssh','.git','.godot','node_modules','.worktrees','audit','tmp','__pycache__'} or 'keystore' in part.lower() for part in path.parts):continue
+  if path.suffix.lower() not in suffixes or not path.is_file():continue
+  digest=hashlib.sha256()
+  with path.open('rb') as f:
+   for block in iter(lambda:f.read(1024*1024),b''):digest.update(block)
+  entries[name]=digest.hexdigest()
+ asset_state={key:subprocess.check_output(['git','diff',*flags,'--numstat','--','assets'],text=True) for key,flags in [('unstaged',[]),('staged',['--cached'])]}
+ art={name:hashlib.sha256(Path(name).read_bytes()).hexdigest() for name in ['assets/dolls/progress_empty_painted.png','assets/dolls/progress_filled_painted.png','assets/opera/bubble_duel_v2/bubble.png','assets/opera/bubble_duel_v2/items.png','assets/opera/bubble_duel_v2/marlo_swim.png']}
+ return {'runtime_art_sha256':art,'algorithm':'sha256_repository_source_candidates_with_protected_path_exclusions_v1','file_count':len(entries),'sha256':hashlib.sha256(json.dumps(entries,sort_keys=True).encode()).hexdigest(),'asset_git_state':asset_state}
+source=Path('scripts/ci.sh').read_text(encoding='utf-8')
+roster=['probe_opera_2d']
+failure_re=re.search(r"^FAILURE_RE='([^']*)'",source,re.M).group(1)
+runtime_re=re.search(r"^RUNTIME_ERROR_RE='([^']*)'",source,re.M).group(1)
+engine=subprocess.check_output(['python','-B','tools/resolve_godot.py'],text=True).strip()
+before=safe_source_snapshot();rows=[]
+result={'source_before':before,'roster':roster,'ci_script_sha256':hashlib.sha256(Path('scripts/ci.sh').read_bytes()).hexdigest(),'failure_re':failure_re,'runtime_re':runtime_re,'timeout_seconds':480,'started_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'result':'RUNNING'}
+Path('tmp/godot_mcp_bubble_opera_alone_run.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+for probe in roster:
+ with tempfile.TemporaryDirectory(prefix='reef-mcp-full-') as profile:
+  p=Path(profile)
+  for name in ['appdata','localappdata','data','config']:(p/name).mkdir()
+  env={**os.environ,'APPDATA':str(p/'appdata'),'LOCALAPPDATA':str(p/'localappdata'),'XDG_DATA_HOME':str(p/'data'),'XDG_CONFIG_HOME':str(p/'config'),'PYTHONUTF8':'1'}
+  mode='--hybrid-touch-test' if probe in {'probe_passive','probe_touch_router','probe_touch_stress','probe_interaction','probe_touch_adversary'} else '--classic-touch-test'
+  command=[engine,'--headless','-s',f'scripts/{probe}.gd','--','--touch',mode]
+  log=root/f'tmp/godot_mcp_bubble_opera_alone/{probe}.log';log.parent.mkdir(exist_ok=True)
+  timed_out=False
+  with log.open('w',encoding='utf-8') as output:
+   process=subprocess.Popen(command,stdout=output,stderr=subprocess.STDOUT,env=env)
+   try:code=process.wait(timeout=480)
+   except subprocess.TimeoutExpired:
+    timed_out=True
+    subprocess.run(['taskkill','/PID',str(process.pid),'/T','/F'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+    process.wait(timeout=10);code=124
+  text=log.read_text(encoding='utf-8',errors='replace')
+  accepted_exit=code==0 or (code==124 and re.search(r'ALL OK|RESULT','\n'.join(text.splitlines()[-5:])))
+  failure=bool(re.search(failure_re,text) or re.search(runtime_re,text))
+  passed=bool(accepted_exit and not failure and log.stat().st_size>0)
+  row={'probe':probe,'command':command,'exit_code_native':code,'timed_out':timed_out,'failure_marker':failure,'result':'PASS' if passed else 'FAIL','log':log.relative_to(root).as_posix(),'log_sha256':hashlib.sha256(log.read_bytes()).hexdigest()}
+  rows.append(row);result['probes']=rows
+  Path('tmp/godot_mcp_bubble_opera_alone_run.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+  print(f'NATIVE_OPERA_ALONE|{len(rows)}/{len(roster)}|{probe}|exit={code}|{row["result"]}',flush=True)
+after=safe_source_snapshot();result.update({'source_after':after,'source_unchanged':before==after,'completed_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()})
+result['result']='PASS' if before==after and len(rows)==len(roster) and all(r['result']=='PASS' for r in rows) else 'FAIL'
+Path('tmp/godot_mcp_bubble_opera_alone_run.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+print('NATIVE_OPERA_ALONE|RESULT|'+result['result'],flush=True)
+raise SystemExit(0 if result['result']=='PASS' else 1)

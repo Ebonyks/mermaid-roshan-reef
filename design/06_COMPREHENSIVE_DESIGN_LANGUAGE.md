@@ -274,6 +274,8 @@ Rule precedence:
 5. A current domain document explicitly named by this document.
 6. Historical audits and work orders, used only as evidence.
 
+Scoped owner decision 2026-11-04 (`ODR-GODOT-MCP-DEVTOOLS-20261104`): the exact [Godot MCP development-tool payload](../docs/GODOT_MCP.md#owner-decision-and-scope) is permitted under a hash-bound inventory exception. This changes no gameplay, model, art, world-logic, device, child or release rule; any payload mutation invalidates the exception.
+
 `DL-AUTH-01` — A later owner decision supersedes an earlier recommendation,
 even if the earlier recommendation remains in a file labelled authoritative.
 

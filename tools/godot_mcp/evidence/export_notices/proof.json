@@ -1,0 +1,111 @@
+{
+  "recorded_at_utc": "2026-11-05T13:11:07.248342+00:00",
+  "engine": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+  "expected": {
+    "res://addons/godot_mcp/LICENSE": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+    "res://addons/godot_mcp/LICENSE.txt": "b800a52c77c8ac924a16bbd34136fe2877f477efac1eaa1af7af0c36703d8966"
+  },
+  "original_include_filter": "scripts/painter/vendor/LICENSE.txt,assets/flats/castle/interactions_v2/castle_interactions_v2.json,assets/flats/castle/interactions_v4/castle_interactions_v4.json,assets/kart/chase/anchors.json",
+  "exclude_filter": "tools/*, *.md, assets/_staging/*, assets_src/*, audit/*, backups/*, example/*, gen2/*, tmp/*, scripts/probe*.gd, scripts/painter/*probe.gd, assets/flats/sky_lagoon/main/*_panorama_v2_*, assets/flats/sky_lagoon/main/*_panorama_v4_*, assets/aquatic2/*_Image_0.jpg, assets/flats/castle/main_hall_2screen/*_led_master.png, assets/aquatic2/*_normal.png, assets/flats/castle/main_hall_2screen/tiles/*, assets/flats/castle/main_hall_2screen/castle_join_*, assets/flats/castle/main_hall_2screen/castle_playroom_*, assets/flats/castle/main_hall_2screen/castle_sconce_glow_reuse.png, assets/flats/castle/main_hall_2screen/castle_shell_sconce_assembly.png, assets/flats/castle/main_hall_2screen/castle_shell_sconce_integrated_reuse.png",
+  "runs": [
+    {
+      "name": "import",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot_mcp_notice_proof\\donor",
+        "--import"
+      ],
+      "exit_code": 0,
+      "log": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot_mcp_notice_proof/logs/import.txt",
+      "sha256": "b728de0c23f24d9aa31bc7608b177d7ca13857d7c3aca862a08506d00675123b"
+    },
+    {
+      "name": "baseline_export",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot_mcp_notice_proof\\donor",
+        "--export-pack",
+        "NoticeProof",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot_mcp_notice_proof\\baseline.pck"
+      ],
+      "exit_code": 0,
+      "log": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot_mcp_notice_proof/logs/baseline_export.txt",
+      "sha256": "72d905f17eeebde677f903e6d7eb0fd5514cdfdbfedfbf4fd0cb95b7dca012bc"
+    },
+    {
+      "name": "baseline_verify",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot_mcp_notice_proof\\consumer",
+        "-s",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot_mcp_notice_proof\\consumer\\verify.gd",
+        "--",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot_mcp_notice_proof\\baseline.pck",
+        "baseline"
+      ],
+      "exit_code": 0,
+      "log": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot_mcp_notice_proof/logs/baseline_verify.txt",
+      "sha256": "ccb0a1049a65ffbe22550f1844f3b8c1b5bc86e0d8f9cc8a401c708a0f882212"
+    },
+    {
+      "name": "candidate_export",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot_mcp_notice_proof\\donor",
+        "--export-pack",
+        "NoticeProof",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot_mcp_notice_proof\\candidate.pck"
+      ],
+      "exit_code": 0,
+      "log": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot_mcp_notice_proof/logs/candidate_export.txt",
+      "sha256": "9030c5253bf87b3970a5e847c6f83a23751bbe77a957c188454fc01b0f36730b"
+    },
+    {
+      "name": "candidate_verify",
+      "command": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot_mcp_notice_proof\\consumer",
+        "-s",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot_mcp_notice_proof\\consumer\\verify.gd",
+        "--",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot_mcp_notice_proof\\candidate.pck",
+        "candidate"
+      ],
+      "exit_code": 0,
+      "log": "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot_mcp_notice_proof/logs/candidate_verify.txt",
+      "sha256": "4b166563a932c951aa1dd72d87396d2c6f242c2c1e48b9484b99fa6f8ec2a971"
+    }
+  ],
+  "baseline_observation": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nMCPNOTICE|FILE|res://addons/godot_mcp/LICENSE|MISSING\nMCPNOTICE|FILE|res://addons/godot_mcp/LICENSE.txt|MISSING\nMCPNOTICE|RESULT|OK\n",
+  "candidate_include_filter": "addons/godot_mcp/LICENSE,addons/godot_mcp/LICENSE.txt,scripts/painter/vendor/LICENSE.txt,assets/flats/castle/interactions_v2/castle_interactions_v2.json,assets/flats/castle/interactions_v4/castle_interactions_v4.json,assets/kart/chase/anchors.json",
+  "live_export_presets_before_sha256": "4c578a01dadff33fa90573431faa52f5bf48a18de4040e65cd055f592b1875c5",
+  "live_export_presets_after_sha256": "407f3d678e9c48841535f0af5bcede02444f5b671fc3c11657b6a08a0128e5e8",
+  "candidate_observation": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nMCPNOTICE|FILE|res://addons/godot_mcp/LICENSE|06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241\nMCPNOTICE|FILE|res://addons/godot_mcp/LICENSE.txt|b800a52c77c8ac924a16bbd34136fe2877f477efac1eaa1af7af0c36703d8966\nMCPNOTICE|RESULT|OK\n",
+  "candidate_pack_sha256": "7577ca49fe44d61bc84bbf4e89b44ef2c67a13e6d536394f8b0f7dbc039662bd",
+  "baseline_pack_sha256": "7faded5a1924bcba2f692103c3beb8153108a373c475cd572e4abd2850846e9e",
+  "verified_at_utc": "2026-11-05T13:15:19.820435+00:00",
+  "result": "PASS",
+  "scope": "Exact4.7.2 generic Windows resource-pack export with real include/exclude filter values; both live presets have identical filters. Empty separate consumer project prevents unpacked-source fallback. This is notice-byte packaging proof, not a full Android APK/signing/device claim.",
+  "consumer_has_no_unpacked_addon": true,
+  "published_logs": {
+    "baseline_export.txt": "72d905f17eeebde677f903e6d7eb0fd5514cdfdbfedfbf4fd0cb95b7dca012bc",
+    "baseline_verify.txt": "ccb0a1049a65ffbe22550f1844f3b8c1b5bc86e0d8f9cc8a401c708a0f882212",
+    "candidate_export.txt": "9030c5253bf87b3970a5e847c6f83a23751bbe77a957c188454fc01b0f36730b",
+    "candidate_preset_source.txt": "562b415fbaa8edf46a751b5599add8e686453aa4b073ac5ecb99c3e1d9d39f01",
+    "candidate_verify.txt": "4b166563a932c951aa1dd72d87396d2c6f242c2c1e48b9484b99fa6f8ec2a971",
+    "fixture_project_source.txt": "7ac1276471f3e3c4b69ca87f7797e2663cc7e1c344b3fc4567b61edfea0ce28f",
+    "import.txt": "b728de0c23f24d9aa31bc7608b177d7ca13857d7c3aca862a08506d00675123b",
+    "verifier_source.txt": "de582a177fd60bbdbba7d4a175cd646eea4a0b3410d36dc605d21b1806c52f3a"
+  },
+  "pack_artifacts": "Ignored tmp/godot_mcp_notice_proof/{baseline,candidate}.pck; hashes recorded. All reconstructible inputs and exact notice sources are committed; binary test packs are not runtime assets."
+}
