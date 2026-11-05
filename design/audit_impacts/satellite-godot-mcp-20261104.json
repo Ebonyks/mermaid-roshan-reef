@@ -292,9 +292,12 @@
     "tools/godot_mcp/evidence/reconciled/native_driver_source.txt",
     "tools/godot_mcp/evidence/reconciled/native_progress.txt",
     "tools/godot_mcp/evidence/reconciled/parser.txt",
+    "tools/godot_mcp/evidence/reconciled/post_metadata_2d.txt",
     "tools/godot_mcp/evidence/reconciled/prefix.json",
     "tools/godot_mcp/evidence/reconciled/prefix.txt",
     "tools/godot_mcp/evidence/reconciled/prefix_source.txt",
+    "tools/godot_mcp/evidence/reconciled/prepush_authority.txt",
+    "tools/godot_mcp/evidence/reconciled/prepush_coverage.txt",
     "tools/godot_mcp/evidence/reconciled/scope.txt",
     "tools/godot_mcp/evidence/reconciled/standalone.txt",
     "tools/godot_mcp/evidence/reconciliation.json",
@@ -432,9 +435,19 @@
       "command": "Final reconciled authority/coverage/contract and diff checks",
       "result": "PASS",
       "evidence": "tools/godot_mcp/evidence/reconciled/authority_final.txt, coverage_final.txt, contract_tests_final.txt, diff_check.txt. Actual coverage range65c63ae849b091e3fb91cdbeaf1e2837e10778fe covers the complete combined task and incoming records; no narrowed diff."
+    },
+    {
+      "command": "Merge latest Dev94c2a915 MCP metadata and compare every implementation blob",
+      "result": "PASS",
+      "evidence": "tools/godot_mcp/evidence/reconciliation.json: sole incoming path is the original MCP audit-impact JSON; all17 implementation Git blob hashes unchanged at f0295f3b347320f1c03391c7a8fb212270c761c9. Local full matrix remains applicable; exact new published-head CI still required. Latest wording revision94c2a915 is the actual incoming merge head."
+    },
+    {
+      "command": "Post-metadata full game2D inventory",
+      "result": "PASS",
+      "evidence": "tools/godot_mcp/evidence/reconciled/post_metadata_2d.txt: actual exit0, NO_REGRESSION,14 tooling files separate, game-wide UNSATISFIED. Final implementation diff against f0295f3b347320f1c03391c7a8fb212270c761c9 is empty for all bound code/config and addon paths."
     }
   ],
-  "acceptance_gaps": "Exact published-head remote CI required before dev integration. Historical Windows Bash127 failures remain unexplained; final native82 and complete static prefix pass without assertion/timeout changes. Full bridge input/frozen-time APIs not smoke-exercised. Actual device/child/owner and game-wide audit acceptance remain separate/open; no release authority. Latest dev96e8d3a2 adds only its MCP audit record and will be retained before publication.",
+  "acceptance_gaps": "Exact published-head remote CI required before dev integration. Historical Windows Bash127 failures remain unexplained; final native82 and complete static prefix pass without assertion/timeout changes. Full bridge input/frozen-time APIs not smoke-exercised. Actual device/child/owner and game-wide audit acceptance remain separate/open; no release authority. Latest Dev94c2a915 MCP audit-record correction is retained; implementation blobs remain exact.",
   "owner_corrections": [
     {
       "decision_id": "ODR-GODOT-MCP-DEVTOOLS-20261104",
@@ -443,6 +456,8 @@
     }
   ],
   "change_id": "CHG-147",
-  "implementation_commit": "4e72385b91a4375843e42916f6a9bb2de0362198",
-  "reconciliation_base": "208a12cf4ba79fea7ddbf317bb6c686180b652fb"
+  "implementation_commit": "f0295f3b347320f1c03391c7a8fb212270c761c9",
+  "reconciliation_base": "208a12cf4ba79fea7ddbf317bb6c686180b652fb",
+  "initial_implementation_commit": "4e72385b91a4375843e42916f6a9bb2de0362198",
+  "latest_reconciled_dev": "94c2a91512d2216deb26651f670469432c8f4242"
 }
