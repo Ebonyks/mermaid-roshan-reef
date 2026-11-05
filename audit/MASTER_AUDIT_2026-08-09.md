@@ -112,6 +112,7 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 | R138 Dolls safe landing on Dev | [Dev verification](../docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_dev_integration/README.md) | [Impact](../design/audit_impacts/flat-vector-r138-dev-integration-20261104.json); exact 58b5f619 on Dev, bounded passive Dolls cue. Dev CI/APK and external review remain separate. |
 | R139 Dolls painted cradle focus cue | [Canonical receipt](../docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_source/README.md) | [Impact](../design/audit_impacts/flat-vector-r139-source-reconcile-20261105.json); bounded candidate and separate R138 Dev APK evidence. |
 | R139 Dolls cradle focus on Dev | [Dev verification](../docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_dev_integration/README.md) | [Impact](../design/audit_impacts/flat-vector-r139-dev-integration-20261105.json); exact bfc60e1e on Dev, bounded Dolls idle cue. Dev CI/APK and external review remain separate. |
+| R140 Dolls painted progress hearts | [Canonical receipt](../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_source/README.md) | [Impact](../design/audit_impacts/flat-vector-r140-source-reconcile-20261105.json); bounded candidate and separate R139 Dev APK evidence. |
 <!-- AUDIT_TASK_INDEX_END -->
 
 ## Sealed audit snapshot and subsequent round metadata

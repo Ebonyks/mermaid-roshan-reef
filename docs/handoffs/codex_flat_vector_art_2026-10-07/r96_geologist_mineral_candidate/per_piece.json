@@ -17685,7 +17685,7 @@
       "runtime_consumers": [],
       "screen_coverage": {
         "measured_current_bounds": null,
-        "coverage_state": "COVERAGE_GAP",
+        "coverage_state": "CONFIGURED_CURRENT_CONTEXT_PARTIAL",
         "geometry_expressions": [
           "var panel := Rect2(Vector2.ZERO, size)",
           "draw_circle(Vector2(pip_x, 34.0), 18.0,",
@@ -17704,17 +17704,18 @@
           "draw_arc(catch_point, catch_radius, 0.02, PI - 0.02, 40,"
         ],
         "note": "Expressions are scope evidence, not measured per-piece screen bounds.",
-        "r119_scope": "OriginalMain/Faron configured10states twoaspects withactual0/1/2/3 rendered heart counts. Full3Main pollinghold declared. Workbranch only; no newDev coverage or whole-role acceptance."
+        "r119_scope": "OriginalMain/Faron configured10states twoaspects withactual0/1/2/3 rendered heart counts. Full3Main pollinghold declared. Workbranch only; no newDev coverage or whole-role acceptance.",
+        "r140_progress_context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/CANDIDATE_FOCUSED_RESULT.json"
       },
       "evidence_level": "SOURCE_BOUND_CONFIGURED_NATIVE_WORKBRANCH_ONLY",
-      "observed_weakness": "Progress uses concentric flat color dots.",
+      "observed_weakness": "The exact archived cloth hearts replace the flat progress dots in the current source candidate.",
       "priority": "P1",
       "child_impact": "Readable material, identity, contact and actionable-object hierarchy must remain clear with the HUD at phone size.",
       "context_brief_id": "BRIEF-DOLLS",
       "reuse_candidates": [],
       "reuse_inspection": "Inventory completed; per-piece exact-purpose source match and current-context fit remain open unless named in context observations.",
       "named_gap": null,
-      "status": "PARKED_SOURCE_CANDIDATE",
+      "status": "SOURCE_PAINTED_CANDIDATE_LOCAL_PASS",
       "integration_sha": null,
       "acceptance_evidence": {
         "current_mobile_runtime": null,
@@ -17726,7 +17727,94 @@
         "old_fallback_retired": null,
         "workbranch_mobile_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/634c8e4a06aae91e30e71e5a5e314c59c29570ce/docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1280/06_two_owned_catches.png",
         "workbranch_wide_runtime": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/634c8e4a06aae91e30e71e5a5e314c59c29570ce/docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/candidate/1600/09_three_owned_catches_poll_held.png",
-        "workbranch_machine": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/LOCAL_82_RESULT.json"
+        "workbranch_machine": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/LOCAL_82_RESULT.json",
+        "r140_dolls_progress_runtime": {
+          "state": "PUBLISHED_REVALIDATED_R119_DOLLS_PROGRESS_CANDIDATE_LOCAL_RUNTIME_PASS",
+          "stable_ids": [
+            "FV-12A0922A07E6"
+          ],
+          "scope": "Caught-baby progress hearts in the original Main/Faron Dolls activity",
+          "source_revision": "70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43",
+          "source_baseline": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+          "source_branch": "codex/flat-vector-dolls-progress-integration-20261105",
+          "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md",
+          "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/MANIFEST.json",
+          "source_manifest_sha256": "fd8186e0b9a07244a448d478d6b0e36fe498cedcfd98d0d0a0c4dd9e2ac7acaf",
+          "anonymous_required_files_including_manifest": 165,
+          "candidate": {
+            "runtime_files": [
+              {
+                "path": "assets/dolls/progress_empty_painted.png",
+                "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+                "sha256": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+                "bytes": 289391,
+                "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_empty_painted.png"
+              },
+              {
+                "path": "assets/dolls/progress_empty_painted.png.import",
+                "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+                "sha256": "10801e72e529f9e061fb0ca6ecf0f9fe725f4c4effc6546715e5b6c223af94d8",
+                "bytes": 984,
+                "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_empty_painted.png.import"
+              },
+              {
+                "path": "assets/dolls/progress_filled_painted.png",
+                "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+                "sha256": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+                "bytes": 272304,
+                "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_filled_painted.png"
+              },
+              {
+                "path": "assets/dolls/progress_filled_painted.png.import",
+                "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+                "sha256": "47b7e2f63415cd9b453a991a670214c4db8343366ab0e7b35b5aa93c9b66c60f",
+                "bytes": 988,
+                "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_filled_painted.png.import"
+              }
+            ],
+            "static_calls": 0,
+            "animation_calls": 0,
+            "new_native_master": false,
+            "prior_art_revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+            "prior_art_manifest": {
+              "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/MANIFEST.json",
+              "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+              "sha256": "97e584d0871e93364a4aa99ffbfaa02a0a21982de5bf58bddbbc97d04c10ea8c",
+              "bytes": 80408
+            },
+            "same_bounded_artifact_as": "r119_parked_source_candidate",
+            "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/PROVENANCE.json"
+          },
+          "integration": {
+            "source_work_branch": true,
+            "Dev": false,
+            "procedural_progress_dots_replaced": true
+          },
+          "runtime_evidence": {
+            "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+            "configured_candidate_checks": 144,
+            "configured_source_checks": 132,
+            "candidate_native_frames": 20,
+            "source_native_frames": 20,
+            "native_frame_events": {
+              "bounded": 40,
+              "excluded": 0,
+              "retained": 40
+            },
+            "probes": 82,
+            "analyzers": 4,
+            "normal_save_hashes_unchanged": 11,
+            "CI_run": 41989666565,
+            "CI_status_at_snapshot": "in_progress"
+          },
+          "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/CANDIDATE_FOCUSED_RESULT.json",
+          "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/VISUAL_REVIEW.json",
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null,
+          "accepted_removed": 0
+        }
       },
       "dependencies": [
         "Current route/phase capture and source-pixel ownership",
@@ -17752,9 +17840,19 @@
           "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
           "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/FRAME_REVIEW.json",
           "scope": "Qualified provisional agent comparison on workbranch; parked,noDev/formal/device/child/owner acceptance."
+        },
+        {
+          "revision": "FV-AUDIT-20261105-R140-DOLLS-PROGRESS-SOURCE",
+          "source": "70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43",
+          "scope": "Caught-baby progress hearts in the original Main/Faron Dolls activity",
+          "accepted_removed": 0,
+          "formal_QA11": null,
+          "device": null,
+          "child": null,
+          "owner": null
         }
       ],
-      "proposed_update": "Use distinct pictured empty/earned baby/shell progress states in the same three positions, preserving earned count.",
+      "proposed_update": "Verify exact source CI, integrate via the normal Dev gate, and complete formal QA11 and external review.",
       "route_refs": [
         "minigame.dolls",
         "game.dolls"
@@ -17896,6 +17994,34 @@
           "at_utc": "2026-10-31T23:57:17.063490+00:00"
         },
         "remaining": "Entire campaign parked afterR118 until owner resumes afterdemo. Future sourceCI/currentDev reconciliation/integration, naturalroutes/formalQA11/device/child/owner/global denominators remainOPEN. No new art or engine suite for preservation bookkeeping."
+      },
+      "r140_prior_observation": {
+        "status": "PARKED_SOURCE_CANDIDATE",
+        "observed_weakness": "Progress uses concentric flat color dots.",
+        "proposed_update": "Use distinct pictured empty/earned baby/shell progress states in the same three positions, preserving earned count.",
+        "screen_coverage": {
+          "measured_current_bounds": null,
+          "coverage_state": "COVERAGE_GAP",
+          "geometry_expressions": [
+            "var panel := Rect2(Vector2.ZERO, size)",
+            "draw_circle(Vector2(pip_x, 34.0), 18.0,",
+            "draw_circle(Vector2(pip_x, 34.0), 12.0,",
+            "Vector2(seam_x, mat_rect.position.y + 14.0),",
+            "Vector2(seam_x + 46.0, mat_rect.end.y - 14.0),",
+            "Vector2(seam_x + 23.0, mat_rect.get_center().y), 4.5,",
+            "var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)",
+            "var focus_radius := FOCUS_RADIUS \\",
+            "var focus_center := catch_point + Vector2(",
+            "draw_arc(focus_center, focus_radius, 0.0, PI, 36,",
+            "draw_arc(focus_center, focus_radius - 9.0, 0.04, PI - 0.04, 36,",
+            "var catch_radius := minf(CATCH_RADIUS, size.x * 0.15)",
+            "draw_arc(catch_point, catch_radius, 0.0, PI, 40,",
+            "draw_arc(catch_point, catch_radius, 0.0, PI, 40,",
+            "draw_arc(catch_point, catch_radius, 0.02, PI - 0.02, 40,"
+          ],
+          "note": "Expressions are scope evidence, not measured per-piece screen bounds.",
+          "r119_scope": "OriginalMain/Faron configured10states twoaspects withactual0/1/2/3 rendered heart counts. Full3Main pollinghold declared. Workbranch only; no newDev coverage or whole-role acceptance."
+        }
       }
     },
     {
@@ -29310,7 +29436,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261105-R139-DOLLS-CRADLE-FOCUS-DEV",
+  "revision": "FV-AUDIT-20261105-R140-DOLLS-PROGRESS-SOURCE",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -40009,7 +40135,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 42 published bounded source artifacts, 25 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,783 bounded and 4,340 excluded, with 12,123 retained.",
+  "current_effective_summary": "SUMMARY.json. 42 published bounded source artifacts, 25 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native events total 7,823 bounded and 4,340 excluded, with 12,163 retained.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -46765,6 +46891,93 @@
     "apk_verified": false,
     "stable_id": "FV-B23A63BF66D8",
     "variant": "Main/Faron Dolls idle cradle focus",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "r140_dolls_progress_runtime": {
+    "state": "PUBLISHED_REVALIDATED_R119_DOLLS_PROGRESS_CANDIDATE_LOCAL_RUNTIME_PASS",
+    "stable_ids": [
+      "FV-12A0922A07E6"
+    ],
+    "scope": "Caught-baby progress hearts in the original Main/Faron Dolls activity",
+    "source_revision": "70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43",
+    "source_baseline": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+    "source_branch": "codex/flat-vector-dolls-progress-integration-20261105",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/MANIFEST.json",
+    "source_manifest_sha256": "fd8186e0b9a07244a448d478d6b0e36fe498cedcfd98d0d0a0c4dd9e2ac7acaf",
+    "anonymous_required_files_including_manifest": 165,
+    "candidate": {
+      "runtime_files": [
+        {
+          "path": "assets/dolls/progress_empty_painted.png",
+          "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+          "sha256": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+          "bytes": 289391,
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_empty_painted.png"
+        },
+        {
+          "path": "assets/dolls/progress_empty_painted.png.import",
+          "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+          "sha256": "10801e72e529f9e061fb0ca6ecf0f9fe725f4c4effc6546715e5b6c223af94d8",
+          "bytes": 984,
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_empty_painted.png.import"
+        },
+        {
+          "path": "assets/dolls/progress_filled_painted.png",
+          "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+          "sha256": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+          "bytes": 272304,
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_filled_painted.png"
+        },
+        {
+          "path": "assets/dolls/progress_filled_painted.png.import",
+          "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+          "sha256": "47b7e2f63415cd9b453a991a670214c4db8343366ab0e7b35b5aa93c9b66c60f",
+          "bytes": 988,
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_filled_painted.png.import"
+        }
+      ],
+      "static_calls": 0,
+      "animation_calls": 0,
+      "new_native_master": false,
+      "prior_art_revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "prior_art_manifest": {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/MANIFEST.json",
+        "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+        "sha256": "97e584d0871e93364a4aa99ffbfaa02a0a21982de5bf58bddbbc97d04c10ea8c",
+        "bytes": 80408
+      },
+      "same_bounded_artifact_as": "r119_parked_source_candidate",
+      "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/PROVENANCE.json"
+    },
+    "integration": {
+      "source_work_branch": true,
+      "Dev": false,
+      "procedural_progress_dots_replaced": true
+    },
+    "runtime_evidence": {
+      "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+      "configured_candidate_checks": 144,
+      "configured_source_checks": 132,
+      "candidate_native_frames": 20,
+      "source_native_frames": 20,
+      "native_frame_events": {
+        "bounded": 40,
+        "excluded": 0,
+        "retained": 40
+      },
+      "probes": 82,
+      "analyzers": 4,
+      "normal_save_hashes_unchanged": 11,
+      "CI_run": 41989666565,
+      "CI_status_at_snapshot": "in_progress"
+    },
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/CANDIDATE_FOCUSED_RESULT.json",
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/VISUAL_REVIEW.json",
     "formal_QA11": null,
     "device": null,
     "child": null,

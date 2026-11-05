@@ -1,0 +1,57 @@
+{
+  "id": "flat-vector-r140-source-reconcile-20261105",
+  "baseline": "ea9c8b077b5937c88a78b5fb7b511310cfc4922f",
+  "scope": "Reconcile one verified bounded source artwork and separate exact R139 Android evidence.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-PERF-04",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-r140-source-reconcile-20261105.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_source/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_source/R139_DEV_APK_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_source/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_source/SOURCE_CI_STATUS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_source/SOURCE_DELIVERY_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "Verify actual source and Android manifest bytes anonymously",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_source/SOURCE_DELIVERY_VERIFICATION.json and R139_DEV_APK_VERIFICATION.json"
+    }
+  ],
+  "acceptance_gaps": "Dolls source CI and Dev integration, formal QA11, device, child and owner remain separate."
+}

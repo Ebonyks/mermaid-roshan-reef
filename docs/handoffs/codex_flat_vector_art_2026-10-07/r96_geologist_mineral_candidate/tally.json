@@ -1,7 +1,7 @@
 {
   "schema": "reef.flat_vector_tally/1",
   "baseline": "92c9fe70319ef46bfaa8f61348a6f51512141ec3",
-  "revision": "FV-AUDIT-20261105-R139-DOLLS-CRADLE-FOCUS-DEV",
+  "revision": "FV-AUDIT-20261105-R140-DOLLS-PROGRESS-SOURCE",
   "status_lanes": [
     "NEEDS_CONTEXT_REVIEW",
     "IDENTIFIED",
@@ -10375,7 +10375,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 42 published bounded source artifacts, 25 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,783 bounded and 4,340 excluded, with 12,123 retained.",
+  "current_effective_summary": "SUMMARY.json. 42 published bounded source artifacts, 25 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native events total 7,823 bounded and 4,340 excluded, with 12,163 retained.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -13683,7 +13683,7 @@
     "excluded": 2,
     "retained": 28
   },
-  "new_partial_Dev_artifacts_this_revision": 1,
+  "new_partial_Dev_artifacts_this_revision": 0,
   "r120_parent_receipt_revision": "3c3b39838b2ceacb13281a83957442662ca2f5b9",
   "r120_melody_curtains_runtime": {
     "stable_ids": [
@@ -17233,5 +17233,127 @@
     "child": null,
     "owner": null,
     "accepted_removed": 0
+  },
+  "r140_dolls_progress_runtime": {
+    "state": "PUBLISHED_REVALIDATED_R119_DOLLS_PROGRESS_CANDIDATE_LOCAL_RUNTIME_PASS",
+    "stable_ids": [
+      "FV-12A0922A07E6"
+    ],
+    "scope": "Caught-baby progress hearts in the original Main/Faron Dolls activity",
+    "source_revision": "70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43",
+    "source_baseline": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+    "source_branch": "codex/flat-vector-dolls-progress-integration-20261105",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/MANIFEST.json",
+    "source_manifest_sha256": "fd8186e0b9a07244a448d478d6b0e36fe498cedcfd98d0d0a0c4dd9e2ac7acaf",
+    "anonymous_required_files_including_manifest": 165,
+    "candidate": {
+      "runtime_files": [
+        {
+          "path": "assets/dolls/progress_empty_painted.png",
+          "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+          "sha256": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+          "bytes": 289391,
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_empty_painted.png"
+        },
+        {
+          "path": "assets/dolls/progress_empty_painted.png.import",
+          "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+          "sha256": "10801e72e529f9e061fb0ca6ecf0f9fe725f4c4effc6546715e5b6c223af94d8",
+          "bytes": 984,
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_empty_painted.png.import"
+        },
+        {
+          "path": "assets/dolls/progress_filled_painted.png",
+          "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+          "sha256": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+          "bytes": 272304,
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_filled_painted.png"
+        },
+        {
+          "path": "assets/dolls/progress_filled_painted.png.import",
+          "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+          "sha256": "47b7e2f63415cd9b453a991a670214c4db8343366ab0e7b35b5aa93c9b66c60f",
+          "bytes": 988,
+          "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/assets/dolls/progress_filled_painted.png.import"
+        }
+      ],
+      "static_calls": 0,
+      "animation_calls": 0,
+      "new_native_master": false,
+      "prior_art_revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+      "prior_art_manifest": {
+        "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r119_dolls_progress_pips_runtime/MANIFEST.json",
+        "revision": "634c8e4a06aae91e30e71e5a5e314c59c29570ce",
+        "sha256": "97e584d0871e93364a4aa99ffbfaa02a0a21982de5bf58bddbbc97d04c10ea8c",
+        "bytes": 80408
+      },
+      "same_bounded_artifact_as": "r119_parked_source_candidate",
+      "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/PROVENANCE.json"
+    },
+    "integration": {
+      "source_work_branch": true,
+      "Dev": false,
+      "procedural_progress_dots_replaced": true
+    },
+    "runtime_evidence": {
+      "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+      "configured_candidate_checks": 144,
+      "configured_source_checks": 132,
+      "candidate_native_frames": 20,
+      "source_native_frames": 20,
+      "native_frame_events": {
+        "bounded": 40,
+        "excluded": 0,
+        "retained": 40
+      },
+      "probes": 82,
+      "analyzers": 4,
+      "normal_save_hashes_unchanged": 11,
+      "CI_run": 41989666565,
+      "CI_status_at_snapshot": "in_progress"
+    },
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/CANDIDATE_FOCUSED_RESULT.json",
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/VISUAL_REVIEW.json",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "r140_frame_events": {
+    "bounded": 40,
+    "excluded": 0,
+    "retained": 40
+  },
+  "r139_dolls_cradle_focus_Dev_APK": {
+    "Dev_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+    "apk_bytes": 862564521,
+    "apk_sha256": "261fb36b3da6cad3e60860c0ccf450055b04743e6cbc40339e6a0110a723066b",
+    "verified_at_utc": "2026-11-05T04:40:01.492119+00:00",
+    "access_mode": "Anonymous HTTPS, streamed full release asset and checksum sidecar",
+    "physical_device_install": null,
+    "child": null,
+    "owner": null,
+    "formal_QA11": null,
+    "Dev_CI": 41956013666,
+    "Android_build": 41962275514,
+    "release_assets": {
+      "roshan-reef.apk": {
+        "id": 712045840,
+        "name": "roshan-reef.apk",
+        "digest": "sha256:261fb36b3da6cad3e60860c0ccf450055b04743e6cbc40339e6a0110a723066b",
+        "size": 862564521,
+        "browser_download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk"
+      },
+      "roshan-reef.apk.sha256": {
+        "id": 712045838,
+        "name": "roshan-reef.apk.sha256",
+        "digest": "sha256:1cd29156023fcf209e5ea085fd04e363c2b1eeca31832ca14f57ad036f1a10a5",
+        "size": 82,
+        "browser_download_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/android-dev/roshan-reef.apk.sha256"
+      }
+    },
+    "receipt": "r140_dolls_progress_source/R139_DEV_APK_VERIFICATION.json"
   }
 }

@@ -1,0 +1,5 @@
+# Painted Dolls progress hearts
+
+The archived R119 cloth hearts replace the flat progress dots on the current source branch. The two art states keep their exact bytes, provenance and position. This delivery revalidates the existing bounded artifact and adds 40 native frame events across 20 paired states. 42 published bounded source artifacts, 25 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. [Source and tests](https://github.com/Ebonyks/mermaid-roshan-reef/blob/70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43/docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md) · [Exact source CI](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41989666565) · [Source receipt](SOURCE_DELIVERY_VERIFICATION.json).
+
+The separate Dolls cradle-focus Dev APK was anonymously verified at `bfc60e1e80f49824f299896fe51431ff018c6ddb`. Its exact Android build and checksum are recorded. [APK verification](R139_DEV_APK_VERIFICATION.json). Formal QA11, device, child and owner review remain open.
