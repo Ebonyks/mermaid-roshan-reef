@@ -1,0 +1,765 @@
+{
+  "state": "ORIGINAL_MAIN_FARON_DOLLS_FIFTEEN_STATES_TWO_ASPECT_PASS_REVIEW_REQUIRED",
+  "lane": "source",
+  "cases": [
+    {
+      "width": 1280,
+      "checks": 67,
+      "frames": [
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Exact idle phase zero; centered catcher",
+          "focus_elapsed": 0.0,
+          "focus_rect": "[P: (449.0, 478.4), S: (126.0, 67.0)]",
+          "game": "dolls",
+          "id": "00_idle_center",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00_idle_center.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "63bf5aba67afdd1c26bab6eee0250440be43a07ef1951f10731d8331d326b538",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Exact idle phase 0.35 seconds",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (447.1998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "00b_idle_pulse",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00b_idle_pulse.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "33f0b2c52bb739066ecb89773078e875c14176568d755516f7ac076a9a95ec03",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.1,
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Configured legal catcher left clamp, cue stays under sling",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (37.5998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "00c_idle_left",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00c_idle_left.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "cad4ea56df2b457c722c9043162fa008c856204531714979a59064f4752ea625",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.9,
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Configured legal catcher right clamp, cue stays under sling",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (856.7998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "00d_idle_right",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00d_idle_right.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "406bcddd0ec374cafdacbe6f07d68d8af21bf9d3cb937357c47b44ae8d8d9570",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Configured live input gate hides cue at the same center and phase",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (447.1998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "00e_focus_hidden",
+          "input_live_t": 0.1,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00e_focus_hidden.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "1586814e3587057ec5211819bcef82fe5a9c3b2587028349d25d21e3d120ab4b",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Configured gate elapsed; same center and phase returns",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (447.1998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "00f_focus_returns",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00f_focus_returns.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "33f0b2c52bb739066ecb89773078e875c14176568d755516f7ac076a9a95ec03",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Configured centre faller at0.44; original live Main/Faron game and authored tiles",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (447.1998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "01_falling_mat",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "01_falling_mat.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "33f0b2c52bb739066ecb89773078e875c14176568d755516f7ac076a9a95ec03",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Original engine-driven passive miss from configured0.905 faller; no reward",
+          "focus_elapsed": 0.496255000000001,
+          "focus_rect": "[P: (447.0003, 481.4283), S: (129.9994, 68.9997)]",
+          "game": "dolls",
+          "id": "02_passive_safe_landing",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "02_passive_safe_landing.png",
+          "safe_landings": [
+            {
+              "texture": 1,
+              "time": 1.103745,
+              "x": 0.5
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "306e480895ba00c3097124670e3985c780c28e0c6ee0534e4fabe7bc94f31d88",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Same landing at half of the original 0.35 second fade interval",
+          "focus_elapsed": 0.496255000000001,
+          "focus_rect": "[P: (447.0003, 481.4283), S: (129.9994, 68.9997)]",
+          "game": "dolls",
+          "id": "02b_passive_safe_landing_half_fade",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "02b_passive_safe_landing_half_fade.png",
+          "safe_landings": [
+            {
+              "texture": 1,
+              "time": 0.175,
+              "x": 0.5
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "10ea9ad1e73f92f488da1d4411c90c4dd8b79fc331d3b1c1e1321b37269bf8b4",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Configured legal x0.08 extreme safe landing; frozen physics for contact inspection",
+          "focus_elapsed": 0.496255000000001,
+          "focus_rect": "[P: (447.0003, 481.4283), S: (129.9994, 68.9997)]",
+          "game": "dolls",
+          "id": "03_left_safe_edge",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "03_left_safe_edge.png",
+          "safe_landings": [
+            {
+              "texture": 1,
+              "time": 1.25,
+              "x": 0.08
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "f9ec20e6856843a9a5f0582a7ecc230005986c1fc9958d634a45e15cced82830",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Configured legal x0.92 extreme safe landing; frozen physics for contact inspection",
+          "focus_elapsed": 0.496255000000001,
+          "focus_rect": "[P: (447.0003, 481.4283), S: (129.9994, 68.9997)]",
+          "game": "dolls",
+          "id": "04_right_safe_edge",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "04_right_safe_edge.png",
+          "safe_landings": [
+            {
+              "texture": 2,
+              "time": 1.25,
+              "x": 0.92
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "6f2540dd8dd45e2f2d7c61fa2a3bfa9238b98dd0653518bb65f6cdaa1bf0b98f",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.550000011920929,
+          "caught": 1,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Actual native engine catch after owned single touch; private session below goal",
+          "focus_elapsed": 0.642738666666668,
+          "focus_rect": "[P: (498.4316, 479.1358), S: (129.5369, 68.76845)]",
+          "game": "dolls",
+          "id": "05_owned_catch_mat_remains",
+          "input_live_t": 1.85351633333333,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "05_owned_catch_mat_remains.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "5607c9778f037cd6f8fa5417b800d0554e1b1157accee5869dfb1f4f256945c5",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.550000011920929,
+          "caught": 2,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Second actual native owned catch below originalgoal; unchanged two-baby spread",
+          "focus_elapsed": 0.779551000000001,
+          "focus_rect": "[P: (498.9944, 476.6805), S: (128.4113, 68.20564)]",
+          "game": "dolls",
+          "id": "06_two_owned_catches",
+          "input_live_t": 1.86318766666667,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "06_two_owned_catches.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "e0c4d0e923eba841de93550633b7b9faa307b326fbbbb52bf5ebc3576698a8f1",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.1,
+          "caught": 2,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Actual single touch moves original cradle to0.1 clamp, frozen fallers, two settled babies",
+          "focus_elapsed": 0.779551000000001,
+          "focus_rect": "[P: (38.19436, 476.6805), S: (128.4113, 68.20564)]",
+          "game": "dolls",
+          "id": "07_left_two_baby_catch_region",
+          "input_live_t": 2.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "07_left_two_baby_catch_region.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "8b7df9390543c0619314da948c4acbc8255de834b10b0d70ae2d3c8701669564",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.9,
+          "caught": 2,
+          "dimensions": [
+            1280,
+            720
+          ],
+          "fixture": "Actual single touch moves original cradle to0.9 clamp, frozen fallers, two settled babies",
+          "focus_elapsed": 0.779551000000001,
+          "focus_rect": "[P: (857.3943, 476.6805), S: (128.4113, 68.20564)]",
+          "game": "dolls",
+          "id": "08_right_two_baby_catch_region",
+          "input_live_t": 2.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (128.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "08_right_two_baby_catch_region.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "dba945e9c84023b3ebbecad008e3b8d62f99e911da6690d34d4d3e5fbf1c3c03",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-cradle-focus-20261105\\source_native_final\\1280\\output\\RESULT.json",
+      "result_sha256": "448a8378975142f6816a4109786ee86d036ca0314e43c67aae1bd1d8262888b7"
+    },
+    {
+      "width": 1600,
+      "checks": 67,
+      "frames": [
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Exact idle phase zero; centered catcher",
+          "focus_elapsed": 0.0,
+          "focus_rect": "[P: (449.0, 478.4), S: (126.0, 67.0)]",
+          "game": "dolls",
+          "id": "00_idle_center",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00_idle_center.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "54707d90821b780e14cb09c718246050d7f3ef6edec354b5b1198e1e822a7c17",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Exact idle phase 0.35 seconds",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (447.1998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "00b_idle_pulse",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00b_idle_pulse.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "f21daf42488ea0f6e1ef09e4fd4b254a6b5715c1fb35e25031df9b7451e65cbb",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.1,
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Configured legal catcher left clamp, cue stays under sling",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (37.5998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "00c_idle_left",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00c_idle_left.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "b9034517a08a354c8dd632945de6d08b092e96675ee7eaf223538a92eed2b24c",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.9,
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Configured legal catcher right clamp, cue stays under sling",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (856.7998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "00d_idle_right",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00d_idle_right.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "d9836ab380564f03fa5bb8da3e601dcd0046fb32be65efe3244258b4c0354ed1",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Configured live input gate hides cue at the same center and phase",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (447.1998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "00e_focus_hidden",
+          "input_live_t": 0.1,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00e_focus_hidden.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "0b57fdaec68b713e18fae29e50c01ff2d8385ffb2f2cca7034b0f96e233442de",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Configured gate elapsed; same center and phase returns",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (447.1998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "00f_focus_returns",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "00f_focus_returns.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "f21daf42488ea0f6e1ef09e4fd4b254a6b5715c1fb35e25031df9b7451e65cbb",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Configured centre faller at0.44; original live Main/Faron game and authored tiles",
+          "focus_elapsed": 0.35,
+          "focus_rect": "[P: (447.1998, 482.3969), S: (129.6004, 68.8002)]",
+          "game": "dolls",
+          "id": "01_falling_mat",
+          "input_live_t": 0.0,
+          "missed": 0,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "01_falling_mat.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "f21daf42488ea0f6e1ef09e4fd4b254a6b5715c1fb35e25031df9b7451e65cbb",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Original engine-driven passive miss from configured0.905 faller; no reward",
+          "focus_elapsed": 0.497937666666666,
+          "focus_rect": "[P: (447.0005, 481.408), S: (129.999, 68.99949)]",
+          "game": "dolls",
+          "id": "02_passive_safe_landing",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "02_passive_safe_landing.png",
+          "safe_landings": [
+            {
+              "texture": 1,
+              "time": 1.10206233333333,
+              "x": 0.5
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "9d3b970b692b67f054c22c58c98d74ecbe4148bcf6af74d2735942eec460a4a4",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Same landing at half of the original 0.35 second fade interval",
+          "focus_elapsed": 0.497937666666666,
+          "focus_rect": "[P: (447.0005, 481.408), S: (129.999, 68.99949)]",
+          "game": "dolls",
+          "id": "02b_passive_safe_landing_half_fade",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "02b_passive_safe_landing_half_fade.png",
+          "safe_landings": [
+            {
+              "texture": 1,
+              "time": 0.175,
+              "x": 0.5
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "b96931bae4bd6cb24d7925a963eb4d6ca5dd80ce8d4ed73976829f77b88c4670",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Configured legal x0.08 extreme safe landing; frozen physics for contact inspection",
+          "focus_elapsed": 0.497937666666666,
+          "focus_rect": "[P: (447.0005, 481.408), S: (129.999, 68.99949)]",
+          "game": "dolls",
+          "id": "03_left_safe_edge",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "03_left_safe_edge.png",
+          "safe_landings": [
+            {
+              "texture": 1,
+              "time": 1.25,
+              "x": 0.08
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "3fb307e6524c32563d24429e0dd3a605c806a0f9532144e65a343350450ee916",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.5,
+          "caught": 0,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Configured legal x0.92 extreme safe landing; frozen physics for contact inspection",
+          "focus_elapsed": 0.497937666666666,
+          "focus_rect": "[P: (447.0005, 481.408), S: (129.999, 68.99949)]",
+          "game": "dolls",
+          "id": "04_right_safe_edge",
+          "input_live_t": 0.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "04_right_safe_edge.png",
+          "safe_landings": [
+            {
+              "texture": 2,
+              "time": 1.25,
+              "x": 0.92
+            }
+          ],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "be4b04e5c542fc72c2505f03884d20a19485598a3da861731e8e54802412817b",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.550000011920929,
+          "caught": 1,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Actual native engine catch after owned single touch; private session below goal",
+          "focus_elapsed": 0.644105666666666,
+          "focus_rect": "[P: (498.4357, 479.111), S: (129.5287, 68.76434)]",
+          "game": "dolls",
+          "id": "05_owned_catch_mat_remains",
+          "input_live_t": 1.853832,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "05_owned_catch_mat_remains.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "f804982ddfd031674206bd66b1d8fb5858c0bff8aa5f4703f5ba2b354500c5fa",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.550000011920929,
+          "caught": 2,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Second actual native owned catch below originalgoal; unchanged two-baby spread",
+          "focus_elapsed": 0.780143333333333,
+          "focus_rect": "[P: (498.9974, 476.6707), S: (128.4052, 68.20261)]",
+          "game": "dolls",
+          "id": "06_two_owned_catches",
+          "input_live_t": 1.86396233333333,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "06_two_owned_catches.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "7fcf19a8bdabbf00e036811bba7851aaead52584042b0d5164cb7ad4471d4811",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.1,
+          "caught": 2,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Actual single touch moves original cradle to0.1 clamp, frozen fallers, two settled babies",
+          "focus_elapsed": 0.780143333333333,
+          "focus_rect": "[P: (38.19739, 476.6707), S: (128.4052, 68.20261)]",
+          "game": "dolls",
+          "id": "07_left_two_baby_catch_region",
+          "input_live_t": 2.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "07_left_two_baby_catch_region.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "b5d2b982223fc76c89d960e25a01abcc4d4f0c287188f0cc99b8b8501affb8fe",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        },
+        {
+          "catcher_x": 0.9,
+          "caught": 2,
+          "dimensions": [
+            1600,
+            720
+          ],
+          "fixture": "Actual single touch moves original cradle to0.9 clamp, frozen fallers, two settled babies",
+          "focus_elapsed": 0.780143333333333,
+          "focus_rect": "[P: (857.3973, 476.6707), S: (128.4052, 68.20261)]",
+          "game": "dolls",
+          "id": "08_right_two_baby_catch_region",
+          "input_live_t": 2.0,
+          "missed": 1,
+          "normal_time_scale": 1.0,
+          "panel_global_rect": "[P: (288.0, 56.0), S: (1024.0, 608.0)]",
+          "path": "08_right_two_baby_catch_region.png",
+          "safe_landings": [],
+          "safe_mat_rect": "[P: (35.84, 471.2), S: (952.32, 136.8)]",
+          "sha256": "49ffa9d367ce5832d2440bfa6e50dd801397476b9973a7ef1ccd3062b4fc7982",
+          "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220; exactactualDolls:cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820"
+        }
+      ],
+      "result": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-cradle-focus-20261105\\source_native_final\\1600\\output\\RESULT.json",
+      "result_sha256": "e16d487f2f06df5ff99c7665430df1a17e17cb63b07086f745f9cd24f6ee7df1"
+    }
+  ],
+  "checks": 134,
+  "new_native_frame_events": 30,
+  "source_drift": [],
+  "normal_before": {
+    "": "3816cbddaf4e7ea021e2194f9a30ad0503089dea573278f3da7fbaee5608542b",
+    ".bak": "d10bbad0fecc71b7f2a9efe1a397a476305ed656c606521a1c9a22b67a49b5af",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent"
+  },
+  "normal_after": {
+    "": "3816cbddaf4e7ea021e2194f9a30ad0503089dea573278f3da7fbaee5608542b",
+    ".bak": "d10bbad0fecc71b7f2a9efe1a397a476305ed656c606521a1c9a22b67a49b5af",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent"
+  },
+  "normal_unchanged": true,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "completed_at_utc": "2026-11-05T00:00:40.661433+00:00"
+}

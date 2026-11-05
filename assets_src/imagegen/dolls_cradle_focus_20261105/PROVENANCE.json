@@ -1,0 +1,203 @@
+{
+  "state": "R139_LOCAL_CANDIDATE_INTEGRATED_IMPORT_PENDING",
+  "stable_id": "FV-B23A63BF66D8",
+  "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+  "canonical_baseline": "b7b12617ff8f21745a682308b5f1f85e814ebc62",
+  "scope": "Replace the two flat idle-focus arcs in the original Main/Faron Dolls cradle with one painted cue. Preserve catcher bounds, the focus rectangle and envelope, draw order behind the sling, pulse/bob and live-input visibility gate, progress, save and child controls.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-PERF-04",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "same_scene_frame": {
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/frames/1280/01_falling_mat.png",
+    "sha256": "4682ef7186a19a733969e1df7d6849bd32d5c22f1cd49b5e7767597d55dc97d4",
+    "role": "Local visual comparison only. No scene or actors supplied to generator."
+  },
+  "generation_references": [
+    {
+      "path": "assets/dolls/cradle_sling_painted.png",
+      "sha256": "837b1dbf53908e9bcdfc2a57c93ad96c7d90a369a87c4e1192c198abedb3e1ca",
+      "role": "Neighboring prop, painted material and rim style, not an edit target"
+    },
+    {
+      "path": "assets/dolls/safety_mat_painted.png",
+      "sha256": "da27e6f70b2ecbe34f62408ee5b6ce716110e9066a71656399154392c7ede8b7",
+      "role": "Neighboring prop, contrast and palette only"
+    }
+  ],
+  "evidence_required": [
+    "Native and runtime sprite hashes and prompt",
+    "Ten-axis actual scene comparison",
+    "Mobile/Speedy actual idle, touch, re-entry and preserved save/feedback evidence",
+    "Full approved machine tests, source CI, immutable source and registry manifests",
+    "Separate QA11, physical device, child, owner and Dev evidence"
+  ],
+  "static_calls": 2,
+  "animation_calls": 0,
+  "backend": "Built-in image_gen.imagegen",
+  "model": null,
+  "model_reported": false,
+  "takes": [
+    {
+      "name": "take_01_native.png",
+      "sha256": "ecf29a8ffa8b3bc74be24ad915fd9ba942ae010db5b655c12a003e5300305e6d",
+      "tool_event": "exec-d7d8aae2-0b5b-42c5-b0cf-bd99baf1a70d",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "alpha_boxes": {
+        "1": [
+          0,
+          20,
+          1774,
+          887
+        ],
+        "4": [
+          31,
+          239,
+          1706,
+          790
+        ],
+        "16": [
+          99,
+          252,
+          1674,
+          757
+        ],
+        "32": [
+          100,
+          253,
+          1669,
+          748
+        ],
+        "64": [
+          101,
+          253,
+          1669,
+          747
+        ],
+        "128": [
+          101,
+          254,
+          1668,
+          746
+        ],
+        "192": [
+          102,
+          254,
+          1668,
+          746
+        ]
+      },
+      "prompt": "Use case: illustration-story. Create one transparent RGBA game sprite, a single open-top U-shaped brush of warm cream and honey-gold light that frames a painted underwater nursery sling from behind. The two supplied assets are neighboring style references only: the padded lavender sling with fine gold piping gives edge handling and the lavender quilt gives the intended background contrast. Only paint the guide cue. Geometry is the bottom half of a front-facing circle, with an exact broad symmetrical U silhouette roughly twice as wide as it is high, centered in a wide canvas. The two ends start at the same height, curve down toward the middle, and end in soft tapered rounded tips at the far left and right. Keep both tips bright and substantial because they will be the part visible above and beside the sling. The narrow continuous band is roughly one twentieth of the full width at its thickest, with warm golden midtones, pale ivory highlights, subtle painted ochre edge and gentle irregular gouache pigment. A small hint of aqua along the inner lower edge is allowed, integrated into the same stroke. It should feel like a softly illuminated hand-painted gold thread, readable as a gentle invitation for a young child. Keep generous transparent padding, a fully transparent open center and exterior, and no haze or white backdrop beyond the immediately antialiased stroke. No actual sling, cushion, child, hands, lettering, symbols, particles, an upper arc, or a second ring. One open U-shaped painted cutout only.",
+      "status": "REJECTED_DIFFUSE_MATTE"
+    },
+    {
+      "name": "take_02_native.png",
+      "sha256": "84cfbef5a66afc28397386f3f8bcf73840f581aa7303dd23c5571c17d30f993e",
+      "tool_event": "exec-122a04fe-aabb-4df2-9da8-97d8dc5008fc",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "alpha_boxes": {
+        "1": [
+          80,
+          19,
+          1744,
+          863
+        ],
+        "4": [
+          100,
+          248,
+          1674,
+          755
+        ],
+        "16": [
+          102,
+          250,
+          1672,
+          751
+        ],
+        "32": [
+          102,
+          250,
+          1672,
+          750
+        ],
+        "64": [
+          103,
+          251,
+          1671,
+          750
+        ],
+        "128": [
+          103,
+          251,
+          1671,
+          749
+        ],
+        "192": [
+          104,
+          252,
+          1670,
+          749
+        ]
+      },
+      "prompt": "Use case: precise-object-edit. Keep the single gold and ivory U-shaped painted guide stroke and its rounded bright tips. Remove the smoky diffuse halo, grey matte, yellow/red fringes and all pixels that do not belong to the actual painted band. Outside and inside the contour must be true zero-alpha transparency, with just a narrow antialiased edge. Preserve the subtle pigment shading and the exact broad open-top U geometry. Give the complete stroke even transparent padding on all sides so neither tip is near the canvas edge. The stroke itself should still feel warm, soft, and luminous through its painted highlights, with no airbrush bloom or shadow around it. No new objects. One clean isolated RGBA cutout.",
+      "status": "SELECTED_CANDIDATE"
+    }
+  ],
+  "worktree": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-safe-landing-20261104\\project",
+  "branch": "codex/flat-vector-dolls-cradle-focus-20261105",
+  "runtime": {
+    "path": "assets/dolls/cradle_focus_painted.png",
+    "sha256": "4d8cc9d61069554a056b450ce41ace7e7d849c1f4adccb8cb0977b727dc1cc9b",
+    "dimensions": [
+      512,
+      171
+    ],
+    "native": "take_02_native.png",
+    "alpha16_bbox_xyxy": [
+      4,
+      5,
+      508,
+      166
+    ],
+    "export": "FFmpeg 8.1.2 crop=1596:532:89:235:exact=1,scale=512:171:flags=lanczos,format=rgba",
+    "placement": "Existing focus rectangle X and Y, original pulsing width, uniform sprite aspect, original draw order and modulate alpha. Outer pixels remain within the original focus envelope."
+  },
+  "candidate_controller_sha256": "7ecf22e2efc2ffd3b20382157e9e3e18b0b45856230a1e78a4c89ba1d3fa529a",
+  "source_controller_sha256": "cfb3cf216fafb866aecb13604443a23186ba0c38ad69eec2eaf65380b0cc1820",
+  "handoff": "docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime",
+  "impact": "design/audit_impacts/flat-vector-dolls-cradle-focus-20261105.json",
+  "provenance": "assets_src/imagegen/dolls_cradle_focus_20261105/PROVENANCE.json",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

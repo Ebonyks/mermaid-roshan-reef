@@ -2332,3 +2332,7 @@ Rollback restores only the exact baseline blocks in _mg2d_open and _mg_build_gar
 ## CHG-144 — Painted Dolls safe-landing cue
 
 Restore the original three lines in `scripts/games/dolls.gd` from 9e02fc2fe45c1c0a0fbd4db67dd765860d12cb30 to recover the prior aqua arc, then remove the named halo runtime asset and import after checking references. Keep the native takes and production evidence. This bounded rollback affects the passive landing illustration only. [Source evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r138_dolls_safe_landing_runtime/README.md).
+
+## CHG-145 — Painted Dolls cradle focus cue
+
+Restore the previous focus drawing block and remove the cue texture preload in `scripts/games/dolls.gd` from 58b5f61952b41f6eab29a21d3fdb21ba7c1cc220 to recover the prior aqua arc, then remove the named halo runtime asset and import after checking references. Keep the native takes and production evidence. This bounded rollback affects the idle cradle focus illustration only. [Source evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/README.md).

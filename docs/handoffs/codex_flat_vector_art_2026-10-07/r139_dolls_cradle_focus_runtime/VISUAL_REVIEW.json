@@ -1,0 +1,650 @@
+{
+  "state": "PASS_AGENT_BOUNDED_VISUAL_REVIEW_EXTERNAL_ACCEPTANCE_OPEN",
+  "stable_id": "FV-B23A63BF66D8",
+  "source_revision": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+  "runtime_asset_sha256": "4d8cc9d61069554a056b450ce41ace7e7d849c1f4adccb8cb0977b727dc1cc9b",
+  "source_focused_result_sha256": "a70c096ebdcdbd719efeb2a43963472dee921063d7c0bb0e3645e3f41925a709",
+  "focused_result_sha256": "9b25a0d93c20833ac15e6427810a9fb4a5970df0b4f10275781b72b465c74b3e",
+  "compared_frames": [
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "00_idle_center.png",
+      "source_sha256": "63bf5aba67afdd1c26bab6eee0250440be43a07ef1951f10731d8331d326b538",
+      "candidate_sha256": "d7395b117c727be65eb05b3a1e9cd35b919c0f566135fc8afcd1ea35c70dfc90",
+      "difference_bbox_xyxy": [
+        577,
+        536,
+        703,
+        601
+      ],
+      "expected_focus_region_xyxy": [
+        575,
+        532,
+        705,
+        604
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "00b_idle_pulse.png",
+      "source_sha256": "33f0b2c52bb739066ecb89773078e875c14176568d755516f7ac076a9a95ec03",
+      "candidate_sha256": "c1595709c9b05658d4397b482e54c3454475ad6a91875b3467a8e1cb8d456e3c",
+      "difference_bbox_xyxy": [
+        575,
+        539,
+        705,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        573,
+        536,
+        707,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "00c_idle_left.png",
+      "source_sha256": "cad4ea56df2b457c722c9043162fa008c856204531714979a59064f4752ea625",
+      "candidate_sha256": "fabaceff59e6296b6cce88d25c959f33f824136a7762e9e137417a76c4504646",
+      "difference_bbox_xyxy": [
+        166,
+        539,
+        295,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        163,
+        536,
+        298,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "00d_idle_right.png",
+      "source_sha256": "406bcddd0ec374cafdacbe6f07d68d8af21bf9d3cb937357c47b44ae8d8d9570",
+      "candidate_sha256": "934b1b5f5a1ef0b930f969ab235c24d0d35297c7f737b3dea27cdeb1742ac65c",
+      "difference_bbox_xyxy": [
+        985,
+        540,
+        1114,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        982,
+        536,
+        1117,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "00e_focus_hidden.png",
+      "source_sha256": "1586814e3587057ec5211819bcef82fe5a9c3b2587028349d25d21e3d120ab4b",
+      "candidate_sha256": "1586814e3587057ec5211819bcef82fe5a9c3b2587028349d25d21e3d120ab4b",
+      "difference_bbox_xyxy": null,
+      "expected_focus_region_xyxy": [
+        573,
+        536,
+        707,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "00f_focus_returns.png",
+      "source_sha256": "33f0b2c52bb739066ecb89773078e875c14176568d755516f7ac076a9a95ec03",
+      "candidate_sha256": "c1595709c9b05658d4397b482e54c3454475ad6a91875b3467a8e1cb8d456e3c",
+      "difference_bbox_xyxy": [
+        575,
+        539,
+        705,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        573,
+        536,
+        707,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "01_falling_mat.png",
+      "source_sha256": "33f0b2c52bb739066ecb89773078e875c14176568d755516f7ac076a9a95ec03",
+      "candidate_sha256": "c1595709c9b05658d4397b482e54c3454475ad6a91875b3467a8e1cb8d456e3c",
+      "difference_bbox_xyxy": [
+        575,
+        539,
+        705,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        573,
+        536,
+        707,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "02_passive_safe_landing.png",
+      "source_sha256": "306e480895ba00c3097124670e3985c780c28e0c6ee0534e4fabe7bc94f31d88",
+      "candidate_sha256": "2187314e8d1890371bc5dec0d8460ad00f3d6404f965399e5f242ce7789c166f",
+      "difference_bbox_xyxy": [
+        575,
+        538,
+        705,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        573,
+        535,
+        707,
+        609
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "02b_passive_safe_landing_half_fade.png",
+      "source_sha256": "10ea9ad1e73f92f488da1d4411c90c4dd8b79fc331d3b1c1e1321b37269bf8b4",
+      "candidate_sha256": "1e658d135422f2014c839370c53a4f2e9290a7171397d8aa3604548eb5c8439a",
+      "difference_bbox_xyxy": [
+        575,
+        538,
+        705,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        573,
+        535,
+        707,
+        609
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "03_left_safe_edge.png",
+      "source_sha256": "f9ec20e6856843a9a5f0582a7ecc230005986c1fc9958d634a45e15cced82830",
+      "candidate_sha256": "e2e78c195802059a2dd1b01932ac9c2bcd541f86ab87ec2c2ac3de9704dfabc6",
+      "difference_bbox_xyxy": [
+        575,
+        538,
+        705,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        573,
+        535,
+        707,
+        609
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "04_right_safe_edge.png",
+      "source_sha256": "6f2540dd8dd45e2f2d7c61fa2a3bfa9238b98dd0653518bb65f6cdaa1bf0b98f",
+      "candidate_sha256": "792fdc34454e37a10ef563891635f0fda1966f08edf13fa3c8cc546fa89cab3b",
+      "difference_bbox_xyxy": [
+        575,
+        538,
+        705,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        573,
+        535,
+        707,
+        609
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "05_owned_catch_mat_remains.png",
+      "source_sha256": "5607c9778f037cd6f8fa5417b800d0554e1b1157accee5869dfb1f4f256945c5",
+      "candidate_sha256": "5607c9778f037cd6f8fa5417b800d0554e1b1157accee5869dfb1f4f256945c5",
+      "difference_bbox_xyxy": null,
+      "expected_focus_region_xyxy": [
+        624,
+        533,
+        758,
+        606
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "06_two_owned_catches.png",
+      "source_sha256": "e0c4d0e923eba841de93550633b7b9faa307b326fbbbb52bf5ebc3576698a8f1",
+      "candidate_sha256": "e0c4d0e923eba841de93550633b7b9faa307b326fbbbb52bf5ebc3576698a8f1",
+      "difference_bbox_xyxy": null,
+      "expected_focus_region_xyxy": [
+        625,
+        530,
+        758,
+        603
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "07_left_two_baby_catch_region.png",
+      "source_sha256": "8b7df9390543c0619314da948c4acbc8255de834b10b0d70ae2d3c8701669564",
+      "candidate_sha256": "8b7df9390543c0619314da948c4acbc8255de834b10b0d70ae2d3c8701669564",
+      "difference_bbox_xyxy": null,
+      "expected_focus_region_xyxy": [
+        164,
+        530,
+        297,
+        603
+      ]
+    },
+    {
+      "aspect": [
+        1280,
+        720
+      ],
+      "state": "08_right_two_baby_catch_region.png",
+      "source_sha256": "dba945e9c84023b3ebbecad008e3b8d62f99e911da6690d34d4d3e5fbf1c3c03",
+      "candidate_sha256": "dba945e9c84023b3ebbecad008e3b8d62f99e911da6690d34d4d3e5fbf1c3c03",
+      "difference_bbox_xyxy": null,
+      "expected_focus_region_xyxy": [
+        983,
+        530,
+        1116,
+        603
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "00_idle_center.png",
+      "source_sha256": "54707d90821b780e14cb09c718246050d7f3ef6edec354b5b1198e1e822a7c17",
+      "candidate_sha256": "8028958bfd93abefeefb89ea1513496e6f212218ba0844a857a668f81ba6ad3f",
+      "difference_bbox_xyxy": [
+        737,
+        536,
+        863,
+        601
+      ],
+      "expected_focus_region_xyxy": [
+        735,
+        532,
+        865,
+        604
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "00b_idle_pulse.png",
+      "source_sha256": "f21daf42488ea0f6e1ef09e4fd4b254a6b5715c1fb35e25031df9b7451e65cbb",
+      "candidate_sha256": "fb24701737669f6876f7653e8838cec04cef61b1c19c3808109d96cfc09f8e5b",
+      "difference_bbox_xyxy": [
+        735,
+        539,
+        865,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        733,
+        536,
+        867,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "00c_idle_left.png",
+      "source_sha256": "b9034517a08a354c8dd632945de6d08b092e96675ee7eaf223538a92eed2b24c",
+      "candidate_sha256": "a1c88e9fad6fd9da8316d4a7ec84562a5bddb6b8c8eac26ff665f308a3c1ee0e",
+      "difference_bbox_xyxy": [
+        326,
+        539,
+        455,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        323,
+        536,
+        458,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "00d_idle_right.png",
+      "source_sha256": "d9836ab380564f03fa5bb8da3e601dcd0046fb32be65efe3244258b4c0354ed1",
+      "candidate_sha256": "642a2ee7b4ba375c5a061e7dc3874528159c26f0cbef15122f3ee9b3af605c9b",
+      "difference_bbox_xyxy": [
+        1145,
+        540,
+        1274,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        1142,
+        536,
+        1277,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "00e_focus_hidden.png",
+      "source_sha256": "0b57fdaec68b713e18fae29e50c01ff2d8385ffb2f2cca7034b0f96e233442de",
+      "candidate_sha256": "0b57fdaec68b713e18fae29e50c01ff2d8385ffb2f2cca7034b0f96e233442de",
+      "difference_bbox_xyxy": null,
+      "expected_focus_region_xyxy": [
+        733,
+        536,
+        867,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "00f_focus_returns.png",
+      "source_sha256": "f21daf42488ea0f6e1ef09e4fd4b254a6b5715c1fb35e25031df9b7451e65cbb",
+      "candidate_sha256": "fb24701737669f6876f7653e8838cec04cef61b1c19c3808109d96cfc09f8e5b",
+      "difference_bbox_xyxy": [
+        735,
+        539,
+        865,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        733,
+        536,
+        867,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "01_falling_mat.png",
+      "source_sha256": "f21daf42488ea0f6e1ef09e4fd4b254a6b5715c1fb35e25031df9b7451e65cbb",
+      "candidate_sha256": "fb24701737669f6876f7653e8838cec04cef61b1c19c3808109d96cfc09f8e5b",
+      "difference_bbox_xyxy": [
+        735,
+        539,
+        865,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        733,
+        536,
+        867,
+        610
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "02_passive_safe_landing.png",
+      "source_sha256": "9d3b970b692b67f054c22c58c98d74ecbe4148bcf6af74d2735942eec460a4a4",
+      "candidate_sha256": "b417bc346d97f060626b9477d48b8120647b0f85f3904c62f96f49ed7da677c2",
+      "difference_bbox_xyxy": [
+        735,
+        538,
+        865,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        733,
+        535,
+        867,
+        609
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "02b_passive_safe_landing_half_fade.png",
+      "source_sha256": "b96931bae4bd6cb24d7925a963eb4d6ca5dd80ce8d4ed73976829f77b88c4670",
+      "candidate_sha256": "13a2d9232caa93c60c6e9d20209a4d0571192d73373b7b6be2e72b5420f2a6f0",
+      "difference_bbox_xyxy": [
+        735,
+        538,
+        865,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        733,
+        535,
+        867,
+        609
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "03_left_safe_edge.png",
+      "source_sha256": "3fb307e6524c32563d24429e0dd3a605c806a0f9532144e65a343350450ee916",
+      "candidate_sha256": "ba70782a7e23950fa05dec351ad5710befc23003db53e146741bd2765b3f5670",
+      "difference_bbox_xyxy": [
+        735,
+        538,
+        865,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        733,
+        535,
+        867,
+        609
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "04_right_safe_edge.png",
+      "source_sha256": "be4b04e5c542fc72c2505f03884d20a19485598a3da861731e8e54802412817b",
+      "candidate_sha256": "8b6c6b7b5135d006f56017b18f8bba91fe9010aac2bf52baa77a0cb737bfb809",
+      "difference_bbox_xyxy": [
+        735,
+        538,
+        865,
+        606
+      ],
+      "expected_focus_region_xyxy": [
+        733,
+        535,
+        867,
+        609
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "05_owned_catch_mat_remains.png",
+      "source_sha256": "f804982ddfd031674206bd66b1d8fb5858c0bff8aa5f4703f5ba2b354500c5fa",
+      "candidate_sha256": "f804982ddfd031674206bd66b1d8fb5858c0bff8aa5f4703f5ba2b354500c5fa",
+      "difference_bbox_xyxy": null,
+      "expected_focus_region_xyxy": [
+        784,
+        533,
+        918,
+        606
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "06_two_owned_catches.png",
+      "source_sha256": "7fcf19a8bdabbf00e036811bba7851aaead52584042b0d5164cb7ad4471d4811",
+      "candidate_sha256": "7fcf19a8bdabbf00e036811bba7851aaead52584042b0d5164cb7ad4471d4811",
+      "difference_bbox_xyxy": null,
+      "expected_focus_region_xyxy": [
+        784,
+        530,
+        918,
+        604
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "07_left_two_baby_catch_region.png",
+      "source_sha256": "b5d2b982223fc76c89d960e25a01abcc4d4f0c287188f0cc99b8b8501affb8fe",
+      "candidate_sha256": "b5d2b982223fc76c89d960e25a01abcc4d4f0c287188f0cc99b8b8501affb8fe",
+      "difference_bbox_xyxy": null,
+      "expected_focus_region_xyxy": [
+        324,
+        530,
+        457,
+        604
+      ]
+    },
+    {
+      "aspect": [
+        1600,
+        720
+      ],
+      "state": "08_right_two_baby_catch_region.png",
+      "source_sha256": "49ffa9d367ce5832d2440bfa6e50dd801397476b9973a7ef1ccd3062b4fc7982",
+      "candidate_sha256": "49ffa9d367ce5832d2440bfa6e50dd801397476b9973a7ef1ccd3062b4fc7982",
+      "difference_bbox_xyxy": null,
+      "expected_focus_region_xyxy": [
+        1143,
+        530,
+        1276,
+        604
+      ]
+    }
+  ],
+  "axes": {
+    "contour": {
+      "before": "Uniform procedural outer and inner arcs.",
+      "after": "One brush-shaped U with rounded lit ends. No coarse segments or two separate strokes."
+    },
+    "material": {
+      "before": "Yellow and mint flat lines.",
+      "after": "Ivory highlights and ochre shading with a slightly grainy painted surface, coherent with the sling piping."
+    },
+    "palette": {
+      "before": "Bright yellow and aqua tips against the lavender quilt.",
+      "after": "Warm gold and cream retain the cue's contrast, with a restrained aqua tint at the lowest edge."
+    },
+    "light": {
+      "before": "One equal flat color per arc.",
+      "after": "Painted value bands make the ends legible; diffuse matte rejected in the first take."
+    },
+    "perspective": {
+      "before": "Screen-facing semicircles around the cradle position.",
+      "after": "Screen-facing open U follows the same axis and remains a light cue, rather than a new support object."
+    },
+    "scale": {
+      "before": "Original 126 to 130 px pulse envelope.",
+      "after": "Painted cue preserves the pulsing width and aspect, with a shorter silhouette within the old envelope."
+    },
+    "contact": {
+      "before": "Tips bracket the sling; lower portions sit behind the cloth.",
+      "after": "Both tips stay near its edges, with a fine painted connection visible in the upper gap at some phases. Landing support is untouched."
+    },
+    "occlusion": {
+      "before": "The sling occludes the old arcs.",
+      "after": "The cue stays behind the sling with an open center and no halo over Roshan or the falling baby."
+    },
+    "readability": {
+      "before": "The visible tips are short flat yellow marks.",
+      "after": "The painted tips are still bright at the tested sizes and locations. They blend with the sling while idle."
+    },
+    "action_state": {
+      "before": "Bobs and pulses while idle; fades out of the draw state with live input.",
+      "after": "The same timing and visibility state drive the painted cue. Hidden and owned-catch scenes are pixel-identical at both widths."
+    }
+  },
+  "bounded_frame_events": {
+    "source": 30,
+    "candidate": 30,
+    "paired_states": 30,
+    "excluded": 0
+  },
+  "directly_inspected": [
+    "Prior 1280 Dolls falling state",
+    "Matched 1280 source/candidate idle center",
+    "1280 candidate left clamp",
+    "1600 right clamp, hidden and returning"
+  ],
+  "unchanged_paired_frames": 10,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0
+}

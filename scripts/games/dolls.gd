@@ -22,6 +22,7 @@ class DollsNurserySurface extends OperaNurseryCatch:
 	const FOCUS_RADIUS := 59.0
 	const FOCUS_PULSE := 2.0
 	const FOCUS_BOB := 4.0
+	const CRADLE_FOCUS_TEXTURE: Texture2D = preload("res://assets/dolls/cradle_focus_painted.png")
 	const SAFE_BABY_EXTENT := 48.0
 	const SAFE_HALO_TEXTURE: Texture2D = preload("res://assets/dolls/safe_landing_halo_painted.png")
 	const SAFE_VISUAL_EXTENT := 50.0
@@ -142,20 +143,13 @@ class DollsNurserySurface extends OperaNurseryCatch:
 		# on the original helpers. There is no procedural mat fallback.
 		draw_texture_rect(safe_mat_texture, safe_mat_destination(), false)
 
-		# The selected-skin child is explicitly drawn behind this parent. A pulsing
-		# U-shaped focus halo belongs to the cradle itself: it bobs without a node
-		# or tween and stays below Roshan's visible body instead of covering her.
 		var catch_point := Vector2(catcher_x * size.x, size.y * 0.80)
+		# This invitation follows the existing cradle bounds behind the sling.
 		if input_live_t <= 0.0:
-			var focus_radius := FOCUS_RADIUS \
-				+ sin(elapsed * 3.2) * FOCUS_PULSE
-			var focus_center := catch_point + Vector2(
-				0.0, -FOCUS_BOB + sin(elapsed * 4.6) * FOCUS_BOB)
+			var focus := focus_rect_at(elapsed)
+			focus.size.y = focus.size.x * CRADLE_FOCUS_TEXTURE.get_height() / CRADLE_FOCUS_TEXTURE.get_width()
 			var focus_alpha := 0.72 + (sin(elapsed * 3.2) + 1.0) * 0.10
-			draw_arc(focus_center, focus_radius, 0.0, PI, 36,
-				Color(1.0, 0.78, 0.28, focus_alpha), 6.0, true)
-			draw_arc(focus_center, focus_radius - 9.0, 0.04, PI - 0.04, 36,
-				Color(0.62, 0.95, 0.84, focus_alpha), 3.0, true)
+			draw_texture_rect(CRADLE_FOCUS_TEXTURE, focus, false, Color(1.0, 1.0, 1.0, focus_alpha))
 
 		# One whole painted sling replaces the stacked semicircle artwork. Babies
 		# draw afterward on its broad padded seat; catch/input/settled geometry and

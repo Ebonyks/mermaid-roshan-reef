@@ -1,0 +1,7 @@
+# Painted Dolls cradle focus cue
+
+The Main/Faron Dolls route uses one painted gold stroke to draw attention to the cradle while the player is idle. The cue follows the existing focus anchor, pulsing width and bob, and is drawn behind the painted sling. The first generated take left a diffuse matte. The second cleaned the cutout, and the 512 × 171 export preserves the native painted aspect. [Provenance](../../../../assets_src/imagegen/dolls_cradle_focus_20261105/PROVENANCE.json) · [Ten-axis comparison](VISUAL_REVIEW.json).
+
+The original and candidate each passed 134 configured Mobile/Speedy checks across 1280 × 720 and 1600 × 720. The 30 matched scene states cover idle phases, both catcher clamps, hide and return, passive safe landing, and owned catches. All pixel differences stayed inside the focus envelope with a two-pixel antialiasing margin. The ten hidden and owned-catch pairs were pixel-identical. The lower stroke sits partly behind the sling and is visible through its upper opening at some phases. [Source checks](SOURCE_FOCUSED_RESULT.json) · [Candidate checks](CANDIDATE_FOCUSED_RESULT.json).
+
+The approved Godot 4.7.2 import, 82 trusted probes, four analyzers and 2D regression gate passed. A Stuffie dodge timing assertion failed on the first run. The same probe passed in a fresh isolated profile on the exact candidate, with all 48 earlier passing probe logs retained. Eleven normal save paths matched their pre-run state. Formal QA11, physical-device, child and owner reviews remain open. [Full validation](checks/FINAL_RESULT.json).

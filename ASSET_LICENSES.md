@@ -15201,3 +15201,12 @@ Lossless Godot4.7.2 Mobile review renders of existing project art. These files a
 | `assets_src/imagegen/dolls_safe_landing_halo_20261104/take_01_native.png` | Built-in ImageGen from the neighboring Dolls mat and sling | Project-authorized AI-generated candidate | [Derivation](assets_src/imagegen/dolls_safe_landing_halo_20261104/PROVENANCE.json) | Native RGBA. Rejected for diffuse opacity inside and outside the ring. Preserved for traceability. |
 | `assets_src/imagegen/dolls_safe_landing_halo_20261104/take_02_native.png` | Built-in ImageGen alpha cleanup of take 01 | Project-authorized AI-generated candidate | [Derivation](assets_src/imagegen/dolls_safe_landing_halo_20261104/PROVENANCE.json) | Native RGBA. Selected for runtime evaluation. |
 | `assets/dolls/safe_landing_halo_painted.png` | Take 02 from the same asset family | Project-authorized AI-generated derivative | [Derivation](assets_src/imagegen/dolls_safe_landing_halo_20261104/PROVENANCE.json) | Uniform crop and Lanczos resampling to a 256 square. Original RGBA retained separately. |
+
+
+### Dolls cradle focus cue
+
+| Asset | Source | License | URL | Modifications |
+|---|---|---|---|---|
+| `assets_src/imagegen/dolls_cradle_focus_20261105/take_01_native.png` | Built-in ImageGen using Dolls sling and mat as style references | Project-authorized AI-generated candidate | [Provenance](assets_src/imagegen/dolls_cradle_focus_20261105/PROVENANCE.json) | Native RGBA. Rejected diffuse matte. |
+| `assets_src/imagegen/dolls_cradle_focus_20261105/take_02_native.png` | Built-in ImageGen cleanup of take 01 | Project-authorized AI-generated candidate | [Provenance](assets_src/imagegen/dolls_cradle_focus_20261105/PROVENANCE.json) | Selected native RGBA. |
+| `assets/dolls/cradle_focus_painted.png` | Take 02 | Project-authorized AI-generated derivative | [Provenance](assets_src/imagegen/dolls_cradle_focus_20261105/PROVENANCE.json) | Uniform crop and Lanczos export. |
