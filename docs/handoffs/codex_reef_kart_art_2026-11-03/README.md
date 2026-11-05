@@ -2,12 +2,15 @@
 
 | | |
 |---|---|
-| Status | Engine `IMPLEMENTED_ON_BRANCH`; art `REQUESTED`; nothing `DELIVERY_ACCEPTED` |
+| Status | Engine `IMPLEMENTED_ON_BRANCH`; art `LOCAL_RUNTIME_CANDIDATE`; nothing `DELIVERY_ACCEPTED` |
 | Branch | `claude/reef-kart-engine-20261103` (base `27c88288`); not merged to `dev` during the demo freeze (demo 2026-11-07) |
+| Current demo branch | `codex/reef-kart-art-20261104`; isolated from dev/master during the demo freeze |
 | Prepared by | Claude: engine code at the owner's explicit request, plus this written handoff. Claude built no images. |
 | Recipient | Codex: all relevant artwork, from the written requests in `ART_REQUESTS.md` |
 | Owner decisions | `ODR-RACER-ENGINE-20261103`, `ODR-RACER-TOUCH-20261103`, `ODR-TRACK-FIDELITY-20261103` (supersede `ODR-RACER-VIEW-20261018`) |
 | Finding | `MA-OPERA-014` (Racer rebuild) |
+
+Latest demo revision (2026-11-05): [visual-context review](VISUAL_REVIEW.md), [seven object-generation packets](../../../assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json), [per-asset reuse/replacement decisions](../../../assets_src/imagegen/reef_kart_context_20261105/visual_decisions.json), and [audit evidence](../../../design/audit_impacts/reef-kart-visual-context-20261105.json). The owner now permits bounded new context-specific Racer objects under the master art protocols (`ODR-RACER-ART-CONTEXT-20261105`); the original existing-art-only restriction below retains its historical packet scope. The demo also includes the four-course PC garage/split-screen extension and [manual handling study](PC_HANDLING.md). Device, child, canonical QA11 and owner acceptance remain open.
 
 ## 1. What the owner asked (2026-11-03, verbatim in `audit/cycles/reef-kart-engine-20261103/owner_request.json`)
 

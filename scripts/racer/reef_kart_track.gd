@@ -275,25 +275,55 @@ func _build_room_features() -> void:
 			pearls.append({"s": s, "lat": lat, "pos": point_at(s, lat), "respawn_t": 0.0})
 		row += 1
 	var props: Array = room["props"]
-	var prop_count := maxi(10, roundi(length / 440.0))
+	var prop_count := clampi(roundi(length / 640.0), 8, 18)
 	for index in range(prop_count):
 		var s := length * (float(index) + 0.36) / float(prop_count)
 		var side := -1.0 if index % 2 == 0 else 1.0
-		var lateral := side * (240.0 + 75.0 * float(index % 3))
+		var prop: Dictionary = props[index % props.size()]
+		var clearance := RAIL + float(prop["w"]) * 0.5 + 24.0
+		var lateral := side * (clearance + 45.0 + 55.0 * float(index % 3))
 		var pos := point_at(s, lateral)
 		# The inside of a switchback can be next to a different road section.
 		# Place each prop on the side where it clears every part of the route.
-		if not _clear_of_road(pos):
+		if not _clear_of_road(pos, clearance):
 			pos = point_at(s, -lateral)
-		if not _clear_of_road(pos):
+		if not _clear_of_road(pos, clearance):
 			continue
-		var prop: Array = props[index % props.size()]
-		landmarks.append({"id": prop[0], "s": s, "pos": pos, "w": prop[1], "crop": prop[2]})
+		var entry := prop.duplicate()
+		entry["s"] = s
+		entry["pos"] = pos
+		landmarks.append(entry)
+	landmarks.append({"id": "course_finish_arch", "path": TRACK_ROOT + "billboards/pearl_start_arch.png",
+		"s": 0.0, "pos": point_at(0.0), "w": 330.0, "h": 250.0, "spans": true})
+	landmarks.append({"id": "course_finish_banner", "path": "res://assets/kart/finish_banner.png",
+		"s": 0.0, "pos": point_at(0.0), "w": 300.0, "h": 56.0, "lift": 177.0, "spans": true})
+	_build_turn_markers()
 
 
-func _clear_of_road(pos: Vector2) -> bool:
+func _build_turn_markers() -> void:
+	var previous := -1000.0
+	var count := 0
+	for index in range(_control_points.size()):
+		var s := s_of(index)
+		var bend := curvature_at(s)
+		if absf(bend) < 0.002 or s - previous < 440.0:
+			continue
+		var at := wrap_s(s - 75.0)
+		var pos := point_at(at, -signf(bend) * 225.0)
+		if not _clear_of_road(pos, 200.0):
+			continue
+		landmarks.append({"id": "turn_marker", "path": "res://assets/racer/context_v2/turn_marker.png",
+			"crop": Rect2(8, 134, 1008, 755), "s": at, "pos": pos, "w": 110.0,
+			"flip_h": bend < 0.0})
+		previous = s
+		count += 1
+		if count >= 10:
+			break
+
+
+func _clear_of_road(pos: Vector2, clearance: float) -> bool:
 	for sample in range(0, SAMPLES, 3):
-		if pos.distance_squared_to(center[sample]) < 190.0 * 190.0:
+		if pos.distance_squared_to(center[sample]) < clearance * clearance:
 			return false
 	return true
 
@@ -394,13 +424,10 @@ func checkpoint_of(s: float) -> int:
 	return clampi(int(floor(wrap_s(s) / length * float(CHECKPOINTS))), 0, CHECKPOINTS - 1)
 
 
-## INTERIM_PLACEHOLDER floor data until the painted course floor exists:
-## a single-channel distance field, distance from the centre line divided by
-## FIELD_FAR. The floor shader turns it into the painting's bands (aqua water
-## lane with pale lines, tan stone curb, lilac wall, sand with coral and
-## rocks). Built once per process (about 175k cheap steps: every third centre
-## sample against nearby 16-unit cells) and never used when PAINTED_FLOOR
-## exists. Bilinear filtering keeps the band edges smooth.
+## Road-distance data for the shared boundary markings, including painted Canal.
+## Room courses use a 512-square field with every centre sample; the original
+## Canal retains its cached 128-square field. Values encode distance divided
+## by FIELD_FAR. Bilinear filtering smooths the curb and shoulder contours.
 func floor_field() -> ImageTexture:
 	var is_room := not room.is_empty()
 	if is_room and _room_fields.has(id):
@@ -428,7 +455,7 @@ func floor_field() -> ImageTexture:
 					distances[key] = d
 	var bytes := PackedByteArray()
 	bytes.resize(resolution * resolution)
-	for key in range(FIELD_SIZE * FIELD_SIZE):
+	for key in range(resolution * resolution):
 		bytes[key] = clampi(int(round(distances[key] / FIELD_FAR * 255.0)), 0, 255)
 	var image := Image.create_from_data(resolution, resolution, false, Image.FORMAT_L8, bytes)
 	var texture := ImageTexture.create_from_image(image)

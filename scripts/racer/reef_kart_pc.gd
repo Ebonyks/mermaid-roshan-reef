@@ -4,6 +4,7 @@ const Catalog := preload("res://scripts/racer/reef_kart_catalog.gd")
 const Courses := preload("res://scripts/racer/reef_kart_courses.gd")
 const Race := preload("res://scripts/racer/reef_kart_race.gd")
 const TITLE_SCENE := "res://scenes/main.tscn"
+const ITEM_CAPSULE := preload("res://assets/racer/context_v2/item_capsule.png")
 const VIEW := Vector2(1280, 720)
 const STEP := 1.0 / 60.0
 const STICK_DEADZONE := 0.10
@@ -14,7 +15,7 @@ const P_COLORS := [Color("#71dfeb"), Color("#ffc277")]
 const ITEM_ICONS := {
 	"zoom": preload("res://assets/racer/icons/zoom.png"),
 	"sparkle": preload("res://assets/racer/icons/sparkle.png"),
-	"kelp": preload("res://assets/racer/icons/kelp.png"),
+	"kelp": preload("res://assets/racer/context_v2/kelp_trap.png"),
 	"pearls": preload("res://assets/racer/icons/pearls.png"),
 }
 
@@ -529,7 +530,7 @@ func _update_race_ui() -> void:
 		var lap := mini(ReefKartRace.LAPS, int(kart["lap"]) + 1)
 		_panel_labels[slot].text = "P%d  %s   ·   Lap %d/%d   ·   ◉ %d" % [
 			slot + 1, driver["name"], lap, ReefKartRace.LAPS, int(kart["pearls"])]
-		_item_icons[slot].texture = ITEM_ICONS.get(String(kart["item"])) as Texture2D
+		_item_icons[slot].texture = ITEM_CAPSULE if float(kart["roulette_t"]) > 0.0 else ITEM_ICONS.get(String(kart["item"])) as Texture2D
 		var cue := "WRONG WAY" if bool(kart["wrong_way"]) else ""
 		if _rearm[slot] and not _paused:
 			cue = "RELEASE CONTROLS TO DRIVE"

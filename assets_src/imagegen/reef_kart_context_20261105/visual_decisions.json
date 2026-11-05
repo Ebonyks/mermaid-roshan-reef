@@ -1,0 +1,609 @@
+{
+  "id": "reef-kart-visual-context-20261105",
+  "baseline": "7ad71c329c336ddb75c53bef0e38ac73b25f585f",
+  "indexed_rasters": 2428,
+  "active_family_reviewed": 78,
+  "alternative_candidates": 408,
+  "scope_limit": "All project raster metadata indexed. Active racer family and relevant alternative boards inspected; this is not an artistic certification of all project assets.",
+  "decisions": [
+    {
+      "path": "assets/book/baby_doll.png",
+      "sha256": "00bf49b8e76cec939b2c3908654b5bc25bee02d1907ca034d347f3ffaa386472",
+      "decision": "reuse_protected_original",
+      "reason": "Existing approved identity art retained byte-for-byte. No character redesign."
+    },
+    {
+      "path": "assets/book/baby_doll2.png",
+      "sha256": "10d8153696b2bccc6b878e000862c42cfb4c5e23002b8975e2e83418878b4652",
+      "decision": "reuse_protected_original",
+      "reason": "Existing approved identity art retained byte-for-byte. No character redesign."
+    },
+    {
+      "path": "assets/book/baby_doll3.png",
+      "sha256": "0617bf861b63ef92b396f979cb4894948ad9517157b5dd820001e0131fbe1a6a",
+      "decision": "reuse_protected_original",
+      "reason": "Existing approved identity art retained byte-for-byte. No character redesign."
+    },
+    {
+      "path": "assets/book/doll_bunny.png",
+      "sha256": "445ae6349e552a20ca47d665a619a42453e59c69c15da315619b6d8dc2485b4a",
+      "decision": "reuse_protected_original",
+      "reason": "Existing approved identity art retained byte-for-byte. No character redesign."
+    },
+    {
+      "path": "assets/book/doll_cat.png",
+      "sha256": "2f1a6732f16dc5847dc5b84ee6642e69487702878b70ecf440ba15e1927bb71c",
+      "decision": "reuse_protected_original",
+      "reason": "Existing approved identity art retained byte-for-byte. No character redesign."
+    },
+    {
+      "path": "assets/characters/companions/baby_eagle.png",
+      "sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/characters/friends/daddy.webp",
+      "sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "decision": "reuse_protected_original",
+      "reason": "Existing approved identity art retained byte-for-byte. No character redesign."
+    },
+    {
+      "path": "assets/characters/friends/huluu.png",
+      "sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9",
+      "decision": "reuse_protected_original",
+      "reason": "Existing approved identity art retained byte-for-byte. No character redesign."
+    },
+    {
+      "path": "assets/characters/friends/mama_baby.png",
+      "sha256": "57c479d7a709b1bd268cfa1efeaf9340721056c9b9d4765929ed0add581334a2",
+      "decision": "reuse_protected_original",
+      "reason": "Existing approved identity art retained byte-for-byte. No character redesign."
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_background.png",
+      "sha256": "b58bd03a394717ebff381d76e4cb7d03410a463b7b30d2a58065be5a4df8c065",
+      "decision": "reuse_upper_room_band",
+      "reason": "Approved room identity retained; exclude painted room floor from the skyline so it cannot read as another race course."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_item_fridge.png",
+      "sha256": "5e0dd8203510685e128d693758a0b26c06d8b7a2d47e52a1d500fd7fdf4d9c8e",
+      "decision": "retire_from_racer",
+      "reason": "Room-isolation edge/context contamination or unnecessary repeated decoration; use clean complete alternate props. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_item_oven.png",
+      "sha256": "519fb694752a25121dfeaade574f2ba300372fed61252ba35f9fc927172fcab0",
+      "decision": "retire_from_racer",
+      "reason": "Room-isolation edge/context contamination or unnecessary repeated decoration; use clean complete alternate props. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_item_soup_pot.png",
+      "sha256": "81238fd33252b6d03a400085c9fae3ce5c75d93b0db438a6b0d76f1a8246ce15",
+      "decision": "retire_from_racer",
+      "reason": "Room-isolation edge/context contamination or unnecessary repeated decoration; use clean complete alternate props. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_kitchen_item_teapot.png",
+      "sha256": "2c984e7b712a7d1cca3cbf35868432ce12f333d9c6a4e333f7859388e2c1e193",
+      "decision": "replace_in_racer",
+      "reason": "New whole context-specific candidate kitchen_teapot. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "decision": "reuse_upper_room_band",
+      "reason": "Approved room identity retained; exclude painted room floor from the skyline so it cannot read as another race course."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_bubble_fountain.png",
+      "sha256": "5a861d1dc68762e525cd144d40029cca5779110f4bf60155fac11bae70f35c52",
+      "decision": "retire_from_racer",
+      "reason": "Room-isolation edge/context contamination or unnecessary repeated decoration; use clean complete alternate props. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_flower_float.png",
+      "sha256": "8fe5eed4c464d9e3e71338e57662f16c3999450e6c8346763f75d67624a61513",
+      "decision": "reuse_whole_crop_at_reduced_scale",
+      "reason": "Whole motif remains appropriate. Trim surrounding pixels and reduce placement width to limit amplification of the small source. This does not create new native detail."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_seahorse_fountain.png",
+      "sha256": "6b55d9096e9043d30be16117c81da1d4e2b487db8fff572226588135bf676344",
+      "decision": "replace_in_racer",
+      "reason": "New whole context-specific candidate pool_seahorse. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_mermaid_pool_item_star_float.png",
+      "sha256": "d1f3067ce56cd2e6a844c597a48bf01b0661ae34507d99af3272a7a56db88fc5",
+      "decision": "reuse_whole_crop_at_reduced_scale",
+      "reason": "Whole motif remains appropriate. Trim surrounding pixels and reduce placement width to limit amplification of the small source. This does not create new native detail."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_background.png",
+      "sha256": "ebd074ac85a1b7d479eada4f49e0000690a9e96576a8ae1370525fe68e08116f",
+      "decision": "reuse_upper_room_band",
+      "reason": "Approved room identity retained; exclude painted room floor from the skyline so it cannot read as another race course."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_item_chandelier.png",
+      "sha256": "3ce68ccc0154509bbddce7b1c42abc70d39bc00e3cc7a735e31e1f1a39dbacaa",
+      "decision": "retire_from_racer",
+      "reason": "Room-isolation edge/context contamination or unnecessary repeated decoration; use clean complete alternate props. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_item_curtains.png",
+      "sha256": "daa15d58a9a366bbcc37cd5ad9fed74f9e673aa2573367252569a23edce4318e",
+      "decision": "retire_from_racer",
+      "reason": "Room-isolation edge/context contamination or unnecessary repeated decoration; use clean complete alternate props. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_item_footlights.png",
+      "sha256": "ce753b9fcc76345d34b21c6916af3c729d880336b4b2055b526186bc6797815c",
+      "decision": "reuse_whole_crop_at_reduced_scale",
+      "reason": "Whole motif remains appropriate. Trim surrounding pixels and reduce placement width to limit amplification of the small source. This does not create new native detail."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_opera_hall_item_stage_star.png",
+      "sha256": "bd58a67d535a294c41a4b9c13a6d7bbd1e9c3063b8d01301a2fa834e94b7c3d5",
+      "decision": "retire_from_racer",
+      "reason": "Room-isolation edge/context contamination or unnecessary repeated decoration; use clean complete alternate props. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_background.png",
+      "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b",
+      "decision": "reuse_upper_room_band",
+      "reason": "Approved room identity retained; exclude painted room floor from the skyline so it cannot read as another race course."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_item_blocks.png",
+      "sha256": "fbe2910e2d2c8e7782371414534be9312db6f46ef1fce5c23c84ff57b08d0273",
+      "decision": "replace_in_racer",
+      "reason": "New whole context-specific candidate play_blocks. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_item_play_tent.png",
+      "sha256": "a92bf0366b55154457ce34f9e53599ba23f9d42d5178f0e5457de5a166e655bd",
+      "decision": "replace_in_racer",
+      "reason": "New whole context-specific candidate play_tent. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_item_stacking_toy.png",
+      "sha256": "afc488f0e44d9a33ac065e968ead7a8dfcae5ac594ba12f17063c6f467282b87",
+      "decision": "retire_from_racer",
+      "reason": "Room-isolation edge/context contamination or unnecessary repeated decoration; use clean complete alternate props. Original preserved."
+    },
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png",
+      "sha256": "7ed4dafff1e3dac12264d4a1c617095bf43d2f36fd8066476aa78725fe3ded67",
+      "decision": "retire_from_racer",
+      "reason": "Room-isolation edge/context contamination or unnecessary repeated decoration; use clean complete alternate props. Original preserved."
+    },
+    {
+      "path": "assets/kart/chase/empty_kart.png",
+      "sha256": "35457c5cf602bffa666d6663f9fcbefb9be26bd2d0eca1c96cb5c2a6fbf9ac88",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/empty_moto.png",
+      "sha256": "dfec5d6132bf3d81a086f451b4b1030aef435b9b44804ebe22ea7fce7d611bda",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/empty_truck.png",
+      "sha256": "8fc3380295df50ac0c981a2b28f12d4b82236be7c79c7de9907ceb640eeda1fd",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/kart_boost.png",
+      "sha256": "17ab19589d2296d1177e91535659a7fe04f34ffbbcd48402da019fd1137e1dd8",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/kart_left.png",
+      "sha256": "733fd9c4e1fe1aef84bbf57161e0c225d3a5d4f3f6ebdc71af5e9f49a8df9ffc",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/kart_right.png",
+      "sha256": "66fabc27fd8bda5d775d787a84b866d40dc1d9b9a9d121cb25e38eb66fd688e2",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/kart_straight.png",
+      "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/moto_boost.png",
+      "sha256": "254ba22c05114fa4772b9995614d6d355e37c2febedafc500d7d3616c0757b9f",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/moto_left.png",
+      "sha256": "fc47ae7501bae43f23d6ee61cbb7102d6171201449e15ff2a7b3c33f2ee7dfb9",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/moto_right.png",
+      "sha256": "ee6a448954e1fcbc6eec2f19557819a01fa1b9a52521019c267baa1f74b900e0",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/moto_straight.png",
+      "sha256": "dd2abb4e3076a8e87e0a0c412c1dbf2ce1b34c573a7281bcfb513568808df6a0",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/truck_boost.png",
+      "sha256": "9de77bf01dd9f1d67a251483984e30d50a3cb7c8a22cdd4322092635559ec9cb",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/truck_left.png",
+      "sha256": "6253a929fe0effe1b4dd813e19e87127235b3ae5be2aaa1a21e3103e476920ff",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/truck_right.png",
+      "sha256": "e9a95f5bf71804ebd3fef40ca59f5f672e9f29f314e5a2c36257156c3912922a",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/kart/chase/truck_straight.png",
+      "sha256": "3e9d73e98848e690c7785c8b26f7a7959a766eb974f237af3df0975bfbfab247",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer.png",
+      "sha256": "da75600112937ed4f6bb5f9433b4792316419047e8de10f9bfdb7076c65f360f",
+      "decision": "reuse_identity_art",
+      "reason": "Existing Racer identity source/portrait retained without redraw. Its runtime and source-donor roles remain available."
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_racer.png",
+      "sha256": "b3e92a0f3204e2277e1fdd06988c9393288223fcfc98a9f4c8e033c8c517c6bc",
+      "decision": "reuse_identity_art",
+      "reason": "Existing Racer identity source/portrait retained without redraw. Its runtime and source-donor roles remain available."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c0r0.png",
+      "sha256": "920b4df91bad73d288ff2cd39fe8cdccc2dfe8743bb64d65a691343b7630bf66",
+      "decision": "retain_source_donor",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c1r0.png",
+      "sha256": "07e7ad658427ed5cac40f1668521b4c59c54fba8bb428edb5acd36db25fbf3b7",
+      "decision": "retain_source_donor",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pipe_guide_hand.png",
+      "sha256": "5b18d1aed74aa7804560abe702d14a3d4fc01cbc974a65583eacb9452610a383",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/icons/kelp.png",
+      "sha256": "a0d49bb449a09c0f2e3f8e60fc5a79a139b5d7eab02fb55b78ee02acbfcfaa12",
+      "decision": "replace_in_racer",
+      "reason": "New whole context-specific candidate kelp_trap. Original preserved."
+    },
+    {
+      "path": "assets/racer/icons/pearls.png",
+      "sha256": "f5c6241d9de329faa5aa997e48a3d0be1019558147447806de02d55190cd1f9b",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/icons/sparkle.png",
+      "sha256": "2e308142a5216406a580250c1fafc39bdb2fac68223371bb9a361f67e9d6d099",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/icons/zoom.png",
+      "sha256": "7cac7fac83e1e453230447de07ca2ac3d2ab0a12ecb93bdfd454dd300ae3dcd7",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/karts/imp_kart_straight.png",
+      "sha256": "25bf06001690aa86b6f96ab5d2a3d919f02b257c345b1fe45cc3eb12e8900ba2",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/pickups/dizzy_stars.png",
+      "sha256": "83b454f022a4e12c4e006d34f0c979a1f4fc124b0d0fcc21265e8df73b6c80c8",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/pickups/gem_buoy_lavender.png",
+      "sha256": "96df1054e2f21dcca396a9208155a4576d41cbaae70f906c864822da8d2def27",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/pickups/gem_buoy_pink.png",
+      "sha256": "7d62153edf5fd353e02338d84226e6650d12602f2fcde33b810a10988bd9b3ba",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/pickups/gem_buoy_teal.png",
+      "sha256": "b2fdc12e65fc1af631ad0e5f3790a871571bc7e19eb1bafc7353fb10f0850b44",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/pickups/item_bubble.png",
+      "sha256": "87c02419fc7cb5c7202e6f1f6e44691ed49d0925c870674126f65e9796f48026",
+      "decision": "replace_in_racer",
+      "reason": "New whole context-specific candidate item_capsule. Original preserved."
+    },
+    {
+      "path": "assets/racer/pickups/kelp_patch.png",
+      "sha256": "e9afc8f7ed757fe0a6a763a6948f9dd0ae04909d70a5776c0ffd489715e49905",
+      "decision": "replace_in_racer",
+      "reason": "New whole context-specific candidate kelp_trap. Original preserved."
+    },
+    {
+      "path": "assets/racer/pickups/pearl.png",
+      "sha256": "4f71a7beff48024df5eb89a5cbd760148576ada6bf05fe784bd8d2828dba4037",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/pickups/sparkle.png",
+      "sha256": "2e308142a5216406a580250c1fafc39bdb2fac68223371bb9a361f67e9d6d099",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/coral_cluster.png",
+      "sha256": "a16fdfd0fa16f16bbe36ede9460adb9e6e9cd050c89c021e9c105f446380a9a8",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pavilion.png",
+      "sha256": "466c90e19b89644fe90f76fcb99bdd34dc8a2892892f3d139f88da172d0dac3e",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_arch.png",
+      "sha256": "674f6b1cb180bb32ad6bfc5cd4ff72fb8b57e178ae04c38812dd9bd5acf8d62f",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_clam.png",
+      "sha256": "f9546755a81e3986b6969d615144987d1e2afe843224506511b3255519f1eb12",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.png",
+      "sha256": "6bf16e5ba07e78dbcd846c8880ea55519a03d778764464a238e384a5af980952",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/pennant.png",
+      "sha256": "cfc2b4ea8fbef70717dafa81995eeec006222b82de24c2b8bc0150bb19d63df8",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_blue_shelf.png",
+      "sha256": "66d0574233b368b84a03d59b47cd0a843f73a9badf1c07747ed31c9dd9342eca",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_coral_ledge.png",
+      "sha256": "eff3626c56654778eb96efbd8bac82694dd272b9af2eea7e188efcfe65ec7cd7",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_fan.png",
+      "sha256": "b6070d9783e0efd0f0d5a2917c38b9252970bfa194164a00de2473321033512a",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_pearl_garden.png",
+      "sha256": "00b9d208d67d8fab64a37648503c71b1db096370c68a9ae71bf21ff6d7cab0d4",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/reef_shell_terrace.png",
+      "sha256": "7f9e81dff440ddd7f599de0fa4cebcb9bac6301f6027a340ee139a11954052b4",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/billboards/ribbon_arch.png",
+      "sha256": "791f5e258dd022bfd927ceb57abd0d1f2c3f4445d711e502e212a350eeab7105",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/floor.png",
+      "sha256": "76f72a1b39610c47d04fde018eeedeae1fd33f677dea566e3752bbd76f6ceefb",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    },
+    {
+      "path": "assets/racer/tracks/pearl_canal/skyline.png",
+      "sha256": "6b5346b9c4a89b8bc7e203845d5ab61067048888f6b5b9f0f205f56c5e5c1ab8",
+      "decision": "reuse",
+      "reason": "Complete existing source fits the role; no generation gap."
+    }
+  ],
+  "extra_reuse": [
+    {
+      "id": "kitchen_oven",
+      "crop": [
+        51,
+        8,
+        410,
+        496
+      ],
+      "operation": "Non-destructive AtlasTexture region around existing whole object; preserve source. Runtime bottom aligns to visible object support.",
+      "source": "assets/opera/worlds/chef_quality_20261019/oven_cool.png",
+      "source_sha256": "19c4d2625cc80ca3cf3322656dabc2f624434be8d172f6736668df02526d2256"
+    },
+    {
+      "id": "kitchen_cake",
+      "crop": [
+        11,
+        50,
+        490,
+        455
+      ],
+      "operation": "Non-destructive AtlasTexture region around existing whole object; preserve source. Runtime bottom aligns to visible object support.",
+      "source": "assets/opera/worlds/props/goal_chef.png",
+      "source_sha256": "cb28da49b252769ef143d75ddb890d2350cebf6e12aca33a875c88b04ff33467"
+    },
+    {
+      "id": "kitchen_pitcher",
+      "crop": [
+        18,
+        44,
+        219,
+        166
+      ],
+      "operation": "Non-destructive AtlasTexture region around existing whole object; preserve source. Runtime bottom aligns to visible object support.",
+      "source": "assets/opera/worlds/chef_quality_20261019/pitcher_empty.png",
+      "source_sha256": "b6b8cee0d896334488a6b818bb8ee924ac9e521c12b3f06417a0c4d7471616b0"
+    },
+    {
+      "id": "pool_fountain",
+      "crop": [
+        0,
+        3,
+        214,
+        179
+      ],
+      "operation": "Non-destructive AtlasTexture region around existing whole object; preserve source. Runtime bottom aligns to visible object support.",
+      "source": "assets/flats/castle/rooms/room_main_hall_item_fountain_left_v2.png",
+      "source_sha256": "8e56d9ae12fb0345c24cd35ee694652fad91d2a4c46514854d456965e182c639"
+    },
+    {
+      "id": "opera_musicbox",
+      "crop": [
+        71,
+        14,
+        370,
+        492
+      ],
+      "operation": "Non-destructive AtlasTexture region around existing whole object; preserve source. Runtime bottom aligns to visible object support.",
+      "source": "assets/opera/worlds/props/goal_ballerina.png",
+      "source_sha256": "4891a0863557a0105912afe7497d2b0f976aadf32507ad1c079f03f3162c257e"
+    },
+    {
+      "id": "opera_microphone",
+      "crop": [
+        167,
+        14,
+        177,
+        491
+      ],
+      "operation": "Non-destructive AtlasTexture region around existing whole object; preserve source. Runtime bottom aligns to visible object support.",
+      "source": "assets/opera/worlds/props/goal_popstar.png",
+      "source_sha256": "0a81e7c108234c4770730761704dcf16ca9b5c1d97b3ffee0c306c1c85e8c95a"
+    },
+    {
+      "id": "opera_cup",
+      "crop": [
+        29,
+        15,
+        454,
+        490
+      ],
+      "operation": "Non-destructive AtlasTexture region around existing whole object; preserve source. Runtime bottom aligns to visible object support.",
+      "source": "assets/opera/worlds/props/goal_racer.png",
+      "source_sha256": "2fcce78018d2f43cecb15fdf7ea37ebd66004ba695cce2e42fdf4fa7602ebeb9"
+    },
+    {
+      "id": "course_finish_banner",
+      "source": "assets/kart/finish_banner.png",
+      "source_sha256": "b9bbc62edf9de7402b6bc77bde9b47078e69d1d831f8f6913349328476fda7bc",
+      "operation": "Direct whole-art reuse as raised span above the common ground start/finish line."
+    }
+  ],
+  "new_candidate_ids": [
+    "item_capsule",
+    "kelp_trap",
+    "turn_marker",
+    "play_blocks",
+    "play_tent",
+    "kitchen_teapot",
+    "pool_seahorse"
+  ],
+  "conceptual_visual_roles": [
+    {
+      "role": "road, shoulder, rail, bridge, start and finish",
+      "action": "Fix whole-map field write; continuous shared boundary overlay; broad gold-framed checker stripe and ground chevrons. Course materials and bridge contact remain distinct."
+    },
+    {
+      "role": "room skyline and far composition",
+      "action": "Reuse approved upper wall bands, remove painted floor bands; keep Pearl Canal skyline and depth cards. Existing native-background coverage acceptance remains open."
+    },
+    {
+      "role": "roadside props and bend cues",
+      "action": "Seven bounded generated objects plus complete reused oven, cake, pitcher, musicbox, microphone, trophy, fountain and reduced small motifs. Clearance against every course segment and reduced density."
+    },
+    {
+      "role": "pickups and four item types",
+      "action": "Shell capsule makes roulette pickups distinct from currency. New kelp matches world trap and HUD; keep pearl bundle, sparkle and zoom icons, pearls and gem buoys. No new item mechanics."
+    },
+    {
+      "role": "cast, vehicles and garage",
+      "action": "Retain all approved cast/vehicle sources, directional Roshan chase art and existing composite other drivers. Full bespoke rear/turn poses for the remaining cast are an explicit future art gap, not an identity redraw in this task."
+    },
+    {
+      "role": "HUD, controller/touch controls, countdown, minimap and results",
+      "action": "Keep readable fixed controls and feedback; capsule during PC roulette; preserve icon aspect. Posed result captures test layout, not real finishing behavior."
+    },
+    {
+      "role": "effects, shadows, bubbles, spin and confetti",
+      "action": "Retain existing separate runtime effects. New scenery has no baked room backgrounds or independent fake motion."
+    }
+  ]
+}

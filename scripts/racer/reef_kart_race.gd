@@ -15,11 +15,8 @@ extends Node2D
 ## and the imp's kart really races. If he finishes first only the race restarts (DL-INT-14); he
 ## slows after each win and drives at half pace after two.
 ##
-## INTERIM_PLACEHOLDER drawing (code shapes for pearls, bubbles, buoys, kelp,
-## arches, controls and the imp's kart, and the painting's top band as skyline)
-## stays only until the Codex art packet in
-## docs/handoffs/codex_reef_kart_art_2026-11-03/ lands. Every asset in that
-## packet reorganizes existing repository art; none is new content.
+## Source-preserving art and bounded new object candidates are documented in
+## docs/handoffs/codex_reef_kart_art_2026-11-03/VISUAL_REVIEW.md.
 
 signal race_event(kind: String, value: float)
 
@@ -77,6 +74,11 @@ const TEXTURES := {
 ## Codex art binds here (docs/handoffs/codex_reef_kart_art_2026-11-03/): each
 ## role uses its file when present and the INTERIM_PLACEHOLDER shape when not.
 const ART_ROOT := "res://assets/racer/"
+const CONTEXT_ART := {
+	"item_bubble": ["context_v2/item_capsule.png", Rect2(8, 67, 1008, 890)],
+	"kelp": ["context_v2/kelp_trap.png", Rect2(8, 194, 1008, 635)],
+	"icon_kelp": ["context_v2/kelp_trap.png", Rect2(8, 194, 1008, 635)],
+}
 const OPTIONAL_ART := {
 	"pearl": "pickups/pearl.png",
 	"item_bubble": "pickups/item_bubble.png",
@@ -303,12 +305,17 @@ func _load_textures() -> void:
 		var path: String = ART_ROOT + String(OPTIONAL_ART[key])
 		if ResourceLoader.exists(path):
 			_tex[key] = load(path) as Texture2D
+	for key: String in CONTEXT_ART:
+		var spec: Array = CONTEXT_ART[key]
+		var atlas := AtlasTexture.new()
+		atlas.atlas = load(ART_ROOT + String(spec[0])) as Texture2D
+		atlas.region = spec[1]
+		atlas.filter_clip = true
+		_tex[key] = atlas
 	_landmark_tex.clear()
 	for landmark: Dictionary in track.landmarks:
 		var id := String(landmark["id"])
-		var path := ReefKartTrack.TRACK_ROOT + "billboards/%s.png" % id
-		if not track.room.is_empty():
-			path = RoomCourses.ROOMS + id + ".png"
+		var path := String(landmark.get("path", ReefKartTrack.TRACK_ROOT + "billboards/%s.png" % id))
 		if not _landmark_tex.has(id) and ResourceLoader.exists(path):
 			var texture := load(path) as Texture2D
 			if landmark.has("crop"):
@@ -336,8 +343,9 @@ func _build_view() -> void:
 	_floor_material.set_shader_parameter("use_painted", painted)
 	if painted:
 		_floor_material.set_shader_parameter("painted_floor", load(ReefKartTrack.PAINTED_FLOOR))
-	else:
-		_floor_material.set_shader_parameter("field", track.floor_field())
+	_floor_material.set_shader_parameter("field", track.floor_field())
+	_floor_material.set_shader_parameter("finish_pos", track.point_at(0.0))
+	_floor_material.set_shader_parameter("finish_forward", track.tangent_at(0.0))
 	_floor_material.set_shader_parameter("rect_size", _floor.size)
 	_floor_material.set_shader_parameter("cam_height", CAM_HEIGHT)
 	_floor_material.set_shader_parameter("focal", FOCAL)
@@ -370,6 +378,8 @@ func _style_room_floor() -> void:
 	for index in range(uniforms.size()):
 		_floor_material.set_shader_parameter(uniforms[index], paint[index])
 	_floor_material.set_shader_parameter("curb_b", paint[1])
+	_floor_material.set_shader_parameter("wall_a", paint[1])
+	_floor_material.set_shader_parameter("curb_a", paint[2])
 	_floor_material.set_shader_parameter("room_pattern", track.room["pattern"])
 	_floor_material.set_shader_parameter("haze_start", 410.0)
 	_floor_material.set_shader_parameter("haze_end", 1200.0)
@@ -1028,7 +1038,7 @@ func _draw_sky() -> void:
 	if _room_art != null:
 		var source_size := _room_art.get_size()
 		var pan := 0.08 + 0.075 * sin(cam_heading)
-		var source := Rect2(source_size * Vector2(pan, 0.02), source_size * Vector2(0.84, 0.54))
+		var source := Rect2(source_size * Vector2(pan, 0.02), source_size * Vector2(0.84, float(track.room["wall_height"])))
 		var wall := Rect2(0.0, 0.0, VIEW.x, HORIZON_Y + 2.0)
 		_sky.draw_texture_rect_region(_room_art, wall, source)
 		var palette: Array = track.room["palette"]
@@ -1155,8 +1165,11 @@ func _draw_landmark(landmark: Dictionary, screen: Vector2, scale: float) -> void
 		_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.16))
 		_world.draw_circle(Vector2.ZERO, size.x * 0.32, Color(0.24, 0.14, 0.31, 0.17), true, -1.0, true)
 		_world.draw_set_transform(Vector2.ZERO)
-	_world.draw_texture_rect(texture,
-		Rect2(screen.x - size.x * 0.5, bottom - size.y, size.x, size.y), false)
+	var rect := Rect2(screen.x - size.x * 0.5, bottom - size.y, size.x, size.y)
+	if bool(landmark.get("flip_h", false)):
+		rect.position.x += rect.size.x
+		rect.size.x = -rect.size.x
+	_world.draw_texture_rect(texture, rect, false)
 
 
 func _draw_pearl(screen: Vector2, scale: float) -> void:
@@ -1198,7 +1211,8 @@ func _draw_art(key: String, center: Vector2, size: Vector2) -> bool:
 	var texture := _tex.get(key) as Texture2D
 	if texture == null:
 		return false
-	_world.draw_texture_rect(texture, Rect2(center - size * 0.5, size), false)
+	var fit := texture.get_size() * minf(size.x / texture.get_width(), size.y / texture.get_height())
+	_world.draw_texture_rect(texture, Rect2(center - fit * 0.5, fit), false)
 	return true
 
 
@@ -1206,12 +1220,12 @@ func _draw_art(key: String, center: Vector2, size: Vector2) -> bool:
 ## painting, otherwise an INTERIM_PLACEHOLDER arch in the painting's colours
 ## (cream shell arch with pearls at the start, pink checkered ribbon, lilac
 ## pearl arches over the back straight).
-func _draw_painted_span(art: Texture2D, left: Vector2, right: Vector2, height: float) -> void:
+func _draw_painted_span(art: Texture2D, left: Vector2, right: Vector2, height: float, lift: float = 0.0) -> void:
 	var left_depth := _depth(left)
 	var right_depth := _depth(right)
 	# Give the chase camera a clear view of the kart as it passes the arch.
-	var clear_depth := CAM_BACK + 4.0
-	var fade_end := clear_depth + 42.0
+	var clear_depth := CAM_BACK + 100.0
+	var fade_end := clear_depth + 90.0
 	if maxf(left_depth, right_depth) <= clear_depth:
 		return
 	var first := 0.0
@@ -1224,13 +1238,13 @@ func _draw_painted_span(art: Texture2D, left: Vector2, right: Vector2, height: f
 	# texture close to perspective-correct under the Canvas affine sampler.
 	var u0 := first
 	var depth0 := lerpf(left_depth, right_depth, first)
-	var foot0 := _screen(left.lerp(right, first), depth0)
+	var foot0 := _screen(left.lerp(right, first), depth0) - Vector2(0.0, lift * FOCAL / depth0)
 	var top0 := foot0 - Vector2(0.0, height * FOCAL / depth0)
 	var ink0 := Color(1.0, 1.0, 1.0, smoothstep(clear_depth, fade_end, depth0))
 	for column in range(1, 13):
 		var u1 := lerpf(first, last, float(column) / 12.0)
 		var depth1 := lerpf(left_depth, right_depth, u1)
-		var foot1 := _screen(left.lerp(right, u1), depth1)
+		var foot1 := _screen(left.lerp(right, u1), depth1) - Vector2(0.0, lift * FOCAL / depth1)
 		var top1 := foot1 - Vector2(0.0, height * FOCAL / depth1)
 		var ink1 := Color(1.0, 1.0, 1.0, smoothstep(clear_depth, fade_end, depth1))
 		if foot1.x > foot0.x and foot1.x >= 0.0 and foot0.x <= VIEW.x:
@@ -1253,7 +1267,7 @@ func _draw_span(landmark: Dictionary, scale: float) -> void:
 	var id := String(landmark["id"])
 	var art := _landmark_tex.get(id) as Texture2D
 	if art != null:
-		_draw_painted_span(art, left, right, float(landmark["h"]))
+		_draw_painted_span(art, left, right, float(landmark["h"]), float(landmark.get("lift", 0.0)))
 		return
 	var dl := _depth(left)
 	var dr := _depth(right)
@@ -1327,7 +1341,7 @@ func _draw_buoy(buoy: Dictionary, screen: Vector2, scale: float) -> void:
 
 
 func _draw_kelp(screen: Vector2, scale: float) -> void:
-	if _draw_art("kelp", screen - Vector2(0.0, 6.0 * scale), Vector2(52.0, 22.0) * scale):
+	if _draw_art("kelp", screen - Vector2(0.0, 6.0 * scale), Vector2(62.0, 38.0) * scale):
 		return
 	_world.draw_set_transform(screen, 0.0, Vector2(1.0, 0.34))
 	_world.draw_circle(Vector2.ZERO, maxf(3.0, 24.0 * scale), Color("#4fa36b"))
@@ -1610,7 +1624,8 @@ func _draw_item_bubble() -> void:
 func _draw_item_icon(kind: String, at: Vector2, r: float) -> void:
 	var icon := _tex.get("icon_" + kind) as Texture2D
 	if icon != null:
-		_controls.draw_texture_rect(icon, Rect2(at - Vector2(r, r), Vector2(r, r) * 2.0), false)
+		var fitted := icon.get_size() * (r * 2.0 / maxf(icon.get_width(), icon.get_height()))
+		_controls.draw_texture_rect(icon, Rect2(at - fitted * 0.5, fitted), false)
 		return
 	match kind:
 		"zoom":

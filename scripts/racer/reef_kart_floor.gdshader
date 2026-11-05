@@ -3,13 +3,9 @@ shader_type canvas_item;
 // the flat course plane as seen from a camera behind the kart. One full-width
 // Canvas rectangle; no spatial nodes, lights or meshes.
 //
-// When the painted course floor exists (Codex re-projects it from the in-game
-// Racer painting, world_racer_native.png) it is sampled directly. Until then
-// the INTERIM_PLACEHOLDER field (distance from the centre line) is turned into
-// the painting's own bands: an aqua water lane with pale lane lines and a
-// foam edge, the tan stone curb, the lilac wall with pearl studs, and sand
-// with coral and purple rocks outside. The placeholder is never shown once
-// painted art is bound.
+// The original Canal samples its painted floor. Room courses use their own
+// materials. Every floor also samples the road-distance field for the shared
+// curb, direction chevrons and ground start/finish plane.
 
 uniform vec2 rect_size = vec2(1280.0, 452.0);
 uniform vec2 cam_pos = vec2(480.0, 1565.0);
@@ -22,6 +18,7 @@ uniform bool use_painted = false;
 uniform int room_pattern = 0;
 uniform vec2 finish_pos;
 uniform vec2 finish_forward;
+uniform vec4 boundary_ink : source_color = vec4(0.17, 0.12, 0.28, 1.0);
 uniform vec4 bridge_a;
 uniform vec4 bridge_b;
 uniform sampler2D painted_floor : source_color, filter_linear_mipmap, repeat_disable;
@@ -96,19 +93,44 @@ vec4 room_floor(vec2 world, float d, float detail) {
 	float stripes = mix(0.55, 0.36 + tile * 0.35, detail);
 	vec4 color = mix(ground, mix(foam, curb_b, stripes), apron);
 	color = mix(color, road, road_mask);
-	float trim = smoothstep(road_edge - 0.035 - edge, road_edge - 0.035 + edge, d);
-	color = mix(color, foam, trim * road_mask);
-	float guide = 1.0 - smoothstep(0.010, 0.025 + edge, d);
-	color = mix(color, foam, guide * detail * (bridge ? 0.21 : 0.42));
+	return color;
+}
+
+vec4 race_markings(vec2 world, float d, vec4 color) {
+	float aa = max(fwidth(d), 0.004);
+	// Both sides have a dark contour, broad alternating curb, and pale
+	// inner edge. Their thresholds use the same lane and rail radii as physics.
+	float outer = 1.0 - smoothstep(rail_edge + 0.018, rail_edge + 0.018 + aa, d);
+	float inner = smoothstep(road_edge - 0.036 - aa, road_edge - 0.036, d);
+	float ring = outer * inner;
+	float curb = smoothstep(road_edge + aa, road_edge + 0.024 + aa, d)
+		* (1.0 - smoothstep(rail_edge - 0.020 - aa, rail_edge - 0.020, d));
+	float stripe = soft_checker(world, 38.0);
+	vec4 curb_color = mix(foam, wall_a, stripe * 0.85);
+	color = mix(color, boundary_ink, ring);
+	color = mix(color, curb_color, curb);
+	float edge_paint = (1.0 - smoothstep(road_edge - 0.050 - aa, road_edge - 0.050, d))
+		* smoothstep(road_edge - 0.077 - aa, road_edge - 0.077, d);
+	color = mix(color, foam, edge_paint);
 	vec2 from_line = world - finish_pos;
 	float along = dot(from_line, finish_forward);
 	float across = dot(from_line, vec2(-finish_forward.y, finish_forward.x));
-	if (abs(along) < 16.0 && abs(across) < 112.0) {
-		float squares = soft_checker(vec2(along, across), 16.0);
-		float stripe = 1.0 - smoothstep(14.0, 16.0, abs(along));
-		vec4 finish = mix(vec4(0.20, 0.16, 0.29, 1.0), vec4(1.0, 0.94, 0.79, 1.0), squares);
-		color = mix(color, finish, stripe * road_mask);
-	}
+	float on_road = 1.0 - smoothstep(road_edge - aa, road_edge + aa, d);
+	float gold_frame = (1.0 - smoothstep(34.0, 38.0, abs(along)))
+		* (1.0 - smoothstep(108.0, 112.0, abs(across)));
+	color = mix(color, curb_a, gold_frame * on_road);
+	float finish_mask = (1.0 - smoothstep(25.0, 28.0, abs(along)))
+		* (1.0 - smoothstep(108.0, 112.0, abs(across)));
+	float squares = soft_checker(vec2(along, across), 18.0);
+	vec4 finish = mix(boundary_ink, foam, squares);
+	color = mix(color, finish, finish_mask * on_road);
+	// Three chevrons run toward the common start/finish plane.
+	float arrow_station = -90.0 - floor(clamp((-along - 70.0) / 92.0, 0.0, 2.0)) * 92.0;
+	float head = abs(along - arrow_station + abs(across) * 0.72);
+	float arrow = (1.0 - smoothstep(4.0, 7.0, head))
+		* (1.0 - smoothstep(24.0, 29.0, abs(across)));
+	float approach = step(-340.0, along) * step(along, -65.0);
+	color = mix(color, foam, arrow * approach * on_road);
 	return color;
 }
 
@@ -156,6 +178,8 @@ void fragment() {
 			}
 		}
 	}
+	float distance_field = inside ? texture(field, uv).r : 1.0;
+	color = race_markings(world, distance_field, color);
 	float h = smoothstep(haze_start, haze_end, depth);
 	COLOR = vec4(mix(color.rgb, haze.rgb, h * 0.86), 1.0);
 }

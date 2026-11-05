@@ -1,4 +1,6 @@
-# Art requests for Codex (all reorganizations of existing art)
+# Original art requests for Codex (2026-11-03)
+
+Scope update 2026-11-05: the rules and requests below describe the initial source-derived packet. `ODR-RACER-ART-CONTEXT-20261105` permits bounded new context-specific Racer objects under the master audit, superseding the original no-new-content restriction for that reconstruction. See the [current visual review](VISUAL_REVIEW.md) and [role/reference/provenance packets](../../../assets_src/imagegen/reef_kart_context_20261105/generation_jobs.json). Protected originals, room fidelity, per-file provenance and separate acceptance gates remain binding.
 
 Owner rule, 2026-11-03: "It is okay to make new art requests from codex, but
 they must all be a reorganization of existing assets rather than genuinely new

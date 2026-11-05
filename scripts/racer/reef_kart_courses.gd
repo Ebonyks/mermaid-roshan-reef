@@ -3,7 +3,7 @@ extends RefCounted
 const ROOMS := "res://assets/flats/castle/rooms/"
 const COURSES := [
 	{
-		"id": "playroom", "pattern": 1, "name": "Playroom Speedway", "room": "Castle Playroom",
+		"id": "playroom", "pattern": 1, "wall_height": 0.47, "name": "Playroom Speedway", "room": "Castle Playroom",
 		"hint": "Two straights and two sweeping turns",
 		# GCN Baby Park, rotated to put its two straights across the room.
 		"points": [
@@ -15,15 +15,15 @@ const COURSES := [
 		],
 		"scale": 1.25, "shift": Vector2(220, 350), "world_size": 2048.0,
 		"items": [5, 15], "pearls": [2, 7, 12, 17],
-		"palette": [Color("#ba86cd"), Color("#8457ae"), Color("#f2d99f"),
+		"palette": [Color("#a185c5"), Color("#675088"), Color("#f2d99f"),
 			Color("#559d98"), Color("#6da8a2"), Color("#70818f")],
 		"props": [
-			["room_playroom_item_play_tent", 248.0, Rect2(13, 8, 130, 120)], ["room_playroom_item_blocks", 192.0, Rect2(12, 21, 90, 71)],
-			["room_playroom_item_stacking_toy", 162.0, Rect2(15, 10, 92, 144)], ["room_playroom_item_stuffie_nook", 224.0, Rect2(8, 15, 240, 159)],
+			{"id": "play_blocks", "path": "res://assets/racer/context_v2/play_blocks.png", "w": 158.0, "crop": Rect2(8, 13, 1008, 997)},
+			{"id": "play_tent", "path": "res://assets/racer/context_v2/play_tent.png", "w": 218.0, "crop": Rect2(8, 38, 1008, 947)},
 		],
 	},
 	{
-		"id": "kitchen", "pattern": 2, "name": "Copper Pan Circuit", "room": "Castle Kitchen",
+		"id": "kitchen", "pattern": 2, "wall_height": 0.53, "name": "Copper Pan Circuit", "room": "Castle Kitchen",
 		"hint": "Long straights with a tight infield hook",
 		# SNES Mario Circuit 1. Start up the east straight, run the long
 		# diagonal, then follow the west straight into the return hook.
@@ -39,15 +39,17 @@ const COURSES := [
 		],
 		"scale": 2.15, "shift": Vector2(25, -40), "world_size": 2304.0,
 		"items": [7, 14, 26], "pearls": [5, 12, 17, 21, 28],
-		"palette": [Color("#d99e6d"), Color("#bd755a"), Color("#f7d999"),
+		"palette": [Color("#a89179"), Color("#70697a"), Color("#f7d999"),
 			Color("#618e85"), Color("#88b3a1"), Color("#896d94")],
 		"props": [
-			["room_kitchen_item_fridge", 180.0, Rect2(3, 2, 135, 256)], ["room_kitchen_item_soup_pot", 296.0, Rect2(0, 14, 273, 204)],
-			["room_kitchen_item_teapot", 208.0, Rect2(5, 12, 147, 118)], ["room_kitchen_item_oven", 238.0, Rect2(7, 26, 193, 84)],
+			{"id": "kitchen_teapot", "path": "res://assets/racer/context_v2/kitchen_teapot.png", "w": 178.0, "crop": Rect2(8, 113, 1008, 798)},
+			{"id": "kitchen_oven", "path": "res://assets/opera/worlds/chef_quality_20261019/oven_cool.png", "w": 174.0, "crop": Rect2(51, 8, 410, 496)},
+			{"id": "kitchen_cake", "path": "res://assets/opera/worlds/props/goal_chef.png", "w": 158.0, "crop": Rect2(11, 50, 490, 455)},
+			{"id": "kitchen_pitcher", "path": "res://assets/opera/worlds/chef_quality_20261019/pitcher_empty.png", "w": 154.0, "crop": Rect2(18, 44, 219, 166)},
 		],
 	},
 	{
-		"id": "mermaid_pool", "pattern": 3, "name": "Seahorse Bridgeway", "room": "Mermaid Pool",
+		"id": "mermaid_pool", "pattern": 3, "wall_height": 0.32, "name": "Seahorse Bridgeway", "room": "Mermaid Pool",
 		"hint": "Two bridges and a chain of S-bends",
 		# SNES Donut Plains 3. Two straight crossings followed by the
 		# central S and the southern hook. Bridge decks are continuous.
@@ -70,16 +72,18 @@ const COURSES := [
 		],
 		"scale": 3.25, "shift": Vector2(40, -55), "world_size": 3456.0,
 		"items": [13, 23, 36, 51], "pearls": [4, 16, 27, 34, 43, 57],
-		"palette": [Color("#65cbc7"), Color("#319da7"), Color("#f5d8a7"),
+		"palette": [Color("#47becb"), Color("#246a9b"), Color("#f5d8a7"),
 			Color("#255574"), Color("#3e779a"), Color("#62a7b9")],
 		"bridges": [Rect2(356, 142, 319, 92), Rect2(447, 411, 337, 92)],
 		"props": [
-			["room_mermaid_pool_item_seahorse_fountain", 206.0, Rect2(19, 10, 167, 193)], ["room_mermaid_pool_item_star_float", 133.0, Rect2(10, 9, 70, 49)],
-			["room_mermaid_pool_item_bubble_fountain", 116.0, Rect2(59, 16, 61, 94)], ["room_mermaid_pool_item_flower_float", 170.0, Rect2(5, 7, 94, 69)],
+			{"id": "pool_seahorse", "path": "res://assets/racer/context_v2/pool_seahorse.png", "w": 124.0, "crop": Rect2(210, 8, 603, 1008)},
+			{"id": "pool_fountain", "path": "res://assets/flats/castle/rooms/room_main_hall_item_fountain_left_v2.png", "w": 226.0, "crop": Rect2(0, 3, 214, 179)},
+			{"id": "pool_star", "path": "res://assets/flats/castle/rooms/room_mermaid_pool_item_star_float.png", "w": 90.0, "crop": Rect2(10, 9, 70, 49)},
+			{"id": "pool_flower", "path": "res://assets/flats/castle/rooms/room_mermaid_pool_item_flower_float.png", "w": 100.0, "crop": Rect2(5, 7, 94, 69)},
 		],
 	},
 	{
-		"id": "opera_hall", "pattern": 4, "name": "Footlight Finale", "room": "Opera Hall",
+		"id": "opera_hall", "pattern": 4, "wall_height": 0.45, "name": "Footlight Finale", "room": "Opera Hall",
 		"hint": "Fast stage straights and sharp switchbacks",
 		# SNES Rainbow Road. Follow the main loop and the inside line of
 		# the split on the bottom straight. Rounded corners suit kart scale.
@@ -99,11 +103,13 @@ const COURSES := [
 		],
 		"scale": 2.9, "shift": Vector2(60, -95), "world_size": 3072.0,
 		"items": [6, 17, 27, 39], "pearls": [3, 10, 15, 24, 33, 44],
-		"palette": [Color("#a95f9e"), Color("#774883"), Color("#ffd58d"),
+		"palette": [Color("#ae88b5"), Color("#694679"), Color("#ffd58d"),
 			Color("#373658"), Color("#554567"), Color("#66537b")],
 		"props": [
-			["room_opera_hall_item_footlights", 176.0, Rect2(14, 1, 166, 21)], ["room_opera_hall_item_chandelier", 236.0, Rect2(24, 5, 140, 83)],
-			["room_opera_hall_item_stage_star", 88.0, Rect2(1, 4, 43, 41)], ["room_opera_hall_item_curtains", 292.0, Rect2(13, 11, 168, 176)],
+			{"id": "opera_musicbox", "path": "res://assets/opera/worlds/props/goal_ballerina.png", "w": 170.0, "crop": Rect2(71, 14, 370, 492)},
+			{"id": "opera_microphone", "path": "res://assets/opera/worlds/props/goal_popstar.png", "w": 110.0, "crop": Rect2(167, 14, 177, 491)},
+			{"id": "opera_cup", "path": "res://assets/opera/worlds/props/goal_racer.png", "w": 134.0, "crop": Rect2(29, 15, 454, 490)},
+			{"id": "opera_footlights", "path": "res://assets/flats/castle/rooms/room_opera_hall_item_footlights.png", "w": 140.0, "crop": Rect2(14, 1, 166, 21)},
 		],
 	},
 ]

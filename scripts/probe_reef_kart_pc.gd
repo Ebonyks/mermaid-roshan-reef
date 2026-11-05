@@ -200,12 +200,28 @@ func _run() -> void:
 		var spec: Dictionary = Courses.COURSES[index]
 		var track := solo.track
 		var course_ok: bool = track.id == spec["id"] and solo._room_art != null \
-			and solo._landmark_tex.size() == 4 and track.landmarks.size() >= 8 \
-			and track.gate_s.size() == spec["items"].size()
+			and track.landmarks.size() >= 8 and track.gate_s.size() == spec["items"].size()
+		for landmark: Dictionary in track.landmarks:
+			course_ok = course_ok and solo._landmark_tex.has(String(landmark["id"]))
 		for item: Dictionary in track.bubbles:
 			var road_pos := track.project(item["pos"], item["s"], 50.0)
 			course_ok = course_ok and absf(road_pos.y - float(item["lat"])) < 4.0
 		check("%s uses its own art, landmarks and road-aligned item rows" % track.id, course_ok)
+		var field := track.floor_field().get_image()
+		var field_ok := field.get_width() == 512
+		var outside_count := 0
+		for sample in range(0, ReefKartTrack.SAMPLES, 24):
+			var center: Vector2 = track.center[sample]
+			var cx := clampi(int(center.x / track.world_size * field.get_width()), 0, field.get_width() - 1)
+			var cy := clampi(int(center.y / track.world_size * field.get_height()), 0, field.get_height() - 1)
+			field_ok = field_ok and field.get_pixel(cx, cy).r < 0.10
+			for side: float in [-1.0, 1.0]:
+				var point := track.point_at(track.cumulative[sample], side * 180.0)
+				var x := clampi(int(point.x / track.world_size * field.get_width()), 0, field.get_width() - 1)
+				var y := clampi(int(point.y / track.world_size * field.get_height()), 0, field.get_height() - 1)
+				outside_count += int(field.get_pixel(x, y).r > 0.60)
+		check("%s road field covers the whole map and distinguishes both shoulders" % track.id,
+			field_ok and outside_count >= 54)
 		for step in range(15000):
 			apply_pilot(6, solo, solo.karts[0])
 			pc._physics_process(STEP)
