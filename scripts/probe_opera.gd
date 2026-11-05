@@ -1,5 +1,7 @@
 extends SceneTree
 
+const BUBBLE_SHOP := preload("res://scripts/bubble_duel_inventory.gd")
+
 const ROUTE_READY_FRAME_LIMIT := 5000
 const ROUTE_READY_TIMEOUT_MSEC := 15000
 const ROUTE_CARD_MIN_SIZE := Vector2(154.0, 154.0)
@@ -566,7 +568,8 @@ func _audit_bubble_duel() -> void:
 	var venue := routes.opera_venue
 	if venue == null:
 		return
-	var progress := _playtest_progress_snapshot()
+	var progress := _bubble_duel_progress_snapshot()
+	var wallet_before := BUBBLE_SHOP.state(main)
 	var living_visible := main.living_layer.visible
 	_tap_control(venue.bubble_duel_button, 60)
 	await _frames(2)
@@ -593,13 +596,20 @@ func _audit_bubble_duel() -> void:
 			duel.rival_bubbles == remaining - 1)
 	_check("the second pop shows replay without changing career rewards",
 		duel.mode == duel.Mode.CELEBRATE and duel.score == 2
-		and _playtest_progress_snapshot() == progress)
+		and _bubble_duel_progress_snapshot() == progress)
+	var wallet_after := BUBBLE_SHOP.state(main)
+	var expected_prize: int = mini(60, 10 + int(wallet_before["wins"]) / 2)
+	_check("Duel credits its own wallet once and saves unchanged story progress",
+		int(wallet_after["pearls"]) == int(wallet_before["pearls"]) + expected_prize
+		and int(wallet_after["wins"]) == int(wallet_before["wins"]) + 1
+		and _bubble_duel_save_matches(progress))
 	main._navigation_ref().press()
 	_check("Back from a bout returns to the Bubble Duel hub", duel.mode == duel.Mode.HUB)
 	_tap_control(duel.menu.get_child(3) as Button, 64)
 	_tap_control(duel.menu.get_child(2) as Button, 65)
-	_check("Shell Shop equips a pictured color without spending pearls",
-		duel.tint_index == 2 and _playtest_progress_snapshot() == progress)
+	_check("Shell Shop purchases a pictured color while preserving career rewards",
+		duel.tint_index == 2 and _bubble_duel_progress_snapshot() == progress
+		and _bubble_duel_save_matches(progress))
 	main._navigation_ref().press()
 	_tap_control(duel.menu.get_child(1) as Button, 66)
 	_tap_control(duel, 67, duel._target(0))
@@ -626,11 +636,12 @@ func _audit_bubble_duel() -> void:
 	_tap_control(venue.bubble_duel_button, 63)
 	await _frames(2)
 	_check("reopening Bubble Duel starts a new hub", venue.bubble_duel != null
-		and venue.bubble_duel.mode == venue.bubble_duel.Mode.HUB)
+		and venue.bubble_duel.mode == venue.bubble_duel.Mode.HUB
+		and venue.bubble_duel.tint_index == 2)
 	venue.close()
 	_check("venue shutdown removes the activity and keeps career state",
 		venue.bubble_duel == null and not main.touch_control_blocks.has(OperaHouseVenue2D.BubbleDuel.ROUTE_ID)
-		and _playtest_progress_snapshot() == progress)
+		and _bubble_duel_progress_snapshot() == progress)
 	await _frames(2)
 
 
@@ -1265,3 +1276,31 @@ func _finish() -> void:
 	for _frame: int in range(4):
 		await process_frame
 	quit(exit_code)
+
+
+func _bubble_duel_progress_snapshot() -> Dictionary:
+	# This commissioned shop writes its wallet. The other practice surfaces
+	# retain the stronger unchanged-file SHA check in the shared helper.
+	var progress := _playtest_progress_snapshot()
+	progress.erase("save_file_sha256")
+	return progress
+
+
+func _bubble_duel_save_matches(progress: Dictionary) -> bool:
+	var decoded: Variant = JSON.parse_string(FileAccess.get_file_as_string(main._save_state.save_path))
+	if not decoded is Dictionary:
+		return false
+	var disk: Dictionary = decoded
+	var expected: Dictionary = {
+		"opera_stars": progress["stars"], "opera_progress": progress["progress"],
+		"pearls": progress["pearls"], "medals": progress["medals"],
+		"stickers": progress["stickers"],
+	}
+	for key: String in progress["story"]:
+		expected[key] = progress["story"][key]
+	for key: String in progress["job_save"]:
+		expected[key] = progress["job_save"][key]
+	for key: String in expected:
+		if disk.get(key) != JSON.parse_string(JSON.stringify(expected[key])):
+			return false
+	return disk.get(BUBBLE_SHOP.SAVE_KEY) == JSON.parse_string(JSON.stringify(BUBBLE_SHOP.state(main)))

@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: SaveState: writes disabled — the save on disk uses a newer schema than this build; the newer save is preserved and progress stays in memory
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] write_save (res://scripts/save_state.gd:237)
+       [1] _write_save (res://scripts/main.gd:3313)
+       [2] _store (res://scripts/bubble_duel_inventory.gd:66)
+       [3] choose_item (res://scripts/bubble_duel_inventory.gd:87)
+       [4] _run (res://scripts/probe_bubble_duel_stress.gd:67)
+BUBBLESTRESS|100 tours|1537 checks|0 failures
+
+RELOAD_PHASE: new Godot process, same isolated save
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+BUBBLERELOAD|9 checks|0 failures

@@ -76,6 +76,7 @@ var elapsed := 0.0
 var practice_book: TextureButton
 var bubble_duel_button: TextureButton
 var bubble_duel: BubbleDuel
+var bubble_duel_layer: CanvasLayer
 var bubble_duel_living_was_visible := false
 var tree_book_test: OperaTreeBookTest
 var job_playtest_menu: OperaJobPlaytestMenu
@@ -799,7 +800,10 @@ func _build_bubble_duel_button() -> void:
 	bubble_duel_button.z_index = 8
 	bubble_duel_button.position = Vector2(178, 552)
 	bubble_duel_button.size = Vector2(138, 131)
-	bubble_duel_button.texture_normal = BubbleDuel.BUBBLES
+	var entry := AtlasTexture.new()
+	entry.atlas = BubbleDuel.ITEMS
+	entry.region = Rect2(256, 0, 256, 256)
+	bubble_duel_button.texture_normal = entry
 	bubble_duel_button.ignore_texture_size = true
 	bubble_duel_button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
 	bubble_duel_button.tooltip_text = "Bubble Duel"
@@ -828,7 +832,11 @@ func open_bubble_duel() -> void:
 	bubble_duel = BubbleDuel.new()
 	bubble_duel.setup(m)
 	bubble_duel.close_requested.connect(_close_bubble_duel)
-	add_child(bubble_duel)
+	bubble_duel_layer = CanvasLayer.new()
+	bubble_duel_layer.name = "BubbleDuelLayer"
+	bubble_duel_layer.layer = 15
+	add_child(bubble_duel_layer)
+	bubble_duel_layer.add_child(bubble_duel)
 	m._navigation_push(BubbleDuel.ROUTE_ID, bubble_duel, bubble_duel.go_back)
 
 
@@ -836,7 +844,8 @@ func _close_bubble_duel(restore_venue: bool = true) -> void:
 	if bubble_duel == null:
 		return
 	bubble_duel.shutdown()
-	bubble_duel.queue_free()
+	bubble_duel_layer.queue_free()
+	bubble_duel_layer = null
 	bubble_duel = null
 	m._navigation_remove(BubbleDuel.ROUTE_ID)
 	m._set_world_controls_enabled(true, BubbleDuel.ROUTE_ID)
