@@ -6,7 +6,7 @@ The owner requests clear ground boundaries and start/finish representation in al
 
 ## Ground readability
 
-The room-course field was allocated at 512×512 but its final byte loop wrote only 128×128 entries. The remaining zeros classified most of the map as road. The loop now writes every texel. The PC regression samples centre-line positions and both shoulders throughout each course, beyond the previously written corner.
+The room-course field was allocated at 512×512 but its final byte loop wrote only 128×128 entries. The remaining zeros classified most of the map as road. The loop now writes every texel. The PC regression samples centre-line positions and both shoulders throughout each course, beyond the previously written first 32 rows.
 
 All four PC courses and the original touch-driven Pearl Canal share continuous dark edge contours, broad contrasting curbs, a pale inner line, a gold-framed checker start/finish stripe and large approach chevrons. Wood bridges keep their own surface inside the boundaries. Room finish arches reuse the existing Pearl arch and checker banner. Near-camera span fading clears the starting view before the posts dominate it; independently projected feet remain intact.
 

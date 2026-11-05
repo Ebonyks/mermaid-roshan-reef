@@ -229,6 +229,11 @@
       "command": "Anonymous public GitHub byte verification of exact published packet revision",
       "result": "PASS",
       "evidence": "assets_src/imagegen/reef_kart_context_20261105/remote-verification.json; revision 6f7bf08cf8095d761c239c8aeae962b76b6066b3, 233 files including source references, checked 2026-11-05T02:15:52-08:00. Sorted path/SHA-256 payload 13d5a1d089fed97a51e7745dd26687acbbf27b6e7dc35cef4fcca6e5f33cd77c. Supplemental receipt publication changes metadata only."
+    },
+    {
+      "command": "Documentation precision review against the row-major field serializer",
+      "result": "PASS",
+      "evidence": "The former 128*128 loop wrote 16,384 entries: the first 32 rows at width 512. Correct the earlier spatial shorthand in the master index and review; runtime source fingerprints and test results remain identical."
     }
   ],
   "acceptance_gaps": "Exact canonical fresh-runtime QA11 certification, physical PC controllers and tablet, child comprehension and owner visual acceptance remain open.",
