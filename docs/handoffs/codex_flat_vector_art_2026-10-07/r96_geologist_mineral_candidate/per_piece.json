@@ -29457,7 +29457,7 @@
     "supplementary_picture_review": "PICTURE_CONTEXT_RECONCILIATION.json",
     "supplementary_action_review": "ACTION_CONTEXT_RECONCILIATION.json"
   },
-  "revision": "FV-AUDIT-20261105-R141-RACER-SOURCE-CANDIDATES",
+  "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
   "prior_frozen_registry": {
     "immutable_revision": "4aceae967de9da7c8f479e358a008188ba1f6304",
     "named_records": 224,
@@ -33230,6 +33230,1638 @@
         "Near-camera placement, occlusion and all sibling uses",
         "Formal QA11, physical device, child and owner acceptance",
         "Current Dev integration and matching build"
+      ]
+    },
+    {
+      "id": "FVR-EEBC51E8DED0",
+      "name": "Bubble Duel tethered bubble",
+      "family": "opera_bubble_duel",
+      "role_key": "bubble",
+      "stable_id_seed": "opera_bubble_duel|bubble",
+      "runtime_asset": "assets/opera/bubble_duel_v2/bubble.png",
+      "native_asset": "assets_src/bubble_duel_v2/bubble_native.png",
+      "atlas_cell": null,
+      "source": {
+        "path": "scripts/opera_bubble_duel.gd",
+        "function": "_draw_bubble",
+        "start_line": 639,
+        "end_line": 643,
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+        "hash_mode": "LF complete source"
+      },
+      "other_consumers": [
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_icon",
+          "start_line": 666,
+          "end_line": 669,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_activate_power",
+          "start_line": 728,
+          "end_line": 762,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_draw",
+          "start_line": 580,
+          "end_line": 638,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        }
+      ],
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
+      "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "native_output": {
+        "path": "assets_src/bubble_duel_v2/bubble_native.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 1145494,
+        "sha256": "212e4a39bfd2702fefb78bbf00c8ddc62cf0de4f7699a66767db6a1351ea61ec",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/opera/bubble_duel_v2/bubble.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 92710,
+        "sha256": "eca98a5ca895774d10649bc05c438dfb8be22b8f5a1527a64750b2c516161127",
+        "dimensions": [
+          256,
+          256
+        ]
+      },
+      "derivation": {
+        "file": "bubble.png",
+        "source": "bubble_native.png",
+        "crop": [
+          133,
+          138,
+          1108,
+          1113
+        ],
+        "method": "Uniform square crop and whole-canvas downsampling",
+        "sha256": "eca98a5ca895774d10649bc05c438dfb8be22b8f5a1527a64750b2c516161127",
+        "source_sha256": "212e4a39bfd2702fefb78bbf00c8ddc62cf0de4f7699a66767db6a1351ea61ec",
+        "dimensions": [
+          256,
+          256
+        ]
+      },
+      "provenance": {
+        "production_record": {
+          "path": "assets_src/bubble_duel_v2/production.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 10144,
+          "sha256": "d83dfca10f4a4a10a1e20e78753abb2a2a1607f1289d6b65277eae9e8eaa4d11"
+        },
+        "export_record": {
+          "path": "assets_src/bubble_duel_v2/exports.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 2106,
+          "sha256": "9edddffcd7857aedd5336caf8f5f6d743e91baf2b1cff640f88ef824eaca24f5"
+        },
+        "backend": "OpenAI built-in image_gen",
+        "model_revision": "unexposed",
+        "seed": "unexposed",
+        "provider_request_id": "unexposed; native artifact IDs retained in production record",
+        "producer_calls_total": 3,
+        "calls_here": 0,
+        "budget": "Three of six allowed calls used, one attempt per named brief; maximum two takes per brief. Includes one four-key actor atlas job; caps do not reset by frame/backend. Cleanup actual not separately timed, declared limit30minutes. No external paid API job; monetary cost not exposed."
+      },
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+          "observation": "The same arena and shop show clean transparent interiors and broad rim highlights replacing the jagged/mottled draft. Existing tether strokes are unchanged visible art.",
+          "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        }
+      ],
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "bubble"
+      ],
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_feature_CI": 42012359137,
+        "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+        "merged_source_CI": 42033167812,
+        "merged_source_CI_at_snapshot": {
+          "id": 42033167812,
+          "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+          "head_branch": "codex/bubble-duel-jobs-20261104",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        "DL_QA_11": "COVERAGE_GAP",
+        "full_context_review_complete": false,
+        "full_motion_review": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "blocked_dependencies": [
+        "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
+        "All natural routes, states, repeated use and teardown/focus variants",
+        "Background native coverage, font authority and remaining flat UI/pointer/tethers",
+        "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
+      ]
+    },
+    {
+      "id": "FVR-4AF007BDD168",
+      "name": "Marlo four-key swimming actor",
+      "family": "opera_bubble_duel",
+      "role_key": "marlo_swim",
+      "stable_id_seed": "opera_bubble_duel|marlo_swim",
+      "runtime_asset": "assets/opera/bubble_duel_v2/marlo_swim.png",
+      "native_asset": "assets_src/bubble_duel_v2/marlo_native.png",
+      "atlas_cell": null,
+      "source": {
+        "path": "scripts/opera_bubble_duel.gd",
+        "function": "_draw",
+        "start_line": 580,
+        "end_line": 638,
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+        "hash_mode": "LF complete source"
+      },
+      "other_consumers": [
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_draw_cell",
+          "start_line": 644,
+          "end_line": 649,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_cell",
+          "start_line": 650,
+          "end_line": 651,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        }
+      ],
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
+      "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "native_output": {
+        "path": "assets_src/bubble_duel_v2/marlo_native.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 557903,
+        "sha256": "56a3df8aa9879c8b9ae717aeabb2faafbd89533118d66d05e71f137973bc98e0",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/opera/bubble_duel_v2/marlo_swim.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 103290,
+        "sha256": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc",
+        "dimensions": [
+          512,
+          512
+        ]
+      },
+      "derivation": {
+        "file": "marlo_swim.png",
+        "source": "marlo_native.png",
+        "mapping": [
+          {
+            "cell": 0,
+            "bounds": [
+              25,
+              231,
+              593,
+              435
+            ],
+            "uniform_scale": 0.4027777777777778,
+            "offset": [
+              13,
+              87
+            ]
+          },
+          {
+            "cell": 1,
+            "bounds": [
+              23,
+              233,
+              592,
+              435
+            ],
+            "uniform_scale": 0.4027777777777778,
+            "offset": [
+              269,
+              87
+            ]
+          },
+          {
+            "cell": 2,
+            "bounds": [
+              28,
+              207,
+              593,
+              391
+            ],
+            "uniform_scale": 0.4027777777777778,
+            "offset": [
+              14,
+              347
+            ]
+          },
+          {
+            "cell": 3,
+            "bounds": [
+              19,
+              204,
+              595,
+              392
+            ],
+            "uniform_scale": 0.4027777777777778,
+            "offset": [
+              268,
+              346
+            ]
+          }
+        ],
+        "method": "Threshold bounds for extraction, common whole-figure scale and centering only",
+        "sha256": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc",
+        "source_sha256": "56a3df8aa9879c8b9ae717aeabb2faafbd89533118d66d05e71f137973bc98e0",
+        "dimensions": [
+          512,
+          512
+        ]
+      },
+      "provenance": {
+        "production_record": {
+          "path": "assets_src/bubble_duel_v2/production.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 10144,
+          "sha256": "d83dfca10f4a4a10a1e20e78753abb2a2a1607f1289d6b65277eae9e8eaa4d11"
+        },
+        "export_record": {
+          "path": "assets_src/bubble_duel_v2/exports.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 2106,
+          "sha256": "9edddffcd7857aedd5336caf8f5f6d743e91baf2b1cff640f88ef824eaca24f5"
+        },
+        "backend": "OpenAI built-in image_gen",
+        "model_revision": "unexposed",
+        "seed": "unexposed",
+        "provider_request_id": "unexposed; native artifact IDs retained in production record",
+        "producer_calls_total": 3,
+        "calls_here": 0,
+        "budget": "Three of six allowed calls used, one attempt per named brief; maximum two takes per brief. Includes one four-key actor atlas job; caps do not reset by frame/backend. Cleanup actual not separately timed, declared limit30minutes. No external paid API job; monetary cost not exposed."
+      },
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+          "observation": "The four native keys retain warm brown fur and cream muzzle/chest and replace land poses with horizontal paddling. All four cells were directly inspected as stills; identity/proportions, timing, transitions and loop seam still need exact human motion review.",
+          "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        }
+      ],
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "marlo_swim"
+      ],
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_feature_CI": 42012359137,
+        "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+        "merged_source_CI": 42033167812,
+        "merged_source_CI_at_snapshot": {
+          "id": 42033167812,
+          "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+          "head_branch": "codex/bubble-duel-jobs-20261104",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        "DL_QA_11": "COVERAGE_GAP",
+        "full_context_review_complete": false,
+        "full_motion_review": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "blocked_dependencies": [
+        "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
+        "All natural routes, states, repeated use and teardown/focus variants",
+        "Background native coverage, font authority and remaining flat UI/pointer/tethers",
+        "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
+      ],
+      "runtime_frames": [
+        {
+          "cell": 0,
+          "region": [
+            0,
+            0,
+            256,
+            256
+          ]
+        },
+        {
+          "cell": 1,
+          "region": [
+            256,
+            0,
+            256,
+            256
+          ]
+        },
+        {
+          "cell": 2,
+          "region": [
+            0,
+            256,
+            256,
+            256
+          ]
+        },
+        {
+          "cell": 3,
+          "region": [
+            256,
+            256,
+            256,
+            256
+          ]
+        }
+      ],
+      "animation_limit": "Four authored source keys, five frames per second in source; no full-speed or frame-step motion acceptance here. No Aseprite master/round-trip is declared."
+    },
+    {
+      "id": "FVR-180A868E1378",
+      "name": "Tidewing Ribbons item illustration",
+      "family": "opera_bubble_duel",
+      "role_key": "tidewing_ribbons",
+      "stable_id_seed": "opera_bubble_duel|tidewing_ribbons",
+      "runtime_asset": "assets/opera/bubble_duel_v2/items.png",
+      "native_asset": "assets_src/bubble_duel_v2/items_native.png",
+      "atlas_cell": 0,
+      "source": {
+        "path": "scripts/opera_bubble_duel.gd",
+        "function": "_show_shop",
+        "start_line": 209,
+        "end_line": 262,
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+        "hash_mode": "LF complete source"
+      },
+      "other_consumers": [
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_icon",
+          "start_line": 666,
+          "end_line": 669,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_activate_power",
+          "start_line": 728,
+          "end_line": 762,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_draw",
+          "start_line": 580,
+          "end_line": 638,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        }
+      ],
+      "runtime_region": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
+      "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "native_output": {
+        "path": "assets_src/bubble_duel_v2/items_native.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 1734293,
+        "sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/opera/bubble_duel_v2/items.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 634266,
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "derivation": {
+        "file": "items.png",
+        "source": "items_native.png",
+        "method": "Uniform whole-sheet downsampling to 4x2 256-square cells",
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "source_sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "provenance": {
+        "production_record": {
+          "path": "assets_src/bubble_duel_v2/production.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 10144,
+          "sha256": "d83dfca10f4a4a10a1e20e78753abb2a2a1607f1289d6b65277eae9e8eaa4d11"
+        },
+        "export_record": {
+          "path": "assets_src/bubble_duel_v2/exports.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 2106,
+          "sha256": "9edddffcd7857aedd5336caf8f5f6d743e91baf2b1cff640f88ef824eaca24f5"
+        },
+        "backend": "OpenAI built-in image_gen",
+        "model_revision": "unexposed",
+        "seed": "unexposed",
+        "provider_request_id": "unexposed; native artifact IDs retained in production record",
+        "producer_calls_total": 3,
+        "calls_here": 0,
+        "budget": "Three of six allowed calls used, one attempt per named brief; maximum two takes per brief. Includes one four-key actor atlas job; caps do not reset by frame/backend. Cleanup actual not separately timed, declared limit30minutes. No external paid API job; monetary cost not exposed."
+      },
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+          "observation": "Lavender/coral ribbons and a tail-fin clasp are distinct in the item atlas and first shop page. This supplies the named missing icon rather than redesigning Roshan.",
+          "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        }
+      ],
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "tidewing_ribbons"
+      ],
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_feature_CI": 42012359137,
+        "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+        "merged_source_CI": 42033167812,
+        "merged_source_CI_at_snapshot": {
+          "id": 42033167812,
+          "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+          "head_branch": "codex/bubble-duel-jobs-20261104",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        "DL_QA_11": "COVERAGE_GAP",
+        "full_context_review_complete": false,
+        "full_motion_review": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "blocked_dependencies": [
+        "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
+        "All natural routes, states, repeated use and teardown/focus variants",
+        "Background native coverage, font authority and remaining flat UI/pointer/tethers",
+        "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
+      ]
+    },
+    {
+      "id": "FVR-28EE0DD2A93F",
+      "name": "Moonpearl charm item illustration",
+      "family": "opera_bubble_duel",
+      "role_key": "moonpearl",
+      "stable_id_seed": "opera_bubble_duel|moonpearl",
+      "runtime_asset": "assets/opera/bubble_duel_v2/items.png",
+      "native_asset": "assets_src/bubble_duel_v2/items_native.png",
+      "atlas_cell": 1,
+      "source": {
+        "path": "scripts/opera_bubble_duel.gd",
+        "function": "_show_shop",
+        "start_line": 209,
+        "end_line": 262,
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+        "hash_mode": "LF complete source"
+      },
+      "other_consumers": [
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_icon",
+          "start_line": 666,
+          "end_line": 669,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_activate_power",
+          "start_line": 728,
+          "end_line": 762,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_draw",
+          "start_line": 580,
+          "end_line": 638,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        }
+      ],
+      "runtime_region": [
+        256,
+        0,
+        256,
+        256
+      ],
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
+      "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "native_output": {
+        "path": "assets_src/bubble_duel_v2/items_native.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 1734293,
+        "sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/opera/bubble_duel_v2/items.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 634266,
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "derivation": {
+        "file": "items.png",
+        "source": "items_native.png",
+        "method": "Uniform whole-sheet downsampling to 4x2 256-square cells",
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "source_sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "provenance": {
+        "production_record": {
+          "path": "assets_src/bubble_duel_v2/production.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 10144,
+          "sha256": "d83dfca10f4a4a10a1e20e78753abb2a2a1607f1289d6b65277eae9e8eaa4d11"
+        },
+        "export_record": {
+          "path": "assets_src/bubble_duel_v2/exports.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 2106,
+          "sha256": "9edddffcd7857aedd5336caf8f5f6d743e91baf2b1cff640f88ef824eaca24f5"
+        },
+        "backend": "OpenAI built-in image_gen",
+        "model_revision": "unexposed",
+        "seed": "unexposed",
+        "provider_request_id": "unexposed; native artifact IDs retained in production record",
+        "producer_calls_total": 3,
+        "calls_here": 0,
+        "budget": "Three of six allowed calls used, one attempt per named brief; maximum two takes per brief. Includes one four-key actor atlas job; caps do not reset by frame/backend. Cleanup actual not separately timed, declared limit30minutes. No external paid API job; monetary cost not exposed."
+      },
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+          "observation": "A pearl in a lavender shell is distinct in the atlas and first shop page; phone-size material/edge readability remains open.",
+          "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        }
+      ],
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "moonpearl"
+      ],
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_feature_CI": 42012359137,
+        "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+        "merged_source_CI": 42033167812,
+        "merged_source_CI_at_snapshot": {
+          "id": 42033167812,
+          "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+          "head_branch": "codex/bubble-duel-jobs-20261104",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        "DL_QA_11": "COVERAGE_GAP",
+        "full_context_review_complete": false,
+        "full_motion_review": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "blocked_dependencies": [
+        "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
+        "All natural routes, states, repeated use and teardown/focus variants",
+        "Background native coverage, font authority and remaining flat UI/pointer/tethers",
+        "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
+      ]
+    },
+    {
+      "id": "FVR-8849D357BDF9",
+      "name": "Swift Conch item illustration",
+      "family": "opera_bubble_duel",
+      "role_key": "swift_conch",
+      "stable_id_seed": "opera_bubble_duel|swift_conch",
+      "runtime_asset": "assets/opera/bubble_duel_v2/items.png",
+      "native_asset": "assets_src/bubble_duel_v2/items_native.png",
+      "atlas_cell": 2,
+      "source": {
+        "path": "scripts/opera_bubble_duel.gd",
+        "function": "_show_shop",
+        "start_line": 209,
+        "end_line": 262,
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+        "hash_mode": "LF complete source"
+      },
+      "other_consumers": [
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_icon",
+          "start_line": 666,
+          "end_line": 669,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_activate_power",
+          "start_line": 728,
+          "end_line": 762,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_draw",
+          "start_line": 580,
+          "end_line": 638,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        }
+      ],
+      "runtime_region": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
+      "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "native_output": {
+        "path": "assets_src/bubble_duel_v2/items_native.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 1734293,
+        "sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/opera/bubble_duel_v2/items.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 634266,
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "derivation": {
+        "file": "items.png",
+        "source": "items_native.png",
+        "method": "Uniform whole-sheet downsampling to 4x2 256-square cells",
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "source_sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "provenance": {
+        "production_record": {
+          "path": "assets_src/bubble_duel_v2/production.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 10144,
+          "sha256": "d83dfca10f4a4a10a1e20e78753abb2a2a1607f1289d6b65277eae9e8eaa4d11"
+        },
+        "export_record": {
+          "path": "assets_src/bubble_duel_v2/exports.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 2106,
+          "sha256": "9edddffcd7857aedd5336caf8f5f6d743e91baf2b1cff640f88ef824eaca24f5"
+        },
+        "backend": "OpenAI built-in image_gen",
+        "model_revision": "unexposed",
+        "seed": "unexposed",
+        "provider_request_id": "unexposed; native artifact IDs retained in production record",
+        "producer_calls_total": 3,
+        "calls_here": 0,
+        "budget": "Three of six allowed calls used, one attempt per named brief; maximum two takes per brief. Includes one four-key actor atlas job; caps do not reset by frame/backend. Cleanup actual not separately timed, declared limit30minutes. No external paid API job; monetary cost not exposed."
+      },
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+          "observation": "The turquoise/gold spiral conch reads in the atlas and first shop page; the current/effect action remains separately unreviewed.",
+          "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        }
+      ],
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "swift_conch"
+      ],
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_feature_CI": 42012359137,
+        "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+        "merged_source_CI": 42033167812,
+        "merged_source_CI_at_snapshot": {
+          "id": 42033167812,
+          "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+          "head_branch": "codex/bubble-duel-jobs-20261104",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        "DL_QA_11": "COVERAGE_GAP",
+        "full_context_review_complete": false,
+        "full_motion_review": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "blocked_dependencies": [
+        "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
+        "All natural routes, states, repeated use and teardown/focus variants",
+        "Background native coverage, font authority and remaining flat UI/pointer/tethers",
+        "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
+      ]
+    },
+    {
+      "id": "FVR-39F685E469E7",
+      "name": "Rainbow Wand item illustration",
+      "family": "opera_bubble_duel",
+      "role_key": "rainbow_wand",
+      "stable_id_seed": "opera_bubble_duel|rainbow_wand",
+      "runtime_asset": "assets/opera/bubble_duel_v2/items.png",
+      "native_asset": "assets_src/bubble_duel_v2/items_native.png",
+      "atlas_cell": 3,
+      "source": {
+        "path": "scripts/opera_bubble_duel.gd",
+        "function": "_show_shop",
+        "start_line": 209,
+        "end_line": 262,
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+        "hash_mode": "LF complete source"
+      },
+      "other_consumers": [
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_icon",
+          "start_line": 666,
+          "end_line": 669,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_activate_power",
+          "start_line": 728,
+          "end_line": 762,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_draw",
+          "start_line": 580,
+          "end_line": 638,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        }
+      ],
+      "runtime_region": [
+        768,
+        0,
+        256,
+        256
+      ],
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
+      "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "native_output": {
+        "path": "assets_src/bubble_duel_v2/items_native.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 1734293,
+        "sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/opera/bubble_duel_v2/items.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 634266,
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "derivation": {
+        "file": "items.png",
+        "source": "items_native.png",
+        "method": "Uniform whole-sheet downsampling to 4x2 256-square cells",
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "source_sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "provenance": {
+        "production_record": {
+          "path": "assets_src/bubble_duel_v2/production.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 10144,
+          "sha256": "d83dfca10f4a4a10a1e20e78753abb2a2a1607f1289d6b65277eae9e8eaa4d11"
+        },
+        "export_record": {
+          "path": "assets_src/bubble_duel_v2/exports.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 2106,
+          "sha256": "9edddffcd7857aedd5336caf8f5f6d743e91baf2b1cff640f88ef824eaca24f5"
+        },
+        "backend": "OpenAI built-in image_gen",
+        "model_revision": "unexposed",
+        "seed": "unexposed",
+        "provider_request_id": "unexposed; native artifact IDs retained in production record",
+        "producer_calls_total": 3,
+        "calls_here": 0,
+        "budget": "Three of six allowed calls used, one attempt per named brief; maximum two takes per brief. Includes one four-key actor atlas job; caps do not reset by frame/backend. Cleanup actual not separately timed, declared limit30minutes. No external paid API job; monetary cost not exposed."
+      },
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+          "observation": "The pearl/star wand is distinct in the atlas and second shop page. Existing Roshan costume sources remain unchanged; no whole power-performance approval.",
+          "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        }
+      ],
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "rainbow_wand"
+      ],
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_feature_CI": 42012359137,
+        "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+        "merged_source_CI": 42033167812,
+        "merged_source_CI_at_snapshot": {
+          "id": 42033167812,
+          "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+          "head_branch": "codex/bubble-duel-jobs-20261104",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        "DL_QA_11": "COVERAGE_GAP",
+        "full_context_review_complete": false,
+        "full_motion_review": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "blocked_dependencies": [
+        "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
+        "All natural routes, states, repeated use and teardown/focus variants",
+        "Background native coverage, font authority and remaining flat UI/pointer/tethers",
+        "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
+      ]
+    },
+    {
+      "id": "FVR-B589FEEB2D12",
+      "name": "Living Kelp item illustration",
+      "family": "opera_bubble_duel",
+      "role_key": "living_kelp",
+      "stable_id_seed": "opera_bubble_duel|living_kelp",
+      "runtime_asset": "assets/opera/bubble_duel_v2/items.png",
+      "native_asset": "assets_src/bubble_duel_v2/items_native.png",
+      "atlas_cell": 4,
+      "source": {
+        "path": "scripts/opera_bubble_duel.gd",
+        "function": "_show_shop",
+        "start_line": 209,
+        "end_line": 262,
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+        "hash_mode": "LF complete source"
+      },
+      "other_consumers": [
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_icon",
+          "start_line": 666,
+          "end_line": 669,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_activate_power",
+          "start_line": 728,
+          "end_line": 762,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_draw",
+          "start_line": 580,
+          "end_line": 638,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        }
+      ],
+      "runtime_region": [
+        0,
+        256,
+        256,
+        256
+      ],
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
+      "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "native_output": {
+        "path": "assets_src/bubble_duel_v2/items_native.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 1734293,
+        "sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/opera/bubble_duel_v2/items.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 634266,
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "derivation": {
+        "file": "items.png",
+        "source": "items_native.png",
+        "method": "Uniform whole-sheet downsampling to 4x2 256-square cells",
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "source_sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "provenance": {
+        "production_record": {
+          "path": "assets_src/bubble_duel_v2/production.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 10144,
+          "sha256": "d83dfca10f4a4a10a1e20e78753abb2a2a1607f1289d6b65277eae9e8eaa4d11"
+        },
+        "export_record": {
+          "path": "assets_src/bubble_duel_v2/exports.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 2106,
+          "sha256": "9edddffcd7857aedd5336caf8f5f6d743e91baf2b1cff640f88ef824eaca24f5"
+        },
+        "backend": "OpenAI built-in image_gen",
+        "model_revision": "unexposed",
+        "seed": "unexposed",
+        "provider_request_id": "unexposed; native artifact IDs retained in production record",
+        "producer_calls_total": 3,
+        "calls_here": 0,
+        "budget": "Three of six allowed calls used, one attempt per named brief; maximum two takes per brief. Includes one four-key actor atlas job; caps do not reset by frame/backend. Cleanup actual not separately timed, declared limit30minutes. No external paid API job; monetary cost not exposed."
+      },
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+          "observation": "The green kelp loop and gold clasp read on the second shop page; moving effect/edge/contact states still require review.",
+          "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        }
+      ],
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "living_kelp"
+      ],
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_feature_CI": 42012359137,
+        "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+        "merged_source_CI": 42033167812,
+        "merged_source_CI_at_snapshot": {
+          "id": 42033167812,
+          "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+          "head_branch": "codex/bubble-duel-jobs-20261104",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        "DL_QA_11": "COVERAGE_GAP",
+        "full_context_review_complete": false,
+        "full_motion_review": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "blocked_dependencies": [
+        "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
+        "All natural routes, states, repeated use and teardown/focus variants",
+        "Background native coverage, font authority and remaining flat UI/pointer/tethers",
+        "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
+      ]
+    },
+    {
+      "id": "FVR-F5E8FE218736",
+      "name": "Lullaby Shell item illustration",
+      "family": "opera_bubble_duel",
+      "role_key": "lullaby_shell",
+      "stable_id_seed": "opera_bubble_duel|lullaby_shell",
+      "runtime_asset": "assets/opera/bubble_duel_v2/items.png",
+      "native_asset": "assets_src/bubble_duel_v2/items_native.png",
+      "atlas_cell": 5,
+      "source": {
+        "path": "scripts/opera_bubble_duel.gd",
+        "function": "_show_shop",
+        "start_line": 209,
+        "end_line": 262,
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+        "hash_mode": "LF complete source"
+      },
+      "other_consumers": [
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_icon",
+          "start_line": 666,
+          "end_line": 669,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_activate_power",
+          "start_line": 728,
+          "end_line": 762,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_draw",
+          "start_line": 580,
+          "end_line": 638,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        }
+      ],
+      "runtime_region": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
+      "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "native_output": {
+        "path": "assets_src/bubble_duel_v2/items_native.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 1734293,
+        "sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/opera/bubble_duel_v2/items.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 634266,
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "derivation": {
+        "file": "items.png",
+        "source": "items_native.png",
+        "method": "Uniform whole-sheet downsampling to 4x2 256-square cells",
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "source_sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "provenance": {
+        "production_record": {
+          "path": "assets_src/bubble_duel_v2/production.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 10144,
+          "sha256": "d83dfca10f4a4a10a1e20e78753abb2a2a1607f1289d6b65277eae9e8eaa4d11"
+        },
+        "export_record": {
+          "path": "assets_src/bubble_duel_v2/exports.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 2106,
+          "sha256": "9edddffcd7857aedd5336caf8f5f6d743e91baf2b1cff640f88ef824eaca24f5"
+        },
+        "backend": "OpenAI built-in image_gen",
+        "model_revision": "unexposed",
+        "seed": "unexposed",
+        "provider_request_id": "unexposed; native artifact IDs retained in production record",
+        "producer_calls_total": 3,
+        "calls_here": 0,
+        "budget": "Three of six allowed calls used, one attempt per named brief; maximum two takes per brief. Includes one four-key actor atlas job; caps do not reset by frame/backend. Cleanup actual not separately timed, declared limit30minutes. No external paid API job; monetary cost not exposed."
+      },
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+          "observation": "A peach scallop and crescent pearl distinguish the lullaby icon on the second shop page. No audio/voice or child comprehension claim follows.",
+          "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        }
+      ],
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "lullaby_shell"
+      ],
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_feature_CI": 42012359137,
+        "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+        "merged_source_CI": 42033167812,
+        "merged_source_CI_at_snapshot": {
+          "id": 42033167812,
+          "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+          "head_branch": "codex/bubble-duel-jobs-20261104",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        "DL_QA_11": "COVERAGE_GAP",
+        "full_context_review_complete": false,
+        "full_motion_review": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "blocked_dependencies": [
+        "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
+        "All natural routes, states, repeated use and teardown/focus variants",
+        "Background native coverage, font authority and remaining flat UI/pointer/tethers",
+        "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
+      ]
+    },
+    {
+      "id": "FVR-909C1736BC43",
+      "name": "Twilight Squid item illustration",
+      "family": "opera_bubble_duel",
+      "role_key": "twilight_squid",
+      "stable_id_seed": "opera_bubble_duel|twilight_squid",
+      "runtime_asset": "assets/opera/bubble_duel_v2/items.png",
+      "native_asset": "assets_src/bubble_duel_v2/items_native.png",
+      "atlas_cell": 6,
+      "source": {
+        "path": "scripts/opera_bubble_duel.gd",
+        "function": "_show_shop",
+        "start_line": 209,
+        "end_line": 262,
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+        "hash_mode": "LF complete source"
+      },
+      "other_consumers": [
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_icon",
+          "start_line": 666,
+          "end_line": 669,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_activate_power",
+          "start_line": 728,
+          "end_line": 762,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_draw",
+          "start_line": 580,
+          "end_line": 638,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        }
+      ],
+      "runtime_region": [
+        512,
+        256,
+        256,
+        256
+      ],
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
+      "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "native_output": {
+        "path": "assets_src/bubble_duel_v2/items_native.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 1734293,
+        "sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/opera/bubble_duel_v2/items.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 634266,
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "derivation": {
+        "file": "items.png",
+        "source": "items_native.png",
+        "method": "Uniform whole-sheet downsampling to 4x2 256-square cells",
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "source_sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "provenance": {
+        "production_record": {
+          "path": "assets_src/bubble_duel_v2/production.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 10144,
+          "sha256": "d83dfca10f4a4a10a1e20e78753abb2a2a1607f1289d6b65277eae9e8eaa4d11"
+        },
+        "export_record": {
+          "path": "assets_src/bubble_duel_v2/exports.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 2106,
+          "sha256": "9edddffcd7857aedd5336caf8f5f6d743e91baf2b1cff640f88ef824eaca24f5"
+        },
+        "backend": "OpenAI built-in image_gen",
+        "model_revision": "unexposed",
+        "seed": "unexposed",
+        "provider_request_id": "unexposed; native artifact IDs retained in production record",
+        "producer_calls_total": 3,
+        "calls_here": 0,
+        "budget": "Three of six allowed calls used, one attempt per named brief; maximum two takes per brief. Includes one four-key actor atlas job; caps do not reset by frame/backend. Cleanup actual not separately timed, declared limit30minutes. No external paid API job; monetary cost not exposed."
+      },
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+          "observation": "The purple squid charm is recognizable in the second shop page and the inspected contact/power frame. Its ink effect and repeated-use readability remain open.",
+          "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        }
+      ],
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "twilight_squid"
+      ],
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_feature_CI": 42012359137,
+        "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+        "merged_source_CI": 42033167812,
+        "merged_source_CI_at_snapshot": {
+          "id": 42033167812,
+          "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+          "head_branch": "codex/bubble-duel-jobs-20261104",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        "DL_QA_11": "COVERAGE_GAP",
+        "full_context_review_complete": false,
+        "full_motion_review": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "blocked_dependencies": [
+        "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
+        "All natural routes, states, repeated use and teardown/focus variants",
+        "Background native coverage, font authority and remaining flat UI/pointer/tethers",
+        "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
+      ]
+    },
+    {
+      "id": "FVR-4819A4D75C93",
+      "name": "Pearl reward coin illustration",
+      "family": "opera_bubble_duel",
+      "role_key": "pearl_reward_coin",
+      "stable_id_seed": "opera_bubble_duel|pearl_reward_coin",
+      "runtime_asset": "assets/opera/bubble_duel_v2/items.png",
+      "native_asset": "assets_src/bubble_duel_v2/items_native.png",
+      "atlas_cell": 7,
+      "source": {
+        "path": "scripts/opera_bubble_duel.gd",
+        "function": "_draw",
+        "start_line": 580,
+        "end_line": 638,
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+        "hash_mode": "LF complete source"
+      },
+      "other_consumers": [
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_icon",
+          "start_line": 666,
+          "end_line": 669,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_activate_power",
+          "start_line": 728,
+          "end_line": 762,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        },
+        {
+          "path": "scripts/opera_bubble_duel.gd",
+          "function": "_draw",
+          "start_line": 580,
+          "end_line": 638,
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+          "hash_mode": "LF complete source"
+        }
+      ],
+      "runtime_region": [
+        768,
+        256,
+        256,
+        256
+      ],
+      "status": "SOURCE_CANDIDATE_CONTEXT_PARTIAL",
+      "evidence_level": "PUBLISHED_SOURCE_INTEGRATION_WITH_BOUNDED_MOBILE_SPEEDY_FIXTURES",
+      "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "native_output": {
+        "path": "assets_src/bubble_duel_v2/items_native.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 1734293,
+        "sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "candidate_output": {
+        "path": "assets/opera/bubble_duel_v2/items.png",
+        "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+        "bytes": 634266,
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "derivation": {
+        "file": "items.png",
+        "source": "items_native.png",
+        "method": "Uniform whole-sheet downsampling to 4x2 256-square cells",
+        "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+        "source_sha256": "7bfa1120a3c1dfe2c4e396b3b64ac0836e262aa0fc5284afbcf5957d24565932",
+        "dimensions": [
+          1024,
+          512
+        ]
+      },
+      "provenance": {
+        "production_record": {
+          "path": "assets_src/bubble_duel_v2/production.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 10144,
+          "sha256": "d83dfca10f4a4a10a1e20e78753abb2a2a1607f1289d6b65277eae9e8eaa4d11"
+        },
+        "export_record": {
+          "path": "assets_src/bubble_duel_v2/exports.json",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 2106,
+          "sha256": "9edddffcd7857aedd5336caf8f5f6d743e91baf2b1cff640f88ef824eaca24f5"
+        },
+        "backend": "OpenAI built-in image_gen",
+        "model_revision": "unexposed",
+        "seed": "unexposed",
+        "provider_request_id": "unexposed; native artifact IDs retained in production record",
+        "producer_calls_total": 3,
+        "calls_here": 0,
+        "budget": "Three of six allowed calls used, one attempt per named brief; maximum two takes per brief. Includes one four-key actor atlas job; caps do not reset by frame/backend. Cleanup actual not separately timed, declared limit30minutes. No external paid API job; monetary cost not exposed."
+      },
+      "review_log": [
+        {
+          "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
+          "observation": "The pearl coin is distinct in the atlas and inspected first-contact reward. Its timing, overlap and phone-scale payoff still need complete review.",
+          "source_revision": "6892c5753c75161986b4463c186f8711a0c12870"
+        }
+      ],
+      "ten_axis_comparison": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
+      "reuse_ready": null,
+      "drawing_required": null,
+      "samples_awaiting_review": 1,
+      "integration_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+      "texture_scope_ids": [],
+      "component_roles": [
+        "pearl_reward_coin"
+      ],
+      "acceptance_evidence": {
+        "candidate": true,
+        "approved": false,
+        "source_work_branch_integrated": true,
+        "Dev_integrated": false,
+        "runtime_verified_replacement": false,
+        "source_feature_CI": 42012359137,
+        "source_feature_revision": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+        "merged_source_CI": 42033167812,
+        "merged_source_CI_at_snapshot": {
+          "id": 42033167812,
+          "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+          "head_branch": "codex/bubble-duel-jobs-20261104",
+          "status": "in_progress",
+          "conclusion": null
+        },
+        "DL_QA_11": "COVERAGE_GAP",
+        "full_context_review_complete": false,
+        "full_motion_review": null,
+        "device": null,
+        "child": null,
+        "owner": null,
+        "accepted_removed": 0
+      },
+      "blocked_dependencies": [
+        "Full exact pose/identity, motion/contact/transition/loop review for actor and effects",
+        "All natural routes, states, repeated use and teardown/focus variants",
+        "Background native coverage, font authority and remaining flat UI/pointer/tethers",
+        "Merged-head green CI and Dev delivery; physical device, child and owner acceptance"
       ]
     }
   ],
@@ -41143,7 +42775,7 @@
     "mission_complete": false,
     "limits": "Two-width synthetic original Main and original menu inputs after declared source promenade API bootstrap. Seven roles have partial current native style review; glossy rasterized glyphs are style-review candidates, not seven accepted removals or a resolved whole-game flat-art denominator. Font/glyph-provider authority, all postbattle/queue/duringcare states, natural complete route, finalQA11/device/child/owner and zero-art remain open."
   },
-  "current_effective_summary": "SUMMARY.json. 43 published bounded source artifacts, 26 partial Dev artifacts and zero accepted removals. The 270 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame register: 7,823 bounded, 4,394 excluded, 12,217 retained. New54 are posed source diagnostics, not approved Mobile/Speedy evidence.",
+  "current_effective_summary": "SUMMARY.json. 44 published bounded source artifacts,26 partial Dev artifacts and zero accepted removals. The280 known roles and36 families are lower bounds. Whole-game totals remain unknown. Native register:7,868 bounded,4,394 excluded,12,262 retained; new45 are source review events with explicit fixture limits.",
   "unresolved_care_glyph_scopes": [
     "neutral/title heart U+2665 versus cuddle U+2764 attribution",
     "disabled Change-palette pictogram",
@@ -48078,8 +49710,8 @@
     "known_named_design_records_including_supplemental": 240,
     "known_family_count_including_supplemental": 32
   },
-  "current_known_named_design_records": 270,
-  "current_known_family_count": 35,
+  "current_known_named_design_records": 280,
+  "current_known_family_count": 36,
   "r141_racer_context_source": {
     "state": "SEVEN_PAINTED_RACER_OBJECTS_SOURCE_INTEGRATED_DEV_PENDING",
     "source_revision": "96511087fcdbc572b090028db201a3f422d652fa",
@@ -48103,6 +49735,34 @@
     "child": null,
     "owner": null,
     "acceptance_limit": "References and candidates use the same rooms/courses, but are not identical poses/positions. The source also changes the road field and prop mounting. This is a contextual comparison, not pixel-isolated attribution or evidence of complete target retirement.",
+    "current_Dev_at_snapshot": "94c2a91512d2216deb26651f670469432c8f4242"
+  },
+  "r142_bubble_duel_source": {
+    "state": "TEN_BUBBLE_DUEL_PAINTED_SOURCE_ROLE_CANDIDATES_DEV_PENDING",
+    "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+    "source_branch": "codex/bubble-duel-jobs-20261104",
+    "canonical_record": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/README.md",
+    "manifest": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/MANIFEST.json",
+    "artifact_key": "r142_bubble_duel_source",
+    "source_artifact_delta": 1,
+    "role_delta": 10,
+    "family_delta": 1,
+    "native_PNG": 3,
+    "runtime_PNG": 3,
+    "Dev_delta": 0,
+    "native_bounded_delta": 45,
+    "native_excluded_delta": 0,
+    "native_retained_delta": 45,
+    "new_generations_here": 0,
+    "producer_calls": 3,
+    "producer_call_cap": 6,
+    "new_runtime_changes_here": 0,
+    "accepted_removed": 0,
+    "formal_QA11": "COVERAGE_GAP",
+    "full_motion_review": null,
+    "device": null,
+    "child": null,
+    "owner": null,
     "current_Dev_at_snapshot": "94c2a91512d2216deb26651f670469432c8f4242"
   }
 }

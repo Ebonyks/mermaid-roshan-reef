@@ -1,0 +1,40 @@
+{
+  "state": "PASS_PREPUBLICATION_DOCUMENT_GATES",
+  "checked_at_utc": "2026-11-05T13:39:36.938575+00:00",
+  "baseline": "bc5417db229424e46b8d644bfa2eb0e7c87d262a",
+  "results": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "fbf797c7907531a53aa7defcc15b82db5b269b91b65a61a139a39e555cd4feaa"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "fe1136f6488648e75036829fb4dde2405eb9ed57eec05f046fe441463c20d023"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "log_sha256": "20e4319d813277d489a7f5048702ae6622342c4335e635f0bd9af46714c46720"
+    }
+  ],
+  "new_engine_runs_here": 0,
+  "scope": "Source/context registry metadata only. Existing native/feature source and separately labelled merged evidence retained; actual source CI remains running. Final payload gates repeated after manifest, no local engine suite repeated."
+}

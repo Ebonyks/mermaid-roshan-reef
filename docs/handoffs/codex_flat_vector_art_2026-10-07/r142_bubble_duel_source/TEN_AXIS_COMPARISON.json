@@ -1,0 +1,639 @@
+{
+  "schema": "reef.ten_axis_comparison/1",
+  "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+  "reviewer": "Codex coordinator, ten direct source/reference/candidate image inspections",
+  "direct_image_views": [
+    {
+      "local": "before-duel.png",
+      "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/09-duel.png",
+      "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "bytes": 1210420,
+      "sha256": "69e5870b1126cce617489b2080a614df9f97e2b3ae844abd70e17a97fd17f125"
+    },
+    {
+      "local": "after-duel.png",
+      "path": "assets_src/bubble_duel_v2/review/1280/outfit-classic-rest.png",
+      "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "bytes": 1242772,
+      "sha256": "0f190922af214e925a90edeb0294d3cc5f19f2cba21ad01221fc23641564b0a8"
+    },
+    {
+      "local": "before-shop.png",
+      "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/03-shop.png",
+      "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "bytes": 1072487,
+      "sha256": "acb456c318371312ff69ab983de02610d27e1983a45540e5008cd3ed647e3581"
+    },
+    {
+      "local": "after-shop.png",
+      "path": "assets_src/bubble_duel_v2/review/1280/03-shop-page-1.png",
+      "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "bytes": 992694,
+      "sha256": "df3fd129f7e1ed286d03d7fdcff52edeca37bb9f28ca0cdde318b90b5c4a919f"
+    },
+    {
+      "local": "after-shop2.png",
+      "path": "assets_src/bubble_duel_v2/review/1280/04-shop-page-2.png",
+      "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "bytes": 981701,
+      "sha256": "74e60f6830732e53cb4a308734f0db2f94ee8c2f695c76c86e1e8ba643d0a13b"
+    },
+    {
+      "local": "items-atlas.png",
+      "path": "assets/opera/bubble_duel_v2/items.png",
+      "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "bytes": 634266,
+      "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5"
+    },
+    {
+      "local": "marlo-atlas.png",
+      "path": "assets/opera/bubble_duel_v2/marlo_swim.png",
+      "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "bytes": 103290,
+      "sha256": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc"
+    },
+    {
+      "local": "marlo-source.png",
+      "path": "assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
+      "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "bytes": 129149,
+      "sha256": "e6497ab0f6c7e4f98899c18451740cade7683abcaa97b7d342f9c783a8c599af"
+    },
+    {
+      "local": "wide-duel.png",
+      "path": "assets_src/bubble_duel_v2/review/1600/03-wide-duel.png",
+      "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "bytes": 1466973,
+      "sha256": "c4fa4ae1548dda6a5f87aebea9ee7da38c63fffb2dbab8d2d706cc97b9ea151d"
+    },
+    {
+      "local": "pop.png",
+      "path": "assets_src/bubble_duel_v2/review/1280/09-first-contact.png",
+      "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+      "bytes": 1242124,
+      "sha256": "e959f934d9cd734b1f3a54a3480604ab1fef1168d7bac7af574eb1e18c8920dc"
+    }
+  ],
+  "direct_view_count": 10,
+  "reviewed_still_otter_keys": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "producer_review_scope": "Producer reports five provisional appearance dimensions with floor4.6; these remain attributed appearance-only opinions, not coordinator ten-axis numeric scores or formal QA11.",
+  "numeric_scores": null,
+  "same_scene_limit": "Before/after use the same pool and broadly matching actor staging. Shop layout, header, physics and costumes also change, so no pixel-isolated or whole-scene retirement claim is made.",
+  "roles": [
+    {
+      "id": "FVR-EEBC51E8DED0",
+      "name": "Bubble Duel tethered bubble",
+      "same_scene_references": [
+        {
+          "local": "before-duel.png",
+          "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/09-duel.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1210420,
+          "sha256": "69e5870b1126cce617489b2080a614df9f97e2b3ae844abd70e17a97fd17f125"
+        },
+        {
+          "local": "after-duel.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/outfit-classic-rest.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1242772,
+          "sha256": "0f190922af214e925a90edeb0294d3cc5f19f2cba21ad01221fc23641564b0a8"
+        },
+        {
+          "local": "before-shop.png",
+          "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/03-shop.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1072487,
+          "sha256": "acb456c318371312ff69ab983de02610d27e1983a45540e5008cd3ed647e3581"
+        },
+        {
+          "local": "after-shop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/03-shop-page-1.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 992694,
+          "sha256": "df3fd129f7e1ed286d03d7fdcff52edeca37bb9f28ca0cdde318b90b5c4a919f"
+        }
+      ],
+      "axes": {
+        "contour": "The same arena and shop show clean transparent interiors and broad rim highlights replacing the jagged/mottled draft. Existing tether strokes are unchanged visible art.",
+        "material": "Broad painted pearl, satin, shell, kelp and fur value bands fit the pool room. The isolated item sheet shows colored edge fragments around some motifs; they are not prominent in the inspected small composites, and full alpha-edge/device review remains open.",
+        "palette": "Pastel aqua/lilac/cream/gold belongs to the same painted pool; warm brown and cream retain the otter family. Five bubble tints and peach opponent tint share one source design, not five new designs.",
+        "light": "Authored highlights and cool shadows read against the same room. Existing 1024x576 room coverage is below the native background requirement and is not accepted by these observations.",
+        "perspective": "The objects use the existing Canvas drawing and UI atlas regions. The new otter poses read horizontal and waterborne rather than standing on the pool. All action angles and support/contact remain unreviewed.",
+        "scale": "The bubble is consumed at68px; item cells are256square and used as62px shop icons and90px power icons. Static sample readability does not establish physical-phone legibility or every pose/overlap.",
+        "contact": "Bubbles retain visible drawn tethers; these remain a separate visible-art scope. Otter swimming keys and still contact/reward images do not prove the entire motion cycle or correct contact at every transition.",
+        "occlusion": "The selected scene views keep the candidate props/actor visible. The new dark flat header, card shells, meter and existing pointer remain outside art acceptance; full interaction and effect overlap are open.",
+        "readability": "Painted item pictures supply distinct motifs, while shop names, prices and hints still depend on typography/audio support. Full non-reader comprehension, font authority and actual device/child use are not established.",
+        "action_state": "The45 review PNGs use private2000-pearl fixture credit, actual purchase touch controls and manually advanced game frames. They are bounded source Mobile/Speedy review, not a natural earned journey, full-speed motion acceptance or formal QA11."
+      },
+      "scope": "PROVISIONAL_SOURCE_CANDIDATE_CONTEXT; incomplete full context",
+      "remaining": "The same arena and shop show clean transparent interiors and broad rim highlights replacing the jagged/mottled draft. Existing tether strokes are unchanged visible art."
+    },
+    {
+      "id": "FVR-4AF007BDD168",
+      "name": "Marlo four-key swimming actor",
+      "same_scene_references": [
+        {
+          "local": "before-duel.png",
+          "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/09-duel.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1210420,
+          "sha256": "69e5870b1126cce617489b2080a614df9f97e2b3ae844abd70e17a97fd17f125"
+        },
+        {
+          "local": "after-duel.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/outfit-classic-rest.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1242772,
+          "sha256": "0f190922af214e925a90edeb0294d3cc5f19f2cba21ad01221fc23641564b0a8"
+        },
+        {
+          "local": "marlo-atlas.png",
+          "path": "assets/opera/bubble_duel_v2/marlo_swim.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 103290,
+          "sha256": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc"
+        },
+        {
+          "local": "marlo-source.png",
+          "path": "assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 129149,
+          "sha256": "e6497ab0f6c7e4f98899c18451740cade7683abcaa97b7d342f9c783a8c599af"
+        },
+        {
+          "local": "wide-duel.png",
+          "path": "assets_src/bubble_duel_v2/review/1600/03-wide-duel.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1466973,
+          "sha256": "c4fa4ae1548dda6a5f87aebea9ee7da38c63fffb2dbab8d2d706cc97b9ea151d"
+        }
+      ],
+      "axes": {
+        "contour": "The four native keys retain warm brown fur and cream muzzle/chest and replace land poses with horizontal paddling. All four cells were directly inspected as stills; identity/proportions, timing, transitions and loop seam still need exact human motion review.",
+        "material": "Broad painted pearl, satin, shell, kelp and fur value bands fit the pool room. The isolated item sheet shows colored edge fragments around some motifs; they are not prominent in the inspected small composites, and full alpha-edge/device review remains open.",
+        "palette": "Pastel aqua/lilac/cream/gold belongs to the same painted pool; warm brown and cream retain the otter family. Five bubble tints and peach opponent tint share one source design, not five new designs.",
+        "light": "Authored highlights and cool shadows read against the same room. Existing 1024x576 room coverage is below the native background requirement and is not accepted by these observations.",
+        "perspective": "The objects use the existing Canvas drawing and UI atlas regions. The new otter poses read horizontal and waterborne rather than standing on the pool. All action angles and support/contact remain unreviewed.",
+        "scale": "The bubble is consumed at68px; item cells are256square and used as62px shop icons and90px power icons. Static sample readability does not establish physical-phone legibility or every pose/overlap.",
+        "contact": "Bubbles retain visible drawn tethers; these remain a separate visible-art scope. Otter swimming keys and still contact/reward images do not prove the entire motion cycle or correct contact at every transition.",
+        "occlusion": "The selected scene views keep the candidate props/actor visible. The new dark flat header, card shells, meter and existing pointer remain outside art acceptance; full interaction and effect overlap are open.",
+        "readability": "Painted item pictures supply distinct motifs, while shop names, prices and hints still depend on typography/audio support. Full non-reader comprehension, font authority and actual device/child use are not established.",
+        "action_state": "The45 review PNGs use private2000-pearl fixture credit, actual purchase touch controls and manually advanced game frames. They are bounded source Mobile/Speedy review, not a natural earned journey, full-speed motion acceptance or formal QA11."
+      },
+      "scope": "PROVISIONAL_SOURCE_CANDIDATE_CONTEXT; incomplete full context",
+      "remaining": "The four native keys retain warm brown fur and cream muzzle/chest and replace land poses with horizontal paddling. All four cells were directly inspected as stills; identity/proportions, timing, transitions and loop seam still need exact human motion review."
+    },
+    {
+      "id": "FVR-180A868E1378",
+      "name": "Tidewing Ribbons item illustration",
+      "same_scene_references": [
+        {
+          "local": "before-shop.png",
+          "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/03-shop.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1072487,
+          "sha256": "acb456c318371312ff69ab983de02610d27e1983a45540e5008cd3ed647e3581"
+        },
+        {
+          "local": "after-shop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/03-shop-page-1.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 992694,
+          "sha256": "df3fd129f7e1ed286d03d7fdcff52edeca37bb9f28ca0cdde318b90b5c4a919f"
+        },
+        {
+          "local": "after-shop2.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/04-shop-page-2.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 981701,
+          "sha256": "74e60f6830732e53cb4a308734f0db2f94ee8c2f695c76c86e1e8ba643d0a13b"
+        },
+        {
+          "local": "items-atlas.png",
+          "path": "assets/opera/bubble_duel_v2/items.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 634266,
+          "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5"
+        },
+        {
+          "local": "pop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/09-first-contact.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1242124,
+          "sha256": "e959f934d9cd734b1f3a54a3480604ab1fef1168d7bac7af574eb1e18c8920dc"
+        }
+      ],
+      "axes": {
+        "contour": "Lavender/coral ribbons and a tail-fin clasp are distinct in the item atlas and first shop page. This supplies the named missing icon rather than redesigning Roshan.",
+        "material": "Broad painted pearl, satin, shell, kelp and fur value bands fit the pool room. The isolated item sheet shows colored edge fragments around some motifs; they are not prominent in the inspected small composites, and full alpha-edge/device review remains open.",
+        "palette": "Pastel aqua/lilac/cream/gold belongs to the same painted pool; warm brown and cream retain the otter family. Five bubble tints and peach opponent tint share one source design, not five new designs.",
+        "light": "Authored highlights and cool shadows read against the same room. Existing 1024x576 room coverage is below the native background requirement and is not accepted by these observations.",
+        "perspective": "The objects use the existing Canvas drawing and UI atlas regions. The new otter poses read horizontal and waterborne rather than standing on the pool. All action angles and support/contact remain unreviewed.",
+        "scale": "The bubble is consumed at68px; item cells are256square and used as62px shop icons and90px power icons. Static sample readability does not establish physical-phone legibility or every pose/overlap.",
+        "contact": "Bubbles retain visible drawn tethers; these remain a separate visible-art scope. Otter swimming keys and still contact/reward images do not prove the entire motion cycle or correct contact at every transition.",
+        "occlusion": "The selected scene views keep the candidate props/actor visible. The new dark flat header, card shells, meter and existing pointer remain outside art acceptance; full interaction and effect overlap are open.",
+        "readability": "Painted item pictures supply distinct motifs, while shop names, prices and hints still depend on typography/audio support. Full non-reader comprehension, font authority and actual device/child use are not established.",
+        "action_state": "The45 review PNGs use private2000-pearl fixture credit, actual purchase touch controls and manually advanced game frames. They are bounded source Mobile/Speedy review, not a natural earned journey, full-speed motion acceptance or formal QA11."
+      },
+      "scope": "PROVISIONAL_SOURCE_CANDIDATE_CONTEXT; incomplete full context",
+      "remaining": "Lavender/coral ribbons and a tail-fin clasp are distinct in the item atlas and first shop page. This supplies the named missing icon rather than redesigning Roshan."
+    },
+    {
+      "id": "FVR-28EE0DD2A93F",
+      "name": "Moonpearl charm item illustration",
+      "same_scene_references": [
+        {
+          "local": "before-shop.png",
+          "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/03-shop.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1072487,
+          "sha256": "acb456c318371312ff69ab983de02610d27e1983a45540e5008cd3ed647e3581"
+        },
+        {
+          "local": "after-shop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/03-shop-page-1.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 992694,
+          "sha256": "df3fd129f7e1ed286d03d7fdcff52edeca37bb9f28ca0cdde318b90b5c4a919f"
+        },
+        {
+          "local": "after-shop2.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/04-shop-page-2.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 981701,
+          "sha256": "74e60f6830732e53cb4a308734f0db2f94ee8c2f695c76c86e1e8ba643d0a13b"
+        },
+        {
+          "local": "items-atlas.png",
+          "path": "assets/opera/bubble_duel_v2/items.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 634266,
+          "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5"
+        },
+        {
+          "local": "pop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/09-first-contact.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1242124,
+          "sha256": "e959f934d9cd734b1f3a54a3480604ab1fef1168d7bac7af574eb1e18c8920dc"
+        }
+      ],
+      "axes": {
+        "contour": "A pearl in a lavender shell is distinct in the atlas and first shop page; phone-size material/edge readability remains open.",
+        "material": "Broad painted pearl, satin, shell, kelp and fur value bands fit the pool room. The isolated item sheet shows colored edge fragments around some motifs; they are not prominent in the inspected small composites, and full alpha-edge/device review remains open.",
+        "palette": "Pastel aqua/lilac/cream/gold belongs to the same painted pool; warm brown and cream retain the otter family. Five bubble tints and peach opponent tint share one source design, not five new designs.",
+        "light": "Authored highlights and cool shadows read against the same room. Existing 1024x576 room coverage is below the native background requirement and is not accepted by these observations.",
+        "perspective": "The objects use the existing Canvas drawing and UI atlas regions. The new otter poses read horizontal and waterborne rather than standing on the pool. All action angles and support/contact remain unreviewed.",
+        "scale": "The bubble is consumed at68px; item cells are256square and used as62px shop icons and90px power icons. Static sample readability does not establish physical-phone legibility or every pose/overlap.",
+        "contact": "Bubbles retain visible drawn tethers; these remain a separate visible-art scope. Otter swimming keys and still contact/reward images do not prove the entire motion cycle or correct contact at every transition.",
+        "occlusion": "The selected scene views keep the candidate props/actor visible. The new dark flat header, card shells, meter and existing pointer remain outside art acceptance; full interaction and effect overlap are open.",
+        "readability": "Painted item pictures supply distinct motifs, while shop names, prices and hints still depend on typography/audio support. Full non-reader comprehension, font authority and actual device/child use are not established.",
+        "action_state": "The45 review PNGs use private2000-pearl fixture credit, actual purchase touch controls and manually advanced game frames. They are bounded source Mobile/Speedy review, not a natural earned journey, full-speed motion acceptance or formal QA11."
+      },
+      "scope": "PROVISIONAL_SOURCE_CANDIDATE_CONTEXT; incomplete full context",
+      "remaining": "A pearl in a lavender shell is distinct in the atlas and first shop page; phone-size material/edge readability remains open."
+    },
+    {
+      "id": "FVR-8849D357BDF9",
+      "name": "Swift Conch item illustration",
+      "same_scene_references": [
+        {
+          "local": "before-shop.png",
+          "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/03-shop.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1072487,
+          "sha256": "acb456c318371312ff69ab983de02610d27e1983a45540e5008cd3ed647e3581"
+        },
+        {
+          "local": "after-shop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/03-shop-page-1.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 992694,
+          "sha256": "df3fd129f7e1ed286d03d7fdcff52edeca37bb9f28ca0cdde318b90b5c4a919f"
+        },
+        {
+          "local": "after-shop2.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/04-shop-page-2.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 981701,
+          "sha256": "74e60f6830732e53cb4a308734f0db2f94ee8c2f695c76c86e1e8ba643d0a13b"
+        },
+        {
+          "local": "items-atlas.png",
+          "path": "assets/opera/bubble_duel_v2/items.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 634266,
+          "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5"
+        },
+        {
+          "local": "pop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/09-first-contact.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1242124,
+          "sha256": "e959f934d9cd734b1f3a54a3480604ab1fef1168d7bac7af574eb1e18c8920dc"
+        }
+      ],
+      "axes": {
+        "contour": "The turquoise/gold spiral conch reads in the atlas and first shop page; the current/effect action remains separately unreviewed.",
+        "material": "Broad painted pearl, satin, shell, kelp and fur value bands fit the pool room. The isolated item sheet shows colored edge fragments around some motifs; they are not prominent in the inspected small composites, and full alpha-edge/device review remains open.",
+        "palette": "Pastel aqua/lilac/cream/gold belongs to the same painted pool; warm brown and cream retain the otter family. Five bubble tints and peach opponent tint share one source design, not five new designs.",
+        "light": "Authored highlights and cool shadows read against the same room. Existing 1024x576 room coverage is below the native background requirement and is not accepted by these observations.",
+        "perspective": "The objects use the existing Canvas drawing and UI atlas regions. The new otter poses read horizontal and waterborne rather than standing on the pool. All action angles and support/contact remain unreviewed.",
+        "scale": "The bubble is consumed at68px; item cells are256square and used as62px shop icons and90px power icons. Static sample readability does not establish physical-phone legibility or every pose/overlap.",
+        "contact": "Bubbles retain visible drawn tethers; these remain a separate visible-art scope. Otter swimming keys and still contact/reward images do not prove the entire motion cycle or correct contact at every transition.",
+        "occlusion": "The selected scene views keep the candidate props/actor visible. The new dark flat header, card shells, meter and existing pointer remain outside art acceptance; full interaction and effect overlap are open.",
+        "readability": "Painted item pictures supply distinct motifs, while shop names, prices and hints still depend on typography/audio support. Full non-reader comprehension, font authority and actual device/child use are not established.",
+        "action_state": "The45 review PNGs use private2000-pearl fixture credit, actual purchase touch controls and manually advanced game frames. They are bounded source Mobile/Speedy review, not a natural earned journey, full-speed motion acceptance or formal QA11."
+      },
+      "scope": "PROVISIONAL_SOURCE_CANDIDATE_CONTEXT; incomplete full context",
+      "remaining": "The turquoise/gold spiral conch reads in the atlas and first shop page; the current/effect action remains separately unreviewed."
+    },
+    {
+      "id": "FVR-39F685E469E7",
+      "name": "Rainbow Wand item illustration",
+      "same_scene_references": [
+        {
+          "local": "before-shop.png",
+          "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/03-shop.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1072487,
+          "sha256": "acb456c318371312ff69ab983de02610d27e1983a45540e5008cd3ed647e3581"
+        },
+        {
+          "local": "after-shop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/03-shop-page-1.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 992694,
+          "sha256": "df3fd129f7e1ed286d03d7fdcff52edeca37bb9f28ca0cdde318b90b5c4a919f"
+        },
+        {
+          "local": "after-shop2.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/04-shop-page-2.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 981701,
+          "sha256": "74e60f6830732e53cb4a308734f0db2f94ee8c2f695c76c86e1e8ba643d0a13b"
+        },
+        {
+          "local": "items-atlas.png",
+          "path": "assets/opera/bubble_duel_v2/items.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 634266,
+          "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5"
+        },
+        {
+          "local": "pop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/09-first-contact.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1242124,
+          "sha256": "e959f934d9cd734b1f3a54a3480604ab1fef1168d7bac7af574eb1e18c8920dc"
+        }
+      ],
+      "axes": {
+        "contour": "The pearl/star wand is distinct in the atlas and second shop page. Existing Roshan costume sources remain unchanged; no whole power-performance approval.",
+        "material": "Broad painted pearl, satin, shell, kelp and fur value bands fit the pool room. The isolated item sheet shows colored edge fragments around some motifs; they are not prominent in the inspected small composites, and full alpha-edge/device review remains open.",
+        "palette": "Pastel aqua/lilac/cream/gold belongs to the same painted pool; warm brown and cream retain the otter family. Five bubble tints and peach opponent tint share one source design, not five new designs.",
+        "light": "Authored highlights and cool shadows read against the same room. Existing 1024x576 room coverage is below the native background requirement and is not accepted by these observations.",
+        "perspective": "The objects use the existing Canvas drawing and UI atlas regions. The new otter poses read horizontal and waterborne rather than standing on the pool. All action angles and support/contact remain unreviewed.",
+        "scale": "The bubble is consumed at68px; item cells are256square and used as62px shop icons and90px power icons. Static sample readability does not establish physical-phone legibility or every pose/overlap.",
+        "contact": "Bubbles retain visible drawn tethers; these remain a separate visible-art scope. Otter swimming keys and still contact/reward images do not prove the entire motion cycle or correct contact at every transition.",
+        "occlusion": "The selected scene views keep the candidate props/actor visible. The new dark flat header, card shells, meter and existing pointer remain outside art acceptance; full interaction and effect overlap are open.",
+        "readability": "Painted item pictures supply distinct motifs, while shop names, prices and hints still depend on typography/audio support. Full non-reader comprehension, font authority and actual device/child use are not established.",
+        "action_state": "The45 review PNGs use private2000-pearl fixture credit, actual purchase touch controls and manually advanced game frames. They are bounded source Mobile/Speedy review, not a natural earned journey, full-speed motion acceptance or formal QA11."
+      },
+      "scope": "PROVISIONAL_SOURCE_CANDIDATE_CONTEXT; incomplete full context",
+      "remaining": "The pearl/star wand is distinct in the atlas and second shop page. Existing Roshan costume sources remain unchanged; no whole power-performance approval."
+    },
+    {
+      "id": "FVR-B589FEEB2D12",
+      "name": "Living Kelp item illustration",
+      "same_scene_references": [
+        {
+          "local": "before-shop.png",
+          "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/03-shop.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1072487,
+          "sha256": "acb456c318371312ff69ab983de02610d27e1983a45540e5008cd3ed647e3581"
+        },
+        {
+          "local": "after-shop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/03-shop-page-1.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 992694,
+          "sha256": "df3fd129f7e1ed286d03d7fdcff52edeca37bb9f28ca0cdde318b90b5c4a919f"
+        },
+        {
+          "local": "after-shop2.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/04-shop-page-2.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 981701,
+          "sha256": "74e60f6830732e53cb4a308734f0db2f94ee8c2f695c76c86e1e8ba643d0a13b"
+        },
+        {
+          "local": "items-atlas.png",
+          "path": "assets/opera/bubble_duel_v2/items.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 634266,
+          "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5"
+        },
+        {
+          "local": "pop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/09-first-contact.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1242124,
+          "sha256": "e959f934d9cd734b1f3a54a3480604ab1fef1168d7bac7af574eb1e18c8920dc"
+        }
+      ],
+      "axes": {
+        "contour": "The green kelp loop and gold clasp read on the second shop page; moving effect/edge/contact states still require review.",
+        "material": "Broad painted pearl, satin, shell, kelp and fur value bands fit the pool room. The isolated item sheet shows colored edge fragments around some motifs; they are not prominent in the inspected small composites, and full alpha-edge/device review remains open.",
+        "palette": "Pastel aqua/lilac/cream/gold belongs to the same painted pool; warm brown and cream retain the otter family. Five bubble tints and peach opponent tint share one source design, not five new designs.",
+        "light": "Authored highlights and cool shadows read against the same room. Existing 1024x576 room coverage is below the native background requirement and is not accepted by these observations.",
+        "perspective": "The objects use the existing Canvas drawing and UI atlas regions. The new otter poses read horizontal and waterborne rather than standing on the pool. All action angles and support/contact remain unreviewed.",
+        "scale": "The bubble is consumed at68px; item cells are256square and used as62px shop icons and90px power icons. Static sample readability does not establish physical-phone legibility or every pose/overlap.",
+        "contact": "Bubbles retain visible drawn tethers; these remain a separate visible-art scope. Otter swimming keys and still contact/reward images do not prove the entire motion cycle or correct contact at every transition.",
+        "occlusion": "The selected scene views keep the candidate props/actor visible. The new dark flat header, card shells, meter and existing pointer remain outside art acceptance; full interaction and effect overlap are open.",
+        "readability": "Painted item pictures supply distinct motifs, while shop names, prices and hints still depend on typography/audio support. Full non-reader comprehension, font authority and actual device/child use are not established.",
+        "action_state": "The45 review PNGs use private2000-pearl fixture credit, actual purchase touch controls and manually advanced game frames. They are bounded source Mobile/Speedy review, not a natural earned journey, full-speed motion acceptance or formal QA11."
+      },
+      "scope": "PROVISIONAL_SOURCE_CANDIDATE_CONTEXT; incomplete full context",
+      "remaining": "The green kelp loop and gold clasp read on the second shop page; moving effect/edge/contact states still require review."
+    },
+    {
+      "id": "FVR-F5E8FE218736",
+      "name": "Lullaby Shell item illustration",
+      "same_scene_references": [
+        {
+          "local": "before-shop.png",
+          "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/03-shop.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1072487,
+          "sha256": "acb456c318371312ff69ab983de02610d27e1983a45540e5008cd3ed647e3581"
+        },
+        {
+          "local": "after-shop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/03-shop-page-1.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 992694,
+          "sha256": "df3fd129f7e1ed286d03d7fdcff52edeca37bb9f28ca0cdde318b90b5c4a919f"
+        },
+        {
+          "local": "after-shop2.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/04-shop-page-2.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 981701,
+          "sha256": "74e60f6830732e53cb4a308734f0db2f94ee8c2f695c76c86e1e8ba643d0a13b"
+        },
+        {
+          "local": "items-atlas.png",
+          "path": "assets/opera/bubble_duel_v2/items.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 634266,
+          "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5"
+        },
+        {
+          "local": "pop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/09-first-contact.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1242124,
+          "sha256": "e959f934d9cd734b1f3a54a3480604ab1fef1168d7bac7af574eb1e18c8920dc"
+        }
+      ],
+      "axes": {
+        "contour": "A peach scallop and crescent pearl distinguish the lullaby icon on the second shop page. No audio/voice or child comprehension claim follows.",
+        "material": "Broad painted pearl, satin, shell, kelp and fur value bands fit the pool room. The isolated item sheet shows colored edge fragments around some motifs; they are not prominent in the inspected small composites, and full alpha-edge/device review remains open.",
+        "palette": "Pastel aqua/lilac/cream/gold belongs to the same painted pool; warm brown and cream retain the otter family. Five bubble tints and peach opponent tint share one source design, not five new designs.",
+        "light": "Authored highlights and cool shadows read against the same room. Existing 1024x576 room coverage is below the native background requirement and is not accepted by these observations.",
+        "perspective": "The objects use the existing Canvas drawing and UI atlas regions. The new otter poses read horizontal and waterborne rather than standing on the pool. All action angles and support/contact remain unreviewed.",
+        "scale": "The bubble is consumed at68px; item cells are256square and used as62px shop icons and90px power icons. Static sample readability does not establish physical-phone legibility or every pose/overlap.",
+        "contact": "Bubbles retain visible drawn tethers; these remain a separate visible-art scope. Otter swimming keys and still contact/reward images do not prove the entire motion cycle or correct contact at every transition.",
+        "occlusion": "The selected scene views keep the candidate props/actor visible. The new dark flat header, card shells, meter and existing pointer remain outside art acceptance; full interaction and effect overlap are open.",
+        "readability": "Painted item pictures supply distinct motifs, while shop names, prices and hints still depend on typography/audio support. Full non-reader comprehension, font authority and actual device/child use are not established.",
+        "action_state": "The45 review PNGs use private2000-pearl fixture credit, actual purchase touch controls and manually advanced game frames. They are bounded source Mobile/Speedy review, not a natural earned journey, full-speed motion acceptance or formal QA11."
+      },
+      "scope": "PROVISIONAL_SOURCE_CANDIDATE_CONTEXT; incomplete full context",
+      "remaining": "A peach scallop and crescent pearl distinguish the lullaby icon on the second shop page. No audio/voice or child comprehension claim follows."
+    },
+    {
+      "id": "FVR-909C1736BC43",
+      "name": "Twilight Squid item illustration",
+      "same_scene_references": [
+        {
+          "local": "before-shop.png",
+          "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/03-shop.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1072487,
+          "sha256": "acb456c318371312ff69ab983de02610d27e1983a45540e5008cd3ed647e3581"
+        },
+        {
+          "local": "after-shop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/03-shop-page-1.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 992694,
+          "sha256": "df3fd129f7e1ed286d03d7fdcff52edeca37bb9f28ca0cdde318b90b5c4a919f"
+        },
+        {
+          "local": "after-shop2.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/04-shop-page-2.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 981701,
+          "sha256": "74e60f6830732e53cb4a308734f0db2f94ee8c2f695c76c86e1e8ba643d0a13b"
+        },
+        {
+          "local": "items-atlas.png",
+          "path": "assets/opera/bubble_duel_v2/items.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 634266,
+          "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5"
+        },
+        {
+          "local": "pop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/09-first-contact.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1242124,
+          "sha256": "e959f934d9cd734b1f3a54a3480604ab1fef1168d7bac7af574eb1e18c8920dc"
+        }
+      ],
+      "axes": {
+        "contour": "The purple squid charm is recognizable in the second shop page and the inspected contact/power frame. Its ink effect and repeated-use readability remain open.",
+        "material": "Broad painted pearl, satin, shell, kelp and fur value bands fit the pool room. The isolated item sheet shows colored edge fragments around some motifs; they are not prominent in the inspected small composites, and full alpha-edge/device review remains open.",
+        "palette": "Pastel aqua/lilac/cream/gold belongs to the same painted pool; warm brown and cream retain the otter family. Five bubble tints and peach opponent tint share one source design, not five new designs.",
+        "light": "Authored highlights and cool shadows read against the same room. Existing 1024x576 room coverage is below the native background requirement and is not accepted by these observations.",
+        "perspective": "The objects use the existing Canvas drawing and UI atlas regions. The new otter poses read horizontal and waterborne rather than standing on the pool. All action angles and support/contact remain unreviewed.",
+        "scale": "The bubble is consumed at68px; item cells are256square and used as62px shop icons and90px power icons. Static sample readability does not establish physical-phone legibility or every pose/overlap.",
+        "contact": "Bubbles retain visible drawn tethers; these remain a separate visible-art scope. Otter swimming keys and still contact/reward images do not prove the entire motion cycle or correct contact at every transition.",
+        "occlusion": "The selected scene views keep the candidate props/actor visible. The new dark flat header, card shells, meter and existing pointer remain outside art acceptance; full interaction and effect overlap are open.",
+        "readability": "Painted item pictures supply distinct motifs, while shop names, prices and hints still depend on typography/audio support. Full non-reader comprehension, font authority and actual device/child use are not established.",
+        "action_state": "The45 review PNGs use private2000-pearl fixture credit, actual purchase touch controls and manually advanced game frames. They are bounded source Mobile/Speedy review, not a natural earned journey, full-speed motion acceptance or formal QA11."
+      },
+      "scope": "PROVISIONAL_SOURCE_CANDIDATE_CONTEXT; incomplete full context",
+      "remaining": "The purple squid charm is recognizable in the second shop page and the inspected contact/power frame. Its ink effect and repeated-use readability remain open."
+    },
+    {
+      "id": "FVR-4819A4D75C93",
+      "name": "Pearl reward coin illustration",
+      "same_scene_references": [
+        {
+          "local": "before-shop.png",
+          "path": "assets_src/bubble_duel_v2/evidence/baseline/visual/03-shop.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1072487,
+          "sha256": "acb456c318371312ff69ab983de02610d27e1983a45540e5008cd3ed647e3581"
+        },
+        {
+          "local": "after-shop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/03-shop-page-1.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 992694,
+          "sha256": "df3fd129f7e1ed286d03d7fdcff52edeca37bb9f28ca0cdde318b90b5c4a919f"
+        },
+        {
+          "local": "after-shop2.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/04-shop-page-2.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 981701,
+          "sha256": "74e60f6830732e53cb4a308734f0db2f94ee8c2f695c76c86e1e8ba643d0a13b"
+        },
+        {
+          "local": "items-atlas.png",
+          "path": "assets/opera/bubble_duel_v2/items.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 634266,
+          "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5"
+        },
+        {
+          "local": "pop.png",
+          "path": "assets_src/bubble_duel_v2/review/1280/09-first-contact.png",
+          "revision": "6892c5753c75161986b4463c186f8711a0c12870",
+          "bytes": 1242124,
+          "sha256": "e959f934d9cd734b1f3a54a3480604ab1fef1168d7bac7af574eb1e18c8920dc"
+        }
+      ],
+      "axes": {
+        "contour": "The pearl coin is distinct in the atlas and inspected first-contact reward. Its timing, overlap and phone-scale payoff still need complete review.",
+        "material": "Broad painted pearl, satin, shell, kelp and fur value bands fit the pool room. The isolated item sheet shows colored edge fragments around some motifs; they are not prominent in the inspected small composites, and full alpha-edge/device review remains open.",
+        "palette": "Pastel aqua/lilac/cream/gold belongs to the same painted pool; warm brown and cream retain the otter family. Five bubble tints and peach opponent tint share one source design, not five new designs.",
+        "light": "Authored highlights and cool shadows read against the same room. Existing 1024x576 room coverage is below the native background requirement and is not accepted by these observations.",
+        "perspective": "The objects use the existing Canvas drawing and UI atlas regions. The new otter poses read horizontal and waterborne rather than standing on the pool. All action angles and support/contact remain unreviewed.",
+        "scale": "The bubble is consumed at68px; item cells are256square and used as62px shop icons and90px power icons. Static sample readability does not establish physical-phone legibility or every pose/overlap.",
+        "contact": "Bubbles retain visible drawn tethers; these remain a separate visible-art scope. Otter swimming keys and still contact/reward images do not prove the entire motion cycle or correct contact at every transition.",
+        "occlusion": "The selected scene views keep the candidate props/actor visible. The new dark flat header, card shells, meter and existing pointer remain outside art acceptance; full interaction and effect overlap are open.",
+        "readability": "Painted item pictures supply distinct motifs, while shop names, prices and hints still depend on typography/audio support. Full non-reader comprehension, font authority and actual device/child use are not established.",
+        "action_state": "The45 review PNGs use private2000-pearl fixture credit, actual purchase touch controls and manually advanced game frames. They are bounded source Mobile/Speedy review, not a natural earned journey, full-speed motion acceptance or formal QA11."
+      },
+      "scope": "PROVISIONAL_SOURCE_CANDIDATE_CONTEXT; incomplete full context",
+      "remaining": "The pearl coin is distinct in the atlas and inspected first-contact reward. Its timing, overlap and phone-scale payoff still need complete review."
+    }
+  ],
+  "full_ten_axis_floor_met": false,
+  "formal_QA11": "COVERAGE_GAP",
+  "full_speed_motion_review": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0
+}

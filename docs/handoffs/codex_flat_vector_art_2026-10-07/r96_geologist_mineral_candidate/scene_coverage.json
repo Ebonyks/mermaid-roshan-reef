@@ -28504,7 +28504,7 @@
     }
   ],
   "coverage_note": "Craft80 guarded API fixture adds game.craft_studio partial alias;77/176partial,0complete,99without. Natural/full states/acceptance and distinct screen total remain unknown.",
-  "revision": "FV-AUDIT-20261105-R141-RACER-SOURCE-CANDIDATES",
+  "revision": "FV-AUDIT-20261105-R142-BUBBLE-DUEL-SOURCE-CANDIDATES",
   "partial_entries": 78,
   "complete_entries": 0,
   "entries_without_current_slice": 98,
@@ -36419,7 +36419,7 @@
       "other need/growth/action variants"
     ]
   },
-  "current_effective_summary": "SUMMARY.json. 43 published bounded source artifacts, 26 partial Dev artifacts and zero accepted removals. The 270 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame register: 7,823 bounded, 4,394 excluded, 12,217 retained. New54 are posed source diagnostics, not approved Mobile/Speedy evidence.",
+  "current_effective_summary": "SUMMARY.json. 44 published bounded source artifacts,26 partial Dev artifacts and zero accepted removals. The280 known roles and36 families are lower bounds. Whole-game totals remain unknown. Native register:7,868 bounded,4,394 excluded,12,262 retained; new45 are source review events with explicit fixture limits.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -43239,5 +43239,30 @@
     "owner": null,
     "acceptance_limit": "References and candidates use the same rooms/courses, but are not identical poses/positions. The source also changes the road field and prop mounting. This is a contextual comparison, not pixel-isolated attribution or evidence of complete target retirement.",
     "current_Dev_at_snapshot": "94c2a91512d2216deb26651f670469432c8f4242"
+  },
+  "r142_bubble_duel_source_context": {
+    "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+    "route_id": "opera_bubble_duel",
+    "entry_chain": "Castle Opera room checkpoint -> Jobs venue -> actual Bubble Duel button",
+    "source_modes": [
+      "HUB",
+      "SHOP",
+      "DUEL",
+      "PRACTICE",
+      "CURRENT",
+      "CELEBRATE"
+    ],
+    "native_events": 45,
+    "profiles": [
+      "1280x720",
+      "1600x720",
+      "960x720"
+    ],
+    "frame_index": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/FRAME_EVENTS.json",
+    "Dev_integrated": false,
+    "new_complete_route_credits": 0,
+    "natural_route_complete": false,
+    "formal_QA11": "COVERAGE_GAP",
+    "remaining_scope": "Natural journey, all states/focus/cancel/re-entry, all motion/identity/contact, old pointer/panels/meters/tethers, native background/font, device/child/owner."
   }
 }

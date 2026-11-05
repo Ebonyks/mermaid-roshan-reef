@@ -1,0 +1,100 @@
+{
+  "source_revision": "6892c5753c75161986b4463c186f8711a0c12870",
+  "green_feature_CI": {
+    "id": 42012359137,
+    "head_sha": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+    "head_branch": "codex/bubble-duel-jobs-20261104",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "merged_source_CI_at_snapshot": {
+    "id": 42033167812,
+    "head_sha": "6892c5753c75161986b4463c186f8711a0c12870",
+    "head_branch": "codex/bubble-duel-jobs-20261104",
+    "status": "in_progress",
+    "conclusion": null
+  },
+  "selected_consumers_identical": [
+    {
+      "path": "scripts/opera_bubble_duel.gd",
+      "sha256": "9516f0eaf532045636b2b3884a7e3178f9aae214ddda1de303e656ec49f9720c",
+      "same_feature_parent_and_merged_source": true
+    },
+    {
+      "path": "scripts/bubble_duel_inventory.gd",
+      "sha256": "2413e9c44d88f8b85519bc26d08bcda208d2be35c07141008a1e08451dc10f4b",
+      "same_feature_parent_and_merged_source": true
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "sha256": "aa15f790b3e7ed639a5a2084229f779b41ff9ea6b50ecdf0e9b859ecf5ba38a2",
+      "same_feature_parent_and_merged_source": true
+    },
+    {
+      "path": "assets/opera/bubble_duel_v2/bubble.png",
+      "sha256": "eca98a5ca895774d10649bc05c438dfb8be22b8f5a1527a64750b2c516161127",
+      "same_feature_parent_and_merged_source": true
+    },
+    {
+      "path": "assets/opera/bubble_duel_v2/items.png",
+      "sha256": "403827b2d1d62033c9ee8705e9e731d64b631cba788e5a2e99e3536c1d1e80f5",
+      "same_feature_parent_and_merged_source": true
+    },
+    {
+      "path": "assets/opera/bubble_duel_v2/marlo_swim.png",
+      "sha256": "33cf0fc3f01754f65cd03e49c44341db46c174f3e8dfa89047d9651d46fd50dc",
+      "same_feature_parent_and_merged_source": true
+    }
+  ],
+  "whole_merged_runtime_tree_equal_to_feature_parent": false,
+  "full_feature_suite": {
+    "finished_utc": "2026-11-05T10:11:18.272686+00:00",
+    "command": "scripts/ci.sh",
+    "exit_code": 0,
+    "trusted_probes": 82,
+    "all_process_exits_zero": true,
+    "log": "full-ci-frozen-pass.log",
+    "log_sha256": "c5f609e5ecd47c8ede41527fe8fa1313c9379b46729000146e28066f38fbccd3",
+    "runtime_patch_sha256": "a09cf9be3370bfce2ea882b36fd44f2f495d1267b287b3300b6b0914d0b7ed9a",
+    "feature_source_bindings_unchanged": true,
+    "source_baseline": "ff0e7b74bae73c8c7b1f66c59c65719e1b94039f",
+    "acceptance_limit": "Machine regression only. Appearance remains provisional and formal QA11/device/child/owner/native background/font authority gates remain open.",
+    "raw_archive": "full-ci-frozen-pass.log.gz",
+    "archive_sha256": "679e37a2d9ae3d258826f350d9b28f1ad491169edb81b8a5b0ca351261335156",
+    "log_hash_scope": "Exact decompressed archive bytes; readable text logs may have Git-normalized line endings."
+  },
+  "merged_local_prefix_and_continuation": {
+    "finished_utc": "2026-11-05T13:06:23.971432+00:00",
+    "result": "PASS_COMBINED_LOCAL_GATES",
+    "feature_parent": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+    "dev_parent": "96e8d3a20a64772ec712ee6b0bea3fb22e36a793",
+    "prefix_evidence": "full-ci-dev-metadata-failed.json and exact archived log: canonical scripts/ci.sh completed all prefix checks, 95 visual-contract tests, 24 fuzz rounds and official Godot import. It failed only when the newly added audit prose was classified as code.",
+    "only_change_after_prefix": "Same-count wording in upstream JSON audit record. No runtime code, art, vendor, tool, migration-manifest or probe change.",
+    "continuation": "dev-ci-continuation-used.sh: canonical scripts/ci.sh suffix from the inventory gate onward, with its exact two error-regex assignments and runtime resolution.",
+    "continuation_exit": 0,
+    "trusted_probes": 82,
+    "all_process_exits_zero": true,
+    "inventory_result": "NO_REGRESSION; all 14 exact pinned tooling sources identified correctly. Master remains UNSATISFIED.",
+    "raw_archive": "dev-combined-probes-pass.log.gz",
+    "raw_log_sha256": "b43ff32b51708255bf237d734da38ebc0e960af3f4648eec58f929a59c27e8f7",
+    "archive_sha256": "53fbc4f4f96ad322ec5b3cd20527050f39086de6e7bf4bdb968544fe68fa21d9",
+    "runtime_index_blob_table_sha256": "bb474cdf2392e3d1d2501f002866dd203e516343e47803b0b38e7b5a2eb0a84c",
+    "runtime_entries": 5123,
+    "feature_remote_ci": {
+      "id": 42012359137,
+      "head": "01d1c061f8ea792ee3be3b28ee0040101ad0e51b",
+      "conclusion": "success"
+    },
+    "limits": "This is a combined local prefix plus continuation result, not a claim that one complete post-repair scripts/ci.sh invocation exited zero. Exact merged published-head canonical remote workflow remains mandatory before dev integration. Formal QA11/native background/font/device/child/owner acceptance stays open."
+  },
+  "independent_raw_log_check": "Both exact gzip archives decompress to recorded SHA256; each has82 process-exit lines, all zero. Feature log ends FULL_CI_EXIT=0; merged suffix ends CONTINUATION_EXIT=0. No claim of a single post-repair merged full-script exit0.",
+  "formal_QA11": "COVERAGE_GAP",
+  "new_engine_runs_here": 0,
+  "full_motion_device_child_owner": null,
+  "other_limits": [
+    "Native1024x576 pool background coverage",
+    "Font authority",
+    "Existing flat pointer, panel, meter and tether art",
+    "Natural-input earned journey and physical-device performance"
+  ]
+}

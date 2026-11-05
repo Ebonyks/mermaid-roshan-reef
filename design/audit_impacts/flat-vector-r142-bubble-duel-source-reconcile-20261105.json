@@ -1,0 +1,101 @@
+{
+  "id": "flat-vector-r142-bubble-duel-source-reconcile-20261105",
+  "baseline": "bc5417db229424e46b8d644bfa2eb0e7c87d262a",
+  "scope": "Reconcile newly published Bubble Duel painted production: ten named designs in three native/runtime PNGs, bounded source context, exact provenance and separate source machine/human lanes. One external source artifact, no runtime edits, generations, Dev mutation or engine suite here.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-MED-09",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008",
+    "MA-VIS-010"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/flat-vector-r142-bubble-duel-source-reconcile-20261105.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/CANDIDATE_RECORDS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/DEV_SOURCE_SEPARATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/FRAME_EVENTS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/GATE_RECEIPT.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/MANIFEST.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/README.md",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/SOURCE_RUNTIME_EVIDENCE.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/SOURCE_VERIFICATION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r92_dev_ci_timeout/CONGRUENCY_BACKLOG.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/SUMMARY.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/per_piece.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/scene_coverage.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r96_geologist_mineral_candidate/tally.json"
+  ],
+  "validation": [
+    {
+      "command": "110 immutable source files anonymous GET and independent exact Git/SHA256/PNG/index check",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/SOURCE_VERIFICATION.json"
+    },
+    {
+      "command": "Ten direct image inspections and ten named comparison axes per design",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/TEN_AXIS_COMPARISON.json; partial contextual observations only, no numeric score or motion acceptance"
+    },
+    {
+      "command": "Green feature source and actual merged local segmented82-probe evidence, both raw archives checked",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/SOURCE_RUNTIME_EVIDENCE.json; merged remote CI remains separate and pending"
+    },
+    {
+      "command": "Document authority and AUTO/HEAD change coverage",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r142_bubble_duel_source/GATE_RECEIPT.json"
+    },
+    {
+      "command": "Published manifest and every required immutable file anonymously verified",
+      "result": "PENDING",
+      "evidence": "After normal canonical publication; exact revision/hash receipt retained with continuation and delivery link."
+    }
+  ],
+  "acceptance_gaps": "Source-only. Formal QA11 COVERAGE_GAP; full actor identity/proportions/motion/contact/seam and all routes/states, source icon alpha edges, native background coverage, font/voice authority, flat pointer/tethers/panels/meters, actual device, child and owner review remain open. Merged source remote gate and Dev delivery are separate. Whole-game denominators unknown.",
+  "references_used": [
+    {
+      "path": "assets_src/bubble_duel_v2/production.json at 6892c5753c75161986b4463c186f8711a0c12870",
+      "purpose": "Named gaps, actual exposed backend/native artifacts, actor key method, three-of-six call cap and preserved sources"
+    },
+    {
+      "path": "assets_src/bubble_duel_v2/review/art-review.json at 6892c5753c75161986b4463c186f8711a0c12870",
+      "purpose": "Attributed provisional five-axis appearance review and exact formal gaps"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "purpose": "Current authority; no revival of superseded3D pipelines or old failure/reuse gates"
+    }
+  ]
+}
