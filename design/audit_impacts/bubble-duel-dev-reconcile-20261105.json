@@ -47,6 +47,11 @@
       "command": "Exact published merged-head canonical GitHub Probe Suite",
       "result": "PENDING",
       "evidence": "Required before dev integration. Feature-parent run42012359137 is success but proves only that parent."
+    },
+    {
+      "command": "Reconcile origin/dev 94c2a915 documentation-only correction",
+      "result": "PASS",
+      "evidence": "Adopt the upstream version of the same prose-only fix in the MCP audit record. All 5123 runtime Git blobs retain digest bb474cdf2392e3d1d2501f002866dd203e516343e47803b0b38e7b5a2eb0a84c. No gameplay, asset, configuration, vendor or probe source changes."
     }
   ],
   "acceptance_gaps": "Machine integration only. Master remains UNSATISFIED; formal QA11, native background coverage/font authority, exact voice/motion, physical device, child and owner acceptance remain open."

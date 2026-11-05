@@ -17,7 +17,7 @@
     "DL-CODE-07"
   ],
   "findings": [],
-  "no_findings_reason": "New developer-tooling feature; it repairs no existing MA-* finding. Game-wide 2D migration debt (DL-MED-04) is unchanged, not reduced: the production debt file count stayed at the branch baseline 56, and the regression gate reported NO_REGRESSION. No finding lifecycle is changed.",
+  "no_findings_reason": "New developer-tooling feature; it repairs no existing MA-* finding. Game-wide 2D migration debt (DL-MED-04) is unchanged, not reduced: the production 3D file count stayed at the branch baseline of 56, and the regression gate reported NO_REGRESSION. No finding lifecycle is changed.",
   "files": [
     ".mcp.json",
     "ASSET_LICENSES.md",
@@ -90,7 +90,12 @@
     {
       "command": "Probe suite on dev 208a12cf (run 42007402685)",
       "result": "FAIL",
-      "evidence": "Static gates: audit_development --base auto found no audit-impact record covering the 46 merged paths. This record repairs that; the dev re-run is PENDING"
+      "evidence": "Static gates: audit_development --base auto found no audit-impact record covering the 46 merged paths. Repaired by this record (merge 96e8d3a2)"
+    },
+    {
+      "command": "Probe suite on dev 96e8d3a2 (run 42016846369)",
+      "result": "FAIL",
+      "evidence": "The static gates, including audit_development, and the Godot import passed. Then audit_game_2d --regression-gate failed G2D101 on this record, whose prose quoted a snake-case metric name that the audit's lowercase 3D-marker pattern counts. The prose was reworded and the file scans clean; the dev re-run is PENDING"
     },
     {
       "command": "Editor-side godot-mcp connection with a live Godot 4.7.2 editor",
