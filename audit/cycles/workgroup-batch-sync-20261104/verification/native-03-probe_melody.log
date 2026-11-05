@@ -1,0 +1,1923 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+MELODY|OK|probe save is distinct from the child's normal save
+MELODY|OK|normal primary, backup, and every recovery sidecar are fingerprinted before boot
+MELODY|OK|stale probe-only save artifacts are removed
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/timing_window_medallion_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_timing_window_assets (res://scripts/probe_melody.gd:3283)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:627)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/timing_window_aura_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_timing_window_assets (res://scripts/probe_melody.gd:3283)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:627)
+       [2] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|two exact authored timing paintings retain alpha, POT lossless imports and bounded mipmaps
+MELODY|OK|all40 runtime derivatives bind exact hashes and preserve every immutable source PNG
+MELODY|OK|all40 deterministic runtime exports retain individual source and license rows
+MELODY|OK|approved Sky Lagoon v5 master is exact native 6144x2048
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:636)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:636)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:636)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:636)
+       [1] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|four exact lossless center tiles reconstruct one native 2048x2048 screen
+MELODY|OK|POT background tiles use bounded VRAM import without mip overfetch
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/daddy.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:657)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/roshan_popstar.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:658)
+       [1] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|Daddy runtime derivative is exact281x384 while original identity pixels remain preserved
+MELODY|OK|Opera popstar Roshan runtime derivative is exact256-square while source remains preserved
+MELODY|OK|NPOT Daddy avoids forbidden VRAM mode and POT Roshan is mobile-compressed
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/curtain_left_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:676)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/curtain_right_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:676)
+       [1] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|two exact painted curtain sources retain real RGBA alpha and exact transparent-crop dimensions
+MELODY|OK|NPOT painted curtains retain lossless mipmapped imports without forbidden VRAM mode
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/crown_header_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:689)
+       [1] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|painted whole crown header is exact RGBA with safe lossless NPOT import
+MELODY|OK|all reused background/actor/voice families retain repository provenance
+MELODY|OK|exact non-reader objective voice is present and immutable
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_red_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_orange_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_yellow_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_green_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_blue_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_indigo_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_violet_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_red_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_orange_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_yellow_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_green_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_blue_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_indigo_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_violet_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_red_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_orange_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_yellow_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_green_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_blue_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_indigo_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_violet_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_painted_pip_assets (res://scripts/probe_melody.gd:3177)
+       [1] _check_asset_contract (res://scripts/probe_melody.gd:707)
+       [2] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|all21 painted pip images have exact64RGBA hashes and lossless Mobile mip imports
+MELODY|OK|all three authored states preserve the seven distinct ordered color identities
+MELODY|OK|painted pip registration follows actual alpha32 bounds and transparent corners
+MELODY|OK|every painted pip and native derivation retains its own license/provenance entry
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_red_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:710)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_orange_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:710)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_yellow_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:710)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_green_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:710)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_blue_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:710)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_indigo_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:710)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_violet_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:710)
+       [1] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|seven exact whole painted token states preserve ordered distinct hues with lossless mipmapped imports and license rows
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/theatre_bulb_cream_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:719)
+       [1] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|painted theatre bulb0 exact RGBA128 square/hash
+MELODY|OK|painted theatre bulb0 lossless mipmapped mobile import/provenance
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/theatre_bulb_gold_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:719)
+       [1] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|painted theatre bulb1 exact RGBA128 square/hash
+MELODY|OK|painted theatre bulb1 lossless mipmapped mobile import/provenance
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/stage_apron_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:736)
+       [1] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|painted apron exact whole asset/hash/size/import/license res://assets/melody/stage_apron_painted.png
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/stage_apron_rainbow_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:736)
+       [1] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|painted apron exact whole asset/hash/size/import/license res://assets/melody/stage_apron_rainbow_painted.png
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_red.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:753)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_orange.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:753)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_yellow.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:753)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_green.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:753)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_sky_blue.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:753)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_periwinkle.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:753)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_purple.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:753)
+       [1] _run (res://scripts/probe_melody.gd:308)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/footlight_rail_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:753)
+       [1] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|painted footlights bind all eight exact whole-source RGBA exports
+MELODY|OK|painted globe/rail imports are lossless mipmapped without VRAM
+MELODY|OK|painted globe/rail source and editable provenance are licensed
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/star_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:767)
+       [1] _run (res://scripts/probe_melody.gd:308)
+MELODY|OK|painted stage star is the exact whole128-square RGBA candidate
+MELODY|OK|painted stage star is lossless mipmapped with no VRAM or oversize import
+MELODY|OK|painted stage-star native and editable-master provenance is licensed
+MELODY|OK|Daddy Mermaid owns the sole Melody friend route at the canonical slot
+MELODY|OK|fresh isolated save starts Daddy and Melody unawarded
+MELODY|OK|shared success chime exposes a restorable volume and pitch baseline
+MELODY|OK|direct Daddy launch synchronously enters Melody
+MELODY|ENTRY_FACTS|active_layers=1|direct_before=28|direct_now=29|only_layer_or_touch_fx_added=true|layer=7|pause_layer=12
+MELODY|OK|entry owns exactly one Canvas layer below the pause sheet
+MELODY|OK|Canvas theater exposes every stable stage, note, and progress node
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _surface_structure_exact (res://scripts/probe_melody.gd:1251)
+       [2] _check_entry_contract (res://scripts/probe_melody.gd:812)
+       [3] _run (res://scripts/probe_melody.gd:366)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _surface_structure_exact (res://scripts/probe_melody.gd:1251)
+       [2] _check_entry_contract (res://scripts/probe_melody.gd:812)
+       [3] _run (res://scripts/probe_melody.gd:366)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _surface_structure_exact (res://scripts/probe_melody.gd:1251)
+       [2] _check_entry_contract (res://scripts/probe_melody.gd:812)
+       [3] _run (res://scripts/probe_melody.gd:366)
+MELODY|OK|Canvas theater has the exact typed surface tree with no unknown occluder
+MELODY|OK|Melody adds no spatial descendants or hidden game-node authority
+MELODY|OK|runtime binds the exact four native center tiles once in 2x2 order
+MELODY|OK|runtime four-tile transforms are seam-free and cover the phone viewport
+MELODY|OK|whole authored note textures expose all seven ordered colors and bind the matching painted state
+MELODY|OK|painted pips preserve all21 whole-image state mappings and restore the live progress state
+MELODY|OK|stage has no failure state, countdown, or passive completion path
+MELODY|OK|opaque Canvas preserves Reef position/environment while owning controls
+MELODY|OK|Daddy entry sends the exact target+verb objective and voice exactly once
+MELODY|OK|requested voice resolves to the exact immutable OGG
+MELODY|OK|entry starts under the production reveal fade
+MELODY|OK|quick press and release wholly under fade make no progress
+MELODY|OK|shared objective text remains semantic state occluded below the opaque stage
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_opening_objective_delivery (res://scripts/probe_melody.gd:1754)
+       [3] _run (res://scripts/probe_melody.gd:383)
+       [4] _wait_for_fade_clear (res://scripts/probe_melody.gd:2564)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_opening_objective_delivery (res://scripts/probe_melody.gd:1754)
+       [3] _run (res://scripts/probe_melody.gd:383)
+       [4] _wait_for_fade_clear (res://scripts/probe_melody.gd:2564)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_opening_objective_delivery (res://scripts/probe_melody.gd:1754)
+       [3] _run (res://scripts/probe_melody.gd:383)
+       [4] _wait_for_fade_clear (res://scripts/probe_melody.gd:2564)
+MELODY|OK|opening non-reader objective is carried by the sole live attached visual pointer
+MELODY|OK|fade tap release clears its neutral latch before fresh input
+MELODY|OK|first fresh green tap after a swallowed fade tap scores exactly once
+MELODY|OK|visible timing primitive fallback is retired in favor of two whole authored Sprite2D pictures
+MELODY|OK|timing artwork has no custom-draw/polygon fallback
+MELODY|OK|whole pictures keep original z/input/opacity and have no materials, tint or independent symbol pieces
+MELODY|OK|160/180/190px logical boxes retain centered fixed medallion and original5rad/s0..6px aura breath at min/mid/max phases
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/daddy.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/roshan_popstar.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/curtain_left_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/curtain_right_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/crown_header_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/star_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/footlight_rail_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/stage_apron_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/stage_apron_rainbow_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_red_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_orange_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_yellow_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_green_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_blue_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_indigo_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/rainbow_note_violet_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/timing_window_medallion_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/timing_window_aura_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_red.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_orange.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_yellow.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_green.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_sky_blue.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_periwinkle.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/footlight_purple.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/theatre_bulb_cream_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/theatre_bulb_gold_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_red_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_orange_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_yellow_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_green_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_blue_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_indigo_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_violet_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_red_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_idle_orange_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_red_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_yellow_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_green_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_blue_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_indigo_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_current_violet_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_orange_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_yellow_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_green_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_blue_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_indigo_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/mobile/progress_pip_filled_violet_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:1191)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:850)
+       [2] _run (res://scripts/probe_melody.gd:394)
+MELODY|COMBINED_TEXTURE_CENSUS|live_unique=41|resident_unique=55|decoded_bytes=23673956|conservative_upload_bytes=10894436
+MELODY|OK|combined Canvas binds every exact painted role with declared repeated globe/bulb counts and no fallback texture
+MELODY|OK|all resident states including21 pip preloads retain original23MiB decoded and12MiB upload ceilings
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-500.0 t=0.0
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-500.0 t=0.26179938779915
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-500.0 t=0.78539816339745
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-134.0 t=0.0
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-134.0 t=0.26179938779915
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-134.0 t=0.78539816339745
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-120.0 t=0.0
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-120.0 t=0.26179938779915
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-120.0 t=0.78539816339745
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-106.0 t=0.0
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-106.0 t=0.26179938779915
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=-106.0 t=0.78539816339745
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=0.0 t=0.0
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=0.0 t=0.26179938779915
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=0.0 t=0.78539816339745
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=0.01 t=0.0
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=0.01 t=0.26179938779915
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=0.01 t=0.78539816339745
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=80.0 t=0.0
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=80.0 t=0.26179938779915
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=80.0 t=0.78539816339745
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=106.0 t=0.0
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=106.0 t=0.26179938779915
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=106.0 t=0.78539816339745
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=120.0 t=0.0
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=120.0 t=0.26179938779915
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=120.0 t=0.78539816339745
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=134.0 t=0.0
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=134.0 t=0.26179938779915
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=134.0 t=0.78539816339745
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=500.0 t=0.0
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=500.0 t=0.26179938779915
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _check_painted_pointer_motion_matrix (res://scripts/probe_melody.gd:3403)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:856)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|painted guide retains endpoint/width/direction/suppression/pulse d=500.0 t=0.78539816339745
+MELODY|OK|inactive guide hides all three pictures
+MELODY|OK|guide matrix restores exact live target and cannot change note/progress
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:857)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:857)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:857)
+       [4] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/timing_window_medallion_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _subtree_has_green (res://scripts/probe_melody.gd:1659)
+       [1] _layout_geometry_contract (res://scripts/probe_melody.gd:1005)
+       [2] _check_rendered_stage_contract (res://scripts/probe_melody.gd:857)
+       [3] _run (res://scripts/probe_melody.gd:394)
+MELODY|LAYOUT_FACTS|standard={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 720.0)], "proscenium_rect": [P: (25.6, 0.0), S: (1228.8, 704.0)], "proscenium_coverage": 0.40255555555556, "footlights_rect": [P: (154.88, 532.4), S: (971.24, 33.0)], "stage_star_rect": [P: (336.0625, 40.3125), S: (95.875, 90.1875)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|decoded alpha measurement independently loses the hidden header contribution
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2941)
+       [4] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [5] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2941)
+       [4] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [5] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2941)
+       [4] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [5] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/timing_window_medallion_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _subtree_has_green (res://scripts/probe_melody.gd:1659)
+       [1] _layout_geometry_contract (res://scripts/probe_melody.gd:1005)
+       [2] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2941)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|fully transparent header cannot inflate measured stage bounds
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2946)
+       [4] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [5] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2946)
+       [4] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [5] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2946)
+       [4] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [5] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/timing_window_medallion_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _subtree_has_green (res://scripts/probe_melody.gd:1659)
+       [1] _layout_geometry_contract (res://scripts/probe_melody.gd:1005)
+       [2] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2946)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|empty header control cannot count as visible painted coverage
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2950)
+       [4] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [5] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2950)
+       [4] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [5] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2950)
+       [4] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [5] _run (res://scripts/probe_melody.gd:394)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/timing_window_medallion_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _subtree_has_green (res://scripts/probe_melody.gd:1659)
+       [1] _layout_geometry_contract (res://scripts/probe_melody.gd:1005)
+       [2] _check_header_alpha_metric_controls (res://scripts/probe_melody.gd:2950)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:860)
+       [4] _run (res://scripts/probe_melody.gd:394)
+MELODY|OK|restored exact painted header retains original dominance floors
+MELODY|OK|actual decoded painted proscenium alpha visibly dominates the 1280x720 stage
+MELODY|OK|actual Daddy and Roshan alpha bounds are readable at 1280x720
+MELODY|OK|actual note, hit envelope, green zone, and pointer are readable at 1280x720
+MELODY|OK|pointer is exactly one painted arrow, authored shaft, and whole double ring with no primitive fallback
+MELODY|OK|actual four-tile Canvas transforms cover 1280x720 seam-free
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:877)
+       [4] _frames (res://scripts/probe_melody.gd:2865)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:877)
+       [4] _frames (res://scripts/probe_melody.gd:2865)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:877)
+       [4] _frames (res://scripts/probe_melody.gd:2865)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/timing_window_medallion_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _subtree_has_green (res://scripts/probe_melody.gd:1659)
+       [1] _layout_geometry_contract (res://scripts/probe_melody.gd:1005)
+       [2] _check_rendered_stage_contract (res://scripts/probe_melody.gd:877)
+       [3] _frames (res://scripts/probe_melody.gd:2865)
+MELODY|LAYOUT_FACTS|tall={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 800.0)], "proscenium_rect": [P: (25.6, 0.0), S: (1228.8, 773.3334)], "proscenium_coverage": 0.39294444444444, "footlights_rect": [P: (154.88, 546.6666), S: (971.24, 33.0)], "stage_star_rect": [P: (330.7361, 44.79168), S: (106.5278, 100.2083)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|Canvas reflows to the target 1280x800 M11 phone aspect
+MELODY|OK|1280x800 reflow preserves the same live stage and note semantics
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_arrow_head_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:895)
+       [4] _frames (res://scripts/probe_melody.gd:2865)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_beam_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:895)
+       [4] _frames (res://scripts/probe_melody.gd:2865)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/guide_double_ring_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _exact_pointer_children (res://scripts/probe_melody.gd:3380)
+       [1] _pointer_painted_contract (res://scripts/probe_melody.gd:3323)
+       [2] _layout_geometry_contract (res://scripts/probe_melody.gd:958)
+       [3] _check_rendered_stage_contract (res://scripts/probe_melody.gd:895)
+       [4] _frames (res://scripts/probe_melody.gd:2865)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/melody/timing_window_medallion_painted.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _subtree_has_green (res://scripts/probe_melody.gd:1659)
+       [1] _layout_geometry_contract (res://scripts/probe_melody.gd:1005)
+       [2] _check_rendered_stage_contract (res://scripts/probe_melody.gd:895)
+       [3] _frames (res://scripts/probe_melody.gd:2865)
+MELODY|LAYOUT_FACTS|restored={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 720.0)], "proscenium_rect": [P: (25.6, 0.0), S: (1228.8, 704.0)], "proscenium_coverage": 0.40255555555556, "footlights_rect": [P: (154.88, 532.4), S: (971.24, 33.0)], "stage_star_rect": [P: (336.0625, 40.3125), S: (95.875, 90.1875)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|1280x720 restore needs no rebuild and retains readable geometry
+MELODY|TICK_FACTS|game_delta=0.04107866666667|elapsed_delta=0.04107866666667|reported_frame_delta=0.59165333333333|tick_delta=1
+MELODY|OK|one rendered frame produces exactly one Melody controller tick
+MELODY|OK|shared ranking clock advances by exactly the one delivered frame delta
+MELODY|OK|runtime motion consumes that same frame delta exactly once
+MELODY|OK|early note tap makes no progress and carries no penalty
+MELODY|OK|wrong-point fixture is outside the active hit and pause zones
+MELODY|OK|wrong-point tap in the green window makes no progress or fail state
+MELODY|OK|one complete passive miss recycles forever without progress or penalty
+MELODY|OK|early held touch is down but never armed
+MELODY|OK|holding from early into green cannot smuggle a hit
+MELODY|OK|touch press reaches the held controller before pause
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held touch neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong sources cannot clear or score the touch held across pause
+MELODY|OK|held touch release after pause cannot score
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|the original source may clear its own neutral latch while still paused
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|first fresh gesture after an in-pause lift scores exactly once
+MELODY|OK|keyboard press reaches the same held controller
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held keyboard neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong key, device, and pad releases cannot clear paused Space
+MELODY|OK|held keyboard release after pause cannot score
+MELODY|OK|only the exact keyboard owner may finish an armed note
+MELODY|OK|fresh keyboard press/release scores exactly one note
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held pad action neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong pad button, device, and key cannot clear paused pad A
+MELODY|OK|held pad release after pause cannot score
+MELODY|OK|only the exact pad owner may finish an armed note
+MELODY|OK|fresh pad press/release scores exactly one note
+MELODY|OK|controller disconnect neutralizes only its unreleasable held source
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|no-held real pause leaves the controller neutral
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|Android-cancelled touch is neutral and clears only its own source
+MELODY|OK|only the exact touch owner may finish an armed note
+MELODY|OK|first fresh tap after no-held pause scores exactly once
+MELODY|OK|touch source is genuinely held before opening the Sticker overlay
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its visible Sticker Book doorway
+MELODY|OK|real Sticker button opens the higher-layer book without touching progress
+MELODY|OK|overlay traffic cannot clear or score another held touch source
+MELODY|OK|held source release clears neutrally through the higher overlay
+MELODY|OK|Sticker Book uses the sole global Back target
+MELODY|OK|TouchUI routes the sole global Back tap to the Sticker Book
+MELODY|OK|cancelled owner mouse is neutral and clears only its own source
+MELODY|OK|mouse ownership distinguishes device and touch source tokens
+MELODY|OK|first fresh green mouse gesture after Sticker Book scores exactly once
+MELODY|OK|standalone focus loss neutrally forgets the held touch owner
+MELODY|OK|lost focus cannot clear its neutral guard on background frames
+MELODY|OK|matching focus restoration retains the guard until an active tick
+MELODY|OK|first active focus-restored tick needs no missing old release
+MELODY|OK|partial deliberate input reaches exactly six notes before leave
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|LEAVE_FACTS|game=|g_empty=true|active_layers=0|direct_match=true|game_nodes_match=true|controls_match=true|world_controls=true|position_match=true|environment_match=true|track=world|expected_track=world|music_match=true|chime_match=true
+MELODY|OK|neutral pause-menu leave synchronously detaches only Melody
+MELODY|OK|neutral leave awards nothing
+MELODY|OK|closed Melody teardown is synchronously idempotent
+MELODY|OK|neutral teardown frees the complete Canvas subtree
+MELODY|OK|ordinary Reef input populates the complete Melody entry-source census
+MELODY|OK|ordinary non-Melody pause suspends Main while TouchUI stays live
+MELODY|OK|paused terminal touch, mouse, key, and pad releases retire the census
+MELODY|OK|ordinary pause resumes without creating a Melody activity
+MELODY|OK|clean census cannot poison the next Melody entry
+MELODY|OK|ordered context-loss fixture holds a concrete touch owner
+MELODY|OK|focus-out then application-paused tracks both reasons behind one guard
+MELODY|OK|lost context consumes the real touch and mouse Pause-corner target
+MELODY|OK|lost-context touch, mouse, key, and pad presses cannot claim census state
+MELODY|OK|lost-context touch, mouse, key, and pad releases are also inert
+MELODY|OK|resumed alone cannot override the still-lost focus reason
+MELODY|OK|partially restored context still rejects every fresh source press
+MELODY|OK|partially restored context still rejects every terminal release
+MELODY|OK|full ordered restoration keeps a source-free guard until its tick
+MELODY|OK|pre-tick restored presses cannot enter Main census, arm Melody, or score
+MELODY|OK|first restored tick clears only the guard, never preserves pre-tick presses
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|OK|unreleased pre-tick sources cannot poison a neutral Melody leave
+MELODY|OK|pre-tick-source recovery teardown frees its first Canvas subtree
+MELODY|OK|recovery relaunch enters Melody through the production start path
+MELODY|OK|reentry after missing releases has no inherited census or exact owner
+MELODY|OK|different fresh gesture scores exactly once after source-clean reentry
+MELODY|OK|reverse-order context-loss fixture holds a concrete pad owner
+MELODY|OK|application-paused then focus-out also retains both exact reasons
+MELODY|OK|reverse loss ordering also ignores all traffic and forgets its owner
+MELODY|OK|reverse-order terminal traffic cannot mutate the empty census
+MELODY|OK|focus-in alone cannot override the still-paused application reason
+MELODY|OK|reverse full restoration also retains its pre-tick guard
+MELODY|OK|reverse restoration clears the guard on its first active tick
+MELODY|OK|reverse-order different-source touch gesture scores exactly once
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|nested fixture starts with a normal exact-source Pause latch
+MELODY|OK|real Pause accessibility keeps Resume focused for lost-input testing
+MELODY|OK|lost-context presses cannot activate real Resume/Leave or focused actions
+MELODY|OK|lost-context releases also leave real Pause GUI and Melody untouched
+MELODY|OK|full OS restore cannot clear the guard while Pause remains open
+MELODY|OK|real focused ui_accept resumes without clearing the restored context guard
+MELODY|OK|first active unpaused nested-restoration tick clears the guard
+MELODY|OK|fresh pad gesture after nested restoration scores exactly once
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|OK|system-loss recovery stage leaves neutrally with no reward or save progress
+MELODY|OK|system-loss recovery teardown frees its complete Canvas subtree
+MELODY|OK|re-entry replaces the closed stage with one fresh 0-of-7 layer
+MELODY|OK|reset key/pad plus wrong finger/mouse cannot clear the held touch
+MELODY|OK|pre-entry held touch cannot become the first note
+MELODY|OK|ordered note 0 scores once on a fresh touch release
+MELODY|OK|ordered note 1 scores once on a fresh touch release
+MELODY|OK|ordered note 2 scores once on a fresh touch release
+MELODY|OK|ordered note 3 scores once on a fresh touch release
+MELODY|OK|ordered note 4 scores once on a fresh touch release
+MELODY|OK|ordered note 5 scores once on a fresh touch release
+MELODY|OK|seventh ordered note completes without a fail/timer branch
+MELODY|OK|seven fresh direct touch gestures complete red through violet
+MELODY|OK|deliberately slow first win awards one bronze medal and one trophy
+MELODY|OK|bronze upgrade and terminal persistence each write exactly once
+MELODY|WIN_RETURN_FACTS|terminal_position_match=true|environment_match=true|track=world|expected_track=world|music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|expected_music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }
+MELODY|OK|first win restores its exact Reef return context while the shared reward owns fanfare audio
+MELODY|OK|first win synchronously clears Canvas and controls
+MELODY|OK|first-win layer is freed after synchronous detach
+MELODY|OK|replay captures the settled shared-fanfare chime tuning exactly
+MELODY|OK|unrelated key and pad releases preserve both pre-entry action owners
+MELODY|OK|releasing one of two pre-entry owners keeps the other owner blocked
+MELODY|OK|pre-entry held keyboard/pad actions release neutrally
+MELODY|OK|ordered note 0 scores once on a fresh key release
+MELODY|OK|ordered note 1 scores once on a fresh pad release
+MELODY|OK|ordered note 2 scores once on a fresh touch release
+MELODY|OK|ordered note 3 scores once on a fresh touch release
+MELODY|OK|ordered note 4 scores once on a fresh touch release
+MELODY|OK|ordered note 5 scores once on a fresh touch release
+MELODY|OK|seventh ordered note completes without a fail/timer branch
+MELODY|OK|fresh keyboard, pad, and touch presses all complete the replay
+MELODY|OK|fast replay upgrades only the medal and never duplicates first-win reward
+MELODY|OK|gold upgrade and terminal persistence each write exactly once
+MELODY|REPLAY_RETURN_FACTS|terminal_position_match=true|environment_match=true|track=world|expected_track=world|music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|expected_music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|chime_match=true|active_layers=0|controls_match=true
+MELODY|OK|replay restores context and synchronously tears down
+MELODY|OK|replay layer is freed after synchronous detach
+MELODY|OK|normal save and all recovery artifacts retain exact hash/mtime
+MELODY|OK|isolated probe save and recovery artifacts clean up exactly
+MELODY|result: ALL OK

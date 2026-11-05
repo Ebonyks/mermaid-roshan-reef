@@ -1,0 +1,112 @@
+{
+  "id": "dkc-auditions-revised-plans-20261101",
+  "scope": "Review the accepted collective concept against the original DKC1 design; audition actual installed UVI instruments, particularly world-percussion kits and lo-fi beats, using short diagnostic/existing-material excerpts; propose revised full-song Opera House, Sky Lagoon and Castle plans before composition. Preserve melodies, single Opera pan, UVI policy and authorized LSDJ exception; no full arrangements or runtime replacements. Extend the collective into fifteen detailed performer profiles, each logged in the master audit and used in song construction call sheets. Record Bonobo as the owner-selected single primary producer identity, retaining contextual pop/dance/chip techniques. Consider newly owner-added Percussion Factory; exact patch auditions remain required. Owner continuation expands the installed palette (Atmospherics, Ether Fields, Key Suite Acoustic/Electric, additionally discovered Soul Bass/Drums), requests final proposed arrangements and authorizes three private test-track constructions using the profiled native Falcon/REAPER Lua workflow. Tests remain review candidates, not runtime replacements or release acceptance. Owner continuation 2026-11-02 requests playback of all three test tracks and comparison with original drafts to separate melodic foreground from accompaniment. Compare bounded original/new audio excerpts, refine Castle foreground/chord balance, verify final masters and deliver private playback/editable sessions.",
+  "baseline": "18513ea4687d0cf8fe384cc5cb4d98af3aa49d33",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-04",
+    "DL-SND-07",
+    "DL-SND-09",
+    "DL-SND-12",
+    "DL-SND-17",
+    "DL-ASSET-04",
+    "DL-SND-18"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/audio/music/profiled_test_tracks_20261101/.gitattributes",
+    "assets_src/audio/music/profiled_test_tracks_20261101/castle/score.json",
+    "assets_src/audio/music/profiled_test_tracks_20261101/opera_house/score.json",
+    "assets_src/audio/music/profiled_test_tracks_20261101/performance.lua",
+    "assets_src/audio/music/profiled_test_tracks_20261101/sky_lagoon/score.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/music-expanded-tests-20261101/owner_answers.json",
+    "audit/cycles/performer-profiles-bonobo-20261101/owner_answers.json",
+    "design/05_DOC_LEDGER.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/music/CUE_PLANS_2026-11-01.json",
+    "design/music/DKC_REVIEW_AND_CUE_PLANS_2026-11-01.md",
+    "design/music/ENSEMBLE_DESIGN_GUIDE_2026-11-01.md",
+    "design/music/ENSEMBLE_ROSTER_2026-11-01.json",
+    "design/music/EXPANDED_PALETTE_TEST_WORKFLOW_2026-11-01.md",
+    "design/music/INSTALLED_PALETTE_2026-11-01.json",
+    "design/music/INSTRUMENT_AUDITIONS_2026-11-01.json",
+    "design/music/PROFILED_TEST_TRACK_RECEIPT_2026-11-01.json",
+    "design/music/SONIC_IDENTITY_PROPOSAL_2026-11-01.md",
+    "design/music/SONIC_PALETTE_MAP_2026-11-01.json",
+    "design/music/expanded_palette_test_tracks_owner_direction_20261101.json",
+    "design/music/performer_profiles_owner_direction_20261101.json",
+    "design/music/performers/README.md",
+    "design/music/performers/acoustic_drums.md",
+    "design/music/performers/afro_caribbean_percussion.md",
+    "design/music/performers/aux_percussion.md",
+    "design/music/performers/bass.md",
+    "design/music/performers/duduk.md",
+    "design/music/performers/fiddle.md",
+    "design/music/performers/harp.md",
+    "design/music/performers/keys.md",
+    "design/music/performers/kora.md",
+    "design/music/performers/pitched_percussion.md",
+    "design/music/performers/producer.md",
+    "design/music/performers/registry.json",
+    "design/music/performers/strings_a.md",
+    "design/music/performers/strings_b.md",
+    "design/music/performers/traditional_percussion.md",
+    "design/music/performers/winds.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json",
+    "tools/audit_music_performer_plans.py",
+    "tools/build_profiled_test_tracks.py",
+    "tools/finish_instrument_auditions.py",
+    "tools/prepare_instrument_auditions.py",
+    "tools/reaper/audition_ensemble.lua",
+    "tools/reaper/build_warm_ensemble.lua",
+    "tools/reaper/master_warm_ensemble.lua",
+    "tools/reaper/mix_warm_ensemble.lua",
+    "tools/reaper/profiled_test_workflow.lua",
+    "tools/reaper/render_instrument_auditions.lua"
+  ],
+  "validation": [
+    {
+      "command": "Native Falcon recall, ReaEQ and instrument diagnostics",
+      "result": "PASS",
+      "evidence": "design/music/INSTRUMENT_AUDITIONS_2026-11-01.json: 34 exact program tests, including six expanded-palette diagnostics; private native state/render hashes and bounded listening evidence retained."
+    },
+    {
+      "command": "Profile construction gate plus negative authorization controls",
+      "result": "PASS",
+      "evidence": "Private test construction passes. Default full-arrangement construction remains blocked for three cues; removing the scoped test authorization also blocks all three."
+    },
+    {
+      "command": "Native full-song build/mix/master and decoded audio verification",
+      "result": "PASS",
+      "evidence": "design/music/PROFILED_TEST_TRACK_RECEIPT_2026-11-01.json; 31 editable MIDI parts, 15 native group prints, instrument EQ, measured bus balance, native mastering; final WAV/OGG finite/stereo/loudness/true-peak/DC/mono checks. Castle foreground separation refined after original/new excerpt comparison."
+    },
+    {
+      "command": "Exact Godot 4.7.2 scripts/ci.sh initial full invocation",
+      "result": "FAIL",
+      "evidence": "build/dkc_instrument_auditions_20261101/full_ci_result.json: exit 1 after 8089.77 seconds. Three probes ended early with code 127; 79 other trusted probes completed. Static checks, 862/862 audio checks and full analyzer/import ran. Original failure is retained."
+    },
+    {
+      "command": "Complete trusted-probe evidence with isolated native reruns",
+      "result": "PASS",
+      "evidence": "build/dkc_instrument_auditions_20261101/interrupted_probe_rechecks/consolidated_receipt.json: all 82 trusted probes have passing evidence across the original run and native probe_audit/probe_passive/probe_living_world reruns. All three reruns exit 0 and reach their terminal contracts; no clean single-invocation full-suite pass is claimed."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "build/profiled_test_tracks_20261101/document_authority_final.log: 773 inventory/773 ledger, 74 active/77 records, ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "build/profiled_test_tracks_20261101/audit_development_final.log: baseline 93166ab1828ab9857227d038f8833b92dfb2f9f1, ALL OK."
+    }
+  ],
+  "acceptance_gaps": "All fifteen profiles and three full-song test arrangements remain subject to owner artistic acceptance. Original/new excerpt listening is bounded and advisory; full-song human, voice-integration, runtime loop, phone and child checks remain open. Ten banks and 34 native tests are verified, including Percussion Factory. Private test construction is explicitly authorized; no runtime replacement, dev integration or release."
+}

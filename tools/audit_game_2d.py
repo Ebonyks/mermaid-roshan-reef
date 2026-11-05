@@ -54,6 +54,15 @@ from typing import Iterable, Mapping
 
 SCHEMA_VERSION = 4
 DEFAULT_MANIFEST = "tools/game_2d_migration_manifest.json"
+# Owner decision 2026-11-05: satelliteoflove/godot-mcp is vendored as
+# third-party editor/debugger agent tooling, not game content.  Its editor
+# command handlers legitimately name 3D classes (scene3d, gridmap, mesh
+# validation tools) for any project, so those files are reported separately
+# instead of as Roshan migration debt.  The exemption is fail-closed and exact:
+# a file leaves the production inventory only when it sits under a reviewed
+# prefix AND its SHA-256 matches the pinned upstream release manifest.  Any
+# local edit, upgrade without a manifest refresh, or new file is debt again.
+REVIEWED_TOOLING_MANIFEST = "tools/third_party_tooling_manifest.json"
 # Trust anchor for this repository's first full debt ceiling.  Updating this
 # literal is an explicit contract change, not a normal manifest regeneration.
 INITIAL_CEILING_SHA256 = "2da7db0ed6a3b67c33165a988450d322013f58455d590d3b73783646d59be2e2"
@@ -116,7 +125,9 @@ MODEL_SAMPLE_BYTES = 65536
 # Plausible regular JSON/XML is inspected completely up to this generous cap.
 # Larger candidates become explicit scan-coverage debt instead of silently
 # passing because a model signature happened to occur after a finite prefix.
-MODEL_TEXT_SCAN_BYTES = 4 * 1024 * 1024
+# Bounded full coverage includes the 4.3 MiB standalone book review HTML.
+# Larger plausible model text still reports truncated scan coverage as debt.
+MODEL_TEXT_SCAN_BYTES = 8 * 1024 * 1024
 NATIVE_SYMBOL_SCAN_BYTES = 8 * 1024 * 1024
 ARCHIVE_MEMBER_LIMIT = 10000
 ARCHIVE_SNIFF_BUDGET = 8 * 1024 * 1024
@@ -380,6 +391,9 @@ class Inventory:
 	probe_3d_files: dict[str, dict[str, int]] = field(default_factory=dict)
 	scene_3d_files: dict[str, dict[str, int]] = field(default_factory=dict)
 	configuration_3d_files: dict[str, dict[str, int]] = field(default_factory=dict)
+	# Hash-pinned third-party tooling (REVIEWED_TOOLING_MANIFEST).  Reported for
+	# visibility; deliberately excluded from debt_count() and counts().
+	reviewed_tooling_3d_files: dict[str, dict[str, int]] = field(default_factory=dict)
 
 	def debt_count(self) -> int:
 		# Active/export and scan-coverage lists are explanatory subsets of model
@@ -522,6 +536,52 @@ def _json_loads_unique(text: str) -> object:
 		return result
 
 	return json.loads(text, object_pairs_hook=unique_object)
+
+
+def _reviewed_tooling_hashes(root: Path) -> dict[str, str]:
+	"""Return {relative path: sha256} for pinned third-party tooling files.
+
+	Any malformed manifest yields no exemption at all (fail closed)."""
+	manifest = root / REVIEWED_TOOLING_MANIFEST
+	if not manifest.is_file():
+		return {}
+	try:
+		raw = _json_loads_unique(manifest.read_text(encoding="utf-8"))
+	except (OSError, UnicodeDecodeError, ValueError):
+		return {}
+	if not isinstance(raw, dict) or raw.get("schema") != 1:
+		return {}
+	entries = raw.get("entries")
+	if not isinstance(entries, list):
+		return {}
+	pinned: dict[str, str] = {}
+	for entry in entries:
+		if not isinstance(entry, dict):
+			return {}
+		prefix = entry.get("prefix")
+		files = entry.get("files")
+		if (not isinstance(prefix, str) or not prefix.startswith("addons/")
+				or prefix.endswith("/") or ".." in prefix.split("/")
+				or not isinstance(files, dict) or not files):
+			return {}
+		for relative, digest in files.items():
+			if (not isinstance(relative, str) or not isinstance(digest, str)
+					or not relative.startswith(prefix + "/")
+					or ".." in relative.split("/")
+					or re.fullmatch(r"[0-9a-f]{64}", digest) is None):
+				return {}
+			pinned[relative] = digest
+	return pinned
+
+
+def _is_reviewed_tooling(path: Path, root: Path, pinned: Mapping[str, str]) -> bool:
+	expected = pinned.get(_relative(path, root))
+	if expected is None or path.is_symlink() or not path.is_file():
+		return False
+	try:
+		return hashlib.sha256(path.read_bytes()).hexdigest() == expected
+	except OSError:
+		return False
 
 
 def _is_active_path(path: Path, root: Path) -> bool:
@@ -1808,9 +1868,35 @@ def _spatial_multimesh_resource_count(text: str) -> int:
 	return count
 
 
+def _json_web_url_spans(text: str) -> tuple[tuple[int, int], ...]:
+	"""Web identifiers in valid JSON values are data, not Godot API names."""
+	try:
+		json.loads(text)
+	except (json.JSONDecodeError, ValueError):
+		return ()
+	spans: list[tuple[int, int]] = []
+	property_separator = re.compile(r"\s*:")
+	for match in re.finditer(r'"(?:[^"\\]|\\.)*"', text):
+		# Property names remain part of the inventory.
+		if property_separator.match(text, match.end()):
+			continue
+		value = json.loads(match.group(0))
+		if isinstance(value, str) and re.fullmatch(r"https?://[^\s]+", value, re.I):
+			# Require a nonempty HTTP authority; res:// and local model paths
+			# are deliberately not web identifiers.
+			authority = re.match(r"https?://([^/?#]+)", value, re.I)
+			if authority:
+				spans.append((match.start(), match.end()))
+	return tuple(spans)
+
+
 def _token_counts(text: str, *, configuration: bool = False,
-		scene_resource: bool = False) -> dict[str, int]:
-	counts: Counter[str] = Counter(match.group(0) for match in FORBIDDEN_TOKEN_RE.finditer(text))
+		scene_resource: bool = False, json_data: bool = False) -> dict[str, int]:
+	web_values = _json_web_url_spans(text) if json_data else ()
+	counts: Counter[str] = Counter(
+		match.group(0) for match in FORBIDDEN_TOKEN_RE.finditer(text)
+		if not any(start <= match.start() and match.end() <= end
+			for start, end in web_values))
 	counts.update(_contextual_3d_api_counts(text, scene_resource=scene_resource))
 	for _match in LOWER_3D_MARKER_RE.finditer(text):
 		counts["<lowercase-3d-marker>"] += 1
@@ -2199,6 +2285,8 @@ def discover(root: Path,
 	active_models = tuple(sorted(active_model_set))
 
 	production: dict[str, dict[str, int]] = {}
+	reviewed_tooling: dict[str, dict[str, int]] = {}
+	pinned_tooling = _reviewed_tooling_hashes(root)
 	for path in (
 			candidate for candidate in active_files
 			if candidate.suffix.lower() in PRODUCTION_SOURCE_EXTENSIONS
@@ -2206,7 +2294,10 @@ def discover(root: Path,
 				and candidate.name.startswith("probe_"))):
 		counts = _token_counts(_read_text_cached(path, text_cache))
 		if counts:
-			production[_relative(path, root)] = counts
+			if _is_reviewed_tooling(path, root, pinned_tooling):
+				reviewed_tooling[_relative(path, root)] = counts
+			else:
+				production[_relative(path, root)] = counts
 	for path in (
 			candidate for candidate in active_files
 			if candidate.suffix.lower() in NATIVE_BINARY_EXTENSIONS
@@ -2218,7 +2309,8 @@ def discover(root: Path,
 		production[_relative(path, root)] = {"<opaque-runtime-binary>": 1}
 	runtime_scope = _runtime_dependency_scope(root, active_files, text_cache)
 	for path in _runtime_data_files(root, runtime_scope, active_files):
-		counts = _token_counts(_read_text_cached(path, text_cache))
+		counts = _token_counts(
+			_read_text_cached(path, text_cache), json_data=path.suffix.lower() == ".json")
 		if counts:
 			production[_relative(path, root)] = counts
 
@@ -2271,6 +2363,7 @@ def discover(root: Path,
 		model_import_sidecar_fingerprints=dict(sorted(sidecar_fingerprints.items())),
 		model_archive_files=model_archives,
 		production_3d_files=dict(sorted(production.items())),
+		reviewed_tooling_3d_files=dict(sorted(reviewed_tooling.items())),
 		probe_3d_files=dict(sorted(probes.items())),
 		scene_3d_files=dict(sorted(scenes.items())),
 		configuration_3d_files=dict(sorted(configuration.items())),
@@ -3594,6 +3687,11 @@ def render(result: AuditResult, mode: str = "default") -> str:
 		"GAME2D| DEBT| " + "| ".join(
 			f"{field}={counts[field]}" for field in CATEGORY_FIELDS) +
 		f"| archive_now_model_files={archive_count}")
+	if result.inventory.reviewed_tooling_3d_files:
+		lines.append(
+			"GAME2D| TOOLING| reviewed_third_party_tooling_3d_files="
+			f"{len(result.inventory.reviewed_tooling_3d_files)}| hash-pinned in "
+			f"{REVIEWED_TOOLING_MANIFEST}; editor/debugger tooling, not migration debt")
 	lines.append(f"GAME2D| STATUS| {result.status}")
 	if result.satisfied:
 		lines.append("GAME2D| RESULT| SATISFIED - active game is fully 2D")
@@ -3694,6 +3792,47 @@ def stress() -> int:
 		expect("new 3D code file must fail",
 			lambda: any(item.check_id == "G2D101" for item in new_code.findings))
 		(root / "scripts/new_3d.gd").unlink()
+
+		tool_dir = root / "addons/vendor_tool"
+		tool_dir.mkdir(parents=True, exist_ok=True)
+		tool_file = tool_dir / "scene3d_commands.gd"
+		tool_file.write_text("var camera: Camera3D\n", encoding="utf-8")
+		tooling_manifest = root / REVIEWED_TOOLING_MANIFEST
+
+		def write_tooling_manifest(digest: str, prefix: str = "addons/vendor_tool") -> None:
+			tooling_manifest.write_text(json.dumps({"schema": 1, "entries": [{
+				"prefix": prefix,
+				"files": {"addons/vendor_tool/scene3d_commands.gd": digest},
+			}]}), encoding="utf-8")
+
+		unpinned_tool = audit(root, manifest_path)
+		expect("unpinned third-party tooling 3D code must fail",
+			lambda: any(item.check_id == "G2D101" for item in unpinned_tool.findings))
+		write_tooling_manifest(hashlib.sha256(tool_file.read_bytes()).hexdigest())
+		pinned_tool = audit(root, manifest_path)
+		expect("hash-pinned third-party tooling is reported, not debt",
+			lambda: pinned_tool.exact
+			and "addons/vendor_tool/scene3d_commands.gd"
+				in pinned_tool.inventory.reviewed_tooling_3d_files
+			and "addons/vendor_tool/scene3d_commands.gd"
+				not in pinned_tool.inventory.production_3d_files)
+		tool_file.write_text("var camera: Camera3D\nvar more: Node3D\n", encoding="utf-8")
+		tampered_tool = audit(root, manifest_path)
+		expect("edited pinned tooling must fail as new debt",
+			lambda: any(item.check_id == "G2D101" for item in tampered_tool.findings))
+		tool_file.write_text("var camera: Camera3D\n", encoding="utf-8")
+		write_tooling_manifest(hashlib.sha256(tool_file.read_bytes()).hexdigest(), "scripts")
+		escaped_tool = audit(root, manifest_path)
+		expect("tooling exemption outside addons/ must fail closed",
+			lambda: any(item.check_id == "G2D101" for item in escaped_tool.findings))
+		tooling_manifest.write_text("{not json", encoding="utf-8")
+		malformed_tool = audit(root, manifest_path)
+		expect("malformed tooling manifest must fail closed",
+			lambda: any(item.check_id == "G2D101" for item in malformed_tool.findings))
+		tooling_manifest.unlink()
+		tool_file.unlink()
+		tool_dir.rmdir()
+		(root / "addons").rmdir()
 
 		legacy = root / "scripts/legacy.gd"
 		original = legacy.read_text(encoding="utf-8")

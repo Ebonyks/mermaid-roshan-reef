@@ -1,0 +1,80 @@
+{
+	"captures": [],
+	"checks": [
+		{
+			"label": "actual display title",
+			"pass": true
+		},
+		{
+			"label": "real Continue",
+			"pass": true
+		},
+		{
+			"label": "Mobile",
+			"pass": true
+		},
+		{
+			"label": "exact viewport",
+			"pass": true
+		},
+		{
+			"label": "original small26 Panel",
+			"pass": true
+		},
+		{
+			"label": "original source radius124",
+			"pass": true
+		},
+		{
+			"label": "01_small live configured Snowman",
+			"pass": true
+		},
+		{
+			"label": "01_small manual original clock advances",
+			"pass": true
+		},
+		{
+			"label": "wrong far pointer and passive stay zero",
+			"pass": true
+		},
+		{
+			"label": "02_wrong_passive live configured Snowman",
+			"pass": true
+		},
+		{
+			"label": "02_wrong_passive manual original clock advances",
+			"pass": true
+		},
+		{
+			"label": "real pointer original clock/growth 0",
+			"pass": false
+		},
+		{
+			"label": "logical radius actually grew 0",
+			"pass": false
+		},
+		{
+			"label": "actual input polling",
+			"pass": true
+		},
+		{
+			"label": "03_growing_lower live configured Snowman",
+			"pass": true
+		},
+		{
+			"label": "03_growing_lower manual original clock advances",
+			"pass": true
+		}
+	],
+	"child": null,
+	"configured_original_controller_tick": true,
+	"device": null,
+	"formal_QA11": null,
+	"lane": "source",
+	"manual_main_process_suspended": true,
+	"natural_route": false,
+	"owner": null,
+	"pointer_driver": "single-index0 touch emulated to actual pointer polling",
+	"source_pin_sha256": "acff598d8587290287fe9b8ded41169a57995db3a131dcdbf0f4cf15bea11700",
+	"status": "FAIL"
+}

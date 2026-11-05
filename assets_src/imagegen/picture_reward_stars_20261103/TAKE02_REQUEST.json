@@ -1,0 +1,12 @@
+{
+  "prompt": "Edit ONLY the alpha/background of this exact nine-sparkle painted sprite sheet. Keep the nine existing painted FOUR-POINT stars, their exact grid positions, sizes, silhouettes, plum contours, original colors, creamy white centers, brush texture and internal painted shading unchanged. This is a local isolation/matte cleanup, not a redraw or new composition.\nThe current image incorrectly contains pale white paper and colored shadow/haze throughout its gutters. Completely remove ALL background paper, haze, glows and cast shadows outside each star's actual outer plum contour. Every corner, gap and gutter outside the nine star contours must have exactly ZERO alpha, fully transparent. Keep the complete star interiors, including their creamy white highlights, fully opaque. Preserve clean antialiasing only at the contour edge; do not make the stars globally translucent or erase their white centers. No residual pale rectangular cell, paper grain, shadow halo, checkerboard pixels or white matte.\nReturn the same square 3-by-3 sprite sheet on a true transparent RGBA canvas, nine intact original cutouts only. No labels, grid lines, added sparkle satellites or other changes.",
+  "attempt": 2,
+  "kind": "TARGETED_ALPHA_ISOLATION_REPAIR",
+  "input": "assets_src/imagegen/picture_reward_stars_20261103/take01_native.png",
+  "input_sha256": "d221233a1c22af06a1df562692495b413be1897f27a21e49ef98bc738f5ff91b",
+  "transparent_background": true,
+  "backend": "builtin image_gen.imagegen",
+  "model": null,
+  "state": "RETURNED_ACTUAL_OUTPUT_RETAINED",
+  "output_sha256": "cba1365e0e8e5b90ff6558ed36967e37aa7f82adfa8807a98bb0fbcd37bf04de"
+}

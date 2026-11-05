@@ -1,0 +1,1166 @@
+{
+  "source_commit": "ff0e7b74bae73c8c7b1f66c59c65719e1b94039f",
+  "scope": "Read-only stress study of Bubble Duel at the published Godot candidate. Physics variants ran in isolated review copies.",
+  "floor": 4.6,
+  "formal_pass": false,
+  "assets": [
+    {
+      "name": "Pool backdrop",
+      "path": "assets/flats/castle/interactions_v4/backgrounds/room_mermaid_pool_background.png",
+      "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6",
+      "pixels": [
+        1024,
+        576
+      ],
+      "lowest": 1,
+      "roles": [
+        {
+          "role": "Arena and menus at 1280×720",
+          "score": 1,
+          "observation": "The 1280-wide artwork starts at screen x≈33, cutting off its right edge. The clipping cap applies to this mounted role.",
+          "evidence": "visual/06-practice-pop.png"
+        },
+        {
+          "role": "Arena at 1600×720",
+          "score": 4.2,
+          "observation": "The same fixed-width mount leaves a visibly uneven dark margin. Correct the viewport fit before judging the painted room again.",
+          "evidence": "visual-wide-review/07-current.png"
+        }
+      ]
+    },
+    {
+      "name": "Soap bubbles",
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "pixels": [
+        512,
+        512
+      ],
+      "lowest": 4,
+      "roles": [
+        {
+          "role": "Jobs launcher cluster",
+          "score": 4,
+          "observation": "The bubbles blend into the bright foyer and look like floating scenery near the seat. Give the group a recognizable Jobs affordance.",
+          "evidence": "visual/01-jobs-launcher.png"
+        },
+        {
+          "role": "Practice mode tile",
+          "score": 4.6,
+          "observation": "Clean silhouette and strong contrast on the pale card.",
+          "evidence": "visual/02-hub.png"
+        },
+        {
+          "role": "Replay tile",
+          "score": 4.5,
+          "observation": "Readable picture, but the bubble repeats the practice symbol with no pictured repeat action.",
+          "evidence": "visual/10-replay.png"
+        },
+        {
+          "role": "Practice targets",
+          "score": 4.4,
+          "observation": "Gold targets are identifiable, although the mottled highlight competes with the floor caustics.",
+          "evidence": "visual/05-practice.png"
+        },
+        {
+          "role": "Marlo’s tethered targets",
+          "score": 4,
+          "observation": "Gold separates the teams. The busy rim weakens edge clarity. On the published build a right-side hit can remove the left bubble while the burst plays over the surviving bubble.",
+          "evidence": "visual/09-duel.png"
+        },
+        {
+          "role": "Shop swatches, all five",
+          "score": 4.6,
+          "observation": "All five hues separate on the same pale backing.",
+          "evidence": "visual/03-shop.png"
+        },
+        {
+          "role": "Roshan’s aqua bubbles",
+          "score": 4.3,
+          "observation": "The fill blends with the aqua scene and the thin tether carries too much of the ownership cue.",
+          "evidence": "visual-wide-review/tint-0-duel.png"
+        },
+        {
+          "role": "Roshan’s rose bubbles",
+          "score": 4.4,
+          "observation": "The warm hue reads at gameplay scale. Flecked highlights compete with the backdrop.",
+          "evidence": "visual-wide-review/tint-1-duel.png"
+        },
+        {
+          "role": "Roshan’s gold bubbles",
+          "score": 4.2,
+          "observation": "Player and rival use the same gold hue. Position and the tether have to carry team ownership.",
+          "evidence": "visual-wide-review/tint-2-duel.png"
+        },
+        {
+          "role": "Roshan’s mint bubbles",
+          "score": 4.3,
+          "observation": "Mint is distinguishable on the card and loses separation against the water.",
+          "evidence": "visual-wide-review/tint-3-duel.png"
+        },
+        {
+          "role": "Roshan’s lilac bubbles",
+          "score": 4.4,
+          "observation": "Lilac reads against the pool but becomes less distinct over the violet wall during ascent.",
+          "evidence": "visual-wide-review/tint-4-duel.png"
+        }
+      ]
+    },
+    {
+      "name": "Roshan base",
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "pixels": [
+        256,
+        256
+      ],
+      "lowest": 4.2,
+      "roles": [
+        {
+          "role": "Resting figure",
+          "score": 4.7,
+          "observation": "Clear book identity, face, rainbow hair and iridescent tail. The cutout reads at game scale.",
+          "evidence": "visual/09-duel.png"
+        },
+        {
+          "role": "Descent and fin contact",
+          "score": 4.2,
+          "observation": "The runtime switches back to the standing pose for descent. Its baseline contact socket falls on transparent source pixels, below the painted fin.",
+          "evidence": "visual/06-practice-pop.png"
+        }
+      ]
+    },
+    {
+      "name": "Roshan swim atlas",
+      "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+      "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "lowest": 4.2,
+      "roles": [
+        {
+          "role": "Swim ascent, all 16 visible cells",
+          "score": 4.2,
+          "observation": "The whole figure stays on model. Cells 7 and 15 place the tether's fixed center socket in transparency, so the attachment needs per-cell registration.",
+          "evidence": "motion-states.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Marlo atlas",
+      "path": "assets/sprites/sky_lagoon/animals/otter_idle_atlas.png",
+      "sha256": "e6497ab0f6c7e4f98899c18451740cade7683abcaa97b7d342f9c783a8c599af",
+      "pixels": [
+        512,
+        512
+      ],
+      "lowest": 3.8,
+      "roles": [
+        {
+          "role": "Duel menu portrait",
+          "score": 4.6,
+          "observation": "The painted face and otter silhouette identify the mode without relying on its caption.",
+          "evidence": "visual/02-hub.png"
+        },
+        {
+          "role": "Duel opponent, all four cells",
+          "score": 3.8,
+          "observation": "Standing, crouching and sitting are land poses. Cycling them above the pool makes the otter appear suspended while its body lacks a visible swim kick.",
+          "evidence": "motion-states.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Pearl",
+      "path": "assets/opera/worlds/teacher/pearl_uncounted.png",
+      "sha256": "4f71a7beff48024df5eb89a5cbd760148576ada6bf05fe784bd8d2828dba4037",
+      "pixels": [
+        128,
+        128
+      ],
+      "lowest": 4.3,
+      "roles": [
+        {
+          "role": "Current Ride menu tile",
+          "score": 4.6,
+          "observation": "The isolated pearl is legible against the card and shares the painted palette.",
+          "evidence": "visual/02-hub.png"
+        },
+        {
+          "role": "Ride pickup and scored state",
+          "score": 4.3,
+          "observation": "The pickup separates from water, but a pearl remains visibly near the scoring location after collection. Its exit and reward effect need distinct timing.",
+          "evidence": "visual/08-current-score.png"
+        }
+      ]
+    },
+    {
+      "name": "Shell Shop token",
+      "path": "assets/ui/pearl_full.png",
+      "sha256": "9a0e76dd56e32efbb201d77901d0147b99be0d002ff36430f4a656c64060e2d5",
+      "pixels": [
+        128,
+        128
+      ],
+      "lowest": 4,
+      "roles": [
+        {
+          "role": "Shop entry picture",
+          "score": 4,
+          "observation": "The gold-rimmed pearl reads as another currency or pickup picture. A shell or shop object would identify the destination to a non-reader.",
+          "evidence": "visual/02-hub.png"
+        }
+      ]
+    },
+    {
+      "name": "Bubble burst atlas",
+      "path": "assets/sprites/fx_water/fx_water_bubble_burst_atlas.png",
+      "sha256": "4c98dd531d6869a2137d210c161efab86dff03c08ce2378e855d1d46c9c2896c",
+      "pixels": [
+        1024,
+        512
+      ],
+      "lowest": 4,
+      "roles": [
+        {
+          "role": "Practice and duel pop, eight source cells",
+          "score": 4.1,
+          "observation": "The burst is registered near the target center. Pale flecks shrink into the water pattern and the brief payoff is easy to miss.",
+          "evidence": "visual/06-practice-pop.png"
+        },
+        {
+          "role": "Pearl collection effect",
+          "score": 4,
+          "observation": "The same burst also cues a pearl pickup, which makes the two outcomes less distinct.",
+          "evidence": "visual/08-current-score.png"
+        }
+      ]
+    },
+    {
+      "name": "Guide hand",
+      "path": "assets/castle/training/ghost_hand.png",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "pixels": [
+        512,
+        512
+      ],
+      "lowest": 4.5,
+      "roles": [
+        {
+          "role": "Practice and duel tutorial cue",
+          "score": 4.6,
+          "observation": "The hand now points directly at the intended bubble and has a clear outline.",
+          "evidence": "visual/09-duel.png"
+        },
+        {
+          "role": "Current Ride opening cue",
+          "score": 4.5,
+          "observation": "The target is indicated, but the right-side wall and adjacent viewport margin weaken the cue at small size.",
+          "evidence": "visual-wide-review/07-current.png"
+        }
+      ]
+    },
+    {
+      "name": "Back panel",
+      "path": "assets/fashion/skin_engine_v2/ui/wardrobe_card.png",
+      "sha256": "ab4926b5c99c3c6db0efcb4a20a75a9128276e085189bf51f947025659525893",
+      "pixels": [
+        236,
+        256
+      ],
+      "lowest": 4.7,
+      "roles": [
+        {
+          "role": "Shared Back control",
+          "score": 4.7,
+          "observation": "The cream and pearl frame separates from both venues and the return arrow remains large and recognizable.",
+          "evidence": "visual/09-duel.png"
+        }
+      ]
+    }
+  ],
+  "browser_reference": [
+    {
+      "path": "assets/bg/deep.png",
+      "pixels": [
+        1200,
+        900
+      ],
+      "sha256": "b57ca9570461e41671c3dd87926c37cfea478c440e7dd004a564b18018ae5d25",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/bg/kelp.png",
+      "pixels": [
+        1200,
+        900
+      ],
+      "sha256": "52e391a41bc83f327e8f4c5d9e1b142ba68b3b3afbb03f9e85068d4900c0236d",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/bg/ride.png",
+      "pixels": [
+        2400,
+        900
+      ],
+      "sha256": "8f5e7dd6b7c5e2938694441ca0daee6ca11fe0a5c1f6aca3faa4cd19d454e829",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/bg/sunlit.png",
+      "pixels": [
+        1200,
+        900
+      ],
+      "sha256": "54504c763b0821ad859d03902af9a5bb96f88d24ed7cd10d8a8849705e5d81b1",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/bg/trench.png",
+      "pixels": [
+        1200,
+        150
+      ],
+      "sha256": "31bf9d05fff1b09dd464cc29e4d11c9b9f3147ef9d36804aab066c8272a6376a",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/bg/vents.png",
+      "pixels": [
+        1200,
+        900
+      ],
+      "sha256": "66b7e02feeef38b13c19afbba19bf083beab3f620e49cf3aec7506cde7266638",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/fx/ink.png",
+      "pixels": [
+        576,
+        144
+      ],
+      "sha256": "95b73ff53aff7d17db61171d5a3a52680ea5dfaad3aeb58c24effe49d2ea22e9",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/fx/pop.png",
+      "pixels": [
+        384,
+        96
+      ],
+      "sha256": "f20129eb6b54ea0c45b20ca9e85913929da3f531006f3f01d2a8a3a6b6b39aac",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/fx/respawn.png",
+      "pixels": [
+        384,
+        96
+      ],
+      "sha256": "f24b98a22b719f8635b7d59354a36e66e4a7d70c570cc7a5e080c7da2c784344",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/fx/sparkle.png",
+      "pixels": [
+        192,
+        48
+      ],
+      "sha256": "73b367af5782d2d875b0277e202f2c1a2de703796d345dc8ff368f817de67b73",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/fx/splash.png",
+      "pixels": [
+        384,
+        96
+      ],
+      "sha256": "d45ba7077a90314dab7dd130690c0841b24e0faa970e09cea608e7b4ea1525c3",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/sprites/bubble.png",
+      "pixels": [
+        288,
+        168
+      ],
+      "sha256": "b1bd8554c6b277bb1ed67d7dccf47378141dc400500dc6c246379cb47e371e7f",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/sprites/grumbletooth.png",
+      "pixels": [
+        960,
+        540
+      ],
+      "sha256": "95a4376be64cfff7446c6f9347875436c3e8090b12a38a5f6388f5fdb180ebf2",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/sprites/jelly.png",
+      "pixels": [
+        192,
+        48
+      ],
+      "sha256": "e8eb57226f8b32fae78205448a39ba47b5e364aa52e92047db964663e9852934",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/sprites/pearl.png",
+      "pixels": [
+        144,
+        36
+      ],
+      "sha256": "f33841812f5177759e83875f20cc52778678fd5b66842adb6a0e6163895298a9",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/sprites/rival_coralie.png",
+      "pixels": [
+        384,
+        768
+      ],
+      "sha256": "f9dc044f68b7902a746a81efae947e2af4bd4f372834d6b92213b1fcde4ab421",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/sprites/rival_inkwell.png",
+      "pixels": [
+        384,
+        768
+      ],
+      "sha256": "ede600faa6c9d2814e13b79083fde614306e2d0395d509620d79402754d1028a",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/sprites/rival_marlo.png",
+      "pixels": [
+        384,
+        768
+      ],
+      "sha256": "5fdde48873ae93a7cc459da037090ca0500c98d3023286de74aa7e2f97d62204",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/sprites/rival_tidbit.png",
+      "pixels": [
+        384,
+        768
+      ],
+      "sha256": "8b4f0eebdc40ba0fcef2089e19799a9ad78972dd426a5a9ad05609c62548c03e",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/sprites/roshan.png",
+      "pixels": [
+        384,
+        768
+      ],
+      "sha256": "b276ba0bb3d35fddabed9391f561676fc3af4e084db417941c41db399b7045d3",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/sprites/shopkeeper.png",
+      "pixels": [
+        480,
+        240
+      ],
+      "sha256": "82c58bfb90ecdff0c547ad0b2cbc5805fa1edcc2a712fbc02a8f5277c42b8ed5",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/sprites/tether.png",
+      "pixels": [
+        12,
+        60
+      ],
+      "sha256": "52fd0dbbe821430cf4b62a40ca76100427d58fe0f7e72f0fa57c0d1c006cab98",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/button.png",
+      "pixels": [
+        480,
+        120
+      ],
+      "sha256": "5fabdca384a530d43fe7127bbc2f82ef6d1f4b8d7613061b2ba0016a706b186b",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/charms.png",
+      "pixels": [
+        768,
+        96
+      ],
+      "sha256": "ec4a5137808b2b30a3222cdf6ae6fe15dbec780016a41925532e0188619bcaf0",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/glow_fill.png",
+      "pixels": [
+        306,
+        24
+      ],
+      "sha256": "ca47a1231602fae3a9f8dca5a04cdd62a8d4c888035078e05e549c035ca53038",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/glow_frame.png",
+      "pixels": [
+        330,
+        60
+      ],
+      "sha256": "61ee424754d1056b1c4ccda19fcd805f6f70d2a39b4ca5079e07c65d52b788d6",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/hub_map.png",
+      "pixels": [
+        1200,
+        900
+      ],
+      "sha256": "3eb3f10ad67524f101752aecb5eaa6c40213163e89d8b5c3386a0c74b9ecead4",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/icon_pearl.png",
+      "pixels": [
+        48,
+        48
+      ],
+      "sha256": "c084a537c9147e1d12ca0747950141fbb8f9fe85cdf930c6e8e30bdb23ae4959",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/ready.png",
+      "pixels": [
+        96,
+        48
+      ],
+      "sha256": "d7762db6cfd4a861529469f5292765dccb544fae939105338186425dffb010e8",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/results_bg.png",
+      "pixels": [
+        1200,
+        900
+      ],
+      "sha256": "95aa8a802eccbbe15eb99095edb8ae71658244261dfbc45f3e9d413fc51c9ceb",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/shop_bg.png",
+      "pixels": [
+        1200,
+        900
+      ],
+      "sha256": "13df92dc3ff7534b20f7c9c268aebf6937714908ebdbb020f269e530bf5dab91",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/spare.png",
+      "pixels": [
+        30,
+        36
+      ],
+      "sha256": "c5a1eccd6f237673b77a307fded919297d5f7b1f6b00110b4f87282dbc976f74",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/title_bg.png",
+      "pixels": [
+        1200,
+        900
+      ],
+      "sha256": "184c2f6889f10b7485e8dccc30519f00283d156dfef78b2c3c2dddd2064df150",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    },
+    {
+      "path": "assets/ui/title_logo.png",
+      "pixels": [
+        900,
+        360
+      ],
+      "sha256": "27d11ace9700787e4e8119373350b830f225577365938b33c3b73ca4c6a73b98",
+      "score": 1.0,
+      "observation": "Functional placeholder. Source metadata and the supplied contact sheet identify the draft role."
+    }
+  ],
+  "rounds": [
+    {
+      "data_file": "screening.json",
+      "sha256": "84dd5f2241b03737cea979a480efc53977d0426640a220009ec6bdf3e9929ff1",
+      "groups": [
+        {
+          "variant": "current",
+          "n": 24,
+          "wins": 24,
+          "seconds_p50": 4.17499999999999,
+          "seconds_p90": 8.34999999999999,
+          "first_pop_p50": 2.2800000000000002,
+          "drag_p50": 8.34999999999999,
+          "resurfaces": 23,
+          "bubble_losses": 1,
+          "taps": 78,
+          "gap_over_four": 4,
+          "max_gap": 19.4866142272949,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "floaty",
+          "n": 24,
+          "wins": 24,
+          "seconds_p50": 2.84999999999999,
+          "seconds_p90": 12.0333333333335,
+          "first_pop_p50": 2.2,
+          "drag_p50": 12.0333333333335,
+          "resurfaces": 16,
+          "bubble_losses": 2,
+          "taps": 71,
+          "gap_over_four": 2,
+          "max_gap": 14.7719573974609,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "balanced",
+          "n": 24,
+          "wins": 24,
+          "seconds_p50": 3.9999999999999902,
+          "seconds_p90": 5.46666666666666,
+          "first_pop_p50": 1.910833333333335,
+          "drag_p50": 5.26666666666666,
+          "resurfaces": 26,
+          "bubble_losses": 2,
+          "taps": 79,
+          "gap_over_four": 4,
+          "max_gap": 20.4686851501465,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "arcade",
+          "n": 24,
+          "wins": 24,
+          "seconds_p50": 2.3725,
+          "seconds_p90": 5.14999999999999,
+          "first_pop_p50": 1.600000000000005,
+          "drag_p50": 4.91666666666665,
+          "resurfaces": 20,
+          "bubble_losses": 0,
+          "taps": 73,
+          "gap_over_four": 2,
+          "max_gap": 20.7010345458984,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "light_assist",
+          "n": 24,
+          "wins": 24,
+          "seconds_p50": 3.9999999999999902,
+          "seconds_p90": 5.46666666666666,
+          "first_pop_p50": 1.910833333333335,
+          "drag_p50": 5.26666666666666,
+          "resurfaces": 26,
+          "bubble_losses": 2,
+          "taps": 79,
+          "gap_over_four": 4,
+          "max_gap": 20.4686851501465,
+          "wrong_survivor": null,
+          "control_failures": 0
+        }
+      ],
+      "count": 120
+    },
+    {
+      "data_file": "refinement.json",
+      "sha256": "697e186248ccb4469fe06e5d918527b4824147daeefebc6b57c272dda4589b77",
+      "groups": [
+        {
+          "variant": "current",
+          "n": 30,
+          "wins": 30,
+          "seconds_p50": 4.27499999999999,
+          "seconds_p90": 6.36499999999999,
+          "first_pop_p50": 1.96666666666667,
+          "drag_p50": 6.849999999999985,
+          "resurfaces": 25,
+          "bubble_losses": 5,
+          "taps": 94,
+          "gap_over_four": 4,
+          "max_gap": 16.9445533752441,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "contact_only",
+          "n": 30,
+          "wins": 30,
+          "seconds_p50": 2.4916666666666654,
+          "seconds_p90": 7.63333333333331,
+          "first_pop_p50": 1.81666666666667,
+          "drag_p50": 7.766666666666644,
+          "resurfaces": 15,
+          "bubble_losses": 0,
+          "taps": 81,
+          "gap_over_four": 0,
+          "max_gap": 0.0,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "arcade_contact",
+          "n": 30,
+          "wins": 30,
+          "seconds_p50": 2.0,
+          "seconds_p90": 4.48333333333332,
+          "first_pop_p50": 1.466666666666665,
+          "drag_p50": 6.15833333333332,
+          "resurfaces": 14,
+          "bubble_losses": 1,
+          "taps": 80,
+          "gap_over_four": 0,
+          "max_gap": 0.0,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "steady_contact",
+          "n": 30,
+          "wins": 30,
+          "seconds_p50": 2.141666666666665,
+          "seconds_p90": 7.31666666666665,
+          "first_pop_p50": 1.575,
+          "drag_p50": 7.458333333333315,
+          "resurfaces": 14,
+          "bubble_losses": 0,
+          "taps": 80,
+          "gap_over_four": 0,
+          "max_gap": 0.0,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "steady_catchup",
+          "n": 30,
+          "wins": 30,
+          "seconds_p50": 2.03333333333334,
+          "seconds_p90": 7.31666666666665,
+          "first_pop_p50": 1.5,
+          "drag_p50": 7.991666666666665,
+          "resurfaces": 15,
+          "bubble_losses": 0,
+          "taps": 81,
+          "gap_over_four": 0,
+          "max_gap": 1.03076171875,
+          "wrong_survivor": null,
+          "control_failures": 0
+        }
+      ],
+      "count": 150
+    },
+    {
+      "data_file": "steering.json",
+      "sha256": "888c2eb31c3fd80268615a7548439e3ba38e948e0225b4f75693ff474d3352b8",
+      "groups": [
+        {
+          "variant": "arcade_contact",
+          "n": 30,
+          "wins": 30,
+          "seconds_p50": 2.0,
+          "seconds_p90": 4.58333333333332,
+          "first_pop_p50": 1.475,
+          "drag_p50": 4.666666666666655,
+          "resurfaces": 10,
+          "bubble_losses": 0,
+          "taps": 76,
+          "gap_over_four": 0,
+          "max_gap": 0.0,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "moderate_contact",
+          "n": 30,
+          "wins": 30,
+          "seconds_p50": 2.02666666666667,
+          "seconds_p90": 4.83333333333332,
+          "first_pop_p50": 1.43333333333333,
+          "drag_p50": 5.04999999999999,
+          "resurfaces": 12,
+          "bubble_losses": 1,
+          "taps": 78,
+          "gap_over_four": 3,
+          "max_gap": 6.56338500976563,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "moderate_guided",
+          "n": 30,
+          "wins": 30,
+          "seconds_p50": 2.010833333333335,
+          "seconds_p90": 2.15,
+          "first_pop_p50": 1.43333333333333,
+          "drag_p50": 1.841666666666665,
+          "resurfaces": 0,
+          "bubble_losses": 0,
+          "taps": 66,
+          "gap_over_four": 3,
+          "max_gap": 6.56338500976563,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "arcade_guided",
+          "n": 30,
+          "wins": 30,
+          "seconds_p50": 1.9583333333333348,
+          "seconds_p90": 2.26666666666667,
+          "first_pop_p50": 1.36666666666667,
+          "drag_p50": 1.758333333333335,
+          "resurfaces": 0,
+          "bubble_losses": 0,
+          "taps": 66,
+          "gap_over_four": 0,
+          "max_gap": 0.0,
+          "wrong_survivor": null,
+          "control_failures": 0
+        }
+      ],
+      "count": 120
+    },
+    {
+      "data_file": "holdout.json",
+      "sha256": "5f3bb7fde215f657c79fed9d7b794f806a144d4ed408c20c6a1204a28be9bc20",
+      "groups": [
+        {
+          "variant": "current",
+          "n": 100,
+          "wins": 100,
+          "seconds_p50": 4.216666666666655,
+          "seconds_p90": 7.69999999999998,
+          "first_pop_p50": 2.0300000000000047,
+          "drag_p50": 7.908333333333315,
+          "resurfaces": 88,
+          "bubble_losses": 15,
+          "taps": 318,
+          "gap_over_four": 10,
+          "max_gap": 19.3668098449707,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "arcade_contact",
+          "n": 100,
+          "wins": 100,
+          "seconds_p50": 2.03333333333334,
+          "seconds_p90": 5.03333333333333,
+          "first_pop_p50": 1.55,
+          "drag_p50": 5.07499999999999,
+          "resurfaces": 45,
+          "bubble_losses": 1,
+          "taps": 265,
+          "gap_over_four": 0,
+          "max_gap": 0.0,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "arcade_guided",
+          "n": 100,
+          "wins": 100,
+          "seconds_p50": 2.0,
+          "seconds_p90": 2.40333333333333,
+          "first_pop_p50": 1.36666666666667,
+          "drag_p50": 1.8583333333333352,
+          "resurfaces": 5,
+          "bubble_losses": 0,
+          "taps": 225,
+          "gap_over_four": 0,
+          "max_gap": 0.0,
+          "wrong_survivor": null,
+          "control_failures": 0
+        },
+        {
+          "variant": "moderate_guided",
+          "n": 100,
+          "wins": 100,
+          "seconds_p50": 1.966666666666665,
+          "seconds_p90": 2.13333333333334,
+          "first_pop_p50": 1.43333333333333,
+          "drag_p50": 1.9,
+          "resurfaces": 5,
+          "bubble_losses": 0,
+          "taps": 225,
+          "gap_over_four": 0,
+          "max_gap": 0.0,
+          "wrong_survivor": null,
+          "control_failures": 0
+        }
+      ],
+      "count": 400
+    },
+    {
+      "data_file": "calibration.json",
+      "sha256": "6b4436558302ad85e83b1155a4afe1223fe5feb13b1f67fe121be2839ebc7688",
+      "groups": [
+        {
+          "variant": "moderate_calibrated",
+          "n": 100,
+          "wins": 100,
+          "seconds_p50": 2.0966666666666702,
+          "seconds_p90": 2.26666666666667,
+          "first_pop_p50": 1.5,
+          "drag_p50": 2.0416666666666696,
+          "resurfaces": 3,
+          "bubble_losses": 0,
+          "taps": 223,
+          "gap_over_four": 0,
+          "max_gap": 0.0,
+          "wrong_survivor": null,
+          "control_failures": 0
+        }
+      ],
+      "count": 100
+    },
+    {
+      "data_file": "final.json",
+      "sha256": "a6810de28d26e3754bdb83da068a8268bba2d33b285363e4b26b08e420973f47",
+      "groups": [
+        {
+          "variant": "current",
+          "n": 100,
+          "wins": 100,
+          "seconds_p50": 4.216666666666655,
+          "seconds_p90": 7.69999999999998,
+          "first_pop_p50": 2.0300000000000047,
+          "drag_p50": 7.908333333333315,
+          "resurfaces": 88,
+          "bubble_losses": 15,
+          "taps": 318,
+          "gap_over_four": 10,
+          "max_gap": 19.3668098449707,
+          "wrong_survivor": 70,
+          "control_failures": 0
+        },
+        {
+          "variant": "moderate_final",
+          "n": 100,
+          "wins": 100,
+          "seconds_p50": 2.144166666666665,
+          "seconds_p90": 2.26666666666667,
+          "first_pop_p50": 1.5,
+          "drag_p50": 2.1,
+          "resurfaces": 3,
+          "bubble_losses": 0,
+          "taps": 223,
+          "gap_over_four": 0,
+          "max_gap": 0.0,
+          "wrong_survivor": 0,
+          "control_failures": 0
+        }
+      ],
+      "count": 200
+    }
+  ],
+  "route_tours": [
+    {
+      "variant": "current",
+      "n": 100,
+      "completed": 100,
+      "save_ok": 100,
+      "data_file": "tours.json",
+      "sha256": "fb150f7c7b44148f8daf672abb30b67ca2ac375db7006b02d72d1fb123a04594"
+    },
+    {
+      "variant": "moderate_guided",
+      "n": 100,
+      "completed": 100,
+      "save_ok": 100,
+      "data_file": "tours.json",
+      "sha256": "fb150f7c7b44148f8daf672abb30b67ca2ac375db7006b02d72d1fb123a04594"
+    },
+    {
+      "variant": "moderate_calibrated",
+      "n": 100,
+      "completed": 100,
+      "save_ok": 100,
+      "data_file": "calibrated_tours.json",
+      "sha256": "94b2a77e66ee74b4e28cf65ee5453a4766206674836c89d5a8ad8591ab06fe5d"
+    },
+    {
+      "variant": "moderate_final",
+      "n": 100,
+      "completed": 100,
+      "save_ok": 100,
+      "data_file": "final_tours.json",
+      "sha256": "13a018e612e09e2c50618ff78079dcfce709764a594bc28e9dd6a85469f82820"
+    }
+  ],
+  "weights": [
+    [
+      "Swim approach speed",
+      "440 px/s",
+      "550 px/s"
+    ],
+    [
+      "Fall acceleration with bubbles",
+      "470 px/s²",
+      "560 px/s²"
+    ],
+    [
+      "Fall acceleration after losing bubbles",
+      "690 px/s²",
+      "780 px/s²"
+    ],
+    [
+      "Downward fall cap",
+      "325 px/s",
+      "365 px/s"
+    ],
+    [
+      "Horizontal guidance while landing",
+      "190 px/s",
+      "165 px/s"
+    ],
+    [
+      "Post-pop rebound",
+      "155 px/s up",
+      "150 px/s up"
+    ],
+    [
+      "Fin contact point",
+      "31 px lateral, 61 px down",
+      "31 px lateral, 49 px down"
+    ],
+    [
+      "Hitch catch-up",
+      "One step capped at 33 ms",
+      "At most 100 ms in 16.7 ms steps"
+    ]
+  ],
+  "capture_sets": [
+    {
+      "folder": "visual",
+      "n": 52,
+      "distinct": 51,
+      "engine": "4.7.2-stable (official)",
+      "renderer": "mobile",
+      "quality": "speedy",
+      "manifest_sha256": "e408f181e958a44b8702be06951e2ac21eb8d518902282d354535a0b9fb01c8a"
+    },
+    {
+      "folder": "visual-wide-review",
+      "n": 15,
+      "distinct": 13,
+      "engine": "4.7.2-stable (official)",
+      "renderer": "mobile",
+      "quality": "speedy",
+      "manifest_sha256": "f5f1c6e6613e14d942ed4556fdeacb7d8054b58979120b8d22701f74bbd8493b"
+    },
+    {
+      "folder": "calibrated-visual",
+      "n": 11,
+      "distinct": 11,
+      "engine": "4.7.2-stable (official)",
+      "renderer": "mobile",
+      "quality": "speedy",
+      "manifest_sha256": "f8f5c0056a5b2fa02d7437b0167817ebc8b4e624b16efb8cfee70106630f32e2"
+    },
+    {
+      "folder": "final-visual",
+      "n": 11,
+      "distinct": 11,
+      "engine": "4.7.2-stable (official)",
+      "renderer": "mobile",
+      "quality": "speedy",
+      "manifest_sha256": "d2ff90cba41e4f30e9a4050d3de983ecc649d1cece39cb4b9b4a858893813233"
+    }
+  ],
+  "fin_source_samples": {
+    "baseline": [
+      76,
+      229,
+      0
+    ],
+    "candidate": [
+      76,
+      209,
+      255
+    ]
+  },
+  "evidence_source_hashes": {
+    "arcade.gd": "c9f7eadbab74d0dd3602e1ad9afadeaff380ee73498aa6c9be0f4bcf34587f1f",
+    "arcade_contact.gd": "8494082a45ecc7505ee150380c55fd040bf71052bbbff59510719751781b00a9",
+    "arcade_contact_traced.gd": "76b741debad631bad854a8f61738a7375a5941e509b3830334542114c8f90feb",
+    "arcade_guided.gd": "793db693d529a15dc1bfec9cba512bc2e470680e9716faf2dfff854f0fe65c7a",
+    "arcade_guided_traced.gd": "3ae43fee152cb375cb3d0e912dc382e266df0005625635dc10c8007889d6d769",
+    "balanced.gd": "461dbc6c6cf8f6bdb8b736b82022ab1e36ef99140b1a9fb89d7b5cc98eb09bab",
+    "calibrated_tour_bench.gd": "2a81f96a83880ae423d9268fb017f84a9c35fb710c274fe3996253c09295a7d6",
+    "calibrated_visual_bench.gd": "87eb8524fab6e0d1b5fc6ba804d623a95ecb351c1606ecfbdd9ae2195177e62f",
+    "contact_only.gd": "1d4001746b73ff657d485c85e770f7f652d4890592f95214d784880fada63429",
+    "final_bench.gd": "b6b921e169d5c9fa558fd6945c6477a59f70d7cda7fc5a660d8a49037b08e81d",
+    "final_tour_bench.gd": "c38dec61cfe4306a4fab481acbb7a217857bb21da337bcbf42b3a3af9cbb38ea",
+    "final_visual_bench.gd": "d663974e539549cc1bfafd16dddb024cda5698d2ce6f7210d33d10a48ed2daa0",
+    "floaty.gd": "1e377b118b3e697eedb73889b7f6c51a9142bd35117dac570d5f06aa009464da",
+    "holdout_bench.gd": "7eba1626a0cb1d821879e0544fdf28dc0690a5228b7220011d49886faa74b328",
+    "light_assist.gd": "a55bd46eace4a0c056958c93fd0d4573913d647ddcbc111a56b6013909be22ef",
+    "moderate_calibrated.gd": "31cdf4b19396098dffaaaf1739e1bc3582b1d81b91c425247028fb01e8d3d66c",
+    "moderate_calibrated_tour.gd": "b22db76c9c4b12a8bdd03f0b439be28a13ca4d6a858ad9653da3c2523eae6e30",
+    "moderate_calibrated_traced.gd": "118ae6d6e1076fae1366d4c7be2ac051a82cdb79ec5ccb5add93654f683c61c6",
+    "moderate_contact.gd": "23323a32a668f5359ad761a1389be7d3a6e214d6a68aa5cf75665f9beb5ba606",
+    "moderate_final.gd": "6ece919059dcea35953d9f4c33ebc7ceeaa0a6cb1e8251c8ba8d901b9830693d",
+    "moderate_final_tour.gd": "61b7d6907edb7b58e43cf080891cdf464dfa60952cb64c57ba262eab5359b36f",
+    "moderate_final_traced.gd": "0d886a82370307e97fabac6d847bb1e9571838f2cdfb4419d6de818f18a69865",
+    "moderate_guided.gd": "c8cf29b88c6ffeddf45b117bf4bef7f005254e46542eba76b0df28335f660930",
+    "moderate_guided_traced.gd": "adacdebe82f5fcad0340b449f6ac4f1a2bd3758939cd71c7bfa61d9b7e2ba9e6",
+    "moderate_tour_subclass.gd": "866f5028f9711c6a3916c81b4afa9a58923d8ab55af24ee8708504fe439d991c",
+    "physics_bench.gd": "ed62ebf2317f8ec35aba612e32760f26bba24330c965ee3e0e23cfc71fb53edb",
+    "steady_catchup.gd": "bfe387615417909c785f47279375bb924836e3714affdf0cc0425a1c837ef0ec",
+    "steady_contact.gd": "84c7c067b170102bbd5da11f013299585836de03a6b88d21e912bcf26c24a212",
+    "tour_bench.gd": "2631b416621ee258c4c8da019ff1f324908e0ea466aac155626270255ad4d9d6",
+    "visual_bench.gd": "067e67a323258b9d00a4cd463cb4b6581a43d2c892836a98cd092ce683379983",
+    "wide_visual_bench.gd": "00aa8dfa29a68bbd8b7db6e1b1d3e7c7a172ed9ab7855cd6d8227584e46576e4"
+  },
+  "patch_sha256": "ee027c7c3eefe52cb4530b3ef621da2772f70566ba958dca83ef1210cd7f2925"
+}

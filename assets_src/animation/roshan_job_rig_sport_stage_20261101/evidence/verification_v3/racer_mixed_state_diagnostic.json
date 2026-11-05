@@ -1,0 +1,17 @@
+{
+  "status": "FAIL_STRICT_FRESH_MATCH",
+  "action": "racer",
+  "changed_pixels": 731,
+  "max_channel_delta": 255,
+  "alpha_changed_pixels": 716,
+  "bbox": [
+    485,
+    525,
+    589,
+    666
+  ],
+  "max_bone_transform_delta": 0.0,
+  "source": "mixed body/tail sequence versus independent dense fresh action replay at3.2s",
+  "cause": "Unconfirmed; no strict equality waiver. No controller repair after frozen production window.",
+  "resolution": "Verifier-only support-line visibility, proven in racer_fixture_visibility_diagnostic.json: all731pixels disappear when the caller restores the visibility it hid; exact fresh equality restored, source inputs unchanged."
+}

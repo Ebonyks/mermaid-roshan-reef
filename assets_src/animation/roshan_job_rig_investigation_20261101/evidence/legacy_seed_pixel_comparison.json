@@ -1,0 +1,1646 @@
+{
+  "seed_revision": "b700b846d1d2f4b1843279f268e2bb12e4b1f4ec",
+  "seed_study_sha256": "c0cae44eac990e1428e57513ba922cc036fadc53019b7edae81c0f67fe9d02c4",
+  "seed_shader_sha256": "a3c053fd724a057594521bbec8205fb26aa08b50d122c7f33cf6065c59243d95",
+  "seed_rig_sha256": "0023f07215712c50ad278d94bb7a2ebce371071c314c3b4b7811d5d16b76c327",
+  "reference_relocation": "Only res:// texture resource paths changed to art/<basename>; original shader/rest/weights/curves/selectors unchanged. Standalone disposable reference project.",
+  "renderer": "Godot4.7.2 Mobile native1024 RGBA",
+  "captures": [
+    {
+      "mode": "reference",
+      "exit": 0,
+      "seconds": 39.46346579999954
+    },
+    {
+      "mode": "candidate",
+      "exit": 0,
+      "seconds": 37.42901020000136
+    }
+  ],
+  "comparisons": [
+    {
+      "file": "original_original_original_arm_bend_0000.png",
+      "seed_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "candidate_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_original_arm_bend_1550.png",
+      "seed_png_sha256": "f572c039092b2a22c3ba25b16c9f4db9ab6f2720be842a1527587a769637d1a3",
+      "candidate_png_sha256": "f572c039092b2a22c3ba25b16c9f4db9ab6f2720be842a1527587a769637d1a3",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_original_arm_bend_3200.png",
+      "seed_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "candidate_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_original_blink_0000.png",
+      "seed_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "candidate_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_original_blink_1080.png",
+      "seed_png_sha256": "8071d15cc408ba39e3c5d5da07870cd314692eca406ee07800707f38e31bd616",
+      "candidate_png_sha256": "8071d15cc408ba39e3c5d5da07870cd314692eca406ee07800707f38e31bd616",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_original_blink_2400.png",
+      "seed_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "candidate_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_original_tail_bend_0000.png",
+      "seed_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "candidate_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_original_tail_bend_1100.png",
+      "seed_png_sha256": "71a755e9d77f0fd4f6b0a69836ca3ba93e25ea3eccb55d0805b37e7148a53717",
+      "candidate_png_sha256": "71a755e9d77f0fd4f6b0a69836ca3ba93e25ea3eccb55d0805b37e7148a53717",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_original_tail_bend_2350.png",
+      "seed_png_sha256": "46581f92eb60a5ee884d4449ee4b275b8c61624f975d29576d3ac047820643ae",
+      "candidate_png_sha256": "46581f92eb60a5ee884d4449ee4b275b8c61624f975d29576d3ac047820643ae",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_original_tail_bend_4000.png",
+      "seed_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "candidate_png_sha256": "a9d86db6617529656effb444a0050d992de6482c7dfccb00258e162c48316b06",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_ballet_arm_bend_0000.png",
+      "seed_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "candidate_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_ballet_arm_bend_1550.png",
+      "seed_png_sha256": "d6a3181738f6d4292e3d69983873c8017e791aefc1ba0a9e6e6025517cc26935",
+      "candidate_png_sha256": "d6a3181738f6d4292e3d69983873c8017e791aefc1ba0a9e6e6025517cc26935",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_ballet_arm_bend_3200.png",
+      "seed_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "candidate_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_ballet_blink_0000.png",
+      "seed_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "candidate_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_ballet_blink_1080.png",
+      "seed_png_sha256": "4ccb69bf176c6ff626837f095a06012647851697944117611b8a086157fdaf8d",
+      "candidate_png_sha256": "4ccb69bf176c6ff626837f095a06012647851697944117611b8a086157fdaf8d",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_ballet_blink_2400.png",
+      "seed_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "candidate_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_ballet_tail_bend_0000.png",
+      "seed_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "candidate_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_ballet_tail_bend_1100.png",
+      "seed_png_sha256": "30701ced30dd84bb72d3c313a3a9234c16ae39efcf9bcbd19b5542c789d5c92e",
+      "candidate_png_sha256": "30701ced30dd84bb72d3c313a3a9234c16ae39efcf9bcbd19b5542c789d5c92e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_ballet_tail_bend_2350.png",
+      "seed_png_sha256": "e2bbeb720c93cda70705f1527511f84f11ceb4aecfa111f7af24f0ccfb202ebc",
+      "candidate_png_sha256": "e2bbeb720c93cda70705f1527511f84f11ceb4aecfa111f7af24f0ccfb202ebc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_ballet_tail_bend_4000.png",
+      "seed_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "candidate_png_sha256": "7fee5ca4e2daa84a0acbd7d1f6d49147804fb27ee0c8373a4945480600b0af3e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_magician_arm_bend_0000.png",
+      "seed_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "candidate_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_magician_arm_bend_1550.png",
+      "seed_png_sha256": "47b5b6b6b5693ca946bdeb631979887bd685b820d59c61cac57b79808218fbc6",
+      "candidate_png_sha256": "47b5b6b6b5693ca946bdeb631979887bd685b820d59c61cac57b79808218fbc6",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_magician_arm_bend_3200.png",
+      "seed_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "candidate_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_magician_blink_0000.png",
+      "seed_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "candidate_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_magician_blink_1080.png",
+      "seed_png_sha256": "21846f043b57117fcf29f294f06e5c997348802d40764fc230545ebb737e0b84",
+      "candidate_png_sha256": "21846f043b57117fcf29f294f06e5c997348802d40764fc230545ebb737e0b84",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_magician_blink_2400.png",
+      "seed_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "candidate_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_magician_tail_bend_0000.png",
+      "seed_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "candidate_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_magician_tail_bend_1100.png",
+      "seed_png_sha256": "2c17317a77750daf12d585c8f0fd0ed64b7dfe3f7ec21cc51703d478b10818a8",
+      "candidate_png_sha256": "2c17317a77750daf12d585c8f0fd0ed64b7dfe3f7ec21cc51703d478b10818a8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_magician_tail_bend_2350.png",
+      "seed_png_sha256": "d1fd43562daec10ed0060363efbc537e21e28eaacc16f1bbc244483a57e00e23",
+      "candidate_png_sha256": "d1fd43562daec10ed0060363efbc537e21e28eaacc16f1bbc244483a57e00e23",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_original_magician_tail_bend_4000.png",
+      "seed_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "candidate_png_sha256": "bbb771f7633e55592a6ded2003f30ed55182a37823389a125be674bae437200d",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_original_arm_bend_0000.png",
+      "seed_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "candidate_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_original_arm_bend_1550.png",
+      "seed_png_sha256": "c75055589f291ffedffcaea22a04634014735c62f40ca8ce0080858531d9578b",
+      "candidate_png_sha256": "c75055589f291ffedffcaea22a04634014735c62f40ca8ce0080858531d9578b",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_original_arm_bend_3200.png",
+      "seed_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "candidate_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_original_blink_0000.png",
+      "seed_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "candidate_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_original_blink_1080.png",
+      "seed_png_sha256": "a95cc86f7102b45fbfc81376601bd5d898df355748a514f2bf7ba53eb635aa4c",
+      "candidate_png_sha256": "a95cc86f7102b45fbfc81376601bd5d898df355748a514f2bf7ba53eb635aa4c",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_original_blink_2400.png",
+      "seed_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "candidate_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_original_tail_bend_0000.png",
+      "seed_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "candidate_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_original_tail_bend_1100.png",
+      "seed_png_sha256": "24b1b8cbbfb93d3c48cf4fbaaf4109fd1db8d01a1c49c710226623abb6b6a2e4",
+      "candidate_png_sha256": "24b1b8cbbfb93d3c48cf4fbaaf4109fd1db8d01a1c49c710226623abb6b6a2e4",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_original_tail_bend_2350.png",
+      "seed_png_sha256": "897a4519949ee082c63800995df399bad5ee36969386add775ee797928da83aa",
+      "candidate_png_sha256": "897a4519949ee082c63800995df399bad5ee36969386add775ee797928da83aa",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_original_tail_bend_4000.png",
+      "seed_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "candidate_png_sha256": "335e90378684fc97ebdd2b30f71337d6bed482e40a731bd0ff5fa6f4d611bda0",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_ballet_arm_bend_0000.png",
+      "seed_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "candidate_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_ballet_arm_bend_1550.png",
+      "seed_png_sha256": "0e5edf30640ea3c689a39855ba6635c7afa7e06733c3b8e0ebefbdcd37ac756d",
+      "candidate_png_sha256": "0e5edf30640ea3c689a39855ba6635c7afa7e06733c3b8e0ebefbdcd37ac756d",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_ballet_arm_bend_3200.png",
+      "seed_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "candidate_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_ballet_blink_0000.png",
+      "seed_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "candidate_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_ballet_blink_1080.png",
+      "seed_png_sha256": "50814756f6d4e0fb48e5ace361d6c3d01dedcd0b14b36744c3ae456ebb4bc1a0",
+      "candidate_png_sha256": "50814756f6d4e0fb48e5ace361d6c3d01dedcd0b14b36744c3ae456ebb4bc1a0",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_ballet_blink_2400.png",
+      "seed_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "candidate_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_ballet_tail_bend_0000.png",
+      "seed_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "candidate_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_ballet_tail_bend_1100.png",
+      "seed_png_sha256": "e8d90f46a57b9187841a93255039908f7984d7f2f694845109e01d6c7345c012",
+      "candidate_png_sha256": "e8d90f46a57b9187841a93255039908f7984d7f2f694845109e01d6c7345c012",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_ballet_tail_bend_2350.png",
+      "seed_png_sha256": "d96dfc7d998667922df034c069782ac3658af6a00b5df80846154a0f4fac6310",
+      "candidate_png_sha256": "d96dfc7d998667922df034c069782ac3658af6a00b5df80846154a0f4fac6310",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_ballet_tail_bend_4000.png",
+      "seed_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "candidate_png_sha256": "363c1b694f99febdfc46a1b742ef91c932924102d23f1759ce35d26d370e1eb2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_magician_arm_bend_0000.png",
+      "seed_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "candidate_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_magician_arm_bend_1550.png",
+      "seed_png_sha256": "ea487aef44d78043aada1b93509cf50d9fc06a251ae2b9e80a4e24f716a81800",
+      "candidate_png_sha256": "ea487aef44d78043aada1b93509cf50d9fc06a251ae2b9e80a4e24f716a81800",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_magician_arm_bend_3200.png",
+      "seed_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "candidate_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_magician_blink_0000.png",
+      "seed_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "candidate_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_magician_blink_1080.png",
+      "seed_png_sha256": "0ab04c8da16d5654d6ea070b685094fcca3c0c54cf6af4154bcfc630da56405e",
+      "candidate_png_sha256": "0ab04c8da16d5654d6ea070b685094fcca3c0c54cf6af4154bcfc630da56405e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_magician_blink_2400.png",
+      "seed_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "candidate_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_magician_tail_bend_0000.png",
+      "seed_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "candidate_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_magician_tail_bend_1100.png",
+      "seed_png_sha256": "bca6bccb81cc71e011a96207afb8eb03db56ee199e4571093e344cb5a89a4ba8",
+      "candidate_png_sha256": "bca6bccb81cc71e011a96207afb8eb03db56ee199e4571093e344cb5a89a4ba8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_magician_tail_bend_2350.png",
+      "seed_png_sha256": "37422784320f229a8bed0d339a9053ab54dd49002155e2e76e8ebf5a83bbb202",
+      "candidate_png_sha256": "37422784320f229a8bed0d339a9053ab54dd49002155e2e76e8ebf5a83bbb202",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_ballet_magician_tail_bend_4000.png",
+      "seed_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "candidate_png_sha256": "1b0390039f8cd40aa29f858e0412635a50fba5328741a7dd69984e7722c1ec37",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_original_arm_bend_0000.png",
+      "seed_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "candidate_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_original_arm_bend_1550.png",
+      "seed_png_sha256": "348187654be151bb60676cd61bd06d46a01f1dcc4c65ab5dbf6a84c57f42ac36",
+      "candidate_png_sha256": "348187654be151bb60676cd61bd06d46a01f1dcc4c65ab5dbf6a84c57f42ac36",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_original_arm_bend_3200.png",
+      "seed_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "candidate_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_original_blink_0000.png",
+      "seed_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "candidate_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_original_blink_1080.png",
+      "seed_png_sha256": "6da77498b3343a5fb33ad3ffe3ba8ed19826ff330fd337cb29886aaba7419f40",
+      "candidate_png_sha256": "6da77498b3343a5fb33ad3ffe3ba8ed19826ff330fd337cb29886aaba7419f40",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_original_blink_2400.png",
+      "seed_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "candidate_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_original_tail_bend_0000.png",
+      "seed_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "candidate_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_original_tail_bend_1100.png",
+      "seed_png_sha256": "34b30435907078952e2930a6ff8a90cb88313fc2e7afcf71dcb34addfe129f1b",
+      "candidate_png_sha256": "34b30435907078952e2930a6ff8a90cb88313fc2e7afcf71dcb34addfe129f1b",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_original_tail_bend_2350.png",
+      "seed_png_sha256": "5cb915bc47f4b200e30776bea88dfeba196f828878f0000a09a8db4ae792046f",
+      "candidate_png_sha256": "5cb915bc47f4b200e30776bea88dfeba196f828878f0000a09a8db4ae792046f",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_original_tail_bend_4000.png",
+      "seed_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "candidate_png_sha256": "8e16b99924e1953b7c2221ec586769793d63630bf0a429678643d203dd0d4145",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_ballet_arm_bend_0000.png",
+      "seed_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "candidate_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_ballet_arm_bend_1550.png",
+      "seed_png_sha256": "cb816bb2399c8f740c9d6fccf76be8ca5882d489ef8fa8616099545ce256d44b",
+      "candidate_png_sha256": "cb816bb2399c8f740c9d6fccf76be8ca5882d489ef8fa8616099545ce256d44b",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_ballet_arm_bend_3200.png",
+      "seed_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "candidate_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_ballet_blink_0000.png",
+      "seed_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "candidate_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_ballet_blink_1080.png",
+      "seed_png_sha256": "88bf164358d875ddec37971a62ad77850f7de2b102f8d46858e43cabac6e2296",
+      "candidate_png_sha256": "88bf164358d875ddec37971a62ad77850f7de2b102f8d46858e43cabac6e2296",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_ballet_blink_2400.png",
+      "seed_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "candidate_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_ballet_tail_bend_0000.png",
+      "seed_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "candidate_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_ballet_tail_bend_1100.png",
+      "seed_png_sha256": "bb9092dc0d6bfd2702599c80fdef8e6c2170708afbf6665fd2f6f005e87fa265",
+      "candidate_png_sha256": "bb9092dc0d6bfd2702599c80fdef8e6c2170708afbf6665fd2f6f005e87fa265",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_ballet_tail_bend_2350.png",
+      "seed_png_sha256": "cad0702e86ce78c205f0efc2ffe5b67bd8da38ce4dcdb9464a4639dee01c6a93",
+      "candidate_png_sha256": "cad0702e86ce78c205f0efc2ffe5b67bd8da38ce4dcdb9464a4639dee01c6a93",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_ballet_tail_bend_4000.png",
+      "seed_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "candidate_png_sha256": "10ad998450afa86759acfdf52c0744ae401ae8b344bdcb6d2816251764057c97",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_magician_arm_bend_0000.png",
+      "seed_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "candidate_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_magician_arm_bend_1550.png",
+      "seed_png_sha256": "7461561b31d9c790453652bcd41d006905b87f29d2a223a2c3fb5dd39707d253",
+      "candidate_png_sha256": "7461561b31d9c790453652bcd41d006905b87f29d2a223a2c3fb5dd39707d253",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_magician_arm_bend_3200.png",
+      "seed_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "candidate_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_magician_blink_0000.png",
+      "seed_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "candidate_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_magician_blink_1080.png",
+      "seed_png_sha256": "bf754ce1130c922e828cdf2d3c742bda3ed22e73a5229b613e579c722a39dd0a",
+      "candidate_png_sha256": "bf754ce1130c922e828cdf2d3c742bda3ed22e73a5229b613e579c722a39dd0a",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_magician_blink_2400.png",
+      "seed_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "candidate_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_magician_tail_bend_0000.png",
+      "seed_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "candidate_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_magician_tail_bend_1100.png",
+      "seed_png_sha256": "a5cb876fd36e4a38be30c57e739b386b3f1b7acffd2e097770ec8679fbc41f91",
+      "candidate_png_sha256": "a5cb876fd36e4a38be30c57e739b386b3f1b7acffd2e097770ec8679fbc41f91",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_magician_tail_bend_2350.png",
+      "seed_png_sha256": "e0856ec9780a338a6777ae8b656d5f8c7ec0e8b3629d89cc34fa360eb1f4afdb",
+      "candidate_png_sha256": "e0856ec9780a338a6777ae8b656d5f8c7ec0e8b3629d89cc34fa360eb1f4afdb",
+      "changed_pixels": 0
+    },
+    {
+      "file": "original_magician_magician_tail_bend_4000.png",
+      "seed_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "candidate_png_sha256": "d9aaa8c39e3125ec5875dd3a1ad19b8f56fa2232bee3e176af76837bc25e86a8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_original_arm_bend_0000.png",
+      "seed_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "candidate_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_original_arm_bend_1550.png",
+      "seed_png_sha256": "55f99407d49b7e63c03bb2be7f93f0c7f4d9c5d483257484698f373c06224a63",
+      "candidate_png_sha256": "55f99407d49b7e63c03bb2be7f93f0c7f4d9c5d483257484698f373c06224a63",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_original_arm_bend_3200.png",
+      "seed_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "candidate_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_original_blink_0000.png",
+      "seed_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "candidate_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_original_blink_1080.png",
+      "seed_png_sha256": "b36e9974d7f63930f474b778fdb387587f16599bb895cbbdba2a7ba563706002",
+      "candidate_png_sha256": "b36e9974d7f63930f474b778fdb387587f16599bb895cbbdba2a7ba563706002",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_original_blink_2400.png",
+      "seed_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "candidate_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_original_tail_bend_0000.png",
+      "seed_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "candidate_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_original_tail_bend_1100.png",
+      "seed_png_sha256": "d3141baf7bbc7617e5abf6259ef03e48d0abedcdb8d73a9eae5998ac640e4d63",
+      "candidate_png_sha256": "d3141baf7bbc7617e5abf6259ef03e48d0abedcdb8d73a9eae5998ac640e4d63",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_original_tail_bend_2350.png",
+      "seed_png_sha256": "7c9321d49e2e4455398446960c9fe6794f424c275f095c1ed416b79bf541d328",
+      "candidate_png_sha256": "7c9321d49e2e4455398446960c9fe6794f424c275f095c1ed416b79bf541d328",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_original_tail_bend_4000.png",
+      "seed_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "candidate_png_sha256": "a5b85420ba787985ee495d62afef109459903d328ec21b258e214a853806776f",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_ballet_arm_bend_0000.png",
+      "seed_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "candidate_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_ballet_arm_bend_1550.png",
+      "seed_png_sha256": "e642826633893e878fd9b638491e9547f8c226c895c2b517463548b08b4c997e",
+      "candidate_png_sha256": "e642826633893e878fd9b638491e9547f8c226c895c2b517463548b08b4c997e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_ballet_arm_bend_3200.png",
+      "seed_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "candidate_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_ballet_blink_0000.png",
+      "seed_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "candidate_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_ballet_blink_1080.png",
+      "seed_png_sha256": "d3b927fd825aaf6a5f727cfa092f52b082caf1e43374b16d69b1c651c1c46167",
+      "candidate_png_sha256": "d3b927fd825aaf6a5f727cfa092f52b082caf1e43374b16d69b1c651c1c46167",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_ballet_blink_2400.png",
+      "seed_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "candidate_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_ballet_tail_bend_0000.png",
+      "seed_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "candidate_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_ballet_tail_bend_1100.png",
+      "seed_png_sha256": "ab47d964f8a3e9ba9462180a8ed0800b08df8064d6e07ba8ed9bd9d6238d3a39",
+      "candidate_png_sha256": "ab47d964f8a3e9ba9462180a8ed0800b08df8064d6e07ba8ed9bd9d6238d3a39",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_ballet_tail_bend_2350.png",
+      "seed_png_sha256": "0624e83c628311a6d54c265d2d1932c45067fbbb215ab5d91e94c780d60b3922",
+      "candidate_png_sha256": "0624e83c628311a6d54c265d2d1932c45067fbbb215ab5d91e94c780d60b3922",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_ballet_tail_bend_4000.png",
+      "seed_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "candidate_png_sha256": "dd82a273f6f8f750dd76e78571c80d86229861da1f8285a809313be9744677ed",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_magician_arm_bend_0000.png",
+      "seed_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "candidate_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_magician_arm_bend_1550.png",
+      "seed_png_sha256": "4e79faaf3c75890209e69874696c642c06884e86f64c769dbeeb4fef992829aa",
+      "candidate_png_sha256": "4e79faaf3c75890209e69874696c642c06884e86f64c769dbeeb4fef992829aa",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_magician_arm_bend_3200.png",
+      "seed_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "candidate_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_magician_blink_0000.png",
+      "seed_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "candidate_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_magician_blink_1080.png",
+      "seed_png_sha256": "3f480fc1bce7ac8c1d0e6ea1d413f722d822f3320e5b338be2e9ffce960cb031",
+      "candidate_png_sha256": "3f480fc1bce7ac8c1d0e6ea1d413f722d822f3320e5b338be2e9ffce960cb031",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_magician_blink_2400.png",
+      "seed_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "candidate_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_magician_tail_bend_0000.png",
+      "seed_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "candidate_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_magician_tail_bend_1100.png",
+      "seed_png_sha256": "b320c3673f05c7448cef7fadbedd3f84f27e6d81a6fd01e8f1341619799372cc",
+      "candidate_png_sha256": "b320c3673f05c7448cef7fadbedd3f84f27e6d81a6fd01e8f1341619799372cc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_magician_tail_bend_2350.png",
+      "seed_png_sha256": "279ef05c85dcd1c584035390f69236584fa601487f939d4e9394c9f59ef9f4d5",
+      "candidate_png_sha256": "279ef05c85dcd1c584035390f69236584fa601487f939d4e9394c9f59ef9f4d5",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_original_magician_tail_bend_4000.png",
+      "seed_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "candidate_png_sha256": "f38a8562b70474a1813f2d134004a4cb7da03a725201e6d851343df53290d7d2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_original_arm_bend_0000.png",
+      "seed_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "candidate_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_original_arm_bend_1550.png",
+      "seed_png_sha256": "d41af3bf24082b0e531f6e762a50c354ad972953d4fa7364579814c3e56b5d9a",
+      "candidate_png_sha256": "d41af3bf24082b0e531f6e762a50c354ad972953d4fa7364579814c3e56b5d9a",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_original_arm_bend_3200.png",
+      "seed_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "candidate_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_original_blink_0000.png",
+      "seed_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "candidate_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_original_blink_1080.png",
+      "seed_png_sha256": "4d28a483a4ee6cf348efef19c3cf1f61af218627e4bc53b3648edf9e810ffa60",
+      "candidate_png_sha256": "4d28a483a4ee6cf348efef19c3cf1f61af218627e4bc53b3648edf9e810ffa60",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_original_blink_2400.png",
+      "seed_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "candidate_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_original_tail_bend_0000.png",
+      "seed_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "candidate_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_original_tail_bend_1100.png",
+      "seed_png_sha256": "bd4b1fb02f734f541646153bb18cf795b2b1861fa9dd836e119f64a64ac3d6fc",
+      "candidate_png_sha256": "bd4b1fb02f734f541646153bb18cf795b2b1861fa9dd836e119f64a64ac3d6fc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_original_tail_bend_2350.png",
+      "seed_png_sha256": "6f42b641ff17edc793dac57152d76a070ba5032761d4eae9f7578aca80326c87",
+      "candidate_png_sha256": "6f42b641ff17edc793dac57152d76a070ba5032761d4eae9f7578aca80326c87",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_original_tail_bend_4000.png",
+      "seed_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "candidate_png_sha256": "4b39b9862a88ac203638a7c99b0401eb7797163e3e3a9744a48d0c718b1dd3db",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_ballet_arm_bend_0000.png",
+      "seed_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "candidate_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_ballet_arm_bend_1550.png",
+      "seed_png_sha256": "f67385bc008868c6eb67c5f276d8fcaf655836a054dba53f11ee17fd251565e6",
+      "candidate_png_sha256": "f67385bc008868c6eb67c5f276d8fcaf655836a054dba53f11ee17fd251565e6",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_ballet_arm_bend_3200.png",
+      "seed_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "candidate_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_ballet_blink_0000.png",
+      "seed_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "candidate_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_ballet_blink_1080.png",
+      "seed_png_sha256": "bb0623ec0a88e911209a6eb003a2f9227bedd71c368f428f17ebd61bde9da77a",
+      "candidate_png_sha256": "bb0623ec0a88e911209a6eb003a2f9227bedd71c368f428f17ebd61bde9da77a",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_ballet_blink_2400.png",
+      "seed_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "candidate_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_ballet_tail_bend_0000.png",
+      "seed_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "candidate_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_ballet_tail_bend_1100.png",
+      "seed_png_sha256": "b04d895ffc51aacd807a6a854020f0f964314ebe980ae285b695311951b64538",
+      "candidate_png_sha256": "b04d895ffc51aacd807a6a854020f0f964314ebe980ae285b695311951b64538",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_ballet_tail_bend_2350.png",
+      "seed_png_sha256": "7487da57feb7ae767bffed164cc6099245f021149031d270e5ee027e5a0ffb09",
+      "candidate_png_sha256": "7487da57feb7ae767bffed164cc6099245f021149031d270e5ee027e5a0ffb09",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_ballet_tail_bend_4000.png",
+      "seed_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "candidate_png_sha256": "1a08014cd4df0c175648e6caac43c333c15adc0bac16a5274232486c11b61998",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_magician_arm_bend_0000.png",
+      "seed_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "candidate_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_magician_arm_bend_1550.png",
+      "seed_png_sha256": "08e70a65828a33b09528b4c734823ea52ee2e404b60202b72d62d6cb85712b12",
+      "candidate_png_sha256": "08e70a65828a33b09528b4c734823ea52ee2e404b60202b72d62d6cb85712b12",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_magician_arm_bend_3200.png",
+      "seed_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "candidate_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_magician_blink_0000.png",
+      "seed_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "candidate_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_magician_blink_1080.png",
+      "seed_png_sha256": "7673291421b3dc6a966a888916e90d48ed605c92df0743375b2f2f7862687433",
+      "candidate_png_sha256": "7673291421b3dc6a966a888916e90d48ed605c92df0743375b2f2f7862687433",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_magician_blink_2400.png",
+      "seed_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "candidate_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_magician_tail_bend_0000.png",
+      "seed_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "candidate_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_magician_tail_bend_1100.png",
+      "seed_png_sha256": "757989f3787848269a14efb884aca3c1ff38afc505ae66425eb1abacf4daee8f",
+      "candidate_png_sha256": "757989f3787848269a14efb884aca3c1ff38afc505ae66425eb1abacf4daee8f",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_magician_tail_bend_2350.png",
+      "seed_png_sha256": "bb34c39e615181017c8447ee0d90afbb16a92aafa0565db6ce969fa672e544c3",
+      "candidate_png_sha256": "bb34c39e615181017c8447ee0d90afbb16a92aafa0565db6ce969fa672e544c3",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_ballet_magician_tail_bend_4000.png",
+      "seed_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "candidate_png_sha256": "472cd45af5b7f30b51f5e8b0ce9f10e757c257c294061d4e2d09d39795fb5e54",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_original_arm_bend_0000.png",
+      "seed_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "candidate_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_original_arm_bend_1550.png",
+      "seed_png_sha256": "4a4a796d263b8f889b43eb1358755850fc61e8b09ef3d7fa8a8683df0a160666",
+      "candidate_png_sha256": "4a4a796d263b8f889b43eb1358755850fc61e8b09ef3d7fa8a8683df0a160666",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_original_arm_bend_3200.png",
+      "seed_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "candidate_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_original_blink_0000.png",
+      "seed_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "candidate_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_original_blink_1080.png",
+      "seed_png_sha256": "a0f3d3bca0a42366b90fad7601165d78b5061e27e09fbd1698179741f028d816",
+      "candidate_png_sha256": "a0f3d3bca0a42366b90fad7601165d78b5061e27e09fbd1698179741f028d816",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_original_blink_2400.png",
+      "seed_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "candidate_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_original_tail_bend_0000.png",
+      "seed_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "candidate_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_original_tail_bend_1100.png",
+      "seed_png_sha256": "1aa4de26a25fc6be211582c2f39d0fa5f56b16a37de4f3fe419742dcb81e32c1",
+      "candidate_png_sha256": "1aa4de26a25fc6be211582c2f39d0fa5f56b16a37de4f3fe419742dcb81e32c1",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_original_tail_bend_2350.png",
+      "seed_png_sha256": "2bc68b82bf4c28622a55bdf9059dc97dbdb37e714cd81e9598f5d00fed8fe599",
+      "candidate_png_sha256": "2bc68b82bf4c28622a55bdf9059dc97dbdb37e714cd81e9598f5d00fed8fe599",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_original_tail_bend_4000.png",
+      "seed_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "candidate_png_sha256": "d6a9a07350e4cc04b1d0154480b44f5a17e8d6ac3699f3a8d1aa72a00e808ee8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_ballet_arm_bend_0000.png",
+      "seed_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "candidate_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_ballet_arm_bend_1550.png",
+      "seed_png_sha256": "3e8027c9f8b975de76dd38f90ab4554f8aada2e062517e42eaccf8b2199440dc",
+      "candidate_png_sha256": "3e8027c9f8b975de76dd38f90ab4554f8aada2e062517e42eaccf8b2199440dc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_ballet_arm_bend_3200.png",
+      "seed_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "candidate_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_ballet_blink_0000.png",
+      "seed_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "candidate_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_ballet_blink_1080.png",
+      "seed_png_sha256": "22f2f07b35c94b289c7eb60f312976f7a1228c3f2a9c9cab2bab728485d2f7b8",
+      "candidate_png_sha256": "22f2f07b35c94b289c7eb60f312976f7a1228c3f2a9c9cab2bab728485d2f7b8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_ballet_blink_2400.png",
+      "seed_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "candidate_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_ballet_tail_bend_0000.png",
+      "seed_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "candidate_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_ballet_tail_bend_1100.png",
+      "seed_png_sha256": "a9292c263a4d14977b55e6c77486ccab66b4ef0d49eba4af799e4f7d08050487",
+      "candidate_png_sha256": "a9292c263a4d14977b55e6c77486ccab66b4ef0d49eba4af799e4f7d08050487",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_ballet_tail_bend_2350.png",
+      "seed_png_sha256": "47d4e3867a2d8d701419115fc1f09f42c89e205545af2840006451125aa14817",
+      "candidate_png_sha256": "47d4e3867a2d8d701419115fc1f09f42c89e205545af2840006451125aa14817",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_ballet_tail_bend_4000.png",
+      "seed_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "candidate_png_sha256": "e10cf6b822afa1a1e2d3b4da36b5fe7e998341f4d5ea45a2cdd0ec2e70b9f4ae",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_magician_arm_bend_0000.png",
+      "seed_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "candidate_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_magician_arm_bend_1550.png",
+      "seed_png_sha256": "1ab280677e51213600e1fcc0dbff010a38dcd79a9b47bc6280a9b346a528e43b",
+      "candidate_png_sha256": "1ab280677e51213600e1fcc0dbff010a38dcd79a9b47bc6280a9b346a528e43b",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_magician_arm_bend_3200.png",
+      "seed_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "candidate_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_magician_blink_0000.png",
+      "seed_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "candidate_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_magician_blink_1080.png",
+      "seed_png_sha256": "a71b5c524ad8058e45388cfaad43a359a44eb8d02502f206b36b5b6cf9dd9f92",
+      "candidate_png_sha256": "a71b5c524ad8058e45388cfaad43a359a44eb8d02502f206b36b5b6cf9dd9f92",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_magician_blink_2400.png",
+      "seed_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "candidate_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_magician_tail_bend_0000.png",
+      "seed_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "candidate_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_magician_tail_bend_1100.png",
+      "seed_png_sha256": "5425f3f0560c91ed392e4165cd99c881b45cebeb207cfaf5b2a0b644abc8c977",
+      "candidate_png_sha256": "5425f3f0560c91ed392e4165cd99c881b45cebeb207cfaf5b2a0b644abc8c977",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_magician_tail_bend_2350.png",
+      "seed_png_sha256": "544b6120e6983e87b9ff70365a817b766c3a163a023dac6fa9c84eac17a60a59",
+      "candidate_png_sha256": "544b6120e6983e87b9ff70365a817b766c3a163a023dac6fa9c84eac17a60a59",
+      "changed_pixels": 0
+    },
+    {
+      "file": "ballet_magician_magician_tail_bend_4000.png",
+      "seed_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "candidate_png_sha256": "25da2b80665a3047bb7dc3a632fd8676447954de318ccc81e07ed7c2504ca0fb",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_original_arm_bend_0000.png",
+      "seed_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "candidate_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_original_arm_bend_1550.png",
+      "seed_png_sha256": "94791ae8a2a74c082949f40eef4ea81fdf2885a8d55bdca43cbbd83be0148935",
+      "candidate_png_sha256": "94791ae8a2a74c082949f40eef4ea81fdf2885a8d55bdca43cbbd83be0148935",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_original_arm_bend_3200.png",
+      "seed_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "candidate_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_original_blink_0000.png",
+      "seed_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "candidate_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_original_blink_1080.png",
+      "seed_png_sha256": "8bf23ca421ea2507bc1b342e3235ec131e642b933ad82eb39e8444d0eb15c1df",
+      "candidate_png_sha256": "8bf23ca421ea2507bc1b342e3235ec131e642b933ad82eb39e8444d0eb15c1df",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_original_blink_2400.png",
+      "seed_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "candidate_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_original_tail_bend_0000.png",
+      "seed_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "candidate_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_original_tail_bend_1100.png",
+      "seed_png_sha256": "8def89faf939fad40fa033db9e0743fd0fceb03322a931c3f952e7d148f50d26",
+      "candidate_png_sha256": "8def89faf939fad40fa033db9e0743fd0fceb03322a931c3f952e7d148f50d26",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_original_tail_bend_2350.png",
+      "seed_png_sha256": "ce8c9bc8821ac1bf689ca232d133c3780eff1731c1e71aca153ba4bd5dd16bb2",
+      "candidate_png_sha256": "ce8c9bc8821ac1bf689ca232d133c3780eff1731c1e71aca153ba4bd5dd16bb2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_original_tail_bend_4000.png",
+      "seed_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "candidate_png_sha256": "4b7d8a16fe3aed50ea27667d4c174013616b2e015853c3bfe0c1bf2745211820",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_ballet_arm_bend_0000.png",
+      "seed_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "candidate_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_ballet_arm_bend_1550.png",
+      "seed_png_sha256": "5754085c3c823e6ed19636171cae953eef3bec4c00df4e7708e527065789b01a",
+      "candidate_png_sha256": "5754085c3c823e6ed19636171cae953eef3bec4c00df4e7708e527065789b01a",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_ballet_arm_bend_3200.png",
+      "seed_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "candidate_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_ballet_blink_0000.png",
+      "seed_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "candidate_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_ballet_blink_1080.png",
+      "seed_png_sha256": "70eb80b704024cb7b15aae58f195859ab0f621e73ef91a300d10b3a4a167f737",
+      "candidate_png_sha256": "70eb80b704024cb7b15aae58f195859ab0f621e73ef91a300d10b3a4a167f737",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_ballet_blink_2400.png",
+      "seed_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "candidate_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_ballet_tail_bend_0000.png",
+      "seed_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "candidate_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_ballet_tail_bend_1100.png",
+      "seed_png_sha256": "d1492390249e0b857a7f39bf5c1829575cede0fb881ba80924905f400e23166b",
+      "candidate_png_sha256": "d1492390249e0b857a7f39bf5c1829575cede0fb881ba80924905f400e23166b",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_ballet_tail_bend_2350.png",
+      "seed_png_sha256": "b497b3480bd2299a8fd3087803bbd203f450666a03a40833cd9a98a2d5e70e83",
+      "candidate_png_sha256": "b497b3480bd2299a8fd3087803bbd203f450666a03a40833cd9a98a2d5e70e83",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_ballet_tail_bend_4000.png",
+      "seed_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "candidate_png_sha256": "b69da6d5bc31c0340a1e94b57d5d0ccfa92ef13cdd7b24c22ecdc950b738e666",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_magician_arm_bend_0000.png",
+      "seed_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "candidate_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_magician_arm_bend_1550.png",
+      "seed_png_sha256": "67d702c4da86baa1e92f9b6ee6c22eec04590fa89c045016923cda590daf894e",
+      "candidate_png_sha256": "67d702c4da86baa1e92f9b6ee6c22eec04590fa89c045016923cda590daf894e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_magician_arm_bend_3200.png",
+      "seed_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "candidate_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_magician_blink_0000.png",
+      "seed_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "candidate_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_magician_blink_1080.png",
+      "seed_png_sha256": "835fee7dcac5c2c9bfe83f485c46c41ce2f2f3d2bd322d9394218cac1b9cc45a",
+      "candidate_png_sha256": "835fee7dcac5c2c9bfe83f485c46c41ce2f2f3d2bd322d9394218cac1b9cc45a",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_magician_blink_2400.png",
+      "seed_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "candidate_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_magician_tail_bend_0000.png",
+      "seed_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "candidate_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_magician_tail_bend_1100.png",
+      "seed_png_sha256": "974c2ae495fe5134c1eb1a3d1047d37200c8c0e9e6f5701288f91ad77de48c45",
+      "candidate_png_sha256": "974c2ae495fe5134c1eb1a3d1047d37200c8c0e9e6f5701288f91ad77de48c45",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_magician_tail_bend_2350.png",
+      "seed_png_sha256": "0d0b92cb9ef3b70e3c3efedc92c4b6fa2fbc78e4d41a6279d187975e587609da",
+      "candidate_png_sha256": "0d0b92cb9ef3b70e3c3efedc92c4b6fa2fbc78e4d41a6279d187975e587609da",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_original_magician_tail_bend_4000.png",
+      "seed_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "candidate_png_sha256": "1a5acf0a3a35cbb7f77aa31a4838beb3e707c58bf2230db4d81196848a5963cc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_original_arm_bend_0000.png",
+      "seed_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "candidate_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_original_arm_bend_1550.png",
+      "seed_png_sha256": "f2b0b5d887e6d20e598003bfd987f5d570cf4fab77ae20bfa6f8425a448307bc",
+      "candidate_png_sha256": "f2b0b5d887e6d20e598003bfd987f5d570cf4fab77ae20bfa6f8425a448307bc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_original_arm_bend_3200.png",
+      "seed_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "candidate_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_original_blink_0000.png",
+      "seed_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "candidate_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_original_blink_1080.png",
+      "seed_png_sha256": "9471c98d533b17b66369254ed2a7ca79101d93f343132929b7faaf184ae11f21",
+      "candidate_png_sha256": "9471c98d533b17b66369254ed2a7ca79101d93f343132929b7faaf184ae11f21",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_original_blink_2400.png",
+      "seed_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "candidate_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_original_tail_bend_0000.png",
+      "seed_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "candidate_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_original_tail_bend_1100.png",
+      "seed_png_sha256": "9d1bf6a1348f98e5af12f4d2715693853596b81ea2b7888ebd6aeace20c775af",
+      "candidate_png_sha256": "9d1bf6a1348f98e5af12f4d2715693853596b81ea2b7888ebd6aeace20c775af",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_original_tail_bend_2350.png",
+      "seed_png_sha256": "d8ede1518cad428a6f4306804753efa23859ab3a2969ca8b1e34bf901a8841b3",
+      "candidate_png_sha256": "d8ede1518cad428a6f4306804753efa23859ab3a2969ca8b1e34bf901a8841b3",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_original_tail_bend_4000.png",
+      "seed_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "candidate_png_sha256": "f98f80bc6b9610eaa73ac264f24b6c176f3e665a9bcc93ff70cda462077abce9",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_ballet_arm_bend_0000.png",
+      "seed_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "candidate_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_ballet_arm_bend_1550.png",
+      "seed_png_sha256": "a5959d5938a8ca3e6f16fa47151aaeefb337c092358a8c2bb4d1b61325457309",
+      "candidate_png_sha256": "a5959d5938a8ca3e6f16fa47151aaeefb337c092358a8c2bb4d1b61325457309",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_ballet_arm_bend_3200.png",
+      "seed_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "candidate_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_ballet_blink_0000.png",
+      "seed_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "candidate_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_ballet_blink_1080.png",
+      "seed_png_sha256": "70a58338d5f316fab1ade9b78050a4a46ac532cca2f674a29943a311584b91c9",
+      "candidate_png_sha256": "70a58338d5f316fab1ade9b78050a4a46ac532cca2f674a29943a311584b91c9",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_ballet_blink_2400.png",
+      "seed_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "candidate_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_ballet_tail_bend_0000.png",
+      "seed_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "candidate_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_ballet_tail_bend_1100.png",
+      "seed_png_sha256": "64d469b20c86267bd694e145fcb42dae4bffd53e2b270ee83bb24a26420f35b8",
+      "candidate_png_sha256": "64d469b20c86267bd694e145fcb42dae4bffd53e2b270ee83bb24a26420f35b8",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_ballet_tail_bend_2350.png",
+      "seed_png_sha256": "d607e010fcdc1d45f28622c56fb32603c175ffce04e67d7f9344b767c7e0f827",
+      "candidate_png_sha256": "d607e010fcdc1d45f28622c56fb32603c175ffce04e67d7f9344b767c7e0f827",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_ballet_tail_bend_4000.png",
+      "seed_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "candidate_png_sha256": "4930fd627a35680a3d041737f9c911f7ebe34daea3f2cb4f3b6b07be05cf268e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_magician_arm_bend_0000.png",
+      "seed_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "candidate_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_magician_arm_bend_1550.png",
+      "seed_png_sha256": "c8b1fc691f0b1792f04b54827a2ffdb39820d9e705e2f02f0b141113f3a4f40a",
+      "candidate_png_sha256": "c8b1fc691f0b1792f04b54827a2ffdb39820d9e705e2f02f0b141113f3a4f40a",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_magician_arm_bend_3200.png",
+      "seed_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "candidate_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_magician_blink_0000.png",
+      "seed_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "candidate_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_magician_blink_1080.png",
+      "seed_png_sha256": "2175962f4ecf9a9af3fb2825c9f2ee7716bc2430efa96de070872bea826cf30e",
+      "candidate_png_sha256": "2175962f4ecf9a9af3fb2825c9f2ee7716bc2430efa96de070872bea826cf30e",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_magician_blink_2400.png",
+      "seed_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "candidate_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_magician_tail_bend_0000.png",
+      "seed_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "candidate_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_magician_tail_bend_1100.png",
+      "seed_png_sha256": "8d54b3fedb3062141c8dccf5afdea07ffcfb1f92b8107101712c306c3f812f72",
+      "candidate_png_sha256": "8d54b3fedb3062141c8dccf5afdea07ffcfb1f92b8107101712c306c3f812f72",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_magician_tail_bend_2350.png",
+      "seed_png_sha256": "9565e2294b061b66b970dbee8baafd110c786f05584e2b95c9d6e7e3d8062312",
+      "candidate_png_sha256": "9565e2294b061b66b970dbee8baafd110c786f05584e2b95c9d6e7e3d8062312",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_ballet_magician_tail_bend_4000.png",
+      "seed_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "candidate_png_sha256": "1ba9385a46c14af70f150746321ce07cfe7186bd8b55284af1b09241047158da",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_original_arm_bend_0000.png",
+      "seed_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "candidate_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_original_arm_bend_1550.png",
+      "seed_png_sha256": "985b8a7ed54df309a4e813e00dd3bfcab5a18f1ca83b8cae4ff346640b0c797b",
+      "candidate_png_sha256": "985b8a7ed54df309a4e813e00dd3bfcab5a18f1ca83b8cae4ff346640b0c797b",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_original_arm_bend_3200.png",
+      "seed_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "candidate_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_original_blink_0000.png",
+      "seed_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "candidate_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_original_blink_1080.png",
+      "seed_png_sha256": "3b63580ad3afe7711445a64a45760e2152be9df4454cca40a30513b886ff3bd2",
+      "candidate_png_sha256": "3b63580ad3afe7711445a64a45760e2152be9df4454cca40a30513b886ff3bd2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_original_blink_2400.png",
+      "seed_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "candidate_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_original_tail_bend_0000.png",
+      "seed_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "candidate_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_original_tail_bend_1100.png",
+      "seed_png_sha256": "cb88859f5edb066da6bcb0156dbccce21f79fe994d8038daca612bf1b9a9d593",
+      "candidate_png_sha256": "cb88859f5edb066da6bcb0156dbccce21f79fe994d8038daca612bf1b9a9d593",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_original_tail_bend_2350.png",
+      "seed_png_sha256": "b813ca6aec0bf0fe5acf5f8178c12e9245994198cc833d57fc3f7f2c78c69b45",
+      "candidate_png_sha256": "b813ca6aec0bf0fe5acf5f8178c12e9245994198cc833d57fc3f7f2c78c69b45",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_original_tail_bend_4000.png",
+      "seed_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "candidate_png_sha256": "e4183e72ac9bcd3d29d6bd8c8ac1e3440d46aeb2e2f2fec3b5f7c244bb9f9619",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_ballet_arm_bend_0000.png",
+      "seed_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "candidate_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_ballet_arm_bend_1550.png",
+      "seed_png_sha256": "082cc9d1808c13a7ec2d8df3f3dbb6ef04918d3956332270f15f518d3d70ded4",
+      "candidate_png_sha256": "082cc9d1808c13a7ec2d8df3f3dbb6ef04918d3956332270f15f518d3d70ded4",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_ballet_arm_bend_3200.png",
+      "seed_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "candidate_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_ballet_blink_0000.png",
+      "seed_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "candidate_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_ballet_blink_1080.png",
+      "seed_png_sha256": "9766802b869399d0e185e2e1e528dec1bc8d07cb8268509fd199e30f70c48636",
+      "candidate_png_sha256": "9766802b869399d0e185e2e1e528dec1bc8d07cb8268509fd199e30f70c48636",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_ballet_blink_2400.png",
+      "seed_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "candidate_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_ballet_tail_bend_0000.png",
+      "seed_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "candidate_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_ballet_tail_bend_1100.png",
+      "seed_png_sha256": "45854faaea9c472a2907560a72964b4a7f8333b4219ceb681345285e620e8147",
+      "candidate_png_sha256": "45854faaea9c472a2907560a72964b4a7f8333b4219ceb681345285e620e8147",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_ballet_tail_bend_2350.png",
+      "seed_png_sha256": "ec78483c19deaf04ceaeda322bed86ca59b0e61a5b655336adff65bc9987c1fc",
+      "candidate_png_sha256": "ec78483c19deaf04ceaeda322bed86ca59b0e61a5b655336adff65bc9987c1fc",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_ballet_tail_bend_4000.png",
+      "seed_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "candidate_png_sha256": "f30b3862dff4008287cd2a99a24c6573c90038f3e6940a8e23ddf22a8ed09624",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_magician_arm_bend_0000.png",
+      "seed_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "candidate_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_magician_arm_bend_1550.png",
+      "seed_png_sha256": "87c54cc386ea9c0904803bafb172e5ff723fecfd5246a1c15a5eccaa0b6368e2",
+      "candidate_png_sha256": "87c54cc386ea9c0904803bafb172e5ff723fecfd5246a1c15a5eccaa0b6368e2",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_magician_arm_bend_3200.png",
+      "seed_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "candidate_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_magician_blink_0000.png",
+      "seed_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "candidate_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_magician_blink_1080.png",
+      "seed_png_sha256": "bb06b13d82cc958cb1d16e87f8aa66eb7d10e776025783d6cdc1954024333e1a",
+      "candidate_png_sha256": "bb06b13d82cc958cb1d16e87f8aa66eb7d10e776025783d6cdc1954024333e1a",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_magician_blink_2400.png",
+      "seed_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "candidate_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_magician_tail_bend_0000.png",
+      "seed_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "candidate_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_magician_tail_bend_1100.png",
+      "seed_png_sha256": "9c10b02fd8af9604fd0a40fce3b1eb31852c0152211f6ed3514f1cdee1871b61",
+      "candidate_png_sha256": "9c10b02fd8af9604fd0a40fce3b1eb31852c0152211f6ed3514f1cdee1871b61",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_magician_tail_bend_2350.png",
+      "seed_png_sha256": "6604fb864ba021e32fcd4e0f7f7ca8517762aed59d77c8304248d55132f0500d",
+      "candidate_png_sha256": "6604fb864ba021e32fcd4e0f7f7ca8517762aed59d77c8304248d55132f0500d",
+      "changed_pixels": 0
+    },
+    {
+      "file": "magician_magician_magician_tail_bend_4000.png",
+      "seed_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "candidate_png_sha256": "6cd405278e4567ef9ce8a19147461d16c334fc6b68b6f4064a60f6659de156be",
+      "changed_pixels": 0
+    }
+  ],
+  "snapshots": 270,
+  "mismatch_snapshots": 0,
+  "pass": true,
+  "limit": "Ten times per legacy outfit; does not establish continuous motion quality or compatibility of new mixed garments."
+}

@@ -1,0 +1,184 @@
+{
+  "pass": true,
+  "checked_at_utc": "2026-11-01T01:10:44.970331+00:00",
+  "checks": [
+    {
+      "name": "final_gd_parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/probe_opera_2d.gd",
+        "assets_src/animation/native_rig_costumes_20261031/scripts/trace_melody.gd",
+        "assets_src/animation/native_rig_costumes_20261031/scripts/trace_opera_2d.gd",
+        "assets_src/animation/native_rig_costumes_20261031/godot/render_stress.gd",
+        "assets_src/animation/native_rig_costumes_20261031/godot/stress_swaps.gd",
+        "assets_src/animation/native_rig_costumes_20261031/godot/study.gd"
+      ],
+      "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef",
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "tools/lint_inference.py",
+        "scripts/probe_opera_2d.gd",
+        "assets_src/animation/native_rig_costumes_20261031/scripts/trace_melody.gd",
+        "assets_src/animation/native_rig_costumes_20261031/scripts/trace_opera_2d.gd",
+        "assets_src/animation/native_rig_costumes_20261031/godot/render_stress.gd",
+        "assets_src/animation/native_rig_costumes_20261031/godot/stress_swaps.gd",
+        "assets_src/animation/native_rig_costumes_20261031/godot/study.gd"
+      ],
+      "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef",
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_analyzer_probe_opera_2d",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "res://scripts/probe_opera_2d.gd"
+      ],
+      "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef",
+      "exit": 0,
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_analyzer_trace_melody",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "res://assets_src/animation/native_rig_costumes_20261031/scripts/trace_melody.gd"
+      ],
+      "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef",
+      "exit": 0,
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_analyzer_trace_opera_2d",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef",
+        "--check-only",
+        "-s",
+        "res://assets_src/animation/native_rig_costumes_20261031/scripts/trace_opera_2d.gd"
+      ],
+      "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef",
+      "exit": 0,
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_analyzer_render_stress",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\godot",
+        "--check-only",
+        "-s",
+        "res://render_stress.gd"
+      ],
+      "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\godot",
+      "exit": 0,
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_analyzer_stress_swaps",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\godot",
+        "--check-only",
+        "-s",
+        "res://stress_swaps.gd"
+      ],
+      "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\godot",
+      "exit": 0,
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_analyzer_study",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\godot",
+        "--check-only",
+        "-s",
+        "res://study.gd"
+      ],
+      "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef\\assets_src\\animation\\native_rig_costumes_20261031\\godot",
+      "exit": 0,
+      "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef",
+      "exit": 0,
+      "stdout_sha256": "d71f89f48b9097c456686f0a41da94d4790b85ed87b97fd600377dfada9caa1c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef",
+      "exit": 0,
+      "stdout_sha256": "7f368e4906a83cc2b69851c1acf6ae8c58bbcdd861d8482c5353b8de36e2a0ab",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "final_whitespace",
+      "command": [
+        "git",
+        "diff",
+        "HEAD",
+        "--check"
+      ],
+      "cwd": "C:\\Users\\Peter\\.codex\\worktrees\\native-rig-stress-20261031\\mermaid-roshan-reef",
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "23ad3d5e0f867e0dd6771900fdf120d9a0e3f18028ac51b5daa1073b81be32e2"
+    }
+  ],
+  "python_compile": {
+    "files": 13,
+    "errors": [],
+    "rechecked_after_metadata_edits": true
+  },
+  "limits": "Source/document checks; local complete 82-probe receipt and published exact-head CI are separate. No device/child/owner acceptance.",
+  "whitespace_repair": "Preserve exact CRLF source auditor bytes while recognizing CR at end of line through scoped whitespace=cr-at-eol. Actual trailing spaces remain checked; original failure retained as initial_final_whitespace.log.",
+  "portability": "evidence/portable_helpers.json preserves executed bytes and proves normalized text equality."
+}

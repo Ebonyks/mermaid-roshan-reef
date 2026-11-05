@@ -1,0 +1,46 @@
+{
+  "pass": true,
+  "scope": "Latest individual probe verdicts, including a separately recorded unchanged Melody retest; not an uninterrupted green full-suite claim.",
+  "single_full_rerun_pass": false,
+  "whole_run_nonzero": [
+    [
+      "probe_melody",
+      "1"
+    ]
+  ],
+  "checks": {
+    "exact_ci_probe_loop": true,
+    "exact_roster_82": true,
+    "latest_individual_probes_all_zero": true,
+    "whole_run_nonzero_only_melody": true,
+    "non_melody_failure_classifier_clear": true,
+    "melody_source_unchanged": true,
+    "melody_focused_all_ok": true,
+    "repaired_focus_exit_zero": true,
+    "positive_geologist_sample": true,
+    "same_geometry_predicate": true,
+    "original_failure_retained": true
+  },
+  "initial_full_lane": "81 of 82 processes zero; Geologist zero-sample probe false-negative, independently reproduced. Import and 2D scan retained in original log.",
+  "final_lane": "All 82 trusted probes rerun after the probe-only repair, same flags, isolated saves, timeouts and classifiers. Melody has an intermittent post-pause miss with a downstream count failure; read-only trace and uninstrumented focused retest pass. Cause remains unproven. No Melody assertion or gameplay source change.",
+  "root_probe_sha256": "f086d17b81c25daf2b403675e475822cef5969b5f38dcb6e40ddb9932e9a4fe7",
+  "melody_probe_sha256": "27195d2f943b4b71d74225cd5ac743e4bf209557a861bb43b43156b7dda01f02",
+  "evidence": {
+    "project_gates.log": "3d618264d66bc7b9eb3d006fe63e8ad963837d18ecaf648a5b0a2fef1573768d",
+    "project_gates.exit": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "opera_2d_focused.log": "c8c7a9809c338e96a4e9c34ea06904c43f04f1a1172c8648ba9a42d144abb758",
+    "opera_2d_diagnostic.log": "625c4f4211cbc3b52f17c3f922e3cd17483c759da4cac3ba4003bbc2aea79193",
+    "geologist_sampling_diagnosis.json": "17320e013110a4e698c25025e785f439e5b30a1d9d8b406f40e44baa8f90809f",
+    "opera_2d_repaired.log": "6a19dcb3c758a47010fc8528490fd66993653081147b3641711018c2c5f8560e",
+    "opera_2d_repaired.exit": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "project_probes_rerun.log": "a7ce2fd6122aa6fea643d85dbe791042832a2e9b676edd1ad3cc279f80def863",
+    "project_probes_rerun.exit": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "melody_rerun_initial.log": "face02e3d48523549d5e646907667ca6c16b56b680741765162288530a33d785",
+    "melody_baseline.json": "086d8395f3f7148023b514404163131dc64b80c403fd4dc8843d5e134bf52ac9",
+    "melody_diagnostic.log": "ca582387cc8a7a47edb191a5b32ee9b14b7541ed6ede1839f2f2a3a6e63c1bd2",
+    "melody_diagnostic.exit": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "melody_focused.log": "98ae51b7c6f145393dddb548f0544d12d72d85f1670c34bdb7e4192342a1d708",
+    "melody_focused.exit": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+  },
+  "limits": "Local per-probe lane, not a newly run entire static/audio CI prefix. The retained non-green whole run remains non-green. Exact published-head full CI is separate. This does not close MA-CI-007 or establish owner/device/child acceptance."
+}

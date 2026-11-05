@@ -1,0 +1,52 @@
+{
+  "unchanged_auditors": {
+    "audit_study.py": {
+      "sha256": "eef44a94b735a0dcac30addc8ed009204a1a11e33147d46522c0901915fedd74",
+      "byte_identical": true
+    },
+    "audit_motion.py": {
+      "sha256": "9d1245416eee6eef61015a151d85e013eb5b45d52d17e0e7a920672d17433908",
+      "byte_identical": true
+    }
+  },
+  "shared_meshes": {
+    "Body": {
+      "vertices": true,
+      "triangles": true,
+      "weights": true,
+      "z": true
+    },
+    "UpperArm": {
+      "vertices": true,
+      "triangles": true,
+      "weights": true,
+      "z": true
+    },
+    "Forearm": {
+      "vertices": true,
+      "triangles": true,
+      "weights": true,
+      "z": true
+    }
+  },
+  "action_curves": "Compare exact function source build_animation/authored_pose/clip_length/ease5/pulse with baseline.",
+  "bones_identical": true,
+  "shared_functions_identical": {
+    "ease5": true,
+    "pulse": true,
+    "authored_pose": true,
+    "clip_length": true,
+    "build_animation": true,
+    "set_pose": true,
+    "state_record": true
+  },
+  "wardrobe_ids_present": {
+    "head_ballet_v1": true,
+    "head_magician_v1": true,
+    "body_ballet_v1": true,
+    "body_magician_v1": true,
+    "tail_ballet_v1": true,
+    "tail_magician_v1": true
+  },
+  "pass": true
+}

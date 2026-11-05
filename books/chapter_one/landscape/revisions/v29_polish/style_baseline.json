@@ -1,0 +1,752 @@
+{
+  "schema": "book_style_baseline_v1",
+  "baseline_revision": "5da33b22c9b95358d98defe8e340a901d5470991",
+  "reviewer_role": "Independent internal composition/background/pacing review",
+  "reviewed_artifact": "books/chapter_one/landscape/revisions/v28_kindness/complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf",
+  "source_reference": "C:/Users/Peter/Downloads/Mermaid_Roshan_REVIEW-1.pdf",
+  "scope": "34-page finished-story book. All V28 page PNGs inspected at full rendered resolution; original34-pages on contact sheet plus enlarged original3,5,9,16,21,22,28,31. Reuse-first repo props inspected. No plot or pagination changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08",
+    "BK-BG-01",
+    "BK-BG-02",
+    "BK-BG-03",
+    "BK-BG-04",
+    "BK-BG-05",
+    "BK-BG-06",
+    "BK-BG-07",
+    "BK-BG-08",
+    "BK-BG-09",
+    "BK-BG-10",
+    "BK-PG-01"
+  ],
+  "master_audit_scale_limit": "audit/MASTER_AUDIT_2026-08-09.md section 1.1 defines5 as release-proven, including intended-child/owner acceptance. Values below are independent internal craft estimates, not game-master satisfaction or owner/child/SLP acceptance. They retain defects separately and do not close MA findings.",
+  "internal_craft_rubric": {
+    "basis": "Qualitative visual estimate across focal hierarchy, event-specific background/prop use, source/style continuity, physical-page type readability and pacing; not a calibrated scientific rating.",
+    "anchors": {
+      "1": "Missing/broken",
+      "2": "Major repair",
+      "3": "Material clarity/style gap",
+      "4": "Strong with specific polish gaps",
+      "5": "Reserved, cannot claim final acceptance from this review",
+      "4.9": "Internal visual target: no observed material craft defect at review scale"
+    },
+    "limitation": "No print proof, professional speech-language review, or observed-child acceptance in this independent review."
+  },
+  "original_design_findings": [
+    {
+      "finding": "Alternating full art and true contour cutouts",
+      "evidence": "Original pages6/8/12/14/17/19/20/23/24/27/30/32 full-art; pages4/5/9/16/21/22/28/31 stationery use transparent figures/props. Current book now honors this distinction."
+    },
+    {
+      "finding": "Bottom details tell the same event",
+      "evidence": "Original16 cooking banks contain egg, whisk and spices;21 craft banks glue, thread, scissors/buttons;28sleep shows Eagle asleep rather than same idle image.",
+      "implication": "Current clean-room banks should show relevant actions/props, not repetitive brushes/suds."
+    },
+    {
+      "finding": "Base is quiet and simple, ornament concentrated low",
+      "evidence": "Original pale aqua wash and fine dot perimeter leave story text/figures dominant; decorative shells/coral exist but are varied in soft color.",
+      "implication": "Keep blue base and low slopes. Add curated story details, not a panoramic intricate background behind text."
+    },
+    {
+      "finding": "Main figure/text placement varies",
+      "evidence": "Original16 has three cooking action cutouts around middle text;21 table upper and crafts below;28large bed with top caption;31hug with top caption.",
+      "implication": "Keep successful current16 side caption; avoid mechanically identical central cutout on every page. Current book's layout rhythm is already substantially improved."
+    },
+    {
+      "finding": "Dust bunny actors can replace Eagle marginal actions",
+      "evidence": "Original28sleeping Eagle and29playful plush details offer model for event-responsive mini acting; owner explicitly asks dustbunnies fill this role in newstory.",
+      "implication": "Vary marginal counts0–2 here, different eyelines and pearl-paw actions. Do not duplicate the main illustration props."
+    },
+    {
+      "finding": "Original is precedent, not perfectly consistent mandatory template",
+      "evidence": "Original includes some rectangular secondary contextual image and objects larger than present12%limit.",
+      "implication": "Latest owner's explicit full-art/cutout and bounded banks rules control; do not revive older exceptions without request."
+    }
+  ],
+  "rhythm_review": {
+    "current": "Four opening full-art pages establish place, then tool stationery. Bathroom alternates6F/7C/8C/9F; pool10F/11C/12F–15F/16C; rescue17F–19F/20C; craft21C/22F; door23F; Puff24C/25C/26F–29F; reflection30C/play31C/sleep32F.",
+    "judgment": "Purposeful cinematic opening and four-page transformation runs can remain. Action-closeups and stationery relief provide pacing. No need to insert/remove pages or invent subplot.",
+    "open": "Setting continuity17→18, tangible completed-clean payoff22, and weak full-art typography are more important than redistributing finished story."
+  },
+  "bank_constraints": "All decorative objects below normalized y=0.85, both width/height<=0.12, low mound grounding through 10% occlusion+soft contact shadow, central gap clear; reserve speaking-character exception already explicitly approved instead of silently declaring compliance.",
+  "lamma": {
+    "canonical_reference": "assets/sprites/stuffie_studio/lamma.png",
+    "legacy_reference": "assets/characters/lamb_0.png",
+    "identity": "Same round white plush family. CleanRGBA has broad sideways ears, scalloped white wool, navy round lash eyes, peach cheeks/Y mouth, lavender egg; oldlamb0 includes text and teal fringe.",
+    "current_problem": "V28has2 nominal peeks already, but neither reliably communicates unmistakable Lamma at reading size; user says she is absent, so replace these ambiguous peeks rather than stacking extra appearances.",
+    "plan": [
+      {
+        "page": 9,
+        "location": "Behind towel basket left",
+        "shape": "Visible actual face and sideways ears; body/egg concealed by towels."
+      },
+      {
+        "page": 31,
+        "location": "Behind tiny toy chest/toys in left bank",
+        "shape": "Actual white fluffy head and ears, no generic blue cat face."
+      }
+    ],
+    "subtlety": "About 55–65 pixels visible head at1484x1060 native as a starting point, adjust on page proof. Match cleanRGBA colors; no label, search prompt, repeated icon or arrow."
+  },
+  "preserve_pages": [
+    0,
+    11,
+    21,
+    29,
+    33
+  ],
+  "priority_fixes": [
+    "Full-art captions across pages1,4,6,10,12–15,17–19,22–23,26–29,32 use thin white outlines aroundnavy and become visualnoise; improve solid contrast at actual print size.",
+    "Source-preserving page 3 detail restoration; no full scene replacement or door geometry changes.",
+    "Local page 22 paint-puddle completion fix.",
+    "Dirty toy-room/playroom continuity from pages 17 to 18–19.",
+    "page 14 necklace/bracelet andpages 18–19 top variation identity repairs.",
+    "Ten bank plans +two actual Lamma peek replacements, preserving strong page 21.",
+    "Small page 20 speech-bubble tails point near body/face, avoid ear attachment and huge callout."
+  ],
+  "pages": [
+    {
+      "page": 0,
+      "label": "Front cover",
+      "mode": "F",
+      "internal_craft_score": 4.8,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Rendered scene, strong welcome pose and narrative props; title is legible."
+      ],
+      "open_criteria": [
+        "Preserve owner-approved composite. Print proof must check title/subtitle trim and fine facial detail."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 1,
+      "label": "Look through airplane window",
+      "mode": "F",
+      "internal_craft_score": 4.2,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Clear closeup point-of-view establishes destination."
+      ],
+      "open_criteria": [
+        "Navy lettering with thin white halo crosses teal metal and window rim; use solid high-contrast type on quiet metal. Keep main facial silhouette and castle view."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 2,
+      "label": "Sky Lagoon arrival",
+      "mode": "F",
+      "internal_craft_score": 4.6,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Wide source art suits landscape; arrival is unambiguous."
+      ],
+      "open_criteria": [
+        "Caption halo unnecessary over bright sky; simplify to solid navy. No foreground people needed if text identifies arrival."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 3,
+      "label": "Entering dirty castle",
+      "mode": "F",
+      "internal_craft_score": 4,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Correct open doors now communicate entry, no source-breaking invented scene."
+      ],
+      "open_criteria": [
+        "Soft source density visibly below adjacent pages; bounded source restoration of faces/crown/tail/door edges. Roshan crown is side-profile variant but should retain same turquoise jewel identity. Preserve current door seams/geometry."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 4,
+      "label": "Dusty castle exploration",
+      "mode": "F",
+      "internal_craft_score": 4.3,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Makes cleaning need and indoor location explicit; dust piles are visible."
+      ],
+      "open_criteria": [
+        "Thin outlined text across busy cornice/column loses emphasis. Use quiet-wall caption zone and strong type. Preserve source architecture; theatre icon is not a reason to replace this legitimate hall."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 5,
+      "label": "Cleaning tools",
+      "mode": "C",
+      "internal_craft_score": 4.4,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Large brush and sponge contour cutouts are clear."
+      ],
+      "open_criteria": [
+        "Bank bunny beside generic bucket reads idle; personalize with supply-basket peek and differentiated right soap dish. Never duplicate main brush or sponge in margin."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 6,
+      "label": "Dirty bath bunny",
+      "mode": "F",
+      "internal_craft_score": 4.5,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Bunny has strong action and pearly paws; green bath grime reads well."
+      ],
+      "open_criteria": [
+        "Bottom caption crosses noisy tub/floor textures. Improve text contrast; preserve expressive bunny. Avoid adding extra distracting props to full art."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 7,
+      "label": "Wiping shell sink",
+      "mode": "C",
+      "internal_craft_score": 4.5,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Main figure and sink form connected contour cutout; wiping contact is visible."
+      ],
+      "open_criteria": [
+        "Sink still has green residue, so caption completion needs final-wipe interpretation or local clean-side treatment. Bank has repeat shell/cloth and vague bunny activity; use mirror reflection and folded towel instead."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 8,
+      "label": "Draining and scrubbing tub",
+      "mode": "C",
+      "internal_craft_score": 4.5,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Dirt and drained bottom make action clear; scale is good."
+      ],
+      "open_criteria": [
+        "Yellow duck and rolled towel are relevant but static; one bunny gently pushing duck plus tiny pulled plug can add cause/context. Brush in main art differs from tool page: check canonical prop continuity."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 9,
+      "label": "Clean bath payoff",
+      "mode": "F",
+      "internal_craft_score": 4.6,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Clean water and repeated room equipment support before/after comprehension."
+      ],
+      "open_criteria": [
+        "Current towel-basket Lamma peek reads a small generic round cat face, not clear plush silhouette; replace locally from clean Lamma reference. Caption should be solid contrast over quiet floor."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 10,
+      "label": "Rumi trapped in gunk",
+      "mode": "F",
+      "internal_craft_score": 4.6,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Net, gunky pool, and Rumi reaching for help tell problem clearly."
+      ],
+      "open_criteria": [
+        "Typography bottom over bright pavement needs simplification. Keep strainer in frame; Roshan/Rumi hand contact and trapped depth clear."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 11,
+      "label": "Scoop rubbish",
+      "mode": "C",
+      "internal_craft_score": 4.6,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Excellent actual trash motif: wrapper, tipped can, cap and gunky net; events agree."
+      ],
+      "open_criteria": [
+        "Preserve real rubbish and existing grounding. Main net is richly detailed; avoid adding another net/brush. Rumi's home-time text does not mean she was trapped for centuries."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 12,
+      "label": "First clear waterfall stream",
+      "mode": "F",
+      "internal_craft_score": 4.4,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Full-resolution image DOES show red/orange left lane clear, remaining lanes green."
+      ],
+      "open_criteria": [
+        "Contact-sheet judgment was corrected: not all three blocked. Count/clear-lane geometry could be more unmistakable; preserve action/source identity. Main issue is outlined bottom text over glittery water."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 13,
+      "label": "Rainbow waterfall",
+      "mode": "F",
+      "internal_craft_score": 4.6,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Strong full-art reveal and rainbow payoff."
+      ],
+      "open_criteria": [
+        "Loose rubbish still floats, but streams are clear; ensure wording describes streams, not all pool cleanup done. Improve text contrast; no need invent extra scene action."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 14,
+      "label": "Seahorse fountain cup",
+      "mode": "F",
+      "internal_craft_score": 4.5,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Cup in Roshan's hands plus flowing spout makes action legible."
+      ],
+      "open_criteria": [
+        "Roshan pearl necklace/bracelet appear here but not canonical plain blouse elsewhere; bounded identity repair. Top text over purple texture/column needs quieter patch or solid light type."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 15,
+      "label": "Rumi rises free",
+      "mode": "F",
+      "internal_craft_score": 4.7,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Clear triumphant release, consistent pool architecture, excellent focal hierarchy."
+      ],
+      "open_criteria": [
+        "Bottom type crosses multicolored tile; replace outline-only appearance. Preserve full-art payoff and flowing fountain/waterfall."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 16,
+      "label": "Rumi hugs Roshan",
+      "mode": "C",
+      "internal_craft_score": 4.4,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Contour hug and asymmetrical left-text/right-art are strong original-book design cues."
+      ],
+      "open_criteria": [
+        "Mini seahorse begins too high (~81.9%): lower within bank85% zone. Right bank has only shell/coral; add small event flower/lily cup and one warm-looking bunny, preserving hug."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 17,
+      "label": "Chirp in dusty toy room",
+      "mode": "F",
+      "internal_craft_score": 4.1,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Dirty source room establishes discovery; dust bunny curiosity has personality."
+      ],
+      "open_criteria": [
+        "Severe setting discontinuity: stone dusty toy room becomes bright clean playroom in18 before cleaning. Improve continuity within existing source staging; text over dark floor should be light/solid."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 18,
+      "label": "Baby Eagle trapped",
+      "mode": "F",
+      "internal_craft_score": 4.4,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Exactly two bunnies pin Eagle; no blanket. Friendly faces soften accidental trouble."
+      ],
+      "open_criteria": [
+        "Room appears already clean compared17. Roshan blouse neckline/buttons and front curl/ear topology need identity consistency. Preserve Eagle trapped/contact geometry rather than invent different rescue."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 19,
+      "label": "Baby Eagle released",
+      "mode": "F",
+      "internal_craft_score": 4.5,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Brush is away from Eagle's face and wing opening clearly communicates release."
+      ],
+      "open_criteria": [
+        "Same continuity/top identity concerns as18. Bunny movement is gentle and joyful; preserve small apology scale on next page. Improve floor-caption contrast."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 20,
+      "label": "Small bunnies apologize",
+      "mode": "C",
+      "internal_craft_score": 4.2,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Right-sized marginal speakers and central Eagle preserve hierarchy."
+      ],
+      "open_criteria": [
+        "Speech tails appear attached to ears, capsule footprint too dominant. Tail should point near cheek/body with short gap, different slumped poses. Relevant small toy blocks/rings can supply context; keep bunny sizes small."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 21,
+      "label": "Sorting messy art supplies",
+      "mode": "C",
+      "internal_craft_score": 4.8,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Best developed stationery page: drippy cups, crumpled art paper, sorting contact and event banks."
+      ],
+      "open_criteria": [
+        "Preserve complete main artwork/background unless a measured defect emerges. Text is crisp solid navy. Tipped main cup plus tipped border bottle are different story props, not identical duplication."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 22,
+      "label": "Clean art room payoff",
+      "mode": "F",
+      "internal_craft_score": 4.1,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Broad quiet wall and recognizable craft room equipment offer good full-art composition."
+      ],
+      "open_criteria": [
+        "Explicit text-art contradiction: visible purple paint puddle remains on table while text says table was clean. Remove locally as finishing wipe; retain brush contact and room. Caption outlined over tiles."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 23,
+      "label": "Last glowing castle door",
+      "mode": "F",
+      "internal_craft_score": 4.7,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Correct castle hall, completed portals, lights directing toward shell door; strong page-turn cue."
+      ],
+      "open_criteria": [
+        "Caption spans columns/cornice; quiet lavender wall could support simpler solid navy. Preserve current correct door; do not restore Opera House shot."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 24,
+      "label": "Dusty uncomfortable Grand Puff",
+      "mode": "C",
+      "internal_craft_score": 4.6,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Sad half-lidded face supports care plot. Two scared bunnies, one under shell, follow explicit owner direction."
+      ],
+      "open_criteria": [
+        "Attic books/chest are useful but could look dustier/off-kilter; little bunnies can show more distinct cowering poses. Keep each<= 12%, below 85%; preserve sad Puff."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 25,
+      "label": "Roshan offers sponge and kindness",
+      "mode": "C",
+      "internal_craft_score": 4.6,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Roshan faces Puff with recognizable pink star sponge and exact caring reassurance."
+      ],
+      "open_criteria": [
+        "Mini sofa bunnies currently look victory-celebratory; make hopeful clasped-hands support and visible popcorn nibble. Attic jar/books can show restored/cleaned edge without unrelated toys."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 26,
+      "label": "All friends wash Puff",
+      "mode": "F",
+      "internal_craft_score": 4.5,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Warm smile and four helpers clarify collaborative care; supplies visibly contact Puff."
+      ],
+      "open_criteria": [
+        "Text across ceiling textured bricks needs solid light type/quiet paint zone. Local ceiling join/perspective must stay seamless. Roshan's yellow sponge differs from preceding pink star: choose an explicit consistent prop through bounded repair."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 27,
+      "label": "Bubbles cover Puff",
+      "mode": "F",
+      "internal_craft_score": 4.4,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Gradual concealment before reveal has suspense without aggression."
+      ],
+      "open_criteria": [
+        "Ceiling is noticeably soft/stretched compared actors; repair only ceiling extension without changing room/staging. Bubble fine detail should remain clear rather than granular white compression texture. Caption contrast."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 28,
+      "label": "Rainbow Puff pops out",
+      "mode": "F",
+      "internal_craft_score": 4.5,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Visible airborne clean Puff and surprised friends give strong transformation payoff."
+      ],
+      "open_criteria": [
+        "Ceiling extension and typography same concerns as27; keep clean Puff curl/pearl/ear family matching landing. Dust still on floor is okay as dust falls off him."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 29,
+      "label": "Canonical rainbow Puff landing",
+      "mode": "F",
+      "internal_craft_score": 4.7,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Exact owner-approved canonical landing, small clean Puff and everyone relieved."
+      ],
+      "open_criteria": [
+        "Preserve native landing source completely. Caption/ceiling presentation can be polished without changing scene identity or subject pixels."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 30,
+      "label": "Roshan and clean Puff reflect",
+      "mode": "C",
+      "internal_craft_score": 4.4,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Calm two-character beat slows story after climax; clear contour figures."
+      ],
+      "open_criteria": [
+        "Generic jigsaw bank is less game-specific. Replace with two bunnies cooperatively joining canonical toy rings or blocks; a right-bank clean attic book or lamp adds restored-room meaning. Keep central gap clear and avoid a second rainbow motif."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 31,
+      "label": "Invitation to gentle play",
+      "mode": "C",
+      "internal_craft_score": 4.3,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Roshan/Eagle warm poses and toy-playing bunnies support friendship conclusion."
+      ],
+      "open_criteria": [
+        "Current Lamma looks like blue generic face with ring covering mouth; replace with actual white lamb-plush ears/face peeking naturally from toy chest. Varied bunny ring/boat actions; at most 2 peeks total with9."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 32,
+      "label": "Everyone sleeps in bubbles",
+      "mode": "F",
+      "internal_craft_score": 4.7,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Excellent emotional ending and group composition, bunnies present, all asleep."
+      ],
+      "open_criteria": [
+        "Caption navy/white-outline is weaker than artwork; solid light type on quiet dark wall. Preserve accepted cozy pile; no extra search icon or unnecessary border additions."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    },
+    {
+      "page": 33,
+      "label": "Rear cover H",
+      "mode": "F",
+      "internal_craft_score": 4.8,
+      "score_basis": "Observed visual craft estimate, not external acceptance",
+      "strengths": [
+        "Rendered shared scene with all characters and narrative cleanup objects, color style matches book."
+      ],
+      "open_criteria": [
+        "Preserve owner-approved H. Rainbow Puff absent may be acceptable rear foreshadowing/context, not a defect requiring new character inventing. Final print proof remains open."
+      ],
+      "target": 4.9,
+      "meets_internal_target": false
+    }
+  ],
+  "bank_plans": [
+    {
+      "page": 5,
+      "left": "Supply basket with neatly folded towel; one canonical little bunny peeks over rim eagerly.",
+      "right": "Small soap bottle resting against shallow dish.",
+      "bunnies": 1,
+      "reason": "Tool-giving page gets anticipation and supplies without repeating main brush/sponge.",
+      "refs": [
+        "assets_src/cinematics/day_one_bathroom_entry_v1/handoff_art/05_supply_basket_reference.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ]
+    },
+    {
+      "page": 7,
+      "left": "One bunny admires clean reflection in shell hand mirror, pearl paws holding frame.",
+      "right": "Neatly folded hand towel, one tiny water droplet beside it.",
+      "bunnies": 1,
+      "reason": "Sink-clean context distinct from generic suds/shell motif.",
+      "refs": [
+        "assets/flats/castle/rooms/room_bubble_bath_item_sink.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ]
+    },
+    {
+      "page": 8,
+      "left": "Rubber duck with one bunny giving it a gentle pearl-paw nudge.",
+      "right": "Rolled lavender towel and tiny pulled bath plug/short chain.",
+      "bunnies": 1,
+      "reason": "Drained bath + playful tub prop; no extra brush.",
+      "refs": [
+        "assets/flats/castle/rooms/room_bubble_bath_item_rubber_duck.png",
+        "books/chapter_one/landscape/art/quality_v22/bg_07_objects.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ]
+    },
+    {
+      "page": 11,
+      "left": "Preserve actual red star wrapper, slightly grounded in bank.",
+      "right": "Preserve algae-coated can and blue cap; strengthen tiny contact/algae continuity only.",
+      "bunnies": 0,
+      "reason": "Rubbish is correct page motif. A cute trash-playing bunny would compete with urgent rescue context.",
+      "refs": [
+        "assets_src/imagegen/day_one_pool_activities_2026-08-23/floating_trash_atlas_native.png",
+        "assets_src/imagegen/day_one_pool_activities_2026-08-23/seahorse_mouth_trash_native.png"
+      ]
+    },
+    {
+      "page": 16,
+      "left": "Canonical seahorse fountain below 85%; tiny splash anchored to mound.",
+      "right": "Small lily/flower cup with one bunny resting pearl paws beside it, warm look toward hug.",
+      "bunnies": 1,
+      "reason": "Pool/Rumi release details give emotional warmth without duplicate characters/huge props.",
+      "refs": [
+        "assets/flats/castle/interactions_v4/rest_cards/mermaid_pool_seahorse_fountain_rest.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ]
+    },
+    {
+      "page": 20,
+      "left": "Small bunny with different slumped/embarrassed pose; one misplaced toy block nearby.",
+      "right": "Small bunny sheepishly looking at Eagle; one tipped stacking ring beside it.",
+      "bunnies": 2,
+      "reason": "Apology visually about rough play, not giant talking characters. Speakers remain small; speech tails point near cheek/body without touching ears.",
+      "refs": [
+        "assets/flats/castle/rooms/room_playroom_item_blocks.png",
+        "assets/flats/castle/rooms/room_playroom_item_stacking_toy.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ]
+    },
+    {
+      "page": 24,
+      "left": "Dusty closed toy chest and two skewed attic books.",
+      "right": "Exactly 2 bunnies: one curls low behind book edge, one cowers under pink shell; optional tiny clock only if visible in source.",
+      "bunnies": 2,
+      "reason": "Attic tension through gentle frightened acting, not aggression or generic smudge.",
+      "refs": [
+        "assets/flats/castle/boss/dusty_attic_arena_2048.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ]
+    },
+    {
+      "page": 25,
+      "left": "Turquoise attic jar with partly open book, clean small props grounded naturally.",
+      "right": "Small couch with 2 bunnies; one visibly nibbles popcorn kernel, other hopeful hands clasped watching helpers.",
+      "bunnies": 2,
+      "reason": "Comfort/support as Puff receives help. Avoid battle/victory acting.",
+      "refs": [
+        "books/chapter_one/landscape/art/quality_v22/bg_26_ground.png",
+        "assets/flats/castle/dream_house/shell_popcorn_bowl.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ]
+    },
+    {
+      "page": 30,
+      "left": "Two little bunnies cooperatively join two canonical toy rings or align blocks, one handing an item to the other.",
+      "right": "Clean opened attic book or little polished attic lamp.",
+      "bunnies": 2,
+      "reason": "Restoration and cooperation, more canonical than a generic jigsaw; avoid repeating the large rainbow motif already supplied by foreground Puff.",
+      "refs": [
+        "assets/flats/castle/rooms/room_playroom_item_stacking_toy.png",
+        "assets/flats/castle/rooms/room_playroom_item_blocks.png",
+        "assets/flats/castle/boss/dusty_attic_arena_2048.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ]
+    },
+    {
+      "page": 31,
+      "left": "One bunny giving orange ring toward tiny toy stack; actual Lamma peeks from small toy chest behind toys.",
+      "right": "One bunny gently nudges canonical toy sailboat.",
+      "bunnies": 2,
+      "reason": "Distinct gentle-play actions and one unobtrusive Lamma discovery, never a hint in text.",
+      "refs": [
+        "assets/flats/castle/rooms/room_playroom_item_stacking_toy.png",
+        "assets/flats/castle/interactions_v4/rest_cards/playroom_shelf_sailboat_rest.png",
+        "assets/sprites/stuffie_studio/toy_chest.png",
+        "assets/sprites/stuffie_studio/lamma.png",
+        "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+      ]
+    }
+  ],
+  "acceptance_gaps": [
+    "RenderedPDF at finaltrim after root changes",
+    "Target paper print color/density proof",
+    "Owner acceptance",
+    "Observed child reading/comprehension",
+    "Actual SLP professional review"
+  ],
+  "no_master_finding_closure_reason": "Static book craft review only; no game runtime defect finding or integration status changes.",
+  "source_reference_repository_derivatives": "books/chapter_one/plan/reference/page_01.jpg through page_34.jpg; books/chapter_one/plan/reference_audit.json"
+}

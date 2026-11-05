@@ -3640,7 +3640,7 @@ def _tap_targets(zone: Zone) -> Iterator[Finding]:
     if not facts or "targets" not in facts:
         yield Finding("readability.tap_target_size", zone.id, SKIP,
                       "needs runtime facts — run scripts/probe_visual_audit.gd "
-                      f"to produce {os.path.relpath(RUNTIME_FACTS_PATH, REPO)}")
+                      "to produce audit/visual_runtime_facts.json")
         return
     provenance_issues = _runtime_contract_issues(zone, facts)
     if provenance_issues:

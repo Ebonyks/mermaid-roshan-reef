@@ -1,0 +1,49 @@
+{
+  "state": "PASS",
+  "healthy_complete_static_set_reused": true,
+  "original_result_sha256": "6f46d67f484f3325447254ac295c221bd855135c7a32e2d7ec03dc8b8335d7b4",
+  "recovery_basis_sha256": "352f6a553171d222bbb6e4caf0dc3df23ceaafae1ddaf89a12e9294fbdacb04e",
+  "changed_probe_and_metadata_gates": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/probe_melody.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/probe_melody.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "35edd0ae4dfe9bfbcbce50cf3f9a1a482377e435287da0e6d3b2e02bc1a335c3"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "log_sha256": "bfdebdcdf9b9fe6339c10a3e217412a82484429cf183c3865a29b7ead7bf2936"
+    }
+  ],
+  "no_healthy_suite_restarted": true
+}

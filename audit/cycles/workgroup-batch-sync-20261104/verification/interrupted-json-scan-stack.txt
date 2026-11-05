@@ -1,0 +1,10 @@
+Process 91652: C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\python.exe -B tools/audit_game_2d.py --regression-gate
+Python v3.13.14 (C:\Users\Peter\AppData\Local\Python\pythoncore-3.13-64\python.exe)
+
+Thread 9724 (active+gil): "MainThread"
+    _json_web_url_spans (audit_game_2d.py:1822)
+    _token_counts (audit_game_2d.py:1836)
+    discover (audit_game_2d.py:2248)
+    audit (audit_game_2d.py:3307)
+    main (audit_game_2d.py:3817)
+    <module> (audit_game_2d.py:3826)

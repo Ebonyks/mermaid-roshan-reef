@@ -1,0 +1,62 @@
+{
+  "scope": "Unchanged trusted CI runtime import and every probe, exact flags/home isolation and failure expressions; static lanes recorded separately",
+  "ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "planned_probes": 82,
+  "complete": false,
+  "rows": [
+    {
+      "name": "import",
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef",
+        "--import",
+        "--verbose"
+      ],
+      "exit": 0,
+      "seconds": 546.07,
+      "pass": true,
+      "log": "import.log",
+      "sha256": "a34459520faaa2532033b8030794cb8db6531ba0bf89b050d5aef08f872342da"
+    },
+    {
+      "name": "probe_reef_districts",
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_reef_districts.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 43.03,
+      "pass": true,
+      "log": "probe_reef_districts.log",
+      "sha256": "97a6d8b58ab878973011b9bddb5709bdfdafcc6fd2f58069e7826b2cb095c0bd"
+    },
+    {
+      "name": "probe_ocean_kingdoms",
+      "args": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\roshan-sport-stage-20261101\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_ocean_kingdoms.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 53.81,
+      "pass": true,
+      "log": "probe_ocean_kingdoms.log",
+      "sha256": "df234d3d43c3aa502846363ab085a2cdb54b8b65e295a3444595f275951f7b59"
+    }
+  ]
+}

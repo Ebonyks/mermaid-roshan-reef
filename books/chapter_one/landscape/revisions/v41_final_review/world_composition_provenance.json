@@ -1,0 +1,288 @@
+{
+  "owner_scope": "Full Sky Lagoon: water, playground, landing area and route to Pearl Castle; no otter. Direct owner answer overrides rejected V40 condensed layout and stale handoff approved-V40 wording.",
+  "world_size": [
+    6144,
+    2048
+  ],
+  "full_panorama_preserved": true,
+  "horizontal_crop": null,
+  "geography": "Original full panorama and complete left water/rope-post approach, central playground/lawn/path, mountain path and right lagoon shore; castle uses exact current runtime anchor. No condensed world.",
+  "source_contract": {
+    "path": "scripts/arena/sky_lagoon_layout.json",
+    "sha256": "dad9fee76050d079b816ff2c415627fafa8611212842b8484658d6c564777b62"
+  },
+  "playground_source": {
+    "path": "scripts/arena/sky_lagoon_promenade.gd",
+    "sha256": "fdbf57924c23ed75ac575aea2d0ee8b057ddfccae16d9dbc933104e1e1e70c75",
+    "role": "Static source placement reference only; no game change"
+  },
+  "layers": [
+    {
+      "role": "entire original panorama",
+      "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+      "native_size": [
+        6144,
+        2048
+      ],
+      "crop": null,
+      "operation": "Complete6144x2048 landscape; no crop, warp, condensed spacing or missing water/path"
+    },
+    {
+      "role": "current four-tower Pearl Castle at authored bridge-bearing anchor",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+      "sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+      "native_size": [
+        1022,
+        1024
+      ],
+      "target_box": [
+        4667,
+        353,
+        1211,
+        1213
+      ],
+      "opacity": 1,
+      "operation": "Uniform source scale with integer rounding, native alpha and source-over"
+    },
+    {
+      "role": "slide contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        2262,
+        1382,
+        576,
+        36
+      ],
+      "opacity": 0.4,
+      "operation": "Nonuniform fitting of existing oval contact shadow; opacity only"
+    },
+    {
+      "role": "playground slide at original runtime rest anchor",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+      "sha256": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4",
+      "native_size": [
+        425,
+        412
+      ],
+      "target_box": [
+        2230,
+        780,
+        640,
+        620
+      ],
+      "opacity": 1,
+      "operation": "Uniform source scale with integer rounding, native alpha and source-over"
+    },
+    {
+      "role": "seesaw contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        3558,
+        1482,
+        536,
+        36
+      ],
+      "opacity": 0.4,
+      "operation": "Nonuniform fitting of existing oval contact shadow; opacity only"
+    },
+    {
+      "role": "playground seesaw at original runtime rest anchor",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129",
+      "native_size": [
+        377,
+        168
+      ],
+      "target_box": [
+        3528,
+        1235,
+        595,
+        265
+      ],
+      "opacity": 1,
+      "operation": "Uniform source scale with integer rounding, native alpha and source-over"
+    },
+    {
+      "role": "swing contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        2910,
+        1375,
+        580,
+        42
+      ],
+      "opacity": 0.4,
+      "operation": "Nonuniform fitting of existing oval contact shadow; opacity only"
+    },
+    {
+      "role": "playground swing frame at runtime rest anchor3200,1390",
+      "source": "assets/props/story/play_swing_frame.png",
+      "sha256": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592",
+      "native_size": [
+        1024,
+        719
+      ],
+      "target_box": [
+        2858,
+        910,
+        684,
+        480
+      ],
+      "opacity": 1,
+      "operation": "Uniform source scale with integer rounding, native alpha and source-over"
+    },
+    {
+      "role": "one existing swing seat and its two ropes; fixed to authored beam",
+      "source": "assets/props/story/play_swing_seat.png",
+      "sha256": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b",
+      "native_size": [
+        554,
+        1024
+      ],
+      "target_box": [
+        3100,
+        945,
+        200,
+        370
+      ],
+      "opacity": 1,
+      "operation": "Uniform source scale with integer rounding, native alpha and source-over"
+    },
+    {
+      "role": "plane soft body contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        675,
+        1520,
+        810,
+        45
+      ],
+      "opacity": 0.3,
+      "operation": "Nonuniform fitting of existing oval contact shadow; opacity only"
+    },
+    {
+      "role": "plane main wheel contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        996,
+        1562,
+        78,
+        16
+      ],
+      "opacity": 0.7,
+      "operation": "Nonuniform fitting of existing oval contact shadow; opacity only"
+    },
+    {
+      "role": "plane nose wheel contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        1329,
+        1557,
+        60,
+        14
+      ],
+      "opacity": 0.7,
+      "operation": "Nonuniform fitting of existing oval contact shadow; opacity only"
+    },
+    {
+      "role": "native demo plane and wheels on full original stone landing path",
+      "source": "books/chapter_one/landscape/revisions/v40_wide_arrival/art/landed_plane_source_cutout.png",
+      "sha256": "5728726c6be87e7a64b5f9328e4992c0bf8c4a2db48c96e9a7880ffdd73929b1",
+      "native_size": [
+        444,
+        242
+      ],
+      "target_box": [
+        620,
+        1050,
+        960,
+        523
+      ],
+      "opacity": 1,
+      "operation": "Uniform source scale with integer rounding, native alpha and source-over"
+    }
+  ],
+  "world_output": "books/chapter_one/landscape/revisions/v41_final_review/art/sky_lagoon_full_world.png",
+  "world_sha256": "13498d833fae601185a3bfb35aa48cbf12b982daf289ce672b08dec938530595",
+  "extension_target": {
+    "path": "books/chapter_one/landscape/revisions/v41_final_review/inputs/arrival_extension_target.png",
+    "sha256": "667ac0dd22917a5474fab405a69f6d3fa8f2fd13d29fe5cbd5d9cbe8214625ef",
+    "size": [
+      2048,
+      1463
+    ],
+    "world_band": [
+      0,
+      467,
+      2048,
+      1150
+    ],
+    "operation": "Existing composed source world resampled only for edit-target binding; transparent top/bottom windows. Not delivery art or position-only guide.",
+    "delivery_world_band": [
+      0,
+      1401,
+      6144,
+      3449
+    ],
+    "delivery_canvas": [
+      6144,
+      4389
+    ]
+  },
+  "native_resolution": "Native6144x2048 source world, existing card sizes and plane video resolution retained; no print upscaling or PPI acceptance. New generated extensions will have their actual native dimensions recorded separately.",
+  "selection": {
+    "canvas": [
+      6144,
+      4389
+    ],
+    "world_offset": [
+      0,
+      1401
+    ],
+    "generated_source": "art/arrival_extension_attempt2.png",
+    "native_generated_size": [
+      1484,
+      1060
+    ],
+    "operation": "LANCZOS page-size mapping for generated sky/foreground only. Native sourceworld pasted at x0,y1401. Sine-squared source-alpha ramps over first180 and last300world rows locally heal edge joins; all world rows180:1748 byte-exact, including complete waters, playground, plane, originalpath and four-tower castle. No horizontal crop/condensation. Native-output resolution retained in record; no print enlargement acceptance.",
+    "source_alpha_top_rows": 180,
+    "source_alpha_bottom_rows": 300,
+    "protected_native_world_rows": [
+      180,
+      1748
+    ],
+    "output": "art/arrival_full_setting_candidate.png",
+    "sha256": "71b917938f21235d0ac701db26438194fba43c0d405c430156d156c1c90ec67a"
+  }
+}

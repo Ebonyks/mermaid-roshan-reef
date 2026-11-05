@@ -1,0 +1,37 @@
+[
+  {
+    "id": "tidy_art_bank",
+    "attempt": 4,
+    "prompt": "Use case: precise-object-edit. Edit ONLY the tiny objects already on the two bottom blue sand banks. Left: replace tipped paint bottles and spills with TWO SMALL CLOSED SKETCHBOOKS, low and horizontal, one little paper ribbon bookmark. Right: replace brush and paint paper with a SMALL NEAT FOLDED PAINT-STAINED CLOTH and a tied waste-paper packet. NO characters on this page, NO dust bunnies, NO Grand Puff, NO paint bottles or brushes. Each object remains under110px in BOTH dimensions, entirely BELOW y925 on this1484x1060 canvas, on the blue sand. Match the current tiny scale of the original objects, not a large close-up. Preserve the background, all dotted borders, bubbles, paper grain, blue mounds and central empty space exactly. Quiet polished painted2D, no text, return1484x1060.",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles21.png",
+        "sha256": "cc2323bbb54e9dde9848f2e2463d3643f2891e348827f95f61c1425376714b94",
+        "role": "edit_target"
+      }
+    ],
+    "prompt_sha256": "91947b0e646b2456aad3918a1657ab0866c2b40e21dae88b6feefecbc213fe67",
+    "transparent_background": false,
+    "method": "built-in image_gen"
+  },
+  {
+    "id": "care_bank25_focus",
+    "attempt": 1,
+    "prompt": "Use case: precise-object-edit. IMAGE_1 is a tight crop of the two EXISTING LITTLE dust bunnies on their miniature game sofa. IMAGE_2 supplies the full stationery context ONLY. Change ONLY the popcorn carton/popcorn in the RIGHT bunny's soft edge puffs into a small folded clean pale-blue washcloth, as if folding it ready to help a friend. Remove the little gold cheering rays just left of the other bunny. No facial/body redesign, no enlargement, no extra figures, no star crest, no Grand Puff. Keep both actual LITTLE puffs, their simple forehead curls, narrow curl ears, pearl nubs, original faces, their exact small size, sofa, shadows, blue mound and all other pixels unchanged. Return just the same tight crop as IMAGE_1, preserving its aspect ratio. No lettering, no watermark, polished painted2D.",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/couch_focus.png",
+        "sha256": "3afb3c49488b720f4d5d4756a92c11904f6b3f5a0c2a736137c04ab76d1663e9",
+        "role": "edit_target"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank25_tiny.png",
+        "sha256": "dcbcc1303a57d327eedc7871ea5266a6a5afda158bdf2076d349da75124636f2",
+        "role": "context_only"
+      }
+    ],
+    "prompt_sha256": "2c1e5c36e3002ca78281fb204ddce2a87979c321257216dc60eae28b3d206d62",
+    "transparent_background": false,
+    "method": "built-in image_gen"
+  }
+]

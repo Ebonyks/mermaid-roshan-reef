@@ -1,0 +1,5 @@
+# Source and capture hashes bind literal bytes, including native CRLF.
+* -text whitespace=cr-at-eol
+# Preserve native diagnostic spacing without editing audit transcripts.
+*.log whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+*.err whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol

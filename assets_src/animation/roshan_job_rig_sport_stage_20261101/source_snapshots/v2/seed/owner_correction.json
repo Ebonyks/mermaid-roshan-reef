@@ -1,0 +1,41 @@
+{
+  "utc": "2026-11-01T03:08:54.429192+00:00",
+  "rejected_commit": "26bd6d1f0573f7b1ad76511c22abf584e44b7e24",
+  "rejected_method": "RGB overlays on immutable original clothing alpha",
+  "reason": "Owner: dresses crudely placed on top; base outfit visible. Reject 26bd6d1f overlay family as costume replacement.",
+  "previous_machine_passes": "Retained only for their numerical scope; do not establish costume replacement.",
+  "generation_accounting": {
+    "previous_calls": 2,
+    "new_calls": 1,
+    "method_change": "Reuse existing fitting plates first; source masks/registration rather than preserve the rejected clothing silhouette.",
+    "caps": "Original total cap four calls/two per costume remains, no reset.",
+    "aggregate_calls_reserved": 3,
+    "named_gap": "Small crown removal/hair infill. Existing fitting scalp crop rejected for beige/face contamination; no new outfit designs."
+  },
+  "hair_repair_start_utc": "2026-11-01T03:14:50.957438+00:00",
+  "hair_repair_end_utc": "2026-11-01T03:16:50.455729+00:00",
+  "hair_native": {
+    "path": "native/hair_clean_plate.png",
+    "sha256": "87a7219e8a24c47ba4bd89d347e443d616e7193c29b41b01a6ef2dc082a05e48",
+    "tool": "builtin image_gen",
+    "provider_model_revision_seed_request_billing": "not exposed",
+    "use": "Crown-only scalp window, not generated face/anatomy or clothing"
+  },
+  "hair_prompt": "Use case: precise-object-edit. Edit target IMAGE_1 is the existing full transparent neutral Mermaid Roshan cutout. Remove ONLY the gold tiara/crown from the top of her brown hair and paint the small missing brown hair underneath it with continuous natural strands matching the surrounding hair. Keep the full 1024x1024 canvas, exact original figure position, scale and outline everywhere except the former crown. Preserve every other pixel's appearance: face, eyes, expression, existing hair, rainbow hair, original pink blouse, lavender sleeves, iridescent curved tail, rainbow fins, arms and fingers. Do not change pose, costume, lighting or anatomy. This is a tiny clean-hair repair window used under replacement hats, not a new character design. Transparent RGBA background, no floor, no shadow, no text, no extra ornament. The crown must be entirely absent, including its turquoise jewel, gold rim and pearls. Natural brown hair fills its former footprint.",
+  "corrective_art_freeze_utc": "2026-11-01T04:28:43.394512+00:00",
+  "art_phase": "No further art generation or cleanup after this freeze; verification/export follows. Original52.260789-minute production phase plus corrective elapsed window is reported, not a reset of aggregate generation caps. Manual cleanup minutes were not separately instrumented, so exact cleanup-cap adherence cannot be proven.",
+  "final_art_freeze_v7_utc": "2026-11-01T05:01:28.151418+00:00",
+  "superseded_freeze_reason": "Earlier paint-to-original-silhouette approach was rejected by actual static and contamination checks; changed to complete RGBA cutout skins over a clothes-erased anatomy base. All previous calls and attempts remain counted. No additional generation calls.",
+  "final_art_freeze_v8_utc": "2026-11-01T05:24:08.934473+00:00",
+  "time_accounting": {
+    "original_production_minutes": 52.260789,
+    "corrective_scope_to_freeze_minutes": 135.24175468333334,
+    "combined_wall_window_minutes": 187.50254368333333,
+    "original_wall_cap_minutes": 180,
+    "status": "Combined elapsed art/refinement/validation window exceeds original wall cap; no cap reset and no process-budget acceptance claimed. Manual cleanup versus intervening machine validation not separately instrumented. No further generation/asset cleanup after this freeze; complete verification/export of this candidate.",
+    "calls_original_plus_correction": 3,
+    "call_cap": 4,
+    "paid_external_spend": 0,
+    "billing_builtin": "not exposed"
+  }
+}

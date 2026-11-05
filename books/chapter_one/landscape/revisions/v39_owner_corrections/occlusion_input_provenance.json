@@ -1,0 +1,35 @@
+[
+  {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_composed_source.png",
+    "sha256": "2cd9303868f4850a8acbdeac6b8073a49ab7860682a209bd28cd72cf4aa15e6a",
+    "source": "books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/r03_page_00.png",
+    "source_sha256": "82cce441567884d80eb001c522503b353c654705a7eec361e4825f4134169621",
+    "operation": "Read-only R04 trial composed proof derived from R03; only Rumi source fit315x115 and foreground-exclusion polygon changed. Native/palette/others unchanged. This rejected/trial composition is input-only, not new accepted scene pixels. Exact full proof retained for crop derivation."
+  },
+  {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_target.png",
+    "sha256": "00d367061d704e4968ee11cad60c2fef6b33ef556b901769a658c4c86364b093",
+    "source": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_composed_source.png",
+    "source_sha256": "2cd9303868f4850a8acbdeac6b8073a49ab7860682a209bd28cd72cf4aa15e6a",
+    "crop": [
+      80,
+      630,
+      395,
+      745
+    ],
+    "operation": "Exact315x115 crop from stated existing/trial composition for local floor inpaint; preserve source."
+  },
+  {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_reference.png",
+    "sha256": "8c5ed0fba005a80a15a2b2dc100011584f6df20c1f24b279f1ce0d6110960dab",
+    "source": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/cover_composed.png",
+    "source_sha256": "b777a8afd5084197d30d080cdf9b403e383690ccbf52254c2c1ff3af32b0f1cc",
+    "crop": [
+      80,
+      630,
+      395,
+      745
+    ],
+    "operation": "Exact315x115 crop from stated existing/trial composition for local floor inpaint; preserve source."
+  }
+]

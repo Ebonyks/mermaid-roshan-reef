@@ -1,0 +1,20 @@
+{
+  "state": "DIAGNOSED_DISPLAY_FIXTURE_SAMPLED_LATER_RETURN_PHASE",
+  "unchanged_runtime": true,
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "initial_source_session": {
+    "id": 71342,
+    "exit_code": 1,
+    "retained_frames": 7
+  },
+  "diagnostic_source_session": {
+    "id": 76857,
+    "exit_code": 1,
+    "retained_frames": 7
+  },
+  "diagnostic_facts": "After3displayframes m.game=level2, original Daddywon=true, canonicalslot3won=true,trophies=1,tokenlayernull. Trustedprobe checks immediateempty phase oneframe afterrelease; source display has already advanced to originalSkyLagoon return.",
+  "correction": "Only diagnostic capture checks the actual later level2 return, Daddywon=true, exactlyone trophy and synchronous tokenlayer retirement. All production code and trusted probe assertions unchanged.",
+  "excluded_native_frame_events": 14,
+  "new_generation_calls_for_correction": 0,
+  "restart_healthy_operation": false
+}

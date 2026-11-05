@@ -1,0 +1,70 @@
+{
+  "stable_id": "FV-0FCB49F07274",
+  "state": "ACTUAL_PAINTED_COAL_SOURCE_INTEGRATED_PENDING_RUNTIME_CONTEXT",
+  "native_sha256": "d5214e4bbbcf50e421137b59aef39752fcf857262cd953246551e6b4655dc2c0",
+  "native_size": [
+    1254,
+    1254
+  ],
+  "canvas_registration_rect": [
+    -14,
+    -18,
+    1280,
+    1280
+  ],
+  "canvas_operation": "Transparent padding only: original1254RGBA shifted14right18down into1280square. Every nativeRGBA pixel retained exactly, no painted/coded pixels added or removed; nativeoriginal unchanged.",
+  "registered_canvas_sha256": "6219baff0571a57b782988d22dd0a878d0c463a973484ef8017fe40e36d3ac34",
+  "original_RGBA_exact_in_registered_canvas": true,
+  "uniform_resample": "Aseprite1.3.18.4 bilinear lockRatio true1280square->256square, no repaint/recolor/keying/nonuniformwarp",
+  "runtime_path": "assets/mg/snowman_coal_painted.png",
+  "runtime_sha256": "279dffbe48bf8e42c195bd118b50e6fc71ae1e9179c2f182ed81572853448612",
+  "runtime_size": [
+    256,
+    256
+  ],
+  "runtime_alpha_bbox_gt3": [
+    6,
+    10,
+    248,
+    244
+  ],
+  "runtime_alpha_extrema": [
+    0,
+    254
+  ],
+  "decoded_RGBA_bytes": 262144,
+  "decoded_with_full_mips_bytes": 349524,
+  "decoded_budget_bytes": 350000,
+  "masters": {
+    "assets_src/imagegen/snowman_coal_20261103/masters/native_1254.aseprite": "24d1a6e9e3578b0af725e3518b26f70875170f778b6eb3606e7ff158c9f251b5",
+    "assets_src/imagegen/snowman_coal_20261103/masters/registered_canvas1280.aseprite": "2f7d405f6b07fd3c717085d09561f14c62ae8a42a67c242994ed9eee3e504d31",
+    "assets_src/imagegen/snowman_coal_20261103/masters/runtime_256.aseprite": "60a1b3c362ae140e3942148bb11951088a65ece8ae7d7b61400f5611ad0ab827"
+  },
+  "master_roundtrips_RGBA_exact": [
+    "native",
+    "registered",
+    "runtime"
+  ],
+  "asset_export_wall_seconds": 1.7576795000059064,
+  "changed_functions": [
+    "_mg_snow_face_phase",
+    "_mg_snow_face"
+  ],
+  "unchanged_other_functions": 28,
+  "changed_texture_paths": 3,
+  "all_original_sources_unchanged": true,
+  "main_tick_input_source_unchanged": true,
+  "geometry": "Original MIN_TOUCH buttons220600/500600 and42square eyes at head\u00b124,-18 unchanged. Canvas padding targets original visible width; authored new lump is roughly3percent taller than original visible alpha, about1.2logicalpx at eye size, to review in actual scene. No root bounds/pivots/input changes.",
+  "static_generation_calls": 1,
+  "static_item_cap": 2,
+  "native_rejects": 0,
+  "animation_calls": 0,
+  "technical_runtime_exports": 1,
+  "technical_reexports": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "Dev_integrated": false,
+  "accepted_removed": 0
+}

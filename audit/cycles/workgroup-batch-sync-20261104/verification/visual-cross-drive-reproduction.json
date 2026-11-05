@@ -1,0 +1,15 @@
+{
+  "exit": 1,
+  "findings": [
+    {
+      "check": "readability.tap_target_size",
+      "zone": "fx",
+      "severity": "ERROR",
+      "message": "check crashed: ValueError: path is on mount 'H:', start on mount 'C:'",
+      "rule": "DL-UI-03/DL-QA-07: required child-facing touch targets bind the exact live interaction registry node (never a highlight fallback), a resolver centre near source-alpha-painted visible art, and nine calls through the production hit resolver proving the target owns the centre plus eight 55px cardinal/diagonal boundary points (>=110px actual diameter); visible Canvas art is at least 64px in each dimension in the audited root viewport, proven by the same-process response to the audit's random one-use challenge and current provenance",
+      "evidence": {},
+      "disposition": "FAIL"
+    }
+  ],
+  "diagnostic": "warning: fresh Godot probe failed (7); runtime checks will report COVERAGE_GAP\n"
+}

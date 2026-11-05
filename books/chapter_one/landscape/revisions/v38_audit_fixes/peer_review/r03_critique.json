@@ -1,0 +1,265 @@
+{
+  "review_id": "V38-PEER-R03",
+  "reviewer": "Second Codex AI reviewer /root/v38_peer_critic, separate agent from implementer",
+  "recorded_at_utc": "2026-10-26T02:30:49.159056+00:00",
+  "reviewed_target": "Exact local final R03 handback, before publication; hashes below define the candidate",
+  "baseline_reviewed_revision": "03d35a93b6e4b814f8026d0a5c6d44932ec33ec6",
+  "scope": "Independent static-book A1-A10 implementation, local artwork/character/composition, derivation, exact export and evidence review. No runtime, release or print-edition acceptance.",
+  "verdict": "SATISFIED_WITH_DECLARED_HOLDS",
+  "local_in_scope_blockers_remaining": [],
+  "publication_verdict": "PENDING_REMOTE_PUBLICATION_REVIEW",
+  "governing_sources": [
+    "AGENTS.md",
+    "audit/MASTER_AUDIT_2026-08-09.md#0-planning-entry",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:DL-AUTH-05/06/07,DL-ASSET-08",
+    "design/05_DOC_LEDGER.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/handoffs/2026-10-25_v38_audit_fixes/README.md",
+    "books/chapter_one/handoffs/2026-10-25_v38_audit_fixes/AUDIT.md",
+    "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md",
+    "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/CHARACTER_CONSISTENCY_2026-10-19.md"
+  ],
+  "artifact_hashes": {
+    "complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf": "87532aa297a82b5270eeff68dba776b9efb7bd1a63e21bd71e1a834644e70e11",
+    "complete/Mermaid_Roshan_Book_V38_Email.pdf": "7449a6d5acfc1c8873e06fcbabb041f60cafe866b97d07bb009e880b89dcbbc6",
+    "complete/master_parts/parts.json": "af6063361efa08c815c457b1a92137b16c76626fccbccd08d05e18a7ebcc8e77",
+    "BOOK_CURRENT.json": "fc57a52fede891d5412cafb71121d6cefe3c9c24a157e35b908bbef6a3c90e7c",
+    "complete/page_provenance.json": "07215b9bb7e008550d9c150ec2b2812af9bbada722cfa58a0ea513dbd3617167",
+    "generation_evidence.json": "77c308360f982fbce189f8bbcacc29d400812bc578f48d27c77ef125c2055eee",
+    "visual_audits.json": "74fdc1ad3215f74cabe9e7d6a1f32f2819755b53b98c036b5b122ee634398199",
+    "complete/verification.json": "86d9fbc741227bf49e476987fa93318e28a67b3779f2b020864fc45e7eb14125",
+    "complete/email_verification.json": "8e9f4b1c5cf836e3353e36439289e643a0137702c2710a5fd7c870034c8d8fa7",
+    "complete/stress_results.json": "ec46f2b4c7bb81e1f090c109a058c3c4e257cdadd8ac2f725679c93dfff06928",
+    "validation_results.json": "28e683dd304b015ad4494afa576e212cbf7e507127afa332988d179471d87698",
+    "art/door_dust_attempt4_rgba.png": "030c42fa1b9ffcd1b484be543f694f7666a6297c5bd1f70960174af15df89de6",
+    "peer_review/r03_candidate_measurements.json": "ca5da2e4204aac1bee4919e60060cf309d9b8c372e1c050b3979a9f9aac74213",
+    "peer_review/review_guard_negative_check.json": "e6f8a824f8c9f9cb643a5acd5d341dcdb04bae4484ce78f636cea1e606a9aa46",
+    "peer_review/validation_failure_negative_check.json": "639fa6ffbd64772d611f20657a914f9182b369a3129d5a6885b6e04d706f26c7",
+    "peer_review/r03_page05_7x5.png": "17ac6c34f2697a3ce8ad5e479be9c6ddb5af7774799b2650e3df42d022381062",
+    "peer_review/r03_page05_before_after.png": "61d12e127bcbb6e2caaf1eff928b8a528ba7601c4aa8a3175d4415689f24fc60",
+    "peer_review/r03_door_detail.png": "d0a934b3ce4fa12346b948266d46921ff69d847cd72476b7dd6197980f8d984c",
+    "complete/reveals.jpg": "b4437c3fc17da78a7d9b222b8bdd50214eb13981da7441c3f78af1d0c77bc628",
+    "complete/turns_before_after.jpg": "5b0059c9e93c2a02d017f0fe5c4d87a54cc8b472fdecaa71e183f8b972ba8d58"
+  },
+  "helper_hashes": {
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/build_manifest.py": "f2ef93ad671959e0583d85aa86574791cd1c73916f3463af3fd8045ee66fa800",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/build_review.py": "76d7e6b2c0f7216beccaf0e2bf9fd65aadbd89ccf49416d21667a54a6f0546ee",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/email_export.py": "8f544b15ac63a2edb836ccb1a38053266a712b0b1557f63c2a961ee283684be3",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/local_validation.py": "d3cc85df1b0cfa3fe9186c04db9d7fd6f09fe2f64847b7e3d7e64d5c7d58cdd3",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/prepare_revision.py": "cd0ac64531db7cbfdda4d17e86dbdea212d4d93d6ff3b1ed01bbfa0dc7969fe6",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/reassemble_master.py": "c40791cb9e7301c7cbe82b20e5203d1b8be5dc0efa63dc1bd49774da2be4b2a5",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/record_review.py": "e84652eb61629507c2a2a8cfcb0925a63648e15860b1bc783b593fca17ac0c36",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/update_authority_attribution.py": "5fa7a8efd6f7bcadee621d69cc691f680bde664e67ca89a16042957c9da49422",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/verify_handoff_inputs.py": "2e69fc5009f60b7796fd9470b7c887666f32dbfd0de86971cd3c8a8cf01d5596",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/verify_remote.py": "be4bfe9c4427645490981cb681ad18d15db2741af5d97a114003bda22f0a2636",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/verify_revision.py": "81d6cc5ab462b45696f00714be537182fa7c1885bdb4e2dc9892ac3f97a721d7"
+  },
+  "proof_hashes": {
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_00.png": "38ad500c0bebb4ca0cf63181191bea427a99318ac51e82d5434130e54c5ddbbb",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_01.png": "e8ed355c0df1fabbec2a33a7fc65790a52f60c755532163282db5dcdc61b6b47",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_02.png": "60bc02a55f2dd443e33c3c740618f56281343b4b9d8a90c45514f758f9e5fa4e",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_03.png": "84e971ab04e50fa5888472dc504d97ba634af1b9111f4cf4e5bbf596e6dd5954",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_04.png": "68befbd229750de53024a04a8ce06f1a9edc89591bc4943dcbd4c47305749e4d",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_05.png": "41c1001afa3a1876ef550ef1653d773a8d3d85a3022703fd5d3034af6e587113",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_06.png": "4b6aa0941e91e211dcbd01f77424cc870e0fec4ecbdb46ed1c526df2fad7973f",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_07.png": "96ccc3e78a0848fadfb771065a8d039e307daafcf46eaeb74cc4ffcb0091538e",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_08.png": "093208805ed0b9ba71708866815273a7b72e2bd32d55836112bcaed13e23873b",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_09.png": "0eaffc362e484c2adc04c72c4d1bf30767fdb4d729491f2bee6eb13a5a4e1389",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_10.png": "9b7e61c0a26ed6d438556157777e9307e5e9bbbad0e568a6427022ab5d30af0c",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_11.png": "a45e9dc274348f81757c6820ae0acc5867ca288c745ed0634e811e1d504ad940",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_12.png": "5e435d5d33588d48997acb5a1121428756eacada3c4d6c3b5510bbf86662711c",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_13.png": "5a148e336eb671a48b7df538c437f33f95d82e0bba994b12eefb06302ab9b458",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_14.png": "61d14b848f0c0e697ff4e84426bcdbf3eb50289317db809a70cf676001177403",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_15.png": "e4e26ead2e517e6ee690ffb90414388ab1c4aaa46db4eb4aca73ebb15dcc2b79",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_16.png": "91056d37e98f13b744ebb5da264891ed6acf69b0529411d69e81850d7c163bf3",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_17.png": "fdad58ee33bb8b6e5f630275487d95f47ac7bbcf428e576a79996d52593b454d",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_18.png": "efc9290c601561f6e95c1900d9699e3596885527571806d7b178c5baeb6da3ee",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_19.png": "f50dc0bca5cb2120fdcd0f3f05357ee85c37d260849ec55bc338e29cfd5bb5c7",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_20.png": "4cf5e86598ad2dbd1d8fde803df0590bc935038dbc84d3d17bd5e97bf8627997",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_21.png": "07b7a2f3681f7a1e8c702aadac74b1123721186ac962e47db67ecf6626e63d5c",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_22.png": "9452a6cc0ace54a2c13b5c06cc0a88ad4f9b764ca93db74bf1499aa83e286a5a",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_23.png": "44937445e36254b61c48c6502652454dcfbbe5eb7de39428e2d6059a199c85a9",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_24.png": "3c4b6fdcf05b749549955d4a9788f453cd15d663f64cf0e4323d338fee62b90e",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_25.png": "e3885fab5f1551cc149214faa5e0761f74a7a800c7e72bfe40b69924fcce0c24",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_26.png": "af2c2d8e7ff67003669fe888115787dbdbe1d7d42c397f5d9fbe68f93ed5a193",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_27.png": "6e4cd51db0cbdb6d4b87d0778f58620155547f4a7134dbc856fa47351eb013a2",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_28.png": "f505f2dd01da20ae7b1aaec3f888de0281b67707de9de6a495a73023ce295945",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_29.png": "58253dccb6d0b45464ca6a928570c297fa6c8aad8bd81b153646ab3f8425adbd",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_30.png": "9e7b44f88a160a220466f20605c74253c943513e8881d52ef49cc45da670feb9",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_31.png": "ad52a8896363afa4b8dea4172581bad80b83e7926a811f2e1a1be3efd752ce66",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_32.png": "0a7489a7bec9e13577800dc4e9779b6cbea8f57ce7954aef0ae4ce198b9442ac",
+    "books/chapter_one/landscape/revisions/v38_audit_fixes/complete/page_33.png": "a3d91bdd255152df45b57ece3c8edf6f311c4dbf4f8de9de9b775e6bfccf1e50"
+  },
+  "findings_disposition": [
+    {
+      "id": "V38-PEER-01",
+      "priority": "P2",
+      "status": "RESOLVED",
+      "item": "A8",
+      "evidence": [
+        "complete/page_05.png",
+        "peer_review/r03_page05_7x5.png",
+        "peer_review/r03_door_detail.png",
+        "peer_review/r03_candidate_measurements.json"
+      ],
+      "review": "Four plain, separated lavender-grey wisps are now a quiet readable threshold clue. Independently measured visible cores are about 86-89 x 43-45 original-door pixels at effective alpha >=32/255; faint bounds about 97-102 x 56-59 at alpha >=8/255. Compared with the approximately 69 x 34 gold handle, both are above handle scale and below twice its width and height. Whole-page and 7x5-equivalent views were actually inspected. No coiling, face, premature reveal or new story event was introduced."
+    },
+    {
+      "id": "V38-PEER-02",
+      "priority": "P2",
+      "status": "RESOLVED",
+      "item": "evidence",
+      "evidence": [
+        "record_review.py",
+        "visual_audits.json",
+        "peer_review/review_guard_negative_check.json"
+      ],
+      "review": "The helper now only validates existing exact master/email bindings; it cannot copy old observations or write a review file. Current code and the negative changed-artifact receipt were inspected, and the receipt binds this exact script hash. Five fresh implementer passes are explicitly distinguished from this second-AI critique."
+    },
+    {
+      "id": "V38-PEER-03",
+      "priority": "P2",
+      "status": "RESOLVED",
+      "item": "evidence/rebuild",
+      "evidence": [
+        "local_validation.py",
+        "validation_results.json",
+        "peer_review/validation_failure_negative_check.json"
+      ],
+      "review": "The helper asserts current successful master/control/provenance/email bindings; records actual requested subprocess commands, return codes and outputs; labels unexecuted tests honestly; and does not rewrite impact history. The inspected receipt captures authority ALL OK, development ALL OK and 52 actually executed tests OK. Negative failed-book-gate evidence binds this exact script and shows no aggregate receipt was written."
+    },
+    {
+      "id": "V38-PEER-04",
+      "priority": "P3",
+      "status": "RESOLVED",
+      "item": "review presentation",
+      "evidence": [
+        "build_review.py",
+        "complete/reveals.jpg",
+        "complete/turns_before_after.jpg"
+      ],
+      "review": "Readable real facing spreads and separate labelled before/after turns 13 to 14, 23 to 24 and 27 to 28 replace the ambiguous sparse board. This remains a presentation improvement, not a pagination correction."
+    },
+    {
+      "id": "V38-PEER-05",
+      "priority": "P2",
+      "status": "RESOLVED",
+      "item": "A8 local join",
+      "evidence": [
+        "art/door_dust_attempt4_rgba.png",
+        "peer_review/r03_door_detail.png",
+        "prepare_revision.py",
+        "BOOK_CURRENT.json"
+      ],
+      "review": "The selected take is a dust-only true-alpha layer. Uniform placement, separate feathered masks and document opacity 0.7 preserve original architecture underneath. The straight original moulding and central stile remain continuous; natural translucent dust occlusion replaces the rejected RGB candidate's wavy/doubled geometry. Native3 and the rejected R02 proof/control remain preserved as evidence."
+    }
+  ],
+  "criteria": [
+    {
+      "item": "A1",
+      "result": "PASS",
+      "notes": "Exact three requested manual lines on page 22; words, size, box and navy retained. Proof is byte-identical to the independently reviewed R01 proof."
+    },
+    {
+      "item": "A2",
+      "result": "PASS",
+      "notes": "Page 16 retains navy block, halo/outline and baselines 110/84/58. Actual glyph plus stroke clears the unchanged focal boundary by 2.12 logical points. The glyph-ink refinement is legitimate, with no ignored collision. Proof is unchanged from R01."
+    },
+    {
+      "item": "A3",
+      "result": "PASS",
+      "notes": "Page 18 retains the requested three lines with needs help together and the same white/outline. Exact R01 proof."
+    },
+    {
+      "item": "A4",
+      "result": "PASS",
+      "notes": "Cover subtitle stays two right-aligned 13pt navy lines at the requested baselines/inset; character/hair clearance holds. Exact R01 proof."
+    },
+    {
+      "item": "A5",
+      "result": "PASS",
+      "notes": "Pale-aqua shell pail, contact, preserved towel/shells/left figures, normalized bank limits and central gap remain as independently reviewed. Exact R01 proof; no new bank artwork."
+    },
+    {
+      "item": "A6",
+      "result": "PASS",
+      "notes": "Tiny plush white Lamma head remains subordinate at far left curtain, with pale face, lashes and pink cheeks. Page 10 and rear cameo retain the two silent sightings. Exact R01 proofs."
+    },
+    {
+      "item": "A7",
+      "result": "PASS",
+      "notes": "Thin pale upper-right web and four added soft lower-carpet drifts retain the inviting hall, clear copy and preserved source tufts. Exact R01 rear proof."
+    },
+    {
+      "item": "A8",
+      "result": "PASS",
+      "notes": "R03 resolves size/readability and the rejected R02 join. Four ordinary faint wisps emerge at the closed threshold with handle-relative measured scale and unchanged architecture."
+    },
+    {
+      "item": "A9",
+      "result": "AUTHORIZED_HOLD",
+      "notes": "Two native takes were independently inspected in R01 and remain rejected for sub-1800 group size and minor contour drift. Exact V37 bath remains under the explicit stop clause. This does not claim native-resolution/print-size completion."
+    },
+    {
+      "item": "A10",
+      "result": "PASS_METHOD_REVIEW",
+      "notes": "Final gate retains the reviewed caption-free final-composition method, fill/median/worst-decile thresholds and stroke exclusion. Local repairs are included; 79 PASS, 7 OUTLINE_REQUIRED, 0 FAIL across 86 lines, required supports present. No threshold was weakened to obtain a pass."
+    }
+  ],
+  "independent_read_only_checks": {
+    "final_pdf_master_bytes": 126101785,
+    "final_email_bytes": 24493144,
+    "all34_pdf_proofs_freshly_rendered_and_pixel_exact": true,
+    "render_method": "pypdfium2 scale 1.5; RGB dimensions and every decoded pixel compared in memory with each complete/page_00.png through page_33.png",
+    "proofs_byte_identical_to_initial_V38": 33,
+    "only_changed_proof_vs_initial_V38": "page_05.png",
+    "original_source_font_seals_currently_rehashed": 307,
+    "seal_baseline": "All 307 equal the initial V38 seals independently checked against V37 Git blobs in R01; all current source files were rehashed in R03.",
+    "lossless_parts": 3,
+    "parts_reconstructed_in_memory_to_exact_final_master": true,
+    "visual_views_actually_inspected": [
+      "complete/page_05.png",
+      "peer_review/r03_page05_7x5.png",
+      "peer_review/r03_page05_before_after.png",
+      "peer_review/r03_door_detail.png",
+      "complete/reveals.jpg",
+      "complete/turns_before_after.jpg",
+      "details/email_export_review.png"
+    ],
+    "prior_art_review_carried_by_exact_bytes": "All other A1-A10 proof artwork is byte-identical to R01; prior independent observations remain valid for those exact pages.",
+    "current_strict_receipt_reviewed": {
+      "status": "PASS_WITH_DECLARED_A9_HOLD",
+      "issues": 0,
+      "contrast_counts": {
+        "PASS": 79,
+        "OUTLINE_REQUIRED": 7,
+        "FAIL": 0
+      },
+      "source_seals": 307,
+      "exact_pdf_proofs": 34,
+      "unchanged_vs_V37": 27
+    },
+    "observed_contract_receipt_reviewed": {
+      "checked_at_utc": "2026-10-26T02:20:09.331680+00:00",
+      "authority": "ALL OK",
+      "development": "ALL OK",
+      "base": "5920c673305989ee29d91876480ff445dba9fc8b",
+      "unittest": "52 tests in 25.827s; OK; DOCAUTH stress 6/6"
+    },
+    "export_receipt_reviewed": "24,493,144-byte email, 86 exact alpha placements, native sizes/vector content preserved; minimum reported render PSNR 40.230438 dB. Email comparison visibly inspected; this metric alone does not establish art acceptance.",
+    "helper_code_review": "Exact hash-bound review guard; actual subprocess validation; preserved ledger rows in authority updater; staged-byte manifest and explicit publication-only metadata exclusions were inspected."
+  },
+  "declared_holds": [
+    "A9 native bath resolution target remains unachieved under the authorized two-take stop condition; exact V37 drawing retained.",
+    "Final trim/PPI and physical print acceptance remain open.",
+    "Owner, child reading and professional SLP acceptance remain separate from this independent AI critique.",
+    "No game/runtime/master-audit finding, device performance, release or promotion acceptance is granted."
+  ],
+  "publication_review": {
+    "status": "PENDING",
+    "required": "Commit/push this corrected exact payload and critique to the established GitHub branch, verify its manifest and every listed remote file anonymously at an immutable revision, then return the pinned manifest and receipt for separate final publication review.",
+    "metadata_design_reviewed": "Manifest/remote receipt/final publication-only reviewer confirmation/dedicated publication-impact metadata are explicitly excluded to avoid circular hashing. All production evidence, critique rounds and responses remain sealed payload. Do not change any sealed included file after publication without regenerating and re-verifying the manifest.",
+    "local_satisfaction_is_not_delivery": "No new remote receipt has yet been reviewed by this second AI; do not present R03 alone as completed external delivery."
+  },
+  "conclusion": "All identified local in-scope defects from R01/R02 are resolved on the exact reviewed candidate. No further art generation or scene redesign is warranted by this review. I am satisfied with scoped local implementation/evidence, with the declared A9 and acceptance holds. Final handoff satisfaction awaits verified publication."
+}

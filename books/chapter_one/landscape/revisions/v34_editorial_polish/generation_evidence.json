@@ -1,0 +1,1454 @@
+{
+  "count": 25,
+  "native_attempts": [
+    {
+      "id": "arrival_border",
+      "filename": "exec-6c79dfff-e05c-44d4-97c6-d02eb47ee9e3.png",
+      "attempt": 1,
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/arrival_border_attempt1.png",
+      "sha256": "090625dc0f5edc9865f0f1250e9da43b865e43d9d3061ef240aaa059bee44429",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "NOT_DELIVERED",
+      "prompt": "Use case: precise-object-edit / outpainting. IMAGE_1 is the exact existing illustration. Add ONLY42pixels on each left/right edge and30pixels on each top/bottom edge, extending metal aircraft wall and existing colors. Output1568x1120, with the original1484x1060 image unchanged in the centered rectangle x42..1526,y30..1090. Preserve her entire tiara, face, hand, body and porthole exactly. No new objects. Only the new perimeter will be delivered; the original scene will be laid over it unchanged. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+      "prompt_sha256": "cda13ae27500380a992cd1a3cf0225f30bdfdcffccb9ab386daf8ab69bd9ff50",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_01_art.png",
+          "sha256": "bc4a93a7087b3bbe825aa11166ca15466d03d16e62f64d8e97c13d2f9b607859",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_01_art.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "rejection": "Visible upper-strip join remained in native composition. Original full aircraft source restored; final trim/bleed headroom deferred.",
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "entry_dust",
+      "filename": "exec-641911f4-a185-4db2-9f0b-d01266b5f189.png",
+      "attempt": 1,
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/entry_dust_attempt1.png",
+      "sha256": "1c302eae3ba01220bf15e6539b9ac9ce1be95225d5e0713b5fedf11a624c8fa9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "Visible joins in composed proof; original scene retained.",
+      "prompt": "Use case: precise-object-edit. Remove ONLY the brown angular rock/boulder piles visible inside the open doorway at right, replacing their local footprints with dim dusty castle floor and shadow continuous with the existing threshold. It is a neglected castle, not a cave. Preserve the entire Daddy and Roshan, open door, door seam, walls, fixtures and lighting. Return the same1484x1060 canvas. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+      "prompt_sha256": "5d4aa53bb5fac87529a3a1f3cd6b8c76fbf109254fbf253c77e15c639cf08683",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_03_art.png",
+          "sha256": "03367f249b262479f90c79e03808545216ef8704cacd68b4873538babe5caa42",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_03_art.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "pink_cup",
+      "filename": "exec-0c81bee8-3932-4c7d-bf8a-57da149fedb1.png",
+      "attempt": 1,
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/pink_cup_attempt1.png",
+      "sha256": "98fb6fc16ec0c2fb51cef1c4fa4840042afe88fee22e24cd3365368396668a8c",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "DELIVERED",
+      "prompt": "Use case: precise-object-edit. Recolor ONLY the small metal cup wedged in the seahorse fountain mouth at the upper right to the soft rosy pink cup held in IMAGE_2. Keep its exact size, angle, cylindrical rim, stuck position, algae and fountain contact; change no other object or character. Return same1484x1060 canvas. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+      "prompt_sha256": "c9d2778ab1bfcb8e84b1b64f6929e7701e5082092b5fc9f7f5faf295c43b5a54",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_11_art.png",
+          "sha256": "0717f2ff843be399dbf00c031f96336ec14cdb952d68ec95054473ffe65fa2e7",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_11_art.png"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png",
+          "sha256": "3031917eb02f4a606b57e08fe7a5924abe08020c11efd3faba8cf27343cdec62",
+          "role": "identity_or_style_reference",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [
+        {
+          "page": 10,
+          "source_key": "v34_pink_cup",
+          "file": "revisions/v34_editorial_polish/art/pink_cup_attempt1.png",
+          "sha256": "98fb6fc16ec0c2fb51cef1c4fa4840042afe88fee22e24cd3365368396668a8c",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            1168,
+            334,
+            1226,
+            383
+          ],
+          "target_box_points": [
+            396.6792452830189,
+            229.92452830188677,
+            19.69811320754717,
+            16.641509433962263
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              1170,
+              350
+            ],
+            [
+              1185,
+              339
+            ],
+            [
+              1210,
+              334
+            ],
+            [
+              1223,
+              340
+            ],
+            [
+              1226,
+              359
+            ],
+            [
+              1210,
+              380
+            ],
+            [
+              1187,
+              383
+            ],
+            [
+              1168,
+              371
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "clip_canvas_transform_points": [
+            2.842170943040401e-14,
+            0.0,
+            0.33962264150943394
+          ]
+        }
+      ],
+      "final_review": "SELECTED_FOR_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "listening_face",
+      "filename": "exec-1e15db5c-2187-4479-87c9-febb54ca0733.png",
+      "attempt": 1,
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/listening_face_attempt1.png",
+      "sha256": "b46e0d50275b99f6fdb3d7264ab76b34c9148bef8946b8d1767ed9d777ea4825",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "DELIVERED",
+      "prompt": "Use case: precise-object-edit. Change ONLY Roshan's tiny facial expression: alert, gently concerned, mouth slightly parted as she hears a chirp. Preserve eyes' amber color and shape, age, head outline, hair, crown, ear, hands cupped to listen, entire body and room. Do not make her frightened or crying. Return same1484x1060 canvas. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+      "prompt_sha256": "da43e19f23cc0729f8ec4de920370726a0309521c09671895bf91b82a97e218e",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_18_art.png",
+          "sha256": "2c6d0a151ffcecb029e876f19cf702d904931bf4907836f2f951376db882ecad",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_18_art.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [
+        {
+          "page": 17,
+          "source_key": "v34_listening_face",
+          "file": "revisions/v34_editorial_polish/art/listening_face_attempt1.png",
+          "sha256": "b46e0d50275b99f6fdb3d7264ab76b34c9148bef8946b8d1767ed9d777ea4825",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            703,
+            238,
+            814,
+            339
+          ],
+          "target_box_points": [
+            238.75471698113208,
+            244.86792452830187,
+            37.698113207547166,
+            34.30188679245283
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              716,
+              249
+            ],
+            [
+              743,
+              238
+            ],
+            [
+              773,
+              243
+            ],
+            [
+              802,
+              259
+            ],
+            [
+              814,
+              283
+            ],
+            [
+              806,
+              313
+            ],
+            [
+              782,
+              337
+            ],
+            [
+              746,
+              339
+            ],
+            [
+              716,
+              321
+            ],
+            [
+              703,
+              289
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "clip_canvas_transform_points": [
+            2.842170943040401e-14,
+            0.0,
+            0.33962264150943394
+          ]
+        }
+      ],
+      "final_review": "SELECTED_FOR_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "mysterious_door",
+      "filename": "exec-982e9c63-7bf4-45e9-9f3e-e5d8463a6871.png",
+      "attempt": 1,
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/mysterious_door_attempt1.png",
+      "sha256": "e7d8c5b0b69c6f1fe5301f12fa3444ba24f19d6fc7fa4191a1fa35e8cf25eb16",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "DELIVERED",
+      "prompt": "Use case: precise-object-edit. Dim ONLY the rightmost closed purple shell door's luminous seam and door surface. Deep quiet violet shadow, a barely visible muted seam, curious and a little mysterious rather than an inviting rainbow portal. Keep the exact physical door, arch, stairs, brass handles, Roshan, other completed open doors and colored light trails unchanged. No monster, no new fixtures. Return same1484x1060 canvas. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+      "prompt_sha256": "3cc51ff1189e3eddd17df5b4e600c5c3af11a2f57d2b92814278fd7895242019",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_23_art.png",
+          "sha256": "f8fe93f2e30536edc253a7ed2a5605acdf388c70de66d52cf2ff561ae928f90e",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_23_art.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [
+        {
+          "page": 22,
+          "source_key": "v34_mysterious_door",
+          "file": "revisions/v34_editorial_polish/art/mysterious_door_attempt1.png",
+          "sha256": "e7d8c5b0b69c6f1fe5301f12fa3444ba24f19d6fc7fa4191a1fa35e8cf25eb16",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            1180,
+            346,
+            1408,
+            638
+          ],
+          "target_box_points": [
+            400.7547169811321,
+            143.32075471698113,
+            77.43396226415094,
+            99.16981132075472
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              1180,
+              632
+            ],
+            [
+              1189,
+              451
+            ],
+            [
+              1203,
+              403
+            ],
+            [
+              1240,
+              367
+            ],
+            [
+              1296,
+              346
+            ],
+            [
+              1346,
+              365
+            ],
+            [
+              1382,
+              402
+            ],
+            [
+              1407,
+              451
+            ],
+            [
+              1408,
+              638
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "clip_canvas_transform_points": [
+            2.842170943040401e-14,
+            0.0,
+            0.33962264150943394
+          ]
+        }
+      ],
+      "final_review": "SELECTED_FOR_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "rubbish_bank",
+      "filename": "exec-b96aa570-fcc0-4aae-8bb2-95488a11ca37.png",
+      "attempt": 1,
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/rubbish_bank_attempt1.png",
+      "sha256": "97256d3d3b04c5b95dbc378c711dd6581673cdf8d3f3afdf741f1fc72061ece5",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "DELIVERED",
+      "prompt": "Use case: precise-object-edit. Change only the tiny right-bank dented green metal can to a discarded crumpled blue snack bag with a small tear, naturally nestled in the same blue sand. Keep the blue bottle cap and left star wrapper, all clean blue stationery wash, dotted border, bubbles and mounds exactly. No can/cup/net duplicated. All props stay below85percent canvas height, individually under12percent width/height, central gap empty. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+      "prompt_sha256": "6cc8cd072779485a5a9ecfcf37aa2de2cb5c888b5173afa38361712636a2e698",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles11.png",
+          "sha256": "2ecc03a12ded1f66ed4fe58daa5bbbc216cf73f3e3e0e7e73e5f82369f8cdeec",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles11.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [
+        {
+          "page": 11,
+          "source_key": "v34_rubbish_bank",
+          "file": "revisions/v34_editorial_polish/art/rubbish_bank_attempt1.png",
+          "sha256": "97256d3d3b04c5b95dbc378c711dd6581673cdf8d3f3afdf741f1fc72061ece5",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        }
+      ],
+      "final_review": "SELECTED_FOR_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "tidy_art_bank",
+      "filename": "exec-953b8d13-f34f-46f3-b10f-ebc0eb36781b.png",
+      "attempt": 1,
+      "status": "REJECTED_WRONG_GRAND_PUFF_IDENTITY",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/tidy_art_bank_attempt1.png",
+      "sha256": "05d63afc127534739078b42c8a403b8284683310d5eb9d4b1b17206500abeb72",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "REJECTED_WRONG_GRAND_PUFF_IDENTITY",
+      "prompt": "Use case: precise-object-edit. Replace ONLY the tiny messy props on both lower blue banks. Left: one small canonical lavender dust bunny carefully rolling a scrap of used drawing paper into a tidy roll. Right: a neatly folded paint-stained cloth resting beside a small tied paper bundle. No paints, bottles, brushes, sponges or liquid spills, because those are already in the foreground. Match bunny identity in IMAGE_2: lavender cloud body, two spiral/curl ears, pearl nubs, simple dark eyes, no rabbit ears or limbs. All new assets entirely below85percent canvas height, each under12percent width/height, blue mounds grounded with subtle contact, center gap empty. Preserve the complete stationery otherwise. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+      "prompt_sha256": "fa6fbc0d53a905878235300b923305cd3f4937c8a002e336c81a3ef52b40ea20",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles21.png",
+          "sha256": "cc2323bbb54e9dde9848f2e2463d3643f2891e348827f95f61c1425376714b94",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles21.png"
+        },
+        {
+          "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+          "role": "canonical_little_puff_identity_not_Grand_Puff",
+          "original_tool_input_path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs_first_plan.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "care_bank24",
+      "filename": "exec-c0df8456-780c-425c-a62f-87e02aa2853d.png",
+      "attempt": 1,
+      "status": "REJECTED_WRONG_GRAND_PUFF_IDENTITY",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/care_bank24_attempt1.png",
+      "sha256": "616d62240d267a74f62fea62512ccd9c931774b4828c044e6c327169f3a77d18",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "REJECTED_WRONG_GRAND_PUFF_IDENTITY",
+      "prompt": "Use case: precise-object-edit. Replace ONLY the right lower-bank scared bunnies and hiding shell with two tiny kind canonical lavender curl-ear dust bunnies preparing to help. One holds up a soft tissue, the other gently steadies a little closed water flask. Expressions concerned and caring, no panic, no fear lines, no popcorn. Keep left tiny attic chest/books, blue mounds and stationery exactly. Bunny identity from IMAGE_2: cloud silhouette, spiral ears and pearl nubs, no rabbit limbs. All assets below85percent height, each under12percent dimensions, tucked naturally into mound sand, central gap empty. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+      "prompt_sha256": "0e634d32a1503fbdf710852c98b964970fbfe00e148fc378b1a8ecdd89d4aca2",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank24_final.png",
+          "sha256": "f8285cad166d0947f9d3667a9eaa92b52eface00b2c7c67ba1c7efbe82916f3f",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v29_polish/art/bank24_final.png"
+        },
+        {
+          "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+          "role": "canonical_little_puff_identity_not_Grand_Puff",
+          "original_tool_input_path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs_first_plan.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "tidy_art_bank",
+      "filename": "exec-79efd54c-def4-4f54-80f3-0f8d650fc927.png",
+      "attempt": 2,
+      "status": "REJECTED_OVERSIZED_LITTLE_PUFFS",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/tidy_art_bank_attempt2.png",
+      "sha256": "f159e71a384107e4fa49771f17b549c8b5df47c037ff8dbbdbcf3b3884df6b9f",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "REJECTED_OVERSIZED_LITTLE_PUFFS",
+      "prompt": "Use case: precise-object-edit. Replace ONLY the tiny messy props on both lower blue banks. Left: one small canonical lavender dust bunny carefully rolling a scrap of used drawing paper into a tidy roll. Right: a neatly folded paint-stained cloth resting beside a small tied paper bundle. No paints, bottles, brushes, sponges or liquid spills, because those are already in the foreground. Match bunny identity in IMAGE_2: lavender cloud body, two spiral/curl ears, pearl nubs, simple dark eyes, no rabbit ears or limbs. All new assets entirely below85percent canvas height, each under12percent width/height, blue mounds grounded with subtle contact, center gap empty. Preserve the complete stationery otherwise. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene. OWNER CORRECTION: These are ONLY the LITTLE puffs from IMAGE_2. NO Grand Puff, NO star/diamond on the forehead, NO tall flame-like stacked cloud crest, NO heavy droopy brow. Simple low rounded cloud body, a single soft forehead curl, two narrow upright curled ears, four pearl nubs. Bunny height only75-90px on1060px canvas, below y910. No anatomical hands or fingers: use soft edge puffs to nudge/hold a prop. Little puffs are cheerful/concentrating or gently concerned, not sick. Keep their established tiny border scale.",
+      "prompt_sha256": "4eb87d6808345664e3c84b9559f5d92343308e94e1421b10909fa8f623819b60",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles21.png",
+          "sha256": "cc2323bbb54e9dde9848f2e2463d3643f2891e348827f95f61c1425376714b94",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles21.png"
+        },
+        {
+          "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+          "role": "canonical_little_puff_identity_not_Grand_Puff",
+          "original_tool_input_path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "care_bank24",
+      "filename": "exec-0f0a2298-2b15-403e-992e-237f07aa9a6f.png",
+      "attempt": 2,
+      "status": "REJECTED_OVERSIZED_LITTLE_PUFFS",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/care_bank24_attempt2.png",
+      "sha256": "9b4d1b27ae7b8b4841e7c2a9009c5a2df012cb9f70053d92c9989c99efda9b05",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "REJECTED_OVERSIZED_LITTLE_PUFFS",
+      "prompt": "Use case: precise-object-edit. Replace ONLY the right lower-bank scared bunnies and hiding shell with two tiny kind canonical lavender curl-ear dust bunnies preparing to help. One holds up a soft tissue, the other gently steadies a little closed water flask. Expressions concerned and caring, no panic, no fear lines, no popcorn. Keep left tiny attic chest/books, blue mounds and stationery exactly. Bunny identity from IMAGE_2: cloud silhouette, spiral ears and pearl nubs, no rabbit limbs. All assets below85percent height, each under12percent dimensions, tucked naturally into mound sand, central gap empty. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene. OWNER CORRECTION: These are ONLY the LITTLE puffs from IMAGE_2. NO Grand Puff, NO star/diamond on the forehead, NO tall flame-like stacked cloud crest, NO heavy droopy brow. Simple low rounded cloud body, a single soft forehead curl, two narrow upright curled ears, four pearl nubs. Bunny height only75-90px on1060px canvas, below y910. No anatomical hands or fingers: use soft edge puffs to nudge/hold a prop. Little puffs are cheerful/concentrating or gently concerned, not sick. Keep their established tiny border scale.",
+      "prompt_sha256": "60b08d16c18e496c4de3ea7bc5418febdf8021dbee1588265642c6c4fd340e89",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank24_final.png",
+          "sha256": "f8285cad166d0947f9d3667a9eaa92b52eface00b2c7c67ba1c7efbe82916f3f",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v29_polish/art/bank24_final.png"
+        },
+        {
+          "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+          "role": "canonical_little_puff_identity_not_Grand_Puff",
+          "original_tool_input_path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "tidy_art_bank",
+      "filename": "exec-4d7bd868-69ef-4b6b-aa43-1680892db03c.png",
+      "attempt": 4,
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/tidy_art_bank_attempt4.png",
+      "sha256": "2fb79aa9c2331baf5faccbbcf43f7a2362b4a0db38d3d5355b068e3a5fb051b7",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "DELIVERED",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the tiny objects already on the two bottom blue sand banks. Left: replace tipped paint bottles and spills with TWO SMALL CLOSED SKETCHBOOKS, low and horizontal, one little paper ribbon bookmark. Right: replace brush and paint paper with a SMALL NEAT FOLDED PAINT-STAINED CLOTH and a tied waste-paper packet. NO characters on this page, NO dust bunnies, NO Grand Puff, NO paint bottles or brushes. Each object remains under110px in BOTH dimensions, entirely BELOW y925 on this1484x1060 canvas, on the blue sand. Match the current tiny scale of the original objects, not a large close-up. Preserve the background, all dotted borders, bubbles, paper grain, blue mounds and central empty space exactly. Quiet polished painted2D, no text, return1484x1060.",
+      "prompt_sha256": "91947b0e646b2456aad3918a1657ab0866c2b40e21dae88b6feefecbc213fe67",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles21.png",
+          "sha256": "cc2323bbb54e9dde9848f2e2463d3643f2891e348827f95f61c1425376714b94",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles21.png"
+        }
+      ],
+      "job_sidecar": "final_local_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [
+        {
+          "page": 21,
+          "source_key": "v34_tidy_art_bank",
+          "file": "revisions/v34_editorial_polish/art/tidy_art_bank_attempt4.png",
+          "sha256": "2fb79aa9c2331baf5faccbbcf43f7a2362b4a0db38d3d5355b068e3a5fb051b7",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        }
+      ],
+      "final_review": "SELECTED_FOR_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "care_bank24",
+      "filename": "exec-f0aa70ba-34cc-455e-b09f-cad8eaed262c.png",
+      "attempt": 3,
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/care_bank24_attempt3.png",
+      "sha256": "0799c0179cec810a494614935efe1e567952058fed034f41b30fdb80606b0f62",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "DELIVERED",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the edit target; IMAGE_2 the LITTLE puff identity. The little puffs in IMAGE_1 are too large. Shrink the two right-hand puffs and their tissue/flask together to about70percent their current size. Anchor each group's base at y990 of the1484x1060 canvas. Their ear tops must be BELOW y915; each entire little puff must be under90pixels high including ears. Do not enlarge their props. Maintain natural tiny contact shadows and a seamless blue sand mound behind them. Entire top85percent remains absolutely empty of decorative subjects, except the existing dotted border. Preserve all original bubbles, line work, blue wash, blank center and left-hand chest/books. No Grand Puff, no forehead star, no tall stacked crest, no hands/fingers. Actual little curl-ear cloud puffs only. Preserve polished painted2D storybook rendering. Return1484x1060, no text, no watermark.",
+      "prompt_sha256": "bbe320b1562a73324589339a0c874de3622ccfbea8542a8017f93f4e16c5ed14",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/care_bank24_attempt2.png",
+          "sha256": "9b4d1b27ae7b8b4841e7c2a9009c5a2df012cb9f70053d92c9989c99efda9b05",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/care_bank24_attempt2.png"
+        },
+        {
+          "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+          "role": "canonical_little_puff_identity_not_Grand_Puff",
+          "original_tool_input_path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png"
+        }
+      ],
+      "job_sidecar": "size_repair_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [
+        {
+          "page": 24,
+          "source_key": "v34_care_bank24",
+          "file": "revisions/v34_editorial_polish/art/care_bank24_attempt3.png",
+          "sha256": "0799c0179cec810a494614935efe1e567952058fed034f41b30fdb80606b0f62",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        }
+      ],
+      "final_review": "SELECTED_FOR_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "care_bank25",
+      "filename": "exec-f77d4c36-20ef-4d51-b29a-0549d8ce0faf.png",
+      "attempt": 1,
+      "status": "REJECTED_OVERSIZED_GROUP",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/care_bank25_attempt1.png",
+      "sha256": "c3b7c5dec5997376a63890a24e91560ed1d771073220b154ca9fdf8c87dfe342",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "REJECTED_OVERSIZED_GROUP",
+      "prompt": "Use case: precise-object-edit. Replace ONLY the tiny right-bank couch spectators and popcorn with a helpful little scene: keep the small game cloud couch, one canonical lavender spiral-ear bunny on it folding a clean washcloth; one bunny on the sand beside it gently nudges a small water pail toward the story. Kind intent, no cheering, no popcorn, no show-watching. Keep left attic jar/books and complete blue stationery. Identity IMAGE_2: cloud puffs, curl ears, pearl nubs, no rabbit anatomy. Below85percent height, each asset under12percent dimensions, no floating props, sand contact and a quiet center gap. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene. OWNER CORRECTION: These are ONLY the LITTLE puffs from IMAGE_2. NO Grand Puff, NO star/diamond on the forehead, NO tall flame-like stacked cloud crest, NO heavy droopy brow. Simple low rounded cloud body, a single soft forehead curl, two narrow upright curled ears, four pearl nubs. Bunny height only75-90px on1060px canvas, below y910. No anatomical hands or fingers: use soft edge puffs to nudge/hold a prop. Little puffs are cheerful/concentrating or gently concerned, not sick. Keep their established tiny border scale.",
+      "prompt_sha256": "2096c162d439900ef047c665c64d1f860be6ef122ab99d63ba436b941319ec37",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank25_tiny.png",
+          "sha256": "dcbcc1303a57d327eedc7871ea5266a6a5afda158bdf2076d349da75124636f2",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v29_polish/art/bank25_tiny.png"
+        },
+        {
+          "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+          "role": "canonical_little_puff_identity_not_Grand_Puff",
+          "original_tool_input_path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "foam_glints",
+      "filename": "exec-e62e9583-ea9e-4484-bc77-4e641a6b12aa.png",
+      "attempt": 1,
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/foam_glints_attempt1.png",
+      "sha256": "a13397d8c83973d7c5dac800c0890afe04634bfd6215a183afad01bb7662f355",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "DELIVERED",
+      "prompt": "Use case: precise-object-edit. Add ONLY three or four extremely faint little rainbow glints inside existing small gaps between the central white soap bubbles concealing Grand Puff. Tiny pink, gold, aqua hints of his own hidden color, not a full rainbow body and not rainbow stripes over all foam. Preserve complete concealment, original bubble contours, hands, sponges, helper faces/anatomy, room, staging and ceiling exactly. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+      "prompt_sha256": "4505ab4f163ddf349783777876dfb5177e436ba0a3277c65111e78dc154f531a",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_27_art.png",
+          "sha256": "0372d8f3a090b108e3458a8a689c2daddc76321235f9852702deb817817d0044",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_27_art.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [
+        {
+          "page": 27,
+          "source_key": "v34_foam_glints",
+          "file": "revisions/v34_editorial_polish/art/foam_glints_attempt1.png",
+          "sha256": "a13397d8c83973d7c5dac800c0890afe04634bfd6215a183afad01bb7662f355",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            642,
+            449,
+            685,
+            486
+          ],
+          "target_box_points": [
+            218.03773584905662,
+            194.94339622641508,
+            14.60377358490566,
+            12.566037735849056
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              645,
+              451
+            ],
+            [
+              663,
+              449
+            ],
+            [
+              685,
+              462
+            ],
+            [
+              681,
+              485
+            ],
+            [
+              655,
+              486
+            ],
+            [
+              642,
+              472
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "clip_canvas_transform_points": [
+            2.842170943040401e-14,
+            0.0,
+            0.33962264150943394
+          ]
+        },
+        {
+          "page": 27,
+          "source_key": "v34_foam_glints",
+          "file": "revisions/v34_editorial_polish/art/foam_glints_attempt1.png",
+          "sha256": "a13397d8c83973d7c5dac800c0890afe04634bfd6215a183afad01bb7662f355",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            767,
+            511,
+            810,
+            547
+          ],
+          "target_box_points": [
+            260.4905660377359,
+            174.22641509433961,
+            14.60377358490566,
+            12.226415094339622
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              771,
+              514
+            ],
+            [
+              794,
+              511
+            ],
+            [
+              810,
+              525
+            ],
+            [
+              807,
+              547
+            ],
+            [
+              782,
+              546
+            ],
+            [
+              767,
+              532
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "clip_canvas_transform_points": [
+            2.842170943040401e-14,
+            0.0,
+            0.33962264150943394
+          ]
+        },
+        {
+          "page": 27,
+          "source_key": "v34_foam_glints",
+          "file": "revisions/v34_editorial_polish/art/foam_glints_attempt1.png",
+          "sha256": "a13397d8c83973d7c5dac800c0890afe04634bfd6215a183afad01bb7662f355",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            716,
+            677,
+            757,
+            716
+          ],
+          "target_box_points": [
+            243.16981132075472,
+            116.83018867924528,
+            13.924528301886792,
+            13.245283018867923
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              724,
+              678
+            ],
+            [
+              744,
+              677
+            ],
+            [
+              757,
+              696
+            ],
+            [
+              750,
+              716
+            ],
+            [
+              729,
+              716
+            ],
+            [
+              716,
+              697
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "clip_canvas_transform_points": [
+            2.842170943040401e-14,
+            0.0,
+            0.33962264150943394
+          ]
+        }
+      ],
+      "final_review": "SELECTED_FOR_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "door_cutout",
+      "filename": "exec-b8b87bb8-3af0-4352-8065-0259b43c44fd.png",
+      "attempt": 1,
+      "status": "REJECTED_CHANGED_DOOR_HANDLE",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/door_cutout_attempt1.png",
+      "sha256": "d8bb04a485ff6b1f07a0b5162bd3eee7e774af9fa2e2b22eb5cc9ce5a8b19edc",
+      "native_size": [
+        1101,
+        1429
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "Changed hardware; repaired derivative replaces it.",
+      "prompt": "Use case: background-extraction. Extract ONLY the complete rightmost closed purple shell door, its integral gold arch frame and short red stair/rail base, as one whole physical architectural object. Match the supplied specific castle door exactly, not an opera-house door; keep its design, silhouette, proportions and dim violet color. Enlarge/restoring crisp source details is allowed. No surrounding walls, columns, floor rectangle, Roshan, stars or path lights. Center the complete object on a truly transparent canvas, no shadows outside its contour, no white sticker edge; no cropped arch/steps. Return a high-resolution RGBA cutout. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+      "prompt_sha256": "fd0904997bb6e1a00960c2841a0e6638f1e65dd965ddfbc05650b1c86f9756d4",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_23_art.png",
+          "sha256": "f8fe93f2e30536edc253a7ed2a5605acdf388c70de66d52cf2ff561ae928f90e",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_23_art.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "inviting_cutout",
+      "filename": "exec-6f198189-870a-453b-8ac8-30e21af283db.png",
+      "attempt": 1,
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+      "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+      "native_size": [
+        1230,
+        1278
+      ],
+      "selection": "DELIVERED",
+      "prompt": "Use case: background-extraction / identity-preserve. IMAGE_1 is a Roshan gesture atlas. Extract and restore ONLY the complete welcoming Roshan at the upper-right of this atlas (source alpha box x797,y17 to x990,y253). Preserve that exact existing open-handed inviting gesture, rainbow hair lock on its original side, crown, pink blouse, pastel scaly tail and rainbow fins. Do not take the thinking, pointing or waving poses; do not invent a gesture. Scale the same whole figure clearly onto a high-resolution truly transparent RGBA canvas, with clean authored contours and all fingers/tail tips intact. No background haze, no sticker rim. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene.",
+      "prompt_sha256": "cb47ca3369f61dc2f68b2e1864cb21c6d580f0e4ac14ed13a71cde86abbe8573",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/repo_details_v17/roshan_gestures.png",
+          "sha256": "d7d7d78d68311e5d4285aada7a306c555dba985a06145dea2bcb611ea4e2409e",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/art/repo_details_v17/roshan_gestures.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [
+        {
+          "page": 31,
+          "source_key": "v34_inviting_cutout",
+          "file": "revisions/v34_editorial_polish/art/inviting_cutout_attempt1.png",
+          "sha256": "35190707591cb136c7d598f45f3b4d2f2b06ec350c21666496d8336128762855",
+          "native_size": [
+            1230,
+            1278
+          ],
+          "source_box_pixels": [
+            0,
+            23,
+            1198,
+            1260
+          ],
+          "target_box_points": [
+            268.4163298302344,
+            61.0,
+            179.1673403395311,
+            185.0
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "final_review": "SELECTED_FOR_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "quiet_bank",
+      "filename": "exec-053c8c07-4a1c-418d-a147-565e0b5d84a2.png",
+      "attempt": 1,
+      "status": "REJECTED_OVERSIZED_GROUP",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/quiet_bank_attempt1.png",
+      "sha256": "e6f6fdbaa60d15635475d7e6320939bbe77ba667bc459891ff38df83abafea20",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "REJECTED_OVERSIZED_GROUP",
+      "prompt": "Use case: precise-object-edit. Replace the bottom decorations with a quiet listening border. Left bank: one tiny canonical lavender cloud dust bunny leaning its head to listen, one spiral ear tilted gently; right bank: just two old closed attic books stacked neatly, with a small shell resting on them. No door, no fear, no hiding, no cleaning tools. Use IMAGE_2 for curl-ear/pearl-nub cloud anatomy, not rabbit ears or limbs. All subjects below85percent height, individually under12percent dimensions, subtle natural ground contact, blue sand, dotted border and simple blue wash otherwise untouched; central gap empty. Return1484x1060. Preserve the source painted2D children's-book palette, contours, identities and texture; no photorealism, no text, no watermark. This is a source-bound local derivative, not permission to redraw a scene. OWNER CORRECTION: These are ONLY the LITTLE puffs from IMAGE_2. NO Grand Puff, NO star/diamond on the forehead, NO tall flame-like stacked cloud crest, NO heavy droopy brow. Simple low rounded cloud body, a single soft forehead curl, two narrow upright curled ears, four pearl nubs. Bunny height only75-90px on1060px canvas, below y910. No anatomical hands or fingers: use soft edge puffs to nudge/hold a prop. Little puffs are cheerful/concentrating or gently concerned, not sick. Keep their established tiny border scale.",
+      "prompt_sha256": "ed4cdf81de601772d7417b81c00f91fdcb8198d0800fccece65146574a29f86c",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank24_final.png",
+          "sha256": "f8285cad166d0947f9d3667a9eaa92b52eface00b2c7c67ba1c7efbe82916f3f",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v29_polish/art/bank24_final.png"
+        },
+        {
+          "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+          "role": "canonical_little_puff_identity_not_Grand_Puff",
+          "original_tool_input_path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png"
+        }
+      ],
+      "job_sidecar": "generation_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "care_bank25_focus",
+      "filename": "exec-49c514f9-e911-480f-9fdd-fad05da3a6ef.png",
+      "attempt": 1,
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/care_bank25_focus_attempt1.png",
+      "sha256": "f6c0775d9af7f36020ce30f989316bd7c78007337512c7c4b6647273574dac11",
+      "native_size": [
+        1646,
+        956
+      ],
+      "selection": "DELIVERED",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is a tight crop of the two EXISTING LITTLE dust bunnies on their miniature game sofa. IMAGE_2 supplies the full stationery context ONLY. Change ONLY the popcorn carton/popcorn in the RIGHT bunny's soft edge puffs into a small folded clean pale-blue washcloth, as if folding it ready to help a friend. Remove the little gold cheering rays just left of the other bunny. No facial/body redesign, no enlargement, no extra figures, no star crest, no Grand Puff. Keep both actual LITTLE puffs, their simple forehead curls, narrow curl ears, pearl nubs, original faces, their exact small size, sofa, shadows, blue mound and all other pixels unchanged. Return just the same tight crop as IMAGE_1, preserving its aspect ratio. No lettering, no watermark, polished painted2D.",
+      "prompt_sha256": "2c1e5c36e3002ca78281fb204ddce2a87979c321257216dc60eae28b3d206d62",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/couch_focus.png",
+          "sha256": "3afb3c49488b720f4d5d4756a92c11904f6b3f5a0c2a736137c04ab76d1663e9",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/couch_focus.png"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank25_tiny.png",
+          "sha256": "dcbcc1303a57d327eedc7871ea5266a6a5afda158bdf2076d349da75124636f2",
+          "role": "context_only",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v29_polish/art/bank25_tiny.png"
+        }
+      ],
+      "job_sidecar": "final_local_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [
+        {
+          "page": 25,
+          "source_key": "v34_care_bank25_focus",
+          "file": "revisions/v34_editorial_polish/art/care_bank25_focus_attempt1.png",
+          "sha256": "f6c0775d9af7f36020ce30f989316bd7c78007337512c7c4b6647273574dac11",
+          "native_size": [
+            1646,
+            956
+          ],
+          "source_box_pixels": [
+            899,
+            393,
+            1309,
+            796
+          ],
+          "target_box_points": [
+            392.9316352965451,
+            17.63195705376174,
+            17.342213255691327,
+            17.036906923502013
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "bounded_stationery_edit",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              1157,
+              965
+            ],
+            [
+              1171,
+              958
+            ],
+            [
+              1193,
+              960
+            ],
+            [
+              1207,
+              971
+            ],
+            [
+              1208,
+              1002
+            ],
+            [
+              1192,
+              1008
+            ],
+            [
+              1168,
+              1003
+            ],
+            [
+              1157,
+              985
+            ]
+          ],
+          "source_canvas_box": [
+            1045,
+            909,
+            1250,
+            1028
+          ],
+          "clip_canvas_transform_points": [
+            2.842170943040401e-14,
+            0.0,
+            0.33962264150943394
+          ]
+        }
+      ],
+      "final_review": "SELECTED_FOR_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "tidy_art_bank",
+      "attempt": 3,
+      "filename": "exec-bb430a1c-1e61-49d3-b17a-ccc1d02ac2dd.png",
+      "status": "REJECTED_OVERSIZED_GROUP",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/tidy_art_bank_attempt3.png",
+      "sha256": "fe02b57d4e74cc41425028a9f9847e276e0ce235c73b5351c47fddcac9820fc9",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "REJECTED_OVERSIZED_GROUP",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the edit target; IMAGE_2 the LITTLE puff identity. The little puffs in IMAGE_1 are too large. Keep ONLY ONE little puff on the left, rolling its paper. REMOVE the right-hand puff entirely, retaining ONLY the folded cloth and tied paper packet on the right. Shrink the left puff and its paper roll together to HALF their current size. Anchor each group's base at y990 of the1484x1060 canvas. Their ear tops must be BELOW y915; each entire little puff must be under90pixels high including ears. Do not enlarge their props. Maintain natural tiny contact shadows and a seamless blue sand mound behind them. Entire top85percent remains absolutely empty of decorative subjects, except the existing dotted border. Preserve all original bubbles, line work, blue wash, blank center and existing right-hand cloth and tied packet. No Grand Puff, no forehead star, no tall stacked crest, no hands/fingers. Actual little curl-ear cloud puffs only. Preserve polished painted2D storybook rendering. Return1484x1060, no text, no watermark.",
+      "prompt_sha256": "9d44ddbf5c14dbb74939c5260e5ef4b606d77b35891a75fad327a8ca33d0fa9b",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/tidy_art_bank_attempt2.png",
+          "sha256": "f159e71a384107e4fa49771f17b549c8b5df47c037ff8dbbdbcf3b3884df6b9f",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/tidy_art_bank_attempt2.png"
+        },
+        {
+          "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+          "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+          "role": "canonical_little_puff_identity_not_Grand_Puff",
+          "original_tool_input_path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png"
+        }
+      ],
+      "job_sidecar": "size_repair_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "quiet_bank",
+      "attempt": 2,
+      "filename": "exec-a6d48409-5550-4783-b782-e2fc538cd153.png",
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/quiet_bank_attempt2.png",
+      "sha256": "5b084ffc74ec8665ff79f35b15928a147856b01ba7b96e2966f6bf8188e6f4e4",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "PENDING_COMPOSED_REVIEW",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the edit target. Make the little dust bunny on the left bank FOUR TIMES SMALLER, with the very top of its ears below y925 and its bottom touching sand at y990 on this1484x1060 canvas. It is a tiny little puff, not Grand Puff, no star crest. Keep its actual quiet listening gesture, silhouette and rounded curl ears; only scale it down, do not redesign. The small blue listening marks shrink with it. Fill its old silhouette with exactly continuous simple blue wash. Keep the right-hand closed books/shell, every dotted border/bubble and both blue mound shapes fixed. No new props, no characters over75px tall. Do not move the mound horizon. Return1484x1060.",
+      "prompt_sha256": "c8f0f7f179c7e5fa0fed3447b2215a19f173b2f96336659442e614fad82dc6e9",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/quiet_bank_attempt1.png",
+          "sha256": "e6f6fdbaa60d15635475d7e6320939bbe77ba667bc459891ff38df83abafea20",
+          "role": "edit_target",
+          "original_tool_input_path": "C:/Users/Peter/.codex/generated_images/01a0bd6a-0b70-7682-bd4c-44a20e6eed2d/exec-053c8c07-4a1c-418d-a147-565e0b5d84a2.png"
+        }
+      ],
+      "job_sidecar": "quiet_size_job.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "dirty_pool_floor",
+      "attempt": 1,
+      "filename": "exec-4e9195f5-0c28-4b37-a943-f64fec6f3fd3.png",
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/dirty_pool_floor_attempt1.png",
+      "sha256": "49be0a225d1f2d09e4442af459399a7ce08fca4a8abcca28b8b5741be800c05c",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "Visible joins in composed proof; original scene retained.",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact existing full-art book page. Refine ONLY the lower-center floor area below the pool rim, leaving every character, tail, coral, shell, pool, fountain, gunk, architecture and fixture completely unchanged. In that lower-center floor neighborhood, keep the same continuous curved mosaic paving, but simplify its tiny high-frequency tile flecks and competing reflections into a quiet naturally lit pale pearl-lavender mosaic with broader gentle shapes and clean painted texture. It must remain the same floor, with no rectangular caption panel, no opaque strip, no blank white area, no lettering, no blur or digital noise. This is a small caption-space texture repair; do not redesign the scene. Return the same1484x1060 canvas, all other source artwork unchanged.",
+      "prompt_sha256": "bc7d98fc68e3a9b63adc5a44c9ec37b2238c6c200bb4817f22d7deb607e22b82",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_11_art.png",
+          "sha256": "0717f2ff843be399dbf00c031f96336ec14cdb952d68ec95054473ffe65fa2e7",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_11_art.png"
+        }
+      ],
+      "job_sidecar": "caption_floor_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "clean_pool_floor",
+      "attempt": 1,
+      "filename": "exec-8cc863f6-82e7-4ee4-979c-5b3634aec90d.png",
+      "status": "PENDING_COMPOSED_REVIEW",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/clean_pool_floor_attempt1.png",
+      "sha256": "6f5a258f5d33f6a6064ea5256c1235e119fcdd86b590184d914adfb7bdffc78b",
+      "native_size": [
+        1482,
+        1061
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "Visible joins in composed proof; original scene retained.",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact existing full-art book page. Refine ONLY the lower-center floor area below the pool rim, leaving every character, tail, coral, shell, pool, fountain, gunk, architecture and fixture completely unchanged. In that lower-center floor neighborhood, keep the same continuous curved mosaic paving, but simplify its tiny high-frequency tile flecks and competing reflections into a quiet naturally lit pale pearl-lavender mosaic with broader gentle shapes and clean painted texture. It must remain the same floor, with no rectangular caption panel, no opaque strip, no blank white area, no lettering, no blur or digital noise. This is a small caption-space texture repair; do not redesign the scene. Return the same1484x1060 canvas, all other source artwork unchanged.",
+      "prompt_sha256": "bc7d98fc68e3a9b63adc5a44c9ec37b2238c6c200bb4817f22d7deb607e22b82",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_free.png",
+          "sha256": "c1f864bed9bcf443a326fdef85536f9b60592f104f873559a3e315101f06ba59",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/art/language_v26/rumi_free.png"
+        }
+      ],
+      "job_sidecar": "caption_floor_jobs.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "door_cutout_repair",
+      "attempt": 1,
+      "filename": "exec-fbe7f98c-b722-4c7c-990d-65f3c4d7076b.png",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/door_cutout_repair_attempt1.png",
+      "sha256": "1aac75f7dc6a447dae784435529dbc99617951d7e14198cb6d271d137068df6a",
+      "native_size": [
+        1100,
+        1429
+      ],
+      "selection": "DELIVERED",
+      "prompt": "Use case: precise-object-edit / background-extraction correction. IMAGE_1 is the complete isolated source-derived door to repair; preserve its true transparency. IMAGE_2 is the actual story door at the FAR RIGHT, reference only for its hardware and violet wood. In IMAGE_1, repair ONLY the purple inner shell-shaped wooden door: REMOVE the extra LEFT round gold doorknob, restoring its local fan-panel wood beneath. On the RIGHT edge, replace the ball knob with the single horizontal curved brass lever/latch found on the right side of the actual door in IMAGE_2. It is one door with ONE right-hand handle, never two knobs. Darken just the purple wooden shell door panels to a deep, quiet violet matching the mysterious source door; no luminous seam, no rainbow glow. Do not change the integral gold arch, red stairs, rails, outer silhouette or proportions. No surrounding wall or floor, no rectangle or backdrop, no new motifs, no added fixtures. Entire physical object stays intact on truly transparent RGBA. Crisp painted2D storybook, not photorealistic. This is bounded object hardware/color repair, not a new scene.",
+      "prompt_sha256": "325615fdcbfdc2b699497fa1db2519a86c1dc34ce18ce0dbf190d08562076a68",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/door_cutout_attempt1.png",
+          "sha256": "d8bb04a485ff6b1f07a0b5162bd3eee7e774af9fa2e2b22eb5cc9ce5a8b19edc",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/door_cutout_attempt1.png"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_23_art.png",
+          "sha256": "f8fe93f2e30536edc253a7ed2a5605acdf388c70de66d52cf2ff561ae928f90e",
+          "role": "actual_castle_door_identity_and_hardware",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/page_23_art.png"
+        }
+      ],
+      "job_sidecar": "door_repair_job.json",
+      "mode": "built-in image_gen",
+      "usage": [
+        {
+          "page": 23,
+          "source_key": "v34_closed_door",
+          "file": "revisions/v34_editorial_polish/art/door_cutout_repair_attempt1.png",
+          "sha256": "1aac75f7dc6a447dae784435529dbc99617951d7e14198cb6d271d137068df6a",
+          "native_size": [
+            1100,
+            1429
+          ],
+          "source_box_pixels": [
+            0,
+            19,
+            1099,
+            1429
+          ],
+          "target_box_points": [
+            279.0,
+            69.93676069153776,
+            163.0,
+            209.1264786169245
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "final_review": "SELECTED_FOR_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "quiet_bank",
+      "attempt": 3,
+      "filename": "exec-942bc220-33d3-4d44-8bf6-dfc41b40dde0.png",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/quiet_bank_attempt3.png",
+      "sha256": "15c6e21ecdccae0e1a28767c4e6ce6f676a2e8f2bdef73f7d4ce894ac98ad1cc",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "selection": "DELIVERED",
+      "prompt": "Use case: precise-object-edit. Preserve this exact1484x1060 stationery background, especially its tiny little dust bunny, ears, listening marks, blue wash, dotted border and mounds. Change ONLY the closed book stack and shell on the right bank: SHRINK that complete stack to HALF its current width and height, keeping its base centered near x1285,y1000 so it still rests on the blue mound. The resulting widest book must be under150pixels and top of the shell must remain BELOW y925. Fill the old larger book footprint with continuous blue sand and the original simple blue wash; no seams, stickers or rectangular patches. Do not enlarge or move the little puff. No Grand Puff, no new objects, no text. Crisp painted2D with clean bubble patterns and quiet central space.",
+      "prompt_sha256": "2263f2660b119db11262a4852035357a0d611897495c3e9f82f68377cdaba519",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/quiet_bank_attempt2.png",
+          "sha256": "5b084ffc74ec8665ff79f35b15928a147856b01ba7b96e2966f6bf8188e6f4e4",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/quiet_bank_attempt2.png"
+        }
+      ],
+      "job_sidecar": "quiet_books_job.json",
+      "mode": "built-in image_gen",
+      "usage": [
+        {
+          "page": 23,
+          "source_key": "v34_quiet_bank",
+          "file": "revisions/v34_editorial_polish/art/quiet_bank_attempt3.png",
+          "sha256": "15c6e21ecdccae0e1a28767c4e6ce6f676a2e8f2bdef73f7d4ce894ac98ad1cc",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        }
+      ],
+      "final_review": "SELECTED_FOR_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    },
+    {
+      "id": "arrival_header_repair",
+      "attempt": 1,
+      "filename": "exec-200bafd0-1323-4d12-b7de-ca73be2b8c84.png",
+      "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/arrival_header_repair_attempt1.png",
+      "sha256": "1ecd096c10b8a48b2e2e250a78c5d966c2c98d2baa09d8927e327088f9bf0102",
+      "native_size": [
+        1485,
+        1059
+      ],
+      "selection": "NOT_DELIVERED",
+      "rejection": "Visible upper-strip join remained in native composition. Original full aircraft source restored; final trim/bleed headroom deferred.",
+      "prompt": "Use case: precise-object-edit. IMAGE_1 is an already composed page with original art translated down slightly. A BAD HORIZONTAL JOIN is visible in the TOP24PIXELS, where a narrow added strip of aircraft wall does not match the original painting below it. Repair ONLY that narrow TOP24PIXEL STRIP so the teal aircraft metal wall, subtle texture and any continuing frame lines flow seamlessly into the original wall at row24. Keep every pixel BELOW row24 exactly fixed; do not move, reframe, redraw, shift or resize anything. Her crown is below this repair area and must not be touched. No new rivets or decorations. Return the complete unchanged1484x1060 canvas with this narrow seam healed. Only that top strip will be used, laid above the preserved original source painting. Painted2D, no lettering, no watermark.",
+      "prompt_sha256": "0df9ef370c563ae4940df703292e9b3b445d4a1e34f8fc495f343b26587bbfef",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/header_join_reference.png",
+          "sha256": "3f77176d46bcef4ccaf5276eff0aaa2cd3471ae3045441be462e503fd2d48f33",
+          "role": "edit_target",
+          "original_tool_input_path": "books/chapter_one/landscape/revisions/v34_editorial_polish/references/header_join_reference.png"
+        }
+      ],
+      "job_sidecar": "header_repair_job.json",
+      "mode": "built-in image_gen",
+      "usage": [],
+      "final_review": "EXCLUDED_FROM_REVIEW_BOOK",
+      "provider_metadata_limit": "Built-in ImageGen did not expose model revision, request ID, seed or monetary usage. Exact prompt, input and native output hashes are preserved; no values inferred."
+    }
+  ],
+  "method": "25 built-in candidates;11 selected derivatives. Full new stationery variants, source-bound object/figure isolation/restoration and only bounded narrative repairs. All originals preserved. Both aircraft header extensions, scene/floor seam studies, wrong/oversized marginal identities and wrong door hardware excluded.",
+  "wrong_identity_rejection": "Both first bank studies accidentally referenced Grand Puff; rejected on owner correction. All final marginal figures use only little puffs.",
+  "door_rejection": "Generated object changed hardware. Final quiet page uses actual source RGB with a document contour, not generated replacement.",
+  "format": "14x10-inch landscape review: existing7:5 composition preserved at2x vector scale, no raster upsample. Final trim/bleed and high-resolution pass pending.",
+  "selected_count": 11
+}

@@ -1,0 +1,134 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "job_games_comparative_audit_2026-11-01",
+ "status": "SUPPORTING_CURRENT evidence; PROPOSED / CANDIDATE guidance (no owner acceptance)",
+ "prepared_by": "Claude (analysis and written guidance only; no game changes and no images committed)",
+ "recipient": "Codex and the owner",
+ "evidence_baseline": "dev 93166ab1828ab9857227d038f8833b92dfb2f9f1",
+ "entry": "README.md",
+ "file_count": 24,
+ "total_bytes": 319817,
+ "hash_basis": "SHA-256 of the committed file bytes (LF line endings)",
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "PC_ROUND.md",
+   "bytes": 8432,
+   "sha256": "ff952cf4cf8118742c9dfd70c2e769cb355978f9e9d202233bf790715e9ef02d"
+  },
+  {
+   "path": "README.md",
+   "bytes": 12708,
+   "sha256": "aa9e6aa4632cdc332e5df2cfea2ab6e1e458c1e994d9fc8a67b5b02e041c4d2d"
+  },
+  {
+   "path": "REFERENCES_DOCUMENTED.md",
+   "bytes": 30431,
+   "sha256": "d594b57a189f4b9682378e152871621717ff1dfa8db54dbeb70a9f3cebdf164f"
+  },
+  {
+   "path": "REFERENCES_PLAYED.md",
+   "bytes": 86086,
+   "sha256": "f163003fd18ac06994e174ef1f45ff13970f6c19e1357bb75c92044aaedaa675"
+  },
+  {
+   "path": "RUBRIC.md",
+   "bytes": 3850,
+   "sha256": "0164e3148cc0da851bed957f3203c12c47d4616dc5dbed2a93071c0e7283aaaf"
+  },
+  {
+   "path": "careers/astronaut_engineer.md",
+   "bytes": 5710,
+   "sha256": "a53c786ef55bdfe3484277131db13e376d6e3dfe0c00a6da84e7bc6caefe8716"
+  },
+  {
+   "path": "careers/ballerina.md",
+   "bytes": 15032,
+   "sha256": "c5e7d9a2ac45f584919f5a169c538d37d7cbcc14f8610a5dac116858aef1f68b"
+  },
+  {
+   "path": "careers/boxer.md",
+   "bytes": 6969,
+   "sha256": "35396581e385cf0b472e25d55a06c57c8f487a839fccb0c43be08a0d7826c786"
+  },
+  {
+   "path": "careers/candy_maker.md",
+   "bytes": 3271,
+   "sha256": "c679b170990dcb21b2aedd3c7ee023030184a75a48e39dac372dc30db2bd02e4"
+  },
+  {
+   "path": "careers/detective.md",
+   "bytes": 5714,
+   "sha256": "35d4fd5acca8644aad2866dc127708c5d8d14a947f962c212b87357f38a4471a"
+  },
+  {
+   "path": "careers/farmer.md",
+   "bytes": 3751,
+   "sha256": "ef6b79e180b8e886f0badad12ccb6297bfbe0e69a4bda56e9aade85ea5772cea"
+  },
+  {
+   "path": "careers/geologist.md",
+   "bytes": 4045,
+   "sha256": "12ffabecf015566a1a87d4625b5380e2e57026f761463d83e82d90934e370418"
+  },
+  {
+   "path": "careers/magician.md",
+   "bytes": 5852,
+   "sha256": "b36ebfdca23f76a10815e5d097709361243f345431c64777be0091aab4be784c"
+  },
+  {
+   "path": "careers/nursery_nurse.md",
+   "bytes": 4147,
+   "sha256": "4d83a3bb8453155cc637f7df7a2866b04f238094da6b26b19dc1ffd372a6f493"
+  },
+  {
+   "path": "careers/painter.md",
+   "bytes": 5776,
+   "sha256": "91b3789bf25b4ffe87efb1026118d0c0dcba0bf540c2cee60178e05a315f926b"
+  },
+  {
+   "path": "careers/pastry_chef.md",
+   "bytes": 5317,
+   "sha256": "3b509cd0e534e2cf558a6c3424ecedb2a366a6dfe224ddabc7771c0efdac48fb"
+  },
+  {
+   "path": "careers/pop_star.md",
+   "bytes": 12995,
+   "sha256": "fd586538e285da8bb6f9abdcb17cb3909e2ddef0e6195fcdf2c9c3909a3b82da"
+  },
+  {
+   "path": "careers/racecar_driver.md",
+   "bytes": 14131,
+   "sha256": "3b7d9622dbfdcaf4781662b0099630538decda80a9a3b82d9616f91e328ac99d"
+  },
+  {
+   "path": "careers/stuffie_surgeon.md",
+   "bytes": 4529,
+   "sha256": "be2b6d1264ed7297d7ef15ee984bcfcf66a396b5266e83906043bfcbd09a45a8"
+  },
+  {
+   "path": "careers/teacher.md",
+   "bytes": 4904,
+   "sha256": "62ee82d8ddd1b363fd7c4b997e1757d66b17466c894d972de6ea19e71f3a774e"
+  },
+  {
+   "path": "harness/REEF_HARNESS.md",
+   "bytes": 14101,
+   "sha256": "5200a8ed8e4bef49a92e5718ff017338ea20b255ba444a5414468be8264861f7"
+  },
+  {
+   "path": "harness/reef_play.gd",
+   "bytes": 58789,
+   "sha256": "e10cc1e607b452f7cc95bd7f2d6ca3b1ddc230f4c5bacf3a71f2c30b6b81aefa"
+  },
+  {
+   "path": "harness/reef_play.sh",
+   "bytes": 3277,
+   "sha256": "2a3aa7436c1546ada1666e52102bfb74720d01d84cd5c67c77881d088268eeed"
+  }
+ ]
+}

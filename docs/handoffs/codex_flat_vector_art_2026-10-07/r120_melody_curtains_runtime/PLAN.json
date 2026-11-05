@@ -1,0 +1,48 @@
+{
+  "id": "R120",
+  "stable_ids": [
+    "FV-4ED0A2885065",
+    "FV-FD33A7BF6E0A"
+  ],
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "branch": "codex/flat-vector-melody-curtains-20261101",
+  "scope": "Two static painted whole theatre curtain candidates replace the original pink/lavender flat polygon/fold-line curtains in Melody only; keep stage opening and every interaction/save/action/actor contract.",
+  "method": "Built-in ImageGen separate static left/right whole cloth assets; nativeRGBA/Aseprite technical export. No procedural substitute, runtime warp or new animation.",
+  "backend": "Built-in image_gen; model/version/seed/cost only when exposed, no selector assumed.",
+  "static_take_cap_per_variant": 2,
+  "static_calls_used": 0,
+  "animation_calls": 0,
+  "protected_originals_modified": false,
+  "Dev_integrated": false,
+  "new_partial_Dev_credits": 0,
+  "existing_frame_and_art_totals_unchanged_until_verified_publication": true,
+  "required_evidence": [
+    "Current source-bound native baseline/context at1280/1600 before generation",
+    "Exact prompt/nativeRGBA/editable masters/technical export/license/import hashes",
+    "Ten-axis qualified same-scene comparison with all newframes directly inspected",
+    "Original gameplay/input/save/voice/teardown functions preserved; focused renderer/resource geometry assertions adapted only for explicit art replacement",
+    "Exact Godot4.7.2 Mobile/Speedy import/parser/inference/currentstatic/all trusted probes/exactsourceCI",
+    "Anonymous immutable actual-manifest/everyfile verification; canonical registry counts source-only",
+    "FormalQA11/device/child/owner stay separately open"
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-PERF-01",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "created_at_utc": "2026-11-01T23:26:18.183119+00:00"
+}

@@ -1,0 +1,17 @@
+{
+  "scope": "Mechanical runtime-reference metadata only. Existing measured audio metrics and human grades retained; every audio SHA256 verified unchanged before editing. No audio processing, new measurement, new quality claim, or weaker gate.",
+  "verified_unchanged_audio_files": 857,
+  "changes": [
+    {
+      "path": "assets/audio/chime.ogg",
+      "previous_count": 12,
+      "current_count": 13
+    }
+  ],
+  "previous_csv_sha256": "002978326361e1e1f52be984b93454d4154beb77d8c897bbc8893c8d4bcc42db",
+  "current_csv_sha256": "94ff4f6c8718faa2f466b992143cae98caa38b3bfe8364fbe94932b884e944e8",
+  "previous_summary_sha256": "21bc3ae0f4b762cabbd5d74638bfec0249f4d5575eea3d82ce4b5628349e1fdd",
+  "current_summary_sha256": "397f71cfd393e4b322ff53a671a7a51e14e688002e6c5d59da50724df87337ef",
+  "quality_metric_fields_changed": false,
+  "independent_full_audio_audit": "Full scripts/ci.sh running unchanged; final result recorded separately."
+}

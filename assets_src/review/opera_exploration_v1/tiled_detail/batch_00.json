@@ -1,0 +1,74 @@
+[
+  {
+    "id": "pilot_ballet_arch",
+    "prompt": "Use case: precise-object-edit, high-resolution tile restoration. IMAGE_1 is the EDIT TARGET: one exact cropped ballet doorway from an existing illustrated Opera house. IMAGE_2 is palette/style reference ONLY, showing the complete original house; do not output the full house. Restore IMAGE_1 alone at the highest supported native resolution, target 2048 x 2385 portrait, retaining its exact crop, proportions, framing, object count and normalized coordinates. Preserve the complete ivory shell-crowned gold arch, two slim ivory columns, tied coral curtains, luminous pale yellow interior, salmon wall and tiny floor/carpet strip exactly. Add fine polished painted contours, gold moulding detail and fabric threads/folds within the existing design. Do not invent or redraw the architecture. Do not zoom, shift, crop, extend, alter perspective, add ornaments, add icons/medallions, add a door panel, add people or text. Keep cropped sconces at the extreme side edges cropped exactly as input. Palette is the softer original IMAGE_2: cream/ivory, muted dusty coral, restrained gold, pale warm interior, no deep red cast, no extra contrast or dark vignette. The exterior crop boundaries and arch/column/curtain endpoints must align with IMAGE_1 so this output can be registered back into that same painting. Output just one faithfully restored portrait tile, no board, labels, border or alternatives.",
+    "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0 as C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-bdb0b8c9-f045-45d0-9a1a-ba3278605ea9.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-bdb0b8c9-f045-45d0-9a1a-ba3278605ea9.png",
+    "mode": "built-in image_gen",
+    "model_revision": "not exposed",
+    "cost": "not exposed",
+    "seed": "not exposed",
+    "request_id": "not exposed; output filename retained",
+    "status": "tool_returned"
+  },
+  {
+    "id": "clean_plate",
+    "prompt": "Use case: precise-object-edit / background plate preparation. EDIT TARGET is the attached exact three-floor Opera house. Prepare a clean background UNDERLAY for a tiled high-resolution restoration. All existing fixtures will be reinserted later from the exact original artwork as independently owned 2D cards. Remove ONLY the following painted fittings and heal the underlying original wall/floor planes seamlessly: all twelve arched doorway frames and curtains; both tall navy/gold lift columns; both curved red-carpet staircases and their railings; both hanging chandeliers; the two long balcony FRONT balustrade/pearl/gold fascia strips; all wall sconces; all window frames/curtains, framed wall art and mirrors; hanging plants and pots; sofas/ottomans/tables; center circular seating island and its plant; service carts, ticket counter and parasols; other loose furniture/flowers. The resulting empty three-floor shell must keep the exact source camera, vanishing points, overall outline, floor elevations and balcony slab positions, ceiling contours, wall shading and the ENTIRE original foreground terrazzo and red runner pattern in precisely the same normalized positions. Under removed fittings fill only the local original salmon/cream wall or matching existing floor material. Do not invent new architecture, rooms, doors, openings, people or furnishings. Do not change or shift any visible floor curve, carpet edge, perspective line, balcony level or ceiling outline. Keep the same complete 16:9 frame, no crop/zoom/perspective change. Use the source's gentle muted coral, ivory, teal and soft gold; no extra red/orange saturation, contrast or vignette. This is an empty backing plate, not a redesign. No text or marks.",
+    "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0 as C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-818d8a83-7232-4223-98e1-6b3896319a4d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-818d8a83-7232-4223-98e1-6b3896319a4d.png",
+    "mode": "built-in image_gen",
+    "model_revision": "not exposed",
+    "cost": "not exposed",
+    "seed": "not exposed",
+    "request_id": "not exposed; output filename retained",
+    "status": "tool_returned"
+  },
+  {
+    "id": "r0_c0",
+    "prompt": "Use case: precise-object-edit / high-resolution background texture restoration. EDIT TARGET is this exact cropped fragment of the existing Opera house backing plate. Restore this fragment alone at the highest supported native resolution, maintaining EXACTLY the input aspect ratio, framing and every normalized edge/line/material boundary. Request native long edge 2048 or higher. It is one of 24 overlapping tiles that must be assembled back into the original room. Do not create a new composition or zoom out to show an entire room. Preserve every wall/ceiling/balcony-slab/floor/carpet curve at the same normalized coordinates, including partial features cut by the crop. The empty-looking areas are intentional behind separately preserved original fixture cards. Do not add doors, arches, columns, railings, lights, furniture, plants, trim, text, characters or decorations. No invented detail objects. Add only fine painted surface detail appropriate to the EXISTING materials: smooth muted coral plaster, ivory/gold moulding, finely grained terrazzo or woven carpet where already present. Keep the source's exact colors and gentle brightness: no red/orange shift, extra warmth, saturation, contrast, bloom, dramatic lighting or vignette. Preserve the crop boundaries exactly for stitching. Output one full-bleed restored tile; no frame, margins, labels, grid or alternatives.\nTile identifier r0_c0 is bookkeeping only: do not render it.",
+    "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0 as C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-19c3316b-aef8-494f-a5f5-d9dbcd82c046.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-19c3316b-aef8-494f-a5f5-d9dbcd82c046.png",
+    "mode": "built-in image_gen",
+    "model_revision": "not exposed",
+    "cost": "not exposed",
+    "seed": "not exposed",
+    "request_id": "not exposed; output filename retained",
+    "status": "tool_returned"
+  },
+  {
+    "id": "r0_c1",
+    "prompt": "Use case: precise-object-edit / high-resolution background texture restoration. EDIT TARGET is this exact cropped fragment of the existing Opera house backing plate. Restore this fragment alone at the highest supported native resolution, maintaining EXACTLY the input aspect ratio, framing and every normalized edge/line/material boundary. Request native long edge 2048 or higher. It is one of 24 overlapping tiles that must be assembled back into the original room. Do not create a new composition or zoom out to show an entire room. Preserve every wall/ceiling/balcony-slab/floor/carpet curve at the same normalized coordinates, including partial features cut by the crop. The empty-looking areas are intentional behind separately preserved original fixture cards. Do not add doors, arches, columns, railings, lights, furniture, plants, trim, text, characters or decorations. No invented detail objects. Add only fine painted surface detail appropriate to the EXISTING materials: smooth muted coral plaster, ivory/gold moulding, finely grained terrazzo or woven carpet where already present. Keep the source's exact colors and gentle brightness: no red/orange shift, extra warmth, saturation, contrast, bloom, dramatic lighting or vignette. Preserve the crop boundaries exactly for stitching. Output one full-bleed restored tile; no frame, margins, labels, grid or alternatives.\nTile identifier r0_c1 is bookkeeping only: do not render it.",
+    "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0 as C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-1bd49ceb-6f0b-442b-a9b9-ae1e82036266.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-1bd49ceb-6f0b-442b-a9b9-ae1e82036266.png",
+    "mode": "built-in image_gen",
+    "model_revision": "not exposed",
+    "cost": "not exposed",
+    "seed": "not exposed",
+    "request_id": "not exposed; output filename retained",
+    "status": "tool_returned"
+  },
+  {
+    "id": "r0_c2",
+    "prompt": "Use case: precise-object-edit / high-resolution background texture restoration. EDIT TARGET is this exact cropped fragment of the existing Opera house backing plate. Restore this fragment alone at the highest supported native resolution, maintaining EXACTLY the input aspect ratio, framing and every normalized edge/line/material boundary. Request native long edge 2048 or higher. It is one of 24 overlapping tiles that must be assembled back into the original room. Do not create a new composition or zoom out to show an entire room. Preserve every wall/ceiling/balcony-slab/floor/carpet curve at the same normalized coordinates, including partial features cut by the crop. The empty-looking areas are intentional behind separately preserved original fixture cards. Do not add doors, arches, columns, railings, lights, furniture, plants, trim, text, characters or decorations. No invented detail objects. Add only fine painted surface detail appropriate to the EXISTING materials: smooth muted coral plaster, ivory/gold moulding, finely grained terrazzo or woven carpet where already present. Keep the source's exact colors and gentle brightness: no red/orange shift, extra warmth, saturation, contrast, bloom, dramatic lighting or vignette. Preserve the crop boundaries exactly for stitching. Output one full-bleed restored tile; no frame, margins, labels, grid or alternatives.\nTile identifier r0_c2 is bookkeeping only: do not render it.",
+    "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0 as C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-44a2f8cc-bee1-419a-a61d-60c81a36f0ef.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-44a2f8cc-bee1-419a-a61d-60c81a36f0ef.png",
+    "mode": "built-in image_gen",
+    "model_revision": "not exposed",
+    "cost": "not exposed",
+    "seed": "not exposed",
+    "request_id": "not exposed; output filename retained",
+    "status": "tool_returned"
+  },
+  {
+    "id": "r0_c3",
+    "prompt": "Use case: precise-object-edit / high-resolution background texture restoration. EDIT TARGET is this exact cropped fragment of the existing Opera house backing plate. Restore this fragment alone at the highest supported native resolution, maintaining EXACTLY the input aspect ratio, framing and every normalized edge/line/material boundary. Request native long edge 2048 or higher. It is one of 24 overlapping tiles that must be assembled back into the original room. Do not create a new composition or zoom out to show an entire room. Preserve every wall/ceiling/balcony-slab/floor/carpet curve at the same normalized coordinates, including partial features cut by the crop. The empty-looking areas are intentional behind separately preserved original fixture cards. Do not add doors, arches, columns, railings, lights, furniture, plants, trim, text, characters or decorations. No invented detail objects. Add only fine painted surface detail appropriate to the EXISTING materials: smooth muted coral plaster, ivory/gold moulding, finely grained terrazzo or woven carpet where already present. Keep the source's exact colors and gentle brightness: no red/orange shift, extra warmth, saturation, contrast, bloom, dramatic lighting or vignette. Preserve the crop boundaries exactly for stitching. Output one full-bleed restored tile; no frame, margins, labels, grid or alternatives.\nTile identifier r0_c3 is bookkeeping only: do not render it.",
+    "hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0 as C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-003ba03e-a980-4000-b80a-45849eb12778.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a14b02-9421-73f1-90cb-81ba6d09b8d0\\exec-003ba03e-a980-4000-b80a-45849eb12778.png",
+    "mode": "built-in image_gen",
+    "model_revision": "not exposed",
+    "cost": "not exposed",
+    "seed": "not exposed",
+    "request_id": "not exposed; output filename retained",
+    "status": "tool_returned"
+  }
+]

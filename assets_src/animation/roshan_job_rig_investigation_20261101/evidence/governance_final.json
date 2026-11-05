@@ -1,0 +1,51 @@
+{
+  "authority_review_utc": "2026-11-01T15:39:24.331600+00:00",
+  "read_hashes": {
+    "audit/MASTER_AUDIT_2026-08-09.md": "de5921900a519852b3f4904f08ceaf78877d7894edba2da475b614bf6e210190",
+    "design/05_DOC_LEDGER.md": "b02d4f86760081e422d923c80acf563f5ddc3ed47eadc9981f9c531c0d6a869d",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md": "a63fac1fbb7ad4a3245726b5d9b367888f5df999e6eaee128b2e5b7d2bb38fba",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md": "f421f86056766cd360b82de35b2787dd907962dea2c38a8b7f140eab729baa05",
+    "design/AUDIT_DEVELOPMENT_CONTRACT.md": "e2e97157a029efb6abfd123f9cf438f6dd5e777c6bcfac7ea4912aad64fcbd13",
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md": "cbe26bef2bef2228ba9abde1765d7872945eadde45ae146581b643d991cfc716",
+    "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md": "0b1a6784ea8c2a0287f99988cba27a36cc786a638733b2b74e07996405f651b7"
+  },
+  "review_scope": "Source-only review, same14bones/rest/common weights/curves; new garment meshes and object sockets. Master/findings remain open and production unchanged.",
+  "finding_lifecycle": "MA-ROSHAN-005 and006 unchanged; no repair or final acceptance claimed.",
+  "required_rules_recorded": "design/audit_impacts/roshan-job-rig-investigation-20261101.json",
+  "publication_scope": "Review archive only; strict seam/mixed quality failures remain blocking for compatible/final performance.",
+  "check_time_utc": "2026-11-01T16:13:49.540344+00:00",
+  "final_document_authority": "PASS; document_authority_final.log",
+  "source_only_change": "CHG-126; v6 repairs source-only fin regression, no finding lifecycle change",
+  "review_completion_check_time_utc": "2026-11-01T16:50:51.783353+00:00",
+  "source_snapshots": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "de5921900a519852b3f4904f08ceaf78877d7894edba2da475b614bf6e210190"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "sha256": "f421f86056766cd360b82de35b2787dd907962dea2c38a8b7f140eab729baa05"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "a63fac1fbb7ad4a3245726b5d9b367888f5df999e6eaee128b2e5b7d2bb38fba"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "b02d4f86760081e422d923c80acf563f5ddc3ed47eadc9981f9c531c0d6a869d"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "sha256": "e2e97157a029efb6abfd123f9cf438f6dd5e777c6bcfac7ea4912aad64fcbd13"
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "sha256": "0b1a6784ea8c2a0287f99988cba27a36cc786a638733b2b74e07996405f651b7"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+      "sha256": "6b2c62939d80e6c8f0b9dc6fd7325f6233c35b2f4b10552dbc33953d799c1af4"
+    }
+  ],
+  "static_final": "PASS split unchanged command evidence; original plumbing/coverage failures retained"
+}

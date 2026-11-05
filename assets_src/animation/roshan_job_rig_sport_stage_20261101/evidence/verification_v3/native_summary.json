@@ -1,0 +1,114 @@
+{
+  "scope": "Frozen source-v3 proof summary, not accepted game art or completed delivery. Detailed receipts control.",
+  "source_inputs": {
+    "input_count": 189,
+    "mismatches": [],
+    "pass": true
+  },
+  "original_fullset_geometry": {
+    "boxer_resumed": true,
+    "racer": true,
+    "popstar": true,
+    "boxer_original_wrapper_timeout_retained": true
+  },
+  "new_actions": {
+    "boxer": {
+      "pass": false,
+      "max_speed_deg_s": 108.39559022740238,
+      "max_acceleration_deg_s2": 187.13174198311737,
+      "max_contact_error": 0.0,
+      "max_support_drift": 0.0,
+      "max_painted_wrist_error": 0,
+      "max_knuckle_target_error": 0.021026611328125,
+      "loop_pixel_error": 0,
+      "joint_min_alpha": {
+        "LeftUpper": 255,
+        "LeftFore": 255,
+        "LeftHand": 252,
+        "RightUpper": 173,
+        "RightFore": 255,
+        "RightHand": 58
+      }
+    },
+    "racer": {
+      "pass": false,
+      "max_speed_deg_s": 53.64367920928428,
+      "max_acceleration_deg_s2": 183.06145113778538,
+      "max_contact_error": 8.63167442730628e-05,
+      "max_support_drift": 0.0,
+      "max_painted_wrist_error": 8.63167442730628e-05,
+      "max_knuckle_target_error": 0,
+      "loop_pixel_error": 0,
+      "joint_min_alpha": {
+        "LeftUpper": 253,
+        "LeftFore": 255,
+        "LeftHand": 252,
+        "RightUpper": 253,
+        "RightFore": 255,
+        "RightHand": 98
+      }
+    },
+    "popstar": {
+      "pass": false,
+      "max_speed_deg_s": 66.39384861534553,
+      "max_acceleration_deg_s2": 210.73832184993634,
+      "max_contact_error": 6.103515625e-05,
+      "max_support_drift": 0.0,
+      "max_painted_wrist_error": 6.82393801980652e-05,
+      "max_knuckle_target_error": 0,
+      "loop_pixel_error": 0,
+      "joint_min_alpha": {
+        "LeftUpper": 255,
+        "LeftFore": 255,
+        "LeftHand": 255,
+        "RightUpper": 253,
+        "RightFore": 255,
+        "RightHand": 53
+      }
+    }
+  },
+  "mixed_legacy": {
+    "combinations": 216,
+    "fresh_pixel_pairs": 648,
+    "pixel_mismatches": 0,
+    "live_swaps": 20736,
+    "max_matrix_error": 0.0,
+    "eye_state_leaks": 0,
+    "outline_pass": 510,
+    "outline_fail": 138,
+    "strict_original_restore_fail": 9,
+    "strict_original_restore_comparisons": 9
+  },
+  "mixed_object_contact": {
+    "cases": 108,
+    "contact_pass": 108,
+    "outline_attachment_pass": 7,
+    "full_time_or_all_mixed_heads_tested": false,
+    "fixture_visibility_verifier_resolution": "racer_fixture_visibility_diagnostic.json; restored diagnostic support visibility returns0different pixels. Original731difference retained, not a source defect."
+  },
+  "faults": {
+    "applicable_actual_faults_detected": 16,
+    "pass": true,
+    "old_clothes_pixels_surveyed": 7394,
+    "undeleted": 0,
+    "source_poison_cases": 27,
+    "poison_leak_max": 0
+  },
+  "editable_layers": {
+    "current_master_layers": 55,
+    "prop_archive_layers": 10,
+    "exact_rgba_roundtrip": true
+  },
+  "native_archive": {
+    "frames": 723,
+    "all_reconstructed_rgba_bytes_exact": true,
+    "receipt": "review/frozen_v3/lossless_archive_receipt.json"
+  },
+  "visual_acceptance": "FAIL static shoulder/joint/cuff/material finish; exact full-speed/frame-step human/owner/device/child review pending",
+  "shared_compatibility": "BLOCKED: waist/outline/attachment/exact restoration and corrected immutable upstream authority not satisfied",
+  "publication": "Source review publication pending exact remote byte/access proof; existing baseline all latest gate results pass. Native compatibility remains blocked.",
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "corrected_seed": "cbf8b5b6f9ff4313202d74ca1eafc4ba914bd539257/257remote required files PASS; local render inputs exact"
+}

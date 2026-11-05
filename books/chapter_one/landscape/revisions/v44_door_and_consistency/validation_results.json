@@ -1,0 +1,71 @@
+{
+  "checked_at_utc": "2026-10-29T14:38:29.388154+00:00",
+  "checks": [
+    {
+      "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B books/chapter_one/landscape/audit_book.py --proof books\\chapter_one\\landscape\\revisions\\v44_door_and_consistency\\complete --baseline books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/complete",
+      "exit_code": 0,
+      "seconds": 48.922,
+      "stdout": "33/33 carried pages exact: renders, text, vectors, boxes, image streams and alpha\nV44 source/scope/export checks: ALL OK; whole-book audit retains two open continuity findings\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B tools/audit_document_authority.py",
+      "exit_code": 0,
+      "seconds": 7.922,
+      "stdout": "DOCAUTH|INVENTORY=623|LEDGER=623|ACTIVE=56|RECORDS=58\nDOCAUTH|RESULT|ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B tools/audit_development.py --base auto",
+      "exit_code": 0,
+      "seconds": 7.281,
+      "stdout": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|RESULT|ALL OK\n",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "exit_code": 0,
+      "seconds": 10.593,
+      "stdout": "DOCAUTH|STRESS|6/6\n",
+      "stderr": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 9.764s\n\nOK\n"
+    }
+  ],
+  "provisional_before_final_peer_and_impact_enum_correction": {
+    "checked_at_utc": "2026-10-29T14:35:11.665847+00:00",
+    "checks": [
+      {
+        "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B books/chapter_one/landscape/audit_book.py --proof books\\chapter_one\\landscape\\revisions\\v44_door_and_consistency\\complete --baseline books/chapter_one/landscape/revisions/v43_dust_bunnies_cover/complete",
+        "exit_code": 0,
+        "seconds": 40.641,
+        "stdout": "33/33 carried pages exact: renders, text, vectors, boxes, image streams and alpha\nV44 source/scope/export checks: ALL OK; whole-book audit retains two open continuity findings\n",
+        "stderr": ""
+      },
+      {
+        "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B tools/audit_document_authority.py",
+        "exit_code": 1,
+        "seconds": 6.64,
+        "stdout": "DOCAUTH|INVENTORY=623|LEDGER=623|ACTIVE=56|RECORDS=58\nDOCAUTH|FAIL|DOC072|books\\chapter_one\\landscape\\revisions\\v44_door_and_consistency\\CONSISTENCY_AUDIT.md|line 35: local link target is missing: peer_review/final_candidate_review.json\nDOCAUTH|FAIL|DOC072|books\\chapter_one\\landscape\\revisions\\v44_door_and_consistency\\peer_review\\README.md|line 5: local link target is missing: final_candidate_review.json\nDOCAUTH|RESULT|2 ISSUE(S)\n",
+        "stderr": ""
+      },
+      {
+        "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B tools/audit_development.py --base auto",
+        "exit_code": 1,
+        "seconds": 6.282,
+        "stdout": "AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b\nAUDITDEV|FAIL|design/audit_impacts/picture-book-v44-door-consistency-20261029.json: invalid validation result\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/BOOK_BASELINE.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/BOOK_CURRENT.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/CONSISTENCY_AUDIT.md\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/README.md\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/REVISION_REVIEW.html\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/art/door_attempt1.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/art/door_attempt2.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/asset_derivations.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/baseline_contact_1.jpg\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/baseline_contact_2.jpg\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/baseline_contact_3.jpg\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/baseline_contact_4.jpg\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/baseline_contact_5.jpg\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/baseline_contact_6.jpg\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/continuity_evidence.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/cover_thumbnail.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/door_after_detail.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/family_lamma_bunnies.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/fountain_head_11.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/fountain_head_15.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/fountain_head_16.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/primary_book_audit.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/r01_reconstruction_record.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/reconstructed_r01_title_collision.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/setting_comparison.jpg\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/audit/title_door_clearance.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/build_cover.py\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/build_manifest.py\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/Mermaid_Roshan_Dust_Bunnies_Cover_V44.pdf\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/Mermaid_Roshan_and_the_Dust_Bunnies_V44.pdf\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/READ_BOOK.html\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/context_01.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/context_02.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/context_03.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/context_24.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/context_29.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/context_33.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/cover_provenance.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/export_record.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/page_00.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/reading_cover.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/complete/verification.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/door_prompt_attempt1.txt\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/door_prompt_attempt2.txt\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/generation_record.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/peer_review/README.md\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/peer_review/whole_book_audit.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/references/door_before.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/references/door_title_free_input.png\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/title_geometry.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/validation_results.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/verification_prerequisites.json\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/verify_remote.py\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/verify_revision.py\nAUDITDEV|FAIL|no changed audit-impact record covers books/chapter_one/landscape/revisions/v44_door_and_consistency/visual_audits.json\nAUDITDEV|RESULT|56 ISSUE(S)\n",
+        "stderr": ""
+      },
+      {
+        "command": "C:\\Users\\Peter\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+        "exit_code": 0,
+        "seconds": 10.593,
+        "stdout": "DOCAUTH|STRESS|6/6\n",
+        "stderr": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 9.764s\n\nOK\n"
+      }
+    ],
+    "provisional_known_failures": [
+      "Initial gate expected no download_href change; corrected to validate exact V44 link.",
+      "Initial authority run preceded generated verification/final peer files; reported four missing links. Final run below must pass.",
+      "Provisional impact validation used a descriptive result outside allowed PASS/FAIL/PENDING/NOT_APPLICABLE enum; corrected to PASS scoped with explicit open findings, no gate relaxed."
+    ]
+  }
+}

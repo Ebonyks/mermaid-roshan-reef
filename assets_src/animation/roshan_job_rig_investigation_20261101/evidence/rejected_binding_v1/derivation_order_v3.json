@@ -1,0 +1,6 @@
+{
+  "candidate": "v3",
+  "status": "REJECTED_DERIVATION_ORDER_UNPROVEN",
+  "reason": "GUI executable launch returned before dependent derivations had completed. Stop that capture; rebuild all source steps with Start-Process -Wait and exit check before freezing v4.",
+  "no_generation_calls": true
+}

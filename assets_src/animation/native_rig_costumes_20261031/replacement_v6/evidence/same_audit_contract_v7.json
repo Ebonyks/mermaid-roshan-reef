@@ -1,0 +1,30 @@
+{
+  "bones_identical": true,
+  "body_mesh": {
+    "original_vertices": 6864,
+    "union_vertices": 6902,
+    "all_original_vertices_preserved": true,
+    "all_original_weights_exact": true,
+    "all_original_triangles_preserved": true
+  },
+  "auditors": {
+    "audit_study.py": {
+      "byte_identical": true,
+      "sha256": "eef44a94b735a0dcac30addc8ed009204a1a11e33147d46522c0901915fedd74"
+    },
+    "audit_motion.py": {
+      "byte_identical": true,
+      "sha256": "9d1245416eee6eef61015a151d85e013eb5b45d52d17e0e7a920672d17433908"
+    }
+  },
+  "authored_methods": {
+    "ease5": true,
+    "pulse": true,
+    "authored_pose": true,
+    "clip_length": true,
+    "build_animation": true,
+    "set_pose": true,
+    "state_record": true
+  },
+  "pass": true
+}

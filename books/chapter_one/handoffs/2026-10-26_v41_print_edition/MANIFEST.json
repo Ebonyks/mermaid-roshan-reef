@@ -1,0 +1,446 @@
+{
+ "packet": "books/chapter_one/handoffs/2026-10-26_v41_print_edition",
+ "repository": "Ebonyks/mermaid-roshan-reef",
+ "branch": "codex/mermaid-roshan-picture-book",
+ "baseline_commit": "f55c094cfde2c1722eb210c74f85b868a4158ce9",
+ "hashing": "Packet documents: working-tree bytes at publication. Everything else: committed bytes at baseline_commit. V40 was unpublished when this was written, so none of its files are listed.",
+ "groups": {
+  "packet": [
+   {
+    "path": "books/chapter_one/handoffs/2026-10-26_v41_print_edition/README.md",
+    "bytes": 15095,
+    "sha256": "67589804df974b218feef17b7843907979581341194a70e983f09598b206c162",
+    "role": "this work order (entry point)"
+   },
+   {
+    "path": "books/chapter_one/handoffs/2026-10-26_v41_print_edition/AUDIT.md",
+    "bytes": 11284,
+    "sha256": "f10d55fe9e6958773bec91977c6842c0a75a3a7da6fadfd8444fdb025b46bbf1",
+    "role": "page-by-page audit of V39 and the accepted defaults"
+   }
+  ],
+  "governing": [
+   {
+    "path": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/OWNER_DECISION_2026-10-19.md",
+    "bytes": 15704,
+    "sha256": "9c16ae54cb289ff0f8f9dd23aed28462a90b2e99133ecb67a90a4fadf89fa12b",
+    "role": "final manuscript and the original print plan"
+   },
+   {
+    "path": "books/chapter_one/handoffs/2026-10-18_v34_audit_fixes/CHARACTER_CONSISTENCY_2026-10-19.md",
+    "bytes": 16556,
+    "sha256": "c1bf763f62f85b12e3f711eae3338b09113113c2e2004b6232d62aeced967ced",
+    "role": "character standards"
+   },
+   {
+    "path": "books/chapter_one/handoffs/2026-10-25_v38_audit_fixes/README.md",
+    "bytes": 15199,
+    "sha256": "b4056687662d2c80b133ff0095da828f4c1f0244ace5218161d2b3b0aef8f731",
+    "role": "V38 work order; its rules carry over"
+   },
+   {
+    "path": "books/chapter_one/DESIGN_LANGUAGE.md",
+    "bytes": 33711,
+    "sha256": "06c751d74382993962cab97a954776222e51120b240031a2e2e333df9475bf40",
+    "role": "binding book rules (BK-*)"
+   },
+   {
+    "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "bytes": 97459,
+    "sha256": "3b1a5ff5d31026b7d8ba4bb7686db8f08ee7c689c475b52f50d8747f004ca874",
+    "role": "DL-ASSET-08 source-art rule"
+   }
+  ],
+  "controls": [
+   {
+    "path": "books/chapter_one/landscape/book.json",
+    "bytes": 391230,
+    "sha256": "d1a26d22a32f4f685f4503cf6c3ce83c0fa68ff95cec2d97cfc2328ee05d3693",
+    "role": "page controls: captions, art, patches"
+   },
+   {
+    "path": "books/chapter_one/landscape/render_book.py",
+    "bytes": 19155,
+    "sha256": "96f38b1ec395a924d29a4b1a302b28ffbf2033f4a245884592defb5bba7ad792",
+    "role": "renderer"
+   },
+   {
+    "path": "books/chapter_one/landscape/PAGE_PLAN.md",
+    "bytes": 3041,
+    "sha256": "5424319f135432b5d8c036e009f1f53937200c8670986a3cff7bd9395438c758",
+    "role": "page plan and exact captions"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/README.md",
+    "bytes": 3797,
+    "sha256": "261c37c32895c81dca7e7aeacf0af50f4820d6430ac4424eadbf2f29567bf7d0",
+    "role": "V39 package README"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/BUILD_REPORT.md",
+    "bytes": 4480,
+    "sha256": "1116daa53ae549d322333876ec5813b4e8d808ab646dee0269cec4f3eb72c618",
+    "role": "V39 correction report"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/BOOK_CURRENT.json",
+    "bytes": 391230,
+    "sha256": "d1a26d22a32f4f685f4503cf6c3ce83c0fa68ff95cec2d97cfc2328ee05d3693",
+    "role": "V39 controls snapshot"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/verification.json",
+    "bytes": 77131,
+    "sha256": "def12a8fa6702c1f9785008d52eaaec29a3f49008911ccdb3c481b65cf07cc53",
+    "role": "V39 machine verification (master SHA-256)"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_provenance.json",
+    "bytes": 231528,
+    "sha256": "37d0e67807a5ed0e1c8d2f81b1f9f3e17756afed234634c9a22150481dc76ad7",
+    "role": "V39 layers, transforms and text boxes (print mapping input)"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/composed_caption_contrast.tsv",
+    "bytes": 4797,
+    "sha256": "148950227a87c7f7c1e054d79013a4ffbb42a9efc4bccb3b4e8688d0d121ae14",
+    "role": "V39 composed caption check: 79/7/0 of 86"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/print_pagination.json",
+    "bytes": 920,
+    "sha256": "fcef6661244afe7c5654b7fb67207283838696e274c93b571047dc95c13af777",
+    "role": "V39 spreads and reveal turns"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/master_parts/parts.json",
+    "bytes": 845,
+    "sha256": "1af5d83a162621c8ff8440b2667c48e7cdafa46fcb1fb2e484fa7ce902283be5",
+    "role": "V39 lossless master split record"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/Mermaid_Roshan_Book_V39_Email.pdf",
+    "bytes": 24992564,
+    "sha256": "4fd297013bf2235fee8e272a4957763d82632d043b9652833ffa7b6ed75f50c3",
+    "role": "V39 email PDF"
+   }
+  ],
+  "B1 page 5": [
+   {
+    "path": "books/chapter_one/landscape/revisions/v38_audit_fixes/art/door_dust_attempt4_rgba.png",
+    "bytes": 512651,
+    "sha256": "030c42fa1b9ffcd1b484be543f694f7666a6297c5bd1f70960174af15df89de6",
+    "role": "current dust overlay (opacity 0.7)"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/door_cutout_repair_attempt1.png",
+    "bytes": 1554256,
+    "sha256": "1aac75f7dc6a447dae784435529dbc99617951d7e14198cb6d271d137068df6a",
+    "role": "door cutout, 1100 x 1429"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/quiet_bank_attempt3.png",
+    "bytes": 1611954,
+    "sha256": "15c6e21ecdccae0e1a28767c4e6ce6f676a2e8f2bdef73f7d4ce894ac98ad1cc",
+    "role": "page 5 stationery background (keep)"
+   },
+   {
+    "path": "books/chapter_one/landscape/art/language_v26/puff_unwell.png",
+    "bytes": 1575094,
+    "sha256": "ac6ecf90d5a024f7bd343a26c7e3cd1600cb906aff3a5749ab89600dae23bb38",
+    "role": "dust colour reference (dusty Grand Puff)"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v37_consistency_20261022/complete/page_05.png",
+    "bytes": 1468797,
+    "sha256": "8d6c7129688420f2818d297b201b866f46f4342c6662358b08b0c3c7945537ed",
+    "role": "V37 page 5: baseline for the dust measurement"
+   }
+  ],
+  "P5 page 2": [
+   {
+    "path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+    "bytes": 18000705,
+    "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "role": "Sky Lagoon panorama, 6144 x 2048 (V40 background)"
+   },
+   {
+    "path": "assets/sprites/sky_lagoon/sky_lagoon_plane_v5_hd_grade.png",
+    "bytes": 218626,
+    "sha256": "850d9614c299df94e08553754d45376de5851445923bb2ab249ab655ea931dde",
+    "role": "game plane, 775 x 360, no landing gear"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/demo_landing_frame_396.png",
+    "bytes": 1144072,
+    "sha256": "c236f578bd6c16fef4c0dfa94bec0185cdf826859cb96313440358e4f8af62d2",
+    "role": "demo frame 396 (V40's plane cutout and the landing gear)"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/demo_landing_frame_408.png",
+    "bytes": 1147509,
+    "sha256": "55e938f09ed45ad874aef9dad8b90bb285e30fa2be9405739449657c1761c30e",
+    "role": "demo frame 408 (V39's page 2)"
+   },
+   {
+    "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+    "bytes": 1342038,
+    "sha256": "90da7b0106759690001a2bc7fd77042db5afa5e59f13c8557faa6b3b86d19cd8",
+    "role": "Pearl Castle with Roshan's glass (V40)"
+   },
+   {
+    "path": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+    "bytes": 174961,
+    "sha256": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4",
+    "role": "slide (V40)"
+   },
+   {
+    "path": "assets/props/story/play_swing_frame.png",
+    "bytes": 410877,
+    "sha256": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592",
+    "role": "swing frame (V40)"
+   },
+   {
+    "path": "assets/props/story/play_swing_seat.png",
+    "bytes": 265290,
+    "sha256": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b",
+    "role": "swing seat (V40)"
+   },
+   {
+    "path": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+    "bytes": 4937,
+    "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+    "role": "contact shadow (V40)"
+   }
+  ],
+  "P6 page 9": [
+   {
+    "path": "books/chapter_one/landscape/revisions/v36_next_draft/art/w3b_attempt2.png",
+    "bytes": 1946021,
+    "sha256": "c0845463d033c6d660b4019451947942e0614d8fa442dbb616e75a27cc24b9e3",
+    "role": "V37 page 9 drawing, 1181 x 1316 used"
+   }
+  ],
+  "identity": [
+   {
+    "path": "assets/characters/roshan_25d/roshan_base.png",
+    "bytes": 50051,
+    "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+    "role": "Roshan identity anchor"
+   },
+   {
+    "path": "assets/characters/roshan_25d/roshan_directional.png",
+    "bytes": 396741,
+    "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+    "role": "Roshan side and back views"
+   }
+  ],
+  "V39 proofs": [
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_00.png",
+    "bytes": 2347416,
+    "sha256": "9304bccfe16d0f1b5d9f5f5fa5cc269b8b27bfd32ee09e02041e83ee4ba071a1",
+    "role": "front cover"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_01.png",
+    "bytes": 2279614,
+    "sha256": "e2f7f009d784fdcb5e831f50ed7ed1f9a7cdd10f67a81a76ced4a361e5354c6c",
+    "role": "story 1"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_02.png",
+    "bytes": 1630171,
+    "sha256": "46d7f08e2fe656a75eb120102ceed39e7cfd491997a08a96f075276219a81cfb",
+    "role": "story 2"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_03.png",
+    "bytes": 1891626,
+    "sha256": "84e971ab04e50fa5888472dc504d97ba634af1b9111f4cf4e5bbf596e6dd5954",
+    "role": "story 3"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_04.png",
+    "bytes": 2433422,
+    "sha256": "68befbd229750de53024a04a8ce06f1a9edc89591bc4943dcbd4c47305749e4d",
+    "role": "story 4"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_05.png",
+    "bytes": 1470387,
+    "sha256": "41c1001afa3a1876ef550ef1653d773a8d3d85a3022703fd5d3034af6e587113",
+    "role": "story 5"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_06.png",
+    "bytes": 1500676,
+    "sha256": "4b6aa0941e91e211dcbd01f77424cc870e0fec4ecbdb46ed1c526df2fad7973f",
+    "role": "story 6"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_07.png",
+    "bytes": 2772307,
+    "sha256": "96ccc3e78a0848fadfb771065a8d039e307daafcf46eaeb74cc4ffcb0091538e",
+    "role": "story 7"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_08.png",
+    "bytes": 1577148,
+    "sha256": "093208805ed0b9ba71708866815273a7b72e2bd32d55836112bcaed13e23873b",
+    "role": "story 8"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_09.png",
+    "bytes": 1521398,
+    "sha256": "0eaffc362e484c2adc04c72c4d1bf30767fdb4d729491f2bee6eb13a5a4e1389",
+    "role": "story 9"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_10.png",
+    "bytes": 2495769,
+    "sha256": "9b7e61c0a26ed6d438556157777e9307e5e9bbbad0e568a6427022ab5d30af0c",
+    "role": "story 10"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_11.png",
+    "bytes": 2789895,
+    "sha256": "a45e9dc274348f81757c6820ae0acc5867ca288c745ed0634e811e1d504ad940",
+    "role": "story 11"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_12.png",
+    "bytes": 1522111,
+    "sha256": "5e435d5d33588d48997acb5a1121428756eacada3c4d6c3b5510bbf86662711c",
+    "role": "story 12"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_13.png",
+    "bytes": 2613972,
+    "sha256": "5a148e336eb671a48b7df538c437f33f95d82e0bba994b12eefb06302ab9b458",
+    "role": "story 13"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_14.png",
+    "bytes": 2553785,
+    "sha256": "61d14b848f0c0e697ff4e84426bcdbf3eb50289317db809a70cf676001177403",
+    "role": "story 14"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_15.png",
+    "bytes": 2330529,
+    "sha256": "e4e26ead2e517e6ee690ffb90414388ab1c4aaa46db4eb4aca73ebb15dcc2b79",
+    "role": "story 15"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_16.png",
+    "bytes": 2724421,
+    "sha256": "91056d37e98f13b744ebb5da264891ed6acf69b0529411d69e81850d7c163bf3",
+    "role": "story 16"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_17.png",
+    "bytes": 1540805,
+    "sha256": "fdad58ee33bb8b6e5f630275487d95f47ac7bbcf428e576a79996d52593b454d",
+    "role": "story 17"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_18.png",
+    "bytes": 2128692,
+    "sha256": "efc9290c601561f6e95c1900d9699e3596885527571806d7b178c5baeb6da3ee",
+    "role": "story 18"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_19.png",
+    "bytes": 2172460,
+    "sha256": "f50dc0bca5cb2120fdcd0f3f05357ee85c37d260849ec55bc338e29cfd5bb5c7",
+    "role": "story 19"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_20.png",
+    "bytes": 2141209,
+    "sha256": "4cf5e86598ad2dbd1d8fde803df0590bc935038dbc84d3d17bd5e97bf8627997",
+    "role": "story 20"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_21.png",
+    "bytes": 1235897,
+    "sha256": "07b7a2f3681f7a1e8c702aadac74b1123721186ac962e47db67ecf6626e63d5c",
+    "role": "story 21"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_22.png",
+    "bytes": 1470644,
+    "sha256": "9452a6cc0ace54a2c13b5c06cc0a88ad4f9b764ca93db74bf1499aa83e286a5a",
+    "role": "story 22"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_23.png",
+    "bytes": 2274978,
+    "sha256": "44937445e36254b61c48c6502652454dcfbbe5eb7de39428e2d6059a199c85a9",
+    "role": "story 23"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_24.png",
+    "bytes": 1524405,
+    "sha256": "45a75f4ec6f96b423481ca85714c116184cec35d42a5452ab9be05a32f099400",
+    "role": "story 24"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_25.png",
+    "bytes": 1453215,
+    "sha256": "f5b2f23f6a0a4a1166dd94cebdcd5bb941ec558e1eb21bfca54255c1c2327b39",
+    "role": "story 25"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_26.png",
+    "bytes": 2344471,
+    "sha256": "af2c2d8e7ff67003669fe888115787dbdbe1d7d42c397f5d9fbe68f93ed5a193",
+    "role": "story 26"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_27.png",
+    "bytes": 2359148,
+    "sha256": "6e4cd51db0cbdb6d4b87d0778f58620155547f4a7134dbc856fa47351eb013a2",
+    "role": "story 27"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_28.png",
+    "bytes": 2414477,
+    "sha256": "f505f2dd01da20ae7b1aaec3f888de0281b67707de9de6a495a73023ce295945",
+    "role": "story 28"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_29.png",
+    "bytes": 2282935,
+    "sha256": "58253dccb6d0b45464ca6a928570c297fa6c8aad8bd81b153646ab3f8425adbd",
+    "role": "story 29"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_30.png",
+    "bytes": 2057498,
+    "sha256": "9e7b44f88a160a220466f20605c74253c943513e8881d52ef49cc45da670feb9",
+    "role": "story 30"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_31.png",
+    "bytes": 1540895,
+    "sha256": "ad52a8896363afa4b8dea4172581bad80b83e7926a811f2e1a1be3efd752ce66",
+    "role": "story 31"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_32.png",
+    "bytes": 2282595,
+    "sha256": "0a7489a7bec9e13577800dc4e9779b6cbea8f57ce7954aef0ae4ce198b9442ac",
+    "role": "story 32"
+   },
+   {
+    "path": "books/chapter_one/landscape/revisions/v39_owner_corrections/complete/page_33.png",
+    "bytes": 2354573,
+    "sha256": "a3d91bdd255152df45b57ece3c8edf6f311c4dbf4f8de9de9b775e6bfccf1e50",
+    "role": "rear cover"
+   }
+  ]
+ },
+ "file_count": 70
+}

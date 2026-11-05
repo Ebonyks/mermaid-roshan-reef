@@ -1,0 +1,98 @@
+{
+  "id": "boxer-contact-engine-20261031",
+  "scope": "Owner-requested phone-edge and independent tablet glove controls, continuous glove/target and incoming-punch contact including held guards anywhere on the trajectory, and extensive deterministic stress coverage. Preserve the five phases, stable rewards/saves, painted gloves and friendly contact.",
+  "baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-04",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-INT-09",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-MED-01",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16"
+  ],
+  "findings": [
+    "MA-OPERA-009"
+  ],
+  "files": [
+    "scripts/opera_boxing_surface.gd",
+    "scripts/opera_boxing_contact.gd",
+    "scripts/probe_boxing_contact.gd",
+    "scripts/probe_boxing_contact_cases.gd",
+    "scripts/probe_opera_2d.gd",
+    "design/BOXING_GAME_PROJECT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/boxer_contact_engine_20261031/owner_request.json",
+    "audit/boxer_contact_engine_20261031/verification.json",
+    "scripts/opera_boxing_contact.gd.uid",
+    "scripts/probe_boxing_contact.gd.uid",
+    "scripts/probe_boxing_contact_cases.gd.uid",
+    "audit/boxer_contact_engine_20261031/motion_jobs.json",
+    "audit/boxer_contact_engine_20261031/visual_diagnostics.json",
+    "scripts/probe_opera_gesture_quality.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot4.7.2 --headless --path . --script scripts/probe_boxing_contact.gd",
+      "result": "PASS",
+      "evidence": "verification.json: stress-10,14000geometry/224held flights/30000adversarial events/16physical-edge viewport cases; baseline and early failures retained."
+    },
+    {
+      "command": "Full required local validation: static checks, final parser/inference/analyzer/import, all 82 trusted native probes, document authority and audit coverage",
+      "result": "PASS",
+      "evidence": "audit/boxer_contact_engine_20261031/verification.json: preserved failed full-ci-02, successful unchanged static gates, complete immutable final native suite with original classifiers/deadlines, source closure and exact checks. Remote CI is not inferred."
+    },
+    {
+      "command": "Configured production-world Mobile diagnostics and actual30fps desktop _process / routed input",
+      "result": "PASS",
+      "evidence": "audit/boxer_contact_engine_20261031/visual_diagnostics.json;12directly inspected native frames,180live state samples. Diagnostic scope only."
+    },
+    {
+      "command": "Original mixed-input fixture versus owner-requested direct tablet pickup",
+      "result": "PASS",
+      "evidence": "gesture-final.log: ALL OK (275 checks). The earlier full-ci-02 failure is retained. Its second touch pressed the occupied left glove while asserting ownership of the distant right glove. The revised fixture presses the actual right glove, retains both ownership/release assertions and adds a negative assertion that touching an occupied glove cannot remotely claim the free hand. No production fallback or assertion threshold was weakened."
+    }
+  ],
+  "acceptance_gaps": "Machine evidence, source-bound desktop visual review, physical phone/tablet, child comprehension and owner acceptance are separate. The audit finding remains pending; no new score or whole-game clearance is claimed.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-BOXER-CONTACT-CONTROLS-20261031",
+      "evidence": "Human request in Boxer chat on 2026-10-31; exact text preserved in audit/boxer_contact_engine_20261031/owner_request.json",
+      "write_back": "design/BOXING_GAME_PROJECT_2026-08-09.md and design/reference/owner_decisions.json"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "Test physical viewport edges outside a centered fixed stage; testing only 16:9 scaling misses dead phone margins.",
+      "write_back": "scripts/probe_boxing_contact_cases.gd:run_routed, invoked by trusted probe_opera_2d; current Boxer domain revision."
+    },
+    {
+      "lesson": "Build swept-disc coefficients in scalar double precision; vector dot products lost precision on long travel against small padding.",
+      "write_back": "scripts/opera_boxing_contact.gd and strict independent-oracle checks in scripts/probe_boxing_contact_cases.gd."
+    },
+    {
+      "lesson": "Independent direct controls must be tested by touching each actual glove; an old auto-assignment fixture must not force a distant-hand fallback into production.",
+      "write_back": "scripts/probe_opera_gesture_quality.gd preserves mixed-input ownership/release checks and adds occupied-glove rejection."
+    }
+  ]
+}

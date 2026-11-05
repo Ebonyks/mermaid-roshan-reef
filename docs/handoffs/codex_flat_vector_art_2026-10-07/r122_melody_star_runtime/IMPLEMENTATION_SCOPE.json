@@ -1,0 +1,36 @@
+{
+  "original_method_count": 71,
+  "unchanged_original_methods": 67,
+  "changed_original_methods": [
+    "StageStarCanvas.setup",
+    "StageStarCanvas.layout",
+    "StageStarCanvas._draw",
+    "StageStarCanvas._star_points"
+  ],
+  "removed_methods": [
+    "StageStarCanvas._draw",
+    "StageStarCanvas._star_points"
+  ],
+  "other_original_methods_exact": true,
+  "game_original_source_sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e",
+  "current_game_sha256": "df118953f415301f1e9a41ff56439b0af5ba15db6a88409a19593822b567f1f8",
+  "new_const": "STAGE_STAR_PATH",
+  "no_controller_state_or_layout_call_change": true,
+  "original_probe_method_count": 88,
+  "original_probe_unchanged": 85,
+  "probe_changed_original_methods": [
+    "CountingAudioDirector:._check_asset_contract",
+    "CountingAudioDirector:._check_runtime_texture_census",
+    "CountingAudioDirector:._surface_structure_exact"
+  ],
+  "probe_added_methods": [
+    "CountingAudioDirector:._painted_stage_star_contract"
+  ],
+  "full_game_probe_unchanged": true,
+  "runtime_resource_new_png": "assets/melody/star_painted.png",
+  "new_native_outputs": 1,
+  "static_calls": 1,
+  "animation_calls": 0,
+  "all_existing_art_resource_ceilings_unchanged": true,
+  "old_stage_star_no_polygon_or_custom_draw": true
+}

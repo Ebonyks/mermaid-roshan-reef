@@ -779,6 +779,14 @@ def audit(root: Path) -> tuple[list[Issue], dict[str, int]]:
 	issues.extend(_markdown_integrity_issues(root, {Path(path) for path in inventory}))
 	issues.extend(_authority_claim_issues(root))
 	issues.extend(_planning_fact_issues(root))
+	# Chapter checks run through this existing blocking gate in both CI lanes.
+	if (root / "scripts/chapter_two_party_plan.gd").is_file():
+		try:
+			from tools import audit_chapter_contract, design_reference
+		except ModuleNotFoundError:
+			import audit_chapter_contract, design_reference
+		issues.extend(Issue("DOC090", str(MASTER_PATH), detail) for detail in audit_chapter_contract.audit(root))
+		issues.extend(Issue("DOC091", str(MASTER_PATH), detail) for detail in design_reference.check(root))
 	try:
 		from tools.audit_development import navigation_issues
 	except ModuleNotFoundError:

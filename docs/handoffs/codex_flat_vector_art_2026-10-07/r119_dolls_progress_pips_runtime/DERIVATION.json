@@ -1,0 +1,134 @@
+{
+  "method": "Two complete whole-state native images; Aseprite1.3.18.4 RGBA roundtrip, uniform bilinear whole512 export; same512 canvas and common content rectangle, no crop/warp/components/Pythonimageediting.",
+  "aseprite": "Aseprite 1.3.18.4-x64",
+  "aseprite_sha256": "e320ffdf2663dc39b012c5791dd0ac5cec64b3621b7f3bb82b5f02b6c73483bf",
+  "exports": [
+    {
+      "variant": "empty",
+      "runtime_path": "assets/dolls/progress_empty_painted.png",
+      "runtime_sha256": "33f4460f116add379f27ff172363bfd43b36a3f7378e58aa4866ea9e9f3d6161",
+      "native_path": "assets_src/imagegen/dolls_progress_pips_20261031/empty_take1_native.png",
+      "native_sha256": "b69b283836d63118d277c8d4801a45a3c38930ae05004a46a0b8ff04e4102261",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_RGBA_roundtrip_exact": true,
+      "whole_image_uniform_scale": 0.4082934609250399,
+      "crop": null,
+      "stretch": false,
+      "editable_native": "assets_src/imagegen/dolls_progress_pips_20261031/empty_native.aseprite",
+      "editable_runtime": "assets_src/imagegen/dolls_progress_pips_20261031/empty_512_master.aseprite",
+      "cutout_profile": {
+        "mode": "RGBA",
+        "transparent_pct": 52.8,
+        "faint_haze_pct_of_canvas": 0.3,
+        "semi_pct_of_visible": 0.8,
+        "near_opaque_pct_of_visible": 98.5,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          54,
+          58,
+          459,
+          454
+        ],
+        "verdict": "CUTOUT_OK"
+      },
+      "runtime_dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "variant": "filled",
+      "runtime_path": "assets/dolls/progress_filled_painted.png",
+      "runtime_sha256": "c93096eebb7213bddc36bc02d770e5e5ed6eb934e8129561ae127d5f6b0f1b58",
+      "native_path": "assets_src/imagegen/dolls_progress_pips_20261031/filled_take1_native.png",
+      "native_sha256": "db2e5839c6b577ee7dbcf95af81715c9bab0c7024987304604ebd3a1a0f51927",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "native_RGBA_roundtrip_exact": true,
+      "whole_image_uniform_scale": 0.4082934609250399,
+      "crop": null,
+      "stretch": false,
+      "editable_native": "assets_src/imagegen/dolls_progress_pips_20261031/filled_native.aseprite",
+      "editable_runtime": "assets_src/imagegen/dolls_progress_pips_20261031/filled_512_master.aseprite",
+      "cutout_profile": {
+        "mode": "RGBA",
+        "transparent_pct": 52.5,
+        "faint_haze_pct_of_canvas": 0.4,
+        "semi_pct_of_visible": 0.8,
+        "near_opaque_pct_of_visible": 98.5,
+        "opaque_255_pct": 0.0,
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "content_bbox": [
+          53,
+          57,
+          459,
+          455
+        ],
+        "verdict": "CUTOUT_OK"
+      },
+      "runtime_dimensions": [
+        512,
+        512
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "C:\\Program Files\\Aseprite\\Aseprite.exe",
+        "--batch",
+        "--script",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\dolls_progress_pips_20261031\\empty_whole_export.lua"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "script_sha256": "5047d17cc4cb19903692287dc0ad54966d65cff91f9f4b9d1ec66ffbcdcc8cef"
+    },
+    {
+      "command": [
+        "C:\\Program Files\\Aseprite\\Aseprite.exe",
+        "--batch",
+        "--script",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\dolls_progress_pips_20261031\\filled_whole_export.lua"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "script_sha256": "fe8d8e15d61042674cf82ae6ac530f0780a28e0843edbd0f34618f4dc5c3f31e"
+    }
+  ],
+  "common_content_rect": [
+    53,
+    57,
+    406,
+    398
+  ],
+  "visible_bounds_delta_at36px": 0.08866995073891626,
+  "registration_limit_px": 0.25,
+  "static_calls": 2,
+  "rejected_takes": 0,
+  "animation_calls": 0,
+  "backend": "Built-in image_gen",
+  "model_version": "NOT_EXPOSED",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null
+}

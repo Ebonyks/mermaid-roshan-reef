@@ -1,0 +1,38 @@
+{
+  "format": "roshan.action-library/1",
+  "fps": 30,
+  "bake_hz": 120,
+  "cycle_seconds": 1.9,
+  "sequence_seconds": 7.6,
+  "phase_order": [
+    "load",
+    "power",
+    "extend",
+    "glide",
+    "recover"
+  ],
+  "fin_states_are_shared_anatomy": true,
+  "costume_cannot_override_actions": true,
+  "source_floors": {
+    "visible_strain": [
+      0.8,
+      1.2
+    ],
+    "visible_flips": 0,
+    "angular_speed_deg_s": 140,
+    "angular_acceleration_deg_s2": 650
+  },
+  "supported": [
+    "one right-quarter view",
+    "start",
+    "stroke/glide cycle",
+    "brake/settle"
+  ],
+  "not_established": [
+    "facing turns",
+    "opposite view",
+    "grasp/tool contact",
+    "complete wardrobe",
+    "actual device/child/owner acceptance"
+  ]
+}

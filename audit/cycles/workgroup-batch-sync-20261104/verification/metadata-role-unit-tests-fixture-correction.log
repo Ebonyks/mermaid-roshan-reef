@@ -1,0 +1,17 @@
+GAME2D| stress: 19 falsification/control assertions ALL OK
+................F.................................................................
+======================================================================
+FAIL: test_audit_metadata_is_non_runtime_but_models_are_still_inventory (tools.tests.test_audit_game_2d.Game2DAuditTests.test_audit_metadata_is_non_runtime_but_models_are_still_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "H:\Dev\Worktrees\workgroup-batch-sync-20261104\tools\tests\test_audit_game_2d.py", line 996, in test_audit_metadata_is_non_runtime_but_models_are_still_inventory
+    self.assertIn("design/audit_impacts/tooling.json",
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    	game_2d.discover(root).production_3d_files)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'design/audit_impacts/tooling.json' not found in {}
+
+----------------------------------------------------------------------
+Ran 82 tests in 108.506s
+
+FAILED (failures=1)

@@ -1,0 +1,90 @@
+{
+  "stable_id": "FV-0671240CDB11",
+  "reviewer": "Local agent, direct same-scene source/candidate image inspection; no independent/owner acceptance",
+  "all6_source_frames_inspected": true,
+  "all6_candidate_frames_inspected": true,
+  "effective_direct_views": 12,
+  "axes": [
+    {
+      "axis": "contour",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Three soft painted cloth lobes replace the angular flat header edge. One whole authored silhouette is retained."
+    },
+    {
+      "axis": "palette",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Midnight plum/indigo identity and all seven rainbow hues remain; painted highlights lift the cloth while the landscape and actors retain their source colors."
+    },
+    {
+      "axis": "light",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Broad satin/gouache highlights are baked in the prop, with no runtime light or shader relighting."
+    },
+    {
+      "axis": "perspective",
+      "candidate_score_out_of5": 4.7,
+      "observation": "One frontal canvas prop stays on the existing theatre plane; no3D extrusion or perspective staging is added."
+    },
+    {
+      "axis": "scale",
+      "candidate_score_out_of5": 4.5,
+      "observation": "Whole bitmap scales uniformly to each original stage width and bottom opening line. Its arch becomes broader and more cropped at1600px; the original arch also crossed the viewport top. This remains a device/owner review point."
+    },
+    {
+      "axis": "contact",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Valance overlaps the existing curtain tops and sits above the same scenic opening. Small pale side gaps already present in the old curtain outline remain outside this role."
+    },
+    {
+      "axis": "occlusion",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Separate bulbs, progress circles, star, back control, actors and input targets stay in front. Header does not intrude below the original opening-height bound."
+    },
+    {
+      "axis": "phone_readability",
+      "candidate_score_out_of5": 4.5,
+      "observation": "Painted folds and seven wide rainbow bands remain legible in all three native sizes. Colored progress states remain distinguishable. Physical device/child reading is unverified."
+    },
+    {
+      "axis": "identity_topology",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Exactly one crown header with one seven-band arch replaces the same role. No characters, new props, story facts, touch goals or save behavior change."
+    },
+    {
+      "axis": "painted_material_coherence",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Painted cloth gradients and soft handmade edges replace uniform flat fill/arc strokes, fitting the illustrated landscape and cloth reference. Other flat theatre roles remain separately open."
+    }
+  ],
+  "applicable_object_review_floor": 4.5,
+  "applicable_axes_at_or_above_floor": true,
+  "review_scope": "Only this fixed header/rainbow source candidate, not whole-frame/formalQA11/natural-route/device/child/owner/game-wide clearance.",
+  "candidate_status": "SOURCE_CANDIDATE_LOCAL_MACHINE_VERIFIED_FORMAL_OPEN",
+  "native_executed_checks": {
+    "reused_exact_source": 69,
+    "current_candidate": 87,
+    "total_effective": 156,
+    "unit": "Executed checks; not unique requirements. Source reused with5062/5062 raw-exact proof."
+  },
+  "new_frame_events": {
+    "bounded": 6,
+    "excluded": 0,
+    "retained": 6
+  },
+  "static_calls": 2,
+  "nonselected_native_takes": 1,
+  "rejected_shape_takes": 1,
+  "technical_exports": 2,
+  "new_runtime_PNG": 1,
+  "animation_calls": 0,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "whole_role_closed": false,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "reviewed_at_utc": "2026-11-02T04:57:25.643736+00:00",
+  "complete_machine_validation": "docs/handoffs/codex_flat_vector_art_2026-10-07/r121_melody_header_runtime/LOCAL_82_RESULT.json"
+}

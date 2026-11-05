@@ -1,0 +1,12 @@
+{
+  "check_time_utc": "2026-11-01T16:31:06.262025+00:00",
+  "source": "Read-only compact snapshot of the sole shared-rig owner workstream",
+  "status": "Owner turn completed; nothing committed or pushed",
+  "contract_dependency": "UNPUBLISHED local review freeze only; no compatibility acceptance",
+  "owner_reported_limits": [
+    "Three outline failures and visible grip/joint/material/turning defects",
+    "Full validation failures/timeouts blocked source publication",
+    "Device/child/owner pending"
+  ],
+  "scope_note": "Owner final report preceded corrected seed publication b700b846. Our dependency_publication.json independently verifies all29 corrected seed files; it does not publish or accept the shared contract."
+}

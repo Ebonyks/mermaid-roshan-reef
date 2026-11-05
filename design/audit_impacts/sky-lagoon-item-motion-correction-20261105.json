@@ -176,8 +176,21 @@
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
       "result": "PASS",
       "evidence": "Local authority check: INVENTORY=760, LEDGER=760, ACTIVE=74, RECORDS=77, ALL OK. Development coverage check against bfc60e1e80f49824f299896fe51431ff018c6ddb: ALL OK. Exact source-only packet and associated audit/docs/license records staged."
+    },
+    {
+      "command": "Combined-branch source invariant, GDScript parser/inference and audit gates",
+      "result": "PASS",
+      "evidence": "Reconciled 80975b0051f6a5be29b0680e8b84e15f30d3c316. Both isolated demo scripts parse; new packet 114 frozen payload hashes and 23 bound originals match. No production/runtime/security/workflow delta from origin/dev. Current authority 919/919, active75, records78; development coverage ALL OK. Original 76eb6da3 frame evidence remains bound to unchanged packet bytes."
     }
   ],
   "acceptance_gaps": "Candidate review only. Old scrolling preview owner-rejected. New exact human identity/motion/transition/seam/owner review pending. Swing not animated due missing accepted fore/aft surfaces; gate painted interior gap; illustrative placements/production overlap and lifecycle unaccepted. Base textures estimate 192MiB, actual device timing/memory/overdraw and child acceptance pending. No findings closed, no main game integration or release. Dev integration hold respected.",
-  "packet_payload_sha256": "1d268bc6572fd5b5da08afd7dba5db73e1b7c98203067b339c7f816e69c29073"
+  "packet_payload_sha256": "1d268bc6572fd5b5da08afd7dba5db73e1b7c98203067b339c7f816e69c29073",
+  "integration_reconciliation": {
+    "upstream": "80975b0051f6a5be29b0680e8b84e15f30d3c316",
+    "upstream_probe_run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42055727050",
+    "topic_source_probe_run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/42052258903",
+    "conflict_resolution": "Preserve current upstream master/ledger/license content and append only the two topic source-packet records and license sections. Preserve the one current generated task-index boundary; do not resurrect removed historical campaign text.",
+    "source_packet_changes": "None; both frozen manifests and all source payload remain byte-identical to topic 76eb6da3.",
+    "combined_validation": "Local authority 919/919 and development coverage PASS against 80975b00; both packet payloads/original source bindings unchanged; no production/runtime/security/workflow delta from shared upstream. Exact combined-head GitHub CI remains required and tracked in PR45."
+  }
 }

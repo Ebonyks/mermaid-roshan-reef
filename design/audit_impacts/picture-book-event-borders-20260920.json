@@ -1,0 +1,69 @@
+{
+  "id": "picture-book-event-borders-20260920",
+  "baseline": "ac536f04958856c636ea8c3fdfab204106165697",
+  "scope": "Owner-requested richer page-event border details. Inventory existing handoff/game props; generate isolated decorative prop atlases for gaps. No story scene redraw; preserve accepted blue base and foreground art.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book border content; no game finding or runtime asset changes.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STRESS_TEST.md",
+    "books/chapter_one/landscape/art/event_borders/attic_atlas.png",
+    "books/chapter_one/landscape/art/event_borders/bath_atlas.png",
+    "books/chapter_one/landscape/art/event_borders/bath_duck_eye.png",
+    "books/chapter_one/landscape/art/event_borders/craft_atlas.png",
+    "books/chapter_one/landscape/art/event_borders/play_atlas.png",
+    "books/chapter_one/landscape/art/event_borders/sailboat.png",
+    "books/chapter_one/landscape/art/event_borders/sailboat_detail.png",
+    "books/chapter_one/landscape/audit_book.py",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/event_border_correction_prompts.json",
+    "books/chapter_one/landscape/event_border_evidence.json",
+    "books/chapter_one/landscape/event_border_jobs.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/stress_results.json",
+    "books/chapter_one/landscape/stress_review.json"
+  ],
+  "validation": [
+    {
+      "command": "Source inventory and original-book border comparison",
+      "result": "PASS",
+      "evidence": "Existing sailboat is alpha; block/ribbon-rack/duck room crops retain scenery; six-object rubbish atlas has dark background. Isolated themed props needed at small print size."
+    },
+    {
+      "command": "Rendered review of all 13 reduced pages; enlarged bath, craft, door, play and ending pages",
+      "result": "PASS",
+      "evidence": "v11 border contact and event_border_evidence.json. Replaced soft sailboat and missing duck eye before delivery; no scene or character redraw."
+    },
+    {
+      "command": "audit_book.py --proof v11_event_borders/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 pages, 84 text lines, 134 image operations. 27 distinct border props; maximum repetition 2; no decorative brush/sponge/suds sources. 19 full-art pages byte-identical to v10; all caption and foreground layers unchanged."
+    },
+    {
+      "command": "Portable extraction, payload hashes and independent render comparison",
+      "result": "PASS",
+      "evidence": "delivery_verification.json: 72 payload hashes verified; all 34 page JPEGs byte-identical."
+    },
+    {
+      "command": "Headless Edge before/after review at 1400 and 760px",
+      "result": "PASS",
+      "evidence": "13 comparisons, 26 images loaded; no overflow or broken images."
+    }
+  ],
+  "acceptance_gaps": "Owner acceptance of page-event borders remains open. Prior source-resolution, extraction-fidelity and finale ceiling-join issues remain separate. No game/runtime/cinematic acceptance claimed."
+}

@@ -84,21 +84,39 @@ def git(root: Path, *args: str) -> str:
 	).strip()
 
 
-def pending_merge_head(root: Path) -> str | None:
+def pending_merge_heads(root: Path) -> tuple[str, ...]:
+	"""Read every parent of a real pending merge, including linked worktrees."""
+	merge_path = Path(git(root, "rev-parse", "--git-path", "MERGE_HEAD"))
+	if not merge_path.is_absolute():
+		merge_path = root / merge_path
 	try:
-		return git(root, "rev-parse", "--verify", "MERGE_HEAD")
-	except subprocess.CalledProcessError:
-		return None
+		heads = tuple(line.strip() for line in merge_path.read_text(
+			encoding="ascii").splitlines() if line.strip())
+	except FileNotFoundError:
+		return ()
+	for head in heads:
+		if not re.fullmatch(r"[0-9a-f]{40}", head):
+			raise ValueError("invalid pending merge parent")
+		git(root, "rev-parse", "--verify", head + "^{commit}")
+	return heads
+
+
+def pending_merge_head(root: Path) -> str | None:
+	heads = pending_merge_heads(root)
+	return heads[0] if heads else None
 
 
 def validate_ancestor(root: Path, revision: str) -> None:
 	try:
 		git(root, "merge-base", "--is-ancestor", revision, "HEAD")
-	except subprocess.CalledProcessError:
-		merge_head = pending_merge_head(root)
-		if not merge_head:
-			raise
-		git(root, "merge-base", "--is-ancestor", revision, merge_head)
+	except subprocess.CalledProcessError as original:
+		for merge_head in pending_merge_heads(root):
+			try:
+				git(root, "merge-base", "--is-ancestor", revision, merge_head)
+				return
+			except subprocess.CalledProcessError:
+				continue
+		raise original
 
 
 def heading_anchors(text: str) -> set[str]:
@@ -117,6 +135,31 @@ def heading_anchors(text: str) -> set[str]:
 		counts[anchor] = count + 1
 		anchors.add(f"{anchor}-{count}" if count else anchor)
 	return anchors
+
+
+def stable_index_issues(index: str) -> list[str]:
+	"""Keep the planning route free of receipts and malformed table rows."""
+	issues: list[str] = []
+	if index.count("| Task | Start with |") != 1:
+		issues.append("master audit: task table header missing or duplicated")
+	in_table = False
+	for line in index.splitlines():
+		if line.startswith("| Task | Start with |"):
+			in_table = True
+			continue
+		if line.startswith("|"):
+			if not in_table:
+				issues.append("master audit: task row outside the index table")
+			cells = line.split("|")
+			if len(cells) > 3 and re.search(r"/r[0-9]+_[^/)]*/", cells[2], re.I):
+				issues.append("master audit: candidate receipt in Start with; use the history route")
+		elif not line.strip():
+			in_table = False
+		elif re.search(r"20[0-9]{2}-[0-9]{2}-[0-9]{2}", line) and re.search(
+			r"[A-Za-z]", re.sub(r"\[[^\]]+\]\([^)]+\)", "", line)):
+			# A stable navigation-only link may contain a dated source filename.
+			issues.append("master audit: dated status paragraph inside task index")
+	return issues
 
 
 def navigation_issues(root: Path) -> list[str]:
@@ -150,6 +193,7 @@ def navigation_issues(root: Path) -> list[str]:
 	if text.count(INDEX_START) != 1 or text.count(INDEX_END) != 1:
 		return issues + ["master audit: task index markers missing or duplicated"]
 	index = text.split(INDEX_START, 1)[1].split(INDEX_END, 1)[0]
+	issues.extend(stable_index_issues(index))
 	if text.index(INDEX_START) > text.find("## Sealed audit snapshot"):
 		issues.append("master audit: task index must precede sealed evidence")
 	link_pattern = r"\[[^\]]+\]\(([^)]+)\)"

@@ -1,0 +1,97 @@
+{
+  "stable_ids": [
+    "FV-4ED0A2885065",
+    "FV-FD33A7BF6E0A"
+  ],
+  "reviewer": "Qualified local agent static role comparison, directly inspected actual source/candidate PNGs; no independent or owner acceptance claimed.",
+  "same_scene_baseline": "SOURCE_NATIVE_RESULT.json; FRAME_INDEX.json identifies every exact capture and hash.",
+  "all6_source_frames_inspected": true,
+  "all6_candidate_frames_inspected": true,
+  "effective_direct_views": 12,
+  "excluded_direct_views": 1,
+  "total_retained_events": 18,
+  "axes": [
+    {
+      "axis": "contour",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Original two flat polygon wings and separate straight fold lines become two complete cloth silhouettes with gently bowed inner edges and authored broad folds."
+    },
+    {
+      "axis": "palette",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Pink remains on the left and lavender on the right, with plum/lilac shadows; note colours, actors and landscape remain unchanged."
+    },
+    {
+      "axis": "light",
+      "candidate_score_out_of5": 4.6,
+      "observation": "The cloth carries its own restrained painted highlights and shadows; no runtime relighting or new glow is applied."
+    },
+    {
+      "axis": "perspective",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Both curtains share the existing frontal theatre plane and hang behind the original crown/apron rather than becoming angled 3D props."
+    },
+    {
+      "axis": "scale",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Whole images scale uniformly to the existing side widths at all three aspects. The stage-boundary clips retain the existing outer frame; the same apron occludes the lower cloth."
+    },
+    {
+      "axis": "contact",
+      "candidate_score_out_of5": 4.6,
+      "observation": "The gathered cloth emerges from behind the same header and disappears behind the same apron; all six recorded stage/actor/zone/backdrop layouts match their baseline."
+    },
+    {
+      "axis": "occlusion",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Curtains remain behind Daddy/Roshan and the note/green-window controls. Functional clip rectangles add no appearance pixels or accepted-art credit."
+    },
+    {
+      "axis": "phone_readability",
+      "candidate_score_out_of5": 4.6,
+      "observation": "Broad fabric folds remain visible in native1280x720,1600x720 and1280x800 images; all three native cases retain passive0 and deliberate0-to1 note checks. Physical device/child reading remains unverified."
+    },
+    {
+      "axis": "identity_topology",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Exactly one pink left wing and one lavender right wing replace the same roles; character art, seven-note goal, timing, input, save and existing action methods are unchanged."
+    },
+    {
+      "axis": "painted_material_coherence",
+      "candidate_score_out_of5": 4.7,
+      "observation": "Authored matte-to-satin painted values replace the prior flat fills/straight fold bars and fit the existing illustrated landscape/fabric vocabulary. Other flat stage/header/note/star roles remain open."
+    }
+  ],
+  "applicable_object_review_floor": 4.6,
+  "applicable_axes_at_or_above_floor": true,
+  "review_scope": "Only the two fixed curtain props; not a whole-frame, natural-route, acting, canonicalQA11, device or game-wide clearance.",
+  "candidate_status": "PAINTED_CURTAIN_WORKBRANCH_CANDIDATE_READY_FOR_COMPLETE_MACHINE_VALIDATION",
+  "fixture_limit": "First6configured captures remain excluded: title menu covered stage. Corrected fixture uses realContinue control with an isolated resumable-save setup, then production Daddy/Melody entry. Direct entry does not prove natural current route reachability.",
+  "native_executed_checks": {
+    "effective_source": 69,
+    "effective_candidate": 96,
+    "excluded_initial_fixture": 54,
+    "total": 219,
+    "unit": "Executed checks, not unique requirements."
+  },
+  "new_frame_events": {
+    "bounded": 12,
+    "excluded": 6,
+    "retained": 18
+  },
+  "static_calls": 2,
+  "rejected_native_takes": 0,
+  "technical_exports": 4,
+  "new_runtime_PNG": 2,
+  "animation_calls": 0,
+  "Dev_integrated": false,
+  "new_Dev_credits": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "whole_role_closed": false,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "reviewed_at_utc": "2026-11-02T00:14:08.698189+00:00"
+}

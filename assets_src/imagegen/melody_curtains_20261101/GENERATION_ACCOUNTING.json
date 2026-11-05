@@ -1,0 +1,30 @@
+{
+  "backend": "Built-in image_gen",
+  "model_selector_exposed": false,
+  "model_version": "NOT_EXPOSED_UNLESS_TOOL_RETURNS_ONE",
+  "static_cap_per_variant": 2,
+  "calls_completed": 2,
+  "reservations": [
+    {
+      "variant": "left_pink",
+      "take": 1,
+      "state": "COMPLETED_NATIVE_CANDIDATE",
+      "prompt_sha256": "f923268cbe5ee43d2c424ed5db6629f3abeabe4cf8cff5162e3c55f54de462f2",
+      "request_id": "exec-58e56dc9-e9c2-4530-9654-486872d55505",
+      "native_path": "assets_src/imagegen/melody_curtains_20261101/left_pink_take1_native.png",
+      "native_sha256": "04514c0cb26cb30425032b5ed23b130dbdbea73346a45e5fdde611acd7e480d9"
+    },
+    {
+      "variant": "right_lavender",
+      "take": 1,
+      "state": "COMPLETED_NATIVE_CANDIDATE",
+      "prompt_sha256": "a6164ef7cd225c3efb2e70894426e9fd1b15c524d785dcfa76162f77d457f788",
+      "request_id": "exec-0bcee998-5203-4419-843d-0f5e280a5de6",
+      "native_path": "assets_src/imagegen/melody_curtains_20261101/right_lavender_take1_native.png",
+      "native_sha256": "5a447f31bda91332b640203c7ffa920e2dabb51a4294c92eed28d13ea69626ea"
+    }
+  ],
+  "animation_calls": 0,
+  "rejected_takes": 0,
+  "Dev_integrated": false
+}

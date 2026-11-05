@@ -1,0 +1,496 @@
+{
+  "schema_version": 1,
+  "id": "roshan.canvas.shared",
+  "version": "1.0.0",
+  "status": "FROZEN_SOURCE_PROTOTYPE",
+  "production_integration": false,
+  "coordinate_system": {
+    "canvas_px": [
+      1024,
+      1024
+    ],
+    "x": "right",
+    "y": "down",
+    "angles": "radians clockwise on Canvas",
+    "bone_axis": "+X",
+    "units": "one native source pixel",
+    "mirror_rule": "Do not rename screen-side IDs. Explicit view bindings remap physical side; never infer anatomical left from the drawing."
+  },
+  "seed": {
+    "candidate": "render_v8",
+    "rig_sha256": "0023f07215712c50ad278d94bb7a2ebce371071c314c3b4b7811d5d16b76c327",
+    "frozen_inputs_sha256": "46134c276b8f639fa69d23745628de734abc0234a96b737c0f38fca08a71b057",
+    "publication": "LOCAL_FROZEN_PROVISIONAL; corrected immutable remote baseline required before downstream handoff complete",
+    "predecessor_rejected_commit": "26bd6d1f0573f7b1ad76511c22abf584e44b7e24"
+  },
+  "bones": [
+    {
+      "id": "root",
+      "seed_name": "Root",
+      "parent": null,
+      "head_canvas_px": [
+        534.8,
+        475.46000000000004
+      ],
+      "tail_canvas_px": [
+        548.0,
+        475.46000000000004
+      ],
+      "rest_local": {
+        "position": [
+          534.8,
+          475.46000000000004
+        ],
+        "rotation_rad": 0.0,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 13.200000000000045
+    },
+    {
+      "id": "torso",
+      "seed_name": "Torso",
+      "parent": "root",
+      "head_canvas_px": [
+        534.8,
+        475.46000000000004
+      ],
+      "tail_canvas_px": [
+        535.46,
+        349.40000000000003
+      ],
+      "rest_local": {
+        "position": [
+          0.0,
+          0.0
+        ],
+        "rotation_rad": -1.5655607725384884,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 126.06172773685121
+    },
+    {
+      "id": "head",
+      "seed_name": "Head",
+      "parent": "torso",
+      "head_canvas_px": [
+        535.46,
+        349.40000000000003
+      ],
+      "tail_canvas_px": [
+        535.46,
+        194.3
+      ],
+      "rest_local": {
+        "position": [
+          126.06172773685121,
+          -5.773159728050814e-15
+        ],
+        "rotation_rad": -0.005235554256408204,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 155.10000000000002
+    },
+    {
+      "id": "arm.screen_left.upper",
+      "seed_name": "LeftUpper",
+      "parent": "torso",
+      "head_canvas_px": [
+        474.74,
+        379.76
+      ],
+      "tail_canvas_px": [
+        449.0,
+        454.34000000000003
+      ],
+      "rest_local": {
+        "position": [
+          95.38424243320105,
+          -60.56021710202441
+        ],
+        "rotation_rad": 3.4686892693511027,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 78.89692009197829
+    },
+    {
+      "id": "arm.screen_left.fore",
+      "seed_name": "LeftFore",
+      "parent": "arm.screen_left.upper",
+      "head_canvas_px": [
+        449.0,
+        454.34000000000003
+      ],
+      "tail_canvas_px": [
+        410.72,
+        507.8
+      ],
+      "rest_local": {
+        "position": [
+          78.89692009197827,
+          7.105427357601002e-15
+        ],
+        "rotation_rad": 0.2890841765790422,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 65.75203418906517
+    },
+    {
+      "id": "hand.screen_left",
+      "seed_name": "LeftHand",
+      "parent": "arm.screen_left.fore",
+      "head_canvas_px": [
+        410.72,
+        507.8
+      ],
+      "tail_canvas_px": [
+        379.7,
+        551.36
+      ],
+      "rest_local": {
+        "position": [
+          65.75203418906517,
+          -7.105427357601002e-15
+        ],
+        "rotation_rad": -0.0026015798590743877,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 53.4762938132403
+    },
+    {
+      "id": "arm.screen_right.upper",
+      "seed_name": "RightUpper",
+      "parent": "torso",
+      "head_canvas_px": [
+        607.4,
+        371.18
+      ],
+      "tail_canvas_px": [
+        635.78,
+        453.68
+      ],
+      "rest_local": {
+        "position": [
+          104.65867029476871,
+          72.0530438783186
+        ],
+        "rotation_rad": 2.8050374590291325,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 87.24491045327515
+    },
+    {
+      "id": "arm.screen_right.fore",
+      "seed_name": "RightFore",
+      "parent": "arm.screen_right.upper",
+      "head_canvas_px": [
+        635.78,
+        453.68
+      ],
+      "tail_canvas_px": [
+        674.0600000000001,
+        515.72
+      ],
+      "rest_local": {
+        "position": [
+          87.24491045327515,
+          3.552713678800501e-15
+        ],
+        "rotation_rad": -0.22152158128828736,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 72.89938271343598
+    },
+    {
+      "id": "hand.screen_right",
+      "seed_name": "RightHand",
+      "parent": "arm.screen_right.fore",
+      "head_canvas_px": [
+        674.0600000000001,
+        515.72
+      ],
+      "tail_canvas_px": [
+        696.5,
+        557.3
+      ],
+      "rest_local": {
+        "position": [
+          72.89938271343598,
+          -7.105427357601002e-15
+        ],
+        "rotation_rad": 0.05795377916146616,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 47.248809508811874
+    },
+    {
+      "id": "tail.base",
+      "seed_name": "TailA",
+      "parent": "root",
+      "head_canvas_px": [
+        534.8,
+        475.46000000000004
+      ],
+      "tail_canvas_px": [
+        560.54,
+        590.3
+      ],
+      "rest_local": {
+        "position": [
+          0.0,
+          0.0
+        ],
+        "rotation_rad": 1.3503025654282248,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 117.68930792557148
+    },
+    {
+      "id": "tail.mid",
+      "seed_name": "TailB",
+      "parent": "tail.base",
+      "head_canvas_px": [
+        560.54,
+        590.3
+      ],
+      "tail_canvas_px": [
+        564.5,
+        708.44
+      ],
+      "rest_local": {
+        "position": [
+          117.68930792557147,
+          -1.0658141036401503e-14
+        ],
+        "rotation_rad": 0.18698675358580785,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 118.20635008323379
+    },
+    {
+      "id": "tail.lower",
+      "seed_name": "TailC",
+      "parent": "tail.mid",
+      "head_canvas_px": [
+        564.5,
+        708.44
+      ],
+      "tail_canvas_px": [
+        508.40000000000003,
+        790.2800000000001
+      ],
+      "rest_local": {
+        "position": [
+          118.20635008323379,
+          -5.773159728050814e-15
+        ],
+        "rotation_rad": 0.6344240224679842,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 99.22195120032664
+    },
+    {
+      "id": "tail.tip",
+      "seed_name": "TailD",
+      "parent": "tail.lower",
+      "head_canvas_px": [
+        508.40000000000003,
+        790.2800000000001
+      ],
+      "tail_canvas_px": [
+        434.48,
+        793.58
+      ],
+      "rest_local": {
+        "position": [
+          99.22195120032664,
+          -7.105427357601002e-15
+        ],
+        "rotation_rad": 0.9252660770614742,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 73.99362404964364
+    },
+    {
+      "id": "fin",
+      "seed_name": "Fin",
+      "parent": "tail.tip",
+      "head_canvas_px": [
+        434.48,
+        793.58
+      ],
+      "tail_canvas_px": [
+        328.22,
+        755.3000000000001
+      ],
+      "rest_local": {
+        "position": [
+          73.99362404964364,
+          -4.440892098500626e-15
+        ],
+        "rotation_rad": -5.892796566329695,
+        "scale": [
+          1,
+          1
+        ]
+      },
+      "length_px": 112.94488036205978
+    }
+  ],
+  "sockets": [
+    {
+      "id": "grip.screen_left",
+      "bone": "hand.screen_left",
+      "position_px": [
+        24,
+        0
+      ],
+      "rotation_rad": 0,
+      "type": "palm",
+      "tolerance_px": 3
+    },
+    {
+      "id": "grip.screen_right",
+      "bone": "hand.screen_right",
+      "position_px": [
+        24,
+        0
+      ],
+      "rotation_rad": 0,
+      "type": "palm",
+      "tolerance_px": 3
+    },
+    {
+      "id": "support.tail",
+      "bone": "tail.tip",
+      "position_px": [
+        0,
+        0
+      ],
+      "rotation_rad": 0,
+      "type": "support_marker_only",
+      "tolerance_px": 2
+    },
+    {
+      "id": "headwear",
+      "bone": "head",
+      "position_px": [
+        225,
+        0
+      ],
+      "rotation_rad": 0,
+      "type": "garment",
+      "tolerance_px": 2
+    },
+    {
+      "id": "waist",
+      "bone": "root",
+      "position_px": [
+        0,
+        0
+      ],
+      "rotation_rad": 0,
+      "type": "garment",
+      "tolerance_px": 2
+    }
+  ],
+  "views": [
+    {
+      "id": "front",
+      "status": "SEED_AVAILABLE",
+      "layer_order": [
+        "arm_far",
+        "torso_tail",
+        "prop_behind_fingers",
+        "fingers",
+        "headwear"
+      ],
+      "identity_anchor": "seed"
+    },
+    {
+      "id": "quarter_right",
+      "status": "SOURCE_GAP",
+      "requires": [
+        "face/hair changing surfaces",
+        "near/far arm ownership",
+        "hand grip views",
+        "prop perspective"
+      ]
+    },
+    {
+      "id": "profile_right",
+      "status": "SOURCE_GAP",
+      "requires": [
+        "one visible eye",
+        "overlapping shoulders",
+        "foreshortened hand views"
+      ]
+    },
+    {
+      "id": "quarter_left",
+      "status": "SOURCE_GAP",
+      "requires": [
+        "authored asymmetrical forelock/fin; no flip substitute"
+      ]
+    }
+  ],
+  "layer_ownership": {
+    "anatomy": "clean plate removes all old garments in replaced slots",
+    "head": "headwear/scalp; face/hands immutable identity",
+    "body": "complete RGBA garment including new sleeve/neck/waist contours",
+    "tail": "complete RGBA garment; new hems/fin junction",
+    "prop": "rear body below contact fingers; separate front occluder only when authored",
+    "overlap": "authored overlap masks; alpha of old outfit cannot constrain replacement"
+  },
+  "compatibility": {
+    "seed_bones_rest_weights": "byte-preserved source; live texture paths relocated only",
+    "seed_curves": [
+      "arm_bend",
+      "blink",
+      "tail_bend"
+    ],
+    "minor": "add optional sockets/view IDs/metadata; absent view fails closed",
+    "major": "rest/topology/semantic ID changes require explicit adapter, remapped weights, all regression evidence",
+    "unknown_binding": "reject atomically before modifying actor",
+    "migration_adapter": "tools/validate_contract.py",
+    "action_modes": "legacy curves unchanged; stress action controllers and authored view switches opt in"
+  }
+}

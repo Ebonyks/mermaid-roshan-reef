@@ -1,0 +1,91 @@
+{
+  "state": "SOURCE_CI_GREEN_RUNTIME_IDENTICAL_AFTER_METADATA_MERGE",
+  "source_revision": "70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43",
+  "incoming_Dev_revision": "65c63ae849b091e3fb91cdbeaf1e2837e10778fe",
+  "source_CI": {
+    "id": 41989666565,
+    "head_sha": "70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43",
+    "head_branch": "codex/flat-vector-dolls-progress-integration-20261105",
+    "status": "completed",
+    "conclusion": "success",
+    "run_attempt": 1,
+    "html_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41989666565",
+    "created_at": "2026-11-05T07:47:08Z",
+    "updated_at": "2026-11-05T08:47:12Z"
+  },
+  "source_jobs": [
+    {
+      "id": 127118606134,
+      "name": "area-music-provenance",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-05T07:53:43Z"
+    },
+    {
+      "id": 127118606284,
+      "name": "probes",
+      "status": "completed",
+      "conclusion": "success",
+      "completed_at": "2026-11-05T08:47:12Z"
+    }
+  ],
+  "original_source_manifest": {
+    "revision": "70c8e4c7fc0b1a6ab52bc86fde0601ba15852a43",
+    "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/MANIFEST.json",
+    "sha256": "fd8186e0b9a07244a448d478d6b0e36fe498cedcfd98d0d0a0c4dd9e2ac7acaf",
+    "required_files": 165
+  },
+  "incoming_files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/dev-open-integration-20261103/owner_answers.json",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/dev-open-integration-20261103.json",
+    "design/audit_impacts/job-games-comparative-audit-20261101.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/DEMO_RUNBOOK.md",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/MANIFEST.json",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/README.md",
+    "docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/.gdignore",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/MANIFEST.json",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/PC_ROUND.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/README.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/REFERENCES_DOCUMENTED.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/REFERENCES_PLAYED.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/RUBRIC.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/astronaut_engineer.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/ballerina.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/boxer.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/candy_maker.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/detective.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/farmer.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/geologist.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/magician.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/nursery_nurse.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/painter.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/pastry_chef.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/pop_star.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/racecar_driver.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/stuffie_surgeon.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/teacher.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/harness/REEF_HARNESS.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/harness/reef_play.gd",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/harness/reef_play.sh"
+  ],
+  "changed_runtime_after_merge": [],
+  "original_source_runtime_tree": {
+    "scripts": "560fb6df95532e4648ad696355ef9fe328310469",
+    "assets": "c510bfd71b1d68763c235bb3399af6133aee113a",
+    "scenes": "c7ddda00b3f99ac43b0da8eac1125f031724917a",
+    "shaders": "38724c2cbb4ce1654cb9a152605625f616e5de83",
+    "project.godot": "2351cb32085bcefe893ee220ed1b9ec88c4d2875"
+  },
+  "local_engine_repeated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0
+}

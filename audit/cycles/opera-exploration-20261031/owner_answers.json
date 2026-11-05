@@ -1,0 +1,76 @@
+[
+  {
+    "id": "ODR-OPERA-FOUR-SCREEN-LIVING-V1-20261031",
+    "date": "2026-10-31",
+    "subject": "Four distinct explorable Opera House screens and living ambient motion",
+    "decision": "Develop a plan and present a playable v1 through Godot AI: four screens with unique drawings in a 2 x 2 arrangement, Roshan exploration rather than static-canvas selection, and subtle animation preserving the original Opera identity. Earlier above-door icon and room-completion feedback corrections remain applicable. This review commission does not itself accept unseen artwork or a release.",
+    "source": "assets_src/review/opera_exploration_v1/owner_request.json",
+    "question": "Owner directly commissioned the redesign and evaluation demo; no approval question was required.",
+    "authority": "recorded_owner",
+    "checkable": false,
+    "checks": [],
+    "cycle": "opera-exploration-20261031"
+  },
+  {
+    "id": "ODR-OPERA-ONE-TO-ONE-TRANSLATION-20261031",
+    "date": "2026-10-31",
+    "subject": "Opera redesign fidelity correction",
+    "decision": "Reject the thematic recreation. Restart as a 1:1 translation of the previous Opera house design into the four-screen explorable shell. Preserve existing architecture, objects, relative layout and visual identity; add travel and subtle life to those existing features.",
+    "source": "assets_src/review/opera_exploration_v1/owner_request.json",
+    "question": "Owner directly corrected the implementation direction.",
+    "authority": "recorded_owner",
+    "checkable": false,
+    "checks": [],
+    "cycle": "opera-exploration-20261031"
+  },
+  {
+    "id": "ODR-OPERA-OPERATIVE-DETAIL-LIFE-20261031",
+    "date": "2026-10-31",
+    "subject": "Opera translation: increase detail and implement visible life and interaction",
+    "decision": "Better, now we need to complete the operative step. Increase the resolution of this, and make it feel alive and interactive, rather than flat and dead. This is no more lively, but captures the intended vision",
+    "source": "assets_src/review/opera_exploration_v1/owner_request.json",
+    "question": "Direct owner commission after accepting the intended layout direction; no final artwork or release acceptance is implied.",
+    "authority": "recorded_owner",
+    "checkable": false,
+    "checks": [],
+    "cycle": "opera-exploration-20261031"
+  },
+  {
+    "id": "ODR-OPERA-CRESTS-PALETTE-20261031",
+    "date": "2026-10-31",
+    "subject": "Opera sign construction and original palette",
+    "decision": "Also worth noting, ballet door is constructed right, the rest are not. The color balance from this world is also very different than the previous one, the color scheme has grown too warm and red. Rebalance colors as well",
+    "source": "assets_src/review/opera_exploration_v1/door_color_owner_request.json",
+    "question": "Direct owner correction; ballet is the accepted sign construction reference, original room is palette authority.",
+    "authority": "recorded_owner",
+    "checkable": false,
+    "checks": [],
+    "cycle": "opera-exploration-20261031"
+  },
+  {
+    "id": "ODR-OPERA-TILED-RESOLUTION-20261031",
+    "date": "2026-10-31",
+    "subject": "Tiled Opera detail generation or account credits",
+    "decision": "Use tiled approach of creating and merging several images, or use account credits to accomplish this task.",
+    "source": "assets_src/review/opera_exploration_v1/tiled_detail/owner_request.json",
+    "question": "May I use the paid Image API, capped at $10, for the final four high-resolution backgrounds?",
+    "authority": "recorded_owner",
+    "checkable": false,
+    "checks": [],
+    "cycle": "opera-exploration-20261031"
+  },
+  {
+    "id": "ODR-OPERA-FLOOR-LOCK-20261031",
+    "date": "2026-10-31",
+    "subject": "Floor-constrained Roshan in the Opera review",
+    "decision": "Roshan must stay locked to the painted floors, matching Castle movement. Lift shafts are not ordinary walking lanes; floor/stair routes, controlled lift transit and safe out-of-bounds recovery must preserve progress.",
+    "source": "assets_src/review/opera_exploration_v1/verification/floor_lock/owner_request.json",
+    "question": "Owner directly reported bounded-location trouble and required floor-locked movement.",
+    "authority": "recorded_owner",
+    "checkable": true,
+    "checks": [
+      "scripts/review/probe_opera_translation_v1.gd"
+    ],
+    "cycle": "opera-exploration-20261031"
+  }
+]

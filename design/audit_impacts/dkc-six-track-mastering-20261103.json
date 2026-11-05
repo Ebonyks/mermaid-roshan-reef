@@ -1,0 +1,93 @@
+{
+  "id": "dkc-six-track-mastering-20261103",
+  "scope": "Owner commissions production/mastering of the six constructed DKC tracks, focusing on layered production, clarity, soundstage and polish, with 5–10 comprehensive evaluation audits before approval. Agent selects eight review rounds. Preserve source instrumentation, melodies, native performances and earlier candidates. Owner-local audio and public evidence only; no runtime replacement.",
+  "baseline": "d2d7d4f79d3057c1def36fd07cd8ed92f183248b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-04",
+    "DL-SND-07",
+    "DL-SND-09",
+    "DL-SND-11",
+    "DL-SND-12",
+    "DL-SND-15",
+    "DL-SND-17",
+    "DL-SND-18"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "finding_effect": "Private mastering candidates; no runtime finding closure or approval.",
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/music/dkc/README.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json",
+    "audit/cycles/dkc-six-track-mastering-20261103/owner_answers.json",
+    "design/music/dkc/MASTERING_EVALUATION_2026-11-03.md",
+    "design/music/dkc/mastering_audit_plan_v1.json",
+    "design/music/dkc/mastering_audits_v1.json",
+    "design/music/dkc/mastering_native_recall_v1.json",
+    "design/music/dkc/mastering_owner_direction_20261103.json",
+    "design/music/dkc/mastering_receipt_v1.json",
+    "design/music/dkc/mastering_recipe_v1.json"
+  ],
+  "validation": [
+    {
+      "command": "Source lock and eight-round technical audit",
+      "result": "PASS",
+      "evidence": "mastering_audits_v1.json: eight completed technical rounds for six songs; 30 processing-stage prints / 25 distinct hashes; six construction masters and all 80 source stems remain byte-identical. All processing prints are finite, unclipped and retain exact source sample lengths. Listening remains pending in every round."
+    },
+    {
+      "command": "Final level, stereo, dynamics and translation/codec checks",
+      "result": "PASS",
+      "evidence": "mastering_receipt_v1.json: final lossless levels -20.00 to -20.04 LUFS and true peaks -3.15 dBTP or lower; mono/quiet/band-limited proxies; all twelve final MP3/Ogg copies decode without clipping and measure <= -3.0 dBTP. Funky Ogg received a measured -0.18 dB encoder trim; peak control is 1.75 dB maximum and exceeds 1 dB for about 0.19% of the song."
+    },
+    {
+      "command": "Native REAPER reload/render and private archive integrity",
+      "result": "PASS",
+      "evidence": "mastering_native_recall_v1.json: six sessions reproduce exact master lengths with RMS differences below -138 dBFS. mastering_receipt_v1.json records per-payload hashes and successful ZIP CRC checks: 552914131 bytes, SHA-256 c18284a4b5cebfcac96a2c0ea021fd3ee4dc739a3cf1924589a5d761df64b297; 806110421 bytes, SHA-256 1df82f2134a85db4d83a0db9948c1faea0d33d231ccc5739babc0f16db90bc9e."
+    },
+    {
+      "command": "Complete subjective listening and owner approval",
+      "result": "PENDING",
+      "evidence": "No candidate upload or listening grade. Automatic approval review previously rejected Gemini transfer without explicit authorization. A focused permission question for the six mastered excerpts is pending. Eight technical rounds do not establish completion of the eight listening audits or musical approval."
+    },
+    {
+      "command": "Project document, development, profile and owner-decision gates",
+      "result": "PASS",
+      "evidence": "Document authority passes 779 inventory / 779 ledger, active74/records77, after replacing one ambiguous rule-family prefix. Development coverage passes at integration base 27c88288bf6e39582072811443df79919e7bbb89. All54 governance tests and six/six stress checks pass; performer plans ALL OK; owner-decision check86 ALL OK; whitespace check clean. No runtime source or asset was changed, so full Godot/Android/device acceptance is not claimed."
+    }
+  ],
+  "acceptance_gaps": "All eight rounds retain pending listening criteria; complete source/tone, clarity, stage, fatigue and whole-song judgments and owner approval remain open. The new Gemini excerpt-transfer question is pending. No runtime music or protected recording changed; full-song masters and translation proxies do not establish runtime loop, speech/device/child or release acceptance. MA-AUDIO-001 is unchanged.",
+  "references_used": [
+    {
+      "path": "design/music/dkc/production_call_sheets_v3.json",
+      "purpose": "Exact input source/profile/instrument identities; no performance or instrumentation changes during mastering."
+    },
+    {
+      "path": "design/music/dkc/SIX_TRACK_PRODUCTION_2026-11-03.md",
+      "purpose": "Source identity, contrasts, original performer roles and unresolved timbre questions."
+    },
+    {
+      "path": "design/music/dkc/mastering_audit_plan_v1.json",
+      "purpose": "Eight-round comprehensive evaluation criteria and separate listening/approval status."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "A foreground/support ratio must exclude intentional backing rests; sparse orchestration is not evidence of masking.",
+      "write_back": "design/music/dkc/MASTERING_EVALUATION_2026-11-03.md"
+    },
+    {
+      "lesson": "A final peak controller can legitimately leave five tracks unchanged; audit count is distinct from musical revision count.",
+      "write_back": "design/music/dkc/mastering_audits_v1.json"
+    },
+    {
+      "lesson": "Compressed delivery must be measured after encoding; the Funky Ogg needed a small additional trim.",
+      "write_back": "design/music/dkc/mastering_receipt_v1.json"
+    }
+  ]
+}

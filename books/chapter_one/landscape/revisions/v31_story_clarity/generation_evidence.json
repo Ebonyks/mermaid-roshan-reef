@@ -1,0 +1,529 @@
+{
+  "baseline": "19ee6ce8ec4c20c05714f101d0d222a33477e400",
+  "generated_count": 5,
+  "selected_candidate_count": 5,
+  "generated": [
+    {
+      "id": "door_mystery",
+      "attempt": 1,
+      "generation_method": "built-in image_gen",
+      "selection": "SELECTED_LOCAL_DERIVATIVE",
+      "prompt": "Use case: precise-object-edit. Edit the supplied existing 1484x1060 castle-hall painting, preserve its exact canvas, architecture, camera, all completed room doors, stair geometry, route-light paths and Roshan body/pose/clothes. This is a LOCAL INPAINT, not a scene redraw. Change only the large final door on the far right, its arched inset and immediately adjacent light spill: REMOVE the inviting rainbow arch completely. Keep the same existing closed shell double door with its same carved divisions and gold frame, but shade it deep muted violet, indigo and lavender. The arched inset above it is shadowed dusty violet, with NO rainbow color bands. A narrow uncertain pale-violet light leaks through the center door seam and a small soft violet rim; let the doorway feel mysterious and just a little scary for a four-year-old, not horror. Preserve the converging colored lights on the floor as established game route cues, but reduce the final bright pink burst on the stair top to a faint violet glow. Keep the rest of the hall brightly pastel as it is. Roshan's face alone should look cautiously curious: mouth closed, slight uncertainty in brows, looking toward the door; retain exact child identity, eyes, head size and direction. No additional characters, monsters, eyes on door, teeth, skulls, fog, text or new scene elements. All pixels outside the right door region and Roshan's small face must remain visually unchanged. Maintain original polished 2D game storybook linework, no photorealism, no new style.",
+      "prompt_sha256": "ba5255104ad9e6a84bf00f6693bb06e266810ba2c74105c2ea5ff56c9986c4b2",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/door_expression_v27/door.png",
+          "sha256": "e4312cfe20029842ca02cd53916910ca004960e4e96d0c412a715bc742da6394",
+          "dimensions": [
+            1484,
+            1060
+          ],
+          "role": "edit_target"
+        }
+      ],
+      "native_output": {
+        "path": "books/chapter_one/landscape/revisions/v31_story_clarity/art/door_mystery.png",
+        "sha256": "93991bd78a74a6608d97a996d2df554e6e217966731e5c67b0714a6abdacf5e3",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "mode": "RGB"
+      },
+      "original_tool_filename": "exec-0e2ac13d-b595-4bae-b1c2-cbf89c33cba1.png",
+      "base_source_key": "v27_door",
+      "delivery_polygons": [
+        [
+          [
+            1180,
+            632
+          ],
+          [
+            1189,
+            451
+          ],
+          [
+            1203,
+            403
+          ],
+          [
+            1240,
+            367
+          ],
+          [
+            1296,
+            346
+          ],
+          [
+            1346,
+            365
+          ],
+          [
+            1382,
+            402
+          ],
+          [
+            1407,
+            451
+          ],
+          [
+            1408,
+            638
+          ]
+        ],
+        [
+          [
+            905,
+            558
+          ],
+          [
+            926,
+            544
+          ],
+          [
+            949,
+            545
+          ],
+          [
+            966,
+            559
+          ],
+          [
+            968,
+            589
+          ],
+          [
+            955,
+            610
+          ],
+          [
+            931,
+            611
+          ],
+          [
+            912,
+            597
+          ]
+        ]
+      ],
+      "reference_size": [
+        1484,
+        1060
+      ],
+      "delivery_pages": [
+        23
+      ],
+      "review": "PASS independent native delivered-region character/style inspection; character_final.json and style_final.json. Whole-candidate pixels outside those regions are excluded and are not approved as replacement scenes.",
+      "source_preservation": "Original untouched; no full-scene replacement"
+    },
+    {
+      "id": "waterfall_progress",
+      "attempt": 1,
+      "generation_method": "built-in image_gen",
+      "selection": "SELECTED_LOCAL_DERIVATIVE",
+      "prompt": "Use case: precise-object-edit. Edit the existing 1484x1060 waterfall painting with a strictly bounded local inpaint. Preserve the exact shell arch, walls, corals, pool, geometry, texture and all the green gunk and rubbish on the middle/right of the existing waterfall. Change ONLY the narrow orange/pink/yellow vertical water lane at the left of the waterfall and its matching orange reflection/splash directly below. Replace this premature reward-looking colored lane with ordinary clear translucent aqua-blue falling water, with crisp white water highlights. The newly cleaned little part should look visibly clearer than the remaining thick green gunk. Keep the lane's existing width and position; DO NOT divide the waterfall into three streams and DO NOT claim or depict complete cleaning. Keep the gunk touching its right edge as an organic irregular boundary. The pool reflection under this lane becomes subtle clean aqua, not orange. Preserve original stained setting and broad painted storybook texture elsewhere without remaking the scene. No people, hands, tools, rainbow, extra objects, captions or lettering. Only a small part is cleaned here; the next existing page provides the completed rainbow reveal.",
+      "prompt_sha256": "6d74b468a4fbe19febb5faa7463ecaa7bbf493dd90b5eaefd5b62f9c55987c0a",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_11.png",
+          "sha256": "17c6330b1faa8667ddb49769713589681f708ad65377f24f240d4c2f4441c5d3",
+          "dimensions": [
+            1484,
+            1060
+          ],
+          "role": "edit_target"
+        }
+      ],
+      "native_output": {
+        "path": "books/chapter_one/landscape/revisions/v31_story_clarity/art/waterfall_progress.png",
+        "sha256": "a52fff46d6ec0509ef67471974b0739ab534dc0051aa7089d626f8fd8703a165",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "mode": "RGB"
+      },
+      "original_tool_filename": "exec-6dd06f92-74f1-4068-8cf1-2bb492f04159.png",
+      "base_source_key": "v22_scene_11",
+      "delivery_polygons": [
+        [
+          [
+            398,
+            290
+          ],
+          [
+            415,
+            259
+          ],
+          [
+            449,
+            251
+          ],
+          [
+            492,
+            250
+          ],
+          [
+            548,
+            259
+          ],
+          [
+            570,
+            287
+          ],
+          [
+            568,
+            610
+          ],
+          [
+            570,
+            825
+          ],
+          [
+            590,
+            854
+          ],
+          [
+            680,
+            864
+          ],
+          [
+            1484,
+            867
+          ],
+          [
+            1484,
+            1060
+          ],
+          [
+            0,
+            1060
+          ],
+          [
+            0,
+            867
+          ],
+          [
+            380,
+            866
+          ],
+          [
+            399,
+            828
+          ],
+          [
+            408,
+            613
+          ],
+          [
+            408,
+            434
+          ]
+        ]
+      ],
+      "reference_size": [
+        1484,
+        1060
+      ],
+      "delivery_pages": [
+        12
+      ],
+      "review": "PASS independent native delivered-region character/style inspection; character_final.json and style_final.json. Whole-candidate pixels outside those regions are excluded and are not approved as replacement scenes.",
+      "source_preservation": "Original untouched; no full-scene replacement"
+    },
+    {
+      "id": "rear_lamma",
+      "attempt": 1,
+      "generation_method": "built-in image_gen",
+      "selection": "SELECTED_LOCAL_DERIVATIVE",
+      "prompt": "Use case: compositing, strictly localized inpaint. Image1 is the existing accepted 1484x1060 rear cover, the EDIT TARGET; Image2 is only the canonical Lamma identity reference. Preserve the rear cover's exact full scene, cast, faces, bodies, architecture, props, dust, staging, colors and texture. Add a VERY TINY, easily missed Lamma head peeking from behind the existing row of books on the far left background shelf, near x90 y265 in the 1484x1060 canvas. Her total visible face-and-ears width must be about55pixels, height about36pixels, maximum60wide45high; this is an easter egg, not another foreground character. Only the top white fluffy round head and little side ears show; the eyes are dark navy with tiny outward lashes, peach cheeks, small peach Y-shaped mouth, matching Image2. The rest of her body, egg and paws are fully concealed behind the existing books. Make the peek locally painted into the same pale lavender shelf light, partially occluded by the books and unobtrusive. No outline halo, sticker rectangle, extra glow, pointing cue, label or lettering. Keep every existing foreground character pixel visually unchanged; do not make the main cast react to the hidden cameo. Use the same polished simple 2D aqua/lavender/pink book painting, no photorealism.",
+      "prompt_sha256": "f70508e2e74f48228b8b288bd978e152c118f7e59cc0579acc961cc7cfacde69",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/story_detail_v23/cover_h.png",
+          "sha256": "6bb61625f4d052e9d7abd6f3669e692652fc703ef0b64113fea4443f4cdab923",
+          "dimensions": [
+            1484,
+            1060
+          ],
+          "role": "edit_target"
+        },
+        {
+          "path": "assets/sprites/stuffie_studio/lamma.png",
+          "sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268",
+          "dimensions": [
+            949,
+            1024
+          ],
+          "role": "identity_reference"
+        }
+      ],
+      "native_output": {
+        "path": "books/chapter_one/landscape/revisions/v31_story_clarity/art/rear_lamma.png",
+        "sha256": "7ee9bdf9ce1c451de3a524d2b6021333381ce6a3024ed1a056f5eef97f29120c",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "mode": "RGB"
+      },
+      "original_tool_filename": "exec-41610ac7-fe94-4155-9331-1303fdbe7b4c.png",
+      "base_source_key": "v23_cover_h",
+      "delivery_polygons": [
+        [
+          [
+            39,
+            277
+          ],
+          [
+            59,
+            274
+          ],
+          [
+            66,
+            288
+          ],
+          [
+            96,
+            288
+          ],
+          [
+            110,
+            307
+          ],
+          [
+            108,
+            334
+          ],
+          [
+            69,
+            337
+          ],
+          [
+            47,
+            326
+          ],
+          [
+            39,
+            304
+          ]
+        ]
+      ],
+      "reference_size": [
+        1484,
+        1060
+      ],
+      "delivery_pages": [
+        "back_cover"
+      ],
+      "review": "PASS independent native delivered-region character/style inspection; character_final.json and style_final.json. Whole-candidate pixels outside those regions are excluded and are not approved as replacement scenes.",
+      "source_preservation": "Original untouched; no full-scene replacement"
+    },
+    {
+      "id": "rest_bank31",
+      "attempt": 1,
+      "generation_method": "built-in image_gen",
+      "selection": "SELECTED_LOCAL_DERIVATIVE",
+      "prompt": "Use case: precise-object-edit. Image1 is an existing 1484x1060 blue stationery background. Modify ONLY the two tiny object clusters at the very bottom on the left/right mounds; preserve all other background pixels, bubble borders, corals, mound contours, white shells, wash and empty writing space. Change the tiny story details from energetic toy play to quiet winding down. Left cluster x215–390,y905–1010: keep the same little toy chest, close its lid, REMOVE the hidden white Lamma face completely; the ONE tiny lavender dust bunny already next to it yawns with a small paw near its mouth, leaning gently against the closed chest. Right cluster x1105–1245,y910–1010: keep the same sailboat and toy rings settled on the mound; the ONE little lavender dust bunny rests beside them with peacefully closed eyes, paws folded, same size. Reference2 supplies canonical puff design only: lilac scalloped cloud body, round spiral ears, forehead curl, glossy pearl paws, no long rabbit ears. Do not use the big jump poses from Reference2. Keep both existing little bunnies very small, about70–95pixels high, and all visible subject pixels below y901 (bottom15%). Ground them naturally with mound texture over their bottoms and gentle lavender contact shadows. The central gap between the mounds stays entirely empty. No new full scene, big characters, additional bunnies, lettering, speech bubbles, rainbow, large bubble pile or glow. Clear hand-painted game linework; no digital compression or photorealism.",
+      "prompt_sha256": "5d644b6d27f21983f647fa297f36b3e010dc4bbf3113e26dc733624afaebc224",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank31_final.png",
+          "sha256": "18e1a0c3db666500863503af71800bd2b5aa748af44b64f3e5cb22f96676c545",
+          "dimensions": [
+            1484,
+            1060
+          ],
+          "role": "edit_target"
+        },
+        {
+          "path": "books/chapter_one/archive/rough_v5/art/grand_puff_jump_sheet.png",
+          "sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "role": "identity_reference"
+        }
+      ],
+      "native_output": {
+        "path": "books/chapter_one/landscape/revisions/v31_story_clarity/art/rest_bank31.png",
+        "sha256": "cfdc09769d4e65fd827a58b654f0926f723fe97306af1c3fc3b4360ab0ba44a2",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "mode": "RGB"
+      },
+      "original_tool_filename": "exec-273a6d19-dccc-420f-9037-daa5491495ad.png",
+      "base_source_key": "v29_bank31_final",
+      "delivery_polygons": [
+        [
+          [
+            202,
+            909
+          ],
+          [
+            257,
+            900
+          ],
+          [
+            321,
+            900
+          ],
+          [
+            381,
+            911
+          ],
+          [
+            402,
+            940
+          ],
+          [
+            402,
+            997
+          ],
+          [
+            379,
+            1011
+          ],
+          [
+            257,
+            1012
+          ],
+          [
+            210,
+            995
+          ]
+        ],
+        [
+          [
+            1097,
+            929
+          ],
+          [
+            1118,
+            904
+          ],
+          [
+            1176,
+            901
+          ],
+          [
+            1238,
+            913
+          ],
+          [
+            1261,
+            946
+          ],
+          [
+            1252,
+            995
+          ],
+          [
+            1224,
+            1013
+          ],
+          [
+            1110,
+            1012
+          ],
+          [
+            1090,
+            983
+          ]
+        ]
+      ],
+      "reference_size": [
+        1484,
+        1060
+      ],
+      "delivery_pages": [
+        31
+      ],
+      "review": "PASS independent native delivered-region character/style inspection; character_final.json and style_final.json. Whole-candidate pixels outside those regions are excluded and are not approved as replacement scenes.",
+      "source_preservation": "Original untouched; no full-scene replacement"
+    },
+    {
+      "id": "puff_gratitude",
+      "attempt": 1,
+      "generation_method": "built-in image_gen",
+      "selection": "SELECTED_LOCAL_DERIVATIVE",
+      "prompt": "Use case: precise-object-edit, identity-preserve. Edit this existing isolated rainbow Grand Puff cutout. Return on a true transparent background, preserve the transparency and exact rainbow scalloped cloud silhouette, spiraled ears, forehead curl, gradients, pearl paws, highlights, proportions and established 2D painting. Change ONLY the tiny face expression: give Grand Puff gentle happy half-closed eyes with the same dark-purple eye styling, a small friendly open smile as if softly saying thank you, and preserve the same pink cheeks. He is relieved and grateful after his friends have washed the dust off. Do not add limbs, clothing, dirt, soap, background, lettering, speech bubble, white sticker border or new rainbow arc. Keep body geometry unchanged; the existing complete cutout will remain the base and only a small face polygon will be exposed from this candidate.",
+      "prompt_sha256": "cd342e578f1e90c150a6a3031101d7bf80d09e2314cfa4320c1835b8bcf41143",
+      "references": [
+        {
+          "path": "books/chapter_one/previews/2026-09-30/art/rainbow_puff_cutout.png",
+          "sha256": "c0d15aa35ab2056566a64c72d2ccfd690e65e8c5fa809c12e66b20ed87353135",
+          "dimensions": [
+            1346,
+            1169
+          ],
+          "role": "edit_target"
+        }
+      ],
+      "native_output": {
+        "path": "books/chapter_one/landscape/revisions/v31_story_clarity/art/puff_gratitude.png",
+        "sha256": "8c37ae8d1cfad63882cad25e9ea4e09b0df42604e73962d81dce16b159996a5a",
+        "dimensions": [
+          1346,
+          1168
+        ],
+        "mode": "RGBA"
+      },
+      "original_tool_filename": "exec-c8c480b8-8c7f-4e68-b3dc-0f0f02080a62.png",
+      "base_source_key": "approved_rainbow_puff_cutout",
+      "delivery_polygons": [
+        [
+          [
+            336,
+            666
+          ],
+          [
+            457,
+            619
+          ],
+          [
+            632,
+            666
+          ],
+          [
+            807,
+            666
+          ],
+          [
+            928,
+            701
+          ],
+          [
+            969,
+            818
+          ],
+          [
+            847,
+            865
+          ],
+          [
+            619,
+            841
+          ],
+          [
+            390,
+            806
+          ]
+        ]
+      ],
+      "reference_size": [
+        1346,
+        1169
+      ],
+      "delivery_pages": [
+        31
+      ],
+      "review": "PASS independent native delivered-region character/style inspection; character_final.json and style_final.json. Whole-candidate pixels outside those regions are excluded and are not approved as replacement scenes.",
+      "source_preservation": "Original untouched; no full-scene replacement"
+    }
+  ],
+  "meaning": "Selected native candidates supply only declared local polygons; editorial acceptance is reviewed separately."
+}

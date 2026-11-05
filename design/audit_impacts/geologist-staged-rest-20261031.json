@@ -1,0 +1,45 @@
+{
+  "id": "geologist-staged-rest-20261031",
+  "scope": "Bounded shared lifecycle repair found by Boxer's required Opera regression: Geologist's explicitly staged actors must keep that rest transform when accepted work plays its existing bounce. Preserve exact current art, positions, sizes, action and rewards; do not loosen the existing separation assertion.",
+  "baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-SAVE-01",
+    "DL-SAVE-03"
+  ],
+  "findings": [
+    "MA-PLAY-003"
+  ],
+  "files": [
+    "scripts/opera_career_world_2d.gd",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/boxer_contact_engine_20261031/geologist_rest_regression.json"
+  ],
+  "validation": [
+    {
+      "command": "Original and updated probe_opera_2d with exact trusted classic-touch flags and separate fresh profiles",
+      "result": "FAIL",
+      "evidence": "Original probe and current probe both retain Geologist separation failure. Ignored diagnostic copy retains assertions: hero changes from rect(30,422,250,250) to(106.0709,374.9034,249.9814,249.9814) after accepted gallery work, overlapping rival rect(78,218,176,176). The stage branch sets transforms without recording new actor_rests; _bounce_actor targets the old room rest."
+    },
+    {
+      "command": "Godot4.7.2 --headless --path . --script scripts/probe_opera_2d.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "opera-focused-04-rest.log and complete frozen-source final native run: all original career assertions and new Boxer stress/viewport cases pass. Remote exact-head CI and external acceptance remain separate."
+    }
+  ],
+  "acceptance_gaps": "This repairs one measured lifecycle/geometry defect. Game-wide geometry, exact human visual review, actual target device, child and owner acceptance stay open under MA-PLAY-003. No art score or global closure is assigned.",
+  "lessons": [
+    {
+      "lesson": "An explicitly staged actor must record its new rest before generic feedback uses that rest; otherwise accepted work moves it back toward a previous room pose.",
+      "write_back": "scripts/opera_career_world_2d.gd:_stage_room_finale_partner and the unchanged full Opera separation assertion."
+    }
+  ]
+}

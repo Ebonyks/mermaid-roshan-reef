@@ -1,0 +1,39 @@
+{
+  "state": "ORIGINAL_STATIC_PASS_REUSED_TERMINAL_SCAN_RESUMED",
+  "source_baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "original_stop": {
+    "state": "STOPPED_NO_AUTOMATIC_RETRY",
+    "error": "Command '['python', '-B', 'tools/audit_game_2d.py', '--regression-gate']' timed out after 300 seconds",
+    "at_utc": "2026-10-31T17:50:22.234128+00:00",
+    "next": "Inspect exact handle/log/source; preserve healthy check results."
+  },
+  "original_static": {
+    "status": "PASS",
+    "exit_code": 0,
+    "log_sha256": "a40197a518859a0c1c207618687bb9d2afee3084f91c55ebeafde0bb0a5fabdb",
+    "prefix_sha256": "d5af3303e9aa0a2ba6d649d1fbfbc84a19aec5594f14567fae12e60cfdb82561",
+    "ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+    "completed_at_utc": "2026-10-31T17:45:21.573701+00:00"
+  },
+  "original_static_log_sha256": "a40197a518859a0c1c207618687bb9d2afee3084f91c55ebeafde0bb0a5fabdb",
+  "checker_path": "tools/audit_game_2d.py",
+  "checker_sha256": "b8d44cac5aa42fe62e2ec41d34cff268b15db4c777325bf75fdbfd075209eb8b",
+  "checker_or_threshold_modified": false,
+  "command": [
+    "python",
+    "-B",
+    "tools/audit_game_2d.py",
+    "--regression-gate"
+  ],
+  "original_execution_budget_seconds": 300,
+  "resumed_execution_budget_seconds": 1800,
+  "scan_exit_code": 0,
+  "scan_seconds": 1028.067,
+  "scan_log_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+  "static_prefix_restarted": false,
+  "native_import_or_scene_capture_restarted": false,
+  "trusted_probe_suite_started_before_recovery": 0,
+  "new_generation_calls": 0,
+  "new_frame_events": 0,
+  "at_utc": "2026-10-31T18:14:47.506388+00:00"
+}

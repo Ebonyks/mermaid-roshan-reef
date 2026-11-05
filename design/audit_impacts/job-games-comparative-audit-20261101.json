@@ -1,0 +1,78 @@
+{
+  "id": "job-games-comparative-audit-20261101",
+  "scope": "Owner-requested comparative playthrough audit of all 15 live Opera job games against well-rated published games, delivered as a written handoff. Free reference games were installed and played in a cloud workspace (21 activities, 10 scripted runs each where valid); each career was played 10 times through an audit harness on the real touch and emulated-mouse paths. It benefits the child by naming, with measurements, where published games are objectively better (agency, variety, per-touch sound, kept creations) and by surfacing blocking defects with reproductions (Boxer emulated-mouse glove claim, Ballerina and Magician 0.999 trace locks, Astronaut pipe-hint soft-lock, Detective retry reset, frame-rate trace rejection, one-tap Back exit). No game script, scene, asset, audio or workflow is changed; no image is committed.",
+  "baseline": "93166ab1828ab9857227d038f8833b92dfb2f9f1",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-06",
+    "DL-INT-07",
+    "DL-INT-08",
+    "DL-INT-10",
+    "DL-INT-14",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-06",
+    "DL-AGE-07",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-SND-01",
+    "DL-SND-05",
+    "DL-SAVE-01"
+  ],
+  "findings": [],
+  "no_findings_reason": "Analysis-only handoff: no finding is repaired or changed. The defects it reports carry reproduction lines for owner/Codex triage into the finding register; MA-OPERA-014 (Pop Star, Ballerina, Racer rebuild) is cited, not changed.",
+  "files": [
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/.gdignore",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/PC_ROUND.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/README.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/REFERENCES_DOCUMENTED.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/REFERENCES_PLAYED.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/RUBRIC.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/astronaut_engineer.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/ballerina.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/boxer.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/candy_maker.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/detective.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/farmer.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/geologist.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/magician.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/nursery_nurse.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/painter.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/pastry_chef.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/pop_star.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/racecar_driver.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/stuffie_surgeon.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/careers/teacher.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/harness/REEF_HARNESS.md",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/harness/reef_play.gd",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/harness/reef_play.sh",
+    "docs/handoffs/job_games_comparative_audit_2026-11-01/MANIFEST.json",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PENDING",
+      "evidence": "Run on a docs-only sparse checkout; see commit message and CI for the full-tree result."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PENDING",
+      "evidence": "See CI."
+    },
+    {
+      "command": "Independent claim verification by a separate agent against run logs, reference logs and code anchors",
+      "result": "PASS",
+      "evidence": "76 confirmed, 21 wrong and 7 unsupported items found on the first draft; every wrong or unsupported item was corrected or removed before commit."
+    }
+  ],
+  "acceptance_gaps": "Nothing is implemented. All runs are scripted policies, not a child; references were played by mouse/keyboard on a loaded software-rendered VM; no sound was heard; commercial references are documented only until the PC round. Every defect needs confirmation on the Lenovo tablet, and every redesign item needs runtime, device, child and owner gates."
+}

@@ -1,0 +1,52 @@
+{
+  "status": "TWO_REVIEW_CANDIDATES_NOT_APPLIED_TO_CURRENT_BOOK",
+  "recommended": "A",
+  "reason": "The threshold gives Roshan and Daddy a large emotional presence and promises a beginning; the solution and transformation are absent.",
+  "candidates": [
+    {
+      "id": "A",
+      "html": "REAR_A.html",
+      "base": "books/chapter_one/landscape/revisions/v29_polish/art/castle03.png",
+      "base_sha256": "4fc329bf1ec83d2269fb6670eb08da8c25fb89ea1e709d9b66aa6c07089893c6",
+      "copy": "Pearl Castle needs help.\nWhere will Roshan begin?",
+      "source_size": [
+        1484,
+        1060
+      ],
+      "cameo": {
+        "source": "books/chapter_one/landscape/revisions/v35_story_value/art/lamma_head_attempt1.png",
+        "source_sha256": "dfeb318df2a9e69f0cc4559e98983bcfa5054e7433db1a3a03d629f97baca9a0",
+        "clip_path": "M372 289 C410 226 493 191 558 161 C622 115 697 94 768 96 C847 94 916 116 980 160 C1044 191 1122 222 1164 289 C1240 277 1282 221 1360 204 C1411 197 1461 223 1474 270 C1488 319 1463 369 1429 403 C1400 433 1360 448 1316 455 C1303 480 1314 506 1318 530 C1321 598 1310 660 1288 708 C1269 751 1240 784 1203 811 C1155 855 1084 884 1028 909 C951 942 855 954 768 954 C672 954 587 941 513 914 C444 889 387 864 336 820 C289 780 254 732 238 682 C215 625 213 573 220 521 C228 487 226 459 211 444 C164 433 116 411 83 373 C49 336 50 298 68 260 C88 217 128 199 169 206 C237 217 287 272 372 289Z",
+        "transform": "translate(1034 655) scale(.022)",
+        "foreground_original_door_path": "M1053 620 L1090 620 L1090 715 L1052 715Z",
+        "max_visible_bounds": [
+          1035,
+          657,
+          19,
+          19
+        ],
+        "selection": "SECOND_HEAD_CONTOUR_ONLY; exterior haze excluded; entire first generation rejected"
+      }
+    },
+    {
+      "id": "B",
+      "html": "REAR_B.html",
+      "base": "books/chapter_one/landscape/art/quality_v22/scene_02.png",
+      "base_sha256": "e4a2b560ff1cd8e0baf350521170ca38c389e688d836e3bb5d51aec597691da5",
+      "copy": "A big castle.\nWhere will Roshan begin?",
+      "limitation": "More exterior setting, less character presence; no new hidden visitor yet."
+    }
+  ],
+  "font": "books/chapter_one/archive/rough_v5/fonts/Sniglet-Regular.ttf",
+  "font_sha256": "a20f3a50e8d92dfc143ee82e46df07f6e7f01e21b50f2d78081314a7c25bd9dd",
+  "text_size_logical": 20,
+  "format": "7:5 native art ratio; future larger print preparation separate",
+  "spoiler_exclusions": [
+    "No cooperative wash",
+    "No rainbow Puff",
+    "No transformation",
+    "No nap ending",
+    "No explanatory blurb disclosing the friend behind the last door"
+  ],
+  "proof_method": "Browser-rendered document layout containing unchanged raster base, declared irregular cameo contour, original foreground occlusion and editable Sniglet text. No code-drawn replacement scene."
+}

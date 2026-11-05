@@ -1,0 +1,63 @@
+{
+  "method": "Aseprite1.3.18.4 whole-object crop and uniform resampling; Python read-only pixel analysis",
+  "items": [
+    {
+      "name": "cream",
+      "native_path": "assets_src/imagegen/melody_bulbs_20261102/native/cream_bulb_original.png",
+      "native_sha256": "34061b4e16c90a60bd17ccb6d808f59f050dfaf25527cecf4ce660cd60cf1287",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_gt1_bbox": [
+        146,
+        142,
+        1088,
+        1099
+      ],
+      "whole_object_square_crop": [
+        136,
+        140,
+        961,
+        961
+      ],
+      "max_alpha_outside_crop": 1,
+      "crop_rgba_sha256": "ea43db6013d9b4528ca812e9366bc5ed9d076dba7270e921c5c4c4bbb90614fc",
+      "runtime_path": "assets/melody/theatre_bulb_cream_painted.png",
+      "runtime_dimensions": [
+        128,
+        128
+      ],
+      "mapping": "Whole unchanged painted bulb in square transparent crop,2px safety around all alpha>1; uniform bilinear resize128x128 via Aseprite. No painted pixel editing/recoloring/retouching. Native faint alpha<=1 specks outside crop preserved in original/native master."
+    },
+    {
+      "name": "gold",
+      "native_path": "assets_src/imagegen/melody_bulbs_20261102/native/gold_bulb_original.png",
+      "native_sha256": "87d7d75fbcd56687b58062183db868e1750efd7aea9e76428415f7d50e083ab1",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_gt1_bbox": [
+        142,
+        140,
+        1092,
+        1101
+      ],
+      "whole_object_square_crop": [
+        134,
+        138,
+        965,
+        965
+      ],
+      "max_alpha_outside_crop": 1,
+      "crop_rgba_sha256": "96cb346c152b3d720dc3813f30a8e4b47292838a8645e81a47be72a52d141573",
+      "runtime_path": "assets/melody/theatre_bulb_gold_painted.png",
+      "runtime_dimensions": [
+        128,
+        128
+      ],
+      "mapping": "Whole unchanged painted bulb in square transparent crop,2px safety around all alpha>1; uniform bilinear resize128x128 via Aseprite. No painted pixel editing/recoloring/retouching. Native faint alpha<=1 specks outside crop preserved in original/native master."
+    }
+  ]
+}

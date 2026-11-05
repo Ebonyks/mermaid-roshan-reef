@@ -1,0 +1,55 @@
+{
+  "state": "PASS_NARROW_CONFIGURED_SOURCE_GEOMETRY_WITH_PRESERVED_ORIGINAL_EXACT_EQUALITY_FAILURE",
+  "original_result_sha256": "1618233bcbf1d33b01718a7a956eb397c46a793adfb4e9b9eefcf8cf4607c869",
+  "original_failed_checks": [
+    "original Panel geometry/stack center 0",
+    "original Panel geometry/stack center 1",
+    "original Panel geometry/stack center 2"
+  ],
+  "measurement": [
+    {
+      "label": "04_lower_settled",
+      "actual_rect": "[P: (856.0, 436.0), S: (247.9998, 248.0001)]",
+      "expected_rect": [
+        856,
+        436,
+        248,
+        248
+      ],
+      "max_error_logical_px": 0.0002000000000066393,
+      "tolerance_logical_px": 0.002,
+      "source_frame_sha256": "7efe7dc54de1a70399104c367a4d81da23bfcee25a6925f8179da9f1642ebcd0"
+    },
+    {
+      "label": "06_two_settled",
+      "actual_rect": "[P: (882.0, 287.0), S: (195.9998, 196.0)]",
+      "expected_rect": [
+        882,
+        287,
+        196,
+        196
+      ],
+      "max_error_logical_px": 0.0002000000000066393,
+      "tolerance_logical_px": 0.002,
+      "source_frame_sha256": "5ce8b9afe49c0732ba1d034d474b0b1ffcb1fbe88b20104d063de89889eb8264"
+    },
+    {
+      "label": "08_three_stack_face",
+      "actual_rect": "[P: (908.0, 138.0), S: (143.9998, 144.0)]",
+      "expected_rect": [
+        908,
+        138,
+        144,
+        144
+      ],
+      "max_error_logical_px": 0.0002000000000066393,
+      "tolerance_logical_px": 0.002,
+      "source_frame_sha256": "0322aa19c05ab51438a9cbf72b4ec72998322d56aa91d9ca09e03f3f6b10ab8b"
+    }
+  ],
+  "reason": "Source actual Panel sizes differ from mathematical integers by <=0.0002 logicalpx; centers match. Fixture exact Vector2 equality rejected harmless float32 values. Original FAIL result and all18original current native PNGs retained unchanged. Add explicit0.002px size tolerance for remaining two aspects and candidate, preserving original centers/radii/controller bytes.",
+  "not_formal_QA11": true,
+  "original_native_frames_reused": 18,
+  "new_native_frames_from_this_receipt": 0,
+  "original_fixture_sha256": "00c96d174138f567ceea337ba5cf8ea842d956a742fff0a17e99566d658bdb90"
+}

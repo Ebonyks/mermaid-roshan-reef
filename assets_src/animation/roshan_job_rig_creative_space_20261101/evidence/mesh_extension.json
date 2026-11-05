@@ -1,0 +1,10 @@
+{
+  "reason": "The complete astronaut hem extends outside the seed carrier. Fill only uncovered six-pixel triangle cells.",
+  "existing_body_vertices_weights_triangles": "UNCHANGED",
+  "new_mesh": "GarmentExtension",
+  "vertices": 7758,
+  "triangles": 14551,
+  "interpolation": "Four nearest seed field values, inverse-distance blend at additional coordinates; exact copied weights at every common coordinate.",
+  "overlap": "Original triangles stay intact; only the missing half-cell or completely uncovered cells are added.",
+  "skin_slot_rule": "Only new painter/astronaut clothing and neck pixels. Blank for all other slots; no original outfit underlay."
+}

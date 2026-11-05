@@ -571,3 +571,35 @@ B1–B9 findings or its old counts. Current indexed debt at the synchronized
 The disabled oceanfft and specific dead-code examples from earlier audits are
 historical leads until freshly reproduced. Never convert an old inventory row
 into a current defect without evidence.
+
+
+## Chapter directors
+
+### As built
+
+Both `DayOneDirector` in [day_one_director.gd](../scripts/day_one_director.gd) and `ChapterTwoDirector` in [chapter_two_director.gd](../scripts/chapter_two_director.gd) extend RefCounted, receive a typed ReefMain reference, emit `hook_event(event_name, payload)`, and expose `serialize_state()` / `restore_state()` with `normalise_save_patch()`. At this implementation baseline their mutable state is forwarded to ReefMain through typed properties. The handoff's informal claim that the directors hold most mutable state is not the current ownership contract; do not copy that discrepancy into a third director.
+
+[SaveState](../scripts/save_state.gd) calls both restore methods during load and merges their namespaced serializations into the single saved document. Day One keeps its existing day_one_ namespace; Chapter 2 keeps chapter2_. Unknown/legacy keys and earned rewards survive. Chapter 3 currently differs: SaveState reads/writes/normalizes `chapter3_fairy_door_revealed`, `chapter3_fairy_door_opened` and `chapter3_fairy_mission_started` directly on ReefMain; there is no Chapter 3 director.
+
+| Seam | BUILT file and symbols | New-chapter consequence |
+|---|---|---|
+| Day One flow and chapter bridge | [day_one_flow.gd](../scripts/day_one_flow.gd); DayOneDirector.EVENT_DAY_TWO_BEGINS; [day_two_transition_2d.gd](../scripts/day_two_transition_2d.gd); ChapterTwoDirector.start_after_boss() | Preserve visible arrival/return context; do not grant progress by calling a callback in a closure probe |
+| Story activity handoff | [opera_house.gd](../scripts/opera_house.gd) OperaHouse.start(); ChapterTwoDirector.opera_config_overrides(); [chapter_two_career_scene_adapter.gd](../scripts/chapter_two_career_scene_adapter.gd) PHASE_SETS, PHASE_BINDINGS, phase_set(); [chapter_two_party_plan.gd](../scripts/chapter_two_party_plan.gd) LIVE_CAREERS, GUIDE_ORDER | Reuse current configuration seams; story masks and global free-play stars stay distinct |
+| Own-room source object | [opera_career_world_2d.gd](../scripts/opera_career_world_2d.gd) _configure_stage_paths(), _assign_stations(); [opera_stage_paths.gd](../scripts/opera_stage_paths.gd) PATHS, stations() | Register every authored story step; [static binding gate](../tools/audit_chapter_contract.py) rejects missing/other-room bindings, while trusted production input proves the route |
+| Story clips | [day_one_story_clips.gd](../scripts/day_one_story_clips.gd) DayOneStoryClips, MANIFEST_PATH; [story_clips.json](../assets/cinematics/day_one_story/story_clips.json) | Trigger between scenes under DL-CIN-16; a clip never substitutes for the child's action |
+| Reward before clip | [day_one_pool_cleanup.gd](../scripts/games/day_one_pool_cleanup.gd) _advance_reveal_beat(), _voice_lane_busy(); MA-PLAY-006 | Current worked example is the clean-pool reveal: at least 2.4 seconds, voice idle, at most 5.6 seconds; Rumi rises once in the selected clip, not again in the room. Use each new beat's authored minimum/maximum and interruption evidence |
+| Voice | [day_one_contextual_voice_catalog.gd](../scripts/day_one_contextual_voice_catalog.gd), [chapter_two_voice_catalog.gd](../scripts/chapter_two_voice_catalog.gd), [audio_director.gd](../scripts/audio_director.gd) | Bind exact speaker/cue and visual pointer; missing Rumi/new-character audio stays a documented gap |
+| Chapter 3 route | [fairy_conservatory_door_2d.gd](../scripts/arena/fairy_conservatory_door_2d.gd), [fairy_conservatory_handoff_2d.gd](../scripts/arena/fairy_conservatory_handoff_2d.gd) | Existing route/prototype probes are absent from both trusted rosters; record this gap without unauthorized workflow edits |
+
+### New-chapter touch list
+
+| Item | Current status | Required implementation surface |
+|---|---|---|
+| Chapter director and main-owned durable state | BUILT pattern | A typed RefCounted director with hook_event, serialize_state, restore_state and normalization; additive chapterN_ defaults (or a documented stable semantic namespace while the chapter number is unset) and compatible SaveState load/save/validation. Preserve existing namespaces rather than renaming them |
+| Story/room/step registries | BUILT Chapter 2 pattern | New chapter's ordered beats, own-room objects, intentional completion callbacks, entry/exit and additive milestone reconstruction. Extend audit_chapter_contract against the real registries; no hard-coded all-objects union |
+| Story vs free play | BUILT distinction | Separate chapter progress, global career mask, retired tombstones and replay rewards; carry companions/outfits/medals explicitly from the chapter map |
+| Voice and music | BUILT service pattern | A chapter cue catalogue using AudioDirector and the current music manifest; exact missing takes/rights recorded, no invented family voice |
+| Regression registration | BUILT operational requirement | New fresh-save traversal, passive/no-award and earned-resume probes registered in scripts/ci.sh and .github/workflows/probes.yml under DL-CODE-10; changing the latter requires a separately explicit owner task |
+| Shared GameMode/ModeContext/ModeRegistry/ModeDirector/Services interfaces | TARGET (design 08 Mode Platform, not built) | See [target architecture](08_TARGET_ARCHITECTURE.md); these are proposed interfaces, not available files or a reason to refactor existing directors here |
+
+No shared director base class is introduced by this document task. A future third-director extraction is a separate, behavior-preserving and probe-gated change. The [chapter brief](templates/CHAPTER_BRIEF_V1.md) records the concrete file/symbol touch list and all missing services before implementation.

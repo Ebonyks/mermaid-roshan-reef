@@ -1,0 +1,120 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_boxer_engine_2026-11-01",
+ "status": "WORK ORDER ISSUED; implementation not started; start after the 7 November 2026 demo (ODR-BOXER-SCHEDULE-20261101)",
+ "prepared_by": "Claude (written analysis, numbers-only measurements and specification; no game changes and no images)",
+ "recipient": "Codex",
+ "evidence_baseline": "codex/boxer-contact-engine-20261031 22df5b7541c7ddc28f8b7acd7f4947c8807e5dc0",
+ "entry": "README.md",
+ "owner_request": "2026-11-01: refine the Boxer engine by playing it repeatedly, analyse timing, rhythm and flow, evaluate the glove collision engine before the handoff; hooks are part of the game; the Boxer returns at least four or five times and may serve a boss battle",
+ "finding": "MA-OPERA-015",
+ "owner_decisions": [
+  "ODR-BOXER-WARNING-20261101",
+  "ODR-BOXER-HOOKS-20261101",
+  "ODR-BOXER-EDITIONS-20261101",
+  "ODR-BOXER-COUNTER-GATE-20261101",
+  "ODR-BOXER-COUNTER-WINDOW-20261101",
+  "ODR-BOXER-SOUNDS-20261101",
+  "ODR-BOXER-SCHEDULE-20261101",
+  "ODR-BOXER-EDITION-ORDER-20261101",
+  "ODR-BOXER-FAMILY-SPARRING-20261101",
+  "ODR-BOXER-NO-DODGE-20261101",
+  "ODR-BOXER-FLOATING-GLOVES-20261101"
+ ],
+ "file_count": 15,
+ "total_bytes": 149348,
+ "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
+ "revision": "1 (2026-11-01)",
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing or loading this folder in place"
+  },
+  {
+   "path": "README.md",
+   "bytes": 26529,
+   "sha256": "d1d0d824aa554223134ce684b926e9a63b10b79568d584509bf059da8a574e1c",
+   "role": "handoff entry point: owner decisions, findings summary, scope, binding rules, work packages BX0-BX9, acceptance AC-1 to AC-10, art and audio described in words, harness instructions"
+  },
+  {
+   "path": "EVALUATION.md",
+   "bytes": 13089,
+   "sha256": "47fc3d7946a54a757a129bc486f91525b05448a50b4a7f08d6b463c5ef83f8e8",
+   "role": "numbers-only evidence: contact maths, held and moving guard, rule checks C1-C9, 900 playthroughs, timing against cited child norms"
+  },
+  {
+   "path": "ROADMAP.md",
+   "bytes": 9365,
+   "sha256": "4a943d0c7855e49fdbd7a350afc9b7487de8ad43b2db0bb279706f639299f313",
+   "role": "edition ladder for return visits (Editions 3-5 and a boss toolkit), move set, verbs, engine features and gates"
+  },
+  {
+   "path": "data/results_22df5b75.txt",
+   "bytes": 27672,
+   "sha256": "f2cb303fc6da2187836f0dfcd145e5d17b96dff939a30299eb0449ec9d94649d",
+   "role": "every result line printed by the harness at 22df5b75"
+  },
+  {
+   "path": "harness/run_iso.sh",
+   "bytes": 1087,
+   "sha256": "2bfcaf33b3c6b41a3f71cbf2ec1ace15b6f73728127fd06c94117f33ad008896",
+   "role": "runs Godot 4.7.2 headless with a fresh APPDATA per label"
+  },
+  {
+   "path": "harness/geometry_check.gd",
+   "bytes": 9244,
+   "sha256": "e3a723122206904a286185a51978d373aff3ac82592fd07218da8cf419b1ff80",
+   "role": "contact maths against an independent convex-search reference"
+  },
+  {
+   "path": "harness/collision_integration.gd",
+   "bytes": 14151,
+   "sha256": "9b7557fca62aa411332ad5a9008e82da68dc70c776d02155c3a6f891dc35ad78",
+   "role": "held-guard grid, centre parking, counter gate and help checks (CROSS lines superseded)"
+  },
+  {
+   "path": "harness/crossing_v3.gd",
+   "bytes": 6706,
+   "sha256": "d0ef7e196c6c7edfa5388c482c7e74581f7652ed30aee0de56fc6099d9a2bcec",
+   "role": "moving glove versus moving fist in Godot's real frame order, errors labelled by flight moment"
+  },
+  {
+   "path": "harness/crossing_debug.gd",
+   "bytes": 6675,
+   "sha256": "fbdc4644084274d17b26ea6ff3150e48377cd8636cc13cd3e4f938ec2be64039",
+   "role": "per-case diagnosis of the guard-drill mismatches"
+  },
+  {
+   "path": "harness/boundary_checks.gd",
+   "bytes": 6586,
+   "sha256": "c4b475ec4655babba4adeb169e96f13a34a9fad14d862ef181b3b81e12bda380",
+   "role": "finger lift after a guard (boundary section superseded)"
+  },
+  {
+   "path": "harness/playthrough.gd",
+   "bytes": 19781,
+   "sha256": "964f719824e114511e4c9a3fce9e8ae07e1eff7ba83e5efe5af074ab3cc580ee",
+   "role": "bot playthroughs of all five phases with child timing models"
+  },
+  {
+   "path": "harness/geometry_numbers.py",
+   "bytes": 5531,
+   "sha256": "3acf3942e46a2c107eb390b753e2781379af375e6b9a2cd5616a2077bf4ef677",
+   "role": "physical sizes, lane spacing, retraction and time budgets"
+  },
+  {
+   "path": "harness/high_guard.py",
+   "bytes": 1344,
+   "sha256": "6acd6c6c59b00d1786aa1bcaaa5c9a02381c863c5ac6a6635078fea62e087022",
+   "role": "lane heights that register as a premature punch"
+  },
+  {
+   "path": "harness/hook_geometry.py",
+   "bytes": 1588,
+   "sha256": "cd998e727ee62f3549f4bd1fd4e9463689d63ce66611a424a2283d3be57f148d",
+   "role": "hook paths versus centre parking and the jab"
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+set -uo pipefail
+cd "$(dirname "$0")/../../../.."
+export PYTHONUTF8=1 PYTHONIOENCODING=utf-8
+GODOT="$(python3 tools/resolve_godot.py)" || exit 1
+RUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'
+FAILURE_RE='FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'
+rc=0
+for p in probe_melody; do
+	[ -f "scripts/$p.gd" ] || { echo "PROBE $p MISSING: scripts/$p.gd is required"; rc=1; continue; }
+	echo "=== $p ==="
+	probe_home="$(mktemp -d)"
+	mkdir -p "$probe_home/data" "$probe_home/config" \
+		"$probe_home/appdata" "$probe_home/localappdata"
+	probe_appdata="$probe_home/appdata"
+	probe_localappdata="$probe_home/localappdata"
+	if command -v cygpath >/dev/null 2>&1; then
+		# Godot's Windows build uses APPDATA/LOCALAPPDATA, not XDG_*.
+		# Native paths keep one probe's save from pre-winning the next probe.
+		probe_appdata="$(cygpath -w "$probe_appdata")"
+		probe_localappdata="$(cygpath -w "$probe_localappdata")"
+	fi
+	probe_output="$probe_home/$p.out"
+	touch_test_mode="--classic-touch-test"
+	case "$p" in
+		probe_passive|probe_touch_router|probe_touch_stress|probe_interaction|probe_touch_adversary)
+			touch_test_mode="--hybrid-touch-test"
+			;;
+	esac
+	probe_rc=0
+	APPDATA="$probe_appdata" LOCALAPPDATA="$probe_localappdata" \
+		XDG_DATA_HOME="$probe_home/data" XDG_CONFIG_HOME="$probe_home/config" \
+		timeout 8m "$GODOT" --headless -s "scripts/$p.gd" -- --touch "$touch_test_mode" 2>&1 | tee "$probe_output" || probe_rc=$?
+	echo "PROBE $p process exit: $probe_rc"
+	if [ "$probe_rc" -ne 0 ]; then
+		# Known engine flaw (2026-07-18): Godot 4.4 sometimes deadlocks at EXIT
+		# after a probe printed its complete verdict (seen after kart-heavy
+		# probes, always AFTER an ALL OK line). Accept a timeout kill (124)
+		# only when the transcript ends with a final verdict marker; the
+		# failure greps below still veto bad content. Anything else is real.
+		if [ "$probe_rc" -eq 124 ] && tail -n 5 "$probe_output" | grep -qE "ALL OK|RESULT"; then
+			echo "PROBE $p reached its verdict; engine hung at exit and was reaped - accepted"
+		else
+			rc=1
+		fi
+	fi
+	grep -qE "$FAILURE_RE" "$probe_output" \
+		&& { echo "PROBE $p reported a failure or runtime script error"; rc=1; }
+	# a script that cannot compile leaves the probe waiting on a world that
+	# never builds - bail on the whole gate instead of timing out per-probe
+	grep -qE "Parse Error|Compile Error" "$probe_output" \
+		&& { echo "PROBE $p hit a script compile error - aborting gate"; exit 1; }
+	grep -qE "$RUNTIME_ERROR_RE" "$probe_output" \
+		&& { echo "PROBE $p reported a resource or property runtime error"; rc=1; }
+	# positive floor: a probe that exits 0 while printing nothing asserted
+	# nothing - a startup crash swallowed before any output must not pass
+	[ -s "$probe_output" ] \
+		|| { echo "PROBE $p produced no output - silent no-op treated as failure"; rc=1; }
+	rm -rf "$probe_home"
+done
+exit $rc

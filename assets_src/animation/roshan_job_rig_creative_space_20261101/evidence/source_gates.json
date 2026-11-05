@@ -1,0 +1,157 @@
+{
+  "passed": true,
+  "checks": {
+    "frozen:art/anatomy.png": true,
+    "frozen:art/astronaut_body.png": true,
+    "frozen:art/astronaut_head.png": true,
+    "frozen:art/astronaut_scalp.png": true,
+    "frozen:art/astronaut_tail.png": true,
+    "frozen:art/ballet_body.png": true,
+    "frozen:art/ballet_composed.png": true,
+    "frozen:art/ballet_head.png": true,
+    "frozen:art/ballet_scalp.png": true,
+    "frozen:art/ballet_tail.png": true,
+    "frozen:art/banner.png": true,
+    "frozen:art/blank.png": true,
+    "frozen:art/brush.png": true,
+    "frozen:art/brush_grip.png": true,
+    "frozen:art/magician_body.png": true,
+    "frozen:art/magician_composed.png": true,
+    "frozen:art/magician_head.png": true,
+    "frozen:art/magician_scalp.png": true,
+    "frozen:art/magician_tail.png": true,
+    "frozen:art/neck_patch.png": true,
+    "frozen:art/original_body.png": true,
+    "frozen:art/original_tail.png": true,
+    "frozen:art/ownership.png": true,
+    "frozen:art/painter_body.png": true,
+    "frozen:art/painter_head.png": true,
+    "frozen:art/painter_scalp.png": true,
+    "frozen:art/painter_tail.png": true,
+    "frozen:art/painting.png": true,
+    "frozen:art/upper_clean.png": true,
+    "frozen:art/valve.png": true,
+    "frozen:art/valve_support.png": true,
+    "frozen:native/astronaut_fit_take01.png": true,
+    "frozen:native/brush_grip_source.png": true,
+    "frozen:native/brush_source.png": true,
+    "frozen:native/neck_source.png": true,
+    "frozen:native/painter_fit_take01.png": true,
+    "frozen:godot/capture_all.gd": true,
+    "frozen:godot/costume.gdshader": true,
+    "frozen:godot/costumes.json": true,
+    "frozen:godot/precheck.gd": true,
+    "frozen:godot/project.godot": true,
+    "frozen:godot/rig.json": true,
+    "frozen:godot/seed.gd": true,
+    "frozen:godot/seed.tscn": true,
+    "frozen:godot/seed_rig.json": true,
+    "frozen:godot/study.gd": true,
+    "frozen:godot/study.tscn": true,
+    "frozen:contract/FREEZE.json": true,
+    "frozen:contract/rig_v1.json": true,
+    "frozen:masters/astronaut_body.aseprite": true,
+    "frozen:masters/astronaut_head.aseprite": true,
+    "frozen:masters/astronaut_tail.aseprite": true,
+    "frozen:masters/brush.aseprite": true,
+    "frozen:masters/brush_grip.aseprite": true,
+    "frozen:masters/neck_patch.aseprite": true,
+    "frozen:masters/painter_body.aseprite": true,
+    "frozen:masters/painter_head.aseprite": true,
+    "frozen:masters/painter_tail.aseprite": true,
+    "same_bone_rest_topology": true,
+    "common:Body:vertices": true,
+    "common:Body:weights": true,
+    "common:Body:triangles": true,
+    "common:Body:z": true,
+    "common:UpperArm:vertices": true,
+    "common:UpperArm:weights": true,
+    "common:UpperArm:triangles": true,
+    "common:UpperArm:z": true,
+    "common:Forearm:vertices": true,
+    "common:Forearm:weights": true,
+    "common:Forearm:triangles": true,
+    "common:Forearm:z": true,
+    "common:Headwear:vertices": true,
+    "common:Headwear:weights": true,
+    "common:Headwear:triangles": true,
+    "common:Headwear:z": true,
+    "curve:authored_pose": true,
+    "curve:ease5": true,
+    "curve:pulse": true,
+    "curve:build_animation": true,
+    "contract_pin": true,
+    "contract_names": true,
+    "no_production_change": true,
+    "old_clothing_domain_erased": true,
+    "independent_six_region_survey": true
+  },
+  "negative_controls": {
+    "reinserted_domain_detected": true,
+    "changed_rest_detected": true
+  },
+  "survey": [
+    {
+      "box": [
+        451,
+        346,
+        20,
+        22
+      ],
+      "old_clothing_pixels": 406,
+      "remaining": 0
+    },
+    {
+      "box": [
+        619,
+        342,
+        12,
+        25
+      ],
+      "old_clothing_pixels": 260,
+      "remaining": 0
+    },
+    {
+      "box": [
+        515,
+        370,
+        64,
+        68
+      ],
+      "old_clothing_pixels": 4352,
+      "remaining": 0
+    },
+    {
+      "box": [
+        487,
+        510,
+        14,
+        64
+      ],
+      "old_clothing_pixels": 850,
+      "remaining": 0
+    },
+    {
+      "box": [
+        642,
+        581,
+        12,
+        64
+      ],
+      "old_clothing_pixels": 754,
+      "remaining": 0
+    },
+    {
+      "box": [
+        473,
+        795,
+        40,
+        20
+      ],
+      "old_clothing_pixels": 772,
+      "remaining": 0
+    }
+  ],
+  "production_diff": "",
+  "limits": "Source integrity only; native geometry/contact, naturalness and physical acceptance remain separate."
+}

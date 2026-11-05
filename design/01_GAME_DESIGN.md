@@ -484,6 +484,8 @@ legacy key (`Daddy Mermaid` ← `Gabby`) so no star is ever lost.
 
 ## 6. Cast and story
 
+Use the sourced [canon register](reference/CANON.md), [chapter map](chapters/CHAPTER_MAP.md), and [book source authority](reference/BOOK_SOURCES.md). The owner directs book-first narrative reconciliation; the historical summary below does not override exact book facts or approved identity sources. Roshan appearance-anchor cleanup remains separately tracked by MA-DOC-008.
+
 Canonical characters come from the owner's book, `Mermaid_Roshan_INTERIOR_A5.pdf`:
 Roshan, Evie / Lamb-a', Harper & Fiona, Faron, Wacky & Chuck, Princess Huluu,
 Daddy Mermaid. **Gabby is removed** under an IP hold; her assets are preserved

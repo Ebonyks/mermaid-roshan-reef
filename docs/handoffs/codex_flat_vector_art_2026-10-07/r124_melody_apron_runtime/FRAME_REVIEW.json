@@ -1,0 +1,80 @@
+{
+  "reviewer": "Codex local visual source comparison, not formalQA11/human/owner acceptance",
+  "candidate_status": "SOURCE_CANDIDATE_LOCAL_MACHINE_VERIFIED_FORMAL_OPEN",
+  "all6_candidate_frames_inspected": true,
+  "all6_source_frames_inspected": true,
+  "same_scene_source_base": "27c88288bf6e39582072811443df79919e7bbb89",
+  "axes": [
+    {
+      "axis": "contour",
+      "local_provisional_score": 4.6,
+      "comparison": "Original hard rectangular fill and six-pixel code lines gain whole painted material/edge contours. Original envelopes retained; rounded body corners expose tiny neighboring curtain tips, which remain that unconverted role."
+    },
+    {
+      "axis": "palette",
+      "local_provisional_score": 4.6,
+      "comparison": "Plum stage-front identity and seven top-to-bottom rainbow colors retain the scene palette and existing order."
+    },
+    {
+      "axis": "light",
+      "local_provisional_score": 4.6,
+      "comparison": "Broad lavender upper-edge paint and quiet lower plum shading cohere with the painted source references; no runtime relighting."
+    },
+    {
+      "axis": "perspective",
+      "local_provisional_score": 4.7,
+      "comparison": "Straight-on theatre front remains parallel to the canvas, without added top plane or3D staging."
+    },
+    {
+      "axis": "scale",
+      "local_provisional_score": 4.6,
+      "comparison": "Original apron-height clamp and full-width rectangle plus the exact original rainbow-group envelope remain at all3aspects."
+    },
+    {
+      "axis": "contact",
+      "local_provisional_score": 4.5,
+      "comparison": "The fascia stays beneath the actors/curtains and existing bulb row. Tiny underlying unconverted curtain corner tips remain explicit neighboring debt."
+    },
+    {
+      "axis": "occlusion",
+      "local_provisional_score": 4.6,
+      "comparison": "Original parentz10, bodyz-1 and rainbowz0 preserve stage order. Actors, hit targets and other roles remain clear."
+    },
+    {
+      "axis": "phone_readability",
+      "local_provisional_score": 4.5,
+      "comparison": "Seven distinct broad colors and quiet plum material remain legible in the three actual frames; image review is separate from physical device evidence."
+    },
+    {
+      "axis": "identity_topology",
+      "local_provisional_score": 4.7,
+      "comparison": "One existing stage apron with seven continuous horizontal bands; no extra motifs, props or target meanings."
+    },
+    {
+      "axis": "painted_material_coherence",
+      "local_provisional_score": 4.6,
+      "comparison": "Actual generated painted plum/colored material replaces the primitive fill/rails. Whole appearance pixels come from preserved PNG natives, not code-drawn substitutes."
+    }
+  ],
+  "native_current_checks": 102,
+  "reused_exact_source_checks": 69,
+  "effective_configured_checks": 171,
+  "new_frame_events": {
+    "bounded": 6,
+    "excluded": 0,
+    "retained": 6
+  },
+  "native_design_outputs": 2,
+  "runtime_texture_outputs": 2,
+  "static_call_cap": 2,
+  "static_calls_used": 2,
+  "animation_calls": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "whole_role_closed": false,
+  "mission_complete": false,
+  "complete_machine_validation": "docs/handoffs/codex_flat_vector_art_2026-10-07/r124_melody_apron_runtime/LOCAL_82_RESULT.json"
+}

@@ -1,0 +1,101 @@
+{
+  "state": "TEST_ONLY_TWO_LITERAL_CATEGORY_CALIBRATION",
+  "at_utc": "2026-11-02T21:52:52.500032+00:00",
+  "initial_validation_session": 72552,
+  "initial_delivery_continuation_session": 62463,
+  "initial_focus_passed_checks": 200,
+  "initial_failed_assertions": 1,
+  "failed_assertion": "all three authored states preserve the seven distinct ordered color identities",
+  "old_probe_sha256": "2e85afd8688b00919dcc370dc7406e84c2e4277240d83f8a67963095771e74dd",
+  "new_probe_sha256": "af6db07d5c922fedb1f33eba9855ca3d2f0554a0d59b7930c444fb557d74d7e4",
+  "only_original_index_entry_changed": [
+    "scripts/probe_melody.gd"
+  ],
+  "other34012_original_index_entries_unchanged": true,
+  "old_static_prefix_pass_sha256": "a873a0a30a08b41efbbb002c32a8f5899b3e7d7c3452f50f78d32fe02e7a59ed",
+  "old_static_result_sha256": "2143c64af6f420b0bd818adb37ed61109b1d9d338389d190bbc40d277ac804cd",
+  "diagnosis": {
+    "state": "READ_ONLY_TEST_BOUNDARY_DIAGNOSIS_DO_NOT_MUTATE_RUNNING_SOURCE",
+    "rows": [
+      {
+        "state": "idle",
+        "color": "orange",
+        "RGB": [
+          248,
+          150,
+          67
+        ],
+        "hue": 0.07642725598526702,
+        "current_check_would_pass": true
+      },
+      {
+        "state": "idle",
+        "color": "yellow",
+        "RGB": [
+          250,
+          209,
+          58
+        ],
+        "hue": 0.1310763888888889,
+        "current_check_would_pass": false
+      },
+      {
+        "state": "current",
+        "color": "orange",
+        "RGB": [
+          249,
+          157,
+          73
+        ],
+        "hue": 0.07954545454545457,
+        "current_check_would_pass": true
+      },
+      {
+        "state": "current",
+        "color": "yellow",
+        "RGB": [
+          250,
+          206,
+          49
+        ],
+        "hue": 0.13018242122719736,
+        "current_check_would_pass": false
+      },
+      {
+        "state": "filled",
+        "color": "orange",
+        "RGB": [
+          250,
+          141,
+          49
+        ],
+        "hue": 0.07628524046434494,
+        "current_check_would_pass": true
+      },
+      {
+        "state": "filled",
+        "color": "yellow",
+        "RGB": [
+          250,
+          202,
+          36
+        ],
+        "hue": 0.1292834890965732,
+        "current_check_would_pass": false
+      }
+    ],
+    "original_note_yellow_hue": 0.13596491228070176,
+    "observation": "New yellow lower bound0.14 excludes even original intended yellow, while painted gold hues remain near that original. Existing healthy operation is not interrupted or changed. If the focused probe fails, calibrate disjoint orange/yellow split to0.11 and retain exact PNG hashes/7color order; preserve failed evidence and reuse appropriate healthy source-independent gates.",
+    "at_utc": "2026-11-02T21:41:59.893138+00:00"
+  },
+  "new_disjoint_bins": {
+    "orange": "0.06<hue<0.11",
+    "yellow": "0.11<=hue<0.20"
+  },
+  "preserved_requirements": "Exact21 PNG hashes, seven ordered distinct identities, saturation/opacity, all other color bins, all21 state mappings, original geometry/state/input/save/audio/resource ceilings and ten-axis4.5 review floors remain. No assertion removed. Orange interval tightens; yellow admits its own original baseline hue0.13596 and painted hue0.12928..0.13108.",
+  "production_pixels_and_controllers_unchanged": true,
+  "native_192_checks_and21_qualified_frames_reused": true,
+  "new_native_frame_events": 0,
+  "static_reuse": "Complete prior static prefix remains source-bound at frozen index. Fresh changed-script parser/inference, authority/development, real Godot analyzer,2D guard and all82 current probes follow; source-independent static checks are reused without repeating20minutes of unrelated healthy audio/art tests.",
+  "Dev_frozen": true
+}

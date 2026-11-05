@@ -1,0 +1,64 @@
+{
+  "role": "DIAGNOSTIC_ONLY_NOT_TRUSTED_GATE",
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+    "--verbose",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef",
+    "--log-file",
+    "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-progress-pips-20261031\\chapter2_standalone_child_diagnostic\\native_engine.log",
+    "--script",
+    "scripts/probe_chapter2.gd",
+    "--",
+    "--chapter2-resume",
+    "C:/Users/Peter/AppData/Local/Temp/reef-flat-vector-dolls-progress-pips-20261031/chapter2_standalone_child_diagnostic/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light/probe_chapter2_isolated_334456_diagnostic.json",
+    "--expectation",
+    "C:/Users/Peter/AppData/Local/Temp/reef-flat-vector-dolls-progress-pips-20261031/chapter2_standalone_child_diagnostic/appdata/Godot/app_userdata/Mermaid Roshan Reef of Light/probe_chapter2_isolated_334456_diagnostic.json.milestone_career_06.expected.json",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "inputs": [
+    {
+      "role": "primary",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-progress-pips-20261031\\full_validation_rest_coverage_recovery\\probe_chapter2\\appdata\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_331744_60854718.json.milestone_career_06.primary.input.json",
+      "source_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "diagnostic_input": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-progress-pips-20261031\\chapter2_standalone_child_diagnostic\\appdata\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_334456_diagnostic.json",
+      "diagnostic_sha256": "91d3afadbfe0b30f45bea92a81cbb2be579672a942ec88a805897e91862b1704",
+      "frozen_copy": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-progress-pips-20261031\\chapter2_standalone_child_diagnostic\\appdata\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_334456_diagnostic.json.milestone_career_06.primary.input.json",
+      "exact_bytes": true
+    },
+    {
+      "role": "backup",
+      "source": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-progress-pips-20261031\\full_validation_rest_coverage_recovery\\probe_chapter2\\appdata\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_331744_60854718.json.milestone_career_06.backup.input.json",
+      "source_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "diagnostic_input": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-progress-pips-20261031\\chapter2_standalone_child_diagnostic\\appdata\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_334456_diagnostic.json.bak",
+      "diagnostic_sha256": "8e50f2ad03c6be6e0b037b3710bf2f609043b9b5800cb4ae05a81d0779be3de1",
+      "frozen_copy": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-dolls-progress-pips-20261031\\chapter2_standalone_child_diagnostic\\appdata\\Godot\\app_userdata\\Mermaid Roshan Reef of Light\\probe_chapter2_isolated_334456_diagnostic.json.milestone_career_06.backup.input.json",
+      "exact_bytes": true
+    }
+  ],
+  "original_expectation_sha256": "4f153e4c86082c8fbf4fa5000878875b0dcb7fb734e0b4d68c6ca054a6663599",
+  "diagnostic_expectation_sha256": "19fec94bb7315051ececce31abe02abe5f0416ba4c4ebee431985007430af002",
+  "metadata_edits_only": [
+    "owned fixture/frozen inputpaths",
+    "actualPython parentPID"
+  ],
+  "original_parent_pid": 331744,
+  "actual_diagnostic_parent_pid": 334456,
+  "source_pin_sha256": "f61ba4a69c0c6a4133336dc1608b951d78e3cf40344a4d942de026962b90ba70",
+  "normal_before": {
+    "": "1aa4f5c67b83e31e5ff8250bfc8582b81f6e559019199cc93ed9cf73c2230df2",
+    ".bak": "08c1a7a56ed6d13b58659a66a297be544c2511ae28f4435c37b2b7eb46982c47",
+    ".tmp": "absent",
+    ".tmp0": "absent",
+    ".tmp1": "absent",
+    ".old": "absent",
+    ".bak.tmp": "absent",
+    ".bak.old": "absent",
+    ".before_new_game": "4d07f08b6f378d3f6c31f2b52c726ecec4c719682693a9d5e823aaa91ec64158",
+    ".before_new_game.bak": "absent",
+    ".before_new_game.tmp": "absent"
+  },
+  "started_at_utc": "2026-10-31T22:19:30.032752+00:00"
+}

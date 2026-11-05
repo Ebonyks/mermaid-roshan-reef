@@ -1,0 +1,109 @@
+{
+  "status": "FIVE_FOCUSED_PRIMARY_INSPECTIONS_COMPLETE",
+  "reviewer": "Primary Codex; separate independent second-AI critique",
+  "checked_at_utc": "2026-10-27T06:00:15.643354+00:00",
+  "pdf_sha256": "8487a4419f43ce0ef10df4c350153e29dfd3437f34cd4642ca267f12bdaaaf1f",
+  "email_sha256": "4717cebf145d9081e6f036118ab5f28c8868b02e956f196703ab440b1fb10ba6",
+  "standalone_sha256": "d84bc5c0b694a11a945aa81c9fc83642f198b169ac7a4dad73f61d78bc441c0c",
+  "passes": [
+    {
+      "run": 1,
+      "focus": "Whole-scene framing",
+      "result": "PASS_DOUBLEWIDE_REVIEW",
+      "inspected": [
+        "complete/page_02.png",
+        "details/arrival_crop_preview.png"
+      ],
+      "inspected_sha256": {
+        "complete/page_02.png": "b5d7d860d1d34c5c303702f807f197b06f45cc3683424cd7eee0ca8c9d504ece",
+        "details/arrival_crop_preview.png": "b2707434e70d8969d24f797d95174f92bf66b31966e97443720c71ba360e6b97"
+      },
+      "observations": [
+        "The full original landscape width remains with both water areas/posts, landing, playground, hillside path and four-tower castle.",
+        "Excess top sky and lower foreground are substantially reduced; the scene fills the doublewide canvas. No new painted pixels."
+      ],
+      "remaining_in_scope_defects": []
+    },
+    {
+      "run": 2,
+      "focus": "Crop and page-width comparison",
+      "result": "PASS_DOUBLEWIDE_REVIEW",
+      "inspected": [
+        "details/before_after.png"
+      ],
+      "inspected_sha256": {
+        "details/before_after.png": "f3ff1586b1e60a373900678f34c76645a795f7a81f2312dde6f1675840ec3e60"
+      },
+      "observations": [
+        "Actual scene geometry is wider with unchanged page height, rather than stretched source objects. Both caption lines stay readable in quiet sky.",
+        "The complete source scene band survives; sky/foreground removed from outside that band explains the height reduction."
+      ],
+      "remaining_in_scope_defects": []
+    },
+    {
+      "run": 3,
+      "focus": "Contact and key detail",
+      "result": "PASS_DOUBLEWIDE_REVIEW",
+      "inspected": [
+        "details/landing.png",
+        "details/castle_route.png",
+        "details/caption.png"
+      ],
+      "inspected_sha256": {
+        "details/landing.png": "63c1498b6a09224a3e2d205d4391cafdcdcf905fb29f630a00d8cab836ed4128",
+        "details/castle_route.png": "34573e66faad3f44f25c6196643edc2d693796fd352015132136af03332ac075",
+        "details/caption.png": "1cdbac166ab280e2f88760ea5b862f25efdb4156855839d5b64dcbf09ca05179"
+      },
+      "observations": [
+        "Both plane wheels remain on stone and existing contact shadows remain. Native video softness is more visible at the larger presentation; print qualification remains open.",
+        "Bridge meets the original path, water/castle/portrait remain intact. Caption clears the pine and no character or architecture is covered."
+      ],
+      "remaining_in_scope_defects": []
+    },
+    {
+      "run": 4,
+      "focus": "Continuity and future fold",
+      "result": "PASS_DOUBLEWIDE_REVIEW",
+      "inspected": [
+        "details/centre.png",
+        "details/fold_diagnostic.png",
+        "details/sequence.png"
+      ],
+      "inspected_sha256": {
+        "details/centre.png": "c5c12deeedb5cd8d4e88a93a65f80c662d469bb723735427fc0fc01b3709858c",
+        "details/fold_diagnostic.png": "0b016f4da1cf98ee3541c452dd9c914467e2843eee890dfa3ab581b0319b8e96",
+        "details/sequence.png": "4af49f11b354d9a7c8de8c91c174f425df3cf5e3ed153aadb41c67b006b7f714"
+      },
+      "observations": [
+        "Flat continuous image has no centre seam or mismatched half crops. Flight and existing entrance art remain in sequence.",
+        "Diagnostic band crosses swing beam and comes near the rope/seat: actual physical gutter and page-parity mapping remain held. The band is absent from delivery art; this pass does not approve a bound spread."
+      ],
+      "remaining_in_scope_defects": []
+    },
+    {
+      "run": 5,
+      "focus": "Final exports",
+      "result": "PASS_DOUBLEWIDE_REVIEW",
+      "inspected": [
+        "details/email_spread.png",
+        "details/standalone_spread.png",
+        "complete/page_02.png"
+      ],
+      "inspected_sha256": {
+        "details/email_spread.png": "6ac9f1f6e3cd25d418409f9b8a56499371cf2affc255f54f0539ba16844c08d1",
+        "details/standalone_spread.png": "b5d7d860d1d34c5c303702f807f197b06f45cc3683424cd7eee0ca8c9d504ece",
+        "complete/page_02.png": "b5d7d860d1d34c5c303702f807f197b06f45cc3683424cd7eee0ca8c9d504ece"
+      },
+      "observations": [
+        "ReadingPDF preserves wide geometry, native source resolution and clean vector text; no distracting compression blocks or overlay line.",
+        "Actual standalonePDF render is pixel-identical to the wide book page.33other full-page proofs are exact V41 by strict gate, not newly redrawn."
+      ],
+      "remaining_in_scope_defects": []
+    }
+  ],
+  "held": [
+    "Physical page assignment,32-versus33interiorunits,recto/verso/reveal parity and swing/gutter solution pending owner choice/print preparation",
+    "Owner illustration acceptance,physical test print,child andqualifiedSLP"
+  ],
+  "acceptance": "Mixed-width illustration review only; not an imposed print interior."
+}

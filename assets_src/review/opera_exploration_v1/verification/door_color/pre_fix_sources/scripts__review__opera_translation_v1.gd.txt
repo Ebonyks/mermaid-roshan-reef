@@ -1,0 +1,546 @@
+extends Control
+## Owner-corrected 1:1 translation: one original house, continuous 2 x 2 world.
+
+const NAVIGATION := preload("res://scripts/stage_navigation_2d.gd")
+const ACTOR_LOOP := preload("res://scripts/roshan_sprite_loop.gd")
+const AMBIENCE := preload("res://scripts/review/opera_translation_ambience_v1.gd")
+const CURTAIN_CARD := preload("res://scripts/review/opera_curtain_card_v1.gd")
+const LIFE_SHADER := preload("res://shaders/opera_translation_life.gdshader")
+const RESTORED := "res://assets/review/opera_translation_v1/"
+const ART := "res://assets/flats/castle/opera_house_venue_2d/"
+const VIEW_SIZE := Vector2(1280,720)
+const WORLD_SIZE := Vector2(2560,1440)
+const SOURCE_SCALE := 2.5
+const DOOR_X: Array[float] = [357,459,565,667]
+const SIGN_Y: Array[float] = [94,406,734]
+const FLOOR_Y: Array[float] = [342,665,1015]
+const ACTS: Array[int] = [13,8,2]
+const ACT_COLUMNS: Array[int] = [2,3,2]
+const CRESTS: Array[String] = ["opera_crest_singer.png","opera_crest_magician.png","opera_crest_ballerina.png"]
+const SPEED := 300.0
+const ARRIVAL_RADIUS := 12.0
+
+var m: ReefMain
+var venue: OperaHouseVenue2D
+var world: Node2D
+var player_root: Node2D
+var actor: Sprite2D
+var animator: Node
+var ambience: Node2D
+var navigation: RefCounted
+var marker: Node2D
+var map_control: Control
+var pause_button: Button
+var status: Label
+var route := PackedVector2Array()
+var route_cursor := 0
+var pending_object := ""
+var objects: Array[Dictionary] = []
+var badges: Array[Sprite2D] = []
+var completed_mask := 0
+var camera_position := Vector2.ZERO
+var return_position := Vector2.ZERO
+var return_camera := Vector2.ZERO
+var pointer_owner := -2
+var pointer_position := Vector2.ZERO
+var paused := false
+var running_act := -1
+var job: OperaHouse
+var launches := 0
+var elapsed := 0.0
+var overview := false
+var camera_initialized := false
+var focus_paused := false
+var prop_responses := 0
+var lift_rides := 0
+var busy := false
+var door_tween: Tween
+var sound: AudioStreamPlayer
+var opened_curtain_index := -1
+var camera_hold := false
+var motion_source: Node2D
+
+func setup(main: ReefMain, original_venue: OperaHouseVenue2D) -> void:
+	m = main
+	venue = original_venue
+	name = "OperaExplorationV1"
+	size = VIEW_SIZE
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	clip_contents = true
+	z_index = 100
+	venue.accepting_input = false
+	completed_mask = m.opera_stars
+	navigation = NAVIGATION.new()
+	var lanes: Array[PackedVector2Array] = [
+		PackedVector2Array([Vector2(438,342),Vector2(2120,342)]),
+		PackedVector2Array([Vector2(438,665),Vector2(2120,665)]),
+		PackedVector2Array([Vector2(340,1015),Vector2(2230,1015)]),
+		PackedVector2Array([Vector2(438,342),Vector2(438,665),Vector2(438,1015)]),
+		PackedVector2Array([Vector2(2120,342),Vector2(2120,665),Vector2(2120,1015)]),
+		PackedVector2Array([Vector2(420,1015),Vector2(445,950),Vector2(485,870),Vector2(535,785),Vector2(575,710),Vector2(610,665)]),
+		PackedVector2Array([Vector2(2140,1015),Vector2(2115,950),Vector2(2075,870),Vector2(2025,785),Vector2(1985,710),Vector2(1950,665)]),
+		PackedVector2Array([Vector2(1050,1015),Vector2(940,1120),Vector2(940,1380),Vector2(1620,1380),Vector2(1620,1120),Vector2(1510,1015)])]
+	navigation.configure(lanes)
+	world = Node2D.new()
+	world.name = "OriginalOperaFourScreenWorld"
+	add_child(world)
+	ambience = AMBIENCE.new()
+	ambience.name = "OriginalFixtureLife"
+	ambience.z_index = 10
+	world.add_child(ambience)
+	_build_original_house()
+	_build_curtain_cards()
+	_build_doors()
+	_build_interactions()
+	_build_player()
+	_build_hud()
+	player_root.position = Vector2(1280,1380)
+	motion_source.position = player_root.position
+	_update_camera(0.0)
+	_refresh_badges()
+	m._navigation_push("opera_exploration_v1",self,Callable(self,"_leave_review"))
+	m._set_world_controls_enabled(false,"opera_exploration_v1")
+	m.clear_dialogue()
+	if m.hud_msg != null:
+		m.hud_msg.hide()
+
+func _build_original_house() -> void:
+	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(RESTORED+"layout.json")) as Dictionary
+	var native_size: Array = layout["native_size"] as Array
+	for value: Variant in layout["cards"] as Array:
+		var info: Dictionary = value as Dictionary
+		var rect: Array = info["source_rect"] as Array
+		var card := Sprite2D.new()
+		card.name = "RestoredOriginalScreen_%d_%d" % [int(int(rect[1])>0),int(int(rect[0])>0)]
+		card.texture = load(RESTORED+String(info["path"])) as Texture2D
+		card.centered = false
+		card.region_enabled = true
+		card.region_filter_clip_enabled = true
+		card.region_rect = Rect2(0,0,float(rect[2]),float(rect[3]))
+		card.position = Vector2(float(rect[0])/float(native_size[0])*2560.0,float(rect[1])/float(native_size[1])*1440.0)
+		card.scale = Vector2(2560.0/float(native_size[0]),1440.0/float(native_size[1]))
+		card.z_index = -30
+		var material := ShaderMaterial.new()
+		material.shader = LIFE_SHADER
+		material.set_shader_parameter("source_offset",Vector2(float(rect[0])/float(native_size[0])*1024.0,float(rect[1])/float(native_size[1])*576.0))
+		material.set_shader_parameter("source_span",Vector2(1024.0/float(native_size[0])*1024.0,1024.0/float(native_size[1])*576.0))
+		card.material = material
+		ambience.materials.append(material)
+		world.add_child(card)
+	_build_original_signs()
+
+func _build_original_signs() -> void:
+	var source_texture := load("res://assets/review/opera_translation_v1/restoration_medallion_source.png") as Texture2D
+	var source_image: Image = source_texture.get_image()
+	var mask := ShaderMaterial.new()
+	mask.shader = load("res://shaders/opera_door_icon_mask.gdshader") as Shader
+	var source_y: Array[int] = [70,195,328]
+	for row: int in range(3):
+		for column: int in range(4):
+			var icon := Sprite2D.new()
+			icon.name = "OriginalAboveDoorIcon_%d_%d" % [row,column]
+			var center := Vector2(DOOR_X[column]/1024.0*1672.0,float(source_y[row])/576.0*941.0)
+			var crop := Rect2i(Vector2i(center)-Vector2i(23,23),Vector2i(46,46))
+			icon.texture = ImageTexture.create_from_image(source_image.get_region(crop))
+			icon.material = mask
+			icon.position = Vector2(DOOR_X[column]*SOURCE_SCALE,SIGN_Y[row])
+			icon.scale = Vector2.ONE*(56.0/46.0)
+			icon.z_index = -27
+			world.add_child(icon)
+
+func _build_doors() -> void:
+	for row: int in range(3):
+		var x: float = DOOR_X[ACT_COLUMNS[row]]*SOURCE_SCALE
+		var icon: Node2D = world.get_node("OriginalAboveDoorIcon_%d_%d" % [row,ACT_COLUMNS[row]]) as Node2D
+		icon.hide()
+		var crest := Sprite2D.new()
+		crest.name = "CareerCrest_%d" % ACTS[row]
+		crest.texture = load("res://assets/opera/worlds/ui/crests/"+CRESTS[row]) as Texture2D
+		crest.position = Vector2(x,SIGN_Y[row])
+		crest.scale = Vector2.ONE*0.31
+		crest.z_index = 1
+		world.add_child(crest)
+		var star := Sprite2D.new()
+		star.name = "EarnedRoomStar_%d" % ACTS[row]
+		star.texture = load("res://assets/mg/star.png") as Texture2D
+		star.position = crest.position+Vector2(47,7)
+		star.scale = Vector2.ONE*0.17
+		star.z_index = 2
+		world.add_child(star)
+		badges.append(star)
+		objects.append({"object_id":"opera_door_%d" % ACTS[row],
+			"rect":Rect2(x-95.0,SIGN_Y[row]-46.0,190.0,FLOOR_Y[row]-SIGN_Y[row]+60.0),
+			"approach_point":Vector2(x,FLOOR_Y[row]),"arrival_radius":ARRIVAL_RADIUS,
+			"act":ACTS[row],"action":"career","return_target":"opera_hall"})
+
+func _build_curtain_cards() -> void:
+	var texture := load(RESTORED+"restoration_healed_source.png") as Texture2D
+	var image: Image = texture.get_image()
+	var y_start: Array[float] = [81,205,341]
+	var y_end: Array[float] = [130,252,397]
+	for row: int in range(3):
+		for column: int in range(4):
+			var bounds := Rect2(DOOR_X[column]-20.0,y_start[row],40.0,y_end[row]-y_start[row])
+			var native_rect := Rect2i(Vector2i(bounds.position*Vector2(1672.0/1024.0,941.0/576.0)),
+				Vector2i(bounds.size*Vector2(1672.0/1024.0,941.0/576.0)))
+			var card: Node2D = CURTAIN_CARD.new()
+			card.name = "OriginalCurtain_%d_%d" % [row,column]
+			card.z_index = -25
+			world.add_child(card)
+			card.setup(image,native_rect,Rect2(bounds.position*SOURCE_SCALE,bounds.size*SOURCE_SCALE))
+			ambience.curtains.append(card)
+
+func _build_player() -> void:
+	player_root = Node2D.new()
+	player_root.name = "RoshanTravelRoot"
+	player_root.z_index = 5
+	world.add_child(player_root)
+	actor = Sprite2D.new()
+	actor.name = "ApprovedAnimatedRoshan"
+	actor.position = Vector2(0,-64)
+	actor.scale = Vector2.ONE*0.70
+	player_root.add_child(actor)
+	animator = ACTOR_LOOP.new()
+	animator.wardrobe_owner = m
+	actor.add_child(animator)
+	# The panorama scrolls under the HUD. Sample world travel before that camera
+	# translation so a centered Roshan keeps swimming while the scenery moves.
+	motion_source = Node2D.new()
+	motion_source.name = "RoshanWorldTravelSampler"
+	add_child(motion_source)
+	animator.setup_sprite_2d(actor,false,motion_source)
+	marker = Node2D.new()
+	marker.name = "TravelDestination"
+	marker.z_index = 4
+	marker.draw.connect(_draw_marker)
+	world.add_child(marker)
+	marker.hide()
+	sound = AudioStreamPlayer.new()
+	sound.volume_db = -17.0
+	add_child(sound)
+
+func _build_interactions() -> void:
+	for side: int in range(2):
+		var x: float = 438.0 if side==0 else 2120.0
+		objects.append({"object_id":"original_lift_%d" % side,"rect":Rect2(x-65,125,130,930),
+			"approach_point":Vector2(x,1015),"arrival_radius":ARRIVAL_RADIUS,"action":"lift","side":side,"return_target":"opera_hall"})
+	objects.append({"object_id":"original_ticket_bell","rect":Rect2(540,845,165,180),
+		"approach_point":Vector2(640,1015),"arrival_radius":ARRIVAL_RADIUS,"action":"bell","return_target":"opera_hall"})
+	objects.append({"object_id":"original_refreshment_cart","rect":Rect2(2270,1040,280,290),
+		"approach_point":Vector2(2230,1015),"arrival_radius":ARRIVAL_RADIUS,"action":"tea","return_target":"opera_hall"})
+
+func _build_hud() -> void:
+	var back := Button.new()
+	back.text = "‹"
+	back.position = Vector2(16,16)
+	back.size = Vector2(64,64)
+	back.add_theme_font_size_override("font_size",44)
+	back.pressed.connect(_leave_review)
+	add_child(back)
+	pause_button = Button.new()
+	pause_button.text = "Ⅱ"
+	pause_button.position = Vector2(18,620)
+	pause_button.size = Vector2(64,64)
+	pause_button.pressed.connect(_toggle_pause)
+	add_child(pause_button)
+	status = Label.new()
+	status.text = "Opera house · original design · exploration v1"
+	status.position = Vector2(280,16)
+	status.size = Vector2(720,44)
+	status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	StorybookUI.style_label(status,24)
+	status.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(status)
+	status.hide()
+	map_control = Control.new()
+	map_control.name = "ReadOnlyFourScreenLocator"
+	map_control.position = Vector2(1112,16)
+	map_control.size = Vector2(144,81)
+	map_control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	map_control.draw.connect(_draw_locator)
+	add_child(map_control)
+
+func _gui_input(event: InputEvent) -> void:
+	if m==null or player_root==null:
+		return
+	if paused or job != null or overview or busy:
+		return
+	if event is InputEventScreenTouch:
+		if event.pressed and pointer_owner == -2:
+			pointer_owner = event.index
+			pointer_position = event.position
+			_preview_pointer(event.position)
+		elif not event.pressed and pointer_owner == event.index:
+			pointer_owner = -2
+			request_destination(event.position+camera_position)
+	elif event is InputEventScreenDrag and pointer_owner == event.index:
+		pointer_position = event.position
+		_preview_pointer(event.position)
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed and pointer_owner == -2:
+			pointer_owner = -1
+			pointer_position = event.position
+			_preview_pointer(event.position)
+		elif not event.pressed and pointer_owner == -1:
+			pointer_owner = -2
+			request_destination(event.position+camera_position)
+	elif event is InputEventMouseMotion and pointer_owner == -1:
+		pointer_position = event.position
+		_preview_pointer(event.position)
+	accept_event()
+
+func request_destination(point: Vector2) -> void:
+	if paused or job != null or overview or busy or not is_visible_in_tree():
+		return
+	cancel_travel()
+	camera_hold = false
+	var target: Vector2 = navigation.nearest_point(point)
+	for object: Dictionary in objects:
+		if (object["rect"] as Rect2).has_point(point):
+			pending_object = String(object["object_id"])
+			target = object["approach_point"] as Vector2
+			if object["action"]=="lift":
+				var nearest: int = _nearest_floor(player_root.position.y)
+				target.y = FLOOR_Y[nearest]
+				object["approach_point"] = target
+				var destination: int = _nearest_floor(point.y)
+				object["destination_floor"] = destination if destination!=nearest else (nearest+2)%3
+			break
+	route = navigation.route(player_root.position,target)
+	route_cursor = 1 if route.size()>1 else 0
+	marker.position = target
+	marker.show()
+	marker.queue_redraw()
+	m._say("roshan","talk")
+
+func cancel_travel() -> void:
+	route.clear()
+	route_cursor = 0
+	pending_object = ""
+	pointer_owner = -2
+	if marker != null:
+		marker.hide()
+
+func _process(delta: float) -> void:
+	if m==null or player_root==null:
+		return
+	if not is_visible_in_tree() or paused or job != null or overview:
+		return
+	elapsed += minf(delta,0.05)
+	if not route.is_empty():
+		var target: Vector2 = route[route_cursor]
+		actor.flip_h = target.x < player_root.position.x
+		player_root.position = player_root.position.move_toward(target,SPEED*minf(delta,0.05))
+		if player_root.position.distance_to(target)<=0.5:
+			route_cursor += 1
+			if route_cursor>=route.size():
+				var selected: String = pending_object
+				cancel_travel()
+				_activate_arrived(selected)
+	_update_camera(delta)
+	motion_source.position = player_root.position
+	if marker.visible:
+		marker.queue_redraw()
+
+func _update_camera(delta: float) -> void:
+	if camera_hold:
+		world.position = -camera_position
+		map_control.queue_redraw()
+		return
+	var desired := Vector2(clampf(player_root.position.x-640.0,0,1280),
+		clampf(player_root.position.y-430.0,0,694))
+	if not camera_initialized:
+		camera_position = desired
+		camera_initialized = true
+	else:
+		camera_position = camera_position.lerp(desired,1.0-exp(-7.0*delta))
+	world.position = -camera_position
+	if map_control != null:
+		map_control.queue_redraw()
+
+func _activate_arrived(object_id: String) -> void:
+	for object: Dictionary in objects:
+		if object["object_id"] == object_id:
+			if player_root.position.distance_to(object["approach_point"] as Vector2)<=float(object["arrival_radius"]):
+				match String(object["action"]):
+					"career":
+						_open_curtain(int(object["act"]))
+					"lift":
+						_ride_lift(object)
+					"bell", "tea":
+						_respond_to_prop(String(object["action"]))
+			return
+
+func _nearest_floor(y: float) -> int:
+	var nearest := 0
+	for index: int in range(1,3):
+		if absf(FLOOR_Y[index]-y)<absf(FLOOR_Y[nearest]-y):
+			nearest = index
+	return nearest
+
+func _preview_pointer(point: Vector2) -> void:
+	marker.position = navigation.nearest_point(point+camera_position)
+	marker.show()
+	marker.queue_redraw()
+
+func _ride_lift(object: Dictionary) -> void:
+	var target: Vector2 = object["approach_point"] as Vector2
+	target.y = FLOOR_Y[int(object["destination_floor"])]
+	route = PackedVector2Array([player_root.position,target])
+	route_cursor = 1
+	pending_object = ""
+	marker.position = target
+	marker.show()
+	lift_rides += 1
+	ambience.lift_burst = 2.8
+	_play_chime()
+
+func _respond_to_prop(action: String) -> void:
+	prop_responses += 1
+	if action=="tea":
+		ambience.tea_burst = 3.0
+	else:
+		ambience.bell_burst = 2.0
+	_play_chime()
+
+func _play_chime() -> void:
+	sound.stream = load("res://assets/audio/chime.ogg") as AudioStream
+	sound.play()
+
+func _open_curtain(act: int) -> void:
+	busy = true
+	var row: int = ACTS.find(act)
+	opened_curtain_index = row*4+ACT_COLUMNS[row]
+	for material: ShaderMaterial in ambience.materials:
+		material.set_shader_parameter("selected_door",Vector2(DOOR_X[ACT_COLUMNS[row]],float(row)))
+	_play_chime()
+	door_tween = create_tween()
+	door_tween.tween_method(_set_door_open,0.0,1.0,0.65)
+	door_tween.tween_callback(func() -> void:
+		busy = false
+		_launch_act(act))
+
+func _set_door_open(value: float) -> void:
+	for material: ShaderMaterial in ambience.materials:
+		material.set_shader_parameter("door_open",value)
+	for index: int in range(ambience.curtains.size()):
+		ambience.curtains[index].opening = value if index==opened_curtain_index else 0.0
+
+func _launch_act(act: int) -> void:
+	if running_act>=0 or job!=null or not ACTS.has(act):
+		return
+	return_position = player_root.position
+	return_camera = camera_position
+	running_act = act
+	launches += 1
+	hide()
+	venue.hide()
+	m._castle_rooms_ref().suspend()
+	m.clear_dialogue()
+	m.game = "opera"
+	m.opera_return_room = "opera_hall"
+	m.opera_active_act_index = act
+	OperaRoutePresentation.suspend(m)
+	job = OperaHouse.new()
+	m.add_child(job)
+	m.opera_game = job
+	if not job.start(m,act,Callable(self,"_job_finished"),{},{"reward_policy":"dev_playtest"}):
+		m._navigation_remove("opera_act")
+		job.queue_free()
+		_job_finished(false)
+
+func _job_finished(completed: bool) -> void:
+	if running_act<0:
+		return
+	if completed:
+		completed_mask |= 1<<running_act
+		ambience.celebration_position = badges[ACTS.find(running_act)].position
+		ambience.celebration = 2.5
+	running_act = -1
+	job = null
+	m.opera_game = null
+	m.opera_active_act_index = -1
+	m.opera_return_room = ""
+	m.opera_plot_context = ""
+	m._restore_opera_route_state("opera_hall")
+	venue.open(m.opera_stars)
+	venue.accepting_input = false
+	m.clear_dialogue()
+	player_root.position = return_position
+	camera_position = return_camera
+	camera_hold = true
+	world.position = -camera_position
+	motion_source.position = player_root.position
+	_refresh_badges()
+	_set_door_open(0.0)
+	show()
+	m._navigation_push("opera_exploration_v1",self,Callable(self,"_leave_review"))
+
+func _refresh_badges() -> void:
+	for row: int in range(3):
+		badges[row].visible = (completed_mask & (1<<ACTS[row]))!=0
+
+func _toggle_pause() -> void:
+	focus_paused = false
+	_set_paused(not paused)
+
+func _set_paused(value: bool) -> void:
+	paused = value
+	if paused and door_tween != null and door_tween.is_valid():
+		door_tween.kill()
+		busy = false
+		_set_door_open(0.0)
+	cancel_travel()
+	animator.set_paused(paused)
+	ambience.enabled = not paused
+	pause_button.text = "▶" if paused else "Ⅱ"
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT and is_node_ready():
+		cancel_travel()
+		if not paused and job == null:
+			_set_paused(true)
+			focus_paused = true
+	elif what == NOTIFICATION_APPLICATION_FOCUS_IN and is_node_ready() and focus_paused:
+		focus_paused = false
+		_set_paused(false)
+
+func _leave_review() -> void:
+	if job!=null:
+		return
+	cancel_travel()
+	m._navigation_remove("opera_exploration_v1")
+	m._set_world_controls_enabled(true,"opera_exploration_v1")
+	venue.accepting_input = true
+	venue._go_back()
+	queue_free()
+
+func _draw_marker() -> void:
+	marker.draw_arc(Vector2.ZERO,14.0+sin(elapsed*4.0)*2.0,0,TAU,32,Color(1,0.9,0.5,0.9),2.5,true)
+	marker.draw_circle(Vector2.ZERO,4,Color(1,0.96,0.76,0.9))
+
+func _draw_locator() -> void:
+	var texture := load(ART+"room_opera_house_venue.png") as Texture2D
+	# Canvas draw commands retain the RID, so keep its Resource alive as well.
+	map_control.set_meta("retained_map_texture",texture)
+	map_control.draw_texture_rect(texture,Rect2(Vector2.ZERO,Vector2(144,81)),false,Color(1,1,1,0.9))
+	map_control.draw_line(Vector2(72,0),Vector2(72,81),Color(1,0.9,0.7,0.6),1)
+	map_control.draw_line(Vector2(0,40.5),Vector2(144,40.5),Color(1,0.9,0.7,0.6),1)
+	map_control.draw_rect(Rect2(camera_position/WORLD_SIZE*Vector2(144,81),Vector2(72,40.5)),Color(1,0.95,0.64),false,2)
+	map_control.draw_circle(player_root.position/WORLD_SIZE*Vector2(144,81),3,Color(0.5,1,1))
+
+func set_review_overview(enabled: bool) -> void:
+	cancel_travel()
+	overview = enabled
+	status.visible = enabled
+	world.scale = Vector2.ONE*(0.5 if enabled else 1.0)
+	world.position = Vector2.ZERO if enabled else -camera_position
+	status.text = "Original Opera house · full-layout review" if enabled else "Opera house · original design · exploration v1"
+
+func review_snapshot() -> Dictionary:
+	return {"world_size":WORLD_SIZE,"position":player_root.position,"camera":camera_position,
+		"travelling":not route.is_empty(),"pending":pending_object,"completed_mask":completed_mask,
+		"running_act":running_act,"launches":launches,"paused":paused,"ambient_phase":ambience.phase,
+		"actor":animator.animation_state(),"overview":overview,"prop_responses":prop_responses,"lift_rides":lift_rides,
+		"art":"layout-preserving detail-restoration candidate; no thematic art",
+		"native_detail_acceptance":"restored source 1672x941; native 2K per screen remains pending"}

@@ -1,0 +1,5061 @@
+{
+  "schema": "dkc-mastering-recipe/1",
+  "source": "Immutable construction audio and per-part call sheets at the named source commit",
+  "source_notes_tempo_and_instrument_performance_changed": false,
+  "rounds": [
+    {
+      "round": 2,
+      "focus": "Layer hierarchy and low/foreground relationship",
+      "part_changes": [
+        {
+          "id": "DKC-02",
+          "changes": [
+            {
+              "part": "thin_color_left",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "pizz_left",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.4
+                }
+              ]
+            },
+            {
+              "part": "thin_color_right",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                }
+              ]
+            },
+            {
+              "part": "pizz_right",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.4
+                }
+              ]
+            },
+            {
+              "part": "piano_theme",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "reed_reply",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "piano_left",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                }
+              ]
+            },
+            {
+              "part": "piano_right",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                }
+              ]
+            },
+            {
+              "part": "frame_jingles",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "cabasa",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-03",
+          "changes": [
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                }
+              ]
+            },
+            {
+              "part": "strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                }
+              ]
+            },
+            {
+              "part": "string_answer",
+              "role": "harmony",
+              "changes": []
+            },
+            {
+              "part": "keys_reply",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "pipe_theme",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "brass_reply",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "flute_contrast",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "low_mallet",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.2
+                }
+              ]
+            },
+            {
+              "part": "high_color",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.25
+                }
+              ]
+            },
+            {
+              "part": "hand_low",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.2
+                }
+              ]
+            },
+            {
+              "part": "bongos",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": []
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "woodblocks",
+              "role": "percussion",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-07",
+          "changes": [
+            {
+              "part": "intro_high",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "echo_color",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "intro_swell_3",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.8
+                }
+              ]
+            },
+            {
+              "part": "low_shadow",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.5
+                }
+              ]
+            },
+            {
+              "part": "low_color",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "intro_swell_1",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "intro_swell_4",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "intro_swell_2",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "strings",
+              "role": "harmony",
+              "changes": []
+            },
+            {
+              "part": "inner_answer",
+              "role": "harmony",
+              "changes": []
+            },
+            {
+              "part": "background_pluck",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "upper_arps",
+              "role": "harmony",
+              "changes": []
+            },
+            {
+              "part": "rounded_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.2
+                }
+              ]
+            },
+            {
+              "part": "frame_jingles",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": []
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-19",
+          "changes": [
+            {
+              "part": "machine_theme",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "synth_bass",
+              "role": "bass",
+              "changes": []
+            },
+            {
+              "part": "short_ostinato",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                }
+              ]
+            },
+            {
+              "part": "pluck_call",
+              "role": "harmony",
+              "changes": []
+            },
+            {
+              "part": "pluck_echo",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "held_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                }
+              ]
+            },
+            {
+              "part": "high_accent",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "running_color",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                }
+              ]
+            },
+            {
+              "part": "string_answer",
+              "role": "harmony",
+              "changes": []
+            },
+            {
+              "part": "brass_call",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "upper_strings",
+              "role": "harmony",
+              "changes": []
+            },
+            {
+              "part": "brass_arrival",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "engine_kick",
+              "role": "kit",
+              "changes": []
+            },
+            {
+              "part": "engine_snare",
+              "role": "kit",
+              "changes": []
+            },
+            {
+              "part": "engine_hats",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "engine_metal_toms",
+              "role": "kit",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-11",
+          "changes": [
+            {
+              "part": "upper_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.35
+                }
+              ]
+            },
+            {
+              "part": "low_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.5
+                }
+              ]
+            },
+            {
+              "part": "bottle_low",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "bottle_high",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.25
+                }
+              ]
+            },
+            {
+              "part": "atmospheric_reply",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "picked_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.25
+                }
+              ]
+            },
+            {
+              "part": "bongos",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "triangle_ring",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "triangle_short",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "congas",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "woodblocks",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-15",
+          "changes": [
+            {
+              "part": "muted_guitar",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                }
+              ]
+            },
+            {
+              "part": "clean_guitar",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "picked_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                }
+              ]
+            },
+            {
+              "part": "orchestra_hits",
+              "role": "harmony",
+              "changes": []
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.2
+                }
+              ]
+            },
+            {
+              "part": "electronic_clicks",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "cuica",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "clap_gesture",
+              "role": "percussion",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "focus": "Source-specific clarity and conditional harmonic space",
+      "part_changes": [
+        {
+          "id": "DKC-02",
+          "changes": [
+            {
+              "part": "thin_color_left",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "pizz_left",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.4
+                }
+              ]
+            },
+            {
+              "part": "thin_color_right",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                }
+              ]
+            },
+            {
+              "part": "pizz_right",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.4
+                }
+              ]
+            },
+            {
+              "part": "piano_theme",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "reed_reply",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "piano_left",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 300,
+                  "q": 0.8,
+                  "db": -0.5,
+                  "conditional_on": null
+                }
+              ]
+            },
+            {
+              "part": "piano_right",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 300,
+                  "q": 0.8,
+                  "db": -0.5,
+                  "conditional_on": null
+                }
+              ]
+            },
+            {
+              "part": "frame_jingles",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "cabasa",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-03",
+          "changes": [
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                }
+              ]
+            },
+            {
+              "part": "strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 500,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "string_answer",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 500,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "keys_reply",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "pipe_theme",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "brass_reply",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "flute_contrast",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "low_mallet",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.2
+                }
+              ]
+            },
+            {
+              "part": "high_color",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.25
+                }
+              ]
+            },
+            {
+              "part": "hand_low",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.2
+                }
+              ]
+            },
+            {
+              "part": "bongos",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": []
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "woodblocks",
+              "role": "percussion",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-07",
+          "changes": [
+            {
+              "part": "intro_high",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "echo_color",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "intro_swell_3",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.8
+                }
+              ]
+            },
+            {
+              "part": "low_shadow",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.5
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 140,
+                  "q": 0.8,
+                  "db": -0.8,
+                  "conditional_on": "bass"
+                }
+              ]
+            },
+            {
+              "part": "low_color",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "intro_swell_1",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "intro_swell_4",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "intro_swell_2",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 140,
+                  "q": 0.8,
+                  "db": -0.8,
+                  "conditional_on": "bass"
+                }
+              ]
+            },
+            {
+              "part": "inner_answer",
+              "role": "harmony",
+              "changes": []
+            },
+            {
+              "part": "background_pluck",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "upper_arps",
+              "role": "harmony",
+              "changes": []
+            },
+            {
+              "part": "rounded_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.2
+                }
+              ]
+            },
+            {
+              "part": "frame_jingles",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": []
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-19",
+          "changes": [
+            {
+              "part": "machine_theme",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "synth_bass",
+              "role": "bass",
+              "changes": []
+            },
+            {
+              "part": "short_ostinato",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "pluck_call",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "pluck_echo",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "held_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "high_accent",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "running_color",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "string_answer",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "brass_call",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "upper_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "brass_arrival",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "engine_kick",
+              "role": "kit",
+              "changes": []
+            },
+            {
+              "part": "engine_snare",
+              "role": "kit",
+              "changes": []
+            },
+            {
+              "part": "engine_hats",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "engine_metal_toms",
+              "role": "kit",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-11",
+          "changes": [
+            {
+              "part": "upper_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.35
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 700,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "low_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.5
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 170,
+                  "q": 0.8,
+                  "db": -1.1,
+                  "conditional_on": "bass"
+                }
+              ]
+            },
+            {
+              "part": "bottle_low",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "bottle_high",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.25
+                }
+              ]
+            },
+            {
+              "part": "atmospheric_reply",
+              "role": "texture",
+              "changes": []
+            },
+            {
+              "part": "picked_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.25
+                }
+              ]
+            },
+            {
+              "part": "bongos",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "triangle_ring",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "triangle_short",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "congas",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "woodblocks",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-15",
+          "changes": [
+            {
+              "part": "muted_guitar",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 240,
+                  "q": 0.8,
+                  "db": -0.7,
+                  "conditional_on": "foreground"
+                }
+              ]
+            },
+            {
+              "part": "clean_guitar",
+              "role": "foreground",
+              "changes": []
+            },
+            {
+              "part": "picked_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                }
+              ]
+            },
+            {
+              "part": "orchestra_hits",
+              "role": "harmony",
+              "changes": []
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.2
+                }
+              ]
+            },
+            {
+              "part": "electronic_clicks",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "cuica",
+              "role": "percussion",
+              "changes": []
+            },
+            {
+              "part": "clap_gesture",
+              "role": "percussion",
+              "changes": []
+            }
+          ],
+          "dynamics": []
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "focus": "Coherent player positions, centered low register and role-specific depth",
+      "part_changes": [
+        {
+          "id": "DKC-02",
+          "changes": [
+            {
+              "part": "thin_color_left",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pizz_left",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "thin_color_right",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pizz_right",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "piano_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "reed_reply",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.1,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "piano_left",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 300,
+                  "q": 0.8,
+                  "db": -0.5,
+                  "conditional_on": null
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.1,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "piano_right",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 300,
+                  "q": 0.8,
+                  "db": -0.5,
+                  "conditional_on": null
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.1,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "frame_jingles",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "cabasa",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-03",
+          "changes": [
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 500,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "string_answer",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 500,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "keys_reply",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "pipe_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "brass_reply",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "flute_contrast",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "low_mallet",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "high_color",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.25
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "hand_low",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.15,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bongos",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.16,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "woodblocks",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-07",
+          "changes": [
+            {
+              "part": "intro_high",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "echo_color",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_3",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.8
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "low_shadow",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.5
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 140,
+                  "q": 0.8,
+                  "db": -0.8,
+                  "conditional_on": "bass"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "low_color",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_1",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_4",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_2",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 140,
+                  "q": 0.8,
+                  "db": -0.8,
+                  "conditional_on": "bass"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "inner_answer",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "background_pluck",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "upper_arps",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "rounded_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "frame_jingles",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-19",
+          "changes": [
+            {
+              "part": "machine_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "synth_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "short_ostinato",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pluck_call",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pluck_echo",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "held_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "high_accent",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "running_color",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "string_answer",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "brass_call",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "upper_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "brass_arrival",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_kick",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_snare",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_hats",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_metal_toms",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-11",
+          "changes": [
+            {
+              "part": "upper_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.35
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 700,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "low_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.5
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 170,
+                  "q": 0.8,
+                  "db": -1.1,
+                  "conditional_on": "bass"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bottle_low",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "bottle_high",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.25
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "atmospheric_reply",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "picked_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.25
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bongos",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.16,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "triangle_ring",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "triangle_short",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "congas",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.15,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "woodblocks",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": []
+        },
+        {
+          "id": "DKC-15",
+          "changes": [
+            {
+              "part": "muted_guitar",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 240,
+                  "q": 0.8,
+                  "db": -0.7,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.16,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "clean_guitar",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.08,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "picked_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "orchestra_hits",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "electronic_clicks",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "cuica",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "clap_gesture",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": []
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "focus": "Bounded dynamics and attack preservation",
+      "part_changes": [
+        {
+          "id": "DKC-02",
+          "changes": [
+            {
+              "part": "thin_color_left",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pizz_left",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "thin_color_right",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pizz_right",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "piano_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "reed_reply",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.1,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "piano_left",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 300,
+                  "q": 0.8,
+                  "db": -0.5,
+                  "conditional_on": null
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.1,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "piano_right",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 300,
+                  "q": 0.8,
+                  "db": -0.5,
+                  "conditional_on": null
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.1,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "frame_jingles",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "cabasa",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.7498433589935303,
+              "p95_gain_reduction_db": 0.4490540325641632,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 0.75,
+              "attack_ms": 12,
+              "release_ms": 160
+            }
+          ]
+        },
+        {
+          "id": "DKC-03",
+          "changes": [
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 500,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "string_answer",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 500,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "keys_reply",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "pipe_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "brass_reply",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "flute_contrast",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "low_mallet",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "high_color",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.25
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "hand_low",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.15,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bongos",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.16,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "woodblocks",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.6999967098236084,
+              "p95_gain_reduction_db": 0.4830501079559326,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 0.7,
+              "attack_ms": 12,
+              "release_ms": 160
+            }
+          ]
+        },
+        {
+          "id": "DKC-07",
+          "changes": [
+            {
+              "part": "intro_high",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "echo_color",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_3",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.8
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "low_shadow",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.5
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 140,
+                  "q": 0.8,
+                  "db": -0.8,
+                  "conditional_on": "bass"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "low_color",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_1",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_4",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_2",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 140,
+                  "q": 0.8,
+                  "db": -0.8,
+                  "conditional_on": "bass"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "inner_answer",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "background_pluck",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "upper_arps",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "rounded_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "frame_jingles",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.39999666810035706,
+              "p95_gain_reduction_db": 0.35882532596588135,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 0.4,
+              "attack_ms": 12,
+              "release_ms": 160
+            }
+          ]
+        },
+        {
+          "id": "DKC-19",
+          "changes": [
+            {
+              "part": "machine_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "synth_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "short_ostinato",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pluck_call",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pluck_echo",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "held_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "high_accent",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "running_color",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "string_answer",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "brass_call",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "upper_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "brass_arrival",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_kick",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_snare",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_hats",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_metal_toms",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.5239360332489014,
+              "p95_gain_reduction_db": 0.2455499917268753,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 0.6,
+              "attack_ms": 12,
+              "release_ms": 160
+            }
+          ]
+        },
+        {
+          "id": "DKC-11",
+          "changes": [
+            {
+              "part": "upper_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.35
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 700,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "low_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.5
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 170,
+                  "q": 0.8,
+                  "db": -1.1,
+                  "conditional_on": "bass"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bottle_low",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "bottle_high",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.25
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "atmospheric_reply",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "picked_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.25
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bongos",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.16,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "triangle_ring",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "triangle_short",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "congas",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.15,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "woodblocks",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.5996471643447876,
+              "p95_gain_reduction_db": 0.42759254574775696,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 0.6,
+              "attack_ms": 12,
+              "release_ms": 160
+            }
+          ]
+        },
+        {
+          "id": "DKC-15",
+          "changes": [
+            {
+              "part": "muted_guitar",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 240,
+                  "q": 0.8,
+                  "db": -0.7,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.16,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "clean_guitar",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.08,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "picked_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "orchestra_hits",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "electronic_clicks",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "cuica",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "clap_gesture",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.8973805904388428,
+              "p95_gain_reduction_db": 0.39170488715171814,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 1.5,
+              "attack_ms": 12,
+              "release_ms": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "focus": "Coherent review loudness and conservative true-peak control",
+      "part_changes": [
+        {
+          "id": "DKC-02",
+          "changes": [
+            {
+              "part": "thin_color_left",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pizz_left",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "thin_color_right",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pizz_right",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.22,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "piano_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "reed_reply",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.1,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "piano_left",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 300,
+                  "q": 0.8,
+                  "db": -0.5,
+                  "conditional_on": null
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.1,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "piano_right",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 300,
+                  "q": 0.8,
+                  "db": -0.5,
+                  "conditional_on": null
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.1,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "frame_jingles",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "cabasa",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.7498433589935303,
+              "p95_gain_reduction_db": 0.4490540325641632,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 0.75,
+              "attack_ms": 12,
+              "release_ms": 160
+            },
+            {
+              "type": "true_peak_gain_control",
+              "ceiling_db": -3.15,
+              "oversampling": 4,
+              "lookahead_ms": 4,
+              "release_ms": 80,
+              "max_gain_reduction_db": -0.0,
+              "fraction_above_1db": 0.0
+            }
+          ]
+        },
+        {
+          "id": "DKC-03",
+          "changes": [
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 500,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "string_answer",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 500,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "keys_reply",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "pipe_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "brass_reply",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "flute_contrast",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "low_mallet",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "high_color",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.25
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "hand_low",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.15,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bongos",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.16,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "woodblocks",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.6999967098236084,
+              "p95_gain_reduction_db": 0.4830501079559326,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 0.7,
+              "attack_ms": 12,
+              "release_ms": 160
+            },
+            {
+              "type": "true_peak_gain_control",
+              "ceiling_db": -3.15,
+              "oversampling": 4,
+              "lookahead_ms": 4,
+              "release_ms": 80,
+              "max_gain_reduction_db": -0.0,
+              "fraction_above_1db": 0.0
+            }
+          ]
+        },
+        {
+          "id": "DKC-07",
+          "changes": [
+            {
+              "part": "intro_high",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "echo_color",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_3",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.8
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "low_shadow",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.5
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 140,
+                  "q": 0.8,
+                  "db": -0.8,
+                  "conditional_on": "bass"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "low_color",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_1",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_4",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "intro_swell_2",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 140,
+                  "q": 0.8,
+                  "db": -0.8,
+                  "conditional_on": "bass"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "inner_answer",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "background_pluck",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "upper_arps",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "rounded_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": 0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "frame_jingles",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.39999666810035706,
+              "p95_gain_reduction_db": 0.35882532596588135,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 0.4,
+              "attack_ms": 12,
+              "release_ms": 160
+            },
+            {
+              "type": "true_peak_gain_control",
+              "ceiling_db": -3.15,
+              "oversampling": 4,
+              "lookahead_ms": 4,
+              "release_ms": 80,
+              "max_gain_reduction_db": -0.0,
+              "fraction_above_1db": 0.0
+            }
+          ]
+        },
+        {
+          "id": "DKC-19",
+          "changes": [
+            {
+              "part": "machine_theme",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "synth_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "short_ostinato",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pluck_call",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "pluck_echo",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "held_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "high_accent",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "running_color",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.4
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "string_answer",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "brass_call",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "upper_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "bell_db",
+                  "hz": 200,
+                  "q": 0.75,
+                  "db": -0.9,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "brass_arrival",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "claves",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_kick",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_snare",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_hats",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "engine_metal_toms",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.5239360332489014,
+              "p95_gain_reduction_db": 0.2455499917268753,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 0.6,
+              "attack_ms": 12,
+              "release_ms": 160
+            },
+            {
+              "type": "true_peak_gain_control",
+              "ceiling_db": -3.15,
+              "oversampling": 4,
+              "lookahead_ms": 4,
+              "release_ms": 80,
+              "max_gain_reduction_db": -0.0,
+              "fraction_above_1db": 0.0
+            }
+          ]
+        },
+        {
+          "id": "DKC-11",
+          "changes": [
+            {
+              "part": "upper_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.35
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 700,
+                  "q": 0.8,
+                  "db": -0.6,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "low_strings",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.5
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 170,
+                  "q": 0.8,
+                  "db": -1.1,
+                  "conditional_on": "bass"
+                },
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bottle_low",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "bottle_high",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.25
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "atmospheric_reply",
+              "role": "texture",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.165,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "picked_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.25
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "bongos",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.16,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "triangle_ring",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "triangle_short",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "congas",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.15,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "woodblocks",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.5996471643447876,
+              "p95_gain_reduction_db": 0.42759254574775696,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 0.6,
+              "attack_ms": 12,
+              "release_ms": 160
+            },
+            {
+              "type": "true_peak_gain_control",
+              "ceiling_db": -3.15,
+              "oversampling": 4,
+              "lookahead_ms": 4,
+              "release_ms": 80,
+              "max_gain_reduction_db": -0.0,
+              "fraction_above_1db": 0.0
+            }
+          ]
+        },
+        {
+          "id": "DKC-15",
+          "changes": [
+            {
+              "part": "muted_guitar",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                },
+                {
+                  "type": "bell_db",
+                  "hz": 240,
+                  "q": 0.8,
+                  "db": -0.7,
+                  "conditional_on": "foreground"
+                },
+                {
+                  "type": "stage",
+                  "pan": 0.16,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "clean_guitar",
+              "role": "foreground",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.08,
+                  "side_highpass_hz": 140,
+                  "front_send": 0.6
+                }
+              ]
+            },
+            {
+              "part": "picked_bass",
+              "role": "bass",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.6
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "orchestra_hits",
+              "role": "harmony",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "kit",
+              "role": "kit",
+              "changes": [
+                {
+                  "type": "balance_db",
+                  "value": -0.2
+                },
+                {
+                  "type": "stage",
+                  "pan": 0,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "electronic_clicks",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "cuica",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": -0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            },
+            {
+              "part": "clap_gesture",
+              "role": "percussion",
+              "changes": [
+                {
+                  "type": "stage",
+                  "pan": 0.12,
+                  "side_highpass_hz": 140,
+                  "front_send": 1
+                }
+              ]
+            }
+          ],
+          "dynamics": [
+            {
+              "type": "bus_dynamics",
+              "max_gain_reduction_db": 0.8973805904388428,
+              "p95_gain_reduction_db": 0.39170488715171814,
+              "ratio": "gentle soft-knee around active 90th percentile",
+              "cap_db": 1.5,
+              "attack_ms": 12,
+              "release_ms": 160
+            },
+            {
+              "type": "true_peak_gain_control",
+              "ceiling_db": -3.15,
+              "oversampling": 4,
+              "lookahead_ms": 4,
+              "release_ms": 80,
+              "max_gain_reduction_db": 1.7513082027435303,
+              "fraction_above_1db": 0.0019267288579626575
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": "Full-song private review target about -20 LUFS; lossless true-peak ceiling below -3 dBTP. Runtime loop/voice/device gates remain separate."
+}

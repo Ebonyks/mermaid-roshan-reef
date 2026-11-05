@@ -1,0 +1,714 @@
+{
+  "method": "Source-only non-destructive crop/cutout/compositing; no full-scene redraw, generation, RGB retouch or relighting",
+  "canvas_size": [
+    2867,
+    2048
+  ],
+  "layers": [
+    {
+      "role": "background",
+      "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+      "native_size": [
+        6144,
+        2048
+      ],
+      "crop": [
+        1250,
+        0,
+        4117,
+        2048
+      ]
+    },
+    {
+      "role": "slide contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        780,
+        1384,
+        440,
+        46
+      ],
+      "opacity": 0.45,
+      "operation": "Non-uniform oval shadow fitting and document opacity only; native source RGB unchanged"
+    },
+    {
+      "role": "swing contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        1240,
+        1380,
+        490,
+        50
+      ],
+      "opacity": 0.4,
+      "operation": "Non-uniform oval shadow fitting and document opacity only; native source RGB unchanged"
+    },
+    {
+      "role": "castle contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        1840,
+        1575,
+        900,
+        70
+      ],
+      "opacity": 0.34,
+      "operation": "Non-uniform oval shadow fitting and document opacity only; native source RGB unchanged"
+    },
+    {
+      "role": "plane body contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        480,
+        1598,
+        750,
+        35
+      ],
+      "opacity": 0.32,
+      "operation": "Non-uniform oval shadow fitting and document opacity only; native source RGB unchanged"
+    },
+    {
+      "role": "main wheel contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        789,
+        1635,
+        78,
+        17
+      ],
+      "opacity": 0.75,
+      "operation": "Non-uniform oval shadow fitting and document opacity only; native source RGB unchanged"
+    },
+    {
+      "role": "nose wheel contact",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_contact_shadow.png",
+      "sha256": "2daa0ae7a46d359880f7aa1a28496ec0881abf227ee6260deeb6b035773aa6f6",
+      "native_size": [
+        256,
+        128
+      ],
+      "target_box": [
+        1117,
+        1628,
+        60,
+        14
+      ],
+      "opacity": 0.75,
+      "operation": "Non-uniform oval shadow fitting and document opacity only; native source RGB unchanged"
+    },
+    {
+      "role": "Pearl Castle with original Roshan glass",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "sha256": "90da7b0106759690001a2bc7fd77042db5afa5e59f13c8557faa6b3b86d19cd8",
+      "native_size": [
+        1024,
+        1000
+      ],
+      "target_box": [
+        1815,
+        670,
+        1000,
+        977
+      ],
+      "opacity": 1,
+      "operation": "Uniform resampling and RGBA source-over; no relighting/repainting"
+    },
+    {
+      "role": "playground slide",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png",
+      "sha256": "3b917608d9e3067d9fe68bbd260eba045acc0a15074795f4649f40ee0c69a3e4",
+      "native_size": [
+        425,
+        412
+      ],
+      "target_box": [
+        780,
+        1000,
+        425,
+        412
+      ],
+      "opacity": 1,
+      "operation": "Uniform resampling and RGBA source-over; no relighting/repainting"
+    },
+    {
+      "role": "existing playground swing frame",
+      "source": "assets/props/story/play_swing_frame.png",
+      "sha256": "a2098346be89be32ff1b559a8db96fbc95a9ab29c7ef3d7bb451059e2ef05592",
+      "native_size": [
+        1024,
+        719
+      ],
+      "target_box": [
+        1205,
+        982,
+        570,
+        400
+      ],
+      "opacity": 1,
+      "operation": "Uniform resampling and RGBA source-over; no relighting/repainting"
+    },
+    {
+      "role": "one existing swing seat and its two ropes",
+      "source": "assets/props/story/play_swing_seat.png",
+      "sha256": "b3e6933400d83ece5e58ff62f23a052b3e1a5ce3ef788f66752e1f8f8fd0db7b",
+      "native_size": [
+        554,
+        1024
+      ],
+      "target_box": [
+        1410,
+        1020,
+        160,
+        296
+      ],
+      "opacity": 1,
+      "operation": "Uniform resampling and RGBA source-over; no relighting/repainting"
+    },
+    {
+      "role": "plane isolation",
+      "source": "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/demo_landing_frame_396.png",
+      "sha256": "c236f578bd6c16fef4c0dfa94bec0185cdf826859cb96313440358e4f8af62d2",
+      "frame_index_zero_based": 396,
+      "time_seconds": 16.5,
+      "native_size": [
+        1280,
+        720
+      ],
+      "polygon": [
+        [
+          400,
+          324
+        ],
+        [
+          408,
+          322
+        ],
+        [
+          426,
+          321
+        ],
+        [
+          445,
+          323
+        ],
+        [
+          463,
+          325
+        ],
+        [
+          471,
+          329
+        ],
+        [
+          473,
+          334
+        ],
+        [
+          469,
+          338
+        ],
+        [
+          463,
+          339
+        ],
+        [
+          475,
+          359
+        ],
+        [
+          488,
+          379
+        ],
+        [
+          504,
+          401
+        ],
+        [
+          552,
+          401
+        ],
+        [
+          582,
+          400
+        ],
+        [
+          615,
+          400
+        ],
+        [
+          649,
+          400
+        ],
+        [
+          674,
+          400
+        ],
+        [
+          687,
+          399
+        ],
+        [
+          701,
+          401
+        ],
+        [
+          713,
+          405
+        ],
+        [
+          725,
+          410
+        ],
+        [
+          736,
+          423
+        ],
+        [
+          744,
+          437
+        ],
+        [
+          746,
+          440
+        ],
+        [
+          752,
+          433
+        ],
+        [
+          759,
+          433
+        ],
+        [
+          772,
+          436
+        ],
+        [
+          789,
+          437
+        ],
+        [
+          796,
+          440
+        ],
+        [
+          795,
+          447
+        ],
+        [
+          788,
+          451
+        ],
+        [
+          773,
+          456
+        ],
+        [
+          765,
+          459
+        ],
+        [
+          775,
+          472
+        ],
+        [
+          781,
+          486
+        ],
+        [
+          781,
+          495
+        ],
+        [
+          776,
+          504
+        ],
+        [
+          766,
+          512
+        ],
+        [
+          749,
+          517
+        ],
+        [
+          730,
+          521
+        ],
+        [
+          706,
+          524
+        ],
+        [
+          707,
+          537
+        ],
+        [
+          710,
+          540
+        ],
+        [
+          710,
+          548
+        ],
+        [
+          706,
+          553
+        ],
+        [
+          700,
+          554
+        ],
+        [
+          696,
+          552
+        ],
+        [
+          695,
+          547
+        ],
+        [
+          696,
+          541
+        ],
+        [
+          700,
+          538
+        ],
+        [
+          698,
+          526
+        ],
+        [
+          664,
+          527
+        ],
+        [
+          641,
+          524
+        ],
+        [
+          613,
+          521
+        ],
+        [
+          588,
+          517
+        ],
+        [
+          576,
+          514
+        ],
+        [
+          571,
+          516
+        ],
+        [
+          565,
+          521
+        ],
+        [
+          562,
+          530
+        ],
+        [
+          563,
+          538
+        ],
+        [
+          562,
+          546
+        ],
+        [
+          558,
+          554
+        ],
+        [
+          552,
+          557
+        ],
+        [
+          545,
+          557
+        ],
+        [
+          540,
+          553
+        ],
+        [
+          537,
+          546
+        ],
+        [
+          537,
+          539
+        ],
+        [
+          540,
+          532
+        ],
+        [
+          544,
+          528
+        ],
+        [
+          545,
+          520
+        ],
+        [
+          528,
+          519
+        ],
+        [
+          500,
+          523
+        ],
+        [
+          473,
+          526
+        ],
+        [
+          444,
+          528
+        ],
+        [
+          419,
+          527
+        ],
+        [
+          399,
+          523
+        ],
+        [
+          381,
+          519
+        ],
+        [
+          368,
+          514
+        ],
+        [
+          363,
+          509
+        ],
+        [
+          363,
+          505
+        ],
+        [
+          367,
+          504
+        ],
+        [
+          378,
+          507
+        ],
+        [
+          397,
+          512
+        ],
+        [
+          413,
+          513
+        ],
+        [
+          437,
+          506
+        ],
+        [
+          464,
+          499
+        ],
+        [
+          496,
+          491
+        ],
+        [
+          526,
+          484
+        ],
+        [
+          514,
+          479
+        ],
+        [
+          502,
+          473
+        ],
+        [
+          485,
+          465
+        ],
+        [
+          468,
+          457
+        ],
+        [
+          452,
+          449
+        ],
+        [
+          436,
+          440
+        ],
+        [
+          424,
+          433
+        ],
+        [
+          416,
+          429
+        ],
+        [
+          401,
+          430
+        ],
+        [
+          390,
+          430
+        ],
+        [
+          377,
+          429
+        ],
+        [
+          369,
+          426
+        ],
+        [
+          365,
+          424
+        ],
+        [
+          366,
+          421
+        ],
+        [
+          375,
+          419
+        ],
+        [
+          389,
+          418
+        ],
+        [
+          403,
+          417
+        ],
+        [
+          402,
+          414
+        ],
+        [
+          401,
+          410
+        ],
+        [
+          406,
+          407
+        ],
+        [
+          419,
+          404
+        ],
+        [
+          440,
+          401
+        ],
+        [
+          437,
+          384
+        ],
+        [
+          434,
+          367
+        ],
+        [
+          432,
+          349
+        ],
+        [
+          430,
+          336
+        ],
+        [
+          405,
+          336
+        ],
+        [
+          397,
+          334
+        ],
+        [
+          394,
+          331
+        ],
+        [
+          395,
+          328
+        ]
+      ],
+      "crop": [
+        358,
+        318,
+        802,
+        560
+      ],
+      "operation": "4x polygon alpha coverage downsampled LANCZOS; RGB unchanged inside mask; source-only isolation",
+      "output": "books/chapter_one/landscape/revisions/v40_wide_arrival/art/landed_plane_source_cutout.png",
+      "output_sha256": "5728726c6be87e7a64b5f9328e4992c0bf8c4a2db48c96e9a7880ffdd73929b1"
+    },
+    {
+      "role": "plane on landing wheels",
+      "source": "books/chapter_one/landscape/revisions/v40_wide_arrival/art/landed_plane_source_cutout.png",
+      "sha256": "5728726c6be87e7a64b5f9328e4992c0bf8c4a2db48c96e9a7880ffdd73929b1",
+      "native_size": [
+        444,
+        242
+      ],
+      "target_box": [
+        420,
+        1135,
+        940,
+        512
+      ],
+      "opacity": 1,
+      "operation": "Uniform 940/444 scale, rounding height to nearest pixel; source video pixels, no invented gear"
+    }
+  ],
+  "output": "books/chapter_one/landscape/revisions/v40_wide_arrival/art/sky_lagoon_wide_arrival.png",
+  "output_sha256": "9a4b5e6b6c19e25e639eeec9c40015953ed3b2fae3b95e5fa150127d992f054b",
+  "owner_request": "PDF3/story2: no otter, wider playground plus castle in one blended location",
+  "native_resolution_limit": "6144x2048 original background cropped2867x2048; castle and fixture native sizes recorded; plane is native444x242 video cutout scaled940x512, not newly generated detail. Review master, final-print PPI remains open.",
+  "source_authority": [
+    "assets_src/sky_lagoon/reductive_rebuild_2026-07-28/README.md",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/demo_source_reference.json"
+  ],
+  "generation_calls": 0
+}

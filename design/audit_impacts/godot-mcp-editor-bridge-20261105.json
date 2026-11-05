@@ -1,0 +1,114 @@
+{
+  "id": "godot-mcp-editor-bridge-20261105",
+  "scope": "Owner request 2026-11-05: integrate satelliteoflove/godot-mcp v4.1.11 so coding agents can drive the Godot 4.7.2 editor and an editor-launched game (scene/node edits, screenshots, input injection, game-time stepping, runtime state). Adds developer tooling only: vendored, SHA-256-pinned addons/godot_mcp (MIT) with two documented local patches, project.godot plugin/autoload/bind settings, .mcp.json pinned to @satelliteoflove/godot-mcp@4.1.11, docs/GODOT_MCP.md with ledger row, and an ASSET_LICENSES.md row. The owner chose (2026-11-05) a narrow, fail-closed tooling exemption in tools/audit_game_2d.py. Hash-pinned addon files are reported on a separate GAME2D TOOLING line instead of as migration debt; any edit, new file or malformed manifest is debt again. Gameplay, art, audio and saves are unchanged. MCPGameBridge frees itself unless an editor debugger session is active, so phone launches and SceneTree probes see the pre-addon tree.",
+  "baseline": "ff68f9550c28f7d979896d5c84d1214264c29165",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-04",
+    "DL-MED-09",
+    "DL-MED-10",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-SAVE-01",
+    "DL-SAVE-05",
+    "DL-ASSET-04",
+    "DL-CODE-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "New developer-tooling feature; it repairs no existing MA-* finding. Game-wide 2D migration debt (DL-MED-04) is unchanged, not reduced: the production 3D file count stayed at the branch baseline of 56, and the regression gate reported NO_REGRESSION. No finding lifecycle is changed.",
+  "files": [
+    ".mcp.json",
+    "ASSET_LICENSES.md",
+    "addons/godot_mcp/LICENSE",
+    "addons/godot_mcp/command_router.gd",
+    "addons/godot_mcp/commands/animation_commands.gd",
+    "addons/godot_mcp/commands/debug_commands.gd",
+    "addons/godot_mcp/commands/exec_commands.gd",
+    "addons/godot_mcp/commands/game_time_commands.gd",
+    "addons/godot_mcp/commands/input_commands.gd",
+    "addons/godot_mcp/commands/mesh_commands.gd",
+    "addons/godot_mcp/commands/node_commands.gd",
+    "addons/godot_mcp/commands/profiler_commands.gd",
+    "addons/godot_mcp/commands/project_commands.gd",
+    "addons/godot_mcp/commands/resource_commands.gd",
+    "addons/godot_mcp/commands/runtime_state_commands.gd",
+    "addons/godot_mcp/commands/scene3d_commands.gd",
+    "addons/godot_mcp/commands/scene_commands.gd",
+    "addons/godot_mcp/commands/screenshot_commands.gd",
+    "addons/godot_mcp/commands/selection_commands.gd",
+    "addons/godot_mcp/commands/system_commands.gd",
+    "addons/godot_mcp/commands/tilemap_commands.gd",
+    "addons/godot_mcp/core/base_command.gd",
+    "addons/godot_mcp/core/mcp_constants.gd",
+    "addons/godot_mcp/core/mcp_debugger_plugin.gd",
+    "addons/godot_mcp/core/mcp_enums.gd",
+    "addons/godot_mcp/core/mcp_log.gd",
+    "addons/godot_mcp/core/mcp_logger.gd",
+    "addons/godot_mcp/core/mcp_utils.gd",
+    "addons/godot_mcp/game_bridge/joy_names.gd",
+    "addons/godot_mcp/game_bridge/key_names.gd",
+    "addons/godot_mcp/game_bridge/mcp_exec_guard.gd",
+    "addons/godot_mcp/game_bridge/mcp_frame_profiler.gd",
+    "addons/godot_mcp/game_bridge/mcp_game_bridge.gd",
+    "addons/godot_mcp/game_bridge/mcp_runtime_state_sampler.gd",
+    "addons/godot_mcp/game_bridge/mesh_validator.gd",
+    "addons/godot_mcp/game_bridge/onscreen.gd",
+    "addons/godot_mcp/plugin.cfg",
+    "addons/godot_mcp/plugin.gd",
+    "addons/godot_mcp/ui/status_panel.gd",
+    "addons/godot_mcp/ui/status_panel.tscn",
+    "addons/godot_mcp/websocket_server.gd",
+    "design/05_DOC_LEDGER.md",
+    "docs/GODOT_MCP.md",
+    "project.godot",
+    "tools/audit_game_2d.py",
+    "tools/third_party_tooling_manifest.json"
+  ],
+  "validation": [
+    {
+      "command": "Probe suite (probes.yml) on branch ccr-62241184-10wgzx",
+      "result": "PASS",
+      "evidence": "Run 41996559371 at ec7ea3e5d96323e325db432cf45fdef555735a76: checkout, Godot 4.7.2 import, compile-check of every script, audit_game_2d --regression-gate (NO_REGRESSION; 14 reviewed tooling files), all trusted probes, boot gate"
+    },
+    {
+      "command": "Probe suite run 41975471867 attempt 2 at dc17047b (pre-fix)",
+      "result": "FAIL",
+      "evidence": "Import, compile-check and the 2D regression gate passed. Then probe_fetch, probe_verbs, probe_carry, probe_grotto and probe_flow read MCPGameBridge as root's last child, and the job hit its 55m limit. Fixed in ec7ea3e by the bridge queue_free patch."
+    },
+    {
+      "command": "python3 tools/audit_game_2d.py --stress; python3 -m unittest tools.tests.test_audit_game_2d",
+      "result": "PASS",
+      "evidence": "19/19 stress assertions (5 new tooling-exemption cases) and 74 unit tests, on the branch and on the merge tree 208a12cf"
+    },
+    {
+      "command": "python3 tools/audit_document_authority.py; tools/audit_roshan_2d.py; tools/audit_probe_parity.py",
+      "result": "PASS",
+      "evidence": "ALL OK on the branch. On merge 208a12cf, in a sparse worktree, inventory and ledger are both 782 and every failure was a file the sparse checkout omitted"
+    },
+    {
+      "command": "Probe suite on dev 208a12cf (run 42007402685)",
+      "result": "FAIL",
+      "evidence": "Static gates: audit_development --base auto found no audit-impact record covering the 46 merged paths. Repaired by this record (merge 96e8d3a2)"
+    },
+    {
+      "command": "Probe suite on dev 96e8d3a2 (run 42016846369)",
+      "result": "FAIL",
+      "evidence": "The static gates, including audit_development, and the Godot import passed. Then audit_game_2d --regression-gate failed G2D101 on this record, whose prose quoted a snake-case metric name that the audit's lowercase 3D-marker pattern counts. The prose was reworded and the file scans clean; the dev re-run is PENDING"
+    },
+    {
+      "command": "Editor-side godot-mcp connection with a live Godot 4.7.2 editor",
+      "result": "PENDING",
+      "evidence": "No editor or display in the cloud session. The MCP server itself started from .mcp.json and listed its 21 tools; the editor bridge is untested end-to-end"
+    }
+  ],
+  "acceptance_gaps": "Developer tooling only: no child, visual or device acceptance applies. Pending: an owner check on a real desktop that the editor's MCP panel connects and godot_* tools work; a dev re-run of the probe suite. The 2D medium contract stays UNSATISFIED; NO_REGRESSION is not satisfaction. Nothing has been promoted to master.",
+  "owner_corrections": [
+    {
+      "decision_id": "owner-2026-11-05-godot-mcp-full-integration",
+      "evidence": "Session question 2026-11-05: the owner chose 'Full, with tooling exemption (Recommended)': vendor, enable, commit the bridge autoload, and add a narrow reviewed 2D-audit exemption for addons/godot_mcp",
+      "write_back": "tools/audit_game_2d.py REVIEWED_TOOLING_MANIFEST comment; tools/third_party_tooling_manifest.json purpose; docs/GODOT_MCP.md"
+    }
+  ]
+}

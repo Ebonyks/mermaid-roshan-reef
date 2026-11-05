@@ -1,0 +1,184 @@
+{
+  "status": "REVIEW_CANDIDATES",
+  "generation_method": "Built-in imagegen",
+  "trials": [
+    {
+      "page": 20,
+      "file": "art/contrast_trials/page_20.png",
+      "sha256": "5d6a609633f7f1eab755a6a75b20fcf9bd610a744deb33c40e0bf2dc765a0bae",
+      "prompt": "Edit IMAGE 1 blank blue 7:5 stationery, preserve exact dimensions1484x1060, upper wash, dotted border, shells and blue banks. IMAGE2 is lavender dust-bunny identity only: scalloped puff, curled ears/forelock, pearl nubs, no human limbs. New marginal activity only, not narrative scene. Absolutely all added marks wholly within y=925..1040. Each figure/object max160px width and110px height. Center x=565..920 completely clear. Broad simple outlined watercolor, no extra texture or speckle. Naturally ground figures into bank using narrow contact shadow and a tiny shaped sand overlap; do not sit them on a rectangular mask. Leave opposite bank native only. Keep top85% absolutely empty. Exactly THREE SMALL bunnies together on RIGHT bank x=980..1320,y=930..1038. One single shared play activity with ONE little overturned nesting cup: left bunny leans/nudges cup with pearl nub, middle bunny compressed low peeks at cup, right bunny sits alert facing LEFT toward companions. Different silhouettes, all attend to the same cup, no frontal line-up. One bunny may be slightly smaller. Group low and horizontally broad, each figure 85..105px wide and70..95px high. Cup only45px high. No sailboat or additional props; left bank native empty. Keep count exactly three.",
+      "prompt_sha256": "250d19a65c674779be6f55b62e564f12723ac66868edb1c29fac309427b065f0",
+      "references": [
+        {
+          "path": "books\\chapter_one\\landscape\\art\\landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82"
+        },
+        {
+          "path": "assets_src\\characters\\grand_puff_2026-09-13\\references\\dust_bunny_family.png",
+          "sha256": "df25f35249b735e077f8fb21b3d932ab06eba21107792ed220c5cbbea6fe216d"
+        }
+      ],
+      "correction": {
+        "prompt": "Edit this exact background locally. Keep the same drawings, character count, poses, prop identity, blue base, dotted border and style. The added border group is TOO LARGE. Reduce ONLY the added three-bunny/cup group to exactly 55 percent of its current linear width and height. Set the lowest edge at y=1035 on this1484x1060 canvas, fully atop the blue bank surface, not behind the bank skyline. Group center x=1165. All added pixels must be below y=930. Heal its former larger footprint to the existing simple blue wash/bank. Ground with narrow contact shadow and a tiny shaped sand overlap. Do not resize entire image. Do not introduce new objects, dust or motion marks. Preserve individual expressions and curls. Upper area and opposite bank unchanged.",
+        "reference": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-45509e76-96b9-4828-b6d4-1d43f2f29ac7.png",
+        "followup": {
+          "prompt": "Local placement correction only. Preserve this exact three-bunny cup play drawing, size, identity, poses and entire blue stationery design. Move the complete right-bank bunny/cup group DOWN by35pixels, with its lowest edge at y=1035. Do not resize. Tallest bunny top must be below y=925. Group stays on blue bank surface with grounded narrow shadow, not sitting behind skyline. Heal original footprint. Keep all three bunnies and cup, no other changes.",
+          "reference": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-eaaa2987-9c8e-4bac-8126-7154b23b491d.png",
+          "reference_sha256": "84400f4704741f222d745f61ecfdce3fd7083f62f1a1c7977775172377e4e5be",
+          "prompt_sha256": "1cb707f61098e63adaf960c9f941585a1ee9c4108475ba43cc6c0a54a18697ca"
+        },
+        "reference_sha256": "4588ac12d3209a51381200c4c4dcf2b04e3c49119c3e5e3822c3f68a9d30b3b8",
+        "prompt_sha256": "f74fdc4c0befc122cd3ddccddc0ca9cfd3811843dd6c4157f5f375bc5e7e4dfc"
+      },
+      "review": "Three lavender bunnies share one tipped cup on the right bank; distinct low, leaning and upright poses, left bank quiet. Grounded and within lower zone. Small cup interaction still needs print-size/owner review.",
+      "visible_bounds_pixels": [
+        [
+          929,
+          945,
+          91,
+          87
+        ],
+        [
+          1033,
+          949,
+          93,
+          77
+        ],
+        [
+          1112,
+          923,
+          99,
+          101
+        ],
+        [
+          993,
+          982,
+          76,
+          58
+        ]
+      ],
+      "bounds_method": "Conservative manual visible bounds, not alpha measurement or hidden occlusion claim",
+      "used_in_book": true
+    },
+    {
+      "page": 22,
+      "file": "art/contrast_trials/page_22.png",
+      "sha256": "36cf4a09fd2d2cef4d114829cba67c8c81368505e79d8e0d4ea5b14a543a991a",
+      "prompt": "Edit IMAGE 1 blank blue 7:5 stationery, preserve exact dimensions1484x1060, upper wash, dotted border, shells and blue banks. IMAGE2 is lavender dust-bunny identity only: scalloped puff, curled ears/forelock, pearl nubs, no human limbs. New marginal activity only, not narrative scene. Absolutely all added marks wholly within y=925..1040. Each figure/object max160px width and110px height. Center x=565..920 completely clear. Broad simple outlined watercolor, no extra texture or speckle. Naturally ground figures into bank using narrow contact shadow and a tiny shaped sand overlap; do not sit them on a rectangular mask. Leave opposite bank native only. Keep top85% absolutely empty. ZERO bunnies or characters. On RIGHT bank only, x=1050..1220,y=965..1038, one very low blue sorting tray with three broad compartments and just two small neatly stored crayon-like craft pieces. Simple readable shapes, not miniature clutter. Tray maximum170px wide75px high, grounded in slope. No paper stack, brush, sponge, paint cup, sparkles or other additions. LEFT bank native empty. This is the quiet orderly end of tidying.",
+      "prompt_sha256": "53e6381969e39192a8babe0d9f2f2fae7c9750c1a23030fadc835543a745b4fe",
+      "references": [
+        {
+          "path": "books\\chapter_one\\landscape\\art\\landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82"
+        },
+        {
+          "path": "assets_src\\characters\\grand_puff_2026-09-13\\references\\dust_bunny_family.png",
+          "sha256": "df25f35249b735e077f8fb21b3d932ab06eba21107792ed220c5cbbea6fe216d"
+        }
+      ],
+      "correction": {
+        "prompt": "Edit this exact background locally. Keep the same drawings, character count, poses, prop identity, blue base, dotted border and style. The added border group is TOO LARGE. Reduce ONLY the added blue sorting tray to exactly 55 percent of its current linear width and height. Set the lowest edge at y=1035 on this1484x1060 canvas, fully atop the blue bank surface, not behind the bank skyline. Tray center x=1150. All added pixels must be below y=930. Heal its former larger footprint to the existing simple blue wash/bank. Ground with narrow contact shadow and a tiny shaped sand overlap. Do not resize entire image. Do not introduce new objects, dust or motion marks. Preserve individual expressions and curls. Upper area and opposite bank unchanged.",
+        "reference": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-2f1524d1-55f4-4a5d-ae7d-2029cd3c07c7.png",
+        "followup": null,
+        "reference_sha256": "f837fe922cd6e0b13fe818ba2c955979604759b478d6a6ef13c1b8afc6fc4944",
+        "prompt_sha256": "b21805f981b0a93793e799c553e58196ea54a2924487db1004d105d59a701049"
+      },
+      "review": "Object-only tray trial, not installed because page22 now needs full art. Visible width about185px marginally exceeds12% and must be reduced before any later use.",
+      "visible_bounds_pixels": [
+        [
+          1050,
+          945,
+          185,
+          70
+        ]
+      ],
+      "bounds_method": "Conservative manual visible bounds, not alpha measurement or hidden occlusion claim",
+      "used_in_book": false
+    },
+    {
+      "page": 24,
+      "file": "art/contrast_trials/page_24.png",
+      "sha256": "0163ba988ecad39e71d62a8743b78c2d06f5dd8deddeaa177259cd3480ffbe64",
+      "prompt": "Edit IMAGE 1 blank blue 7:5 stationery, preserve exact dimensions1484x1060, upper wash, dotted border, shells and blue banks. IMAGE2 is lavender dust-bunny identity only: scalloped puff, curled ears/forelock, pearl nubs, no human limbs. New marginal activity only, not narrative scene. Absolutely all added marks wholly within y=925..1040. Each figure/object max160px width and110px height. Center x=565..920 completely clear. Broad simple outlined watercolor, no extra texture or speckle. Naturally ground figures into bank using narrow contact shadow and a tiny shaped sand overlap; do not sit them on a rectangular mask. Leave opposite bank native only. Keep top85% absolutely empty. Exactly ONE bunny on LEFT bank x=310..460, y=928..1038. Attentive side-on listening pose leaning subtly toward upper-left (where the foreground door will later sit), eyes looking upper-left, curls alert, closed small mouth, quiet suspense. Complete body no raised hands. No props, chest, costume, shell helmet, motion lines or other bunny. Wide low listening silhouette, not another frontal smiling portrait.",
+      "prompt_sha256": "d660c5c881faa8d8d09e4099a1c410fa341e4d9635cfddadd1f625c144fb5c18",
+      "references": [
+        {
+          "path": "books\\chapter_one\\landscape\\art\\landscape_base_v2.png",
+          "sha256": "40fae50f1284573f66deb57b101f2c790d06f8c9ae85f55189e631cee01f6e82"
+        },
+        {
+          "path": "assets_src\\characters\\grand_puff_2026-09-13\\references\\dust_bunny_family.png",
+          "sha256": "df25f35249b735e077f8fb21b3d932ab06eba21107792ed220c5cbbea6fe216d"
+        }
+      ],
+      "correction": {
+        "prompt": "Edit this exact background locally. Keep the same drawings, character count, poses, prop identity, blue base, dotted border and style. The added border group is TOO LARGE. Reduce ONLY the added single listening bunny to exactly 55 percent of its current linear width and height. Set the lowest edge at y=1035 on this1484x1060 canvas, fully atop the blue bank surface, not behind the bank skyline. Single bunny center x=365. All added pixels must be below y=930. Heal its former larger footprint to the existing simple blue wash/bank. Ground with narrow contact shadow and a tiny shaped sand overlap. Do not resize entire image. Do not introduce new objects, dust or motion marks. Preserve individual expressions and curls. Upper area and opposite bank unchanged.",
+        "reference": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-6e4f311b-7319-40c7-b8f2-270b45b0b9c5.png",
+        "followup": null,
+        "reference_sha256": "9a63889f00c666286d44298be9bf938528e1ed600ddee7b404f7682089ca613c",
+        "prompt_sha256": "0cfeba4e0b10bafca1d3ab24488eeedd6961c28614062a5e7a152634675ae888"
+      },
+      "review": "One lavender bunny leans and looks upper-left toward the foreground door; no chest/costume. Left-bank contact follows slope; right bank quiet. Pose reads as attentive rather than an explicit ear-cupping gesture.",
+      "visible_bounds_pixels": [
+        [
+          335,
+          911,
+          138,
+          108
+        ]
+      ],
+      "bounds_method": "Conservative manual visible bounds, not alpha measurement or hidden occlusion claim",
+      "used_in_book": true
+    }
+  ],
+  "page22_source": {
+    "source": "assets_src/cinematics/d1_c10_art_room_restored_visual_v1/storyboards/generated_keyframes/D1-C10-S01_runtime_informed_candidate.png",
+    "source_sha256": "e62e67088502bb4f43f848e7538e8e6a7f9db1fb4c938520f41a6f82c2a3163d",
+    "output_sha256": "e62e67088502bb4f43f848e7538e8e6a7f9db1fb4c938520f41a6f82c2a3163d",
+    "modifications": "None; copied existing authored reference. Page uses trim crop only.",
+    "authority": "Narrative reference approved for static-book reuse by owner; cinematic human acceptance pending, not promoted by book use."
+  },
+  "source_gaps": {
+    "6": "Inspected bathroom cleanup board has tub action; sink runtime sequence exists but no suitable narrative sink action confirmed.",
+    "23": "Runtime customizer references located; no finished authored picture selected.",
+    "26": "Inspected Grand Puff reveal board has approach/reveal, not Roshan dodge. No replacement scene generated."
+  },
+  "unchanged_page_check": {
+    "status": "PASS",
+    "pages": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      21,
+      23,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ],
+    "method": "Rendered JPEG byte equality versus v13"
+  },
+  "page22_visual_review": "Rendered at 832x594: whole Roshan and brush contact retained. Initial caption crossed left table; moved to open floor. Replaced coarse focal annotation with separately inspected Roshan and right-table bounds, PDF points [275,90,170,215] and [378,55,126,155]. Caption stays below figure and left/below right table. Owner/print review pending."
+}

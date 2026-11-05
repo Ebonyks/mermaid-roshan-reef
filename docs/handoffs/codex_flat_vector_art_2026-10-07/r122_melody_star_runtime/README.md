@@ -1,0 +1,13 @@
+# R122 — Painted Melody stage-star source candidate
+
+Owner scope: **Resume art candidates; keep Dev frozen**. Stable piece `FV-8E1550C50601`, existing Melody reward-star role. Baseline `27c88288bf6e39582072811443df79919e7bbb89`; source branch `codex/flat-vector-melody-star-20261102`.
+
+The old flat gold/outline polygon and code-drawn white glint are replaced by one whole painted gold five-point star on the2D Canvas. The original StageStar Control,104px diameter formula, center, z18 and noninteractive semantics remain. Controllers, cues, targets, actors, scene, other theatre roles and saves retain their existing behavior. No polygon fallback remains for this role.
+
+One built-in ImageGen static take supplies the actual candidate; its1254-square native, exact editable Aseprite master/roundtrip, runtime master, saved prompt and role-bound actual scene/material references are retained under `assets_src/imagegen/melody_star_20261102/`. Aseprite1.3.18.4 uniformly resizes the whole native to256-square RGBA using bilinear filtering; no crop or part edit. Runtime import is lossless with mipmaps, bounded to256px, without VRAM compression. The exposed tool returned no model/version, seed or cost; no ImageGen2.5 claim is made. Static cap2, calls1, animation0.
+
+`SOURCE_CONTEXT_REUSE.json` binds all5,062 baseline files raw-exact before the star edit, reusing six current source frames and69 checks with zero new frame credit. New candidate import, six same-scene three-aspect captures, ten-axis comparison and complete current verification are recorded separately in this packet. All82 current trusted probes, complete static set, exact4.7.2 analyzer and2D no-regression guard pass. The current candidate has90 effective configured native checks plus69 reused exact-source checks. The original tall-size exact-float failure remains failed; only that fixture assertion was corrected after measuring0.000023px rounding, and only the failed tall case was recaptured. FormalQA11 remains absent.
+
+Candidate and work-branch source integration remain separate from Dev integration, formalQA11, physical device, child and owner acceptance. All external/global coverage gaps remain open; accepted removals0. The mission is unfinished. The previous R121 exact-source CI success is retained in `R121_EXACT_CI_SUCCESS.json`, without rerunning its healthy suite or changing historical records.
+
+Applicable rules, findings and required evidence are in `PLAN.json` and `design/audit_impacts/flat-vector-melody-star-20261102.json`. `MANIFEST.json` enumerates the bounded actual delivery; publication and anonymous immutable verification are required before delivery is claimed.

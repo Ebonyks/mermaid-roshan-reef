@@ -1,0 +1,185 @@
+{
+  "schema": "independent-book-publication-review/v1",
+  "revision": "V46",
+  "reviewer": "Independent second AI /root/v38_peer_critic",
+  "checked_at_utc": "2026-11-02T04:10:55.070506+00:00",
+  "verdict": "SATISFIED_WITH_DECLARED_HOLDS",
+  "publication_scope": "Pinned payload byte identity, availability and exact candidate parity. No new visual, child, owner, clinical, print or game acceptance.",
+  "conclusion": "The immutable V46 payload is available and matches the independently reviewed candidate. The full101-file anonymous receipt agrees with every manifest member, URL, size/hash and both digests; the four independently fetched small objects are exact. No scoped publication blocker remains for the payload. The three excluded closeout metadata files still require the parent's followup commit and remote byte verification.",
+  "repository": "Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/mermaid-roshan-picture-book",
+  "payload_revision": "ebf6e20a682705c7e0aee37254565c6a275e841d",
+  "links": {
+    "entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/ebf6e20a682705c7e0aee37254565c6a275e841d/books/chapter_one/landscape/revisions/v46_preschool_legibility/README.md",
+    "immutable_tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/ebf6e20a682705c7e0aee37254565c6a275e841d/books/chapter_one/landscape/revisions/v46_preschool_legibility",
+    "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ebf6e20a682705c7e0aee37254565c6a275e841d/books/chapter_one/landscape/revisions/v46_preschool_legibility/manifest.json"
+  },
+  "manifest": {
+    "path": "books/chapter_one/landscape/revisions/v46_preschool_legibility/manifest.json",
+    "sha256": "88c0eda86b13fd37bd0ec4215aa4fc45ca192362da29e300b14425077c2736af",
+    "bytes": 52778,
+    "output_files": 99,
+    "output_bytes": 188007634,
+    "required_pinned_inputs": 2,
+    "pinned_input_bytes": 3323063,
+    "total_required_files": 101,
+    "total_required_bytes": 191330697,
+    "payload_sha256": "112e8f8c9c4b219ff5671fe601ec4d2f259276fe0cfe51501be35ac7e6194d07",
+    "external_inputs_sha256": "8080a54cca916c4d2db1969a757b56f83a453b3773ea7a6112ff8cd5df0f6fdf",
+    "digest_method": "Independently recomputed SHA256 of sorted UTF8 revision-or-empty:root/path TAB sha256 TAB bytes LF for each lane.",
+    "metadata_exclusions": [
+      "books/chapter_one/landscape/revisions/v46_preschool_legibility/manifest.json",
+      "books/chapter_one/landscape/revisions/v46_preschool_legibility/remote_verification.json",
+      "books/chapter_one/landscape/revisions/v46_preschool_legibility/peer_review/final_publication_acceptance.json",
+      "design/audit_impacts/picture-book-v46-publication-20261101.json"
+    ]
+  },
+  "primary_full_anonymous_receipt": {
+    "path": "books/chapter_one/landscape/revisions/v46_preschool_legibility/remote_verification.json",
+    "sha256": "d80031490ceee52ae1cb05394e73e0f066df16f7e8b011bc2ec498af941cb873",
+    "status": "ALL_REQUIRED_REMOTE_BYTES_VERIFIED",
+    "revision": "ebf6e20a682705c7e0aee37254565c6a275e841d",
+    "checked_at_utc": "2026-11-02T04:04:59.289261+00:00",
+    "access_mode": "Anonymous HTTPS; no credentials or cookies",
+    "output_files_verified": 99,
+    "pinned_input_files_verified": 2,
+    "total_bytes_verified": 191330697,
+    "independent_checks": "Parsed all101 rows; exact set membership with no duplicates/extras; every revision/path, bytes, SHA256, raw GitHub URL and lane equals the sealed manifest. Counts, sums and both payload/input digests match.",
+    "limit": "This is the primary reviewer's full remote-download receipt. I inspected it and its exact membership; I did not personally repeat all101downloads or redownload any PDF/PNG/archive in this publication pass."
+  },
+  "independent_remote_subset": {
+    "access_mode": "Anonymous HTTPS urllib; no Authorization header or Cookie header; no authenticated connector or browser session",
+    "objects": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v46_preschool_legibility/manifest.json",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ebf6e20a682705c7e0aee37254565c6a275e841d/books/chapter_one/landscape/revisions/v46_preschool_legibility/manifest.json",
+        "resolved_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ebf6e20a682705c7e0aee37254565c6a275e841d/books/chapter_one/landscape/revisions/v46_preschool_legibility/manifest.json",
+        "status": 200,
+        "sha256": "88c0eda86b13fd37bd0ec4215aa4fc45ca192362da29e300b14425077c2736af",
+        "bytes": 52778,
+        "matches_current_local_bytes": true,
+        "checked_at_utc": "2026-11-02T04:07:10.481262+00:00"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v46_preschool_legibility/README.md",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ebf6e20a682705c7e0aee37254565c6a275e841d/books/chapter_one/landscape/revisions/v46_preschool_legibility/README.md",
+        "resolved_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ebf6e20a682705c7e0aee37254565c6a275e841d/books/chapter_one/landscape/revisions/v46_preschool_legibility/README.md",
+        "status": 200,
+        "sha256": "66db7d1d25c6da35163e7f741da5883d65e867d2f2a635a2cf0c2a5eb831ed26",
+        "bytes": 7499,
+        "matches_current_local_bytes": true,
+        "checked_at_utc": "2026-11-02T04:07:10.488234+00:00"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v46_preschool_legibility/manuscript.json",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ebf6e20a682705c7e0aee37254565c6a275e841d/books/chapter_one/landscape/revisions/v46_preschool_legibility/manuscript.json",
+        "resolved_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ebf6e20a682705c7e0aee37254565c6a275e841d/books/chapter_one/landscape/revisions/v46_preschool_legibility/manuscript.json",
+        "status": 200,
+        "sha256": "b94f269042ccf77f634bfd2a197196fb3f281d1f5d0554f91e2541edd1bc81cc",
+        "bytes": 9249,
+        "matches_current_local_bytes": true,
+        "checked_at_utc": "2026-11-02T04:07:10.577309+00:00"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v46_preschool_legibility/peer_review/final_candidate_review.json",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ebf6e20a682705c7e0aee37254565c6a275e841d/books/chapter_one/landscape/revisions/v46_preschool_legibility/peer_review/final_candidate_review.json",
+        "resolved_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/ebf6e20a682705c7e0aee37254565c6a275e841d/books/chapter_one/landscape/revisions/v46_preschool_legibility/peer_review/final_candidate_review.json",
+        "status": 200,
+        "sha256": "e1a2e2436cf2ed7817eb668ea14345e655ec5d56486ea08228b9246fede40a17",
+        "bytes": 48235,
+        "matches_current_local_bytes": true,
+        "checked_at_utc": "2026-11-02T04:07:10.667313+00:00"
+      }
+    ],
+    "object_count": 4,
+    "total_bytes": 117761,
+    "all_http_200": true,
+    "all_resolved_to_requested_immutable_urls": true,
+    "all_bytes_equal_local_sealed_objects": true,
+    "limit": "Exactly the four specified small objects were fetched anonymously; no media/archive sweep."
+  },
+  "candidate_parity": {
+    "candidate_path": "books/chapter_one/landscape/revisions/v46_preschool_legibility/peer_review/final_candidate_review.json",
+    "candidate_sha256": "e1a2e2436cf2ed7817eb668ea14345e655ec5d56486ea08228b9246fede40a17",
+    "candidate_verdict": "SATISFIED_WITH_DECLARED_HOLDS",
+    "artifact_bindings_checked": 52,
+    "manifest_rows_exact": true,
+    "pinned_git_objects_exact": true,
+    "current_working_bytes_exact": true,
+    "normalization": "Every binding matched directly. No line-ending or other normalization substitution was needed.",
+    "method": "Compared all52 reviewed artifact size/hash pairs to manifest; read canonical bytes with git show at the pinned publication commit and compared each SHA256/length, then compared current local bytes. No network media download.",
+    "preservation": "No tracked payload modification in git status; before this record, only the excluded remote receipt and dedicated publication impact were untracked. Final candidate record itself remains byte-identical.",
+    "final_reading_and_email_sha256": "958f9edc9abeeec38af3249531de7ed36639e9dd2907e85ea8b2f2fb90f9c54d",
+    "each_pdf_bytes": 24804014,
+    "visual_review_limit": "No visual audit was repeated here. The earlier independent34-entry native inspection and exact34-PDF-render comparison remain bound by the unchanged candidate record."
+  },
+  "content_checks": {
+    "entry_matches_manifest": true,
+    "story_pages": 32,
+    "total_pdf_entries": 34,
+    "caption_words_before": 509,
+    "caption_words_after": 309,
+    "max_caption_words": 14,
+    "changed_captions": 26,
+    "held_word_pages": [],
+    "art_changes": [],
+    "readme_claims_consistent": {
+      "309_words": true,
+      "no_held_word_pages": true,
+      "open_limits": true
+    },
+    "source_before_refs": "Both before proofs are explicitly pinned to116b33fa829f7397e55f70af01be45dc39b3f85b and included in the complete two-row input receipt. They are historical comparison sources, not new delivery pixels.",
+    "rebuild_scope": "Entry distinguishes self-contained PDF overlay rebuild dependencies from a full327-source/project audit requiring complete checkout. This publication check does not misdescribe the99-file packet as a full repository clone."
+  },
+  "sealed_project_receipt": {
+    "path": "books/chapter_one/landscape/revisions/v46_preschool_legibility/validation_results.json",
+    "sha256": "fb7997c4216998223555b0a2e93de12122227c4e2c2fa4d215368908f6d9a3cb",
+    "manifest_hash_exact": true,
+    "commands": [
+      {
+        "command": "python -X utf8 -B books/chapter_one/landscape/revisions/v46_preschool_legibility/verify_revision.py",
+        "result": "PASS",
+        "exit_code": 0,
+        "evidence": "Strict five-review binding;34/34art-only/outside-caption/nativeimagealpha;327seals;inkpaint/cmap PASS;74PASS/6OUTLINE_REQUIRED/0FAIL; actual PDF958f9edc9abeeec38af3249531de7ed36639e9dd2907e85ea8b2f2fb90f9c54d."
+      },
+      {
+        "command": "python -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+        "result": "PASS",
+        "exit_code": 0,
+        "evidence": "52tests in51.866s,OK; DOCAUTH STRESS6/6"
+      },
+      {
+        "command": "python -X utf8 -B tools/audit_document_authority.py",
+        "result": "PASS",
+        "exit_code": 0,
+        "evidence": "DOCAUTH INVENTORY631/LEDGER631,ACTIVE56,RECORDS58;ALL OK"
+      },
+      {
+        "command": "python -X utf8 -B tools/audit_development.py --base auto",
+        "result": "PASS",
+        "exit_code": 0,
+        "evidence": "AUDITDEV BASE5920c673305989ee29d91876480ff445dba9fc8b;ALL OK"
+      }
+    ],
+    "scope": "Read the existing sealed final receipt; did not rerun project/game gates. Green technical checks do not establish child, owner or whole-game satisfaction."
+  },
+  "metadata_followup": {
+    "status": "PENDING_PARENT_COMMIT_AND_ANONYMOUS_VERIFICATION",
+    "files": [
+      "books/chapter_one/landscape/revisions/v46_preschool_legibility/remote_verification.json",
+      "books/chapter_one/landscape/revisions/v46_preschool_legibility/peer_review/final_publication_acceptance.json",
+      "design/audit_impacts/picture-book-v46-publication-20261101.json"
+    ],
+    "reason": "These are declared exclusions so the receipt/review/impact can name the exact immutable payload without a hash cycle. They are not falsely claimed present at the payload commit. Parent will publish and verify only these metadata files next; sealed payload members must remain unchanged."
+  },
+  "open_acceptance_limits": [
+    "Owner reading/illustration acceptance and V45-drafted story facts",
+    "Actual human spoken read-aloud and child listener response",
+    "Qualified speech-language review; word targets are editorial, not a developmental diagnosis",
+    "V44 inherited story1↔2 geography continuity and11/15/16 seahorse-forehead continuity",
+    "Physical trim/PPI/test print and V41Part2",
+    "Doublewide arrival physical page assignment/parity/gutter;34mixed-width PDF entries do not establish an imposed32-page interior",
+    "No gameplay integration, game master-audit closure, dev/master promotion or release acceptance"
+  ],
+  "remaining_payload_publication_blockers": []
+}

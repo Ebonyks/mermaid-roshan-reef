@@ -1,0 +1,7 @@
+{
+  "op": "game_eval",
+  "params": {
+    "code": "var v: Node = get_tree().current_scene.find_child(\"OperaExplorationV1\",true,false)\nvar probe: Node = get_tree().current_scene.get_node_or_null(\"OperaTiledFinalReviewProbe\")\nvar out: Dictionary = {\"snapshot\":v.review_snapshot(),\"save_hash\":v.m.save_data.hash(),\"stars\":v.m.opera_stars,\"pearls\":v.m.pearl_count,\"pause_rect\":v.pause_button.get_rect(),\"completed_badge_sizes\":[],\"failed\":-1}\nfor badge: Sprite2D in v.badges:\n\t(out[\"completed_badge_sizes\"] as Array).append(badge.texture.get_size()*badge.scale)\nif probe!=null:\n\tout[\"failed\"]=probe.results.get(\"failed\",-1)\n\tif probe.done: probe.queue_free()\nreturn out"
+  },
+  "session_id": "runtime@ee96"
+}

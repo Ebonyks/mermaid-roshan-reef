@@ -1,0 +1,4 @@
+{
+  "result": "REJECTED",
+  "reason": "The numeric visual-contact test and implementation both measured the whole atlas after Sprite2D switched to one-cell region sampling. Native capture contradicts the29PASS report: Roshan is too high. That pass is not accepted visual evidence. Fix uses the exact displayed source region; the independent checker derives sampling from runtime region/grid properties."
+}

@@ -1,0 +1,53 @@
+{
+  "state": "PARKED_SOURCE_CANDIDATE_DO_NOT_MERGE_DEV_DURING_DEMO_FREEZE",
+  "baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "stable_id": "FV-12A0922A07E6",
+  "candidate_paths": [
+    "assets/dolls/progress_empty_painted.png",
+    "assets/dolls/progress_filled_painted.png"
+  ],
+  "candidate_checks": 232,
+  "new_generation_calls": 2,
+  "new_runtime_PNG": 2,
+  "technical_exports": 2,
+  "rejected_takes": 0,
+  "new_bounded_implementation_artifacts": 1,
+  "new_frame_events": {
+    "bounded": 26,
+    "excluded": 2,
+    "retained": 28
+  },
+  "prior_baseline_frames_reused": 16,
+  "whole_role_closed": false,
+  "accepted_removed": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "Dev_integrated": false,
+  "mission_complete": false,
+  "geologist_rest_repair": {
+    "state": "SCOPED_NATIVE_REVIEW_PASS_FRESH_FULL_GATES_PENDING",
+    "plan": "geologist_rest_repair/PLAN.json",
+    "checks": 110,
+    "bounded_frames": 6,
+    "new_art": 0
+  },
+  "current_static": "PASS",
+  "local82": "PASS_ALL_82_AND_CURRENT_STATIC",
+  "source_CI": null,
+  "Dolls_native_frame_events": {
+    "bounded": 20,
+    "excluded": 2,
+    "retained": 22
+  },
+  "Geologist_rest_frame_events": {
+    "bounded": 6,
+    "excluded": 0,
+    "retained": 6
+  },
+  "parked": true,
+  "freeze_decision_id": "ODR-DEMO-FREEZE-20261031",
+  "new_partial_Dev_artifact_credits": 0,
+  "preservation_only": true
+}

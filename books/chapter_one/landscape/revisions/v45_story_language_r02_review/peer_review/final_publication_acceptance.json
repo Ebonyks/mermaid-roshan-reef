@@ -1,0 +1,136 @@
+{
+  "schema": "mermaid_roshan.independent_publication_review.v1",
+  "reviewer": "Independent second AI /root/v38_peer_critic",
+  "checked_at_utc": "2026-11-02T01:43:01.103084+00:00",
+  "verdict": "SATISFIED_FOR_PUBLICATION_OF_23_OF_25_DRAFT_WITH_DECLARED_HOLDS",
+  "scope": "Bounded publication verification of the unchanged V45r02 strict-review draft, not complete25caption implementation, new visual review or owner/child/SLP/print acceptance.",
+  "publication": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/mermaid-roshan-picture-book",
+    "payload_revision": "c1cde3b61a5933b3b82f05a78cb118a618a19902",
+    "entry_url": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/c1cde3b61a5933b3b82f05a78cb118a618a19902/books/chapter_one/landscape/revisions/v45_story_language_r02_review/README.md",
+    "immutable_tree_url": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/c1cde3b61a5933b3b82f05a78cb118a618a19902/books/chapter_one/landscape/revisions/v45_story_language_r02_review",
+    "manifest": {
+      "revision": "c1cde3b61a5933b3b82f05a78cb118a618a19902",
+      "path": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/manifest.json",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1cde3b61a5933b3b82f05a78cb118a618a19902/books/chapter_one/landscape/revisions/v45_story_language_r02_review/manifest.json",
+      "bytes": 69092,
+      "sha256": "a36f28bbf28774a12787ff13f616e2bb498fe51339fa7fa253addd0d873cbfcd"
+    },
+    "output_files": 93,
+    "output_bytes": 164889285,
+    "payload_sha256": "fca61610816a556934e905e68df445c8fb40e32041e18a6ad521f06c73eaf400",
+    "pinned_input_files": 48,
+    "pinned_input_revision": "550a0b86216dee020d5070428ab4ddcfe0da4dc1",
+    "pinned_input_bytes": 99445121,
+    "external_inputs_sha256": "60944779d527bce91a24139e4052adb8088f08f39c21d0c8f3a0ffbbdb803a72",
+    "digest_method": "Independently recomputed separate output and pinned-input SHA256 values using sorted UTF8 revision-or-empty COLON path TAB sha256 TAB bytes LF. Output rows use empty revision in the digest; external inputs retain their explicit550a0b8 revision."
+  },
+  "full_primary_receipt": {
+    "path": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/remote_verification.json",
+    "sha256": "fcf1b3a92c9fb9beaa9c3d1512f4a4819eb66d11ed9e2313a6e0c53d30c0fff8",
+    "bytes": 72652,
+    "status": "ALL_REQUIRED_REMOTE_BYTES_VERIFIED",
+    "revision": "c1cde3b61a5933b3b82f05a78cb118a618a19902",
+    "checked_at_utc": "2026-11-02T01:35:20.540222+00:00",
+    "access_mode": "Anonymous HTTPS; no credentials or cookies",
+    "output_files_verified": 93,
+    "pinned_input_files_verified": 48,
+    "total_files_verified": 141,
+    "total_bytes_verified": 264334406,
+    "independent_membership_result": "All141 unique revision/path identities exactly match the93 output plus48 pinned-input manifest rows. Every bytes/SHA256 value and immutable anonymous URL matches. Both digests and summed byte counts match the receipt.",
+    "source_authority_limit": "The48 incoming dependencies are explicitly pinned at550a0b86216dee020d5070428ab4ddcfe0da4dc1. They are not hash claims about subsequently modified current root documents.",
+    "metadata_state": "Receipt is an excluded local followup artifact at this review, to be published and remotely verified with this verdict and the dedicated publication impact. It is not falsely claimed present at the payload commit."
+  },
+  "independent_remote_checks": {
+    "access_mode": "Anonymous Python urllib HTTPS requests; no GitHub credentials, Authorization header or cookie handler.",
+    "requested_files": 4,
+    "bytes_fetched": 141558,
+    "all_four_http200_and_exact_bytes_sha256": true,
+    "files": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/manifest.json",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1cde3b61a5933b3b82f05a78cb118a618a19902/books/chapter_one/landscape/revisions/v45_story_language_r02_review/manifest.json",
+        "http_status": 200,
+        "bytes": 69092,
+        "sha256": "a36f28bbf28774a12787ff13f616e2bb498fe51339fa7fa253addd0d873cbfcd",
+        "checked_at_utc": "2026-11-02T01:43:01.016439+00:00"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/README.md",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1cde3b61a5933b3b82f05a78cb118a618a19902/books/chapter_one/landscape/revisions/v45_story_language_r02_review/README.md",
+        "http_status": 200,
+        "bytes": 6066,
+        "sha256": "745f78bc0e4c50607ab11b283ff0c9dba4f3b6169c8ad7208db7fc423c8ffad8",
+        "checked_at_utc": "2026-11-02T01:43:01.031953+00:00"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/HELD_PAGES.md",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1cde3b61a5933b3b82f05a78cb118a618a19902/books/chapter_one/landscape/revisions/v45_story_language_r02_review/HELD_PAGES.md",
+        "http_status": 200,
+        "bytes": 2296,
+        "sha256": "381e8eefffdb71678271b14fb852b39fda87b5284c565d21d2b25c639ae866a2",
+        "checked_at_utc": "2026-11-02T01:43:01.012429+00:00"
+      },
+      {
+        "path": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/final_candidate_review.json",
+        "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1cde3b61a5933b3b82f05a78cb118a618a19902/books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/final_candidate_review.json",
+        "http_status": 200,
+        "bytes": 64104,
+        "sha256": "1d687ac5428f0f9a20683dc0a91af0e418ef5af0e2cff537a99a5d93ef2c9d9b",
+        "checked_at_utc": "2026-11-02T01:43:01.100085+00:00"
+      }
+    ],
+    "coverage": "Published manifest, entry README, held-page shortening request and exact final candidate critique.",
+    "honest_limit": "No PDF, image or source/archive media were downloaded again, and no new creative audit was run. The primary full141-file anonymous receipt was verified by membership/digests rather than represented as another independent full download."
+  },
+  "candidate_identity": {
+    "path": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/final_candidate_review.json",
+    "sha256": "1d687ac5428f0f9a20683dc0a91af0e418ef5af0e2cff537a99a5d93ef2c9d9b",
+    "all45_bindings_match_manifest": true,
+    "creative_verdict": "SATISFIED_FOR_IMPLEMENTED_23_OF_25_WITH_DECLARED_HOLDS",
+    "implemented_caption_count": 23,
+    "held_pages": [
+      11,
+      15
+    ],
+    "pdf_sha256_from_unchanged_reviewed_candidate": "f4ad9b97dac5bde49a08de4c19f9447e32000562d5b100abeb17af8a47d8071a",
+    "reading_and_email_bytes_each": 24783122,
+    "scope": "The prior exact candidate remains the source of PDF/proof/art/word/contrast evidence. This publication record confirms its identity and45manifest bindings, without pretending another PDF/visual performance check."
+  },
+  "parallel_preservation": {
+    "file": "books/chapter_one/landscape/revisions/v45_story_language_r02_review/parallel_preservation.json",
+    "sha256": "adc04e982b862bb19074fa107a4bbbfc9c4fad2bd795b33ed030ee416b49993a",
+    "original_revision": "01004e37ff00e51cb9048906fa64d019923541c3",
+    "published_revision": "c1cde3b61a5933b3b82f05a78cb118a618a19902",
+    "files": 71,
+    "exact_git_blob_map_match": true,
+    "method": "Independently compared the entire71-file Git path/blob-OID map under revisions/v45_story_language at01004e37ff00e51cb9048906fa64d019923541c3 with the published mergec1cde3b61a5933b3b82f05a78cb118a618a19902 and the preservation record. All maps are identical.",
+    "scope": "The separate parallel V45 package and its history remain distinct and untouched. Its declared page11 wording adaptation is not inferred to be owner-accepted by this strict-review publication."
+  },
+  "entry_and_holds_assessment": {
+    "README": "Exact remotely retrieved entry accurately labels23of25 implementation, exact held pages11and15, the separate parallel draft, unchanged PDFs/proofs and separate acceptance limits.",
+    "held_request": "Exact remotely retrieved HELD_PAGES request keeps both intended story goals and requests shorter supplied wording; it does not silently cut words or shrink type.",
+    "page21": "Authorized single-top-caption fallback and its literal reading-order limitation remain as declared in the frozen candidate."
+  },
+  "open_items": [
+    "Full25caption manuscript implementation is incomplete: stories11and15 retain exactV44 words pending shorter supplied captions.",
+    "Owner review of the new story facts and exact draft.",
+    "Actual human/child spoken read-aloud and qualifiedSLP review; synthetic rehearsal and text cadence remain proxies.",
+    "V44 opening-geography and seahorse-forehead art continuity findings and illustration acceptance.",
+    "Physical print/trim/resolution/bleed/colour proof; arrival imposition/parity/fold/swing-gutter; V41 printPart2.",
+    "Separate question-card branch quote-anchor update; delivered mapping is not that branch change.",
+    "No game integration, dev/master promotion or release acceptance."
+  ],
+  "metadata_exclusions": [
+    "books/chapter_one/landscape/revisions/v45_story_language_r02_review/manifest.json",
+    "books/chapter_one/landscape/revisions/v45_story_language_r02_review/remote_verification.json",
+    "books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/final_publication_acceptance.json",
+    "design/audit_impacts/picture-book-v45-publication-20261101.json"
+  ],
+  "followup": "Parent will publish and anonymously verify the excluded receipt, this final publication verdict and the dedicated publication-impact file at a separate metadata revision. No sealed payload member may change.",
+  "reviewer_writes": [
+    "books/chapter_one/landscape/revisions/v45_story_language_r02_review/peer_review/final_publication_acceptance.json"
+  ],
+  "conclusion": "The pinned V45r02 strict-review package is delivered and its bounded publication checks pass. It remains a23of25 caption draft with two explicit holds; preservation of the parallel draft grants no creative or owner acceptance."
+}

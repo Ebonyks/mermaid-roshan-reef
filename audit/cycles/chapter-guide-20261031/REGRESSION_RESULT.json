@@ -1,0 +1,433 @@
+{
+  "schema": 1,
+  "status": "REGRESSION_GATE_FAILED_PUBLICATION_BLOCKED",
+  "checked_at_utc": "2026-11-01T00:11:49.313Z",
+  "runtime_baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+  "source_scope": "Runtime, protected assets and high-risk project paths have zero Git diff from baseline. New documentation tools/tests are pinned in the task impact. No probe or asserted threshold changed.",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "full_command": "bash --noprofile --norc scripts/ci.sh",
+  "full_exit": 1,
+  "roster_source": "scripts/ci.sh",
+  "probe_count": 82,
+  "zero_exit_count": 79,
+  "failed_probes": [
+    {
+      "probe": "probe_opera_2d",
+      "exit": 1
+    },
+    {
+      "probe": "probe_chapter2",
+      "exit": 1
+    },
+    {
+      "probe": "probe_start_menu_new_game",
+      "exit": 1
+    }
+  ],
+  "probe_exits": [
+    {
+      "probe": "probe_reef_districts",
+      "exit": 0
+    },
+    {
+      "probe": "probe_ocean_kingdoms",
+      "exit": 0
+    },
+    {
+      "probe": "probe_audit",
+      "exit": 0
+    },
+    {
+      "probe": "probe_passive",
+      "exit": 0
+    },
+    {
+      "probe": "probe_living_world",
+      "exit": 0
+    },
+    {
+      "probe": "probe_load",
+      "exit": 0
+    },
+    {
+      "probe": "probe_rank",
+      "exit": 0
+    },
+    {
+      "probe": "probe_save_recovery",
+      "exit": 0
+    },
+    {
+      "probe": "probe_galaxy_state",
+      "exit": 0
+    },
+    {
+      "probe": "probe_collection",
+      "exit": 0
+    },
+    {
+      "probe": "probe_mg2d",
+      "exit": 0
+    },
+    {
+      "probe": "probe_fetch",
+      "exit": 0
+    },
+    {
+      "probe": "probe_melody",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dolls",
+      "exit": 0
+    },
+    {
+      "probe": "probe_seek",
+      "exit": 0
+    },
+    {
+      "probe": "probe_audio",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dance",
+      "exit": 0
+    },
+    {
+      "probe": "probe_l2",
+      "exit": 0
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "exit": 0
+    },
+    {
+      "probe": "probe_sky_lagoon_animals",
+      "exit": 0
+    },
+    {
+      "probe": "probe_l2_reenter",
+      "exit": 0
+    },
+    {
+      "probe": "probe_crown",
+      "exit": 0
+    },
+    {
+      "probe": "probe_throne",
+      "exit": 0
+    },
+    {
+      "probe": "probe_northern",
+      "exit": 0
+    },
+    {
+      "probe": "probe_human_art_audit",
+      "exit": 0
+    },
+    {
+      "probe": "probe_train",
+      "exit": 0
+    },
+    {
+      "probe": "probe_verbs",
+      "exit": 0
+    },
+    {
+      "probe": "probe_skins",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_router",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_stress",
+      "exit": 0
+    },
+    {
+      "probe": "probe_interaction",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "exit": 0
+    },
+    {
+      "probe": "probe_touch_look",
+      "exit": 0
+    },
+    {
+      "probe": "probe_ui_system",
+      "exit": 0
+    },
+    {
+      "probe": "probe_voice",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_voice",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_d8_revisits",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_handoffs",
+      "exit": 0
+    },
+    {
+      "probe": "probe_kart_feel",
+      "exit": 0
+    },
+    {
+      "probe": "probe_combat",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_bunny",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_bunny_boss",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_boss",
+      "exit": 0
+    },
+    {
+      "probe": "probe_hit",
+      "exit": 0
+    },
+    {
+      "probe": "probe_partner",
+      "exit": 0
+    },
+    {
+      "probe": "probe_combat_tutorial",
+      "exit": 0
+    },
+    {
+      "probe": "probe_imp_ai",
+      "exit": 0
+    },
+    {
+      "probe": "probe_mic",
+      "exit": 0
+    },
+    {
+      "probe": "probe_stuffie",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dungeon",
+      "exit": 0
+    },
+    {
+      "probe": "probe_ember",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_2d",
+      "exit": 1
+    },
+    {
+      "probe": "probe_opera_diegetic_paths",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_detective",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_pipe",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_nursery",
+      "exit": 0
+    },
+    {
+      "probe": "probe_opera_gesture_quality",
+      "exit": 0
+    },
+    {
+      "probe": "probe_kitchen_props",
+      "exit": 0
+    },
+    {
+      "probe": "probe_bathroom_props",
+      "exit": 0
+    },
+    {
+      "probe": "probe_castle_door_language",
+      "exit": 0
+    },
+    {
+      "probe": "probe_bathroom_integration",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_bunny",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_cleanup",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_movie_handoff",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_director",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_integration",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_pool_cleanup",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_art_attack_state",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_castle_dressing",
+      "exit": 0
+    },
+    {
+      "probe": "probe_day_one_story_clips",
+      "exit": 0
+    },
+    {
+      "probe": "probe_chapter2",
+      "exit": 1
+    },
+    {
+      "probe": "probe_chapter2_farmer_resume",
+      "exit": 0
+    },
+    {
+      "probe": "probe_chapter2_lawn",
+      "exit": 0
+    },
+    {
+      "probe": "probe_alpha_milestone_save",
+      "exit": 0
+    },
+    {
+      "probe": "probe_dust_boss_balance",
+      "exit": 0
+    },
+    {
+      "probe": "probe_start_menu_routing",
+      "exit": 0
+    },
+    {
+      "probe": "probe_start_menu_new_game",
+      "exit": 1
+    },
+    {
+      "probe": "probe_castle_pool_life_2d",
+      "exit": 0
+    },
+    {
+      "probe": "probe_castle_pearl_art",
+      "exit": 0
+    },
+    {
+      "probe": "probe_fairy_art",
+      "exit": 0
+    },
+    {
+      "probe": "probe_props",
+      "exit": 0
+    }
+  ],
+  "failed_assertions": [
+    "OPERA2D|FAIL|geologist stages the room-finale partner clear of Roshan and the activity",
+    "OPERA2D|result: 1 FAIL",
+    "CHAPTER2|milestone child exits within its wall deadline: FAIL",
+    "CHAPTER2|RESULT: FAIL checks_failed=1",
+    "START_MENU_NEW_GAME|child verifier completes within its deadline: FAIL",
+    "START_MENU_NEW_GAME|RESULT: FAIL failures=1"
+  ],
+  "isolated_recheck": {
+    "command": "godot_console.exe --headless -s scripts/probe_opera_2d.gd -- --touch --classic-touch-test",
+    "environment": "Fresh APPDATA, LOCALAPPDATA, XDG_DATA_HOME and XDG_CONFIG_HOME; same approved engine and runtime",
+    "exit": 1,
+    "assertions": [
+      "OPERA2D|FAIL|geologist stages the room-finale partner clear of Roshan and the activity"
+    ]
+  },
+  "headless_skips": [
+    "ART_AUDIT|RESULT: HEADLESS SKIP (visual capture requires a display renderer)"
+  ],
+  "visual_advisory": "UNSATISFIED: FAIL=15, REVIEW_OPEN=18, MANUAL_OPEN=2, COVERAGE_GAP=87, WAIVED=0; existing advisory status is separate from the blocking probe failure.",
+  "logs": [
+    {
+      "path": "audit/cycles/chapter-guide-20261031/verification/full_ci.log",
+      "bytes": 1280523,
+      "sha256": "1b42d52f3b15ee34bbf71af68684c59516031f715dbda6a4226838420aae42fb"
+    },
+    {
+      "path": "audit/cycles/chapter-guide-20261031/verification/opera_2d_recheck.log",
+      "bytes": 95901,
+      "sha256": "2d0b1769fb55694de090d6cfedf83b0c66f16cc0e06bb8b087c60afec19d1965"
+    },
+    {
+      "path": "audit/cycles/chapter-guide-20261031/verification/probe_chapter2-recheck.log",
+      "bytes": 48454,
+      "sha256": "b184cec5f43f7e735aba08122c145353df95f40f00d1a9e3093d9e308b1ac1ec"
+    },
+    {
+      "path": "audit/cycles/chapter-guide-20261031/verification/probe_start_menu_new_game-recheck.log",
+      "bytes": 3762,
+      "sha256": "80dc2b06acf4361bcacdcc37669944723ec98a9ee2d27df29f3e22f41b0648d9"
+    },
+    {
+      "path": "audit/cycles/chapter-guide-20261031/verification/chapter-guide-opera-serial-recheck.log",
+      "bytes": 95901,
+      "sha256": "2d0b1769fb55694de090d6cfedf83b0c66f16cc0e06bb8b087c60afec19d1965"
+    }
+  ],
+  "byte_policy": "Literal native log bytes, retained by the scoped verification/.gitattributes; ANSI sequences and original newlines preserved.",
+  "acceptance": "No runtime repair, full-regression pass, visual, device, child, owner or master-audit satisfaction claim. Documentation-only review-branch exception remains pending; all three failures are retained.",
+  "sequential_rechecks": [
+    {
+      "probe": "probe_chapter2",
+      "exit": 0,
+      "execution": "Sequential, after full suite and prior recheck had exited; exact original test/deadline and approved engine, fresh isolated save directories.",
+      "log": "audit/cycles/chapter-guide-20261031/verification/probe_chapter2-recheck.log",
+      "failed_assertions": []
+    },
+    {
+      "probe": "probe_start_menu_new_game",
+      "exit": 0,
+      "execution": "Sequential, after full suite and prior recheck had exited; exact original test/deadline and approved engine, fresh isolated save directories.",
+      "log": "audit/cycles/chapter-guide-20261031/verification/probe_start_menu_new_game-recheck.log",
+      "failed_assertions": []
+    },
+    {
+      "probe": "probe_opera_2d",
+      "exit": 1,
+      "execution": "Sequential, after full suite and prior recheck had exited; exact original test/deadline and approved engine, fresh isolated save directories.",
+      "log": "audit/cycles/chapter-guide-20261031/verification/chapter-guide-opera-serial-recheck.log",
+      "failed_assertions": [
+        "OPERA2D|FAIL|geologist stages the room-finale partner clear of Roshan and the activity",
+        "OPERA2D|result: 1 FAIL"
+      ]
+    }
+  ],
+  "execution_limitation": "The first focused Opera recheck overlapped part of the continuing full suite; resource contention may have contributed to its child-process deadline failures, but causation is not established. Both deadline probes pass in later sequential rechecks. The final Opera recheck runs alone after all other probes exit and repeats exactly the geologist assertion. Full-suite exit remains 1; no result is rewritten as a full pass."
+}

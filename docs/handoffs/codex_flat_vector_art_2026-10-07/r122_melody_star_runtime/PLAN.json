@@ -1,0 +1,53 @@
+{
+  "id": "R122",
+  "stable_id": "FV-8E1550C50601",
+  "name": "Melody reward star",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "branch": "codex/flat-vector-melody-star-20261102",
+  "scope": "Replace only the flat polygon/custom-drawn gold five-point Melody reward/stage star with one whole painted2D transparent asset. Preserve its existing StageStar Control position/diameter/z-index, noninteractive semantics and all controllers, actors, notes, header/curtain/apron/bulb roles, saves and one-finger targets. Source candidate only; Dev frozen.",
+  "owner_scope": "Resume art candidates; keep Dev frozen",
+  "method": "Builtin ImageGen static object edit/extraction with actual source scene and painted neighbor; preserve native and editable Aseprite masters; one whole technical RGBA export.",
+  "static_take_cap": 2,
+  "calls_used": 1,
+  "animation_calls": 0,
+  "backend": "image_gen builtin; no model selector exposed; record actual returned version only if provided",
+  "existing_named_roles": 1,
+  "new_roles": 0,
+  "new_families": 0,
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-MED-05",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-READ-02",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "required_evidence": [
+    "Exact current actual scene and neighboring painted style references",
+    "Native output/prompt/bindings/request/backend metadata, editable exact master, export/import/license provenance",
+    "Ten-axis same-scene comparison and original state/layout behavior",
+    "Exact4.7.2Mobile/Speedy current import/native and applicable trusted gates; no reuse of changed predicates without measured proof",
+    "Source-only GitHub delivery with every required file anonymously verified at immutable revisions, canonical current registry/coverage/tally updates"
+  ],
+  "created_at_utc": "2026-11-02T08:11:32.718539+00:00",
+  "native_candidate": "R122_TAKE1"
+}

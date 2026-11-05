@@ -1,0 +1,45 @@
+{
+  "stable_id": "FV-C6F64FAA2F32",
+  "workflow": "Aseprite1.3.18.4-x64 exactRGBA crop and whole-crop bilinear uniform lockRatio resize",
+  "native_size": [
+    2172,
+    724
+  ],
+  "native_sha256": "ee0b92112c4162b2be7d8d469a77cc82c69764f714222fabbb185b194038d67a",
+  "crop_rect": [
+    174,
+    88,
+    1824,
+    584
+  ],
+  "crop_roundtrip_rgba_exact": true,
+  "crop_roundtrip_sha256": "1a23af3c711f04f6f640f016272223304a840f8f1367ff561321d4dea059cdcc",
+  "runtime_size": [
+    512,
+    163
+  ],
+  "runtime_sha256": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04",
+  "runtime_alpha_extrema": [
+    0,
+    254
+  ],
+  "runtime_alpha_above3_bbox": [
+    3,
+    3,
+    510,
+    162
+  ],
+  "native_excluded_pixels": "Crop removes exterior padding and alpha<=1 speckle; exact native retained. No alpha threshold/mask, repaint, background key, procedural pixels, compositing or sharpening.",
+  "rounding": "Aseprite lockRatio uses width512 and floors height to163; requested height164 ignored. Actual export retained without rerun. Less than1pixel raster rounding; no intentional nonuniform deformation.",
+  "decoded_rgba_bytes": 333824,
+  "mip_budget_ceiling_bytes": 450000,
+  "files": {
+    "assets_src/imagegen/trampoline_pad_20261102/derive_01.lua": "1493a432b9d793f3aef85b6859f78d79b4f8fa90c59618318aa6ecf48a1fbb22",
+    "assets_src/imagegen/trampoline_pad_20261102/native/trampoline_01.png": "ee0b92112c4162b2be7d8d469a77cc82c69764f714222fabbb185b194038d67a",
+    "assets_src/imagegen/trampoline_pad_20261102/aseprite/native_01.aseprite": "d84b984ef557d5e65e4b20143ae73ac3516c0cd176d493a96fa0693ba3ca076f",
+    "assets_src/imagegen/trampoline_pad_20261102/aseprite/crop_01.aseprite": "296ec456d2aa4c5bc59dacc1207741c8882f7485e4bd9aff4660180fbc79cf0d",
+    "assets_src/imagegen/trampoline_pad_20261102/aseprite/crop_roundtrip_01.png": "1a23af3c711f04f6f640f016272223304a840f8f1367ff561321d4dea059cdcc",
+    "assets_src/imagegen/trampoline_pad_20261102/aseprite/runtime_512x164.aseprite": "3c4997ad658fae719f7e748ab9cb5493c9f60f27603d38055d397fd14205b7ab",
+    "assets/mg/trampoline_pad_painted.png": "5dbe87c969009046242a38564bdb2359a94cb16fd30a10a0f44404e8297acf04"
+  }
+}

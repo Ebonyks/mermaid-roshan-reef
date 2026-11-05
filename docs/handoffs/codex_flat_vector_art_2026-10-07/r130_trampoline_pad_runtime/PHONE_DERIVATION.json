@@ -1,0 +1,801 @@
+{
+  "workflow": "Aseprite uniform30percent whole-HUD downsample then review-only3column/2row sheet. Top source, bottom candidate; columns1280x720/1600x720/1280x800. No delivery art pixels from these boards.",
+  "items": [
+    {
+      "board": "01_rest.png",
+      "row": 0,
+      "column": 0,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x720\\output\\01_rest.png",
+      "source_sha256": "6e0b82dc544372203364ca0bb102d6bd5cbdfd561a2daf1d0307b8c1436369dd",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "01_rest.png",
+      "row": 0,
+      "column": 1,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1600x720\\output\\01_rest.png",
+      "source_sha256": "0e428019b8680e90b7c2af9ea72cacd3629919fc38426ec43a6df5f6e1fbeaac",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "01_rest.png",
+      "row": 0,
+      "column": 2,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x800\\output\\01_rest.png",
+      "source_sha256": "f94300c4aa60a76cec0ade4e9d905487bd77459be78d2a63cc671ec72eff7a4d",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "01_rest.png",
+      "row": 1,
+      "column": 0,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x720\\output\\01_rest.png",
+      "source_sha256": "3a6933b063a2793b5911d082165ad112c42f806532bccfa7770c5abd38a16e32",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "01_rest.png",
+      "row": 1,
+      "column": 1,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1600x720\\output\\01_rest.png",
+      "source_sha256": "bf8e0c7571cfa5895b95e7b19ac4d97f54ff15b55a9848d93d2ff025969cff39",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "01_rest.png",
+      "row": 1,
+      "column": 2,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x800\\output\\01_rest.png",
+      "source_sha256": "5890f9120c0f3c06a12f73637f7b7ff6087b35d601ef04458dca83780266f507",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "02_wrong_passive.png",
+      "row": 0,
+      "column": 0,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x720\\output\\02_wrong_passive.png",
+      "source_sha256": "539fb107b66a4b8143c144ad8bd581ef43fe9b4a2d38dbef88765bb81e6c942e",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "02_wrong_passive.png",
+      "row": 0,
+      "column": 1,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1600x720\\output\\02_wrong_passive.png",
+      "source_sha256": "9279269881be3a08dcb807e79149e1b5cc6665187fb2356caf3c7742878f2e4f",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "02_wrong_passive.png",
+      "row": 0,
+      "column": 2,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x800\\output\\02_wrong_passive.png",
+      "source_sha256": "b247282965410415af0640ad38c7515030d83b8584abf5d3f77eeb8cc1446239",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "02_wrong_passive.png",
+      "row": 1,
+      "column": 0,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x720\\output\\02_wrong_passive.png",
+      "source_sha256": "69cd834669d8b09d3612c28b1490c705a685b3c930fce6f0c48da96da9770c84",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "02_wrong_passive.png",
+      "row": 1,
+      "column": 1,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1600x720\\output\\02_wrong_passive.png",
+      "source_sha256": "d5b652cc47d5f2fa40267f01a17304c4f6739e0d3f2f7a990793aea210410864",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "02_wrong_passive.png",
+      "row": 1,
+      "column": 2,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x800\\output\\02_wrong_passive.png",
+      "source_sha256": "d7159a15c7dc3694b8882cda6dbc8813958cb5a2ed3c30a9ecede67a19805717",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "03_apex_1.png",
+      "row": 0,
+      "column": 0,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x720\\output\\03_apex_1.png",
+      "source_sha256": "97bb5e4bcf3852f160ee225acc2ec09ee10bbc6dcbbd802df955d22ca2f26a06",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "03_apex_1.png",
+      "row": 0,
+      "column": 1,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1600x720\\output\\03_apex_1.png",
+      "source_sha256": "eae91bbc53455de214ba91fd35e15af7e84e912ee4798956423105cb249c21b5",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "03_apex_1.png",
+      "row": 0,
+      "column": 2,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x800\\output\\03_apex_1.png",
+      "source_sha256": "5a323f28bc4ba49383d2f5807a8ccc3af8ab8bbd5e3e72ce8b7bf376cabe3d75",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "03_apex_1.png",
+      "row": 1,
+      "column": 0,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x720\\output\\03_apex_1.png",
+      "source_sha256": "53a5e732e989c83538d54f6050f492f6664b55ce248ebf09a5494062d79c74d4",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "03_apex_1.png",
+      "row": 1,
+      "column": 1,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1600x720\\output\\03_apex_1.png",
+      "source_sha256": "fdc662e647acc565d830d806d3b28c7f8cc3323c62ed91df60b5af9195c59ac5",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "03_apex_1.png",
+      "row": 1,
+      "column": 2,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x800\\output\\03_apex_1.png",
+      "source_sha256": "02886d7d450d6f54385f8e01b970574ce2ab393e5f911f5ef1cd581f2696336f",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "04_landing_1.png",
+      "row": 0,
+      "column": 0,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x720\\output\\04_landing_1.png",
+      "source_sha256": "3cdb4b7ef06b5662ba5cff565a4b62c222022ef9605dbf5f73dfa4c9b86b59db",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "04_landing_1.png",
+      "row": 0,
+      "column": 1,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1600x720\\output\\04_landing_1.png",
+      "source_sha256": "d984d72f71fc386706349a834ec61c7e60287972575b51ca10eb5afd7ffe4126",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "04_landing_1.png",
+      "row": 0,
+      "column": 2,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x800\\output\\04_landing_1.png",
+      "source_sha256": "76b15778f933d7cacab2a4aac0a7d422e84b39ac6f651f8e4d91069e40a69721",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "04_landing_1.png",
+      "row": 1,
+      "column": 0,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x720\\output\\04_landing_1.png",
+      "source_sha256": "8f2b55bd672bf1742e9031ce5b06d65ecc28caf571ba0c70f731550d69874a7f",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "04_landing_1.png",
+      "row": 1,
+      "column": 1,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1600x720\\output\\04_landing_1.png",
+      "source_sha256": "0ca69a4b4b258fda601d53bc1163df2c0f8a97d737f092e3e6627793a057cef0",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "04_landing_1.png",
+      "row": 1,
+      "column": 2,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x800\\output\\04_landing_1.png",
+      "source_sha256": "4284686a007c9c979cf6dc08a864a770070d76a3823a691faa347663babdc438",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "05_apex_2.png",
+      "row": 0,
+      "column": 0,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x720\\output\\05_apex_2.png",
+      "source_sha256": "50ac2133bb63312174d15daef36131c1a022ee49a2cbc38f938302ed3186f56c",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "05_apex_2.png",
+      "row": 0,
+      "column": 1,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1600x720\\output\\05_apex_2.png",
+      "source_sha256": "24e2962dad56396c6cc3cb6d63882eff07d1ff20f19e1a146a0325f6f56813c2",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "05_apex_2.png",
+      "row": 0,
+      "column": 2,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x800\\output\\05_apex_2.png",
+      "source_sha256": "455d8d134e642560c3e5e261c7f4d426b43294ab3f7c5098e6e91d3421ec8b86",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "05_apex_2.png",
+      "row": 1,
+      "column": 0,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x720\\output\\05_apex_2.png",
+      "source_sha256": "4f4997adae0e22b6c031f079ad5d87f59518371d525f5296c755e3f66495b259",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "05_apex_2.png",
+      "row": 1,
+      "column": 1,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1600x720\\output\\05_apex_2.png",
+      "source_sha256": "4517d10bdf1ecdd608439655c1b8d4c49267b63e6bd012e2ee9089b242e8ec12",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "05_apex_2.png",
+      "row": 1,
+      "column": 2,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x800\\output\\05_apex_2.png",
+      "source_sha256": "6188f1a980f0dda33a450cc1817ce2fc7b08514567b18d437d867fc2289cbb1c",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "06_landing_2.png",
+      "row": 0,
+      "column": 0,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x720\\output\\06_landing_2.png",
+      "source_sha256": "7f223671bca55fe711217f6d662fd0f913c3685c1300dcd95757abd14d27b953",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "06_landing_2.png",
+      "row": 0,
+      "column": 1,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1600x720\\output\\06_landing_2.png",
+      "source_sha256": "5df72b0571a25b61282a03118652ef87aab585154aaad688d168eaca2215c33a",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "06_landing_2.png",
+      "row": 0,
+      "column": 2,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x800\\output\\06_landing_2.png",
+      "source_sha256": "64d0b60730b54118a8d558911fef8498103505644cf009ad8f3e2f0821adc716",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "06_landing_2.png",
+      "row": 1,
+      "column": 0,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x720\\output\\06_landing_2.png",
+      "source_sha256": "4d5e05956ab3c7a8171898d09e890456e234f684e6ed8f478bf3ceefa4d2ce35",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "06_landing_2.png",
+      "row": 1,
+      "column": 1,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1600x720\\output\\06_landing_2.png",
+      "source_sha256": "ef9e15c3d704ef3867502a3df35e4dab807c061406dbd533c72e9600c3145a19",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "06_landing_2.png",
+      "row": 1,
+      "column": 2,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x800\\output\\06_landing_2.png",
+      "source_sha256": "4b026a28f8f3af424f7eb17b3474f32d35cd6b1f07a1f23957e86ae676c54a42",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "07_apex_3.png",
+      "row": 0,
+      "column": 0,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x720\\output\\07_apex_3.png",
+      "source_sha256": "e36b1bb185fa624516afd4076aee90a0582e65415a7919792835c92c64990139",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "07_apex_3.png",
+      "row": 0,
+      "column": 1,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1600x720\\output\\07_apex_3.png",
+      "source_sha256": "54eb8082fdd79cd1097dd9d97f7ed8b69eeeb66b54b05fe4d46f5aab337fd295",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "07_apex_3.png",
+      "row": 0,
+      "column": 2,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x800\\output\\07_apex_3.png",
+      "source_sha256": "7824d6ebf894ff8de8e6ba58696c4e353cae1948245c5a46e3f6d4b210db6f1c",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "07_apex_3.png",
+      "row": 1,
+      "column": 0,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x720\\output\\07_apex_3.png",
+      "source_sha256": "daa7cf9526108e054598691980d1299b60d1865ea72ca381454f2805e9ee74f4",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "07_apex_3.png",
+      "row": 1,
+      "column": 1,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1600x720\\output\\07_apex_3.png",
+      "source_sha256": "06f91b6729b96cec5e38d025839f45986ffaa3d67f4c9eb4076d32e4ca971fc0",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "07_apex_3.png",
+      "row": 1,
+      "column": 2,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x800\\output\\07_apex_3.png",
+      "source_sha256": "52bafcad04e0905ad285bce8b64e02e4fbd17cf906b29bcfed800d3e37eaf5f0",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "08_landing_3.png",
+      "row": 0,
+      "column": 0,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x720\\output\\08_landing_3.png",
+      "source_sha256": "836be6e380c9f4f414058666a7b4c4020b77301ac7aa08c8600eb343e689828e",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "08_landing_3.png",
+      "row": 0,
+      "column": 1,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1600x720\\output\\08_landing_3.png",
+      "source_sha256": "d454836ee07fe4839a91851f27f7023c3f1a3d14537225b27d091d10b21c3bf1",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "08_landing_3.png",
+      "row": 0,
+      "column": 2,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x800\\output\\08_landing_3.png",
+      "source_sha256": "1f6a4e36f3521072dd70baa22ba0e2627dba2319ecd1e380160c527bd6af2399",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "08_landing_3.png",
+      "row": 1,
+      "column": 0,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x720\\output\\08_landing_3.png",
+      "source_sha256": "a15dcb19e7432ac680015455f4a66ddafd7b7f7ed9434ef149aabd41f70bde03",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "08_landing_3.png",
+      "row": 1,
+      "column": 1,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1600x720\\output\\08_landing_3.png",
+      "source_sha256": "391e305c17f300569797e5c6a4cd2a97f38e3cdd50ecf2fdf2bcc2cc2518b884",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "08_landing_3.png",
+      "row": 1,
+      "column": 2,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x800\\output\\08_landing_3.png",
+      "source_sha256": "bfb615e220d433e1524c4217386b04accc6770280d60bb2a72106fc9feb22376",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "09_fresh_reentry.png",
+      "row": 0,
+      "column": 0,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x720\\output\\09_fresh_reentry.png",
+      "source_sha256": "2c1440b9381737c571e05ed8a43c3d52c36b2bb276f5ddc8b84904c41d7b613a",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "09_fresh_reentry.png",
+      "row": 0,
+      "column": 1,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1600x720\\output\\09_fresh_reentry.png",
+      "source_sha256": "ab4d0e6aa1fd962a8bdc4709a6d35b6a25ca982bdc5779f9d9f69d671a80ad7e",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "09_fresh_reentry.png",
+      "row": 0,
+      "column": 2,
+      "lane": "source_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x800\\output\\09_fresh_reentry.png",
+      "source_sha256": "d151086297f737b3402756a871ede8044ce1f3d1b68b9ee215b849f55700522a",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "09_fresh_reentry.png",
+      "row": 1,
+      "column": 0,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x720\\output\\09_fresh_reentry.png",
+      "source_sha256": "f0196d89ee19c76a6b7bec300bb88b3e10c991f756db277e1934f3179e3c4611",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "09_fresh_reentry.png",
+      "row": 1,
+      "column": 1,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1600x720\\output\\09_fresh_reentry.png",
+      "source_sha256": "4bd660dda920e6bed9b854060634cc06ce2f274124f9c73c6d1bff6f43b1c5a1",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        480,
+        216
+      ],
+      "new_frame_credit": 0
+    },
+    {
+      "board": "09_fresh_reentry.png",
+      "row": 1,
+      "column": 2,
+      "lane": "candidate_native",
+      "source_path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\candidate_native\\1280x800\\output\\09_fresh_reentry.png",
+      "source_sha256": "042486203f812cd3ecf9891583682d1399f1c7dfe173e3c6c315a0308dbf208a",
+      "screen_scale": 0.3,
+      "expected_dimensions": [
+        384,
+        240
+      ],
+      "new_frame_credit": 0
+    }
+  ],
+  "boards": [
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/01_rest.png",
+      "sha256": "2fc676f5f576e42dfbc87845d7225bbaf226ebb12215a11dbf67d9d83f9f0039"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/02_wrong_passive.png",
+      "sha256": "4953ebde9258c647c5eac3f5d191fdabf7d264a8e626fac23b0af56d3ef03ccd"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/03_apex_1.png",
+      "sha256": "9b43fbeabba672afeb330bb03752aea5198d3a59da58d104d5a05d7fcc8013f8"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/04_landing_1.png",
+      "sha256": "2a51222faaae24f4960950db07882a07fdedddadb7815239f9490c20347ce49e"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/05_apex_2.png",
+      "sha256": "3142731c8f1fcf3bd4cd8f67be66e95bece41fd2ee0e558f998f3549a5e57098"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/06_landing_2.png",
+      "sha256": "30afce06858ce370b3336ca3c237a64418fee5ba3cb0f0a1459ee8601fdd7988"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/07_apex_3.png",
+      "sha256": "2107ce76b8eb8ab55ae8c52579b9b500390583125448cec91fa3f10e44f3bb75"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/08_landing_3.png",
+      "sha256": "1a17dbb3d662f8c1b3d9efe1c373d8dad3019cb07039fcaea410464d6fd14efa"
+    },
+    {
+      "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r130_trampoline_pad_runtime/phone/09_fresh_reentry.png",
+      "sha256": "d9ccb20870ca376c5ee5857f8eb17cfcc536b20b3e0f4b63bea15c80240a9098"
+    }
+  ],
+  "native_frame_credit": 0,
+  "phone_frame_derivatives": 54
+}

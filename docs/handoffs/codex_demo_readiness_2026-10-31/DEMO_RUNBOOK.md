@@ -131,15 +131,28 @@ the device model, the RC SHA and what happened.
 
 ## R5. Promote and verify
 
-1. Keep `dev` frozen at the RC. Wait until the RC's Probe Suite run is green
-   **and** the `android-dev` release notes name the RC SHA. `promote.yml`
-   waits only about 33 minutes for probes (the suite takes 46-62), and a push
-   to `dev` during promotion can cancel the APK build
+1. Keep normal green integration open on `dev` (`ODR-DEV-OPEN-INTEGRATION-20261103`).
+   Record the RC's exact SHA and APK hash. Before dispatch, wait for green
+   probes and a matching `android-dev` APK at the current candidate. If `dev`
+   advances, recheck the new candidate and repeat any affected save/device
+   rehearsal; the earlier RC's evidence does not transfer automatically.
+   `promote.yml` follows changed heads during its probe wait, refuses a changed
+   head immediately before fast-forwarding, and requires an APK for the selected
+   SHA. If a race or timeout occurs, resolve the reported condition and retry
+   under the existing release instruction; it does not establish a `dev` freeze
    ([AUDIT E5](AUDIT.md#e5-promotion-timing--follow-the-runbook-order)).
 2. The owner gives the release instruction. Codex runs
-   `gh workflow run promote.yml --ref dev`, monitors it to completion and
-   reports the promoted SHA, both APK URLs and the stable APK SHA-256.
-3. Check that the promoted SHA equals the RC SHA.
+   `gh workflow run promote.yml --ref dev` and monitors both the run and its
+   selected candidate SHA. If it follows a newer head without the required
+   candidate evidence, cancel the run before release, return to step 1 and
+   recheck that candidate before dispatching again under the existing release
+   instruction. A green probe run does not supply missing save/device evidence.
+   Report the promoted SHA, both APK URLs and the stable APK SHA-256.
+3. Verify that the promoted SHA and stable APK match the reviewed candidate.
+   An unexpected mismatch is a release incident, not a successful rehearsal:
+   record the divergence, keep release readiness unaccepted and resolve it
+   under the existing release/rollback procedure. Checks performed afterwards
+   cannot be described as pre-release evidence for that SHA.
 4. Install on the demo device (R3 step 2) and repeat R4 lines 1, 3 and 5.
 
 ## R6. Rollback
