@@ -1,0 +1,39 @@
+{
+  "id": "fir",
+  "revision": 1,
+  "date": "2026-11-05",
+  "lane": "isolated reference demo",
+  "source": {
+    "path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+    "sha256": "3c12081abe82c7bb55a8dae260d2255cfd390bfc48b4a0dfd0c1be714a9c469e",
+    "dimensions": [
+      276,
+      440
+    ],
+    "role": "identity_still_only",
+    "copy": "sources/fir.png",
+    "license": "Project art; inherits exact source terms in ASSET_LICENSES.md",
+    "acceptance_scope": "Identity still only. Garden separated art remains review-only. No prior animation frames reused."
+  },
+  "intention": "Fir branches bend",
+  "fixed": "Camera/background, plant root bands, seesaw pedestal, gate masonry, swing frame",
+  "entry_exit": "Exact normalized source at t=0 and t=4 seconds",
+  "method": "Local keyed 2D deformation/layer articulation; premultiplied RGBA sampling; Aseprite master",
+  "geometry": "256 padded canvas; plant root y>=228; seesaw axle (128,193); gate hinges x104/x151",
+  "tolerances": "Plant crown 32-56px peak-to-peak, fixed support, no edge clipping, periodic endpoint exact",
+  "limits": {
+    "generated_take_cap": 2,
+    "generated_calls": 0,
+    "money_cap": 0,
+    "local_trial_minutes": 90,
+    "cleanup_minutes_cap": 30,
+    "aggregate_task_minutes": 180
+  },
+  "stop_fallback": "Stop on drift/contact failure; no rejected-frame reuse. Swing remains missing-view gap.",
+  "human_review": "PENDING",
+  "device_review": "PENDING",
+  "owner_review": "PENDING",
+  "source_commit": "5003d421b0de8771a59eafdcb2aadffd818a7246",
+  "workflow_sha256": "60c1f7239a531cbd54231ed41c9435df081ef1b3c2fe5e5462646661da1db362",
+  "cleanup_time": "Not instrumented; acceptance/efficiency gap retained"
+}
