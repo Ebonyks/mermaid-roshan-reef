@@ -63,6 +63,7 @@ unclassified until this ledger gains one new scoped row for it.
 | `ASSET_LICENSES.md` | 🟢 | `BINDING_LEDGER`; one provenance/licence entry per new asset in the same commit, including the merged Opera/minigame/atlas and 42-cue music deliveries. Provenance does not grant art acceptance. Row count not asserted here. |
 | `WORKFLOW_BRANCHING_2026-07-18.md` | 🟢 | `BINDING_OPERATIONAL`; the dev/master promotion rule. Summarized in 03 §6. |
 | `docs/ANDROID_RELEASE.md` | 🟢 | `BINDING_OPERATIONAL`; signing-key safety — a key change destroys the child's save. |
+| `docs/GODOT_MCP.md` | 🔵 | `SUPPORTING_CURRENT`; developer-tooling setup for the vendored, hash-pinned godot-mcp v4.1.11 editor bridge (owner request 2026-11-05). Grants no art, 3D or gameplay authority; the 2026-08-09 true-2D decision and SECURITY.md govern. |
 | `design/00_MASTER_INDEX.md` | 🔵 | `SUPPORTING_CURRENT`; authority navigation and precedence, explicitly not an exhaustive ledger. |
 | `design/01_GAME_DESIGN.md` | 🟢 | `BINDING_DOMAIN` within the newer owner decision/design-language scope; 2.5D/3D history explicitly superseded. |
 | `design/02_ART_DIRECTION.md` | 🟢 | `BINDING_DOMAIN`; true-2D visual medium plus the protected-content and absolute cinematic rules. |

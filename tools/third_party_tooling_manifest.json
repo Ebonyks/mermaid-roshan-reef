@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "purpose": "Hash-pinned third-party agent tooling reviewed by the owner (2026-11-05). Files listed here are reported by tools/audit_game_2d.py as reviewed tooling instead of 2D migration debt only while their SHA-256 matches. Refresh this manifest only as part of an explicit, reviewed godot-mcp upgrade.",
+  "entries": [
+    {
+      "name": "godot-mcp",
+      "prefix": "addons/godot_mcp",
+      "upstream": "https://github.com/satelliteoflove/godot-mcp",
+      "tag": "godot-mcp-v4.1.11",
+      "commit": "345aba8b86cc94daec3577b04df31b0c5f9c2b3b",
+      "npm_package": "@satelliteoflove/godot-mcp@4.1.11",
+      "npm_integrity": "sha512-XYAPURo4Yyw7eOijZ15fyrf21hbFi+Dw+lO2xELvPQ1F2QBo6ZiZKzQQw9yF5jruiIJ4fnP5sPdt0lpKHQQedw==",
+      "license": "MIT",
+      "vendored_from": "godot/addons/godot_mcp at the tag (byte-identical to the npm package's addon/ folder) except the one local patch below; upstream test/ folder omitted; repository LICENSE copied in; editor .uid sidecars not tracked per .gitignore",
+      "role": "Editor plugin + WebSocket bridge (127.0.0.1:6550) for the godot-mcp MCP server; MCPGameBridge autoload returns early unless EngineDebugger is active, so it is inert in normal phone launches",
+      "files": {
+        "addons/godot_mcp/LICENSE": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+        "addons/godot_mcp/command_router.gd": "a217feb1c123e5ea1410c3776e5531af39e8fd4d2881338cf1e3f25421ab27cf",
+        "addons/godot_mcp/commands/animation_commands.gd": "76879fd1e4c3bb24c7db73a577ab8b69c5a0b8e5114c0a78ba8c3d7dab1f9ffa",
+        "addons/godot_mcp/commands/debug_commands.gd": "2a82e69b7532cbf0f3adaf49748f10c28d79dfc016dfb39db3af8a568ecd1c9b",
+        "addons/godot_mcp/commands/exec_commands.gd": "060aecdb8385028cba37fdeabd80e1bae8b89b0033be695e8f18c368587c404f",
+        "addons/godot_mcp/commands/game_time_commands.gd": "c4b91751d3f17f1ff4119dfc2dc6f269db6d85fdc9bf308168a1949d566d21f8",
+        "addons/godot_mcp/commands/input_commands.gd": "3eb7466f8cbc57476fda2759354eb71343974dab8112b7f383d0c9b558478e64",
+        "addons/godot_mcp/commands/mesh_commands.gd": "26e1da4ac24d1434cdbe19f34a707feba139f2d9777990b2add55b47cca7d47e",
+        "addons/godot_mcp/commands/node_commands.gd": "b28882afe15bcf24d3ca2e80a75c0b2aada0b44377202fefc01f4f1e5aaa95ff",
+        "addons/godot_mcp/commands/profiler_commands.gd": "86f2d7dbb02a5269d93f40937fce49be5bf75fe06c745c9165e15b0fd83f3e59",
+        "addons/godot_mcp/commands/project_commands.gd": "0c57a0adc2424c4b2b454c4b0833e143a38e52826345cfeae2bed3cd867ca0df",
+        "addons/godot_mcp/commands/resource_commands.gd": "83d38c016947d50b14635827f39c5fe84856748e8d9760d09d0f2af541987587",
+        "addons/godot_mcp/commands/runtime_state_commands.gd": "aabe2ee8c6429c5aa11426be29fd2921db2ac41038950017c6aab07bc38c1b13",
+        "addons/godot_mcp/commands/scene3d_commands.gd": "985259d79aa45cd4d07652a23c78ed7441fb9f8a958ab030ffbb4552c33c5e74",
+        "addons/godot_mcp/commands/scene_commands.gd": "d1edab4ae1b24d5bfa7b4aeb981573d51eef4e9c3a8245857cef1efaaf334884",
+        "addons/godot_mcp/commands/screenshot_commands.gd": "5a77c1f6fdf732ad4ced7bbcdccdc8e84a837dc8bddff914accbf2a910d74247",
+        "addons/godot_mcp/commands/selection_commands.gd": "f6b703e48d85993d115ae8db49659de01fc992fef52dc02c14a694341c7f0ec8",
+        "addons/godot_mcp/commands/system_commands.gd": "19bd583e45012e500aef8f4a1074ab73b6ae661fcd219f61587fffb05cee7e18",
+        "addons/godot_mcp/commands/tilemap_commands.gd": "f0cabc1fba600191200d3db0141f39a7f8093c7c1bd97ef8bedd865d17385e25",
+        "addons/godot_mcp/core/base_command.gd": "17201f6ba274e8258e1b76553bb4bf74000c51316498c8b734b941b05b906ee3",
+        "addons/godot_mcp/core/mcp_constants.gd": "1c2dfd88ed857ad54e920b4d62ee4a82eb684811c870ce9c2b8ccb4e05e8c17d",
+        "addons/godot_mcp/core/mcp_debugger_plugin.gd": "431eb7d80836ec550752dd0f99aceb2371f3a1fa3eeb81a604dc77a5cca1f9af",
+        "addons/godot_mcp/core/mcp_enums.gd": "d21e6ba420574b01f29d28231d3ea4bc83a3772c9ade3536c50abd6f55b20fb6",
+        "addons/godot_mcp/core/mcp_log.gd": "7c7f3bb098837fbc8d6b67dd09a88b0de2170d7472a34cfc2623601ea2323113",
+        "addons/godot_mcp/core/mcp_logger.gd": "79576521ab8f9dc5f8bece69db93135a33e8b0202a425cdd5549103325dd8f30",
+        "addons/godot_mcp/core/mcp_utils.gd": "1a808673b10420bd445bd313eaab36d117ffdecbeff31dc947dd0510196c561c",
+        "addons/godot_mcp/game_bridge/joy_names.gd": "29fe8eec05d5fd212f1c509b56884cb708971a1bc2b34381d4e79ec373baab44",
+        "addons/godot_mcp/game_bridge/key_names.gd": "ebd17a51b81ba28ce5e2103c37340df52926851d1d8a6d980652ade56c1a5679",
+        "addons/godot_mcp/game_bridge/mcp_exec_guard.gd": "4a70542248f6a4028add00a1cfaaa217846deece6e1bc4631158deb5ea42db8c",
+        "addons/godot_mcp/game_bridge/mcp_frame_profiler.gd": "149d11b070e9ca6d9d49ccfb5ce6bce9e39d7daa2ead995afcd70ea6c0446d1b",
+        "addons/godot_mcp/game_bridge/mcp_game_bridge.gd": "d6c73af709652ec1c0244cd958d4dddeda96ae30db9e0ff581ee187b0bfc17a9",
+        "addons/godot_mcp/game_bridge/mcp_runtime_state_sampler.gd": "309922cc019504e5420bf32b9a452d0d02f83a110968d9c782c4191844922d89",
+        "addons/godot_mcp/game_bridge/mesh_validator.gd": "1df3d00bda630874ce885752b7877591f8285aa43e1583b19c84990d314b2717",
+        "addons/godot_mcp/game_bridge/onscreen.gd": "595d7908d7066ef47a14b39b2d44c33384ec44d5e805d0f4b15d7516975d4357",
+        "addons/godot_mcp/plugin.cfg": "86ce36894fd3355e9e9a9c0a0df88b5639c5353dc4189db67c6290556ff767e4",
+        "addons/godot_mcp/plugin.gd": "36101f5b4971a8d2dc1bc4f751e2e60e3c95691f7bea2b84809fe5e94d804970",
+        "addons/godot_mcp/ui/status_panel.gd": "8c300f5bdb66fb89460b9c314c7c7160a14ce001657e86e3ddb559eb2686a75f",
+        "addons/godot_mcp/ui/status_panel.tscn": "b033f650b7e68e18cb51fc2a64cf7ea503aeec76ba2dc1531cfea87d1dc7a346",
+        "addons/godot_mcp/websocket_server.gd": "1fbbaa9c553642944591eb91433678b74a36bafc24149d510cb0d97e5ce863ee"
+      },
+      "local_patches": [
+        {
+          "file": "addons/godot_mcp/plugin.gd",
+          "upstream_sha256": "95e3b275d461f5af9381bcd2c6be705e28a5ff97904682512c9aef2d75d955ef",
+          "reason": "_ensure_bind_settings() saves project.godot only when it added a setting; upstream saved unconditionally on every editor open, which rewrote project.godot and dropped its Godot-baseline header comment required by tools/audit_godot_baseline.py"
+        }
+      ]
+    }
+  ]
+}

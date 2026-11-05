@@ -33,6 +33,10 @@ config/features=PackedStringArray("4.7", "Mobile")
 ; Nothing is captured at boot.
 driver/enable_input=true
 
+[autoload]
+
+MCPGameBridge="res://addons/godot_mcp/game_bridge/mcp_game_bridge.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -44,10 +48,21 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=4
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false
 import/fbx/importer=0
+
+[godot_mcp]
+
+bind_mode=0
+custom_bind_ip=""
+port_override_enabled=false
+port_override=6550
 
 [physics]
 
