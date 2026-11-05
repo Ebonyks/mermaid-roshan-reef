@@ -1,6 +1,6 @@
 # Demo readiness work order (November 2026 demo)
 
-Status: `PROPOSED / CANDIDATE`, revision 2. Prepared by Claude for Codex:
+Status: `PROPOSED / CANDIDATE`, revision 3 (2026-11-03). Prepared by Claude for Codex:
 written analysis, priorities and acceptance criteria only. No game, art or
 audio change and no images. Evidence baseline: dev
 `218ae766f8e60afb3f6338b8fafce28ec9fab7f2` (2026-10-31), whose Probe Suite
@@ -9,7 +9,12 @@ run 41215786419 passed.
 **Revision 2 (2026-10-31): the owner accepted every default ("Use the
 defaults").** The answers are recorded as `ODR-DEMO-FREEZE-20261031` and
 `ODR-DEMO-*-20261031` in `design/reference/owner_decisions.json`; section 7
-lists them. Codex may start with DR0.
+lists them.
+
+**Owner correction, 2026-11-03: `dev` stays open for completed, probes-green
+updates.** `ODR-DEV-OPEN-INTEGRATION-20261103` supersedes the integration
+freeze and parking instructions from revision 2. Demo priorities and release
+acceptance remain separate; see [section 10](#10-owner-correction-2026-11-03).
 
 Files: this README (priorities and work packages), [AUDIT.md](AUDIT.md)
 (analysis of each high-priority fix, with code references),
@@ -33,8 +38,10 @@ How this packet reads it:
 - **Part 2** is Day Two: everything after the Grand Puff fight and the Day Two
   card (the Chapter 2 party careers, the Opera venue, the lawn finale and the
   other castle destinations).
-- **A cap on new development** is a feature freeze: from now until the demo
-  build is promoted, `dev` takes only the packages below.
+- **A cap on new development** originally led to a demo-only integration
+  freeze. The owner superseded that restriction on 2026-11-03: `dev` continues
+  taking completed, probes-green authorized work, including work outside DR0-DR7.
+  The packages below remain demo priorities.
 
 ## 1. Where things stand
 
@@ -77,27 +84,27 @@ One promoted build, rehearsed on the demo device, in which:
    heat or a long freeze (`DL-PERF-02` is the target, the demo check is the
    adult's notes).
 
-## 3. Freeze rules
+## 3. Integration rules (owner correction 2026-11-03)
 
-Until the demo build is promoted:
-
-- Merge into `dev` only the packages in section 5, each on its own branch
-  with one impact record and a green Probe Suite (`ODR-JOBART-PROCESS-20261018`
-  already asks for one branch per package).
-- Park, do not merge: the flat-vector art campaign after R118, the Pop Star
-  rhythm foundation, the Racer integration, the Opera foyer movement repair,
-  the Arborist spray repair, the Fashion work, the Opera exploration prototype, the minigame review,
-  the rig stress test, the audit self-refinement, the learning-sessions
-  packet, the Rumi book and the picture book. Parked work loses nothing; it
-  resumes after the demo.
-- No new art, voice or music, except what a package below names.
-- No change to protected paths (`assets/book/`, `assets/audio/voices/`,
-  `assets/characters/friends/`) or to the Day One story clips (`DL-CIN-16`).
-- Do not add 3D resources; do not patch a probe to accept a regression.
+- Keep `dev` open for completed, authorized work. Start task branches from
+  current `origin/dev`, run the applicable gates, obtain a green exact-head
+  Probe Suite, reconcile current `origin/dev`, then merge and push to `dev`
+  under [the branching rules](../../../WORKFLOW_BRANCHING_2026-07-18.md).
+- DR0-DR7 are demo priorities. They do not limit what may integrate. The
+  revision-2 parking list no longer blocks already authorized work, including
+  art, animation, music, repair and documentation tasks, solely because the
+  demo has not been promoted. This is no new task commission or paid budget.
+- Demo scope and its other recorded owner answers retain their own scope;
+  integration does not select or accept content for the demo. Existing asset,
+  audio, canon, save, protected-path, 2D and per-task acceptance rules apply.
 - High-risk files (`.github/workflows/`, `CLAUDE.md`, `AGENTS.md`,
-  `SECURITY.md`, `.claude/`, `.codex/`) need an explicit owner request. The
-  only package that could touch one is DR3c's canon text, and only on an
-  explicit yes to Q2.
+  `SECURITY.md`, `.claude/`, `.codex/`) still need an explicit owner request.
+- Preserve an RC by its exact commit and APK hash. Later integration makes a
+  different candidate; recheck that candidate rather than freezing `dev`.
+  Promotion requires the owner's release instruction and the existing exact
+  commit, APK, save and device gates. Monitor the selected promotion SHA and
+  cancel/recheck if it advances beyond the candidate evidence; the branch stays
+  open. See [runbook R5](DEMO_RUNBOOK.md#r5-promote-and-verify).
 
 ## 4. Finished work that is not on `dev`
 
@@ -121,7 +128,7 @@ understandable without an adult; **after the demo** items wait without harm.
 
 | Priority | Package | Why |
 |---|---|---|
-| Must | DR0 Protect and freeze | Her save and an unpushed owner decision exist in one place each |
+| Must | DR0 Protect and track the candidate | Her save and an unpushed owner decision exist in one place each |
 | Must | DR1 Story clips visible | The castle reveal and the climax play as a black screen |
 | Must | DR2 No grown-up surfaces | A "DEV MODE" menu is one tap away in Part 2 |
 | Must | DR6-DR7 Rehearse, then promote | The build has never run on her device |
@@ -133,7 +140,7 @@ understandable without an adult; **after the demo** items wait without harm.
 Merge order: DR1+DR2 (one branch), DR3a, DR3b, DR3c (if green by
 Tuesday, Q2), DR4, DR5, then the release candidate. Each branch starts from current `dev`.
 
-### DR0. Protect and freeze (Day 0, no game code)
+### DR0. Protect and track the candidate (Day 0, no game code)
 
 - Push `codex/grand-puff-care-20261017` (`e0abe9c9`) to `origin` exactly as it
   is, before anything else happens in its worktree. The repository is public:
@@ -142,7 +149,8 @@ Tuesday, Q2), DR4, DR5, then the release candidate. Each branch starts from curr
   copy her save off the device, read the four keys listed in
   [AUDIT E2](AUDIT.md#e2-her-save-in-the-new-build--check-before-choosing-continue),
   keep today's stable APK.
-- Codex parks the sessions listed in section 3 and merges nothing else.
+- Codex records the demo candidate commit while continuing normal green
+  integration under section 3. No demo-wide parking rule applies.
 - Done when: the branch is on `origin`; the save copy exists and opens as
   JSON; the stable APK and its `.sha256` are kept; the four save values are
   in hand for Q1. (Q1-Q8 were answered on 2026-10-31.)
@@ -275,7 +283,9 @@ The owner answered "Use the defaults". Every row below is the accepted
 answer and is recorded in `design/reference/owner_decisions.json` under the
 ID shown. Q2's canon edit and Q7's restore needed an explicit yes, which was
 not given, so those files stay unchanged. The feature freeze itself is
-recorded as `ODR-DEMO-FREEZE-20261031`.
+recorded as `ODR-DEMO-FREEZE-20261031`; its integration restriction is
+superseded by the November 3 correction in section 10. Other answers keep their
+recorded scope.
 
 | # | Question | Answer (accepted default) | Decision |
 |---|---|---|---|
@@ -330,3 +340,18 @@ routine; finish Part 2 (guidance, the three rebuilds, Chef, the north-star
 destination); test upgrades with real save shapes; shrink the APK and load
 rooms in the background; harden promotion and backups; sweep voice
 fallbacks; aim the art campaign at what she reaches first.
+
+## 10. Owner correction (2026-11-03)
+
+Owner: "I'm told dev is frozen, why? We should still be pushing updates to dev!"
+
+Recorded as `ODR-DEV-OPEN-INTEGRATION-20261103`. Continue merging and pushing
+completed, probes-green authorized updates to `dev` through the normal task
+branch workflow. This supersedes `ODR-DEMO-FREEZE-20261031` only where it
+restricted integration to DR0-DR7, parked otherwise authorized tasks, or required
+holding `dev` at an RC. Preserve the October 31 decision as history.
+
+The demo plan still guides demo priorities. A candidate is identified by its
+commit and APK hash; if `dev` advances, recheck the new candidate before
+promotion. This correction grants no new feature scope, production budget,
+creative acceptance, protected-content exception or release authority.
