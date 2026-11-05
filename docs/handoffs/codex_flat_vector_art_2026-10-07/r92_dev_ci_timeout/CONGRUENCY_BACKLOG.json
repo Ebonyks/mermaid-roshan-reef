@@ -1061,7 +1061,7 @@
     },
     "R52": "NewpanoramafieldsbesideR52;earlierR51/previousfieldsretaintheirimmutablebases. Frozenrootandpiece/familyarrays/readersunchanged."
   },
-  "revision": "FV-AUDIT-20261104-R138-DOLLS-SAFE-LANDING-DEV",
+  "revision": "FV-AUDIT-20261105-R139-DOLLS-CRADLE-FOCUS-SOURCE",
   "inherited_r7_reference_base": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c1e466a8a9e605f43b4c7a181b3d7b702d7677aa/docs/handoffs/codex_flat_vector_art_2026-10-07/r7_craft_context/",
   "geode_addendum": {
     "file": "REVIEW.json",
@@ -9587,7 +9587,7 @@
       "repair": "Review title/decorative heart collision with global Back at1280; retain readable title and110touchminimum. No runtime change."
     }
   ],
-  "current_effective_summary": "../r96_geologist_mineral_candidate/SUMMARY.json. 41 published bounded source artifacts, 24 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native frame event counts stay at 7,723 bounded and 4,340 excluded, with 12,063 retained.",
+  "current_effective_summary": "../r96_geologist_mineral_candidate/SUMMARY.json. 42 published bounded source artifacts, 24 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Native events total 7,783 bounded and 4,340 excluded, with 12,123 retained.",
   "intro_entry_ownership": {
     "revision": "FV-AUDIT-20261016-R77",
     "topic_baseline": "7fd93aa0d2036c06c9a65aea6c79a990cc9ae01b",
@@ -11146,6 +11146,72 @@
     "apk_verified": false,
     "stable_id": "FV-2C447ABAAF19",
     "variant": "Main/Faron Dolls passive safe landing",
+    "formal_QA11": null,
+    "device": null,
+    "child": null,
+    "owner": null,
+    "accepted_removed": 0
+  },
+  "r139_dolls_cradle_focus_runtime": {
+    "state": "PUBLISHED_PAINTED_DOLLS_CRADLE_FOCUS_CANDIDATE_LOCAL_RUNTIME_PASS",
+    "stable_ids": [
+      "FV-B23A63BF66D8"
+    ],
+    "scope": "Idle cradle focus cue in the original Main/Faron Dolls activity",
+    "source_revision": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+    "source_baseline": "58b5f61952b41f6eab29a21d3fdb21ba7c1cc220",
+    "source_branch": "codex/flat-vector-dolls-cradle-focus-20261105",
+    "source_entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/README.md",
+    "source_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/MANIFEST.json",
+    "source_manifest_sha256": "7578d29c791473b97ae9bcc9e4cece065149e472a8fd43114257de60416c922b",
+    "anonymous_required_files_including_manifest": 186,
+    "candidate": {
+      "path": "assets/dolls/cradle_focus_painted.png",
+      "sha256": "4d8cc9d61069554a056b450ce41ace7e7d849c1f4adccb8cb0977b727dc1cc9b",
+      "dimensions": [
+        512,
+        171
+      ],
+      "native": "take_02_native.png",
+      "alpha16_bbox_xyxy": [
+        4,
+        5,
+        508,
+        166
+      ],
+      "export": "FFmpeg 8.1.2 crop=1596:532:89:235:exact=1,scale=512:171:flags=lanczos,format=rgba",
+      "placement": "Existing focus rectangle X and Y, original pulsing width, uniform sprite aspect, original draw order and modulate alpha. Outer pixels remain within the original focus envelope.",
+      "url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/assets/dolls/cradle_focus_painted.png",
+      "static_calls": 2,
+      "animation_calls": 0,
+      "model_version": null,
+      "backend": "Built-in image_gen.imagegen",
+      "provenance": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/assets_src/imagegen/dolls_cradle_focus_20261105/PROVENANCE.json"
+    },
+    "integration": {
+      "source_work_branch": true,
+      "Dev": false,
+      "procedural_idle_arcs_replaced": true
+    },
+    "runtime_evidence": {
+      "engine": "4.7.2.stable.official.ed1daf0bf Mobile/Speedy",
+      "configured_candidate_checks": 134,
+      "configured_source_checks": 134,
+      "candidate_native_frames": 30,
+      "source_native_frames": 30,
+      "native_frame_events": {
+        "bounded": 60,
+        "excluded": 0,
+        "retained": 60
+      },
+      "probes": 82,
+      "analyzers": 4,
+      "normal_save_hashes_unchanged": 11,
+      "CI_run": 41949093878,
+      "CI_status_at_snapshot": "in_progress"
+    },
+    "context": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/CANDIDATE_FOCUSED_RESULT.json",
+    "ten_axes": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/VISUAL_REVIEW.json",
     "formal_QA11": null,
     "device": null,
     "child": null,

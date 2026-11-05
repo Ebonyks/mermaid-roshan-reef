@@ -1,0 +1,5 @@
+# Painted Dolls cradle focus cue
+
+A painted gold guide replaces two idle focus arcs in Main/Faron Dolls on the source branch. The cue follows the original idle pulse and live-input gate. 42 published bounded source artifacts, 24 partial Dev artifacts and zero accepted removals. The 263 known roles and 35 families are lower bounds. Whole-game totals remain unknown. Sixty new frame events form 30 matched states. The scene alias adds no duplicate credit. [Source and tests](https://github.com/Ebonyks/mermaid-roshan-reef/blob/bfc60e1e80f49824f299896fe51431ff018c6ddb/docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/README.md) · [Exact source CI](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/41949093878) · [Source receipt](SOURCE_DELIVERY_VERIFICATION.json).
+
+The separate safe-landing Dev APK passed anonymous verification at `58b5f61952b41f6eab29a21d3fdb21ba7c1cc220`. Its exact Android build and checksum are recorded. [APK verification](R138_DEV_APK_VERIFICATION.json). Formal QA11, device, child and owner review remain open.
