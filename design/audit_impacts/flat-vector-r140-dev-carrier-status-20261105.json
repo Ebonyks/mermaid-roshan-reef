@@ -1,7 +1,7 @@
 {
   "id": "flat-vector-r140-dev-carrier-status-20261105",
-  "baseline": "148039244420f7a717868368e03e8324ab5d2a8d",
-  "scope": "Correct this chat\u2019s mistaken attribution of a newer Dev gate failure. The exact job log proves46 uncovered tooling paths stopped static validation before the separate Opera advisory. Preserve painted art, all source passes and historical record14803924. No runtime, counter or visual-acceptance change.",
+  "baseline": "2d485b5060131daf430933bb5d5d51fac6b074f9",
+  "scope": "Record newly published Dev96e8 and exact post-import gate result. Coverage passes; G2D101 flags the tooling impact JSON. Preserve prior diagnosis, all R140 art/source evidence and artifact counts. No runtime change.",
   "rules": [
     "DL-AUTH-01",
     "DL-AUTH-05",
@@ -9,7 +9,8 @@
     "DL-AUTH-07",
     "DL-QA-03",
     "DL-QA-11",
-    "DL-QA-14"
+    "DL-QA-14",
+    "DL-MED-09"
   ],
   "findings": [],
   "no_findings_reason": "This records a build-delivery snapshot rather than repairing a visual finding. The immutable R140 finding history and all open visual/device/child/owner gates retain their scope. No lifecycle or authority fact of a visual finding changes.",
@@ -27,19 +28,19 @@
   ],
   "validation": [
     {
-      "command": "Review complete failed-job log ordering and all46 AUDITDEV failures",
+      "command": "New Dev and five R140 runtime blob identities",
       "result": "PASS",
-      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV_CI_REGRESSION.json; original log SHA256 retained"
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R140_RUNTIME_RETENTION.json"
     },
     {
-      "command": "Current Dev audit-development gate",
+      "command": "Dev42016846369 post-import 2D inventory",
       "result": "FAIL",
-      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV_CI_REGRESSION.json;46 uncovered paths. Opera error is separately advisory."
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV_CI_REGRESSION.json; coverage and authority passed before G2D101 import-stage failure"
     },
     {
-      "command": "Document authority and AUTO/HEAD coverage on the correction",
+      "command": "Authority and AUTO/HEAD coverage on actual context",
       "result": "PASS",
-      "evidence": "Authority, AUTO and HEAD passed on the exact metadata correction; repeated on final manifest. No engine suite repeated."
+      "evidence": "Authority, AUTO and HEAD passed on the exact current delivery context; repeated on final manifest. No engine suite repeated."
     }
   ],
   "acceptance_gaps": "Current Dev build gate and matching APK, formal QA11, physical device, child and owner review remain open. Whole-game inventory gaps remain."

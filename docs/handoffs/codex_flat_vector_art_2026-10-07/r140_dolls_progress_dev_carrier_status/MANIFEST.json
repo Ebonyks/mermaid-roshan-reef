@@ -1,7 +1,7 @@
 {
   "schema": "reef.bounded-current-canonical-production-reconciliation/1",
-  "state": "R140_PAINTED_RUNTIME_RETAINED_CORRECTED_AUDIT_COVERAGE_FAILURE",
-  "baseline": "148039244420f7a717868368e03e8324ab5d2a8d",
+  "state": "R140_PAINTED_RUNTIME_RETAINED_DEV96_POSTIMPORT_INVENTORY_GATE_FAILED",
+  "baseline": "2d485b5060131daf430933bb5d5d51fac6b074f9",
   "entry": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/README.md",
   "files": [
     {
@@ -14,64 +14,64 @@
     {
       "path": "audit/MASTER_AUDIT_2026-08-09.md",
       "revision": null,
-      "bytes": 303416,
-      "sha256": "98d0f481d098cdacbd687312e368c97c388c89c87927bc1d7a314ea0248aa3d4",
+      "bytes": 303439,
+      "sha256": "8e300e4fcd283b92f220424b40ff2feee05d684387c5d4e0e1dd35adb82f9efc",
       "role": "Corrected current R140 Dev carrier gate diagnosis or preserved delivery context"
     },
     {
       "path": "design/05_DOC_LEDGER.md",
       "revision": null,
-      "bytes": 282374,
-      "sha256": "7b94d1bc87cd74834bb965e5428a2fe9a6d4645c28272bd1feff3d47ed859635",
+      "bytes": 282380,
+      "sha256": "00e4c72189ae4871944198858da8e68d423f40b8ca9dce1db2848d08890ff933",
       "role": "Corrected current R140 Dev carrier gate diagnosis or preserved delivery context"
     },
     {
       "path": "design/audit_impacts/flat-vector-r140-dev-carrier-status-20261105.json",
       "revision": null,
-      "bytes": 2694,
-      "sha256": "5efbbd334bc174c62e669f81b823277de202aefe24801f9df0f34bfcf37a129c",
+      "bytes": 2583,
+      "sha256": "b37a879f1f36adb16d8d962805bf7c81ffcf61b48712b2b6a7f9ba4b310d3d2c",
       "role": "Corrected current R140 Dev carrier gate diagnosis or preserved delivery context"
     },
     {
       "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/CURRENT.json",
       "revision": null,
-      "bytes": 315313,
-      "sha256": "b069e7281b667f14aa4d5d94e06236df70e3a8e8eb81cb203c586da26a8fe188",
+      "bytes": 307154,
+      "sha256": "d6925701aa70d27a168a6b4070fb4c4b9b8e5eca6a346265a4219f1135ed2a6c",
       "role": "Corrected current R140 Dev carrier gate diagnosis or preserved delivery context"
     },
     {
       "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/DEV_CI_REGRESSION.json",
       "revision": null,
-      "bytes": 11451,
-      "sha256": "56cc422d5e845f9c0498460c3aa15e04fb8d55a68c875e43038e8e535d5074ff",
+      "bytes": 3448,
+      "sha256": "484ebed24aa434b61e83fcefb10f62d199873631f12393ba833ffb236b0cd728",
       "role": "Corrected current R140 Dev carrier gate diagnosis or preserved delivery context"
     },
     {
       "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/PRIOR_CANONICAL_VERIFICATION.json",
       "revision": null,
-      "bytes": 7664,
-      "sha256": "606e68463107fe71615e3a07e5e6e0a8a95c3785dba5f2c1549345347427467e",
+      "bytes": 4703,
+      "sha256": "96727e5c83d265f0f43a45f2fbf406bf18fa4a6708541c0d185d99e6772d4014",
       "role": "Corrected current R140 Dev carrier gate diagnosis or preserved delivery context"
     },
     {
       "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/R140_RUNTIME_RETENTION.json",
       "revision": null,
-      "bytes": 2384,
-      "sha256": "6a57476a8476f4585bb54158722ceb56af46280f08c1f6d4b352fe30484e757a",
+      "bytes": 2490,
+      "sha256": "b6d99eb3434ec094392f152d6507d481218a425b5e7c1fda81a21d1c0e792c12",
       "role": "Corrected current R140 Dev carrier gate diagnosis or preserved delivery context"
     },
     {
       "path": "docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_dev_carrier_status/README.md",
       "revision": null,
-      "bytes": 1939,
-      "sha256": "f9ef5383473ac794cbc22c06d9e931558fb7e01bd0d12f4e20b402b3d8b17eb3",
+      "bytes": 1747,
+      "sha256": "c78114ae8381e8cf8579b2660e180ed2402175734da50c84659643f6a3b5c1e7",
       "role": "Corrected current R140 Dev carrier gate diagnosis or preserved delivery context"
     }
   ],
   "required_file_count_excluding_manifest": 9,
-  "payload_sha256": "640bf42f8a38293a3ba2a85b57d51c9ebbe3c7f9c9f18047a0bfc4f47d4e9ecc",
+  "payload_sha256": "946af603d8fa63604bfceef83153e7b709529bb249a88fbc90cf18f28a88ceb4",
   "initial_R140_Dev_revision": "8d16b9a5c8d3ada2c15b037c6701b396f33dd50d",
-  "Dev_carrier_revision": "208a12cf4ba79fea7ddbf317bb6c686180b652fb",
+  "Dev_carrier_revision": "96e8d3a20a64772ec712ee6b0bea3fb22e36a793",
   "source_artifacts": 42,
   "partialDev_artifacts": 26,
   "new_source_artifacts": 0,
@@ -85,5 +85,6 @@
   "device": null,
   "child": null,
   "owner": null,
-  "correction_of_revision": "148039244420f7a717868368e03e8324ab5d2a8d"
+  "historical_correction_of_revision": "148039244420f7a717868368e03e8324ab5d2a8d",
+  "previous_snapshot_revision": "2d485b5060131daf430933bb5d5d51fac6b074f9"
 }
