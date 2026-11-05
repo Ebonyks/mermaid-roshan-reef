@@ -923,6 +923,17 @@
         "scripts/probe_opera_2d.gd"
       ],
       "checkable": true
+    },
+    {
+      "id": "ODR-DEV-OPEN-INTEGRATION-20261103",
+      "date": "2026-11-03",
+      "subject": "Continue normal green integration into dev during demo preparation",
+      "question": "Does demo preparation freeze dev or stop otherwise authorized updates?",
+      "decision": "Owner, 2026-11-03: \"I'm told dev is frozen, why? We should still be pushing updates to dev!\" Continue merging and pushing completed, probes-green authorized work into dev through the established task-branch integration workflow. Supersedes ODR-DEMO-FREEZE-20261031 where it limits dev to DR0-DR7, parks otherwise authorized tasks, or holds dev at a release candidate. Demo priorities, other scoped owner answers, security, protected assets, budgets, save/device/child/owner acceptance and dev-to-master release gates retain their scopes. This is no new feature commission or release instruction.",
+      "source": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md#10-owner-correction-2026-11-03",
+      "authority": "recorded_owner",
+      "checks": [],
+      "cycle": "dev-open-integration-20261103"
     }
   ]
 }

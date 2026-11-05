@@ -1,8 +1,8 @@
 {
  "schema": "codex_handoff_manifest/1",
  "handoff": "codex_demo_readiness_2026-10-31",
- "status": "PROPOSED / CANDIDATE (owner accepted the defaults for Q1-Q8 on 2026-10-31)",
- "prepared_by": "Claude (written analysis and specification only; no game changes and no images)",
+ "status": "PROPOSED / CANDIDATE; October 31 demo defaults retained within scope; November 3 owner correction keeps dev open for green authorized updates",
+ "prepared_by": "Claude: original written review and specification; Codex: revision 3 owner-directed integration-policy correction; no game changes or images",
  "recipient": "Codex",
  "evidence_baseline": "dev 218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
  "entry": "README.md",
@@ -17,11 +17,11 @@
   "MA-ACCESS-001",
   "MA-CI-006"
  ],
- "impact_record": "design/audit_impacts/demo-readiness-handoff-20261031.json",
+ "impact_record": "design/audit_impacts/dev-open-integration-20261103.json",
  "file_count": 4,
- "total_bytes": 59524,
+ "total_bytes": 63004,
  "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
- "revision": "2 (2026-10-31): owner answers recorded as ODR-DEMO-*-20261031; revision 1 was dcf6f6e29fa9ea2c6899e0edb324a1bc8762b121",
+ "revision": "3 (2026-11-03): owner directs continued green dev integration; supersedes the revision-2 integration freeze; prior revisions remain in Git history",
  "owner_decisions": [
   "ODR-DEMO-FREEZE-20261031",
   "ODR-DEMO-START-20261031",
@@ -31,7 +31,8 @@
   "ODR-DEMO-PLAYTEST-ELEVATOR-20261031",
   "ODR-DEMO-NO-NEW-AUDIO-20261031",
   "ODR-DEMO-BOOK-FILE-20261031",
-  "ODR-DEMO-DATE-DEVICE-20261031"
+  "ODR-DEMO-DATE-DEVICE-20261031",
+  "ODR-DEV-OPEN-INTEGRATION-20261103"
  ],
  "files": [
   {
@@ -42,21 +43,22 @@
   },
   {
    "path": "README.md",
-   "bytes": 19284,
-   "sha256": "a7d501c0e5ced730058ca1c1ad858e3da523c7a1f123b4059bda5ddef4097ce2",
-   "role": "handoff entry point: request, status, demo definition, freeze, priorities, work packages DR0-DR7, schedule, owner answers Q1-Q8, gates"
+   "bytes": 21019,
+   "sha256": "fde18f77063f82db1af1bf4cc596675d39b0c67d36bf80e710f2fe1001eeda35",
+   "role": "handoff entry point: request, status, demo definition, current integration policy, priorities, work packages DR0-DR7, schedule, owner answers Q1-Q8, gates"
   },
   {
    "path": "AUDIT.md",
-   "bytes": 31173,
-   "sha256": "47c3e359d4f900438ddf14bb3d7a30e7ed7257f713575a43554ef2a191ee86fa",
+   "bytes": 31867,
+   "sha256": "526be5a53c83bc378cf5ed6938155a5ee4572d04ff0d6800a60d243f0c1666bf",
    "role": "analysis of each high-priority fix with code references: release state, stranded repairs, Day One, Part 2, release/save/performance, post-demo areas"
   },
   {
    "path": "DEMO_RUNBOOK.md",
-   "bytes": 9067,
-   "sha256": "a8a06f2c4b302953e12c1ab8e8d2f174d82cef104644de93e3e13fd121f67b5f",
+   "bytes": 10118,
+   "sha256": "7ac3ae78de76e91b0762d55ec6eb73c293846e76276dd94156a11e5a0d8ea208",
    "role": "release candidate, save rehearsal, install-over, device rehearsal, promotion, rollback and demo-day procedure"
   }
- ]
+ ],
+ "previous_impact_record": "design/audit_impacts/demo-readiness-handoff-20261031.json"
 }

@@ -1,16 +1,16 @@
 {
  "schema": "codex_handoff_remote_verification/1",
  "handoff": "codex_demo_readiness_2026-10-31",
- "revision": "2 (2026-10-31): owner answers recorded as ODR-DEMO-*-20261031; revision 1 was dcf6f6e29fa9ea2c6899e0edb324a1bc8762b121",
- "verified_commit": "15e476acbcdd14d6e9eca66fee4bb8e479edac1b",
- "branch": "claude/demo-readiness-20261031",
- "entry_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/claude/demo-readiness-20261031/docs/handoffs/codex_demo_readiness_2026-10-31",
- "immutable_tree_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/15e476acbcdd14d6e9eca66fee4bb8e479edac1b/docs/handoffs/codex_demo_readiness_2026-10-31",
- "manifest_link": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/15e476acbcdd14d6e9eca66fee4bb8e479edac1b/docs/handoffs/codex_demo_readiness_2026-10-31/MANIFEST.json",
- "manifest_sha256": "1d9d40432d812f76db3238caae3ab4a761b1010b109895a21806e54ab39e16e8",
- "manifest_bytes": 2513,
- "access_mode": "anonymous HTTPS GET to raw.githubusercontent.com with no token or cookie (the recipient's public access path)",
- "checked_at_utc": "2026-10-31T18:38:58Z",
+ "revision": "3 (2026-11-03): owner directs continued green dev integration; supersedes the revision-2 integration freeze; prior revisions remain in Git history",
+ "verified_commit": "1d700b3cf27e9f0dd5f82526317f0fae18733ee4",
+ "branch": "codex/dev-open-integration-20261103",
+ "entry_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/codex/dev-open-integration-20261103/docs/handoffs/codex_demo_readiness_2026-10-31",
+ "immutable_tree_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/1d700b3cf27e9f0dd5f82526317f0fae18733ee4/docs/handoffs/codex_demo_readiness_2026-10-31",
+ "manifest_link": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1d700b3cf27e9f0dd5f82526317f0fae18733ee4/docs/handoffs/codex_demo_readiness_2026-10-31/MANIFEST.json",
+ "manifest_sha256": "3c4483749cd2c4f0f410d1ce7e3d412bd1558d2adeba099a7adbf46f95c617a1",
+ "manifest_bytes": 2815,
+ "access_mode": "anonymous HTTPS GET to raw.githubusercontent.com with no token or cookie; public recipient access",
+ "checked_at_utc": "2026-11-03T16:25:13.332283+00:00",
  "files": [
   {
    "path": ".gdignore",
@@ -22,45 +22,129 @@
   {
    "path": "README.md",
    "http": 200,
-   "bytes": 19284,
-   "sha256": "a7d501c0e5ced730058ca1c1ad858e3da523c7a1f123b4059bda5ddef4097ce2",
+   "bytes": 21019,
+   "sha256": "fde18f77063f82db1af1bf4cc596675d39b0c67d36bf80e710f2fe1001eeda35",
    "matches_manifest": true
   },
   {
    "path": "AUDIT.md",
    "http": 200,
-   "bytes": 31173,
-   "sha256": "47c3e359d4f900438ddf14bb3d7a30e7ed7257f713575a43554ef2a191ee86fa",
+   "bytes": 31867,
+   "sha256": "526be5a53c83bc378cf5ed6938155a5ee4572d04ff0d6800a60d243f0c1666bf",
    "matches_manifest": true
   },
   {
    "path": "DEMO_RUNBOOK.md",
    "http": 200,
-   "bytes": 9067,
-   "sha256": "a8a06f2c4b302953e12c1ab8e8d2f174d82cef104644de93e3e13fd121f67b5f",
+   "bytes": 10118,
+   "sha256": "7ac3ae78de76e91b0762d55ec6eb73c293846e76276dd94156a11e5a0d8ea208",
    "matches_manifest": true
   }
  ],
  "related_files": [
   {
-   "path": "design/audit_impacts/demo-readiness-handoff-20261031.json",
+   "path": "design/reference/owner_decisions.json",
    "http": 200,
-   "sha256": "cdfe8c3c5c835dd91ba1705ee5cf800893f01f88366cdf067cc2e0fc5da48be1",
+   "sha256": "39625a9a6d8e84be61da08cefb5eb6966869fa221b10d399465c298409779475",
    "matches_commit_blob": true
   },
   {
-   "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+   "path": "design/reference/OWNER_DECISIONS.md",
    "http": 200,
-   "sha256": "0b664659ee4333d331fc29e416f244d01653429baa46a71e17ca8a331816d3c2",
+   "sha256": "9ffde432bbd89506a6a78e653ad143dc78bba772a60e4ea0ca37968968c54341",
+   "matches_commit_blob": true
+  },
+  {
+   "path": "audit/cycles/dev-open-integration-20261103/owner_answers.json",
+   "http": 200,
+   "sha256": "5c3d1ff5b415370c551e1391d3c065222faee148ec8096bb549756ca5f53080e",
    "matches_commit_blob": true
   },
   {
    "path": "audit/MASTER_AUDIT_2026-08-09.md",
    "http": 200,
-   "sha256": "2701287dc562e4808505be37086e57c99cad39a1a65fb2a33539ec6b6713252a",
+   "sha256": "04f80e65317c0e5151f49e4515e33944764e9627376aad4cf40938fc1e4a9c3c",
+   "matches_commit_blob": true
+  },
+  {
+   "path": "design/05_DOC_LEDGER.md",
+   "http": 200,
+   "sha256": "7e08206edb2ad444b8f6087d06159c6e3020a624a718b0485320527e2e140a5e",
+   "matches_commit_blob": true
+  },
+  {
+   "path": "design/audit_impacts/dev-open-integration-20261103.json",
+   "http": 200,
+   "sha256": "834e423ef8eb6665f2dc1c5b69009540e2ba60d28bea6948e96cad8f4623d549",
    "matches_commit_blob": true
   }
  ],
- "result": "PASS: every manifest file matches its SHA-256 and byte count; related records match the commit blobs",
- "status_note": "Publication is not acceptance. The handoff is PROPOSED / CANDIDATE; owner questions Q1-Q8 are open with stated defaults; no game change, device, child or owner acceptance is claimed."
+ "result": "PASS: manifest matches the exact Git blob; every payload matches its manifest byte count and SHA-256; all six related records match the exact commit blobs",
+ "status_note": "Publication verifies the policy-text revision only. The November 3 owner correction keeps dev open to green authorized integration. No product, runtime, device, child, creative or release acceptance is claimed.",
+ "previous_verification": {
+  "schema": "codex_handoff_remote_verification/1",
+  "handoff": "codex_demo_readiness_2026-10-31",
+  "revision": "2 (2026-10-31): owner answers recorded as ODR-DEMO-*-20261031; revision 1 was dcf6f6e29fa9ea2c6899e0edb324a1bc8762b121",
+  "verified_commit": "15e476acbcdd14d6e9eca66fee4bb8e479edac1b",
+  "branch": "claude/demo-readiness-20261031",
+  "entry_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/claude/demo-readiness-20261031/docs/handoffs/codex_demo_readiness_2026-10-31",
+  "immutable_tree_link": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/15e476acbcdd14d6e9eca66fee4bb8e479edac1b/docs/handoffs/codex_demo_readiness_2026-10-31",
+  "manifest_link": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/15e476acbcdd14d6e9eca66fee4bb8e479edac1b/docs/handoffs/codex_demo_readiness_2026-10-31/MANIFEST.json",
+  "manifest_sha256": "1d9d40432d812f76db3238caae3ab4a761b1010b109895a21806e54ab39e16e8",
+  "manifest_bytes": 2513,
+  "access_mode": "anonymous HTTPS GET to raw.githubusercontent.com with no token or cookie (the recipient's public access path)",
+  "checked_at_utc": "2026-10-31T18:38:58Z",
+  "files": [
+   {
+    "path": ".gdignore",
+    "http": 200,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "matches_manifest": true
+   },
+   {
+    "path": "README.md",
+    "http": 200,
+    "bytes": 19284,
+    "sha256": "a7d501c0e5ced730058ca1c1ad858e3da523c7a1f123b4059bda5ddef4097ce2",
+    "matches_manifest": true
+   },
+   {
+    "path": "AUDIT.md",
+    "http": 200,
+    "bytes": 31173,
+    "sha256": "47c3e359d4f900438ddf14bb3d7a30e7ed7257f713575a43554ef2a191ee86fa",
+    "matches_manifest": true
+   },
+   {
+    "path": "DEMO_RUNBOOK.md",
+    "http": 200,
+    "bytes": 9067,
+    "sha256": "a8a06f2c4b302953e12c1ab8e8d2f174d82cef104644de93e3e13fd121f67b5f",
+    "matches_manifest": true
+   }
+  ],
+  "related_files": [
+   {
+    "path": "design/audit_impacts/demo-readiness-handoff-20261031.json",
+    "http": 200,
+    "sha256": "cdfe8c3c5c835dd91ba1705ee5cf800893f01f88366cdf067cc2e0fc5da48be1",
+    "matches_commit_blob": true
+   },
+   {
+    "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "http": 200,
+    "sha256": "0b664659ee4333d331fc29e416f244d01653429baa46a71e17ca8a331816d3c2",
+    "matches_commit_blob": true
+   },
+   {
+    "path": "audit/MASTER_AUDIT_2026-08-09.md",
+    "http": 200,
+    "sha256": "2701287dc562e4808505be37086e57c99cad39a1a65fb2a33539ec6b6713252a",
+    "matches_commit_blob": true
+   }
+  ],
+  "result": "PASS: every manifest file matches its SHA-256 and byte count; related records match the commit blobs",
+  "status_note": "Publication is not acceptance. The handoff is PROPOSED / CANDIDATE; owner questions Q1-Q8 are open with stated defaults; no game change, device, child or owner acceptance is claimed."
+ }
 }
