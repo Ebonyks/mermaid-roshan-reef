@@ -1,0 +1,153 @@
+{
+  "id": "reef-kart-engine-20261103",
+  "scope": "Owner-requested replacement of the Racer career's RACE engine with the Reef Grand Prix. It is an original true-2D perspective kart race on the Pearl Canal Circuit, the Racer's own in-game canal painting laid out flat. It has the owner's touch layout (green stick on the left; red brake and an item/boost bubble on the right), pearls that raise top speed and are never lost, original items from gem buoys and arch bubbles, a lane-holding steering assist, and the DL-INT-14 imp contest (only the race restarts; he slows after wins; ties go to Roshan). Claude wrote the engine at the owner's explicit request and a written Codex art handoff whose requests only reorganize existing assets (owner rule 2026-11-03). It benefits the child with a real race she steers with one finger, plain controls, no fail state and no progress loss. Nothing from the commercial game the owner had running was copied. It is not merged during the demo freeze.",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-05",
+    "DL-INT-10",
+    "DL-INT-14",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-CODE-07",
+    "DL-QA-02",
+    "DL-QA-06",
+    "DL-ASSET-01"
+  ],
+  "findings": [
+    "MA-OPERA-014"
+  ],
+  "finding_scope": "MA-OPERA-014 gains three owner decisions and a 2026-11-03 history entry. Its Racer fix and tests now point at this engine. Lifecycle is unchanged (IN_PROGRESS): the engine is an unmerged work-branch candidate, and visual, device, child and owner acceptance are open.",
+  "owner_decisions": [
+    "ODR-RACER-ENGINE-20261103",
+    "ODR-RACER-TOUCH-20261103",
+    "ODR-TRACK-FIDELITY-20261103"
+  ],
+  "files": [
+    "scripts/racer/reef_kart_track.gd",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/racer/reef_kart_floor.gdshader",
+    "scripts/opera_racer_surface.gd",
+    "scripts/probe_opera_2d.gd",
+    "scripts/probe_racer_integration.gd",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/.gdignore",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/README.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/ENGINE.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/TRACK.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/ART_REQUESTS.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/VOICE.md",
+    "docs/handoffs/codex_reef_kart_art_2026-11-03/MANIFEST.json",
+    "audit/cycles/reef-kart-engine-20261103/owner_request.json",
+    "audit/cycles/reef-kart-engine-20261103/owner_answers.json",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/MASTER_AUDIT_2026-08-09.md"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 --headless --check-only --script on reef_kart_track.gd, reef_kart_race.gd, opera_racer_surface.gd, probe_racer_integration.gd and probe_opera_2d.gd",
+      "result": "PASS",
+      "evidence": "No parse or compile errors. The first import exposed an untyped loop variable and Variant floor() inference in reef_kart_track.gd; both were fixed before any probe ran."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_racer_integration.gd (isolated APPDATA)",
+      "result": "PASS",
+      "evidence": "RACER_INTEGRATION 42 PASS, 0 FAIL, exit 0. Measurements: length 4317.8; tightest radius 131.5; distant corridors at least 533.2 apart; projection error 2.5/0.03; floor field 30-77 ms. A held stick finishes in 30.12 s on attempt 1 with 0 pearls and 0 bumps. Pearl row: 4 steered, 0 on the start lane. Brake: 300 to 0 within 1 s. Imp-win beat: 109 frames; paces 0.88 and 0.50. Average step 144-266 us."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_racer_integration.gd, earlier runs during development",
+      "result": "FAIL",
+      "evidence": "Retained failures. Run 1 had four item-test failures: a sparkle fired from a standstill was slower than the imp, and a roulette still running made the later checks cascade. The first canal layout's tightest radius was 37.9, which broke projection. The second layout's spline distorted 180-radius corners to 105-110. A held stick drifted into inside-corner pearl rows. All were fixed by: sparkle speed of at least 560; clearing the roulette in the test; arc-based layout with 64 control points; lane-holding steering with curvature feed-forward; rows moved to straights and outside lanes."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_opera_2d.gd -- --touch --classic-touch-test (isolated APPDATA, as scripts/ci.sh)",
+      "result": "PASS",
+      "evidence": "OPERA2D result: ALL OK, 1397 OK lines. Racer policy: held stick 30.12 s with 0 pearls on attempt 1; steering for pearls with items 26.0 s with 10 pearls and 4 zooms on attempt 1. Engine node count 6 at start and finish."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_opera_2d.gd, first run on the new engine",
+      "result": "FAIL",
+      "evidence": "Retained failure: 'steering for pearls and using items beats a held stick'. The purposeful run was slower (29.35 s against 25.67 s): raw stick input overpowered the assist and drove the kart onto the apron and rail. Fixed by pure lane steering at the default assist, a Stanley-style controller and an assisted corner-speed cap applied after boosts."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --answers <scratch answers> --cycle reef-kart-engine-20261103 --answered-on 2026-11-03",
+      "result": "PASS",
+      "evidence": "DECISIONS|COUNT|75 and DECISIONS|RESULT|ALL OK; wrote audit/cycles/reef-kart-engine-20261103/owner_answers.json and the register views."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH|INVENTORY=757|LEDGER=757|ACTIVE=74|RECORDS=77 and DOCAUTH|RESULT|ALL OK on the staged working tree before the first commit."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV|BASE|27c88288bf6e39582072811443df79919e7bbb89 and AUDITDEV|RESULT|ALL OK on the staged working tree before the first commit."
+    },
+    {
+      "command": "python3 tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "GAME2D| RESULT| NO_REGRESSION (exact shrinking baseline; migration debt remains UNSATISFIED): 0 model files, and 52 production and 61 probe files still holding spatial code. Standalone run, and again inside the full ci.sh run, both before this evidence text was written."
+    },
+    {
+      "command": "bash scripts/ci.sh (full trusted suite, Godot 4.7.2 via tools/resolve_godot.py)",
+      "result": "PASS",
+      "evidence": "Exit 0 in 61 min 13 s: 82 probes, all process exit 0, no failure marker. OPERA2D result ALL OK, with racer policy held 30.12 s/0 pearls and purposeful 26.0 s/10 pearls on attempt 1. Pre-probe advisories are unchanged by this diff: the GOLDSTAR stale Astronaut bindings and the VISUALAUDIT legacy-3D layering rows. Exact-head remote CI on the pushed branch is still pending."
+    },
+    {
+      "command": "GitHub Actions Probe suite run 41794583064 on 64e7be6d87b8ac7e39d0b2943179cc7d2af5cd88 (exact pushed head)",
+      "result": "FAIL",
+      "evidence": "Retained failure. The Import step's 2D regression gate reported G2D101 on design/audit_impacts/reef-kart-engine-20261103.json: 53 production files with spatial code against the baseline 52, so no probe ran. This record's own 2D-gate evidence had quoted the gate's lower-case output field names, and the gate counts such names as spatial-code markers in Godot-active design data. The local gate runs predate that text. Fixed in the follow-up commit by rewording the evidence in plain words."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate, rerun on the final reworded record",
+      "result": "PASS",
+      "evidence": "GAME2D| RESULT| NO_REGRESSION: 0 model files, and 52 production and 61 probe files with spatial code, matching the baseline. Scanning this record with the gate's own token patterns finds no marker."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto and --base 64e7be6d87b8ac7e39d0b2943179cc7d2af5cd88 (the previous pushed head, as CI checks the push range)",
+      "result": "PASS",
+      "evidence": "DOCAUTH|RESULT|ALL OK and AUDITDEV|RESULT|ALL OK for both bases, on the final follow-up working tree."
+    },
+    {
+      "command": "bash scripts/ci.sh, static section only (every gate before the Godot import), on the follow-up working tree",
+      "result": "PASS",
+      "evidence": "CI_STATIC_SECTION|RESULT|ALL OK in 20 min 12 s; the advisory gold-star and visual-audit rows are unchanged. The full probe suite was not rerun locally for this record-only change; remote CI runs it."
+    },
+    {
+      "command": "GitHub Actions Probe suite on the follow-up head",
+      "result": "PENDING",
+      "evidence": "Starts when the follow-up commit is pushed. The owner's merge approval requires it to pass; the follow-up changes only this record."
+    },
+    {
+      "command": "Visual review of the running race on a screen",
+      "result": "PENDING",
+      "evidence": "Claude makes no captures or images (CLAUDE.md). Codex or the owner must look at the race; nothing visual is accepted."
+    }
+  ],
+  "acceptance_gaps": "Codex art is requested, not delivered: floor, skyline, arches, landmarks, buoys, pickups, imp kart and icons. Interim code-drawn shapes stand in. Not yet done or checked: a visual review of the race; device frame time and touch feel on the Lenovo Tab M11; an observed child session (stick, bubble, brake, racing the imp); and the owner's verdict on the race and the track's fidelity to the painting. Owner questions Q1-Q4 in the handoff README are open with defaults. Merging to dev waits for the demo freeze to lift and for green CI. On 2026-11-04 the owner approved merging into dev after the Saturday 2026-11-07 demo once the branch's GitHub CI is green (\"Yes, after the demo\"). Under ODR-DEMO-FREEZE-20261031 dev takes only the demo-readiness packages until the demo promotion to master.",
+  "references_used": [
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png",
+      "purpose": "The in-game Racer canal painting the track is read from (SHA-256 d7a7cba283c0f06c7159949d63f1ca345ee4938c63374ec43bebc7c78e13deda)"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "purpose": "Shows the game draws the canal tiles, not world_racer.png, whenever the tiles exist"
+    },
+    {
+      "path": "tools/make_voices.py",
+      "purpose": "Spoken text of the existing Racer clips wired to race moments"
+    }
+  ]
+}

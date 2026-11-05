@@ -1,0 +1,608 @@
+{
+  "id": "reef-kart-visual-context-20261105",
+  "workflow": "Built-in image_gen, provider/model revision unexposed, one object per call, two attempts maximum per named gap",
+  "jobs": [
+    {
+      "id": "item_capsule",
+      "packet": {
+        "audit_log_version": "2026-07-18-v8",
+        "asset_id": "item_capsule",
+        "role_name": "floating shell item capsule",
+        "role_type": "prop",
+        "runtime_target": "scripts/racer/reef_kart_race.gd _draw_bubble",
+        "referencing_script_or_scene": "scenes/racer/reef_grand_prix_pc.tscn and Opera Racer engine",
+        "gameplay_verb": "Drive through a floating capsule to roll an item. The pod disappears on cooldown and returns in the same place.",
+        "states_and_separate_parts": "One whole object. Runtime cooldown, motion, shadow and effects remain separate.",
+        "camera_and_distance": "Godot 4.7.2 Forward Mobile, 1280x720 and 1600x900, solo and cropped 640-wide split views; near, medium and approach distances.",
+        "world_scale_and_reference_dimensions": [
+          32,
+          40
+        ],
+        "placement_count_and_density": "3 per item station, up to 12 on a course",
+        "support_surface_or_attachment": "Floating above the driving lane",
+        "source_motif_references": [
+          {
+            "path": "assets/racer/pickups/item_bubble.png",
+            "sha256": "87c02419fc7cb5c7202e6f1f6e44691ed49d0925c870674126f65e9796f48026"
+          },
+          {
+            "path": "assets/kart/chase/kart_straight.png",
+            "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee"
+          }
+        ],
+        "identity_and_anatomy_anchors": "A compact, rounded aqua scallop-shell capsule closed around a large violet pearl clasp, a tiny warm gold hinge, clear solid silhouette. A collectible floating shell, no bowl, pedestal or legs. Front three-quarter view, very slight top surface visible. One object, fully framed with generous clear alpha margin.",
+        "silhouette_landmarks": "Complete whole silhouette must read at 112 px and in actual gameplay.",
+        "material_list": "Painted material appropriate to the named object; no baked world lighting.",
+        "palette_limits": "Mint/aqua/lilac, plum contour, restrained cream-gold highlights.",
+        "forbidden_motifs": "No characters, faces on ordinary props, stray backdrop, sticker border, text, watermarks or independent effects. Role-specific shell, support or seahorse anatomy only.",
+        "family_variation_axes": "Position, scale and reuse in the engine. No identity redesign between placements.",
+        "repetition_test": "Compare all placements around each closed course and inspect overlap at bends.",
+        "mobile_capture_plan": "Side-by-side baseline/candidate at fixed route stations in solo and split views, two landscape sizes, start and finish, representative item states.",
+        "active_asset_comparison": "The current transparent bubble has a jagged pale matte and no legible item identity at approach distance. Reuse of the plain pearl would confuse item rolls with the pearl currency.",
+        "license_and_provenance": "Built-in image_gen new project art from the listed project references. Retain native files, prompt, response metadata, hashes and export mapping.",
+        "owner_decisions_affecting_role": "Current user authorizes new items and context-appropriate redraws under the master audit. DL-ASSET-01 inventory and identity/protected-source constraints apply.",
+        "applicable_rule_ids": [
+          "DL-AUTH-05",
+          "DL-AUTH-06",
+          "DL-AUTH-07",
+          "DL-MED-01",
+          "DL-ASSET-01",
+          "DL-ASSET-02",
+          "DL-ASSET-03",
+          "DL-ASSET-04",
+          "DL-ASSET-06",
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-03",
+          "DL-VIS-04",
+          "DL-VIS-07",
+          "DL-VIS-08",
+          "DL-VIS-09",
+          "DL-INT-04",
+          "DL-INT-10",
+          "DL-READ-01",
+          "DL-READ-02",
+          "DL-QA-02",
+          "DL-QA-03",
+          "DL-QA-04",
+          "DL-QA-05",
+          "DL-QA-06",
+          "DL-QA-07",
+          "DL-QA-11"
+        ],
+        "attempt_limit": 2,
+        "money_budget": "Built-in tool only. No separately paid API call authorized."
+      },
+      "prompt": "Create floating shell item capsule. A compact, rounded aqua scallop-shell capsule closed around a large violet pearl clasp, a tiny warm gold hinge, clear solid silhouette. A collectible floating shell, no bowl, pedestal or legs. Front three-quarter view, very slight top surface visible. One object, fully framed with generous clear alpha margin. Polished hand-painted 2D storybook game sprite, matching the provided Mermaid Roshan reference art. Rounded hand-authored shapes, broad calm color areas with soft painterly shading, clean deep-plum contours, mint/aqua/lavender with restrained warm gold. Matte satin materials, high key. Exactly one named object on a genuinely transparent background. No white sticker rim, no photographic surface, no scene lighting, no text, logos or watermark. Square 1024 by 1024 canvas, centered full object, clean antialiased alpha. Reference image 1 supplies the established object identity or closest motif, image 2 supplies the painted game palette and finish. Complete the isolated object for a race chase camera. Preserve those design motifs, render clean whole contours.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "native_path": "assets_src/imagegen/reef_kart_context_20261105/item_capsule_native.png",
+          "native_sha256": "f4a366d0c8126f6069061afde3c6ddfe18558f6e3e2ad0fd5df8d5c631438f10",
+          "state": "runtime_pass",
+          "provider": "built-in image_gen",
+          "provider_revision": "unexposed",
+          "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-1a530e43-8064-40c3-8e48-ddccf6a717d4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+        }
+      ],
+      "prompt_sha256": "df7d67e841eaabb79e68207e5c9daf81b85d79d9a508e56d39de343a57eb659d"
+    },
+    {
+      "id": "kelp_trap",
+      "packet": {
+        "audit_log_version": "2026-07-18-v8",
+        "asset_id": "kelp_trap",
+        "role_name": "loose kelp ribbon mat",
+        "role_type": "sprite",
+        "runtime_target": "scripts/racer/reef_kart_race.gd _draw_world kelp trap and HUD",
+        "referencing_script_or_scene": "scenes/racer/reef_grand_prix_pc.tscn and Opera Racer engine",
+        "gameplay_verb": "Drop a loose kelp trap on the driving surface. Driving over it slows a kart.",
+        "states_and_separate_parts": "One whole object. Runtime cooldown, motion, shadow and effects remain separate.",
+        "camera_and_distance": "Godot 4.7.2 Forward Mobile, 1280x720 and 1600x900, solo and cropped 640-wide split views; near, medium and approach distances.",
+        "world_scale_and_reference_dimensions": [
+          70,
+          34
+        ],
+        "placement_count_and_density": "bounded dropped traps only",
+        "support_surface_or_attachment": "Lying flat on road",
+        "source_motif_references": [
+          {
+            "path": "assets/racer/pickups/kelp_patch.png",
+            "sha256": "e9afc8f7ed757fe0a6a763a6948f9dd0ae04909d70a5776c0ffd489715e49905"
+          },
+          {
+            "path": "assets/racer/icons/kelp.png",
+            "sha256": "a0d49bb449a09c0f2e3f8e60fc5a79a139b5d7eab02fb55b78ee02acbfcfaa12"
+          }
+        ],
+        "identity_and_anatomy_anchors": "One compact mat of five broad loose green-teal seaweed ribbons tangled together, a flat gently coiled shape with the ribbons tucked underneath, clearly a slippery patch seen from above at a shallow three-quarter game angle. No stems rooted in soil, no rocks, no display platform. Chunky readable folds, no wispy strands.",
+        "silhouette_landmarks": "Complete whole silhouette must read at 112 px and in actual gameplay.",
+        "material_list": "Painted material appropriate to the named object; no baked world lighting.",
+        "palette_limits": "Mint/aqua/lilac, plum contour, restrained cream-gold highlights.",
+        "forbidden_motifs": "No characters, faces on ordinary props, stray backdrop, sticker border, text, watermarks or independent effects. Role-specific shell, support or seahorse anatomy only.",
+        "family_variation_axes": "Position, scale and reuse in the engine. No identity redesign between placements.",
+        "repetition_test": "Compare all placements around each closed course and inspect overlap at bends.",
+        "mobile_capture_plan": "Side-by-side baseline/candidate at fixed route stations in solo and split views, two landscape sizes, start and finish, representative item states.",
+        "active_asset_comparison": "The existing trap is a thin jagged strip of a reef illustration and reads as scenery debris. A complete loose tangled mat must share its silhouette with the HUD item.",
+        "license_and_provenance": "Built-in image_gen new project art from the listed project references. Retain native files, prompt, response metadata, hashes and export mapping.",
+        "owner_decisions_affecting_role": "Current user authorizes new items and context-appropriate redraws under the master audit. DL-ASSET-01 inventory and identity/protected-source constraints apply.",
+        "applicable_rule_ids": [
+          "DL-AUTH-05",
+          "DL-AUTH-06",
+          "DL-AUTH-07",
+          "DL-MED-01",
+          "DL-ASSET-01",
+          "DL-ASSET-02",
+          "DL-ASSET-03",
+          "DL-ASSET-04",
+          "DL-ASSET-06",
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-03",
+          "DL-VIS-04",
+          "DL-VIS-07",
+          "DL-VIS-08",
+          "DL-VIS-09",
+          "DL-INT-04",
+          "DL-INT-10",
+          "DL-READ-01",
+          "DL-READ-02",
+          "DL-QA-02",
+          "DL-QA-03",
+          "DL-QA-04",
+          "DL-QA-05",
+          "DL-QA-06",
+          "DL-QA-07",
+          "DL-QA-11"
+        ],
+        "attempt_limit": 2,
+        "money_budget": "Built-in tool only. No separately paid API call authorized."
+      },
+      "prompt": "Create loose kelp ribbon mat. One compact mat of five broad loose green-teal seaweed ribbons tangled together, a flat gently coiled shape with the ribbons tucked underneath, clearly a slippery patch seen from above at a shallow three-quarter game angle. No stems rooted in soil, no rocks, no display platform. Chunky readable folds, no wispy strands. Polished hand-painted 2D storybook game sprite, matching the provided Mermaid Roshan reference art. Rounded hand-authored shapes, broad calm color areas with soft painterly shading, clean deep-plum contours, mint/aqua/lavender with restrained warm gold. Matte satin materials, high key. Exactly one named object on a genuinely transparent background. No white sticker rim, no photographic surface, no scene lighting, no text, logos or watermark. Square 1024 by 1024 canvas, centered full object, clean antialiased alpha. Reference image 1 supplies the established object identity or closest motif, image 2 supplies the painted game palette and finish. Complete the isolated object for a race chase camera. Preserve those design motifs, render clean whole contours.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "native_path": "assets_src/imagegen/reef_kart_context_20261105/kelp_trap_native.png",
+          "native_sha256": "ba32f32252b5a634c74ab76994b068eacfc9a81441fce38a4816844477d04801",
+          "state": "runtime_pass",
+          "provider": "built-in image_gen",
+          "provider_revision": "unexposed",
+          "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-7f15ba9c-6f79-4396-a4cc-ac3972a9558d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+        }
+      ],
+      "prompt_sha256": "1226c164f94a0652742bd8a736e0ed8eca694c9c87e2dff3f89b85f8beb2b590"
+    },
+    {
+      "id": "turn_marker",
+      "packet": {
+        "audit_log_version": "2026-07-18-v8",
+        "asset_id": "turn_marker",
+        "role_name": "race chevron sign",
+        "role_type": "prop",
+        "runtime_target": "scripts/racer/reef_kart_race.gd _draw_landmark",
+        "referencing_script_or_scene": "scenes/racer/reef_grand_prix_pc.tscn and Opera Racer engine",
+        "gameplay_verb": "Show the next bend direction beside the road without entering its drivable footprint.",
+        "states_and_separate_parts": "One whole object. Runtime cooldown, motion, shadow and effects remain separate.",
+        "camera_and_distance": "Godot 4.7.2 Forward Mobile, 1280x720 and 1600x900, solo and cropped 640-wide split views; near, medium and approach distances.",
+        "world_scale_and_reference_dimensions": [
+          100,
+          90
+        ],
+        "placement_count_and_density": "one before each major bend, at most 10 per course",
+        "support_surface_or_attachment": "A complete base sits on the non-driving shoulder",
+        "source_motif_references": [
+          {
+            "path": "assets/racer/tracks/pearl_canal/billboards/pearl_start_arch.png",
+            "sha256": "6bf16e5ba07e78dbcd846c8880ea55519a03d778764464a238e384a5af980952"
+          },
+          {
+            "path": "assets/kart/chase/kart_straight.png",
+            "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee"
+          }
+        ],
+        "identity_and_anatomy_anchors": "A single low wide racetrack direction sign with a thick cream-gold RIGHT chevron on a deep plum rectangular panel, softly rounded corners, thin lilac frame, two SHORT broad aqua feet bolted directly beneath the sign. Clearly supported, only this one sign. Near frontal view with a little top surface visible. Chevron is huge and unambiguous. No letters or numbers.",
+        "silhouette_landmarks": "Complete whole silhouette must read at 112 px and in actual gameplay.",
+        "material_list": "Painted material appropriate to the named object; no baked world lighting.",
+        "palette_limits": "Mint/aqua/lilac, plum contour, restrained cream-gold highlights.",
+        "forbidden_motifs": "No characters, faces on ordinary props, stray backdrop, sticker border, text, watermarks or independent effects. Role-specific shell, support or seahorse anatomy only.",
+        "family_variation_axes": "Position, scale and reuse in the engine. No identity redesign between placements.",
+        "repetition_test": "Compare all placements around each closed course and inspect overlap at bends.",
+        "mobile_capture_plan": "Side-by-side baseline/candidate at fixed route stations in solo and split views, two landscape sizes, start and finish, representative item states.",
+        "active_asset_comparison": "The project arrows are plain UI glyphs or curved return controls. There is no whole mounted road sign that reads from a chase camera.",
+        "license_and_provenance": "Built-in image_gen new project art from the listed project references. Retain native files, prompt, response metadata, hashes and export mapping.",
+        "owner_decisions_affecting_role": "Current user authorizes new items and context-appropriate redraws under the master audit. DL-ASSET-01 inventory and identity/protected-source constraints apply.",
+        "applicable_rule_ids": [
+          "DL-AUTH-05",
+          "DL-AUTH-06",
+          "DL-AUTH-07",
+          "DL-MED-01",
+          "DL-ASSET-01",
+          "DL-ASSET-02",
+          "DL-ASSET-03",
+          "DL-ASSET-04",
+          "DL-ASSET-06",
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-03",
+          "DL-VIS-04",
+          "DL-VIS-07",
+          "DL-VIS-08",
+          "DL-VIS-09",
+          "DL-INT-04",
+          "DL-INT-10",
+          "DL-READ-01",
+          "DL-READ-02",
+          "DL-QA-02",
+          "DL-QA-03",
+          "DL-QA-04",
+          "DL-QA-05",
+          "DL-QA-06",
+          "DL-QA-07",
+          "DL-QA-11"
+        ],
+        "attempt_limit": 2,
+        "money_budget": "Built-in tool only. No separately paid API call authorized."
+      },
+      "prompt": "Create race chevron sign. A single low wide racetrack direction sign with a thick cream-gold RIGHT chevron on a deep plum rectangular panel, softly rounded corners, thin lilac frame, two SHORT broad aqua feet bolted directly beneath the sign. Clearly supported, only this one sign. Near frontal view with a little top surface visible. Chevron is huge and unambiguous. No letters or numbers. Polished hand-painted 2D storybook game sprite, matching the provided Mermaid Roshan reference art. Rounded hand-authored shapes, broad calm color areas with soft painterly shading, clean deep-plum contours, mint/aqua/lavender with restrained warm gold. Matte satin materials, high key. Exactly one named object on a genuinely transparent background. No white sticker rim, no photographic surface, no scene lighting, no text, logos or watermark. Square 1024 by 1024 canvas, centered full object, clean antialiased alpha. Reference image 1 supplies the established object identity or closest motif, image 2 supplies the painted game palette and finish. Complete the isolated object for a race chase camera. Preserve those design motifs, render clean whole contours.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "native_path": "assets_src/imagegen/reef_kart_context_20261105/turn_marker_native.png",
+          "native_sha256": "01cf1301a096a4759578bffb6be75273281f889531bc69ef950b2f526400bee4",
+          "state": "runtime_pass",
+          "provider": "built-in image_gen",
+          "provider_revision": "unexposed",
+          "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-6fa1e919-d8fa-46e7-bb83-13374529deef.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+        }
+      ],
+      "prompt_sha256": "755cb0f54db4fb57b5e3f3bcf324d7be9f82f93fef3b91e31307d93418b8044d"
+    },
+    {
+      "id": "play_blocks",
+      "packet": {
+        "audit_log_version": "2026-07-18-v8",
+        "asset_id": "play_blocks",
+        "role_name": "stack of wooden toy blocks",
+        "role_type": "prop",
+        "runtime_target": "scripts/racer/reef_kart_race.gd _draw_landmark playroom",
+        "referencing_script_or_scene": "scenes/racer/reef_grand_prix_pc.tscn and Opera Racer engine",
+        "gameplay_verb": "A complete toy stack marks the outside of the Playroom road.",
+        "states_and_separate_parts": "One whole object. Runtime cooldown, motion, shadow and effects remain separate.",
+        "camera_and_distance": "Godot 4.7.2 Forward Mobile, 1280x720 and 1600x900, solo and cropped 640-wide split views; near, medium and approach distances.",
+        "world_scale_and_reference_dimensions": [
+          165,
+          145
+        ],
+        "placement_count_and_density": "3 to 4, varied with a tent and whole approved nursery props",
+        "support_surface_or_attachment": "A complete base sits on the non-driving shoulder",
+        "source_motif_references": [
+          {
+            "path": "assets/flats/castle/rooms/room_playroom_item_blocks.png",
+            "sha256": "fbe2910e2d2c8e7782371414534be9312db6f46ef1fce5c23c84ff57b08d0273"
+          },
+          {
+            "path": "assets/flats/castle/rooms/room_playroom_background.png",
+            "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b"
+          }
+        ],
+        "identity_and_anatomy_anchors": "One stable little stack of THREE softly rounded wooden toy blocks, mint, pale peach and lilac, with a simple inlaid shell on one broad face. All block faces complete and clean, one block on two lower blocks, bottom blocks touch the ground at the same horizontal baseline. Slight front three-quarter view, broad complete silhouette, no floor, no loose splinters, no cast scene shadow.",
+        "silhouette_landmarks": "Complete whole silhouette must read at 112 px and in actual gameplay.",
+        "material_list": "Painted material appropriate to the named object; no baked world lighting.",
+        "palette_limits": "Mint/aqua/lilac, plum contour, restrained cream-gold highlights.",
+        "forbidden_motifs": "No characters, faces on ordinary props, stray backdrop, sticker border, text, watermarks or independent effects. Role-specific shell, support or seahorse anatomy only.",
+        "family_variation_axes": "Position, scale and reuse in the engine. No identity redesign between placements.",
+        "repetition_test": "Compare all placements around each closed course and inspect overlap at bends.",
+        "mobile_capture_plan": "Side-by-side baseline/candidate at fixed route stations in solo and split views, two landscape sizes, start and finish, representative item states.",
+        "active_asset_comparison": "The active room blocks have torn surrounding pixels and were painted for a fixed room angle. Other inventoried toys are protected character toys, flat UV atlases or incomplete room crops.",
+        "license_and_provenance": "Built-in image_gen new project art from the listed project references. Retain native files, prompt, response metadata, hashes and export mapping.",
+        "owner_decisions_affecting_role": "Current user authorizes new items and context-appropriate redraws under the master audit. DL-ASSET-01 inventory and identity/protected-source constraints apply.",
+        "applicable_rule_ids": [
+          "DL-AUTH-05",
+          "DL-AUTH-06",
+          "DL-AUTH-07",
+          "DL-MED-01",
+          "DL-ASSET-01",
+          "DL-ASSET-02",
+          "DL-ASSET-03",
+          "DL-ASSET-04",
+          "DL-ASSET-06",
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-03",
+          "DL-VIS-04",
+          "DL-VIS-07",
+          "DL-VIS-08",
+          "DL-VIS-09",
+          "DL-INT-04",
+          "DL-INT-10",
+          "DL-READ-01",
+          "DL-READ-02",
+          "DL-QA-02",
+          "DL-QA-03",
+          "DL-QA-04",
+          "DL-QA-05",
+          "DL-QA-06",
+          "DL-QA-07",
+          "DL-QA-11"
+        ],
+        "attempt_limit": 2,
+        "money_budget": "Built-in tool only. No separately paid API call authorized."
+      },
+      "prompt": "Create stack of wooden toy blocks. One stable little stack of THREE softly rounded wooden toy blocks, mint, pale peach and lilac, with a simple inlaid shell on one broad face. All block faces complete and clean, one block on two lower blocks, bottom blocks touch the ground at the same horizontal baseline. Slight front three-quarter view, broad complete silhouette, no floor, no loose splinters, no cast scene shadow. Polished hand-painted 2D storybook game sprite, matching the provided Mermaid Roshan reference art. Rounded hand-authored shapes, broad calm color areas with soft painterly shading, clean deep-plum contours, mint/aqua/lavender with restrained warm gold. Matte satin materials, high key. Exactly one named object on a genuinely transparent background. No white sticker rim, no photographic surface, no scene lighting, no text, logos or watermark. Square 1024 by 1024 canvas, centered full object, clean antialiased alpha. Reference image 1 supplies the established object identity or closest motif, image 2 supplies the painted game palette and finish. Complete the isolated object for a race chase camera. Preserve those design motifs, render clean whole contours.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "native_path": "assets_src/imagegen/reef_kart_context_20261105/play_blocks_native.png",
+          "native_sha256": "95c20d512ce3d3c71cbdbe4a7fe1b334b8e79fc280073fe55d7169866723917b",
+          "state": "runtime_pass",
+          "provider": "built-in image_gen",
+          "provider_revision": "unexposed",
+          "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-ae5eed4d-0ae5-4510-8fde-439fd26bddd4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+        }
+      ],
+      "prompt_sha256": "17f9c5738c024077db25f39ba0b225c6ce26c9710e0a5f051189aaee361245ad"
+    },
+    {
+      "id": "play_tent",
+      "packet": {
+        "audit_log_version": "2026-07-18-v8",
+        "asset_id": "play_tent",
+        "role_name": "open triangular play tent",
+        "role_type": "prop",
+        "runtime_target": "scripts/racer/reef_kart_race.gd _draw_landmark playroom",
+        "referencing_script_or_scene": "scenes/racer/reef_grand_prix_pc.tscn and Opera Racer engine",
+        "gameplay_verb": "A complete tent provides a low Playroom landmark outside the race boundary.",
+        "states_and_separate_parts": "One whole object. Runtime cooldown, motion, shadow and effects remain separate.",
+        "camera_and_distance": "Godot 4.7.2 Forward Mobile, 1280x720 and 1600x900, solo and cropped 640-wide split views; near, medium and approach distances.",
+        "world_scale_and_reference_dimensions": [
+          230,
+          190
+        ],
+        "placement_count_and_density": "2 to 3",
+        "support_surface_or_attachment": "A complete base sits on the non-driving shoulder",
+        "source_motif_references": [
+          {
+            "path": "assets/flats/castle/rooms/room_playroom_item_play_tent.png",
+            "sha256": "a92bf0366b55154457ce34f9e53599ba23f9d42d5178f0e5457de5a166e655bd"
+          },
+          {
+            "path": "assets/flats/castle/rooms/room_playroom_background.png",
+            "sha256": "bd0baef94bad5c9257c0ab20d239513bd42ef465584fec6f012d990993ce797b"
+          }
+        ],
+        "identity_and_anatomy_anchors": "One complete small A-frame fabric play tent, plum-purple cloth, a wide open entrance framed with cream-gold fabric piping, mint folded flaps, a simple stitched shell on the upper panel. Front three-quarter view with modest depth, both bottom corners firmly on one baseline. Empty interior. No toys, characters, table, floor patch, surrounding furnishings or poles extending out of the silhouette.",
+        "silhouette_landmarks": "Complete whole silhouette must read at 112 px and in actual gameplay.",
+        "material_list": "Painted material appropriate to the named object; no baked world lighting.",
+        "palette_limits": "Mint/aqua/lilac, plum contour, restrained cream-gold highlights.",
+        "forbidden_motifs": "No characters, faces on ordinary props, stray backdrop, sticker border, text, watermarks or independent effects. Role-specific shell, support or seahorse anatomy only.",
+        "family_variation_axes": "Position, scale and reuse in the engine. No identity redesign between placements.",
+        "repetition_test": "Compare all placements around each closed course and inspect overlap at bends.",
+        "mobile_capture_plan": "Side-by-side baseline/candidate at fixed route stations in solo and split views, two landscape sizes, start and finish, representative item states.",
+        "active_asset_comparison": "The active tent crop contains a piece of a table and shelves. No clean complete tent appears in the inspected source or object libraries.",
+        "license_and_provenance": "Built-in image_gen new project art from the listed project references. Retain native files, prompt, response metadata, hashes and export mapping.",
+        "owner_decisions_affecting_role": "Current user authorizes new items and context-appropriate redraws under the master audit. DL-ASSET-01 inventory and identity/protected-source constraints apply.",
+        "applicable_rule_ids": [
+          "DL-AUTH-05",
+          "DL-AUTH-06",
+          "DL-AUTH-07",
+          "DL-MED-01",
+          "DL-ASSET-01",
+          "DL-ASSET-02",
+          "DL-ASSET-03",
+          "DL-ASSET-04",
+          "DL-ASSET-06",
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-03",
+          "DL-VIS-04",
+          "DL-VIS-07",
+          "DL-VIS-08",
+          "DL-VIS-09",
+          "DL-INT-04",
+          "DL-INT-10",
+          "DL-READ-01",
+          "DL-READ-02",
+          "DL-QA-02",
+          "DL-QA-03",
+          "DL-QA-04",
+          "DL-QA-05",
+          "DL-QA-06",
+          "DL-QA-07",
+          "DL-QA-11"
+        ],
+        "attempt_limit": 2,
+        "money_budget": "Built-in tool only. No separately paid API call authorized."
+      },
+      "prompt": "Create open triangular play tent. One complete small A-frame fabric play tent, plum-purple cloth, a wide open entrance framed with cream-gold fabric piping, mint folded flaps, a simple stitched shell on the upper panel. Front three-quarter view with modest depth, both bottom corners firmly on one baseline. Empty interior. No toys, characters, table, floor patch, surrounding furnishings or poles extending out of the silhouette. Polished hand-painted 2D storybook game sprite, matching the provided Mermaid Roshan reference art. Rounded hand-authored shapes, broad calm color areas with soft painterly shading, clean deep-plum contours, mint/aqua/lavender with restrained warm gold. Matte satin materials, high key. Exactly one named object on a genuinely transparent background. No white sticker rim, no photographic surface, no scene lighting, no text, logos or watermark. Square 1024 by 1024 canvas, centered full object, clean antialiased alpha. Reference image 1 supplies the established object identity or closest motif, image 2 supplies the painted game palette and finish. Complete the isolated object for a race chase camera. Preserve those design motifs, render clean whole contours.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "native_path": "assets_src/imagegen/reef_kart_context_20261105/play_tent_native.png",
+          "native_sha256": "71c2619d4ddff2923aa39f8630926d39c7cd09ab360668db4198c2ab5ad12518",
+          "state": "runtime_pass",
+          "provider": "built-in image_gen",
+          "provider_revision": "unexposed",
+          "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-c4e63cd9-bbe8-47ed-b53a-f3c6c5df837e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+        }
+      ],
+      "prompt_sha256": "9a06e0da396e8f5a901aa43c3ed3ff4578aa4e1416c7ca0ceaba7ca15c5e8a23"
+    },
+    {
+      "id": "kitchen_teapot",
+      "packet": {
+        "audit_log_version": "2026-07-18-v8",
+        "asset_id": "kitchen_teapot",
+        "role_name": "freestanding ceramic teapot",
+        "role_type": "prop",
+        "runtime_target": "scripts/racer/reef_kart_race.gd _draw_landmark kitchen",
+        "referencing_script_or_scene": "scenes/racer/reef_grand_prix_pc.tscn and Opera Racer engine",
+        "gameplay_verb": "A teapot landmark provides a readable Kitchen roadside silhouette.",
+        "states_and_separate_parts": "One whole object. Runtime cooldown, motion, shadow and effects remain separate.",
+        "camera_and_distance": "Godot 4.7.2 Forward Mobile, 1280x720 and 1600x900, solo and cropped 640-wide split views; near, medium and approach distances.",
+        "world_scale_and_reference_dimensions": [
+          190,
+          160
+        ],
+        "placement_count_and_density": "2 to 4",
+        "support_surface_or_attachment": "A complete base sits on the non-driving shoulder",
+        "source_motif_references": [
+          {
+            "path": "assets/flats/castle/rooms/room_kitchen_item_teapot.png",
+            "sha256": "2c984e7b712a7d1cca3cbf35868432ce12f333d9c6a4e333f7859388e2c1e193"
+          },
+          {
+            "path": "assets/opera/worlds/chef_quality_20261019/oven_cool.png",
+            "sha256": "19c4d2625cc80ca3cf3322656dabc2f624434be8d172f6736668df02526d2256"
+          }
+        ],
+        "identity_and_anatomy_anchors": "One complete plump mint-aqua ceramic teapot with a proper curved handle, short spout, warm copper-gold lid and one subtly raised scallop-shell emblem on the belly. Slight front three-quarter view, broad base rests at the ground baseline. No tea stream, steam, cup, saucer, counter, wall, window or face. Correct handle hole and complete spout.",
+        "silhouette_landmarks": "Complete whole silhouette must read at 112 px and in actual gameplay.",
+        "material_list": "Painted material appropriate to the named object; no baked world lighting.",
+        "palette_limits": "Mint/aqua/lilac, plum contour, restrained cream-gold highlights.",
+        "forbidden_motifs": "No characters, faces on ordinary props, stray backdrop, sticker border, text, watermarks or independent effects. Role-specific shell, support or seahorse anatomy only.",
+        "family_variation_axes": "Position, scale and reuse in the engine. No identity redesign between placements.",
+        "repetition_test": "Compare all placements around each closed course and inspect overlap at bends.",
+        "mobile_capture_plan": "Side-by-side baseline/candidate at fixed route stations in solo and split views, two landscape sizes, start and finish, representative item states.",
+        "active_asset_comparison": "The active teapot includes window, counter and a second cup in its cutout. The newer whole kitchen sources provide ovens, bowls and cake, but no complete freestanding teapot.",
+        "license_and_provenance": "Built-in image_gen new project art from the listed project references. Retain native files, prompt, response metadata, hashes and export mapping.",
+        "owner_decisions_affecting_role": "Current user authorizes new items and context-appropriate redraws under the master audit. DL-ASSET-01 inventory and identity/protected-source constraints apply.",
+        "applicable_rule_ids": [
+          "DL-AUTH-05",
+          "DL-AUTH-06",
+          "DL-AUTH-07",
+          "DL-MED-01",
+          "DL-ASSET-01",
+          "DL-ASSET-02",
+          "DL-ASSET-03",
+          "DL-ASSET-04",
+          "DL-ASSET-06",
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-03",
+          "DL-VIS-04",
+          "DL-VIS-07",
+          "DL-VIS-08",
+          "DL-VIS-09",
+          "DL-INT-04",
+          "DL-INT-10",
+          "DL-READ-01",
+          "DL-READ-02",
+          "DL-QA-02",
+          "DL-QA-03",
+          "DL-QA-04",
+          "DL-QA-05",
+          "DL-QA-06",
+          "DL-QA-07",
+          "DL-QA-11"
+        ],
+        "attempt_limit": 2,
+        "money_budget": "Built-in tool only. No separately paid API call authorized."
+      },
+      "prompt": "Create freestanding ceramic teapot. One complete plump mint-aqua ceramic teapot with a proper curved handle, short spout, warm copper-gold lid and one subtly raised scallop-shell emblem on the belly. Slight front three-quarter view, broad base rests at the ground baseline. No tea stream, steam, cup, saucer, counter, wall, window or face. Correct handle hole and complete spout. Polished hand-painted 2D storybook game sprite, matching the provided Mermaid Roshan reference art. Rounded hand-authored shapes, broad calm color areas with soft painterly shading, clean deep-plum contours, mint/aqua/lavender with restrained warm gold. Matte satin materials, high key. Exactly one named object on a genuinely transparent background. No white sticker rim, no photographic surface, no scene lighting, no text, logos or watermark. Square 1024 by 1024 canvas, centered full object, clean antialiased alpha. Reference image 1 supplies the established object identity or closest motif, image 2 supplies the painted game palette and finish. Complete the isolated object for a race chase camera. Preserve those design motifs, render clean whole contours.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "native_path": "assets_src/imagegen/reef_kart_context_20261105/kitchen_teapot_native.png",
+          "native_sha256": "9182268ce0d8f320318c9f6e6b4cab8227ee12a7a46a1b11c32099898ab0d82b",
+          "state": "runtime_pass",
+          "provider": "built-in image_gen",
+          "provider_revision": "unexposed",
+          "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-b98fef31-1d37-4ab2-a157-e756a02b7bc5.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+        }
+      ],
+      "prompt_sha256": "9aadf973f33dd1250f5bd64948be0516bbdd4999bfa8cd6648f2102a9a661db5"
+    },
+    {
+      "id": "pool_seahorse",
+      "packet": {
+        "audit_log_version": "2026-07-18-v8",
+        "asset_id": "pool_seahorse",
+        "role_name": "seahorse fountain ornament",
+        "role_type": "prop",
+        "runtime_target": "scripts/racer/reef_kart_race.gd _draw_landmark mermaid_pool",
+        "referencing_script_or_scene": "scenes/racer/reef_grand_prix_pc.tscn and Opera Racer engine",
+        "gameplay_verb": "A freestanding seahorse fountain sculpture marks the outer Pool bends.",
+        "states_and_separate_parts": "One whole object. Runtime cooldown, motion, shadow and effects remain separate.",
+        "camera_and_distance": "Godot 4.7.2 Forward Mobile, 1280x720 and 1600x900, solo and cropped 640-wide split views; near, medium and approach distances.",
+        "world_scale_and_reference_dimensions": [
+          160,
+          200
+        ],
+        "placement_count_and_density": "2 to 3",
+        "support_surface_or_attachment": "A complete base sits on the non-driving shoulder",
+        "source_motif_references": [
+          {
+            "path": "assets/flats/castle/rooms/room_mermaid_pool_item_seahorse_fountain.png",
+            "sha256": "6b55d9096e9043d30be16117c81da1d4e2b487db8fff572226588135bf676344"
+          },
+          {
+            "path": "assets/flats/castle/rooms/room_mermaid_pool_background.png",
+            "sha256": "02213bceca66fa932dbcb15fdbefa9a3da0db3030f35c26f2e1dfb8c537f28b6"
+          }
+        ],
+        "identity_and_anatomy_anchors": "One complete carved lavender seahorse fountain ornament, a single elegant curled seahorse supported by its curled tail on a low integrated aqua circular basin. Sculptural seahorse eyes are part of its real anatomy, no cartoon face. View slightly from the front three-quarter direction. Proper stable basin footprint. No flowing water or splash, no wall, coral, flowers, floor or extra creatures. The low basin is required functional support.",
+        "silhouette_landmarks": "Complete whole silhouette must read at 112 px and in actual gameplay.",
+        "material_list": "Painted material appropriate to the named object; no baked world lighting.",
+        "palette_limits": "Mint/aqua/lilac, plum contour, restrained cream-gold highlights.",
+        "forbidden_motifs": "No characters, faces on ordinary props, stray backdrop, sticker border, text, watermarks or independent effects. Role-specific shell, support or seahorse anatomy only.",
+        "family_variation_axes": "Position, scale and reuse in the engine. No identity redesign between placements.",
+        "repetition_test": "Compare all placements around each closed course and inspect overlap at bends.",
+        "mobile_capture_plan": "Side-by-side baseline/candidate at fixed route stations in solo and split views, two landscape sizes, start and finish, representative item states.",
+        "active_asset_comparison": "The active fountain includes a sliced wall and baked water stream. Existing complete shell fountains can be reused but do not preserve this distinctive pool landmark.",
+        "license_and_provenance": "Built-in image_gen new project art from the listed project references. Retain native files, prompt, response metadata, hashes and export mapping.",
+        "owner_decisions_affecting_role": "Current user authorizes new items and context-appropriate redraws under the master audit. DL-ASSET-01 inventory and identity/protected-source constraints apply.",
+        "applicable_rule_ids": [
+          "DL-AUTH-05",
+          "DL-AUTH-06",
+          "DL-AUTH-07",
+          "DL-MED-01",
+          "DL-ASSET-01",
+          "DL-ASSET-02",
+          "DL-ASSET-03",
+          "DL-ASSET-04",
+          "DL-ASSET-06",
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-03",
+          "DL-VIS-04",
+          "DL-VIS-07",
+          "DL-VIS-08",
+          "DL-VIS-09",
+          "DL-INT-04",
+          "DL-INT-10",
+          "DL-READ-01",
+          "DL-READ-02",
+          "DL-QA-02",
+          "DL-QA-03",
+          "DL-QA-04",
+          "DL-QA-05",
+          "DL-QA-06",
+          "DL-QA-07",
+          "DL-QA-11"
+        ],
+        "attempt_limit": 2,
+        "money_budget": "Built-in tool only. No separately paid API call authorized."
+      },
+      "prompt": "Create seahorse fountain ornament. One complete carved lavender seahorse fountain ornament, a single elegant curled seahorse supported by its curled tail on a low integrated aqua circular basin. Sculptural seahorse eyes are part of its real anatomy, no cartoon face. View slightly from the front three-quarter direction. Proper stable basin footprint. No flowing water or splash, no wall, coral, flowers, floor or extra creatures. The low basin is required functional support. Polished hand-painted 2D storybook game sprite, matching the provided Mermaid Roshan reference art. Rounded hand-authored shapes, broad calm color areas with soft painterly shading, clean deep-plum contours, mint/aqua/lavender with restrained warm gold. Matte satin materials, high key. Exactly one named object on a genuinely transparent background. No white sticker rim, no photographic surface, no scene lighting, no text, logos or watermark. Square 1024 by 1024 canvas, centered full object, clean antialiased alpha. Reference image 1 supplies the established object identity or closest motif, image 2 supplies the painted game palette and finish. Complete the isolated object for a race chase camera. Preserve those design motifs, render clean whole contours.",
+      "attempts": [
+        {
+          "attempt": 1,
+          "native_path": "assets_src/imagegen/reef_kart_context_20261105/pool_seahorse_native.png",
+          "native_sha256": "fe2b74902ca428e851d71aecf74a973cd279f333495d1dc3a2d6c4c6657fe239",
+          "state": "runtime_pass",
+          "provider": "built-in image_gen",
+          "provider_revision": "unexposed",
+          "response_hint": "Generated images are saved to C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f as C:\\Users\\Peter\\.codex\\generated_images\\01a1a851-4aa9-79a1-b425-ab6e6b0d3a7f\\exec-a1a07a1f-ea54-4909-ac9e-fe47ecf39951.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+          "acceptance_scope": "Local configured still-art candidate; see local_visual_review.json. Not owner_accepted."
+        }
+      ],
+      "prompt_sha256": "c751de03e172e3c729186217caba5a9c3071f68012160043006a758d2640b034"
+    }
+  ]
+}

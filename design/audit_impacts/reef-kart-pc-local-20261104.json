@@ -1,0 +1,77 @@
+{
+  "id": "reef-kart-pc-local-20261104",
+  "baseline": "8fd52a3f578cdf3da383360d9f1b74fb5d158b70",
+  "scope": "Owner-requested PC Reef Grand Prix with the existing Racer cast, vehicle tradeoffs, and local two-controller split-screen. Keep the Opera career input and save path independent.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-10",
+    "DL-INT-14",
+    "DL-UI-02",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-SAVE-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-QA-11"
+  ],
+  "findings": [
+    "MA-OPERA-014"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "scenes/racer/reef_grand_prix_pc.tscn",
+    "scripts/probe_reef_kart_pc.gd",
+    "scripts/racer/reef_kart_catalog.gd",
+    "scripts/racer/reef_kart_pc.gd",
+    "scripts/racer/reef_kart_race.gd",
+    "scripts/start_menu.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2-stable --headless --script res://scripts/probe_reef_kart_pc.gd",
+      "result": "PASS",
+      "evidence": "17 focused checks include twelve source-bound drivers, separate input, vehicle speed/steering, disconnect and reconnect, escape to garage when both pads disconnect, a completed P2 win and a completed keyboard solo race. Log SHA-256 dd7bcdf84c2dcbcdf07a56d33d762cbb8ca912afa287782ef2a9b2d7e57c0863"
+    },
+    {
+      "command": "Desktop title route and configured Forward Mobile captures",
+      "result": "PASS",
+      "evidence": "Actual desktop title button opened the standalone PC scene (PC_TITLE_ROUTE|true). Configured desktop Mobile captures of mode, garage, independent split views and controller pause; local evidence tmp/reef_kart_pc_capture. Exact capture hashes: pc-mode f4f4b2f6443b33c01851d9ebeea4bca7ef91a354fdc6919d8ca81bdfbc8d721a, pc-garage 842205e7113577b93ba5a12368e0177687adf97a43050b5b95cb38e3886634a8, pc-split 75c86c6cc63b1c74c95bd0890f6f910475f93f6d3237cde5fda7ff5e8a17ce79, pc-reconnect 9e211295b9344f46f62e22744c8bf33e2ff00c2ad41787b5be38a7ab88c3f0fb."
+    },
+    {
+      "command": "bash scripts/ci.sh plus standalone Chapter Two on Godot 4.7.2-stable with --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "All 82 trusted probes passed across the complete suite and a clean standalone rerun on the same runtime source. The full run passed all preceding gates and 81 probes; the Windows Chapter Two parent stopped with exit 127 before verdict. A PowerShell retry stopped later with exit -1. The independent Windows run returned 0 with CHAPTER2|RESULT: PASS checks_failed=0 and passed the same output error filters. Exact log SHA-256: full suite 3dd0f7c738e81e73453ac9713535ec0be399352f9f8db6baa4002486b1dfe024, first retry a123065f17dd4b839fa6d4a689ed9fdea69e5cf00561697eadbf0f11f99cd637, passing standalone stdout 8b4b809618f2ad0ac4e7b946b19a464760d9f701246fd7a0e1e991a1d1c30c71, passing standalone stderr 27a3706c4a1dda38ea6aabf70044b88a6ff683cc070bfa0107164a6e6431b2f7."
+    },
+    {
+      "command": "First full-suite typography audit",
+      "result": "FAIL",
+      "evidence": "Two unclassified navigation glyphs U+2039/U+203A. Replaced with the existing left and right arrow glyphs before the final run."
+    },
+    {
+      "command": "Second full-suite Canvas-only regression gate",
+      "result": "FAIL",
+      "evidence": "The new viewport used a redundant renderer-disable property flagged by the debt scanner. Removed the property. Both views use independent Canvas worlds and contain only Canvas race nodes."
+    }
+  ],
+  "acceptance_gaps": "Physical Windows USB and Bluetooth pairing, two-controller play session, human visual and performance review, and owner acceptance remain open. This local PC mode leaves the story save, mobile entry, and scope of the demo freeze independent.",
+  "implementation": {
+    "entry": "Desktop title screen Reef Grand Prix button; no story save state is read or written by PC mode.",
+    "drivers": "Eight legacy Racer selections plus Imp, Rumi, Daddy Mermaid, and Mama & Baby; original source images and runtime crop regions; authored chase poses for Roshan and the Imp kart, composited portraits for other drivers.",
+    "vehicles": "Kart 1.00× speed and turn rate; cycle 1.12× speed and 0.84× turn rate; truck 0.90× speed and 1.12× turn rate. Default Opera kart handling remains exactly 1.00×.",
+    "multiplayer": "One simulation and two separate Canvas viewports; player-owned controller devices and item edges; first to complete two laps wins. Solo retains the Imp race and offers keyboard fallback."
+  }
+}

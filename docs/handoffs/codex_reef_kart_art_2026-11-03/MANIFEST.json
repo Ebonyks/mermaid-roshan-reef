@@ -1,0 +1,59 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_reef_kart_art_2026-11-03",
+ "status": "Engine IMPLEMENTED_ON_BRANCH; art REQUESTED; nothing DELIVERY_ACCEPTED",
+ "prepared_by": "Claude (engine code at the owner's explicit request; written art handoff; no images)",
+ "recipient": "Codex",
+ "branch": "claude/reef-kart-engine-20261103",
+ "evidence_baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+ "entry": "README.md",
+ "owner_decision": [
+  "ODR-RACER-ENGINE-20261103",
+  "ODR-RACER-TOUCH-20261103",
+  "ODR-TRACK-FIDELITY-20261103"
+ ],
+ "supersedes": "ODR-RACER-VIEW-20261018 and docs/handoffs/codex_minigame_rebuilds_2026-10-17/RACER.md",
+ "finding": "MA-OPERA-014",
+ "art_rule": "Every request reorganizes existing repository art; no genuinely new content (ODR-TRACK-FIDELITY-20261103)",
+ "file_count": 6,
+ "total_bytes": 35500,
+ "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 5901,
+   "sha256": "7b00e59f30c5f7d9e06cbed059682a408e8b0e1d7903de961e46dce129173aca",
+   "role": "handoff entry point, owner requests, Claude's calls, work order and owner questions"
+  },
+  {
+   "path": "ENGINE.md",
+   "bytes": 8728,
+   "sha256": "f1783bd51183ee795182225b1b7ed42cca693201a502b424b9f8c81acf2785f1",
+   "role": "implemented engine behaviour, touch geometry, art binding contract and measurements"
+  },
+  {
+   "path": "TRACK.md",
+   "bytes": 9766,
+   "sha256": "2c76b2c7d46a1619658ece294511fc8e18de35b86e76afbf85fc42122542a04b",
+   "role": "which painting is in game, the Pearl Canal Circuit reading, course layout, floor and skyline recipes"
+  },
+  {
+   "path": "ART_REQUESTS.md",
+   "bytes": 8520,
+   "sha256": "9773b44a77d29bf558a68bab78bf3adcc3578204dcae3eb8a3644c592de3d0b8",
+   "role": "every art request as a reorganization of existing assets, with sources, hashes, operations and gaps"
+  },
+  {
+   "path": "VOICE.md",
+   "bytes": 2585,
+   "sha256": "83e2f72a613bf16d088a0c0daae0fa9432aad4bdb09b0c6bd6169070ad8ceda8",
+   "role": "existing recorded clips wired to race moments and the voice gaps"
+  }
+ ]
+}

@@ -1,0 +1,548 @@
+{
+  "schema": "reef.racer.visual.validation.v1",
+  "baseline": "7ad71c329c336ddb75c53bef0e38ac73b25f585f",
+  "engine": "Godot 4.7.2-stable official.ed1daf0bf",
+  "rendered_profile": "Forward Mobile, NVIDIA RTX 3060 Ti; actual tablet pending",
+  "full_suite": {
+    "command": "GODOT=approved Godot 4.7.2; bash scripts/ci.sh",
+    "exit": 0,
+    "ordered_probes": [
+      {
+        "probe": "probe_reef_districts",
+        "exit": 0
+      },
+      {
+        "probe": "probe_ocean_kingdoms",
+        "exit": 0
+      },
+      {
+        "probe": "probe_audit",
+        "exit": 0
+      },
+      {
+        "probe": "probe_passive",
+        "exit": 0
+      },
+      {
+        "probe": "probe_living_world",
+        "exit": 0
+      },
+      {
+        "probe": "probe_load",
+        "exit": 0
+      },
+      {
+        "probe": "probe_rank",
+        "exit": 0
+      },
+      {
+        "probe": "probe_save_recovery",
+        "exit": 0
+      },
+      {
+        "probe": "probe_galaxy_state",
+        "exit": 0
+      },
+      {
+        "probe": "probe_collection",
+        "exit": 0
+      },
+      {
+        "probe": "probe_mg2d",
+        "exit": 0
+      },
+      {
+        "probe": "probe_fetch",
+        "exit": 0
+      },
+      {
+        "probe": "probe_melody",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dolls",
+        "exit": 0
+      },
+      {
+        "probe": "probe_seek",
+        "exit": 0
+      },
+      {
+        "probe": "probe_audio",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dance",
+        "exit": 0
+      },
+      {
+        "probe": "probe_l2",
+        "exit": 0
+      },
+      {
+        "probe": "probe_l2_living_cards",
+        "exit": 0
+      },
+      {
+        "probe": "probe_sky_lagoon_animals",
+        "exit": 0
+      },
+      {
+        "probe": "probe_l2_reenter",
+        "exit": 0
+      },
+      {
+        "probe": "probe_crown",
+        "exit": 0
+      },
+      {
+        "probe": "probe_throne",
+        "exit": 0
+      },
+      {
+        "probe": "probe_northern",
+        "exit": 0
+      },
+      {
+        "probe": "probe_human_art_audit",
+        "exit": 0
+      },
+      {
+        "probe": "probe_train",
+        "exit": 0
+      },
+      {
+        "probe": "probe_verbs",
+        "exit": 0
+      },
+      {
+        "probe": "probe_skins",
+        "exit": 0
+      },
+      {
+        "probe": "probe_touch_router",
+        "exit": 0
+      },
+      {
+        "probe": "probe_touch_stress",
+        "exit": 0
+      },
+      {
+        "probe": "probe_interaction",
+        "exit": 0
+      },
+      {
+        "probe": "probe_touch_adversary",
+        "exit": 0
+      },
+      {
+        "probe": "probe_touch_look",
+        "exit": 0
+      },
+      {
+        "probe": "probe_ui_system",
+        "exit": 0
+      },
+      {
+        "probe": "probe_voice",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_voice",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_d8_revisits",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_handoffs",
+        "exit": 0
+      },
+      {
+        "probe": "probe_kart_feel",
+        "exit": 0
+      },
+      {
+        "probe": "probe_combat",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dust_bunny",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dust_bunny_boss",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dust_boss",
+        "exit": 0
+      },
+      {
+        "probe": "probe_hit",
+        "exit": 0
+      },
+      {
+        "probe": "probe_partner",
+        "exit": 0
+      },
+      {
+        "probe": "probe_combat_tutorial",
+        "exit": 0
+      },
+      {
+        "probe": "probe_imp_ai",
+        "exit": 0
+      },
+      {
+        "probe": "probe_mic",
+        "exit": 0
+      },
+      {
+        "probe": "probe_stuffie",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dungeon",
+        "exit": 0
+      },
+      {
+        "probe": "probe_ember",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_2d",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_diegetic_paths",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_detective",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_pipe",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_nursery",
+        "exit": 0
+      },
+      {
+        "probe": "probe_opera_gesture_quality",
+        "exit": 0
+      },
+      {
+        "probe": "probe_kitchen_props",
+        "exit": 0
+      },
+      {
+        "probe": "probe_bathroom_props",
+        "exit": 0
+      },
+      {
+        "probe": "probe_castle_door_language",
+        "exit": 0
+      },
+      {
+        "probe": "probe_bathroom_integration",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_bathroom_bunny",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_bathroom_cleanup",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_bathroom_movie_handoff",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_director",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_integration",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_pool_cleanup",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_art_attack_state",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_castle_dressing",
+        "exit": 0
+      },
+      {
+        "probe": "probe_day_one_story_clips",
+        "exit": 0
+      },
+      {
+        "probe": "probe_chapter2",
+        "exit": 0
+      },
+      {
+        "probe": "probe_chapter2_farmer_resume",
+        "exit": 0
+      },
+      {
+        "probe": "probe_chapter2_lawn",
+        "exit": 0
+      },
+      {
+        "probe": "probe_alpha_milestone_save",
+        "exit": 0
+      },
+      {
+        "probe": "probe_dust_boss_balance",
+        "exit": 0
+      },
+      {
+        "probe": "probe_start_menu_routing",
+        "exit": 0
+      },
+      {
+        "probe": "probe_start_menu_new_game",
+        "exit": 0
+      },
+      {
+        "probe": "probe_castle_pool_life_2d",
+        "exit": 0
+      },
+      {
+        "probe": "probe_castle_pearl_art",
+        "exit": 0
+      },
+      {
+        "probe": "probe_fairy_art",
+        "exit": 0
+      },
+      {
+        "probe": "probe_props",
+        "exit": 0
+      }
+    ],
+    "original_log_sha256": "494c6fbf222eebed273a7257f16f7ad2bcc25c5de05253d4495b445232806448",
+    "published_log": "assets_src/imagegen/reef_kart_context_20261105/evidence/full-ci.log",
+    "published_log_sha256": "aa290fa408eee3592155e4d15d9a6315b8ef127b80949a3ba004bf7af070f161",
+    "classifiers": "Unmodified scripts/ci.sh. All 82 ordered probe process exits are zero. Initial incomplete draft coverage failure is retained separately; no runtime assertion was waived."
+  },
+  "focused_checks": {
+    "pc": 44,
+    "canal": 45,
+    "failures": 0,
+    "stderr": "empty",
+    "evidence": [
+      "evidence/pc.log",
+      "evidence/canal.log"
+    ]
+  },
+  "new_textures": {
+    "count": 7,
+    "size": [
+      1024,
+      1024
+    ],
+    "loaded_mip_levels": 10,
+    "structural_negative_controls": 4,
+    "runtime_negative_controls": 3,
+    "evidence": [
+      "structural_validation.json",
+      "evidence/runtime-textures.log"
+    ]
+  },
+  "visual": {
+    "configured_checkpoints": 54,
+    "captures": "review/candidate/captures.json",
+    "review": "local_visual_review.json",
+    "art_acceptance": "Local AI still-object candidate floor 4.5/5. Not owner_accepted."
+  },
+  "evidence_normalization": "Console logs preserve ordered content and values; CRLF is normalized to LF for Git publication. The original full-console SHA-256 is retained above.",
+  "published_log_hashes": [
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/authority-final.log",
+      "sha256": "782d72c33df43240c80aef69629a63e205ea35b2109e16d17632a0eab45a8f55"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/canal.log",
+      "sha256": "d116d8b3ce71b9fb54d3e97284bbaabd1304d000b3791d1a5f6e134b91974f17"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/canal.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/capture-fixture-first-fail.log",
+      "sha256": "7e2f82ed543f5df0c9c4de01483dcb89ae223afe9eadc49d86c23f2e70c601e7"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/complete-render.log",
+      "sha256": "2f521f41888e234f79df08b9cc56eda147f8d7f4e49c36001743e647e9650dba"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/complete-render.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/course-bounds.log",
+      "sha256": "638cd50ae3ebb103ad561f27155e0c0bc4099fb09a22dd682a4343812bc053f6"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/course-bounds.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/coverage-auto-final.log",
+      "sha256": "b0dde6f0bc9fc51ddef25e63a8a1c8b8a62a67e79c4b41065a895cc20ad7482f"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/coverage-baseline-final.log",
+      "sha256": "7dbc714c52e305a69f2361936ab9b9f655b67a1aa227abb2e0d16288f34c09dd"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/draft-coverage-failure.log",
+      "sha256": "c679ae413e2d8cd1e8d3f9e6b7169fb2041c45bad1ee83211dee832123306e12"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/full-ci.log",
+      "sha256": "aa290fa408eee3592155e4d15d9a6315b8ef127b80949a3ba004bf7af070f161"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/import-mips.log",
+      "sha256": "4f7d5d0c48ef0e8aef35d7b62e1bb772955f446d791c2db4e5f9150ce941f199"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/import.log",
+      "sha256": "5fbd04631a08dcee29cecce93e54d188e7b069bd6a36f2e53110b05ba2764e2b"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/pc.log",
+      "sha256": "4c9a3cfbc7e0a968226e04d06ab59d1fce36946bb8be869b59819d3d1e92c6c5"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/pc.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/runtime-textures.log",
+      "sha256": "0503ea6ee73baede024564c2d04039dd76c58c1d1f7fc97544d4a1e6e10fe952"
+    },
+    {
+      "path": "assets_src/imagegen/reef_kart_context_20261105/evidence/runtime-textures.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "runtime_source_fingerprints": [
+    {
+      "path": "scripts/racer/reef_kart_race.gd",
+      "sha256": "f93c912cd345846a7f0d47bbf42ac0f66af82e29df57de1eff459687fd45bc4a"
+    },
+    {
+      "path": "scripts/racer/reef_kart_track.gd",
+      "sha256": "aa7e8e8714a64f194041e510d8dbdf237cd731b10d404ff862d4007350d523bf"
+    },
+    {
+      "path": "scripts/racer/reef_kart_courses.gd",
+      "sha256": "1000c959d9ed473ef0aedbb86409d646580f2ee5b99e4c6d45e0d931f713bab6"
+    },
+    {
+      "path": "scripts/racer/reef_kart_floor.gdshader",
+      "sha256": "bc981d65bf9aa5aeaa9763cd81bf3e6ce556fa551d8d3a7f5c2f365c3667977e"
+    },
+    {
+      "path": "scripts/racer/reef_kart_pc.gd",
+      "sha256": "6dc0e3542bdd164082696e028e10afa9d537869c1e8e4332a47bb5355f2710d6"
+    },
+    {
+      "path": "assets/racer/context_v2/item_capsule.png",
+      "sha256": "5b356f6adb1822859b8b9db62d7b0780ce90d1b650c27470fc3e33cb128cd635"
+    },
+    {
+      "path": "assets/racer/context_v2/item_capsule.png.import",
+      "sha256": "22a567215901ecc7492ccd8c504805926d3e7332b78f8802116ea8df9f1202bf"
+    },
+    {
+      "path": "assets/racer/context_v2/kelp_trap.png",
+      "sha256": "7a9e0b17c5282f516666e3bfce12dcf75e244aec89bb37bf6b791b3200700795"
+    },
+    {
+      "path": "assets/racer/context_v2/kelp_trap.png.import",
+      "sha256": "da132688290da61f7a37d44b851933c55024c4346545003cde3e99ff7b012370"
+    },
+    {
+      "path": "assets/racer/context_v2/turn_marker.png",
+      "sha256": "b9cb0744d19319fac2314c8b4adf720c240607f26c2a950b8de338ec4df568c7"
+    },
+    {
+      "path": "assets/racer/context_v2/turn_marker.png.import",
+      "sha256": "38e6d3dcfb93e52b3241d33cf90f9d3b3f688f36b0eaf42537bbc6091373711f"
+    },
+    {
+      "path": "assets/racer/context_v2/play_blocks.png",
+      "sha256": "72b10a0da025dfb4d8c5ad99c064f446045032c9ea58599dc6c8efd83fe1ef4d"
+    },
+    {
+      "path": "assets/racer/context_v2/play_blocks.png.import",
+      "sha256": "c88d21174613611ef219037356dfaf7a54460e58da1dfa40877fb64bbb7d8401"
+    },
+    {
+      "path": "assets/racer/context_v2/play_tent.png",
+      "sha256": "87ac91e89d3fc933e7bf9467ba28b15310e5ee59c0dc2b2bf375f27b83b5b47d"
+    },
+    {
+      "path": "assets/racer/context_v2/play_tent.png.import",
+      "sha256": "927cc1a660b477be0c2e3bcc44b11a529ecbaec74bd9885a3a6ce397e143bef0"
+    },
+    {
+      "path": "assets/racer/context_v2/kitchen_teapot.png",
+      "sha256": "35337c962c41f16ff643cb9ec89dcb54f71bc10c4e470e871b3af2de85ad5a72"
+    },
+    {
+      "path": "assets/racer/context_v2/kitchen_teapot.png.import",
+      "sha256": "355f242e32082741c7fe061933748edcf84e3448bccafb81bdb0130e6889c3e7"
+    },
+    {
+      "path": "assets/racer/context_v2/pool_seahorse.png",
+      "sha256": "47d8c2749df2455a1995a553909360a99aaf388cb027e165e32e439582015078"
+    },
+    {
+      "path": "assets/racer/context_v2/pool_seahorse.png.import",
+      "sha256": "5177a4e3d553b718ee29dfeaa09d2097b525c7c9f7503b36cb36f53a240c3645"
+    },
+    {
+      "path": "scripts/probe_reef_kart_pc.gd",
+      "sha256": "3de3e3f1f1f29cdeeb3b4b10299d44da84d82595abacc908e7312ec19fca0730"
+    }
+  ],
+  "final_document_gates": {
+    "authority": "PASS",
+    "coverage_auto": {
+      "result": "PASS",
+      "base": "27c88288bf6e39582072811443df79919e7bbb89"
+    },
+    "coverage_task_baseline": {
+      "result": "PASS",
+      "base": "7ad71c329c336ddb75c53bef0e38ac73b25f585f"
+    },
+    "evidence": [
+      "evidence/authority-final.log",
+      "evidence/coverage-auto-final.log",
+      "evidence/coverage-baseline-final.log"
+    ]
+  },
+  "acceptance_gaps": "Exact canonical fresh-runtime QA11 certification, physical PC controllers and tablet, child comprehension and owner visual acceptance remain open."
+}

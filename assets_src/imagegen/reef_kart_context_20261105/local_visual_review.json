@@ -1,0 +1,318 @@
+{
+  "reviewer": "Codex local AI visual inspection",
+  "date": "2026-11-05",
+  "evidence_class": "Configured desktop Forward Mobile runtime stills plus isolated/native and 112px silhouette inspection. No canonical QA11, physical device, child or owner acceptance.",
+  "floor": 4.5,
+  "scale_max": 5,
+  "scoring_limit": "4.5 is a local candidate judgment for these seven still objects. Only the owner can accept shipped views at 5/5. It does not rate all retained art, game-wide backgrounds or motion.",
+  "dimensions": {
+    "role_and_whole_silhouette": "R-ROLE1/2, R-ID1, R-GEO1/2; named whole object and useful landmarks at 112px",
+    "identity_and_motif": "R-ID2/3/4, R-MOT1/3/4; declared Mermaid Roshan motifs without extra characters or unrelated scene pieces",
+    "material_and_palette": "R-MAT1/2; distinguish materials while fitting the room and existing cast",
+    "alpha_and_support": "R-GOV1, R-GEO3/5, R-QA2; clean isolated boundary and appropriate whole support/attachment",
+    "runtime_composition": "R-REP1/3, R-FUNC2/3; readable driving distance and split views, road clear of props"
+  },
+  "items": [
+    {
+      "id": "item_capsule",
+      "statuses": [
+        "generated",
+        "structural_pass",
+        "isolated_visual_pass",
+        "runtime_pass"
+      ],
+      "scores": {
+        "role_and_whole_silhouette": 4.5,
+        "identity_and_motif": 4.5,
+        "material_and_palette": 4.5,
+        "alpha_and_support": 4.5,
+        "runtime_composition": 4.5
+      },
+      "observation": "Closed scallop body, violet clasp and gold hinge remain distinct from round pearl currency. Clean solid perimeter at driving distance.",
+      "views": [
+        {
+          "file": "playroom-solo-bend.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "playroom-solo-bend",
+          "save_error": 0,
+          "sha256": "94170c3910c4256475f7f5195c840ab82c7601d6917fff42e4bca6061f62457f",
+          "size": [
+            1280,
+            720
+          ]
+        },
+        {
+          "file": "kitchen-split-bend.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "kitchen-split-bend",
+          "save_error": 0,
+          "sha256": "2cda00517ba79ba00cd59c8d87ec37d97c3fbb5df6a83dcb04f466b1c5af03d2",
+          "size": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "not_applicable": "3D orbit/mesh tests and authored action/loop scoring: these are single-view still 2D objects. Runtime placement/cooldown/bobbing stay engine state.",
+      "remaining": "Owner acceptance, actual tablet/controllers and natural-route/canonical QA11."
+    },
+    {
+      "id": "kelp_trap",
+      "statuses": [
+        "generated",
+        "structural_pass",
+        "isolated_visual_pass",
+        "runtime_pass"
+      ],
+      "scores": {
+        "role_and_whole_silhouette": 4.5,
+        "identity_and_motif": 4.5,
+        "material_and_palette": 4.5,
+        "alpha_and_support": 4.5,
+        "runtime_composition": 4.5
+      },
+      "observation": "Overlapping broad ribbons form a low mat with visible folded surfaces; complete contour and matching HUD silhouette.",
+      "views": [
+        {
+          "file": "mermaid_pool-solo-kelp.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "mermaid_pool-solo-kelp",
+          "save_error": 0,
+          "sha256": "27cdbe09a2559caafedea20094f9851a42a4725a7e268fab58bf0406e38a37f5",
+          "size": [
+            1280,
+            720
+          ]
+        },
+        {
+          "file": "mermaid_pool-split-kelp.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "mermaid_pool-split-kelp",
+          "save_error": 0,
+          "sha256": "38c9ad9782f2d14b526920c0001fc4e0e8cb88243d39b20d04a7df37b9825b4d",
+          "size": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "not_applicable": "3D orbit/mesh tests and authored action/loop scoring: these are single-view still 2D objects. Runtime placement/cooldown/bobbing stay engine state.",
+      "remaining": "Owner acceptance, actual tablet/controllers and natural-route/canonical QA11."
+    },
+    {
+      "id": "turn_marker",
+      "statuses": [
+        "generated",
+        "structural_pass",
+        "isolated_visual_pass",
+        "runtime_pass"
+      ],
+      "scores": {
+        "role_and_whole_silhouette": 4.5,
+        "identity_and_motif": 4.5,
+        "material_and_palette": 4.5,
+        "alpha_and_support": 4.5,
+        "runtime_composition": 4.5
+      },
+      "observation": "Large cream chevron on dark panel remains readable in the narrow view; left/right mirror agrees with the bend. Two complete support feet.",
+      "views": [
+        {
+          "file": "kitchen-solo-bend.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "kitchen-solo-bend",
+          "save_error": 0,
+          "sha256": "aa076648d0d7b81ec9ad7bc9ff5d66f61000a2918b5dfef896e9aa1f26da891d",
+          "size": [
+            1280,
+            720
+          ]
+        },
+        {
+          "file": "opera_hall-split-bend.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "opera_hall-split-bend",
+          "save_error": 0,
+          "sha256": "52dfba0d5956f99efa4145f5a76b4f3baf680f87881c1a9bc0d5f83479267a75",
+          "size": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "not_applicable": "3D orbit/mesh tests and authored action/loop scoring: these are single-view still 2D objects. Runtime placement/cooldown/bobbing stay engine state.",
+      "remaining": "Owner acceptance, actual tablet/controllers and natural-route/canonical QA11."
+    },
+    {
+      "id": "play_blocks",
+      "statuses": [
+        "generated",
+        "structural_pass",
+        "isolated_visual_pass",
+        "runtime_pass"
+      ],
+      "scores": {
+        "role_and_whole_silhouette": 4.5,
+        "identity_and_motif": 4.5,
+        "material_and_palette": 4.5,
+        "alpha_and_support": 4.5,
+        "runtime_composition": 4.5
+      },
+      "observation": "Whole three-block stack, separate planes and stable bottom faces. Replaces a floor-contaminated crop. Reduced scatter keeps road footprint clear.",
+      "views": [
+        {
+          "file": "playroom-solo-grid.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "playroom-solo-grid",
+          "save_error": 0,
+          "sha256": "684341758d7a969a08958336dea7315b754daca4e010c8960264f9302b0eeb12",
+          "size": [
+            1280,
+            720
+          ]
+        },
+        {
+          "file": "prop-play_blocks.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "prop-play_blocks",
+          "save_error": 0,
+          "sha256": "eb9765c801c8435e0199db9ec7106922cd30d864eafe48272649f08b926db46a",
+          "size": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "not_applicable": "3D orbit/mesh tests and authored action/loop scoring: these are single-view still 2D objects. Runtime placement/cooldown/bobbing stay engine state.",
+      "remaining": "Owner acceptance, actual tablet/controllers and natural-route/canonical QA11."
+    },
+    {
+      "id": "play_tent",
+      "statuses": [
+        "generated",
+        "structural_pass",
+        "isolated_visual_pass",
+        "runtime_pass"
+      ],
+      "scores": {
+        "role_and_whole_silhouette": 4.5,
+        "identity_and_motif": 4.5,
+        "material_and_palette": 4.5,
+        "alpha_and_support": 4.5,
+        "runtime_composition": 4.5
+      },
+      "observation": "Triangular cloth shelter, open entrance and two supported sides survive reduced scale. No inherited table or floor fragment.",
+      "views": [
+        {
+          "file": "prop-play_tent.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "prop-play_tent",
+          "save_error": 0,
+          "sha256": "f8ab2a322d05359c367f96c45156f01eb71426efe2408318d7118f3b970fd033",
+          "size": [
+            1280,
+            720
+          ]
+        },
+        {
+          "file": "playroom-solo-finish-approach.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "playroom-solo-finish-approach",
+          "save_error": 0,
+          "sha256": "8db6192be53bf6c50e7edebe65caffdde57833f92c4a64562f48528695f9fae6",
+          "size": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "not_applicable": "3D orbit/mesh tests and authored action/loop scoring: these are single-view still 2D objects. Runtime placement/cooldown/bobbing stay engine state.",
+      "remaining": "Owner acceptance, actual tablet/controllers and natural-route/canonical QA11."
+    },
+    {
+      "id": "kitchen_teapot",
+      "statuses": [
+        "generated",
+        "structural_pass",
+        "isolated_visual_pass",
+        "runtime_pass"
+      ],
+      "scores": {
+        "role_and_whole_silhouette": 4.5,
+        "identity_and_motif": 4.5,
+        "material_and_palette": 4.5,
+        "alpha_and_support": 4.5,
+        "runtime_composition": 4.5
+      },
+      "observation": "Spout, handle negative space, lid and foot are complete and legible against kitchen walls. Aqua ceramic and warm metal remain distinct.",
+      "views": [
+        {
+          "file": "prop-kitchen_teapot.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "prop-kitchen_teapot",
+          "save_error": 0,
+          "sha256": "c2677eccaeb907803b414a41e8320bf962a10f5c47adb158054fdfc7eb954392",
+          "size": [
+            1280,
+            720
+          ]
+        },
+        {
+          "file": "kitchen-solo-finish-approach.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "kitchen-solo-finish-approach",
+          "save_error": 0,
+          "sha256": "b67cfe00c67be97d922d71fec57abd370e18405a44dfa9238a5e2a17e21e3cc0",
+          "size": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "not_applicable": "3D orbit/mesh tests and authored action/loop scoring: these are single-view still 2D objects. Runtime placement/cooldown/bobbing stay engine state.",
+      "remaining": "Owner acceptance, actual tablet/controllers and natural-route/canonical QA11."
+    },
+    {
+      "id": "pool_seahorse",
+      "statuses": [
+        "generated",
+        "structural_pass",
+        "isolated_visual_pass",
+        "runtime_pass"
+      ],
+      "scores": {
+        "role_and_whole_silhouette": 4.5,
+        "identity_and_motif": 4.5,
+        "material_and_palette": 4.5,
+        "alpha_and_support": 4.5,
+        "runtime_composition": 4.5
+      },
+      "observation": "Seahorse profile, coiled tail, dorsal fin and integrated basin are coherent; no slice of room wall or frozen water stream. Basin is an explicitly requested assembly.",
+      "views": [
+        {
+          "file": "mermaid_pool-solo-grid.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "mermaid_pool-solo-grid",
+          "save_error": 0,
+          "sha256": "659164d91fec9ca8a9a96921896c4f827863be29840e55e5cc6003103e872aed",
+          "size": [
+            1280,
+            720
+          ]
+        },
+        {
+          "file": "prop-pool_seahorse.png",
+          "kind": "posed runtime view; not canonical QA11 certification",
+          "label": "prop-pool_seahorse",
+          "save_error": 0,
+          "sha256": "7c163d1c96b3bd291b0b6dd6e2ee40f22ff5e4d9b21e49c0c652fef5397d3f1e",
+          "size": [
+            1280,
+            720
+          ]
+        }
+      ],
+      "not_applicable": "3D orbit/mesh tests and authored action/loop scoring: these are single-view still 2D objects. Runtime placement/cooldown/bobbing stay engine state.",
+      "remaining": "Owner acceptance, actual tablet/controllers and natural-route/canonical QA11."
+    }
+  ]
+}

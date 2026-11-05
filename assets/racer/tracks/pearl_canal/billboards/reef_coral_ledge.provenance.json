@@ -1,0 +1,20 @@
+{
+  "status": "CANDIDATE",
+  "output": "assets/racer/tracks/pearl_canal/billboards/reef_coral_ledge.png",
+  "dimensions": [
+    188,
+    160
+  ],
+  "sha256": "eff3626c56654778eb96efbd8bac82694dd272b9af2eea7e188efcfe65ec7cd7",
+  "sources": [
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png",
+      "sha256": "d7a7cba283c0f06c7159949d63f1ca345ee4938c63374ec43bebc7c78e13deda"
+    }
+  ],
+  "license": "Project-owned original; inherit source terms in ASSET_LICENSES.md.",
+  "operations": [
+    "Upper-left reef ledge and its visible branching coral; boundary excludes the race gate.",
+    "Native-size antialiased alpha isolation from the canal painting. The engine anchors the visible base on a fixed course position."
+  ]
+}

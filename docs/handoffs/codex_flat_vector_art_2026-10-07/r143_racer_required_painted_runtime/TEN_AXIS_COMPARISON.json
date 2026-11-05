@@ -1,0 +1,77 @@
+{
+  "state": "BOUNDED_AGENT_COMPARISON_NO_OWNER_SCORE",
+  "stable_ids": [
+    "FVR-D147419B7EE0",
+    "FVR-59E3B726D2F1"
+  ],
+  "source": "96511087fcdbc572b090028db201a3f422d652fa",
+  "axes": {
+    "contour": {
+      "before": "Published R141 painted candidate already drawn in a healthy scene; its dormant flat fallback remained in source.",
+      "after": "Same rounded scalloped shell and layered ribbon-shaped kelp; authored antialiasing and atlas regions unchanged.",
+      "numerical_score": null
+    },
+    "material": {
+      "before": "Published R141 painted candidate already drawn in a healthy scene; its dormant flat fallback remained in source.",
+      "after": "Same broad aqua painted volume and restrained highlights; no replacement circles/arcs remain for these two roles.",
+      "numerical_score": null
+    },
+    "palette": {
+      "before": "Published R141 painted candidate already drawn in a healthy scene; its dormant flat fallback remained in source.",
+      "after": "Same aqua/lavender/coral capsule and teal kelp as neighboring vehicles and pool props.",
+      "numerical_score": null
+    },
+    "light": {
+      "before": "Published R141 painted candidate already drawn in a healthy scene; its dormant flat fallback remained in source.",
+      "after": "Same painted highlights; no new lighting, tint or glow.",
+      "numerical_score": null
+    },
+    "perspective": {
+      "before": "Published R141 painted candidate already drawn in a healthy scene; its dormant flat fallback remained in source.",
+      "after": "Same projected 2D billboard and UI fit; no Node3D/Sprite3D addition.",
+      "numerical_score": null
+    },
+    "scale": {
+      "before": "Published R141 painted candidate already drawn in a healthy scene; its dormant flat fallback remained in source.",
+      "after": "Capsule 2.2*(16*scale) envelope and kelp62x38*scale preserved; exact54healthy scene pairs identical.",
+      "numerical_score": null
+    },
+    "contact": {
+      "before": "Published R141 painted candidate already drawn in a healthy scene; its dormant flat fallback remained in source.",
+      "after": "Kelp support and existing per-road placement unchanged. Posed stills do not establish full collision/contact motion.",
+      "numerical_score": null
+    },
+    "occlusion": {
+      "before": "Published R141 painted candidate already drawn in a healthy scene; its dormant flat fallback remained in source.",
+      "after": "Same depth sort, alpha opening and clipping. Large translucent arch is distinct from the tent and unchanged.",
+      "numerical_score": null
+    },
+    "readability": {
+      "before": "Published R141 painted candidate already drawn in a healthy scene; its dormant flat fallback remained in source.",
+      "after": "Directly viewed solo capsule bend and solo/split kelp scenes show identifiable props with HUD. Phone-size/device comprehension remains open.",
+      "numerical_score": null
+    },
+    "action_state": {
+      "before": "Published R141 painted candidate already drawn in a healthy scene; its dormant flat fallback remained in source.",
+      "after": "Same float/bob and kelp item/world semantics. All current correct/wrong/passive/reentry/save gates are required separately; stills do not certify whole motion.",
+      "numerical_score": null
+    }
+  },
+  "pixel_identical_pairs": 54,
+  "directly_viewed": [
+    "candidate/mermaid_pool-solo-kelp.png",
+    "candidate/playroom-solo-bend.png",
+    "candidate/mermaid_pool-split-kelp.png",
+    "prior prop_blocks.png finish-arch identification"
+  ],
+  "candidate": true,
+  "local_integration": true,
+  "Dev_integration": false,
+  "runtime": "PASS current static/focused/12analyzers/all82; frozen actual runtime and normal saves unchanged",
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "new_calls": 0
+}

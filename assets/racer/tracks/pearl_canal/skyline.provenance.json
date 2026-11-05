@@ -1,0 +1,20 @@
+{
+  "status": "CANDIDATE",
+  "output": "assets/racer/tracks/pearl_canal/skyline.png",
+  "dimensions": [
+    4096,
+    256
+  ],
+  "sha256": "6b5346b9c4a89b8bc7e203845d5ab61067048888f6b5b9f0f205f56c5e5c1ab8",
+  "sources": [
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png",
+      "sha256": "d7a7cba283c0f06c7159949d63f1ca345ee4938c63374ec43bebc7c78e13deda"
+    }
+  ],
+  "license": "Project-owned original; inherit source terms in ASSET_LICENSES.md.",
+  "operations": [
+    "Crop native water, caustics and bubbles at x549\u2013820 y0\u2013130. Exclude baked-in arches, flags, rails and track.",
+    "Scale and reflect the water crop into a continuous 360-degree 4096\u00d7256 strip, opaque rows 28\u2013255. Reuse eight low-opacity arrangements of the five native reef cutouts at the distant horizon. Blend the strip edges into existing sky and haze values."
+  ]
+}

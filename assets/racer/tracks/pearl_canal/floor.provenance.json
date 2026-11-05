@@ -1,0 +1,22 @@
+{
+  "request": "A1",
+  "status": "CANDIDATE",
+  "output": "assets/racer/tracks/pearl_canal/floor.png",
+  "dimensions": [
+    2048,
+    2048
+  ],
+  "sha256": "76f72a1b39610c47d04fde018eeedeae1fd33f677dea566e3752bbd76f6ceefb",
+  "sources": [
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png",
+      "sha256": "d7a7cba283c0f06c7159949d63f1ca345ee4938c63374ec43bebc7c78e13deda"
+    }
+  ],
+  "license": "Inherited from the source entries in ASSET_LICENSES.md",
+  "operations": [
+    "Catmull\u2013Rom from the engine\u2019s 64 controls, 24 subdivisions and 720 equal-length samples; nearest-segment raster at world pixel centres.",
+    "Bilinear band reprojection from front straight water x601\u2013741 y568\u2013628, lip x591\u2013740 y644\u2013647, curb x640\u2013678 y651\u2013673 and foundation x602\u2013647 y682\u2013690; back railing x738\u2013752 sampled along its native slope. Mirror periods close around the course.",
+    "Blended mirrored clear sand swatches x670\u2013719 y705\u2013739 and x477\u2013549 y756\u2013770; alpha-isolated starfish, scallop and stones rotated and flattened onto the sand away from driving bands."
+  ]
+}

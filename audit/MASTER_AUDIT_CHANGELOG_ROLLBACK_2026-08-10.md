@@ -2340,3 +2340,13 @@ Restore the previous focus drawing block and remove the cue texture preload in `
 ## CHG-146 — Painted Dolls progress hearts
 
 Restore the Dolls progress drawing from bfc60e1e80f49824f299896fe51431ff018c6ddb, remove the new progress helper and two asset references, and retire the two PNGs and imports after verifying references. Preserve the archived native art and evidence. [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md).
+
+## CHG-150 Racer required painted capsule and kelp
+
+Baseline Dev `6892c5753c75161986b4463c186f8711a0c12870`; published Racer dependency `16ae50c7b19c41c518d427ce5c1a24ac410ee0c9`, original painted source `96511087fcdbc572b090028db201a3f422d652fa` and production commit `6f7bf08cf8095d761c239c8aeae962b76b6066b3`. The new exact implementation commit will be bound in the publication receipt after the required gates, not guessed.
+
+- Paths: `scripts/racer/reef_kart_race.gd`, required existing `assets/racer/context_v2/item_capsule.png` and `kelp_trap.png`; exact reconciled dependency/file and evidence list in [the impact](../design/audit_impacts/flat-vector-racer-required-painted-pickups-20261105.json), with [R143 candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/README.md).
+- Benefit: the two roles and shared kelp icon use their actual painted resources, retiring superseded optional old-file bindings and flat missing-art paths. Same54configured scenes remain pixel-identical; no new pixels or generation. The earlier tent observation is corrected to the intentional finish-arch fade.
+- Plausible negative effects: preload makes missing exported resources an explicit packaging failure rather than a shape substitute; export/resource, sibling mode, lifecycle, input and save checks are required. Posed stills cannot prove motion, target performance, child or owner acceptance.
+- Dependencies: the full upstream Racer engine, four PC courses, handling and seven-art source history, exact Godot4.7.2 Mobile, unchanged protected originals and input/save authorities, current Dev reconciliation, and separately green full gates. The temporary owner Dev hold remains binding.
+- Rollback class: `MANUAL_RECONSTRUCTION_REQUIRED` on a clean dedicated `codex/rollback-chg-150` branch. Review a bounded forward correction to resource bindings and these two draw functions, preserving all source artwork, provenance and later changes. Do not revert the combined Racer/Dev merge wholesale, restore low-quality fallback art as accepted, change saves/protected originals or touch Dev/master directly. Run the applicable focused/native/full gates before publishing. No rollback executed.
