@@ -1,6 +1,6 @@
 {
   "id": "satellite-godot-mcp-20261104",
-  "scope": "Owner-requested pinned full satelliteoflove/godot-mcp 4.1.11 editor/runtime debugging integration, loopback only, usage logging off. Includes explicit owner decision ODR-GODOT-MCP-DEVTOOLS-20261104 permitting an exact hash-bound development-tool inventory exception; no gameplay/model/art/world-code or acceptance exception. Original payload preserved with license; model inventories remain enforced. Local addon adaptations: three explicit type annotations, no unnecessary startup ProjectSettings.save, no process/physics callbacks without debugger. Node dependency installation uses ignore-scripts and exact lockfile. No game state/save change. Runtime integration exposes a concrete trusted-probe setup error: Fetch/Skin/Verb scripts select root last child after waiting, which now resolves to MCPGameBridge. Repair only their setup by retaining the exact instantiated main reference; preserve all actions/assertions/waits/deadlines. Obsolete probe_chuck is not a trusted gate and remains out of scope. Original passive native exit127 is separate and unproven; fresh native reruns are preserved independently. Git attributes preserve exact vendor/tool/evidence bytes; whitespace checks are scoped off for original vendor/raw capture materials, while owned tooling accepts CRLF as line endings. Game source whitespace and all parser/inference/runtime gates remain enforced. Reconcile concurrent origin/dev 208a12cf4ba79fea7ddbf317bb6c686180b652fb, preserving the painted Dolls progress and Claude MCP configuration. Retain the newer inactive-bridge queue_free behavior while preserving explicit addon type annotations and exact manifest-authenticated exception. Cover the concurrently integrated MCP files missing from its audit record; preserve the failed dev run as evidence. Combined-source gates are required anew; earlier passes retain their exact historical scope. Consolidated audit preserves the TOOLING report but accepts only the whole payload authenticated by its compiled-in manifest hash; arbitrary-manifest positive waiver becomes a negative control, while the real exact payload remains positively exercised. Original third_party_tooling_manifest is provenance-only, superseded by addon_manifest. Keep both MIT attribution files. CHG-147 replaces this branch's provisional CHG-146 due to the concurrent Dolls allocation. Both retained client configurations explicitly bind to loopback6550 and disable usage logging. Review caught duplicate MCP project sections from the automatic merge: restore the byte-exact canonical project.godot from incoming dev and supersede the interrupted63/82 native run; restart the complete native matrix against cleaned settings.",
+  "scope": "Owner-requested pinned full satelliteoflove/godot-mcp 4.1.11 editor/runtime debugging integration, loopback only, usage logging off. Includes explicit owner decision ODR-GODOT-MCP-DEVTOOLS-20261104 permitting an exact hash-bound development-tool inventory exception; no gameplay/model/art/world-code or acceptance exception. Original payload preserved with license; model inventories remain enforced. Local addon adaptations: three explicit type annotations, no unnecessary startup ProjectSettings.save, no process/physics callbacks without debugger. Node dependency installation uses ignore-scripts and exact lockfile. No game state/save change. Runtime integration exposes a concrete trusted-probe setup error: Fetch/Skin/Verb scripts select root last child after waiting, which now resolves to MCPGameBridge. Repair only their setup by retaining the exact instantiated main reference; preserve all actions/assertions/waits/deadlines. Obsolete probe_chuck is not a trusted gate and remains out of scope. Original passive native exit127 is separate and unproven; fresh native reruns are preserved independently. Git attributes preserve exact vendor/tool/evidence bytes; whitespace checks are scoped off for original vendor/raw capture materials, while owned tooling accepts CRLF as line endings. Game source whitespace and all parser/inference/runtime gates remain enforced. Reconcile concurrent origin/dev 208a12cf4ba79fea7ddbf317bb6c686180b652fb, preserving the painted Dolls progress and Claude MCP configuration. Retain the newer inactive-bridge queue_free behavior while preserving explicit addon type annotations and exact manifest-authenticated exception. Cover the concurrently integrated MCP files missing from its audit record; preserve the failed dev run as evidence. Combined-source gates are required anew; earlier passes retain their exact historical scope. Consolidated audit preserves the TOOLING report but accepts only the whole payload authenticated by its compiled-in manifest hash; arbitrary-manifest positive waiver becomes a negative control, while the real exact payload remains positively exercised. Original third_party_tooling_manifest is provenance-only, superseded by addon_manifest. Keep both MIT attribution files. CHG-147 replaces this branch's provisional CHG-146 due to the concurrent Dolls allocation. Both retained client configurations explicitly bind to loopback6550 and disable usage logging. Review caught duplicate MCP project sections from the automatic merge: restore the byte-exact canonical project.godot from incoming dev and supersede the interrupted63/82 native run; restart the complete native matrix against cleaned settings. Verify both MIT notices accompany exported game-side bridge code using a tiny isolated exact4.7.2 resource-pack fixture and the real export filter values. Add explicit notice includes only if the baseline export omits them; no protected signing material or full APK export is accessed.",
   "baseline": "65c63ae849b091e3fb91cdbeaf1e2837e10778fe",
   "rules": [
     "DL-AUTH-05",
@@ -81,6 +81,7 @@
     "design/reference/OWNER_DECISIONS.md",
     "design/reference/owner_decisions.json",
     "docs/GODOT_MCP.md",
+    "export_presets.cfg",
     "project.godot",
     "scripts/probe_fetch.gd",
     "scripts/probe_skins.gd",
@@ -93,6 +94,19 @@
     "tools/godot_mcp/evidence/chapter2_native_controls.json",
     "tools/godot_mcp/evidence/coverage_final.txt",
     "tools/godot_mcp/evidence/editor_handshake.txt",
+    "tools/godot_mcp/evidence/export_notices/authority.txt",
+    "tools/godot_mcp/evidence/export_notices/baseline_export.txt",
+    "tools/godot_mcp/evidence/export_notices/baseline_verify.txt",
+    "tools/godot_mcp/evidence/export_notices/candidate_export.txt",
+    "tools/godot_mcp/evidence/export_notices/candidate_preset_source.txt",
+    "tools/godot_mcp/evidence/export_notices/candidate_verify.txt",
+    "tools/godot_mcp/evidence/export_notices/coverage.txt",
+    "tools/godot_mcp/evidence/export_notices/diff_check.txt",
+    "tools/godot_mcp/evidence/export_notices/fixture_project_source.txt",
+    "tools/godot_mcp/evidence/export_notices/game2d.txt",
+    "tools/godot_mcp/evidence/export_notices/import.txt",
+    "tools/godot_mcp/evidence/export_notices/proof.json",
+    "tools/godot_mcp/evidence/export_notices/verifier_source.txt",
     "tools/godot_mcp/evidence/godot_mcp_passive_retry1.txt",
     "tools/godot_mcp/evidence/godot_mcp_passive_retry2.txt",
     "tools/godot_mcp/evidence/godot_mcp_passive_retry3.txt",
@@ -445,6 +459,16 @@
       "command": "Post-metadata full game2D inventory",
       "result": "PASS",
       "evidence": "tools/godot_mcp/evidence/reconciled/post_metadata_2d.txt: actual exit0, NO_REGRESSION,14 tooling files separate, game-wide UNSATISFIED. Final implementation diff against f0295f3b347320f1c03391c7a8fb212270c761c9 is empty for all bound code/config and addon paths."
+    },
+    {
+      "command": "Exact4.7.2 isolated exported-notice baseline/candidate resource-pack proof",
+      "result": "PASS",
+      "evidence": "tools/godot_mcp/evidence/export_notices/proof.json and five raw engine logs: baseline omitted both notices; candidate contains both original hashes. Both real preset include/exclude filters match. Empty consumer prevents loose-file fallback; no full APK/signing/device claim."
+    },
+    {
+      "command": "Export-notice revision authority/coverage/diff/game2D gates",
+      "result": "PASS",
+      "evidence": "tools/godot_mcp/evidence/export_notices/{authority,coverage,diff_check,game2d}.txt (exact paths in files): all exit0; inventory NO_REGRESSION/global UNSATISFIED. All17 implementation paths plus addon payload remain unchanged from f0295f3b. No changed .gd files since e01eed5a; existing parser/inference and full native82 evidence remain applicable."
     }
   ],
   "acceptance_gaps": "Exact published-head remote CI required before dev integration. Historical Windows Bash127 failures remain unexplained; final native82 and complete static prefix pass without assertion/timeout changes. Full bridge input/frozen-time APIs not smoke-exercised. Actual device/child/owner and game-wide audit acceptance remain separate/open; no release authority. Latest Dev94c2a915 MCP audit-record correction is retained; implementation blobs remain exact.",
@@ -459,5 +483,11 @@
   "implementation_commit": "f0295f3b347320f1c03391c7a8fb212270c761c9",
   "reconciliation_base": "208a12cf4ba79fea7ddbf317bb6c686180b652fb",
   "initial_implementation_commit": "4e72385b91a4375843e42916f6a9bb2de0362198",
-  "latest_reconciled_dev": "94c2a91512d2216deb26651f670469432c8f4242"
+  "latest_reconciled_dev": "94c2a91512d2216deb26651f670469432c8f4242",
+  "subsequent_export_configuration": {
+    "baseline_commit": "e01eed5a2db28c96083d7261d0aa672fd23fbf53",
+    "scope": "Only add the two existing MIT notice paths to both include_filter lines. Runtime code and both game artwork hashes unchanged; targeted actual export proof covers this packaging behavior after the full native matrix.",
+    "file": "export_presets.cfg",
+    "sha256": "407f3d678e9c48841535f0af5bcede02444f5b671fc3c11657b6a08a0128e5e8"
+  }
 }

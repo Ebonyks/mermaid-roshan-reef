@@ -311,5 +311,31 @@
     ],
     "scope": "Only the concurrent MCP impact record is added, including its latest wording correction; all implementation Git blobs remain exact at the verified source commit.",
     "incoming_commit": "94c2a91512d2216deb26651f670469432c8f4242"
+  },
+  "runtime_implementation_commit": "f0295f3b347320f1c03391c7a8fb212270c761c9",
+  "export_notice_packaging": {
+    "proof": "tools/godot_mcp/evidence/export_notices/proof.json",
+    "result": "PASS",
+    "scope": "Exact4.7.2 generic Windows resource-pack export with real include/exclude filter values; both live presets have identical filters. Empty separate consumer project prevents unpacked-source fallback. This is notice-byte packaging proof, not a full Android APK/signing/device claim.",
+    "preset_sha256": "407f3d678e9c48841535f0af5bcede02444f5b671fc3c11657b6a08a0128e5e8",
+    "runtime_scope": "All17 bound implementation paths and all addon payload bytes remain exact from f0295f3b; the sole later configuration change adds two notice include paths to export_presets.cfg. The82-probe snapshot predates this export-only change.",
+    "git_blob_sha256": "1f73b529adc8663cea6447b1966878eeb81fef56a871cee022ebbbf627152c40",
+    "working_sha256": "407f3d678e9c48841535f0af5bcede02444f5b671fc3c11657b6a08a0128e5e8",
+    "only_change_verified": "Removing the two notice include prefixes reproduces the prior Git blob exactly.",
+    "evidence_sha256": {
+      "tools/godot_mcp/evidence/export_notices/authority.txt": "bdf9cb86c4617c8d14060af05c5ea2e8135049ffd96d4f1f4bb347d3e51f7013",
+      "tools/godot_mcp/evidence/export_notices/baseline_export.txt": "72d905f17eeebde677f903e6d7eb0fd5514cdfdbfedfbf4fd0cb95b7dca012bc",
+      "tools/godot_mcp/evidence/export_notices/baseline_verify.txt": "ccb0a1049a65ffbe22550f1844f3b8c1b5bc86e0d8f9cc8a401c708a0f882212",
+      "tools/godot_mcp/evidence/export_notices/candidate_export.txt": "9030c5253bf87b3970a5e847c6f83a23751bbe77a957c188454fc01b0f36730b",
+      "tools/godot_mcp/evidence/export_notices/candidate_preset_source.txt": "562b415fbaa8edf46a751b5599add8e686453aa4b073ac5ecb99c3e1d9d39f01",
+      "tools/godot_mcp/evidence/export_notices/candidate_verify.txt": "4b166563a932c951aa1dd72d87396d2c6f242c2c1e48b9484b99fa6f8ec2a971",
+      "tools/godot_mcp/evidence/export_notices/coverage.txt": "a07015674387de03989d3f8eabdd2bb2f28fd8a9513d4c54fbed2ee29e3b4ebb",
+      "tools/godot_mcp/evidence/export_notices/diff_check.txt": "86cbb641eece11b5c2412cf5f0f8e87edcba5dc67e258ea8b084c43d8148f4b6",
+      "tools/godot_mcp/evidence/export_notices/fixture_project_source.txt": "7ac1276471f3e3c4b69ca87f7797e2663cc7e1c344b3fc4567b61edfea0ce28f",
+      "tools/godot_mcp/evidence/export_notices/game2d.txt": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5",
+      "tools/godot_mcp/evidence/export_notices/import.txt": "b728de0c23f24d9aa31bc7608b177d7ca13857d7c3aca862a08506d00675123b",
+      "tools/godot_mcp/evidence/export_notices/proof.json": "05f7c02dcd8cc4424e1e997790d274585995b3c1514b299eb74a5c48417527ca",
+      "tools/godot_mcp/evidence/export_notices/verifier_source.txt": "de582a177fd60bbdbba7d4a175cd646eea4a0b3410d36dc605d21b1806c52f3a"
+    }
   }
 }
