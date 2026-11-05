@@ -1,0 +1,47 @@
+[
+  {
+    "branch": "origin/codex/native-rig-costumes-20261031",
+    "run": 41303095646,
+    "exit_code": 1,
+    "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\source_CI_failure_41303095646.log",
+    "signals": []
+  },
+  {
+    "branch": "origin/codex/mermaid-roshan-picture-book",
+    "run": 41388087470,
+    "exit_code": 0,
+    "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\source_CI_failure_41388087470.log",
+    "signals": [
+      "probes\tImport (deadlock-guarded)\t2026-11-02T04:33:29.8851407Z ^[[36;1mtimeout 20m godot --headless --path . --import 2>&1 | tee /tmp/import.out || (echo \"IMPORT FAIL (hang or error)\" && exit 1)^[[0m",
+      "probes\tImport (deadlock-guarded)\t2026-11-02T04:33:29.8852835Z ^[[36;1mif grep -qE 'SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource' /tmp/import.out; then^[[0m",
+      "probes\tImport (deadlock-guarded)\t2026-11-02T04:33:29.8854020Z ^[[36;1m  echo \"IMPORT FAIL (resource or script error)\"^[[0m",
+      "probes\tImport (deadlock-guarded)\t2026-11-02T04:35:17.6559658Z GAME2D| FAIL| G2D101| books/chapter_one/reviews/2026-09-30/REVIEW.html| current model binary fingerprint debt is missing from the shrinking manifest",
+      "probes\tImport (deadlock-guarded)\t2026-11-02T04:35:17.6561377Z GAME2D| FAIL| G2D101| books/chapter_one/reviews/2026-09-30/REVIEW.html| current model signature scan-coverage debt is missing from the shrinking manifest",
+      "probes\tImport (deadlock-guarded)\t2026-11-02T04:35:17.6563567Z GAME2D| FAIL| G2D101| books/chapter_one/reviews/2026-09-30/REVIEW.html| current tracked repository model file debt is missing from the shrinking manifest",
+      "probes\tImport (deadlock-guarded)\t2026-11-02T04:35:17.6568652Z GAME2D| RESULT| FAIL - manifest drift (3 finding(s)); 2D contract remains UNSATISFIED"
+    ]
+  },
+  {
+    "branch": "origin/codex/dkc-soundtrack-profile-20261102",
+    "run": 41585693816,
+    "exit_code": 0,
+    "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\source_CI_failure_41585693816.log",
+    "signals": [
+      "probes\tImport (deadlock-guarded)\t2026-11-03T05:57:23.7622572Z ^[[36;1mtimeout 20m godot --headless --path . --import 2>&1 | tee /tmp/import.out || (echo \"IMPORT FAIL (hang or error)\" && exit 1)^[[0m",
+      "probes\tImport (deadlock-guarded)\t2026-11-03T05:57:23.7625322Z ^[[36;1mif grep -qE 'SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)|Parse Error|Compile Error|ERR_FILE_CORRUPT|Error importing|Cannot load resource' /tmp/import.out; then^[[0m",
+      "probes\tImport (deadlock-guarded)\t2026-11-03T05:57:23.7628024Z ^[[36;1m  echo \"IMPORT FAIL (resource or script error)\"^[[0m",
+      "probes\tImport (deadlock-guarded)\t2026-11-03T06:00:22.0383720Z GAME2D| FAIL| G2D101| design/music/dkc/soundtrack_catalog.json| current production 3D API debt is missing from the shrinking manifest",
+      "probes\tImport (deadlock-guarded)\t2026-11-03T06:00:22.0388297Z GAME2D| RESULT| FAIL - manifest drift (1 finding(s)); 2D contract remains UNSATISFIED"
+    ]
+  },
+  {
+    "branch": "origin/codex/flat-vector-r6-20261012",
+    "run": 41645464791,
+    "exit_code": 0,
+    "log": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-dev-reconcile-20261103\\source_CI_failure_41645464791.log",
+    "signals": [
+      "probes\tStatic gates (parse + Variant-inference lint)\t2026-11-03T13:45:15.6090939Z AUDITDEV|FAIL|no changed audit-impact record covers docs/handoffs/codex_flat_vector_art_2026-10-07/r132_snowman_coal_runtime/CI_RESULT_RECEIPT.json",
+      "probes\tStatic gates (parse + Variant-inference lint)\t2026-11-03T13:45:15.6094639Z AUDITDEV|RESULT|1 ISSUE(S)"
+    ]
+  }
+]

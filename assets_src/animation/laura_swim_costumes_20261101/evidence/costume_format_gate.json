@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "command": "python -B -m unittest tools.tests.test_costume_skin_binding",
+  "test_count": 22,
+  "local_schema_crosscheck": {
+    "engine": "jsonschema",
+    "version": "4.26.0",
+    "scope": "Installed local cross-check only; no new runtime/CI dependency. All three schemas are valid and accept the synthetic valid fixture."
+  },
+  "fixtures": "Temporary synthetic pixels/geometry, not approved Roshan art or a real costume.",
+  "shared_runtime_implemented": false,
+  "garment_visual_acceptance": false,
+  "production_accepted": false,
+  "utc": "2026-11-01T23:55:21.785393+00:00",
+  "additional_evidence": [
+    "Two texture variants retain exactly the same rig and garment binding without mutating identity/skeleton/template files.",
+    "Documented CLI packages and validates a synthetic skin and refuses to overwrite an existing output."
+  ]
+}

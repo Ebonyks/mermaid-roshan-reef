@@ -1,0 +1,78 @@
+{
+  "builtin_calls": 5,
+  "external_paid_calls": 0,
+  "reported_usage": "not exposed; counts only",
+  "source_native_preserved": true,
+  "outputs": [
+    {
+      "path": "native/boxer_garment_take01.png",
+      "sha256": "f42bfdfed589d11665aad5f015e50a95ff1518f2bc6d98678e10835ea69b0184",
+      "method": "builtin image_gen",
+      "take": 1,
+      "model_revision": "unexposed",
+      "seed": "unexposed",
+      "output_acceptance": "SOURCE_DERIVATION_INPUT_ONLY; no character/output acceptance",
+      "tool_invocation_id": "exec-ab06ec87-862d-4566-97b7-ee8ac6df8332",
+      "provider_request_id": "not exposed by builtin tool"
+    },
+    {
+      "path": "native/glove_views_take01.png",
+      "sha256": "4f33fe5b5d688adc9cda802636a095bfefe7c7a67de889aac9c07c1da41bfe4b",
+      "method": "builtin image_gen",
+      "take": 1,
+      "model_revision": "unexposed",
+      "seed": "unexposed",
+      "output_acceptance": "SOURCE_DERIVATION_INPUT_ONLY; no character/output acceptance",
+      "tool_invocation_id": "exec-d30980b2-7b89-404c-bd0b-30a21a4b276e",
+      "provider_request_id": "not exposed by builtin tool"
+    },
+    {
+      "path": "native/popstar_garment_take01.png",
+      "sha256": "3213c461bf2485ef820550169ac3bef4eefe505b2ca50d9315e2b7454bfb9c2e",
+      "method": "builtin image_gen",
+      "take": 1,
+      "model_revision": "unexposed",
+      "seed": "unexposed",
+      "output_acceptance": "SOURCE_DERIVATION_INPUT_ONLY; no character/output acceptance",
+      "tool_invocation_id": "exec-df9bdfdc-bf51-4ecc-9566-e58e39f85314",
+      "provider_request_id": "not exposed by builtin tool"
+    },
+    {
+      "path": "native/racer_garment_take01.png",
+      "sha256": "1e0f118f65fe98ee5e072d8fac9cc51bb600200a2cf91468eae9ee82372317ef",
+      "method": "builtin image_gen",
+      "take": 1,
+      "model_revision": "unexposed",
+      "seed": "unexposed",
+      "output_acceptance": "SOURCE_DERIVATION_INPUT_ONLY; no character/output acceptance",
+      "tool_invocation_id": "exec-65a09788-9256-4f2b-99c4-b044e15d54a2",
+      "provider_request_id": "not exposed by builtin tool"
+    },
+    {
+      "path": "native/wheel_take01.png",
+      "sha256": "53d154a6e09b8276c25e945e9ef1bbc2c6398551da73d22cc6f9bac04975a8c5",
+      "method": "builtin image_gen",
+      "take": 1,
+      "model_revision": "unexposed",
+      "seed": "unexposed",
+      "output_acceptance": "SOURCE_DERIVATION_INPUT_ONLY; no character/output acceptance",
+      "tool_invocation_id": "exec-4d05852f-9750-4ae8-8fb4-2fe9256f0622",
+      "provider_request_id": "not exposed by builtin tool"
+    }
+  ],
+  "edits": "Aseprite only for raster edits; Python reads pixels solely for measurements/mesh derivation. Uniform fit scale0.66 plus recorded whole RGBA row shifts and smooth bounded distal tail correction. New garment alpha unrestricted; anatomy/face/hair/hands/fins restored from frozen seed. Full scene generation not used.",
+  "caps": "One take per garment, one glove-perspective sheet and one wheel asset. No second nonviable take, no per-frame campaign.",
+  "job_card_correction": "Popstar action implemented as supported microphone tilt at stand clamp rather than handheld lift: existing approved stand source reused; ownership remains fixed stand. No game mechanics/objectives/audio altered.",
+  "tool_call_wall_seconds": [
+    34.1,
+    33.3,
+    34.0,
+    23.2,
+    34.7
+  ],
+  "source_review_limits": [
+    "Generated anatomy/face/hands/fins were not adopted; only the registered clothing/headwear parts are used.",
+    "Approved racer and popstar gripping-hand crops are source studies; resolution, naturalness and grip occlusion need human review.",
+    "The source candidate is not device/child/owner/final-character acceptance."
+  ]
+}

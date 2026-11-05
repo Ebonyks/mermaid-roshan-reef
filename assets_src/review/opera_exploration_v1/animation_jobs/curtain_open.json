@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-31",
+  "author": "Codex",
+  "revision": 2,
+  "baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "output_lane": "gameplay review candidate",
+  "source_acceptance": "Original Opera layout is authority; restored raster is a new unaccepted detail candidate. Existing Roshan atlas identity and shipping animation family are reused.",
+  "aseprite": "Not used: these are editable engine procedural fixture effects and existing authored atlas playback, with no new painted sprite frames or matte edits.",
+  "limits": {
+    "generated_animation_calls": 0,
+    "paid_animation_cost_usd": 0,
+    "retrospective_limit_disclosure": "Per-action wall/cleanup ceilings were not recorded before this review implementation. Missing DL-MOT-16 preproduction evidence remains an acceptance gap; do not infer compliance retrospectively.",
+    "measured_cleanup_minutes": "not recorded",
+    "further_generation": "none in this fixture animation pass"
+  },
+  "stop_fallback": "On fixture drift, doubled cloth, seam, contact or identity failure, stop final acceptance and repair bounded local geometry; no automatic frame-generation campaign.",
+  "provenance": {
+    "sources": [
+      {
+        "path": "assets_src/review/opera_exploration_v1/restoration_healed.png",
+        "sha256": "a9b2b27b4ca97c5da065f5b649eff0784e9f37e3c3f799cd665c3f1f0a0b8005",
+        "dimensions": [
+          1672,
+          941
+        ]
+      },
+      {
+        "path": "assets_src/review/opera_exploration_v1/restoration_master.png",
+        "sha256": "b10b88feb7e999d2c0cc87869abc381cd389a8b4120b62289767c3c669f2bd1d",
+        "dimensions": [
+          1672,
+          941
+        ]
+      }
+    ],
+    "provider": "Godot 4.7.2 local procedural runtime; no animation generation backend",
+    "seed": "not applicable",
+    "frame_mapping": "continuous engine time; original source pixel crops retained",
+    "retiming_interpolation": "shader/tween curves declared per action; no new painted frame interpolation",
+    "position_guide": "none",
+    "tiled_fabric_sources": "assets/review/opera_tiled_detail_v1/layout.json",
+    "registered_fixture_derivation": "assets_src/review/opera_exploration_v1/tiled_detail/assembly_report.json"
+  },
+  "reviews": {
+    "agent_runtime": "Prior evidence retained; new tiled runtime evidence under verification/tiled_detail/",
+    "human_identity_topology_style": "PENDING exact candidate review",
+    "human_motion_contact_seams": "PENDING normal-speed and frame-step owner review",
+    "device": "PENDING Lenovo Tab M11 Mobile/Speedy 30fps, load/overdraw/memory",
+    "child_owner": "PENDING",
+    "full_local_ci": "PENDING",
+    "cinematic_machine": "NOT_APPLICABLE: engine gameplay effects, no cinematic footage",
+    "delivery_accepted": false,
+    "production_integrated": false,
+    "latest_agent_runtime": "verification/tiled_detail/final_review/focused_runtime.json plus actual shipping touch-handler ballet result in verification/tiled_detail/played_ballet.json. Device/child/owner pending."
+  },
+  "id": "OPERA-CURTAIN_OPEN",
+  "intention": "Two panels part after Roshan reaches the resident activity doorway.",
+  "method": "Twelve source-geometry/palette-locked registered fabric crops. Pixel-to-legacy shader factor preserves world-space wave amplitude and fixed-top span at new native density. Opening uses the same two clipped fabric halves and tween.",
+  "timing_entry_exit": "0.65 second tween; entry closed, exit open; cancel/return resets closed",
+  "fixed_elements": "one visible copy of fabric; shader supplies dark backing",
+  "runtime_size": "2560x1440 logical world;7360x4140 background, 12 <=1024/POT native fabric cards",
+  "editable_workflow": [
+    {
+      "path": "scripts/review/opera_translation_v1.gd",
+      "sha256": "e0e4b1436ceccff0bed3fc682b05179096dea9af2d686557bee37b83ec3461c6",
+      "dimensions": null
+    },
+    {
+      "path": "scripts/review/opera_curtain_card_v1.gd",
+      "sha256": "5e0948523f2cab0c4e609fe6f66e4ce6b36596eae7d361419a119ad9562341c8",
+      "dimensions": null
+    }
+  ],
+  "motion_tolerances": "Candidate amplitudes declared above; exact owner/device review pending, not a pre-measured acceptance pass.",
+  "previous_revision": {
+    "revision": 1,
+    "method": "source crop halves translated laterally by half_width*opening; original arch fixed",
+    "runtime_size": "2560x1440 world;1280x720 viewport; source1672x941; six POT1024/2048 textures",
+    "editable_workflow": [
+      {
+        "path": "scripts/review/opera_translation_v1.gd",
+        "sha256": "b447b52a971894ca79071ea5cfeaddbf6675a9f244811a7ce643c5804a081742",
+        "dimensions": null
+      },
+      {
+        "path": "scripts/review/opera_curtain_card_v1.gd",
+        "sha256": "5e0948523f2cab0c4e609fe6f66e4ce6b36596eae7d361419a119ad9562341c8",
+        "dimensions": null
+      }
+    ],
+    "hash_scope_note": "The first tiled metadata update used a shared Python list while creating this snapshot, so its workflow hashes were refreshed in that operation. They are not proof of pre-tile source bytes. The independently frozen door_color/source_overlay.json retains the genuine preceding source hashes. The method/runtime-size text remains the earlier revision description."
+  },
+  "pre_final_ui_workflow": [
+    {
+      "path": "scripts/review/opera_translation_v1.gd",
+      "sha256": "b447b52a971894ca79071ea5cfeaddbf6675a9f244811a7ce643c5804a081742",
+      "dimensions": null
+    },
+    {
+      "path": "scripts/review/opera_curtain_card_v1.gd",
+      "sha256": "5e0948523f2cab0c4e609fe6f66e4ce6b36596eae7d361419a119ad9562341c8",
+      "dimensions": null
+    }
+  ]
+}

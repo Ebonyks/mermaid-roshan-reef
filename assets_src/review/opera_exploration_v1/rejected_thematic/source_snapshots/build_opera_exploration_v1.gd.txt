@@ -1,0 +1,33 @@
+extends SceneTree
+## Lossless native slicing/padding. No interpolation or claimed detail increase.
+
+const SOURCE := "res://assets_src/review/opera_exploration_v1/raw/"
+const OUTPUT := "res://assets/review/opera_exploration_v1/"
+
+func _initialize() -> void:
+	DirAccess.make_dir_recursive_absolute(OUTPUT)
+	var layout: Dictionary = {}
+	for id: String in ["arrival", "music", "costume", "rehearsal"]:
+		var image: Image = Image.load_from_file(SOURCE + id + ".png")
+		if image == null or image.is_empty():
+			quit(1)
+			return
+		layout[id] = [image.get_width(), image.get_height()]
+		image.convert(Image.FORMAT_RGBA8)
+		for column: int in range(2):
+			var card: Image = Image.create(1024, 1024, false, Image.FORMAT_RGBA8)
+			card.fill(Color.TRANSPARENT)
+			var width: int = mini(1024, image.get_width() - column * 1024)
+			card.blit_rect(image, Rect2i(column * 1024, 0, width, image.get_height()), Vector2i.ZERO)
+			card.save_png(OUTPUT + id + "_%d.png" % column)
+	var doorway: Image = Image.load_from_file(SOURCE + "doorway.png")
+	doorway.convert(Image.FORMAT_RGBA8)
+	layout["doorway"] = [doorway.get_width(), doorway.get_height()]
+	var padded: Image = Image.create(2048, 2048, false, Image.FORMAT_RGBA8)
+	padded.fill(Color.TRANSPARENT)
+	padded.blit_rect(doorway, Rect2i(Vector2i.ZERO, doorway.get_size()), Vector2i.ZERO)
+	padded.save_png(OUTPUT + "doorway.png")
+	var file: FileAccess = FileAccess.open(OUTPUT + "layout.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(layout, "\t") + "\n")
+	print("OPERA_V1_ASSETS|LOSSLESS_SLICING|OK")
+	quit(0)

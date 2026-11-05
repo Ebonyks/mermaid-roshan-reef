@@ -1,0 +1,39 @@
+extends Node2D
+## Bounded review ambience. Fixed architecture never moves with these effects.
+
+var phase := 0.0
+var room_id := 0
+var enabled := true
+var chandelier: Sprite2D
+var curtain: ShaderMaterial
+
+func _process(delta: float) -> void:
+	if not enabled or not is_visible_in_tree():
+		return
+	phase += minf(delta, 0.05)
+	if chandelier != null:
+		var frame: int = int(phase * 2.0) % 8
+		chandelier.region_rect = Rect2(float(frame % 4) * 256.0,
+			float(frame / 4) * 512.0, 256.0, 200.0)
+	if curtain != null:
+		curtain.set_shader_parameter("phase", phase)
+	queue_redraw()
+
+func _draw() -> void:
+	for index: int in range(14):
+		var seed_value: float = float(index) * 103.71
+		var x: float = 220.0 + fposmod(seed_value + phase * (3.0 + float(index % 3)), 850.0)
+		var y: float = 115.0 + fposmod(float(index) * 67.3 - phase * 5.0, 330.0)
+		var alpha: float = 0.14 + 0.10 * sin(phase * 0.7 + seed_value)
+		draw_circle(Vector2(x, y), 1.2 + float(index % 2), Color(1.0, 0.91, 0.65, alpha))
+	# Small warm halos belong to the separate chandelier, never to every door.
+	for index: int in range(3):
+		var alpha: float = 0.018 + 0.008 * sin(phase * 0.9 + float(index))
+		draw_circle(Vector2(600.0 + float(index) * 40.0, 86.0), 30.0, Color(1.0, 0.80, 0.44, alpha))
+	if room_id == 0:
+		draw_set_transform(Vector2(166.0, 383.0), 0.0, Vector2(1.0, 0.20))
+		for index: int in range(3):
+			var progress: float = fposmod(phase * 0.28 + float(index) / 3.0, 1.0)
+			draw_arc(Vector2.ZERO, 8.0 + progress * 28.0, 0.0, TAU, 32,
+				Color(0.76, 0.97, 0.96, (1.0 - progress) * 0.44), 1.4, true)
+		draw_set_transform(Vector2.ZERO)

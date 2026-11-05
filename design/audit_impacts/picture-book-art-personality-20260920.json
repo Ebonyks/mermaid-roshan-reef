@@ -1,0 +1,95 @@
+{
+  "id": "picture-book-art-personality-20260920",
+  "baseline": "5c057cce17cc43e024562f63351f496053b33375",
+  "scope": "Owner commissioned rendered cover and bubble-pile nap epilogue; individual background quality audit and selective page-related regeneration, frightened shell-hiding p25 and cheering/popcorn p26, ominous glowing door p24 and distinct Eagle poses p19/20. Static book only.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08",
+    "DL-ASSET-02",
+    "DL-ASSET-04"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static publication design only; no game defect closure.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/README.md",
+    "books/chapter_one/landscape/BORDER_ART_DIRECTION.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+    "books/chapter_one/landscape/art/personality_v20/border_06.png",
+    "books/chapter_one/landscape/art/personality_v20/border_20.png",
+    "books/chapter_one/landscape/art/personality_v20/border_24.png",
+    "books/chapter_one/landscape/art/personality_v20/border_25.png",
+    "books/chapter_one/landscape/art/personality_v20/border_26.png",
+    "books/chapter_one/landscape/art/personality_v20/bubble_nap.png",
+    "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+    "books/chapter_one/landscape/art/personality_v20/door_glowing.png",
+    "books/chapter_one/landscape/art/personality_v20/eagle_inviting.png",
+    "books/chapter_one/landscape/art_personality_evidence.json",
+    "books/chapter_one/landscape/art_personality_jobs.json",
+    "books/chapter_one/landscape/background_quality_audit.json",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/goal_requirements_audit.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/stress_review.json",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Original cover, every background and full rendered changed pages visually inspected",
+      "result": "PASS",
+      "evidence": "background_quality_audit.json and art_personality_evidence.json; editorial candidate review, no owner acceptance claim."
+    },
+    {
+      "command": "audit_book.py --proof v20_art_direction/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 pages;77 text lines;57 image operations;zero layout/source issues."
+    },
+    {
+      "command": "Exact v19-to-v20 page/source regression and embedded font check",
+      "result": "PASS",
+      "evidence": "art_personality_evidence.json final_render_regression;only cover/6/20/24/25/26/32 changed;27 pages unchanged;Sniglet embedded;page21 source exact."
+    },
+    {
+      "command": "Headless Edge ART_REVIEW at1400/760 widths",
+      "result": "PASS",
+      "evidence": "v20_art_direction/complete/browser_verification.json;7 cards,26 images,no broken sources or overflow."
+    },
+    {
+      "command": "Portable ZIP hash verification and independent rebuild",
+      "result": "PASS",
+      "evidence": "91 payload hashes verified;34 byte-identical page renders. Archive SHA-256 fd0118633db01f236bc4a782282aa6b3810b324a39b9e2ba2e9758e2f7486e00."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK;579 inventory and ledger entries."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV ALL OK; base5920c673305989ee29d91876480ff445dba9fc8b."
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS",
+      "evidence": "No whitespace issues."
+    },
+    {
+      "command": "Godot probes/device gates",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime book assets and publication tooling only. No game acceptance claims."
+    }
+  ],
+  "acceptance_gaps": "Owner/child acceptance and final print-source resolution remain open. Runtime checks not applicable."
+}

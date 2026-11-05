@@ -1,0 +1,17 @@
+{
+  "prompt": "Use case: illustration-story. Asset type: transparent RGBA sprite sheet for tiny painted reward sparkles in a true 2D children's storybook game.\nInput images: IMAGE_1 is the actual current Snowman reward scene, context only: the small floating FOUR-POINT sparkles below the medal are the role being replaced. Reproduce no scene, character, UI, medal or text. IMAGE_2 is painted contour/material style reference only, NOT its five-point silhouette. IMAGE_3 is neighboring painted game-prop style reference only. None is an edit target or delivery background.\nCreate a polished hand-painted sprite sheet, exactly NINE separate complete FOUR-POINT twinkles in a precise evenly spaced 3-by-3 grid on a fully transparent square canvas. Each individual star has exactly four long softly rounded tapered tips at top/right/bottom/left, four concave curved valleys, a pleasantly handmade silhouette, a luminous creamy center, a few broad gouache-painted color/light bands, subtle visible brush texture and a restrained plum/colored contour. Flat front-facing 2D illustration with authored light, soft satin paint; no geometric facets or rendered bevels. Each sparkle is one whole coherent painted cutout. Match the warm welcoming painted finish and clarity of the supplied game props.\nColors by grid cell, left to right: top row icy pale blue, mint teal, clear sky blue; middle row warm coral red, golden orange, sunny lemon yellow; bottom row fresh leaf green, lavender violet, warm magenta pink. Keep all nine equally bright, equally sized, equally upright and centered within their own equal square cells. Each sparkle occupies about 60 percent of its cell width and height, with generous fully transparent gutters so it can be independently cropped. The individual colors are painted into each cutout, with a near-white light center and calm colored edges, ready for display without runtime tinting.\nThese will appear about 20 to 26 screen pixels wide: prioritize clean readable four-tip shape, a bright focal center and two or three broad material strokes over tiny detail. Preserve painted antialiasing and actual transparency. No extra satellite flecks, glows extending across cells, trails, frames, labels, letters, grid lines, background, floor, checkerboard, cast shadows, characters, objects, five-point stars, circles, hard vector polygons, 3D, photorealism or white sticker rims.",
+  "backend": "builtin image_gen.imagegen",
+  "model": null,
+  "model_selector_exposed": false,
+  "owner_preference": "2.5 when actually exposed; no version claim",
+  "attempt": 1,
+  "state": "RETURNED_ACTUAL_OUTPUT_RETAINED",
+  "stable_id": "FV-E96CD69662D1",
+  "role": "R134",
+  "references": [
+    "docs/handoffs/codex_recent_updates_dev_2026-11-03/context/candidate_native/snowfield/1280x720/17_original_win.png",
+    "assets/opera/worlds/props/fx_stolen_sparkle.png",
+    "assets/mg/trampoline_pad_painted.png"
+  ],
+  "output_sha256": "d221233a1c22af06a1df562692495b413be1897f27a21e49ef98bc738f5ff91b"
+}

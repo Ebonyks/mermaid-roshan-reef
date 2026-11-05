@@ -1,0 +1,146 @@
+{
+	"baseline_save_hash": 541225771,
+	"checks": [
+		{
+			"check": "pause freezes travel and ambient time",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "focus notification resumes only automatic pause",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "passive no award",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "routed mouse press responds within two frames",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "routed mouse release commits a destination",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "routed one-finger drag commits a destination",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "left lift reaches original upper gallery",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "authored swim advances during travel",
+			"evidence": [
+				6,
+				9
+			],
+			"result": "PASS"
+		},
+		{
+			"check": "upper gallery connects across screen boundary",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "right lift reaches original foyer",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "foyer connects across screen boundary",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "cancel stops travel and queued door",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "ticket counter responds after approach",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "refreshment cart responds after approach",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "physical doorway starts shipping private practice",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "cancel returns to exact source position and camera",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "successful callback marks corresponding physical crest",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "stale callback cannot award again",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "normal progress and practice saves unchanged",
+			"evidence": null,
+			"result": "PASS"
+		},
+		{
+			"check": "routes avoid central seating footprint",
+			"evidence": {
+				"samples": 1929
+			},
+			"result": "PASS"
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failed": 0,
+	"final": {
+		"actor": "swim",
+		"ambient_phase": 87.0337364550265,
+		"art": "layout-preserving detail-restoration candidate; no thematic art",
+		"camera": "(669.4245, 693.9998)",
+		"completed_mask": 64,
+		"launches": 2,
+		"lift_rides": 2,
+		"native_2k_background": true,
+		"native_background_size": "(7360.0, 4140.0)",
+		"native_detail_acceptance": "tiled generated surface detail; original fixture geometry/palette locked with registered microdetail; visual/device acceptance pending",
+		"overview": false,
+		"paused": false,
+		"pending": "",
+		"position": "(1280.004, 1380.0)",
+		"prop_responses": 2,
+		"running_act": -1,
+		"travelling": false,
+		"world_size": "(2560.0, 1440.0)"
+	},
+	"final_save_hash": 541225771,
+	"profile": "MermaidReef-OperaRemovalReview-20261017",
+	"renderer": "mobile",
+	"scope": "Private runtime integration; successful completion is a declared callback fixture, not an end-to-end played win"
+}

@@ -1,0 +1,79 @@
+{
+  "state": "EXACT_PUBLISHED_POLICY_SOURCE_COMPOSED_METADATA_ONLY",
+  "source": "ff2c94b746e15ad97ce366e93df4d98c3d5205ca",
+  "branch": "origin/codex/dev-open-integration-20261103",
+  "source_CI": "Owning chat healthy source CI still fetching; job and checkout untouched. Final combined exact-head validation still required.",
+  "source_files": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "method": "exact text three-way",
+      "published_source_sha256": "04f80e65317c0e5151f49e4515e33944764e9627376aad4cf40938fc1e4a9c3c",
+      "combined_sha256": "e06b174eb9c6c59dcb7b2527e1c48c4ee05b7d1d30cf9461a38d3754e209721f"
+    },
+    {
+      "path": "audit/cycles/dev-open-integration-20261103/owner_answers.json",
+      "method": "exact published source",
+      "published_source_sha256": "5c3d1ff5b415370c551e1391d3c065222faee148ec8096bb549756ca5f53080e",
+      "combined_sha256": "5c3d1ff5b415370c551e1391d3c065222faee148ec8096bb549756ca5f53080e"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "method": "exact text three-way",
+      "published_source_sha256": "7e08206edb2ad444b8f6087d06159c6e3020a624a718b0485320527e2e140a5e",
+      "combined_sha256": "7d76287e33c3e242cfb8cab145c0a99412990a6438355d5a386299405b0c8eba"
+    },
+    {
+      "path": "design/audit_impacts/dev-open-integration-20261103.json",
+      "method": "exact published source",
+      "published_source_sha256": "c393dd323ad34aa5d7923540dd1f9a3c888aad285606418e802de334caea7937",
+      "combined_sha256": "c393dd323ad34aa5d7923540dd1f9a3c888aad285606418e802de334caea7937"
+    },
+    {
+      "path": "design/reference/OWNER_DECISIONS.md",
+      "method": "independent EOF owner-decision rows union; no row deleted or rewritten",
+      "published_source_sha256": "9ffde432bbd89506a6a78e653ad143dc78bba772a60e4ea0ca37968968c54341",
+      "combined_sha256": "e9ed594cf5565f6d716b02cfbe678eeacf1ca976c0d9481b52232fc5be314e59"
+    },
+    {
+      "path": "design/reference/owner_decisions.json",
+      "method": "stable-ID semantic three-way",
+      "published_source_sha256": "39625a9a6d8e84be61da08cefb5eb6966869fa221b10d399465c298409779475",
+      "combined_sha256": "d9100dcfadb8a4963c065c7ebbf12f656b5107df23957325da07e6ed99e05378"
+    },
+    {
+      "path": "docs/handoffs/codex_demo_readiness_2026-10-31/AUDIT.md",
+      "method": "exact published source",
+      "published_source_sha256": "526be5a53c83bc378cf5ed6938155a5ee4572d04ff0d6800a60d243f0c1666bf",
+      "combined_sha256": "526be5a53c83bc378cf5ed6938155a5ee4572d04ff0d6800a60d243f0c1666bf"
+    },
+    {
+      "path": "docs/handoffs/codex_demo_readiness_2026-10-31/DEMO_RUNBOOK.md",
+      "method": "exact published source",
+      "published_source_sha256": "7ac3ae78de76e91b0762d55ec6eb73c293846e76276dd94156a11e5a0d8ea208",
+      "combined_sha256": "7ac3ae78de76e91b0762d55ec6eb73c293846e76276dd94156a11e5a0d8ea208"
+    },
+    {
+      "path": "docs/handoffs/codex_demo_readiness_2026-10-31/MANIFEST.json",
+      "method": "exact published source",
+      "published_source_sha256": "3c4483749cd2c4f0f410d1ce7e3d412bd1558d2adeba099a7adbf46f95c617a1",
+      "combined_sha256": "3c4483749cd2c4f0f410d1ce7e3d412bd1558d2adeba099a7adbf46f95c617a1"
+    },
+    {
+      "path": "docs/handoffs/codex_demo_readiness_2026-10-31/README.md",
+      "method": "exact published source",
+      "published_source_sha256": "fde18f77063f82db1af1bf4cc596675d39b0c67d36bf80e710f2fe1001eeda35",
+      "combined_sha256": "fde18f77063f82db1af1bf4cc596675d39b0c67d36bf80e710f2fe1001eeda35"
+    },
+    {
+      "path": "docs/handoffs/codex_demo_readiness_2026-10-31/REMOTE_VERIFICATION.json",
+      "method": "exact published source",
+      "published_source_sha256": "7efc8dece2e3ae9a99665280cb48dc1a4a066a4c6b0fe093e0335ac45f5ef86d",
+      "combined_sha256": "7efc8dece2e3ae9a99665280cb48dc1a4a066a4c6b0fe093e0335ac45f5ef86d"
+    }
+  ],
+  "planned_merge_parent_count": 27,
+  "base": "27c88288bf6e39582072811443df79919e7bbb89",
+  "runtime_files_changed": 0,
+  "other_chat_messages_sent": 0,
+  "at_utc": "2026-11-03T17:45:04.844175+00:00"
+}

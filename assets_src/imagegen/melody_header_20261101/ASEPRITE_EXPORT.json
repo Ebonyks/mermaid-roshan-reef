@@ -1,0 +1,102 @@
+{
+  "tool": "Aseprite",
+  "tool_version": "Aseprite 1.3.18.4-x64",
+  "commands": [
+    {
+      "command": [
+        "C:\\Program Files\\Aseprite\\Aseprite.exe",
+        "--batch",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\melody_header_20261101\\native\\header_take2.png",
+        "--save-as",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\melody_header_20261101\\editable\\header_take2_native.aseprite"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "C:\\Program Files\\Aseprite\\Aseprite.exe",
+        "--batch",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\melody_header_20261101\\editable\\header_take2_native.aseprite",
+        "--save-as",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\melody_header_20261101\\derived\\native_roundtrip.png"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "C:\\Program Files\\Aseprite\\Aseprite.exe",
+        "--batch",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\melody_header_20261101\\editable\\header_take2_native.aseprite",
+        "--crop",
+        "20,247,2132,310",
+        "--save-as",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\melody_header_20261101\\editable\\header_take2_whole_trimmed.aseprite"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "C:\\Program Files\\Aseprite\\Aseprite.exe",
+        "--batch",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\melody_header_20261101\\editable\\header_take2_whole_trimmed.aseprite",
+        "--scale",
+        "0.4803001876172608",
+        "--save-as",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets\\melody\\crown_header_painted.png"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "C:/Program Files/Aseprite/Aseprite.exe",
+        "--batch",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\melody_header_20261101\\editable\\header_take2_whole_trimmed.aseprite",
+        "--script-param",
+        "master=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\melody_header_20261101\\editable\\header_runtime_bilinear.aseprite",
+        "--script-param",
+        "out=C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets\\melody\\crown_header_painted.png",
+        "--script",
+        "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\assets_src\\imagegen\\melody_header_20261101\\export_header.lua"
+      ],
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "native_roundtrip_pixel_exact": true,
+  "crop": {
+    "rect": [
+      20,
+      247,
+      2132,
+      310
+    ],
+    "role": "Technical whole-prop transparent canvas trim only; excludes no alpha>1 pixel; no silhouette or material painting.",
+    "excluded_max_alpha": 1,
+    "excluded_alpha1_pixels": 492
+  },
+  "uniform_scale": 0.4803001876172608,
+  "native_rgba_preserved": true,
+  "final_dimensions": [
+    1024,
+    148
+  ],
+  "runtime_path": "assets/melody/crown_header_painted.png",
+  "files": {
+    "assets_src/imagegen/melody_header_20261101/native/header_take2.png": "32f8f27ec6624aefcd25bd8a67fb43299c6c94fa770edcacc60aa7b4e8bb2297",
+    "assets_src/imagegen/melody_header_20261101/editable/header_take2_native.aseprite": "f5a78c05dde07def5236c629ef6b07ad62dc99635f013c97ca5c8c4d670de8dc",
+    "assets_src/imagegen/melody_header_20261101/derived/native_roundtrip.png": "efc9be5990156cfb7ee3103741e3df76dbf8bb570bedb9ee02c293f21bdfd281",
+    "assets_src/imagegen/melody_header_20261101/editable/header_take2_whole_trimmed.aseprite": "c51567f831a73442eae6f73dfeec4d723739b2d5b839a07ea7ca4dbd1c72eb04",
+    "assets/melody/crown_header_painted.png": "3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e",
+    "assets_src/imagegen/melody_header_20261101/editable/header_runtime_bilinear.aseprite": "9ce7516d840a02cefaa2aba62ad7542312eff50fd1700419b7915ac8e7270e1d",
+    "assets_src/imagegen/melody_header_20261101/export_header.lua": "a5557a9f62eadf8c146be95f4353d6345da60088f11a542f144f349ba1553848",
+    "assets_src/imagegen/melody_header_20261101/derived/header_nearest_intermediate.png": "9f46cd8cea2ebecf9ee08d65eed5ce22279e1d0236d9a9c8183806f4a837200c"
+  },
+  "animation_calls": 0,
+  "creative_acceptance": false,
+  "final_resampling": "Aseprite SpriteSize bilinear, uniform scale factor, ratio locked; earlier nearest-neighbor intermediate retained separately and not consumed.",
+  "resize_api_reference": "https://www.aseprite.org/api/command/SpriteSize"
+}

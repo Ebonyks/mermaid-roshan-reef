@@ -1,0 +1,28 @@
+"""Use the existing local Godot AI MCP backend when its short attach probe times out."""
+from pathlib import Path
+import asyncio,json,sys,base64,datetime
+from mcp import ClientSession
+from mcp.client.streamable_http import streamablehttp_client
+ROOT=Path(r'C:/Users/Peter/Documents/mermaid-roshan-reef/tmp')
+ALLOWED={'editor_state','project_run','editor_manage','session_manage','editor_screenshot'}
+async def main():
+ name=sys.argv[1]
+ if name not in ALLOWED:raise ValueError('Read/play/review operations only')
+ args=json.loads(Path(sys.argv[2]).read_text(encoding='utf-8')) if len(sys.argv)>2 else {'session_id':'runtime@ee96'}
+ if args.get('session_id','runtime@ee96')!='runtime@ee96':raise ValueError('Wrong review session')
+ async with streamablehttp_client('http://127.0.0.1:8000/mcp',timeout=45,sse_read_timeout=60) as (read,write,_):
+  async with ClientSession(read,write) as session:
+   await session.initialize()
+   catalog=await session.list_tools()
+   if name not in {a.name for a in catalog.tools}:raise ValueError('Tool missing from actual backend catalog')
+   result=await session.call_tool(name,args)
+   text=[];images=[]
+   for item in result.content:
+    if item.type=='text':text.append(item.text)
+    elif item.type=='image':
+     p=ROOT/('opera_direct_'+datetime.datetime.now().strftime('%H%M%S')+'.png')
+     p.write_bytes(base64.b64decode(item.data));images.append(str(p))
+   out={'tool':name,'session':'runtime@ee96','text':text,'structured':result.structuredContent,'images':images,'is_error':result.isError,'utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+   with (ROOT/'opera_direct_receipts.jsonl').open('a',encoding='utf-8') as file:file.write(json.dumps(out)+'\n')
+   print(json.dumps(out))
+asyncio.run(main())

@@ -1,0 +1,11 @@
+{
+  "source": "Ordinary owner-local Falcon/REAPER native recall; no bank samples or vendor program distributed",
+  "public_parameter_edit": "ScriptProcessor KeyswitchSelection 1 (Kora 1) -> 3 (Valiha), preserving every other saved XML byte",
+  "source_native_sha256": "6062cb42ceda17b359feb79103492fee46ec98e28ca440c726b359a28bb03e4e",
+  "output_native_sha256": "9715abfcca19784945e4c2520c89901d1eef33804e3256396a3ec26abb35ed87",
+  "score_keyswitch_midi": null,
+  "reason": "Runtime keyswitch does not persist the selected menu value in exported base-preset recall; make the initial selection explicit for reliable rebuilds.",
+  "native_wrapper_and_extra_state_preserved": true,
+  "static_articulation_selector": 3,
+  "control_note_removed": "The candidate control note produced an audible transient at 0.03 s. The final part uses the static native selection and only its 202 written musical notes."
+}

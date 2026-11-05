@@ -1,0 +1,14 @@
+{
+  "exit": 1,
+  "start_utc": "2026-11-02T05:40:33.484876+00:00",
+  "end_utc": "2026-11-02T05:49:57.041861+00:00",
+  "source_ci_sha256": "5911e4bc2e44fb46f52aa1df52fac30bac0e0b517e8182ee9df5e1106b0db58e",
+  "executed_lf_sha256": "99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c",
+  "commands_classifiers_deadlines_unchanged": true,
+  "command": [
+    "C:/Program Files/Git/bin/bash.exe",
+    "-c",
+    "export PATH=\"$PWD/tmp/shared_swim_ci_bin:$PATH\"; exec bash tmp/shared_swim_full_ci.sh"
+  ],
+  "single_uninterrupted_run": true
+}

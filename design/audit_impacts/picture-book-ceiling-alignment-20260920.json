@@ -1,0 +1,56 @@
+{
+  "id": "picture-book-ceiling-alignment-20260920",
+  "baseline": "048766691db6307a72155f77fa703cae083e5795",
+  "scope": "Correct per-source finale ceiling strip cutoffs rather than stretching the first 100 pixels on every page. Retain original complete scene, all text and border pages; no generation or raster edit.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static picture-book layout correction; no game finding affected.",
+  "files": [
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STRESS_TEST.md",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/ceiling_alignment_evidence.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/stress_results.json",
+    "books/chapter_one/landscape/stress_review.json"
+  ],
+  "validation": [
+    {
+      "command": "Compare original top ten rows against existing outpaint rows 70 through 179 at equal image width",
+      "result": "PASS",
+      "evidence": "Best source matches: R09_open 123; R09_suds 124; R10_jump 145; R11_land 146. All differ from old fixed 100-pixel cut. Numerical match is diagnostic only; visual proof pending."
+    },
+    {
+      "command": "Four rendered finale page inspections and two-times PDF pixel comparison",
+      "result": "PASS",
+      "evidence": "ceiling_alignment_evidence.json: improved joins; original scenes below join identical; all 30 other JPEG pages byte-identical; all captions unchanged."
+    },
+    {
+      "command": "audit_book.py --proof v12_ceiling/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 pages; 84 text lines; 134 actual image operations; contextual border constraints retained."
+    },
+    {
+      "command": "Portable package hash checks and independent rebuild",
+      "result": "PASS",
+      "evidence": "delivery_verification.json: all 73 payload hashes and all 34 rendered JPEGs verified."
+    },
+    {
+      "command": "Headless Edge ceiling comparison at widths 1400 and 760",
+      "result": "PASS",
+      "evidence": "Four comparisons; eight loaded images; no overflow."
+    }
+  ],
+  "acceptance_gaps": "Minor extension perspective/texture differences remain for owner visual review. Other documented source-fidelity and print-resolution gaps unchanged. No runtime or cinematic acceptance."
+}

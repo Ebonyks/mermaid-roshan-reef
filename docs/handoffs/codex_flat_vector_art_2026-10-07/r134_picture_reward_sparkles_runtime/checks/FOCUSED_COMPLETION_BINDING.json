@@ -1,0 +1,20 @@
+{
+  "state": "CURRENT_FULL_SUITE_RESOLVES_FOCUSED_NATIVE_EXIT_GAP",
+  "candidate_baseline": "fe0660adced29fac3ae50737c0f829f400c856ab",
+  "candidate_controller_sha256": "86de52ad21727ea9f21676ae7ba1e5505ddde5115664594fa861634e0733cdbf",
+  "original_focused_receipt": "FOCUSED_RESULT.json",
+  "original_wrapper_failure": "Wrong expected marker; preserved, not relabeled.",
+  "new_exact_probe_result": {
+    "probe": "probe_mg2d",
+    "exit_code": 0,
+    "timed_out": false,
+    "elapsed_seconds": 31.201,
+    "failure_lines": [],
+    "output_nonempty": true,
+    "passed": true,
+    "log_sha256": "4764942c100f70098e1c262d33c43821ed4b15e022f50e4c40daac0aad8a9556"
+  },
+  "source_log": "full_validation/probe_mg2d/engine.log",
+  "new_native_exit_code": 0,
+  "full_suite": "Still running; no82-complete claim."
+}

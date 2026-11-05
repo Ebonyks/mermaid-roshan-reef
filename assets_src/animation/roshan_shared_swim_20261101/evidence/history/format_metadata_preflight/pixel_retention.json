@@ -1,0 +1,24 @@
+{
+  "pass": true,
+  "jobs": [
+    {
+      "job": "ballet",
+      "native_png_bytes_identical_all_frames": true,
+      "frames": 229,
+      "exact_rgba_archive": "masters/ballet_native_rgba.mkv"
+    },
+    {
+      "job": "magician",
+      "native_png_bytes_identical_all_frames": true,
+      "frames": 229,
+      "exact_rgba_archive": "masters/magician_native_rgba.mkv"
+    },
+    {
+      "job": "live_swaps",
+      "native_png_bytes_identical_all_frames": true,
+      "frames": 229,
+      "exact_rgba_archive": "masters/live_swaps_native_rgba.mkv"
+    }
+  ],
+  "scope": "All original native PNG hashes equal the format-valid capture. The final paired-track archive preserves every exact native RGBA pixel; its round-trip proof names each PNG hash."
+}

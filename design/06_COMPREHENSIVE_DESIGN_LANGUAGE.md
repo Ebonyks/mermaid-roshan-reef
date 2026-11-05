@@ -979,6 +979,20 @@ speaker/semantic identity, complete provenance, and the same routing, child,
 device, mono, and protected-asset gates. Codec, loudness, bitrate, or sample
 rate improvement alone does not grant acceptance.
 
+`DL-SND-18` — New soundtrack authoring uses the individual performer profiles
+logged in the master audit. Before constructing a full song, record each
+selected profile ID/revision, exact instrument and active articulation/readiness,
+reference principle, playable phrase/dynamic plan, section roles, handoffs,
+rests and physical/overdub limits in the cue call sheet. Profiles describe
+proposed creative capabilities; their references and native tests retain
+separate evidence limits. Bonobo is the owner-selected single primary producer
+identity, with contextual pop/dance/chip techniques. The current three revised
+cue plans require owner review before new full arrangements. This authoring
+rule does not retroactively accept old studies or change runtime delivery,
+protected voices, device/child or release gates. See the
+[performer workflow](music/performers/README.md).
+The subsequent owner direction authorizes expanded-palette **private test tracks** while final-arrangement review remains pending; see the [scoped test commission](music/expanded_palette_test_tracks_owner_direction_20261101.json).
+
 ---
 
 ## 11. Cinematic exception
@@ -1705,3 +1719,8 @@ scope drift, and missing tools to improve the guide. Reference-library entries
 retain source/build binding, what may vary, and each acceptance limit. Preserve
 historical evidence separately from current requirements and refresh affected
 planning links/facts after a scoped owner decision or implementation change.
+
+
+`DL-PLAN-07` — Every authored chapter story phase or beat MUST map to a child-visible object, hotspot or stage action reachable in that step's own room. Register the binding against the production step and room/stage registries, and run a static check that rejects an unbound step and a binding to another room's object. Passing a binding check does not establish a fresh-save route, touch geometry or child comprehension. Source: recurring MA-PLAY-005 failure class; chapter-guide refinement CG1.
+
+`DL-PLAN-08` — Owner decision 2026-10-31: when a book and the game mismatch, the book controls and the game must be adapted to it. Cite the exact designated book revision in the canon/source register; record the mismatch and required game repair without rewriting the book to suit existing code. A later agent-authored revision proposal is not a replacement book authority. Protected originals, save compatibility, voice permissions, child safety, implementation scope and release gates retain their separate constraints. Source: ODR-BOOK-FIRST-20261031 in the owner register and the chapter-guide owner-answer record.

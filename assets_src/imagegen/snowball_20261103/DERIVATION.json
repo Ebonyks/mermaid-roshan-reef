@@ -1,0 +1,70 @@
+{
+  "state": "ACTUAL_CANDIDATE_INTEGRATED_SOURCE_BRANCH_PENDING_ENGINE_CONTEXT",
+  "stable_id": "FV-C99F706798D3",
+  "native_sha256": "f3007a0b691011f7204dd7a3e9fb54175b33fcb11fb17a9680765cdddd6defb6",
+  "native_size": [
+    1254,
+    1254
+  ],
+  "crop_rect": [
+    134,
+    144,
+    980,
+    980
+  ],
+  "crop_sha256": "700d9de52d47f619ee7ab30848a5ec3c56828847ff1d5129a343745edbc06ff9",
+  "crop_RGBA_exact": true,
+  "trimmed_pixels": "Outside chosen exact crop alpha<=1 only; original native preserved unchanged",
+  "uniform_resample": "Aseprite1.3.18.4 SpriteSize bilinear lockRatio true 980square->512square; no repaint/recolor/keying/procedural pixels",
+  "runtime_path": "assets/mg/snowball_painted.png",
+  "runtime_sha256": "07eac348486145d2c32c6da7c645b4099679aabbbe938263dbf612def779be11",
+  "runtime_size": [
+    512,
+    512
+  ],
+  "runtime_alpha_bbox_gt3": [
+    5,
+    2,
+    506,
+    510
+  ],
+  "runtime_alpha_extrema": [
+    0,
+    254
+  ],
+  "decoded_RGBA_bytes": 1048576,
+  "decoded_with_full_mips_bytes": 1398100,
+  "shared_texture_instances_max": 3,
+  "decoded_texture_budget_bytes": 1500000,
+  "master_export_roundtrips_RGBA_exact": [
+    "native",
+    "crop",
+    "runtime"
+  ],
+  "master_verification_wall_seconds": 0.9844349999912083,
+  "masters": {
+    "assets_src/imagegen/snowball_20261103/masters/crop_980.aseprite": "d133a742474b123788c2a660eb3bbe361e5c59c9c4b0bf5edbdefb1a3b8c422f",
+    "assets_src/imagegen/snowball_20261103/masters/native_1254.aseprite": "04b822c4e69acb5d59d5925a2c142dd00b2d1ab4403b7c8c3c6db7cf8d1e5f8b",
+    "assets_src/imagegen/snowball_20261103/masters/runtime_512.aseprite": "dfe0604c5aec63459ed18fcc54a4582b430fe9cc09a415fee17ceb605747ea83"
+  },
+  "changed_functions": [
+    "_mg_snow_new_ball",
+    "_mg_snow_ball_size"
+  ],
+  "unchanged_other_functions": 28,
+  "shared_circle_unchanged": true,
+  "main_tick_input_unchanged": true,
+  "invisible_geometry": "Original Panel root size2r/position center-r/default pivot and mouse filter preserved; StyleBoxEmpty renders no fallback. One whole painted TextureRect child ignores input, position(-6,-3),size(root+12), with visible bounds inside original shadow footprint x[-8,+8],y[-3,+13] (original shadow size8 and offset0,5). Painted body center sits3px lower, logical roots/face sockets unchanged. Actual stacked contact/chase/squash/phone review next.",
+  "static_generation_calls": 1,
+  "animation_calls": 0,
+  "static_item_cap": 2,
+  "native_rejects": 0,
+  "technical_reexports": 0,
+  "manual_pixel_cleanup": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "Dev_integrated": false,
+  "accepted_removed": 0
+}

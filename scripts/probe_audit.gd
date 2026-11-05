@@ -18,8 +18,8 @@ const MELODY_TILE_SOURCE_RECTS: Array[Rect2i] = [
 	Rect2i(0, 0, 1024, 1024), Rect2i(1024, 0, 1024, 1024),
 	Rect2i(0, 1024, 1024, 1024), Rect2i(1024, 1024, 1024, 1024),
 ]
-const MELODY_DADDY_PATH := "res://assets/characters/stickers/daddy.png"
-const MELODY_ROSHAN_PATH := "res://assets/opera/worlds/actors/roshan_popstar.png"
+const MELODY_DADDY_PATH := "res://assets/melody/mobile/daddy.png"
+const MELODY_ROSHAN_PATH := "res://assets/melody/mobile/roshan_popstar.png"
 
 const SLIDE_VIEW_SIZE := Vector2i(1280, 720)
 const SLIDE_TALL_SIZE := Vector2i(1280, 800)
@@ -200,8 +200,7 @@ func _init() -> void:
 				and _melody_surface_exact(surface) \
 				and _melody_tile_bindings_exact(surface) \
 				and _melody_spatial_descendant_count(layer) == 0 \
-				and surface.find_child("LeftCurtainGeometry", true, false) != null \
-				and surface.find_child("RightCurtainGeometry", true, false) != null \
+				and _melody_painted_curtains_exact(surface) \
 				and surface.find_child("DaddyGuide", true, false) != null \
 				and surface.find_child("PopstarRoshan", true, false) != null \
 				and surface.find_child("TimingZone", true, false) != null \
@@ -210,6 +209,7 @@ func _init() -> void:
 				and melody.progress_count() == 0 \
 				and (melody.audit_snapshot().get(
 					"blocked_sources", {}) as Dictionary).is_empty()
+			stage_ok = stage_ok and _melody_binding_negatives(surface)
 			print("AUDIT|Rainbow Canvas theater: ", ("OK" if stage_ok else "FAIL"))
 		var f0 := Time.get_ticks_msec()
 		var ok := await _drive_game(gname, f)
@@ -5467,6 +5467,131 @@ func _drive_game(gname: String, f: Dictionary) -> bool:
 	return main.game == "" and bool(f["won"])
 
 
+func _melody_painted_parts_exact(prosc: Control) -> bool:
+	var expected: Array[String] = [
+		"LeftPaintedCurtain", "RightPaintedCurtain", "PaintedCrownHeader",
+		"PaintedStageApronBody", "PaintedStageApronRainbow",
+	]
+	var count: int = maxi(12, int(prosc.size.x / 66.0))
+	for index in range(count):
+		expected.append("UpperPaintedBulb%02d" % index)
+		expected.append("LowerPaintedBulb%02d" % index)
+	if prosc.get_child_count() != expected.size():
+		return false
+	for index in range(expected.size()):
+		if String(prosc.get_child(index).name) != expected[index]:
+			return false
+	var paths: Array[String] = [
+		"res://assets/melody/crown_header_painted.png",
+		"res://assets/melody/stage_apron_painted.png",
+		"res://assets/melody/stage_apron_rainbow_painted.png",
+		"res://assets/melody/theatre_bulb_cream_painted.png",
+		"res://assets/melody/theatre_bulb_gold_painted.png",
+	]
+	var hashes: Array[String] = ["3865d7d6801d5688d5c7aa41c4d6cd5e1e2f3310a3a80638d3e7a884aa91419e", "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee", "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c", "6b77475880e6b86c45fd3e0ac481814a4a19a1cdd7bc6d67e16e4379fc56d24d", "6bbb37224b78c39dda1a40d56cbb7904a2fbf4987b5d15e643196be42dc1ccc2"]
+	for index in range(2, prosc.get_child_count()):
+		var child: Node = prosc.get_child(index)
+		var texture: Texture2D = child.get("texture") as Texture2D
+		var binding: int = index - 2 if index < 5 else 3 + (index - 5) % 2
+		if not (child is TextureRect or child is NinePatchRect or child is Sprite2D) \
+				or child.get_child_count() != 0 or texture == null or texture is AtlasTexture \
+				or not (child as CanvasItem).is_visible_in_tree() \
+				or texture.resource_path != paths[binding] \
+				or FileAccess.get_sha256(paths[binding]) != hashes[binding]:
+			return false
+	return true
+
+
+func _melody_binding_negatives(surface: Node) -> bool:
+	var prosc: Control = surface.find_child("OperaProscenium", true, false) as Control
+	var clip: Control = prosc.get_node("LeftPaintedCurtain") as Control
+	var cloth: TextureRect = clip.get_node("PaintedCloth") as TextureRect
+	var texture: Texture2D = cloth.texture
+	cloth.texture = load("res://assets/melody/curtain_left_painted.png") as Texture2D
+	var rejected_original: bool = not _melody_painted_curtains_exact(surface)
+	cloth.texture = texture
+	var angle: float = cloth.rotation
+	cloth.rotation = 0.05
+	var rejected_rotation: bool = not _melody_painted_curtains_exact(surface)
+	cloth.rotation = angle
+	clip.clip_contents = false
+	var rejected_unclipped: bool = not _melody_painted_curtains_exact(surface)
+	clip.clip_contents = true
+	cloth.hide()
+	var rejected_hidden: bool = not _melody_painted_curtains_exact(surface)
+	cloth.show()
+	var extra := Control.new()
+	extra.name = "UnexpectedStageChild"
+	prosc.add_child(extra)
+	var rejected_extra: bool = not _melody_painted_curtains_exact(surface)
+	prosc.remove_child(extra)
+	extra.free()
+	var daddy: Sprite2D = surface.find_child("DaddyGuide", true, false) as Sprite2D
+	var actor_texture: Texture2D = daddy.texture
+	daddy.texture = load("res://assets/characters/stickers/daddy.png") as Texture2D
+	var rejected_actor: bool = not _melody_actor_exact(daddy, surface, MELODY_DADDY_PATH)
+	daddy.texture = actor_texture
+	daddy.flip_h = true
+	var rejected_flip: bool = not _melody_actor_exact(daddy, surface, MELODY_DADDY_PATH)
+	daddy.flip_h = false
+	var ok: bool = rejected_original and rejected_rotation and rejected_unclipped \
+		and rejected_hidden and rejected_extra and rejected_actor and rejected_flip
+	print("AUDIT|Rainbow Canvas binding negative controls: ", "OK" if ok else "FAIL")
+	return ok
+
+
+func _melody_painted_curtains_exact(surface: Node) -> bool:
+	var proscenium: Control = surface.find_child("OperaProscenium", true, false) as Control
+	if proscenium == null or not _melody_painted_parts_exact(proscenium) \
+			or surface.find_child("LeftCurtainGeometry", true, false) != null \
+			or surface.find_child("RightCurtainGeometry", true, false) != null:
+		return false
+	var names: Array[String] = ["LeftPaintedCurtain", "RightPaintedCurtain"]
+	var paths: Array[String] = [
+		"res://assets/melody/mobile/curtain_left_painted.png",
+		"res://assets/melody/mobile/curtain_right_painted.png",
+	]
+	var hashes: Array[String] = [
+		"5adf76d1d59b3966b1586f4bd202a4a3f5a3ed62a930433d974cd7e3cff74f30",
+		"0840554754b88d944dd1fe8529a38eac877165c70c708e017e5ab045cca0ff8f",
+	]
+	var sizes: Array[Vector2] = [Vector2(302, 751), Vector2(213, 744)]
+	var crops: Array[Rect2i] = [Rect2i(0, 8, 302, 751), Rect2i(88, 13, 213, 744)]
+	var sources: Array[String] = [
+		"res://assets/melody/curtain_left_painted.png",
+		"res://assets/melody/curtain_right_painted.png",
+	]
+	for index in range(names.size()):
+		var clip: Control = proscenium.get_node_or_null(names[index]) as Control
+		if clip == null or not clip.clip_contents or clip.get_child_count() != 1 \
+				or not clip.is_visible_in_tree() or clip.size.x <= 0.0 or clip.size.y <= 0.0 \
+				or clip.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+				or _melody_named_count(surface, names[index]) != 1:
+			return false
+		var cloth: TextureRect = clip.get_child(0) as TextureRect
+		if cloth == null or cloth.name != &"PaintedCloth" or cloth.texture == null \
+				or cloth.texture is AtlasTexture or cloth.get_child_count() != 0 \
+				or not cloth.is_visible_in_tree() or cloth.size.x <= 0.0 \
+				or cloth.mouse_filter != Control.MOUSE_FILTER_IGNORE \
+				or cloth.texture.resource_path != paths[index] \
+				or cloth.texture.get_size() != sizes[index] \
+				or FileAccess.get_sha256(paths[index]) != hashes[index] \
+				or not is_zero_approx(cloth.rotation) \
+				or absf(cloth.size.x / sizes[index].x - cloth.size.y / sizes[index].y) > 0.00001 \
+				or not proscenium.get_global_rect().encloses(clip.get_global_rect()):
+			return false
+		# Compare exact RGBA source crops; no resampling or changed cloth pixels.
+		var source_image: Image = Image.load_from_file(sources[index])
+		var runtime_image: Image = Image.load_from_file(paths[index])
+		if source_image == null or runtime_image == null:
+			return false
+		source_image.convert(Image.FORMAT_RGBA8)
+		runtime_image.convert(Image.FORMAT_RGBA8)
+		if source_image.get_region(crops[index]).get_data() != runtime_image.get_data():
+			return false
+	return true
+
+
 func _melody_surface_exact(surface: Node) -> bool:
 	if surface == null:
 		return false
@@ -5526,7 +5651,13 @@ func _melody_actor_exact(actor: Node, surface: Node,
 		return false
 	var sprite := actor as Sprite2D
 	var texture: Texture2D = sprite.texture
+	var expected_hash: String = "817b9ce280a31344436c2a8fc800d5dec893f2541ec5ad5581e656922e014887" \
+		if expected_path == MELODY_DADDY_PATH else "a53faa148653ea1988e1ceea711d243323412ddc46e2c4037aa671136d2e0cd1"
+	var expected_size: Vector2 = Vector2(281, 384) \
+		if expected_path == MELODY_DADDY_PATH else Vector2(256, 256)
 	return texture != null and not (texture is AtlasTexture) \
+		and texture.get_size() == expected_size \
+		and FileAccess.get_sha256(expected_path) == expected_hash \
 		and texture.resource_path == expected_path \
 		and String(sprite.get_meta("source_path", "")) == expected_path \
 		and sprite.get_child_count() == 0 \

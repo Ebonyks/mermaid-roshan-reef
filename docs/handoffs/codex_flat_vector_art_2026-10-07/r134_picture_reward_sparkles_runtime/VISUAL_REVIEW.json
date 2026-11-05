@@ -1,0 +1,97 @@
+{
+  "state": "PASS_AGENT_BOUNDED_VISUAL_REVIEW_EXTERNAL_ACCEPTANCE_OPEN",
+  "at_utc": "2026-11-03T23:08:07.606477+00:00",
+  "stable_id": "FV-E96CD69662D1",
+  "source_baseline": "fe0660adced29fac3ae50737c0f829f400c856ab",
+  "source_current_reference": "ExistingSourceA actualreward17 reference inspected;0newcredit",
+  "actual_current_native_frames": 42,
+  "actual_paired_cases": 24,
+  "configured_checks": 2970,
+  "phone_views_inspected": 42,
+  "phone_boards_inspected": [
+    "context/paired_phone_1280x720.png",
+    "context/paired_phone_1600x720.png",
+    "context/paired_phone_1280x800.png"
+  ],
+  "native_direct_views": [
+    "source/1280x720/snowman/snowman_win.png",
+    "candidate/1280x720/snowman/snowman_win.png",
+    "candidate/1280x720/snowman/snow_settle.png",
+    "candidate/1280x720/garden/garden_mint.png",
+    "candidate/1280x720/garden/garden_sky.png",
+    "candidate/1280x720/trampoline/trampoline_win.png",
+    "candidate/1280x720/xmas/xmas_win.png"
+  ],
+  "all9native_color_appearances_observed": [
+    "amber",
+    "coral",
+    "ice",
+    "leaf",
+    "lemon",
+    "mint",
+    "rose",
+    "sky",
+    "violet"
+  ],
+  "independent_paired_endpoint_rotation_comparisons": 21,
+  "ten_axes": [
+    {
+      "axis": "contour",
+      "before": "Exact8-vertex unoutlined four-tip polygon.",
+      "after": "Wholepaintedfourtip contours with roundedtaperedarms and restrainedplumedge; source silhouettecategory preserved."
+    },
+    {
+      "axis": "material",
+      "before": "Uniformflatfill.",
+      "after": "Actualgouache brush/valuebands andcreamycenter fromgeneratednativepixels, notproceduralshading."
+    },
+    {
+      "axis": "palette",
+      "before": "18continuousHSVwinshades andcodedice/mint/sky actionfills.",
+      "after": "8authoredrainbowhues plusnativeice/mint/sky actionvariants. Orderedrainbow/huecategory meanings preserved; exactHSVpixelcolor equivalence isnotclaimed."
+    },
+    {
+      "axis": "light",
+      "before": "Flatbrightcolor.",
+      "after": "Bakedpaintedhighlights retained; noRGBtint, only originalopacityfade."
+    },
+    {
+      "axis": "perspective",
+      "before": "Front-facing UI particle.",
+      "after": "Samefront-facing2Dparticle, no newcamera/perspective or3Dstaging."
+    },
+    {
+      "axis": "scale",
+      "before": "26x26native logicaltipspan timesoriginal0.75/0.87/0.99scale.",
+      "after": "128PNG actual118wide/116\u2013118high core, uniforms26/118 mapping:26wide and25.6\u201326high beforeoriginalscale; no anisotropicsilhouettewarp."
+    },
+    {
+      "axis": "contact",
+      "before": "Decorativeairbornefeedback; no physicalsupport/contactpromise.",
+      "after": "Originalburstorigins andall21pairedcapturedendpoint/rotation arrays exact. Doesnot addacting/contact acceptance."
+    },
+    {
+      "axis": "occlusion",
+      "before": "Originalfeedbacklayerz20; medal/tree overlap existing.",
+      "after": "Same layer/centers. Medaltoparcocclusion andotherflatUI remainunchanged/unresolved."
+    },
+    {
+      "axis": "readability",
+      "before": "Verysmallpale flatcolorbursts partiallydisappear onSnowfield/garden.",
+      "after": "Paintedcontour/brightcore visiblyimprove figure-ground separation in42pairedphoneviews; all7states across3aspects inspected. Physicalphone readability remainspending."
+    },
+    {
+      "axis": "action_state",
+      "before": "Shortboundedradialgrowth/winfeedback, threeactionbursts and18elementceiling.",
+      "after": "Samecounts/clamps/endpoints/easing/durations/fade/teardown. 24configurednativecases/2970checks plusunchangedfour-gameprobe nativechecks; naturalroute/full82/formal/human evidence separate."
+    }
+  ],
+  "full_current_validation": "PENDING",
+  "formal_QA11": null,
+  "natural_route": false,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "limits": "Boundedagentcomparison, no5/5orownerapproval. Configuredhelpercallsdo notproveobjective/inputroute. Existingunchangedprobe_mg2dnativeallchecksOK; wrapperwrongmarker/nativeexitgap explicitlypreserved; fullsuitewillrecordallnativeexits. Othermedal/UIart, actorfullaction, globalinventory/coverage unresolved."
+}

@@ -116,7 +116,9 @@ MODEL_SAMPLE_BYTES = 65536
 # Plausible regular JSON/XML is inspected completely up to this generous cap.
 # Larger candidates become explicit scan-coverage debt instead of silently
 # passing because a model signature happened to occur after a finite prefix.
-MODEL_TEXT_SCAN_BYTES = 4 * 1024 * 1024
+# Bounded full coverage includes the 4.3 MiB standalone book review HTML.
+# Larger plausible model text still reports truncated scan coverage as debt.
+MODEL_TEXT_SCAN_BYTES = 8 * 1024 * 1024
 NATIVE_SYMBOL_SCAN_BYTES = 8 * 1024 * 1024
 ARCHIVE_MEMBER_LIMIT = 10000
 ARCHIVE_SNIFF_BUDGET = 8 * 1024 * 1024
@@ -1808,9 +1810,35 @@ def _spatial_multimesh_resource_count(text: str) -> int:
 	return count
 
 
+def _json_web_url_spans(text: str) -> tuple[tuple[int, int], ...]:
+	"""Web identifiers in valid JSON values are data, not Godot API names."""
+	try:
+		json.loads(text)
+	except (json.JSONDecodeError, ValueError):
+		return ()
+	spans: list[tuple[int, int]] = []
+	property_separator = re.compile(r"\s*:")
+	for match in re.finditer(r'"(?:[^"\\]|\\.)*"', text):
+		# Property names remain part of the inventory.
+		if property_separator.match(text, match.end()):
+			continue
+		value = json.loads(match.group(0))
+		if isinstance(value, str) and re.fullmatch(r"https?://[^\s]+", value, re.I):
+			# Require a nonempty HTTP authority; res:// and local model paths
+			# are deliberately not web identifiers.
+			authority = re.match(r"https?://([^/?#]+)", value, re.I)
+			if authority:
+				spans.append((match.start(), match.end()))
+	return tuple(spans)
+
+
 def _token_counts(text: str, *, configuration: bool = False,
-		scene_resource: bool = False) -> dict[str, int]:
-	counts: Counter[str] = Counter(match.group(0) for match in FORBIDDEN_TOKEN_RE.finditer(text))
+		scene_resource: bool = False, json_data: bool = False) -> dict[str, int]:
+	web_values = _json_web_url_spans(text) if json_data else ()
+	counts: Counter[str] = Counter(
+		match.group(0) for match in FORBIDDEN_TOKEN_RE.finditer(text)
+		if not any(start <= match.start() and match.end() <= end
+			for start, end in web_values))
 	counts.update(_contextual_3d_api_counts(text, scene_resource=scene_resource))
 	for _match in LOWER_3D_MARKER_RE.finditer(text):
 		counts["<lowercase-3d-marker>"] += 1
@@ -2218,7 +2246,8 @@ def discover(root: Path,
 		production[_relative(path, root)] = {"<opaque-runtime-binary>": 1}
 	runtime_scope = _runtime_dependency_scope(root, active_files, text_cache)
 	for path in _runtime_data_files(root, runtime_scope, active_files):
-		counts = _token_counts(_read_text_cached(path, text_cache))
+		counts = _token_counts(
+			_read_text_cached(path, text_cache), json_data=path.suffix.lower() == ".json")
 		if counts:
 			production[_relative(path, root)] = counts
 

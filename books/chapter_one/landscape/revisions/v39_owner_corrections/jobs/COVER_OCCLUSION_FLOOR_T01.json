@@ -1,0 +1,11 @@
+{
+  "id": "COVER_OCCLUSION_FLOOR_T01",
+  "attempt": 1,
+  "prompt": "Use case: precise-object-edit. IMAGE_1 is the exact cropped cover edit target. IMAGE_2 is the original same crop, for marble floor continuity and the foreground rainbow fin contour only; IMAGE_3 is the selected Rumi native two-lobed pink fin identity. Keep IMAGE_1 new two-lobed Rumi caudal fin, Daddy crescent rainbow fin at far left, and Roshan foreground rainbow fin at lower right. Repair ONLY two tiny obsolete remnants in IMAGE_1: the old pink paddle tip on the floor immediately left of Rumi lower pink lobe, around target x32..52/y50..85; and the small purple triangular ledge below Rumi root, next to the LEFT outline of Roshan foreground rainbow fin, around x175..203/y48..90. Replace the obsolete scraps with clean continuous painted blue/lilac marble floor matching adjacent perspective lines, colours and soft reflections. Preserve every legitimate character fin contour, fin rays, shapes, stems, positions, scale, upper tail scales and occlusion. Do not clip Daddy fin, do not alter Roshan foreground fin, no new fin or tissue/sticker/white patch. Same exact crop framing, polished existing 2D storybook painting, no redesign. Only local floor infill around those two remnants; everything else locked.",
+  "references": [
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_target.png",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/inputs/occlusion_floor_reference.png",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/art/rumi_caudal_focused_attempt3.png"
+  ],
+  "delivery_scope": "Only two small floor/obsolete-remnant windows; all original Roshan foreground silhouette and selected character bodies/fins remain masked out. Bounded native315fit and adjacent-floor reuse trials exposed missing occluded floor, could not join at correct perspective without a hard wedge/clipped Daddy fin; one local inpaint trial justified for this named gap."
+}

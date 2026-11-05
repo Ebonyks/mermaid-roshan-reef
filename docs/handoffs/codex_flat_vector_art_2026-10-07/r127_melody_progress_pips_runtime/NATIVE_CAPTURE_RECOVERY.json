@@ -1,0 +1,13 @@
+{
+  "state": "CAPTURE_ONLY_COMPARATORS_CORRECTED_AFTER_ACTUAL_TALL_FAILURE",
+  "initial_operation_session": 46067,
+  "initial_exit_code": 1,
+  "production_unchanged": true,
+  "changed_probe": "The component verifier now compares the original height-derived actor_scale rather than incorrectly expecting1.0 at all heights.",
+  "changed_fixture": "Vector2 is_equal_approx replaces strict float equality for unchanged48pxcontrol and24pxpivot. Actual Godot scaled Control reports47.99997/23.99998, below0.00004px discrepancy. No visual size/position or production behavior change.",
+  "failed_tall_frame_events": 7,
+  "passing_standard_wide_frame_events_retained": 14,
+  "recovery_scope": "Only1280x800 recaptured; no import, standard/wide rerun, regeneration or re-export.",
+  "original_fixture_sha256": "96b87dd262edbb5a824bbc878fa44bf45621d66527d70b97421a4f3697d21269",
+  "corrected_fixture_sha256": "5b8da074028ebc0e996c760a25e2471fc7eec6582d9ffc0ab66010900773104c"
+}

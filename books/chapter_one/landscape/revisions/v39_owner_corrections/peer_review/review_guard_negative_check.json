@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-26T04:59:01.955214+00:00",
+  "method": "Run exact current record_review.py against isolated temporary sentinel artifacts. Production art, PDFs and review JSON untouched.",
+  "helper_sha256": "74c80a2baed42e552ce7ea2153d3c55e9abea89d6de7784be606160570117112",
+  "runs": [
+    {
+      "injected_fault": "master bytes differ from recorded visual review",
+      "returncode": 1,
+      "observed": "Traceback (most recent call last):\n  File \"C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\tmp\\v39_review_guard\\record_review.py\", line 11, in <module>\n    assert review['pdf_sha256']==sha(C/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf'),'Master changed; explicit visual re-review required'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Master changed; explicit visual re-review required",
+      "expected_rejection": "Master changed; explicit visual re-review required"
+    },
+    {
+      "injected_fault": "email bytes differ from recorded visual review",
+      "returncode": 1,
+      "observed": "Traceback (most recent call last):\n  File \"C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\tmp\\v39_review_guard\\record_review.py\", line 12, in <module>\n    assert review['email_sha256']==sha(C/'Mermaid_Roshan_Book_V39_Email.pdf'),'Email changed; explicit visual re-review required'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Email changed; explicit visual re-review required",
+      "expected_rejection": "Email changed; explicit visual re-review required"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "revision": "door_color",
+  "method": "Existing approved full crest reuse plus Canvas shader display repair; no new raster generation or edits",
+  "actions": "All eight original animation job actions retain their geometry, timing, fixed supports and source-pixel crop mapping. This revision supersedes only shader color/tint handling and uses an external shared curtain shader.",
+  "baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "sources": [
+    {
+      "path": "scripts/review/opera_translation_v1.gd",
+      "sha256": "05685a080e74951b6d72f8e69d0c27535a06dacb692b148be15397161fec4268"
+    },
+    {
+      "path": "scripts/review/opera_curtain_card_v1.gd",
+      "sha256": "e610a2e32cf98609843cc671b6ac294ff6eca1f4c47358b1b0b7658486c6a808"
+    },
+    {
+      "path": "scripts/review/probe_opera_translation_v1.gd",
+      "sha256": "dd192215092f9c6f79792feeb8134b39ebeeb9ca473f0aee74da2fd884570438"
+    },
+    {
+      "path": "shaders/opera_translation_life.gdshader",
+      "sha256": "6ac8dd7df42a759c8f5eb1502442beddd1d32ef80546db9cabad48f94b4adc43"
+    },
+    {
+      "path": "shaders/opera_translation_curtain.gdshader",
+      "sha256": "d8bb6c8a19d44c839d93b61916e6e6717399f7c89f5ebde8080d902fce9343ff"
+    },
+    {
+      "path": "shaders/opera_translation_palette.gdshaderinc",
+      "sha256": "f6677361f07ddd78c3ef263dee8e7c3356d8fab8f75c3c93bf7ab7e566180b84"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_painter.png",
+      "sha256": "5e60ba5490ba69ac3b6aa398ecc7057047863bd9d7ac64e233054116917d020b"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_engineer.png",
+      "sha256": "f9668419f298ab616132f8d9f70b144eae78a88f7cb0ae68b7c785ce495f9f97"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_singer.png",
+      "sha256": "53350f9cd08eae0f0452c751ec74e4b59bade67e680f5e12c3d1258af7a7232d"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_racer.png",
+      "sha256": "a4b7e5bb13e634cafb43bad25319fc1031991382313e52a07d3a10234a83214e"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_doctor.png",
+      "sha256": "5cc937a104099e4afa5174069191eca6299ed7c3fa5fb68439858fe1d04da3ba"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_farmer.png",
+      "sha256": "7abaa9242ffa314369b8fd7b02632f09898ae456a4adc24ff296f3ef9232e2c6"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_boxer.png",
+      "sha256": "f9500790099a13e1dfb4f87b24946cf18595749e3e1cb2f418476b60565c92c6"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_magician.png",
+      "sha256": "2907ff717d532d0b1e757fd6ec56f1434ee1f787e443c18567fc6edef06cbf26"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_chef.png",
+      "sha256": "55ab3093ca9f7e9df0bfb5011980727b140648ce0f10974c6ee8392928f77288"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_detective.png",
+      "sha256": "2629170fadce37aa7f252364865bd81a3a21ce86214b1b858751a9fc31471e50"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_ballerina.png",
+      "sha256": "d3d0c73d798688a21459b14f8a5ee3f8985578286b7a7e03e9b6ac68e917d2c3"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_candy.png",
+      "sha256": "c187cc488f971484ddaaf4fa74a81a04853f583897e27bfb4d4830c9afd04855"
+    }
+  ],
+  "palette": "palette_calibration.json",
+  "paid_calls": 0,
+  "new_assets": 0,
+  "motion_acceptance": "Pending exact owner/device review; prior DL-MOT-16 preproduction timing evidence gap unchanged"
+}

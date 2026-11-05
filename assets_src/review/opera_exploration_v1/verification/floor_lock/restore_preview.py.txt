@@ -1,0 +1,32 @@
+from pathlib import Path
+import asyncio,json,datetime
+from mcp import ClientSession
+from mcp.client.streamable_http import streamablehttp_client
+root=Path(r"C:/Users/Peter/Documents/mermaid-roshan-reef/tmp")
+async def main():
+ async with streamablehttp_client("http://127.0.0.1:8000/mcp",timeout=45,sse_read_timeout=60,terminate_on_close=False) as (read,write,_):
+  async with ClientSession(read,write) as session:
+   await session.initialize()
+   receipts=[]
+   async def call(name,args):
+    result=await session.call_tool(name,args)
+    row={"tool":name,"utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"structured":result.structuredContent,"text":[x.text for x in result.content if x.type=="text"],"is_error":result.isError}
+    receipts.append(row);return row
+   await call("project_manage",json.loads((root/"opera_floor_stop.json").read_text()))
+   await call("project_run",json.loads((root/"opera_floor_run.json").read_text()))
+   for i in range(20):
+    state=await call("editor_state",{"session_id":"runtime@ee96"})
+    if (state.get("structured") or {}).get("helper_live"): break
+    await asyncio.sleep(1)
+   boot=await call("editor_manage",json.loads((root/"opera_floor_boot.json").read_text()))
+   print(json.dumps({"phase":"boot","result":boot}),flush=True)
+   for i in range(60):
+    final=await call("editor_manage",json.loads((root/"opera_floor_final_live.json").read_text()))
+    if (final.get("structured") or {}).get("result",{}).get("snapshot"): break
+    await asyncio.sleep(1)
+   print(json.dumps({"phase":"restored","result":final}),flush=True)
+   await asyncio.sleep(15)
+   final=await call("editor_manage",json.loads((root/"opera_floor_final_live.json").read_text()))
+   (root/"opera_floor_persistent_restore_receipt.json").write_text(json.dumps(receipts,indent=2)+"\n")
+   print(json.dumps({"phase":"15second_hold","result":final}),flush=True)
+asyncio.run(main())

@@ -1,0 +1,120 @@
+{
+  "schema": "dkc-written-sources/1",
+  "checked_utc": "2026-11-03T04:46:34.068Z",
+  "scope": "Original 1994 SNES DKC1; later-game and later-studio material is explicitly bounded.",
+  "evidence_policy": "Primary interviews and developer statements support production history; manufacturer documents explain mechanisms. Historical evidence does not accept a patch or performance.",
+  "sources": [
+    {
+      "id": "SRC-RARE-2005",
+      "title": "Rare Scribes December 21 2005",
+      "author": "Rare staff reply relaying a list supplied by David Wise",
+      "published_date": "2005-12-21",
+      "url": "https://web.archive.org/web/20051227091731/http://www.rareware.com/extra/scribes/scribes_content.html",
+      "type": "archived_developer_statement",
+      "locator": "Question from Jean-Marc Goulet about individual DKC song credits; Rare Reply beginning “Let’s see”",
+      "supports": "Track attribution: seven named Novakovic pieces, Funky’s Fugue by Beanland, remaining tracks by Wise.",
+      "limits": "Retrospective developer list, not original session files or an instrument inventory. Archive timestamp is December 27, distinct from publication."
+    },
+    {
+      "id": "SRC-WISE-VGMO",
+      "title": "David Wise Interview Revisiting Donkey Kong Country",
+      "author": "Chris Greening interviewing David Wise",
+      "published_date": null,
+      "url": "https://vgmonline.net/davidwiseinterview/",
+      "type": "primary_composer_interview",
+      "locator": "Questions on first-game influences and the experimental DKC2 approach; answers explicitly returning to DKC1 Aquatic Ambience",
+      "supports": "Three jungle demos combined into DK Swing; film/rock/dance influences; Wavestation-inspired waveform sequencing for Aquatic Ambience.",
+      "limits": "Later Roland Juno-2 sampling discussion is explicitly DKC2. No exact DKC1 pad preset is identified. Retrieved page does not display publication date."
+    },
+    {
+      "id": "SRC-WISE-NINTENDOJO-2011",
+      "title": "Interview David Wise page 2",
+      "author": "Lewis Hampson interviewing David Wise",
+      "published_date": "2011-08-26",
+      "url": "https://www.nintendojo.com/features/interviews/interview-david-wise/2",
+      "type": "primary_composer_interview",
+      "locator": "Questions on dynamic/varied atmosphere and Aquatic Ambience",
+      "supports": "Eight-note resource limit helped integrate ambience into music; Aquatic Ambience took five weeks, mainly technical experimentation with short waveforms.",
+      "limits": "Composer recollection explains method and intent, not a complete source-sample list."
+    },
+    {
+      "id": "SRC-WISE-COMICBOOK-2020",
+      "title": "Donkey Kong Country’s David Wise Talks Legacy Nintendo Switch and More",
+      "author": "Marc Deschamps interviewing David Wise",
+      "published_date": "2020-08-04",
+      "url": "https://comicbook.com/gaming/news/donkey-kong-country-david-wise-interview/",
+      "type": "primary_composer_interview",
+      "locator": "Naturally integrated compositions; Ambient sounds influence ambient music; No midi for the SNES",
+      "supports": "Music entered development early; environmental sounds were planned rhythmically; coded SNES music and repeated detail revision.",
+      "limits": "Reported 64K/eight-channel limits are a composer’s production summary, not a RAM allocation specification. Does not establish every fan MIDI as wrong."
+    },
+    {
+      "id": "SRC-NOVAKOVIC-TIMEEXT-2023",
+      "title": "The Tale of Rare’s Unsung Virtuoso And Voice Of Perfect Dark Eveline Novakovic",
+      "author": "L.D. Murphy interviewing Eveline Novakovic",
+      "published_date": "2023-02-22",
+      "url": "https://www.timeextension.com/features/the-tale-of-rarers-unsung-virtuoso-and-voice-of-perfect-dark-eveline-novakovic",
+      "type": "primary_interview_with_editorial_context",
+      "locator": "Early background through the first DKC project; paragraphs about quantifying notes/envelopes and working directly on SNES",
+      "supports": "Film-score background; manual pitch/duration/envelope/volume work; shift from keyboard notation to direct SNES composition.",
+      "limits": "Some credit descriptions are author narrative; Rare archive supplies the broader credit list. Later Winning Run and DKC3 details are not DKC1 production facts."
+    },
+    {
+      "id": "SRC-MAKINGOF-NINTENDOLIFE-2014",
+      "title": "Month Of Kong The Making Of Donkey Kong Country",
+      "author": "Damien McFerran interviewing David Wise and Brendan Gunn",
+      "published_date": "2014-02-27",
+      "url": "https://www.nintendolife.com/news/2014/02/month_of_kong_the_making_of_donkey_kong_country",
+      "type": "primary_developer_interviews_in_feature",
+      "locator": "Soundtrack discussion beginning with Wise expecting a Japanese audio team; memory and zoo-recording paragraphs",
+      "supports": "Jungle demos joined; Beanland material borrowed/adapted; Gunn helped free audio memory; attempted zoo recordings did not enter game.",
+      "limits": "Wise qualifies the recollection about who supplied some voices; do not turn that into an exact vocal sample attribution."
+    },
+    {
+      "id": "SRC-WISE-FACT-2014",
+      "title": "Double Trouble Ryan Hemsworth interviews Donkey Kong Country composer David Wise",
+      "author": "Ryan Hemsworth interviewing David Wise",
+      "published_date": "2014-03-18",
+      "url": "https://www.factmag.com/2014/03/18/double-trouble-ryan-hemsworth-interviews-donkey-kong-country-composer-david-wise/",
+      "type": "primary_composer_interview",
+      "locator": "Mood/instrument choices; Stickerbrush Symphony question; 2014 equipment question",
+      "supports": "Mood choices reflect collaboration, imagination and film/TV language; later methods and hardware belong to their stated period.",
+      "limits": "Stickerbrush/Bramble story is DKC2. Cubase and modern plug-in list describe 2014, not the 1994 DKC1 sessions."
+    },
+    {
+      "id": "SRC-KORG-WAVESTATION",
+      "title": "KORG WAVESTATION V2 product documentation",
+      "author": "KORG",
+      "published_date": null,
+      "url": "https://www.korg.com/us/products/software/kc_wavestation/",
+      "type": "manufacturer_synthesis_documentation",
+      "locator": "A complete reproduction of the advanced vector synthesis system",
+      "supports": "Wave sequencing joins changing waveforms; vector synthesis controls modulation among oscillators.",
+      "limits": "Explains the synthesis family. Does not prove DKC1 used KORG hardware, factory patches or any particular sample; no purchase or installation recommendation."
+    },
+    {
+      "id": "LEAD-KORG-MANUAL",
+      "title": "WAVESTATION Reference guide",
+      "author": "KORG",
+      "published_date": null,
+      "url": "https://www.korguser.net/iwavestation/original_manual/WAVESTATION_E.pdf",
+      "type": "manufacturer_manual_reference",
+      "locator": "Original manual hosted by manufacturer; tool text extraction primarily exposed MIDI appendices",
+      "supports": "Manual reference for later detailed synthesis parameter research.",
+      "limits": "Wave-sequencing pages have not been visually reviewed in this pass; no parameter claim relies on them.",
+      "status": "REFERENCE_LOCATED_PARTIAL_TEXT_ACCESS"
+    },
+    {
+      "id": "LEAD-NOVAKOVIC-FANBYTE",
+      "title": "A Rare Interview with Donkey Kong Country Composer Eveline Novakovic",
+      "author": "Jack Yarwood",
+      "published_date": null,
+      "url": "https://www.fanbyte.com/features/a-rare-interview-with-donkey-kong-country-composer-eveline-novakovic/",
+      "type": "primary_interview_lead",
+      "locator": "Current link redirects to legacy article shell",
+      "supports": "Additional interview located for later recovery.",
+      "limits": "Article body unavailable in retrieved text; no factual claim imported from it. Date not resolved from the shell.",
+      "status": "BODY_UNAVAILABLE"
+    }
+  ]
+}

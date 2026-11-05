@@ -1,0 +1,42 @@
+[
+  {
+    "id": "tidy_art_bank",
+    "prompt": "Use case: precise-object-edit. IMAGE_1 is the edit target; IMAGE_2 the LITTLE puff identity. The little puffs in IMAGE_1 are too large. Keep ONLY ONE little puff on the left, rolling its paper. REMOVE the right-hand puff entirely, retaining ONLY the folded cloth and tied paper packet on the right. Shrink the left puff and its paper roll together to HALF their current size. Anchor each group's base at y990 of the1484x1060 canvas. Their ear tops must be BELOW y915; each entire little puff must be under90pixels high including ears. Do not enlarge their props. Maintain natural tiny contact shadows and a seamless blue sand mound behind them. Entire top85percent remains absolutely empty of decorative subjects, except the existing dotted border. Preserve all original bubbles, line work, blue wash, blank center and existing right-hand cloth and tied packet. No Grand Puff, no forehead star, no tall stacked crest, no hands/fingers. Actual little curl-ear cloud puffs only. Preserve polished painted2D storybook rendering. Return1484x1060, no text, no watermark.",
+    "prompt_sha256": "4eb87d6808345664e3c84b9559f5d92343308e94e1421b10909fa8f623819b60",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/tidy_art_bank_attempt2.png",
+        "role": "edit_target"
+      },
+      {
+        "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+        "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+        "role": "canonical_little_puff_identity_not_Grand_Puff"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 3,
+    "status": "PLANNED"
+  },
+  {
+    "id": "care_bank24",
+    "prompt": "Use case: precise-object-edit. IMAGE_1 is the edit target; IMAGE_2 the LITTLE puff identity. The little puffs in IMAGE_1 are too large. Shrink the two right-hand puffs and their tissue/flask together to about70percent their current size. Anchor each group's base at y990 of the1484x1060 canvas. Their ear tops must be BELOW y915; each entire little puff must be under90pixels high including ears. Do not enlarge their props. Maintain natural tiny contact shadows and a seamless blue sand mound behind them. Entire top85percent remains absolutely empty of decorative subjects, except the existing dotted border. Preserve all original bubbles, line work, blue wash, blank center and left-hand chest/books. No Grand Puff, no forehead star, no tall stacked crest, no hands/fingers. Actual little curl-ear cloud puffs only. Preserve polished painted2D storybook rendering. Return1484x1060, no text, no watermark.",
+    "prompt_sha256": "60b08d16c18e496c4de3ea7bc5418febdf8021dbee1588265642c6c4fd340e89",
+    "references": [
+      {
+        "path": "books/chapter_one/landscape/revisions/v34_editorial_polish/art/care_bank24_attempt2.png",
+        "role": "edit_target"
+      },
+      {
+        "path": "assets_src/concepts/dust_bunny_animated_2026-07-27/references/dust_bunny_curl_ears.png",
+        "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+        "role": "canonical_little_puff_identity_not_Grand_Puff"
+      }
+    ],
+    "transparent_background": false,
+    "method": "built-in image_gen",
+    "attempt": 3,
+    "status": "PLANNED"
+  }
+]

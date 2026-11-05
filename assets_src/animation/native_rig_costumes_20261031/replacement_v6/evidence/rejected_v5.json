@@ -1,0 +1,7 @@
+{
+  "status": "REJECTED_STATIC",
+  "contamination_precheck": "PASS12cases0leakedpixels; all original-clothing insertion controls detected",
+  "reason": "Whole-figure review shows sampled brown hair and dark purple source-fin colour extended into garment side margins. Hidden-base ownership is correct, but source garment paint needs its own semantic bounds.",
+  "fix": "Nearest opaque extension restricted to explicitly recorded fitted clothing polygons, preserving source garment RGB and excluding adjacent hair/skin/fin pixels.",
+  "freeze": "Prior art freeze revoked because new static failure was found; no extra generation calls. Preserve prior inputs; do not call the earlier freeze accepted."
+}

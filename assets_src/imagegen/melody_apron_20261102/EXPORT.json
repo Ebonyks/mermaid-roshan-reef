@@ -1,0 +1,33 @@
+{
+  "engine_textures": [
+    {
+      "name": "apron_body",
+      "path": "assets/melody/stage_apron_painted.png",
+      "sha256": "1fd0435da5bc651a814a665e13a621b6c248371179f65935b906e5c79b5351ee",
+      "dimensions": [
+        1024,
+        73
+      ],
+      "whole_native_RGBA_exact": true,
+      "crop_RGBA_exact": true
+    },
+    {
+      "name": "rainbow_inset",
+      "path": "assets/melody/stage_apron_rainbow_painted.png",
+      "sha256": "b06b424cad29a673b76139a2258e7408e0df816e2aab2469ed8b05e074101d9c",
+      "dimensions": [
+        522,
+        60
+      ],
+      "whole_native_RGBA_exact": true,
+      "crop_RGBA_exact": true
+    }
+  ],
+  "base_RGBA8_bytes": 424288,
+  "native_design_outputs": 2,
+  "static_calls_used": 2,
+  "static_item_cap": 2,
+  "animation_calls": 0,
+  "technical_export_retries": 0,
+  "method": "Aseprite exact native/crop masters and width-driven uniform bilinear whole-object exports; integer short-edge flooring declared; no Python pixel edits"
+}

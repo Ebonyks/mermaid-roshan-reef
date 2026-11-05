@@ -1,0 +1,13 @@
+# R121 painted theatre crown header — source candidate
+
+Stable piece `FV-0671240CDB11`: one painted plum valance and seven-band rainbow replaces the old header polygon and code-drawn arch. Other theatre roles remain open. This branch starts from Dev27c88288 and does not include the R120 curtain branch. **Dev is frozen by owner.**
+
+Native requests, exact role-bound references, prompts, editable Aseprite masters, pixel-exact native roundtrip and whole bilinear1024x148 export are in `assets_src/imagegen/melody_header_20261101/`. Take1 is retained as a nonselected silhouette study, not approved art. Built-in ImageGen exposes no model selector/version, seed or cost here; no2.5 version is claimed. Two static calls, zero animation calls.
+
+All87 current configured native checks pass at1280x720,1600x720 and1280x800. Twelve exact same-scene source/candidate stills were inspected across entry and intentional0-to1 scoring. Six source frames are reused with5062/5062 runtime files raw-exact; only six new runtime frame events are credited. See FRAME_INDEX, FRAME_REVIEW, SOURCE_CONTEXT_REUSE and IMPLEMENTATION_SCOPE.
+
+The ten-axis local candidate comparison is separate from formalQA11. The wider arch is more cropped at1600px and stays an explicit device/owner review point. Physical device, child, owner, natural-route and all-game inventory/coverage acceptance remain open. No accepted-removal or Dev credit is earned.
+
+Complete current local82/static/analyzer/2D checks pass on the frozen actual candidate. Exact published-head CI remains separate and pending. GitHub publication and anonymous immutable manifest/every-required-file verification remain required before delivered status. The included R120_EXACT_CI_SUCCESS.json records the newly verified success of run41383041660 at its exact earlier source0e8095, with zero new artwork credit.
+
+The initial full-static attempt failed on an invalid audit-result enum. Its original log/result remain failed; STATIC_RECOVERY_BASIS.json binds the unchanged runtime and healthy prefix reuse. The repaired audit-coverage gate and remaining exact static suffix completed. The original first Melody probe then rejected a polygon-only height metric that omitted the painted header; its failure is preserved. The corrected metric counts decoded-alpha cells on the original200x90 grid, retains every original coverage/width/height/resource floor, and rejects empty/transparent header controls. Only that probe source changes; all original82 then pass,83 total original probe attempts including the preserved failure. No healthy native/import/engine suite was restarted.

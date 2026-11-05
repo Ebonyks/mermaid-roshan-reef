@@ -1,0 +1,114 @@
+{
+  "state": "PASS_NEW_GUIDE_LOSSLESS_MIPMAPS_NO_VRAM",
+  "legs": [
+    {
+      "leg": "initial_new_asset",
+      "exit_code": 0,
+      "log_sha256": "08370ffae891431158aae918aaa957a8e5f94bebf81b2ce889bd9ddf71d755bd"
+    },
+    {
+      "leg": "final_new_import_settings",
+      "exit_code": 0,
+      "log_sha256": "5a527adf173bd8cb03bbf1ed6d738234d16a13293856e943c6a79ce52720aa31"
+    }
+  ],
+  "old_import_drift": 0,
+  "new_assets": [
+    {
+      "name": "arrow_head",
+      "source": "arrow",
+      "crop": [
+        1680,
+        112,
+        440,
+        496
+      ],
+      "size": [
+        110,
+        124
+      ],
+      "path": "assets/melody/guide_arrow_head_painted.png",
+      "sha256": "102ffb6caabc034f8ea534d0d181d0ec0dbd2d1210b62c3aaf2d81b6cdb88d87",
+      "alpha3_bbox": [
+        0,
+        3,
+        108,
+        121
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha128_tip": [
+        106.5,
+        62.5
+      ],
+      "exact_native_crop_RGBA": true,
+      "filter": "Aseprite bilinear uniform resampling; retained native/crop/runtime editable masters; no painted pixels/alpha-mask editing"
+    },
+    {
+      "name": "beam",
+      "source": "arrow",
+      "crop": [
+        600,
+        232,
+        512,
+        256
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "path": "assets/melody/guide_beam_painted.png",
+      "sha256": "638cc29b254ecfc90995019d09656edccf479d599a51743a3954ec5872b6adb0",
+      "alpha3_bbox": [
+        0,
+        14,
+        128,
+        50
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha128_tip": [
+        127.5,
+        32.0
+      ],
+      "exact_native_crop_RGBA": true,
+      "filter": "Aseprite bilinear uniform resampling; retained native/crop/runtime editable masters; no painted pixels/alpha-mask editing"
+    },
+    {
+      "name": "double_ring",
+      "source": "ring",
+      "crop": [
+        304,
+        56,
+        912,
+        912
+      ],
+      "size": [
+        256,
+        256
+      ],
+      "path": "assets/melody/guide_double_ring_painted.png",
+      "sha256": "2fd0371e2483e94b2b5d16ba782d8549c59e87436730541a64f2ff367cc57878",
+      "alpha3_bbox": [
+        2,
+        2,
+        255,
+        255
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha128_tip": [
+        253.5,
+        129.5
+      ],
+      "exact_native_crop_RGBA": true,
+      "filter": "Aseprite bilinear uniform resampling; retained native/crop/runtime editable masters; no painted pixels/alpha-mask editing"
+    }
+  ]
+}

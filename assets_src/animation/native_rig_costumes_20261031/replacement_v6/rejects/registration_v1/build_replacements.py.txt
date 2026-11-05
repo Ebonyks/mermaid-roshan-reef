@@ -1,0 +1,96 @@
+"""Fit complete existing painted garments into exclusive native skin domains.
+No new painting: declared piecewise affine registration, source extraction and masks.
+The original clothing is never composited below selected clothing.
+"""
+from pathlib import Path
+import json,hashlib,importlib.util
+import numpy as np
+from PIL import Image,ImageDraw
+from scipy.interpolate import LinearNDInterpolator,NearestNDInterpolator
+from scipy.ndimage import distance_transform_edt,binary_dilation
+R=Path(__file__).resolve().parents[1];P=R.parent;O=P.parent/'native_rig_stress_20261031'
+spec=importlib.util.spec_from_file_location('old',O/'scripts/build_study.py');old=importlib.util.module_from_spec(spec);spec.loader.exec_module(old)
+y,x=np.mgrid[:1024,:1024]
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def poly(points):
+ im=Image.new('L',(1024,1024));ImageDraw.Draw(im).polygon(points,fill=255);return np.array(im)>0
+def warp(image,target,source):
+ from scipy.ndimage import map_coordinates
+ points=np.c_[x.ravel(),y.ravel()];q=LinearNDInterpolator(np.array(target,float),np.array(source,float),fill_value=-100)(points).reshape(1024,1024,2)
+ bad=q[:,:,0]<-50
+ if bad.any():q[bad]=NearestNDInterpolator(np.array(target,float),np.array(source,float))(points.reshape(1024,1024,2)[bad])
+ a=np.array(image);out=np.stack([map_coordinates(a[:,:,i].astype(float),[q[:,:,1],q[:,:,0]],order=1,mode='constant',cval=0) for i in range(4)],axis=-1)
+ return np.uint8(np.clip(out,0,255))
+def main():
+ a=np.array(Image.open(O/'art/body.png').convert('RGBA'));af=a.astype(float)
+ # Hand measured original garment ownership. Colour classifier isolates painted cloth
+ # from adjoining brown hair/skin, including the complete old sleeve contours.
+ scope=poly([(438,329),(482,327),(507,338),(551,352),(577,338),(601,327),(637,327),(645,374),(631,398),(607,385),(617,446),(637,478),(606,501),(550,517),(484,494),(475,472),(489,445),(491,388),(461,400),(438,380)])
+ cloth=(af[:,:,2]>af[:,:,0]*.84)&(af[:,:,2]>af[:,:,1]*1.035)
+ top=scope&binary_dilation(cloth,iterations=2)&(a[:,:,3]>0)
+ # Tail rows follow the complete original scale silhouette, not a central decal.
+ rows=np.array([465,480,505,540,580,620,660,700,735,765,790,810,827,839])
+ left=np.array([495,487,481,485,498,515,528,534,527,510,423,445,464,480]);right=np.array([615,624,638,648,656,660,658,650,642,630,614,592,561,520])
+ left_boundary=np.interp(y,rows,left);left_boundary=np.where((y>=775)&(y<790),410+(y-775)*13/15,left_boundary)
+ tail=(y>=465)&(y<=839)&(x>=left_boundary-3)&(x<=np.interp(y,rows,right)+3)&(a[:,:,3]>0)
+ # Waist is one authoritative ownership edge. Body includes collars/belts and hem.
+ top|=tail&(y<497);tail&=~top
+ owner=np.zeros_like(a);owner[:,:,0]=top*255;owner[:,:,1]=tail*255;owner[:,:,3]=255
+ # Old crown is a head slot, not part of the immutable anatomical identity.
+ crown=poly([(491,157),(497,139),(515,126),(526,110),(541,92),(551,94),(565,110),(577,128),(596,137),(605,160),(595,173),(578,166),(550,158),(518,166),(500,176)])&(a[:,:,3]>0)
+ owner[:,:,2]=crown*255
+ Image.fromarray(owner).save(R/'art/ownership.png')
+ # Target anchors cover old full garment contours, neckline, shoulder contacts and belt.
+ target=[(442,331),(480,331),(510,346),(550,358),(581,346),(610,331),(645,331),(442,394),(475,394),(494,390),(550,402),(602,390),(630,394),(649,394),(500,446),(550,455),(596,446),(481,480),(517,496),(555,507),(598,496),(625,480)]
+ sources={
+ 'ballet':[(499,397),(553,397),(586,415),(648,430),(712,415),(761,397),(805,397),(486,484),(529,483),(557,501),(648,512),(743,501),(780,484),(816,484),(576,556),(648,580),(718,556),(549,610),(598,636),(653,654),(714,637),(756,610)],
+ 'magician':[(535,405),(578,405),(621,419),(670,437),(724,419),(772,405),(818,405),(530,480),(563,480),(590,502),(673,511),(755,502),(795,480),(827,480),(611,552),(675,575),(741,552),(569,618),(615,652),(672,678),(737,652),(790,618)]}
+ fit={}
+ for theme in ['ballet','magician']:
+  src,_=old.clean_source(P/'native'/f'{theme}_fit.png')
+  body=warp(src,target,sources[theme])
+  # Complete original cloth ownership is replaced at full opacity. Original AA is
+  # retained on its anatomical contact contour; no old RGB survives the domain.
+  body[:,:,3]=a[:,:,3]
+  Image.fromarray(body).save(R/'art'/f'{theme}_body.png')
+  # Side-to-side registration: three landmarks per tail cross-section, covering
+  # both edges; the generated plate supplies all cloth paint including side seams.
+  sy=([600,620,660,714,770,825,885,941,990,1033,1069,1100,1128,1144] if theme=='ballet' else [590,625,672,730,780,832,885,937,982,1020,1055,1085,1110,1120])
+  sl=([555,553,557,574,595,612,625,632,624,605,573,530,500,510] if theme=='ballet' else [577,578,588,603,620,638,650,657,649,630,601,557,536,550])
+  sr=([738,753,772,789,807,821,825,820,803,781,748,698,636,580] if theme=='ballet' else [788,799,811,823,831,836,836,830,815,794,762,719,652,604])
+  tt=[];ss=[]
+  for yy,ll,rr,yyy,lll,rrr in zip(rows,left,right,sy,sl,sr):
+   for u in [-.1,0,.5,1,1.1]:tt.append((ll+(rr-ll)*u,yy));ss.append((lll+(rrr-lll)*u,yyy))
+  # One continuous registered cloth image supplies both slots. Additional outer
+  # anchors extend registration into the AA band; a full garment never samples
+  # an undefined black triangle at the waist.
+  alltarget=target[:17]+tt;allsource=sources[theme][:17]+ss
+  alltarget += [(420,320),(660,320),(420,460),(670,460),(470,450),(635,450)]
+  allsource += ([(475,390),(825,390),(485,570),(835,570),(550,555),(755,555)] if theme=='ballet' else [(510,390),(845,390),(515,565),(850,565),(580,550),(790,550)])
+  painted=warp(src,alltarget,allsource)
+  body=painted.copy();body[:,:,3]=a[:,:,3]
+  Image.fromarray(body).save(R/'art'/f'{theme}_body.png')
+  tailpaint=painted.copy();tailpaint[:,:,3]=a[:,:,3]
+  Image.fromarray(tailpaint).save(R/'art'/f'{theme}_tail.png')
+  # Crown removal uses only the retained fitting plate's named hair repair window;
+  # no generated face/eyes/arms/hands/fin pixels enter this variant.
+  # Named missing crown clean plate: only the bounded scalp window enters.
+  from scipy.ndimage import map_coordinates
+  hair=np.array(Image.open(R/'native/hair_clean_plate.png').convert('RGBA'))
+  q=np.stack([x*1.2+6,y*1.2+7],axis=-1)
+  scalp=np.stack([map_coordinates(hair[:,:,k].astype(float),[q[:,:,1],q[:,:,0]],order=1,mode='constant',cval=0) for k in range(4)],axis=-1).astype('uint8')
+  Image.fromarray(scalp).save(R/'art'/f'{theme}_scalp.png')
+  head=Image.open(P/'art'/f'{theme}_head.png').convert('RGBA');head.save(R/'art'/f'{theme}_head.png')
+  b=a.copy();b[top]=body[top];b[tail]=tailpaint[tail];b[crown]=scalp[crown]
+  Image.fromarray(b).save(R/'art'/f'{theme}_composed.png')
+  preview=Image.open(O/'art/forearm.png').convert('RGBA');preview.alpha_composite(Image.open(O/'art/upper_arm.png').convert('RGBA'));preview.alpha_composite(Image.fromarray(b));preview.alpha_composite(head);preview.save(R/'review'/f'{theme}_neutral.png')
+  fit[theme]={'target_bodice_landmarks':target,'source_bodice_landmarks':sources[theme],'tail_target_rows':rows.tolist(),'tail_target_left':left.tolist(),'tail_target_right':right.tolist(),'tail_source_y':sy,'tail_source_left':sl,'tail_source_right':sr,'mapping':'Piecewise affine skin registration, exclusive ownership; alpha allowed to differ for clothing, anatomy not generated.','source_sha256':sha(P/'native'/f'{theme}_fit.png')}
+ rig=json.loads((P/'godot/rig.json').read_text(encoding='utf-8'))
+ for m in rig['meshes']:
+  m['texture']=('../../../native_rig_stress_20261031/art/'+Path(m['texture']).name) if m['name']!='Headwear' else '../art/ballet_head.png'
+ (R/'godot/rig.json').write_text(json.dumps(rig,separators=(',',':'))+'\n',encoding='utf-8')
+ for theme in ['ballet','magician']:
+  v=json.loads(json.dumps(rig));v['meshes'][0]['texture']=f'../art/{theme}_composed.png';v['meshes'][-1]['texture']=f'../art/{theme}_head.png';(R/'godot'/f'rig_{theme}.json').write_text(json.dumps(v,separators=(',',':'))+'\n',encoding='utf-8')
+ (R/'fitting.json').write_text(json.dumps({'method':'Exclusive native skin regions, no underlying selected-domain base clothing','body_pixels':int(top.sum()),'tail_pixels':int(tail.sum()),'crown_pixels':int(crown.sum()),'fitting':fit,'generated_calls_this_revision':1},indent=2)+'\n',encoding='utf-8')
+ print('EXCLUSIVE_SKINS_BUILT')
+if __name__=='__main__':main()

@@ -1,0 +1,85 @@
+{
+  "id": "warm-ensemble-pan-technique-20261101",
+  "scope": "Owner refinement: warmer lead/comp guitars with playable complementary chord voicings; preserve stronger Sky; develop Castle, arrange instrumental entrances/withdrawals and melody handoffs. Study three named professional pan recordings, add controlled alternating-mallet rolls/flourishes to one pan part and reduce pan dominance. Investigate perceived pan clipping at source and stem/master stages. UVI-only/authorized UVI-powered Sunbird, preserve all prior reviews and protected assets; no runtime replacement. Preserve exact Git bytes in all three source review packages so recorded text/audio hashes survive cross-platform checkout.",
+  "baseline": "93166ab1828ab9857227d038f8833b92dfb2f9f1",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-04",
+    "DL-SND-07",
+    "DL-SND-09",
+    "DL-SND-12",
+    "DL-SND-17",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/audio/music/arranged_main_themes_20261101/.gitattributes",
+    "assets_src/audio/music/reference_arrangements_20261101/.gitattributes",
+    "assets_src/audio/music/warm_ensemble_20261101/.gdignore",
+    "assets_src/audio/music/warm_ensemble_20261101/.gitattributes",
+    "assets_src/audio/music/warm_ensemble_20261101/Listening Guide.txt",
+    "assets_src/audio/music/warm_ensemble_20261101/arrangement_density.json",
+    "assets_src/audio/music/warm_ensemble_20261101/arrangement_map.json",
+    "assets_src/audio/music/warm_ensemble_20261101/castle/castle.ogg",
+    "assets_src/audio/music/warm_ensemble_20261101/castle/castle_arrangement.mid",
+    "assets_src/audio/music/warm_ensemble_20261101/castle/castle_master.flac",
+    "assets_src/audio/music/warm_ensemble_20261101/castle/score.json",
+    "assets_src/audio/music/warm_ensemble_20261101/group_balance.json",
+    "assets_src/audio/music/warm_ensemble_20261101/manifest.json",
+    "assets_src/audio/music/warm_ensemble_20261101/mix_assessment.json",
+    "assets_src/audio/music/warm_ensemble_20261101/native_mastering.tsv",
+    "assets_src/audio/music/warm_ensemble_20261101/opera_house/opera_house.ogg",
+    "assets_src/audio/music/warm_ensemble_20261101/opera_house/opera_house_arrangement.mid",
+    "assets_src/audio/music/warm_ensemble_20261101/opera_house/opera_house_master.flac",
+    "assets_src/audio/music/warm_ensemble_20261101/opera_house/score.json",
+    "assets_src/audio/music/warm_ensemble_20261101/performance.lua",
+    "assets_src/audio/music/warm_ensemble_20261101/prior_audio_preservation.json",
+    "assets_src/audio/music/warm_ensemble_20261101/sky_lagoon/score.json",
+    "assets_src/audio/music/warm_ensemble_20261101/sky_lagoon/sky_lagoon.ogg",
+    "assets_src/audio/music/warm_ensemble_20261101/sky_lagoon/sky_lagoon_arrangement.mid",
+    "assets_src/audio/music/warm_ensemble_20261101/sky_lagoon/sky_lagoon_master.flac",
+    "assets_src/audio/music/warm_ensemble_20261101/source_tone_controls.json",
+    "assets_src/audio/music/warm_ensemble_20261101/source_tone_measurements.json",
+    "assets_src/audio/music/warm_ensemble_20261101/steelpan_study.json",
+    "assets_src/audio/music/warm_ensemble_20261101/verification.json",
+    "tools/compose_warm_ensemble.py",
+    "tools/finish_warm_ensemble.py",
+    "tools/publish_warm_ensemble.py",
+    "tools/reaper/build_warm_ensemble.lua",
+    "tools/reaper/master_warm_ensemble.lua",
+    "tools/reaper/mix_warm_ensemble.lua"
+  ],
+  "validation": [
+    {
+      "command": "Professional-pan recording/technique research; scored roll, chord and orchestration plan",
+      "result": "PASS",
+      "evidence": "steelpan_study.json names Narell/Greenidge/Provost recordings with official catalog URLs, local preview-envelope evidence and explicit polyphonic/listening limits. Published technique supports alternating-mallet rolls. arrangement_map.json / Listening Guide.txt document full forms, chords and actual instrument entrances."
+    },
+    {
+      "command": "Native MIDI/program/FX recall, isolated source peak/distortion checks, ensemble renders and encoded masters",
+      "result": "PASS",
+      "evidence": "manifest.json / verification.json: 26 native parts, 10262 notes, preserved melodic backbone, four actual pan/comp snapshots verify tone controls; five ensembles per song; source/encoded audio finite, no sample clipping, target loudness/headroom, settled tails/mono, lossless FLAC proof and measured gentle limiting. Private Dummy Audio worker stopped after saved masters. All 12 earlier OGG/FLAC files byte-identical."
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "752 inventory/ledger entries; ALL OK; build/warm_ensemble_20261101/authority_gate.log"
+    },
+    {
+      "command": "scripts/ci.sh static/full validation plus identical runtime suffix retry with approved Godot 4.7.2",
+      "result": "PASS",
+      "evidence": "Initial missing mix_assessment.json coverage fixed. Full static, analyzer, authority, audio (44/44), audio ledger (862/862), visual/unit and source gates passed in build/warm_ensemble_20261101/full_ci_final.log. Cold import reached its time limit; after excluding ignored private build data, the unchanged scripts/ci.sh runtime suffix passed import, 2D debt no-regression and all 82 trusted probes with exit 0 in runtime_resume.log. Test-generated import sidecars restored. No artistic, device, child or release acceptance claimed."
+    },
+    {
+      "command": "Git source-package index/blob byte comparison",
+      "result": "PASS",
+      "evidence": "74 source-package files, including all original scores, metadata, MIDI and audio, match their staged Git blobs byte-for-byte. Earlier recorded audio/master hashes unchanged."
+    }
+  ],
+  "acceptance_gaps": "Owner judges tone, roll realism, melodic/section balance, Castle improvement and perceived distortion. Previous peak checks did not establish absence of preset-level distortion or subjective harshness. Source review only; runtime/voice/phone/child acceptance and MA-AUDIO-001 remain open."
+}

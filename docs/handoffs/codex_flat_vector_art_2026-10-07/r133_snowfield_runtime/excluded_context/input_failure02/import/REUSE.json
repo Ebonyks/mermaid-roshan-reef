@@ -1,0 +1,20 @@
+{
+  "source": "candidate_context_setup_failure01/import",
+  "no_import_rerun": true,
+  "import_log_sha256": "913417f1234acc641f4949b1dd7c5fdfd5357f91e19dac95193225524eca6990",
+  "zero_frame_fixture_failure": {
+    "state": "TERMINAL_ZERO_FRAME_CAPTURE_FIXTURE_ONLY_FAILURE_RETAINED",
+    "error": "AssignedPackedStringArray constructor is not Godot constant expression; corrected fixture to typed instance variable, production source/assets unchanged.",
+    "native_frame_events": 0,
+    "art_rejection": false,
+    "healthy_import_reused": true,
+    "original_session": 81046,
+    "failed_fixture_sha256": "a1e8a9f0f08a1638d756179f07f963f395027477f2c09c1d8982f4a06b0272f9",
+    "fixed_fixture_sha256": "5b14a2f438b3041706895504fb655500162101c10be59c9773a86cd72932633a",
+    "original_failure": {
+      "state": "STOPPED_RESUME_EXACT_OPERATION_NO_AUTOMATIC_RETRY",
+      "error": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\nVulkan 1.4.341 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 3060 Ti\n\nSCRIPT ERROR: Parse Error: Assigned value for constant \"GROUND_PATHS\" isn't a constant expression.\n   at: GDScript::reload (res://export/flat_vector_r133/capture_snowfield.gd:14)\nERROR: Failed to load script \"res://export/flat_vector_r133/capture_snowfield.gd\" with error \"Parse error\".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n",
+      "at_utc": "2026-11-03T14:48:35.239673+00:00"
+    }
+  }
+}

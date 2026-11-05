@@ -1,0 +1,13 @@
+{
+  "state": "PRESERVED_EXPORT_DIMENSION_EXPECTATION_FAILURE_NOT_ART_REJECT",
+  "original_assumption": [
+    512,
+    164
+  ],
+  "actual_retained_export": [
+    512,
+    163
+  ],
+  "native_crop_rgba_exact": true,
+  "reason": "Aseprite lockRatio floors height and ignores requested height. Correct proof/expectation to actual bytes, no rerun/reexport/regeneration, no quality floor change."
+}

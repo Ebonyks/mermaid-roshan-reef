@@ -1,0 +1,58 @@
+{
+  "id": "R124",
+  "stable_id": "FV-B946DA942C03",
+  "name": "Theatre stage apron",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "branch": "codex/flat-vector-melody-apron-20261102",
+  "owner_scope": "Resume art candidates; keep Dev frozen",
+  "state": "PLANNED_NO_NATIVE_OUTPUT_YET",
+  "scope": "Replace only ProsceniumCanvas stage-apron fill and its seven code-drawn foot-level rainbow rails with painted stage-front material and a whole painted seven-band inset. Keep original parent/z10, full apron rectangle/height clamps and rainbow bounds/order, original curtain/header/footlight/bulb roles, all actors, input/objectives/audio/saves/one-finger behavior. Source branch only.",
+  "method": "Built-in ImageGen two named static assets; preserve originals and Aseprite pixel-exact native/crop masters. Bounded nine-slice display may preserve support/ribbon end contours while only straight centers adapt to existing widths. TrueCanvas2D appearance-only nodes; no code-drawn appearance substitute.",
+  "static_item_call_cap": 2,
+  "calls_used": 0,
+  "animation_calls": 0,
+  "planned_native_designs": [
+    "continuous painted plum stage-front panel",
+    "whole seven-color horizontal painted ribbon inset"
+  ],
+  "existing_named_roles": 1,
+  "new_roles": 0,
+  "new_families": 0,
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-MED-05",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-READ-02",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "required_evidence": [
+    "Exact same-scene source/material reference bindings and original generation outputs",
+    "Editable exact native/crop masters, technical derivatives, import/license/hash records and declared mapping",
+    "Same-scene ten-axis review at3aspects; whole-object/bounds/color-order/noninteraction/lifecycle/passive/save/resource checks",
+    "Exact4.7.2 Mobile/Speedy applicable current static/analyzer/2D/trusted82",
+    "Immutable source/canonical GitHub publication and anonymous every-required-file verification"
+  ],
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false
+}

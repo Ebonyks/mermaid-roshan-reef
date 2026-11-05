@@ -1,0 +1,61 @@
+{
+  "id": "dkc-written-context-20261102",
+  "scope": "Expand the separate DKC study with primary composer interviews, archived Rare attribution, manufacturer synthesis documentation and per-track source links. Keep documentary facts, interpretation and unresolved exact patch/source provenance separate.",
+  "baseline": "c0a89216468850807626832c49eaf29fe664212f",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-09",
+    "DL-SND-12",
+    "DL-SND-15",
+    "DL-SND-18"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "finding_effect": "Reference research only; runtime finding lifecycle and satisfaction unchanged.",
+  "files": [
+    "design/music/dkc/README.md",
+    "design/music/dkc/WRITTEN_CONTEXT.md",
+    "design/music/dkc/written_sources.json",
+    "design/music/dkc/soundtrack_catalog.json",
+    "design/music/dkc/instrument_candidates.json",
+    "design/music/dkc/research_receipt.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "required_evidence": [
+    "Read primary interview passages and archival credit reply; record URL, locator and scope",
+    "Link documentary context and comparison questions to tracks without pretending instrument matches are accepted",
+    "Run authority/change-coverage and contract gates; publish and verify remote bytes"
+  ],
+  "validation": [
+    {
+      "command": "Primary written-source and scope review",
+      "result": "PASS",
+      "evidence": "written_sources.json: eight read sources plus two explicitly limited leads. Rare archived credit reply read directly; every claim has a named source and locator. DKC2/Juno-2 and 2014 studio gear excluded from DKC1 instrument attribution."
+    },
+    {
+      "command": "Source ID, coverage and receipt verification",
+      "result": "PASS",
+      "evidence": "research_receipt.json: ten unique source IDs; all 30 track context references resolve; 22 full-track credits distinguish explicit names from remaining-tracks attribution, eight short-cue credits unassigned. All family source IDs resolve and seven current research files have SHA-256."
+    },
+    {
+      "command": "python -X utf8 -B tools/audit_document_authority.py; python -X utf8 -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "DOCAUTH inventory=775 ledger=775 active=74 records=77 ALL OK. AUDITDEV ALL OK at actual auto merge-base 93166ab1828ab9857227d038f8833b92dfb2f9f1."
+    },
+    {
+      "command": "python -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "54 tests in 13.337s OK; DOCAUTH STRESS 6/6. git diff --check passes."
+    },
+    {
+      "command": "Runtime, audio listening and instrument stress tests",
+      "result": "NOT_APPLICABLE",
+      "evidence": "This increment changes written research and metadata only. No runtime, audio source or preset is edited; musical/native/device acceptance remains explicitly pending."
+    }
+  ],
+  "acceptance_gaps": "Exact original sample/patch provenance, channel-level orchestration, MIDI accuracy, native source A/B and human musical acceptance remain open. No runtime changes or finding closure; device/child gates do not receive evidence from written research."
+}

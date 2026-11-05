@@ -1,0 +1,35 @@
+{
+  "id": "picture-book-v39-publication-20261025",
+  "baseline": "bab454c97c6202b7623a168dcbee625caca31da0",
+  "scope": "Publish the full anonymous exact-revision verification receipt and independent publication-only reviewer confirmation for the already sealed V39 correction packet. No sealed payload member, art, controls, PDF, game or authority fact changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Publication evidence for static-book correction; no game master finding closed.",
+  "files": [
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/remote_verification.json",
+    "books/chapter_one/landscape/revisions/v39_owner_corrections/peer_review/final_publication_acceptance.json"
+  ],
+  "validation": [
+    {
+      "command": "verify_remote.py bab454c97c6202b7623a168dcbee625caca31da0",
+      "result": "PASS",
+      "evidence": "Full anonymous HTTPS manifest and549files/1,041,514,514bytes verified; payload668edfa355995abe53f91e550776ce72bacac128e63cac68583894c8da68d8b0; checked2026-10-26T06:06:37.667669+00:00 in remote_verification.json."
+    },
+    {
+      "command": "Independent pinned-publication/receipt/critical-remote-file handback",
+      "result": "PASS",
+      "evidence": "peer_review/final_publication_acceptance.json SHA256ab4c0d28dcb607be0baeb87d1026bb8f7d90ec4593b656da3b4d54ed54a827a9:SATISFIED_WITH_DECLARED_HOLDS; all549receipt/Gitrows,67R04bindings,3masterpartbindings and39independentlyfetchedcriticalremotefiles; trailing-LF-only helper equivalence independently confirmed."
+    },
+    {
+      "command": "audit_document_authority.py; audit_development.py --base auto; strict changed-path/manifest disjointness",
+      "result": "PASS",
+      "evidence": "Observed authorityALL OK(607/607) and developmentALL OK at5920c673 integration merge-base. Exactly3changed metadata paths; all declared exclusions, no sealed payload member changed. Final metadata remote-byte verification follows the metadata push without editing the sealed packet."
+    }
+  ],
+  "acceptance_gaps": "Publication/byte identity only; R04 candidate satisfied with declared holds separately. Owner/child/qualifiedSLP/finaltrim/PPI/physicalprint and A9/native-demo source-resolution limits remain. Runtime/device/game probes not applicable."
+}

@@ -1,0 +1,71 @@
+{
+  "scope": "Diagnostic palette/source-layout and stationary native framebuffer comparison; not owner art/motion or device performance acceptance.",
+  "source_original_size": [
+    1672,
+    941
+  ],
+  "comparison_downsample_only": true,
+  "mean_absolute_channel_error_vs_layout_reference": 4.413140013593059,
+  "source_rgb_mean": [
+    166.89917513690514,
+    110.75730859972847,
+    89.59385058143378
+  ],
+  "candidate_rgb_mean": [
+    166.43137899211365,
+    110.2921679319059,
+    89.1826202909457
+  ],
+  "native_frame_size": [
+    1600,
+    900
+  ],
+  "frames": [
+    {
+      "path": "opera_tiled_idle_a.png",
+      "sha256": "c9c4259d73664fb5272813e0c73a60c09164a8fa65ec95843609cbc5440f935a"
+    },
+    {
+      "path": "opera_tiled_idle_b.png",
+      "sha256": "1cb67471885682827b764b86d19b6d5540198200c426a94b468bc1c55c3dcca1"
+    }
+  ],
+  "stationary_camera": [
+    640.341552734375,
+    694.0
+  ],
+  "roshan_idle_separate_from_fixture_regions": true,
+  "roi_revision_note": "Ballet fabric ROI corrected using ((source_x565+/-20)*2.5-camera_x)*1.25 and (source_y341..397*2.5-camera_y)*1.25. First ROI sampled mostly adjacent wall and is retained separately. Frame pixels are unchanged.",
+  "regions": {
+    "ballet_curtain": {
+      "native_frame_rect": [
+        904,
+        202,
+        1026,
+        371
+      ],
+      "changed_pixels_over_2": 78,
+      "mean_channel_delta": 0.21028551104213147
+    },
+    "central_island_leaves": {
+      "native_frame_rect": [
+        680,
+        465,
+        860,
+        580
+      ],
+      "changed_pixels_over_2": 4891,
+      "mean_channel_delta": 5.798856682769726
+    },
+    "foyer_lamp": {
+      "native_frame_rect": [
+        1107,
+        240,
+        1138,
+        294
+      ],
+      "changed_pixels_over_2": 1296,
+      "mean_channel_delta": 6.15352449223417
+    }
+  }
+}

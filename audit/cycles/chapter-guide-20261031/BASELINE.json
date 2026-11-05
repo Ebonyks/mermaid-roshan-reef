@@ -1,0 +1,786 @@
+{
+  "schema": "chapter_guide_baseline/1",
+  "implementation_baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+  "handoff_baseline": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+  "measurements": {
+    "revision": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+    "revision_date": "2026-10-31",
+    "measured_by": "docs/handoffs/codex_chapter_guide_2026-10-31/tools/measure_chapter_guide.py",
+    "last_change": {
+      "chapter_guide": {
+        "commit": "3f02d625e42dc264b9434f7fc9f85d1f630706bb",
+        "date": "2026-09-11"
+      },
+      "brief_template": {
+        "commit": "3f02d625e42dc264b9434f7fc9f85d1f630706bb",
+        "date": "2026-09-11"
+      },
+      "new_chapter_recipe": {
+        "commit": "639847f70982b431ae2e521539f8dc46419edb4b",
+        "date": "2026-10-03"
+      },
+      "prompt_intents": {
+        "commit": "088f38987224beac95a19ce5edcd2595223c463d",
+        "date": "2026-10-04"
+      },
+      "reference_library": {
+        "commit": "7671997204c4c3dbc2679280a00a1b73ce4a3650",
+        "date": "2026-09-30"
+      },
+      "northern_branch": {
+        "commit": "ba94e8b22806e33a4c478656fc90f717cbccc77f",
+        "date": "2026-09-05"
+      },
+      "game_design": {
+        "commit": "674ac7c06f153942b509531f6f93ddefdc21cfe5",
+        "date": "2026-10-04"
+      },
+      "technical_architecture": {
+        "commit": "7468c6622723ef6915cd5e5a40f11c5aec8eff8f",
+        "date": "2026-10-05"
+      },
+      "design_language": {
+        "commit": "ce41f1ca0e611ff5c23e685bd87fb5db58cd1b45",
+        "date": "2026-10-18"
+      },
+      "master_audit": {
+        "commit": "15e476acbcdd14d6e9eca66fee4bb8e479edac1b",
+        "date": "2026-10-31"
+      },
+      "findings": {
+        "commit": "dcf6f6e29fa9ea2c6899e0edb324a1bc8762b121",
+        "date": "2026-10-31"
+      },
+      "roadmap": {
+        "commit": "639847f70982b431ae2e521539f8dc46419edb4b",
+        "date": "2026-10-03"
+      },
+      "owner_decisions": {
+        "commit": "15e476acbcdd14d6e9eca66fee4bb8e479edac1b",
+        "date": "2026-10-31"
+      }
+    },
+    "master_audit_commits_since_guide_last_change": 160,
+    "master_audit": {
+      "bytes": 330217,
+      "lines": 2391,
+      "planning_entry_updated_line": "Planning guidance updated 2026-10-03 against integration source `30d82725`.",
+      "section_bytes": {
+        "0. Planning entry": 49243,
+        "Sealed audit snapshot and subsequent round metadata": 8398,
+        "1. Executive verdict": 48856,
+        "2. Audit-state taxonomy": 4855,
+        "3. Authority and comprehensive design-language confirmation": 9446,
+        "4. Evidence at the integration snapshot and named historical commits": 31531,
+        "5. Triage item index — not canonical finding records": 44983,
+        "6. Supporting repair evidence — not canonical finding records": 29623,
+        "7. Superseded, dismissed, and deferred ideas": 8173,
+        "8. Expanded acceptance notes for highest-priority indexed items": 22506,
+        "9. Individual repair and regression protocol": 1684,
+        "10. Required finding fields": 1650,
+        "11. Audit-tool and documentation-control work": 4669,
+        "12. Master-audit satisfaction gate": 6469,
+        "13. Current repair order": 626,
+        "14. Change history": 52624,
+        "Stage pathfinding inventory (2026-09-06)": 4562
+      },
+      "chapter_word_count_by_section": {
+        "1. Executive verdict": 0,
+        "9. Individual repair and regression protocol": 0,
+        "12. Master-audit satisfaction gate": 0,
+        "13. Current repair order": 0
+      },
+      "task_index": {
+        "table_rows": 37,
+        "rows_outside_table": 1,
+        "rows_outside_table_first_cells": [
+          "Geologist in-world painted station props"
+        ],
+        "candidate_receipt_rows": 16,
+        "candidate_receipt_first_cells": [
+          "Geologist painted washing-pan repair",
+          "Geologist first painted mint specimen",
+          "Geologist remaining PAN minerals",
+          "Geologist painted pan sediment",
+          "Geologist shared painted workbench",
+          "Geologist painted fossil and fragments",
+          "Geologist painted soil cover",
+          "Geologist painted crystal gallery",
+          "Geologist painted river pools",
+          "Geologist painted geode seam cues",
+          "Geologist painted geode shell",
+          "Geologist painted route-card crest",
+          "Geologist painted final crystal goal",
+          "Full-game flat-vector audit",
+          "Earlier insect-tab candidate",
+          "Geologist in-world painted station props"
+        ],
+        "paragraphs_in_index_block": 23,
+        "status_notes_in_index_block": 20,
+        "route_rows": [
+          "Every task",
+          "New chapter",
+          "New job game",
+          "Repair",
+          "Code",
+          "Art",
+          "Job-game art (replace flat vector art with painted ImageGen art)",
+          "Demo release readiness (November 2026 demo)",
+          "Picture-book adaptation",
+          "Day One story clips",
+          "Stage pathfinding",
+          "Touch",
+          "Audio",
+          "Animation",
+          "Cinematic",
+          "Save",
+          "Performance",
+          "Acceptance",
+          "Audit or reference document",
+          "Study the game or plan improvement",
+          "Rebuild Pop Star, Ballerina or Racer",
+          "Rank games or raise one to the gold star"
+        ]
+      },
+      "planning_entry_before_index": {
+        "paragraphs": 13,
+        "status_notes": 11
+      },
+      "chapter_sources_row_links": [
+        "../design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+        "../design/CHAPTER2_CAKE_VISUAL_PROGRESSION_2026-08-31.md",
+        "../design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md"
+      ],
+      "area_scorecard": {
+        "rows": [
+          "Storybook UI and menus",
+          "Sky Lagoon",
+          "Reef / home ocean",
+          "Pearl Castle rooms",
+          "Courtyard and train",
+          "Northern world",
+          "Ember Fortress",
+          "Fairy Pond",
+          "Galaxy",
+          "Living world and companions",
+          "Current distributed Opera careers",
+          "Picture-game wing"
+        ],
+        "rows_naming_a_chapter_or_day": [],
+        "blame_dates": [
+          "2026-08-13",
+          "2026-08-14"
+        ]
+      }
+    },
+    "design_language": {
+      "cast_mentions": {
+        "Grand Puff": 0,
+        "Ember King": 0,
+        "Rumi": 0,
+        "Baby Eagle": 2,
+        "Daddy": 0,
+        "Mommy": 0
+      },
+      "rule_families": {
+        "AGE": 8,
+        "ASSET": 8,
+        "AUTH": 7,
+        "CIN": 16,
+        "CODE": 12,
+        "INT": 14,
+        "LAY": 9,
+        "MED": 10,
+        "MOT": 16,
+        "PERF": 7,
+        "PLAN": 6,
+        "QA": 16,
+        "READ": 6,
+        "SAVE": 6,
+        "SND": 17,
+        "TYPE": 12,
+        "UI": 7,
+        "VIS": 10
+      },
+      "story_or_canon_family_present": false
+    },
+    "game_design": {
+      "cast_section_title": "6. Cast and story",
+      "cast_section_line_range": [
+        485,
+        500
+      ],
+      "cast_section_lines_including_heading": 16,
+      "lavender_clothing_lines": [
+        494
+      ]
+    },
+    "owner_decisions": {
+      "count": 69,
+      "earliest_date": "2026-09-30",
+      "by_date": {
+        "2026-09-30": 8,
+        "2026-10-03": 13,
+        "2026-10-04": 10,
+        "2026-10-05": 4,
+        "2026-10-06": 2,
+        "2026-10-07": 7,
+        "2026-10-14": 1,
+        "2026-10-17": 4,
+        "2026-10-18": 11,
+        "2026-10-31": 9
+      },
+      "ids_matching_story_terms": [
+        "ODR-LOOP-Q5",
+        "ODR-POOL-DIRT-LOOK-20261005",
+        "ODR-CASTLE-UNDER-CLIPS-20261005",
+        "ODR-FASHION-PARTY-DRESS-20261006",
+        "ODR-POPSTAR-SONG-20261018",
+        "ODR-RUMI-REVISION-HANDOFF-20261017",
+        "ODR-DEMO-FREEZE-20261031",
+        "ODR-DEMO-START-20261031",
+        "ODR-DEMO-GRAND-PUFF-20261031",
+        "ODR-DEMO-PART2-SCOPE-20261031",
+        "ODR-DEMO-BOOK-FILE-20261031"
+      ],
+      "named": {
+        "ODR-FASHION-PERSISTENCE-20261006": {
+          "date": "2026-10-06",
+          "decision": "The cosmetic feature redresses recurring characters across the game with persistent effects, includes unlockable outfits throughout play, and teaches later disguise through dress-up games. This supersedes the initial working assumption that all clothes are freely available."
+        },
+        "ODR-POPSTAR-SONG-20261018": {
+          "date": "2026-10-18",
+          "decision": "Use a new concert arrangement of the existing Starlight Singalong first; use Iko Iko for the Day Two story only once its game-use rights are confirmed."
+        },
+        "ODR-RUMI-REVISION-HANDOFF-20261017": {
+          "date": "2026-10-17",
+          "decision": "Owner: the book \"needs significant plot revisions, and developments to be able to integrate smoothly into the game environment\"; \"Focus on producing rich, robust undersea world, the inspirations are clearly in the comics, but they appear narrow, and a bathhouse scene is not truly developed. Also, not nearly enough plotting to hold together such a long book.\" Analyse traditional comics for pacing and style and draft solutions as a Codex handoff. Commissions analysis and a written handoff; accepts no story, art or runtime change and commissions no playable chapter."
+        },
+        "ODR-PRIORITY-JOB-TAKEOVER": {
+          "date": "2026-09-30",
+          "decision": "Job-game takeover readiness (MA-DOC-006) is critical to the owner and comes first in development planning; it does not reorder the child-facing defect repairs."
+        },
+        "ODR-LEARNING-SCOPE-20261018": null
+      },
+      "learning_branch_commit": "7b851b3d0be0dd83652751ca5c3085fc4b36b6b8",
+      "learning_branch_in_revision": false
+    },
+    "chapter_code": {
+      "scripts/day_one_director.gd": {
+        "newline_count": 836,
+        "class_name": "DayOneDirector",
+        "extends": "RefCounted",
+        "signals": [
+          "hook_event"
+        ],
+        "public_funcs": [
+          "room_definitions",
+          "room_ids",
+          "room_status",
+          "can_enter_room",
+          "unlocked_room_ids",
+          "is_room_completed",
+          "is_dust_bunny_cleaned",
+          "jobs_are_globally_locked",
+          "is_job_unlocked",
+          "can_start_job",
+          "is_opera_enabled",
+          "can_start_opera",
+          "complete_activity",
+          "complete_tutorial",
+          "complete_placeholder",
+          "art_cleanup_complete",
+          "record_art_cleanup",
+          "unlock_art_desk",
+          "complete_art_customization",
+          "complete_art_studio",
+          "complete_room",
+          "trigger_arrival_plane_media",
+          "discover_dirty_castle",
+          "trigger_grok_video_2",
+          "trigger_giant_dust_bunny_boss",
+          "complete_giant_dust_bunny_boss",
+          "complete_day_one_after_boss",
+          "clear_day_one_routing",
+          "event_history",
+          "drain_events",
+          "serialize_state",
+          "restore_state"
+        ],
+        "serialize_state_keys": 26,
+        "serialize_keys_on_main": 0
+      },
+      "scripts/chapter_two_director.gd": {
+        "newline_count": 1098,
+        "class_name": "ChapterTwoDirector",
+        "extends": "RefCounted",
+        "signals": [
+          "hook_event"
+        ],
+        "public_funcs": [
+          "start_after_boss",
+          "initial_tutorial_act_indices",
+          "can_start_opera_tutorial",
+          "tutorial_phase_is_active",
+          "can_start_chapter2_act",
+          "is_opera_priority",
+          "has_skill",
+          "record_opera_completion",
+          "record_party_contribution",
+          "record_strawberry_pick",
+          "record_cake_piece",
+          "record_opera_phase_event",
+          "record_opera_phase",
+          "record_opera_phase_snapshot",
+          "resume_phase_index_for_act",
+          "party_is_ready",
+          "next_party_act",
+          "can_start_main_hall_party",
+          "start_main_hall_party",
+          "can_trigger_ember_king_crash",
+          "trigger_ember_king_crash",
+          "record_ember_scout",
+          "room_plot_action",
+          "should_show_party_table",
+          "complete_detective_search",
+          "can_start_stuffie_ballet",
+          "complete_stuffie_ballet",
+          "should_show_candle",
+          "can_launch_plot_act",
+          "opera_config_overrides",
+          "serialize_state",
+          "restore_state"
+        ],
+        "serialize_state_keys": 26,
+        "serialize_keys_on_main": 5
+      },
+      "scripts/day_two_transition_2d.gd": {
+        "newline_count": 484,
+        "class_name": "DayTwoTransition2D",
+        "extends": "CanvasLayer",
+        "signals": [
+          "finished"
+        ],
+        "public_funcs": [
+          "cancel",
+          "current_beat"
+        ],
+        "serialize_state_keys": null,
+        "serialize_keys_on_main": null
+      },
+      "scripts/arena/fairy_conservatory_door_2d.gd": {
+        "newline_count": 300,
+        "class_name": "FairyConservatoryDoor2D",
+        "extends": "RefCounted",
+        "signals": [],
+        "public_funcs": [
+          "tick",
+          "refresh",
+          "visual_state"
+        ],
+        "serialize_state_keys": null,
+        "serialize_keys_on_main": null
+      },
+      "scripts/arena/fairy_conservatory_handoff_2d.gd": {
+        "newline_count": 431,
+        "class_name": "FairyConservatoryHandoff2D",
+        "extends": "RefCounted",
+        "signals": [],
+        "public_funcs": [
+          "start",
+          "teardown",
+          "tick",
+          "probe_tap",
+          "audit_snapshot"
+        ],
+        "serialize_state_keys": null,
+        "serialize_keys_on_main": null
+      },
+      "scripts/fairy_restoration_prototype.gd": {
+        "newline_count": 533,
+        "class_name": "FairyRestorationPrototype",
+        "extends": "Control",
+        "signals": [],
+        "public_funcs": [
+          "phase",
+          "back_to_castle",
+          "save_checkpoint",
+          "load_checkpoint"
+        ],
+        "serialize_state_keys": null,
+        "serialize_keys_on_main": null
+      }
+    },
+    "director_shared_interface": [
+      "hook_event",
+      "restore_state",
+      "serialize_state"
+    ],
+    "chapter3_fields_assigned_on_main_by_save_state": 3,
+    "technical_architecture_mentions": {
+      "director_any_case": 5,
+      "DayOneDirector": 0,
+      "ChapterTwoDirector": 0,
+      "day_one_director": 0,
+      "chapter_two_director": 0,
+      "Mode Platform": 0
+    },
+    "save_state_keys": {
+      "chapter2_": [
+        "chapter2_active",
+        "chapter2_active_objective",
+        "chapter2_cake_piece_mask",
+        "chapter2_candle_lit",
+        "chapter2_candle_taken",
+        "chapter2_candy_cake_finished",
+        "chapter2_chef_cake_baked",
+        "chapter2_ember_king_crashed",
+        "chapter2_ember_scout_seen",
+        "chapter2_ember_son_seen",
+        "chapter2_farmer_strawberries_ready",
+        "chapter2_job_phase_masks",
+        "chapter2_lawn_beat",
+        "chapter2_lawn_started",
+        "chapter2_party_dress_done",
+        "chapter2_party_event_phase",
+        "chapter2_party_piece_mask",
+        "chapter2_party_started",
+        "chapter2_protection_bumps",
+        "chapter2_protection_misses",
+        "chapter2_protection_rounds",
+        "chapter2_rainbow_candle_found",
+        "chapter2_skill_mask",
+        "chapter2_story_complete",
+        "chapter2_strawberry_mask",
+        "chapter2_stuffie_ballet_done",
+        "chapter2_unlocked_opera_mask"
+      ],
+      "chapter3_": [
+        "chapter3_fairy_door_opened",
+        "chapter3_fairy_door_revealed",
+        "chapter3_fairy_mission_started"
+      ],
+      "day_one_": [
+        "day_one_giant_dust_bunny_boss_defeated",
+        "day_one_story_clips_seen"
+      ],
+      "day_two_": [],
+      "fairy": [
+        "fairy",
+        "fairyskin"
+      ]
+    },
+    "save_state_key_counts": {
+      "chapter2_": 27,
+      "chapter3_": 3,
+      "day_one_": 2,
+      "day_two_": 0,
+      "fairy": 2
+    },
+    "trusted_roster": {
+      "probe_day_one_director": {
+        "ci_sh": true,
+        "probes_yml": true
+      },
+      "probe_day_one_integration": {
+        "ci_sh": true,
+        "probes_yml": true
+      },
+      "probe_day_one_story_clips": {
+        "ci_sh": true,
+        "probes_yml": true
+      },
+      "probe_chapter2": {
+        "ci_sh": true,
+        "probes_yml": true
+      },
+      "probe_chapter2_farmer_resume": {
+        "ci_sh": true,
+        "probes_yml": true
+      },
+      "probe_chapter2_lawn": {
+        "ci_sh": true,
+        "probes_yml": true
+      },
+      "probe_alpha_milestone_save": {
+        "ci_sh": true,
+        "probes_yml": true
+      },
+      "probe_fairy_conservatory_route": {
+        "ci_sh": false,
+        "probes_yml": false
+      },
+      "probe_fairy_conservatory_handoff": {
+        "ci_sh": false,
+        "probes_yml": false
+      },
+      "probe_fairy_restoration": {
+        "ci_sh": false,
+        "probes_yml": false
+      }
+    },
+    "name_usage": {
+      "scope": "tracked design/**/*.md plus AGENTS.md and the master audit; case-sensitive whole-phrase occurrences",
+      "files": 74,
+      "occurrences": {
+        "Day One": 120,
+        "Day Two": 19,
+        "Chapter 1": 0,
+        "Chapter One": 0,
+        "Chapter 2": 68,
+        "Chapter Two": 19,
+        "Chapter 3": 15,
+        "Chapter Three": 0
+      }
+    },
+    "planned_reference_files_present": {
+      "design/11_DESIGN_REFERENCE.md": false,
+      "design/reference/canon.json": false,
+      "design/reference/CANON.md": false,
+      "design/reference/engines.json": false,
+      "design/templates/DESIGN_CARD_V1.md": false,
+      "design/templates/CHAPTER_BRIEF_V2.md": false
+    },
+    "filled_chapter_briefs": [
+      "design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md"
+    ],
+    "files_mentioning_character_card": [
+      "FABLE_CASTLE_2P5D_LAYER_AUDIT_2026-07-26.md",
+      "FABLE_CASTLE_VISUAL_POLISH_INTERVENTION_2026-07-28.md",
+      "OPERA_CODEX_REGENERATION_REQUESTS_2026-08-01.md",
+      "design/10_CHAPTER_REFERENCE_LIBRARY.md",
+      "design/FASHION_DESIGNER_ROSHAN_2026-10-06.md"
+    ],
+    "book_mentions": {
+      "chapter_guide": 1,
+      "reference_library": 0,
+      "brief_template": 0,
+      "new_chapter_recipe": 1
+    },
+    "roadmap": {
+      "heading": "# Improvement roadmap — 2026-10-03b",
+      "chapter_mentions": 2,
+      "grow_lane_rows": [
+        "GROW-ADD-JOB: A new job the owner names: the recipe plans the room, distinct verbs, voice, save and checks.",
+        "GROW-ROOM-ACTIVITY: Something to do inside an approved castle room, with a visible change that stays.",
+        "GROW-COMPANION: A friend who follows Roshan, built from an identity sheet and a movement profile.",
+        "GROW-EVENT: A time-limited event that reuses rooms and art and adds its own save key."
+      ],
+      "grow_lane_lines": [
+        "New content. Choosing one still needs the owner's premise for anything permanent.",
+        "| Item | Say | Recipe or reason | Why here |",
+        "|---|---|---|---|",
+        "| GROW-ADD-JOB: A new job the owner names: the recipe plans the room, distinct verbs, voice, save and checks. | add a bakery job | `REC-ADD-JOB`: `design/reference/recipes/add_job.md` | ODR-LOOP-Q8 operating default: jobs and room activities first; strengths S-01, S-02, S-03, S-12, S-13; new permanent content still needs the owner's premise (DL-PLAN-01). |",
+        "| GROW-ROOM-ACTIVITY: Something to do inside an approved castle room, with a visible change that stays. | a rainy-day activity in the castle | `REC-ROOM-ACTIVITY`: `design/reference/recipes/room_activity.md` | ODR-LOOP-Q8 operating default: jobs and room activities first; strengths S-01, S-02, S-03, S-08; new permanent content still needs the owner's premise (DL-PLAN-01). |",
+        "| GROW-COMPANION: A friend who follows Roshan, built from an identity sheet and a movement profile. | add a new stuffie friend | `REC-COMPANION`: `design/reference/recipes/companion.md` | prompt catalogue; strengths S-06, S-14; new permanent content still needs the owner's premise (DL-PLAN-01). |",
+        "| GROW-EVENT: A time-limited event that reuses rooms and art and adds its own save key. | a birthday surprise | `REC-EVENT`: `design/reference/recipes/event.md` | prompt catalogue; strengths S-08, S-14; new permanent content still needs the owner's premise (DL-PLAN-01). |"
+      ]
+    },
+    "northern_concept": {
+      "in_revision": false,
+      "rescue_commit": "f07027af253badd8d37f0b3b6aeedb8cbab7336f",
+      "in_rescue_commit": true,
+      "sha256": "db0cc66cc90551774ffe28809c095658324634ccf8f27c5742b7735da489208d",
+      "git_blob": "976adaff5ffba9c57f7ef234c48c0e8309c0128c"
+    },
+    "findings": {
+      "MA-DOC-006": {
+        "present": true,
+        "severity": "P2",
+        "lifecycle": "CONFIRMED_OPEN"
+      },
+      "MA-DOC-007": {
+        "present": true,
+        "severity": "P2",
+        "lifecycle": "CONFIRMED_OPEN"
+      },
+      "MA-DOC-008": {
+        "present": true,
+        "severity": "P2",
+        "lifecycle": "CONFIRMED_OPEN"
+      },
+      "MA-DOC-009": {
+        "present": true,
+        "severity": "P2",
+        "lifecycle": "IN_PROGRESS"
+      },
+      "MA-PLAY-001": {
+        "present": true,
+        "severity": "P1",
+        "lifecycle": "CONFIRMED_OPEN"
+      },
+      "MA-PLAY-005": {
+        "present": true,
+        "severity": "P0",
+        "lifecycle": "IN_PROGRESS"
+      },
+      "MA-PLAY-006": {
+        "present": true,
+        "severity": "P2",
+        "lifecycle": "FIXED_PENDING_VERIFICATION"
+      }
+    }
+  },
+  "comparison": "Implementation base includes the separately delivered demo-readiness handoff and its decisions/findings. Measurements remain exact-revision source evidence. MA-DOC-010/packet were not yet integrated, so their import is part of this task. Runtime state-ownership review found both director fields are typed forwarding properties to ReefMain; the handoff measurement counts syntactic properties as fields and must not be read as director-owned durable state.",
+  "delta_from_handoff": [
+    {
+      "field": "revision",
+      "handoff": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "implementation_baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f"
+    },
+    {
+      "field": "last_change.master_audit.commit",
+      "handoff": "218ae766f8e60afb3f6338b8fafce28ec9fab7f2",
+      "implementation_baseline": "15e476acbcdd14d6e9eca66fee4bb8e479edac1b"
+    },
+    {
+      "field": "last_change.findings.commit",
+      "handoff": "0bd538456b4b7abc9220ca09de072e8577a32014",
+      "implementation_baseline": "dcf6f6e29fa9ea2c6899e0edb324a1bc8762b121"
+    },
+    {
+      "field": "last_change.findings.date",
+      "handoff": "2026-10-30",
+      "implementation_baseline": "2026-10-31"
+    },
+    {
+      "field": "last_change.owner_decisions.commit",
+      "handoff": "6fb96aeb441952c1053cc5ce18435fc57fc1d1ab",
+      "implementation_baseline": "15e476acbcdd14d6e9eca66fee4bb8e479edac1b"
+    },
+    {
+      "field": "last_change.owner_decisions.date",
+      "handoff": "2026-10-18",
+      "implementation_baseline": "2026-10-31"
+    },
+    {
+      "field": "master_audit_commits_since_guide_last_change",
+      "handoff": 158,
+      "implementation_baseline": 160
+    },
+    {
+      "field": "master_audit.bytes",
+      "handoff": 327615,
+      "implementation_baseline": 330217
+    },
+    {
+      "field": "master_audit.lines",
+      "handoff": 2386,
+      "implementation_baseline": 2391
+    },
+    {
+      "field": "master_audit.section_bytes.0. Planning entry",
+      "handoff": 48526,
+      "implementation_baseline": 49243
+    },
+    {
+      "field": "master_audit.section_bytes.5. Triage item index — not canonical finding records",
+      "handoff": 43969,
+      "implementation_baseline": 44983
+    },
+    {
+      "field": "master_audit.section_bytes.14. Change history",
+      "handoff": 51753,
+      "implementation_baseline": 52624
+    },
+    {
+      "field": "master_audit.task_index.table_rows",
+      "handoff": 36,
+      "implementation_baseline": 37
+    },
+    {
+      "field": "master_audit.task_index.route_rows",
+      "handoff": [
+        "Every task",
+        "New chapter",
+        "New job game",
+        "Repair",
+        "Code",
+        "Art",
+        "Job-game art (replace flat vector art with painted ImageGen art)",
+        "Picture-book adaptation",
+        "Day One story clips",
+        "Stage pathfinding",
+        "Touch",
+        "Audio",
+        "Animation",
+        "Cinematic",
+        "Save",
+        "Performance",
+        "Acceptance",
+        "Audit or reference document",
+        "Study the game or plan improvement",
+        "Rebuild Pop Star, Ballerina or Racer",
+        "Rank games or raise one to the gold star"
+      ],
+      "implementation_baseline": [
+        "Every task",
+        "New chapter",
+        "New job game",
+        "Repair",
+        "Code",
+        "Art",
+        "Job-game art (replace flat vector art with painted ImageGen art)",
+        "Demo release readiness (November 2026 demo)",
+        "Picture-book adaptation",
+        "Day One story clips",
+        "Stage pathfinding",
+        "Touch",
+        "Audio",
+        "Animation",
+        "Cinematic",
+        "Save",
+        "Performance",
+        "Acceptance",
+        "Audit or reference document",
+        "Study the game or plan improvement",
+        "Rebuild Pop Star, Ballerina or Racer",
+        "Rank games or raise one to the gold star"
+      ]
+    },
+    {
+      "field": "owner_decisions.count",
+      "handoff": 60,
+      "implementation_baseline": 69
+    },
+    {
+      "field": "owner_decisions.by_date.2026-10-31",
+      "handoff": null,
+      "implementation_baseline": 9
+    },
+    {
+      "field": "owner_decisions.ids_matching_story_terms",
+      "handoff": [
+        "ODR-LOOP-Q5",
+        "ODR-POOL-DIRT-LOOK-20261005",
+        "ODR-CASTLE-UNDER-CLIPS-20261005",
+        "ODR-FASHION-PARTY-DRESS-20261006",
+        "ODR-POPSTAR-SONG-20261018",
+        "ODR-RUMI-REVISION-HANDOFF-20261017"
+      ],
+      "implementation_baseline": [
+        "ODR-LOOP-Q5",
+        "ODR-POOL-DIRT-LOOK-20261005",
+        "ODR-CASTLE-UNDER-CLIPS-20261005",
+        "ODR-FASHION-PARTY-DRESS-20261006",
+        "ODR-POPSTAR-SONG-20261018",
+        "ODR-RUMI-REVISION-HANDOFF-20261017",
+        "ODR-DEMO-FREEZE-20261031",
+        "ODR-DEMO-START-20261031",
+        "ODR-DEMO-GRAND-PUFF-20261031",
+        "ODR-DEMO-PART2-SCOPE-20261031",
+        "ODR-DEMO-BOOK-FILE-20261031"
+      ]
+    },
+    {
+      "field": "name_usage.occurrences.Day One",
+      "handoff": 117,
+      "implementation_baseline": 120
+    },
+    {
+      "field": "name_usage.occurrences.Chapter 2",
+      "handoff": 66,
+      "implementation_baseline": 68
+    }
+  ]
+}

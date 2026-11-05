@@ -1,0 +1,39 @@
+{
+  "bones_and_rest": true,
+  "meshes": [
+    {
+      "name": "Body",
+      "vertices": true,
+      "triangles": true,
+      "weights": true
+    },
+    {
+      "name": "UpperArm",
+      "vertices": true,
+      "triangles": true,
+      "weights": true
+    },
+    {
+      "name": "Forearm",
+      "vertices": true,
+      "triangles": true,
+      "weights": true
+    },
+    {
+      "name": "Headwear",
+      "vertices": true,
+      "triangles": true,
+      "weights": true
+    }
+  ],
+  "functions_byte_equivalent_except_line_endings": {
+    "ease5": true,
+    "pulse": true,
+    "authored_pose": true,
+    "clip_length": true,
+    "build_animation": true
+  },
+  "rig_input_sha256": "0023f07215712c50ad278d94bb7a2ebce371071c314c3b4b7811d5d16b76c327",
+  "status": "PASS",
+  "limits": "Only texture URLs relocated. New headwear/sleeve/hand are rigid Canvas attachments using same native rest. This does not establish natural acting or acceptance."
+}

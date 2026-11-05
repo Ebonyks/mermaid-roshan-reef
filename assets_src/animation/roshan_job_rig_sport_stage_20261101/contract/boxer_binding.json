@@ -1,0 +1,90 @@
+{
+  "contract_id": "roshan.canvas.shared",
+  "contract_version": "1.0.0",
+  "skin": "boxer",
+  "view": "front",
+  "prop": {
+    "path": "demo/art/glove_jab.png",
+    "native_size": [
+      512,
+      512
+    ],
+    "orientation": "authored front view, +X right +Y down; object-specific views declared below",
+    "support_point_px": [
+      256,
+      437
+    ],
+    "occlusion": {
+      "arm": 1,
+      "prop": 3,
+      "fingers": 6,
+      "headwear": 7
+    },
+    "grips": [
+      {
+        "socket": "grip.screen_left",
+        "prop_px": [
+          256,
+          280
+        ]
+      }
+    ]
+  },
+  "source_only": true,
+  "owner": "left_hand",
+  "contact_window_s": [
+    3.04,
+    3.32
+  ],
+  "release": "After6.5s hands return to rest through8s; wheel/stand/mitt remain fixture-owned, glove stays worn.",
+  "waist_join_status": "UNSUPPORTED_PENDING_SHARED_CONVENTION",
+  "perspective_views": [
+    "guard",
+    "jab",
+    "palm"
+  ],
+  "acceptance": "Source binding only; naturalness/outline/owner/device/child pending",
+  "duration_s": 8,
+  "time_mapping": "Source keyed controller t=delivery_time/2; original three curves/timing remain exact.",
+  "glove_views": {
+    "guard": {
+      "palm": [
+        256,
+        250
+      ],
+      "cuff": [
+        151,
+        417
+      ]
+    },
+    "jab": {
+      "palm": [
+        256,
+        280
+      ],
+      "cuff": [
+        256,
+        437
+      ],
+      "contact_knuckle": [
+        256,
+        78
+      ]
+    },
+    "palm": {
+      "palm": [
+        340,
+        260
+      ],
+      "cuff": [
+        340,
+        413
+      ]
+    }
+  },
+  "hand_fit": "Actual wrist and shared palm are both constrained, with upright hand orientation and positive uniform scale per authored perspective. No new bone/rest or old outfit underlay.",
+  "mitt_fixture_native_canvas": [
+    430,
+    390.1
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "inspection": "Frozen actual test inputs",
+  "families": [
+    {
+      "group": "performance",
+      "costumes": [
+        "original",
+        "ballet",
+        "magician"
+      ],
+      "renderer_sha256": "f0fb4deeff57e42f9a143c57331fe5c7f608a44ac63771f915e4af7fc5a198ba",
+      "bone_rest_sha256": "8210cb4b4a508cb1798f9746ac2c492c00b0d328937854092a8146cf560dd5f3",
+      "body_vertices": 6902,
+      "body_triangles": 13281,
+      "body_weights_sha256": "74651b8e584ae4a31518b343a8886886e5ea7b0217e2594e0e2c0a621271532b"
+    },
+    {
+      "group": "kitchen",
+      "costumes": [
+        "chef",
+        "farmer"
+      ],
+      "renderer_sha256": "b79dc57d169d1a6ebba3bbef12c2c4e026f4f5ee36061c2ea7751ca6bb2a8afa",
+      "bone_rest_sha256": "8210cb4b4a508cb1798f9746ac2c492c00b0d328937854092a8146cf560dd5f3",
+      "body_vertices": 7467,
+      "body_triangles": 14213,
+      "body_weights_sha256": "46a2a8f2076e751b29a0ecd0a18cfa58751b22242cd7d440f639da1ef844ed35"
+    },
+    {
+      "group": "care",
+      "costumes": [
+        "doctor",
+        "teacher"
+      ],
+      "renderer_sha256": "ac64ab58bf1aa315daa56bf8e63a7cc89de4f4ec7d8dc9adc1ffd82baeea3073",
+      "bone_rest_sha256": "8210cb4b4a508cb1798f9746ac2c492c00b0d328937854092a8146cf560dd5f3",
+      "body_vertices": 6902,
+      "body_triangles": 13281,
+      "body_weights_sha256": "74651b8e584ae4a31518b343a8886886e5ea7b0217e2594e0e2c0a621271532b"
+    },
+    {
+      "group": "creative",
+      "costumes": [
+        "painter",
+        "astronaut"
+      ],
+      "renderer_sha256": "37fcdde598f21e165cb984902ed8cb6730e641cf0fd8c1ade01e122533a922f7",
+      "bone_rest_sha256": "8210cb4b4a508cb1798f9746ac2c492c00b0d328937854092a8146cf560dd5f3",
+      "body_vertices": 6902,
+      "body_triangles": 13281,
+      "body_weights_sha256": "74651b8e584ae4a31518b343a8886886e5ea7b0217e2594e0e2c0a621271532b"
+    },
+    {
+      "group": "investigation",
+      "costumes": [
+        "detective",
+        "geologist"
+      ],
+      "renderer_sha256": "b14ece58df4a44a9ee5016b0c53875ee368f77ba66a47ba12aa7a7d3e6f8a3a5",
+      "bone_rest_sha256": "8210cb4b4a508cb1798f9746ac2c492c00b0d328937854092a8146cf560dd5f3",
+      "body_vertices": 6902,
+      "body_triangles": 13281,
+      "body_weights_sha256": "74651b8e584ae4a31518b343a8886886e5ea7b0217e2594e0e2c0a621271532b"
+    },
+    {
+      "group": "craft",
+      "costumes": [
+        "candymaker",
+        "nursery"
+      ],
+      "renderer_sha256": "4cc1b7ff93652ef2bb47d7a37d9377e247f666ad4665d419b87fdf7e7445898b",
+      "bone_rest_sha256": "8210cb4b4a508cb1798f9746ac2c492c00b0d328937854092a8146cf560dd5f3",
+      "body_vertices": 7450,
+      "body_triangles": 14320,
+      "body_weights_sha256": "39a0e205d01d7b0ad7a7c84579e86c383f9adb1b6d9e0cea1b6249f27c30ef84"
+    },
+    {
+      "group": "sport",
+      "costumes": [
+        "boxer",
+        "racer",
+        "popstar"
+      ],
+      "renderer_sha256": "5eceb5358128f985a329b8196079d5c65113f884716abe2400bc347f3e2787db",
+      "bone_rest_sha256": "8210cb4b4a508cb1798f9746ac2c492c00b0d328937854092a8146cf560dd5f3",
+      "body_vertices": 6911,
+      "body_triangles": 13301,
+      "body_weights_sha256": "495159a11a2de21d7b66794432834fa68f4c11f05cb1c0ab66f28dad7b1ce1fa"
+    }
+  ],
+  "distinct_character_builders": 7,
+  "distinct_bone_rest_definitions": 1,
+  "distinct_base_body_weight_configs": 4,
+  "owner_architecture_acceptance": "REJECTED_MULTI_BUILDER_TEST_DESIGN",
+  "finding": "Skeleton definitions are shared, but there is no demonstrated single live actor with data-only garment skins. Costume fitting remains coupled to anatomy/renderer variants.",
+  "target_implemented": false,
+  "next_proof": "One live actor and animator; switch two skins mid-action without replacing skeleton/anatomy or resetting phase."
+}

@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "scope": "Independent in-memory fault injection of a single inspected artifact hash; actual master/email hashes remain valid. Guard must reject stale visual evidence.",
+  "method": "Mock only visual_audits.json read in memory; no artwork/records/scripts modified",
+  "observed_rejection": "('Stale inspected artifact', 'complete/page_02.png')",
+  "script_sha256": "387c6af18b079afe8a7d2cc6078c064d44289c802a5ef53a3973acf9d8e9c363",
+  "visual_record_sha256": "8f54bd7072d4b88e65f7948a70c33faf134664c0deffea44520171f829f170ad",
+  "real_files_unchanged": true,
+  "checked_at_utc": "2026-10-27T02:42:19.059146+00:00"
+}

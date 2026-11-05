@@ -1,0 +1,262 @@
+{
+  "id": "workgroup-batch-ci-recovery-20261104",
+  "baseline": "65c63ae849b091e3fb91cdbeaf1e2837e10778fe",
+  "scope": "Owner-authorized checkout repair and reconciliation of the already published recent-updates batch with current dev. Preserve source history and later dev changes. Windows deterministic-music checkout includes its tools, score sources and output catalog. Linux retains full commit history while fetching historical blobs on demand. Reconcile append-only evidence/ledger rows and identical owner decisions, preserve current executable harness mode and later R135-R139 dev artwork. Reconcile the preserved local chapter-guide draft from a0bb2cf4, including the canon/book-source/map documents and chapter static checks. Retain newer source-specific receipts, the open-dev policy and existing failed-run history. Publish a compact source-labelled archive of 626 remaining local or separately published document snapshots, preserving draft status and original workspaces. Bound the recovered JSON URL scan to in-place suffix matching after live profiling identified quadratic copying on the combined provenance data. Preserve classifications and every gate limit.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-14",
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-03",
+    "DL-PLAN-01",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-04",
+    "DL-PLAN-05",
+    "DL-PLAN-06",
+    "DL-PLAN-07",
+    "DL-PLAN-08",
+    "DL-CODE-10",
+    "DL-CIN-16"
+  ],
+  "findings": [
+    "MA-DOC-010"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    ".github/workflows/probes.yml",
+    "audit/cycles/workgroup-batch-sync-20261104/PLAN.json",
+    "audit/cycles/workgroup-batch-sync-20261104/owner_authorization.json",
+    "audit/cycles/workgroup-batch-sync-20261104/CHECKOUT_SCOPE_CHECK.json",
+    "audit/cycles/workgroup-batch-sync-20261104/SOURCE_RECOVERY.json",
+    "audit/cycles/workgroup-batch-sync-20261104/draft_documents/README.md",
+    "audit/cycles/workgroup-batch-sync-20261104/draft_documents/MANIFEST.json",
+    "audit/cycles/workgroup-batch-sync-20261104/draft_documents/DRAFT_DOCUMENTS_01.zip",
+    "audit/cycles/workgroup-batch-sync-20261104/draft_documents/DRAFT_DOCUMENTS_02.zip",
+    "audit/cycles/workgroup-batch-sync-20261104/draft_documents/DRAFT_DOCUMENTS_03.zip",
+    "audit/cycles/workgroup-batch-sync-20261104/draft_documents/DRAFT_DOCUMENTS_04.zip",
+    "audit/cycles/workgroup-batch-sync-20261104/draft_documents/DRAFT_DOCUMENTS_05.zip",
+    "audit/cycles/workgroup-batch-sync-20261104/draft_documents/PACKAGING_RECOVERY.json",
+    "audit/cycles/workgroup-batch-sync-20261104/source/chapter-guide-preserved.patch",
+    "tools/audit_game_2d.py",
+    "tools/tests/test_audit_game_2d.py",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/archive-final-check.json",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/authority-chapter-77-tests.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/changed-173-script-gates.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/game2d-81-tests.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/INPUT_BINDING.json",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/interrupted-json-scan-stack.txt",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/json-scan-equivalence.json",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-01-interrupted-archive-result.json",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-02-interrupted-json-scan-result.json",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-game_2d.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-import.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_alpha_milestone_save.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_audio.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_audit.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_bathroom_integration.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_bathroom_props.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_castle_door_language.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_castle_pearl_art.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_castle_pool_life_2d.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_chapter2.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_chapter2_farmer_resume.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_chapter2_lawn.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_collection.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_combat.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_combat_tutorial.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_crown.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_dance.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_art_attack_state.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_bathroom_bunny.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_bathroom_cleanup.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_bathroom_movie_handoff.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_castle_dressing.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_d8_revisits.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_director.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_handoffs.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_integration.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_pool_cleanup.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_story_clips.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_day_one_voice.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_dolls.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_dungeon.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_dust_boss.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_dust_boss_balance.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_dust_bunny.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_dust_bunny_boss.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_ember.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_fairy_art.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_fetch.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_galaxy_state.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_hit.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_human_art_audit.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_imp_ai.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_interaction.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_kart_feel.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_kitchen_props.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_l2.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_l2_living_cards.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_l2_reenter.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_living_world.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_load.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_melody.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_mg2d.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_mic.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_northern.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_ocean_kingdoms.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_opera.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_opera_2d.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_opera_detective.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_opera_diegetic_paths.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_opera_gesture_quality.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_opera_nursery.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_opera_pipe.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_partner.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_passive.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_props.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_rank.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_reef_districts.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_save_recovery.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_seek.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_skins.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_sky_lagoon_animals.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_start_menu_new_game.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_start_menu_routing.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_stuffie.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_throne.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_touch_adversary.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_touch_look.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_touch_router.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_touch_stress.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_train.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_ui_system.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_verbs.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-probe_voice.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-03-result.json",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/native-runtime-03.py.txt",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/original-focused-tests.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/static-prefix-and-import-timeout.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/MANIFEST.json",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/final-chapter-contract.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/final-development-coverage.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/final-document-authority.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/whitespace-review.json"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/final-document-authority.log. 914/914 documents, 75 active findings in 78 records."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/final-development-coverage.log. All changed project paths covered against dev65c63ae."
+    },
+    {
+      "command": "scripts/ci.sh with approved Godot 4.7.2",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/INPUT_BINDING.json and native-03-result.json. Combined static/native checkpoints with original interrupted/failed attempts retained. All 82 trusted probes accepted."
+    },
+    {
+      "command": "Exact-head GitHub Probe suite",
+      "result": "PENDING",
+      "evidence": "Required before updating dev."
+    },
+    {
+      "command": "python -B tools/audit_chapter_contract.py and chapter/reference unit tests",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/authority-chapter-77-tests.log and game2d-81-tests.log. 158 current focused tests passed."
+    },
+    {
+      "command": "Compare parsed workflow structure after removing only sparse-checkout and filter input additions",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/CHECKOUT_SCOPE_CHECK.json"
+    },
+    {
+      "command": "Verify literal book-source and preserved historical-log hashes",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/SOURCE_RECOVERY.json"
+    },
+    {
+      "command": "Read back every document archive entry and compare recorded SHA-256",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/draft_documents/MANIFEST.json, archive SHA-256 717d439271731ad6d0ff2e4b718721340d10619063fb54fff8808ea7cdaef600"
+    },
+    {
+      "command": "Existing archive inspector on the initial single ZIP",
+      "result": "FAIL",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/draft_documents/PACKAGING_RECOVERY.json records its SHA-256 and archive-sniff-budget-exceeded result. Byte-integrity PASS did not establish complete inspection."
+    },
+    {
+      "command": "Existing archive inspector and byte verification on every complete-document volume",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/draft_documents/MANIFEST.json. Five volumes, original document hashes retained, inspection limits preserved."
+    },
+    {
+      "command": "JSON URL scan equivalence and no-suffix-copy regression control",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/json-scan-equivalence.json and game2d-81-tests.log. 1005 span comparisons and structural no-suffix-copy control pass."
+    },
+    {
+      "command": "Changed GDScript parsing and inference gates",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/changed-173-script-gates.log"
+    },
+    {
+      "command": "Original staged runtime input objects compared with final candidate",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/INPUT_BINDING.json"
+    },
+    {
+      "command": "python -B tools/audit_chapter_contract.py",
+      "result": "PASS",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/final-chapter-contract.log. Static bindings only."
+    },
+    {
+      "command": "Additional whole-batch Git whitespace review",
+      "result": "FAIL",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/whitespace-review.json. Preserved native CRLF/source-evidence and upstream EOF blank lines. This additional review does not change any required gate or source hash."
+    }
+  ],
+  "acceptance_gaps": "Static-book, prototype, source-only, art/motion, formal QA11, actual-device, child and owner statuses retain their source-specific scopes. The master audit remains UNSATISFIED.",
+  "authorization": "audit/cycles/workgroup-batch-sync-20261104/owner_authorization.json",
+  "source_references": [
+    {
+      "revision": "9474e440b65445882e2d15f0a41e43827f8551a3",
+      "role": "Already published recent-updates batch, prior checkout failure retained"
+    },
+    {
+      "revision": "65c63ae849b091e3fb91cdbeaf1e2837e10778fe",
+      "role": "Green current dev with policy correction and comparative audit"
+    },
+    {
+      "path": "audit/cycles/workgroup-batch-sync-20261104/source/chapter-guide-preserved.patch",
+      "sha256": "3d527421066e9015e9043ced842d5e724ee8c410b758f92f17c8563c5d95bf41",
+      "role": "Preserved original staged chapter-guide source and historical failed-run evidence, rooted at a0bb2cf4"
+    }
+  ],
+  "checkout_reference": "https://github.com/actions/checkout/blob/34e114876b0b11c390a56381ad16ebd13914f8d5/action.yml",
+  "lessons": [
+    {
+      "lesson": "A staged patch can normalize source snapshots while their literal hash manifest remains correct. Verify source bytes after reconciliation and recover exact bytes from the preserved source.",
+      "write_back": "audit/cycles/workgroup-batch-sync-20261104/SOURCE_RECOVERY.json"
+    },
+    {
+      "lesson": "The chapter task table and its compact authority-reference footer share a checked boundary. Preserve the footer and keep dated receipts outside that boundary.",
+      "write_back": "audit/MASTER_AUDIT_2026-08-09.md#development-task-index"
+    }
+  ]
+}

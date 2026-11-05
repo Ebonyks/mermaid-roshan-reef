@@ -1,0 +1,194 @@
+{
+  "format": "roshan.rig-binding/1",
+  "rig_id": "roshan.canvas.shared.swim",
+  "version": "0.1.0",
+  "status": "prototype",
+  "skeleton": {
+    "path": "assets_src/animation/roshan_shared_swim_20261101/rig/skeleton.json",
+    "sha256": "635adfa4aac38dbb4d2119c89808eca229b963e1bfd91813096084b796f5eee3"
+  },
+  "bones": [
+    "Hips",
+    "Spine",
+    "Chest",
+    "Neck",
+    "Head",
+    "HairRoot",
+    "HairA",
+    "HairB",
+    "TailA",
+    "TailB",
+    "TailC",
+    "TailD",
+    "Fin",
+    "LeftUpper",
+    "LeftFore",
+    "LeftHand",
+    "RightUpper",
+    "RightFore",
+    "RightHand"
+  ],
+  "views": {
+    "swim_right_quarter": {
+      "canvas": [
+        1024,
+        720
+      ],
+      "slots": {
+        "body_front": {
+          "required": true,
+          "modes": [
+            "weighted"
+          ],
+          "layer": 20
+        },
+        "tail_cover": {
+          "required": true,
+          "modes": [
+            "weighted"
+          ],
+          "layer": 2
+        },
+        "sleeve_left": {
+          "required": true,
+          "modes": [
+            "weighted"
+          ],
+          "layer": 21
+        },
+        "sleeve_right": {
+          "required": true,
+          "modes": [
+            "weighted"
+          ],
+          "layer": 34
+        },
+        "headwear_front": {
+          "required": true,
+          "modes": [
+            "weighted"
+          ],
+          "layer": 45
+        }
+      }
+    }
+  },
+  "sockets": {
+    "headwear": {
+      "bone": "Head",
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "grip_left": {
+      "bone": "LeftHand",
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "grip_right": {
+      "bone": "RightHand",
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "identity_assets": [
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/anatomy.json",
+      "sha256": "bc1c3834564e593a864b3e0d9d7b68b4246cdcb1e6c0ca426d623835b96e3fac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/fin_view.gdshader",
+      "sha256": "4da320f206c8a23c672fc912b70213319c24aa657e09742328e322c2e2dbd161"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/fin_view.gd",
+      "sha256": "35df20ec05a8be3a6c77fc25c4b1fb3ebf9187f5a430a9f9bcd3389b6a5b01d2"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/head_hair.png",
+      "sha256": "4a9a5d5d32e7f68f53bb6c7288798e117244f8f3608c4b05f55bb6794a0458d1"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_head_hair.json",
+      "sha256": "3854e2c16180600e8599269e0a9c22ad1caf2effa7f581f6d6eeaa058132b966"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/arm_far.png",
+      "sha256": "4d91852743a8ad27b90fdebc66a7df9e360780deb4ae1eb508bf667fe53d5bac"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_arm_far.json",
+      "sha256": "c01ddca8e9439657b9901accf4a0815717cdcc1f0160414ce50ab2d5033807fa"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/arm_near.png",
+      "sha256": "47c68cbb6d490bed5cfefb644f69ae3a69613d17f353b2f3654eafb4281e584e"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_arm_near.json",
+      "sha256": "8609628f6711bc1a1ac0acd39793cae85213a8180748a003c1b78abbf3c79eca"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/neck_yoke.png",
+      "sha256": "c6fed5c3e613fd375353f9d52fde00e16db1c48857bda9c572d88713fc9b182a"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_neck_yoke.json",
+      "sha256": "3b51e81d99220fd2640a82f6345672c05b9ba17243675f301d2d3268251717f6"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_broad_registered.png",
+      "sha256": "74717126e1093ce8ab2c7fd5c623f025ce8e713d016ea54968674f9a2d7d0982"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_fin_broad.json",
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_edge_registered.png",
+      "sha256": "8a56ca2be8f169528562ccf930c615ea7ddc4faccd3f38b9b9ab4367bc931897"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_fin_edge.json",
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_cup_registered.png",
+      "sha256": "d30973153d22af14087313edf8d710a91baf82b46aa3ceeddee34763876c07a8"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_fin_cup.json",
+      "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_broad_sdf.f32",
+      "sha256": "0d7a83fc94b1a395dbec084c8d46a7bc2b7683fd48eac21997ec0d886c79dda7"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_broad_nearest_uv.f32",
+      "sha256": "ea01642ea997053e321d5343ddb3d83ea0c8eb14b0c630e751c801959d13bf27"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_edge_sdf.f32",
+      "sha256": "e5aac4c9c449d7e75fbfcb69e466a8145458d16a8007628c872547f7c221680b"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_edge_nearest_uv.f32",
+      "sha256": "176059ae77e40b9815aad767c8c06d29016c56835602d86375ffcddaa722c455"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_cup_sdf.f32",
+      "sha256": "8a9d3bdd33d9520c294828508dc2a285e82381fa345e24054c5af27a27a5c62c"
+    },
+    {
+      "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_cup_nearest_uv.f32",
+      "sha256": "7f577c4482981ae7081c4a6b3d6de0ea153fca454320faad2d4e5dd4851a354d"
+    }
+  ],
+  "templates": {}
+}

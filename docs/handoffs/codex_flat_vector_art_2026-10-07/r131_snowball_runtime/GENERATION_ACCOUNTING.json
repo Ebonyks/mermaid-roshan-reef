@@ -1,0 +1,36 @@
+{
+  "stable_id": "FV-C99F706798D3",
+  "backend": "Builtin image_gen.imagegen",
+  "returned_metadata_fields": [
+    "image_url",
+    "output_hint"
+  ],
+  "model_selector_exposed": false,
+  "model_version": "Not returned, not claimed",
+  "owner_version_preference": "2.5 when available; current tool provides no version selector/returned model",
+  "static_item_take_cap": 2,
+  "generation_calls": 1,
+  "native_generated_designs": 1,
+  "native_rejects": 0,
+  "unused_calls": 1,
+  "animation_calls": 0,
+  "paid_CLI_calls": 0,
+  "cost": "Not exposed; preserve actual call count, do not assert zero monetary usage",
+  "native_request": "assets_src/imagegen/snowball_20261103/GENERATION_REQUEST.json",
+  "native": "assets_src/imagegen/snowball_20261103/native/snowball_01.png",
+  "native_sha256": "f3007a0b691011f7204dd7a3e9fb54175b33fcb11fb17a9680765cdddd6defb6",
+  "runtime_png": "assets/mg/snowball_painted.png",
+  "runtime_sha256": "07eac348486145d2c32c6da7c645b4099679aabbbe938263dbf612def779be11",
+  "masters": {
+    "assets_src/imagegen/snowball_20261103/masters/crop_980.aseprite": "d133a742474b123788c2a660eb3bbe361e5c59c9c4b0bf5edbdefb1a3b8c422f",
+    "assets_src/imagegen/snowball_20261103/masters/native_1254.aseprite": "04b822c4e69acb5d59d5925a2c142dd00b2d1ab4403b7c8c3c6db7cf8d1e5f8b",
+    "assets_src/imagegen/snowball_20261103/masters/runtime_512.aseprite": "dfe0604c5aec63459ed18fcc54a4582b430fe9cc09a415fee17ceb605747ea83"
+  },
+  "technical_runtime_exports": 1,
+  "technical_runtime_reexports": 0,
+  "cleanup": "Deterministic Aseprite exact crop/uniform resample/master roundtrips only; no manual painting, recolor, alpha keying or procedural pixels. Hand cleanup0; operator/review minutes unmetered; asset cleanup trial below30min, no new animation job/cap.",
+  "protected_pixels_exported": false,
+  "context_image_exported": false,
+  "reference_role": "One unprotected actual Farmer carrot style-only reference; screenshot context inspected/text only.",
+  "suitable_reuse": "Existing relevant Snowman images retained intact; they depict damaged complete Snowman/partialRoshan, not a blank growing ball. Quality chosen for named gap; no failed-reuse prerequisite."
+}

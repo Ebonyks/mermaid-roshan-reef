@@ -1,7 +1,7 @@
 # Chapter development guide
 
 Status: `BINDING_DOMAIN` for chapter planning and delegated creative work,
-under `DL-PLAN-01` through `DL-PLAN-06`. Owner direction: 2026-09-05.
+under `DL-PLAN-01` through `DL-PLAN-08`. Owner direction: 2026-09-05.
 Subordinate to direct owner decisions and the existing operational, security,
 protected-content, save, medium, cinematic, and release requirements.
 
@@ -29,6 +29,8 @@ The same day's follow-up explicitly permits free reuse, modification, and
 combination of mechanics. The [Northern/Ice World planning branch](chapters/NORTHERN_ICE_WORLD.md)
 records the owner's example: a second chef game in an existing building,
 combining cooking with customer orders and new contextual artwork.
+
+Read the [chapter map](chapters/CHAPTER_MAP.md) for aliases, carried state, open threads and status, and cite returning characters in the [canon register](reference/CANON.md). The [book source register](reference/BOOK_SOURCES.md) identifies the exact narrative source. Owner direction on book/game mismatches is book-first: adapt the game to the book and record each mismatch; a later agent revision proposal cannot replace the designated book. This does not waive protected-source, save, child, voice or release rules.
 
 ## 2. Creative authority — owner decision, 2026-09-05
 
@@ -116,6 +118,14 @@ story and freeplay routes explicitly; a chapter-specific room/order does not
 silently replace global freeplay. Use symbols and links for shared global
 constants instead of copying their values into every chapter brief.
 
+### Three required chapter checks
+
+1. **Fresh-save chapter traversal** (DL-QA-02, DL-SAVE-04). A trusted probe must reach the chapter from a fresh save, or the previous chapter's real end state reached by the same probe, through visible doors and real touches on the production input path. No director callbacks, phase overrides, mounted fixtures or probe-only gestures may bypass the interaction being claimed. Fixture probes remain useful diagnostics and must say where setup begins. Cover enter → understand → act → visible result → save → leave → return, partial/complete/replay/Back and legacy routes. Chapter 2's post-boss fixture does not close MA-PLAY-005.
+2. **Every story step has a reachable room object** (DL-PLAN-07). Register each authored phase/beat and its own-room object, hotspot or stage action. Run `python -B tools/audit_chapter_contract.py`: Chapter 2 reads ChapterTwoPartyPlan.LIVE_CAREERS, ChapterTwoCareerSceneAdapter.PHASE_SETS/PHASE_BINDINGS and actual OperaCareerWorld2D/OperaStagePaths station construction. The injected unbound-step and other-room-object tests must fail. New chapter implementations extend the gate with their actual registry, room/stage ownership and negative controls. A static binding pass proves no touch geometry, path traversal or camera visibility.
+3. **A story clip waits for the reward beat** (DL-CIN-16, GS-21). A clip following a reward waits for both its authored acting and spoken line to finish. Declare a minimum and a hard maximum, poll completion in the owning process, and document the maximum's recovery without silently cutting off a required beat. MA-PLAY-006 is the worked failure/repair example. Never cover a child action or character acting with a clip; test the complete reward → voice → clip seam, including Back, focus loss and re-entry.
+
+These requirements write back MA-PLAY-005 (an unstartable first party job despite passing fixture probes) and MA-PLAY-006 (a clip over Rumi's wave). They add no runtime repair or closure claim.
+
 ## 5. Production workflow
 
 For each animated character, link its individual profile from the
@@ -137,7 +147,7 @@ prove a new verb's contact, and a character profile does not expand story scope.
    and acceptance tables. Record proposed minor additions and novelty costs.
 4. **Build a representative activity.** Exercise enter → understand → act →
    visible result → save → leave → return. Include assistance, wrong/passive
-   input, focus loss, and re-entry. Use the actual production implementation.
+   input, focus loss, and re-entry. Use the actual production implementation. Apply the three named chapter checks in section 4 before expanding; diagnostics cannot stand in for a fresh-save route.
 5. **Evaluate and revise.** Check composition, input, identity, causality,
    lifecycle, and measured performance where equipment exists. A machine
    pass does not establish comprehension or enjoyment. Fix the pattern before
@@ -250,6 +260,22 @@ canon, duplicated a system, exceeded scope, or required owner correction.
 Record successes as well. The goal is fewer avoidable corrections with equal
 or better player quality, not fewer questions at any cost. Update the reusable
 guidance from evidence; do not silently expand creative authority from a pass.
+
+### Chapter status ladder
+
+The [master chapter board](../audit/MASTER_AUDIT_2026-08-09.md#chapter-board) links each chapter's evidence. Authorization, implementation and acceptance remain separate columns; an implemented prototype can still be below PLAYABLE_REVIEW.
+
+| Rung | Meaning | Required evidence |
+|---|---|---|
+| PLANNED | A sourced brief, seed or map entry exists | Exact planning source |
+| COMMISSIONED | Owner approved premise and boundaries | Dated decision; a scoped route/prototype commission grants only that scope |
+| PLAYABLE_REVIEW | The complete chapter plays from a fresh save | Three section-4 checks, exact-head trusted probes and V4 captures |
+| ON_PHONE | The chapter runs on the target phone | Recorded V5 device session for the exact build |
+| ACCEPTED | Owner accepted the chapter after a phone session | V7 review; record child observations when available, never invent them; separate existing child/release gates remain binding |
+
+For chapter-sized pacing, record estimated and observed sessions-to-finish, longest interval between persisted milestones, longest noninteractive clip before the next child action, quiet beats and natural stopping points. Use the per-run measurement fields in the [playtest guide](../audit/cycles/luna-playtest-20261012/PLAYTEST_GUIDE.md). Estimates are targets, not invented duration limits or observed comprehension.
+
+The first documentation cold-start trial uses the Rumi mermaid world from the latest book, as directed by the owner, and remains planning only. Its [brief](chapters/RUMI_MERMAID_WORLD_BRIEF_20261031.md) and [learning log](../audit/cycles/chapter-guide-20261031/COLD_START_TRIAL.md) retain guesses, gaps, questions and write-backs. A planning trial does not count as the first commissioned runtime autonomy trial above.
 
 ## 9. Maintenance
 

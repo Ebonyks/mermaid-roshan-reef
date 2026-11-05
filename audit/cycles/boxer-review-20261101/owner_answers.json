@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ODR-BOXER-HOOKS-20261101",
+    "date": "2026-11-01",
+    "subject": "Boxer hooks",
+    "question": "Review decision 2: spread the punch paths, or add side hooks?",
+    "decision": "Owner 2026-11-01: \"Hooks should also be a part of the game, which adds variation and disrupts the simple Punch block.\" Hooks are part of the Boxer; the jab lanes are spread as well.",
+    "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+    "authority": "recorded_owner",
+    "checks": [],
+    "checkable": false,
+    "cycle": "boxer-review-20261101"
+  },
+  {
+    "id": "ODR-BOXER-COUNTER-GATE-20261101",
+    "date": "2026-11-01",
+    "subject": "Boxer Title Imp counter gate",
+    "question": "Review decision 1: should Title Imp's counter open only after a block?",
+    "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: a block opens the star; after two unblocked punches in a row the imp tires and opens anyway, so she is never stuck.",
+    "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+    "authority": "recorded_owner",
+    "checks": [],
+    "checkable": false,
+    "cycle": "boxer-review-20261101"
+  },
+  {
+    "id": "ODR-BOXER-COUNTER-WINDOW-20261101",
+    "date": "2026-11-01",
+    "subject": "Boxer counter window",
+    "question": "Review decision 3: counter window fixed or open-ended?",
+    "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: 2.4 s, never below 2.0 s; when help is on, it stays open until she punches.",
+    "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+    "authority": "recorded_owner",
+    "checks": [],
+    "checkable": false,
+    "cycle": "boxer-review-20261101"
+  },
+  {
+    "id": "ODR-BOXER-SOUNDS-20261101",
+    "date": "2026-11-01",
+    "subject": "Boxer sound cues",
+    "question": "Review decision 4: reuse existing sound effects or record new ones?",
+    "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: reuse existing sound effects for the launch, the \"now\" moment and the count-in ticks; no new voice recordings.",
+    "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+    "authority": "recorded_owner",
+    "checks": [],
+    "checkable": false,
+    "cycle": "boxer-review-20261101"
+  },
+  {
+    "id": "ODR-BOXER-SCHEDULE-20261101",
+    "date": "2026-11-01",
+    "subject": "Boxer engine work start",
+    "question": "Review decision 5: when should Codex start?",
+    "decision": "Owner reply 2026-11-01, \"Use the defaults\", accepting the stated default: after the 7 November demo; Codex builds on top of codex/boxer-contact-engine-20261031, which passes CI but is not merged into dev while dev is in its demo freeze.",
+    "source": "docs/handoffs/codex_boxer_engine_2026-11-01/README.md#2-owner-decisions-2026-11-01",
+    "authority": "recorded_owner",
+    "checks": [],
+    "checkable": false,
+    "cycle": "boxer-review-20261101"
+  }
+]

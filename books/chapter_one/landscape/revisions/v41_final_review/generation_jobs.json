@@ -1,0 +1,21 @@
+[
+  {
+    "id": "ARRIVAL_EXTENSION_T01",
+    "output": "art/arrival_extension_attempt1.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/revisions/v41_final_review/inputs/arrival_extension_target.png"
+    ],
+    "transparent_background": false,
+    "prompt": "Use case: precise-object-edit / bounded outpainting. Image 1 is the exact edit target: a 2048 x 1463 page with a fully composed existing painted Sky Lagoon landscape in the horizontal band x0–2047, y467–1149, and transparent empty space above and below. Fill ONLY the transparent top and bottom with a seamless continuation of that exact polished 2D painted storybook art. Upper extension: the same soft turquoise textured sky with a few restrained existing-style small clouds; quiet clear top-left sky for later editable book text. Lower extension: continue the same foreground lawn, pink stone path and painted leafy flower banks naturally from the existing bottom edge. Preserve the complete existing landscape band and all its geometry: left water and rope-post landing, landed shell plane and wheels, central slide/single swing/seesaw, continuous path, hillside trail and cabins, four-tower Pearl Castle, its bridge and the right blue lagoon. Preserve all original landmark positions and scale. No horizontal cropping, panorama squeezing, changed horizon, relocated objects, extra trees/structures/props, otter, animals or people. No text, borders, panels or graphic bars. One continuous finished illustration at the original target aspect ratio. This is extension of existing artwork, not a redesign or full-scene redraw."
+  },
+  {
+    "id": "DOOR_DUST_T01",
+    "output": "art/door_dust_attempt1.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/revisions/v41_final_review/inputs/dust_wisps_source.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/language_v26/puff_unwell.png"
+    ],
+    "transparent_background": true,
+    "prompt": "Use case: precise-object-edit, isolated small storybook dust repair. Image1 supplies the existing four soft lavender-grey dust wisps to refine; Image2 supplies ONLY the pale dusty-lavender painted material and colour, never its character features. Produce exactly four separate softly billowing wisps on genuine transparent RGBA background, in one horizontal row with comfortable transparent gaps. Keep the existing shapeless dust identity and gentle feathered painterly edges, but make each wisp about as tall as it is wide (twice its previous core height), brighter pale lavender-grey with an opaque readable core and softly fading edges. One wisp leans gently forward/downward so it can drift over the top stair edge. No eyes, faces, spiral curls, horns, pearl beads, star, smoke ring, outlines, scenery, door, step, shadow rectangle, text, checkerboard or background. These are four quiet puffs of drifting dust, not characters or four identical cloud icons. Keep the source hand-painted 2D storybook material; output a wide transparent sheet with enough vertical room for all four taller wisps."
+  }
+]

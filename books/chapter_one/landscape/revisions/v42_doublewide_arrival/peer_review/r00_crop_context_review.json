@@ -1,0 +1,141 @@
+{
+  "review_id": "V42_R00_INDEPENDENT_CROP_CONTEXT_AND_GUTTER_REVIEW",
+  "reviewer": "/root/v38_peer_critic",
+  "verdict": "VIABLE_REVIEW_CROP_WITH_PAGINATION_AND_GUTTER_HOLDS",
+  "scope": "Actual crop-preview/source recipe and the proposed mixed-width PDF review alternative. No final PDF, final imposition, owner pagination answer, publication or print acceptance is established.",
+  "baseline": "69276b5cd05eb9deec6b7080af09fb7c3029bef1",
+  "owner_direction": "Arrival should become doublewide with substantial top/bottom cropping, reusing the exact V41 illustration.",
+  "source": {
+    "path": "books/chapter_one/landscape/revisions/v41_final_review/art/arrival_full_setting_candidate.png",
+    "sha256": "71b917938f21235d0ac701db26438194fba43c0d405c430156d156c1c90ec67a",
+    "size": [
+      6144,
+      4389
+    ],
+    "independently_verified_unchanged": true
+  },
+  "reviewed_artifacts": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/spread_recipe.json",
+      "sha256": "a05ee5f3c7f4fd80c980249866004d8bd887f711089ed0b075baeac7b1c1261d"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v42_doublewide_arrival/details/arrival_crop_preview.png",
+      "sha256": "b2707434e70d8969d24f797d95174f92bf66b31966e97443720c71ba360e6b97"
+    }
+  ],
+  "crop_judgment": {
+    "status": "VISUALLY_VIABLE",
+    "crop": [
+      0,
+      1350,
+      6144,
+      3544.285714285714
+    ],
+    "logical_spread_points": [
+      1008,
+      360
+    ],
+    "source_canvas_height_removed_fraction": 0.5000488233570941,
+    "independent_geometry": {
+      "crop_width": 6144,
+      "crop_height": 2194.285714285714,
+      "aspect_ratio": 2.8000000000000003,
+      "full_native_world_band_retained": true,
+      "native_world_fraction_of_crop_height": 0.9333333333333333,
+      "gutter_source_x": 3072,
+      "diagnostic_quarter_inch_each_side_native_x": [
+        2962.285714285714,
+        3181.714285714286
+      ],
+      "seat_source_alpha_bbox": [
+        5,
+        5,
+        549,
+        1018
+      ],
+      "seat_world_document_box": [
+        3100,
+        945,
+        200,
+        370
+      ],
+      "seat_visible_native_x_bounds": [
+        3101.8050541516245,
+        3298.1949458483755
+      ],
+      "seat_box_left_distance_inches_at14x5": 0.06380208333333334,
+      "seat_visible_left_distance_inches_at14x5": 0.06791516245487358,
+      "first_caption_x_logical": 60,
+      "source_sha256_verified": true
+    },
+    "observations": [
+      "The crop is a materially stronger establishing composition than the tall V41 page: the setting fills the spread while the excess added sky and foreground largely disappear.",
+      "All 6144 source columns remain. The complete native world band y1401..3449 is contained within the crop y1350..3544.285714, so the original world itself has not been vertically cut away.",
+      "Both water areas, the complete authored left rope-post approach/landing, grounded plane, separated slide/swing/seesaw, continuous route, mountain trail/houses, four-tower castle and complete bridge remain visible.",
+      "The native world occupies 93.333% of the crop height. This achieves substantial canvas cropping without repeating V40's context loss.",
+      "No new generation or repaint is needed; the source remains the reviewed V41 artwork. Final PDF clipping should preserve the exact continuous source across the midpoint rather than independently recrop or resize two half-images."
+    ]
+  },
+  "caption_judgment": {
+    "current_control": {
+      "x": 60,
+      "y": 316,
+      "width": 365,
+      "size": 20,
+      "align": "left",
+      "color": "navy",
+      "shadow": false,
+      "halo": false,
+      "outline": 0
+    },
+    "observations": [
+      "The revised x60 logical caption placement avoids the left pine while keeping both original caption lines in quiet sky on the left page.",
+      "The declared caption box ends at logical x425, before the centre gutter at x504; no caption spans the fold.",
+      "Actual glyph/background contrast and placement still require the final rendered doublewide PDF. This preview contains no caption and cannot alone establish text acceptance."
+    ]
+  },
+  "gutter_finding": {
+    "id": "V42_R00_GUTTER_SWING",
+    "priority": "P2",
+    "blocks": "Physical binding/gutter acceptance, not this reversible screen-review crop.",
+    "source_x": 3072,
+    "logical_x": 504,
+    "evidence": "The midpoint crosses the swing's upper beam. The seat document box begins at source x3100, only 28 native pixels / 0.0638 in from the gutter at a 14 x 5 in spread. Its actual alpha begins at x3101.805, about 0.0679 in from the fold. A conservative quarter-inch band on either side spans source x2962.286..3181.714 and intersects the left seat/rope region.",
+    "interpretation": "No face, mermaid body or caption lies at the centre. The visible on-screen swing is complete, but a bound gutter may bend, obscure or visually detach its left suspension/seat edge. The quarter-inch band is a diagnostic keep-clear overlay based on existing print safe-zone guidance, not a measured printer-specific binding loss.",
+    "recommendation": [
+      "Provide a centreline and conservative gutter-band overlay as a diagnostic view only; never bake it into delivery artwork.",
+      "Do not call the spread gutter-safe or print-ready from the continuous PDF alone.",
+      "Keep actual binding/lay-flat behaviour and imposition held until the page plan and printer/binding are chosen.",
+      "Do not silently move native playground assets, horizontally crop away water or redraw the setting merely to hide the risk; any later layout remedy must preserve the owner's setting instruction."
+    ]
+  },
+  "pagination_alternative": {
+    "status": "SENSIBLE_TEMPORARY_REVIEW_FORMAT",
+    "description": "One double-width arrival PDF entry, with the existing entrance illustration remaining as the next single-width entry, is a reversible way to show the requested composition while the owner's optional pagination preference is pending.",
+    "preserved": "All 34 PDF entries, all 32 story captions and the existing entrance artwork can remain in their present narrative order.",
+    "required_label": "Mixed-width illustration review document. Not a final facing-page imposition or a verified 32-page print interior.",
+    "physical_count_consequence": "If the one arrival entry is later assigned two physical pages while every other story entry remains a single page, the interior consumes 33 physical page units. Story 3's entrance then starts at physical page 4 rather than page 3; later recto/verso and reveal-turn parity shift.",
+    "existing_reveal_turns": "V41's 13->14,23->24 and27->28 turn map cannot be copied as physically satisfied after adding a page unit. Recalculate it for the chosen imposition.",
+    "alternative_owner_choice": "Using current story pages 2\u20133 for the arrival spread with both captions keeps a 32-page interior but changes how the separate entrance picture/action is presented. Adding an arrival page while retaining entrance needs a new page/binding plan. Do not silently delete that meaningful illustration or decide the owner's pending preference.",
+    "current_recommendation": "Proceed with the clearly labelled wide review entry. Keep final pagination, signatures, blank-page treatment and physical reveal turns unresolved until the owner's choice; no extra permission question is needed for this reversible review build."
+  },
+  "final_review_checks_required": [
+    "Only the arrival entry changes width; final master MediaBox is 2016 x 720 pt for that entry, with all other review entries 1008 x 720 pt.",
+    "At the established 1.5x proof render, the arrival must be 3024 x 1080 pixels and all other pages 1512 x 1080. Fidelity checks must compare equal-sized actual master/email renders, not shrink the spread into a single-page proof.",
+    "The source image remains the exact V41 native image; the final crop uses continuous full-width PDF clipping and exact fractional coordinates. The integer-rounded PNG preview is only a visual preview.",
+    "All32 caption texts/manual breaks and the separate entrance artwork remain unless the owner explicitly selects a different pagination treatment.",
+    "Actual caption contrast, mixed-width reading interface and email export must be reviewed from final bytes.",
+    "Preserve V41 originals, stronger B1 dust and every unnamed page. Update the standing single-page rule with a scoped owner-directed arrival exception rather than treating old BK-PG-03 as an approval blocker.",
+    "Publish the final review payload with exact source/provenance/manifest and anonymous remote verification; no claim of print imposition from a wide screen PDF."
+  ],
+  "acceptance_limits": [
+    "This record approves the crop as a review direction only; final artifacts are not yet reviewed.",
+    "Owner pagination preference remains unanswered at this diagnostic point.",
+    "The existing owner stop before print Part 2/P1-P8 remains in force.",
+    "No owner creative acceptance, child/SLP result, printer gutter/safe-zone approval, physical test print, runtime or release acceptance."
+  ],
+  "changed_by_critic": [
+    "books/chapter_one/landscape/revisions/v42_doublewide_arrival/peer_review/r00_crop_context_review.json"
+  ]
+}

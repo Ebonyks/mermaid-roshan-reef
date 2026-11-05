@@ -1,0 +1,10 @@
+{
+  "status": "INCOMPLETE_NATIVE_SWAP_ATTEMPT",
+  "snapshots": 74,
+  "required_snapshots": 81,
+  "required_pixel_cases": 243,
+  "swap_audit_receipt_existed": false,
+  "launcher_exit_code": 0,
+  "conclusion": "Do not infer success from process exit alone. Retain partial archive and require final native swap_audit.json plus expected counts.",
+  "action": "Rerun unchanged frozen stress_swaps.gd; no art or rig changes."
+}

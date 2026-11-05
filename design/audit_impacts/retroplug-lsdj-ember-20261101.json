@@ -1,0 +1,57 @@
+{
+  "id": "retroplug-lsdj-ember-20261101",
+  "scope": "Install official RetroPlug for the owner-downloaded LSDJ, verify native REAPER hosting and ROM readiness without taking over the user desktop, and record owner-authorized exception to UVI-only instrumentation and chiptune as Ember King\u2019s theme. No full song composition, runtime music replacement or release change.",
+  "baseline": "2475ca4b7c6dffdc35e2ed86561560ebd11f8275",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-04",
+    "DL-SND-09",
+    "DL-SND-12",
+    "DL-SND-17",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "files": [
+    "tools/reaper/setup_retroplug.lua",
+    "design/music/RETROPLUG_LSDJ_SETUP_2026-11-01.md",
+    "design/music/retroplug_installation_20261101.json",
+    "design/music/retroplug_owner_direction_20261101.json",
+    "design/music/ENSEMBLE_DESIGN_GUIDE_2026-11-01.md",
+    "design/music/ENSEMBLE_ROSTER_2026-11-01.json",
+    "design/music/SONIC_IDENTITY_PROPOSAL_2026-11-01.md",
+    "design/music/SONIC_PALETTE_MAP_2026-11-01.json",
+    "MUSIC_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/cycles/retroplug-ember-20261101/owner_answers.json"
+  ],
+  "validation": [
+    {
+      "command": "Official release integrity, safe local installation and isolated native REAPER/LSDJ recall",
+      "result": "PASS",
+      "evidence": "Official RetroPlug v0.7.4 VST3/CLI archive SHA256 digests match release metadata. LSDJ 9.4.2 archive/ROM preserved and identified by native CLI. REAPER 7.80/x64 instantiates eight-output RetroPlug; 48 kHz five-track writing desk with four stereo returns saved. Independent native recall without autoload restores correct ROM path, Game Boy state/SRAM, split routing and all four channel pairs. Blank-ROM boot renders finite zero samples: loading check only, no music/tone audition. All isolated workers stopped; no user mouse/keyboard input or audio-setting changes. Private source logs: build/retroplug_20261101/; public measured receipt: design/music/retroplug_installation_20261101.json."
+    },
+    {
+      "command": "Document authority / development coverage / append-only owner register / diff review",
+      "result": "PASS",
+      "evidence": "755 inventory/ledger, ACTIVE 74, RECORDS 77; 76 owner decisions, unchanged prior decisions against exact 2475ca4b7c6dffdc35e2ed86561560ebd11f8275; development auto base 93166ab1828ab9857227d038f8833b92dfb2f9f1 ALL OK; clean staged diff check. Fifteen scoped files, no software/ROMs/protected/runtime assets. build/retroplug_20261101/{authority,coverage,decisions}.log."
+    },
+    {
+      "command": "Unchanged game/runtime predecessor regression evidence",
+      "result": "PASS",
+      "evidence": "Exact predecessor 2475ca4b remote runs 41363394448 and 41363505522: probes and area-music-provenance both pass. This follow-up changes design and a separately native-tested studio Lua helper, with no GDScript/runtime/audio replacements; predecessor game results are not transferred as listening/device/child acceptance."
+    },
+    {
+      "command": "Owner review copies and worker shutdown",
+      "result": "PASS",
+      "evidence": "Ten design/music source documents copied byte-identically into both owner review/tool folders with SHA256 receipts. All isolated reaper-profile-retroplug workers exited/stopped; no keyboard/mouse input or user audio settings changes."
+    }
+  ],
+  "acceptance_gaps": "Musical reference/program auditions and Ember King hook/form plan remain to be reviewed before composition. No runtime, phone, child or release acceptance; MA-AUDIO-001 unchanged."
+}

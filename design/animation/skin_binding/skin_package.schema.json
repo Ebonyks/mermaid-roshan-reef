@@ -1,0 +1,294 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mermaid-roshan.invalid/skin-binding/skin-1",
+  "$comment": "Proposed source-authoring interchange v1. The stdlib/Pillow CLI adds hash, geometry and compatibility checks; no runtime or artistic acceptance is implied.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "roshan.skin/1"
+    },
+    "skin_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]+$"
+    },
+    "rig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "contract_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "contract_sha256"
+      ]
+    },
+    "views": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "view": {
+            "type": "string",
+            "minLength": 1
+          },
+          "slot": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mode": {
+            "enum": [
+              "rigid",
+              "weighted"
+            ]
+          },
+          "texture": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[^:\\\\]+$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          },
+          "binding": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "socket": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pivot": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "offset": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "rotation_deg": {
+                "type": "number"
+              },
+              "scale": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "required": [
+              "socket",
+              "pivot",
+              "offset",
+              "rotation_deg",
+              "scale"
+            ]
+          },
+          "geometry": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[^:\\\\]+$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          },
+          "template_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "view",
+          "slot",
+          "mode",
+          "texture"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "mode": {
+                  "const": "rigid"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "binding"
+              ],
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "geometry"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "template_id"
+                    ]
+                  }
+                ]
+              }
+            },
+            "else": {
+              "required": [
+                "geometry"
+              ],
+              "not": {
+                "required": [
+                  "binding"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "asset": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "^[^:\\\\]+$"
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                }
+              },
+              "license": {
+                "type": "string",
+                "minLength": 1
+              },
+              "role": {
+                "enum": [
+                  "garment_source",
+                  "registration_reference",
+                  "style_reference"
+                ]
+              },
+              "acceptance_scope": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "asset",
+              "license",
+              "role",
+              "acceptance_scope"
+            ]
+          }
+        },
+        "edits": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "generator_calls": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "sources",
+        "edits",
+        "generator_calls"
+      ]
+    }
+  },
+  "required": [
+    "format",
+    "skin_id",
+    "rig",
+    "views",
+    "attachments",
+    "coverage",
+    "provenance"
+  ]
+}

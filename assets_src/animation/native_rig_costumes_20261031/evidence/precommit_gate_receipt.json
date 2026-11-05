@@ -1,0 +1,44 @@
+{
+  "pass": true,
+  "checked_at_utc": "2026-11-01T01:48:26.774362+00:00",
+  "checks": [
+    {
+      "name": "precommit_authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit": 0,
+      "stdout_sha256": "d71f89f48b9097c456686f0a41da94d4790b85ed87b97fd600377dfada9caa1c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "precommit_development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit": 0,
+      "stdout_sha256": "7f368e4906a83cc2b69851c1acf6ae8c58bbcdd861d8482c5353b8de36e2a0ab",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "precommit_whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "python_compile_files": 13,
+  "portable_helpers_match": true
+}

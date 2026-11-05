@@ -1,0 +1,64 @@
+{
+  "stable_id": "FV-C6F64FAA2F32",
+  "backend": "builtin image_gen; no model selector/model version exposed",
+  "attempt": 1,
+  "static_item_call_cap": 2,
+  "animation_calls": 0,
+  "references": [
+    {
+      "path": "assets/mg/star.png",
+      "sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+      "role": "style_only_actual_neighbor",
+      "exported_to_builtin": true,
+      "source_scope": "Project-original approved painted star, existing ASSET_LICENSES provenance retained; does not grant new output acceptance"
+    }
+  ],
+  "scene_context": {
+    "path": "C:\\Users\\Peter\\AppData\\Local\\Temp\\reef-flat-vector-trampoline-pad-20261102\\source_native\\1280x720\\output\\01_rest.png",
+    "sha256": "6e0b82dc544372203364ca0bb102d6bd5cbdfd561a2daf1d0307b8c1436369dd",
+    "role": "actual_current1280x720MobileSpeedy_rest_reference_for_artist_inspection_and_text_context_only",
+    "exported_to_builtin": false,
+    "used_as_delivery_pixels": false
+  },
+  "source_revision": "27c88288bf6e39582072811443df79919e7bbb89",
+  "protected_originals_exported": false,
+  "prompt_sha256": "4a7597f1869071f0d47b66d6d0d73fd8520a3c7417197dcff54bdadc4111cdda",
+  "output": {
+    "path": "assets_src/imagegen/trampoline_pad_20261102/native/trampoline_01.png",
+    "original_builtin_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a119cc-74b1-7d23-b956-126129405418\\exec-08132eb8-8961-4a07-9253-c3581c8c1b2b.png",
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGBA",
+    "alpha_bbox": [
+      0,
+      9,
+      2160,
+      724
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_sha256": "ee0b92112c4162b2be7d8d469a77cc82c69764f714222fabbb185b194038d67a",
+    "preserved_native_sha256": "ee0b92112c4162b2be7d8d469a77cc82c69764f714222fabbb185b194038d67a"
+  },
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "state": "NATIVE_OUTPUT_PRESERVED_CANDIDATE_NOT_ACCEPTED",
+  "provider_model_version": null,
+  "request_id": null,
+  "seed": null,
+  "reported_usage": null,
+  "cost": null,
+  "actual_exposed_backend": "builtin image_gen; no model selector/version returned"
+}

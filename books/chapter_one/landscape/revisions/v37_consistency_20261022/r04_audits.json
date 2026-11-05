@@ -1,0 +1,42 @@
+{
+  "revision": "R4",
+  "pdf_sha256": "61c2feb0efca7b07a05991cb937c55b141bb008a98c8574642f5f1585e1fc842",
+  "scope": "All34page composition carried from R3; native R4 detail and changed pages reviewed. One reviewer,5focused passes, no independent reviewers.",
+  "passes": [
+    {
+      "run": 1,
+      "focus": "Identity/accessory detail",
+      "result": "FAIL",
+      "remaining": [
+        "Two isolated22-pixel cyan remnants beside main gems19/20. Pixel analysis located exact remaining bounds19:[583,242,587,249],20:[594,238,598,245]."
+      ]
+    },
+    {
+      "run": 2,
+      "focus": "Composition and cross-page hierarchy",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 3,
+      "focus": "Contacts, limbs and action order",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 4,
+      "focus": "Repair edges/alpha and background joins",
+      "result": "PASS",
+      "remaining": []
+    },
+    {
+      "run": 5,
+      "focus": "Adversarial cross-pass comparison",
+      "result": "FAIL",
+      "remaining": [
+        "Only run1 actionable; broad repair areas remain stable."
+      ]
+    }
+  ],
+  "status": "FAILED_VISUAL_REVIEW"
+}

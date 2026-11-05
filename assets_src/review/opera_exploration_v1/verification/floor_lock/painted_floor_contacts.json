@@ -1,0 +1,15 @@
+{
+  "world_floor_y": [
+    372,
+    704,
+    1035
+  ],
+  "original_art_floor_y": [
+    148.8,
+    281.6,
+    414.0
+  ],
+  "reference": "assets/flats/castle/opera_house_venue_2d/room_opera_house_venue.png",
+  "method": "Walkway contacts behind the existing rail faces; alpha-bottom floor placement of unchanged approved atlas cells and their existing temporal blend. Whole upper/middle balcony cards move in front of the actor, complete crests remain above those cards.",
+  "prior_visual_failure": "Native pre_visual_grounding upper-gallery image shows a hovering silhouette even though logical floor checks passed."
+}

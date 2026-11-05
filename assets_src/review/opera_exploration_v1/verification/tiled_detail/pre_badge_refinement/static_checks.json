@@ -1,0 +1,82 @@
+[
+  {
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "gdtoolkit.parser",
+      "scripts/review/opera_translation_v1.gd",
+      "scripts/review/opera_curtain_card_v1.gd",
+      "scripts/review/probe_opera_translation_v1.gd"
+    ],
+    "exit_code": 0,
+    "log": "parser.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "PASS"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "tools/lint_inference.py",
+      "scripts/review/opera_translation_v1.gd",
+      "scripts/review/opera_curtain_card_v1.gd",
+      "scripts/review/probe_opera_translation_v1.gd"
+    ],
+    "exit_code": 0,
+    "log": "inference.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result": "PASS"
+  },
+  {
+    "command": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-ai-playtest-20261017-101103\\runtime",
+      "--check-only",
+      "--script",
+      "res://scripts/review/opera_translation_v1.gd",
+      "--log-file",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera-four-screen-v1-20261031\\assets_src\\review\\opera_exploration_v1\\verification\\tiled_detail\\engine_opera_translation_v1.log"
+    ],
+    "exit_code": 0,
+    "log": "analyzer_opera_translation_v1.log",
+    "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+    "result": "PASS"
+  },
+  {
+    "command": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-ai-playtest-20261017-101103\\runtime",
+      "--check-only",
+      "--script",
+      "res://scripts/review/opera_curtain_card_v1.gd",
+      "--log-file",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera-four-screen-v1-20261031\\assets_src\\review\\opera_exploration_v1\\verification\\tiled_detail\\engine_opera_curtain_card_v1.log"
+    ],
+    "exit_code": 0,
+    "log": "analyzer_opera_curtain_card_v1.log",
+    "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+    "result": "PASS"
+  },
+  {
+    "command": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-ai-playtest-20261017-101103\\runtime",
+      "--check-only",
+      "--script",
+      "res://scripts/review/probe_opera_translation_v1.gd",
+      "--log-file",
+      "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\opera-four-screen-v1-20261031\\assets_src\\review\\opera_exploration_v1\\verification\\tiled_detail\\engine_probe_opera_translation_v1.log"
+    ],
+    "exit_code": 0,
+    "log": "analyzer_probe_opera_translation_v1.log",
+    "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+    "result": "PASS"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "review_type": "AGENT_STATIC_FRAME_INSPECTION",
+  "checked_utc": "2026-11-01T15:20:04.365792+00:00",
+  "verdict": "REJECTED",
+  "files": [
+    {
+      "path": "review/painter_paint_banner_board.jpg",
+      "sha256": "99b1640dac76fadd5c48604bdcdeb015b5a85cfa43cd1c5053495d25ab78892b"
+    },
+    {
+      "path": "review/astronaut_turn_valve_board.jpg",
+      "sha256": "40bf68b31858a604a1998488253d6066f8e33b46c640a534fc7d6b5dd09c30bd"
+    },
+    {
+      "path": "review/painter_tail_bend_board.jpg",
+      "sha256": "90bb835a72a8b325362320a33c7b3f966698446227d93fd5e8d3ea039566e75c"
+    },
+    {
+      "path": "review/astronaut_tail_bend_board.jpg",
+      "sha256": "c0a650a03ba5e38f1abed5accf8f509d7e5b3d101a13f6074f071655e0c2059d"
+    },
+    {
+      "path": "review/failures/painter_tail_bend_0028.png",
+      "sha256": "b742bcb80707a65c56a170e23bc7bd953c142c7e9dea353b3a23f85e3c534fe7"
+    },
+    {
+      "path": "review/failures/astronaut_turn_valve_0118.png",
+      "sha256": "505ec7eaa5e2bab0c62efec071d3afb6a6cc0ad68550281e544c60b173d364b8"
+    }
+  ],
+  "observations": [
+    "Sampled full-context boards show the declared brush/banner and palm/valve contact. This is a sampled spatial observation, not motion acceptance.",
+    "At native size the painter neckline repair produces an unnaturally straight skin boundary below the head and abrupt shoulder/strap transitions. It fails polished whole-figure contour quality despite old-clothing erasure passing.",
+    "The native astronaut sample has a visibly abrupt lower-hood/neck transition and costume/fin join details needing review. The preserved fin and new sleeve do not establish a clean accepted join.",
+    "Small boards obscure these defects. Exact native rejected frames and numerical seam failures take precedence."
+  ],
+  "limits": "Only named static boards/frames inspected in this review record. Normal-speed playback was not completed because desktop launch approval timed out. No complete frame-step, owner, device or child acceptance.",
+  "next_repair": "Begin a new bounded job card with approved complete neck/shoulder and fin-join source coverage, preserve this rejected candidate, retain shared contract/common rests/weights and every unchanged numerical floor. Do not resume generation under the exhausted four-call cap."
+}

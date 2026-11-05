@@ -1,0 +1,138 @@
+{
+  "parts": [
+    {
+      "id": "head_hair",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/head_hair.png",
+        "sha256": "4a9a5d5d32e7f68f53bb6c7288798e117244f8f3608c4b05f55bb6794a0458d1"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_head_hair.json",
+        "sha256": "3854e2c16180600e8599269e0a9c22ad1caf2effa7f581f6d6eeaa058132b966"
+      },
+      "layer": 40
+    },
+    {
+      "id": "arm_far",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/arm_far.png",
+        "sha256": "4d91852743a8ad27b90fdebc66a7df9e360780deb4ae1eb508bf667fe53d5bac"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_arm_far.json",
+        "sha256": "c01ddca8e9439657b9901accf4a0815717cdcc1f0160414ce50ab2d5033807fa"
+      },
+      "layer": 8
+    },
+    {
+      "id": "arm_near",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/arm_near.png",
+        "sha256": "47c68cbb6d490bed5cfefb644f69ae3a69613d17f353b2f3654eafb4281e584e"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_arm_near.json",
+        "sha256": "8609628f6711bc1a1ac0acd39793cae85213a8180748a003c1b78abbf3c79eca"
+      },
+      "layer": 32
+    },
+    {
+      "id": "neck_yoke",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/neck_yoke.png",
+        "sha256": "c6fed5c3e613fd375353f9d52fde00e16db1c48857bda9c572d88713fc9b182a"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_neck_yoke.json",
+        "sha256": "3b51e81d99220fd2640a82f6345672c05b9ba17243675f301d2d3268251717f6"
+      },
+      "layer": 9
+    },
+    {
+      "id": "fin_broad",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_broad_registered.png",
+        "sha256": "74717126e1093ce8ab2c7fd5c623f025ce8e713d016ea54968674f9a2d7d0982"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_fin_broad.json",
+        "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+      },
+      "layer": 1
+    },
+    {
+      "id": "fin_edge",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_edge_registered.png",
+        "sha256": "8a56ca2be8f169528562ccf930c615ea7ddc4faccd3f38b9b9ab4367bc931897"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_fin_edge.json",
+        "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+      },
+      "layer": 1
+    },
+    {
+      "id": "fin_cup",
+      "texture": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/textures/anatomy/fin_cup_registered.png",
+        "sha256": "d30973153d22af14087313edf8d710a91baf82b46aa3ceeddee34763876c07a8"
+      },
+      "geometry": {
+        "path": "assets_src/animation/roshan_shared_swim_20261101/geometry/anatomy_fin_cup.json",
+        "sha256": "ef7d92aaf2cd4efdb1e89f167757c940257dd9d7d731f0894779191cce0f9a29"
+      },
+      "layer": 1
+    }
+  ],
+  "fin_states": [
+    "fin_broad",
+    "fin_edge",
+    "fin_cup"
+  ],
+  "note": "Canonical head/hair, arms, neck/shoulder and authored fin states. All body/tail clothing is exclusively skin-owned; default pink shirt/tail source pieces are not rendered.",
+  "fin_interpolation": {
+    "format": "roshan.fin-view-fields/1",
+    "canvas": [
+      512,
+      512
+    ],
+    "pivot": [
+      400,
+      256
+    ],
+    "buffers": {
+      "fin_broad": {
+        "distance": {
+          "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_broad_sdf.f32",
+          "sha256": "0d7a83fc94b1a395dbec084c8d46a7bc2b7683fd48eac21997ec0d886c79dda7"
+        },
+        "nearest_uv": {
+          "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_broad_nearest_uv.f32",
+          "sha256": "ea01642ea997053e321d5343ddb3d83ea0c8eb14b0c630e751c801959d13bf27"
+        }
+      },
+      "fin_edge": {
+        "distance": {
+          "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_edge_sdf.f32",
+          "sha256": "e5aac4c9c449d7e75fbfcb69e466a8145458d16a8007628c872547f7c221680b"
+        },
+        "nearest_uv": {
+          "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_edge_nearest_uv.f32",
+          "sha256": "176059ae77e40b9815aad767c8c06d29016c56835602d86375ffcddaa722c455"
+        }
+      },
+      "fin_cup": {
+        "distance": {
+          "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_cup_sdf.f32",
+          "sha256": "8a9d3bdd33d9520c294828508dc2a285e82381fa345e24054c5af27a27a5c62c"
+        },
+        "nearest_uv": {
+          "path": "assets_src/animation/roshan_shared_swim_20261101/rig/fin_cup_nearest_uv.f32",
+          "sha256": "7f577c4482981ae7081c4a6b3d6de0ea153fca454320faad2d4e5dd4851a354d"
+        }
+      }
+    },
+    "method": "One common fin material interpolates signed contours and source-colour coordinates between three authored poses. This is declared 2D pose interpolation; geometric skin strain does not certify its appearance."
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "groups": [
+    {
+      "id": "object_detail_left_wing",
+      "name": "left_wing",
+      "native_input_rect": [
+        0,
+        0,
+        509,
+        941
+      ],
+      "original_bounds": [
+        0.0,
+        0.0,
+        311.73205741626793,
+        576.0
+      ],
+      "input": "assets_src/review/opera_exploration_v1/tiled_detail/object_detail_inputs/left_wing.png",
+      "output": "object_detail_left_wing_raw.png",
+      "role": "Original-fixture local detail restoration only; low-frequency source lock retains original geometry and palette."
+    },
+    {
+      "id": "object_detail_right_wing",
+      "name": "right_wing",
+      "native_input_rect": [
+        1163,
+        0,
+        1672,
+        941
+      ],
+      "original_bounds": [
+        712.2679425837321,
+        0.0,
+        1024.0,
+        576.0
+      ],
+      "input": "assets_src/review/opera_exploration_v1/tiled_detail/object_detail_inputs/right_wing.png",
+      "output": "object_detail_right_wing_raw.png",
+      "role": "Original-fixture local detail restoration only; low-frequency source lock retains original geometry and palette."
+    },
+    {
+      "id": "object_detail_upper_doors",
+      "name": "upper_doors",
+      "native_input_rect": [
+        490,
+        0,
+        1182,
+        261
+      ],
+      "original_bounds": [
+        300.0956937799043,
+        0.0,
+        723.9043062200957,
+        159.76195536663124
+      ],
+      "input": "assets_src/review/opera_exploration_v1/tiled_detail/object_detail_inputs/upper_doors.png",
+      "output": "object_detail_upper_doors_raw.png",
+      "role": "Original-fixture local detail restoration only; low-frequency source lock retains original geometry and palette."
+    },
+    {
+      "id": "object_detail_middle_doors",
+      "name": "middle_doors",
+      "native_input_rect": [
+        490,
+        237,
+        1182,
+        498
+      ],
+      "original_bounds": [
+        300.0956937799043,
+        145.0712008501594,
+        723.9043062200957,
+        304.83315621679066
+      ],
+      "input": "assets_src/review/opera_exploration_v1/tiled_detail/object_detail_inputs/middle_doors.png",
+      "output": "object_detail_middle_doors_raw.png",
+      "role": "Original-fixture local detail restoration only; low-frequency source lock retains original geometry and palette."
+    },
+    {
+      "id": "object_detail_lower_doors",
+      "name": "lower_doors",
+      "native_input_rect": [
+        490,
+        433,
+        1182,
+        694
+      ],
+      "original_bounds": [
+        300.0956937799043,
+        265.0456960680128,
+        723.9043062200957,
+        424.807651434644
+      ],
+      "input": "assets_src/review/opera_exploration_v1/tiled_detail/object_detail_inputs/lower_doors.png",
+      "output": "object_detail_lower_doors_raw.png",
+      "role": "Original-fixture local detail restoration only; low-frequency source lock retains original geometry and palette."
+    },
+    {
+      "id": "object_detail_island",
+      "name": "island",
+      "native_input_rect": [
+        702,
+        676,
+        980,
+        920
+      ],
+      "original_bounds": [
+        429.933014354067,
+        413.78958554729013,
+        600.1913875598086,
+        563.1455897980871
+      ],
+      "input": "assets_src/review/opera_exploration_v1/tiled_detail/object_detail_inputs/island.png",
+      "output": "object_detail_island_raw.png",
+      "role": "Original-fixture local detail restoration only; low-frequency source lock retains original geometry and palette."
+    }
+  ],
+  "maximum_additional_calls": 6,
+  "aggregate_phase_calls_when_complete": 32,
+  "method": "Generate each complete fixture group once. Extract each registered source owner from that single group, preserving one owner per source pixel. Reuse original strips crossing groups; no independent re-generation of the same object on both sides of a join."
+}

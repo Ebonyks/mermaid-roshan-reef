@@ -1,0 +1,42 @@
+{
+  "checked_utc": "2026-11-05T09:52:13.528627+00:00",
+  "static_checkpoint_local_tree": "f9605ae4afceb35e20da6b3804d4d5eb6d9ae9c0",
+  "native_checkpoint_local_tree": "75fe6f233a4c8a30510bc8937a61b32224cbf527",
+  "scope_git_object_ids": {
+    "scripts": "be0fc45bb5c912867b27c2d789cf8fe5d5afd052",
+    "assets": "e4f4d320b058a20ba5da60189606806cf9b040d1",
+    "assets_src": "11d5e93d8c9fa6444e74a112bf061543625b318f",
+    "scenes": "34209479016672c9a91cfec2ce33f89e2075f4ff",
+    "shaders": "9888a82057eececf56c4042ede9abf3f07704bee",
+    "tools": "c3b4306658d641dcf536458ae680150ce988284b",
+    "project.godot": "2351cb32085bcefe893ee220ed1b9ec88c4d2875",
+    "design/reference/book_sources": "e21004a9b056f50b2bf681d3a053ee04b6bb4e83"
+  },
+  "final_commit_binding": "Each listed path resolves to this same tree/blob object in the publication commit. These reachable objects bind the tested inputs without relying on the local-only checkpoint root.",
+  "static_to_native_changes": [
+    "tools/audit_game_2d.py",
+    "tools/tests/test_audit_game_2d.py"
+  ],
+  "changed_tool_verification": "81 audit tests including the no-suffix-copy control and 1005 exact URL-span equivalence cases PASS. Remaining 77 focused tests PASS.",
+  "working_scope_diff": [],
+  "static_result": "Original full ci.sh static prefix passed and then failed its import deadline. Fresh approved native import and all original runtime entry points subsequently passed.",
+  "runtime_result": "84 accepted checks including import, original game-wide regression gate and every one of 82 original trusted probes. Original failure patterns, isolated save roots and deadlines preserved.",
+  "earlier_attempts": [
+    {
+      "attempt": "full-ci-02",
+      "result": "FAIL",
+      "reason": "Import preparation exceeded the original local import deadline."
+    },
+    {
+      "attempt": "native-01",
+      "result": "INTERRUPTED",
+      "reason": "Stopped after reproducing the initial single-ZIP archive-inspection budget failure. Whole documents were then repackaged under unchanged limits."
+    },
+    {
+      "attempt": "native-02",
+      "result": "INTERRUPTED",
+      "reason": "Live profile repeatedly identified quadratic JSON suffix copying. In-place matching preserves exact classifications and has a structural regression test."
+    }
+  ],
+  "claim_scope": "Combined checkpoint evidence across retained attempts. Whole-game master-audit, artistic, device, child and owner acceptance remain independently scoped."
+}

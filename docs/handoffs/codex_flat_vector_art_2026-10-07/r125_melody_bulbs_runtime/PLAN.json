@@ -1,0 +1,59 @@
+{
+  "id": "R125",
+  "stable_id": "FV-3C4F040EA786",
+  "name": "Theatre bulbs",
+  "baseline": "27c88288bf6e39582072811443df79919e7bbb89",
+  "branch": "codex/flat-vector-melody-bulbs-20261102",
+  "owner_scope": "Resume art candidates; keep Dev frozen",
+  "state": "ACTUAL_SOURCE_INTEGRATED_IMPORT_NATIVE_NEXT",
+  "scope": "Replace only the two ProsceniumCanvas cream/gold bulb rows drawn as flat circles with whole painted RGBA bulb sprites. Preserve original count=maxi(12,int(width/66)), x24..width-24, upper center y22/diameter15, lower center height-19/diameter14, parent/z10/order. No curtain/header/apron/footlight/actor/input/objective/audio/save changes. Source branch only; Dev/master frozen.",
+  "method": "Built-in ImageGen one named cream upper bulb and one named gold lower bulb, static cap2 total. Aseprite exact native/crop masters and uniform downscale only. Whole untinted Sprite2D cards; no new light/halo/shader or procedural appearance.",
+  "static_item_call_cap": 2,
+  "calls_used": 2,
+  "animation_calls": 0,
+  "planned_native_designs": [
+    "warm cream upper theatre globe",
+    "warm gold lower theatre globe"
+  ],
+  "existing_named_roles": 1,
+  "new_roles": 0,
+  "new_families": 0,
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-MED-05",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-READ-02",
+    "DL-QA-03",
+    "DL-QA-11",
+    "DL-QA-14"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-VIS-008"
+  ],
+  "required_evidence": [
+    "Current raw-exact5062 source closure and six same-scene reused source frames",
+    "Two exact original outputs, role-bound scene/material inputs, prompts, attempts and native/editable provenance",
+    "Ten-axis same-scene three-aspect entry/one-note review, exact bulb centers/counts/sizes/untinted whole-source and lifecycle/passive/save/resource gates",
+    "Exact4.7.2 Mobile/Speedy import/current static/analyzer/2D/full82 checks",
+    "Immutable source/canonical delivery and anonymous manifest/every-required-file verification"
+  ],
+  "Dev_integrated": false,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "accepted_removed": 0,
+  "mission_complete": false,
+  "calls_reserved": 2
+}

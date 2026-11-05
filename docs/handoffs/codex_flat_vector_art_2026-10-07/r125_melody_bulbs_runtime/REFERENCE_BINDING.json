@@ -1,0 +1,33 @@
+{
+  "inputs": [
+    {
+      "path": "assets_src/imagegen/melody_bulbs_20261102/references/actual_melody_source_1280.png",
+      "sha256": "affa39bddaf3f04b2d5c168fa76b6e7220a85cba3b823e941ac2826f2c821e3d",
+      "role": "actual scene position/color/neighboring art reference only; do not redraw scene or copy characters",
+      "acceptance_scope": "source-bound configured diagnostic; no formalQA11/device/owner acceptance"
+    },
+    {
+      "path": "assets_src/imagegen/melody_bulbs_20261102/references/painted_globe_material.png",
+      "sha256": "92f86b55365de9eae1fabab8926935f10545aeda8196fc5cc9980cf7bb9d8d3e",
+      "role": "broad painted globe material and edge handling only; cream/gold hues derive from actual scene",
+      "acceptance_scope": "R123 source-candidate, not owner-approved artwork"
+    }
+  ],
+  "output_role": "FV-3C4F040EA786 two static bulb variants only",
+  "backend": "built-in image_gen; no selector; model/version NOT_EXPOSED",
+  "Dev_frozen": true,
+  "gold_call_inputs": [
+    {
+      "path": "assets_src/imagegen/melody_bulbs_20261102/references/actual_melody_source_1280.png",
+      "sha256": "affa39bddaf3f04b2d5c168fa76b6e7220a85cba3b823e941ac2826f2c821e3d",
+      "role": "actual scene position/color/neighboring art reference only; do not redraw scene or copy characters",
+      "acceptance_scope": "source-bound configured diagnostic; no formalQA11/device/owner acceptance"
+    },
+    {
+      "path": "assets_src/imagegen/melody_bulbs_20261102/native/cream_bulb_original.png",
+      "sha256": "34061b4e16c90a60bd17ccb6d808f59f050dfaf25527cecf4ce660cd60cf1287",
+      "role": "whole round silhouette and painted material/light reference for gold lower variant",
+      "acceptance_scope": "R125 cream source-candidate only; no runtime/owner acceptance"
+    }
+  ]
+}

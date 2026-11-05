@@ -1,0 +1,60 @@
+{
+  "schema": "roshan-skin-binding-contract/1",
+  "status": "CONCEPT_CONTRACT_WITH_PROPOSED_V1_EXCHANGE_SCHEMAS",
+  "rig": "One canonical versioned Canvas Skeleton2D and anatomy master",
+  "skin_allowed_fields": [
+    "schema_version",
+    "skin_id",
+    "rig_id",
+    "rig_hash",
+    "views",
+    "attachments",
+    "coverage_regions",
+    "draw_order",
+    "seam_groups",
+    "source_provenance"
+  ],
+  "skin_forbidden_ownership": [
+    "Skeleton2D instance",
+    "Bone2D creation or rest overrides",
+    "anatomical Body mesh or face/hair replacement",
+    "AnimationPlayer or per-outfit animation controller",
+    "per-outfit character builder or shader implementation"
+  ],
+  "attachment_modes": {
+    "rigid": "Texture/region and authored local transform on a named bone/socket",
+    "deforming": "Garment-only polygon/UV/triangles and normalized weights on existing bones; reusable geometry reference preferred"
+  },
+  "required_slots": [
+    "headwear_back",
+    "body_back",
+    "tail_cover",
+    "sleeve_left",
+    "sleeve_right",
+    "body_front",
+    "headwear_front"
+  ],
+  "common_interfaces": [
+    "neck",
+    "shoulders",
+    "cuffs",
+    "waist",
+    "fin_junction"
+  ],
+  "on_equip_invariants": [
+    "same actor/skeleton/bone/animator instance IDs",
+    "unchanged anatomy geometry/weights and identity texture hashes",
+    "continuous clip/phase/position/scale",
+    "known rig/bones/slots/views; valid normalized weights",
+    "atomic garment replacement with no residual underlay",
+    "no unbounded resource growth"
+  ],
+  "generation_output": "Isolated garment parts for a fixed approved master/view; no new complete costumed character",
+  "acceptance": "The existing multi-builder comparison fails architecture acceptance. No runtime conformance proof yet.",
+  "operational_guide": "design/animation/COSTUME_SKIN_CONVERSION_GUIDE.md",
+  "exchange_schemas": [
+    "design/animation/skin_binding/rig_binding.schema.json",
+    "design/animation/skin_binding/skin_package.schema.json",
+    "design/animation/skin_binding/attachment_mesh.schema.json"
+  ]
+}

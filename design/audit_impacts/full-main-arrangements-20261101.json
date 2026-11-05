@@ -1,0 +1,95 @@
+{
+  "id": "full-main-arrangements-20261101",
+  "scope": "Owner-approved pan/flute/Sunbird melodies developed into the three approved full arrangements, with individual UVI instruments, controlled foreground roles, native Lua construction, EQ/level automation/shared ambience, measured stereo/mono mastering and owner-private editable delivery. No runtime replacement or protected asset edits.",
+  "baseline": "93166ab1828ab9857227d038f8833b92dfb2f9f1",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-04",
+    "DL-SND-09",
+    "DL-SND-12",
+    "DL-SND-17",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/audio/music/arranged_main_themes_20261101/.gdignore",
+    "assets_src/audio/music/arranged_main_themes_20261101/approved_melodies/castle.json",
+    "assets_src/audio/music/arranged_main_themes_20261101/approved_melodies/opera_house.json",
+    "assets_src/audio/music/arranged_main_themes_20261101/approved_melodies/sky_lagoon.json",
+    "assets_src/audio/music/arranged_main_themes_20261101/approved_melody_receipt.json",
+    "assets_src/audio/music/arranged_main_themes_20261101/castle/castle.ogg",
+    "assets_src/audio/music/arranged_main_themes_20261101/castle/castle_arrangement.mid",
+    "assets_src/audio/music/arranged_main_themes_20261101/castle/castle_master.flac",
+    "assets_src/audio/music/arranged_main_themes_20261101/castle/score.json",
+    "assets_src/audio/music/arranged_main_themes_20261101/commission.json",
+    "assets_src/audio/music/arranged_main_themes_20261101/manifest.json",
+    "assets_src/audio/music/arranged_main_themes_20261101/mix_assessment.json",
+    "assets_src/audio/music/arranged_main_themes_20261101/native_mastering.tsv",
+    "assets_src/audio/music/arranged_main_themes_20261101/opera_house/opera_house.ogg",
+    "assets_src/audio/music/arranged_main_themes_20261101/opera_house/opera_house_arrangement.mid",
+    "assets_src/audio/music/arranged_main_themes_20261101/opera_house/opera_house_master.flac",
+    "assets_src/audio/music/arranged_main_themes_20261101/opera_house/score.json",
+    "assets_src/audio/music/arranged_main_themes_20261101/performance.lua",
+    "assets_src/audio/music/arranged_main_themes_20261101/sky_lagoon/score.json",
+    "assets_src/audio/music/arranged_main_themes_20261101/sky_lagoon/sky_lagoon.ogg",
+    "assets_src/audio/music/arranged_main_themes_20261101/sky_lagoon/sky_lagoon_arrangement.mid",
+    "assets_src/audio/music/arranged_main_themes_20261101/sky_lagoon/sky_lagoon_master.flac",
+    "assets_src/audio/music/arranged_main_themes_20261101/stem_balance.json",
+    "assets_src/audio/music/arranged_main_themes_20261101/valiha_recall.json",
+    "tools/assess_main_arrangements.py",
+    "tools/balance_main_arrangements.py",
+    "tools/compose_main_arrangements.py",
+    "tools/finalize_main_arrangements.py",
+    "tools/reaper/build_main_arrangements.lua",
+    "tools/reaper/master_main_arrangements.lua",
+    "tools/reaper/mix_main_arrangements.lua"
+  ],
+  "validation": [
+    {
+      "command": "Native REAPER Lua construction, stem EQ, fixed-performance mix and corrected master print",
+      "result": "PASS",
+      "evidence": "assets_src/audio/music/arranged_main_themes_20261101/manifest.json; native_mastering.tsv. 14 native parts, 3112 verified MIDI notes (3110 musical plus two silent controls), 26 unchanged approved A/B statements."
+    },
+    {
+      "command": "Independent FFmpeg EBU R128/true-peak; PCM/mono/tail/codec; portable-session and delivery hashes",
+      "result": "PASS",
+      "evidence": "manifest.json: Opera -18.30 LUFS/-3.95 dBTP; Sky -18.20/-5.30; Castle -18.19/-3.69. OGG/FLAC independently measured; no clipping; three composition sessions, three printed-stem mix sessions and 14 stems verified in the owner collection."
+    },
+    {
+      "command": "Python AST and native Lua loadfile compilation",
+      "result": "PASS",
+      "evidence": "Four authored Python files parsed. Three Lua builders plus performance.lua compiled via loadfile at the start of verify_host_final.lua; a subsequent optional host-tab metadata lookup failed, so no complete host-controls receipt is claimed. Core verify_native_final and master_songs_verified jobs passed."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "DOCAUTH inventory/ledger 752/752, active 74, records 77, RESULT ALL OK; AUDITDEV baseline 93166ab1828ab9857227d038f8833b92dfb2f9f1, RESULT ALL OK. Review-source package only; no commit/runtime integration claimed."
+    },
+    {
+      "command": "Godot probes / exact voice-over / phone / owner full-arrangement listening",
+      "result": "PENDING",
+      "evidence": "Source-only review candidates; game scripts, runtime music and protected assets unchanged. No game-wide/device/child/owner mix acceptance claimed."
+    },
+    {
+      "command": "Bit-exact lossless export, OGG loop tags, owner collection copy and worker shutdown",
+      "result": "PASS",
+      "evidence": "All three FLACs are PCM_24, 48 kHz stereo, match native masters within one 24-bit sample step; each OGG has LOOPSTART 0 and exact LOOPEND. Owner receipt verifies 32 audio/session/score files. Only the private REAPER worker matching its isolated profile was closed."
+    }
+  ],
+  "acceptance_gaps": "Melodies and plans accepted in chat; full-song arrangement/mix owner listening and later runtime/voice/device/child acceptance remain separate. DL-SND-18/19 exist only in the uncommitted previous soundtrack branch; latest owner UVI-only/distinct-lead/full-song directions control this source commission without rewriting project policy.",
+  "lessons": [
+    {
+      "lesson": "Set ReaEQ Global Gain through its named formatted parameter and verify the rendered file. An early rejected master used the generic band EQ gain call and produced excessive gain; independent loudness checks caught it before owner delivery.",
+      "write_back": "tools/reaper/master_main_arrangements.lua and tools/finalize_main_arrangements.py"
+    },
+    {
+      "lesson": "ReaLimit release uses dB/sec, not milliseconds. Preserve native readback; this light peak guard uses 15 dB/sec.",
+      "write_back": "tools/reaper/master_main_arrangements.lua; native_mastering.tsv"
+    }
+  ]
+}

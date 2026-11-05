@@ -1,0 +1,107 @@
+"""Register clothing paint onto the unchanged study silhouette and bind replaceable slots."""
+from pathlib import Path
+import json, hashlib, importlib.util
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter
+from scipy.interpolate import LinearNDInterpolator, NearestNDInterpolator, RBFInterpolator
+from scipy.ndimage import map_coordinates, distance_transform_edt
+ROOT=Path(__file__).resolve().parents[1]; OLD=ROOT.parent/'native_rig_stress_20261031'; REPO=ROOT.parents[2]
+spec=importlib.util.spec_from_file_location('original_builder',OLD/'scripts/build_study.py'); old=importlib.util.module_from_spec(spec);spec.loader.exec_module(old)
+def save(p,v):p.write_text(json.dumps(v,separators=(',',':'))+'\n',encoding='utf-8')
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def mask(poly):
+ im=Image.new('L',(1024,1024));ImageDraw.Draw(im).polygon(poly,fill=255);return np.array(im)/255.
+def main():
+ base=Image.open(OLD/'art/body.png').convert('RGBA');a=np.array(base); y,x=np.mgrid[:1024,:1024]
+ # Face/hair/skin and limbs are never accepted from a fitting generation.
+ cloth=(a[:,:,2]>a[:,:,0]*.84)&(a[:,:,2]>a[:,:,1]*1.08)&(y>=327)&(y<505)&(x>430)&(x<641)
+ body_mask=(cloth & ~((y<390)&((x<491)|(x>615)))).astype(float)
+ skin=(a[:,:,0].astype(float)>a[:,:,2]+23.)&(a[:,:,1].astype(float)>a[:,:,2]+6.)
+ tail_mask=((y>=465)&(x<670)&~skin).astype(float)*np.clip((x-(430+(y-807)*.6))/14,0,1)
+ tail_mask*=np.where(y<595,x>=475,1)
+ # Waist belongs to body; a shared stationary overlap is blended during offline preparation only.
+ body_mix=np.clip((510-y)/28,0,1);tail_mix=1-body_mix
+ target=np.array([[468,340],[552,350],[623,340],[503,451],[596,451],[489,482],[550,501],[616,480],[487,525],[627,525],[513,650],[658,650],[539,735],[639,735],[521,789],[608,789],[480,807],[567,831],[416,804],[455,825]],float)
+ sources={
+ 'ballet':[[514,401],[640,439],[760,399],[569,562],[717,560],[560,606],[640,637],[736,609],[553,663],[769,663],[599,827],[816,827],[626,975],[789,975],[607,1058],[742,1058],[556,1101],[660,1130],[459,1073],[501,1127]],
+ 'magician':[[548,405],[660,447],[792,402],[601,558],[737,558],[568,620],[666,660],[786,618],[587,685],[811,685],[637,835],[816,835],[642,973],[800,973],[611,1052],[747,1052],[554,1090],[655,1106],[477,1059],[522,1101]]}
+ rig=json.loads((OLD/'godot/rig.json').read_text(encoding='utf-8'))
+ for m in rig['meshes']:m['texture']='../../native_rig_stress_20261031/art/'+Path(m['texture']).name
+ registry={'schema':1,'rig_id':'roshan_front_native_v1','slots':['head','body','tail'],'themes':['original','ballet','magician'],'stable_catalog_ids':{},'replacement':'Replace the slot ID atomically; always rebuild body from original, never from previously composed paint. No skeleton or timeline recreation.','fitting':{},'source_hashes':{}}
+ heads=[]
+ for theme in ['ballet','magician']:
+  src=Image.open(ROOT/'native'/f'{theme}_fit.png').convert('RGBA');sa=np.array(src)
+  coords=np.c_[x.ravel(),y.ravel()];mapped=LinearNDInterpolator(target,np.array(sources[theme]))(coords)
+  outside=~np.isfinite(mapped[:,0]);mapped[outside]=coords[outside]+NearestNDInterpolator(target,np.array(sources[theme])-target)(coords[outside]);mapped=mapped.reshape(1024,1024,2)
+  paint=np.stack([map_coordinates(sa[:,:,k].astype(float),[mapped[:,:,1],mapped[:,:,0]],order=1,mode='nearest') for k in range(3)],axis=-1).astype('uint8')
+  # Fill transparent sampling margins with adjacent garment RGB, never black.
+  missing=sa[:,:,3]<240
+  near=distance_transform_edt(missing,return_distances=False,return_indices=True)
+  filled=sa.copy();filled[missing]=sa[near[0][missing],near[1][missing]]
+  paint=np.stack([map_coordinates(filled[:,:,k].astype(float),[mapped[:,:,1],mapped[:,:,0]],order=1,mode='nearest') for k in range(3)],axis=-1).astype('uint8')
+  # Body comes directly from the actual wardrobe garment, avoiding fitting-plate hair/skin.
+  garment=Image.open(REPO/f'assets_src/fashion_designer/beta_20261025/native/{theme}_body.png').convert('RGBA');garment=garment.crop(garment.getbbox());ga=np.array(garment)
+  missing=ga[:,:,3]<240;near=distance_transform_edt(missing,return_distances=False,return_indices=True);ga[missing]=ga[near[0][missing],near[1][missing]]
+  gy=np.interp(y,[327,350,445,475,505],[270,330,720,960,ga.shape[0]-1]);half=np.interp(y,[327,350,445,475,505],[70,66,54,72,68]);sw=np.interp(gy,[0,330,720,960,1254],[330,310,280,440,500]);gx=np.clip((x-552)/half,-1,1)*sw+ga.shape[1]/2
+  body_paint=np.stack([map_coordinates(ga[:,:,k].astype(float),[gy,gx],order=1,mode='nearest') for k in range(3)],axis=-1).astype('uint8')
+  # Tail fabric UVs follow the unchanged curved centerline. Source fin flare is omitted.
+  garment=Image.open(REPO/f'assets_src/fashion_designer/beta_20261025/native/{theme}_tail.png').convert('RGBA');garment=garment.crop(garment.getbbox());ta=np.array(garment)
+  missing=ta[:,:,3]<240;near=distance_transform_edt(missing,return_distances=False,return_indices=True);ta[missing]=ta[near[0][missing],near[1][missing]]
+  chain=np.array([[551,486],[568,590],[577,707],[546,789],[480,812],[432,803]],float);seg=chain[1:]-chain[:-1];lens=np.linalg.norm(seg,axis=1);arc=np.r_[0,lens.cumsum()]
+  v=coords[:,None,:]-chain[None,:-1,:];t=np.clip(np.sum(v*seg,axis=2)/lens**2,0,1);closest=chain[None,:-1,:]+t[:,:,None]*seg;d2=np.sum((coords[:,None,:]-closest)**2,axis=2);ix=d2.argmin(axis=1);row=np.arange(len(coords));along=arc[ix]+t[row,ix]*lens[ix]
+  # Unit normal points toward the figure's right at the waist.
+  normal=np.c_[seg[:,1],-seg[:,0]]/lens[:,None];side=np.sum((coords-closest[row,ix])*normal[ix],axis=1);width=np.interp(along,arc,[145,150,125,100,70,34])
+  sy=np.clip(along/arc[-1],0,1)*(ta.shape[0]*.80-30)+30
+  raw=np.array(garment)[:,:,3];ranges=[]
+  for rr in range(raw.shape[0]):
+   xs=np.where(raw[rr]>192)[0];ranges.append((xs.min(),xs.max()) if len(xs) else (raw.shape[1]/2-1,raw.shape[1]/2+1))
+  ranges=np.array(ranges);left=np.interp(sy,np.arange(len(ranges)),ranges[:,0]);right=np.interp(sy,np.arange(len(ranges)),ranges[:,1]);sx=(left+right)/2+np.clip(side/width,-.49,.49)*(right-left)
+  paint=np.stack([map_coordinates(ta[:,:,k].astype(float),[sy.reshape(1024,1024),sx.reshape(1024,1024)],order=1,mode='nearest') for k in range(3)],axis=-1).astype('uint8')
+  # Smooth garment-only mapping from the fitted plate; preserve every identity pixel.
+  mapped=RBFInterpolator(target,np.array(sources[theme]),kernel='thin_plate_spline')(coords).reshape(1024,1024,2)
+  body_poly=([[550,450],[575,444],[706,444],[735,450],[717,561],[741,608],[640,639],[558,606],[573,561]] if theme=='ballet' else [[589,452],[610,448],[730,448],[755,454],[736,553],[785,618],[668,658],[570,617],[601,553]])
+  tail_poly=([[558,592],[738,592],[790,700],[827,850],[810,990],[760,1085],[660,1145],[530,1145],[450,1100],[480,1065],[550,1070],[604,1030],[625,950],[610,850],[570,750],[550,650]] if theme=='ballet' else [[580,630],[780,630],[818,735],[828,870],[805,1000],[750,1085],[655,1120],[535,1120],[477,1090],[486,1058],[555,1065],[610,1030],[641,960],[630,850],[595,760]])
+  pm=Image.new('L',src.size);dd=ImageDraw.Draw(pm);dd.polygon(body_poly,fill=255);dd.polygon(tail_poly,fill=255)
+  valid=(np.array(pm)>0)&(sa[:,:,3]>240)
+  near=distance_transform_edt(~valid,return_distances=False,return_indices=True);fabric=sa[near[0],near[1]]
+  paint=np.stack([map_coordinates(fabric[:,:,k].astype(float),[mapped[:,:,1],mapped[:,:,0]],order=1,mode='nearest') for k in range(3)],axis=-1).astype('uint8');body_paint=paint
+  # Shared overlap is identical for a complete outfit; mixed slots retain a narrow waist blend.
+  body_mask=(cloth & ~((y<390)&((x<491)|(x>615)))).astype(float)*np.clip((505-y)/25,0,1)
+  leftlimit=np.interp(y,[0,735,770,790,805,850],[475,475,470,448,435,460])
+  tail_mask=((y>=465)&(x<670)&~skin).astype(float)*np.clip((x-leftlimit)/8,0,1)
+  # Normalize cross-sections within actual opaque garment rows, avoiding edge extrapolation.
+  lo=np.zeros(src.height);hi=np.zeros(src.height)
+  for rr in range(src.height):
+   xx=np.where(valid[rr])[0]
+   lo[rr]=xx.min() if len(xx) else 620;hi[rr]=xx.max() if len(xx) else 622
+  tl=np.full(1024,480.);tr=np.full(1024,660.)
+  for rr in range(465,850):
+   xx=np.where((tail_mask[rr]>.5)&(a[rr,:,3]>192))[0]
+   if len(xx):tl[rr]=xx.min();tr[rr]=xx.max()
+  cross=np.clip((x-tl[y])/np.maximum(1,tr[y]-tl[y]),.02,.98)
+  vv=np.clip(mapped[:,:,1],0,src.height-1)
+  uu=np.interp(vv,np.arange(src.height),lo)+cross*(np.interp(vv,np.arange(src.height),hi)-np.interp(vv,np.arange(src.height),lo))
+  tail_paint=np.stack([map_coordinates(fabric[:,:,k].astype(float),[vv,uu],order=1,mode='nearest') for k in range(3)],axis=-1).astype('uint8')
+  # Store replacement RGB plus explicit mask. Runtime preserves original alpha exactly.
+  for slot,selection in [('body',body_mask),('tail',tail_mask)]:
+   im=np.dstack([body_paint if slot=='body' else tail_paint,np.uint8(selection*255)]);Image.fromarray(im).save(ROOT/'art'/f'{theme}_{slot}.png')
+  # Headwear reuses the actual wardrobe bitmap directly, no new face/head pixels.
+  hp=REPO/f'assets_src/fashion_designer/beta_20261025/native/{theme}_head.png';h=Image.open(hp).convert('RGBA');h=h.crop(h.getbbox())
+  width=215 if theme=='magician' else 210;h=h.resize((width,round(h.height*width/h.width)),Image.Resampling.LANCZOS)
+  head=Image.new('RGBA',(1024,1024));head.alpha_composite(h,(445,48 if theme=='magician' else 52));head.save(ROOT/'art'/f'{theme}_head.png');heads.append(head)
+  registry['stable_catalog_ids'][theme]={s:f'{s}_{theme}_v1' for s in ['head','body','tail']}
+  registry['fitting'][theme]={'target_landmarks':target.tolist(),'source_landmarks':sources[theme],'offline_mapping':'Smooth thin-plate spline registration of fitting-plate garment RGB only. Wardrobe motifs retained. Identity alpha and non-clothing pixels unchanged; shared waist overlap, feathered fin boundary. No face/skin/hair/arm/fin replacements. Original body alpha retained; original violet shoulder ruffles stay as undergarment.','headwear':'Uniformly scaled original wardrobe source. Original tiara remains underneath as identity ornament.','body_texture_sha256':sha(ROOT/'art'/f'{theme}_body.png'),'tail_texture_sha256':sha(ROOT/'art'/f'{theme}_tail.png')}
+  for s in ['head','body','tail']:
+   f=REPO/f'assets_src/fashion_designer/beta_20261025/native/{theme}_{s}.png';registry['source_hashes'][str(f.relative_to(REPO)).replace('\\','/')]=sha(f)
+ union=heads[0].copy();union.alpha_composite(heads[1]);mesh=old.make_mesh(union,old.bone_specs(),rigid='Head');rig['meshes'].append(dict(mesh,name='Headwear',texture='../art/ballet_head.png',z=1))
+ save(ROOT/'godot/rig.json',rig);save(ROOT/'godot/costumes.json',registry)
+ # Audit-visible material variants have exactly the same mesh and weights.
+ for theme in ['ballet','magician']:
+  variant=json.loads(json.dumps(rig)); b=np.array(base).copy()
+  for s in ['tail','body']:
+   layer=np.array(Image.open(ROOT/'art'/f'{theme}_{s}.png'));mix=layer[:,:,3:4]/255.;b[:,:,:3]=np.uint8(b[:,:,:3]*(1-mix)+layer[:,:,:3]*mix)
+  Image.fromarray(b).save(ROOT/'art'/f'{theme}_composed.png')
+  variant['meshes'][0]['texture']=f'../art/{theme}_composed.png';variant['meshes'][-1]['texture']=f'../art/{theme}_head.png';save(ROOT/'godot'/f'rig_{theme}.json',variant)
+  preview=Image.open(OLD/'art/forearm.png').convert('RGBA');preview.alpha_composite(Image.open(OLD/'art/upper_arm.png').convert('RGBA'));preview.alpha_composite(Image.fromarray(b));preview.alpha_composite(Image.open(ROOT/'art'/f'{theme}_head.png'));preview.save(ROOT/'review'/f'{theme}_neutral.png')
+ print('COSTUME_PREPARATION_OK')
+if __name__=='__main__':main()

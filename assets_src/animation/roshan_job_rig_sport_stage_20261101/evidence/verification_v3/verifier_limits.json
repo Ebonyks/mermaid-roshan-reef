@@ -1,0 +1,21 @@
+{
+  "issues": [
+    {
+      "case": "Aseprite roundtrip layer lookup",
+      "cause": "Initial helper named hip panel rigid_Torso_panel; actual master names it racer_jacket_panel_Torso. Corrected helper,55/55 exact RGBA layers pass."
+    },
+    {
+      "case": "Object action output path",
+      "cause": "First helper passed a relative folder to relative_to(absoluteRoot), after measurements but before saving. Added Path.resolve; rerun produced retained actual attachment FAIL results."
+    },
+    {
+      "case": "Archive metadata packaging",
+      "cause": "An ad hoc packaging step omitted json import and stopped. Corrected imports, no source/art changes. Compact archival codec reconstructs all native bytes; oversized ZIP trial not payload."
+    },
+    {
+      "case": "Racer mixed full-scene fresh comparison",
+      "cause": "Diagnostic hide_fixed leaves the auxiliary support Line2D hidden. Its visibility must be restored by the verifier before comparing a complete scene. Original731pixel difference retained, separate targeted proof required. Targeted proof passed: original731pixel difference versus zero after restoring only verifier-hidden support visibility."
+    }
+  ],
+  "scope": "No floor, source drawing, controller, rest, weight or animation curve changed to address a verifier issue."
+}

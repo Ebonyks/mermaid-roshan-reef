@@ -1,0 +1,18 @@
+local spr=app.open("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/native/medallion_original.png")
+spr:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/masters/medallion_native.aseprite")
+spr:crop(Rectangle(97,101,1056,1056))
+spr:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/masters/medallion_crop_native.aseprite")
+spr:saveCopyAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/exports/medallion_crop_roundtrip.png")
+app.command.SpriteSize{ui=false,width=256,height=256,lockRatio=true,method='bilinear'}
+spr:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/masters/medallion_runtime.aseprite")
+spr:saveCopyAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/exports/medallion_runtime.png")
+spr:close()
+local spr=app.open("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/native/aura_original.png")
+spr:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/masters/aura_native.aseprite")
+spr:crop(Rectangle(345,84,824,824))
+spr:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/masters/aura_crop_native.aseprite")
+spr:saveCopyAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/exports/aura_crop_roundtrip.png")
+app.command.SpriteSize{ui=false,width=256,height=256,lockRatio=true,method='bilinear'}
+spr:saveAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/masters/aura_runtime.aseprite")
+spr:saveCopyAs("C:/Users/Peter/.codex/worktrees/flat-vector-critter-book-runtime-20261017/mermaid-roshan-reef/assets_src/imagegen/melody_timing_window_20261102/exports/aura_runtime.png")
+spr:close()

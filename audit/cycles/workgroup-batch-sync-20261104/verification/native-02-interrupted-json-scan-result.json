@@ -1,0 +1,44 @@
+{
+  "engine": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "source_ci_sha256_lf": "99d4ade661f5d5492e24e29bb4c8c3cd14c8e6771f465b30b2834d2e3540af7c",
+  "probe_count_required": 82,
+  "method": "Direct approved Windows engine, original ci.sh commands, patterns, touch modes, deadlines and isolated saves",
+  "result": "FAIL",
+  "checks": [
+    {
+      "name": "import",
+      "arguments": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\godot-4.7.2\\editor\\Godot_v4.7.2-stable_win64.exe",
+        "--headless",
+        "--path",
+        "H:\\Dev\\Worktrees\\workgroup-batch-sync-20261104",
+        "--import"
+      ],
+      "timeout_seconds": 720,
+      "exit_code": 0,
+      "elapsed_seconds": 30.38,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_02\\import.log",
+      "log_sha256": "b728de0c23f24d9aa31bc7608b177d7ca13857d7c3aca862a08506d00675123b",
+      "log_bytes": 1033,
+      "accepted": true
+    },
+    {
+      "name": "game_2d",
+      "arguments": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "timeout_seconds": null,
+      "exit_code": 4294967295,
+      "elapsed_seconds": 1767.804,
+      "log": "H:\\Dev\\Temp\\workgroup-batch-sync-20261104\\native_probes_02\\game_2d.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_bytes": 0,
+      "accepted": false
+    }
+  ]
+}

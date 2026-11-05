@@ -1,0 +1,67 @@
+{
+  "local_request_id": "R133_NATIVE_SNOWFIELD_CONTINUATION02_CALL02_TL",
+  "stable_id": "FV-55B5EF60A12C",
+  "backend": "builtin image_gen.imagegen",
+  "model_version": null,
+  "model_selector_exposed": false,
+  "call_index": 2,
+  "total_call_cap": 8,
+  "region": "tl",
+  "method": "Native regional reauthoring; first1254whole image reference-only, not resampled as delivery",
+  "prompt_path": "assets_src/imagegen/snowfield_20261103/PROMPT_02_tl.txt",
+  "prompt_sha256": "72aba62923060e58096807d0a17f886f9b96c010a3d960f359ece03731328d5c",
+  "references": [
+    {
+      "image": "IMAGE_1",
+      "region": "tl",
+      "path": "C:\\Users\\Peter\\.codex\\worktrees\\flat-vector-critter-book-runtime-20261017\\mermaid-roshan-reef\\export\\flat_vector_r133_guides\\tl_position_only.png",
+      "sha256": "74b27c99d971911a9f2b37245ff46776282cc3a296bdaeb0e1085deaede2c5af",
+      "source_global_rect": [
+        -115,
+        -115,
+        1254,
+        1254
+      ],
+      "core_crop": [
+        115,
+        115,
+        1024,
+        1024
+      ],
+      "core_global_position": [
+        0,
+        0
+      ],
+      "role": "position_only",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "image": "IMAGE_2",
+      "path": "assets_src/imagegen/snowfield_20261103/native/snowfield_02_01.png",
+      "sha256": "b879a94848a456b6d25bb07d4d68f68759889bbdc48b641216353acaf9d60ed0",
+      "role": "whole_field_appearance_reference_only_not_approved_or_delivery",
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "transparent_background": true,
+  "source_global_rect": [
+    -115,
+    -115,
+    1254,
+    1254
+  ],
+  "core_crop": [
+    115,
+    115,
+    1024,
+    1024
+  ],
+  "core_global_position": [
+    0,
+    0
+  ],
+  "actual_size_and_native_mapping_pending": true,
+  "paid_CLI_calls": 0,
+  "animation_calls": 0,
+  "at_utc": "2026-11-03T14:03:09.855633+00:00"
+}

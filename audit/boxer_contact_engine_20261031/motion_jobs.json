@@ -1,0 +1,278 @@
+{
+  "template": "design/templates/ANIMATION_JOB_CARD_V1.md",
+  "cards": [
+    {
+      "revision": 1,
+      "date": "2026-10-31",
+      "author": "Codex Boxer chat",
+      "baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+      "output_lane": "Gameplay Canvas contact-engine candidate; no cinematic footage or newly generated sprite sequence",
+      "sources": [
+        {
+          "path": "assets/opera/worlds/boxer_quality_20261019/glove_left.png",
+          "sha256": "05404e12d2b5d57435de2772cf416622929cbaf1b2a516ca570b8c1b4e704033",
+          "dimensions": [
+            512,
+            512
+          ],
+          "role": "Existing authored whole glove or focus mitt; runtime pixels, unchanged",
+          "licence": "Existing ASSET_LICENSES.md P5 row; OpenAI output terms; no new generation",
+          "acceptance_scope": "Existing P5 static art candidate. Reuse does not accept this new contact performance or opponent identity."
+        },
+        {
+          "path": "assets/opera/worlds/boxer_quality_20261019/glove_right.png",
+          "sha256": "ec18be3560ffcf9b88f62282da2dc7bd52b162ec4e81c6ea6b9d22105a40248f",
+          "dimensions": [
+            512,
+            512
+          ],
+          "role": "Existing authored whole glove or focus mitt; runtime pixels, unchanged",
+          "licence": "Existing ASSET_LICENSES.md P5 row; OpenAI output terms; no new generation",
+          "acceptance_scope": "Existing P5 static art candidate. Reuse does not accept this new contact performance or opponent identity."
+        },
+        {
+          "path": "assets/opera/worlds/boxer_quality_20261019/focus_mitt.png",
+          "sha256": "7e992937b342b9c30d064e4e7b4d33bc6ed19c0df31b08e8a59603fd570b32d2",
+          "dimensions": [
+            512,
+            512
+          ],
+          "role": "Existing authored whole glove or focus mitt; runtime pixels, unchanged",
+          "licence": "Existing ASSET_LICENSES.md P5 row; OpenAI output terms; no new generation",
+          "acceptance_scope": "Existing P5 static art candidate. Reuse does not accept this new contact performance or opponent identity."
+        }
+      ],
+      "native_editable_derivation": "scripts/opera_boxing_surface.gd and scripts/opera_boxing_contact.gd; original PNGs untouched",
+      "method": "Declared local input-driven whole-image translation, rotation and uniform reach scale. No part isolation, deformation, redrawing, temporal pixel synthesis, frame replacement or new model.",
+      "aseprite": "Not applicable: no pixel/cel editing or new atlas export; preserve existing sources and use the native GDScript motion/contact master.",
+      "fixed": "Camera, painted room, glove contours, handedness, cuff identity and texture pixels; no 3D assets, lights or inference.",
+      "runtime": "1280x720 base stage; Mobile/Speedy; same coordinates after Canvas transform on supported aspects. Existing 512-square textures.",
+      "tolerances": "Contact uses declared padded circles anchored at (0.49,0.43) of each whole glove. Radius=0.34*draw side. Analytic first-contact residual <0.005 canvas pixel in seeded native tests; clamps split exactly. Required press bays >=110px.",
+      "limits": {
+        "generated_takes": 0,
+        "generated_take_ceiling": 2,
+        "paid_jobs": 0,
+        "monetary_cap": 0,
+        "painting_cleanup_minutes": 0,
+        "wall_ceiling_minutes": 240,
+        "scope": "This single requested engine/test task. No generation batch or funded allowance supplied; stop if art changes become necessary."
+      },
+      "attempts": [
+        "Native stress-01 exposed long-sweep scalar precision; repaired coefficients without loosening the test.",
+        "Native stress-04/05 exposed stopped audio playback retirement at process exit; explicit cancellation and mixer-boundary wait retain clean stress-06/07.",
+        "Current source has zero generation calls and zero pixel edits; all earlier failed evidence retained."
+      ],
+      "events": "Surface emits accepted work through the existing career owner only; no direct score/save writes. One attack resolves once before synchronous callbacks.",
+      "interruptions": "Release and normal phase completion clear input and attack ownership while preserving earned one-shot feedback. Explicit cancel, pause, focus loss, hide, close and tree exit also stop owned sounds; interrupted work never pays.",
+      "stop_fallback": "A failed contact, ownership, passive or save invariant blocks publication; preserve the counterexample and repair only its cause. Do not replace missing art with a generation campaign.",
+      "reviews": {
+        "machine": "PASS: focused stress and complete frozen-source native suite; verification.json. Visual, motion, device, child and owner acceptance are separate.",
+        "visual": "Twelve current-source desktop stills directly inspected and actual30fps state/event trace passes; formal full-motion/QA11/device/child/owner acceptance remains pending.",
+        "device": "PENDING",
+        "child": "PENDING",
+        "owner": "PENDING",
+        "source_binding": {
+          "stage": "Final runtime after Geologist rest repair and final trusted test placement; both native capture batches freshly rerun",
+          "files": {
+            "scripts/opera_boxing_surface.gd": {
+              "raw_sha256": "6c87660816bb16f30eb95d6cb3f4fb6ff6b431bdec42ae03bc73770609473a61",
+              "lf_sha256": "ed9917765b94b746329dfd90f81bbcc8d021f37ef90f610bb008c92f53a07502",
+              "bytes": 36275
+            },
+            "scripts/opera_boxing_contact.gd": {
+              "raw_sha256": "2f643396ca16197a0956b2ce19b2d85b2121499e0dd80f5a12a9d7a8be01758e",
+              "lf_sha256": "2f643396ca16197a0956b2ce19b2d85b2121499e0dd80f5a12a9d7a8be01758e",
+              "bytes": 1941
+            },
+            "scripts/probe_boxing_contact.gd": {
+              "raw_sha256": "cceee3aff4c0bebb6be1669e558c87e6877e660a98af6fe9d304461726177eed",
+              "lf_sha256": "ed3b13149b2796f58c78187307b8c011020165fe835b9909dcc4bf47dcefc02b",
+              "bytes": 1006
+            },
+            "scripts/probe_boxing_contact_cases.gd": {
+              "raw_sha256": "00cff45c25e089a45e36d2a5ab60d6707c24111ad97574cde0beb7ed983a19e4",
+              "lf_sha256": "00cff45c25e089a45e36d2a5ab60d6707c24111ad97574cde0beb7ed983a19e4",
+              "bytes": 23271
+            },
+            "scripts/probe_opera_2d.gd": {
+              "raw_sha256": "2cba50bb232687633098c35cb5e297a678457375268fce151ecc1e8fc6171a5a",
+              "lf_sha256": "c363d178a946034ad79c9b472e73b394021f79102c7a7442fbbff60abd06a5eb",
+              "bytes": 155161
+            },
+            "scripts/opera_career_world_2d.gd": {
+              "raw_sha256": "489ecf55aaf4a2c84bba38807c9fefb327a1479060334c2e4ce24d4efd5d276c",
+              "lf_sha256": "5ad06f19eba86ca94b6a06a093bac79a909895fb188f0d477d8193fb8fbd8700",
+              "bytes": 248385
+            }
+          }
+        }
+      },
+      "status": {
+        "archive": "Local engine derivation recorded; not an external animation handoff",
+        "generation_ready": "NOT_APPLICABLE_NO_GENERATION",
+        "delivery_accepted": false,
+        "runtime_integration": "TOPIC_CANDIDATE_PENDING_FULL_GATES",
+        "release": "NOT_REQUESTED"
+      },
+      "id": "BOXER-PLAYER-GLOVE-CONTACT-20261031",
+      "intention": "The child positions a padded glove to intercept a shot or extends it into the visible training target.",
+      "required_action": "Stable owned glove follows direct tablet input or phone edge relative drag, can hold/cross/retract and make actual padded contact.",
+      "entry_exit": "Lower glove bay to deliberate contact, then a latched strike or held guard; release returns safely to its own bay.",
+      "timeline": "Respond on input. Contact sweeps each delivered pointer segment; returning gloves sweep each rendered interval. A new strike requires >=40px forward travel and real padding overlap. Return uses existing exponential settle.",
+      "geometry": "Whole authored glove; side=168*(0.92+0.38*clamped reach), radius=0.34*side. Split at reach=0/1. Phone relative gain=(2.4,1.15).",
+      "reuse_gap": "Existing independent glove pair covers this engine test. Richer authored acting/material acceptance remains separate; no pixel work commissioned."
+    },
+    {
+      "revision": 1,
+      "date": "2026-10-31",
+      "author": "Codex Boxer chat",
+      "baseline": "a0bb2cf4691631a534e210a5fb60fd227213322f",
+      "output_lane": "Gameplay Canvas contact-engine candidate; no cinematic footage or newly generated sprite sequence",
+      "sources": [
+        {
+          "path": "assets/opera/worlds/boxer_quality_20261019/glove_left.png",
+          "sha256": "05404e12d2b5d57435de2772cf416622929cbaf1b2a516ca570b8c1b4e704033",
+          "dimensions": [
+            512,
+            512
+          ],
+          "role": "Existing authored whole glove or focus mitt; runtime pixels, unchanged",
+          "licence": "Existing ASSET_LICENSES.md P5 row; OpenAI output terms; no new generation",
+          "acceptance_scope": "Existing P5 static art candidate. Reuse does not accept this new contact performance or opponent identity."
+        },
+        {
+          "path": "assets/opera/worlds/boxer_quality_20261019/glove_right.png",
+          "sha256": "ec18be3560ffcf9b88f62282da2dc7bd52b162ec4e81c6ea6b9d22105a40248f",
+          "dimensions": [
+            512,
+            512
+          ],
+          "role": "Existing authored whole glove or focus mitt; runtime pixels, unchanged",
+          "licence": "Existing ASSET_LICENSES.md P5 row; OpenAI output terms; no new generation",
+          "acceptance_scope": "Existing P5 static art candidate. Reuse does not accept this new contact performance or opponent identity."
+        },
+        {
+          "path": "assets/opera/worlds/boxer_quality_20261019/focus_mitt.png",
+          "sha256": "7e992937b342b9c30d064e4e7b4d33bc6ed19c0df31b08e8a59603fd570b32d2",
+          "dimensions": [
+            512,
+            512
+          ],
+          "role": "Existing authored whole glove or focus mitt; runtime pixels, unchanged",
+          "licence": "Existing ASSET_LICENSES.md P5 row; OpenAI output terms; no new generation",
+          "acceptance_scope": "Existing P5 static art candidate. Reuse does not accept this new contact performance or opponent identity."
+        }
+      ],
+      "native_editable_derivation": "scripts/opera_boxing_surface.gd and scripts/opera_boxing_contact.gd; original PNGs untouched",
+      "method": "Declared local input-driven whole-image translation, rotation and uniform reach scale. No part isolation, deformation, redrawing, temporal pixel synthesis, frame replacement or new model.",
+      "aseprite": "Not applicable: no pixel/cel editing or new atlas export; preserve existing sources and use the native GDScript motion/contact master.",
+      "fixed": "Camera, painted room, glove contours, handedness, cuff identity and texture pixels; no 3D assets, lights or inference.",
+      "runtime": "1280x720 base stage; Mobile/Speedy; same coordinates after Canvas transform on supported aspects. Existing 512-square textures.",
+      "tolerances": "Contact uses declared padded circles anchored at (0.49,0.43) of each whole glove. Radius=0.34*draw side. Analytic first-contact residual <0.005 canvas pixel in seeded native tests; clamps split exactly. Required press bays >=110px.",
+      "limits": {
+        "generated_takes": 0,
+        "generated_take_ceiling": 2,
+        "paid_jobs": 0,
+        "monetary_cap": 0,
+        "painting_cleanup_minutes": 0,
+        "wall_ceiling_minutes": 240,
+        "scope": "This single requested engine/test task. No generation batch or funded allowance supplied; stop if art changes become necessary."
+      },
+      "attempts": [
+        "Native stress-01 exposed long-sweep scalar precision; repaired coefficients without loosening the test.",
+        "Native stress-04/05 exposed stopped audio playback retirement at process exit; explicit cancellation and mixer-boundary wait retain clean stress-06/07.",
+        "Current source has zero generation calls and zero pixel edits; all earlier failed evidence retained."
+      ],
+      "events": "Surface emits accepted work through the existing career owner only; no direct score/save writes. One attack resolves once before synchronous callbacks.",
+      "interruptions": "Release and normal phase completion clear input and attack ownership while preserving earned one-shot feedback. Explicit cancel, pause, focus loss, hide, close and tree exit also stop owned sounds; interrupted work never pays.",
+      "stop_fallback": "A failed contact, ownership, passive or save invariant blocks publication; preserve the counterexample and repair only its cause. Do not replace missing art with a generation campaign.",
+      "reviews": {
+        "machine": "PASS: focused stress and complete frozen-source native suite; verification.json. Visual, motion, device, child and owner acceptance are separate.",
+        "visual": "Twelve current-source desktop stills directly inspected and actual30fps state/event trace passes; formal full-motion/QA11/device/child/owner acceptance remains pending.",
+        "device": "PENDING",
+        "child": "PENDING",
+        "owner": "PENDING",
+        "source_binding": {
+          "stage": "Final runtime after Geologist rest repair and final trusted test placement; both native capture batches freshly rerun",
+          "files": {
+            "scripts/opera_boxing_surface.gd": {
+              "raw_sha256": "6c87660816bb16f30eb95d6cb3f4fb6ff6b431bdec42ae03bc73770609473a61",
+              "lf_sha256": "ed9917765b94b746329dfd90f81bbcc8d021f37ef90f610bb008c92f53a07502",
+              "bytes": 36275
+            },
+            "scripts/opera_boxing_contact.gd": {
+              "raw_sha256": "2f643396ca16197a0956b2ce19b2d85b2121499e0dd80f5a12a9d7a8be01758e",
+              "lf_sha256": "2f643396ca16197a0956b2ce19b2d85b2121499e0dd80f5a12a9d7a8be01758e",
+              "bytes": 1941
+            },
+            "scripts/probe_boxing_contact.gd": {
+              "raw_sha256": "cceee3aff4c0bebb6be1669e558c87e6877e660a98af6fe9d304461726177eed",
+              "lf_sha256": "ed3b13149b2796f58c78187307b8c011020165fe835b9909dcc4bf47dcefc02b",
+              "bytes": 1006
+            },
+            "scripts/probe_boxing_contact_cases.gd": {
+              "raw_sha256": "00cff45c25e089a45e36d2a5ab60d6707c24111ad97574cde0beb7ed983a19e4",
+              "lf_sha256": "00cff45c25e089a45e36d2a5ab60d6707c24111ad97574cde0beb7ed983a19e4",
+              "bytes": 23271
+            },
+            "scripts/probe_opera_2d.gd": {
+              "raw_sha256": "2cba50bb232687633098c35cb5e297a678457375268fce151ecc1e8fc6171a5a",
+              "lf_sha256": "c363d178a946034ad79c9b472e73b394021f79102c7a7442fbbff60abd06a5eb",
+              "bytes": 155161
+            },
+            "scripts/opera_career_world_2d.gd": {
+              "raw_sha256": "489ecf55aaf4a2c84bba38807c9fefb327a1479060334c2e4ce24d4efd5d276c",
+              "lf_sha256": "5ad06f19eba86ca94b6a06a093bac79a909895fb188f0d477d8193fb8fbd8700",
+              "bytes": 248385
+            }
+          }
+        }
+      },
+      "status": {
+        "archive": "Local engine derivation recorded; not an external animation handoff",
+        "generation_ready": "NOT_APPLICABLE_NO_GENERATION",
+        "delivery_accepted": false,
+        "runtime_integration": "TOPIC_CANDIDATE_PENDING_FULL_GATES",
+        "release": "NOT_REQUESTED"
+      },
+      "id": "BOXER-OPPONENT-TRAVELLING-PUNCH-20261031",
+      "intention": "A floating padded hand telegraphs, approaches the child, deflects on glove contact and reveals an opportunity to counter.",
+      "required_action": "Visible incoming hand and collision share the complete path. Held or moving guards work anywhere before player contact; missed contact is harmless.",
+      "entry_exit": "Windup at (0.43/0.57w,0.20h), flight to (0.46/0.54w,0.86h). Deflect once, hands open to the mitt; a fresh counter earns a unit. No whole imp body.",
+      "timeline": "Guard drill:0.8s windup plus2.4s flight. Imp:1.4s initial taunt,1.15s windup (assist+0.45),0.9s flight,1.7s opening (assist+0.5). Blocks open immediately. No catch-up multi-award loop.",
+      "geometry": "Linear flight and radius=160*(0.78+0.25*progress)*0.34; closed/open hands remain whole source images. Actual incoming contact latches before callbacks.",
+      "reuse_gap": "Existing approved-source glove pair reused for owner-requested floating hands. Opponent-specific appearance and motion acceptance are still pending, not inferred from player art approval."
+    }
+  ],
+  "post_capture_source_changes": [
+    {
+      "path": "scripts/opera_boxing_contact.gd",
+      "before": {
+        "raw_sha256": "2f643396ca16197a0956b2ce19b2d85b2121499e0dd80f5a12a9d7a8be01758e",
+        "lf_sha256": "2f643396ca16197a0956b2ce19b2d85b2121499e0dd80f5a12a9d7a8be01758e",
+        "bytes": 1941
+      },
+      "after": {
+        "raw_sha256": "f4c2eaf90f76a93ebd9beb2d533acf7291cbf40ac08ac87e71fde02bf0b7adb4",
+        "lf_sha256": "f4c2eaf90f76a93ebd9beb2d533acf7291cbf40ac08ac87e71fde02bf0b7adb4",
+        "bytes": 1940
+      },
+      "verification": "Only the extra blank line at EOF was removed; all non-EOF bytes remain identical."
+    },
+    {
+      "path": "scripts/probe_boxing_contact.gd",
+      "before": {
+        "raw_sha256": "cceee3aff4c0bebb6be1669e558c87e6877e660a98af6fe9d304461726177eed",
+        "lf_sha256": "ed3b13149b2796f58c78187307b8c011020165fe835b9909dcc4bf47dcefc02b",
+        "bytes": 1006
+      },
+      "after": {
+        "raw_sha256": "49cd1aafdd9f22b0174acdebd8a28ab872f76687e82b7e76fc7de6238e2d9036",
+        "lf_sha256": "36bef02c3c123beee865d11a1fa93373657e2af2bc4affc3623373a35c9ebaad",
+        "bytes": 1004
+      },
+      "verification": "Only the extra blank line at EOF was removed; all non-EOF bytes remain identical."
+    }
+  ],
+  "post_capture_source_scope": "The shown v8/v9 captures retain their exact original source binding. Subsequent changes remove only redundant EOF blank lines in the pure geometry helper and focused test entry point; the rendered surface and career world are byte-identical. This source mapping grants no formal visual acceptance."
+}

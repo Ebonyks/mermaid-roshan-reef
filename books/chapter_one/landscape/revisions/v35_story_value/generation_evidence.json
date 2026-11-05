@@ -1,0 +1,48 @@
+{
+  "method": "built-in image_gen",
+  "attempts": 2,
+  "native_output": {
+    "path": "books/chapter_one/landscape/revisions/v35_story_value/art/entrance_cameo_attempt1.png",
+    "sha256": "7f322a159efddef2ad9c8ddf1f8c7fc61f7d9cf42b63ef2f63716755047d36e1"
+  },
+  "prompt_file": "books/chapter_one/landscape/revisions/v35_story_value/cover_prompt.txt",
+  "prompt_sha256": "c0156b248ebb4eab1a81d24ce07975634b9a2c02ea131a16c80bad41a6d92b71",
+  "references": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/castle03.png",
+      "role": "edit_target",
+      "sha256": "4fc329bf1ec83d2269fb6670eb08da8c25fb89ea1e709d9b66aa6c07089893c6"
+    },
+    {
+      "path": "assets/sprites/stuffie_studio/lamma.png",
+      "role": "identity_reference",
+      "sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268"
+    }
+  ],
+  "whole_scene_selection": "REJECTED: cameo placement too near Roshan hand and too large; original scene pixels remain the base.",
+  "derivative_selection": "First candidate entirely excluded: misplaced head and angular extraction. Second source supplies only an exact head contour, excluding its exterior haze; scene base stays original.",
+  "provider_metadata_limit": "Model revision, request ID, seed and monetary usage not exposed.",
+  "additional_native_output": {
+    "path": "books/chapter_one/landscape/revisions/v35_story_value/art/lamma_head_attempt1.png",
+    "sha256": "dfeb318df2a9e69f0cc4559e98983bcfa5054e7433db1a3a03d629f97baca9a0",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "prompt_file": "books/chapter_one/landscape/revisions/v35_story_value/cutout_prompt.txt",
+    "prompt_sha256": "9978ffc3a0e2de811164a287c2c0706d7da4b5bdfa9aa121233f100ea4d00318",
+    "selection": "Head contour only; exterior haze rejected",
+    "references": [
+      {
+        "path": "assets/sprites/stuffie_studio/lamma.png",
+        "role": "identity_reference",
+        "sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268"
+      }
+    ]
+  }
+}

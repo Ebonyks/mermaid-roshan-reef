@@ -2,7 +2,55 @@
 
 Date: 2026-08-09
 Status: implementation brief
-Runtime: Godot 4.7.1-stable, Mobile renderer, fixed 1280×720 Opera stage space
+Runtime: Godot 4.7.2-stable, Mobile renderer, fixed 1280×720 Opera stage space
+
+## 2026-10-31 owner-directed contact engine
+
+The [recorded owner request](../audit/boxer_contact_engine_20261031/owner_request.json)
+supersedes the fixed guard-bubble interception rule below. A glove in a travelling
+punch's path blocks it anywhere before player contact, including a stationary
+held guard. Movement is not a condition of a block. The same swept padded-disc
+geometry handles moving swats, changing glove size and strikes through training
+mitts or the belt, including crossings whose final input sample misses the target.
+Rendering and contact share glove centers, reach scale and incoming trajectories.
+The contact helper owns no career, reward, health or save state.
+
+Phone controls use visible left and right edge drag bays, including the actual
+viewport margins outside a centered stage on wide phones. Each press claims its
+own glove and relative dragging moves that glove through the playfield, leaving
+the action visible. Tablet controls claim the painted gloves directly. Both modes
+preserve touch ownership through crossings, support two independent fingers and
+remain fully playable sequentially with one finger. Android/iOS choose phone
+below a 600-dp physical short side and tablet otherwise; desktop defaults to
+tablet. The explicit `set_control_layout()` override supports both test lanes.
+An unknown mobile density defaults to phone. A center press cannot secretly
+claim a phone edge, and a third finger cannot steal another hand.
+
+Title Imp presents the existing authored glove pair as floating opponent hands.
+The attacking hand travels from its windup to the player. Blocking opens the
+counter opportunity immediately. A fresh forward strike in the opening earns
+the existing unit; an old extension or tiny wiggle does not. The same finger
+may block, retract and counter. Harmless unguarded contact still repeats the
+opportunity. This engine repair does not implement the separate first-to-six
+contest target or change stable phase goals, rewards or saved progress.
+
+Physical deflection and scoring are separate: unattended/returning gloves may
+make harmless contact, but only a currently owned glove can bank a guard drill.
+No input or demonstration earns work. Every attack resolves once, and state is
+latched before synchronous career callbacks. Pause, focus loss, hiding, completion
+and teardown clear claims; resuming starts from a new telegraph. Existing recorded
+guard guidance now points to the moving invitation around the padded fist.
+
+The [impact](audit_impacts/boxer-contact-engine-20261031.json) and
+[verification record](../audit/boxer_contact_engine_20261031/verification.json)
+separate baseline failure, engine/probe results and outstanding visual, physical
+phone/tablet, child and owner evidence. Earlier sections retain historical resource
+and integration details except where this scoped revision explicitly supersedes
+the fixed endpoint, whole-opponent display and endpoint-only hit tests.
+
+## 2026-11-01 evaluation and Codex handoff
+
+Claude's [evaluation](../docs/handoffs/codex_boxer_engine_2026-11-01/EVALUATION.md) of the contact engine at `22df5b75` confirms the contact maths and the held guard anywhere on the flight, and records Title Imp rule, timing and random-play defects as [`MA-OPERA-015`](../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-015). The owner's 2026-11-01 decisions (`ODR-BOXER-*-20261101`) add a new boxing-only flashing direction warning, hooks, a block-gated counter with a tired-imp mercy, a 2.4 s counter window and a series of returning editions. The [Codex work order](../docs/handoffs/codex_boxer_engine_2026-11-01/README.md) commissions Editions 1-2 and the engine foundation; [the roadmap](../docs/handoffs/codex_boxer_engine_2026-11-01/ROADMAP.md) plans later editions. This section points to proposed work; the runtime contract above stays authoritative until that work lands.
 
 ## 1. Scope
 

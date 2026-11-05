@@ -1,0 +1,14 @@
+{
+  "scope": "Verifier-only temporary isolation hid the diagnostic support Line2D; pose_action clears its points but does not alter caller visibility. Restore that verifier visibility before fresh-full-scene comparison. No source/controller/art changed. Original731pixel mismatch retained in racer_mixed_state_diagnostic.json, not claimed a production defect.",
+  "rows": [
+    {
+      "image": "review/frozen_v3/racer_fixture_hidden_by_harness.png",
+      "fresh_changed_pixels": 731
+    },
+    {
+      "image": "review/frozen_v3/racer_fixture_restored_after_diagnostic.png",
+      "fresh_changed_pixels": 0
+    }
+  ],
+  "pass": true
+}

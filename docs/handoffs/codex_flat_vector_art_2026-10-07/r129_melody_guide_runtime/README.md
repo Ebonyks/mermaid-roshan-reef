@@ -1,0 +1,21 @@
+# R129 — painted Melody guide arrow and rings
+
+Stable ID **FV-0091F4E1BC9C**. This source candidate replaces the plain guidance connector/triangle and double-ring drawing with authored painted raster artwork. Its original target, direction, connector endpoints/width/short-distance suppression, note occlusion and pulse remain intact. Dev remains frozen.
+
+Two built-in ImageGen calls supplied one complete gold/cream arrow and one complete hollow double ring. Exact Aseprite RGBA crops, uniform exports and editable native/crop/runtime masters are preserved. Three runtime images derive from those two designs. The static UI head uses declared aspect registration to the original46x34envelope; the ring scales as a whole, including band thickness. Generated alpha is preserved, with no painted mask or procedural artwork substitute.
+
+[Generation/provenance and budgets](GENERATION_ACCOUNTING.json) · [Actual source binding](DELIVERY_SOURCE_BINDING.json) · [Implementation scope](IMPLEMENTATION_SCOPE.json) · [Method preservation](METHOD_PRESERVATION.json) · [Ten-axis same-scene review](FRAME_REVIEW.json) · [All frame hashes](FRAME_INDEX.json) · [Phone-size review](PHONE_SQUINT_REVIEW.json).
+
+Original source context:126configured checks and15new full-travel native captures. Current candidate:213configured checks and33new native captures, with three actual Mobile/Speedy aspects and all seven note contexts. The original5062input baseline and all5068candidate runtime inputs are pinned; normal11save artifacts remain unchanged. The separately reused171checks/21historical original frames earn zero new frame credit. All33candidate native frames and48whole-HUD phone previews were visually inspected. These checks are not unique requirements or formalQA11.
+
+All82existing local programs, fresh complete static gates, exact4.7.2analyzer and2Dno-regression checks pass. The headless display diagnostic skips rather than establishing formal visual acceptance. The2Dmission remains unsatisfied. [Actual local results](LOCAL_82_RESULT.json), [static gates](STATIC_RESULT.json), [native results](RUNTIME_RESULT.json), [separate evidence lanes](VALIDATION_STATUS.json). Exact published-head CI is separately pending.
+
+The first native launcher referenced a stale fixture path and produced zero frames. Both successful imports were reused, and only the launcher path was corrected; no generation/export or healthy engine suite repeated. [Preserved failure](initial_capture_launch_failure/STOP.json) · [Exact recovery](NATIVE_LAUNCH_RECOVERY.json).
+
+Source artwork: [arrow prompt](../../../../assets_src/imagegen/melody_guide_20261102/PROMPT_ARROW.txt), [ring prompt](../../../../assets_src/imagegen/melody_guide_20261102/PROMPT_RING.txt), [provenance](../../../../assets_src/imagegen/melody_guide_20261102/PROVENANCE.json), [Aseprite exports/masters](../../../../assets_src/imagegen/melody_guide_20261102/EXPORT.json). Built-in backend only; no model selector/version was returned, so ImageGen2.5is not claimed.
+
+![Painted guidance in the actual Melody stage](candidate/1280x720/01_left_08.png)
+
+FormalQA11, physical-device performance/play, child/owner acceptance, complete route/state/action coverage and game-wide inventory remain open. This is one bounded source artifact for one existing role, with three PNGs, not three newly accepted pieces. No Dev credit, accepted-removal or whole-role closure credit.
+
+[Actual delivery manifest](MANIFEST.json). Immutable source/canonical links and anonymous every-file verification are supplied by the canonical receipt after publication.

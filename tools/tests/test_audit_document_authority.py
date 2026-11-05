@@ -7,6 +7,10 @@ from unittest import mock
 
 from tools import audit_document_authority as authority
 
+# Keep chapter fault controls on the existing trusted document-test entry point.
+from tools.tests.test_audit_chapter_contract import ChapterContractTests
+from tools.tests.test_design_reference import ChapterReferenceTests
+
 
 def _canonical_fixture(
 	*,

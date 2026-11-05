@@ -1,0 +1,26 @@
+{
+  "state": "40EXACT_DERIVED_RUNTIME_PATHS_BOUND_GEOMETRY_PRESERVED_REVIEW_REQUIRED",
+  "before_sha256": "f64e06452e538472fa1d2adea6a0ee8726f45a905c5668c392ae133610494d62",
+  "after_sha256": "a124c1f30c623c48fb112834ccc071ddd3642b5f45c63f3d1d34244e32098334",
+  "changed_scope": "Texturepaths, normalized alpha-bounds and sourcepixels-to-screen scale compensation only; gameplay/hitboxes/input/noteclock/scoring/progress/save/cleanup unchanged",
+  "screen_invariants": [
+    "Same30pxfootlight globe geometry",
+    "Same84pxnote root/120pxhit envelope",
+    "Same38/46pxpip diameter/sourcealpha center",
+    "Exactcurtainappearancepixels aftertransparentcrop",
+    "SameDaddy172x235/Roshan180x180layout targets"
+  ],
+  "per_piece_and_aggregate_budgets_preserved": true,
+  "background_tiles_untouched": true,
+  "frame_events": 0,
+  "formal_QA11": null,
+  "device": null,
+  "child": null,
+  "owner": null,
+  "current_controller_sha256": "195c64b3c17fe5fc75750c0fff4751ed9ceaea499796f90749c6b4c2b75955ed",
+  "current_probe_sha256": "2fd099a90948b0f68fd57f712cab77cb42e28a5cf28a4f0737a88d9d2d917420",
+  "current_scope_additions": [
+    "MELODY_NOTE_REGISTRATION.json",
+    "TELEMETRY_CONTEXT_APPLICABILITY.json"
+  ]
+}

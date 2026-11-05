@@ -1,0 +1,87 @@
+{
+  "baseline": "005ba38a170f226d51ee906ce7d390ef682af9ac",
+  "actions": [
+    "arm_bend",
+    "blink",
+    "tail_bend"
+  ],
+  "costumes": [
+    "ballet",
+    "magician"
+  ],
+  "sources": "Existing beta_20261025 native garments, actual wardrobe catalog IDs head/body/tail_THEME_v1; shared previous neutral rig and identity.",
+  "gap": "Straight garment silhouettes cannot directly supply fitted curved tail and shoulder surfaces. Only garment pixels accepted from generated fitting; identity/limbs retained.",
+  "method": "Native Skeleton2D/Bone2D/Polygon2D, shared geometry and AnimationPlayer, independent replacement slots; ImageGen named fitting repair.",
+  "fixed": "Skeleton/rest, original head/face/hair/arms/hands/fin contour, exact action curves; garment motifs from existing wardrobe.",
+  "moving": "Same three authored actions; head slot follows Head, body and tail share exact base skin weights.",
+  "caps": {
+    "generated_calls": 4,
+    "takes_per_costume": 2,
+    "wall_minutes": 180,
+    "cleanup_minutes": 120,
+    "paid_external_budget": 0
+  },
+  "acceptance": "Same .8-1.2 singular values, no visible inverted triangles, eight-pixel seam allowance, one figure, no edge alpha, exact loops, original velocity/acceleration/contact floors; all negative controls retained. All six clips plus live swaps.",
+  "attempts": [
+    {
+      "brief": "ballet_fitted_garment_plate",
+      "take": 1,
+      "prompt": "Edit target IMAGE_1: the exact neutral Mermaid Roshan cutout. Supporting garment appearance references IMAGE_2 coral ballet bodice, IMAGE_3 pink/peach pearl tail cover, IMAGE_4 bow headpiece from her existing Fashion Designer wardrobe. Fit ONLY those costume designs onto this exact figure. Preserve IMAGE_1 canvas size, position, face, brown and rainbow hair, skin, arms, fingers, anatomy, curved single tail centerline and the two fin lobes. No change of pose or perspective. Fit the bodice into the existing torso footprint, pearl bow and scalloped petal hem at the waist; no wide tutu outside the body. Replace existing pink sleeves with matching coral/gold small shoulder straps/ruffles. Tail cover follows the precise curved tail outline, using peach-pink petal scales, pearl waist band and ivory bow. Keep the rainbow fin lobes unchanged, cover stops just before fin junction. Replace tiara with existing coral bow on top of the same hair. Painted 2D storybook, crisp same detailed finish. This is a registered clothing fitting plate for native 2D rig, not a redesign or animation frame. Transparent background, complete figure, no shadow, labels, floor, extra limbs or loose ribbons over arms.",
+      "tool_wall_seconds": 42.216,
+      "native_output": "exec-d3017e12-ce75-4acc-b221-c4ae0b5e2776.png",
+      "appearance_references": [
+        "assets_src/fashion_designer/beta_20261025/native/ballet_body.png",
+        "assets_src/fashion_designer/beta_20261025/native/ballet_tail.png",
+        "assets_src/fashion_designer/beta_20261025/native/ballet_head.png"
+      ],
+      "edit_target": "assets_src/animation/native_rig_stress_20261031/art/neutral_composite.png",
+      "acceptance": "Garment RGB only after uniform fitting and bounded matte; generated identity, anatomy and fin pixels excluded.",
+      "retained_path": "native/ballet_fit.png",
+      "sha256": "d280d696ec4056f31248cb91036b258ddc2fb50edb0c509389d5c8c943369fe8",
+      "source_reference_hashes": {
+        "assets_src/animation/native_rig_stress_20261031/art/neutral_composite.png": "0b2a3d2268dff444d51f604a2c6e55d3d991e85982f80db237fb46a6e932b56e",
+        "assets_src/fashion_designer/beta_20261025/native/ballet_body.png": "8fb71bbcb8ad1e0da00128df75e1bf2825c7f72682c0678e02d397ab6981cc9c",
+        "assets_src/fashion_designer/beta_20261025/native/ballet_tail.png": "ab7a071ddf2fbb4580fc6b67401e512d8d3398370affda27a224edd37d12c1f2",
+        "assets_src/fashion_designer/beta_20261025/native/ballet_head.png": "02c3208e30bf1952c6348ec966fd9f968dc300f888894cf4c47a11b06d7a95c1"
+      }
+    },
+    {
+      "brief": "magician_fitted_garment_plate",
+      "take": 1,
+      "prompt": "Edit target IMAGE_1: the exact neutral Mermaid Roshan cutout. Supporting garment appearance references IMAGE_2 violet magician waistcoat, IMAGE_3 violet star-embroidered tail cover, IMAGE_4 violet top hat from her existing Fashion Designer wardrobe. Fit ONLY those costume designs onto this exact figure. Preserve IMAGE_1 canvas size, position, face, brown and rainbow hair, skin, arms, fingers, anatomy, curved single tail centerline and the two fin lobes. No change of pose or perspective. Fit the bodice into the existing torso footprint, lilac bow, pearl buttons, gold stars and scalloped waistcoat hem at the waist; no wide tutu outside the body. Replace existing pink sleeves with matching violet/gold small shoulder straps/ruffles. Tail cover follows the precise curved tail outline, using violet-lavender scales, gold stars and pearl waist band. Keep the rainbow fin lobes unchanged, cover stops just before fin junction. Replace tiara with existing violet hat on top of the same hair. Painted 2D storybook, crisp same detailed finish. This is a registered clothing fitting plate for native 2D rig, not a redesign or animation frame. Transparent background, complete figure, no shadow, labels, floor, extra limbs or loose ribbons over arms.",
+      "tool_wall_seconds": 36.7,
+      "native_output": "exec-d62a0689-30c3-49d3-8981-f8bb6df8e596.png",
+      "appearance_references": [
+        "assets_src/fashion_designer/beta_20261025/native/magician_body.png",
+        "assets_src/fashion_designer/beta_20261025/native/magician_tail.png",
+        "assets_src/fashion_designer/beta_20261025/native/magician_head.png"
+      ],
+      "edit_target": "assets_src/animation/native_rig_stress_20261031/art/neutral_composite.png",
+      "acceptance": "Garment RGB only after uniform fitting and bounded matte; generated identity, anatomy and fin pixels excluded.",
+      "retained_path": "native/magician_fit.png",
+      "sha256": "b2b413e5d26c9ed567dcae6dc76cd61d21b88fefc461fb563b0876f7a1aea3f0",
+      "source_reference_hashes": {
+        "assets_src/animation/native_rig_stress_20261031/art/neutral_composite.png": "0b2a3d2268dff444d51f604a2c6e55d3d991e85982f80db237fb46a6e932b56e",
+        "assets_src/fashion_designer/beta_20261025/native/magician_body.png": "5d01759d95f7b2a89b8749cc7e4eadbad8a7da2ba0f7f32713221275ddbae70a",
+        "assets_src/fashion_designer/beta_20261025/native/magician_tail.png": "46803069cbbca5297cda3584d95fdedc2ce0a362197c58a33058edc1ce2c253d",
+        "assets_src/fashion_designer/beta_20261025/native/magician_head.png": "c55e9659bb5a14f195145b6652917ee04905b57c7cdad0b1f788cb48f8465d7d"
+      }
+    }
+  ],
+  "human_device_owner": "PENDING",
+  "current_method": "Uniform garment-only fitting plate RGB over approved undergarment; same skeleton, meshes and action curves; direct original headpiece reuse with matte cleanup.",
+  "production_wall_evidence": {
+    "start_utc": "2026-10-31T22:17:09.550868+00:00",
+    "final_native_freeze_utc": "2026-10-31T23:09:25.198213+00:00",
+    "elapsed_minutes": 52.26078907648722,
+    "scope": "Card creation through final native-input freeze includes fitting/registration/repair trials. Subsequent export, project regression and publication time is separate; manual cleanup minutes were not separately instrumented."
+  },
+  "action_cards": [
+    "job_cards/ballet_arm_bend.json",
+    "job_cards/ballet_blink.json",
+    "job_cards/ballet_tail_bend.json",
+    "job_cards/magician_arm_bend.json",
+    "job_cards/magician_blink.json",
+    "job_cards/magician_tail_bend.json"
+  ]
+}
