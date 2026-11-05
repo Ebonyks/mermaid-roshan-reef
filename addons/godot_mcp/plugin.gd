@@ -77,22 +77,19 @@ func _exit_tree() -> void:
 
 
 func _ensure_bind_settings() -> void:
-	# Mermaid Roshan local patch (docs/GODOT_MCP.md): save only when a setting
-	# was actually added. An unconditional save rewrote project.godot on every
-	# editor open and dropped its hand-written Godot-baseline header comment.
-	var changed := false
+	var changed: bool = false
 	if not ProjectSettings.has_setting(SETTING_BIND_MODE):
+		changed = true
 		ProjectSettings.set_setting(SETTING_BIND_MODE, MCPEnums.BindMode.LOCALHOST)
-		changed = true
 	if not ProjectSettings.has_setting(SETTING_CUSTOM_BIND_IP):
+		changed = true
 		ProjectSettings.set_setting(SETTING_CUSTOM_BIND_IP, "")
-		changed = true
 	if not ProjectSettings.has_setting(SETTING_PORT_OVERRIDE_ENABLED):
+		changed = true
 		ProjectSettings.set_setting(SETTING_PORT_OVERRIDE_ENABLED, false)
-		changed = true
 	if not ProjectSettings.has_setting(SETTING_PORT_OVERRIDE):
-		ProjectSettings.set_setting(SETTING_PORT_OVERRIDE, WebSocketServer.DEFAULT_PORT)
 		changed = true
+		ProjectSettings.set_setting(SETTING_PORT_OVERRIDE, WebSocketServer.DEFAULT_PORT)
 	if changed:
 		ProjectSettings.save()
 

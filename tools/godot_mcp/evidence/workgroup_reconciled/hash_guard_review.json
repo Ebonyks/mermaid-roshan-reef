@@ -1,0 +1,74 @@
+{
+  "recorded_at_utc": "2026-11-05T19:02:47.737426+00:00",
+  "result": "PASS",
+  "scope": "Audit-only expected-hash boundary correction after the frozen-source full static prefix. Runtime addon, project, game/probe scripts and assets unchanged. Prior native81/82 failure plus unchanged isolated pass retain their exact scope. No atomic whole-filesystem snapshot claim.",
+  "before_audit_sha256": "c3955d2fade10559344758ab1dddb470d768b3627518b4d4f1dbe70559c7afaa",
+  "after_audit_sha256": "945b3d1541584a8193665497d79b6ef762a138f055ce6adb1d9dad991a6730f6",
+  "after_tests_sha256": "a4b4b2519d9f90658c9895688dff476c0b4f80053f5bf69896599e3dcc3d12d9",
+  "checks": [
+    {
+      "name": "guard_regression_before",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_godot_mcp_scope.GodotMCPScopeTests.test_payload_changed_after_approval_is_not_reviewed",
+        "tools.tests.test_godot_mcp_scope.GodotMCPScopeTests.test_manifest_changed_after_approval_is_not_reviewed"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "log": "tools/godot_mcp/evidence/workgroup_reconciled/guard_regression_before.txt",
+      "log_sha256": "9969c0535e061ac3413227cb041b5706e9a6b39ed8f4a0bd4a4f6c01d19007c1"
+    },
+    {
+      "name": "guard_regression_after",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_godot_mcp_scope"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "tools/godot_mcp/evidence/workgroup_reconciled/guard_regression_after.txt",
+      "log_sha256": "89289f594e9342926a9bfb3bf008d3f793456adc0ac3fc7aa5d08fca230ae91b"
+    },
+    {
+      "name": "guard_standing_tests",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_game_2d"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "tools/godot_mcp/evidence/workgroup_reconciled/guard_standing_tests.txt",
+      "log_sha256": "d8b9a5c07eded67710b1c0c20b8a45a09bb4bd183c392ddecad96fc86be5af87"
+    },
+    {
+      "name": "guard_inventory",
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "tools/godot_mcp/evidence/workgroup_reconciled/guard_inventory.txt",
+      "log_sha256": "4022b0d0dd00dd5e333ac2fdd5684e1ec48df71542d261cc30972ea71a23d6d5"
+    }
+  ]
+}
