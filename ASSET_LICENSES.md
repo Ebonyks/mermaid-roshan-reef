@@ -15210,3 +15210,10 @@ Lossless Godot4.7.2 Mobile review renders of existing project art. These files a
 | `assets_src/imagegen/dolls_cradle_focus_20261105/take_01_native.png` | Built-in ImageGen using Dolls sling and mat as style references | Project-authorized AI-generated candidate | [Provenance](assets_src/imagegen/dolls_cradle_focus_20261105/PROVENANCE.json) | Native RGBA. Rejected diffuse matte. |
 | `assets_src/imagegen/dolls_cradle_focus_20261105/take_02_native.png` | Built-in ImageGen cleanup of take 01 | Project-authorized AI-generated candidate | [Provenance](assets_src/imagegen/dolls_cradle_focus_20261105/PROVENANCE.json) | Selected native RGBA. |
 | `assets/dolls/cradle_focus_painted.png` | Take 02 | Project-authorized AI-generated derivative | [Provenance](assets_src/imagegen/dolls_cradle_focus_20261105/PROVENANCE.json) | Uniform crop and Lanczos export. |
+
+### Dolls progress hearts on current Dev source
+
+| Asset | Source | License | URL | Modifications |
+|---|---|---|---|---|
+| `assets/dolls/progress_empty_painted.png` | Archived R119 painted cloth marker | Project-generated artwork | [Exact derivation](https://github.com/Ebonyks/mermaid-roshan-reef/blob/634c8e4a06aae91e30e71e5a5e314c59c29570ce/assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json) | Byte-identical 512 × 512 RGBA export. |
+| `assets/dolls/progress_filled_painted.png` | Archived R119 painted cloth marker | Project-generated artwork | [Exact derivation](https://github.com/Ebonyks/mermaid-roshan-reef/blob/634c8e4a06aae91e30e71e5a5e314c59c29570ce/assets_src/imagegen/dolls_progress_pips_20261031/DERIVATION.json) | Byte-identical 512 × 512 RGBA export. |

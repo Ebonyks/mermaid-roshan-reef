@@ -2336,3 +2336,7 @@ Restore the original three lines in `scripts/games/dolls.gd` from 9e02fc2fe45c1c
 ## CHG-145 — Painted Dolls cradle focus cue
 
 Restore the previous focus drawing block and remove the cue texture preload in `scripts/games/dolls.gd` from 58b5f61952b41f6eab29a21d3fdb21ba7c1cc220 to recover the prior aqua arc, then remove the named halo runtime asset and import after checking references. Keep the native takes and production evidence. This bounded rollback affects the idle cradle focus illustration only. [Source evidence](../docs/handoffs/codex_flat_vector_art_2026-10-07/r139_dolls_cradle_focus_runtime/README.md).
+
+## CHG-146 — Painted Dolls progress hearts
+
+Restore the Dolls progress drawing from bfc60e1e80f49824f299896fe51431ff018c6ddb, remove the new progress helper and two asset references, and retire the two PNGs and imports after verifying references. Preserve the archived native art and evidence. [Candidate](../docs/handoffs/codex_flat_vector_art_2026-10-07/r140_dolls_progress_runtime/README.md).
