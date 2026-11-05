@@ -984,6 +984,26 @@ class Game2DAuditTests(unittest.TestCase):
 			inventory.production_3d_files)
 		self.assertIn("G2D101", self.finding_ids(game_2d.audit(root, manifest)))
 
+	def test_audit_metadata_is_non_runtime_but_models_are_still_inventory(self) -> None:
+		temp, root, manifest = self.fixture(with_debt=False)
+		self.addCleanup(temp.cleanup)
+		folder = root / "design/audit_impacts"
+		folder.mkdir(parents=True)
+		record = folder / "tooling.json"
+		record.write_text(json.dumps({
+			"files": ["addons/tool/commands/scene3d_commands.gd"],
+			"scope": "production_3d_files remains at its historical baseline",
+		}), encoding="utf-8")
+		self.assertIn("design/audit_impacts/tooling.json",
+			game_2d.discover(root).production_3d_files)
+		(folder / ".gdignore").write_bytes(b"")
+		self.assertNotIn("design/audit_impacts/tooling.json",
+			game_2d.discover(root).production_3d_files)
+		(folder / "hidden.glb").write_bytes(b"glTF fixture")
+		result = game_2d.audit(root, manifest)
+		self.assertIn("design/audit_impacts/hidden.glb", result.inventory.model_files)
+		self.assertIn("G2D101", self.finding_ids(result))
+
 	def test_custom_godot_active_data_roots_are_scanned_and_gdignore_is_respected(self) -> None:
 		temp, root, manifest = self.fixture(with_debt=False)
 		self.addCleanup(temp.cleanup)

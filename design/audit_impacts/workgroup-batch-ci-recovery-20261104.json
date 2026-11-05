@@ -1,7 +1,7 @@
 {
   "id": "workgroup-batch-ci-recovery-20261104",
   "baseline": "65c63ae849b091e3fb91cdbeaf1e2837e10778fe",
-  "scope": "Owner-authorized checkout repair and reconciliation of the already published recent-updates batch with current dev. Preserve source history and later dev changes. Windows deterministic-music checkout includes its tools, score sources and output catalog. Linux retains full commit history while fetching historical blobs on demand. Reconcile append-only evidence/ledger rows and identical owner decisions, preserve current executable harness mode and later R135-R139 dev artwork. Reconcile the preserved local chapter-guide draft from a0bb2cf4, including the canon/book-source/map documents and chapter static checks. Retain newer source-specific receipts, the open-dev policy and existing failed-run history. Publish a compact source-labelled archive of 626 remaining local or separately published document snapshots, preserving draft status and original workspaces. Bound the recovered JSON URL scan to in-place suffix matching after live profiling identified quadratic copying on the combined provenance data. Preserve classifications and every gate limit. Reconcile concurrent dev8d16b9a5 painted Dolls progress, retain its tested implementation and native evidence, and move the unpublished workgroup changelog label to CHG-147 because canonical CHG-146 now belongs to R140. Reconcile current dev208a12cf editor-bridge source and its existing hash-pinned tooling audit. Preserve literal vendored bytes through Windows checkout with a bounded -text attribute after 39 working files differed from their unchanged staged pins. Rerun the complete original static and82 runtime gates on this source. Correct the missing-runtime-facts message to display its fixed project-relative output path. A cross-drive Windows relpath exception had converted missing evidence into a crashed check. Preserve COVERAGE_GAP, strict exit1 and the no-saved-pass fallback contract.",
+  "scope": "Owner-authorized checkout repair and reconciliation of the already published recent-updates batch with current dev. Preserve source history and later dev changes. Windows deterministic-music checkout includes its tools, score sources and output catalog. Linux retains full commit history while fetching historical blobs on demand. Reconcile append-only evidence/ledger rows and identical owner decisions, preserve current executable harness mode and later R135-R139 dev artwork. Reconcile the preserved local chapter-guide draft from a0bb2cf4, including the canon/book-source/map documents and chapter static checks. Retain newer source-specific receipts, the open-dev policy and existing failed-run history. Publish a compact source-labelled archive of 626 remaining local or separately published document snapshots, preserving draft status and original workspaces. Bound the recovered JSON URL scan to in-place suffix matching after live profiling identified quadratic copying on the combined provenance data. Preserve classifications and every gate limit. Reconcile concurrent dev8d16b9a5 painted Dolls progress, retain its tested implementation and native evidence, and move the unpublished workgroup changelog label to CHG-147 because canonical CHG-146 now belongs to R140. Reconcile current dev208a12cf editor-bridge source and its existing hash-pinned tooling audit. Preserve literal vendored bytes through Windows checkout with a bounded -text attribute after 39 working files differed from their unchanged staged pins. Rerun the complete original static and82 runtime gates on this source. Correct the missing-runtime-facts message to display its fixed project-relative output path. A cross-drive Windows relpath exception had converted missing evidence into a crashed check. Preserve COVERAGE_GAP, strict exit1 and the no-saved-pass fallback contract. Declare the structured audit-impact folder non-runtime with its standard Godot .gdignore marker. The first topic CI imported successfully but classified the production_3d_files inventory field name in the new audit prose as production API data. Preserve the record text and all checker/model limits. Add a control proving active JSON is detected before the marker and binary models remain inventoried after it.",
   "rules": [
     "DL-AUTH-05",
     "DL-AUTH-06",
@@ -308,7 +308,17 @@
     "audit/cycles/workgroup-batch-sync-20261104/verification/current-final-chapter-contract.log",
     "audit/cycles/workgroup-batch-sync-20261104/verification/current-final-document-authority.log",
     "design/audit_impacts/godot-mcp-editor-bridge-20261105.json",
-    "audit/cycles/workgroup-batch-sync-20261104/verification/POST_VALIDATION_METADATA.json"
+    "audit/cycles/workgroup-batch-sync-20261104/verification/POST_VALIDATION_METADATA.json",
+    "design/audit_impacts/.gdignore",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/ci-d8ecbfea-model-role-failure.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/ci-d8ecbfea-public-readback.json",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/metadata-role-import.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/metadata-role-live-model-gate.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/metadata-role-script-gates.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/metadata-role-unit-tests-fixture-correction.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/metadata-role-unit-tests.log",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/METADATA_ROLE_IMPORT_RESULT.json",
+    "audit/cycles/workgroup-batch-sync-20261104/verification/POST_CI_METADATA_ROLE.json"
   ],
   "validation": [
     {
@@ -433,8 +443,18 @@
     },
     {
       "command": "Inspect current-dev96e8d3a2 metadata addition and preserve exact tested input objects",
+      "result": "FAIL",
+      "evidence": "POST_VALIDATION_METADATA.json records the partial-check limit. Exact CI caught the runtime API classification that those checks omitted. POST_CI_METADATA_ROLE.json supplies the correction."
+    },
+    {
+      "command": "Exact-head topic CI d8ecbfea run42024605745",
+      "result": "FAIL",
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/ci-d8ecbfea-model-role-failure.log. Both checkouts, Windows music, Linux static gates and import pass. The post-import model gate flags production_3d_files in the newly added audit prose. Runtime probes were not reached."
+    },
+    {
+      "command": "Non-runtime audit-record boundary, retained model detection and fresh normal import/model gates",
       "result": "PASS",
-      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/POST_VALIDATION_METADATA.json"
+      "evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/POST_CI_METADATA_ROLE.json. 82 model cases and19 controls pass, fresh approved-engine import passes, live inventory is exact52 with14 pinned tooling files. Checker source and manifest remain exact."
     }
   ],
   "acceptance_gaps": "Static-book, prototype, source-only, art/motion, formal QA11, actual-device, child and owner statuses retain their source-specific scopes. The master audit remains UNSATISFIED.",
@@ -478,7 +498,7 @@
   },
   "current_machine_evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/CURRENT_DEV_INPUT_BINDING.json",
   "post_validation_metadata_reconciliation": {
-    "result": "PASS",
+    "result": "FAIL",
     "incoming_dev": "96e8d3a20a64772ec712ee6b0bea3fb22e36a793",
     "validated_checkpoint": "267855851c15a60f91d4c6147d57fa681b29dc9c",
     "changed_since_checkpoint": [
@@ -487,6 +507,14 @@
     "unchanged_runtime_and_validator_git_objects": true,
     "new_metadata_file_sha256": "99d426a05283dc158559c1d04ccab25c090887584346b6a5285334295997fc97",
     "model_signature_coverage_archive_inspection": "PASS under unchanged production helpers",
-    "scope": "A single current-dev audit-impact JSON is added after full validation. All runtime/art/addon/native-validator inputs and the complete tested static-tools tree remain exact."
-  }
+    "scope": "A single current-dev audit-impact JSON is added after full validation. All runtime/art/addon/native-validator inputs and the complete tested static-tools tree remain exact.",
+    "original_result": "PASS",
+    "verification_limit": "The original checks omitted runtime API classification of audit prose. The failed CI and POST_CI_METADATA_ROLE.json document the corrected Godot boundary."
+  },
+  "metadata_role_regression_fixture": {
+    "actual_matched_token": "production_3d_files",
+    "first_fixture_result": "FAIL because a scene3d filename alone did not match the actual inventory marker",
+    "correction": "Include the exact field name from the CI record. Retain all three assertions and the failed first fixture log."
+  },
+  "current_metadata_role_evidence": "audit/cycles/workgroup-batch-sync-20261104/verification/POST_CI_METADATA_ROLE.json"
 }

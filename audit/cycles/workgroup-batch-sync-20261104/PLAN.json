@@ -66,5 +66,23 @@
     "rule": "DL-QA-07",
     "scope": "Use the fixed project-relative diagnostic path for missing runtime facts. Correct a Windows H/C drive mismatch without changing evidence floors, fallback policy, strict exit status or gameplay. Existing test still requires COVERAGE_GAP and a new forced-cross-drive test rejects the old function.",
     "required_evidence": "Preserve original crash and failing control, rerun all96 visual audit cases and the original static prefix."
+  },
+  "audit_record_runtime_boundary": {
+    "scope": "Use the existing Godot .gdignore mechanism for structured audit documentation. Preserve text, source hashes and checker limits. Confirm production code has no audit-record dependency and all repository model scanning still applies.",
+    "rules": [
+      "DL-AUTH-05",
+      "DL-AUTH-06",
+      "DL-AUTH-07",
+      "DL-MED-04",
+      "DL-QA-02"
+    ],
+    "required_evidence": [
+      "Negative active-JSON control",
+      "Ignored-JSON control",
+      "Hidden binary model still detected",
+      "Full current audit unit suite",
+      "Normal Godot import and model gate",
+      "Final authority/coverage and exact-head CI"
+    ]
   }
 }
