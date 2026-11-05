@@ -1,0 +1,56 @@
+local root=app.params["packet"]
+app.fs.makeAllDirectories(root.."/evidence/roundtrip")
+do local s=app.open(root.."/fir.aseprite")
+assert(#s.frames==40)
+for i=1,40 do assert(math.abs(s.frames[i].duration-0.1)<0.001)
+local im=Image(s.spec);im:drawSprite(s,i)
+im:saveAs(root.."/evidence/roundtrip/fir_"..string.format("%02d",i-1)..".png")
+end;s:close() end
+do local s=app.open(root.."/huckleberry.aseprite")
+assert(#s.frames==40)
+for i=1,40 do assert(math.abs(s.frames[i].duration-0.1)<0.001)
+local im=Image(s.spec);im:drawSprite(s,i)
+im:saveAs(root.."/evidence/roundtrip/huckleberry_"..string.format("%02d",i-1)..".png")
+end;s:close() end
+do local s=app.open(root.."/hydrangea.aseprite")
+assert(#s.frames==40)
+for i=1,40 do assert(math.abs(s.frames[i].duration-0.1)<0.001)
+local im=Image(s.spec);im:drawSprite(s,i)
+im:saveAs(root.."/evidence/roundtrip/hydrangea_"..string.format("%02d",i-1)..".png")
+end;s:close() end
+do local s=app.open(root.."/bellflower.aseprite")
+assert(#s.frames==40)
+for i=1,40 do assert(math.abs(s.frames[i].duration-0.1)<0.001)
+local im=Image(s.spec);im:drawSprite(s,i)
+im:saveAs(root.."/evidence/roundtrip/bellflower_"..string.format("%02d",i-1)..".png")
+end;s:close() end
+do local s=app.open(root.."/cloud.aseprite")
+assert(#s.frames==40)
+for i=1,40 do assert(math.abs(s.frames[i].duration-0.1)<0.001)
+local im=Image(s.spec);im:drawSprite(s,i)
+im:saveAs(root.."/evidence/roundtrip/cloud_"..string.format("%02d",i-1)..".png")
+end;s:close() end
+do local s=app.open(root.."/smoke.aseprite")
+assert(#s.frames==40)
+for i=1,40 do assert(math.abs(s.frames[i].duration-0.1)<0.001)
+local im=Image(s.spec);im:drawSprite(s,i)
+im:saveAs(root.."/evidence/roundtrip/smoke_"..string.format("%02d",i-1)..".png")
+end;s:close() end
+do local s=app.open(root.."/seesaw.aseprite")
+assert(#s.frames==40)
+for i=1,40 do assert(math.abs(s.frames[i].duration-0.1)<0.001)
+local im=Image(s.spec);im:drawSprite(s,i)
+im:saveAs(root.."/evidence/roundtrip/seesaw_"..string.format("%02d",i-1)..".png")
+end;s:close() end
+do local s=app.open(root.."/gate.aseprite")
+assert(#s.frames==40)
+for i=1,40 do assert(math.abs(s.frames[i].duration-0.1)<0.001)
+local im=Image(s.spec);im:drawSprite(s,i)
+im:saveAs(root.."/evidence/roundtrip/gate_"..string.format("%02d",i-1)..".png")
+end;s:close() end
+do local s=app.open(root.."/glass.aseprite")
+assert(#s.frames==40)
+for i=1,40 do assert(math.abs(s.frames[i].duration-0.1)<0.001)
+local im=Image(s.spec);im:drawSprite(s,i)
+im:saveAs(root.."/evidence/roundtrip/glass_"..string.format("%02d",i-1)..".png")
+end;s:close() end

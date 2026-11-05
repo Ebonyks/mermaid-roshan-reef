@@ -28,3 +28,5 @@ The earlier R141 tent observation is withdrawn: the large translucent foreground
 [Candidate outputs and provenance](CANDIDATE_RECORDS.json) · [Ten-axis comparison](TEN_AXIS_COMPARISON.json) · [Capture events](FRAME_EVENTS.json) · [Reproduction instructions](CAPTURE_INSTRUCTIONS.json) · [Current machine result](current_dev_80975b0051/evidence/FINAL_RESULT.json) · [Retained failures and recovery](RECOVERY_HISTORY.json) · [Manifest](MANIFEST.json)
 
 The [standing registry route](../CANONICAL_REGISTRY.md) connects Dev readers to the owner-established per-piece registry and its revision-specific integration receipts. Later reconciliations must declare their exact scope. No master promotion or creative acceptance is asserted here.
+
+Final reconciliation also retains the newer Dev archive at `169f6e90faff072affb40874f49566a97c2814ef`. Both license and ledger additions are preserved. [All 5,510 tested runtime inputs and the CI script remain byte-identical](FINAL_RECONCILIATION.json); the existing bounded native and machine evidence remains applicable. No healthy engine suite or capture was repeated for this archive change.

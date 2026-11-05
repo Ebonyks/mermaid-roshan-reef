@@ -1,0 +1,436 @@
+{
+  "schema": "reef.sky-lagoon-overlay-study.v1",
+  "status": "REVIEW_CANDIDATE",
+  "source_files": {
+    "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21"
+  },
+  "frames": 32,
+  "fps": 8,
+  "period_seconds": 4,
+  "method": "Existing whole-patch raster deformation, explicitly ambient motion. Original crops remain the appearance authority. No generated art, no rejected object frames, no character animation, no crossfades.",
+  "palette": "GIF previews use a single 256-color palette per loop. Godot uses lossless RGB PNG cells to preserve the exact source border and baseline.",
+  "job_budget": {
+    "generated_takes": 0,
+    "paid_calls": 0,
+    "wall_cap_minutes": 40,
+    "cleanup_cap_minutes": 15,
+    "attempts_per_object": 2
+  },
+  "items": [
+    {
+      "id": "fir_crown",
+      "box": [
+        0,
+        0,
+        384,
+        512
+      ],
+      "amplitude": 8,
+      "phase": 0.0,
+      "polygon": [
+        [
+          112,
+          16
+        ],
+        [
+          152,
+          16
+        ],
+        [
+          187,
+          100
+        ],
+        [
+          215,
+          214
+        ],
+        [
+          285,
+          292
+        ],
+        [
+          326,
+          370
+        ],
+        [
+          368,
+          430
+        ],
+        [
+          16,
+          430
+        ],
+        [
+          16,
+          220
+        ],
+        [
+          65,
+          110
+        ]
+      ],
+      "kind": "foliage",
+      "frame_size": [
+        384,
+        512
+      ],
+      "gif": {
+        "frames": 32,
+        "duration_ms": 4000,
+        "bytes": 1012480,
+        "sha256": "c6a87c4f0ba5b57aa4625de6d3c0b90534ce189f13c8efe8167bd50b34aae612"
+      },
+      "source_crop_sha256": "40422a331373e76b4fe9acee78e2fb76181970b35d975085878d631b6afe98b7",
+      "frames_sha256": [
+        "77b369d072a00b8258070cb2e28e5958bb3c2dae710945d429e15c6322914caf",
+        "7c4ba4168913513da0388bc520fc6c979f7443dd6421a77c518a750e19ea1e1d",
+        "0463cc87ca61c4301d0e90f1be56e3d8b46ad4aa53d1dcc62c6907b5d01f5fe3",
+        "cf6607945ee4602fde3bb590ee861e6896a91a5085809220b385e5ad29786619",
+        "f82a579d66494a2cf9680b8c735bb5b75215cb057fea598361dc82e0e7d53371",
+        "6f3568dddd9df87ebe14281c5865aadccc7314e2d309880110e7d6298b55f13d",
+        "b4c0ee094482611209e65dfc1576d5d4b3a848587b4b863ad4dcf4c022d5ffd9",
+        "37888a66c909787f8bb4aa9cb981fc846c86c53bd23cabb96bb7b7ac208355c7",
+        "6046aa3d6dad4308d640395438e14d9bdb619c602e9350a5332c61025a9bb845",
+        "37888a66c909787f8bb4aa9cb981fc846c86c53bd23cabb96bb7b7ac208355c7",
+        "b4c0ee094482611209e65dfc1576d5d4b3a848587b4b863ad4dcf4c022d5ffd9",
+        "6f3568dddd9df87ebe14281c5865aadccc7314e2d309880110e7d6298b55f13d",
+        "f82a579d66494a2cf9680b8c735bb5b75215cb057fea598361dc82e0e7d53371",
+        "cf6607945ee4602fde3bb590ee861e6896a91a5085809220b385e5ad29786619",
+        "0463cc87ca61c4301d0e90f1be56e3d8b46ad4aa53d1dcc62c6907b5d01f5fe3",
+        "7c4ba4168913513da0388bc520fc6c979f7443dd6421a77c518a750e19ea1e1d",
+        "77b369d072a00b8258070cb2e28e5958bb3c2dae710945d429e15c6322914caf",
+        "5cff12841f2b0ef89a308fa7ebc06b2f231b478e4eb6c2eccc7b19f704d0343d",
+        "f88af703d4713f076be53aa07940f789e5c1d45b368380f515b3fc17ae46da2f",
+        "6e4872f2a90e2404fb633284a980ca065294a0d18eb4f9219a6126242f484324",
+        "9ee35f63de8fd96688440b763c1f3f4c175f528115cb77b937912514be9972e9",
+        "fde8c89815716882585e1f8195d112e611f51040b87b4eb06cb6482ad6259d98",
+        "47c9cbc88e7f0430f568f1c654f26c250f1ca75d8787e1b71b9fc6308ada33fa",
+        "8e3ada30e09da2843ba83e746af050e6dff32798c18dfdcb69475ef2d2d85e02",
+        "007e6fdaabcd2589152a71b52fe81c4121835967234004d31bcd8af285fe8995",
+        "8e3ada30e09da2843ba83e746af050e6dff32798c18dfdcb69475ef2d2d85e02",
+        "47c9cbc88e7f0430f568f1c654f26c250f1ca75d8787e1b71b9fc6308ada33fa",
+        "fde8c89815716882585e1f8195d112e611f51040b87b4eb06cb6482ad6259d98",
+        "9ee35f63de8fd96688440b763c1f3f4c175f528115cb77b937912514be9972e9",
+        "6e4872f2a90e2404fb633284a980ca065294a0d18eb4f9219a6126242f484324",
+        "f88af703d4713f076be53aa07940f789e5c1d45b368380f515b3fc17ae46da2f",
+        "5cff12841f2b0ef89a308fa7ebc06b2f231b478e4eb6c2eccc7b19f704d0343d"
+      ],
+      "locked_pixels": 116706,
+      "all_locked_pixels_exact": true,
+      "base_rgba_mib": 24.0
+    },
+    {
+      "id": "meadow_flowers",
+      "box": [
+        1550,
+        1580,
+        1934,
+        1964
+      ],
+      "amplitude": 10,
+      "phase": 0.25,
+      "polygon": [
+        [
+          95,
+          20
+        ],
+        [
+          256,
+          20
+        ],
+        [
+          305,
+          94
+        ],
+        [
+          361,
+          171
+        ],
+        [
+          326,
+          249
+        ],
+        [
+          44,
+          252
+        ],
+        [
+          18,
+          174
+        ],
+        [
+          20,
+          80
+        ]
+      ],
+      "kind": "foliage",
+      "frame_size": [
+        384,
+        384
+      ],
+      "gif": {
+        "frames": 32,
+        "duration_ms": 4000,
+        "bytes": 1257335,
+        "sha256": "bd42c0e336cef307d36a549f08f43407d015a491617ca13e1fb7188eb1198136"
+      },
+      "source_crop_sha256": "d80291c10237c4b80d2fa2f6e7ffb3327e5160e0e03cbb7c9792faf6643aebb7",
+      "frames_sha256": [
+        "8903729547c99773c45cf0dff3d8d2049b04115f7f4cf04c00c98e3cce5c12be",
+        "1d8aef51b46d9fc3c08b7bf4b272bb86ddfba221c83df96de4cc1685eeda7f71",
+        "d68a9d35f9f9a1bafbedebccc0226db9b9145e73a46a8cef7d4f9f1ecfb7b52f",
+        "f108837e7db0d1102e5a987c3bb98de47a0e4eff82cef3f0e2b76ae45bbba912",
+        "0279592e9c334ef69aeef9a2031d7e29f6a7a0f5724b0a2e7e69255c83bfe797",
+        "5158c3948f840f6d25ed99b55dc86d151d2a6b73891f3e8eee1b08b4202df58d",
+        "9568d5f7e582e8bbb6005b241c7940e695b5a570583a110c2e465170bc88a39d",
+        "604c9386509e7036deaf46c0326f2dfa11d421defb8104641d44bba83bfd253a",
+        "31012f89fe6553bb0b7909ea96b31163a4b21858f24b2dad21e9418b9a2e13fa",
+        "604c9386509e7036deaf46c0326f2dfa11d421defb8104641d44bba83bfd253a",
+        "9568d5f7e582e8bbb6005b241c7940e695b5a570583a110c2e465170bc88a39d",
+        "5158c3948f840f6d25ed99b55dc86d151d2a6b73891f3e8eee1b08b4202df58d",
+        "0279592e9c334ef69aeef9a2031d7e29f6a7a0f5724b0a2e7e69255c83bfe797",
+        "f108837e7db0d1102e5a987c3bb98de47a0e4eff82cef3f0e2b76ae45bbba912",
+        "d68a9d35f9f9a1bafbedebccc0226db9b9145e73a46a8cef7d4f9f1ecfb7b52f",
+        "1d8aef51b46d9fc3c08b7bf4b272bb86ddfba221c83df96de4cc1685eeda7f71",
+        "8903729547c99773c45cf0dff3d8d2049b04115f7f4cf04c00c98e3cce5c12be",
+        "1a87908ef540f790e07df253c76869438a68da5a5ae965e7e0a78c9dc6a98cc2",
+        "a4bdacb8aafdb49b047744192195ae1f7485227666855b953cce4939d3d8518d",
+        "fd54bc13e6dd9003983a4d76708f54a7ffaf481e19bf34e07db4d83f208fd303",
+        "f2427fea1e339162ac2cb20ecb1e28d6de8c496a7d2dc1e280b9e4c87d26ad42",
+        "d1af06acd314f35c9df89b420435a105e8f3665467ed870c308682c997c72616",
+        "793c689954355bdd68370c701c2b74d15341f0ece6ced348ee80175dbdef99c2",
+        "78d3ddf108984dfe04fc7000905914da56b25c03c9ac6a8037472b8c77c35203",
+        "46186eb7696c97a039bfeab84527883e9a330ac3548c5cbe5b46bee4268ee83d",
+        "78d3ddf108984dfe04fc7000905914da56b25c03c9ac6a8037472b8c77c35203",
+        "793c689954355bdd68370c701c2b74d15341f0ece6ced348ee80175dbdef99c2",
+        "d1af06acd314f35c9df89b420435a105e8f3665467ed870c308682c997c72616",
+        "f2427fea1e339162ac2cb20ecb1e28d6de8c496a7d2dc1e280b9e4c87d26ad42",
+        "fd54bc13e6dd9003983a4d76708f54a7ffaf481e19bf34e07db4d83f208fd303",
+        "a4bdacb8aafdb49b047744192195ae1f7485227666855b953cce4939d3d8518d",
+        "1a87908ef540f790e07df253c76869438a68da5a5ae965e7e0a78c9dc6a98cc2"
+      ],
+      "locked_pixels": 70949,
+      "all_locked_pixels_exact": true,
+      "base_rgba_mib": 18.0
+    },
+    {
+      "id": "lakeside_lupines",
+      "box": [
+        5550,
+        1420,
+        5934,
+        1804
+      ],
+      "amplitude": 9,
+      "phase": 0.5,
+      "polygon": [
+        [
+          70,
+          20
+        ],
+        [
+          361,
+          20
+        ],
+        [
+          363,
+          246
+        ],
+        [
+          295,
+          284
+        ],
+        [
+          70,
+          281
+        ],
+        [
+          26,
+          200
+        ],
+        [
+          35,
+          122
+        ]
+      ],
+      "kind": "foliage",
+      "frame_size": [
+        384,
+        384
+      ],
+      "gif": {
+        "frames": 32,
+        "duration_ms": 4000,
+        "bytes": 1365316,
+        "sha256": "43c159c6e954e302af0314d0ecd05379c08a47a9cb0cd62f5b79f79713ebbd9a"
+      },
+      "source_crop_sha256": "608475332fb43f66c44d7ace862c29c9db3298f3de8608e47550b261356ef2cb",
+      "frames_sha256": [
+        "439a6798cc8eff153a3e7c2ea832b62cea8740dcfbeef305a1d547291d055387",
+        "5abae196d758514ff297ed0338825ce113909d9424215288f98b6028316d1883",
+        "ace232e41f6db3fb77a2c64fabb07d50948e6cb83caac7e3daf76f041bcb601d",
+        "e2cd94c8a5be21cdcd555efbeb02e88e780e49b3cd75b2ffe47b053fc212d07b",
+        "e98b3eb719ec292342d76ea0764947ba826bb5656546e8b9bca6b87d23da13cf",
+        "9b8d061b85f8785ec95dea69b2be57c05701f1c49166bd53c7dc8711065b38e3",
+        "6646997e60efe114734ec733f2189a0da6e4db5bf74460bacf782156e0c3b7e4",
+        "881194eb64b82668f92cddf24ed4b3189babc1e2cf7206faa629dee253928b18",
+        "40d71f199bf865d61ce7c1a262429d5ed98ee1a16b16370a4b1cbe458a6d0579",
+        "881194eb64b82668f92cddf24ed4b3189babc1e2cf7206faa629dee253928b18",
+        "6646997e60efe114734ec733f2189a0da6e4db5bf74460bacf782156e0c3b7e4",
+        "9b8d061b85f8785ec95dea69b2be57c05701f1c49166bd53c7dc8711065b38e3",
+        "e98b3eb719ec292342d76ea0764947ba826bb5656546e8b9bca6b87d23da13cf",
+        "e2cd94c8a5be21cdcd555efbeb02e88e780e49b3cd75b2ffe47b053fc212d07b",
+        "ace232e41f6db3fb77a2c64fabb07d50948e6cb83caac7e3daf76f041bcb601d",
+        "5abae196d758514ff297ed0338825ce113909d9424215288f98b6028316d1883",
+        "439a6798cc8eff153a3e7c2ea832b62cea8740dcfbeef305a1d547291d055387",
+        "6fe7912a4ccf337d85b8b46789ccdcf3d9300b648fbe999f4d7fdc3c067676ef",
+        "c3aeb2d862b7a6746b0efc304062dd55957d1f67d82bf36269644414c3009d0f",
+        "1d8ced858c5978771edabdded3e64a13b44e12dbf2bb3c2ed6f727ced35462ec",
+        "e1135c6e40c8ef30af6aa9119d39d79e2576a66bd19fadad80e3732ff43029a8",
+        "1db0579bb5616fcc001be993b6c6ba65bd0462e3432403331a7ec2a2e22f7578",
+        "3dcdbdc05fef57dadb23685d7498cca9f2f73227026c20e9064024b1fd6a23f9",
+        "3289b3541a89a1c2776f83c7422e3ea5e434c7ea0bf6dc1ff5975e1260ff679a",
+        "298fc2ab1bcf3cff310e21367c5947c688fb5855f76e9bc80419287a46801b54",
+        "3289b3541a89a1c2776f83c7422e3ea5e434c7ea0bf6dc1ff5975e1260ff679a",
+        "3dcdbdc05fef57dadb23685d7498cca9f2f73227026c20e9064024b1fd6a23f9",
+        "1db0579bb5616fcc001be993b6c6ba65bd0462e3432403331a7ec2a2e22f7578",
+        "e1135c6e40c8ef30af6aa9119d39d79e2576a66bd19fadad80e3732ff43029a8",
+        "1d8ced858c5978771edabdded3e64a13b44e12dbf2bb3c2ed6f727ced35462ec",
+        "c3aeb2d862b7a6746b0efc304062dd55957d1f67d82bf36269644414c3009d0f",
+        "6fe7912a4ccf337d85b8b46789ccdcf3d9300b648fbe999f4d7fdc3c067676ef"
+      ],
+      "locked_pixels": 56349,
+      "all_locked_pixels_exact": true,
+      "base_rgba_mib": 18.0
+    },
+    {
+      "id": "lake_ripples",
+      "box": [
+        4992,
+        1088,
+        5376,
+        1472
+      ],
+      "amplitude": 5,
+      "phase": 0.75,
+      "polygon": [
+        [
+          16,
+          16
+        ],
+        [
+          368,
+          16
+        ],
+        [
+          368,
+          368
+        ],
+        [
+          16,
+          368
+        ]
+      ],
+      "kind": "water",
+      "frame_size": [
+        384,
+        384
+      ],
+      "gif": {
+        "frames": 32,
+        "duration_ms": 4000,
+        "bytes": 1575098,
+        "sha256": "997db3639b7e43cac8e91c776bbcbc30f0238d72a66d5e6d572eb3881e96e354"
+      },
+      "source_crop_sha256": "7dcbdae197d5726add674b6a693353cd314df95b2c09f8b8844c908d66ac83d3",
+      "frames_sha256": [
+        "db7eaa3b329ebe4a101fd70e7e0b80d0f3554ffa1914d181bb0aa18ae551a314",
+        "7397db11ccfe9aac108c3bc801f6ff367eac13cbc888e706cd56d12554bf91b3",
+        "8043d7c58e39b63af264fbeda64f7487a1fd0dcfcf3ea3e92cfb5c5405d8a357",
+        "0c9682a20540dc8540be9ceccaf8b1984991cead941962ae7e10d4b554e93957",
+        "adfe7525f3bc0971f911dcd8badb0832453f7adf8cc12208a25e5de947ce9a4a",
+        "c98425c1c3e21b0de8789cfc82de3d64ccd0d08dcf892212a950738ccf12c89c",
+        "ab40a9566b00e13413fbfdf169d4906646a38e0630d144f40e339fabce068714",
+        "571e68866b3c2fd5e4f39447a9889254bd52e9a18d8920f2bdb3028febb44468",
+        "5bc37bcc9ebaf83a27d3a1a22fd9753f73161f82613b1f9414f3cc15deeecbf8",
+        "82ceedba8c94ff6d4972c6f02de70dcd18093e14e53ff472d84b3cff0eda7864",
+        "2ee129a322dc95ac6f3516699e58c1cbc27eb977cb7aa95c6b02d00aff1671c4",
+        "e3ce0c0f770d57da7f313ea83d2ea10c15b78d1545229d7a464061766d5f77d2",
+        "ccb04d4b8a573ce25671a607a7e51d40e0f25444666c2ceae998b7344bad432c",
+        "a692a6561a1cab7e5165ec52ce1a31f932db419a93297f13a133e2e8647f6634",
+        "17c6e3b2bd446f0d610ae78c1a8e05985ff222582cbf3d5c23629ba7b36467b1",
+        "aef24fcc6b353c9d7311ce4b0f8b47fd7a1800e066458441566a09deef7c024c",
+        "db7eaa3b329ebe4a101fd70e7e0b80d0f3554ffa1914d181bb0aa18ae551a314",
+        "cb6ca578dbe9931dde8005e5d6711e23e930af0beac1e876a3cc84c84870f44b",
+        "701e97a464cdb0f49d071a689aa2bb4685782583900442740f8b3b334b28b1ce",
+        "f434bfd54b8c2ac7b35851e8fa34202ea014d1d8df847b39d8ecc81032540f77",
+        "98a83b9ed1e4103ccde07e89b565f06fa6cacab6112add51ba1f646000a76640",
+        "3571ceb92858c9285b37221a7cbfdb0a79e0730a3d560651a81a1928d8ff85cb",
+        "ad8dd7c853267681b0f885f1549def93eeef82d2f6a5a2141c7c21cc36f8c085",
+        "664d66ba26f9fd160538a4f58f4da77681f0aa8c8cbf9a47c726139fa047679c",
+        "ba3743f94f928c721ed139b618f2ff095c1cb1d81720f6debbe8ebc26cbf0c9e",
+        "72c998bfec25224e1d83a77bc53fcdb388184aa85dad156a1a91a10a5384b3ad",
+        "a3062038ab97c9e8cf2868df41d0ecd9e23c7b2c3872ef93d6afc02ad3c8e477",
+        "3c42cbda75f7724cf57a7f823c8e7387475d07981ade91a91ebbdb9ffe3751ad",
+        "aaa56a59f930759e2b75cbae297b8817f68e97da8078f58c8a1d502e681856e8",
+        "6e76759486426bf6f0a312cb4ac13dadb7c08bab1da346f4cb459e412dc52814",
+        "ca9d4a220297783900b105495a8605d1e59ed716b8b2ba980b66fe54e83ca748",
+        "66bad45d2c1bcd3cdb779b874073ca07f91c522ce9015d1c24baa6eb67ad9b0a"
+      ],
+      "locked_pixels": 24956,
+      "all_locked_pixels_exact": true,
+      "base_rgba_mib": 18.0
+    }
+  ],
+  "tests": {
+    "source_master_hash": "PASS",
+    "native_tiles_match_master": "PASS",
+    "all_rest_frames_exact": "PASS",
+    "locked_borders_and_bases": "PASS",
+    "periodic_seams": "PASS",
+    "gif_decode_and_clock": "PASS"
+  },
+  "acceptance_gaps": [
+    "Human full-speed visual/motion review",
+    "Target Lenovo M11/older Android timing and overdraw",
+    "Child and owner acceptance",
+    "Production integration"
+  ],
+  "edge_treatment": "Transparent 14px guard within the unchanged 16px border. Every moving pixel remains fully opaque; fixed RGB paint is preserved under the guard.",
+  "base_rgba_mib": 97.3125,
+  "license": "Project-owned art from canonical ASSET_LICENSES.md. New derivatives retain source licensing and candidate status.",
+  "base_rgba_mib_without_sharing": 126.0,
+  "identical_texture_sharing": "One Texture2D per PNG SHA-256. Repeated positions share the exact same resource.",
+  "source_dimensions": [
+    6144,
+    2048
+  ],
+  "source_acceptance": "Approved v5 panorama; derivatives are unaccepted ambient study candidates.",
+  "tools": {
+    "python": "3.13.14",
+    "Pillow": "12.3.0",
+    "numpy": "2.5.1",
+    "Aseprite": "1.3.18.4",
+    "Godot": "4.7.2-stable official ed1daf0bf",
+    "FFmpeg": "8.1.2"
+  },
+  "job_cards": [
+    "jobs/fir_crown.json",
+    "jobs/meadow_flowers.json",
+    "jobs/lakeside_lupines.json",
+    "jobs/lake_ripples.json"
+  ],
+  "timing_record_limit": "No separate active-authoring/cleanup stopwatch. Machine logs are retained without inventing manual time."
+}

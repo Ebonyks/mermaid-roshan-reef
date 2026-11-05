@@ -1,0 +1,19 @@
+config_version=5
+[application]
+config/name="Sky Lagoon - Moving Garden"
+run/main_scene="res://lagoon.tscn"
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+[rendering]
+renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="mobile"
+textures/default_filters/use_nearest_mipmap_filter=false
+environment/defaults/default_clear_color=Color(0.06,0.16,0.19,1)
+[environment]
+defaults/default_clear_color=Color(0.06,0.16,0.19,1)
+
+[importer_defaults]
+texture={"process/fix_alpha_border": false}

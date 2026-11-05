@@ -1,0 +1,42 @@
+{
+  "id": "smoke",
+  "revision": 1,
+  "date": "2026-11-05",
+  "lane": "isolated reference demo",
+  "source": {
+    "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+    "sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+    "dimensions": [
+      46,
+      256
+    ],
+    "role": "identity_still_only",
+    "copy": "sources/smoke.png",
+    "license": "Project art; inherits exact source terms in ASSET_LICENSES.md",
+    "acceptance_scope": "Identity still only. Garden separated art remains review-only. No prior animation frames reused."
+  },
+  "intention": "Smoke curls",
+  "fixed": "Camera/background, plant root bands, seesaw pedestal, gate masonry, swing frame",
+  "entry_exit": "Exact normalized source at t=0 and t=4 seconds",
+  "method": "Local keyed 2D deformation/layer articulation; premultiplied RGBA sampling; Aseprite master",
+  "geometry": "256 padded canvas; plant root y>=228; seesaw axle (128,193); gate hinges x104/x151",
+  "tolerances": "Plant crown 32-56px peak-to-peak, fixed support, no edge clipping, periodic endpoint exact",
+  "limits": {
+    "generated_take_cap": 2,
+    "generated_calls": 0,
+    "money_cap": 0,
+    "local_trial_minutes": 90,
+    "cleanup_minutes_cap": 30,
+    "aggregate_task_minutes": 180
+  },
+  "stop_fallback": "Stop on drift/contact failure; no rejected-frame reuse. Swing remains missing-view gap.",
+  "human_review": "PENDING",
+  "device_review": "PENDING",
+  "owner_review": "PENDING",
+  "source_commit": "5003d421b0de8771a59eafdcb2aadffd818a7246",
+  "workflow_sha256": "91935f3290b5dd5e7e2990b4ab2632169b25297b3932d37956226fbe490459be",
+  "cleanup_time": "Not instrumented; acceptance/efficiency gap retained",
+  "layout_revision": 3,
+  "current_compositing_workflow_sha256": "de81b93bfcce84c1260fac3023362472bac73b5502be562a9385fd3d52561ac3",
+  "source_proportions": "Uniform fit, original root anchor(128,234) preserved"
+}

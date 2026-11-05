@@ -1,0 +1,2895 @@
+{
+  "schema": "reef.sky-lagoon-overlay-study.v1",
+  "status": "REVIEW_CANDIDATE",
+  "source_files": {
+    "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c0.png": "5addf12c775f697d89b5f7227485155616558c5c2c3c4b29accc89fd9a93fcdb",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c1.png": "ae962d17088df75e6f3db9fd632a1c2f105d91a902996cd5ac5aba184f82fc1d",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png": "a5e0dc1e71031ade14059722885bf7905d88f3ea45e9b04e5994cb09ece88850",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png": "b423c7c320377e15a38d684d4cec4499c81fa9a31e20bdf4d7dbf051d63c1959",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c4.png": "bb674934980b1b3e70dfe4e2fcb0f866e61f0ac6eefc3414b398a6da654f86ac",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c5.png": "563cdab3a65bd22518350c441cffd6f0f1173ab51df7d70cf09c11b4c151035c",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c0.png": "60b2ca6fb0ed517929a7dcdaa19cc9cf13a61cb27d7a7700c396383c85418a3a",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c1.png": "2fb96fa18f1e9ccec77ba4f1fd162223385fdfaa230f57647f0240de27ca1400",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png": "2c095349af8d05bb11e43f2115406ce55f583eb885f2abf5b7b4faf7cb8b1e28",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png": "1f84c75cdfc85923b2a18011e50ac60e78145ed6a9703f7c99ae26592bb6edb7",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c4.png": "72e54d1d6a1fbfbeba326670c0d0c640d582b0a60f89d95db77ebcec1257e9c4",
+    "assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c5.png": "6ef1dd25a1ea4ee998886d6e0c5a824ef915dddb2cff786ffad5520ba0aa2e21"
+  },
+  "frames": 32,
+  "fps": 8,
+  "period_seconds": 4,
+  "method": "Existing whole-patch raster deformation, explicitly ambient motion. Original crops remain the appearance authority. No generated art, no rejected object frames, no character animation, no crossfades.",
+  "palette": "GIF previews use a single 256-color palette per loop. Godot uses lossless RGB PNG cells to preserve the exact source border and baseline.",
+  "job_budget": {
+    "generated_takes": 0,
+    "paid_calls": 0,
+    "wall_cap_minutes": 40,
+    "cleanup_cap_minutes": 15,
+    "attempts_per_object": 2
+  },
+  "items": [
+    {
+      "id": "fir_crown",
+      "box": [
+        0,
+        0,
+        384,
+        512
+      ],
+      "amplitude": 8,
+      "phase": 0.0,
+      "polygon": [
+        [
+          112,
+          16
+        ],
+        [
+          152,
+          16
+        ],
+        [
+          187,
+          100
+        ],
+        [
+          215,
+          214
+        ],
+        [
+          285,
+          292
+        ],
+        [
+          326,
+          370
+        ],
+        [
+          368,
+          430
+        ],
+        [
+          16,
+          430
+        ],
+        [
+          16,
+          220
+        ],
+        [
+          65,
+          110
+        ]
+      ],
+      "kind": "foliage",
+      "frame_size": [
+        384,
+        512
+      ],
+      "gif": {
+        "frames": 32,
+        "duration_ms": 4000,
+        "bytes": 1012480,
+        "sha256": "c6a87c4f0ba5b57aa4625de6d3c0b90534ce189f13c8efe8167bd50b34aae612"
+      },
+      "source_crop_sha256": "40422a331373e76b4fe9acee78e2fb76181970b35d975085878d631b6afe98b7",
+      "frames_sha256": [
+        "77b369d072a00b8258070cb2e28e5958bb3c2dae710945d429e15c6322914caf",
+        "7c4ba4168913513da0388bc520fc6c979f7443dd6421a77c518a750e19ea1e1d",
+        "0463cc87ca61c4301d0e90f1be56e3d8b46ad4aa53d1dcc62c6907b5d01f5fe3",
+        "cf6607945ee4602fde3bb590ee861e6896a91a5085809220b385e5ad29786619",
+        "f82a579d66494a2cf9680b8c735bb5b75215cb057fea598361dc82e0e7d53371",
+        "6f3568dddd9df87ebe14281c5865aadccc7314e2d309880110e7d6298b55f13d",
+        "b4c0ee094482611209e65dfc1576d5d4b3a848587b4b863ad4dcf4c022d5ffd9",
+        "37888a66c909787f8bb4aa9cb981fc846c86c53bd23cabb96bb7b7ac208355c7",
+        "6046aa3d6dad4308d640395438e14d9bdb619c602e9350a5332c61025a9bb845",
+        "37888a66c909787f8bb4aa9cb981fc846c86c53bd23cabb96bb7b7ac208355c7",
+        "b4c0ee094482611209e65dfc1576d5d4b3a848587b4b863ad4dcf4c022d5ffd9",
+        "6f3568dddd9df87ebe14281c5865aadccc7314e2d309880110e7d6298b55f13d",
+        "f82a579d66494a2cf9680b8c735bb5b75215cb057fea598361dc82e0e7d53371",
+        "cf6607945ee4602fde3bb590ee861e6896a91a5085809220b385e5ad29786619",
+        "0463cc87ca61c4301d0e90f1be56e3d8b46ad4aa53d1dcc62c6907b5d01f5fe3",
+        "7c4ba4168913513da0388bc520fc6c979f7443dd6421a77c518a750e19ea1e1d",
+        "77b369d072a00b8258070cb2e28e5958bb3c2dae710945d429e15c6322914caf",
+        "5cff12841f2b0ef89a308fa7ebc06b2f231b478e4eb6c2eccc7b19f704d0343d",
+        "f88af703d4713f076be53aa07940f789e5c1d45b368380f515b3fc17ae46da2f",
+        "6e4872f2a90e2404fb633284a980ca065294a0d18eb4f9219a6126242f484324",
+        "9ee35f63de8fd96688440b763c1f3f4c175f528115cb77b937912514be9972e9",
+        "fde8c89815716882585e1f8195d112e611f51040b87b4eb06cb6482ad6259d98",
+        "47c9cbc88e7f0430f568f1c654f26c250f1ca75d8787e1b71b9fc6308ada33fa",
+        "8e3ada30e09da2843ba83e746af050e6dff32798c18dfdcb69475ef2d2d85e02",
+        "007e6fdaabcd2589152a71b52fe81c4121835967234004d31bcd8af285fe8995",
+        "8e3ada30e09da2843ba83e746af050e6dff32798c18dfdcb69475ef2d2d85e02",
+        "47c9cbc88e7f0430f568f1c654f26c250f1ca75d8787e1b71b9fc6308ada33fa",
+        "fde8c89815716882585e1f8195d112e611f51040b87b4eb06cb6482ad6259d98",
+        "9ee35f63de8fd96688440b763c1f3f4c175f528115cb77b937912514be9972e9",
+        "6e4872f2a90e2404fb633284a980ca065294a0d18eb4f9219a6126242f484324",
+        "f88af703d4713f076be53aa07940f789e5c1d45b368380f515b3fc17ae46da2f",
+        "5cff12841f2b0ef89a308fa7ebc06b2f231b478e4eb6c2eccc7b19f704d0343d"
+      ],
+      "locked_pixels": 116706,
+      "all_locked_pixels_exact": true,
+      "base_rgba_mib": 24.0
+    },
+    {
+      "id": "meadow_flowers",
+      "box": [
+        1550,
+        1580,
+        1934,
+        1964
+      ],
+      "amplitude": 10,
+      "phase": 0.25,
+      "protected_top": 96,
+      "polygon": [
+        [
+          95,
+          20
+        ],
+        [
+          256,
+          20
+        ],
+        [
+          305,
+          94
+        ],
+        [
+          361,
+          171
+        ],
+        [
+          326,
+          249
+        ],
+        [
+          44,
+          252
+        ],
+        [
+          18,
+          174
+        ],
+        [
+          20,
+          80
+        ]
+      ],
+      "kind": "foliage",
+      "frame_size": [
+        384,
+        384
+      ],
+      "gif": {
+        "frames": 32,
+        "duration_ms": 4000,
+        "bytes": 879821,
+        "sha256": "ee84143e1a0c2a09a829065544b2880b86eb6ece6f126477d1b29e08cebe8f0f"
+      },
+      "source_crop_sha256": "d80291c10237c4b80d2fa2f6e7ffb3327e5160e0e03cbb7c9792faf6643aebb7",
+      "frames_sha256": [
+        "8903729547c99773c45cf0dff3d8d2049b04115f7f4cf04c00c98e3cce5c12be",
+        "f029429563e4f481b133e17b0e714c811af7eca08da716d7c3f6bc0fcdddeba2",
+        "1f0cc073b14331e4973d475c17308d24c79ce836fd2e7501a5c540a520049cb8",
+        "6682546f2c1969e79827f4ea0dade5ebe44637152783ee5d54a30827f4695d61",
+        "c3bcaab0135941a316432434f3193b0aec8e2f1a4be313b96d5296eef8d55377",
+        "511507932b79961d8e1a1105b210fd41ac6450827eb66d494aacc50e47693c9d",
+        "54d52ac9ebeac8e7c8f8d948b9e6338ba33e4bfde1f4df2fc05dec0a6d9a290b",
+        "44b99dc8711dc0bf141f1f1693a9fae585aac2f94f66d5ac4caacb789a1be48f",
+        "070ce2132dea204be177aba44b02ce7509c93e639ce54d429d29dbe91b26fa29",
+        "44b99dc8711dc0bf141f1f1693a9fae585aac2f94f66d5ac4caacb789a1be48f",
+        "54d52ac9ebeac8e7c8f8d948b9e6338ba33e4bfde1f4df2fc05dec0a6d9a290b",
+        "511507932b79961d8e1a1105b210fd41ac6450827eb66d494aacc50e47693c9d",
+        "c3bcaab0135941a316432434f3193b0aec8e2f1a4be313b96d5296eef8d55377",
+        "6682546f2c1969e79827f4ea0dade5ebe44637152783ee5d54a30827f4695d61",
+        "1f0cc073b14331e4973d475c17308d24c79ce836fd2e7501a5c540a520049cb8",
+        "f029429563e4f481b133e17b0e714c811af7eca08da716d7c3f6bc0fcdddeba2",
+        "8903729547c99773c45cf0dff3d8d2049b04115f7f4cf04c00c98e3cce5c12be",
+        "267f43458ec3430700956ede721048fdb72d8c115bb28a171db153aa4dfbc484",
+        "7ca166a9fab62136e0536d55072a87ea4ee5d855622d5f598b271ef1227fb55c",
+        "022f8a434b77a647f9b53f81f9fcfc8a05bacdb7431baa1b1916f19ae03fbede",
+        "2d4199d8a25e23a801eb91919eeb86265292153799f380dc6cc8d5fbc0157b8c",
+        "68e866b2896bef2d12409f288972cdc6a554452bdd87d8607b6a91f43dd1a3fc",
+        "6df680a3c1a5dd2c949d2f82f8a5f2e0248634b943f0319ada948a530605b46c",
+        "5a6817f5d5742955df2c8bbee127877a94218fc76f7e2e8d94b465914ea059ad",
+        "6c1478650f1921af87730f549f19fc8864b9c1fdfb7264869a6bfb8e5fa55a28",
+        "5a6817f5d5742955df2c8bbee127877a94218fc76f7e2e8d94b465914ea059ad",
+        "6df680a3c1a5dd2c949d2f82f8a5f2e0248634b943f0319ada948a530605b46c",
+        "68e866b2896bef2d12409f288972cdc6a554452bdd87d8607b6a91f43dd1a3fc",
+        "2d4199d8a25e23a801eb91919eeb86265292153799f380dc6cc8d5fbc0157b8c",
+        "022f8a434b77a647f9b53f81f9fcfc8a05bacdb7431baa1b1916f19ae03fbede",
+        "7ca166a9fab62136e0536d55072a87ea4ee5d855622d5f598b271ef1227fb55c",
+        "267f43458ec3430700956ede721048fdb72d8c115bb28a171db153aa4dfbc484"
+      ],
+      "locked_pixels": 91899,
+      "all_locked_pixels_exact": true,
+      "base_rgba_mib": 18.0
+    },
+    {
+      "id": "lakeside_lupines",
+      "box": [
+        5550,
+        1420,
+        5934,
+        1804
+      ],
+      "amplitude": 9,
+      "phase": 0.5,
+      "polygon": [
+        [
+          70,
+          20
+        ],
+        [
+          361,
+          20
+        ],
+        [
+          363,
+          246
+        ],
+        [
+          295,
+          284
+        ],
+        [
+          70,
+          281
+        ],
+        [
+          26,
+          200
+        ],
+        [
+          35,
+          122
+        ]
+      ],
+      "kind": "foliage",
+      "frame_size": [
+        384,
+        384
+      ],
+      "gif": {
+        "frames": 32,
+        "duration_ms": 4000,
+        "bytes": 1365316,
+        "sha256": "43c159c6e954e302af0314d0ecd05379c08a47a9cb0cd62f5b79f79713ebbd9a"
+      },
+      "source_crop_sha256": "608475332fb43f66c44d7ace862c29c9db3298f3de8608e47550b261356ef2cb",
+      "frames_sha256": [
+        "439a6798cc8eff153a3e7c2ea832b62cea8740dcfbeef305a1d547291d055387",
+        "5abae196d758514ff297ed0338825ce113909d9424215288f98b6028316d1883",
+        "ace232e41f6db3fb77a2c64fabb07d50948e6cb83caac7e3daf76f041bcb601d",
+        "e2cd94c8a5be21cdcd555efbeb02e88e780e49b3cd75b2ffe47b053fc212d07b",
+        "e98b3eb719ec292342d76ea0764947ba826bb5656546e8b9bca6b87d23da13cf",
+        "9b8d061b85f8785ec95dea69b2be57c05701f1c49166bd53c7dc8711065b38e3",
+        "6646997e60efe114734ec733f2189a0da6e4db5bf74460bacf782156e0c3b7e4",
+        "881194eb64b82668f92cddf24ed4b3189babc1e2cf7206faa629dee253928b18",
+        "40d71f199bf865d61ce7c1a262429d5ed98ee1a16b16370a4b1cbe458a6d0579",
+        "881194eb64b82668f92cddf24ed4b3189babc1e2cf7206faa629dee253928b18",
+        "6646997e60efe114734ec733f2189a0da6e4db5bf74460bacf782156e0c3b7e4",
+        "9b8d061b85f8785ec95dea69b2be57c05701f1c49166bd53c7dc8711065b38e3",
+        "e98b3eb719ec292342d76ea0764947ba826bb5656546e8b9bca6b87d23da13cf",
+        "e2cd94c8a5be21cdcd555efbeb02e88e780e49b3cd75b2ffe47b053fc212d07b",
+        "ace232e41f6db3fb77a2c64fabb07d50948e6cb83caac7e3daf76f041bcb601d",
+        "5abae196d758514ff297ed0338825ce113909d9424215288f98b6028316d1883",
+        "439a6798cc8eff153a3e7c2ea832b62cea8740dcfbeef305a1d547291d055387",
+        "6fe7912a4ccf337d85b8b46789ccdcf3d9300b648fbe999f4d7fdc3c067676ef",
+        "c3aeb2d862b7a6746b0efc304062dd55957d1f67d82bf36269644414c3009d0f",
+        "1d8ced858c5978771edabdded3e64a13b44e12dbf2bb3c2ed6f727ced35462ec",
+        "e1135c6e40c8ef30af6aa9119d39d79e2576a66bd19fadad80e3732ff43029a8",
+        "1db0579bb5616fcc001be993b6c6ba65bd0462e3432403331a7ec2a2e22f7578",
+        "3dcdbdc05fef57dadb23685d7498cca9f2f73227026c20e9064024b1fd6a23f9",
+        "3289b3541a89a1c2776f83c7422e3ea5e434c7ea0bf6dc1ff5975e1260ff679a",
+        "298fc2ab1bcf3cff310e21367c5947c688fb5855f76e9bc80419287a46801b54",
+        "3289b3541a89a1c2776f83c7422e3ea5e434c7ea0bf6dc1ff5975e1260ff679a",
+        "3dcdbdc05fef57dadb23685d7498cca9f2f73227026c20e9064024b1fd6a23f9",
+        "1db0579bb5616fcc001be993b6c6ba65bd0462e3432403331a7ec2a2e22f7578",
+        "e1135c6e40c8ef30af6aa9119d39d79e2576a66bd19fadad80e3732ff43029a8",
+        "1d8ced858c5978771edabdded3e64a13b44e12dbf2bb3c2ed6f727ced35462ec",
+        "c3aeb2d862b7a6746b0efc304062dd55957d1f67d82bf36269644414c3009d0f",
+        "6fe7912a4ccf337d85b8b46789ccdcf3d9300b648fbe999f4d7fdc3c067676ef"
+      ],
+      "locked_pixels": 56349,
+      "all_locked_pixels_exact": true,
+      "base_rgba_mib": 18.0
+    },
+    {
+      "id": "lake_ripples",
+      "box": [
+        4992,
+        1088,
+        5376,
+        1472
+      ],
+      "amplitude": 5,
+      "phase": 0.75,
+      "polygon": [
+        [
+          16,
+          16
+        ],
+        [
+          368,
+          16
+        ],
+        [
+          368,
+          368
+        ],
+        [
+          16,
+          368
+        ]
+      ],
+      "kind": "water",
+      "frame_size": [
+        384,
+        384
+      ],
+      "gif": {
+        "frames": 32,
+        "duration_ms": 4000,
+        "bytes": 1575098,
+        "sha256": "997db3639b7e43cac8e91c776bbcbc30f0238d72a66d5e6d572eb3881e96e354"
+      },
+      "source_crop_sha256": "7dcbdae197d5726add674b6a693353cd314df95b2c09f8b8844c908d66ac83d3",
+      "frames_sha256": [
+        "db7eaa3b329ebe4a101fd70e7e0b80d0f3554ffa1914d181bb0aa18ae551a314",
+        "7397db11ccfe9aac108c3bc801f6ff367eac13cbc888e706cd56d12554bf91b3",
+        "8043d7c58e39b63af264fbeda64f7487a1fd0dcfcf3ea3e92cfb5c5405d8a357",
+        "0c9682a20540dc8540be9ceccaf8b1984991cead941962ae7e10d4b554e93957",
+        "adfe7525f3bc0971f911dcd8badb0832453f7adf8cc12208a25e5de947ce9a4a",
+        "c98425c1c3e21b0de8789cfc82de3d64ccd0d08dcf892212a950738ccf12c89c",
+        "ab40a9566b00e13413fbfdf169d4906646a38e0630d144f40e339fabce068714",
+        "571e68866b3c2fd5e4f39447a9889254bd52e9a18d8920f2bdb3028febb44468",
+        "5bc37bcc9ebaf83a27d3a1a22fd9753f73161f82613b1f9414f3cc15deeecbf8",
+        "82ceedba8c94ff6d4972c6f02de70dcd18093e14e53ff472d84b3cff0eda7864",
+        "2ee129a322dc95ac6f3516699e58c1cbc27eb977cb7aa95c6b02d00aff1671c4",
+        "e3ce0c0f770d57da7f313ea83d2ea10c15b78d1545229d7a464061766d5f77d2",
+        "ccb04d4b8a573ce25671a607a7e51d40e0f25444666c2ceae998b7344bad432c",
+        "a692a6561a1cab7e5165ec52ce1a31f932db419a93297f13a133e2e8647f6634",
+        "17c6e3b2bd446f0d610ae78c1a8e05985ff222582cbf3d5c23629ba7b36467b1",
+        "aef24fcc6b353c9d7311ce4b0f8b47fd7a1800e066458441566a09deef7c024c",
+        "db7eaa3b329ebe4a101fd70e7e0b80d0f3554ffa1914d181bb0aa18ae551a314",
+        "cb6ca578dbe9931dde8005e5d6711e23e930af0beac1e876a3cc84c84870f44b",
+        "701e97a464cdb0f49d071a689aa2bb4685782583900442740f8b3b334b28b1ce",
+        "f434bfd54b8c2ac7b35851e8fa34202ea014d1d8df847b39d8ecc81032540f77",
+        "98a83b9ed1e4103ccde07e89b565f06fa6cacab6112add51ba1f646000a76640",
+        "3571ceb92858c9285b37221a7cbfdb0a79e0730a3d560651a81a1928d8ff85cb",
+        "ad8dd7c853267681b0f885f1549def93eeef82d2f6a5a2141c7c21cc36f8c085",
+        "664d66ba26f9fd160538a4f58f4da77681f0aa8c8cbf9a47c726139fa047679c",
+        "ba3743f94f928c721ed139b618f2ff095c1cb1d81720f6debbe8ebc26cbf0c9e",
+        "72c998bfec25224e1d83a77bc53fcdb388184aa85dad156a1a91a10a5384b3ad",
+        "a3062038ab97c9e8cf2868df41d0ecd9e23c7b2c3872ef93d6afc02ad3c8e477",
+        "3c42cbda75f7724cf57a7f823c8e7387475d07981ade91a91ebbdb9ffe3751ad",
+        "aaa56a59f930759e2b75cbae297b8817f68e97da8078f58c8a1d502e681856e8",
+        "6e76759486426bf6f0a312cb4ac13dadb7c08bab1da346f4cb459e412dc52814",
+        "ca9d4a220297783900b105495a8605d1e59ed716b8b2ba980b66fe54e83ca748",
+        "66bad45d2c1bcd3cdb779b874073ca07f91c522ce9015d1c24baa6eb67ad9b0a"
+      ],
+      "locked_pixels": 24956,
+      "all_locked_pixels_exact": true,
+      "base_rgba_mib": 18.0
+    }
+  ],
+  "tests": {
+    "source_master_hash": "PASS",
+    "native_tiles_match_master": "PASS",
+    "all_rest_frames_exact": "PASS",
+    "locked_borders_and_bases": "PASS",
+    "periodic_seams": "PASS",
+    "gif_decode_and_clock": "PASS",
+    "meadow_paving_and_top_96_rows": "PASS; exact RGB in all 32 frames"
+  },
+  "acceptance_gaps": [
+    "Human full-speed visual/motion review",
+    "Target Lenovo M11/older Android timing and overdraw",
+    "Child and owner acceptance",
+    "Production integration"
+  ],
+  "edge_treatment": "Transparent 14px guard within the unchanged 16px border. Every moving pixel remains fully opaque; fixed RGB paint is preserved under the guard.",
+  "base_rgba_mib_without_sharing": 126.0,
+  "base_rgba_mib": 97.3125,
+  "license": "Project-owned art from canonical ASSET_LICENSES.md. New derivatives retain source licensing and candidate status.",
+  "tools": {
+    "python": "3.13.14",
+    "Pillow": "12.3.0",
+    "numpy": "2.5.1",
+    "Aseprite": "1.3.18.4",
+    "Godot": "4.7.2-stable official ed1daf0bf",
+    "FFmpeg": "8.1.2"
+  },
+  "job_cards": [
+    "jobs/fir_crown.json",
+    "jobs/meadow_flowers.json",
+    "jobs/lakeside_lupines.json",
+    "jobs/lake_ripples.json"
+  ],
+  "timing_record_limit": "No separate active-authoring/cleanup stopwatch. Machine logs are retained without inventing manual time.",
+  "source_dimensions": [
+    6144,
+    2048
+  ],
+  "source_acceptance": "Approved v5 panorama; derivatives are unaccepted ambient study candidates.",
+  "prior_meadow_mask": {
+    "path": "prior_meadow_mask/diagnostic.json",
+    "status": "REJECTED_MASK_SCOPE_DIAGNOSTIC",
+    "native_master_preserved": true
+  },
+  "files": [
+    {
+      "path": ".gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "a49f8fc64f875f9abc56f7b04cabdef8b9993a86609db6954f69ec1bdc1013a4",
+      "bytes": 67,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "9731866e2eddcceabae9e81006c6dda39f7e1f7c291a7a9ad35095d42023f717",
+      "bytes": 170,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "README.md",
+      "sha256": "e8a8f853376ea9ddd3d01d68768c4e1ea7fc0c7d498573bfd1b6749047ef50ef",
+      "bytes": 5304,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "build_demo.py",
+      "sha256": "8dd87dc337e0d1d5de527155a0ff4f23512d9eb46afec65e270a2918405d5cac",
+      "bytes": 9659,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "build_masters.lua",
+      "sha256": "e2f2b96efc3b4aa738a6802779c2c1b6665a78a6c9dbade3badb5e449c9a2041",
+      "bytes": 1524,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "demo_project/background/0_0.png",
+      "sha256": "0cd615043f45e58909b9c4ab612e9f8c3c21d287f09347c8cc6bb525eb184eec",
+      "bytes": 1435946,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/background/0_1.png",
+      "sha256": "39799dfe628814038b5ad8f149be6cd2a66f3bbe30949eb0713a7c5c3f253515",
+      "bytes": 1202251,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/background/0_2.png",
+      "sha256": "8892821d60e9db7ab414dfa2565d92ad3e9539506fed5e49eada608e5c8d2447",
+      "bytes": 1212182,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/background/0_3.png",
+      "sha256": "85ecfe6d99c8cff2d05120199bb4e15594db49c29b4ee14e063363ec6afbe168",
+      "bytes": 1341035,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/background/0_4.png",
+      "sha256": "d52193615c9ec73e0bd12dcf5a1cd3a3d6a65dad303094f4f75b4e121df9871a",
+      "bytes": 1644202,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/background/0_5.png",
+      "sha256": "883bceb6cf95098e338ef2b1943c6ba64812234c877fbd80932a32323d234661",
+      "bytes": 1602579,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/background/1_0.png",
+      "sha256": "cbf95e1ad17854b3896ec718f6223949f14870f2e9759ae97770dcd98c8851a3",
+      "bytes": 1646415,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/background/1_1.png",
+      "sha256": "e503b27c031759580010ccc7bf67a7e61d9f3d061e041613542f671e7d11a6da",
+      "bytes": 1731348,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/background/1_2.png",
+      "sha256": "42861743be4f59121b79bc2820263b525c48513a55da82ef02f603158e7f0de2",
+      "bytes": 1843305,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/background/1_3.png",
+      "sha256": "24e16d17826c3dd7ded60758f7f92ac3d49a8e2fde87889ac3147203f9c18216",
+      "bytes": 1693633,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/background/1_4.png",
+      "sha256": "b866ab235656fccac70d089b76c941ff53f01f698d8c14c4d764cff8f8d2c6df",
+      "bytes": 1787446,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/background/1_5.png",
+      "sha256": "effc27d83e24e2bd08258dda61f4e74e0d3d4557fb33fb988b74a191a98f68d0",
+      "bytes": 1744248,
+      "role": "runtime_background_copy",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "demo_project/fir_crown/00.png",
+      "sha256": "77b369d072a00b8258070cb2e28e5958bb3c2dae710945d429e15c6322914caf",
+      "bytes": 329890,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/01.png",
+      "sha256": "7c4ba4168913513da0388bc520fc6c979f7443dd6421a77c518a750e19ea1e1d",
+      "bytes": 324616,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/02.png",
+      "sha256": "0463cc87ca61c4301d0e90f1be56e3d8b46ad4aa53d1dcc62c6907b5d01f5fe3",
+      "bytes": 324721,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/03.png",
+      "sha256": "cf6607945ee4602fde3bb590ee861e6896a91a5085809220b385e5ad29786619",
+      "bytes": 324699,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/04.png",
+      "sha256": "f82a579d66494a2cf9680b8c735bb5b75215cb057fea598361dc82e0e7d53371",
+      "bytes": 324434,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/05.png",
+      "sha256": "6f3568dddd9df87ebe14281c5865aadccc7314e2d309880110e7d6298b55f13d",
+      "bytes": 324446,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/06.png",
+      "sha256": "b4c0ee094482611209e65dfc1576d5d4b3a848587b4b863ad4dcf4c022d5ffd9",
+      "bytes": 324468,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/07.png",
+      "sha256": "37888a66c909787f8bb4aa9cb981fc846c86c53bd23cabb96bb7b7ac208355c7",
+      "bytes": 324755,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/08.png",
+      "sha256": "6046aa3d6dad4308d640395438e14d9bdb619c602e9350a5332c61025a9bb845",
+      "bytes": 324660,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/09.png",
+      "sha256": "37888a66c909787f8bb4aa9cb981fc846c86c53bd23cabb96bb7b7ac208355c7",
+      "bytes": 324755,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/10.png",
+      "sha256": "b4c0ee094482611209e65dfc1576d5d4b3a848587b4b863ad4dcf4c022d5ffd9",
+      "bytes": 324468,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/11.png",
+      "sha256": "6f3568dddd9df87ebe14281c5865aadccc7314e2d309880110e7d6298b55f13d",
+      "bytes": 324446,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/12.png",
+      "sha256": "f82a579d66494a2cf9680b8c735bb5b75215cb057fea598361dc82e0e7d53371",
+      "bytes": 324434,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/13.png",
+      "sha256": "cf6607945ee4602fde3bb590ee861e6896a91a5085809220b385e5ad29786619",
+      "bytes": 324699,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/14.png",
+      "sha256": "0463cc87ca61c4301d0e90f1be56e3d8b46ad4aa53d1dcc62c6907b5d01f5fe3",
+      "bytes": 324721,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/15.png",
+      "sha256": "7c4ba4168913513da0388bc520fc6c979f7443dd6421a77c518a750e19ea1e1d",
+      "bytes": 324616,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/16.png",
+      "sha256": "77b369d072a00b8258070cb2e28e5958bb3c2dae710945d429e15c6322914caf",
+      "bytes": 329890,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/17.png",
+      "sha256": "5cff12841f2b0ef89a308fa7ebc06b2f231b478e4eb6c2eccc7b19f704d0343d",
+      "bytes": 324483,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/18.png",
+      "sha256": "f88af703d4713f076be53aa07940f789e5c1d45b368380f515b3fc17ae46da2f",
+      "bytes": 324797,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/19.png",
+      "sha256": "6e4872f2a90e2404fb633284a980ca065294a0d18eb4f9219a6126242f484324",
+      "bytes": 324653,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/20.png",
+      "sha256": "9ee35f63de8fd96688440b763c1f3f4c175f528115cb77b937912514be9972e9",
+      "bytes": 324472,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/21.png",
+      "sha256": "fde8c89815716882585e1f8195d112e611f51040b87b4eb06cb6482ad6259d98",
+      "bytes": 324622,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/22.png",
+      "sha256": "47c9cbc88e7f0430f568f1c654f26c250f1ca75d8787e1b71b9fc6308ada33fa",
+      "bytes": 324462,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/23.png",
+      "sha256": "8e3ada30e09da2843ba83e746af050e6dff32798c18dfdcb69475ef2d2d85e02",
+      "bytes": 324669,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/24.png",
+      "sha256": "007e6fdaabcd2589152a71b52fe81c4121835967234004d31bcd8af285fe8995",
+      "bytes": 324880,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/25.png",
+      "sha256": "8e3ada30e09da2843ba83e746af050e6dff32798c18dfdcb69475ef2d2d85e02",
+      "bytes": 324669,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/26.png",
+      "sha256": "47c9cbc88e7f0430f568f1c654f26c250f1ca75d8787e1b71b9fc6308ada33fa",
+      "bytes": 324462,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/27.png",
+      "sha256": "fde8c89815716882585e1f8195d112e611f51040b87b4eb06cb6482ad6259d98",
+      "bytes": 324622,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/28.png",
+      "sha256": "9ee35f63de8fd96688440b763c1f3f4c175f528115cb77b937912514be9972e9",
+      "bytes": 324472,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/29.png",
+      "sha256": "6e4872f2a90e2404fb633284a980ca065294a0d18eb4f9219a6126242f484324",
+      "bytes": 324653,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/30.png",
+      "sha256": "f88af703d4713f076be53aa07940f789e5c1d45b368380f515b3fc17ae46da2f",
+      "bytes": 324797,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/fir_crown/31.png",
+      "sha256": "5cff12841f2b0ef89a308fa7ebc06b2f231b478e4eb6c2eccc7b19f704d0343d",
+      "bytes": 324483,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lagoon.gd",
+      "sha256": "70a76d8162bbe5494714cbd5c075be7d66b0267ec523a4faf5b9f90abba07545",
+      "bytes": 7840,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "demo_project/lagoon.tscn",
+      "sha256": "e692fdae5dac970e13a707d7203dcb7e3e987601430c01bd36f23b413c280c53",
+      "bytes": 170,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "demo_project/lake_ripples/00.png",
+      "sha256": "db7eaa3b329ebe4a101fd70e7e0b80d0f3554ffa1914d181bb0aa18ae551a314",
+      "bytes": 235602,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/01.png",
+      "sha256": "7397db11ccfe9aac108c3bc801f6ff367eac13cbc888e706cd56d12554bf91b3",
+      "bytes": 226241,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/02.png",
+      "sha256": "8043d7c58e39b63af264fbeda64f7487a1fd0dcfcf3ea3e92cfb5c5405d8a357",
+      "bytes": 226761,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/03.png",
+      "sha256": "0c9682a20540dc8540be9ceccaf8b1984991cead941962ae7e10d4b554e93957",
+      "bytes": 226884,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/04.png",
+      "sha256": "adfe7525f3bc0971f911dcd8badb0832453f7adf8cc12208a25e5de947ce9a4a",
+      "bytes": 226449,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/05.png",
+      "sha256": "c98425c1c3e21b0de8789cfc82de3d64ccd0d08dcf892212a950738ccf12c89c",
+      "bytes": 227546,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/06.png",
+      "sha256": "ab40a9566b00e13413fbfdf169d4906646a38e0630d144f40e339fabce068714",
+      "bytes": 227146,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/07.png",
+      "sha256": "571e68866b3c2fd5e4f39447a9889254bd52e9a18d8920f2bdb3028febb44468",
+      "bytes": 226976,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/08.png",
+      "sha256": "5bc37bcc9ebaf83a27d3a1a22fd9753f73161f82613b1f9414f3cc15deeecbf8",
+      "bytes": 227865,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/09.png",
+      "sha256": "82ceedba8c94ff6d4972c6f02de70dcd18093e14e53ff472d84b3cff0eda7864",
+      "bytes": 227050,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/10.png",
+      "sha256": "2ee129a322dc95ac6f3516699e58c1cbc27eb977cb7aa95c6b02d00aff1671c4",
+      "bytes": 227000,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/11.png",
+      "sha256": "e3ce0c0f770d57da7f313ea83d2ea10c15b78d1545229d7a464061766d5f77d2",
+      "bytes": 227639,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/12.png",
+      "sha256": "ccb04d4b8a573ce25671a607a7e51d40e0f25444666c2ceae998b7344bad432c",
+      "bytes": 226711,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/13.png",
+      "sha256": "a692a6561a1cab7e5165ec52ce1a31f932db419a93297f13a133e2e8647f6634",
+      "bytes": 226647,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/14.png",
+      "sha256": "17c6e3b2bd446f0d610ae78c1a8e05985ff222582cbf3d5c23629ba7b36467b1",
+      "bytes": 226850,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/15.png",
+      "sha256": "aef24fcc6b353c9d7311ce4b0f8b47fd7a1800e066458441566a09deef7c024c",
+      "bytes": 225604,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/16.png",
+      "sha256": "db7eaa3b329ebe4a101fd70e7e0b80d0f3554ffa1914d181bb0aa18ae551a314",
+      "bytes": 235602,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/17.png",
+      "sha256": "cb6ca578dbe9931dde8005e5d6711e23e930af0beac1e876a3cc84c84870f44b",
+      "bytes": 225864,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/18.png",
+      "sha256": "701e97a464cdb0f49d071a689aa2bb4685782583900442740f8b3b334b28b1ce",
+      "bytes": 226940,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/19.png",
+      "sha256": "f434bfd54b8c2ac7b35851e8fa34202ea014d1d8df847b39d8ecc81032540f77",
+      "bytes": 226559,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/20.png",
+      "sha256": "98a83b9ed1e4103ccde07e89b565f06fa6cacab6112add51ba1f646000a76640",
+      "bytes": 226753,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/21.png",
+      "sha256": "3571ceb92858c9285b37221a7cbfdb0a79e0730a3d560651a81a1928d8ff85cb",
+      "bytes": 227419,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/22.png",
+      "sha256": "ad8dd7c853267681b0f885f1549def93eeef82d2f6a5a2141c7c21cc36f8c085",
+      "bytes": 227019,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/23.png",
+      "sha256": "664d66ba26f9fd160538a4f58f4da77681f0aa8c8cbf9a47c726139fa047679c",
+      "bytes": 226905,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/24.png",
+      "sha256": "ba3743f94f928c721ed139b618f2ff095c1cb1d81720f6debbe8ebc26cbf0c9e",
+      "bytes": 227833,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/25.png",
+      "sha256": "72c998bfec25224e1d83a77bc53fcdb388184aa85dad156a1a91a10a5384b3ad",
+      "bytes": 226973,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/26.png",
+      "sha256": "a3062038ab97c9e8cf2868df41d0ecd9e23c7b2c3872ef93d6afc02ad3c8e477",
+      "bytes": 227211,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/27.png",
+      "sha256": "3c42cbda75f7724cf57a7f823c8e7387475d07981ade91a91ebbdb9ffe3751ad",
+      "bytes": 227619,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/28.png",
+      "sha256": "aaa56a59f930759e2b75cbae297b8817f68e97da8078f58c8a1d502e681856e8",
+      "bytes": 226563,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/29.png",
+      "sha256": "6e76759486426bf6f0a312cb4ac13dadb7c08bab1da346f4cb459e412dc52814",
+      "bytes": 226945,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/30.png",
+      "sha256": "ca9d4a220297783900b105495a8605d1e59ed716b8b2ba980b66fe54e83ca748",
+      "bytes": 226681,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lake_ripples/31.png",
+      "sha256": "66bad45d2c1bcd3cdb779b874073ca07f91c522ce9015d1c24baa6eb67ad9b0a",
+      "bytes": 226051,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/00.png",
+      "sha256": "439a6798cc8eff153a3e7c2ea832b62cea8740dcfbeef305a1d547291d055387",
+      "bytes": 286445,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/01.png",
+      "sha256": "5abae196d758514ff297ed0338825ce113909d9424215288f98b6028316d1883",
+      "bytes": 279616,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/02.png",
+      "sha256": "ace232e41f6db3fb77a2c64fabb07d50948e6cb83caac7e3daf76f041bcb601d",
+      "bytes": 279738,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/03.png",
+      "sha256": "e2cd94c8a5be21cdcd555efbeb02e88e780e49b3cd75b2ffe47b053fc212d07b",
+      "bytes": 280600,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/04.png",
+      "sha256": "e98b3eb719ec292342d76ea0764947ba826bb5656546e8b9bca6b87d23da13cf",
+      "bytes": 280076,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/05.png",
+      "sha256": "9b8d061b85f8785ec95dea69b2be57c05701f1c49166bd53c7dc8711065b38e3",
+      "bytes": 279949,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/06.png",
+      "sha256": "6646997e60efe114734ec733f2189a0da6e4db5bf74460bacf782156e0c3b7e4",
+      "bytes": 279827,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/07.png",
+      "sha256": "881194eb64b82668f92cddf24ed4b3189babc1e2cf7206faa629dee253928b18",
+      "bytes": 280077,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/08.png",
+      "sha256": "40d71f199bf865d61ce7c1a262429d5ed98ee1a16b16370a4b1cbe458a6d0579",
+      "bytes": 280537,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/09.png",
+      "sha256": "881194eb64b82668f92cddf24ed4b3189babc1e2cf7206faa629dee253928b18",
+      "bytes": 280077,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/10.png",
+      "sha256": "6646997e60efe114734ec733f2189a0da6e4db5bf74460bacf782156e0c3b7e4",
+      "bytes": 279827,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/11.png",
+      "sha256": "9b8d061b85f8785ec95dea69b2be57c05701f1c49166bd53c7dc8711065b38e3",
+      "bytes": 279949,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/12.png",
+      "sha256": "e98b3eb719ec292342d76ea0764947ba826bb5656546e8b9bca6b87d23da13cf",
+      "bytes": 280076,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/13.png",
+      "sha256": "e2cd94c8a5be21cdcd555efbeb02e88e780e49b3cd75b2ffe47b053fc212d07b",
+      "bytes": 280600,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/14.png",
+      "sha256": "ace232e41f6db3fb77a2c64fabb07d50948e6cb83caac7e3daf76f041bcb601d",
+      "bytes": 279738,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/15.png",
+      "sha256": "5abae196d758514ff297ed0338825ce113909d9424215288f98b6028316d1883",
+      "bytes": 279616,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/16.png",
+      "sha256": "439a6798cc8eff153a3e7c2ea832b62cea8740dcfbeef305a1d547291d055387",
+      "bytes": 286445,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/17.png",
+      "sha256": "6fe7912a4ccf337d85b8b46789ccdcf3d9300b648fbe999f4d7fdc3c067676ef",
+      "bytes": 279346,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/18.png",
+      "sha256": "c3aeb2d862b7a6746b0efc304062dd55957d1f67d82bf36269644414c3009d0f",
+      "bytes": 279742,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/19.png",
+      "sha256": "1d8ced858c5978771edabdded3e64a13b44e12dbf2bb3c2ed6f727ced35462ec",
+      "bytes": 280408,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/20.png",
+      "sha256": "e1135c6e40c8ef30af6aa9119d39d79e2576a66bd19fadad80e3732ff43029a8",
+      "bytes": 279941,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/21.png",
+      "sha256": "1db0579bb5616fcc001be993b6c6ba65bd0462e3432403331a7ec2a2e22f7578",
+      "bytes": 279920,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/22.png",
+      "sha256": "3dcdbdc05fef57dadb23685d7498cca9f2f73227026c20e9064024b1fd6a23f9",
+      "bytes": 279826,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/23.png",
+      "sha256": "3289b3541a89a1c2776f83c7422e3ea5e434c7ea0bf6dc1ff5975e1260ff679a",
+      "bytes": 279928,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/24.png",
+      "sha256": "298fc2ab1bcf3cff310e21367c5947c688fb5855f76e9bc80419287a46801b54",
+      "bytes": 280508,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/25.png",
+      "sha256": "3289b3541a89a1c2776f83c7422e3ea5e434c7ea0bf6dc1ff5975e1260ff679a",
+      "bytes": 279928,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/26.png",
+      "sha256": "3dcdbdc05fef57dadb23685d7498cca9f2f73227026c20e9064024b1fd6a23f9",
+      "bytes": 279826,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/27.png",
+      "sha256": "1db0579bb5616fcc001be993b6c6ba65bd0462e3432403331a7ec2a2e22f7578",
+      "bytes": 279920,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/28.png",
+      "sha256": "e1135c6e40c8ef30af6aa9119d39d79e2576a66bd19fadad80e3732ff43029a8",
+      "bytes": 279941,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/29.png",
+      "sha256": "1d8ced858c5978771edabdded3e64a13b44e12dbf2bb3c2ed6f727ced35462ec",
+      "bytes": 280408,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/30.png",
+      "sha256": "c3aeb2d862b7a6746b0efc304062dd55957d1f67d82bf36269644414c3009d0f",
+      "bytes": 279742,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/lakeside_lupines/31.png",
+      "sha256": "6fe7912a4ccf337d85b8b46789ccdcf3d9300b648fbe999f4d7fdc3c067676ef",
+      "bytes": 279346,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/loops.json",
+      "sha256": "69c9fc6158ca3f73607bb462649e055e444a38a888f539c0b627a3f374638bd4",
+      "bytes": 13546,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "demo_project/meadow_flowers/00.png",
+      "sha256": "8903729547c99773c45cf0dff3d8d2049b04115f7f4cf04c00c98e3cce5c12be",
+      "bytes": 276073,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/01.png",
+      "sha256": "f029429563e4f481b133e17b0e714c811af7eca08da716d7c3f6bc0fcdddeba2",
+      "bytes": 272684,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/02.png",
+      "sha256": "1f0cc073b14331e4973d475c17308d24c79ce836fd2e7501a5c540a520049cb8",
+      "bytes": 272335,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/03.png",
+      "sha256": "6682546f2c1969e79827f4ea0dade5ebe44637152783ee5d54a30827f4695d61",
+      "bytes": 272450,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/04.png",
+      "sha256": "c3bcaab0135941a316432434f3193b0aec8e2f1a4be313b96d5296eef8d55377",
+      "bytes": 272672,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/05.png",
+      "sha256": "511507932b79961d8e1a1105b210fd41ac6450827eb66d494aacc50e47693c9d",
+      "bytes": 272521,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/06.png",
+      "sha256": "54d52ac9ebeac8e7c8f8d948b9e6338ba33e4bfde1f4df2fc05dec0a6d9a290b",
+      "bytes": 272518,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/07.png",
+      "sha256": "44b99dc8711dc0bf141f1f1693a9fae585aac2f94f66d5ac4caacb789a1be48f",
+      "bytes": 272544,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/08.png",
+      "sha256": "070ce2132dea204be177aba44b02ce7509c93e639ce54d429d29dbe91b26fa29",
+      "bytes": 272713,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/09.png",
+      "sha256": "44b99dc8711dc0bf141f1f1693a9fae585aac2f94f66d5ac4caacb789a1be48f",
+      "bytes": 272544,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/10.png",
+      "sha256": "54d52ac9ebeac8e7c8f8d948b9e6338ba33e4bfde1f4df2fc05dec0a6d9a290b",
+      "bytes": 272518,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/11.png",
+      "sha256": "511507932b79961d8e1a1105b210fd41ac6450827eb66d494aacc50e47693c9d",
+      "bytes": 272521,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/12.png",
+      "sha256": "c3bcaab0135941a316432434f3193b0aec8e2f1a4be313b96d5296eef8d55377",
+      "bytes": 272672,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/13.png",
+      "sha256": "6682546f2c1969e79827f4ea0dade5ebe44637152783ee5d54a30827f4695d61",
+      "bytes": 272450,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/14.png",
+      "sha256": "1f0cc073b14331e4973d475c17308d24c79ce836fd2e7501a5c540a520049cb8",
+      "bytes": 272335,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/15.png",
+      "sha256": "f029429563e4f481b133e17b0e714c811af7eca08da716d7c3f6bc0fcdddeba2",
+      "bytes": 272684,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/16.png",
+      "sha256": "8903729547c99773c45cf0dff3d8d2049b04115f7f4cf04c00c98e3cce5c12be",
+      "bytes": 276073,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/17.png",
+      "sha256": "267f43458ec3430700956ede721048fdb72d8c115bb28a171db153aa4dfbc484",
+      "bytes": 272634,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/18.png",
+      "sha256": "7ca166a9fab62136e0536d55072a87ea4ee5d855622d5f598b271ef1227fb55c",
+      "bytes": 272376,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/19.png",
+      "sha256": "022f8a434b77a647f9b53f81f9fcfc8a05bacdb7431baa1b1916f19ae03fbede",
+      "bytes": 272341,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/20.png",
+      "sha256": "2d4199d8a25e23a801eb91919eeb86265292153799f380dc6cc8d5fbc0157b8c",
+      "bytes": 272529,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/21.png",
+      "sha256": "68e866b2896bef2d12409f288972cdc6a554452bdd87d8607b6a91f43dd1a3fc",
+      "bytes": 272414,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/22.png",
+      "sha256": "6df680a3c1a5dd2c949d2f82f8a5f2e0248634b943f0319ada948a530605b46c",
+      "bytes": 272421,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/23.png",
+      "sha256": "5a6817f5d5742955df2c8bbee127877a94218fc76f7e2e8d94b465914ea059ad",
+      "bytes": 272330,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/24.png",
+      "sha256": "6c1478650f1921af87730f549f19fc8864b9c1fdfb7264869a6bfb8e5fa55a28",
+      "bytes": 272468,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/25.png",
+      "sha256": "5a6817f5d5742955df2c8bbee127877a94218fc76f7e2e8d94b465914ea059ad",
+      "bytes": 272330,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/26.png",
+      "sha256": "6df680a3c1a5dd2c949d2f82f8a5f2e0248634b943f0319ada948a530605b46c",
+      "bytes": 272421,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/27.png",
+      "sha256": "68e866b2896bef2d12409f288972cdc6a554452bdd87d8607b6a91f43dd1a3fc",
+      "bytes": 272414,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/28.png",
+      "sha256": "2d4199d8a25e23a801eb91919eeb86265292153799f380dc6cc8d5fbc0157b8c",
+      "bytes": 272529,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/29.png",
+      "sha256": "022f8a434b77a647f9b53f81f9fcfc8a05bacdb7431baa1b1916f19ae03fbede",
+      "bytes": 272341,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/30.png",
+      "sha256": "7ca166a9fab62136e0536d55072a87ea4ee5d855622d5f598b271ef1227fb55c",
+      "bytes": 272376,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/meadow_flowers/31.png",
+      "sha256": "267f43458ec3430700956ede721048fdb72d8c115bb28a171db153aa4dfbc484",
+      "bytes": 272634,
+      "role": "runtime_whole_patch_frame",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "demo_project/project.godot",
+      "sha256": "6e8525accc6c9402763f70aad96e3574f38ec6109f354b9f92367cf9702209ca",
+      "bytes": 410,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/aseprite-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/aseprite-verification.json",
+      "sha256": "3724e4aa18d16dba6d08c34ac2a676c6157ecc282b32a518ddb21528ee5ffe62",
+      "bytes": 195,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/aseprite.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/capture.log",
+      "sha256": "6037be065f62245c01a813c7a27a9a16e8f6093fe0267563303ed2c381c4b3b7",
+      "bytes": 163,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/crop_edge_diagnostic.json",
+      "sha256": "1da3556d2fcdf0b0db9fa02b5d9a7c9fd6ce004a336070cba83e81ec60cea248",
+      "bytes": 781,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/desktop_16x10.log",
+      "sha256": "1d319057370dceb76e7255b9bd9fc1921f163f96ab607b471940eacc9abd87af",
+      "bytes": 251,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/desktop_16x9.log",
+      "sha256": "1d319057370dceb76e7255b9bd9fc1921f163f96ab607b471940eacc9abd87af",
+      "bytes": 251,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/desktop_mobile.json",
+      "sha256": "0d2f11eca14a687993d7d0b0bcc344f7d4729e992cdcc87c51d2e4cdd4d9aa47",
+      "bytes": 516,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/dust_boss_native_retry.json",
+      "sha256": "01901651017da41f02c4317a29ab258ca429ec12ce06fc22dcee81db86fec76a",
+      "bytes": 546,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/dust_boss_native_retry.log",
+      "sha256": "1d05616ae145a7dca0f3e940613bc73c3a1294489cac8053b80fab7a095c3316",
+      "bytes": 8698,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/full_ci.log",
+      "sha256": "94fec2eef555fe7276096f69bb04e5a3a5b4b3e5669ff66c8f65322c9d1a6a64",
+      "bytes": 1073158,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/full_ci_attempt01.log",
+      "sha256": "561160ac1c96354e0f634ecdcfe0f411a782c626d66c2f507747adab1e5902b7",
+      "bytes": 14119,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/full_ci_attempt02.log",
+      "sha256": "f705fb01f499eb160867c718429b8987adb381cffff84802a4cf6b19b32da09d",
+      "bytes": 33297,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/full_ci_attempt03.log",
+      "sha256": "c944abee57ea30864dda39713f42a8dcada2470a48ecea19a2aaf5fb50ad3147",
+      "bytes": 503339,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/import.log",
+      "sha256": "f204e46059d490beb3a201579de1d8101f2b4fb18bf8726a63a17211770ed9fa",
+      "bytes": 32836,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/import_cache_recovery.json",
+      "sha256": "23748b06b374696d71ac4ec3d99f913cf08faccb7ff5391610e1eed932ae6a13",
+      "bytes": 450,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/manifest_before_meadow_mask.json",
+      "sha256": "8c74d7f851fe3eee9f2962c4eadf307688ab9144fce76c5011355380d74171cb",
+      "bytes": 18514,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/mobile-review.png",
+      "sha256": "6b95527cf392f00bd258ae195dc8463f390f3296ba9975bf2e51e050ea588e8d",
+      "bytes": 1539104,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "evidence/native_checkout_repair.json",
+      "sha256": "04a0e460bee53555f9fce05dea8b467e730fcd3ba2189e8f934fd025f42729b1",
+      "bytes": 509,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/strict_rest_diagnostic.json",
+      "sha256": "9540e054b6a04a950001cdeba6ec0d0f9db0d911009092a1d23332c7f578d0d1",
+      "bytes": 947,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/tablet-aspect-review.png",
+      "sha256": "16489a15f82bdb4f8939cfbc8408d2f31c239582fb5c8f42c53c204065bb5276",
+      "bytes": 1652546,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        1280,
+        800
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "evidence/tablet_aspect_desktop.json",
+      "sha256": "0d2f11eca14a687993d7d0b0bcc344f7d4729e992cdcc87c51d2e4cdd4d9aa47",
+      "bytes": 516,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/verification_summary.json",
+      "sha256": "cc9b87914b141966e1048f87cb4a4f1dee6d72e4f6507f09412adf577cce0c8f",
+      "bytes": 2214,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "evidence/window_startup_diagnostic.json",
+      "sha256": "0301bf3cb241c05f6fc54f933fc5cf98c68c0f6d72de117fd74b5ec15fe9e11f",
+      "bytes": 517,
+      "role": "machine_or_review_evidence",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "fir_crown.aseprite",
+      "sha256": "67b804ffcb1979f58b7301c925cfd6061b7b66d68af77b787c412ae1aa09e30f",
+      "bytes": 14478231,
+      "role": "editable_whole_frame_master",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        512
+      ],
+      "frames": 32
+    },
+    {
+      "path": "fir_crown.gif",
+      "sha256": "c6a87c4f0ba5b57aa4625de6d3c0b90534ce189f13c8efe8167bd50b34aae612",
+      "bytes": 1012480,
+      "role": "review_preview",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "fir_crown_motion_weight.png",
+      "sha256": "4884f1694b0b40cc231198948bfe40c48ae58c1a5260d1d98e7146c90a07b844",
+      "bytes": 8131,
+      "role": "technical_motion_control",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "fir_crown_source.png",
+      "sha256": "40422a331373e76b4fe9acee78e2fb76181970b35d975085878d631b6afe98b7",
+      "bytes": 289553,
+      "role": "appearance_source_crop",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        512
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "jobs/fir_crown.json",
+      "sha256": "286a250cfc3e573e83d92c319d84908fa4ec2d93cd3d81ec92d0ffaedd52de5a",
+      "bytes": 8579,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "jobs/lake_ripples.json",
+      "sha256": "468121dabdc11a51b7a0abc9a73ca89388c05d5e5eea94f093b08b2cb37d7108",
+      "bytes": 8608,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "jobs/lakeside_lupines.json",
+      "sha256": "f7e7c30a269fee151e30f480d306a5fe3ab08b5bfa1912b55e20c5667db01507",
+      "bytes": 8614,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "jobs/meadow_flowers.json",
+      "sha256": "bf976a0891c153daba1db291586ac2fdcdc4e38ef68bd9e1b8a61a91468d397e",
+      "bytes": 8992,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "lake_ripples.aseprite",
+      "sha256": "ce4c7e2fb2518c6004699cb5fd5cec25ac70153d3c13faa783ff800b626051b6",
+      "bytes": 10435238,
+      "role": "editable_whole_frame_master",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "frames": 32
+    },
+    {
+      "path": "lake_ripples.gif",
+      "sha256": "997db3639b7e43cac8e91c776bbcbc30f0238d72a66d5e6d572eb3881e96e354",
+      "bytes": 1575098,
+      "role": "review_preview",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "lake_ripples_motion_weight.png",
+      "sha256": "7ad833c911813921ab891d7b6977e3fb995d8889ffd7203eac4854250ca6d928",
+      "bytes": 1256,
+      "role": "technical_motion_control",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "lake_ripples_source.png",
+      "sha256": "7dcbdae197d5726add674b6a693353cd314df95b2c09f8b8844c908d66ac83d3",
+      "bytes": 203708,
+      "role": "appearance_source_crop",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "lakeside_lupines.aseprite",
+      "sha256": "c716cbfa2a7827551031bb5351cb9bf5043a4eb4250e3c3494be008fda4fd724",
+      "bytes": 13108260,
+      "role": "editable_whole_frame_master",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "frames": 32
+    },
+    {
+      "path": "lakeside_lupines.gif",
+      "sha256": "43c159c6e954e302af0314d0ecd05379c08a47a9cb0cd62f5b79f79713ebbd9a",
+      "bytes": 1365316,
+      "role": "review_preview",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "lakeside_lupines_motion_weight.png",
+      "sha256": "e546dfa9d9a1f2bc20a9d0249189dbdf81e2db9d47b1181db2e364952d71b1c3",
+      "bytes": 5170,
+      "role": "technical_motion_control",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "lakeside_lupines_source.png",
+      "sha256": "608475332fb43f66c44d7ace862c29c9db3298f3de8608e47550b261356ef2cb",
+      "bytes": 250626,
+      "role": "appearance_source_crop",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "meadow_flowers.aseprite",
+      "sha256": "396635c38eda87cfecdcfd5d46c0d2bdc077e731912e0934f1b3e87e8eca362c",
+      "bytes": 13067159,
+      "role": "editable_whole_frame_master",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "frames": 32
+    },
+    {
+      "path": "meadow_flowers.gif",
+      "sha256": "ee84143e1a0c2a09a829065544b2880b86eb6ece6f126477d1b29e08cebe8f0f",
+      "bytes": 879821,
+      "role": "review_preview",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "meadow_flowers_motion_weight.png",
+      "sha256": "f069fdb00a53a89112b5602584931a8c47aa9682056bb3b73435de7dcbc0e586",
+      "bytes": 3938,
+      "role": "technical_motion_control",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "meadow_flowers_source.png",
+      "sha256": "d80291c10237c4b80d2fa2f6e7ffb3327e5160e0e03cbb7c9792faf6643aebb7",
+      "bytes": 242310,
+      "role": "appearance_source_crop",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "objects_review.png",
+      "sha256": "a0dcb7ef3fbe1ca29ebaa29f920d41eca4fdc3d997fd8ca4b19c58af7dbb5dbf",
+      "bytes": 995214,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        1536,
+        550
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "prior_meadow_mask/diagnostic.json",
+      "sha256": "8d751bb0f8a6145fe9d440ef76485b856086dd9c53b88cf5981d1010882cb08a",
+      "bytes": 407,
+      "role": "rejected_diagnostic",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "prior_meadow_mask/job.json",
+      "sha256": "84f633631cdea5c931c2c02f75c9c0af67c336540ead2d27c3e5abe86ca70409",
+      "bytes": 8501,
+      "role": "rejected_diagnostic",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    },
+    {
+      "path": "prior_meadow_mask/meadow_flowers.aseprite",
+      "sha256": "74215e9ec94b6fe75991f1a7897ce90fff9f13ea255188f67df770b463203d88",
+      "bytes": 13048709,
+      "role": "rejected_diagnostic",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "frames": 32
+    },
+    {
+      "path": "prior_meadow_mask/meadow_flowers.gif",
+      "sha256": "bd42c0e336cef307d36a549f08f43407d015a491617ca13e1fb7188eb1198136",
+      "bytes": 1257335,
+      "role": "rejected_diagnostic",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "prior_meadow_mask/meadow_flowers_motion_weight.png",
+      "sha256": "0909cad2fd9a7fa09cb0ff486ac15171e38d736527721bf2c51bed14387c6426",
+      "bytes": 6133,
+      "role": "rejected_diagnostic",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "sky-lagoon-demo.gif",
+      "sha256": "165f845aeffda5fe33675b15d9c8958b99245e9d234ca2975d1e9138d3e49ea3",
+      "bytes": 9334555,
+      "role": "review_preview",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        640,
+        360
+      ],
+      "mode": "P"
+    },
+    {
+      "path": "sky-lagoon-demo.mp4",
+      "sha256": "0391848afd55f8f60ff5777cfa806c212499bc372550466fac51beb5c3d365ec",
+      "bytes": 4078506,
+      "role": "review_preview",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "frames": 96,
+      "fps": 12,
+      "sample_aspect_ratio": "1:1"
+    },
+    {
+      "path": "verify_masters.lua",
+      "sha256": "a98aeccd2093856c26666f2e74a46fab04145bd19de82fac638e7bfb6ee4af9c",
+      "bytes": 909,
+      "role": "implementation_or_record",
+      "license_provenance": "Project-owned approved v5 source and canonical ASSET_LICENSES.md; implementation/records are project-authored",
+      "used_as_delivery_pixels": false
+    }
+  ],
+  "packet_payload_sha256": "9d839869ba5e102f27eb4e603962be6b9f7ab2e50809c255128b137bb27341b7",
+  "payload_hash_method": "SHA-256 of sorted path + NUL + file SHA-256 + LF entries; manifest itself excluded to avoid self-reference.",
+  "source_baseline": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+  "finalized_at_utc": "2026-11-05T08:50:44.348700+00:00",
+  "verification_summary": "evidence/verification_summary.json"
+}

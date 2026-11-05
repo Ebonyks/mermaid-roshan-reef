@@ -1,0 +1,162 @@
+{
+  "identity": {
+    "id": "sky-lagoon-meadow_flowers-20261104",
+    "revision": 3,
+    "author": "Codex",
+    "date": "2026-11-04",
+    "baseline": "bfc60e1e80f49824f299896fe51431ff018c6ddb",
+    "profile": "Background item; character profile not applicable"
+  },
+  "output_lane": "Reference study and standalone Canvas demo; no production-game integration",
+  "intention": "The existing meadow leaves flutter gently while the paving, upper flowers and lower support remain fixed.",
+  "required_action": {
+    "axis": "Horizontal source-pixel displacement; no vertical displacement",
+    "support": "Original painted support retained",
+    "contact": "No source displacement in the lower support band or stationary border",
+    "view_changes": "None; the painting camera may pan independently"
+  },
+  "fixed_elements": {
+    "source_origin": [
+      1550,
+      1580
+    ],
+    "crop_border_pixels": 16,
+    "lower_fixed_band_y": 291.84,
+    "rooms_landmarks": "Every source pixel outside the reviewed weight region is fixed; no new camera or landmark warp",
+    "protected_top_rows": 96
+  },
+  "entry_exit": {
+    "timeline": "32 frames at 125ms in Godot/Aseprite, four-second continuous periodic motion",
+    "frame_mapping": "PNG 00..31 to Aseprite 1..32; GIF centisecond durations alternate 120 and 130ms",
+    "entry": "Any phase in continuous ambient playback; no still/animated appearance switch",
+    "reference_rest": "RGB source crop at indices 0 and 16",
+    "exit": "Periodic continuation; source deformation at t=4 equals t=0",
+    "origin": "Top-left of the recorded master-space rectangle; no trim or pivot drift"
+  },
+  "reuse_gap": {
+    "appearance": "Approved v5 master and exact crop; full source SHA and crop SHA are bound in the manifest",
+    "gap": "No accepted object-loop frames for this crop. Earlier rejected object studies are excluded. This is a fresh ambient deformation trial, not an authored acting replacement."
+  },
+  "method": {
+    "type": "Deterministic local horizontal raster resampling of the whole patch, followed by a stationary transparent guard",
+    "interpolation": "Linear horizontal colour sampling. No generated in-betweens, crossfade or retiming of an existing performance.",
+    "aseprite": "Four one-layer editable RGBA masters; exact reopened cel/PNG comparisons in evidence/aseprite.log",
+    "routing_exception": "None; local object workflow with no API or paid backend"
+  },
+  "runtime_size": {
+    "native_frame": [
+      384,
+      384
+    ],
+    "texture_policy": "All cells <=1024; lossless import; original twelve 1024 background cards",
+    "viewport": "1280x720 canvas_items/expand, uniform fitting camera, desktop 16:9 and 16:10 tested"
+  },
+  "motion_tolerances": {
+    "maximum_driver_displacement_native_px": 10,
+    "actual_displacement": "Driver multiplied by the source-space weight, so it reaches zero in the stationary regions",
+    "fixed_rgb_error": 0,
+    "rest_source_rgb_error": 0,
+    "rendered_rest_channel_error_limit": 1,
+    "rendered_rest_limit_reason": "Measured 8-bit linear texture sampling; original 16-step crop-edge failure retained and corrected by the transparent guard",
+    "loop": "Periodic mathematical field; same source at t=0 and t=4; normal adjacent sampling across the seam",
+    "protected_paving_error": 0
+  },
+  "limits": {
+    "generated_takes_cap": 2,
+    "generated_takes_used": 0,
+    "local_wall_cap_minutes": 40,
+    "cleanup_cap_minutes": 15,
+    "monetary_cap": 0,
+    "paid_usage": 0,
+    "cleanup_minutes": null,
+    "clock_limit": "A separate active-authoring/cleanup stopwatch was not retained. Machine run outputs and filesystem times do not establish that number; no invented time or cost is supplied."
+  },
+  "attempts": [
+    {
+      "id": "local-unfeathered",
+      "disposition": "Crop-edge diagnostic failed at 1280x720; evidence/crop_edge_diagnostic.json retains the result",
+      "calls": 0
+    },
+    {
+      "id": "local-guarded",
+      "disposition": "Passed the border check, then rejected in native crop review because the mask also covered paving. Original master/GIF/mask and sidecar retained in prior_meadow_mask.",
+      "calls": 0
+    },
+    {
+      "id": "local-leaf-mask-correction",
+      "disposition": "Changed input mask to lock top 96 source rows and blend motion into lower leaves; all 32 source-row checks and Mobile 16:9/16:10 checks pass. Human review pending.",
+      "calls": 0
+    }
+  ],
+  "stop_fallback": "If the local deformation stretches contours, looks stiff or misstates contact, reject this candidate and retain the approved still painting until a new bounded source-based method is agreed. Do not regenerate a new item or run a per-frame generation campaign.",
+  "provenance": {
+    "source_master": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+    "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "source_dimensions": [
+      6144,
+      2048
+    ],
+    "crop": [
+      1550,
+      1580,
+      1934,
+      1964
+    ],
+    "source_crop_sha256": "d80291c10237c4b80d2fa2f6e7ffb3327e5160e0e03cbb7c9792faf6643aebb7",
+    "master": "meadow_flowers.aseprite",
+    "master_sha256": "396635c38eda87cfecdcfd5d46c0d2bdc077e731912e0934f1b3e87e8eca362c",
+    "export_frame_sha256": [
+      "8903729547c99773c45cf0dff3d8d2049b04115f7f4cf04c00c98e3cce5c12be",
+      "f029429563e4f481b133e17b0e714c811af7eca08da716d7c3f6bc0fcdddeba2",
+      "1f0cc073b14331e4973d475c17308d24c79ce836fd2e7501a5c540a520049cb8",
+      "6682546f2c1969e79827f4ea0dade5ebe44637152783ee5d54a30827f4695d61",
+      "c3bcaab0135941a316432434f3193b0aec8e2f1a4be313b96d5296eef8d55377",
+      "511507932b79961d8e1a1105b210fd41ac6450827eb66d494aacc50e47693c9d",
+      "54d52ac9ebeac8e7c8f8d948b9e6338ba33e4bfde1f4df2fc05dec0a6d9a290b",
+      "44b99dc8711dc0bf141f1f1693a9fae585aac2f94f66d5ac4caacb789a1be48f",
+      "070ce2132dea204be177aba44b02ce7509c93e639ce54d429d29dbe91b26fa29",
+      "44b99dc8711dc0bf141f1f1693a9fae585aac2f94f66d5ac4caacb789a1be48f",
+      "54d52ac9ebeac8e7c8f8d948b9e6338ba33e4bfde1f4df2fc05dec0a6d9a290b",
+      "511507932b79961d8e1a1105b210fd41ac6450827eb66d494aacc50e47693c9d",
+      "c3bcaab0135941a316432434f3193b0aec8e2f1a4be313b96d5296eef8d55377",
+      "6682546f2c1969e79827f4ea0dade5ebe44637152783ee5d54a30827f4695d61",
+      "1f0cc073b14331e4973d475c17308d24c79ce836fd2e7501a5c540a520049cb8",
+      "f029429563e4f481b133e17b0e714c811af7eca08da716d7c3f6bc0fcdddeba2",
+      "8903729547c99773c45cf0dff3d8d2049b04115f7f4cf04c00c98e3cce5c12be",
+      "267f43458ec3430700956ede721048fdb72d8c115bb28a171db153aa4dfbc484",
+      "7ca166a9fab62136e0536d55072a87ea4ee5d855622d5f598b271ef1227fb55c",
+      "022f8a434b77a647f9b53f81f9fcfc8a05bacdb7431baa1b1916f19ae03fbede",
+      "2d4199d8a25e23a801eb91919eeb86265292153799f380dc6cc8d5fbc0157b8c",
+      "68e866b2896bef2d12409f288972cdc6a554452bdd87d8607b6a91f43dd1a3fc",
+      "6df680a3c1a5dd2c949d2f82f8a5f2e0248634b943f0319ada948a530605b46c",
+      "5a6817f5d5742955df2c8bbee127877a94218fc76f7e2e8d94b465914ea059ad",
+      "6c1478650f1921af87730f549f19fc8864b9c1fdfb7264869a6bfb8e5fa55a28",
+      "5a6817f5d5742955df2c8bbee127877a94218fc76f7e2e8d94b465914ea059ad",
+      "6df680a3c1a5dd2c949d2f82f8a5f2e0248634b943f0319ada948a530605b46c",
+      "68e866b2896bef2d12409f288972cdc6a554452bdd87d8607b6a91f43dd1a3fc",
+      "2d4199d8a25e23a801eb91919eeb86265292153799f380dc6cc8d5fbc0157b8c",
+      "022f8a434b77a647f9b53f81f9fcfc8a05bacdb7431baa1b1916f19ae03fbede",
+      "7ca166a9fab62136e0536d55072a87ea4ee5d855622d5f598b271ef1227fb55c",
+      "267f43458ec3430700956ede721048fdb72d8c115bb28a171db153aa4dfbc484"
+    ],
+    "license": "Canonical ASSET_LICENSES.md project-art attribution, retained in the same change",
+    "provider_seed_request_id": "Not applicable; zero generation/provider calls",
+    "position_guide": "Not used; the motion-weight image is a technical control and supplies no appearance pixels"
+  },
+  "reviews": {
+    "human_identity_style": "PENDING",
+    "human_motion_contact_seam": "PENDING",
+    "source_export_machine": "PASS; manifest tests and Aseprite all-cel equality",
+    "cinematic_machine": "NOT_APPLICABLE; ambient study and game-window review capture",
+    "gameplay_machine": "PASS in isolated demo and all82 trusted existing probes through the source-bound canonical prefix/continuations and one unchanged native retry; verification_summary.json retains the original failures.",
+    "device": "PENDING; no tablet session or APK acceptance",
+    "child_owner": "PENDING"
+  },
+  "status": {
+    "archive_complete": "PENDING remote byte verification",
+    "generation_ready": "NOT_APPLICABLE; no generation request",
+    "delivery_accepted": false,
+    "runtime_integration": "STANDALONE_DEMO_ONLY",
+    "release": "NOT_REQUESTED"
+  }
+}

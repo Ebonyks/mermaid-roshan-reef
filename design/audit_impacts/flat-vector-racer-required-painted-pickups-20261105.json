@@ -1,6 +1,6 @@
 {
   "id": "flat-vector-racer-required-painted-pickups-20261105",
-  "scope": "Reconcile exact Racer source onto current Dev in isolated topic. Preserve existing near-camera arch fade, correct mistaken tent observation. Make two painted context resources required and retire their optional old-source bindings and flat procedural missing-art substitutes. Capture actual new candidate in exact Mobile/Speedy/EXPAND context and full applicable checks. No new pixels, source artifact, roles or generation calls.",
+  "scope": "Reconcile exact Racer source onto current Dev in isolated topic. Preserve existing near-camera arch fade, correct mistaken tent observation. Make two painted context resources required and retire their optional old-source bindings and flat procedural missing-art substitutes. Capture actual new candidate in exact Mobile/Speedy/EXPAND context and full applicable checks. No new pixels, source artifact, roles or generation calls. Add standing Dev navigation to the durable canonical registry; reconcile the newer standalone review archive without adopting its artwork into gameplay.",
   "baseline": "6892c5753c75161986b4463c186f8711a0c12870",
   "rules": [
     "DL-ASSET-03",
@@ -255,6 +255,8 @@
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/CANDIDATE_RECORDS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/CANDIDATE_RESULT.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/CAPTURE_INSTRUCTIONS.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/FINAL_MERGE_RESOLUTION.json",
+    "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/FINAL_RECONCILIATION.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/FRAME_EVENTS.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/MANIFEST.json",
     "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/ORCHESTRATION_SCOPE.json",
@@ -832,7 +834,7 @@
       "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/SAME_SCENE_COMPARISON.json; all54pairs pixel-identical;108newboundedframeevents; normal11save hashes unchanged."
     },
     {
-      "command": "Current original ci.sh static prefix; probe_racer_integration,probe_reef_kart_pc,probe_reef_kart_handling;12changed-source analyzers;all82original trusted probes;post-import2D gate",
+      "command": "Initial C0-source original ci.sh static prefix; probe_racer_integration,probe_reef_kart_pc,probe_reef_kart_handling;12changed-source analyzers;all82original trusted probes;post-import2D gate",
       "result": "PASS",
       "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/evidence/FINAL_RESULT.json; original classifiers/order/flags retained, private saves; exact current runtime hash pin"
     },
@@ -845,6 +847,11 @@
       "command": "Actual combined Dev809 configured native4.7.2 Mobile/Speedy/EXPAND comparison",
       "result": "PASS",
       "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/current_dev_80975b0051/NATIVE_COMPARISON.json;54fresh cases,54pixel-identical to initial candidate; normal11unchanged. No formalQA11/device/child/owner claim."
+    },
+    {
+      "command": "LatestDev169f reconciliation: full5510runtime hash equality and unchangedCI",
+      "result": "PASS",
+      "evidence": "docs/handoffs/codex_flat_vector_art_2026-10-07/r143_racer_required_painted_runtime/FINAL_RECONCILIATION.json; exact tested local checkpoint254aa676 and incomingDev169f6e90; both metadata histories retained."
     }
   ],
   "acceptance_gaps": "Exact-headCI/Dev pending. FormalQA11, full motion/contact, physicalcontroller/tablet, child and owner remain open. Old PNG export cleanup remains separate pending safe reference/provenance disposition underDL-PERF-06; no blind deletion. No accepted removal or whole-game completion.",

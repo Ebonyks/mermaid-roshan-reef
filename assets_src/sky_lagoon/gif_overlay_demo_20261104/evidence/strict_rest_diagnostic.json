@@ -1,0 +1,28 @@
+{
+  "drag_pan": true,
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "exact_rendered_rest_against_flat": false,
+  "frames_per_loop": 32,
+  "loops": 4,
+  "physical_device_acceptance": "PENDING",
+  "renderer": "mobile",
+  "result": "FAIL",
+  "visible_rendered_motion": true,
+  "measured_rest_difference": {
+    "maximum_8bit_channel_error": 1,
+    "pixels_with_any_difference": 25,
+    "pixels_above_one": 0,
+    "mean_channel_error": 1.6718106995884773e-05
+  },
+  "diagnosis": "Subpixel linear texture sampling differs between a 384px patch and a 1024px tile. Every source pixel of the rest patch is exact; only 25 rendered pixels differ by one code value. The original strict-render equality FAIL is retained."
+}
