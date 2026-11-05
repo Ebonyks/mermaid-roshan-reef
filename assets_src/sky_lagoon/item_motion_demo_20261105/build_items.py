@@ -113,7 +113,9 @@ def main():
  worlds=[];boards=[];flowers=[]
  for i in range(N):
   world=master.convert('RGBA')
-  for k,x,y,w,h in placements:world.alpha_composite(loops[k][i].resize((w,h),Image.Resampling.LANCZOS),(x,y))
+  for k,x,y,w,h in placements:
+   side=min(w,h);px=round(x+(w-side)/2);py=round(y+(h-side)*234/256)
+   world.alpha_composite(loops[k][i].resize((side,side),Image.Resampling.LANCZOS),(px,py))
   worlds.append(world.convert('RGB'));world.convert('RGB').save(P/'captures'/f'{i:03}.png')
   board=Image.new('RGB',(960,900),'#153a43');draw=ImageDraw.Draw(board)
   for j,k in enumerate(TITLES):

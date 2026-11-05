@@ -69,10 +69,11 @@ func _add_item(parent: Node2D, id: String, position_value: Vector2, size: Vector
 	sprite.texture = textures[id] as Texture2D
 	sprite.region_enabled = true
 	sprite.region_rect = Rect2(0, 0, 256, 256)
-	sprite.position = position_value
-	sprite.scale = size / 256.0
+	var side: float = minf(size.x, size.y)
+	sprite.position = position_value + Vector2((size.x - side) / 2.0, (size.y - side) * 234.0 / 256.0)
+	sprite.scale = Vector2.ONE * side / 256.0
 	parent.add_child(sprite)
-	entries.append({"id": id, "sprite": sprite})
+	entries.append({"id": id, "sprite": sprite, "expected_anchor": position_value + size * Vector2(0.5, 234.0 / 256.0)})
 
 func _fit() -> void:
 	var view: Vector2 = get_viewport_rect().size
@@ -169,7 +170,12 @@ func _verify() -> void:
 	touch.pressed = true
 	_unhandled_input(touch)
 	assert(moving and clock == 0.6)
-	var receipt: Dictionary = {"result": "PASS", "engine": Engine.get_version_info(), "renderer": RenderingServer.get_current_rendering_method(), "viewport": get_viewport_rect().size, "camera_translation_pixels": 0, "loop_endpoint": "exact", "atlas_cels_checked": 360, "still_breeze_item_view_touch_restart": "PASS", "import_hash_scope": "alpha and all nonzero-alpha RGBA exact; fully transparent RGB canonicalized"}
+	for entry in entries:
+		var sprite: Sprite2D = entry["sprite"] as Sprite2D
+		assert(is_equal_approx(sprite.scale.x, sprite.scale.y), "Source card was stretched")
+		var expected_anchor: Vector2 = entry["expected_anchor"]
+		assert((sprite.position + sprite.scale * Vector2(128, 234)).is_equal_approx(expected_anchor), "Root anchor moved")
+	var receipt: Dictionary = {"result": "PASS", "engine": Engine.get_version_info(), "renderer": RenderingServer.get_current_rendering_method(), "viewport": get_viewport_rect().size, "camera_translation_pixels": 0, "loop_endpoint": "exact", "atlas_cels_checked": 360, "all_item_scales_uniform": true, "source_root_anchors_preserved": true, "still_breeze_item_view_touch_restart": "PASS", "import_hash_scope": "alpha and all nonzero-alpha RGBA exact; fully transparent RGB canonicalized"}
 	var file := FileAccess.open("user://item-verification.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(receipt, "\t"))
 	first.save_png("user://fixed-rest.png")

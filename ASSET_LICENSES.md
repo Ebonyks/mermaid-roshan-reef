@@ -20803,7 +20803,7 @@ Derived from the project-owned approved v5 panorama, SHA-256 `017532ae864e534d9b
 
 ## Sky Lagoon stationary item-motion correction - 2026-11-05
 
-Revision2 preserves all identity sources and the flower GIF. Only the existing window light timing is refined with a cyclic fade; the original revision remains at immutable commit76eb6da3 with its manifest preserved in the packet. No new item art or license is introduced.
+Revision3 changes only overview compositing to uniform source-card scaling with preserved root anchors; all nine animation masters and atlases remain byte-identical to revision2. Revision2 preserves all identity sources and the flower GIF. Only the existing window light timing is refined with a cyclic fade; the original revision remains at immutable commit76eb6da3 with its manifest preserved in the packet. No new item art or license is introduced.
 
 
 Existing project identity stills and approved v5 background only. Review-only local 2D derivatives; no prior rejected animation frame reused. Full source paths, hashes, acceptance scopes and modifications are in `assets_src/sky_lagoon/item_motion_demo_20261105/derivation.json` and the frozen manifest. Original licensing remains in force.
